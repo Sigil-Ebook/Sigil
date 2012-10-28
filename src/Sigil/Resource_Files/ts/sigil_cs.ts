@@ -328,8 +328,8 @@ pokud není žádná bezpatková rodina písma stanovena ve vašem CSS</translat
         <location filename="../../MainUI/BookBrowser.cpp" line="595"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="646"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="753"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="902"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="990"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -340,14 +340,14 @@ pokud není žádná bezpatková rodina písma stanovena ve vašem CSS</translat
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="205"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="990"/>
         <source>This action cannot be reversed.</source>
         <translation>Tento krok nelze vrátit zpět.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1265"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1469"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1270"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
         <source>Open With</source>
         <translation>Otevřít s</translation>
     </message>
@@ -414,80 +414,80 @@ Soubor s tímto názvem již v knize je.</translation>
         <translation>Nelze uložit soubory.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="960"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="965"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>Ani NCX ani OPF nelze odstranit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="969"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="974"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Nemůžete odstranit všechny soubory html.
 Vždy tu musí být alespoň jeden.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1249"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
         <source>Add Blank Stylesheet</source>
         <translation>Přidat prázdný styl</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1250"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
         <source>Add Blank SVG Image</source>
         <translation>Přidat prázdný obrázek SVG</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1251"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
         <source>Add Existing Files...</source>
         <translation>Přidat stávající soubory...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1252"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1253"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1258"/>
         <source>Add Copy</source>
         <translation>Přidat kopii</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1259"/>
         <source>Rename</source>
         <translation>Přejmenovat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1263"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1268"/>
         <source>Link Stylesheets...</source>
         <translation>Propojit stylové listy...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1271"/>
         <source>Save As</source>
         <translation>Uložit jako</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1479"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1484"/>
         <source>Other Application</source>
         <translation>Jiný program</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
         <source>Cover Image</source>
         <translation>Obrázek obalu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1262"/>
         <source>Merge</source>
         <translation>Sloučit</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1259"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Použít způsob Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1260"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1265"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Použít způsob IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1247"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1252"/>
         <source>Select All</source>
         <translation>Vybrat vše</translation>
     </message>
@@ -506,134 +506,134 @@ Vždy tu musí být alespoň jeden.</translation>
         <translation>Soubor(y) přidán(y).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="902"/>
         <source>Cannot rename since one or more new filenames are already in use.</source>
         <translation>Nelze přejmenovat, protože jeden nebo více souborových názvů se už používá.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="987"/>
         <source>Are you sure you want to delete the file listed below?
 </source>
         <translation>Opravdu chcete smazat soubor uvedený níže?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
         <source>Are you sure you want to delete all the files listed below?
 </source>
         <translation>Opravdu chcete smazat všechny soubory uvedené níže?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1248"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1253"/>
         <source>Add Blank HTML File</source>
         <translation>Přidat prázdný soubor HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1260"/>
         <source>Delete</source>
         <translation>Smazat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1258"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1263"/>
         <source>None</source>
         <translation>Žádný</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
         <source>Sort</source>
         <translation>Třídit</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1262"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1267"/>
         <source>Renumber TOC Entries</source>
         <translation>Přečíslovat položky obsahu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1269"/>
         <source>Validate with W3C</source>
         <translation>Schválit pomocí W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1302"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1307"/>
         <source>Cover</source>
         <translation>Obal</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1307"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
         <source>Title Page</source>
         <translation>Titulní strana</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
         <source>Table Of Contents</source>
         <translation>Obsah</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Index</source>
         <translation>Rejstřík</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Glossary</source>
         <translation>Slovníček</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
         <source>Acknowledgements</source>
         <translation>Poděkování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1337"/>
         <source>Bibliography</source>
         <translation>Bibliografie</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1337"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
         <source>Colophon</source>
         <translation>Tiráž</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1347"/>
         <source>CopyrightPage</source>
         <translation>Stránka s autorskými právy</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1347"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
         <source>Dedication</source>
         <translation>Věnování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1357"/>
         <source>Epigraph</source>
         <translation>Epigraf</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1357"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Foreword</source>
         <translation>Předmluva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
         <source>List Of Illustrations</source>
         <translation>Seznam ilustrací</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
         <source>List Of Tables</source>
         <translation>Seznam tabulek</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Notes</source>
         <translation>Poznámky</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
         <source>Preface</source>
         <translation>Úvod</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1387"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
@@ -641,69 +641,74 @@ Vždy tu musí být alespoň jeden.</translation>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="929"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="940"/>
         <source>Open</source>
         <translation>Otevřít</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="782"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="931"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="934"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="792"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="942"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="945"/>
         <source>Open With</source>
         <translation>Otevřít s</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="766"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="744"/>
+        <source>You cannot paste clips in Book View that use regular expressions.</source>
+        <translation>V Pohledu na knihu nemůžete vkládat úryvky, jež používají regulární výrazy.</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="776"/>
         <source>Open Tab For</source>
         <translation>Otevřít kartu pro</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="792"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="803"/>
         <source>Other Application</source>
         <translation>Jiný program</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="860"/>
         <source>Add To Clips</source>
         <translation>Přidat do úryvků</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="919"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="930"/>
         <source>Insert Image</source>
         <translation>Vložit obrázek</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="921"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="932"/>
         <source>Undo</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="922"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="933"/>
         <source>Redo</source>
         <translation>Znovu</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="924"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="935"/>
         <source>Cut</source>
         <translation>Vyjmout</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="925"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="936"/>
         <source>Copy</source>
         <translation>Kopírovat</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="926"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="937"/>
         <source>Paste</source>
         <translation>Vložit</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="927"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="938"/>
         <source>Select All</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="932"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="943"/>
         <source>Save As</source>
         <translation>Uložit jako</translation>
     </message>
@@ -1188,7 +1193,7 @@ Chcete uložit své změny?</translation>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="607"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="611"/>
         <source>Unable to create file %1</source>
         <translation>Nelze vytvořit soubor %1</translation>
     </message>
@@ -1214,47 +1219,57 @@ Chcete uložit své změny?</translation>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1104"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="317"/>
+        <source>Cannot insert closing tag at this position.</source>
+        <translation>Nelze vložit uzavírající značku v této poloze.</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="326"/>
+        <source>No open tags found at this position.</source>
+        <translation>V této poloze nebyly nalezeny žádné otevírající značky.</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1035"/>
         <source>Add To Dictionary</source>
         <translation>Přidat do slovníku</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1116"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1047"/>
         <source>Ignore</source>
         <translation>Přehlížet</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1176"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1107"/>
         <source>Reformat CSS</source>
         <translation>Přeformátovat CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1177"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1108"/>
         <source>Multiple Lines Per Style</source>
         <translation>Více řádků na styl</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1178"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1109"/>
         <source>Single Line Per Style</source>
         <translation>Jeden řádek na styl</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1203"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1134"/>
         <source>Go To Link Or Style</source>
         <translation>Jít na odkaz nebo styl</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1233"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1164"/>
         <source>Add To Clips</source>
         <translation>Přidat do úryvků</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1324"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1255"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Abyste použil tuto funkci, musíte být v otevírající značce HTML.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1333"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1264"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Abyste použil tuto funkci, musíte být uvnitř otevírající značky HTML.</translation>
     </message>
@@ -1338,7 +1353,7 @@ pak najít v Pohledu na kód další shodu.</translation>
         <translation>Volby:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="293"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
         <translation>Pro hledání s regulárními výrazy své hledání uvoďte (?U).</translation>
     </message>
@@ -1348,7 +1363,7 @@ pak najít v Pohledu na kód další shodu.</translation>
         <translation>Udělat tečku všude</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="306"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
         <translation>Pro hledání s regulárními výrazy své hledání uvoďte (?s).</translation>
     </message>
@@ -1408,7 +1423,7 @@ pak najít v Pohledu na kód další shodu.</translation>
         <translation>Režim:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="575"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="578"/>
         <source>No matches found</source>
         <translation>Nenalezeny žádné shody</translation>
     </message>
@@ -1421,144 +1436,144 @@ pak najít v Pohledu na kód další shodu.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="164"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="167"/>
         <source> (Current File)</source>
         <translation> (nynější soubor)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="277"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1236"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="280"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1239"/>
         <source>%1 matches found</source>
         <translation><numerusform>Nalezena %1 shoda</numerusform><numerusform>Nalezeny %1 shody</numerusform><numerusform>Nalezeno %1 shod</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="365"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1261"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="368"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
         <source>No replacements made</source>
         <translation>Neudělána žádná nahrazení</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="369"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="372"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1267"/>
         <source>%1 replacements made</source>
         <translation><numerusform>Uděláno %1 nahrazení</numerusform><numerusform>Udělána %1 nahrazení</numerusform><numerusform>Uděláno %1 nahrazení</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1107"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1110"/>
         <source>This tab cannot be searched</source>
         <translation>Tuto kartu nelze prohledat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1388"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1392"/>
         <source>Normal</source>
         <translation>Obvyklý</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1400"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1404"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Omezit hledání nebo nahrazování na otevřený soubor.  Podržte klávesu Ctrl, když klepáte na jakékoli z tlačítek pro hledání, abyste hledání dočasně omezili na nynější soubor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1403"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1407"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Najít nebo nahradit ve všech souborech HTML v Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1405"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1409"/>
         <source>Selected Files</source>
         <translation>Vybrané soubory</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Omezit hledání nebo nahrazování na soubory HTML vybrané v Prohlížeči knihy v Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1418"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Hledat předchozí shodu od vaší nynější polohy.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1419"/>
         <source>Search for the next match from your current position.</source>
         <translation>Hledat další shodu od vaší nynější polohy.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1149"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1152"/>
         <source>Unnamed search loaded</source>
         <translation>Nahráno nepojmenované hledání</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1154"/>
         <source>Loaded</source>
         <translation>Nahráno</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1159"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1180"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1197"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1218"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1246"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1162"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1183"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1200"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1249"/>
         <source>No searches selected</source>
         <translation>Nevybrána žádná hledání</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1391"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1395"/>
         <source>Case Sensitive</source>
         <translation>Rozlišovat velká a malá písmena</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1394"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1398"/>
         <source>Regex</source>
         <translation>Regulární výraz</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1387"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1391"/>
         <source>What to search for</source>
         <translation>Co hledat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1389"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1393"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>Hledání přesně toho, co napíšete (rozlišující velká a malá písmena).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1392"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1396"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Hledání přesně toho, co napíšete (rozlišující velká a malá písmena).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1395"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1399"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Hledání vzoru pomocí skladby regulárního výrazu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1398"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1402"/>
         <source>Where to search</source>
         <translation>Kde hledat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1399"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1403"/>
         <source>Current File</source>
         <translation>Nynější soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1402"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
         <source>All HTML Files</source>
         <translation>Všechny soubory HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
         <source>Up</source>
         <translation>Nahoru</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1411"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
         <source>Down</source>
         <translation>Dolů</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1412"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1416"/>
         <source>Direction to search</source>
         <translation>Směr hledání</translation>
     </message>
@@ -1566,12 +1581,12 @@ pak najít v Pohledu na kód další shodu.</translation>
 <context>
     <name>FindReplaceQLineEdit</name>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="55"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
         <translation>Zesymbolizovat výběr</translation>
     </message>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="67"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="70"/>
         <source>Save Search</source>
         <translation>Uložit hledání</translation>
     </message>
@@ -1579,7 +1594,7 @@ pak najít v Pohledu na kód další shodu.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1201"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1202"/>
         <source>Print %1</source>
         <translation>Tisk %1</translation>
     </message>
@@ -1874,18 +1889,18 @@ Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu v
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="223"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="252"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="255"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="256"/>
         <source>Open With</source>
         <translation>Otevřít s</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="233"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="234"/>
         <source>Other Application</source>
         <translation>Jiný program</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="254"/>
         <source>Save As</source>
         <translation>Uložit jako</translation>
     </message>
@@ -4518,536 +4533,531 @@ Chcete uložit své změny?</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
-        <source>Nepal Bhasa</source>
-        <translation>Nepálština bhasština</translation>
+        <source>Nepal Bhasa/Newari</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
-        <source>Newari</source>
-        <translation>Nevarijština</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Nias</source>
         <translation>Niasština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Niger-Kordofanian languages</source>
         <translation>Nigerské-Kordofanianské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Nilo-Saharan languages</source>
         <translation>Nilské-Saharské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Niuean</source>
         <translation>Niueanština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>No linguistic content/Not applicable</source>
         <translation>Žádný jazykový obsah/Nepoužitelné</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Nogai</source>
         <translation>Nogajština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Norse- Old</source>
         <translation>Stará norština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>North American Indian languages</source>
         <translation>Severoamerické indiánské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Northern Frisian</source>
         <translation>Severní frízsština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>Severní sotština, sepedština, pedština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Nubian languages</source>
         <translation>Nubijské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nyamwezi</source>
         <translation>Nyamwezština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Nyankole</source>
         <translation>Nyankolština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Nyoro</source>
         <translation>Nyorština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nzima</source>
         <translation>Nzimština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Occitan/Provençal- Old (to 1500)</source>
         <translation>Occitánština/provensálština (do 1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>Úřední/říšská aramejština (700-300 př.n.l.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Osage</source>
         <translation>Osagština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Otomian languages</source>
         <translation>Otomianské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Pahlavi</source>
         <translation>Pahlavština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Palauan</source>
         <translation>Palauánština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Pangasinan</source>
         <translation>Pangasinánština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Papiamento</source>
         <translation>Papiamentština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Papuan languages</source>
         <translation>Papuánské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>Stará perština (asi600-400 př.n.l.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Philippine languages</source>
         <translation>Filipínské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Phoenician</source>
         <translation>Féničtina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Pohnpeian</source>
         <translation>Pohnpejština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Prakrit languages</source>
         <translation>Prakritské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Rajasthani</source>
         <translation>Radžastánština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Rapanui</source>
         <translation>Rapanujština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>Rarotonganština, maorština Cookových ostrovů</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="572"/>
+        <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Reserved for local use</source>
         <translation>Vyhrazeno pro místní použití</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
+        <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Romance languages</source>
         <translation>Románské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Romany</source>
         <translation>Romština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Salishan languages</source>
         <translation>Sališanské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Samaritan Aramaic</source>
         <translation>Samaritánská aramejština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Sami languages</source>
         <translation>Samické jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Sandawe</source>
         <translation>Sandavština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Santali</source>
         <translation>Santálština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Sasak</source>
         <translation>Sasakština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Scots</source>
         <translation>Skotština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Selkup</source>
         <translation>Selkupština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Semitic languages</source>
         <translation>Semitské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Serer</source>
         <translation>Sererština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Shan</source>
         <translation>Šanština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Sicilian</source>
         <translation>Sicilština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Sidamo</source>
         <translation>Sidamština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Sign Languages</source>
         <translation>Znakové jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Siksika</source>
         <translation>Siksikština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Sino-Tibetan languages</source>
         <translation>Sino-Tibetské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Siouan languages</source>
         <translation>Siouxské jazyky (siouanské)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Skolt Sami</source>
         <translation>Skoltština samština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Slave (Athapascan)</source>
         <translation>Slavština (atapaskanština)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Slavic languages</source>
         <translation>Slovanské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Sogdian</source>
         <translation>Sogdijština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Songhai languages</source>
         <translation>Songhajské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Soninke</source>
         <translation>Soninkština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Sorbian languages</source>
         <translation>Lužickosrbské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>South American Indian languages</source>
         <translation>Jihoamerické indiánské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Southern Altai</source>
         <translation>Jižní altajština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Southern Sami</source>
         <translation>Jižní sarnština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Sranan Tongo</source>
         <translation>Sranan Tongština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sukuma</source>
         <translation>Sukumština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Sumerian</source>
         <translation>Sumerština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Susu</source>
         <translation>Susuština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>Alsasština, švýcarská němčina, alemanština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Syriac</source>
         <translation>Syrština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Tai languages</source>
         <translation>Tajské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Tamashek</source>
         <translation>Tamašekština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Tereno</source>
         <translation>Terenština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Tetum</source>
         <translation>Tetumština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Tigre</source>
         <translation>Tigrština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Timne</source>
         <translation>Timneština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Tiv</source>
         <translation>Tivština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Tlingit</source>
         <translation>Tlingitština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Tok Pisin</source>
         <translation>Tok pisinština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Tokelau</source>
         <translation>Tokelauština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Tonga (Nyasa)</source>
         <translation>Tongština (Nyasa)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Tsimshian</source>
         <translation>Tsimsijština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tumbuka</source>
         <translation>Tumbukština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tupi languages</source>
         <translation>Tupíjské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>Turečtina - otomanština (1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tuvalu</source>
         <translation>Tuvalština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tuvinian</source>
         <translation>Tuvinijština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Udmurt</source>
         <translation>Udmurtština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Ugaritic</source>
         <translation>Ugaritština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Umbundu</source>
         <translation>Umbundština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Uncoded languages</source>
         <translation>Nekódované jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Undetermined</source>
         <translation>Neznámé</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Upper Sorbian</source>
         <translation>Hornolužická srbština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Vai</source>
         <translation>Vajština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Votic</source>
         <translation>Votic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Wakashan languages</source>
         <translation>Wakašanské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Waray</source>
         <translation>Warajština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Washo</source>
         <translation>Wašoština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>Wolajtština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Yakut</source>
         <translation>Yakutština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Yao</source>
         <translation>Yaoština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Yapese</source>
         <translation>Yapština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Yupik languages</source>
         <translation>Sibiřské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Zande languages</source>
         <translation>Zandské jazyky</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Zapotec</source>
         <translation>Zapotečtina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Zenaga</source>
         <translation>Zenagština</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Zuni</source>
         <translation>Zunština</translation>
     </message>
@@ -6880,13 +6890,13 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <location filename="../../MainUI/MainWindow.cpp" line="898"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1043"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1071"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1312"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1340"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1401"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2737"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1354"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1403"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2739"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -6976,94 +6986,94 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <translation>Vyberte cíl, do kterého vkládat nejprve.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1314"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Jeden zdroj byl vybrán, ale není tu předchozí zdroj, se kterým by se sloučil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1321"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Jste si jistý, že chcete sloučit vybrané soubory?
 Tento krok nelze vrátit zpět.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1329"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Sloučení zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1365"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1367"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Sloučení dokončeno. Možná bude potřeba vytvořit obsah znovu nebo jej upravit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
         <source>Link Stylesheets cancelled due to XML not well formed.</source>
         <translation>Odkazování na stylové listy zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
         <source>File(s) deleted.</source>
         <translation>Soubor(y) smazán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1510"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1512"/>
         <source>Generate TOC cancelled due to XML not well formed.</source>
         <translation>Vytvoření obsahu zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1542"/>
         <source>Table Of Contents generated.</source>
         <translation>Obsah vytvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1553"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
         <source>Create HTML TOC cancelled due to XML not well formed.</source>
         <translation>Vytvoření obsahu HTML zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1726"/>
         <source>Meta Editor cancelled due to XML not well formed.</source>
         <translation>Editor popisných dat zrušen kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1811"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1813"/>
         <source>Validation cancelled due to XML not well formed.</source>
         <translation>Schvalování zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Tento EPUB neobsahuje žádné stylové listy ke schválení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2548"/>
         <source>File cannot be split at this position.</source>
         <translation>Soubor nelze v tomto místě rozdělit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2564"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2566"/>
         <source>Split completed.</source>
         <translation>Rozdělení dokončeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2575"/>
         <source>Split cancelled due to XML not well formed.</source>
         <translation>Rozdělení zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2599"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2601"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Rozdělení dokončeno. Možná bude potřeba obnovit obsah.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2610"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Nenalezeny žádné značky pro rozdělení souboru. Použijte Vložka-&gt;Značka pro rozdělení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2826"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -7072,17 +7082,17 @@ Tento krok nelze vrátit zpět.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2846"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2848"/>
         <source>File loaded.</source>
         <translation>Soubor nahrán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2929"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2931"/>
         <source>File saved.</source>
         <translation>Soubor uložen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
         <source>Cannot merge
 
 Cannot close tab: %1</source>
@@ -7203,12 +7213,12 @@ Nelze zavřít kartu: %1</translation>
         <translation>Nemůžete označit rejstřík v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1354"/>
         <source>Cannot merge file %1</source>
         <translation>Nelze sloučit soubor %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1403"/>
         <source>Cannot link stylesheets
 
 Cannot close tab: %1</source>
@@ -7217,93 +7227,108 @@ Cannot close tab: %1</source>
 Nelze zavřít kartu: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1524"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
         <source>Generate TOC cancelled.</source>
         <translation>Vytvoření obsahu zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1545"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Nebyly nutné žádné změny obsahu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2456"/>
         <source>Line: %1, Col: %2</source>
         <translation>Řádek: %1, sloupec: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2740"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokument byl změněn.
 Chcete uložit své změny?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2863"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2865"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tvůrce tohoto souboru jej zašifroval DRM. Sigil takové soubory otevřít nedokáže.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2874"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Nelze nahrát EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2880"/>
         <source>Cannot load file %1: %2</source>
         <translation>Nelze nahrát soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2896"/>
         <source>Saving file...</source>
         <translation>Ukládá se soubor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2904"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2906"/>
         <source>Sigil currently cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil nyní nedokáže ukládat soubory typu &quot;%1&quot;.
 Vyberte, prosím, jiný formát.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
         <source>Cannot save file %1: %2</source>
         <translation>Nelze uložit soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3068"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3070"/>
         <source>EPUB files (*.epub)</source>
         <translation>Soubory EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3069"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3070"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Soubory HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3074"/>
         <source>Text files (*.txt)</source>
         <translation>Textové soubory (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3075"/>
         <source>All files (*.*)</source>
         <translation>Všechny soubory (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3085"/>
         <source>EPUB file (*.epub)</source>
         <translation>Soubor EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3179"/>
+        <source>Preserve existing heading attributes is now:</source>
+        <translation>Zachování stávajících vlastností nadpisů je nyní:</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <source>ON</source>
+        <translation>ZAPNUTO</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <source>OFF</source>
+        <translation>VYPNUTO</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3211"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -9894,7 +9919,7 @@ více položek téhož typu.</translation>
         <translation>Přidávají se stávající soubory...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="647"/>
+        <location filename="../../BookManipulation/Book.cpp" line="645"/>
         <source>Merging Files..</source>
         <translation>Slučují se soubory...</translation>
     </message>
@@ -10478,7 +10503,7 @@ Chcete uložit své změny?</translation>
         <translation>Nahradit</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="609"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="613"/>
         <source>Unable to create file %1</source>
         <translation>Nelze vytvořit soubor %1</translation>
     </message>
@@ -10525,7 +10550,7 @@ Všechny stávající značky budou odstraněny z vybraného textu.</translation
         <translation>Cíl:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectHyperlink.cpp" line="66"/>
+        <location filename="../../Dialogs/SelectHyperlink.cpp" line="67"/>
         <source>Targets in the Book</source>
         <translation>Cíle v knize</translation>
     </message>
@@ -10643,36 +10668,24 @@ přidání do vaší knihy, a pak k vložení do vašeho dokumentu.</translation
         <translation>Slovník:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="70"/>
-        <source>&lt;p&gt;Open the directory where Sigil looks for additional hunspell dictionaries.&lt;/p&gt;
-&lt;p&gt;Dictionaries in this location will be added to the list you can choose from and will override default dictionaries that have the same name.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Otevřít adresář, ve kterém Sigil hledá dodatečné slovníky hunspell.&lt;/p&gt;
-&lt;p&gt;Slovníky v tomto umístění budou přidány do seznamu, ze kterého si můžete vybrat a potlačí výchozí slovníky, jež mají stejný název.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="74"/>
-        <source>Open Dictionary Directory</source>
-        <translation>Otevřít adresář se slovníky</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="127"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="110"/>
         <source>User Dictionary</source>
         <translation>Uživatelský slovník</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="125"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Rename</source>
         <translation>Přejmenovat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="177"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="160"/>
         <source>User Dictionary Word List</source>
         <translation>Seznam slov v uživatelově slovníku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="192"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="118"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="175"/>
         <source>Add</source>
         <translation>Přidat</translation>
     </message>
@@ -10682,18 +10695,18 @@ přidání do vaší knihy, a pak k vložení do vašeho dokumentu.</translation
         <translation>Slovníky ověřující pravopis</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="199"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="182"/>
         <source>Edit</source>
         <translation>Upravit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="206"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="132"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="189"/>
         <source>Remove</source>
         <translation>Odstranit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="213"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="196"/>
         <source>Remove All</source>
         <translation>Odstranit vše</translation>
     </message>
@@ -10713,7 +10726,6 @@ přidání do vaší knihy, a pak k vložení do vašeho dokumentu.</translation
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="86"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="121"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="283"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -10732,11 +10744,6 @@ přidání do vaší knihy, a pak k vložení do vašeho dokumentu.</translation
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
         <source>Could not rename file!</source>
         <translation>Nepodařilo se přejmenovat soubor!</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="283"/>
-        <source>Could not open user dictionary location %1</source>
-        <translation>Nepodařilo se otevřít umístění uživatelových slovníků %1</translation>
     </message>
 </context>
 <context>

@@ -328,8 +328,8 @@ se c&apos;è una font-family senza grazie specificata nel CSS</translation>
         <location filename="../../MainUI/BookBrowser.cpp" line="595"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="646"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="753"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="902"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="990"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -340,14 +340,14 @@ se c&apos;è una font-family senza grazie specificata nel CSS</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="205"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="990"/>
         <source>This action cannot be reversed.</source>
         <translation>Questa aziona non può essere annullata.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1265"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1469"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1270"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
         <source>Open With</source>
         <translation>Apri con</translation>
     </message>
@@ -414,80 +414,80 @@ Un file con questo nome già esiste nel libro.</translation>
         <translation>Impossibile salvare i file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="960"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="965"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>I file NCX e OPF non possono essere rimossi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="969"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="974"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Non puoi cancellare tutti i file html.
 Ce ne deve essere sempre almeno uno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1249"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
         <source>Add Blank Stylesheet</source>
         <translation>Aggiungi Foglio di Stile Vuoto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1250"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
         <source>Add Blank SVG Image</source>
         <translation>Aggiungere un&apos;Immagine SVG Vuota</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1251"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
         <source>Add Existing Files...</source>
         <translation>Aggiungi File Esistenti...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1252"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1253"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1258"/>
         <source>Add Copy</source>
         <translation>Aggiungi Copia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1259"/>
         <source>Rename</source>
         <translation>Rinomina</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1263"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1268"/>
         <source>Link Stylesheets...</source>
         <translation>Collegamento ai Fogli di Stile...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1271"/>
         <source>Save As</source>
         <translation>Salva Come</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1479"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1484"/>
         <source>Other Application</source>
         <translation>Altra Applicazione</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
         <source>Cover Image</source>
         <translation>Immagine di Copertina</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1262"/>
         <source>Merge</source>
         <translation>Unione</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1259"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Usa il metodo di Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1260"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1265"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Usa il metodo di IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1247"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1252"/>
         <source>Select All</source>
         <translation>Seleziona Tutto</translation>
     </message>
@@ -506,136 +506,136 @@ Ce ne deve essere sempre almeno uno.</translation>
         <translation>File(s) aggiunto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="902"/>
         <source>Cannot rename since one or more new filenames are already in use.</source>
         <translation>Non è possibile rinominare in quanto uno o più dei nuovi nomi di file sono già in uso.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="987"/>
         <source>Are you sure you want to delete the file listed below?
 </source>
         <translation>Sei sicuro di voler cancellare il file sottoelencato?
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
         <source>Are you sure you want to delete all the files listed below?
 </source>
         <translation>Sei sicuro di voler cancellare tutti i file sottoelencati?
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1248"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1253"/>
         <source>Add Blank HTML File</source>
         <translation>Aggiungi un File HTML Vuoto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1260"/>
         <source>Delete</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1258"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1263"/>
         <source>None</source>
         <translation>Nessuno</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
         <source>Sort</source>
         <translation>Ordina</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1262"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1267"/>
         <source>Renumber TOC Entries</source>
         <translation>Rinumera le Voci della TOC</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1269"/>
         <source>Validate with W3C</source>
         <translation>Convalida con W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1302"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1307"/>
         <source>Cover</source>
         <translation>Copertina</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1307"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
         <source>Title Page</source>
         <translation>Pagina del Titolo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
         <source>Table Of Contents</source>
         <translation>Tavola dei Contenuti - TOC</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Index</source>
         <translation>Indice</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Glossary</source>
         <translation>Glossario</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
         <source>Acknowledgements</source>
         <translation>Riconoscimenti</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1337"/>
         <source>Bibliography</source>
         <translation>Bibliografia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1337"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
         <source>Colophon</source>
         <translation>Colophon</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1347"/>
         <source>CopyrightPage</source>
         <translation>Pagina del Copyright</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1347"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
         <source>Dedication</source>
         <translation>Dedica</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1357"/>
         <source>Epigraph</source>
         <translation>Epigrafe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1357"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Foreword</source>
         <translation>Prefazione</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
         <source>List Of Illustrations</source>
         <translation>Lista delle Illustrazioni</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
         <source>List Of Tables</source>
         <translation>Lista delle Tavole</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Notes</source>
         <translation>Note</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
         <source>Preface</source>
         <translation>Prefazione</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1387"/>
         <source>Text</source>
         <translation>Testo</translation>
     </message>
@@ -643,69 +643,74 @@ Ce ne deve essere sempre almeno uno.</translation>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="929"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="940"/>
         <source>Open</source>
         <translation>Apri</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="782"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="931"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="934"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="792"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="942"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="945"/>
         <source>Open With</source>
         <translation>Apri con</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="766"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="744"/>
+        <source>You cannot paste clips in Book View that use regular expressions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="776"/>
         <source>Open Tab For</source>
         <translation>Apri Scheda Per</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="792"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="803"/>
         <source>Other Application</source>
         <translation>Altra Applicazione</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="860"/>
         <source>Add To Clips</source>
         <translation>Aggiungi Agli Appunti</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="919"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="930"/>
         <source>Insert Image</source>
         <translation>Inserisci Immagine</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="921"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="932"/>
         <source>Undo</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="922"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="933"/>
         <source>Redo</source>
         <translation>Rifai</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="924"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="935"/>
         <source>Cut</source>
         <translation>Taglia</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="925"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="936"/>
         <source>Copy</source>
         <translation>Copia</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="926"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="937"/>
         <source>Paste</source>
         <translation>Incolla</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="927"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="938"/>
         <source>Select All</source>
         <translation>Seleziona Tutto</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="932"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="943"/>
         <source>Save As</source>
         <translation>Salva Come</translation>
     </message>
@@ -1186,7 +1191,7 @@ Vuoi salvare le modifiche?</translation>
         <translation>Testo</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="607"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="611"/>
         <source>Unable to create file %1</source>
         <translation>Impossibile creare il file %1</translation>
     </message>
@@ -1212,47 +1217,57 @@ Vuoi salvare le modifiche?</translation>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1104"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="317"/>
+        <source>Cannot insert closing tag at this position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="326"/>
+        <source>No open tags found at this position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1035"/>
         <source>Add To Dictionary</source>
         <translation>Aggiungi al Dizionario</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1116"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1047"/>
         <source>Ignore</source>
         <translation>Ignora</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1176"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1107"/>
         <source>Reformat CSS</source>
         <translation>Riformatta il CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1177"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1108"/>
         <source>Multiple Lines Per Style</source>
         <translation>Linee Multiple Per Stile</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1178"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1109"/>
         <source>Single Line Per Style</source>
         <translation>Linea Singlola Per Stile</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1203"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1134"/>
         <source>Go To Link Or Style</source>
         <translation>Vai al Link O Stile</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1233"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1164"/>
         <source>Add To Clips</source>
         <translation>Aggiungi agli Appunti</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1324"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1255"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>È necessario essere in un tag HTML di apertura per utilizzare questa funzione.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1333"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1264"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>È necessario essere all&apos;interno di un tag HTML di apertura per utilizzare questa funzione.</translation>
     </message>
@@ -1336,7 +1351,7 @@ quindi cerca la corrispondenza Successiva in Vista Codice.</translation>
         <translation>Opzioni:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="293"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
         <translation>Per le ricerche con Regex, inizia la tua stringa di ricerca con (?U).</translation>
     </message>
@@ -1346,7 +1361,7 @@ quindi cerca la corrispondenza Successiva in Vista Codice.</translation>
         <translation>TuttoPuntato</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="306"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
         <translation>Per le ricerche con Regex, inizia la tua stringa di ricerca con (?s).</translation>
     </message>
@@ -1406,7 +1421,7 @@ quindi cerca la corrispondenza Successiva in Vista Codice.</translation>
         <translation>Modo:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="575"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="578"/>
         <source>No matches found</source>
         <translation>
         </translation>
@@ -1420,144 +1435,144 @@ quindi cerca la corrispondenza Successiva in Vista Codice.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="164"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="167"/>
         <source> (Current File)</source>
         <translation> (File Corrente)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="277"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1236"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="280"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1239"/>
         <source>%1 matches found</source>
         <translation><numerusform>%1 corrispondenza trovata</numerusform><numerusform>%1 corrispondenze trovate</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="365"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1261"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="368"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
         <source>No replacements made</source>
         <translation>Nessuna sostituzione effettuata</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="369"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="372"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1267"/>
         <source>%1 replacements made</source>
         <translation><numerusform>%1 sostituzione effettuata</numerusform><numerusform>%1 sostituzioni effettuate</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1107"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1110"/>
         <source>This tab cannot be searched</source>
         <translation>Questa etichetta non può essere cercata</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1388"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1392"/>
         <source>Normal</source>
         <translation>Normale</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1400"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1404"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Limita il Trova o Sostituisci al file aperto.   Tenere premuto il tasto Ctrl mentre si fa clic su un qualsiasi tasto di ricerca per limitare temporaneamente la ricerca al File Corrente.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1403"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1407"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Trova o sostituisci in tutti i file HTML in Vista Codice.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1405"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1409"/>
         <source>Selected Files</source>
         <translation>File Selezionati</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Limita il trova o sostituisci ai file HTML scelti nel Browser del Libro in Vista Codice.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1418"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Cerca la corrispondenza precedente dalla posizione attuale.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1419"/>
         <source>Search for the next match from your current position.</source>
         <translation>Cerca la corrispondenza successiva dalla posizione attuale.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1149"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1152"/>
         <source>Unnamed search loaded</source>
         <translation>Ricerca senza nome caricata</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1154"/>
         <source>Loaded</source>
         <translation>Caricato</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1159"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1180"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1197"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1218"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1246"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1162"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1183"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1200"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1249"/>
         <source>No searches selected</source>
         <translation>Nessuna ricerca selezionata</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1391"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1395"/>
         <source>Case Sensitive</source>
         <translation>Sensibile alle MAIUSCOLE/minuscole</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1394"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1398"/>
         <source>Regex</source>
         <translation>Espressione Regolare</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1387"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1391"/>
         <source>What to search for</source>
         <translation>Cosa cercare</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1389"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1393"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>Insensibile alle MAIUSCOLE/minuscole cerca la parola senza tener conto del tipo di lettera.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1392"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1396"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Sensibile alle MAIUSCOLE/minuscole cerca la parola così come è scritta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1395"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1399"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Cerca un modello utilizzando la sintassi delle Espressioni Regolari.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1398"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1402"/>
         <source>Where to search</source>
         <translation>Dove cercare</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1399"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1403"/>
         <source>Current File</source>
         <translation>File Corrente</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1402"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
         <source>All HTML Files</source>
         <translation>Tutti i file HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
         <source>Up</source>
         <translation>Su</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1411"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
         <source>Down</source>
         <translation>Giu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1412"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1416"/>
         <source>Direction to search</source>
         <translation>Direzione di ricerca</translation>
     </message>
@@ -1565,12 +1580,12 @@ quindi cerca la corrispondenza Successiva in Vista Codice.</translation>
 <context>
     <name>FindReplaceQLineEdit</name>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="55"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
         <translation>Selezione delle stringhe</translation>
     </message>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="67"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="70"/>
         <source>Save Search</source>
         <translation>Salva Ricerca</translation>
     </message>
@@ -1578,7 +1593,7 @@ quindi cerca la corrispondenza Successiva in Vista Codice.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1201"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1202"/>
         <source>Print %1</source>
         <translation>Stampa %1</translation>
     </message>
@@ -1873,18 +1888,18 @@ You can then check or uncheck individual headings in the list above.</source>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="223"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="252"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="255"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="256"/>
         <source>Open With</source>
         <translation>Apri con</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="233"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="234"/>
         <source>Other Application</source>
         <translation>Altra Applicazione</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="254"/>
         <source>Save As</source>
         <translation>Salva Come</translation>
     </message>
@@ -4516,536 +4531,531 @@ Vuoi salvare le modifiche?</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
-        <source>Nepal Bhasa</source>
-        <translation>Nepal Bhasa</translation>
+        <source>Nepal Bhasa/Newari</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
-        <source>Newari</source>
-        <translation>Newari</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Nias</source>
         <translation>Nias</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Niger-Kordofanian languages</source>
         <translation>Niger-lingue Kordofaniane</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Nilo-Saharan languages</source>
         <translation>Lingue Nilo-Sahariane</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Niuean</source>
         <translation>Niuean</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>No linguistic content/Not applicable</source>
         <translation>Nessun contenuto linguistico/Non applicabile</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Nogai</source>
         <translation>Nogai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Norse- Old</source>
         <translation>Norreno - Antico</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>North American Indian languages</source>
         <translation>Lingue Indiane Nord Americane</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Northern Frisian</source>
         <translation>Frisone Settentrionale</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>Sesotho del Nord, Sepedi, Pedi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Nubian languages</source>
         <translation>Lingue Nubiane</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nyamwezi</source>
         <translation>Nyamwezi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Nyankole</source>
         <translation>Nyankole</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Nyoro</source>
         <translation>Nyoro</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nzima</source>
         <translation>Nzema</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Occitan/Provençal- Old (to 1500)</source>
         <translation>Occitano/Provenzale - Antico (fino al 1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>Aramaico Ufficiale/Imperiale (700-300 a.C.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Osage</source>
         <translation>Osage</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Otomian languages</source>
         <translation>Lingue Otomiane</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Pahlavi</source>
         <translation>Pahlavi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Palauan</source>
         <translation>Lingua Palauana</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Pangasinan</source>
         <translation>Pangasinan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Papiamento</source>
         <translation>Papiamento</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Papuan languages</source>
         <translation>Lingue Papuasiche</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>Persiano - Antico (ca.600-400 A.C.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Philippine languages</source>
         <translation>Lingue Filippine</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Phoenician</source>
         <translation>Fenicio</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Pohnpeian</source>
         <translation>Pohnpeian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Prakrit languages</source>
         <translation>Lingue Pracritiche</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Rajasthani</source>
         <translation>Rajasthani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Rapanui</source>
         <translation>Lingua Rapanui o Pasquano</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>Rarotongan, Cook Islands Maori</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="572"/>
+        <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Reserved for local use</source>
         <translation>Reservato per un uso locale</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
+        <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Romance languages</source>
         <translation>Lingue Romanze</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Romany</source>
         <translation>Lingua Romaní</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Salishan languages</source>
         <translation>Lingue Salishan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Samaritan Aramaic</source>
         <translation> Aramaico Samaritano</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Sami languages</source>
         <translation>Lingue Sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Sandawe</source>
         <translation>Sandawe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Santali</source>
         <translation>Santali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Sasak</source>
         <translation>Sasako</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Scots</source>
         <translation>Scots, lingua scozzese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Selkup</source>
         <translation>Selkupico</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Semitic languages</source>
         <translation>Lingue Semitiche</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Serer</source>
         <translation>Serer</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Shan</source>
         <translation>Shan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Sicilian</source>
         <translation>Siciliano</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Sidamo</source>
         <translation>Sidamo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Sign Languages</source>
         <translation>Lingue dei Segni</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Siksika</source>
         <translation>Siksika</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Sino-Tibetan languages</source>
         <translation>Lingue Cino-Tibetane</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Siouan languages</source>
         <translation>Lingue Siouan, Sioux</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Skolt Sami</source>
         <translation>Skolt Sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Slave (Athapascan)</source>
         <translation>Slave (Athapascano)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Slavic languages</source>
         <translation>Lingue Slave</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Sogdian</source>
         <translation>Sogdian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Songhai languages</source>
         <translation>Lingue Songhai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Soninke</source>
         <translation>Soninke</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Sorbian languages</source>
         <translation>Lingue Serbo-Lusaziane</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>South American Indian languages</source>
         <translation>Lingue  Indiane Sud Americane</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Southern Altai</source>
         <translation>Altai Meridionale</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Southern Sami</source>
         <translation>Sami del Sud</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Sranan Tongo</source>
         <translation>Sranan Tongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sukuma</source>
         <translation>Sukuma</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Sumerian</source>
         <translation>Sumerian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Susu</source>
         <translation>Susu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>Alsaziano, Tedesco Svizzero, Alemanno</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Syriac</source>
         <translation>Siriaco</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Tai languages</source>
         <translation>Lingue Tai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Tamashek</source>
         <translation>Tamashek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Tereno</source>
         <translation>Tereno</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Tetum</source>
         <translation>Tetum</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Tigre</source>
         <translation>Tigre</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Timne</source>
         <translation>Timne</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Tiv</source>
         <translation>Tiv</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Tlingit</source>
         <translation>Tlingit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Tok Pisin</source>
         <translation>Tok Pisin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Tokelau</source>
         <translation>Tokelau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Tonga (Nyasa)</source>
         <translation>Tonga (Nyasa)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Tsimshian</source>
         <translation>Tsimshian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tumbuka</source>
         <translation>Tumbuka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tupi languages</source>
         <translation>Lingue Tupi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>Turco- Ottomano (1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tuvalu</source>
         <translation>Tuvalu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tuvinian</source>
         <translation>Tuviniano</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Udmurt</source>
         <translation>Udmurt</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Ugaritic</source>
         <translation>Ugaritico</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Umbundu</source>
         <translation>Umbundu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Uncoded languages</source>
         <translation>Lingue non codificate</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Undetermined</source>
         <translation>Indeterminato</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Upper Sorbian</source>
         <translation>Lusaziano Superiore</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Vai</source>
         <translation>Vai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Votic</source>
         <translation>Votic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Wakashan languages</source>
         <translation>Lingue Wakashan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Waray</source>
         <translation>Waray</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Washo</source>
         <translation>Washo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>Wolaitta, Wolaytta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Yakut</source>
         <translation>Yakut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Yao</source>
         <translation>Yao</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Yapese</source>
         <translation>Yapese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Yupik languages</source>
         <translation>Lingue Yupik</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Zande languages</source>
         <translation>Lingue Zande</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Zapotec</source>
         <translation>Zapoteco</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Zenaga</source>
         <translation>Zenaga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Zuni</source>
         <translation>Zuni</translation>
     </message>
@@ -6863,13 +6873,13 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
         <location filename="../../MainUI/MainWindow.cpp" line="898"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1043"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1071"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1312"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1340"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1401"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2737"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1354"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1403"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2739"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -6958,94 +6968,94 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
         <translation>Seleziona prima la destinazione dove incollare.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1314"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>E&apos; stata selezionata una risorsa e non c&apos;è alcuna risorsa precedente in cui fonderla.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1321"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Sei sicuro di voler unire i file selezionati?
 Questa azione non può essere annullata.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1329"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Unisci annullato a causa di XML non ben formato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1365"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1367"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Unisci completato. E&apos; necessario rigenerare o modificare la Tavola dei Contenuti.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
         <source>Link Stylesheets cancelled due to XML not well formed.</source>
         <translation>Collegamento ai Fogli di Stile annullato a causa di XML non ben formato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
         <source>File(s) deleted.</source>
         <translation>File(s) cancellati.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1510"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1512"/>
         <source>Generate TOC cancelled due to XML not well formed.</source>
         <translation>Genera TOC annullato a causa di XML non ben formato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1542"/>
         <source>Table Of Contents generated.</source>
         <translation>Tavola Dei Contenuti - TOC - generata.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1553"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
         <source>Create HTML TOC cancelled due to XML not well formed.</source>
         <translation>Crea TOC HTML annullato a causa di XML non ben formato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1726"/>
         <source>Meta Editor cancelled due to XML not well formed.</source>
         <translation>Editor dei Metadati annullato a causa di XML non ben formato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1811"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1813"/>
         <source>Validation cancelled due to XML not well formed.</source>
         <translation>Validazione annullata a causa di XML non ben formato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Questo EPUB non contiene alcun foglio di stile CSS da convalidare.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2548"/>
         <source>File cannot be split at this position.</source>
         <translation>Il file non può essere diviso in questa posizione.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2564"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2566"/>
         <source>Split completed.</source>
         <translation>Divisione completata.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2575"/>
         <source>Split cancelled due to XML not well formed.</source>
         <translation>Divisione cancellata a causa del XML malformato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2599"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2601"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Divisione completata. Bisogna aggiornare la Tavola dei Contenuti - TOC.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2610"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Nessun marcatore di divisione trovato. Utilizza Inserisci-&gt;Marcatore di Divisione.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2826"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -7054,17 +7064,17 @@ Questa azione non può essere annullata.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2846"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2848"/>
         <source>File loaded.</source>
         <translation>File caricato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2929"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2931"/>
         <source>File saved.</source>
         <translation>File salvato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
         <source>Cannot merge
 
 Cannot close tab: %1</source>
@@ -7185,12 +7195,12 @@ Impossibile chiudere la tab: %1</translation>
         <translation>Non è possibile inserire un indice in questa posizione.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1354"/>
         <source>Cannot merge file %1</source>
         <translation>Impossibile unire il file %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1403"/>
         <source>Cannot link stylesheets
 
 Cannot close tab: %1</source>
@@ -7199,93 +7209,108 @@ Cannot close tab: %1</source>
 Impossibile chiudere la tab: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1524"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
         <source>Generate TOC cancelled.</source>
         <translation>Genera TOC annullato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1545"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Non è necessaria alcuna modifica della Tavola Dei Contenuti - TOC.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2456"/>
         <source>Line: %1, Col: %2</source>
         <translation>Riga: %1, Col: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2740"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Il documento è stato modificato.
 Vuoi salvare le modifiche?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2863"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2865"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Il creatore di questo file lo ha protetto con il DRM. Sigil non può aprire questi file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2874"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Impossibile caricare l&apos;EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2880"/>
         <source>Cannot load file %1: %2</source>
         <translation>Impossibile caricare il file %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2896"/>
         <source>Saving file...</source>
         <translation>Salvataggio File...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2904"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2906"/>
         <source>Sigil currently cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil attualmente non può salvare i file di tipo &quot;%1&quot;.
 Scegli un formato differente.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
         <source>Cannot save file %1: %2</source>
         <translation>Impossibile salvare il file %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3068"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3070"/>
         <source>EPUB files (*.epub)</source>
         <translation>File EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3069"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3070"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>File HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3074"/>
         <source>Text files (*.txt)</source>
         <translation>File di testo (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3075"/>
         <source>All files (*.*)</source>
         <translation>Tutti i file (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3085"/>
         <source>EPUB file (*.epub)</source>
         <translation>File EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3179"/>
+        <source>Preserve existing heading attributes is now:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <source>ON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <source>OFF</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3211"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -9876,7 +9901,7 @@ entries of the same type.</source>
         <translation>Sto aggiungendo i File Esistenti...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="647"/>
+        <location filename="../../BookManipulation/Book.cpp" line="645"/>
         <source>Merging Files..</source>
         <translation>Sto Unendo i File...</translation>
     </message>
@@ -10459,7 +10484,7 @@ Sei sicuro di voler salvare le modifiche?</translation>
         <translation>Sostituisci</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="609"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="613"/>
         <source>Unable to create file %1</source>
         <translation>Impossibile creare il file %1</translation>
     </message>
@@ -10506,7 +10531,7 @@ Tutti i tag esistenti verranno rimossi dal testo selezionato.</translation>
         <translation>Obiettivo:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectHyperlink.cpp" line="66"/>
+        <location filename="../../Dialogs/SelectHyperlink.cpp" line="67"/>
         <source>Targets in the Book</source>
         <translation>Obiettivi nel Libro</translation>
     </message>
@@ -10624,36 +10649,24 @@ automaticamente al tuo libro e le inserisce nel documento. </translation>
         <translation>Dizionario:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="70"/>
-        <source>&lt;p&gt;Open the directory where Sigil looks for additional hunspell dictionaries.&lt;/p&gt;
-&lt;p&gt;Dictionaries in this location will be added to the list you can choose from and will override default dictionaries that have the same name.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Aprire la directory in cui Sigil cerca altri dizionari hunspell.&lt;/p&gt;
-&lt;p&gt;I dizionari in questa posizione saranno aggiunti alla lista da cui si può scegliere e saranno preferiti ai dizionari predefiniti che hanno lo stesso nome.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="74"/>
-        <source>Open Dictionary Directory</source>
-        <translation>Apri la Cartella del Dizionario</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="127"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="110"/>
         <source>User Dictionary</source>
         <translation>Dizionario Utente</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="125"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Rename</source>
         <translation>Rinomina</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="177"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="160"/>
         <source>User Dictionary Word List</source>
         <translation>Lista Parole del Dizionario Utente</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="192"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="118"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="175"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
@@ -10663,18 +10676,18 @@ automaticamente al tuo libro e le inserisce nel documento. </translation>
         <translation>Dizionari Ortografici</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="199"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="182"/>
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="206"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="132"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="189"/>
         <source>Remove</source>
         <translation>Rimuovi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="213"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="196"/>
         <source>Remove All</source>
         <translation>Rimuovi Tutto</translation>
     </message>
@@ -10694,7 +10707,6 @@ automaticamente al tuo libro e le inserisce nel documento. </translation>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="86"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="121"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="283"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
@@ -10713,11 +10725,6 @@ automaticamente al tuo libro e le inserisce nel documento. </translation>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
         <source>Could not rename file!</source>
         <translation>Impossibile rinominare file!</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="283"/>
-        <source>Could not open user dictionary location %1</source>
-        <translation>Impossibile aprire la cartella del dizionario utente %1</translation>
     </message>
 </context>
 <context>

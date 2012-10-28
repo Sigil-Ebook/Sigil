@@ -328,8 +328,8 @@ wenn eine Sans-Serif Schriftartfamilie in ihrem CSS definiert wurde</translation
         <location filename="../../MainUI/BookBrowser.cpp" line="595"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="646"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="753"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="902"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="990"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -340,14 +340,14 @@ wenn eine Sans-Serif Schriftartfamilie in ihrem CSS definiert wurde</translation
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="205"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="990"/>
         <source>This action cannot be reversed.</source>
         <translation>Diese Aktion kann nicht rückgängig gemacht werden.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1265"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1469"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1270"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
         <source>Open With</source>
         <translation>Öffnen mit</translation>
     </message>
@@ -414,80 +414,80 @@ Eine Datei mit diesem Namen existiert bereits im Buch.</translation>
         <translation>Kann Dateien nicht speichern.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="960"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="965"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>Weder NCX, noch OPF kann entfernt werden.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="969"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="974"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Sie können nicht alle HTML-Dateien entfernen.
 Mindestens eine Datei muss verbleiben.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1249"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
         <source>Add Blank Stylesheet</source>
         <translation>Leeres Stylesheet hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1250"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
         <source>Add Blank SVG Image</source>
         <translation>Leeres SVG Bild hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1251"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
         <source>Add Existing Files...</source>
         <translation>Bestehende Dateien hinzufügen...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1252"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1253"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1258"/>
         <source>Add Copy</source>
         <translation>Kopie hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1259"/>
         <source>Rename</source>
         <translation>Umbenennen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1263"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1268"/>
         <source>Link Stylesheets...</source>
         <translation>Verknüpfe Stylesheets...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1271"/>
         <source>Save As</source>
         <translation>Speichere als</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1479"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1484"/>
         <source>Other Application</source>
         <translation>Andere Anwendung</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
         <source>Cover Image</source>
         <translation>Deckblatt-Bild</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1262"/>
         <source>Merge</source>
         <translation>Zusammenfügen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1259"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Benutze Adobes Methode</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1260"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1265"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Benutze IDPFs Methode</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1247"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1252"/>
         <source>Select All</source>
         <translation>Alles auswählen</translation>
     </message>
@@ -506,136 +506,136 @@ Mindestens eine Datei muss verbleiben.</translation>
         <translation>Datei(en) hinzugefügt.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="902"/>
         <source>Cannot rename since one or more new filenames are already in use.</source>
         <translation>Kann nicht umbenennen, da bereits eine oder mehrere neue Dateinamen benutzt werden.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="987"/>
         <source>Are you sure you want to delete the file listed below?
 </source>
         <translation>Sind Sie sicher, dass Sie die unten aufgeführte Datei löschen möchten?
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
         <source>Are you sure you want to delete all the files listed below?
 </source>
         <translation>Sind Sie sicher, dass Sie alle unten aufgeführte Datei löschen möchten?
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1248"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1253"/>
         <source>Add Blank HTML File</source>
         <translation>Leere HTML Datei hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1260"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1258"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1263"/>
         <source>None</source>
         <translation>Keine</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
         <source>Sort</source>
         <translation>Sortieren</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1262"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1267"/>
         <source>Renumber TOC Entries</source>
         <translation>Einträge im Inhaltsverzeichnis neu nummerieren</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1269"/>
         <source>Validate with W3C</source>
         <translation>Validieren mit W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1302"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1307"/>
         <source>Cover</source>
         <translation>Buchdeckel</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1307"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
         <source>Title Page</source>
         <translation>Titel-Seite</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
         <source>Table Of Contents</source>
         <translation>Inhaltsverzeichnis</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Index</source>
         <translation>Index</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Glossary</source>
         <translation>Glossar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
         <source>Acknowledgements</source>
         <translation>Danksagungen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1337"/>
         <source>Bibliography</source>
         <translation>Quellenangaben</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1337"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
         <source>Colophon</source>
         <translation>Schlussschrift</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1347"/>
         <source>CopyrightPage</source>
         <translation>Impressum</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1347"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
         <source>Dedication</source>
         <translation>Widmung</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1357"/>
         <source>Epigraph</source>
         <translation>Epigraph</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1357"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Foreword</source>
         <translation>Vorwort</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
         <source>List Of Illustrations</source>
         <translation>Bilderverzeichnis</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
         <source>List Of Tables</source>
         <translation>Tabellenverzeichnis</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Notes</source>
         <translation>Anmerkungen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
         <source>Preface</source>
         <translation>Einleitung</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1387"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
@@ -643,69 +643,74 @@ Mindestens eine Datei muss verbleiben.</translation>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="929"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="940"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="782"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="931"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="934"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="792"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="942"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="945"/>
         <source>Open With</source>
         <translation>Öffnen mit</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="766"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="744"/>
+        <source>You cannot paste clips in Book View that use regular expressions.</source>
+        <translation>Sie können in der Buch-Ansicht keine Clips mit regulären Ausdrücken einfügen.</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="776"/>
         <source>Open Tab For</source>
         <translation>Öffne Reiter für</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="792"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="803"/>
         <source>Other Application</source>
         <translation>Andere Anwendung</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="860"/>
         <source>Add To Clips</source>
         <translation>Zu Clips hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="919"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="930"/>
         <source>Insert Image</source>
         <translation>Bild einfügen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="921"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="932"/>
         <source>Undo</source>
         <translation>Rückgängig</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="922"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="933"/>
         <source>Redo</source>
         <translation>Wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="924"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="935"/>
         <source>Cut</source>
         <translation>Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="925"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="936"/>
         <source>Copy</source>
         <translation>Kopieren</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="926"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="937"/>
         <source>Paste</source>
         <translation>Einfügen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="927"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="938"/>
         <source>Select All</source>
         <translation>Alles auswählen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="932"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="943"/>
         <source>Save As</source>
         <translation>Speichern als</translation>
     </message>
@@ -1186,7 +1191,7 @@ Do you want to save your changes?</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="607"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="611"/>
         <source>Unable to create file %1</source>
         <translation>Datei %1 kann nicht erstellt werden</translation>
     </message>
@@ -1212,47 +1217,57 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1104"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="317"/>
+        <source>Cannot insert closing tag at this position.</source>
+        <translation>Sie können an dieser Position keinen schließenden Tag setzen.</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="326"/>
+        <source>No open tags found at this position.</source>
+        <translation>Keinen öffnenden Tag an dieser Position gefunden.</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1035"/>
         <source>Add To Dictionary</source>
         <translation>Zum Wörterbuch hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1116"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1047"/>
         <source>Ignore</source>
         <translation>Ignorieren</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1176"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1107"/>
         <source>Reformat CSS</source>
         <translation>Neuformatierung CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1177"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1108"/>
         <source>Multiple Lines Per Style</source>
         <translation>Mehrfache Zeilen pro Style</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1178"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1109"/>
         <source>Single Line Per Style</source>
         <translation>Einzelne Zeile pro Style</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1203"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1134"/>
         <source>Go To Link Or Style</source>
         <translation>Gehe zur Verknüpfung oder Style</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1233"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1164"/>
         <source>Add To Clips</source>
         <translation>Zu Clips hinzufügen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1324"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1255"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Sie müssen in einem öffnenden HTML-Tag sein, um diese Funktion zu nutzen.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1333"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1264"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Sie müssen innerhalb eines geöffneten HTML-Tag sein, um diese Funktion zu nutzen.</translation>
     </message>
@@ -1336,7 +1351,7 @@ und findet danach den nächsten Treffer in der Quelltext-Ansicht.</translation>
         <translation>Optionen:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="293"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
         <translation>Für Regex Suchen, stelle das Präfix (?U) vor die Suche.</translation>
     </message>
@@ -1346,7 +1361,7 @@ und findet danach den nächsten Treffer in der Quelltext-Ansicht.</translation>
         <translation>DotAll</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="306"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
         <translation>Für Regex Suchen, stelle das Präfix (?s) vor die Suche.</translation>
     </message>
@@ -1358,7 +1373,7 @@ und findet danach den nächsten Treffer in der Quelltext-Ansicht.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation type="unfinished"/>
+        <translation>Für Regex-Suchen, Tokenisierung/ Abbruch Auswahl beim Öffnen von Suchen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="325"/>
@@ -1406,7 +1421,7 @@ und findet danach den nächsten Treffer in der Quelltext-Ansicht.</translation>
         <translation>Modus:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="575"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="578"/>
         <source>No matches found</source>
         <translation>Keine Treffer gefunden</translation>
     </message>
@@ -1419,144 +1434,144 @@ und findet danach den nächsten Treffer in der Quelltext-Ansicht.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="164"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="167"/>
         <source> (Current File)</source>
         <translation> Aktuelle Datei</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="277"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1236"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="280"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1239"/>
         <source>%1 matches found</source>
         <translation><numerusform>%1Treffer gefunden</numerusform><numerusform>%1 Treffer gefunden</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="365"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1261"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="368"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
         <source>No replacements made</source>
         <translation>Keine Ersetzungen vorgenommen</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="369"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="372"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1267"/>
         <source>%1 replacements made</source>
         <translation><numerusform>%1 Ersetzung vorgenommen</numerusform><numerusform>%1 Ersetzungen vorgenommen</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1107"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1110"/>
         <source>This tab cannot be searched</source>
         <translation>Dieser Reiter kann nicht durchsucht werden</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1388"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1392"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1400"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1404"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Beschränkt Suchen oder Ersetzen auf geöffnete Dateien. Halten Sie die Strg-Taste beim Klick auf eine Suchschaltfläche gedrückt um die Suche vorübergehend auf die aktuelle Datei zu beschränken.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1403"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1407"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Suchen oder Ersetzen in allen HTML Dateien in der Quelltext-Ansicht.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1405"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1409"/>
         <source>Selected Files</source>
         <translation>Ausgewählte Dateien</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Beschränkt das Suchen oder Ersetzen auf die ausgewählten HTML-Dateien im Buch Browser in der Quelltext-Ansicht.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1418"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Suche nach der vorherigen Übereinstimmung von der aktuellen Position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1419"/>
         <source>Search for the next match from your current position.</source>
         <translation>Suche nach der nächsten Übereinstimmung von der aktuellen Position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1149"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1152"/>
         <source>Unnamed search loaded</source>
         <translation>Unbenannte Suche geladen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1154"/>
         <source>Loaded</source>
         <translation>Geladen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1159"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1180"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1197"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1218"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1246"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1162"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1183"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1200"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1249"/>
         <source>No searches selected</source>
         <translation>Keine Suchen ausgewählt</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1391"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1395"/>
         <source>Case Sensitive</source>
         <translation>Groß-/Kleinschreibung unterscheidend</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1394"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1398"/>
         <source>Regex</source>
         <translation>Regulärer Ausdruck</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1387"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1391"/>
         <source>What to search for</source>
         <translation>Wonach gesucht werden soll</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1389"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1393"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>Sucht unabhängig von Groß- und Kleinschreibung nach genau dem, was Sie eingeben.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1392"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1396"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Sucht abhängig von Groß- und Kleinschreibung nach genau dem, was Sie eingeben.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1395"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1399"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Sucht nach einem Muster mit Regular Expression Syntax.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1398"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1402"/>
         <source>Where to search</source>
         <translation>Wo gesucht werden soll</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1399"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1403"/>
         <source>Current File</source>
         <translation>Aktuelle Datei</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1402"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
         <source>All HTML Files</source>
         <translation>Alle HTML-Dateien</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
         <source>Up</source>
         <translation>Hoch</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1411"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
         <source>Down</source>
         <translation>Runter</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1412"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1416"/>
         <source>Direction to search</source>
         <translation>Such-Richtung</translation>
     </message>
@@ -1564,12 +1579,12 @@ und findet danach den nächsten Treffer in der Quelltext-Ansicht.</translation>
 <context>
     <name>FindReplaceQLineEdit</name>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="55"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
         <translation>Tokenisierte Auswahl</translation>
     </message>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="67"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="70"/>
         <source>Save Search</source>
         <translation>Speichere Suche</translation>
     </message>
@@ -1577,7 +1592,7 @@ und findet danach den nächsten Treffer in der Quelltext-Ansicht.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1201"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1202"/>
         <source>Print %1</source>
         <translation>Drucke %1</translation>
     </message>
@@ -1872,18 +1887,18 @@ Sie können in obiger Liste einzelne Überschriften aus- oder abwählen.</transl
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="223"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="252"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="255"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="256"/>
         <source>Open With</source>
         <translation>Öffnen mit</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="233"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="234"/>
         <source>Other Application</source>
         <translation>Andere Anwendung</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="254"/>
         <source>Save As</source>
         <translation>Speichere als</translation>
     </message>
@@ -4514,536 +4529,531 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
-        <source>Nepal Bhasa</source>
-        <translation>Nepali</translation>
+        <source>Nepal Bhasa/Newari</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
-        <source>Newari</source>
-        <translation>Newārī</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Nias</source>
         <translation>Nias-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Niger-Kordofanian languages</source>
         <translation>Nigerkordofanische Sprachen (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Nilo-Saharan languages</source>
         <translation>Nilosaharanische Sprachen (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Niuean</source>
         <translation>Niue-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>No linguistic content/Not applicable</source>
         <translation>Kein linguistischer Inhalt</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Nogai</source>
         <translation>Nogaisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Norse- Old</source>
         <translation>Altnorwegisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>North American Indian languages</source>
         <translation>Indianersprachen, Nordamerika (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Northern Frisian</source>
         <translation>Nordfriesisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>Pedi-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Nubian languages</source>
         <translation>Nubische Sprachen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nyamwezi</source>
         <translation>Nyamwezi-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Nyankole</source>
         <translation>Nkole-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Nyoro</source>
         <translation>Nyoro-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nzima</source>
         <translation>Nzima-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Occitan/Provençal- Old (to 1500)</source>
         <translation>Altokzitanisch (bis 1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>Aramäisch (700-300 vChr.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Osage</source>
         <translation>Osage-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Otomian languages</source>
         <translation>Otomangue-Sprachen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Pahlavi</source>
         <translation>Mittelpersisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Palauan</source>
         <translation>Palau-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Pangasinan</source>
         <translation>Pangasinan-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Papiamento</source>
         <translation>Papiamento</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Papuan languages</source>
         <translation>Papuasprachen (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>Altpersisch (ca. 600-400 v.Chr.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Philippine languages</source>
         <translation>Philippinisch-Austronesisch (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Phoenician</source>
         <translation>Phönikisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Pohnpeian</source>
         <translation>Ponapeanisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Prakrit languages</source>
         <translation>Prākrit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Rajasthani</source>
         <translation>Rājasthānī</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Rapanui</source>
         <translation>Osterinsel-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>Rarotonganisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="572"/>
+        <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Reserved for local use</source>
         <translation>Reserviert für lokale Verwendung</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
+        <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Romance languages</source>
         <translation>Romanische Sprachen (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Romany</source>
         <translation>Romani (Sprache)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Salishan languages</source>
         <translation>Salish-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Samaritan Aramaic</source>
         <translation>Samaritanisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Sami languages</source>
         <translation>Saamisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Sandawe</source>
         <translation>Sandawe-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Santali</source>
         <translation>Santālī</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Sasak</source>
         <translation>Sasak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Scots</source>
         <translation>Schottisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Selkup</source>
         <translation>Selkupisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Semitic languages</source>
         <translation>Semitische Sprachen (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Serer</source>
         <translation>Serer-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Shan</source>
         <translation>Schan-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Sicilian</source>
         <translation>Sizilianisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Sidamo</source>
         <translation>Sidamo-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Sign Languages</source>
         <translation>Zeichensprachen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Siksika</source>
         <translation>Blackfoot-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Sino-Tibetan languages</source>
         <translation>Sinotibetische Sprachen (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Siouan languages</source>
         <translation>Sioux-Sprachen (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Skolt Sami</source>
         <translation>Skoltsaamisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Slave (Athapascan)</source>
         <translation>Slave-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Slavic languages</source>
         <translation>Slawische Sprachen (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Sogdian</source>
         <translation>Sogdisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Songhai languages</source>
         <translation>Songhai-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Soninke</source>
         <translation>Soninke-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Sorbian languages</source>
         <translation>Sorbisch (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>South American Indian languages</source>
         <translation>Südamerikanische Indianer-Sprachen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Southern Altai</source>
         <translation>Altaisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Southern Sami</source>
         <translation>Südsaamisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Sranan Tongo</source>
         <translation>Sranantongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sukuma</source>
         <translation>Sukuma-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Sumerian</source>
         <translation>Sumerisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Susu</source>
         <translation>Susu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>Schweizerdeutsch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Syriac</source>
         <translation>Syrisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Tai languages</source>
         <translation>Thaisprachen (Andere)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Tamashek</source>
         <translation>Tamašeq</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Tereno</source>
         <translation>Tereno-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Tetum</source>
         <translation>Tetum-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Tigre</source>
         <translation>Tigre-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Timne</source>
         <translation>Temne-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Tiv</source>
         <translation>Tiv-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Tlingit</source>
         <translation>Tlingit-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Tok Pisin</source>
         <translation>Neumelanesisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Tokelau</source>
         <translation>Tokelauanisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Tonga (Nyasa)</source>
         <translation>Tonga (Bantusprache, Sambia)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Tsimshian</source>
         <translation>Tsimshian-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tumbuka</source>
         <translation>Tumbuka-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tupi languages</source>
         <translation>Tupi-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>Osmanisch (1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tuvalu</source>
         <translation>Elliceanisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tuvinian</source>
         <translation>Tuwinisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Udmurt</source>
         <translation>Udmurtisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Ugaritic</source>
         <translation>Ugaritisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Umbundu</source>
         <translation>Mbundu-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Uncoded languages</source>
         <translation>Einzelne andere Sprachen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Undetermined</source>
         <translation>Nicht zu entscheiden</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Upper Sorbian</source>
         <translation>Obersorbisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Vai</source>
         <translation>Vai-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Votic</source>
         <translation>Wotisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Wakashan languages</source>
         <translation>Wakash-Sprachen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Waray</source>
         <translation>Waray</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Washo</source>
         <translation>Washo-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>Walamo-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Yakut</source>
         <translation>Jakutisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Yao</source>
         <translation>Yao-Sprache (Bantusprache)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Yapese</source>
         <translation>Yapesisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Yupik languages</source>
         <translation>Ypik-Sprachen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Zande languages</source>
         <translation>Zande-Sprachen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Zapotec</source>
         <translation>Zapotekisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Zenaga</source>
         <translation>Zenaga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Zuni</source>
         <translation>Zuñi-Sprache</translation>
     </message>
@@ -6864,13 +6874,13 @@ Aufgeführte Stylesheets haben Vorrang über später erwähnten Stylesheets.</tr
         <location filename="../../MainUI/MainWindow.cpp" line="898"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1043"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1071"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1312"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1340"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1401"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2737"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1354"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1403"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2739"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -6960,94 +6970,94 @@ Aufgeführte Stylesheets haben Vorrang über später erwähnten Stylesheets.</tr
         <translation>Wähle das Ziel für die erste Einfügung.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1314"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Eine Ressource ausgewählt, aber keine Vorherige vorhanden, mit der zusammengefügt werden kann.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1321"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Sind Sie sicher, dass die ausgewählten Dateien zusammengefügt werden sollen?
 Diese Aktion kann nicht rückgängig gemacht werden.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1329"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Zusammenfügung wurde wegen nicht korrekt aufgebautem XML abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1365"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1367"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Zusammenführung fertig. Sie müssen möglicherweise ihr Inhaltsverzeichnis bearbeiten oder neu erstellen lassen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
         <source>Link Stylesheets cancelled due to XML not well formed.</source>
         <translation>Verknüpfung Stylesheets wurde wegen nicht korrekt aufgebautem XML abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
         <source>File(s) deleted.</source>
         <translation>Datei(en) gelöscht.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1510"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1512"/>
         <source>Generate TOC cancelled due to XML not well formed.</source>
         <translation>Erstellung des Inhaltsverzeichnis wurde wegen nicht korrekt aufgebautem XML abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1542"/>
         <source>Table Of Contents generated.</source>
         <translation>Inhaltsverzeichnis erstellt.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1553"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
         <source>Create HTML TOC cancelled due to XML not well formed.</source>
         <translation>Erstellung des HTML Inhaltsverzeichnis wurde wegen nicht korrekt aufgebautem XML abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1726"/>
         <source>Meta Editor cancelled due to XML not well formed.</source>
         <translation>Meta Editor wurde wegen nicht korrekt aufgebautem XML abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1811"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1813"/>
         <source>Validation cancelled due to XML not well formed.</source>
         <translation>Validierung wurde wegen nicht korrekt aufgebautem XML abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Dieses EPUB enthält keine CSS Stylesheets zur Validierung.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2548"/>
         <source>File cannot be split at this position.</source>
         <translation>Datei kann nicht an dieser Position geteilt werden.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2564"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2566"/>
         <source>Split completed.</source>
         <translation>Teilung abgeschlossen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2575"/>
         <source>Split cancelled due to XML not well formed.</source>
         <translation>Teilung wurde wegen nicht korrekt aufgebautem XML abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2599"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2601"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Teilung abgeschlossen. Eine Aktualisierung des Inhaltsverzeichnisses könnte erforderlich sein.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2610"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Keine Datei Teilungsmarkierungen gefunden. Benutze Einfügen-&gt;Teilungsmarkierung.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2826"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -7056,17 +7066,17 @@ Diese Aktion kann nicht rückgängig gemacht werden.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2846"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2848"/>
         <source>File loaded.</source>
         <translation>Datei geladen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2929"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2931"/>
         <source>File saved.</source>
         <translation>Datei gespeichert.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
         <source>Cannot merge
 
 Cannot close tab: %1</source>
@@ -7188,12 +7198,12 @@ Kann den Reiter nicht schließen: %1</translation>
         <translation>An dieser Stelle können sie keinen Index markieren.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1354"/>
         <source>Cannot merge file %1</source>
         <translation>Kann Dateien nicht zusammenführen %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1403"/>
         <source>Cannot link stylesheets
 
 Cannot close tab: %1</source>
@@ -7202,93 +7212,108 @@ Cannot close tab: %1</source>
 Kann %1-Reiter nicht schließen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1524"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
         <source>Generate TOC cancelled.</source>
         <translation>Erstellung des Inhaltsverzeichnis abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1545"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Keine Änderung des Inhaltsverzeichnis notwendig.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2456"/>
         <source>Line: %1, Col: %2</source>
         <translation>Zeile: %1, Spalte: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2740"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Das Dokument wurde verändert.
 Sollen die Änderungen gespeichert werden?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2863"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2865"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Der Ersteller dieser Datei hat diese mit Kopierschutz (DRM) versehen. Sigil kann solche Dateien nicht öffnen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2874"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Kann EPUB: &quot;%1 nicht öffnen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2880"/>
         <source>Cannot load file %1: %2</source>
         <translation>Kann die Datei &quot;%1: %2&quot; nicht öffnen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2896"/>
         <source>Saving file...</source>
         <translation>Speichere Datei...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2904"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2906"/>
         <source>Sigil currently cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil kann derzeit keine Dateien vom Typ &quot;%1&quot; speichern.
 Bitte wähle ein anderes Format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
         <source>Cannot save file %1: %2</source>
         <translation>Kann die Datei &quot;%1: %2&quot; nicht speichern</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3068"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3070"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB-Dateien (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3069"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3070"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML-Dateien (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3074"/>
         <source>Text files (*.txt)</source>
         <translation>Text-Dateien (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3075"/>
         <source>All files (*.*)</source>
         <translation>Alle Dateien (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3085"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB-Datei (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3179"/>
+        <source>Preserve existing heading attributes is now:</source>
+        <translation>Sicherstellung bestehender Überschrift-Attribute ist nun:</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <source>ON</source>
+        <translation>EIN</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <source>OFF</source>
+        <translation>AUS</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3211"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -7592,7 +7617,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die Daten bewertet, untersucht und interpretiert oder Informationen zu einem bestimmten Bereich.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
@@ -7602,27 +7627,27 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die die zweidimensionalen Figuren zeichnet, manipuliert die dreidimensionale Objekte und / oder auch Programme. Der Computer, der Objekte und Bilder für die Animationsfilm-Verarbeitung bewegt. Animations-Kameras, Stative, Zelluloid-Bildschirme, Folien und Farben sind einige der Werkzeuge des Animators.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Annotator</source>
-        <translation type="unfinished"/>
+        <translation>Kommentator</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Person, die Manuskript-Anmerkungen über gedruckte Artikel schreibt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Applicant</source>
-        <translation type="unfinished"/>
+        <translation>Antragsteller</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation type="unfinished"/>
+        <translation>Eine Person oder Organisation, die für die Einreichung eines Antrags verantwortlich, oder die als Berechtigte für die Ergebnisse der Bearbeitung des Antrags benannt wurde (zB Verleihung von Rechten, Belohnung, Titel, Position).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
@@ -7632,7 +7657,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die Strukturen erstellt oder ihre Konstruktion betreut .</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
@@ -7642,17 +7667,17 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die eine musikalische Komposition transkribiert, in der Regel für ein anderes Medium als das des Originals, in einer Arrangement bleibt die musikalische Substanz im Wesentlichen unverändert.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Art copyist</source>
-        <translation type="unfinished"/>
+        <translation>Art Kopist</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation type="unfinished"/>
+        <translation>Person (z.B. ein Maler oder Bildhauer), die Kopien von Werken der bildenden Kunst macht.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
@@ -7662,7 +7687,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation type="unfinished"/>
+        <translation>Person (z.B. ein Maler) oder Organisation, die sich vorstellt, und vielleicht auch implementiert, eine originales Grafik-Design oder Kunstwerk, spezifische Codes (z.B. [egr], [etr]) sind nicht erwünscht. Für Illustratoren  bevorzuge Illustrator [ill].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
@@ -7672,17 +7697,17 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Person, verantwortlich für die Steuerung der Entwicklung des künstlerischen Stil einer ganzen Produktion, einschließlich der Auswahl der zu präsentierenden Werke und die Auswahl von Senior Produktions-Mitarbeiter.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Assignee</source>
-        <translation type="unfinished"/>
+        <translation>Beauftragter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Person oder Organisation, auf die eine Lizenz für den Druck oder die Veröffentlichung übertragen wurde.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
@@ -7722,17 +7747,17 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation hauptsächlich verantwortlich für die geistige oder künstlerische Inhalte einer Arbeit, in der Regel gedruckter Text. Dieser Begriff kann auch verwendet werden, wenn mehr als eine Person oder Stelle solche Verantwortung trägt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Author in quotations or text extracts</source>
-        <translation type="unfinished"/>
+        <translation>Autor in Zitaten oder Textauszügen</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, deren Arbeit es ist weitgehende Zitate oder Textauszüge zu extrahieren in Werken, an denen er oder sie sich nicht direkt beteiligte. Solche Zitate finden sich insbesondere in Ausstellungskatalogen, Sammlungen von Fotografien, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
@@ -7787,22 +7812,22 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Binder</source>
-        <translation type="unfinished"/>
+        <translation>Binder</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Person oder Organisation, die für die Bindung von gedruckten oder Manuskript Materialien verantwortlich ist.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
         <source>Binding designer</source>
-        <translation type="unfinished"/>
+        <translation>Buchbinding-Designer</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation type="unfinished"/>
+        <translation>Verwendung für eine Person oder Organisation, die für das Design der Bindung eines Buches verantwortlich ist, einschließlich der Art der Bindung, der Art der verwendeten Materialien, und dekorative Aspekte der Bindung.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
@@ -7812,47 +7837,47 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die verantwortlich ist für die gesamte grafische Gestaltung eines Buches, einschließlich der Anordnung der Typ und Illustration, Wahl der Materialien und verwendeten Verfahren.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Book producer</source>
-        <translation type="unfinished"/>
+        <translation>Buchproduzent</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation type="unfinished"/>
+        <translation>Eine Person oder Organisation, die für die Herstellung von Bücher und andere Printmedien verantwortlich ist. Bestimmte Codes wie (z.B. [BKD], [egr], [TYD], [prt]) sind nicht erwünscht.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Bookjacket designer</source>
-        <translation type="unfinished"/>
+        <translation>Schutzumschlag-Designer</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation type="unfinished"/>
+        <translation>Verantwortliche Person oder Organisation für das Design des flexiblen Umschlags für oder veröffentlicht mit einem Buch, einschließlich der Art der verwendeten Materialien und aller dekorativen Aspekte des Schutzumschlag.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Bookplate designer</source>
-        <translation type="unfinished"/>
+        <translation>Exlibris-Designer</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation type="unfinished"/>
+        <translation>Verantwortliche Person oder Organisation für die Gestaltung von Buchzeichen oder Buchmarken zur Kennzeichnung des Eigentums eines Buches. Am häufigsten in der Innenseite der Titelseite zu finden.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
         <source>Bookseller</source>
-        <translation type="unfinished"/>
+        <translation>Buchhändler</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Person oder Organisation, die Bücher und andere bibliographisch käuflich erwerbliche Materialien herstellt. Das Interesse ist in erster Linie das einträgliches Geschäft.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
@@ -7862,7 +7887,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die in einer künstlerischen Handschrift schreibt, in der Regel als Kopist und oder Engrosser.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
@@ -7892,7 +7917,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die komponiert oder arrangiert, Tänze oder andere Bewegungen (z.B. &quot;Master of Swords&quot;) für einen musikalischen oder dramatischen Präsentation oder Unterhaltung.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
@@ -8163,7 +8188,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, denen Kopie- und gesetzliche Rechte gewährt oder für den geistigen Inhalt eines Werkes übertragen wurden. Der Copyright-Inhaber, obwohl nicht notwendigerweise der Schöpfer des Werkes, hat in der Regel das ausschließliche Recht, vom Verkauf und der Arbeit finanziell zu profitieren für die der zugeordnete Urheberrechtsschutz gilt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
@@ -8203,7 +8228,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation verantwortlich für die grafische Gestaltung der ein Buchumschlag, Plattencover, Schuber, Feld, Container usw. verwenden. Verwenden Sie für Person oder Organisation, die für die grafische Gestaltung der ein ganzes Buch verantwortlich sind, den Buch-Designer, für Buchumschläge verwenden sie Schutzumschlag-Designer.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="216"/>
@@ -8222,7 +8247,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
         <location filename="../../BookManipulation/Metadata.cpp" line="254"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="255"/>
         <source>Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Bezeichner</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="241"/>
@@ -8232,7 +8257,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="242"/>
         <source>Date: Creation</source>
-        <translation>Datum: Erzeugung</translation>
+        <translation>Datum: Erstellung</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="243"/>
@@ -8247,7 +8272,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="244"/>
         <source>Enter your own event name in the File As column, e.g. updated.</source>
-        <translation type="unfinished"/>
+        <translation>Eingabe eigenes Ereignisnamen in der Datei als Spalte z.B. Aktualisiert.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="256"/>
@@ -8257,7 +8282,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="256"/>
         <source>Enter your own custom identifier name in the File As column, e.g. stocknumber</source>
-        <translation type="unfinished"/>
+        <translation>Geben Sie Ihre eigenen benutzerdefinierten Bezeichner in der Datei als Spalte an. Z.B. Inventarnummer</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
@@ -8282,7 +8307,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die hauptsächlich tänzerischen Fähigkeiten in einem musikalischen oder einer dramatischen Präsentation oder in der Unterhaltung zeigt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
@@ -8402,7 +8427,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, verantwortlich für das Design. Spezifischere Codes sind hier nicht erwünscht (z. B. [Bkd], [Tyd]).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
@@ -8482,7 +8507,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation type="unfinished"/>
+        <translation>Verantwortlicher für die Einrichtung einer Lichtanlage , die Fokussierung des Lichts für eine Produktion und den Einsatz der Beleuchtung bei einer Aufführung.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
@@ -8652,7 +8677,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die ein Design oder Abbildung entwirft und vielleicht auch implementiert, in der Regel um einen geschriebenen Text zu begleiten.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
@@ -8882,7 +8907,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die ein Kunstwerk erstellt (ein Gegenstand durch eine oder mehrere Personen erstellt oder geändert). Beispiele für Kunstwerke sind Vasen, Kanonen oder Möbelstücke.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
@@ -8947,7 +8972,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Musical director</source>
-        <translation>Musikalische Leitung</translation>
+        <translation>Musikalischer Leiter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
@@ -9012,7 +9037,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation type="unfinished"/>
+        <translation>Verwendung für Relator Codes aus anderen Listen, die keine Entsprechung in der MARC-Liste oder Begriffe, denen keine Code zugewiesen wurde.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
@@ -9022,17 +9047,17 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder ein Unternehmen, dass derzeit einen Gegenstand oder eine Sammlung besitzt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Papermaker</source>
-        <translation type="unfinished"/>
+        <translation>Papierhersteller</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation type="unfinished"/>
+        <translation>Verantwortliche Person oder Organisation für die Produktion von Papier, meist aus Holz, Stoff oder andere faseriges Material.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
@@ -9092,7 +9117,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, verantwortlich für fotografieren, egal ob sie in ihrer ursprünglichen Form oder als Reproduktionen verwendet werden.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
@@ -9142,7 +9167,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die Texte druckt, unabhängig von der Drucktechnik (Typen oder Druckplatte).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
@@ -9182,7 +9207,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation verantwortlich für die Herstellung von einem Kinofilm, einschließlich Business-Aspekte, Management der Produktionen und der kommerzielle Erfolg der Arbeit.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
@@ -9212,7 +9237,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Verantwortliche Person oder Organisation für die Erstellung und/oder Wartung von Computer-Programmdesign-Dokumente, Quellcode, und ausführbare digitale Dateien und Support-Dokumentationen.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
@@ -9257,7 +9282,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die Puppen und Marionetten in einer musikalischen oder dramatischen Präsentation oder Unterhaltung manipuliert, steuert oder leitet.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
@@ -9287,7 +9312,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, welche den Rahmen für ein Element ohne intellektuelle Verantwortung des Inhalts schreibt oder entwickelt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
@@ -9517,7 +9542,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Person, welche die Tongestaltung produziert und reproduziert (Live- und Studioaufnahmen), die Installation von Mikrofonen, die Einstellung der Lautstärke und die Koordinierung der Quellen des Klangs für eine Produktion vornimmt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
@@ -9527,7 +9552,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
-        <translation type="unfinished"/>
+        <translation>Person, die an einem  (oft ausgestrahlten) Programm beteiligt ist und einen formalisierten Beitrag macht oder eine Präsentation im Allgemeinen im Voraus vorbereitet.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
@@ -9537,7 +9562,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die einen Vertrag ausgestellt hat. Oder unter der Schirmherrschaft derjenigen, die eine Arbeit geschrieben, gedruckt, veröffentlicht usw. haben.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
@@ -9617,17 +9642,17 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation type="unfinished"/>
+        <translation>Person, die letztlich verantwortlich für Szenen, Requisiten, Licht und Ton für eine Produktion ist.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Thesis advisor</source>
-        <translation type="unfinished"/>
+        <translation>Doktorvater</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
-        <translation type="unfinished"/>
+        <translation>Person, unter deren Aufsicht ein Doktorand eine These, Text einer Dissertation, ein Memorandum entwickelt und erstellt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
@@ -9647,27 +9672,27 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die einen Text von einer Sprache in eine andere, oder von einer älteren Form einer Sprache in die moderne Form, übersetzt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Type designer</source>
-        <translation type="unfinished"/>
+        <translation>Typograf</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die das Schriftbild zur entwirft, welches für einen bestimmtes Element verwendet wird.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Typographer</source>
-        <translation>Typograph</translation>
+        <translation>Typograf</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die in erster Linie verantwortlich für die Auswahl und Anordnung der verwendeten typografischer Gestaltung ist. Wenn der Typograf auch für andere Aspekte der  grafische Gestaltung eines Buches (z.B. Buch Designer [Bkd]) zuständig ist, werden vielleicht Codes für beide Funktionen benötigt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
@@ -9687,27 +9712,27 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
         <source>Use for a person or organization who principally exhibits singing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die hauptsächlich stimmliche Fähigkeiten in einer musikalischen oder dramatischen Präsentation oder in der Unterhaltung zur Verfügung stellt.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Witness</source>
-        <translation type="unfinished"/>
+        <translation>Zeuge</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
-        <translation type="unfinished"/>
+        <translation>Person, die die Wahrhaftigkeit eines Ereignisses oder Aktion überprüft.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Wood-engraver</source>
-        <translation type="unfinished"/>
+        <translation>Holz-Stecher</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die von einem planen Holzblock das Bild Relief für einen Druck schneidet.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
@@ -9717,17 +9742,17 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die von einem planen Holzblock das Bild Relief für einen Druck schneidet.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Writer of accompanying material</source>
-        <translation type="unfinished"/>
+        <translation>Autor von Begleitmaterial</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
-        <translation type="unfinished"/>
+        <translation>Person oder Organisation, die bedeutendes Material schreibt, begleitet von einer Tonaufnahme oder anderem audiovisuellem Materials.</translation>
     </message>
 </context>
 <context>
@@ -9879,7 +9904,7 @@ mehrfachen Einträgen des gleichen Typs benutzen.</translation>
         <translation>Bestehende Dateien hinzufügen..</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="647"/>
+        <location filename="../../BookManipulation/Book.cpp" line="645"/>
         <source>Merging Files..</source>
         <translation>Führe Dateien zusammen..</translation>
     </message>
@@ -10253,7 +10278,7 @@ Auswahl inklusive der Einträge in den ausgewählten Gruppen.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>All searches default to Regex, All HTML Files, Down.</source>
-        <translation type="unfinished"/>
+        <translation>Alle Suchbegriffe standardmäßig zu Regex,, Alle HTML Datenen, Runter.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
@@ -10461,7 +10486,7 @@ Möchten sie die Änderungen speichern?</translation>
         <translation>Ersetzen</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="609"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="613"/>
         <source>Unable to create file %1</source>
         <translation>Datei %1 kann nicht erstellt werden</translation>
     </message>
@@ -10508,7 +10533,7 @@ Alle bereits vorhandenen Tags werden vom ausgewählten Text entfernt.</translati
         <translation>Ziel:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectHyperlink.cpp" line="66"/>
+        <location filename="../../Dialogs/SelectHyperlink.cpp" line="67"/>
         <source>Targets in the Book</source>
         <translation>Ziele im Buch</translation>
     </message>
@@ -10625,36 +10650,24 @@ add to your book and then insert into your document.</source>
         <translation>Wörterbuch:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="70"/>
-        <source>&lt;p&gt;Open the directory where Sigil looks for additional hunspell dictionaries.&lt;/p&gt;
-&lt;p&gt;Dictionaries in this location will be added to the list you can choose from and will override default dictionaries that have the same name.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Öffne das Verzeichnis, in dem Sigil weitere Wörterbüchern findet.&lt;/p&gt;
-&lt;p&gt;Wörterbücher an dieser Stelle werden der Auswahlliste hinzugefügt und überschreiben die Standard-Wörterbücher mit demselben Namen.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="74"/>
-        <source>Open Dictionary Directory</source>
-        <translation>Öffne Wörterbuch-Verzeichnis</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="127"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="110"/>
         <source>User Dictionary</source>
         <translation>Benutzer-Wörterbuch</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="125"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Rename</source>
         <translation>Umbenennen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="177"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="160"/>
         <source>User Dictionary Word List</source>
         <translation>Benutzerwörterbuch-Wortliste</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="192"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="118"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="175"/>
         <source>Add</source>
         <translation>Hinzufügen</translation>
     </message>
@@ -10664,18 +10677,18 @@ add to your book and then insert into your document.</source>
         <translation>Rechtschreibwörterbücher</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="199"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="182"/>
         <source>Edit</source>
         <translation>Ändern</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="206"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="132"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="189"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="213"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="196"/>
         <source>Remove All</source>
         <translation>Alles entfernen</translation>
     </message>
@@ -10695,7 +10708,6 @@ add to your book and then insert into your document.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="86"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="121"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="283"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
@@ -10714,11 +10726,6 @@ add to your book and then insert into your document.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
         <source>Could not rename file!</source>
         <translation>Konnte Datei nicht umbenennen!</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="283"/>
-        <source>Could not open user dictionary location %1</source>
-        <translation>Konnte Speicherstelle des Benutzer-Wörterbuchs &quot;%1&quot; nicht öffnen</translation>
     </message>
 </context>
 <context>

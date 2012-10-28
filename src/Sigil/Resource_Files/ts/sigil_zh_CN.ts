@@ -157,7 +157,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="265"/>
         <source>Select an alternative color for this display item</source>
-        <translation type="unfinished"/>
+        <translation>选择替代此显示项的颜色</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="268"/>
@@ -328,8 +328,8 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="595"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="646"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="753"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="902"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="990"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -340,14 +340,14 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="205"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="990"/>
         <source>This action cannot be reversed.</source>
         <translation>这个动作不能逆转。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1265"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1469"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1270"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
         <source>Open With</source>
         <translation>打开方式</translation>
     </message>
@@ -414,80 +414,80 @@ A file with this name already exists in the book.</translation>
         <translation>无法保存文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="960"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="965"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>NCX和OPF均不能被删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="969"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="974"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>您不能删除所有的HTML文件。
 至少必须存在一个。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1249"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
         <source>Add Blank Stylesheet</source>
         <translation>新增空白样式表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1250"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
         <source>Add Blank SVG Image</source>
         <translation>添加空白SVG图片</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1251"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
         <source>Add Existing Files...</source>
         <translation>添加现有文件...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1252"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1253"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1258"/>
         <source>Add Copy</source>
         <translation>添加副本</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1259"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1263"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1268"/>
         <source>Link Stylesheets...</source>
         <translation>链接样式表...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1271"/>
         <source>Save As</source>
         <translation>另存为</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1479"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1484"/>
         <source>Other Application</source>
         <translation>其他程序</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
         <source>Cover Image</source>
         <translation>封面图片</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1262"/>
         <source>Merge</source>
         <translation>合并</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1259"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>使用Adobe的方法</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1260"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1265"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>使用IDPF的方法</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1247"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1252"/>
         <source>Select All</source>
         <translation>选择所有</translation>
     </message>
@@ -506,134 +506,134 @@ There always has to be at least one.</source>
         <translation>文件已添加。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="902"/>
         <source>Cannot rename since one or more new filenames are already in use.</source>
         <translation>由于一个或多个新的文件名已在使用中，无法重命名。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="987"/>
         <source>Are you sure you want to delete the file listed below?
 </source>
         <translation>您确定要删除下列文件？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
         <source>Are you sure you want to delete all the files listed below?
 </source>
         <translation>您确定要删除下列所有文件？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1248"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1253"/>
         <source>Add Blank HTML File</source>
         <translation>添加空白HTML文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1260"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1258"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1263"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
         <source>Sort</source>
         <translation>排序</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1262"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1267"/>
         <source>Renumber TOC Entries</source>
         <translation>重新编排目录项</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1269"/>
         <source>Validate with W3C</source>
         <translation>用W3C验证</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1302"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1307"/>
         <source>Cover</source>
         <translation>封面</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1307"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
         <source>Title Page</source>
         <translation>标题页</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
         <source>Table Of Contents</source>
         <translation>目录</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Index</source>
         <translation>索引</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Glossary</source>
         <translation>词汇</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
         <source>Acknowledgements</source>
         <translation>致谢</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1337"/>
         <source>Bibliography</source>
         <translation>参考书目</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1337"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
         <source>Colophon</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1347"/>
         <source>CopyrightPage</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1347"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
         <source>Dedication</source>
         <translation>贡献</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1357"/>
         <source>Epigraph</source>
         <translation>题词</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1357"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Foreword</source>
         <translation>前言</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
         <source>List Of Illustrations</source>
         <translation>插图列表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
         <source>List Of Tables</source>
         <translation>表格列表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Notes</source>
         <translation>注释</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
         <source>Preface</source>
         <translation>序言</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1387"/>
         <source>Text</source>
         <translation>文本</translation>
     </message>
@@ -641,69 +641,74 @@ There always has to be at least one.</source>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="929"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="940"/>
         <source>Open</source>
         <translation>打开</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="782"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="931"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="934"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="792"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="942"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="945"/>
         <source>Open With</source>
         <translation>打开方式</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="766"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="744"/>
+        <source>You cannot paste clips in Book View that use regular expressions.</source>
+        <translation>您不能在书籍视图中黏贴使用正则表达式的剪切板条目。</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="776"/>
         <source>Open Tab For</source>
         <translation>打开&quot;选项卡&quot;</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="792"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="803"/>
         <source>Other Application</source>
         <translation>其他程序</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="860"/>
         <source>Add To Clips</source>
         <translation>添加到剪切板</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="919"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="930"/>
         <source>Insert Image</source>
         <translation>插入图片</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="921"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="932"/>
         <source>Undo</source>
         <translation>撤销</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="922"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="933"/>
         <source>Redo</source>
         <translation>重做</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="924"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="935"/>
         <source>Cut</source>
         <translation>剪切</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="925"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="936"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="926"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="937"/>
         <source>Paste</source>
         <translation>粘贴</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="927"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="938"/>
         <source>Select All</source>
         <translation>选择所有</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="932"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="943"/>
         <source>Save As</source>
         <translation>另存为</translation>
     </message>
@@ -811,12 +816,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="88"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>加载这个页面后3秒后消失。</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="89"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
-        <translation type="unfinished"/>
+        <translation>如果您的浏览器没有启用javascript，点击下面的按钮。</translation>
     </message>
 </context>
 <context>
@@ -854,17 +859,17 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="72"/>
         <source>Matched Selector</source>
-        <translation type="unfinished"/>
+        <translation>匹配选择器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="73"/>
         <source>Found In</source>
-        <translation type="unfinished"/>
+        <translation>在中发现</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="82"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;这是所有的HTML文件使用的样式类的列表，不管该样式是否匹配链接的样式表中的选择器。&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="83"/>
@@ -945,7 +950,7 @@ Error correction when loading a file will always be performed.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
         <source>Clips</source>
-        <translation>剪切板管理器</translation>
+        <translation>剪切板</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
@@ -965,7 +970,7 @@ Error correction when loading a file will always be performed.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
         <source>Paste Clip</source>
-        <translation type="unfinished"/>
+        <translation>粘贴</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="93"/>
@@ -1033,7 +1038,7 @@ Error correction when loading a file will always be performed.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="68"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation type="unfinished"/>
+        <translation>您还可以在文档中右键单击选择一个条目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
@@ -1048,7 +1053,7 @@ Error correction when loading a file will always be performed.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>如果Sigil的任何其他实例正在运行，他们将自动更新您所做的更改。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="88"/>
@@ -1058,7 +1063,7 @@ Error correction when loading a file will always be performed.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="137"/>
         <source>Clip entries loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>从文件加载剪切板条目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="195"/>
@@ -1153,18 +1158,19 @@ Error correction when loading a file will always be performed.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="694"/>
         <source>Clip entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>载剪切板条目已保存。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="722"/>
         <source>Sigil: Clips</source>
-        <translation>Sigil：剪切板管理器</translation>
+        <translation>Sigil：剪切板</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="723"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>剪切板条目可能已经被修改。
+你想保存您的更改？</translation>
     </message>
 </context>
 <context>
@@ -1180,7 +1186,7 @@ Do you want to save your changes?</source>
         <translation>文本</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="607"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="611"/>
         <source>Unable to create file %1</source>
         <translation>无法创建文件 %1</translation>
     </message>
@@ -1206,49 +1212,60 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1104"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="317"/>
+        <source>Cannot insert closing tag at this position.</source>
+        <translation>此位置无法插入结尾标记。</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="326"/>
+        <source>No open tags found at this position.</source>
+        <translation>此位置没有开放标记。</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1035"/>
         <source>Add To Dictionary</source>
         <translation>添加到字典</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1116"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1047"/>
         <source>Ignore</source>
         <translation>忽略</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1176"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1107"/>
         <source>Reformat CSS</source>
         <translation>重排CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1177"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1108"/>
         <source>Multiple Lines Per Style</source>
         <translation>样式多行显示</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1178"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1109"/>
         <source>Single Line Per Style</source>
         <translation>样式单行显示</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1203"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1134"/>
         <source>Go To Link Or Style</source>
         <translation>跳转到链接或样式</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1233"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1164"/>
         <source>Add To Clips</source>
-        <translation>添加到剪切板管理器</translation>
+        <translation>添加到剪切板</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1324"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1255"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
-        <translation type="unfinished"/>
+        <translation>要使用这个功能你必须在一个开放的HTML标记。
+</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1333"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1264"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
-        <translation type="unfinished"/>
+        <translation>要使用这个功能你必须在一个开放的HTML标记。</translation>
     </message>
 </context>
 <context>
@@ -1311,7 +1328,8 @@ Do you want to save your changes?</source>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
         <source>Replace highlighted match (if any),
 then find the Next match in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>在代码视图中，替换高亮的匹配项(如果有的话)，
+然后找出下一个匹配。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
@@ -1329,9 +1347,9 @@ then find the Next match in Code View.</source>
         <translation>选项：</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="293"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation>正则搜索，搜索前缀(?U)。</translation>
+        <translation>正则搜索，前缀搜索(?U)。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="299"/>
@@ -1339,14 +1357,14 @@ then find the Next match in Code View.</source>
         <translation>DotAll</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="306"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation>正则搜索，搜索前缀(?s)。</translation>
+        <translation>正则搜索，前缀搜索(?s)。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="312"/>
         <source>Minimal Match</source>
-        <translation>最小匹配</translation>
+        <translation>Minimal Match</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
@@ -1399,7 +1417,7 @@ then find the Next match in Code View.</source>
         <translation>模式：</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="575"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="578"/>
         <source>No matches found</source>
         <translation>
         </translation>
@@ -1413,144 +1431,144 @@ then find the Next match in Code View.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="164"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="167"/>
         <source> (Current File)</source>
         <translation> (当前文件)</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="277"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1236"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="280"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1239"/>
         <source>%1 matches found</source>
         <translation><numerusform>找到%1个匹配项</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="365"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1261"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="368"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
         <source>No replacements made</source>
         <translation>未替换项目</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="369"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="372"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1267"/>
         <source>%1 replacements made</source>
         <translation><numerusform>执行了%1个替换</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1107"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1110"/>
         <source>This tab cannot be searched</source>
         <translation>当前标签页无法执行查找</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1388"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1392"/>
         <source>Normal</source>
         <translation>正常</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1400"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1404"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>只在当前打开的HTML文件中进行查找或替换操作。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1403"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1407"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>在代码视图中，查找或替换操作所有的HTML文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1405"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1409"/>
         <source>Selected Files</source>
         <translation>选择的文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>只在选定的HTML文件中进行查找或替换操作。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1418"/>
         <source>Search for the previous match from your current position.</source>
-        <translation type="unfinished"/>
+        <translation>在当前位置搜索上一个匹配项。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1419"/>
         <source>Search for the next match from your current position.</source>
         <translation>从你当前的位置查找下一个匹配项。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1149"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1152"/>
         <source>Unnamed search loaded</source>
         <translation>已加载的未命名的搜索</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1154"/>
         <source>Loaded</source>
         <translation>已加载</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1159"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1180"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1197"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1218"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1246"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1162"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1183"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1200"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1249"/>
         <source>No searches selected</source>
-        <translation type="unfinished"/>
+        <translation>没有选定的搜索</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1391"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1395"/>
         <source>Case Sensitive</source>
         <translation>区分大小写</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1394"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1398"/>
         <source>Regex</source>
         <translation>正则表达式</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1387"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1391"/>
         <source>What to search for</source>
         <translation>搜索模式</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1389"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1393"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>搜索时不区分大小写。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1392"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1396"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>如果选中区分大小写，则只有严格匹配您的输入内容的条目才会被高亮。 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1395"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1399"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>使用正则表达式来搜索。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1398"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1402"/>
         <source>Where to search</source>
         <translation>搜索范围</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1399"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1403"/>
         <source>Current File</source>
         <translation>当前文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1402"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
         <source>All HTML Files</source>
         <translation>所有的HTML文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
         <source>Up</source>
         <translation>上</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1411"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
         <source>Down</source>
         <translation>下</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1412"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1416"/>
         <source>Direction to search</source>
         <translation>搜索方向</translation>
     </message>
@@ -1558,12 +1576,12 @@ then find the Next match in Code View.</source>
 <context>
     <name>FindReplaceQLineEdit</name>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="55"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="67"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="70"/>
         <source>Save Search</source>
         <translation>保存搜索</translation>
     </message>
@@ -1571,7 +1589,7 @@ then find the Next match in Code View.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1201"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1202"/>
         <source>Print %1</source>
         <translation>打印%1</translation>
     </message>
@@ -1867,18 +1885,18 @@ You can then check or uncheck individual headings in the list above.</source>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="223"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="252"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="255"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="256"/>
         <source>Open With</source>
         <translation>打开方式</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="233"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="234"/>
         <source>Other Application</source>
         <translation>其他程序</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="254"/>
         <source>Save As</source>
         <translation>另存为</translation>
     </message>
@@ -1943,7 +1961,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="81"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>如果Sigil的任何其他实例正在运行，他们将自动更新您所做的更改。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="92"/>
@@ -1980,7 +1998,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="360"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>您确定要重新加载所有条目？ 这将覆盖任何未保存的更改。</translation>
+        <translation>您确定要重新加载所有条目？ 这会覆盖任何未保存的更改。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="378"/>
@@ -2109,7 +2127,7 @@ Do you want to save your changes?</source>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Press the key combination you want to use.</source>
-        <translation type="unfinished"/>
+        <translation>按下您想使用的组合键。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
@@ -4496,7 +4514,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="535"/>
         <source>N&apos;Ko</source>
-        <translation type="unfinished"/>
+        <translation>N&apos;Ko</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="536"/>
@@ -4510,536 +4528,531 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
-        <source>Nepal Bhasa</source>
-        <translation>尼瓦尔语</translation>
+        <source>Nepal Bhasa/Newari</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
-        <source>Newari</source>
-        <translation>尼瓦里语</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Nias</source>
         <translation>尼亚斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Niger-Kordofanian languages</source>
         <translation>尼日尔-科尔多凡语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Nilo-Saharan languages</source>
         <translation>尼罗-撒哈拉语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Niuean</source>
         <translation>纽埃语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>No linguistic content/Not applicable</source>
         <translation>无语言内容/不适用</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Nogai</source>
         <translation>诺盖语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Norse- Old</source>
         <translation>古诺尔斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>North American Indian languages</source>
         <translation>北美洲印第安诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Northern Frisian</source>
         <translation>北弗里西亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>北索托语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Nubian languages</source>
         <translation>努比亚语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nyamwezi</source>
         <translation>尼亚姆韦齐语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Nyankole</source>
         <translation>尼扬科莱语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Nyoro</source>
         <translation>尼奥罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nzima</source>
         <translation>恩济马语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Occitan/Provençal- Old (to 1500)</source>
         <translation>古普罗旺斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>阿拉米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Osage</source>
         <translation>奥塞奇语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Otomian languages</source>
         <translation>奥托米语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Pahlavi</source>
         <translation>巴拉维语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Palauan</source>
         <translation>帕劳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Pangasinan</source>
         <translation>邦阿西楠语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Papiamento</source>
         <translation>帕皮阿门托语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Papuan languages</source>
         <translation>巴布亚诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>古波斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Philippine languages</source>
         <translation>菲律宾诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Phoenician</source>
         <translation>腓尼基语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Pohnpeian</source>
         <translation>波纳佩语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Prakrit languages</source>
         <translation>普拉克利特语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Rajasthani</source>
         <translation>拉贾斯坦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Rapanui</source>
         <translation>拉帕努伊语、复活节岛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Rarotongan, Cook Islands Maori</source>
-        <translation type="unfinished"/>
+        <translation>拉罗汤加语</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="571"/>
+        <source>Reserved for local use</source>
+        <translation>保留供本地使用</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
-        <source>Reserved for local use</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Romance languages</source>
         <translation>罗曼斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Romany</source>
         <translation>吉普赛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Salishan languages</source>
         <translation>萨利希语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Samaritan Aramaic</source>
         <translation>萨玛利亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Sami languages</source>
         <translation>萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Sandawe</source>
         <translation>桑达韦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Santali</source>
         <translation>桑塔尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Sasak</source>
         <translation>萨萨克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Scots</source>
         <translation>苏格兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Selkup</source>
         <translation>塞尔库普语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Semitic languages</source>
         <translation>闪米特语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Serer</source>
         <translation>谢列尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Shan</source>
         <translation>掸语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Sicilian</source>
         <translation>西西里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Sidamo</source>
         <translation>锡达莫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Sign Languages</source>
         <translation>手语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Siksika</source>
         <translation>西克西卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Sino-Tibetan languages</source>
         <translation>汉藏语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Siouan languages</source>
         <translation>操苏语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Skolt Sami</source>
         <translation>斯科特-萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Slave (Athapascan)</source>
         <translation>史拉维语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Slavic languages</source>
         <translation>斯拉夫语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Sogdian</source>
         <translation>粟特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Songhai languages</source>
         <translation>桑海语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Soninke</source>
         <translation>索宁克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Sorbian languages</source>
         <translation>索布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>South American Indian languages</source>
         <translation>南美印第安语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Southern Altai</source>
         <translation>南阿尔泰语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Southern Sami</source>
         <translation>南萨莫斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Sranan Tongo</source>
         <translation>苏里南汤加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sukuma</source>
         <translation>苏库马方言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Sumerian</source>
         <translation>闪族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Susu</source>
         <translation>苏苏语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>阿勒曼尼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Syriac</source>
         <translation>古代叙利亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Tai languages</source>
         <translation>泰语支</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Tamashek</source>
         <translation>塔马奇克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Tereno</source>
         <translation>特列纳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Tetum</source>
         <translation>德顿语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Tigre</source>
         <translation>提格雷语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Timne</source>
         <translation>滕内语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Tiv</source>
         <translation>蒂夫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Tlingit</source>
         <translation>特林吉特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Tok Pisin</source>
         <translation>巴布亚皮钦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Tokelau</source>
         <translation>托克劳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Tonga (Nyasa)</source>
         <translation>汤加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Tsimshian</source>
         <translation>钦西安语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tumbuka</source>
         <translation>奇图姆布卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tupi languages</source>
         <translation>瓜拉尼诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>土耳其-奥斯曼(1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tuvalu</source>
         <translation>图瓦卢</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tuvinian</source>
         <translation>图瓦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Udmurt</source>
         <translation>乌德穆尔特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Ugaritic</source>
         <translation>乌加里特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Umbundu</source>
         <translation>姆班杜语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Uncoded languages</source>
         <translation>未编码的语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Undetermined</source>
         <translation>待定的</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Upper Sorbian</source>
         <translation>上索布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Vai</source>
         <translation>瓦伊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Votic</source>
         <translation>沃提克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Wakashan languages</source>
         <translation>瓦卡什语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Waray</source>
         <translation>瓦瑞语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Washo</source>
         <translation>瓦绍语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Wolaitta, Wolaytta</source>
-        <translation type="unfinished"/>
+        <translation>Wolaitta, Wolaytta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Yakut</source>
         <translation>雅库特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Yao</source>
         <translation>瑶语 (马拉维)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Yapese</source>
         <translation>雅浦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Yupik languages</source>
         <translation>尤皮克语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Zande languages</source>
         <translation>赞德诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Zapotec</source>
         <translation>萨巴特克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Zenaga</source>
         <translation>哲纳加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Zuni</source>
         <translation>祖尼语</translation>
     </message>
@@ -6253,12 +6266,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1662"/>
         <source>&amp;Clips...</source>
-        <translation>剪切板管理器(&amp;C)...</translation>
+        <translation>剪切板(&amp;C)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1665"/>
         <source>Open the Clips.</source>
-        <translation>打开剪切板管理器。</translation>
+        <translation>打开剪切板。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1668"/>
@@ -6872,13 +6885,13 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="898"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1043"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1071"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1312"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1340"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1401"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2737"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1354"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1403"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2739"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -6964,97 +6977,97 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="1283"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1293"/>
         <source>Select the destination to paste into first.</source>
-        <translation type="unfinished"/>
+        <translation>选择粘贴到第一个目标。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1314"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1321"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>您确定要合并选定的文件吗？
 这个动作无法逆转。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1329"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>合并操作取消由于不是一个有效的XML文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1365"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1367"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>合并完成，您可能需要更新目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
         <source>Link Stylesheets cancelled due to XML not well formed.</source>
         <translation>链接样式表取消由于不是一个有效的XML文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
         <source>File(s) deleted.</source>
         <translation>文件已删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1510"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1512"/>
         <source>Generate TOC cancelled due to XML not well formed.</source>
         <translation>生存目录取消由于不是一个有效的XML文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1542"/>
         <source>Table Of Contents generated.</source>
         <translation>目录已生成。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1553"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
         <source>Create HTML TOC cancelled due to XML not well formed.</source>
         <translation>创建HTML目录取消由于不是一个有效的XML文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1726"/>
         <source>Meta Editor cancelled due to XML not well formed.</source>
         <translation>编辑元数据取消由于不是一个有效的XML文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1811"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1813"/>
         <source>Validation cancelled due to XML not well formed.</source>
         <translation>验证EPUB取消由于不是一个有效的XML文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>此EPUB没有包含任何CSS样式表来验证。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2548"/>
         <source>File cannot be split at this position.</source>
         <translation>文件在此处无法分割。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2564"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2566"/>
         <source>Split completed.</source>
         <translation>分割完成。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2575"/>
         <source>Split cancelled due to XML not well formed.</source>
         <translation>分割章节取消由于不是一个有效的XML文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2599"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2601"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>分割完成，您可能需要更新目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2610"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>没有拆分标记，点击菜单 插入-&gt; 拆分标记。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2826"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -7063,17 +7076,17 @@ This action cannot be reversed.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2846"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2848"/>
         <source>File loaded.</source>
         <translation>文件已加载。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2929"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2931"/>
         <source>File saved.</source>
         <translation>文件已保存。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
         <source>Cannot merge
 
 Cannot close tab: %1</source>
@@ -7089,7 +7102,7 @@ Cannot close tab: %1</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="264"/>
         <source>Navigation cancelled as location no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>导航取消因为位置不再存在。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="339"/>
@@ -7136,7 +7149,7 @@ Cannot close tab: %1</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="894"/>
         <source>These styles have been marked as unused because they were not matched by a class found in the HTML files.  You may want to manually verify the style is not used if the style is a complex CSS selector.</source>
-        <translation type="unfinished"/>
+        <translation>这些样式已标记为未使用，因为他们都没有匹配相应的 HTML 文件中找到的class。您可能需要手动验证样式是否被使用如果样式是一个复杂的CSS选择器。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="920"/>
@@ -7161,7 +7174,7 @@ Cannot close tab: %1</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1071"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation type="unfinished"/>
+        <translation>没有未使用的样式需删除。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1078"/>
@@ -7194,12 +7207,12 @@ Cannot close tab: %1</source>
         <translation>此处无法标记为索引。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1354"/>
         <source>Cannot merge file %1</source>
         <translation>无法合并件 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1403"/>
         <source>Cannot link stylesheets
 
 Cannot close tab: %1</source>
@@ -7208,93 +7221,108 @@ Cannot close tab: %1</source>
 无法关闭标签： %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1524"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
         <source>Generate TOC cancelled.</source>
         <translation>取消生成目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1545"/>
         <source>No Table Of Contents changes were necessary.</source>
-        <translation type="unfinished"/>
+        <translation>目录变动不是必要的。 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2456"/>
         <source>Line: %1, Col: %2</source>
         <translation>行：%1，列：%2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2740"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>该文件已被修改。
 是否保存更改？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2863"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2865"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>这个文件的创建者使用DRM加密。Sigil无法打开此类文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2874"/>
         <source>Cannot load EPUB: %1</source>
         <translation>无法加载EPUB：%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2880"/>
         <source>Cannot load file %1: %2</source>
         <translation>无法加载文件%1：%2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2896"/>
         <source>Saving file...</source>
         <translation> 正在保存文件...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2904"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2906"/>
         <source>Sigil currently cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>当前Sigil无法保存为“%1”格式。
 请选择别的格式。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
         <source>Cannot save file %1: %2</source>
         <translation>无法保存文件%1：%2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3068"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3070"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3069"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3070"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML文件(*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3074"/>
         <source>Text files (*.txt)</source>
         <translation>文本文件(*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3075"/>
         <source>All files (*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3085"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3179"/>
+        <source>Preserve existing heading attributes is now:</source>
+        <translation>保留现有的标题属性是：</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <source>ON</source>
+        <translation>ON</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <source>OFF</source>
+        <translation>OFF</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3211"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -7538,12 +7566,12 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="251"/>
         <source>Rights</source>
-        <translation>权限管理</translation>
+        <translation>权限</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="251"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation>有关资源本身所有的或被赋予的权限信息。一般而言，权限管理元素应包括一个对资源的权限管理声明，或者是对提供这一信息的服务的参照。权限管理一般包括知识产权(IPR)，版权或其他各种各样的产权。如果没有权限管理元素的标注，不可以对与资源相关的上述或其他权利的情况作出任何假定。</translation>
+        <translation>有关资源本身所有的或被赋予的权限信息。一般而言，权限管理元素应包括一个对资源的版权声明，或者是对提供这一信息的服务的参照。权限管理一般包括知识产权(IPR)，版权或其他各种各样的产权。如果没有权限管理元素的标注，不可以对与资源相关的上述或其他权利的情况作出任何假定。</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="252"/>
@@ -8253,7 +8281,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="244"/>
         <source>Enter your own event name in the File As column, e.g. updated.</source>
-        <translation type="unfinished"/>
+        <translation>在File As栏中输入事件名，例如：updated。</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="256"/>
@@ -9885,7 +9913,7 @@ entries of the same type.</source>
         <translation>添加现有文件...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="647"/>
+        <location filename="../../BookManipulation/Book.cpp" line="645"/>
         <source>Merging Files..</source>
         <translation>合并文件中..</translation>
     </message>
@@ -9943,7 +9971,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="96"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>版权页</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="99"/>
@@ -9993,14 +10021,14 @@ entries of the same type.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="111"/>
         <source>The OPF file does not contain a valid spine.</source>
-        <translation type="unfinished"/>
+        <translation>OPF文件不包含有效的书脊。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="112"/>
         <location filename="../../Importers/ImportOEBPS.cpp" line="350"/>
         <location filename="../../Importers/ImportOEBPS.cpp" line="354"/>
         <source>Sigil has created a new one for you.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil已经创建了一个新的对象。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="160"/>
@@ -10160,7 +10188,8 @@ All numbers at the END of the text will be replaced sequentially starting at the
         <source>Run Find using the selected entry.
 If a group is selected, find the first entry in the list, 
 then if not found look for the second entry in the list, etc.</source>
-        <translation type="unfinished"/>
+        <translation>按选定的模板查找匹配项。
+如果选择了一个组，首先使用第一个搜索模板，如第一个搜索模板无效，则使用第二个搜索模板查找，以此类推。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
@@ -10173,14 +10202,18 @@ then if not found look for the second entry in the list, etc.</source>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
-        <translation type="unfinished"/>
+        <translation>使用选定的条目替换。
+如果一组被选中，遍历每个条目
+并在第一次成功的替换的时候停止。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="131"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
-        <translation type="unfinished"/>
+        <translation>使用选定的条目运行替换/查找。
+如果一组被选中，遍历每个条目
+并在第一次成功的替换/查找的时候停止。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
@@ -10191,13 +10224,15 @@ and stop at the first successful replace/find.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
-        <translation type="unfinished"/>
+        <translation>执行全部替换为选定的项目中选定的顺序。
+选择一组更换该组中的所有条目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation type="unfinished"/>
+        <translation>按选定的模板计算所有匹配项。
+如果选择了一个组，则依次按顺序进行操作。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
@@ -10246,12 +10281,13 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="354"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
-        <translation type="unfinished"/>
+        <translation>点击应用加载选定的搜索模板到查找&amp;替换窗口。 点击OK加载您的搜索,保存您的数据，并关闭。
+</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>All searches default to Regex, All HTML Files, Down.</source>
-        <translation type="unfinished"/>
+        <translation>缺省情况下，所有搜索模板的搜索范围是所有的HTML文件、向下搜索。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
@@ -10291,7 +10327,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
         <source>Load the selected entry into the Find &amp; Replace window.</source>
-        <translation type="unfinished"/>
+        <translation>加载选定的搜索模板到查找&amp;替换窗口。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="78"/>
@@ -10306,7 +10342,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="78"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>如果Sigil的任何其他实例正在运行，他们将自动更新您所做的更改。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
@@ -10321,7 +10357,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="208"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation type="unfinished"/>
+        <translation>使用此操作时，您不能选择多个条目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="217"/>
@@ -10459,7 +10495,7 @@ Do you want to save your changes?</source>
         <translation>替换</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="609"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="613"/>
         <source>Unable to create file %1</source>
         <translation>无法创建文件 %1</translation>
     </message>
@@ -10495,7 +10531,8 @@ Do you want to save your changes?</source>
 double click on existing destinations in your book from the list above.
 
 All existing tags will be removed from the selected text.</source>
-        <translation type="unfinished"/>
+        <translation>键入此超链接的URL。 您也可以在上面的列表中
+选择或双击现有的的目标插到书籍中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="64"/>
@@ -10503,7 +10540,7 @@ All existing tags will be removed from the selected text.</source>
         <translation>目标：</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectHyperlink.cpp" line="66"/>
+        <location filename="../../Dialogs/SelectHyperlink.cpp" line="67"/>
         <source>Targets in the Book</source>
         <translation>书中的目标</translation>
     </message>
@@ -10520,7 +10557,9 @@ All existing tags will be removed from the selected text.</source>
         <source>Enter an ID name to use as a destination for hyperlinks, footnotes, and TOC entries.
 
 The dropdown box shows existing ID names in the current file.   ID names must be unique.</source>
-        <translation type="unfinished"/>
+        <translation>请输入要用作超链接、 脚注和目录条目的ID 名称。
+
+下拉框中显示了在当前文件中现有的ID名。 ID名称必须是唯一的。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="27"/>
@@ -10619,36 +10658,24 @@ add to your book and then insert into your document.</source>
         <translation>词典：</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="70"/>
-        <source>&lt;p&gt;Open the directory where Sigil looks for additional hunspell dictionaries.&lt;/p&gt;
-&lt;p&gt;Dictionaries in this location will be added to the list you can choose from and will override default dictionaries that have the same name.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;打开用户词典文件夹&lt;/p&gt;
-&lt;p&gt;你可以选择添加到词典列表，会覆盖具有相同名称的默认词典。&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="74"/>
-        <source>Open Dictionary Directory</source>
-        <translation>打开词典文件夹</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="127"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="110"/>
         <source>User Dictionary</source>
         <translation>用户词典</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="125"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="177"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="160"/>
         <source>User Dictionary Word List</source>
         <translation>用户字典列表</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="192"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="118"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="175"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
@@ -10658,18 +10685,18 @@ add to your book and then insert into your document.</source>
         <translation>拼写检查字典</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="199"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="182"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="206"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="132"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="189"/>
         <source>Remove</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="213"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="196"/>
         <source>Remove All</source>
         <translation>全部删除</translation>
     </message>
@@ -10689,7 +10716,6 @@ add to your book and then insert into your document.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="86"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="121"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="283"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
@@ -10709,18 +10735,13 @@ add to your book and then insert into your document.</source>
         <source>Could not rename file!</source>
         <translation>无法重命名！</translation>
     </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="283"/>
-        <source>Could not open user dictionary location %1</source>
-        <translation>无法打开用户词典的位置%1</translation>
-    </message>
 </context>
 <context>
     <name>StylesInCSSFilesWidget</name>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="14"/>
         <source>Style Classes in CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>在CSS文件中的样式类</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
@@ -10750,7 +10771,7 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="91"/>
@@ -10881,7 +10902,7 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="43"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found &lt;b&gt;at or above line %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;操作请求不能执行，因为&lt;b&gt;%1&lt;/b&gt; 不是一个有效的XML文档。&lt;/p&gt;&lt;p&gt;在&lt;b&gt;行%2: %3发现一个错误。&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;手动修复&lt;/i&gt;选项可以让您手动解决此问题&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="48"/>
