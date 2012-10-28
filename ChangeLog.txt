@@ -1,5 +1,4 @@
-Sigil 0.6.0 TBA 
-    - Implement issue 1664: Improve performance of opening and changing tabs.
+Sigil 0.6.0 2012.10.27
     - Implement issue 1664: Improve performance of opening and changing tabs.
     - Implement issue 1665: Attempt to recover EPUB if it is missing an ncx file.
     - Implement issue 1643: Change Clean Source default to Pretty Print instead of Tidy.
