@@ -5,7 +5,7 @@
 	<key>CFBundleVersion</key>
 	<string>SGVERSION</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © Strahinja Markovic 2010, GNU GPL v3, CC 3.0 BY-SA</string>
+	<string>Copyright © Sigil Authors 2010-2012, GNU GPL v3</string>
 	<key>CFBundleShortVersionString</key>
 	<string>SGVERSION</string>
 	<key>CFBundleGetInfoString</key>
@@ -14,26 +14,6 @@
 	<string>com.sigil-ebook.Sigil.app</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>sgf</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>sgf.icns</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>application/x-sgf</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>Sigil Document</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>SglF</string>
-			</array>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -71,5 +51,7 @@
 	<string>Sigl</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
 </dict>
 </plist>
