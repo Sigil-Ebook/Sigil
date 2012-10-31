@@ -152,7 +152,7 @@ QStringList HTMLResource::GetPathsToLinkedResources()
 
 void HTMLResource::TrackNewResources(const QStringList &filepaths)
 {
-    disconnect(this, SIGNAL(LinkedResourceUpdated()));
+    disconnect(this, 0, 0, 0);
 
     QStringList filenames;
     QStringList linkedResourceIDs;
