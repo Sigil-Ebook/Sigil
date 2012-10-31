@@ -50,7 +50,7 @@ public:
      *
      * @param content The GUI element containing well-formed content.
      */
-    WellFormedCheckComponent( WellFormedContent &content );
+    WellFormedCheckComponent( WellFormedContent &content, QWidget *parent=0 );
 
     /**
      * Destructor.

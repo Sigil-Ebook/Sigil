@@ -29,7 +29,7 @@ XMLTab::XMLTab( XMLResource& resource, int line_to_scroll_to, QWidget *parent )
     :
     TextTab( resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, parent ),
     m_XMLResource( resource ),
-    m_WellFormedCheckComponent( *new WellFormedCheckComponent( *this ) )
+    m_WellFormedCheckComponent( *new WellFormedCheckComponent( *this, parent ) )
 {
     ConnectSignalsToSlots();
 }

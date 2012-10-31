@@ -29,7 +29,7 @@
 #include "Tabs/WellFormedCheckComponent.h"
 #include "Tabs/WellFormedContent.h"
 
-WellFormedCheckComponent::WellFormedCheckComponent( WellFormedContent &content )
+WellFormedCheckComponent::WellFormedCheckComponent( WellFormedContent &content, QWidget *parent )
     :
     QObject(),
     m_Content( content ),
@@ -49,14 +49,7 @@ WellFormedCheckComponent::WellFormedCheckComponent( WellFormedContent &content )
         "<p>The <i>Fix Automatically</i> option will instruct Sigil to try to "
         "repair the document. <b>This option may lead to loss of data!</b></p>" );
 
-    // Find the parent main window. Hopefully one day we will have a better way,
-    // right now the first tab is created before the show() event so we cannot
-    // rely on anything hooked to qApp.
-    QWidget *p = dynamic_cast<QWidget *>(&content);
-    while (p && !dynamic_cast<QMainWindow *>(p)) {
-        p = p->parentWidget();
-    }
-    m_MessageBox = new QMessageBox(p);
+    m_MessageBox = new QMessageBox(parent);
 
     m_MessageBox->setWindowTitle( "Sigil" );
     m_MessageBox->setIcon( QMessageBox::Critical );
