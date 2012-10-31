@@ -27,7 +27,7 @@ on Unix systems. After installing CMake, you can see a list of generators
 provided on your system by typing `cmake` in your terminal and pressing enter.
 The supported generators should be listed near the bottom of the printout.
 
-Qt 4.7.x is also required on all platforms. It can be downloaded
+Qt 4.8.x is also required on all platforms. It can be downloaded
 [http://qt.nokia.com/downloads here] (choose the LGPL version).  
 
 Mac users should not use the Qt SDK. Instead use the Qt library package instead.
