@@ -134,7 +134,7 @@ if a sans-serif font-family specified in your CSS</string>
          </layout>
         </item>
         <item>
-         <spacer name="horizontalSpacerBV">
+         <spacer name="horizontalSpacerBV2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -355,7 +355,7 @@ if a sans-serif font-family specified in your CSS</string>
        </layout>
       </item>
       <item>
-       <spacer name="horizontalSpacerSC">
+       <spacer name="horizontalSpacerSC2">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
