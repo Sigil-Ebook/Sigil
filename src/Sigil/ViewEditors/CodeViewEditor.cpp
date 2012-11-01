@@ -2981,7 +2981,7 @@ void CodeViewEditor::SelectAndScrollIntoView(int start_position, int end_positio
     if (direction == Searchable::Direction_Down || start_block.blockNumber() < end_block.blockNumber()) {
         QTextBlock last_visible_block =  cursorForPosition(QPoint(viewport()->width(), viewport()->height())).block();
         QTextBlock next_block = end_block.next();
-        while (next_block.blockNumber() < blockCount() - 1 && next_block.text().isEmpty()) {
+        while (next_block.blockNumber() > 0 && next_block.blockNumber() < blockCount() - 1 && next_block.text().isEmpty()) {
             next_block = next_block.next();
         }
         if (!next_block.isValid()) {
