@@ -194,6 +194,8 @@ void Resource::ResourceFileModified()
 
     if ( (latestWrittenTo != m_LastWrittenTo) || (latestWrittenSize != m_LastWrittenSize ) ) {
         // The file is still being written to.
+        m_LastWrittenTo = latestWrittenTo;
+        m_LastWrittenSize = latestWrittenSize;
         QTimer::singleShot( WAIT_FOR_WRITE_DELAY, this, SLOT( ResourceFileModified() ) );
     }
     else {
