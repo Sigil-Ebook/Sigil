@@ -435,7 +435,6 @@ then find the Next match in Code View.</string>
   <tabstop>replaceFind</tabstop>
   <tabstop>replaceCurrent</tabstop>
   <tabstop>replaceAll</tabstop>
-  <tabstop>tokenise</tabstop>
   <tabstop>count</tabstop>
   <tabstop>close</tabstop>
  </tabstops>
