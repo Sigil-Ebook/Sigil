@@ -30,10 +30,12 @@ Importer::Importer( const QString &fullfilepath )
 
 }
 
-bool Importer::IsValidToLoad()
+XhtmlDoc::WellFormedError Importer::CheckValidToLoad()
 {
     // Default behaviour is to assume resource is valid.
-    return true;
+    XhtmlDoc::WellFormedError error;
+    error.line = -1;
+    return error;
 }
 
 QStringList Importer::GetLoadWarnings()

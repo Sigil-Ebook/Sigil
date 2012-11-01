@@ -65,11 +65,10 @@ void ImportHTML::SetBook( QSharedPointer< Book > book, bool ignore_duplicates )
 }
 
 
-bool ImportHTML::IsValidToLoad()
+XhtmlDoc::WellFormedError ImportHTML::CheckValidToLoad()
 {
     // For HTML & XML documents we will perform a well-formed check
-    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(LoadSource());
-    return error.line == -1;
+    return XhtmlDoc::WellFormedErrorForSource(LoadSource());
 }
 
 

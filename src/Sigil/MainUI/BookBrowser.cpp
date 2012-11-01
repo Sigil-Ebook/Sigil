@@ -606,8 +606,9 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
         else if ( TEXT_EXTENSIONS.contains( QFileInfo( filepath ).suffix().toLower() ) )
         {
             ImportHTML html_import( filepath );
-            if ( !html_import.IsValidToLoad() ) {
-                invalid_filenames.append(QDir::toNativeSeparators(filepath));
+            XhtmlDoc::WellFormedError error = html_import.CheckValidToLoad();
+            if ( error.line != -1 ) {
+                invalid_filenames << QString("%1 (line %2)").arg(QDir::toNativeSeparators(filepath)).arg(error.line);
                 continue;
             }
 

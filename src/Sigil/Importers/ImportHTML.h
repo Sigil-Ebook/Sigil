@@ -24,6 +24,7 @@
 #define IMPORTHTML_H
 
 #include "BookManipulation/XercesHUse.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "Importers/Importer.h"
 
 class HTMLResource;
@@ -43,7 +44,7 @@ public:
     // in which to load HTML files (and their dependencies).
     void SetBook( QSharedPointer< Book > book, bool ignore_duplicates );
 
-    virtual bool IsValidToLoad();
+    virtual XhtmlDoc::WellFormedError CheckValidToLoad();
 
     // Reads and parses the file 
     // and returns the created Book.
