@@ -23,6 +23,7 @@
 #include <QtCore/QSize>
 #include <QtCore/QTimer>
 #include <QtCore/QUrl>
+#include <QtGui/QMenu>
 #include <QtGui/QMessageBox>
 #include <QtWebKit/QWebFrame>
 
@@ -49,6 +50,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
       c_GetBlock(         Utility::ReadUnicodeTextFile( ":/javascript/get_block.js"                  ) ),
       m_isLoadFinished(false),
       m_ViewWebPage(new ViewWebPage(this)),
+      m_ContextMenu( *new QMenu( this ) ),
       c_jQuery(           Utility::ReadUnicodeTextFile( ":/javascript/jquery-1.6.2.min.js"           ) ),
       c_jQueryScrollTo(   Utility::ReadUnicodeTextFile( ":/javascript/jquery.scrollTo-1.4.2-min.js"  ) ),
       c_jQueryWrapSelection( Utility::ReadUnicodeTextFile( ":/javascript/jquery.wrapSelection.js"    ) ),
@@ -60,7 +62,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
       m_pendingLoadCount(0),
       m_pendingScrollToFragment( QString() )
 {
-    setContextMenuPolicy(Qt::NoContextMenu);
+    setContextMenuPolicy(Qt::CustomContextMenu);
 
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
@@ -73,9 +75,9 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
 
-    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
-    connect(page(), SIGNAL(linkClicked(const QUrl&)), SIGNAL(LinkClicked(const QUrl&)));
-    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
+    CreateContextMenuActions();
+
+    ConnectSignalsToSlots();
 }
 
 BookViewPreview::~BookViewPreview()
@@ -83,6 +85,10 @@ BookViewPreview::~BookViewPreview()
     if (m_ViewWebPage != NULL) {
         delete m_ViewWebPage;
         m_ViewWebPage = NULL;
+    }
+    if (m_InspectElement) {
+        delete m_InspectElement;
+        m_InspectElement = 0;
     }
 }
 
@@ -713,3 +719,40 @@ void BookViewPreview::ScrollToNodeText( const xc::DOMNode &node, int character_o
     page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
 }
 
+void BookViewPreview::InspectElement()
+{
+    page()->triggerAction(QWebPage::InspectElement);
+}
+
+void BookViewPreview::CreateContextMenuActions()
+{
+    m_InspectElement = new QAction( tr( "Inspect Element" ), this );
+
+}
+
+void BookViewPreview::OpenContextMenu( const QPoint &point )
+{
+    if ( !SuccessfullySetupContextMenu( point ) )
+
+        return;
+
+    m_ContextMenu.exec( mapToGlobal(point) );
+    m_ContextMenu.clear();
+}
+
+bool BookViewPreview::SuccessfullySetupContextMenu( const QPoint &point )
+{
+    m_ContextMenu.addAction( m_InspectElement );
+    m_InspectElement->setEnabled(page()->action(QWebPage::InspectElement)->isEnabled());
+    return true;
+}
+
+void BookViewPreview::ConnectSignalsToSlots()
+{
+    connect( this,  SIGNAL(customContextMenuRequested(const QPoint&) ), this, SLOT( OpenContextMenu(const QPoint&) ));
+    connect( m_InspectElement,    SIGNAL( triggered() ),  this, SLOT( InspectElement()    ) );
+
+    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
+    connect(page(), SIGNAL(linkClicked(const QUrl&)), SIGNAL(LinkClicked(const QUrl&)));
+    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
+}

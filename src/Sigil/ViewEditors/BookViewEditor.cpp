@@ -73,7 +73,6 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     :
     BookViewPreview(parent),
     m_WebPageModified( false ),
-    m_ContextMenu( *new QMenu( this ) ),
     m_clipMapper( new QSignalMapper( this ) ),
     m_OpenWithContextMenu( *new QMenu( this ) ),
     m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this, 0, 0, Qt::WidgetShortcut ) ) ),
@@ -960,7 +959,6 @@ void BookViewEditor::ConnectSignalsToSlots()
 
     connect( page(), SIGNAL( contentsChanged()  ),      this,   SLOT( SetWebPageModified()       ) );
 
-    connect( this,             SIGNAL( customContextMenuRequested(const QPoint&) ),  this, SLOT( OpenContextMenu(const QPoint&) ) );
     connect( m_InsertImage,    SIGNAL( triggered() ),  this, SLOT( insertImage()    ) );
     connect( m_Undo,           SIGNAL( triggered() ),  this, SLOT( Undo()           ) );
     connect( m_Redo,           SIGNAL( triggered() ),  this, SLOT( Redo()           ) );

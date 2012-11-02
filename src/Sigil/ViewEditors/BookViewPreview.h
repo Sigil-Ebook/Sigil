@@ -163,6 +163,17 @@ protected slots:
      */
     void UpdateFinishedState(int progress);
 
+    /**
+     * Opens the context menu at the requested point.
+     *
+     * @param point The point at which the menu should be opened.
+     */
+    virtual void OpenContextMenu( const QPoint &point );
+
+protected:
+
+    QMenu &m_ContextMenu;
+
 private slots:
     
     /**
@@ -174,6 +185,8 @@ private slots:
     {
         ExecuteCaretUpdate();
     }
+
+    void InspectElement();
 
 private:
 
@@ -347,6 +360,22 @@ private:
 
     void StoreCurrentCaretLocation();
 
+    void CreateContextMenuActions();
+
+    /**
+     * Tries to setup the context menu for the specified point,
+     * and returns true on success.
+     *
+     * @param point The point at which the menu should be opened.
+     * @return \c true if the menu could be set up.
+     */
+    bool SuccessfullySetupContextMenu( const QPoint &point );
+
+    /**
+     * Connects all the required signals to their respective slots.
+     */
+    void ConnectSignalsToSlots();
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
@@ -407,6 +436,8 @@ private:
 
     int m_pendingLoadCount;
     QString m_pendingScrollToFragment;
+
+    QAction *m_InspectElement;
 };
 
 #endif // BOOKVIEWPREVIEW_H

@@ -395,14 +395,6 @@ private:
      */
     bool m_WebPageModified;
 
-    /**
-     * The right-click context menu. Do not want to use the Qt default one
-     * because it has duplicate entries (in Qt 4.8), has context sensitive
-     * entries on links that make no sense in Sigil, and we may add custom
-     * entries to the menu anyway.
-     */
-    QMenu &m_ContextMenu;
-
     QSignalMapper *m_clipMapper;
 
     /**
