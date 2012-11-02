@@ -1783,6 +1783,11 @@ void MainWindow::AboutDialog()
 
 void MainWindow::PreferencesDialog()
 {
+    if ( !m_TabManager.IsAllTabDataWellFormed() ) {
+        ShowMessageOnStatusBar(tr("Preferences cancelled due to XML not well formed."));
+        return;
+    }
+
     Preferences preferences( this );
     preferences.exec();
 
