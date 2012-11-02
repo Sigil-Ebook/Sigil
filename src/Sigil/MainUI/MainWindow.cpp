@@ -2821,7 +2821,7 @@ void MainWindow::LoadFile( const QString &fullfilepath )
         // (destructors take care of that)
         Importer &importer = importerFactory.GetImporter( fullfilepath );
 
-        XhtmlDoc::WellFormedError &error = importer.CheckValidToLoad();
+        XhtmlDoc::WellFormedError error = importer.CheckValidToLoad();
         if ( error.line != -1 ) {
             // Warn the user their content is invalid.
             Utility::DisplayStdErrorDialog( tr( "The following file was not loaded due to invalid content or not well formed XML:\n\n%1 (line %2)" )
