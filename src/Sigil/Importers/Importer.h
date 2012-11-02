@@ -26,7 +26,7 @@
 #include <QtCore/QSharedPointer>
 
 #include "BookManipulation/Book.h"
-#include "BookManipulation/XHtmlDoc.h"
+#include "BookManipulation/XhtmlDoc.h"
 
 /**
  * The abstract base class for Importers. 
