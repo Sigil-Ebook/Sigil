@@ -43,8 +43,6 @@ MetaEditor::MetaEditor( OPFResource &opf, QWidget *parent )
 {
     ui.setupUi( this );	
 
-    PlatformSpecificTweaks();
-
     ConnectSignals();
 
     SetUpMetaTable();
@@ -543,16 +541,6 @@ void MetaEditor::WriteSettings()
     settings.endArray();
 
     settings.endGroup();
-}
-
-void MetaEditor::PlatformSpecificTweaks()
-{
-#ifdef Q_WS_WIN
-    // Increasing the spacing between the controls so they
-    // line up nicely with the buttons on Windows. Setting 
-    // this for other platforms has the opposite effect.
-    ui.formLayout->setVerticalSpacing( 13 );
-#endif
 }
 
 void MetaEditor::MoveUp()

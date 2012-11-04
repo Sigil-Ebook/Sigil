@@ -198,11 +198,6 @@ private:
      */
     void ReadSettings();
 
-    /**
-     * Performs specific changes based on the OS platform.
-     */
-    void PlatformSpecificTweaks();
-
 	// Setup signal connections
     void ConnectSignals();
 
