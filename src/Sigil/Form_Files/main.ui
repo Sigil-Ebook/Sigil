@@ -859,6 +859,9 @@
    <property name="text">
     <string>&amp;Generate Table Of Contents...</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/generate-toc_22px.png</normaloff>:/main/generate-toc_22px.png</iconset>
@@ -1186,7 +1189,7 @@
     <string>Show the enclosing tag HTML for the cursor position in Book View/Preview View.</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+T</string>
+    <string>Ctrl+Alt+T</string>
    </property>
   </action>
   <action name="actionFind">
