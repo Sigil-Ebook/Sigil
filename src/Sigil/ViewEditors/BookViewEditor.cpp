@@ -20,12 +20,12 @@
 *************************************************************************/
 
 #include <QApplication>
-#include <QClipboard>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 #include <QtCore/QEvent>
 #include <QtCore/QTimer>
 #include <QtCore/QSignalMapper>
+#include <QtGui/QClipboard>
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
@@ -113,6 +113,10 @@ BookViewEditor::~BookViewEditor()
     if (m_Copy) {
         delete m_Copy;
         m_Copy = 0;
+    }
+    if (m_CopyImage) {
+        delete m_CopyImage;
+        m_CopyImage = 0;
     }
     if (m_Paste) {
         delete m_Paste;
@@ -645,6 +649,16 @@ void BookViewEditor::paste()
     page()->triggerAction( QWebPage::Paste );
 }
 
+void BookViewEditor::copyImage()
+{
+    const QVariant& data = m_CopyImage->data();
+    if ( data.isValid() ) {
+        const QUrl &resourceUrl = data.toUrl();
+        const QImage img(resourceUrl.toLocalFile());
+        QApplication::clipboard()->setImage(img);
+    }
+}
+
 void BookViewEditor::selectAll()
 {
     page()->triggerAction( QWebPage::SelectAll );
@@ -761,12 +775,14 @@ void BookViewEditor::OpenContextMenu( const QPoint &point )
 bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
 {
     const QWebFrame *frame = page()->frameAt(point);
+    bool has_image = false;
     if (frame)
     {
         const QWebHitTestResult& hitTest = frame->hitTestContent(point);
         QUrl imageUrl = hitTest.imageUrl();
         if ( imageUrl.isValid() && imageUrl.isLocalFile() )
         {
+            has_image = true;
 
             // Open in image tab
             QString filename = imageUrl.toString();
@@ -807,6 +823,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
 
             // Save As
             m_SaveAs->setData( imageUrl );
+            m_CopyImage->setData( imageUrl );
             m_ContextMenu.addAction( m_SaveAs );
 
             m_ContextMenu.addSeparator();
@@ -828,6 +845,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
     m_ContextMenu.addSeparator();
     m_ContextMenu.addAction( m_Cut );
     m_ContextMenu.addAction( m_Copy );
+    m_ContextMenu.addAction( m_CopyImage );
     m_ContextMenu.addAction( m_Paste );
     m_ContextMenu.addSeparator();
     m_ContextMenu.addAction( m_SelectAll );
@@ -835,6 +853,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
     bool has_selection = !selectedText().isEmpty();
     m_Cut->setEnabled(has_selection);
     m_Copy->setEnabled(has_selection);
+    m_CopyImage->setEnabled(has_image);
 
     return true;
 }
@@ -933,6 +952,7 @@ void BookViewEditor::CreateContextMenuActions()
 
     m_Cut       = new QAction( tr( "Cut" ),         this );
     m_Copy      = new QAction( tr( "Copy" ),        this );
+    m_CopyImage = new QAction( tr( "Copy Image" ),  this );
     m_Paste     = new QAction( tr( "Paste" ),       this );
     m_SelectAll = new QAction( tr( "Select All" ),  this );
 
@@ -964,6 +984,7 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect( m_Redo,           SIGNAL( triggered() ),  this, SLOT( Redo()           ) );
     connect( m_Cut,            SIGNAL( triggered() ),  this, SLOT( cut()            ) );
     connect( m_Copy,           SIGNAL( triggered() ),  this, SLOT( copy()           ) );
+    connect( m_CopyImage,      SIGNAL( triggered() ),  this, SLOT( copyImage()      ) );
     connect( m_Paste,          SIGNAL( triggered() ),  this, SLOT( paste()          ) );
     connect( m_SelectAll,      SIGNAL( triggered() ),  this, SLOT( selectAll()      ) );
     connect( m_Open,           SIGNAL( triggered() ),  this, SLOT( openImage()      ) );

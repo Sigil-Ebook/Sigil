@@ -203,6 +203,7 @@ public slots:
 
     void insertImage();
     void openImage();
+    void copyImage();
 
     void openWith();
     void openWithEditor();
@@ -405,6 +406,7 @@ private:
 
     QAction *m_Cut;
     QAction *m_Copy;
+    QAction *m_CopyImage;
     QAction *m_Paste;
     QAction *m_SelectAll;
 
