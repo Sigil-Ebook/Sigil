@@ -43,7 +43,11 @@ LanguageWidget::LanguageWidget()
     QStringList ui_language_names;
     foreach( QString language_code, UILanguage::GetUILanguages() )
     {
-        ui_language_names.append( Language::instance()->GetLanguageName( language_code ) );
+        QString language_name = Language::instance()->GetLanguageName( language_code );
+        if (language_name.isEmpty()) {
+            language_name = language_code;
+        }
+        ui_language_names.append( language_name );
     }
     ui_language_names.sort();
 

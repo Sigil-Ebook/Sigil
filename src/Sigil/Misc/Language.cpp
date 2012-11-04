@@ -180,6 +180,7 @@ void Language::SetLanguageMap()
         "de_LU" << tr("German") % " - " % tr ("Luxembourg") <<
         "de_CH" << tr("German") % " - " % tr ("Switzerland") <<
         "el"    << tr("Greek, Modern") <<
+        "el_GR" << tr("Greek") <<
         "gn"    << tr("Guarani") <<
         "gu"    << tr("Gujarati") <<
         "ht"    << tr("Haitian") <<
@@ -193,6 +194,7 @@ void Language::SetLanguageMap()
         "io"    << tr("Ido") <<
         "ig"    << tr("Igbo") <<
         "id"    << tr("Indonesian") <<
+        "id_ID" << tr("Indonesian - Indonesia") <<
         "ia"    << tr("Interlingua") <<
         "ie"    << tr("Interlingue") <<
         "iu"    << tr("Inuktitut") <<
@@ -263,6 +265,7 @@ void Language::SetLanguageMap()
         "qu"    << tr("Quechua") <<
         "ro"    << tr("Romanian") <<
         "ro_MO" << tr("Romanian") % " - " % tr ("Moldova") <<
+        "ro_RO" << tr("Romanian") % " - " % tr ("Romania") <<
         "rm"    << tr("Romansh") <<
         "rn"    << tr("Rundi") <<
         "ru"    << tr("Russian") <<
