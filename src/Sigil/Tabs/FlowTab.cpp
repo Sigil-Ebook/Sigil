@@ -1163,7 +1163,15 @@ bool FlowTab::InsertHyperlink(const QString &href)
 
 void FlowTab::InsertImage( const QString &image_path )
 {
-    QString html = QString("<img src=\"%1\"/>").arg(image_path);
+    QString filename = image_path;
+    if (filename.contains("/")) {
+        filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
+    }
+    if (filename.contains(".")) {
+        filename = filename.left(filename.lastIndexOf("."));
+    }
+
+    QString html = QString("<img alt=\"%1\" src=\"%2\"/>").arg(filename).arg(image_path);
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->InsertHtml(html);
