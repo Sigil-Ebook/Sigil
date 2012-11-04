@@ -467,13 +467,13 @@ void MetaEditor::SetUpMetaTable()
     ui.tvMetaTable->setModel( &m_MetaModel );
 
     // Make the header fill all the available space
-    ui.tvMetaTable->horizontalHeader()->setStretchLastSection( false );
+    ui.tvMetaTable->horizontalHeader()->setStretchLastSection( true );
     ui.tvMetaTable->verticalHeader()->setResizeMode( QHeaderView::ResizeToContents );
 
     // Divide column widths roughly equally for default view
     int columnCount = m_MetaModel.columnCount();
     for (int i=0; i < columnCount; i++) {
-        ui.tvMetaTable->setColumnWidth(i, 160);
+        ui.tvMetaTable->setColumnWidth(i, 155);
     }
 
     ui.tvMetaTable->setSortingEnabled( false );
