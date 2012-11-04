@@ -1188,17 +1188,6 @@ void OPFResource::WriteCreatorOrContributor( const Metadata::MetaElement book_me
         role_type = "contributor";
     }
 
-    // if the name is written in standard form 
-    // ("John Doe"), just write it out
-    // Otherwise it is written in reversed form
-    // ("Doe, John") and we write the reversed form
-    // to the "file-as" attribute and the normal form as the value
-    if ( !(GetNormalName( value ) == value) && file_as.isEmpty() )
-    {
-        file_as = book_meta.value.toString();
-        value = GetNormalName( book_meta.value.toString() );
-    }   
-
     // This assumes that the "dc" prefix has been declared for the DC namespace
     xc::DOMElement *element = document.createElementNS( QtoX( DUBLIN_CORE_NS ), QtoX( "dc:" + role_type ) );
 
@@ -1311,18 +1300,6 @@ void OPFResource::WriteDate(
 
     xc::DOMElement &metadata = GetMetadataElement( document );
     metadata.appendChild( element );
-}
-
-
-QString OPFResource::GetNormalName( const QString &name )
-{
-    if ( !name.contains( "," ) )
-
-        return name;
-
-    QStringList splits = name.split( "," );
-
-    return splits[ 1 ].trimmed() + " " + splits[ 0 ].trimmed();
 }
 
 

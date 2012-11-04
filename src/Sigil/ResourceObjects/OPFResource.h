@@ -256,17 +256,6 @@ private:
      */
     static void WriteDate( const QString &metaname, const QVariant &metavalue, xc::DOMDocument &document );
 
-    /**
-     * Takes the reversed form of a name ("Doe, John")
-     * and returns the normal form ("John Doe"). If the
-     * provided name is already normal, returns an empty string
-     *
-     * @param name The name in reversed form.
-     * @return The normalized name, or an empty string if the name 
-     *         was already normalized.
-     */
-    static QString GetNormalName( const QString &name );
-
     static bool BasicStructurePresent( const xc::DOMDocument &document );
 
     boost::shared_ptr< xc::DOMDocument > CreateOPFFromScratch() const;

@@ -329,7 +329,14 @@ void MetaEditor::FillMetadataFromDialog()
     // Author is stored using relator
 
     AddMetaElements( "title", InputsInField( ui.leTitle->text() ) );
-    AddMetaElements( "aut", InputsInField( ui.leAuthor->text() ), Metadata::Instance().GetText( "creator" ) );
+
+    QString author_name = ui.leAuthor->text();
+    QString author_file_as = ui.leAuthorFileAs->text();
+    if (author_name.isEmpty()) {
+        author_name = author_file_as;
+    }
+    AddMetaElements( "aut", InputsInField( author_name ), Metadata::Instance().GetText( "creator" ), author_file_as );
+
     AddMetaElements( "language", InputsInField( ui.cbLanguages->currentText() ) );
 
     // Save the table
@@ -384,17 +391,19 @@ void MetaEditor::ReadMetadataFromBook()
         // Only load the first of each type
         if ( !have_title && book_meta.name == "title" )
         {
-            ui.leTitle->setText( AddValueToField( ui.leTitle->text(), book_meta.value.toString() ) );
+            ui.leTitle->setText( book_meta.value.toString() );
             have_title = true;
         }
         // Convert basic and relator authors to main Author field - but only first creator Author
         else if ( !have_author && ( book_meta.name == "author" || ( book_meta.name == "aut" && book_meta.role_type == "creator" ) ) )
         {
-            QString author_name = book_meta.file_as;
+            QString author_name = book_meta.value.toString();
+            QString author_file_as = book_meta.file_as;
             if (author_name.isEmpty()) {
-                author_name = book_meta.value.toString();
+                author_name = author_file_as;
             }
-            ui.leAuthor->setText( AddValueToField( ui.leAuthor->text(), author_name ) );
+            ui.leAuthor->setText( author_name );
+            ui.leAuthorFileAs->setText( author_file_as);
             have_author = true;
         }
         else if ( !have_language &&  book_meta.name == "language" )
@@ -435,18 +444,6 @@ QList< QVariant > MetaEditor::InputsInField( const QString &field_value )
     }
 
     return inputs;
-}
-
-
-QString MetaEditor::AddValueToField( const QString &field_value, const QString &value )
-{
-    if ( field_value.isEmpty() )
-
-        return value;
-
-    else
-
-        return field_value + "; " + value;
 }
 
 

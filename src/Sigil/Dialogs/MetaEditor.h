@@ -183,16 +183,6 @@ private:
     static QList< QVariant > InputsInField( const QString &field_value );
 
     /**
-     * Adds a value to a field. If a value already exists, 
-     * the new value is appended after a semicolon.
-     *
-     * @param field_value The current value of the field.
-     * @param value The value we want to add to the field.
-     * @return The new string value of the field.
-     */
-    static QString AddValueToField( const QString &field_value, const QString &value );
-
-    /**
      * Fills the language combobox with all the supported languages.
      */
     void FillLanguageComboBox();	
