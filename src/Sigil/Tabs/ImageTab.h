@@ -55,6 +55,7 @@ public slots:
     void openWithEditor();
 
     void saveAs();
+    void copyImage();
 
 private slots:
 
@@ -98,6 +99,7 @@ private:
     QAction *m_OpenWithEditor;
 
     QAction *m_SaveAs;
+    QAction *m_CopyImage;
 
     float m_CurrentZoomFactor;
 };

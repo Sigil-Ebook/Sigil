@@ -19,14 +19,16 @@
 **
 *************************************************************************/
 
+#include <QApplication>
+#include <QtCore/QDateTime>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QLocale>
-#include <QtCore/QDateTime>
-#include <QtGui/QMenu>
 #include <QtCore/QString>
 #include <QtCore/QUrl>
+#include <QtGui/QClipboard>
 #include <QtGui/QLayout>
+#include <QtGui/QMenu>
 #include <QtWebKit/QWebView>
 
 
@@ -89,6 +91,10 @@ ImageTab::~ImageTab()
     if (m_SaveAs) {
         delete m_SaveAs;
         m_SaveAs = 0;
+    }
+    if (m_CopyImage) {
+        delete m_CopyImage;
+        m_CopyImage = 0;
     }
 }
 
@@ -158,6 +164,12 @@ void ImageTab::saveAs()
         const QUrl &url = data.toUrl();
         emit ImageSaveAs( url );
     }
+}
+
+void ImageTab::copyImage()
+{
+    const QImage img(m_Resource.GetFullPath());
+    QApplication::clipboard()->setImage(img);
 }
 
 void ImageTab::openWith()
@@ -242,6 +254,7 @@ bool ImageTab::SuccessfullySetupContextMenu( const QPoint &point )
         m_ContextMenu.addAction( m_SaveAs );
 
         m_ContextMenu.addSeparator();
+        m_ContextMenu.addAction( m_CopyImage );
     }
 
     return true;
@@ -252,6 +265,7 @@ void ImageTab::CreateContextMenuActions()
     m_OpenWithEditor = new QAction( "",          this );
     m_OpenWith       = new QAction( tr( "Open With" ) + "...",  this );
     m_SaveAs         = new QAction( tr( "Save As" ) + "...",  this );
+    m_CopyImage      = new QAction( tr( "Copy Image" ),  this );
 
     m_OpenWithContextMenu.setTitle( tr( "Open With" ) );
     m_OpenWithContextMenu.addAction( m_OpenWithEditor );
@@ -266,6 +280,7 @@ void ImageTab::ConnectSignalsToSlots()
     connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );
     connect( m_OpenWithEditor, SIGNAL( triggered() ),  this, SLOT( openWithEditor() ) );
     connect( m_SaveAs,         SIGNAL( triggered() ),  this, SLOT( saveAs()         ) );
+    connect( m_CopyImage,      SIGNAL( triggered() ),  this, SLOT( copyImage()      ) );
 }
 
 void ImageTab::Zoom()
