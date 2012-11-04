@@ -235,6 +235,7 @@ void MainWindow::ResetLocationBookmark(MainWindow::LocationBookmark *locationBoo
 void MainWindow::GoBackFromLinkOrStyle()
 {
     GoToBookmark(m_LinkOrStyleBookmark);
+    UpdateBrowserSelectionToTab();
 }
 
 void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
@@ -1656,23 +1657,28 @@ void MainWindow::ToggleViewState()
             SetViewState(MainWindow::ViewState_CodeView);
         }
     }
+
+    UpdateBrowserSelectionToTab();
 }
 
 void MainWindow::BookView()
 {
     SetViewState( MainWindow::ViewState_BookView );
+    UpdateBrowserSelectionToTab();
 }
 
 
 void MainWindow::SplitView()
 {
     SetViewState( MainWindow::ViewState_PreviewView );
+    UpdateBrowserSelectionToTab();
 }
 
 
 void MainWindow::CodeView()
 {
     SetViewState( MainWindow::ViewState_CodeView );
+    UpdateBrowserSelectionToTab();
 }
 
 
