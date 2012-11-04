@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>202</height>
+    <width>497</width>
+    <height>80</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -23,45 +23,37 @@
    <property name="sizeConstraint">
     <enum>QLayout::SetMaximumSize</enum>
    </property>
-   <item row="2" column="0">
+   <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLabel" name="label_2">
+       <property name="toolTip">
+        <string>Enter the starting name to use for renaming all selected files.
+
+All numbers at the END of the filename you enter will be replaced sequentially
+starting at the number provided (default is 1 if no number is provided),  with
+leading 0's added to match the number of digits used.
+
+If you provide a file extension it will be used for all files, otherwise the
+current extensions will be kept.  Be careful that the extension you use is valid
+for all selected files.
+</string>
+       </property>
        <property name="text">
-        <string>Rename to: </string>
+        <string>Rename Files Starting At: </string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="renameTemplate">
        <property name="text">
-        <string>Section0001</string>
+        <string>Section0001.html</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label1">
-     <property name="toolTip">
-      <string> For example:
-
-&quot;Part1 - Chapter 003&quot; will rename the first file to &quot;Part1 - Chapter 003&quot; and the 10th file as &quot;Part1 - Chapter 012&quot;
-
-&quot;Section 1&quot; will rename the first file to &quot;Section 1&quot; and the 10th file as &quot;Section 10&quot;</string>
-     </property>
-     <property name="text">
-      <string>Enter the starting name to use for renaming all selected files.
-
-All numbers at the END of the text will be replaced sequentially starting at the number provided (default is 1 if no number is provided), with leading 0's added to match the number of digits used.
-</string>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
+   <item row="2" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -80,12 +72,32 @@ All numbers at the END of the text will be replaced sequentially starting at the
    <signal>accepted()</signal>
    <receiver>RenameTemplate</receiver>
    <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
   </connection>
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
    <receiver>RenameTemplate</receiver>
    <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
   </connection>
  </connections>
 </ui>
