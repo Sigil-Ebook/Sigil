@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/main">
         <file>metadata-editor_22px.png</file>
+        <file>metadata-editor_16px.png</file>
+        <file>generate-toc_22px.png</file>
+        <file>generate-toc_16px.png</file>
         <file>edit-clear_22px.png</file>
         <file>emblem-favorite_22px.png</file>
         <file>format-indent-less_22px.png</file>

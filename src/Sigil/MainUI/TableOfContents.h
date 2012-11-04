@@ -144,14 +144,6 @@ private:
     QWidget &m_MainWidget;
     
     /**
-     * A container widget for the m_GenerateTocButton.
-     * Used to work around a visual glitch on Mac OS X.
-     * If we didn't use this, then we would have an ugly
-     * margin on the left and right side of the m_TreeView.
-     */
-    QWidget &m_ButtonHolderWidget;
-    
-    /**
      * The layout for the container widget.
      */
     QVBoxLayout &m_Layout;
@@ -160,11 +152,6 @@ private:
      * The tree view used to represent the TOC.
      */
     QTreeView &m_TreeView;
-
-    /**
-     * The button that initiates the TOC-generation-from-headings process.
-     */
-    QPushButton &m_GenerateTocButton;
 
     /**
      * The timer that provides the delay for the refresh operation.

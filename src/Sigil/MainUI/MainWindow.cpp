@@ -3727,6 +3727,14 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionDonate->icon();
     icon.addFile(QString::fromUtf8(":/main/emblem-favorite_16px.png"));
     ui.actionDonate->setIcon(icon);
+
+    icon = ui.actionMetaEditor->icon();
+    icon.addFile(QString::fromUtf8(":/main/metadata-editor_16px.png"));
+    ui.actionMetaEditor->setIcon(icon);
+
+    icon = ui.actionGenerateTOC->icon();
+    icon.addFile(QString::fromUtf8(":/main/generate-toc_16px.png"));
+    ui.actionGenerateTOC->setIcon(icon);
 }
 
 
