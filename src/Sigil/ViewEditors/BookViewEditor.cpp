@@ -33,6 +33,7 @@
 #include <QtGui/QMessageBox>
 #include <QtGui/QShortcut>
 #include <QtGui/QTextDocument>
+#include <QtWebKit/QWebElement>
 #include <QtWebKit/QWebFrame>
 
 #include "BookManipulation/Book.h"
@@ -61,6 +62,8 @@ const QString REMOVE_DOCTYPE_TAG = "<!DOCTYPE.*>";
 const QString REMOVE_HTML_TAG = "<html.*>";
 
 const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilReplace_\\d*\")*>";
+
+const QString XLINK_NAMESPACE = "http://www.w3.org/1999/xlink";
 
 /**
  * The JavaScript source code for getting a string representation
@@ -713,10 +716,10 @@ void BookViewEditor::openWithEditor()
     {
         const QUrl &resourceUrl = data.toUrl();
         const QString& editorPath = OpenExternally::editorForResourceType( (Resource::ResourceType) resourceUrl.port() );
-            if (OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath )) {
-                const QString &pathname = resourceUrl.toString();
-                emit ImageOpenedExternally(pathname);
-            }
+        if (OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath )) {
+            const QString &pathname = resourceUrl.toString();
+            emit ImageOpenedExternally(pathname);
+        }
     }
 }
 
@@ -780,6 +783,21 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
     {
         const QWebHitTestResult& hitTest = frame->hitTestContent(point);
         QUrl imageUrl = hitTest.imageUrl();
+        if ( !imageUrl.isValid() && hitTest.element().tagName().toLower() == "image" ) {
+            // It is "possible" that we are in an SVG image tag, which the hitTest does
+            // not return sufficient information for directly. Go spelunking for an attribute.
+            const QWebElement element = hitTest.element();
+            foreach(QString attrib, element.attributeNames(XLINK_NAMESPACE)) {
+                if (attrib.toLower() == "href") {
+                    QString path = element.attributeNS(XLINK_NAMESPACE, attrib);
+                    if (!path.isEmpty()) {
+                        imageUrl = QUrl::fromLocalFile(QDir::cleanPath(QFileInfo(m_path).absoluteDir().filePath(path)));
+                    }
+                    break;
+                }
+            }
+        }
+
         if ( imageUrl.isValid() && imageUrl.isLocalFile() )
         {
             has_image = true;
