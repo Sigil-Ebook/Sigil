@@ -1,3 +1,22 @@
+Sigil 0.6.1 TBD
+    - Implement issue 1748: Add a Copy Image context menu option for images.
+    - Implement issue 1738: Move Generate Table of Contents button to toolbar.
+    - Implement issue 1743: Insert Image should include an alt tag with filename.
+    - Implement issue 1717: Allow more control of Author field in Metadata Editor.
+    - Implement issue 1729: Bulk rename should allow changing file extension.
+    - Implement issue 1728: Open/add invalid HTML files should show line numbers of error.
+    - Implement issue 1742: Add context menu option in Preview View for Inspect Element.
+    - Implement issue 1734: Splitting files and new blank HTML files should use existing file extension.
+    - Implement issue 1732: Index Editor should support opening/importing .txt files.
+    - Implement issue 1687: Insert ID should warn if invalid ID names are used.
+    - Fix issue 1749: Right click on SVG images should give same options as other images.
+    - Fix issue 1730: Changing view or using back button should select file in Book Browser.
+    - Fix issue 1726: Selecting all text and replacing with a Clip causes crash.
+    - Fix issue 1707: Application may crash when editing files externally.
+    - Fix issue 1733: Files edited with Open With are not always updated when externally saved.
+    - Fix issue 1704: Language dropdown entries have blank entries.
+    - Fix issue 1740: When dockable windows are stacked the program can give error on close.
+
 Sigil 0.6.0 2012.10.27
     - Implement issue 1664: Improve performance of opening and changing tabs.
     - Implement issue 1665: Attempt to recover EPUB if it is missing an ncx file.
