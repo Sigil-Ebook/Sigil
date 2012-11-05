@@ -1199,6 +1199,13 @@ void MainWindow::InsertId()
     SelectId select_id(id, html_resource, m_Book, this);
 
     if (select_id.exec() == QDialog::Accepted) {
+        QString selected_id = select_id.GetId();
+        QRegExp valid_id( "^[A-Za-z][A-Za-z0-9_:\.-]*");
+        if (!valid_id.exactMatch(selected_id)) {
+            ShowMessageOnStatusBar(tr("ID is invalid - must start with a letter, followed by letter number _ : - or ."));
+            return;
+        };
+
         if (!flow_tab->InsertId(select_id.GetId())) {
             ShowMessageOnStatusBar( tr( "You cannot insert an id at this position." ) );
         }
