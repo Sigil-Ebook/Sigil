@@ -1137,7 +1137,11 @@ void BookBrowser::AddGuideSemanticType( int type )
 
 void BookBrowser::Merge()
 {
+    int scrollY = m_TreeView.verticalScrollBar()->value();
+
     emit MergeResourcesRequest(ValidSelectedResources(Resource::HTMLResourceType));
+
+    m_TreeView.verticalScrollBar()->setSliderPosition(scrollY);
 }
 
 
