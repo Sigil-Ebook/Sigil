@@ -867,12 +867,9 @@
      <normaloff>:/main/generate-toc_22px.png</normaloff>:/main/generate-toc_22px.png</iconset>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate TOC&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</string>
-   </property>
-   <property name="shortcut">
-    <string>F12</string>
    </property>
   </action>
   <action name="actionBookView">
