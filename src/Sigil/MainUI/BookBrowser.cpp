@@ -856,9 +856,29 @@ void BookBrowser::RenameSelected()
         return;
     }
 
+    QStringList filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+
     // Load initial value from stored preferences
     SettingsStore settings;
     QString templateName = settings.renameTemplate();
+
+    // If no template set it to the first available default Section0001 name
+    if (templateName.isEmpty()) {
+        QStringList short_filenames;
+        foreach(QString filename, filenames) {
+            short_filenames.append(filename.left(filename.lastIndexOf(".")));
+        }
+    
+        QString name = "Section";
+        int num = 1;
+        while (true) {
+            templateName = QString( "%1%2" ).arg( name ).arg( num, 4, 10, QChar( '0' ) );
+            if (!short_filenames.contains(templateName)) {
+                break;
+            }
+            num++;
+        }
+    }
 
     RenameTemplate rename_template( templateName, this );
 
@@ -879,38 +899,42 @@ void BookBrowser::RenameSelected()
         templateName = templateName.left(templateName.lastIndexOf("."));
     }
 
-    // Get the base text and starting number
-    int pos = templateName.length() - 1;
-    QString templateNumber = "";
-    while ( pos > 0 && templateName[pos].isDigit() )
-    {
-        templateNumber.prepend(QString( "%1" ).arg( templateName[pos] ));
-        pos--;
-    }
-    QString templateBase = templateName.left( pos + 1 );
-
-    if ( templateNumber == "" )
-    {
-        templateNumber = "1";
-    }
-
-    // Abort if any of the new names already exist
-    QStringList filenames = m_Book->GetFolderKeeper().GetAllFilenames();
-    int test_start = templateNumber.toInt();
-    for (int i = test_start; i < test_start + resources.count(); i++) 
-    {
-        // Get the extension of the original file
-        QString file_extension = new_extension;
-        if (file_extension.isEmpty()) {
-            QString old_filename = resources[i - test_start]->Filename();
-            if ( old_filename.contains( '.' ) ) {
-                file_extension = old_filename.right( old_filename.length() - old_filename.lastIndexOf( '.' ) );
-            }
+    // Get the base text and starting number if the template is not just an extension
+    QString templateBase;
+    QString templateNumber;
+    if (!templateName.isEmpty()) {
+        int pos = templateName.length() - 1;
+        while ( pos > 0 && templateName[pos].isDigit() )
+        {
+            templateNumber.prepend(QString( "%1" ).arg( templateName[pos] ));
+            pos--;
         }
-        QString test_name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( file_extension );
-        if (filenames.contains(test_name)) {
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot rename since one or more new filenames are already in use."));
-            return;
+        templateBase = templateName.left( pos + 1 );
+    
+        if ( templateNumber == "" )
+        {
+            templateNumber = "1";
+        }
+    }
+
+    if (!templateNumber.isEmpty()) {
+        // Abort if any of the new names already exist
+        int test_start = templateNumber.toInt();
+        for (int i = test_start; i < test_start + resources.count(); i++) 
+        {
+            // Get the extension of the original file
+            QString file_extension = new_extension;
+            if (file_extension.isEmpty()) {
+                QString old_filename = resources[i - test_start]->Filename();
+                if ( old_filename.contains( '.' ) ) {
+                    file_extension = old_filename.right( old_filename.length() - old_filename.lastIndexOf( '.' ) );
+                }
+            }
+            QString test_name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( file_extension );
+            if (filenames.contains(test_name)) {
+                QMessageBox::critical(this, tr("Sigil"), tr("Cannot rename since one or more new filenames are already in use."));
+                return;
+            }
         }
     }
 
@@ -921,19 +945,30 @@ void BookBrowser::RenameSelected()
     int i = 0;
     for (i = start; i < start + resources.count(); i++) 
     {
+        QString old_filename = resources[i - start]->Filename();
         // Get the extension of the original file
         QString file_extension = new_extension;
         if (file_extension.isEmpty()) {
-            QString old_filename = resources[i - start]->Filename();
             if ( old_filename.contains( '.' ) ) {
                 file_extension = old_filename.right( old_filename.length() - old_filename.lastIndexOf( '.' ) );
             }
         }
-        QString name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( file_extension );
+        QString name;
+        if (!templateNumber.isEmpty()) {
+            name = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) ).append( file_extension );
+        }
+        else {
+            // Just change the extension
+            QString old_filename_only = old_filename.left( old_filename.lastIndexOf( '.' ) );
+            name = QString( "%1" ).arg( old_filename_only ).append( file_extension );
+        }
         new_filenames.append(name);
     }
     
-    QString next_name_template = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) );
+    QString next_name_template;
+    if (!templateNumber.isEmpty()) {
+        next_name_template = QString( "%1%2" ).arg( templateBase ).arg( i, templateNumber.length(), 10, QChar( '0' ) );
+    }
     if (!new_extension.isEmpty()) {
         next_name_template.append(new_extension);
     }

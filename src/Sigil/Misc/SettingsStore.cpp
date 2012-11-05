@@ -140,7 +140,7 @@ QString SettingsStore::userDictionaryName()
 QString SettingsStore::renameTemplate()
 {
     clearSettingsGroup();
-    return value(KEY_RENAME_TEMPLATE, "Section001").toString();
+    return value(KEY_RENAME_TEMPLATE, "").toString();
 }
 
 SettingsStore::CleanLevel SettingsStore::cleanLevel()

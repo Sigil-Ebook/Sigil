@@ -2780,8 +2780,11 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_TableOfContents->SetBook( m_Book );
     m_ValidationResultsView->SetBook( m_Book );
 
+    // Reset variables and data for new books
     m_IndexEditor->SetBook( m_Book );
     ResetLinkOrStyleBookmark();
+    SettingsStore settings;
+    settings.setRenameTemplate("");
 
     connect( m_Book.data(),     SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_Book.data(),     SIGNAL( ResourceUpdatedFromDiskRequest(Resource &) ), this, SLOT( ResourceUpdatedFromDisk (Resource&) ) );
