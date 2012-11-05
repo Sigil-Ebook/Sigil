@@ -19,10 +19,10 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="toolTip">
-        <string>Enter a name to use in the Index for this entry.</string>
+        <string>Enter the index entry to create for the selected text.</string>
        </property>
        <property name="text">
-        <string>Name in Index:</string>
+        <string>Index Entry:</string>
        </property>
       </widget>
      </item>

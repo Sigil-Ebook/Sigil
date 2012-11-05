@@ -1131,9 +1131,15 @@ QString FlowTab::GetAttributeIndexTitle()
     QString attribute_value;
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         attribute_value = m_wCodeView->GetAttribute("title", ANCHOR_TAGS, false, true);
+        if (attribute_value.isEmpty()) {
+            attribute_value = m_wCodeView->GetSelectedText();
+        }
     }
     else if (m_ViewState == MainWindow::ViewState_BookView) {
         attribute_value = m_wBookView->GetAncestorTagAttributeValue("title", ANCHOR_TAGS);
+        if (attribute_value.isEmpty()) {
+            attribute_value = m_wBookView->GetSelectedText();
+        }
     }
 
     return attribute_value;
