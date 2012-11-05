@@ -2599,6 +2599,14 @@ void MainWindow::SplitOnSGFSectionMarkers()
     if ( flow_tab && ( flow_tab->GetViewState() == MainWindow::ViewState_BookView) ) {
         flow_tab->SaveTabContent();
     }
+
+    foreach (Resource *resource, html_resources) { 
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (!TEXT_EXTENSIONS.contains(QFileInfo(html_resource->Filename()).suffix().toLower())) {
+            ShowMessageOnStatusBar( tr( "Cannot split since at least one file extension is invalid." ) );
+            return;
+        }
+    }
     
     QApplication::setOverrideCursor(Qt::WaitCursor);
 

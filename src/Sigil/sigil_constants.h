@@ -54,7 +54,6 @@ extern const QString SIGIL_TOC_ID_PREFIX;
 extern const QString SIGIL_NOT_IN_TOC_CLASS;
 extern const QString OLD_SIGIL_NOT_IN_TOC_CLASS;
 extern const QString FIRST_SECTION_NAME; 
-extern const QString FIRST_SECTION_PREFIX;
 extern const QString OPF_FILE_NAME; 
 extern const QString NCX_FILE_NAME;
 extern const QString CONTAINER_XML_FILE_NAME;

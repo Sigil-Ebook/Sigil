@@ -137,12 +137,33 @@ void Book::SetMetadata( const QList< Metadata::MetaElement > metadata )
     SetModified( true );
 }
 
+QString Book::GetFirstUniqueSectionName(QString extension)
+{
+    QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
+    if (html_resources.count() < 1) {
+        return FIRST_SECTION_NAME;
+    }
+
+    QString first_html_file = html_resources.first()->Filename();
+    QString first_html_filename = first_html_file.left(first_html_file.lastIndexOf("."));
+    if (extension.isEmpty()) {
+        extension = first_html_file.right(first_html_file.length() - first_html_file.lastIndexOf("."));
+        if (extension.isEmpty()) {
+            extension = FIRST_SECTION_NAME;
+            extension = extension.right(extension.length() - extension.lastIndexOf("."));
+        }
+    }
+
+    QString filename = first_html_filename + extension;
+
+    return m_Mainfolder.GetUniqueFilenameVersion( filename );
+}
 
 HTMLResource& Book::CreateNewHTMLFile()
 {
     TempFolder tempfolder;
 
-    QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder.GetUniqueFilenameVersion( FIRST_SECTION_NAME );
+    QString fullfilepath = tempfolder.GetPath() + "/" + GetFirstUniqueSectionName();
 
     Utility::WriteUnicodeTextFile( PLACEHOLDER_TEXT, fullfilepath );
 
@@ -244,7 +265,8 @@ HTMLResource& Book::CreateSectionBreakOriginalResource( const QString &content, 
 
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
 
-    originating_resource.RenameTo( m_Mainfolder.GetUniqueFilenameVersion( FIRST_SECTION_NAME ) );
+    QString old_extension = originating_filename.right(originating_filename.length() - originating_filename.lastIndexOf("."));
+    originating_resource.RenameTo( GetFirstUniqueSectionName(old_extension));
 
     HTMLResource &new_resource = CreateNewHTMLFile();
     new_resource.RenameTo( originating_filename );
@@ -289,6 +311,7 @@ void Book::CreateNewSections( const QStringList &new_sections, HTMLResource &ori
     Q_ASSERT( original_position >= 0 );
 
     QString new_file_prefix = QFileInfo( original_resource.Filename() ).baseName();
+    QString file_extension = "." + QFileInfo( original_resource.Filename() ).suffix();
 
     if ( new_sections.isEmpty() )
 
@@ -323,6 +346,7 @@ void Book::CreateNewSections( const QStringList &new_sections, HTMLResource &ori
         sectionInfo.temp_folder_path = tempfolder.GetPath();
         sectionInfo.new_file_prefix = new_file_prefix;
         sectionInfo.file_suffix = i;
+        sectionInfo.file_extension = file_extension;
 
         sync.addFuture( 
             QtConcurrent::run( 
@@ -788,7 +812,7 @@ Book::NewSectionResult Book::CreateOneNewSection( NewSection section_info )
 Book::NewSectionResult Book::CreateOneNewSection( NewSection section_info,
                                          const QHash<QString, QString> &html_updates )
 {
-    QString filename = section_info.new_file_prefix % "_" % QString( "%1" ).arg( section_info.file_suffix + 1, 4, 10, QChar( '0' ) ) + ".html";
+    QString filename = section_info.new_file_prefix % "_" % QString( "%1" ).arg( section_info.file_suffix + 1, 4, 10, QChar( '0' ) ) + section_info.file_extension;
     QString fullfilepath = section_info.temp_folder_path + "/" + filename;
 
     Utility::WriteUnicodeTextFile( "PLACEHOLDER", fullfilepath );
