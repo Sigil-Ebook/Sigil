@@ -58,7 +58,7 @@ const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "blockquote" 
                                                             "noframes" << "noscript" << "ol" << "p" << "pre" <<
                                                             "table" << "ul" << "body";
  
-static const QStringList IMAGE_TAGS = QStringList() << "img" << "image";
+const QStringList IMAGE_TAGS = QStringList() << "img" << "image";
 
 static const QStringList INVALID_ID_TAGS = QStringList() << "base" << "head" << "meta" << "param" << "script" << "style" << "title";
 static const QStringList SKIP_ID_TAGS = QStringList() << "html" << "#document" << "body";

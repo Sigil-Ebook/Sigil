@@ -36,6 +36,7 @@ extern const QString HEADING;
 extern const QString STYLE_TAG;
 extern const QStringList BLOCK_LEVEL_TAGS;
 extern const QStringList ID_TAGS;
+extern const QStringList IMAGE_TAGS;
 extern const QStringList ANCHOR_TAGS;
 extern const QStringList SRC_TAGS;
 extern const QString VERSION_NUMBERS;
