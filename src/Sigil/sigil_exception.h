@@ -92,6 +92,12 @@ struct CannotCopyFile : virtual ExceptionBase {};
 typedef boost::error_info< struct file_copypath, std::string > errinfo_file_copypath;
 
 /**
+ * Thrown when a file cannot be written.
+ */
+struct CannotWriteFile : virtual ExceptionBase {};
+typedef boost::error_info< struct file_errorstring, std::string > errinfo_file_errorstring;
+
+/**
  * Thrown when a file cannot be removed.
  */
 struct CannotDeleteFile : virtual ExceptionBase {};

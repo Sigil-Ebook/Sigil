@@ -210,7 +210,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
     QFile real_epub(fullfilepath);
     if (!real_epub.open(QFile::WriteOnly|QFile::Truncate)) {
         temp_epub.close();
-        boost_throw(CannotOpenFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+        boost_throw(CannotWriteFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
     }
     // Copy the contents from the temp file to the real file.
     char buff[BUFF_SIZE] = {0};
