@@ -42,6 +42,9 @@ PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
     else if (ui.CleanLevelPrettyPrint->isChecked()) {
         new_clean_level = SettingsStore::CleanLevel_PrettyPrint;
     }
+    else if (ui.CleanLevelPrettyPrintTidy->isChecked()) {
+        new_clean_level = SettingsStore::CleanLevel_PrettyPrintTidy;
+    }
     else {
         new_clean_level = SettingsStore::CleanLevel_Off;
     }
@@ -65,5 +68,6 @@ void CleanSourceWidget::readSettings()
 
     ui.CleanLevelOff->setChecked(m_CleanLevel == SettingsStore::CleanLevel_Off);
     ui.CleanLevelPrettyPrint->setChecked(m_CleanLevel == SettingsStore::CleanLevel_PrettyPrint);
+    ui.CleanLevelPrettyPrintTidy->setChecked(m_CleanLevel == SettingsStore::CleanLevel_PrettyPrintTidy);
     ui.CleanLevelTidy->setChecked(m_CleanLevel == SettingsStore::CleanLevel_Tidy);
 }

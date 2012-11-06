@@ -27,6 +27,7 @@
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "Misc/HTMLPrettyPrint.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -71,12 +72,14 @@ static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem
 QString CleanSource::Clean( const QString &source )
 {
     SettingsStore settings;
+    SettingsStore::CleanLevel level = settings.cleanLevel();
     QString newsource = PreprocessSpecialCases( source );
 
-    switch (settings.cleanLevel()) {
+    switch (level) {
         case SettingsStore::CleanLevel_PrettyPrint:
+        case SettingsStore::CleanLevel_PrettyPrintTidy:
         {
-            newsource = PrettyPrint( newsource );
+            newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint( newsource ) : PrettyPrintTidy(newsource);
             // Remove any empty comments left over from pretty printing.
             QStringList css_style_tags  = CSSStyleTags( newsource );
             css_style_tags = RemoveEmptyComments( css_style_tags );
@@ -133,8 +136,19 @@ QString CleanSource::ToValidXHTML( const QString &source )
     return HTMLTidy( source, Tidy_Fast );
 }
 
-
 QString CleanSource::PrettyPrint( const QString &source )
+{
+    SettingsStore settings;
+
+    if (settings.cleanLevel() == SettingsStore::CleanLevel_Off) {
+        return source;
+    }
+
+    HTMLPrettyPrint pp(source);
+    return pp.prettyPrint();
+}
+
+QString CleanSource::PrettyPrintTidy( const QString &source )
 {
     SettingsStore settings;
 
@@ -144,7 +158,6 @@ QString CleanSource::PrettyPrint( const QString &source )
 
     return HTMLTidy( source, Tidy_PrettyPrint );
 }
-
 
 QString CleanSource::ProcessXML( const QString &source )
 {

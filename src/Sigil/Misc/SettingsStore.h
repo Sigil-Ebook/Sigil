@@ -48,6 +48,7 @@ public:
     enum CleanLevel {
         CleanLevel_Off = 0,
         CleanLevel_PrettyPrint = 100,
+        CleanLevel_PrettyPrintTidy = 150,
         CleanLevel_Tidy = 200
     };
 

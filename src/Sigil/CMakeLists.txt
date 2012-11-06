@@ -291,6 +291,8 @@ set( MISC_FILES
     Misc/HTMLEncodingResolver.h
     Misc/HTMLSpellCheck.cpp
     Misc/HTMLSpellCheck.h
+    Misc/HTMLPrettyPrint.cpp
+    Misc/HTMLPrettyPrint.h
     Misc/PasteTargetComboBox.cpp
     Misc/PasteTargetComboBox.h
     Misc/PasteTarget.h

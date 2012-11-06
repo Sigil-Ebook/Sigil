@@ -46,6 +46,7 @@ public:
     static QString ToValidXHTML( const QString &source );
 
     static QString PrettyPrint( const QString &source );
+    static QString PrettyPrintTidy( const QString &source );
 
     static QString ProcessXML( const QString &source );
 

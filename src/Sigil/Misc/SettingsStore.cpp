@@ -151,6 +151,7 @@ SettingsStore::CleanLevel SettingsStore::cleanLevel()
     switch (level) {
         case SettingsStore::CleanLevel_Off:
         case SettingsStore::CleanLevel_PrettyPrint:
+        case SettingsStore::CleanLevel_PrettyPrintTidy:
         case SettingsStore::CleanLevel_Tidy:
             return static_cast<SettingsStore::CleanLevel>(level);
             break;
