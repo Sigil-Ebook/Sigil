@@ -27,6 +27,7 @@
 #include <QtGui/QDesktopServices>
 
 #include "MiscEditors/IndexEditorModel.h"
+#include "Misc/Utility.h"
 
 static const QString SETTINGS_FILE          = "sigil_index.ini";
 static const QString SETTINGS_GROUP         = "index_entries";
@@ -185,6 +186,20 @@ void IndexEditorModel::LoadInitialData(const QString &filename)
 
 void IndexEditorModel::LoadData(const QString &filename, QStandardItem *item)
 {
+    // Read text files with one line per entry
+    if (filename.endsWith(".txt")) {
+        QString index_data = Utility::ReadUnicodeTextFile(filename);
+
+        foreach (QString line, index_data.split("\n")) {
+            IndexEditorModel::indexEntry *entry = new IndexEditorModel::indexEntry();
+            entry->pattern = line;
+            AddFullNameEntry(entry, item);
+        }
+
+        return;
+    }
+
+    // Read standard ini files
     SettingsStore *settings;
     if (filename.isEmpty()) {
         settings = new SettingsStore(m_SettingsPath);

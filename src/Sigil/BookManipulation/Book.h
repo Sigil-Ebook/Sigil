@@ -129,6 +129,8 @@ public:
      */
     void SetMetadata( const QList< Metadata::MetaElement > metadata );
 
+    QString GetFirstUniqueSectionName(QString extension = QString()); 
+
     /**
      * Creates a new HTMLResource file with no stored data. 
      * The file on disk has only placeholder text.
@@ -312,6 +314,10 @@ private:
 
         // Number to use as the suffix of the filename.
         int file_suffix;
+
+        // Extension to use for the filename.
+        QString file_extension;
+
     };
 
     // Describe a newly created section.

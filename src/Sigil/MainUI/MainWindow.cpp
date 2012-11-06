@@ -1199,6 +1199,13 @@ void MainWindow::InsertId()
     SelectId select_id(id, html_resource, m_Book, this);
 
     if (select_id.exec() == QDialog::Accepted) {
+        QString selected_id = select_id.GetId();
+        QRegExp valid_id( "^[A-Za-z][A-Za-z0-9_:\.-]*");
+        if (!valid_id.exactMatch(selected_id)) {
+            ShowMessageOnStatusBar(tr("ID is invalid - must start with a letter, followed by letter number _ : - or ."));
+            return;
+        };
+
         if (!flow_tab->InsertId(select_id.GetId())) {
             ShowMessageOnStatusBar( tr( "You cannot insert an id at this position." ) );
         }
@@ -2592,6 +2599,14 @@ void MainWindow::SplitOnSGFSectionMarkers()
     if ( flow_tab && ( flow_tab->GetViewState() == MainWindow::ViewState_BookView) ) {
         flow_tab->SaveTabContent();
     }
+
+    foreach (Resource *resource, html_resources) { 
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (!TEXT_EXTENSIONS.contains(QFileInfo(html_resource->Filename()).suffix().toLower())) {
+            ShowMessageOnStatusBar( tr( "Cannot split since at least one file extension is invalid." ) );
+            return;
+        }
+    }
     
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
@@ -2773,8 +2788,11 @@ void MainWindow::SetNewBook( QSharedPointer< Book > new_book )
     m_TableOfContents->SetBook( m_Book );
     m_ValidationResultsView->SetBook( m_Book );
 
+    // Reset variables and data for new books
     m_IndexEditor->SetBook( m_Book );
     ResetLinkOrStyleBookmark();
+    SettingsStore settings;
+    settings.setRenameTemplate("");
 
     connect( m_Book.data(),     SIGNAL( ModifiedStateChanged( bool ) ), this, SLOT( setWindowModified( bool ) ) );
     connect( m_Book.data(),     SIGNAL( ResourceUpdatedFromDiskRequest(Resource &) ), this, SLOT( ResourceUpdatedFromDisk (Resource&) ) );
@@ -4107,5 +4125,6 @@ void MainWindow::BreakTabConnections( ContentTab *tab )
 
     disconnect( tab,                                0, this, 0 );
     disconnect( tab,                                0, m_Book.data(), 0 );
+    disconnect( tab,                                0, m_BookBrowser, 0 );
 }
 

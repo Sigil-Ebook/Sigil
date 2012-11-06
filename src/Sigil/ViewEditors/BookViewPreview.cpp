@@ -261,6 +261,12 @@ bool BookViewPreview::FindNext( SearchTools &search_tools,
     SPCRE::MatchInfo last_match = match_info;
     if ( match_info.offset.first != -1 )
     {
+        if (selection_offset < 0) {
+            selection_offset = 0;
+        }
+        if (start_offset < 0) {
+            start_offset = 0;
+        }
         last_match.offset.first += selection_offset;
         last_match.offset.second += selection_offset;
         SelectRangeInputs input = GetRangeInputs( search_tools.node_offsets, match_info.offset.first + start_offset, match_info.offset.second - match_info.offset.first );

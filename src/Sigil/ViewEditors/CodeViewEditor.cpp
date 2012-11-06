@@ -1244,6 +1244,10 @@ void CodeViewEditor::GoToLinkOrStyle()
     if (url_name.isEmpty()) {
         url_name = GetAttribute("src", SRC_TAGS, true);
     }
+    if (url_name.isEmpty()) {
+        // We do not know what namespace may have been used
+        url_name = GetAttribute(":href", IMAGE_TAGS, true);
+    }
 
     if (!url_name.isEmpty()) {
         emit LinkClicked(QUrl(url_name));

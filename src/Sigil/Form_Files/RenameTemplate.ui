@@ -28,15 +28,20 @@
      <item>
       <widget class="QLabel" name="label_2">
        <property name="toolTip">
-        <string>Enter the starting name to use for renaming all selected files.
+        <string>Enter the starting name to use for renaming all selected files, e.g.:
+
+    filename001
+    filename08.xhtml
+    .html
 
 All numbers at the END of the filename you enter will be replaced sequentially
 starting at the number provided (default is 1 if no number is provided),  with
 leading 0's added to match the number of digits used.
 
 If you provide a file extension it will be used for all files, otherwise the
-current extensions will be kept.  Be careful that the extension you use is valid
-for all selected files.
+current extensions will be kept.  If you just provide a file extension (e.g. .xhtml)
+then only file extensions will be updated.  Be careful that any extension you use is 
+valid for all selected files.
 </string>
        </property>
        <property name="text">

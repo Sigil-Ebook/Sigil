@@ -337,7 +337,7 @@ void IndexEditor::AutoFill()
 void IndexEditor::Open()
 {
     // Get the filename to open
-    QString filter_string = "*." % FILE_EXTENSION;
+    QString filter_string = "*." % FILE_EXTENSION + ";;*.txt";
 
     QString filename = QFileDialog::getOpenFileName(this,
                                                     tr("Load Entries From File"),
