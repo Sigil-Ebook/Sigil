@@ -608,7 +608,7 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
             ImportHTML html_import( filepath );
             XhtmlDoc::WellFormedError error = html_import.CheckValidToLoad();
             if ( error.line != -1 ) {
-                invalid_filenames << QString("%1 (line %2)").arg(QDir::toNativeSeparators(filepath)).arg(error.line);
+                invalid_filenames << QString("%1 (line %2: %3)").arg(QDir::toNativeSeparators(filepath)).arg(error.line).arg(error.message);
                 continue;
             }
 
