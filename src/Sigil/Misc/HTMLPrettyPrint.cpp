@@ -5,10 +5,45 @@
 
 #include "HTMLPrettyPrint.h"
 
-#include <QtDebug>
+static QStringList defaultInlineTags = QStringList()
+    << "a"
+    << "abbr"
+    << "acronym"
+    << "audio"
+    << "b"
+    << "bdo"
+    << "big"
+    << "button"
+    << "cite"
+    << "del"
+    << "dfn"
+    << "em"
+    << "i"
+    << "img"
+    << "ins"
+    << "input"
+    << "label"
+    << "map"
+    << "kbd"
+    << "object"
+    << "q"
+    << "ruby"
+    << "samp"
+    << "select"
+    << "small"
+    << "span"
+    << "strong"
+    << "sub"
+    << "sup"
+    << "textarea"
+    << "tt"
+    << "var"
+    << "video";
 
 HTMLPrettyPrint::HTMLPrettyPrint(const QString &source)
-    : m_source(source)
+    : m_source(source),
+      m_inlineAsBlock(false),
+      m_inlineTags(defaultInlineTags)
 {
     tokenize();
 }
@@ -38,15 +73,17 @@ QString HTMLPrettyPrint::prettyPrint()
         if (!in_pre) {
             segment = cleanSegement(segment);
         }
-        if (segment.isEmpty()) {
+        if (segment.trimmed().isEmpty()) {
             continue;
         }
 
         if (last_token && (token->type == TOKEN_TYPE_TEXT && last_token->type == TOKEN_TYPE_OPEN_TAG)) {
+            // Indent text if it's under an open tag.
             level++;
         } else {
             if (token->type == TOKEN_TYPE_CLOSE_TAG) {
-                if (last_token && last_token->tag != token->tag) {
+                // Only reduce indent if we're following text, or a close tag.
+                if (last_token && ((last_token->type == TOKEN_TYPE_TEXT) || (last_token->type == TOKEN_TYPE_CLOSE_TAG))) {
                     level--;
                 }
             // Open tags should only indented further under certain conditions.
@@ -59,17 +96,54 @@ QString HTMLPrettyPrint::prettyPrint()
             }
         }
 
-        if (level > 0 && !in_pre) {
-            builder.append(QString("   ").repeated(level));
+        if (m_inlineAsBlock || (!m_inlineTags.contains(token->tag) && (last_token && !m_inlineTags.contains(last_token->tag)))) {
+            if (level > 0 && !in_pre) {
+                builder.append(QString("   ").repeated(level));
+            }
         }
+
+        if (!m_inlineAsBlock && (m_inlineTags.contains(token->tag))) {
+            if (builder.last() == "\n") {
+                builder.removeLast();
+            }
+        }
+        if (!m_inlineAsBlock && (token->type != TOKEN_TYPE_TEXT && last_token && m_inlineTags.contains(last_token->tag))) {
+            builder.append("\n");
+            if (level > 0 && !in_pre) {
+                builder.append(QString("   ").repeated(level));
+            }
+        }
+
         builder.append(segment);
-        builder.append("\n");
-        qDebug() << ((token->type == TOKEN_TYPE_TEXT) ? "TEXT" : "TAG") << " level: " << level << " - " << segment;
+
+        if (m_inlineAsBlock || !m_inlineTags.contains(token->tag)) {
+            builder.append("\n");
+        }
 
         last_token = token;
     }
 
     return builder.join("");
+}
+
+QStringList HTMLPrettyPrint::inlineTags()
+{
+    return m_inlineTags;
+}
+
+void HTMLPrettyPrint::resetInlineTags()
+{
+    m_inlineTags = defaultInlineTags;
+}
+
+void HTMLPrettyPrint::setInlineAsBlock(bool asBlock)
+{
+    m_inlineAsBlock = asBlock;
+}
+
+void HTMLPrettyPrint::setInlineTags(QStringList tags)
+{
+    m_inlineTags = tags;
 }
 
 void HTMLPrettyPrint::tokenize()
@@ -119,8 +193,6 @@ QString HTMLPrettyPrint::cleanSegement(const QString &source)
 
     segment = segment.replace(QRegExp("(\\r\\n)|\\n|\\r"), " ");
     segment = segment.replace(QRegExp("\\s{2,}"), " ");
-    segment = segment.replace(QRegExp("^\\s+"), "");
-    segment = segment.replace(QRegExp("\\s+$"), "");
 
     return segment;
 }

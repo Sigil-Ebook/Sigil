@@ -4,6 +4,7 @@
 #include <QList>
 
 class QString;
+class QStringList;
 
 class HTMLPrettyPrint
 {
@@ -12,6 +13,12 @@ public:
     ~HTMLPrettyPrint();
 
     QString prettyPrint();
+
+    QStringList inlineTags();
+    void resetInlineTags();
+
+    void setInlineAsBlock(bool asBlock);
+    void setInlineTags(QStringList tags);
 
 private:
     typedef enum {
@@ -40,6 +47,8 @@ private:
 
     QString m_source;
     QList<HTMLToken *> m_tokens;
+    bool m_inlineAsBlock;
+    QStringList m_inlineTags;
 };
 
 #endif
