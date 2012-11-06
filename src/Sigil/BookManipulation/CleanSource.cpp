@@ -66,6 +66,12 @@ static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem
                                             ",rect,script,set,stop,style,svg,switch,symbol,text,textPath,title,tref,tspan"
                                             ",use,view,vkern";
 
+static QString HTML5_BLOCK_ELEMENTS       = "article,aside,datagrid,details,dialog,figcaption,figure,footer,header,hgroup,menu,nav,section,summary";
+static QString HTML5_INLINE_ELEMENTS      = "audio,canvas,command,mark,meter,progress,rp,rt,ruby,time,video";
+
+static QString BLOCK_ELEMENTS             = SVG_ELEMENTS + "," + HTML5_BLOCK_ELEMENTS;
+static QString INLINE_ELEMENTS            = HTML5_INLINE_ELEMENTS;
+
 
 // Performs general cleaning (and improving)
 // of provided book XHTML source code
@@ -383,9 +389,11 @@ TidyDoc CleanSource::TidyOptions( TidyDoc tidy_document, TidyType type, int max_
     // "newline"
     tidyOptSetValue( tidy_document, TidyNewline, "LF" );
 
-    // Needed so that Tidy doesn't kill off SVG elements
+    // Needed so that Tidy doesn't kill off SVG elements and HTML5 Tags
     // "new-blocklevel-tags"
-    tidyOptSetValue( tidy_document, TidyBlockTags, SVG_ELEMENTS.toUtf8().data() );
+    tidyOptSetValue( tidy_document, TidyBlockTags, BLOCK_ELEMENTS.toUtf8().data() );
+    // "new-inline-tags"
+    tidyOptSetValue( tidy_document, TidyInlineTags, INLINE_ELEMENTS.toUtf8().data() );
 
     if ( type != Tidy_Fast )
 
