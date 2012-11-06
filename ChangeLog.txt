@@ -1,4 +1,5 @@
 Sigil 0.6.1 TBD
+	- Add non-destructive pretty printer as an option in addition to the Tidy provided one.
     - Implement issue 1748: Add a Copy Image context menu option for images.
     - Implement issue 1738: Move Generate Table of Contents button to toolbar.
     - Implement issue 1743: Insert Image should include an alt tag with filename.
