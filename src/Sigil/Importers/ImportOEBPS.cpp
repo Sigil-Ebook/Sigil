@@ -278,6 +278,21 @@ void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
     {                    
         if ( !m_MainfestFilePaths.contains( href ) )
         {
+            if ( m_Files.contains(id) ) {
+                // We have an error situation with a duplicate id in the epub. 
+                // We must warn the user, but attempt to use another id so the epub can still be loaded.
+                QString base_id = QFileInfo(href).fileName();
+                QString new_id(base_id);
+                int duplicate_index = 0;
+                while (m_Files.contains(new_id)) {
+                    duplicate_index++;
+                    new_id = QString("%1%2").arg(base_id).arg(duplicate_index);
+                }
+                const QString load_warning = "<p>" % QObject::tr("The OPF manifest contains duplicate ids for: <b>%1</b>").arg(id) % "</p>" %
+                           "<p>- " % QObject::tr("A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.") % "</p>";
+                id = new_id;
+                AddLoadWarning(load_warning);
+            }
             m_Files[ id ] = href;
             m_FileMimetypes[ id ] = type;
             m_MainfestFilePaths << href;
