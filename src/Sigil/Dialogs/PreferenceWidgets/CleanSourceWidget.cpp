@@ -53,10 +53,6 @@ PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
 
     settings.setCleanLevel(new_clean_level);
 
-    if (new_clean_level != m_CleanLevel) {
-        return PreferencesWidget::ResultAction_RestartSigil;
-    }
-
     return PreferencesWidget::ResultAction_None;
 }
 
