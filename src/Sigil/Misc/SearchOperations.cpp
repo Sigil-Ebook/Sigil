@@ -123,7 +123,7 @@ int SearchOperations::CountInHTMLFile( const QString &search_regex,
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
-        const QString &text = html_resource->GetText();
+        const QString &text = CleanSource::Clean( html_resource->GetText() );
 
         if ( check_spelling )
         {
@@ -179,10 +179,12 @@ int SearchOperations::ReplaceHTMLInFile( const QString &search_regex,
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
+        const QString &text = CleanSource::Clean(  html_resource->GetText() );
+
         QString new_text;
         int count;
 
-        tie( new_text, count ) = PerformGlobalReplace( html_resource->GetText(), search_regex, replacement );
+        tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
 
         html_resource->SetText(CleanSource::Rinse( new_text ));
 
