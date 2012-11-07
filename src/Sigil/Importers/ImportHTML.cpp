@@ -81,7 +81,6 @@ QSharedPointer< Book > ImportHTML::GetBook()
     LoadMetadata( *document );
 
     UpdateFiles( CreateHTMLResource(), *document, LoadFolderStructure( *document ) );
-    m_Book->GetNCX().GenerateNCXFromBookContents( *m_Book );
 
     return m_Book;
 }
