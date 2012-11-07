@@ -85,7 +85,7 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords( cons
                 {
                     QString word = Utility::Substring( word_start, i, text );
 
-                    if ( !word.isEmpty() && word_start >= start_offset && word_start <= end_offset)
+                    if ( !word.isEmpty() && word_start > start_offset && word_start <= end_offset)
                     {
                         if (include_all_words || !sc->spell( word )) {
                             SPCRE::MatchInfo match;
