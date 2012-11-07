@@ -22,27 +22,21 @@
 
 #include <QtCore/QFile>
 #include <QtGui/QFont>
-#include <QtGui/QMessageBox>
 
 #include "ResourceObjects/HTMLResource.h"
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
-#include "CSSFilesWidget.h"
+#include "Dialogs/ReportsWidgets/CSSFilesWidget.h"
 
 static const int THUMBNAIL_SIZE = 100;
 static const int THUMBNAIL_SIZE_INCREMENT = 50;
 
 static QString SETTINGS_GROUP = "reports_css_files";
 
-CSSFilesWidget::CSSFilesWidget(QList<Resource*> html_resources, QList<Resource*> css_resources, QSharedPointer<Book> book)
+CSSFilesWidget::CSSFilesWidget()
     :
-    m_HTMLResources(html_resources),
-    m_CSSResources(css_resources),
-    m_Book(book),
     m_ItemModel(new QStandardItemModel),
-    m_ContextMenu(new QMenu(this)),
-    m_DeleteFiles(false)
-
+    m_ContextMenu(new QMenu(this))
 {
     ui.setupUi(this);
 
@@ -51,6 +45,13 @@ CSSFilesWidget::CSSFilesWidget(QList<Resource*> html_resources, QList<Resource*>
     CreateContextMenuActions();
 
     connectSignalsSlots();
+}
+
+void CSSFilesWidget::CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book)
+{
+    m_HTMLResources = html_resources;
+    m_CSSResources = css_resources;
+    m_Book = book;
 
     SetupTable();
 }
@@ -205,44 +206,25 @@ void CSSFilesWidget::Sort(int logicalindex, Qt::SortOrder order)
     SetupTable(logicalindex, order);
 }
 
-ReportsWidget::Results CSSFilesWidget::saveSettings()
+void CSSFilesWidget::DoubleClick()
 {
-    ReportsWidget::Results results;
-
-    results.filename = "";
-    results.line = -1;
-    results.files_to_delete.clear();
-    results.styles_to_delete.clear();
-
-    if (ui.fileTree->selectionModel()->hasSelection()) {
-        if (m_DeleteFiles) {
-            foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-                results.files_to_delete.append(m_ItemModel->itemFromIndex(index)->text());
-            }
-        }
-        else {
-            QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-            if (index.row() != m_ItemModel->rowCount() - 1) {
-                results.filename = m_ItemModel->itemFromIndex(index)->text();
-            }
-        }
+    QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
+    if (index.row() != m_ItemModel->rowCount() - 1) {
+        QString filename = m_ItemModel->itemFromIndex(index)->text();
+        emit OpenFileRequest(filename, 1);
     }
-
-    return results;
 }
 
 void CSSFilesWidget::Delete()
 {
-    QMessageBox::StandardButton button_pressed;
-    button_pressed = QMessageBox::warning(  this,
-                      tr( "Sigil" ), tr( "Are you sure you want to delete the selected files from the Book?") % "\n" % tr( "This action cannot be reversed." ),
-                                                QMessageBox::Ok | QMessageBox::Cancel
-                                         );
+    QStringList files_to_delete;
 
-    if ( button_pressed == QMessageBox::Ok ) {
-        m_DeleteFiles = true;
-        emit Done();
+    if (ui.fileTree->selectionModel()->hasSelection()) {
+        foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
+            files_to_delete.append(m_ItemModel->itemFromIndex(index)->text());
+        }
     }
+    emit DeleteFilesRequest(files_to_delete);
 }
 
 void CSSFilesWidget::CreateContextMenuActions()
@@ -281,10 +263,9 @@ void CSSFilesWidget::connectSignalsSlots()
     connect (ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), 
             this,                    SLOT(Sort(int, Qt::SortOrder)));
     connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,         SIGNAL(Done()));
+            this,         SLOT(DoubleClick()));
 
     connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint&)),
             this,         SLOT(  OpenContextMenu(                  const QPoint&)));
     connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
-
 }

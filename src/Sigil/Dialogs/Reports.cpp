@@ -20,7 +20,6 @@
 **
 *************************************************************************/
 
-#include "QtGui/QMessageBox"
 #include <QtGui/QScrollArea>
 #include <QtGui/QProgressDialog>
 
@@ -34,51 +33,97 @@
 #include "ReportsWidgets/StylesInCSSFilesWidget.h"
 
 static const QString SETTINGS_GROUP = "reports_dialog";
-static const int NUMBER_OF_REPORTS = 5;
 
-Reports::Reports(QList<Resource*> html_resources,
-                 QList<Resource*> image_resources,
-                 QList<Resource*> css_resources,
-                 QSharedPointer< Book > book,
-                 QWidget *parent)
+Reports::Reports(QWidget *parent)
     :
-    QDialog(parent),
-    m_HTMLResources(html_resources),
-    m_ImageResources(image_resources),
-    m_CSSResources(css_resources),
-    m_Book(book),
-    m_SelectedFile(QString()),
-    m_SelectedFileLine(-1)
+    QDialog(parent)
 {
+    ui.setupUi(this);
+
+    m_HTMLFilesWidget = new HTMLFilesWidget();
+    connect(m_HTMLFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
+    appendReportsWidget(m_HTMLFilesWidget);
+
+    m_ImageFilesWidget = new ImageFilesWidget();
+    connect(m_ImageFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
+    appendReportsWidget(m_ImageFilesWidget);
+
+    m_CSSFilesWidget = new CSSFilesWidget();
+    connect(m_CSSFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
+    appendReportsWidget(m_CSSFilesWidget);
+
+    m_ClassesInHTMLFilesWidget = new ClassesInHTMLFilesWidget();
+    appendReportsWidget(m_ClassesInHTMLFilesWidget);
+
+    m_StylesInCSSFilesWidget = new StylesInCSSFilesWidget();
+    connect(m_StylesInCSSFilesWidget, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData*>)), this, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData*>)));
+    appendReportsWidget(m_StylesInCSSFilesWidget);
+
+    connectSignalsSlots();
+
+    readSettings();
+}
+
+Reports::~Reports()
+{
+    if (m_HTMLFilesWidget) {
+        delete m_HTMLFilesWidget;
+        m_HTMLFilesWidget = 0;
+    }
+
+    if (m_ImageFilesWidget) {
+        delete m_ImageFilesWidget;
+        m_ImageFilesWidget = 0;
+    }
+
+    if (m_CSSFilesWidget) {
+        delete m_CSSFilesWidget;
+        m_CSSFilesWidget = 0;
+    }
+
+    if (m_ClassesInHTMLFilesWidget) {
+        delete m_ClassesInHTMLFilesWidget;
+        m_ClassesInHTMLFilesWidget = 0;
+    }
+
+    if (m_StylesInCSSFilesWidget) {
+        delete m_StylesInCSSFilesWidget;
+        m_StylesInCSSFilesWidget = 0;
+    }
+}
+
+void Reports::CreateReports(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book)
+{
+    m_HTMLResources = html_resources;
+    m_ImageResources = image_resources;
+    m_CSSResources = css_resources;
+    m_Book = book;
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     // Display progress dialog
-    QProgressDialog progress(QObject::tr("Creating reports..."), 0, 0, NUMBER_OF_REPORTS, parent);
+    QProgressDialog progress(QObject::tr("Creating reports..."), 0, 0, ui.availableWidgets->count(), this);
     progress.setMinimumDuration(0);
     int progress_value = 0;
     progress.setValue(progress_value++);
     qApp->processEvents();
 
-    ui.setupUi(this);
-
-    // Create and load all of our report widgets
-    appendReportsWidget(new HTMLFilesWidget(m_HTMLResources, m_Book));
+    // Populate all of our report widgets
+    m_HTMLFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
     progress.setValue(progress_value++);
 
-    appendReportsWidget(new ImageFilesWidget(m_ImageResources, m_Book));
+    m_ImageFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
     progress.setValue(progress_value++);
 
-    appendReportsWidget(new CSSFilesWidget(m_HTMLResources, m_CSSResources, m_Book));
+    m_CSSFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
     progress.setValue(progress_value++);
 
-    appendReportsWidget(new ClassesInHTMLFilesWidget(m_HTMLResources, m_CSSResources, m_Book));
+    m_ClassesInHTMLFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
     progress.setValue(progress_value++);
 
-    appendReportsWidget(new StylesInCSSFilesWidget(m_HTMLResources, m_CSSResources, m_Book));
+    m_StylesInCSSFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
     progress.setValue(progress_value++);
 
-    connectSignalsSlots();
-
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    readSettings();
     QApplication::restoreOverrideCursor();
 }
 
@@ -90,30 +135,8 @@ void Reports::selectPWidget(QListWidgetItem *current, QListWidgetItem *previous)
     ui.pWidget->setCurrentIndex(index);
 }
 
-QString Reports::SelectedFile()
-{
-    return m_SelectedFile;
-}
-
-int Reports::SelectedFileLine()
-{
-    return m_SelectedFileLine;
-}
-
-QStringList Reports::FilesToDelete()
-{
-    return m_FilesToDelete;
-}
-
-QList<BookReports::StyleData *> Reports::StylesToDelete()
-{
-    return m_StylesToDelete;
-}
-
 void Reports::saveSettings()
 {
-    ReportsWidget::Results widgetResult;
-
     SettingsStore settings;
     settings.beginGroup( SETTINGS_GROUP );
 
@@ -121,17 +144,6 @@ void Reports::saveSettings()
 
     settings.setValue("geometry", saveGeometry());
     settings.setValue("lastreport", ui.availableWidgets->currentRow());
-
-    // Get the selected filename from the currently opened widget
-    ReportsWidget *rw = qobject_cast<ReportsWidget*>(ui.pWidget->widget(ui.pWidget->currentIndex()));
-    if (rw) {
-        widgetResult = rw->saveSettings();
-    }
-
-    m_SelectedFile = widgetResult.filename;
-    m_SelectedFileLine = widgetResult.line;
-    m_FilesToDelete = widgetResult.files_to_delete;
-    m_StylesToDelete = widgetResult.styles_to_delete;
 
     QApplication::restoreOverrideCursor();
 }
@@ -162,7 +174,7 @@ void Reports::appendReportsWidget(ReportsWidget *widget)
     // Add the ReportsWidget to the stack view area.
     ui.pWidget->addWidget(widget);
 
-    connect(widget, SIGNAL(Done()), this, SLOT(accept()));
+    connect(widget, SIGNAL(OpenFileRequest(QString, int)), this, SIGNAL(OpenFileRequest(QString, int)));
 
     // Add an entry to the list of available reports widgets.
     ui.availableWidgets->addItem(widget->windowTitle());
@@ -172,4 +184,5 @@ void Reports::connectSignalsSlots()
 {
     connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(selectPWidget(QListWidgetItem*, QListWidgetItem*)));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveSettings()));
+    connect(ui.Refresh, SIGNAL(clicked()), this, SIGNAL(Refresh()));
 }

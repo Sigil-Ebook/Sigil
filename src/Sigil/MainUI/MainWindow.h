@@ -33,6 +33,7 @@
 #include "BookManipulation/BookReports.h"
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/IndexEditor.h"
+#include "Dialogs/Reports.h"
 #include "MainUI/FindReplace.h"
 #include "MainUI/NCXModel.h"
 #include "Misc/CSSInfo.h"
@@ -172,8 +173,6 @@ public:
 
 public slots:
     void AnyCodeView();
-
-    void OpenFilename( QString filename, int line = -1 );
 
     void OpenUrl(const QUrl& url);
 
@@ -554,9 +553,12 @@ private slots:
 
     void SetImageWatchResourceFile(const QString &pathname);
 
-private:
-    void DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete, bool prompt_user = true);
+    void DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete);
 
+    void DeleteFiles(QStringList files_to_delete);
+    void OpenFile(QString filename, int line = -1);
+
+private:
     void InsertImages(const QStringList &selected_images);
     void InsertImagesFromDisk();
 
@@ -879,6 +881,8 @@ private:
     IndexEditor *m_IndexEditor;
 
     SelectCharacter *m_SelectCharacter;
+
+    Reports *m_Reports;
 
     bool m_preserveHeadingAttributes;
 

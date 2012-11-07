@@ -32,27 +32,28 @@
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
 #include "BookManipulation/BookReports.h"
-#include "ReportsWidget.h"
+#include "Dialogs/ReportsWidgets/ReportsWidget.h"
 
 #include "ui_ReportsClassesInHTMLFilesWidget.h"
 
 class QString;
-class QStringList;
 
 class ClassesInHTMLFilesWidget : public ReportsWidget
 {
     Q_OBJECT
 
 public:
-    ClassesInHTMLFilesWidget(QList<Resource *> html_resources, QList<Resource *> css_resources, QSharedPointer<Book> book);
+    ClassesInHTMLFilesWidget();
 
-    ReportsWidget::Results saveSettings();
+    void CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book);
 
 signals:
-    void Done();
+    void OpenFileRequest(QString, int);
 
 private slots:
     void FilterEditTextChangedSlot(const QString &text);
+
+    void DoubleClick();
 
 private:
     void connectSignalsSlots();

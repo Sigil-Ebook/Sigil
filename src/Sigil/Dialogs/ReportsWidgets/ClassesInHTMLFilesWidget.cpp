@@ -29,19 +29,24 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
 #include "Misc/SettingsStore.h"
-#include "ClassesInHTMLFilesWidget.h"
+#include "Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.h"
 
 static QString SETTINGS_GROUP = "reports_classes_in_html_files";
 
-ClassesInHTMLFilesWidget::ClassesInHTMLFilesWidget(QList<Resource *>html_resources, QList<Resource *>css_resources, QSharedPointer< Book > book)
+ClassesInHTMLFilesWidget::ClassesInHTMLFilesWidget()
     :
-    m_HTMLResources(html_resources),
-    m_CSSResources(css_resources),
-    m_Book(book),
     m_ItemModel(new QStandardItemModel)
 {
     ui.setupUi(this);
+
     connectSignalsSlots();
+}
+
+void ClassesInHTMLFilesWidget::CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book)
+{
+    m_HTMLResources = html_resources;
+    m_CSSResources = css_resources;
+    m_Book = book;
 
     SetupTable();
 
@@ -161,29 +166,20 @@ void ClassesInHTMLFilesWidget::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
-ReportsWidget::Results ClassesInHTMLFilesWidget::saveSettings()
+void ClassesInHTMLFilesWidget::DoubleClick()
 {
-    ReportsWidget::Results results;
-
-    results.filename = "";
-    results.line = -1;
-    results.files_to_delete.clear();
-    results.styles_to_delete.clear();
-
-    if (ui.fileTree->selectionModel()->hasSelection()) {
-        QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-        if (index.row() != m_ItemModel->rowCount() - 1) {
-            results.filename = m_ItemModel->itemFromIndex(index)->text();
-        }
+    QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
+    if (index.row() != m_ItemModel->rowCount() - 1) {
+        QString filename = m_ItemModel->itemFromIndex(index)->text();
+        emit OpenFileRequest(filename, 1);
     }
-
-    return results;
 }
 
 void ClassesInHTMLFilesWidget::connectSignalsSlots()
 {
     connect(ui.Filter,    SIGNAL(textChanged(QString)), 
             this,         SLOT(FilterEditTextChangedSlot(QString)));
+
     connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,         SIGNAL(Done()));
+            this,         SLOT(DoubleClick()));
 }

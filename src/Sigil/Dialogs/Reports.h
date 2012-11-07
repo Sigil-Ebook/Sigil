@@ -25,12 +25,11 @@
 #define REPORTS_H
 
 #include <QtGui/QDialog>
-#include <QHash>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h" 
 #include "BookManipulation/BookReports.h" 
-#include "ReportsWidgets/ReportsWidget.h"
+#include "Dialogs/ReportsWidgets/ReportsWidget.h"
 
 #include "ui_Reports.h"
 
@@ -44,18 +43,16 @@ class Reports : public QDialog
     Q_OBJECT
 
 public:
-    Reports( QList<Resource*> html_resources,
-             QList<Resource*> image_resources,
-             QList<Resource*> css_resources,
-             QSharedPointer<Book> book,
-             QWidget *parent = 0);
+    Reports( QWidget *parent = 0);
+    ~Reports();
 
-    QString SelectedFile();
+    void CreateReports(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book);
 
-    int SelectedFileLine();
-
-    QStringList FilesToDelete();
-    QList<BookReports::StyleData *> StylesToDelete();
+signals:
+    void Refresh();
+    void OpenFileRequest(QString, int);
+    void DeleteFilesRequest(QStringList);
+    void DeleteStylesRequest(QList<BookReports::StyleData*>);
 
 private slots:
     /**
@@ -66,17 +63,12 @@ private slots:
      * Saves settings the user has selected.
      *
      * Saves the state of the dialog.
-     * Also, calls saveSettings for each loaded ReportsWidget.
      */
     void saveSettings();
 
 private:
-    /**
-     * Read settings for the dialog.
-     *
-     * Each ReportsWidget upon creation will load it's own settings.
-     */
     void readSettings();
+
     /**
      * Adds the given items to the dialog.
      *
@@ -87,23 +79,19 @@ private:
      * @param widget The ReportsWidget to add to the dialog.
      */
     void appendReportsWidget(ReportsWidget *widget);
-    /**
-     * Connect signals to slots used by this dialog.
-     */
+
     void connectSignalsSlots();
 
     QList<Resource*> m_HTMLResources;
     QList<Resource*> m_ImageResources;
     QList<Resource*> m_CSSResources;
-
     QSharedPointer< Book > m_Book;
 
-    QString m_SelectedFile;
-
-    int m_SelectedFileLine;
-
-    QStringList m_FilesToDelete;
-    QList<BookReports::StyleData*> m_StylesToDelete;
+    ReportsWidget *m_HTMLFilesWidget;
+    ReportsWidget *m_ImageFilesWidget;
+    ReportsWidget *m_CSSFilesWidget;
+    ReportsWidget *m_ClassesInHTMLFilesWidget;
+    ReportsWidget *m_StylesInCSSFilesWidget;
 
     Ui::Reports ui;
 };

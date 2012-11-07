@@ -33,7 +33,7 @@
 #include <QtGui/QDialog>
 #include <QtGui/QStandardItemModel>
 #include "BookManipulation/Book.h"
-#include "ReportsWidget.h"
+#include "Dialogs/ReportsWidgets/ReportsWidget.h"
 
 #include "ui_ReportsCSSFilesWidget.h"
 
@@ -45,16 +45,15 @@ class CSSFilesWidget : public ReportsWidget
     Q_OBJECT
 
 public:
-    CSSFilesWidget(QList<Resource*> html_resources, QList<Resource*> css_resources, QSharedPointer<Book> book);
+    CSSFilesWidget();
+
+    void CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book);
 
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
-    QString SelectedFile();
-
-    ReportsWidget::Results saveSettings();
-
 signals:
-    void Done();
+    void DeleteFilesRequest(QStringList);
+    void OpenFileRequest(QString, int);
 
 private slots:
     void OpenContextMenu(const QPoint &point);
@@ -64,6 +63,7 @@ private slots:
     void FilterEditTextChangedSlot(const QString &text);
 
     void Delete();
+    void DoubleClick();
 
 private:
     void CreateContextMenuActions();
@@ -81,8 +81,6 @@ private:
     QMenu *m_ContextMenu;
 
     QAction *m_Delete;
-
-    bool m_DeleteFiles;
 
     Ui::CSSFilesWidget ui;
 };

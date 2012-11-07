@@ -23,7 +23,6 @@
 #include <QtCore/QFile>
 #include <QtCore/QHashIterator>
 #include <QtGui/QFont>
-#include <QtGui/QMessageBox>
 
 #include "Misc/NumericItem.h"
 #include "Misc/CSSInfo.h"
@@ -34,14 +33,10 @@
 
 static QString SETTINGS_GROUP = "reports_styles_in_css_files";
 
-StylesInCSSFilesWidget::StylesInCSSFilesWidget(QList<Resource *>html_resources, QList<Resource *>css_resources, QSharedPointer< Book > book)
+StylesInCSSFilesWidget::StylesInCSSFilesWidget()
     :
-    m_HTMLResources(html_resources),
-    m_CSSResources(css_resources),
-    m_Book(book),
     m_ItemModel(new QStandardItemModel),
-    m_ContextMenu(new QMenu(this)),
-    m_DeleteStyles(false)
+    m_ContextMenu(new QMenu(this))
 {
     ui.setupUi(this);
 
@@ -50,6 +45,13 @@ StylesInCSSFilesWidget::StylesInCSSFilesWidget(QList<Resource *>html_resources, 
     CreateContextMenuActions();
 
     connectSignalsSlots();
+}
+
+void StylesInCSSFilesWidget::CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book)
+{
+    m_HTMLResources = html_resources;
+    m_CSSResources = css_resources;
+    m_Book = book;
 
     SetupTable();
 
@@ -161,37 +163,15 @@ void StylesInCSSFilesWidget::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
-ReportsWidget::Results StylesInCSSFilesWidget::saveSettings()
+
+void StylesInCSSFilesWidget::DoubleClick()
 {
-    ReportsWidget::Results results;
-
-    results.filename = "";
-    results.line = -1;
-    results.files_to_delete.clear();
-    results.styles_to_delete.clear();
-
-    if (ui.fileTree->selectionModel()->hasSelection()) {
-        if (m_DeleteStyles) {
-            foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-
-                BookReports::StyleData *style = new BookReports::StyleData();
-                style->css_filename = m_ItemModel->itemFromIndex(index)->text();
-                style->css_selector_text = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
-                style->css_selector_line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
-
-                results.styles_to_delete.append(style);
-            }
-        }
-        else {
-            QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-            if (index.row() != m_ItemModel->rowCount() - 1) {
-                results.filename = m_ItemModel->itemFromIndex(index)->text();
-                results.line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
-            }
-        }
+    QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
+    if (index.row() != m_ItemModel->rowCount() - 1) {
+        QString filename = m_ItemModel->itemFromIndex(index)->text();
+        int line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
+        emit OpenFileRequest(filename, line);
     }
-
-    return results;
 }
 
 void StylesInCSSFilesWidget::Delete()
@@ -217,20 +197,18 @@ void StylesInCSSFilesWidget::Delete()
         style_names = style_names.left(style_names.length() - 2);
     }
 
-    QMessageBox::StandardButton button_pressed;
-    QString msg = count == 1 ? tr( "Are you sure you want to delete the style listed below?\n" ):
-                                           tr( "Are you sure you want to delete all the styles listed below?\n" );
-    button_pressed = QMessageBox::warning(  this,
-                      tr( "Sigil" ), msg % tr( "This action cannot be reversed." ) % style_names,
-                                                QMessageBox::Ok | QMessageBox::Cancel
-                                         );
-    if ( button_pressed != QMessageBox::Ok ) {
-        return;
+    QList<BookReports::StyleData*> styles_to_delete;
+
+    foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
+        BookReports::StyleData *style = new BookReports::StyleData();
+        style->css_filename = m_ItemModel->itemFromIndex(index)->text();
+        style->css_selector_text = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
+        style->css_selector_line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
+
+        styles_to_delete.append(style);
     }
 
-    m_DeleteStyles = true;
-
-    emit Done();
+    emit DeleteStylesRequest(styles_to_delete);
 }
 
 void StylesInCSSFilesWidget::CreateContextMenuActions()
@@ -263,7 +241,7 @@ void StylesInCSSFilesWidget::connectSignalsSlots()
     connect(ui.Filter,    SIGNAL(textChanged(QString)), 
             this,         SLOT(FilterEditTextChangedSlot(QString)));
     connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,          SIGNAL(Done()));
+            this,          SLOT(DoubleClick()));
 
     connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint&)),
             this,         SLOT(  OpenContextMenu(                  const QPoint&)));

@@ -24,11 +24,9 @@
 #define REPORTSWIDGET_H
 
 #include <QWidget>
-#include <QString>
-#include <QHash>
 
-#include "Misc/CSSInfo.h"
-#include "BookManipulation/BookReports.h"
+#include "ResourceObjects/Resource.h"
+#include "BookManipulation/Book.h"
 
 /**
  * Base Interface for reports widgets.
@@ -38,23 +36,7 @@ class ReportsWidget : public QWidget
     Q_OBJECT
 
 public:
-    /**
-     * Describes the result actions to present to the user as a result
-     * of saving any changes made in the preferences widgets.
-     * Results are in order of increasing priority of result to display.
-     */
-    struct Results
-    {
-        QString filename;
-        int line;
-        QStringList files_to_delete;
-        QList<BookReports::StyleData*> styles_to_delete;
-    };
-
-    /**
-     * Save settings made available by the widget.
-     */
-    virtual Results saveSettings() = 0;
+    virtual void CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book) = 0;
 };
 
 #endif // REPORTSWIDGET_H
