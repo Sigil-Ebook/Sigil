@@ -36,7 +36,7 @@ class ReportsWidget : public QWidget
     Q_OBJECT
 
 public:
-    virtual void CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book) = 0;
+    virtual void CreateReport(QSharedPointer< Book > book) = 0;
 };
 
 #endif // REPORTSWIDGET_H

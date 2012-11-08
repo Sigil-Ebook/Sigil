@@ -62,6 +62,8 @@ Reports::Reports(QWidget *parent)
     connectSignalsSlots();
 
     readSettings();
+
+    ui.Refresh->setFocus();
 }
 
 Reports::~Reports()
@@ -92,11 +94,8 @@ Reports::~Reports()
     }
 }
 
-void Reports::CreateReports(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book)
+void Reports::CreateReports(QSharedPointer< Book > book)
 {
-    m_HTMLResources = html_resources;
-    m_ImageResources = image_resources;
-    m_CSSResources = css_resources;
     m_Book = book;
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -109,19 +108,19 @@ void Reports::CreateReports(QList<Resource*> html_resources, QList<Resource*> im
     qApp->processEvents();
 
     // Populate all of our report widgets
-    m_HTMLFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
+    m_HTMLFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
 
-    m_ImageFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
+    m_ImageFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
 
-    m_CSSFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
+    m_CSSFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
 
-    m_ClassesInHTMLFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
+    m_ClassesInHTMLFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
 
-    m_StylesInCSSFilesWidget->CreateTable(m_HTMLResources, m_ImageResources, m_CSSResources, m_Book);
+    m_StylesInCSSFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
 
     QApplication::restoreOverrideCursor();

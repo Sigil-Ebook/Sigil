@@ -45,7 +45,7 @@ class ClassesInHTMLFilesWidget : public ReportsWidget
 public:
     ClassesInHTMLFilesWidget();
 
-    void CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer< Book > book);
 
 signals:
     void OpenFileRequest(QString, int);
@@ -53,20 +53,24 @@ signals:
 private slots:
     void FilterEditTextChangedSlot(const QString &text);
 
+    void Save();
     void DoubleClick();
 
 private:
+    void ReadSettings();
+    void WriteSettings();
+
     void connectSignalsSlots();
 
     void SetupTable();
     void AddTableData(QList<BookReports::StyleData *> html_classes_usage);
 
-    QList<Resource *> m_HTMLResources;
-    QList<Resource *> m_CSSResources;
-
     QSharedPointer< Book > m_Book;
 
     QStandardItemModel *m_ItemModel;
+
+    QString m_LastDirSaved;
+    QString m_LastFileSaved;
 
     Ui::ClassesInHTMLFilesWidget ui;
 };

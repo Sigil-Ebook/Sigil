@@ -904,16 +904,12 @@ void MainWindow::ReportsDialog()
     }
     SaveTabData();
 
-    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
-    QList<Resource *> image_resources = m_BookBrowser->AllImageResources();
-    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
-
-    m_Reports->CreateReports(html_resources, image_resources, css_resources, m_Book);
-
     // non-modal dialog
     m_Reports->show();
     m_Reports->raise();
     m_Reports->activateWindow();
+
+    m_Reports->CreateReports(m_Book);
 }
 
 void MainWindow::OpenFile(QString filename, int line)
@@ -930,10 +926,7 @@ void MainWindow::OpenFile(QString filename, int line)
     {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
 
-            OpenResource(resource, line);
-//        if (resource.Type() == Resource::CSSResourceType || resource.Type() == Resource::HTMLResourceType) {
-//            OpenResource(resource, line);
-//        }
+        OpenResource(resource, line);
     }
     catch (const ResourceDoesNotExist&)
     {
@@ -1052,9 +1045,10 @@ void MainWindow::DeleteUnusedStyles()
         return;
     }
     SaveTabData();
-    QList<BookReports::StyleData *> html_class_usage = BookReports::GetHTMLClassUsage(m_BookBrowser->AllHTMLResources(), m_BookBrowser->AllCSSResources(), m_Book);
 
-    QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_BookBrowser->AllCSSResources(), html_class_usage);
+    QList<BookReports::StyleData *> html_class_usage = BookReports::GetHTMLClassUsage(m_Book);
+
+    QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_class_usage);
 
     QList<BookReports::StyleData *> css_selectors_to_delete;
     
