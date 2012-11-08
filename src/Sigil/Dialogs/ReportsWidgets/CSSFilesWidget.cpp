@@ -21,17 +21,26 @@
 *************************************************************************/
 
 #include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtGui/QFileDialog>
 #include <QtGui/QFont>
+#include <QtGui/QMessageBox>
+#include <QtGui/QPushButton>
 
-#include "ResourceObjects/HTMLResource.h"
+#include "sigil_exception.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "Dialogs/ReportsWidgets/CSSFilesWidget.h"
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
-#include "Dialogs/ReportsWidgets/CSSFilesWidget.h"
+#include "Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/CSSResource.h"
 
 static const int THUMBNAIL_SIZE = 100;
 static const int THUMBNAIL_SIZE_INCREMENT = 50;
 
-static QString SETTINGS_GROUP = "reports_css_files";
+static const QString SETTINGS_GROUP = "reports";
+static const QString DEFAULT_REPORT_FILE = "CSSFilesReport.csv";
 
 CSSFilesWidget::CSSFilesWidget()
     :
@@ -47,11 +56,11 @@ CSSFilesWidget::CSSFilesWidget()
     connectSignalsSlots();
 }
 
-void CSSFilesWidget::CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book)
+void CSSFilesWidget::CreateReport(QSharedPointer< Book > book)
 {
-    m_HTMLResources = html_resources;
-    m_CSSResources = css_resources;
     m_Book = book;
+    m_HTMLResources = m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(false);
+    m_CSSResources = m_Book->GetFolderKeeper().GetResourceTypeList< CSSResource >(false);
 
     SetupTable();
 }
@@ -76,12 +85,11 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 
     // Get all a count of all the linked stylesheets
     QHash<QString, int> linked_stylesheets_hash;
-    foreach (Resource *html_resource, m_HTMLResources) {
+    foreach (HTMLResource *html_resource, m_HTMLResources) {
         QString html_filename = html_resource->Filename();
 
         // Get the linked stylesheets for this file
-        HTMLResource *html_type_resource = dynamic_cast<HTMLResource *>( html_resource );
-        QStringList linked_stylesheets = m_Book->GetStylesheetsInHTMLFile(html_type_resource);
+        QStringList linked_stylesheets = m_Book->GetStylesheetsInHTMLFile(html_resource);
         foreach (QString stylesheet, linked_stylesheets) {
             if (linked_stylesheets.contains(stylesheet)) {
                 linked_stylesheets_hash[stylesheet]++;
@@ -95,15 +103,15 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     double total_size = 0;
     int total_links = 0;
 
-    foreach (Resource *resource, m_CSSResources) {
-            QString filepath = "../" + resource->GetRelativePathToOEBPS();
-            QString path = resource->GetFullPath();
+    foreach (CSSResource *css_resource, m_CSSResources) {
+            QString filepath = "../" + css_resource->GetRelativePathToOEBPS();
+            QString path = css_resource->GetFullPath();
 
             QList<QStandardItem *> rowItems;
 
             // Filename
             QStandardItem *name_item = new QStandardItem();
-            name_item->setText(resource->Filename());
+            name_item->setText(css_resource->Filename());
             name_item->setToolTip(filepath);
             rowItems << name_item;
 
@@ -227,6 +235,71 @@ void CSSFilesWidget::Delete()
     emit DeleteFilesRequest(files_to_delete);
 }
 
+void CSSFilesWidget::Save()
+{
+    QString report_info;
+    QString row_text;
+
+    // Get headings
+    for (int col = 0; col < ui.fileTree->header()->count(); col++) {
+        QStandardItem *item = m_ItemModel->horizontalHeaderItem(col);
+        if (col == 0) {
+            row_text.append(item->text());
+        }
+        else {
+            row_text.append("," % item->text());
+        }
+    }
+    report_info.append(row_text % "\n");
+
+    // Get data from table
+    for (int row = 0; row < m_ItemModel->rowCount(); row++) {
+        row_text = "";
+        for (int col = 0; col < ui.fileTree->header()->count(); col++) {
+            QStandardItem *item = m_ItemModel->item(row, col);
+            if (col == 0) {
+                row_text.append(item->text());
+            }
+            else {
+                row_text.append("," % item->text());
+            }
+        }
+        report_info.append(row_text % "\n");
+    }
+
+    // Save the file
+    ReadSettings();
+
+    QString filter_string = "*.csv;;*.txt;;*.*";
+    QString default_filter = "";
+
+    QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
+
+    QString destination = QFileDialog::getSaveFileName( this,
+                                                     tr( "Save Report As Comma Separated File" ),
+                                                     save_path,
+                                                     filter_string,
+                                                     &default_filter
+                                                   );
+
+    if (destination.isEmpty()) {
+        return;
+    }
+
+    try {
+        Utility::WriteUnicodeTextFile(report_info, destination);
+    }
+    catch (CannotOpenFile) {
+        QMessageBox::warning(this, tr( "Sigil" ), tr( "Cannot save report file."));
+    }
+
+    m_LastDirSaved = QFileInfo(destination).absolutePath();
+    m_LastFileSaved = QFileInfo(destination).fileName();
+
+    WriteSettings();
+}
+
+
 void CSSFilesWidget::CreateContextMenuActions()
 {
     m_Delete    = new QAction(tr("Delete From Book") + "...",     this);
@@ -256,6 +329,35 @@ void CSSFilesWidget::SetupContextMenu(const QPoint &point)
     }
 }
 
+void CSSFilesWidget::ReadSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    // Last file open
+    m_LastDirSaved = settings.value("last_dir_saved").toString();
+    m_LastFileSaved = settings.value("last_file_saved_css_files").toString();
+
+    if (m_LastFileSaved.isEmpty()) {
+        m_LastFileSaved = DEFAULT_REPORT_FILE;
+    }
+
+    settings.endGroup();
+}
+
+void CSSFilesWidget::WriteSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    // Last file open
+    settings.setValue( "last_dir_saved", m_LastDirSaved);
+    settings.setValue( "last_file_saved_css_files", m_LastFileSaved);
+
+    settings.endGroup();
+}
+
+
 void CSSFilesWidget::connectSignalsSlots()
 {
     connect(ui.leFilter,             SIGNAL(textChanged(QString)),
@@ -268,4 +370,7 @@ void CSSFilesWidget::connectSignalsSlots()
     connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint&)),
             this,         SLOT(  OpenContextMenu(                  const QPoint&)));
     connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
+
+    connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
+
 }

@@ -47,7 +47,7 @@ class ImageFilesWidget : public ReportsWidget
 public:
     ImageFilesWidget();
 
-    void CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer< Book > book);
 
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
@@ -68,16 +68,18 @@ private slots:
     void Delete();
     void DoubleClick();
 
+    void Save();
+
 private:
-    void saveSettings();
+    void ReadSettings();
+    void WriteSettings();
 
     void CreateContextMenuActions();
     void SetupContextMenu(const QPoint &point);
 
-    void ReadSettings();
     void connectSignalsSlots();
 
-    QList<Resource*> m_ImageResources;
+    QList<Resource*> m_AllImageResources;
 
     QSharedPointer<Book> m_Book;
 
@@ -88,6 +90,9 @@ private:
     QMenu *m_ContextMenu;
 
     QAction *m_Delete;
+
+    QString m_LastDirSaved;
+    QString m_LastFileSaved;
 
     Ui::ImageFilesWidget ui;
 };

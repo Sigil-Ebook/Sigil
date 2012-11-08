@@ -28,28 +28,28 @@
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/BookReports.h"
+#include "BookManipulation/FolderKeeper.h"
 #include "Misc/CSSInfo.h"
-#include "ResourceObjects/HTMLResource.h"
-#include "ResourceObjects/CSSResource.h"
 #include "Misc/SettingsStore.h"
 
-QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QList<Resource *>html_resources, QList<Resource *>css_resources, QSharedPointer< Book > book)
+QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer< Book > book)
 {
+    QList<HTMLResource*> html_resources = book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(false);
+    QList<CSSResource*> css_resources = book->GetFolderKeeper().GetResourceTypeList< CSSResource >(false);
+
     QList<BookReports::StyleData *> html_classes_usage;
 
     // Save each CSS file's text so we don't have to reload it when checking each HTML file
-    QList<Resource *> css_named_resources;
     QHash<QString, QString> css_text;
-    foreach (Resource *resource, css_resources) {
-        QString css_filename = "../" + resource->GetRelativePathToOEBPS();
+    foreach (CSSResource *css_resource, css_resources) {
+        QString css_filename = "../" + css_resource->GetRelativePathToOEBPS();
         if (!css_text.contains(css_filename)) {
-            CSSResource *css_resource = dynamic_cast<CSSResource *>( resource );
             css_text[css_filename] = css_resource->GetText();
         }
     }
 
     // Check each file for classes to look for in inline and linked stylesheets
-    foreach (Resource *html_resource, html_resources) {
+    foreach (HTMLResource *html_resource, html_resources) {
         QString html_filename = html_resource->Filename();
 
         // Get the unique list of classes in this file
@@ -57,8 +57,7 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QList<Resource *>
         classes_in_file.removeDuplicates();
 
         // Get the linked stylesheets for this file
-        HTMLResource *html_type_resource = dynamic_cast<HTMLResource *>( html_resource );
-        QStringList linked_stylesheets = book->GetStylesheetsInHTMLFile(html_type_resource);
+        QStringList linked_stylesheets = book->GetStylesheetsInHTMLFile(html_resource);
 
         // Look at each class from the HTML file
         foreach (QString class_name, classes_in_file) {
@@ -98,19 +97,20 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QList<Resource *>
     return html_classes_usage;
 }
 
-QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QList<Resource *>css_resources, QList<BookReports::StyleData *> html_classes_usage)
+QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QSharedPointer< Book > book, QList<BookReports::StyleData *> html_classes_usage)
 {
+    QList<CSSResource*> css_resources = book->GetFolderKeeper().GetResourceTypeList< CSSResource >(false);
+
     QList<BookReports::StyleData *> css_selectors_usage;
 
     // Now check the CSS files to see if their classes appear in an HTML file
-    foreach (Resource *resource, css_resources) {
-        CSSResource *css_resource = dynamic_cast<CSSResource *>( resource );
+    foreach (CSSResource *css_resource, css_resources) {
         QString text = css_resource->GetText();
         CSSInfo css_info(text, true);
         QList<CSSInfo::CSSSelector*> selectors = css_info.getClassSelectors();
 
         foreach (CSSInfo::CSSSelector *selector, selectors) {
-            QString css_filename = "../" + resource->GetRelativePathToOEBPS();
+            QString css_filename = "../" + css_resource->GetRelativePathToOEBPS();
 
             // Save the details for found or not found classes
             BookReports::StyleData *selector_usage = new BookReports::StyleData();

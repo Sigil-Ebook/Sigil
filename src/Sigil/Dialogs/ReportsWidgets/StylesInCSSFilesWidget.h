@@ -48,7 +48,7 @@ class StylesInCSSFilesWidget : public ReportsWidget
 public:
     StylesInCSSFilesWidget();
 
-    void CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer< Book > book);
 
 signals:
     void OpenFileRequest(QString, int);
@@ -60,9 +60,13 @@ private slots:
     void FilterEditTextChangedSlot(const QString &text);
 
     void Delete();
+    void Save();
     void DoubleClick();
 
 private:
+    void ReadSettings();
+    void WriteSettings();
+
     void CreateContextMenuActions();
     void SetupContextMenu(const QPoint &point);
 
@@ -72,9 +76,6 @@ private:
 
     void AddTableData(QList<BookReports::StyleData *> css_selectors_usage);
 
-    QList<Resource *> m_HTMLResources;
-    QList<Resource *> m_CSSResources;
-
     QSharedPointer< Book > m_Book;
 
     QStandardItemModel *m_ItemModel;
@@ -82,6 +83,9 @@ private:
     QMenu *m_ContextMenu;
 
     QAction *m_Delete;
+
+    QString m_LastDirSaved;
+    QString m_LastFileSaved;
 
     Ui::StylesInCSSFilesWidget ui;
 };

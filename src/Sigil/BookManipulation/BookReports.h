@@ -23,7 +23,8 @@
 #ifndef BOOKREPORTS_H
 #define BOOKREPORTS_H
 
-#include "ResourceObjects/Resource.h"
+#include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/CSSResource.h"
 #include "BookManipulation/Book.h"
 
 class QString;
@@ -45,8 +46,8 @@ public:
         int css_selector_position;
     };
 
-    static QList<BookReports::StyleData *> GetHTMLClassUsage(QList<Resource *>html_resources, QList<Resource *>css_resources, QSharedPointer< Book > book);
-    static QList<BookReports::StyleData *> GetCSSSelectorUsage(QList<Resource *>css_resources, QList<BookReports::StyleData *> html_class_usage);
+    static QList<BookReports::StyleData *> GetHTMLClassUsage(QSharedPointer< Book > book);
+    static QList<BookReports::StyleData *> GetCSSSelectorUsage(QSharedPointer< Book > book, QList<BookReports::StyleData *> html_classes_usage);
 };
 
 #endif // BOOKREPORTS_H

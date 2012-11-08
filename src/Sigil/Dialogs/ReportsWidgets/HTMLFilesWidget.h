@@ -48,7 +48,7 @@ class HTMLFilesWidget : public ReportsWidget
 public:
     HTMLFilesWidget();
 
-    void CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer< Book > book);
 
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
@@ -66,13 +66,17 @@ private slots:
     void Delete();
     void DoubleClick();
 
+    void Save();
+
 private:
+    void ReadSettings();
+    void WriteSettings();
     void CreateContextMenuActions();
     void SetupContextMenu(const QPoint &point);
 
     void connectSignalsSlots();
 
-    QList<Resource*> m_HTMLResources;
+    QList<HTMLResource*> m_HTMLResources;
 
     QSharedPointer< Book > m_Book;
 
@@ -81,6 +85,9 @@ private:
     QMenu *m_ContextMenu;
 
     QAction *m_Delete;
+
+    QString m_LastDirSaved;
+    QString m_LastFileSaved;
 
     Ui::HTMLFilesWidget ui;
 };

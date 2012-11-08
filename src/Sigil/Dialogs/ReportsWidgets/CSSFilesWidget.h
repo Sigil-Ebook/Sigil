@@ -47,7 +47,7 @@ class CSSFilesWidget : public ReportsWidget
 public:
     CSSFilesWidget();
 
-    void CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer< Book > book);
 
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
@@ -56,6 +56,9 @@ signals:
     void OpenFileRequest(QString, int);
 
 private slots:
+    void ReadSettings();
+    void WriteSettings();
+
     void OpenContextMenu(const QPoint &point);
 
     void Sort(int logicalindex, Qt::SortOrder order);
@@ -63,6 +66,7 @@ private slots:
     void FilterEditTextChangedSlot(const QString &text);
 
     void Delete();
+    void Save();
     void DoubleClick();
 
 private:
@@ -71,8 +75,8 @@ private:
 
     void connectSignalsSlots();
 
-    QList<Resource*> m_HTMLResources;
-    QList<Resource*> m_CSSResources;
+    QList<HTMLResource*> m_HTMLResources;
+    QList<CSSResource*> m_CSSResources;
 
     QSharedPointer<Book> m_Book;
 
@@ -81,6 +85,9 @@ private:
     QMenu *m_ContextMenu;
 
     QAction *m_Delete;
+
+    QString m_LastDirSaved;
+    QString m_LastFileSaved;
 
     Ui::CSSFilesWidget ui;
 };

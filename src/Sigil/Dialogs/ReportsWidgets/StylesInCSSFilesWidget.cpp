@@ -21,17 +21,25 @@
 *************************************************************************/
 
 #include <QtCore/QFile>
+#include <QtCore/QFileInfo>
 #include <QtCore/QHashIterator>
+#include <QtGui/QFileDialog>
 #include <QtGui/QFont>
+#include <QtGui/QMessageBox>
+#include <QtGui/QPushButton>
 
-#include "Misc/NumericItem.h"
+#include "sigil_exception.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "Dialogs/ReportsWidgets/StylesInCSSFilesWidget.h"
 #include "Misc/CSSInfo.h"
+#include "Misc/NumericItem.h"
+#include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
-#include "Misc/SettingsStore.h"
-#include "StylesInCSSFilesWidget.h"
 
-static QString SETTINGS_GROUP = "reports_styles_in_css_files";
+static const QString SETTINGS_GROUP = "reports";
+static const QString DEFAULT_REPORT_FILE = "StyleClassesInCSSFilesReport.csv";
 
 StylesInCSSFilesWidget::StylesInCSSFilesWidget()
     :
@@ -47,19 +55,17 @@ StylesInCSSFilesWidget::StylesInCSSFilesWidget()
     connectSignalsSlots();
 }
 
-void StylesInCSSFilesWidget::CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book)
+void StylesInCSSFilesWidget::CreateReport(QSharedPointer< Book > book)
 {
-    m_HTMLResources = html_resources;
-    m_CSSResources = css_resources;
     m_Book = book;
 
     SetupTable();
 
     // Get the list of classes in HTML and what selectors they match
-    QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_HTMLResources, m_CSSResources, m_Book);
+    QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_Book);
 
     // Get the list of selectors in CSS files and if they were matched by HTML classes
-    QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_CSSResources, html_classes_usage);
+    QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_classes_usage);
 
     AddTableData(css_selector_usage);
 
@@ -167,11 +173,9 @@ void StylesInCSSFilesWidget::FilterEditTextChangedSlot(const QString &text)
 void StylesInCSSFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-    if (index.row() != m_ItemModel->rowCount() - 1) {
-        QString filename = m_ItemModel->itemFromIndex(index)->text();
-        int line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
-        emit OpenFileRequest(filename, line);
-    }
+    QString filename = m_ItemModel->itemFromIndex(index)->text();
+    int line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
+    emit OpenFileRequest(filename, line);
 }
 
 void StylesInCSSFilesWidget::Delete()
@@ -211,6 +215,71 @@ void StylesInCSSFilesWidget::Delete()
     emit DeleteStylesRequest(styles_to_delete);
 }
 
+void StylesInCSSFilesWidget::Save()
+{
+    QString report_info;
+    QString row_text;
+
+    // Get headings
+    for (int col = 0; col < ui.fileTree->header()->count(); col++) {
+        QStandardItem *item = m_ItemModel->horizontalHeaderItem(col);
+        if (col == 0) {
+            row_text.append(item->text());
+        }
+        else {
+            row_text.append("," % item->text());
+        }
+    }
+    report_info.append(row_text % "\n");
+
+    // Get data from table
+    for (int row = 0; row < m_ItemModel->rowCount(); row++) {
+        row_text = "";
+        for (int col = 0; col < ui.fileTree->header()->count(); col++) {
+            QStandardItem *item = m_ItemModel->item(row, col);
+            if (col == 0) {
+                row_text.append(item->text());
+            }
+            else {
+                row_text.append("," % item->text());
+            }
+        }
+        report_info.append(row_text % "\n");
+    }
+
+    // Save the file
+    ReadSettings();
+
+    QString filter_string = "*.csv;;*.txt;;*.*";
+    QString default_filter = "";
+
+    QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
+
+    QString destination = QFileDialog::getSaveFileName( this,
+                                                     tr( "Save Report As Comma Separated File" ),
+                                                     save_path,
+                                                     filter_string,
+                                                     &default_filter
+                                                   );
+
+    if (destination.isEmpty()) {
+        return;
+    }
+
+    try {
+        Utility::WriteUnicodeTextFile(report_info, destination);
+    }
+    catch (CannotOpenFile) {
+        QMessageBox::warning(this, tr( "Sigil" ), tr( "Cannot save report file."));
+    }
+
+    m_LastDirSaved = QFileInfo(destination).absolutePath();
+    m_LastFileSaved = QFileInfo(destination).fileName();
+
+    WriteSettings();
+}
+
+
 void StylesInCSSFilesWidget::CreateContextMenuActions()
 {
     m_Delete    = new QAction(tr("Delete From Stylesheet") + "...",     this);
@@ -236,6 +305,35 @@ void StylesInCSSFilesWidget::SetupContextMenu(const QPoint &point)
     m_Delete->setEnabled(ui.fileTree->selectionModel()->selectedRows().count() > 0);
 }
 
+
+void StylesInCSSFilesWidget::ReadSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    // Last file open
+    m_LastDirSaved = settings.value("last_dir_saved").toString();
+    m_LastFileSaved = settings.value("last_file_saved_styles_css_files").toString();
+
+    if (m_LastFileSaved.isEmpty()) {
+        m_LastFileSaved = DEFAULT_REPORT_FILE;
+    }
+
+    settings.endGroup();
+}
+
+void StylesInCSSFilesWidget::WriteSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    // Last file open
+    settings.setValue( "last_dir_saved", m_LastDirSaved);
+    settings.setValue( "last_file_saved_styles_css_files", m_LastFileSaved);
+
+    settings.endGroup();
+}
+
 void StylesInCSSFilesWidget::connectSignalsSlots()
 {
     connect(ui.Filter,    SIGNAL(textChanged(QString)), 
@@ -246,4 +344,7 @@ void StylesInCSSFilesWidget::connectSignalsSlots()
     connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint&)),
             this,         SLOT(  OpenContextMenu(                  const QPoint&)));
     connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
+
+    connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
+
 }

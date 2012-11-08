@@ -22,21 +22,32 @@
 
 #include <QtCore/QFile>
 #include <QtGui/QFont>
+#include <QtGui/QFileDialog>
+#include <QtGui/QMessageBox>
+#include <QtGui/QPushButton>
 
+#include "sigil_exception.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "Dialogs/ReportsWidgets/ImageFilesWidget.h"
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
-#include "Dialogs/ReportsWidgets/ImageFilesWidget.h"
+#include "Misc/Utility.h"
+#include "ResourceObjects/ImageResource.h"
+#include "ResourceObjects/SVGResource.h"
 
 static const int THUMBNAIL_SIZE = 100;
 static const int THUMBNAIL_SIZE_INCREMENT = 50;
 
-static QString SETTINGS_GROUP = "reports_image_files";
+static const QString SETTINGS_GROUP = "reports";
+static const QString DEFAULT_REPORT_FILE = "ImageFilesReport.csv";
 
 ImageFilesWidget::ImageFilesWidget()
     :
     m_ItemModel(new QStandardItemModel),
     m_ThumbnailSize(THUMBNAIL_SIZE),
-    m_ContextMenu(new QMenu(this))
+    m_ContextMenu(new QMenu(this)),
+    m_LastDirSaved(QString()),
+    m_LastFileSaved(QString())
 {
     ui.setupUi(this);
 
@@ -49,10 +60,20 @@ ImageFilesWidget::ImageFilesWidget()
     ReadSettings();
 }
 
-void ImageFilesWidget::CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book)
+void ImageFilesWidget::CreateReport(QSharedPointer< Book > book)
 {
-    m_ImageResources = image_resources;
     m_Book = book;
+    m_AllImageResources.clear();
+    QList<ImageResource*> image_resources = m_Book->GetFolderKeeper().GetResourceTypeList< ImageResource >(false);
+    QList<SVGResource*> svg_resources = m_Book->GetFolderKeeper().GetResourceTypeList< SVGResource >(false);
+
+    // Images actually consist of 2 resource types ImageResource and SVGResource
+    foreach (ImageResource *image_resource, image_resources) {
+        m_AllImageResources.append(image_resource);
+    }
+    foreach (SVGResource *svg_resource, svg_resources) {
+        m_AllImageResources.append(svg_resource);
+    }
 
     SetupTable();
 }
@@ -89,7 +110,7 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     int total_links = 0;
     QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
 
-    foreach (Resource *resource, m_ImageResources) {
+    foreach (Resource *resource, m_AllImageResources) {
             QString filepath = "../" + resource->GetRelativePathToOEBPS();
             QString path = resource->GetFullPath();
             QImage image(path);
@@ -169,7 +190,7 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 
     // Files
     nitem = new NumericItem();
-    nitem->setText(QString::number(m_ImageResources.count()) % tr(" files"));
+    nitem->setText(QString::number(m_AllImageResources.count()) % tr(" files"));
     rowItems << nitem;
 
     // File size
@@ -223,7 +244,7 @@ void ImageFilesWidget::IncreaseThumbnailSize()
     m_ThumbnailSize += THUMBNAIL_SIZE_INCREMENT;
     ui.ThumbnailDecrease->setEnabled(true);
     SetupTable();
-    saveSettings();
+    WriteSettings();
 }
 
 void ImageFilesWidget::DecreaseThumbnailSize()
@@ -234,7 +255,7 @@ void ImageFilesWidget::DecreaseThumbnailSize()
         ui.ThumbnailDecrease->setEnabled(false);
     }
     SetupTable();
-    saveSettings();
+    WriteSettings();
 }
 
 void ImageFilesWidget::FilterEditTextChangedSlot(const QString &text)
@@ -273,6 +294,72 @@ void ImageFilesWidget::Sort(int logicalindex, Qt::SortOrder order)
     SetupTable(logicalindex, order);
 }
 
+void ImageFilesWidget::Save()
+{
+    QString report_info;
+    QString row_text;
+
+    // Get headings
+    for (int col = 0; col < ui.fileTree->header()->count(); col++) {
+        QStandardItem *item = m_ItemModel->horizontalHeaderItem(col);
+        if (col == 0) {
+            row_text.append(item->text());
+        }
+        else {
+            row_text.append("," % item->text());
+        }
+    }
+    report_info.append(row_text % "\n");
+
+    // Get data from table
+    for (int row = 0; row < m_ItemModel->rowCount(); row++) {
+        row_text = "";
+        for (int col = 0; col < ui.fileTree->header()->count(); col++) {
+            QStandardItem *item = m_ItemModel->item(row, col);
+            if (col == 0) {
+                row_text.append(item->text());
+            }
+            else {
+                row_text.append("," % item->text());
+            }
+        }
+        report_info.append(row_text % "\n");
+    }
+
+    // Check if another report changed the default directory
+    ReadSettings();
+
+    // Save the file
+    QString filter_string = "*.csv;;*.txt;;*.*";
+    QString default_filter = "";
+
+    QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
+
+    QString destination = QFileDialog::getSaveFileName( this,
+                                                     tr( "Save Report As Comma Separated File" ),
+                                                     save_path,
+                                                     filter_string,
+                                                     &default_filter
+                                                   );
+
+    if (destination.isEmpty()) {
+        return;
+    }
+
+    try {
+        Utility::WriteUnicodeTextFile(report_info, destination);
+    }
+    catch (CannotOpenFile) {
+        QMessageBox::warning(this, tr( "Sigil" ), tr( "Cannot save report file."));
+    }
+
+    m_LastDirSaved = QFileInfo(destination).absolutePath();
+    m_LastFileSaved = QFileInfo(destination).fileName();
+
+    WriteSettings();
+}
+
+
 void ImageFilesWidget::ReadSettings()
 {
     SettingsStore settings;
@@ -286,16 +373,28 @@ void ImageFilesWidget::ReadSettings()
         }
     }
 
+    // Last file open
+    m_LastDirSaved = settings.value("last_dir_saved").toString();
+    m_LastFileSaved = settings.value("last_file_saved_image_files").toString();
+
+    if (m_LastFileSaved.isEmpty()) {
+        m_LastFileSaved = DEFAULT_REPORT_FILE;
+    }
+
     settings.endGroup();
 }
 
-void ImageFilesWidget::saveSettings()
+void ImageFilesWidget::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
 
     // The thumbnail size
     settings.setValue("thumbnail_size", m_ThumbnailSize);
+
+    // Last file open
+    settings.setValue( "last_dir_saved", m_LastDirSaved);
+    settings.setValue( "last_file_saved_image_files", m_LastFileSaved);
 
     settings.endGroup();
 }
@@ -368,4 +467,6 @@ void ImageFilesWidget::connectSignalsSlots()
     connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint&)),
             this,         SLOT(  OpenContextMenu(                  const QPoint&)));
     connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
+
+    connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
 }

@@ -46,7 +46,7 @@ public:
     Reports( QWidget *parent = 0);
     ~Reports();
 
-    void CreateReports(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book);
+    void CreateReports(QSharedPointer< Book > book);
 
 signals:
     void Refresh();
@@ -82,9 +82,6 @@ private:
 
     void connectSignalsSlots();
 
-    QList<Resource*> m_HTMLResources;
-    QList<Resource*> m_ImageResources;
-    QList<Resource*> m_CSSResources;
     QSharedPointer< Book > m_Book;
 
     ReportsWidget *m_HTMLFilesWidget;

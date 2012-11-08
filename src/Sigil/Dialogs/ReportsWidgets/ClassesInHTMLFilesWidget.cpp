@@ -22,35 +22,43 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QHashIterator>
+#include <QtGui/QFileDialog>
 #include <QtGui/QFont>
+#include <QtGui/QPushButton>
+#include <QtGui/QMessageBox>
 
-#include "Misc/NumericItem.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.h"
 #include "Misc/CSSInfo.h"
+#include "Misc/NumericItem.h"
+#include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
-#include "Misc/SettingsStore.h"
-#include "Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.h"
 
-static QString SETTINGS_GROUP = "reports_classes_in_html_files";
+static const QString SETTINGS_GROUP = "reports";
+static const QString DEFAULT_REPORT_FILE = "StyleClassesInHTMLFilesReport.csv";
 
 ClassesInHTMLFilesWidget::ClassesInHTMLFilesWidget()
     :
-    m_ItemModel(new QStandardItemModel)
+    m_ItemModel(new QStandardItemModel),
+    m_LastDirSaved(QString()),
+    m_LastFileSaved(QString())
 {
     ui.setupUi(this);
 
     connectSignalsSlots();
 }
 
-void ClassesInHTMLFilesWidget::CreateTable(QList<Resource*> html_resources, QList<Resource*> image_resources, QList<Resource*> css_resources, QSharedPointer< Book > book)
+void ClassesInHTMLFilesWidget::CreateReport(QSharedPointer< Book > book)
 {
-    m_HTMLResources = html_resources;
-    m_CSSResources = css_resources;
     m_Book = book;
 
     SetupTable();
 
-    QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_HTMLResources, m_CSSResources, m_Book);
+    QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_Book);
 
     AddTableData(html_classes_usage);
 
@@ -93,6 +101,14 @@ void ClassesInHTMLFilesWidget::SetupTable()
 void ClassesInHTMLFilesWidget::AddTableData(QList<BookReports::StyleData *> html_classes_usage)
 {
     foreach (BookReports::StyleData *class_usage, html_classes_usage) {
+        // Skip custom Sigil classes that are only used as markers not styles
+        if (class_usage->html_class_name == SIGIL_NOT_IN_TOC_CLASS || 
+                    class_usage->html_class_name == OLD_SIGIL_NOT_IN_TOC_CLASS ||
+                    class_usage->html_class_name == SIGIL_INDEX_CLASS) {
+            continue;
+
+        }
+
         // Write the table entries
         QList<QStandardItem *> rowItems;
 
@@ -169,11 +185,102 @@ void ClassesInHTMLFilesWidget::FilterEditTextChangedSlot(const QString &text)
 void ClassesInHTMLFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-    if (index.row() != m_ItemModel->rowCount() - 1) {
-        QString filename = m_ItemModel->itemFromIndex(index)->text();
-        emit OpenFileRequest(filename, 1);
-    }
+    QString filename = m_ItemModel->itemFromIndex(index)->text();
+    emit OpenFileRequest(filename, 1);
 }
+
+void ClassesInHTMLFilesWidget::Save()
+{
+    QString report_info;
+    QString row_text;
+
+    // Get headings
+    for (int col = 0; col < ui.fileTree->header()->count(); col++) {
+        QStandardItem *item = m_ItemModel->horizontalHeaderItem(col);
+        if (col == 0) {
+            row_text.append(item->text());
+        }
+        else {
+            row_text.append("," % item->text());
+        }
+    }
+    report_info.append(row_text % "\n");
+
+    // Get data from table
+    for (int row = 0; row < m_ItemModel->rowCount(); row++) {
+        row_text = "";
+        for (int col = 0; col < ui.fileTree->header()->count(); col++) {
+            QStandardItem *item = m_ItemModel->item(row, col);
+            if (col == 0) {
+                row_text.append(item->text());
+            }
+            else {
+                row_text.append("," % item->text());
+            }
+        }
+        report_info.append(row_text % "\n");
+    }
+
+    // Save the file
+    ReadSettings();
+
+    QString filter_string = "*.csv;;*.txt;;*.*";
+    QString default_filter = "";
+
+    QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
+
+    QString destination = QFileDialog::getSaveFileName( this,
+                                                     tr( "Save Report As Comma Separated File" ),
+                                                     save_path,
+                                                     filter_string,
+                                                     &default_filter
+                                                   );
+
+    if (destination.isEmpty()) {
+        return;
+    }
+
+    try {
+        Utility::WriteUnicodeTextFile(report_info, destination);
+    }
+    catch (CannotOpenFile) {
+        QMessageBox::warning(this, tr( "Sigil" ), tr( "Cannot save report file."));
+    }
+
+    m_LastDirSaved = QFileInfo(destination).absolutePath();
+    m_LastFileSaved = QFileInfo(destination).fileName();
+
+    WriteSettings();
+}
+
+void ClassesInHTMLFilesWidget::ReadSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    // Last file open
+    m_LastDirSaved = settings.value("last_dir_saved").toString();
+    m_LastFileSaved = settings.value("last_file_saved_classes_in_html").toString();
+
+    if (m_LastFileSaved.isEmpty()) {
+        m_LastFileSaved = "ClassesInHTMLFilesReport.csv";
+    }
+
+    settings.endGroup();
+}
+
+void ClassesInHTMLFilesWidget::WriteSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    // Last file open
+    settings.setValue( "last_dir_saved", m_LastDirSaved);
+    settings.setValue( "last_file_saved_classes_html", m_LastFileSaved);
+
+    settings.endGroup();
+}
+
 
 void ClassesInHTMLFilesWidget::connectSignalsSlots()
 {
@@ -182,4 +289,7 @@ void ClassesInHTMLFilesWidget::connectSignalsSlots()
 
     connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
             this,         SLOT(DoubleClick()));
+
+    connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
+
 }
