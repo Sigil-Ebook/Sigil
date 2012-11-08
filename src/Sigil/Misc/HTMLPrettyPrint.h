@@ -41,7 +41,7 @@ public:
 
     void setIndentLevel(int level);
     void setIndentCharacter(QChar c);
-    void setIndentCharacterCount(int count);
+    void setIndentCharacterCount(unsigned int count);
     void setIgnoreInline(bool ignore);
     void setInlineTags(QStringList tags);
 
@@ -74,7 +74,7 @@ private:
     QList<HTMLToken *> m_tokens;
     int m_level;
     QChar m_indentChar;
-    int m_indentCharCount;
+    unsigned int m_indentCharCount;
     bool m_ignoreInline;
     QStringList m_inlineTags;
 };

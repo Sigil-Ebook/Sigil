@@ -146,7 +146,7 @@ void HTMLPrettyPrint::setIndentCharacter(QChar c)
     m_indentChar = c;
 }
 
-void HTMLPrettyPrint::setIndentCharacterCount(int count)
+void HTMLPrettyPrint::setIndentCharacterCount(unsigned int count)
 {
     m_indentCharCount = count;
 }
