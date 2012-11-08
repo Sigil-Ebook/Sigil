@@ -167,7 +167,10 @@ QString CleanSource::PrettyPrintTidy( const QString &source )
 
 QString CleanSource::ProcessXML( const QString &source )
 {
-    return HTMLTidy( source, Tidy_XML );
+    HTMLPrettyPrint pp(source);
+    pp.setIndentLevel(0);
+    return pp.prettyPrint();
+    //return HTMLTidy( source, Tidy_XML );
 }
 
 
