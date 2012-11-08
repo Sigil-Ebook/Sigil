@@ -34,6 +34,7 @@ static QStringList defaultInlineTags = QStringList()
     << "b"
     << "bdo"
     << "big"
+    << "br"
     << "button"
     << "cite"
     << "del"
@@ -95,6 +96,9 @@ QString HTMLPrettyPrint::prettyPrint()
         }
 
         segment = m_source.mid(token->start, token->len);
+        if (token->tag == "pre") {
+            in_pre = !in_pre;
+        }
         if (!in_pre) {
             segment = cleanSegement(segment);
         }
@@ -102,10 +106,10 @@ QString HTMLPrettyPrint::prettyPrint()
             continue;
         }
 
-        if (m_ignoreInline || (last_token && last_token->type != TOKEN_TYPE_TEXT && !m_inlineTags.contains(last_token->tag) && !m_inlineTags.contains(token->tag) && token->type != TOKEN_TYPE_TEXT)) {
-            if (last_token && last_token->type == TOKEN_TYPE_OPEN_TAG && token->type == TOKEN_TYPE_OPEN_TAG) {
+        if (m_ignoreInline || (last_token && last_token->type != TOKEN_TYPE_TEXT && !m_inlineTags.contains(last_token->tag) && !m_inlineTags.contains(token->tag) && token->type != TOKEN_TYPE_TEXT) || (token->type == TOKEN_TYPE_OPEN_TAG && !m_inlineTags.contains(token->tag))) {
+            if (last_token && (last_token->type == TOKEN_TYPE_OPEN_TAG || (!m_ignoreInline && m_inlineTags.contains(last_token->tag))) && (token->type == TOKEN_TYPE_OPEN_TAG || token->type == TOKEN_TYPE_SELF_CLOSING_TAG || token->type == TOKEN_TYPE_COMMENT)) {
                 level++;
-            } else if (last_token && (last_token->type == TOKEN_TYPE_CLOSE_TAG || last_token->type == TOKEN_TYPE_SELF_CLOSING_TAG) && token->type != TOKEN_TYPE_OPEN_TAG && token->type != TOKEN_TYPE_SELF_CLOSING_TAG) {
+            } else if (last_token && (last_token->type == TOKEN_TYPE_CLOSE_TAG || last_token->type == TOKEN_TYPE_SELF_CLOSING_TAG || last_token->type == TOKEN_TYPE_COMMENT) && token->type != TOKEN_TYPE_OPEN_TAG && token->type != TOKEN_TYPE_SELF_CLOSING_TAG && token->type != TOKEN_TYPE_COMMENT) {
                 level--;
             }
             if (level > 0 && !in_pre) {
