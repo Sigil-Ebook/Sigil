@@ -63,7 +63,10 @@ static QStringList defaultInlineTags = QStringList()
 
 HTMLPrettyPrint::HTMLPrettyPrint(const QString &source)
     : m_source(source),
-      m_inlineAsBlock(false),
+      m_level(-1),
+      m_indentChar(' '),
+      m_indentCharCount(4),
+      m_ignoreInline(false),
       m_inlineTags(defaultInlineTags)
 {
     tokenize();
@@ -79,8 +82,9 @@ HTMLPrettyPrint::~HTMLPrettyPrint()
 
 QString HTMLPrettyPrint::prettyPrint()
 {
-    int level = 0;
+    int level = m_level;
     bool in_pre = false;
+    QString indentChar = m_indentChar;
     QStringList builder;
     QString segment;
     HTMLToken *last_token = 0;
@@ -98,48 +102,23 @@ QString HTMLPrettyPrint::prettyPrint()
             continue;
         }
 
-        if (last_token && (token->type == TOKEN_TYPE_TEXT && last_token->type == TOKEN_TYPE_OPEN_TAG)) {
-            // Indent text if it's under an open tag.
-            level++;
-        } else {
-            if (token->type == TOKEN_TYPE_CLOSE_TAG) {
-                // Only reduce indent if we're following text, or a close tag.
-                if (last_token && ((last_token->type == TOKEN_TYPE_TEXT) || (last_token->type == TOKEN_TYPE_CLOSE_TAG))) {
-                    level--;
-                }
-            // Open tags should only indented further under certain conditions.
-            } else if ((!last_token && token->type == TOKEN_TYPE_OPEN_TAG) || (last_token && last_token->type == TOKEN_TYPE_OPEN_TAG)) {
+        if (m_ignoreInline || (last_token && last_token->type != TOKEN_TYPE_TEXT && !m_inlineTags.contains(last_token->tag) && !m_inlineTags.contains(token->tag) && token->type != TOKEN_TYPE_TEXT)) {
+            if (last_token && last_token->type == TOKEN_TYPE_OPEN_TAG && token->type == TOKEN_TYPE_OPEN_TAG) {
                 level++;
+            } else if (last_token && (last_token->type == TOKEN_TYPE_CLOSE_TAG || last_token->type == TOKEN_TYPE_SELF_CLOSING_TAG) && token->type != TOKEN_TYPE_OPEN_TAG && token->type != TOKEN_TYPE_SELF_CLOSING_TAG) {
+                level--;
             }
-
-            if (token->tag == "pre" || token->tag == "code") {
-                in_pre = !in_pre;
-            }
-        }
-
-        if (m_inlineAsBlock || (!m_inlineTags.contains(token->tag) && (last_token && !m_inlineTags.contains(last_token->tag)))) {
             if (level > 0 && !in_pre) {
-                builder.append(QString("   ").repeated(level));
+                builder.append(indentChar.repeated(m_indentCharCount * level));
             }
-        }
-
-        if (!m_inlineAsBlock && (m_inlineTags.contains(token->tag))) {
-            if (builder.last() == "\n") {
+        } else {
+            if (!builder.isEmpty() && builder.last() == "\n") {
                 builder.removeLast();
-            }
-        }
-        if (!m_inlineAsBlock && (token->type != TOKEN_TYPE_TEXT && last_token && m_inlineTags.contains(last_token->tag))) {
-            builder.append("\n");
-            if (level > 0 && !in_pre) {
-                builder.append(QString("   ").repeated(level));
             }
         }
 
         builder.append(segment);
-
-        if (m_inlineAsBlock || !m_inlineTags.contains(token->tag)) {
-            builder.append("\n");
-        }
+        builder.append("\n");
 
         last_token = token;
     }
@@ -157,9 +136,24 @@ void HTMLPrettyPrint::resetInlineTags()
     m_inlineTags = defaultInlineTags;
 }
 
-void HTMLPrettyPrint::setInlineAsBlock(bool asBlock)
+void HTMLPrettyPrint::setIndentLevel(int level)
 {
-    m_inlineAsBlock = asBlock;
+    m_level = level;
+}
+
+void HTMLPrettyPrint::setIndentCharacter(QChar c)
+{
+    m_indentChar = c;
+}
+
+void HTMLPrettyPrint::setIndentCharacterCount(int count)
+{
+    m_indentCharCount = count;
+}
+
+void HTMLPrettyPrint::setIgnoreInline(bool ignore)
+{
+    m_ignoreInline = ignore;
 }
 
 void HTMLPrettyPrint::setInlineTags(QStringList tags)
