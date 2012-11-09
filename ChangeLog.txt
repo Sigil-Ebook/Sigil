@@ -1,5 +1,6 @@
 Sigil 0.6.1 TBD
 	- Add non-destructive pretty printer as an option in addition to the Tidy provided one.
+    - Implement issue 1731: Delete files, Unused Images and Styles dialog should be scrollable and allow unselecting entries.
     - Implement issue 1735: Print stylesheets and other non-HTML files.
     - Implement issue 1758: Handle importing invalid files with duplicate IDs in OPF file.
     - Implement issue 1711: Reports should allow saving to comma separated text file.

@@ -38,6 +38,7 @@
 #include "Dialogs/About.h"
 #include "Dialogs/ClipEditor.h"
 #include "Dialogs/ClipboardHistorySelector.h"
+#include "Dialogs/DeleteStyles.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Dialogs/LinkStylesheets.h"
 #include "Dialogs/MetaEditor.h"
@@ -854,34 +855,17 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
         css_styles_to_delete[css_short_filename].append(selector);
     }
 
-    // Build a list of names for display
-    QString style_names;
+    // Confirm which styles to delete
+    DeleteStyles delete_styles(css_styles_to_delete, this);
 
-    int count = 0;
-    QHashIterator< QString, QList<CSSInfo::CSSSelector*> > stylesheets(css_styles_to_delete);
-    while (stylesheets.hasNext()) {
-        stylesheets.next();
-        QString css_short_filename = stylesheets.key();
-        css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
-        style_names += "\n\n" + css_short_filename + ": " "\n";
-        foreach (CSSInfo::CSSSelector *s, stylesheets.value()) {
-            style_names += s->groupText + ", ";
-            count++;
-        }
-        style_names = style_names.left(style_names.length() - 2);
+    connect( &delete_styles, SIGNAL( OpenFileRequest(QString, int) ), this, SLOT( OpenFile(QString, int) ) );
+
+    if (delete_styles.exec() != QDialog::Accepted) {
+        return;
     }
+    css_styles_to_delete = delete_styles.GetStylesToDelete();
 
-    QMessageBox::StandardButton button_pressed;
-    QString msg = count == 1 ? tr( "Are you sure you want to delete the style listed below?" )
-                             : tr( "Are you sure you want to delete all the styles listed below?" );
-    msg += "\n\n" % tr("These styles have been marked as unused because they were not matched by a class "
-                       "found in the HTML files.  You may want to manually verify the style is not used if "
-                       "the style is a complex CSS selector.") % "\n\n";
-    button_pressed = QMessageBox::warning(  this,
-                      tr( "Sigil" ), msg % tr( "This action cannot be reversed." ) % style_names,
-                                                QMessageBox::Ok | QMessageBox::Cancel
-                                         );
-    if ( button_pressed != QMessageBox::Ok ) {
+    if (css_styles_to_delete.count() < 1) {
         return;
     }
 
@@ -935,19 +919,9 @@ void MainWindow::OpenFile(QString filename, int line)
 }
 
 
-void MainWindow::DeleteFiles(QStringList files_to_delete)
+void MainWindow::DeleteFilenames(QStringList files_to_delete)
 {
     if (files_to_delete.count() <= 0) {
-        return;
-    }
-
-    QMessageBox::StandardButton button_pressed;
-    button_pressed = QMessageBox::warning(  this,
-                      tr( "Sigil" ), tr( "Are you sure you want to delete the selected files from the Book?") % "\n" % tr( "This action cannot be reversed." ),
-                                                QMessageBox::Ok | QMessageBox::Cancel
-                                         );
-
-    if ( button_pressed != QMessageBox::Ok ) {
         return;
     }
 
@@ -960,13 +934,11 @@ void MainWindow::DeleteFiles(QStringList files_to_delete)
         }
         catch (const ResourceDoesNotExist&)
         {
-            // If any error abort all deletes
-            return;
+            continue;
         }
     }
 
-    // Remove the files, but don't prompt the user to confirm again
-    RemoveResources(resources, false);
+    RemoveResources(resources);
 }
 
 bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors)
@@ -1494,11 +1466,11 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked( Resource *resource )
     return linked_stylesheets;
 }
 
-void MainWindow::RemoveResources(QList<Resource *> resources, bool prompt_user)
+void MainWindow::RemoveResources(QList<Resource *> resources)
 {
     // Provide the open tab list to ensure one tab stays open
     if (resources.count() > 0) {
-        m_BookBrowser->RemoveResources(m_TabManager.GetTabResources(), resources, prompt_user);
+        m_BookBrowser->RemoveResources(m_TabManager.GetTabResources(), resources);
     }
     else {
         m_BookBrowser->RemoveSelection(m_TabManager.GetTabResources());
@@ -3920,6 +3892,8 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
 
+    connect(m_BookBrowser, SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
+
     connect( m_TableOfContents, SIGNAL( OpenResourceRequest( Resource&, int, int, const QString&, MainWindow::ViewState, const QUrl& ) ),
              this,     SLOT(   OpenResource( Resource&, int, int, const QString&, MainWindow::ViewState, const QUrl& ) ) );
 
@@ -3975,7 +3949,7 @@ void MainWindow::ConnectSignalsToSlots()
 
     connect( m_Reports,       SIGNAL( Refresh() ), this, SLOT( ReportsDialog() ) );
     connect( m_Reports,       SIGNAL( OpenFileRequest(QString, int) ), this, SLOT( OpenFile(QString, int) ) );
-    connect( m_Reports,       SIGNAL( DeleteFilesRequest(QStringList) ), this, SLOT( DeleteFiles(QStringList) ) );
+    connect( m_Reports,       SIGNAL( DeleteFilesRequest(QStringList) ), this, SLOT( DeleteFilenames(QStringList) ) );
     connect( m_Reports,       SIGNAL( DeleteStylesRequest(QList<BookReports::StyleData*>) ), this, SLOT( DeleteReportsStyles(QList<BookReports::StyleData*>) ) );
 }
 

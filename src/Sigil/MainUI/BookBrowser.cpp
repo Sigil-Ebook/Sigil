@@ -31,6 +31,7 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/Metadata.h"
+#include "Dialogs/DeleteFiles.h"
 #include "Dialogs/RenameTemplate.h"
 #include "Importers/ImportHTML.h"
 #include "MainUI/BookBrowser.h"
@@ -998,7 +999,7 @@ void BookBrowser::RemoveSelection( QList<Resource *> tab_resources )
     RemoveResources(tab_resources, resources);
 }
 
-void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources, bool prompt_user )
+void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources)
 {
     if ( resources.isEmpty() )
     {
@@ -1028,26 +1029,33 @@ void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resour
             }
     }
 
-    if (prompt_user) {
-        QString files;
-        foreach (Resource *resource, resources) {
-            files += "\n" % resource->Filename();
-        }
-        QMessageBox::StandardButton button_pressed;
-        QString msg = resources.count() == 1 ? tr( "Are you sure you want to delete the file listed below?\n" ):
-                                               tr( "Are you sure you want to delete all the files listed below?\n" );
-        button_pressed = QMessageBox::warning(	this,
-                          tr( "Sigil" ), msg % tr( "This action cannot be reversed." ) % "\n" + files,
-                                                    QMessageBox::Ok | QMessageBox::Cancel
-                                             );
-        if ( button_pressed != QMessageBox::Ok )
-        { 
-            return;
+    QStringList files_to_delete;
+    foreach (Resource *resource, resources) {
+        files_to_delete.append(resource->Filename());
+    }
+
+    // Confirm and select which files to delete
+    DeleteFiles delete_files(files_to_delete, this);
+
+    connect( &delete_files, SIGNAL( OpenFileRequest(QString, int) ), this, SIGNAL( OpenFileRequest(QString, int) ) );
+
+    if (delete_files.exec() != QDialog::Accepted) {
+        return;
+    }
+    files_to_delete = delete_files.GetFilesToDelete();
+
+    if (files_to_delete.count() < 1) {
+        return;
+    }
+
+    foreach (Resource *resource, resources) {
+        if (!files_to_delete.contains(resource->Filename())) {
+            resources.removeOne(resource);
         }
     }
 
     // Find next resource to select
-    next_resource = ResourceToSelectAfterRemove();
+    next_resource = ResourceToSelectAfterRemove(resources);
 
     // Check if any tabs will remain after deleting resources
     bool tab_remaining = false;
@@ -1083,10 +1091,8 @@ void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resour
 }
 
 
-Resource* BookBrowser::ResourceToSelectAfterRemove()
+Resource* BookBrowser::ResourceToSelectAfterRemove(QList<Resource *> selected_resources)
 {
-    QList <Resource *> selected_resources = ValidSelectedResources();
-
     if ( selected_resources.isEmpty() )
     {
         return NULL;

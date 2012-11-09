@@ -528,7 +528,7 @@ private slots:
      */
     QStringList GetStylesheetsAlreadyLinked( Resource *resource );
 
-    void RemoveResources(QList<Resource *> resources = QList<Resource *>(), bool prompt_user = true);
+    void RemoveResources(QList<Resource *> resources = QList<Resource *>());
 
     void GenerateToc();
     void CreateHTMLTOC();
@@ -555,7 +555,7 @@ private slots:
 
     void DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete);
 
-    void DeleteFiles(QStringList files_to_delete);
+    void DeleteFilenames(QStringList files_to_delete);
     void OpenFile(QString filename, int line = -1);
 
 private:

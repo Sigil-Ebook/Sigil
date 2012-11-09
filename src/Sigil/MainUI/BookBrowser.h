@@ -92,7 +92,7 @@ public:
 
     void RemoveSelection( QList<Resource *> tab_resources );
 
-    void RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources, bool prompt_user = true);
+    void RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources);
 
     /**
      * Updates the selection in the book display
@@ -227,6 +227,8 @@ signals:
 
     void RemoveResourcesRequest();
 
+    void OpenFileRequest(QString, int);
+
 private slots:
 
     /**
@@ -274,7 +276,7 @@ private slots:
     /**
      * Returns the resource to select after removal
      */
-    Resource* ResourceToSelectAfterRemove();
+    Resource* ResourceToSelectAfterRemove(QList<Resource *> selected_resources);
 
     /**
      * Implements the Cover Image semantic context menu action functionality.
