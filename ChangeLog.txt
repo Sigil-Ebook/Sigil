@@ -1,5 +1,6 @@
 Sigil 0.6.1 TBD
 	- Add non-destructive pretty printer as an option in addition to the Tidy provided one.
+    - Implement issue 1735: Print stylesheets and other non-HTML files.
     - Implement issue 1758: Handle importing invalid files with duplicate IDs in OPF file.
     - Implement issue 1711: Reports should allow saving to comma separated text file.
     - Implement issue 1712: Reports should be non-modal and allow editing book while still open.
@@ -13,6 +14,7 @@ Sigil 0.6.1 TBD
     - Implement issue 1734: Splitting files and new blank HTML files should use existing file extension.
     - Implement issue 1732: Index Editor should support opening/importing .txt files.
     - Implement issue 1687: Insert ID should warn if invalid ID names are used.
+    - Fix issue 1759: Zipped files get wrong date and time.
     - Fix issue 1757: Spellcheck does not handle one letter misspellings properly.
     - Fix issue 1750: Loading HTML file should not automaticall generate TOC.
     - Fix issue 1749: Right click on SVG images should give same options as other images.

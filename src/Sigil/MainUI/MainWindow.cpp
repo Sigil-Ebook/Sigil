@@ -2286,8 +2286,8 @@ void MainWindow::SetStateActionsRawView()
     ui.actionSplitView->setEnabled(false);
     ui.actionCodeView->setEnabled(false);
 
-    ui.actionPrintPreview->setEnabled(false);
-    ui.actionPrint->setEnabled(false);
+    ui.actionPrintPreview->setEnabled(true);
+    ui.actionPrint->setEnabled(true);
 
     ui.actionSplitSection->setEnabled(false);
     ui.actionInsertSGFSectionMarker->setEnabled(false);
@@ -2376,8 +2376,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionSplitView->setEnabled(false);
     ui.actionCodeView->setEnabled(false);
 
-    ui.actionPrintPreview->setEnabled(false);
-    ui.actionPrint->setEnabled(false);
+    ui.actionPrintPreview->setEnabled(true);
+    ui.actionPrint->setEnabled(true);
 
     ui.actionSplitSection->setEnabled(false);
     ui.actionInsertSGFSectionMarker->setEnabled(false);
@@ -4043,8 +4043,6 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( ui.actionInsertClosingTag,         SIGNAL( triggered() ),  tab,   SLOT( InsertClosingTag()         ) );
         connect( ui.actionGoToLinkOrStyle,          SIGNAL( triggered() ),  tab,   SLOT( GoToLinkOrStyle()          ) );
 
-        connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
-        connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
         connect( ui.actionAddToIndex,               SIGNAL( triggered() ),  tab,   SLOT( AddToIndex()               ) );
 
         connect( ui.actionAddMisspelledWord,        SIGNAL( triggered() ),  tab,   SLOT( AddMisspelledWord()        ) );
@@ -4068,6 +4066,9 @@ void MainWindow::MakeTabConnections( ContentTab *tab )
         connect( tab,   SIGNAL( InsertImageRequest() ), this,  SLOT(  InsertImageDialog() ) );
 
     }
+
+    connect( ui.actionPrintPreview,             SIGNAL( triggered() ),  tab,   SLOT( PrintPreview()             ) );
+    connect( ui.actionPrint,                    SIGNAL( triggered() ),  tab,   SLOT( Print()                    ) );
 
     connect( tab,   SIGNAL( ContentChanged() ),             m_Book.data(), SLOT( SetModified()             ) );
     connect( tab,   SIGNAL( UpdateCursorPosition(int,int)), this,          SLOT( UpdateCursorPositionLabel(int,int)));

@@ -105,6 +105,9 @@ public slots:
      */
     void ChangeCasing( const Utility::Casing casing );
 
+    void Print();
+    void PrintPreview();
+
 signals:
 
     void SelectionChanged();

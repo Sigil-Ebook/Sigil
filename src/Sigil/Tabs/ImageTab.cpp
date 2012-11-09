@@ -30,6 +30,9 @@
 #include <QtGui/QLayout>
 #include <QtGui/QMenu>
 #include <QtWebKit/QWebView>
+#include <QtGui/QPrinter>
+#include <QtGui/QPrintDialog>
+#include <QtGui/QPrintPreviewDialog>
 
 
 #include "Misc/OpenExternally.h"
@@ -287,3 +290,27 @@ void ImageTab::Zoom()
 {
     m_WebView.setZoomFactor(m_CurrentZoomFactor);
 }
+
+void ImageTab::PrintPreview()
+{
+    QPrintPreviewDialog *print_preview = new QPrintPreviewDialog(this);
+
+    connect(print_preview, SIGNAL(paintRequested(QPrinter *)), &m_WebView, SLOT(print(QPrinter *)));
+
+    print_preview->exec();
+    print_preview->deleteLater();
+}
+
+void ImageTab::Print()
+{
+    QPrinter printer;
+
+    QPrintDialog print_dialog(&printer, this);
+    print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
+
+    if (print_dialog.exec() == QDialog::Accepted) {
+        m_WebView.print(&printer);
+    }
+}
+
+

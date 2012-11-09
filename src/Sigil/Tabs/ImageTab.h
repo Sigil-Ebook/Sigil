@@ -57,6 +57,9 @@ public slots:
     void saveAs();
     void copyImage();
 
+    void Print();
+    void PrintPreview();
+
 private slots:
 
     /**

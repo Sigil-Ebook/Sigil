@@ -21,6 +21,9 @@
 
 #include <QtCore/QTimer>
 #include <QtGui/QLayout>
+#include <QtGui/QPrinter>
+#include <QtGui/QPrintDialog>
+#include <QtGui/QPrintPreviewDialog>
 
 #include "ResourceObjects/TextResource.h"
 #include "Tabs/TextTab.h"
@@ -256,4 +259,26 @@ void TextTab::ConnectSignalsToSlots()
     connect( &m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
 }
 
+
+void TextTab::PrintPreview()
+{
+    QPrintPreviewDialog *print_preview = new QPrintPreviewDialog(this);
+
+    connect(print_preview, SIGNAL(paintRequested(QPrinter *)), &m_wCodeView, SLOT(print(QPrinter *)));
+
+    print_preview->exec();
+    print_preview->deleteLater();
+}
+
+void TextTab::Print()
+{
+    QPrinter printer;
+
+    QPrintDialog print_dialog(&printer, this);
+    print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
+
+    if (print_dialog.exec() == QDialog::Accepted) {
+        m_wCodeView.print(&printer);
+    }
+}
 
