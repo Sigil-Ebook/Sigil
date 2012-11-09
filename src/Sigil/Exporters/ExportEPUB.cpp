@@ -19,11 +19,13 @@
 **
 *************************************************************************/
 
+#include <string.h>
 #include <zip.h>
 #ifdef _WIN32
 #include <iowin32.h>
 #endif
 
+#include <QtCore/QDateTime>
 #include <QtCore/QDir>
 #include <QtCore/QDirIterator>
 #include <QtCore/QFile>
@@ -116,6 +118,8 @@ void ExportEPUB::CreatePublication( const QString &fullfolderpath )
 void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath )
 {
     QString tempFile = fullfolderpath + "-tmp.epub";
+    QDateTime timeNow = QDateTime::currentDateTime();
+    zip_fileinfo fileInfo;
 
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
@@ -129,8 +133,16 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         boost_throw(CannotOpenFile() << errinfo_file_fullpath(tempFile.toStdString()));
     }
 
+    memset(&fileInfo, 0, sizeof(fileInfo));
+    fileInfo.tmz_date.tm_sec = timeNow.time().second();
+    fileInfo.tmz_date.tm_min = timeNow.time().minute();
+    fileInfo.tmz_date.tm_hour = timeNow.time().hour();
+    fileInfo.tmz_date.tm_mday = timeNow.date().day();
+    fileInfo.tmz_date.tm_mon = timeNow.date().month() - 1;
+    fileInfo.tmz_date.tm_year = timeNow.date().year();
+
     // Write the mimetype. This must be uncompressed and the first entry in the archive.
-    if (zipOpenNewFileInZip64(zfile, "mimetype", NULL, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0, 0) != Z_OK) {
+    if (zipOpenNewFileInZip64(zfile, "mimetype", &fileInfo, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0, 0) != Z_OK) {
         zipClose(zfile, NULL);
         QFile::remove(tempFile);
         boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
@@ -155,7 +167,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
 
         // Add the file entry to the archive.
         // We should check the uncompressed file size. If it's over >= 0xffffffff the last parameter (zip64) should be 1.
-        if (zipOpenNewFileInZip4_64(zfile, relpath.toUtf8().constData(), NULL, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8, 0, 15, 8, Z_DEFAULT_STRATEGY, NULL, 0, 0x0b00, 0, 0) != Z_OK) {
+        if (zipOpenNewFileInZip4_64(zfile, relpath.toUtf8().constData(), &fileInfo, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8, 0, 15, 8, Z_DEFAULT_STRATEGY, NULL, 0, 0x0b00, 0, 0) != Z_OK) {
             zipClose(zfile, NULL);
             QFile::remove(tempFile);
             boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
