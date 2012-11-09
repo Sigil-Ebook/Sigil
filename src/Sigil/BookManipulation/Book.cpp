@@ -139,22 +139,25 @@ void Book::SetMetadata( const QList< Metadata::MetaElement > metadata )
 
 QString Book::GetFirstUniqueSectionName(QString extension)
 {
+    // If not files just return the default first name
     QList< HTMLResource* > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >( true );
     if (html_resources.count() < 1) {
         return FIRST_SECTION_NAME;
     }
 
+    // Get the extension of the current file
     QString first_html_file = html_resources.first()->Filename();
     QString first_html_filename = first_html_file.left(first_html_file.lastIndexOf("."));
     if (extension.isEmpty()) {
         extension = first_html_file.right(first_html_file.length() - first_html_file.lastIndexOf("."));
+        // If no extension use the default first name extension
         if (extension.isEmpty()) {
             extension = FIRST_SECTION_NAME;
             extension = extension.right(extension.length() - extension.lastIndexOf("."));
         }
     }
 
-    QString filename = first_html_filename + extension;
+    QString filename = FIRST_SECTION_PREFIX + extension;
 
     return m_Mainfolder.GetUniqueFilenameVersion( filename );
 }
