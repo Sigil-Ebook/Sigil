@@ -106,10 +106,10 @@ QString HTMLPrettyPrint::prettyPrint()
             continue;
         }
 
-        if (m_ignoreInline || (last_token && last_token->type != TOKEN_TYPE_TEXT && !m_inlineTags.contains(last_token->tag) && !m_inlineTags.contains(token->tag) && token->type != TOKEN_TYPE_TEXT) || (token->type == TOKEN_TYPE_OPEN_TAG && !m_inlineTags.contains(token->tag))) {
+        if (m_ignoreInline || ((last_token && last_token->type == TOKEN_TYPE_COMMENT) || token->type == TOKEN_TYPE_COMMENT) || (last_token && last_token->type != TOKEN_TYPE_TEXT && !m_inlineTags.contains(last_token->tag) && !m_inlineTags.contains(token->tag) && token->type != TOKEN_TYPE_TEXT) || (token->type == TOKEN_TYPE_OPEN_TAG && !m_inlineTags.contains(token->tag))) {
             if (last_token && (last_token->type == TOKEN_TYPE_OPEN_TAG || (!m_ignoreInline && m_inlineTags.contains(last_token->tag))) && (token->type == TOKEN_TYPE_OPEN_TAG || token->type == TOKEN_TYPE_SELF_CLOSING_TAG || token->type == TOKEN_TYPE_COMMENT)) {
                 level++;
-            } else if (last_token && (last_token->type == TOKEN_TYPE_CLOSE_TAG || last_token->type == TOKEN_TYPE_SELF_CLOSING_TAG || last_token->type == TOKEN_TYPE_COMMENT) && token->type != TOKEN_TYPE_OPEN_TAG && token->type != TOKEN_TYPE_SELF_CLOSING_TAG && token->type != TOKEN_TYPE_COMMENT) {
+            } else if (last_token && (last_token->type == TOKEN_TYPE_CLOSE_TAG || last_token->type == TOKEN_TYPE_SELF_CLOSING_TAG) && token->type != TOKEN_TYPE_OPEN_TAG && token->type != TOKEN_TYPE_SELF_CLOSING_TAG && token->type != TOKEN_TYPE_COMMENT) {
                 level--;
             }
             if (level > 0 && !in_pre) {
@@ -169,11 +169,31 @@ void HTMLPrettyPrint::tokenize()
 {
     QChar c;
     size_t start = 0;
+    bool in_comment = false;
+    bool collect_tag = false;
+    size_t tag_start = 0;
+    size_t tag_len = 0;
 
-    for (int i = 0; i < m_source.size(); ++i) {
+    for (size_t i = 0; i < m_source.size(); ++i) {
         c = m_source.at(i);
 
+        if (collect_tag) {
+            if (c == '>' || c == ' ') {
+                collect_tag = false;
+            } else {
+                tag_len++;
+            }
+            if (m_source.midRef(tag_start, tag_len) == "!--") {
+                collect_tag = false;
+                in_comment = true;
+            }
+        }
+
         if (c == '<' || c == '>') {
+            if (in_comment && ((c == '<') || (c == '>' && i >= 2 && m_source.midRef(i-2, 2) != "--"))) {
+                continue;
+            }
+
             HTMLToken *token = new HTMLToken();
             token->start = start;
             token->len = i - start;
@@ -181,7 +201,13 @@ void HTMLPrettyPrint::tokenize()
             start = i;
             if (c == '<') {
                 token->type = TOKEN_TYPE_TEXT;
+                if (!in_comment) {
+                    collect_tag = true;
+                    tag_start = i + 1;
+                    tag_len = 0;
+                }
             } else if (c == '>') {
+                in_comment = false;
                 token->len++;
 
                 QString segment = m_source.mid(token->start, token->len);
