@@ -461,14 +461,19 @@ void HeadingSelector::UpdateHeadingInclusion( QStandardItem *checkbox_item )
     QStandardItem *item_parent = GetActualItemParent( checkbox_item );
     Headings::Heading *heading = GetItemHeading( item_parent->child( checkbox_item->row(), 0 ) );   
     Q_ASSERT( heading );
+    QString heading_level = item_parent->child( checkbox_item->row(), 1 )->text();   
 
-    if ( checkbox_item->checkState() == Qt::Unchecked )
-
+    if ( checkbox_item->checkState() == Qt::Unchecked ) {
         heading->include_in_toc = false;
-
-    else
-
+        m_HeadingsIncluded[heading_level]--;
+        m_HeadingsHidden[heading_level]++;
+    }
+    else {
         heading->include_in_toc = true;
+        m_HeadingsIncluded[heading_level]++;
+        m_HeadingsHidden[heading_level]--;
+    }
+    DisplayCounts();
 
     if ( ui.cbTOCItemsOnly->checkState() == Qt::Checked ) 
 
@@ -488,6 +493,57 @@ void HeadingSelector::UpdateTreeViewDisplay()
     ui.tvTOCDisplay->resizeColumnToContents(1);
     ui.tvTOCDisplay->resizeColumnToContents(2);
     ui.tvTOCDisplay->header()->setResizeMode(0, QHeaderView::Stretch);
+}
+
+void HeadingSelector::CountHeadings(QStandardItem *item)
+{
+    // Recursively call itself on the item's children
+    for (int i = 0; i < item->rowCount(); i++) {
+        CountHeadings( item->child( i ) );
+    }
+
+    // The root item is always present
+    if ( item == m_TableOfContents.invisibleRootItem() ) {
+        return;
+    }
+
+    // We query the "include in TOC" checkbox
+    QStandardItem *item_parent = GetActualItemParent( item );
+    Qt::CheckState check_state = item_parent->child( item->row(), 2 )->checkState();
+
+    QString heading_level = item_parent->child(item->row(), 1)->text();
+
+    if (check_state) {
+        m_HeadingsIncluded[heading_level]++;
+    }
+    else {
+        m_HeadingsHidden[heading_level]++;
+    }
+}
+
+void HeadingSelector::RefreshCounts()
+{
+    foreach(QString h, HEADING_TAGS) {
+        m_HeadingsIncluded[h] = 0;
+        m_HeadingsHidden[h] = 0;
+    }
+
+    CountHeadings(m_TableOfContents.invisibleRootItem());
+
+    DisplayCounts();
+}
+
+void HeadingSelector::DisplayCounts()
+{
+    QString tooltip = QString() + 
+        "<table cellpadding=\"5\">" +
+        "<tr><th>" + tr("Level") + "</th><th>" + tr("Included") + "</th><th>" + tr("Hidden") + "</th></tr>";
+
+    foreach(QString h, HEADING_TAGS) {
+        tooltip += QString("<tr><td>%1</td><td>%2</td><td>%3</td></tr>").arg(h).arg(m_HeadingsIncluded[h]).arg(m_HeadingsHidden[h]);
+    }
+    tooltip += "</table>";
+    ui.tvTOCDisplay->header()->setToolTip(tooltip);
 }
 
 
@@ -510,6 +566,8 @@ void HeadingSelector::CreateTOCModel()
     {
         InsertHeadingIntoModel( m_Headings[ i ], m_TableOfContents.invisibleRootItem() );
     }
+
+    RefreshCounts();
 }
 
 
@@ -827,8 +885,7 @@ void HeadingSelector::SelectHeadingLevelInclusion( const QString& heading_level 
     // else is "<Select heading level>" which does nothing
 
     // Reset selection to description
-    QString select = tr( "<Select headings to include>" );
-    ui.cbTOCSetHeadingLevel->setCurrentIndex( ui.cbTOCSetHeadingLevel->findText( select ) );
+    ui.cbTOCSetHeadingLevel->setCurrentIndex( 0 );
 }
 
 

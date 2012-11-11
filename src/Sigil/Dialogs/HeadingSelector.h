@@ -181,6 +181,10 @@ private:
 
     void ConnectSignalsToSlots();
 
+    void CountHeadings(QStandardItem *item);
+    void RefreshCounts();
+    void DisplayCounts();
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -200,6 +204,9 @@ private:
     QAction *m_Rename;
 
     bool m_book_changed;
+
+    QHash<QString, int> m_HeadingsIncluded;
+    QHash<QString, int> m_HeadingsHidden;
 
     // Holds all the widgets Qt Designer created for us
     Ui::HeadingSelector ui;
