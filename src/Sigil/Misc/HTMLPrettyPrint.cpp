@@ -174,7 +174,7 @@ void HTMLPrettyPrint::tokenize()
     size_t tag_start = 0;
     size_t tag_len = 0;
 
-    for (size_t i = 0; i < m_source.size(); ++i) {
+    for (int i = 0; i < m_source.size(); ++i) {
         c = m_source.at(i);
 
         if (collect_tag) {
