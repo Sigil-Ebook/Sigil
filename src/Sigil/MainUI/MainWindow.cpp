@@ -2637,9 +2637,9 @@ void MainWindow::ReadSettings()
     // Due to the 4.8 bug, we restore its "normal" window size and then maximize
     // it afterwards (if last state was maximized) to ensure on correct screen.
     bool isMaximized = settings.value( "maximized", false ).toBool();
-    QByteArray geometry = settings.value( "geometry" ).toByteArray();
-    if ( !geometry.isNull() ) {
-        restoreGeometry( geometry );
+    m_LastWindowSize = settings.value( "geometry" ).toByteArray();
+    if ( !m_LastWindowSize.isNull() ) {
+        restoreGeometry( m_LastWindowSize );
         if (isMaximized) {
             setWindowState(windowState() | Qt::WindowMaximized);
         }
