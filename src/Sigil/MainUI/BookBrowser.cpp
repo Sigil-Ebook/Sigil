@@ -98,6 +98,7 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
     connect( this, SIGNAL( BookContentModified() ), m_Book.data(), SLOT( SetModified() ) );
 
     ExpandTextFolder();
+    RefreshCounts();
 
     try
     {
@@ -114,10 +115,26 @@ void BookBrowser::SetBook( QSharedPointer< Book > book )
     }
 }
 
+void BookBrowser::RefreshCounts()
+{
+    for (int i = 0; i < m_OPFModel.invisibleRootItem()->rowCount(); i++) {
+        QStandardItem *folder = m_OPFModel.invisibleRootItem()->child(i);
+        int count = folder->rowCount();
+        QString tooltip = QString("%1 ").arg(count);
+        if (count == 1) {
+            tooltip.append(tr("file"));
+        }
+        else {
+            tooltip.append(tr("files"));
+        }
+        folder->setToolTip(tooltip);
+    }
+}
 
 void BookBrowser::Refresh()
 {
     m_OPFModel.Refresh();
+    RefreshCounts();
 
     emit UpdateBrowserSelection();
 }
@@ -1084,6 +1101,8 @@ void BookBrowser::RemoveResources( QList<Resource *> tab_resources, QList<Resour
 
     // Avoid full refresh so selection stays for non-openable resources
     m_OPFModel.Refresh();
+    RefreshCounts();
+
     if ( next_resource )
     {
         UpdateSelection( *next_resource );

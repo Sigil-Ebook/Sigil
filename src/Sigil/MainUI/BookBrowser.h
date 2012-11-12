@@ -447,7 +447,7 @@ private:
      */
     int ValidSelectedItemCount();
 
-
+    void RefreshCounts();
     
 
 

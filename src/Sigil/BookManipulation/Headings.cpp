@@ -42,7 +42,7 @@ using boost::make_tuple;
 // The value was picked arbitrarily.
 static const int ALLOWED_HEADING_DISTANCE = 20;
 
-static const QStringList HEADING_TAGS = QStringList() << "h1" << "h2" << "h3" << "h4" << "h5" << "h6";
+const QStringList HEADING_TAGS = QStringList() << "h1" << "h2" << "h3" << "h4" << "h5" << "h6";
 
 const QString SIGIL_NOT_IN_TOC_CLASS = "sigil_not_in_toc";
 const QString OLD_SIGIL_NOT_IN_TOC_CLASS = "sigilNotInTOC";

@@ -51,6 +51,7 @@ extern const QStringList IMAGE_MIMEYPES;
 extern const QStringList TEXT_MIMETYPES;
 extern const QStringList STYLE_MIMETYPES;
 extern const QString SIGIL_TOC_ID_PREFIX;
+extern const QStringList HEADING_TAGS;
 extern const QString SIGIL_NOT_IN_TOC_CLASS;
 extern const QString OLD_SIGIL_NOT_IN_TOC_CLASS;
 extern const QString FIRST_SECTION_PREFIX; 
