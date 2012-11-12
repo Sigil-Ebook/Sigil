@@ -39,6 +39,7 @@ static QString KEY_VIEW_STATE = SETTINGS_GROUP + "/" + "view_state";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
 static QString KEY_USER_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "user_dictionary_name";
 static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
+static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
 
 static QString KEY_BOOK_VIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "book_view_font_family_standard";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_serif";
@@ -158,6 +159,12 @@ SettingsStore::CleanLevel SettingsStore::cleanLevel()
         default:
             return SettingsStore::CleanLevel_Off;
     }
+}
+
+int SettingsStore::cleanOn()
+{
+    clearSettingsGroup();
+    return value(KEY_CLEAN_ON, (CLEANON_OPEN|CLEANON_SAVE|CLEANON_REPLACEINALL)).toInt();
 }
 
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
@@ -287,6 +294,12 @@ void SettingsStore::setCleanLevel(SettingsStore::CleanLevel level)
 {
     clearSettingsGroup();
     setValue(KEY_CLEAN_LEVEL, level);
+}
+
+void SettingsStore::setCleanOn(int on)
+{
+    clearSettingsGroup();
+    setValue(KEY_CLEAN_ON, on);
 }
 
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)

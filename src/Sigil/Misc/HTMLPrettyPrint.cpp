@@ -168,7 +168,7 @@ void HTMLPrettyPrint::setInlineTags(QStringList tags)
 void HTMLPrettyPrint::tokenize()
 {
     QChar c;
-    size_t start = 0;
+    int start = 0;
     bool in_comment = false;
     bool collect_tag = false;
     size_t tag_start = 0;

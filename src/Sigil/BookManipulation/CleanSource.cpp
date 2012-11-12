@@ -24,6 +24,9 @@
 
 #include <QtCore/QString>
 #include <QtCore/QStringList>
+#include <QtCore/QWriteLocker>
+#include <QtGui/QApplication>
+#include <QtGui/QProgressDialog>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
@@ -110,16 +113,6 @@ QString CleanSource::Clean( const QString &source )
 }
 
 
-// Convert to valid XHTML with mild cleaning
-QString CleanSource::Rinse( const QString &source )
-{
-    QString newsource = ToValidXHTML( source );
-    newsource = RemoveBlankStyleLines( newsource );
-
-    return newsource;
-}
-
-
 // Remove blank lines at the top of style tag added by Tidy
 QString CleanSource::RemoveBlankStyleLines( const QString &source )
 {
@@ -139,7 +132,11 @@ QString CleanSource::RemoveBlankStyleLines( const QString &source )
 // No cleaning, just convert the source to valid XHTML
 QString CleanSource::ToValidXHTML( const QString &source )
 {
-    return HTMLTidy( source, Tidy_Fast );
+    QString newsource = HTMLTidy( source, Tidy_Fast );
+    newsource = RemoveBlankStyleLines( newsource );
+    // Run Clean to ensure proper formatting based on the user's settings.
+    newsource = Clean(newsource);
+    return newsource;
 }
 
 QString CleanSource::PrettyPrint( const QString &source )
@@ -694,3 +691,22 @@ QString CleanSource::PrettifyDOCTYPEHeader( const QString &source )
 
     return newsource;
 }
+
+
+void CleanSource::ReformatAll(QList <TextResource *> resources, QString (clean_func)(const QString &source))
+{
+    //QList <Resource *> resources = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
+    QProgressDialog progress( QObject::tr( "Cleaning..." ), 0, 0, resources.count(), Utility::GetMainWindow() );
+    progress.setMinimumDuration( PROGRESS_BAR_MINIMUM_DURATION );
+    int progress_value = 0;
+    progress.setValue(progress_value);
+
+    foreach (TextResource *resource, resources) {
+        progress.setValue(progress_value++);
+        qApp->processEvents();
+
+        QWriteLocker locker(&resource->GetLock());
+        resource->SetText(clean_func(resource->GetText()));
+    }
+}
+

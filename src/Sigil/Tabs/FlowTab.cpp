@@ -210,6 +210,7 @@ void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
     }
     QApplication::setOverrideCursor(Qt::WaitCursor);
     m_wCodeView = new CodeViewEditor(CodeViewEditor::Highlight_XHTML, true, this);
+    m_wCodeView->SetReformatHTMLEnabled(true);
 
     m_views->addWidget(m_wCodeView);
 
@@ -930,7 +931,7 @@ void FlowTab::AutoFixWellFormedErrors()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         int pos = m_wCodeView->GetCursorPosition();
-        m_wCodeView->ReplaceDocumentText(CleanSource::PrettyPrint(CleanSource::Clean(m_wCodeView->toPlainText())));
+        m_wCodeView->ReplaceDocumentText(CleanSource::ToValidXHTML(m_wCodeView->toPlainText()));
         m_wCodeView->ScrollToPosition(pos);
     }
 }

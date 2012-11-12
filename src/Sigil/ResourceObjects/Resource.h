@@ -224,7 +224,7 @@ protected:
     /**
      * Update the internal resource data from the disk file.
      */
-    virtual bool LoadFromDisk(bool load_raw = false);
+    virtual bool LoadFromDisk();
 
 private slots:
     /**

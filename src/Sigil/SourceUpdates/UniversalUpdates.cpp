@@ -30,6 +30,7 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/HTMLEncodingResolver.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -218,15 +219,18 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile( HTMLResource* html_resource,
                                                     const QHash< QString, QString > &html_updates,
                                                     const QHash< QString, QString > &css_updates)
 {
+    SettingsStore ss;
+    QString source;
+
     if ( !html_resource ) {
         return QString();
     }
     try
     {
-        const QString &source = 
-            CleanSource::Clean( 
-                XhtmlDoc::ResolveCustomEntities( 
-                    HTMLEncodingResolver::ReadHTMLFile( html_resource->GetFullPath() ) ) );
+        source = XhtmlDoc::ResolveCustomEntities(HTMLEncodingResolver::ReadHTMLFile( html_resource->GetFullPath()));
+        if (ss.cleanOn() & CLEANON_OPEN) {
+            source = CleanSource::Clean(source);
+        }
 
         html_resource->SetText( XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates( source, html_updates, css_updates )().get() ) );
         return QString();
@@ -236,6 +240,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile( HTMLResource* html_resource,
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
+        html_resource->SetText( XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates( source, html_updates, css_updates )().get() ) );
         return QString(QObject::tr("Invalid HTML file: %1")).arg(html_resource->Filename());
     }    
 

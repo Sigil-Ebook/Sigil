@@ -67,9 +67,9 @@ public:
     // inherited
     virtual ResourceType Type() const;
 
-    virtual void SetText(const QString &text, bool load_raw = false);
+    virtual void SetText(const QString &text);
 
-    virtual bool LoadFromDisk(bool load_raw = false);
+    virtual bool LoadFromDisk();
 
     void SaveToDisk(bool book_wide_save=false);
 

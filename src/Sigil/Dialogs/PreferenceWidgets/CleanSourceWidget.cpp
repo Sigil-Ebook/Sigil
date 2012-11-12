@@ -35,6 +35,7 @@ CleanSourceWidget::CleanSourceWidget()
 PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
 {
     SettingsStore::CleanLevel new_clean_level = SettingsStore::CleanLevel_Off;
+    int new_clean_on_level = 0;
 
     if (ui.CleanLevelTidy->isChecked()) {
         new_clean_level = SettingsStore::CleanLevel_Tidy;
@@ -49,9 +50,20 @@ PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
         new_clean_level = SettingsStore::CleanLevel_Off;
     }
 
+    if (ui.CleanOnOpen->isChecked()) {
+        new_clean_on_level |= CLEANON_OPEN;
+    }
+    if (ui.CleanOnSave->isChecked()) {
+        new_clean_on_level |= CLEANON_SAVE;
+    }
+    if (ui.CleanOnReplaceInAll->isChecked()) {
+        new_clean_on_level |= CLEANON_REPLACEINALL;
+    }
+
     SettingsStore settings;
 
     settings.setCleanLevel(new_clean_level);
+    settings.setCleanOn(new_clean_on_level);
 
     return PreferencesWidget::ResultAction_None;
 }
@@ -60,10 +72,15 @@ void CleanSourceWidget::readSettings()
 {
     SettingsStore settings;
 
-    m_CleanLevel = settings.cleanLevel();
+    SettingsStore::CleanLevel level = settings.cleanLevel();
+    ui.CleanLevelOff->setChecked(level == SettingsStore::CleanLevel_Off);
+    ui.CleanLevelPrettyPrint->setChecked(level == SettingsStore::CleanLevel_PrettyPrint);
+    ui.CleanLevelPrettyPrintTidy->setChecked(level == SettingsStore::CleanLevel_PrettyPrintTidy);
+    ui.CleanLevelTidy->setChecked(level == SettingsStore::CleanLevel_Tidy);
 
-    ui.CleanLevelOff->setChecked(m_CleanLevel == SettingsStore::CleanLevel_Off);
-    ui.CleanLevelPrettyPrint->setChecked(m_CleanLevel == SettingsStore::CleanLevel_PrettyPrint);
-    ui.CleanLevelPrettyPrintTidy->setChecked(m_CleanLevel == SettingsStore::CleanLevel_PrettyPrintTidy);
-    ui.CleanLevelTidy->setChecked(m_CleanLevel == SettingsStore::CleanLevel_Tidy);
+    int cleanOn = settings.cleanOn();
+    ui.CleanOnOpen->setChecked(cleanOn & CLEANON_OPEN);
+    ui.CleanOnSave->setChecked(cleanOn & CLEANON_SAVE);
+    ui.CleanOnReplaceInAll->setChecked(cleanOn & CLEANON_REPLACEINALL);
 }
+

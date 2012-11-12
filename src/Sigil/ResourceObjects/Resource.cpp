@@ -152,7 +152,7 @@ Resource::ResourceType Resource::Type() const
     return Resource::GenericResourceType;
 }
 
-bool Resource::LoadFromDisk(bool load_raw)
+bool Resource::LoadFromDisk()
 {
     return false;
 }
@@ -199,7 +199,7 @@ void Resource::ResourceFileModified()
         QTimer::singleShot( WAIT_FOR_WRITE_DELAY, this, SLOT( ResourceFileModified() ) );
     }
     else {
-        if ( LoadFromDisk(true) ) {
+        if ( LoadFromDisk() ) {
             // will trigger marking the book as modified
             emit ResourceUpdatedFromDisk(*this);
         }

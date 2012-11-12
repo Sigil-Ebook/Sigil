@@ -25,6 +25,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Importers/ImportTXT.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -61,10 +62,14 @@ QSharedPointer< Book > ImportTXT::GetBook()
 
 QString ImportTXT::LoadSource() const
 {
+    SettingsStore ss;
     QString source = Utility::ReadUnicodeTextFile( m_FullFilePath );   
 
     source = CreateParagraphs( source.split( QChar( '\n' ) ) );
-    return CleanSource::Clean( source );    
+    if (ss.cleanOn() & CLEANON_OPEN) {
+        return CleanSource::Clean( source );    
+    }
+    return source;
 }
 
 

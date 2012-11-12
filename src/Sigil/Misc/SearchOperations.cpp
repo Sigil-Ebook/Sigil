@@ -31,6 +31,7 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/SearchOperations.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
 #include "Misc/HTMLSpellCheck.h"
@@ -123,7 +124,7 @@ int SearchOperations::CountInHTMLFile( const QString &search_regex,
 {
     if ( search_type == SearchOperations::CodeViewSearch )
     {
-        const QString &text = CleanSource::Clean( html_resource->GetText() );
+        const QString &text = html_resource->GetText();
 
         if ( check_spelling )
         {
@@ -177,16 +178,19 @@ int SearchOperations::ReplaceHTMLInFile( const QString &search_regex,
                                          HTMLResource* html_resource, 
                                          SearchType search_type )
 {
+    SettingsStore ss;
+
     if ( search_type == SearchOperations::CodeViewSearch )
     {
-        const QString &text = CleanSource::Clean(  html_resource->GetText() );
-
-        QString new_text;
         int count;
+        QString new_text;
 
-        tie( new_text, count ) = PerformGlobalReplace( text, search_regex, replacement );
+        tie( new_text, count ) = PerformGlobalReplace(html_resource->GetText(), search_regex, replacement );
 
-        html_resource->SetText(CleanSource::Rinse( new_text ));
+        if (ss.cleanOn() & CLEANON_REPLACEINALL) {
+            new_text = CleanSource::Clean( new_text );
+        }
+        html_resource->SetText(new_text);
 
         return count;
     }

@@ -34,6 +34,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Importers/ImportHTML.h"
 #include "Misc/HTMLEncodingResolver.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/CSSResource.h"
@@ -89,13 +90,17 @@ QSharedPointer< Book > ImportHTML::GetBook()
 // Loads the source code into the Book
 QString ImportHTML::LoadSource()
 {
+    SettingsStore ss;
+
     if (m_CachedSource.isNull()) {
         if ( !Utility::IsFileReadable( m_FullFilePath ) ) {
             boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
         }
-        m_CachedSource = CleanSource::Clean( 
-            XhtmlDoc::ResolveCustomEntities( 
-                HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath ) ) );
+
+        m_CachedSource = HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath );
+        if (ss.cleanOn() & CLEANON_OPEN) {
+            m_CachedSource = CleanSource::Clean(XhtmlDoc::ResolveCustomEntities(m_CachedSource));
+        }
     }
     return m_CachedSource;
 }

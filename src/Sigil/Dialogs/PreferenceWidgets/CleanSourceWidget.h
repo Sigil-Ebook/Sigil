@@ -40,8 +40,6 @@ public:
 private:
     void readSettings();
 
-    SettingsStore::CleanLevel m_CleanLevel;
-
     Ui::CleanSourceWidget ui;
 };
 

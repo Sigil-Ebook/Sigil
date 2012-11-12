@@ -35,8 +35,10 @@
 #include <QtXml/QXmlStreamReader>
 
 #include "BookManipulation/Book.h"
+#include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "MainUI/MainWindow.h"
 #include "Misc/XHTMLHighlighter.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/CSSHighlighter.h"
@@ -82,6 +84,7 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_CaretUpdate( QList< ViewEditor::ElementIndex >() ),
     m_checkSpelling( check_spelling ),
     m_reformatCSSEnabled( false ),
+    m_reformatHTMLEnabled( false ),
     m_lastFindRegex( QString() ),
     m_spellingMapper( new QSignalMapper( this ) ),
     m_addSpellingMapper( new QSignalMapper( this ) ),
@@ -91,6 +94,9 @@ CodeViewEditor::CodeViewEditor( HighlighterType high_type, bool check_spelling, 
     m_pendingGoToLinkOrStyleRequest( false ),
     m_pendingReformatCSSRequest( false ),
     m_reformatCSSMultiLine( false ),
+    m_pendingReformatHTMLRequest(false),
+    m_reformatHTMLAll(false),
+    m_reformatHTMLToValid(false),
     m_pendingSpellingHighlighting( false)
 {
     if ( high_type == CodeViewEditor::Highlight_XHTML ) {
@@ -940,6 +946,9 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
         if (m_reformatCSSEnabled) {
             AddReformatCSSContextMenu(menu);
         }
+        if (m_reformatHTMLEnabled) {
+            AddReformatHTMLContextMenu(menu);
+        }
         AddGoToLinkOrStyleContextMenu(menu);
         AddClipContextMenu(menu);
     }
@@ -965,6 +974,10 @@ void CodeViewEditor::contextMenuEvent( QContextMenuEvent *event )
     if (m_pendingReformatCSSRequest) {
         m_pendingReformatCSSRequest = false;
         ReformatCSS(m_reformatCSSMultiLine);
+    }
+    if (m_pendingReformatHTMLRequest) {
+        m_pendingReformatHTMLRequest = false;
+        ReformatHTML(m_reformatHTMLAll, m_reformatHTMLToValid);
     }
 }
 
@@ -1117,6 +1130,42 @@ void CodeViewEditor::AddReformatCSSContextMenu(QMenu *menu)
     }
     else {
         menu->insertMenu(topAction, reformatCSSMenu);
+    }
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
+}
+
+void CodeViewEditor::AddReformatHTMLContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QMenu *reformatMenu = new QMenu(tr("Reformat HTML"), menu);
+    QAction *cleanAction = new QAction(tr("Clean Source"), menu);
+    QAction *cleanAllAction = new QAction(tr("Clean Source - All HTML Files"), menu);
+    QAction *toValidAction = new QAction(tr("To Valid HTML"), menu);
+    QAction *toValidAllAction = new QAction(tr("To Valid HTML - All HTML Files"), menu);
+
+    connect(cleanAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAction()));
+    connect(cleanAllAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAllAction()));
+    connect(toValidAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLToValidAction()));
+    connect(toValidAllAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLToValidAllAction()));
+
+    reformatMenu->addAction(cleanAction);
+    reformatMenu->addAction(cleanAllAction);
+    reformatMenu->addSeparator();
+    reformatMenu->addAction(toValidAction);
+    reformatMenu->addAction(toValidAllAction);
+
+    if (!topAction) {
+        menu->addMenu(reformatMenu);
+    }
+    else {
+        menu->insertMenu(topAction, reformatMenu);
     }
 
     if (topAction) {
@@ -1316,6 +1365,34 @@ void CodeViewEditor::ReformatCSSSingleLineAction()
 {
     m_reformatCSSMultiLine = false;
     m_pendingReformatCSSRequest = true;
+}
+
+void CodeViewEditor::ReformatHTMLCleanAction()
+{
+    m_reformatHTMLToValid = false;
+    m_reformatHTMLAll = false;
+    m_pendingReformatHTMLRequest = true;
+}
+
+void CodeViewEditor::ReformatHTMLCleanAllAction()
+{
+    m_reformatHTMLToValid = false;
+    m_reformatHTMLAll = true;
+    m_pendingReformatHTMLRequest = true;
+}
+
+void CodeViewEditor::ReformatHTMLToValidAction()
+{
+    m_reformatHTMLToValid = true;
+    m_reformatHTMLAll = false;
+    m_pendingReformatHTMLRequest = true;
+}
+
+void CodeViewEditor::ReformatHTMLToValidAllAction()
+{
+    m_reformatHTMLToValid = true;
+    m_reformatHTMLAll = true;
+    m_pendingReformatHTMLRequest = true;
 }
 
 QString CodeViewEditor::GetTagText()
@@ -2841,6 +2918,48 @@ void CodeViewEditor::ReformatCSS(bool multiple_line_format)
     }
 }
 
+void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
+{
+    QString original_text;
+    QString new_text;
+
+    if (m_reformatHTMLAll) {
+        QWidget *mainWindow_w = Utility::GetMainWindow();
+        MainWindow *mainWindow = dynamic_cast<MainWindow*>(mainWindow_w);
+        if (!mainWindow) {
+            Utility::DisplayStdErrorDialog("Could not determine main window.");
+            return;
+        }
+
+        mainWindow->GetCurrentContentTab().SaveTabContent();
+
+        QList <TextResource *> resources;
+        Q_FOREACH (Resource *r, mainWindow->GetAllHTMLResources()) {
+            TextResource *t = dynamic_cast<TextResource *>(r);
+            if (t) {
+                resources.append(t);
+            }
+        }
+        CleanSource::ReformatAll(resources, m_reformatHTMLAll ? CleanSource::ToValidXHTML : CleanSource::Clean);
+    } else {
+        original_text = toPlainText();
+
+        if (m_reformatHTMLToValid) {
+            new_text = CleanSource::ToValidXHTML(original_text);
+        } else {
+            new_text = CleanSource::Clean(original_text);
+        }
+
+        if (original_text != new_text) {
+            QTextCursor cursor = textCursor();
+            cursor.beginEditBlock();
+            cursor.select(QTextCursor::Document);
+            cursor.insertText(new_text);
+            cursor.endEditBlock();
+        }
+    }
+}
+
 void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
 {
     QTextCursor cursor = textCursor();
@@ -2943,6 +3062,16 @@ bool CodeViewEditor::ReformatCSSEnabled()
 void CodeViewEditor::SetReformatCSSEnabled(bool value)
 {
     m_reformatCSSEnabled = value;
+}
+
+bool CodeViewEditor::ReformatHTMLEnabled()
+{
+    return m_reformatHTMLEnabled;
+}
+
+void CodeViewEditor::SetReformatHTMLEnabled(bool value)
+{
+    m_reformatHTMLEnabled = value;
 }
 
 void CodeViewEditor::SelectAndScrollIntoView(int start_position, int end_position, Searchable::Direction direction, bool wrapped)

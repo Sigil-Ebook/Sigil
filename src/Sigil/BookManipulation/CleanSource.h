@@ -26,9 +26,13 @@
 #include <boost/tuple/tuple.hpp>
 #include <tidy.h>
 
-#include <QtCore/QStringList>
+#include <QtCore/QList>
+
+#include "ResourceObjects/TextResource.h"
 
 using boost::tuple;
+
+class QStringList;
 
 class CleanSource
 {
@@ -40,13 +44,7 @@ public:
     static QString Clean( const QString &source );
 
     // Convert to valid XHTML with mild cleaning
-    static QString Rinse( const QString &source );
-
-    // No cleaning, just convert the source to valid XHTML
     static QString ToValidXHTML( const QString &source );
-
-    static QString PrettyPrint( const QString &source );
-    static QString PrettyPrintTidy( const QString &source );
 
     static QString ProcessXML( const QString &source );
 
@@ -58,6 +56,8 @@ public:
      */
     static QString PrettifyDOCTYPEHeader( const QString &source );
 
+    static void ReformatAll(QList <TextResource *> resources, QString (clean_fun)(const QString &source));
+
 private:
 
     enum TidyType
@@ -68,6 +68,9 @@ private:
         Tidy_PrettyPrint, /**< Like Tidy_Fast, but pretty printing. */
         Tidy_XML          /**< For XML files. */
     };
+
+    static QString PrettyPrint( const QString &source );
+    static QString PrettyPrintTidy( const QString &source );
 
     static int RobustCSSStyleTagCount( const QString &source );
 

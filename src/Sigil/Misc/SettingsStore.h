@@ -28,6 +28,10 @@
 #include <QtCore/QSettings>
 #include <QtCore/QString>
 
+#define CLEANON_OPEN         (1 << 0)
+#define CLEANON_SAVE         (1 << 1)
+#define CLEANON_REPLACEINALL (1 << 2)
+
 class QColor;
 
 /**
@@ -46,10 +50,10 @@ public:
     SettingsStore(QString filename);
 
     enum CleanLevel {
-        CleanLevel_Off = 0,
-        CleanLevel_PrettyPrint = 100,
+        CleanLevel_Off             = 0,
+        CleanLevel_PrettyPrint     = 100,
         CleanLevel_PrettyPrintTidy = 150,
-        CleanLevel_Tidy = 200
+        CleanLevel_Tidy            = 200
     };
 
     /**
@@ -106,6 +110,8 @@ public:
     QString renameTemplate();
 
     SettingsStore::CleanLevel cleanLevel();
+
+    int cleanOn();
 
     /**
      * All appearance settings related to BookView.
@@ -239,6 +245,8 @@ public slots:
     void setRenameTemplate(const QString &name);
 
     void setCleanLevel(SettingsStore::CleanLevel level);
+
+    void setCleanOn(int on);
 
     /**
      * Set the default font settings to use for rendering Book View/Preview

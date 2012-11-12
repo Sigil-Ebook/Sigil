@@ -30,6 +30,7 @@
 #include "BookManipulation/GuideSemantics.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_exception.h"
@@ -58,12 +59,12 @@ Resource::ResourceType HTMLResource::Type() const
     return Resource::HTMLResourceType;
 }
 
-bool HTMLResource::LoadFromDisk(bool load_raw)
+bool HTMLResource::LoadFromDisk()
 {
     try {
         const QString &text = Utility::ReadUnicodeTextFile(GetFullPath());
 
-        SetText(text, load_raw);
+        SetText(text);
 
         emit LoadedFromDisk();
 
@@ -77,14 +78,17 @@ bool HTMLResource::LoadFromDisk(bool load_raw)
     return false;
 }
 
-void HTMLResource::SetText(const QString &text, bool load_raw)
+void HTMLResource::SetText(const QString &text)
 {
+    SettingsStore ss;
+
     emit TextChanging();
-    if (load_raw) {
-        XMLResource::SetText(text);
+
+    if (ss.cleanOn() & CLEANON_SAVE) {
+        XMLResource::SetText(CleanSource::Clean(text));
     }
     else {
-        XMLResource::SetText(CleanSource::Clean(text));
+        XMLResource::SetText(text);
     }
 
     // Track resources whose change will necessitate an update of the BV and PV.

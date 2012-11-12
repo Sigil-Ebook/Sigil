@@ -156,7 +156,7 @@ Resource::ResourceType TextResource::Type() const
     return Resource::TextResourceType;
 }
 
-bool TextResource::LoadFromDisk(bool load_raw)
+bool TextResource::LoadFromDisk()
 {
     try
     {

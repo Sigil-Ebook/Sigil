@@ -321,6 +321,12 @@ public:
     bool ReformatCSSEnabled();
     void SetReformatCSSEnabled(bool value);
 
+    /**
+     * Control wheter the Reformat (clean) HTML submenu is avaliable on the context menu.
+     */ 
+    bool ReformatHTMLEnabled();
+    void SetReformatHTMLEnabled(bool value);
+
 signals:
 
     /**
@@ -480,6 +486,11 @@ private slots:
 
     void ReformatCSSMultiLineAction();
     void ReformatCSSSingleLineAction();
+
+    void ReformatHTMLCleanAction();
+    void ReformatHTMLCleanAllAction();
+    void ReformatHTMLToValidAction();
+    void ReformatHTMLToValidAllAction();
     
 private:
 
@@ -544,6 +555,8 @@ private:
     void ConnectSignalsToSlots();
 
     void AddReformatCSSContextMenu(QMenu *menu);
+
+    void AddReformatHTMLContextMenu(QMenu *menu);
 
     void AddGoToLinkOrStyleContextMenu(QMenu *menu);
 
@@ -651,6 +664,8 @@ private:
 
     void ReformatCSS(bool multiple_line_format);
 
+    void ReformatHTML(bool all, bool to_valid);
+
     QStringList GetUnmatchedTagsForBlock(const int &pos, const QString &text) const;
 
     void SelectAndScrollIntoView(int start_position, int end_position, Searchable::Direction direction, bool wrapped);
@@ -733,6 +748,11 @@ private:
     bool m_reformatCSSEnabled;
 
     /**
+     * Whether reformat (clean) HTML context menu option is enabled on this view.
+     */
+    bool m_reformatHTMLEnabled;
+
+    /**
      * Store the last match when doing a find so we can determine if
      * found text is selected for doing a replace. We also need to store the
      * match because we can't run the selected text though the PCRE engine
@@ -759,6 +779,9 @@ private:
     bool m_pendingGoToLinkOrStyleRequest;
     bool m_pendingReformatCSSRequest;
     bool m_reformatCSSMultiLine;
+    bool m_pendingReformatHTMLRequest;
+    bool m_reformatHTMLAll;
+    bool m_reformatHTMLToValid;
 
     /**
      * The fonts and colors for appearance of xhtml and text.
