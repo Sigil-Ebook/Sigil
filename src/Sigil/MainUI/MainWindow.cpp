@@ -32,7 +32,7 @@
 #include <QtGui/QToolBar>
 #include <QtWebKit/QWebSettings>
 
-
+#include "BookManipulation/CleanSource.h"
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
@@ -2679,6 +2679,8 @@ void MainWindow::LoadFile(const QString &fullfilepath)
 
 bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filename)
 {
+    SettingsStore ss;
+
     try {
         ShowMessageOnStatusBar(tr("Saving file..."));
         m_TabManager.SaveTabData();
@@ -2696,7 +2698,20 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
         }
 
         QApplication::setOverrideCursor(Qt::WaitCursor);
+
+        if (ss.cleanOn() & CLEANON_SAVE) {
+            QList <TextResource *> resources;
+            Q_FOREACH(Resource * r, GetAllHTMLResources()) {
+                TextResource *t = dynamic_cast<TextResource *>(r);
+                if (t) {
+                    resources.append(t);
+                }
+            }
+            CleanSource::ReformatAll(resources, CleanSource::Clean);
+        }
+        
         ExporterFactory().GetExporter(fullfilepath, m_Book).WriteBook();
+
         QApplication::restoreOverrideCursor();
         // Return the focus back to the current tab
         ContentTab &tab = GetCurrentContentTab();

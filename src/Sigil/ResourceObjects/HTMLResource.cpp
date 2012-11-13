@@ -30,7 +30,6 @@
 #include "BookManipulation/GuideSemantics.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
-#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_exception.h"
@@ -74,14 +73,9 @@ bool HTMLResource::LoadFromDisk()
 
 void HTMLResource::SetText(const QString &text)
 {
-    SettingsStore ss;
     emit TextChanging();
 
-    if (ss.cleanOn() & CLEANON_SAVE) {
-        XMLResource::SetText(CleanSource::Clean(text));
-    } else {
-        XMLResource::SetText(text);
-    }
+    XMLResource::SetText(text);
 
     // Track resources whose change will necessitate an update of the BV and PV.
     // At present this only applies to css files and images.
