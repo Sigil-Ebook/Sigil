@@ -30,11 +30,11 @@
 
 class IndexEditorTreeView : public QTreeView
 {
-//     Q_OBJECT
+    //     Q_OBJECT
 
 public:
-     IndexEditorTreeView(QWidget* parent = 0);
-     ~IndexEditorTreeView();
+    IndexEditorTreeView(QWidget *parent = 0);
+    ~IndexEditorTreeView();
 
 protected:
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);

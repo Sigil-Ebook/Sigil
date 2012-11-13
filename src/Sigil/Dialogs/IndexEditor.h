@@ -52,7 +52,7 @@ public:
     void ForceClose();
 
 public slots:
-    QStandardItem* AddEntry(bool is_group = false, IndexEditorModel::indexEntry *index_entry = NULL, bool insert_after = true);
+    QStandardItem *AddEntry(bool is_group = false, IndexEditorModel::indexEntry *index_entry = NULL, bool insert_after = true);
 
 signals:
     void ShowStatusMessageRequest(const QString &message);
@@ -81,7 +81,7 @@ private slots:
     void FilterEditTextChangedSlot(const QString &text);
 
     void OpenContextMenu(const QPoint &point);
-    
+
     void SettingsFileModelUpdated();
 
 private:
@@ -90,11 +90,11 @@ private:
 
     int SelectedRowsCount();
 
-    QList<IndexEditorModel::indexEntry*> GetSelectedEntries();
+    QList<IndexEditorModel::indexEntry *> GetSelectedEntries();
 
-    QList<QStandardItem*> GetSelectedItems();
+    QList<QStandardItem *> GetSelectedItems();
 
-    bool SaveData(QList<IndexEditorModel::indexEntry*> entries = QList<IndexEditorModel::indexEntry*>() , QString filename = QString());
+    bool SaveData(QList<IndexEditorModel::indexEntry *> entries = QList<IndexEditorModel::indexEntry *>() , QString filename = QString());
 
     void ReadSettings();
     void WriteSettings();

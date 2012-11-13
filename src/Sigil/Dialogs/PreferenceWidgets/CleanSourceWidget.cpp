@@ -28,7 +28,6 @@
 CleanSourceWidget::CleanSourceWidget()
 {
     ui.setupUi(this);
-
     readSettings();
 }
 
@@ -39,45 +38,40 @@ PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
 
     if (ui.CleanLevelTidy->isChecked()) {
         new_clean_level = SettingsStore::CleanLevel_Tidy;
-    }
-    else if (ui.CleanLevelPrettyPrint->isChecked()) {
+    } else if (ui.CleanLevelPrettyPrint->isChecked()) {
         new_clean_level = SettingsStore::CleanLevel_PrettyPrint;
-    }
-    else if (ui.CleanLevelPrettyPrintTidy->isChecked()) {
+    } else if (ui.CleanLevelPrettyPrintTidy->isChecked()) {
         new_clean_level = SettingsStore::CleanLevel_PrettyPrintTidy;
-    }
-    else {
+    } else {
         new_clean_level = SettingsStore::CleanLevel_Off;
     }
 
     if (ui.CleanOnOpen->isChecked()) {
         new_clean_on_level |= CLEANON_OPEN;
     }
+
     if (ui.CleanOnSave->isChecked()) {
         new_clean_on_level |= CLEANON_SAVE;
     }
+
     if (ui.CleanOnReplaceInAll->isChecked()) {
         new_clean_on_level |= CLEANON_REPLACEINALL;
     }
 
     SettingsStore settings;
-
     settings.setCleanLevel(new_clean_level);
     settings.setCleanOn(new_clean_on_level);
-
     return PreferencesWidget::ResultAction_None;
 }
 
 void CleanSourceWidget::readSettings()
 {
     SettingsStore settings;
-
     SettingsStore::CleanLevel level = settings.cleanLevel();
     ui.CleanLevelOff->setChecked(level == SettingsStore::CleanLevel_Off);
     ui.CleanLevelPrettyPrint->setChecked(level == SettingsStore::CleanLevel_PrettyPrint);
     ui.CleanLevelPrettyPrintTidy->setChecked(level == SettingsStore::CleanLevel_PrettyPrintTidy);
     ui.CleanLevelTidy->setChecked(level == SettingsStore::CleanLevel_Tidy);
-
     int cleanOn = settings.cleanOn();
     ui.CleanOnOpen->setChecked(cleanOn & CLEANON_OPEN);
     ui.CleanOnSave->setChecked(cleanOn & CLEANON_SAVE);

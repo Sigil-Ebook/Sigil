@@ -35,9 +35,9 @@ public:
      * Sets a zoom factor for the view.
      * Thus, zooms in (factor > 1.0) or out (factor < 1.0).
      *
-     * @param factor The zoom factor to use. 
+     * @param factor The zoom factor to use.
      */
-    virtual void SetZoomFactor( float factor ) = 0;
+    virtual void SetZoomFactor(float factor) = 0;
 
     /**
      * Returns the widget's current zoom factor.

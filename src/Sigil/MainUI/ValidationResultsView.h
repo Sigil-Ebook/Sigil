@@ -32,7 +32,10 @@
 #include "MainUI/MainWindow.h"
 #include "Tabs/ContentTab.h"
 
-namespace FlightCrew { class Result; }
+namespace FlightCrew
+{
+class Result;
+}
 namespace fc = FlightCrew;
 
 class QTableWidget;
@@ -52,7 +55,7 @@ public:
      *
      * @param parent The QObject's parent.
      */
-    ValidationResultsView( QWidget *parent = 0 );
+    ValidationResultsView(QWidget *parent = 0);
 
     /**
      * Validates the epub file given and displays the results.
@@ -71,7 +74,7 @@ public slots:
      *
      * @param book The book to be validated.
      */
-    void SetBook( QSharedPointer< Book > book );
+    void SetBook(QSharedPointer< Book > book);
 
 signals:
 
@@ -83,11 +86,11 @@ signals:
      * @param line_to_scroll_to To which line should the resource scroll.
      * @param view_state In which View should the resource open or switch to.
      */
-    void OpenResourceRequest( Resource &resource, 
-                              int line_to_scroll_to = -1,
-                              int position_to_scroll_to = -1,
-                              const QString &caret_location_to_scroll_to = QString(),
-                              MainWindow::ViewState view_state = MainWindow::ViewState_Unknown);
+    void OpenResourceRequest(Resource &resource,
+                             int line_to_scroll_to = -1,
+                             int position_to_scroll_to = -1,
+                             const QString &caret_location_to_scroll_to = QString(),
+                             MainWindow::ViewState view_state = MainWindow::ViewState_Unknown);
 
 private slots:
 
@@ -96,7 +99,7 @@ private slots:
      *
      * @param item The item that was clicked.
      */
-    void ResultDoubleClicked( QTableWidgetItem *item );
+    void ResultDoubleClicked(QTableWidgetItem *item);
 
 private:
 
@@ -110,7 +113,7 @@ private:
      *
      * @param results A list of FlightCrew validation results.
      */
-    void DisplayResults( const std::vector< fc::Result > &results );
+    void DisplayResults(const std::vector< fc::Result > &results);
 
     /**
      * Informs the user that no problems were found.
@@ -128,7 +131,7 @@ private:
      * @param path The relative path to clean.
      * @return The cleaned path.
      */
-    static QString RemoveEpubPathPrefix( const QString &path );
+    static QString RemoveEpubPathPrefix(const QString &path);
 
 
     ///////////////////////////////

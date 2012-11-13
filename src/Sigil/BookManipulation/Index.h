@@ -31,11 +31,11 @@ class HTMLResource;
  * Ids are added via static routines to all files if text matches Index settings.
  * Patterns are read from the Index dialog model and written to the Index Entry storage.
  */
-class Index 
+class Index
 {
-    
+
 public:
-    static bool BuildIndex(QList<HTMLResource*> html_resources);
+    static bool BuildIndex(QList<HTMLResource *> html_resources);
 
 private:
     static void AddIndexIDsOneFile(HTMLResource *html_resource);

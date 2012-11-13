@@ -29,23 +29,23 @@
 /**
  *   Holds the Index entries to put into the Index
  */
-class IndexEntries 
+class IndexEntries
 {
-    
+
 public:
     static IndexEntries *instance();
     ~IndexEntries();
 
     void Clear();
 
-    QStandardItem*  GetRootItem();
+    QStandardItem  *GetRootItem();
 
     void AddOneEntry(QString text, QString filename, QString index_id_value);
 
 private:
     IndexEntries();
 
-    QStandardItem* AddEntryToModel(QString entry, QStandardItem *parent_item, int row);
+    QStandardItem *AddEntryToModel(QString entry, QStandardItem *parent_item, int row);
 
     QStandardItem *m_BookIndexRootItem;
 

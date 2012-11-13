@@ -43,7 +43,7 @@ public:
     /**
      * Destructor. Deletes the temp folder on disk
      * and all the files in it. The deletion is performed
-     * asynchronously in a background thread. 
+     * asynchronously in a background thread.
      */
     ~TempFolder();
 
@@ -58,19 +58,19 @@ public:
     /**
      * Returns the full path to the Sigil scratchpad folder.
      * This is the folder where other temp folders are created.
-     * 
+     *
      * @return Full path to the scratchpad.
      */
     static QString GetPathToSigilScratchpad();
 
-private: 
+private:
 
     // We turn these of since TempFolder is an identity class.
-    TempFolder& operator= ( const TempFolder& );
-    TempFolder( const TempFolder& );
+    TempFolder &operator= (const TempFolder &);
+    TempFolder(const TempFolder &);
 
     /**
-     * Provides a full path to a new temp folder. 
+     * Provides a full path to a new temp folder.
      * It is the callers responsibility to create the folder.
      *
      * @return Full path to a new temp folder.
@@ -78,13 +78,13 @@ private:
     static QString GetNewTempFolderPath();
 
     /**
-     * Deletes the folder specified and all the files 
+     * Deletes the folder specified and all the files
      * (and folders, recursively) in it.
-     * 
+     *
      * @param fullfolderpath The full path to the folder to delete.
      * @return \c true if the operation is successful.
-     */ 
-    static bool DeleteFolderAndFiles( const QString &fullfolderpath );
+     */
+    static bool DeleteFolderAndFiles(const QString &fullfolderpath);
 
 
     ///////////////////////////////

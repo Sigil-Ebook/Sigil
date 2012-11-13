@@ -30,60 +30,56 @@
 
 static const int COL_COMBOBOX = 3;
 
-MetaEditorItemDelegate::MetaEditorItemDelegate( QObject *parent )
-    : QStyledItemDelegate( parent )
+MetaEditorItemDelegate::MetaEditorItemDelegate(QObject *parent)
+    : QStyledItemDelegate(parent)
 {
 }
- 
- 
+
+
 MetaEditorItemDelegate::~MetaEditorItemDelegate()
 {
 }
- 
- 
-QWidget* MetaEditorItemDelegate::createEditor( QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index ) const
+
+
+QWidget *MetaEditorItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // ComboBox ony in designated column 
-    if ( index.column() != COL_COMBOBOX )
-        return QStyledItemDelegate::createEditor( parent, option, index );
- 
+    // ComboBox ony in designated column
+    if (index.column() != COL_COMBOBOX) {
+        return QStyledItemDelegate::createEditor(parent, option, index);
+    }
+
     // Create the combobox and populate it
     QComboBox *cb = new QComboBox(parent);
-
     // Add name - all translations done in Metadata for consistency
-    cb->addItem( Metadata::Instance().GetText( "creator" ) );
-    cb->addItem( Metadata::Instance().GetText( "contributor" ) );
-
+    cb->addItem(Metadata::Instance().GetText("creator"));
+    cb->addItem(Metadata::Instance().GetText("contributor"));
     return cb;
 }
- 
- 
-void MetaEditorItemDelegate::setEditorData ( QWidget *editor, const QModelIndex &index ) const
+
+
+void MetaEditorItemDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
-    if( QComboBox *cb = qobject_cast<QComboBox *>( editor ) )
-    {
+    if (QComboBox *cb = qobject_cast<QComboBox *>(editor)) {
         // get the index of the text in the combobox that matches the current value of the itenm
-        QString currentText = index.data( Qt::EditRole ).toString();
-        int cbIndex = cb->findText( currentText );
+        QString currentText = index.data(Qt::EditRole).toString();
+        int cbIndex = cb->findText(currentText);
+
         // if it is valid, adjust the combobox
-        if( cbIndex >= 0 )
-            cb->setCurrentIndex( cbIndex );
-    } else
-    {
-        QStyledItemDelegate::setEditorData( editor, index );
+        if (cbIndex >= 0) {
+            cb->setCurrentIndex(cbIndex);
+        }
+    } else {
+        QStyledItemDelegate::setEditorData(editor, index);
     }
 }
- 
- 
-void MetaEditorItemDelegate::setModelData ( QWidget *editor, QAbstractItemModel *model, const QModelIndex &index ) const
+
+
+void MetaEditorItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
-    if ( QComboBox *cb = qobject_cast<QComboBox *>( editor ) )
-    {
+    if (QComboBox *cb = qobject_cast<QComboBox *>(editor)) {
         // save the current text of the combo box as the current value of the item
         model->setData(index, cb->currentText(), Qt::EditRole);
-    }
-    else
-    {
+    } else {
         QStyledItemDelegate::setModelData(editor, model, index);
     }
 }

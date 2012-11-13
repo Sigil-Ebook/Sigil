@@ -32,10 +32,10 @@ PCREReplaceTextBuilder::PCREReplaceTextBuilder()
 }
 
 bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
-                                                  const QString &text,
-                                                  const QList<std::pair<int, int> > &capture_groups_offsets,
-                                                  const QString &replacement_pattern,
-                                                  QString &out)
+        const QString &text,
+        const QList<std::pair<int, int> > &capture_groups_offsets,
+        const QString &replacement_pattern,
+        QString &out)
 {
     resetState();
 
@@ -96,12 +96,10 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
     // * Note: case changes cannot stop within a segment. Meaning
     // a \L within a \U will be ignored and the \U will be honored until
     // \E is encountered.
-    for (int i = 0; i < replacement_pattern.length(); i++)
-    {
+    for (int i = 0; i < replacement_pattern.length(); i++) {
         c = replacement_pattern.at(i);
 
-        if (in_control)
-        {
+        if (in_control) {
             // Store characters incase this is an invalid control and we
             // need to put it in the final text.
             invalid_contol += c;
@@ -121,8 +119,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                     // actually get.
                     if (backref_number >= 0 && backref_number < capture_groups_offsets.count()) {
                         accumulateReplcementText(Utility::Substring(capture_groups_offsets.at(backref_number).first, capture_groups_offsets.at(backref_number).second, text));
-                    }
-                    else {
+                    } else {
                         accumulateReplcementText(invalid_contol);
                     }
 
@@ -132,32 +129,25 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                 else if (c == 'a') {
                     accumulateReplcementText("\a");
                     in_control = false;
-                }
-                else if (c == 'b') {
+                } else if (c == 'b') {
                     accumulateReplcementText("\b");
                     in_control = false;
-                }
-                else if (c == 'f') {
+                } else if (c == 'f') {
                     accumulateReplcementText("\f");
                     in_control = false;
-                }
-                else if (c == 'n') {
+                } else if (c == 'n') {
                     accumulateReplcementText("\n");
                     in_control = false;
-                }
-                else if (c == 'r') {
+                } else if (c == 'r') {
                     accumulateReplcementText("\r");
                     in_control = false;
-                }
-                else if (c == 't') {
+                } else if (c == 't') {
                     accumulateReplcementText("\t");
                     in_control = false;
-                }
-                else if (c == 'v') {
+                } else if (c == 'v') {
                     accumulateReplcementText("\v");
                     in_control = false;
-                }
-                else if (c == '\\') {
+                } else if (c == '\\') {
                     accumulateReplcementText("\\");
                     in_control = false;
                 }
@@ -200,22 +190,19 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                         if (c == '{' || c == '<') {
                             backref_bracket_start_char = c;
                             backref_name.clear();
-                        }
-                        else {
+                        } else {
                             in_control = false;
                             accumulateReplcementText(invalid_contol);
                         }
-                    }
-                    else {
+                    } else {
                         if ((c == '}' && backref_bracket_start_char == '{') ||
-                                (c == '>' && backref_bracket_start_char == '<'))
-                        {
+                            (c == '>' && backref_bracket_start_char == '<')) {
                             // Either we have a back reference number in the bracket
                             // or we have a name which we will convert to a number.
                             int backref_number;
-
                             // Try to convert the backref name to a number.
                             backref_number = backref_name.toInt();
+
                             // The backref wasn't a number so get the number for the name.
                             if (backref_number == 0 && backref_name != "0") {
                                 backref_number = sre.getCaptureStringNumber(backref_name);
@@ -225,21 +212,19 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                             // actually get.
                             if (backref_number >= 0 && backref_number < capture_groups_offsets.count()) {
                                 accumulateReplcementText(Utility::Substring(capture_groups_offsets.at(backref_number).first, capture_groups_offsets.at(backref_number).second, text));
-                            }
-                            else {
+                            } else {
                                 accumulateReplcementText(invalid_contol);
                             }
 
                             in_control = false;
-                        }
-                        else {
+                        } else {
                             backref_name += c;
                         }
                     }
-                }
-                else if (control_char == 'x') {
+                } else if (control_char == 'x') {
                     if (is_hex(c)) {
                         control_x_hex += c;
+
                         if (control_x_hex.count() == 2) {
                             accumulateReplcementText(QChar(control_x_hex.toUInt(NULL, 16)));
                             in_control = false;
@@ -257,8 +242,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
             }
         }
         // We're not in a control.
-        else
-        {
+        else {
             // Start a control character.
             if (c == '\\') {
                 // Reset our invalid control accumulator.
@@ -276,6 +260,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
             }
         }
     }
+
     // If we ended reading the replacement string and we're still in
     // a back reference then we have an invalid back reference because
     // it never ended. Put the invalid reference into the replacment string.
@@ -311,25 +296,29 @@ QString PCREReplaceTextBuilder::processTextSegement(const QString &text)
     }
 
     switch (m_caseChangeState) {
-    case CaseChange_LowerNext:
-        processedText += text.at(0).toLower();
-        processedText += text.mid(1);
-        m_caseChangeState = CaseChange_None;
-        break;
-    case CaseChange_Lower:
-        processedText += text.toLower();
-        break;
-    case CaseChange_UpperNext:
-        processedText += text.at(0).toUpper();
-        processedText += text.mid(1);
-        m_caseChangeState = CaseChange_None;
-        break;
-    case CaseChange_Upper:
-        processedText += text.toUpper();
-        break;
-    default:
-        processedText += text;
-        break;
+        case CaseChange_LowerNext:
+            processedText += text.at(0).toLower();
+            processedText += text.mid(1);
+            m_caseChangeState = CaseChange_None;
+            break;
+
+        case CaseChange_Lower:
+            processedText += text.toLower();
+            break;
+
+        case CaseChange_UpperNext:
+            processedText += text.at(0).toUpper();
+            processedText += text.mid(1);
+            m_caseChangeState = CaseChange_None;
+            break;
+
+        case CaseChange_Upper:
+            processedText += text.toUpper();
+            break;
+
+        default:
+            processedText += text;
+            break;
     }
 
     return processedText;

@@ -26,14 +26,13 @@
 const int TAB_SPACES_WIDTH = 4;
 const QString LINE_MARKER("[SIGIL_NEWLINE]");
 
-CSSInfo::CSSInfo( const QString &text, bool isCSSFile )
+CSSInfo::CSSInfo(const QString &text, bool isCSSFile)
     : m_OriginalText(text),
       m_IsCSSFile(isCSSFile)
 {
     if (isCSSFile) {
         parseCSSSelectors(text, 0, 0);
-    }
-    else {
+    } else {
         // This is an HTML file with any number of inline CSS style blocks within it
         int style_start = -1;
         int style_end = -1;
@@ -47,10 +46,10 @@ CSSInfo::CSSInfo( const QString &text, bool isCSSFile )
     }
 }
 
-QList< CSSInfo::CSSSelector* > CSSInfo::getClassSelectors(const QString filterClassName)
+QList< CSSInfo::CSSSelector * > CSSInfo::getClassSelectors(const QString filterClassName)
 {
-    QList<CSSInfo::CSSSelector*> selectors;
-    foreach(CSSInfo::CSSSelector *cssSelector, m_CSSSelectors) {
+    QList<CSSInfo::CSSSelector *> selectors;
+    foreach(CSSInfo::CSSSelector * cssSelector, m_CSSSelectors) {
         if (cssSelector->classNames.count() > 0) {
             if (filterClassName.isEmpty() || cssSelector->classNames.contains(filterClassName)) {
                 selectors.append(cssSelector);
@@ -60,14 +59,15 @@ QList< CSSInfo::CSSSelector* > CSSInfo::getClassSelectors(const QString filterCl
     return selectors;
 }
 
-CSSInfo::CSSSelector* CSSInfo::getCSSSelectorForElementClass( const QString &elementName, const QString &className )
+CSSInfo::CSSSelector *CSSInfo::getCSSSelectorForElementClass(const QString &elementName, const QString &className)
 {
     if (!className.isEmpty()) {
         // Find the selector(s) if any with this class name
-        QList< CSSInfo::CSSSelector* > class_selectors = getClassSelectors(className);
+        QList< CSSInfo::CSSSelector * > class_selectors = getClassSelectors(className);
+
         if (class_selectors.count() > 0) {
             // First look for match on element and class
-            foreach(CSSInfo::CSSSelector *cssSelector, class_selectors) {
+            foreach(CSSInfo::CSSSelector * cssSelector, class_selectors) {
                 if (cssSelector->elementNames.contains(elementName)) {
                     return cssSelector;
                 }
@@ -76,8 +76,9 @@ CSSInfo::CSSSelector* CSSInfo::getCSSSelectorForElementClass( const QString &ele
             return class_selectors.at(0);
         }
     }
+
     // try match on element name alone
-    foreach(CSSInfo::CSSSelector *cssSelector, m_CSSSelectors) {
+    foreach(CSSInfo::CSSSelector * cssSelector, m_CSSSelectors) {
         if (cssSelector->elementNames.contains(elementName) && cssSelector->classNames.isEmpty()) {
             return cssSelector;
         }
@@ -85,7 +86,7 @@ CSSInfo::CSSSelector* CSSInfo::getCSSSelectorForElementClass( const QString &ele
     return NULL;
 }
 
-QString CSSInfo::getReformattedCSSText( bool multipleLineFormat )
+QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
 {
     QString new_text(m_OriginalText);
     int selector_indent = m_IsCSSFile ? 0 : TAB_SPACES_WIDTH;
@@ -93,12 +94,15 @@ QString CSSInfo::getReformattedCSSText( bool multipleLineFormat )
     // must also cater for fact that a selector group ( e.g. body,p { ) will have multiple
     // selector entries so skip if the next selector is on the same line.
     int last_selector_line = -1;
-    for (int i = m_CSSSelectors.count() - 1; i >=0; i--) {
+
+    for (int i = m_CSSSelectors.count() - 1; i >= 0; i--) {
         CSSInfo::CSSSelector *cssSelector = m_CSSSelectors.at(i);
+
         if (cssSelector->isGroup && cssSelector->line == last_selector_line) {
             // Must be a selector group which we have already processed.
             continue;
         }
+
         last_selector_line = cssSelector->line;
 
         // Will place a blank line after every style if in multi-line mode
@@ -107,10 +111,9 @@ QString CSSInfo::getReformattedCSSText( bool multipleLineFormat )
         }
 
         // Now replace the contents inside the braces
-        QList< CSSInfo::CSSProperty* > new_properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
+        QList< CSSInfo::CSSProperty * > new_properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
         const QString &new_properties_text = formatCSSProperties(new_properties, multipleLineFormat, selector_indent);
         new_text.replace(cssSelector->openingBracePos + 1, cssSelector->closingBracePos - cssSelector->openingBracePos - 1, new_properties_text);
-
         // Reformat the selector text itself - whitespace only since incomplete parsing.
         // Will ensure the braces are placed on the same line as the selector name,
         // comma separated groups are spaced apart and double spaces are removed.
@@ -122,11 +125,12 @@ QString CSSInfo::getReformattedCSSText( bool multipleLineFormat )
         // Make sure the selector itself is left-aligned (indented if inline CSS)
         if (cssSelector->position > 0) {
             int pos = cssSelector->position;
+
             while (pos-- > 0 && (new_text.at(pos) == QChar(' ') || new_text.at(pos) == QChar('\t')));
+
             if (pos <= 0) {
                 new_text.replace(0, cssSelector->position, QString(" ").repeated(selector_indent));
-            }
-            else {
+            } else {
                 new_text.replace(pos + 1, cssSelector->position - pos - 1, QString(" ").repeated(selector_indent));
                 new_text.insert(pos + 1, QChar('\n'));
             }
@@ -136,16 +140,15 @@ QString CSSInfo::getReformattedCSSText( bool multipleLineFormat )
     // Finally remove extra blank lines so styles are placed consecutively if inline, or one line spacing if CSS.
     // If we are reformatting an inline CSS, make sure we are doing so only within style blocks
     if (m_IsCSSFile) {
-        new_text.replace(QRegExp("\n{2,}"),"\n");
-    }
-    else {
+        new_text.replace(QRegExp("\n{2,}"), "\n");
+    } else {
         int style_start = -1;
         int style_end = -1;
         int offset = 0;
 
         while (findInlineStyleBlock(new_text, offset, style_start, style_end)) {
             QString script_text = new_text.mid(style_start, style_end - style_start);
-            script_text.replace(QRegExp("\n{2,}"),"\n");
+            script_text.replace(QRegExp("\n{2,}"), "\n");
             new_text.replace(style_start, style_end - style_start, script_text);
             offset = style_start + script_text.length();
         }
@@ -155,21 +158,20 @@ QString CSSInfo::getReformattedCSSText( bool multipleLineFormat )
     return new_text.trimmed();
 }
 
-QString CSSInfo::removeMatchingSelectors( QList<CSSSelector*> cssSelectors )
+QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
 {
     // First try to find a CSS selector currently parsed that matches each of the selectors supplied.
-    QList<CSSSelector*> remove_selectors;
-
-    foreach(CSSSelector* css_selector, cssSelectors) {
-        foreach(CSSSelector* match_selector, m_CSSSelectors) {
+    QList<CSSSelector *> remove_selectors;
+    foreach(CSSSelector * css_selector, cssSelectors) {
+        foreach(CSSSelector * match_selector, m_CSSSelectors) {
             if ((match_selector->line == css_selector->line) &&
                 (match_selector->groupText == css_selector->groupText)) {
-                    remove_selectors.append(match_selector);
-                    break;
+                remove_selectors.append(match_selector);
+                break;
             }
         }
     }
-    
+
     // If no matches found, return a null string to caller
     if (remove_selectors.isEmpty()) {
         return QString();
@@ -178,10 +180,10 @@ QString CSSInfo::removeMatchingSelectors( QList<CSSSelector*> cssSelectors )
     QString new_text(m_OriginalText);
     // Sort the selectors by line number ascending.
     qSort(remove_selectors.begin(), remove_selectors.end(), dereferencedLessThan<CSSSelector>);
+    CSSSelector *remove_selector;
 
-    CSSSelector* remove_selector;
     // Now iterate in reverse order
-    for( int i = remove_selectors.count() - 1; i >= 0; i--) {
+    for (int i = remove_selectors.count() - 1; i >= 0; i--) {
         remove_selector = remove_selectors.at(i);
 
         // Is the selector in a group - if so, just remove the text portion.
@@ -190,20 +192,22 @@ QString CSSInfo::removeMatchingSelectors( QList<CSSSelector*> cssSelectors )
             const int selector_length = remove_selector->originalText.length();
             const QString current_selector_text = new_text.mid(remove_selector->position, selector_length);
             QStringList current_groups = current_selector_text.split(QChar(','), QString::SkipEmptyParts);
+
             // If we are the last group within the selector, we can safely remove the whole thing
             if (current_groups.count() > 1) {
                 // Darn, we arent. We will reassemble the group selector, calculate the difference in length
-                // between the old and new and then update all of the selectors for the group to assign a 
+                // between the old and new and then update all of the selectors for the group to assign a
                 // new offset for the opening bracket/closing bracket position.
-                for (int j=0; j < current_groups.count(); j++) {
+                for (int j = 0; j < current_groups.count(); j++) {
                     if (current_groups.at(j).trimmed() == remove_selector->groupText) {
                         current_groups.removeAt(j);
                         break;
                     }
                 }
+
                 const QString new_groups_text = current_groups.join(",").trimmed();
                 int delta = remove_selector->originalText.length() - new_groups_text.length();
-                foreach(CSSSelector* update_selector, m_CSSSelectors) {
+                foreach(CSSSelector * update_selector, m_CSSSelectors) {
                     if (update_selector->line == remove_selector->line) {
                         update_selector->openingBracePos -= delta;
                         update_selector->closingBracePos -= delta;
@@ -214,29 +218,34 @@ QString CSSInfo::removeMatchingSelectors( QList<CSSSelector*> cssSelectors )
                 continue;
             }
         }
-        
+
         // Remove the entire text for this CSS style from the stylesheet, plus trailing whitespace.
         int start_pos = remove_selector->position;
         int end_pos = remove_selector->closingBracePos;
+
         while (++end_pos < new_text.length() && new_text.at(end_pos).isSpace());
+
         new_text.remove(start_pos, end_pos - start_pos);
     }
+
     return new_text;
 }
 
-QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, const int &styleTextStartPos, const int &styleTextEndPos )
+QList< CSSInfo::CSSProperty * > CSSInfo::getCSSProperties(const QString &text, const int &styleTextStartPos, const int &styleTextEndPos)
 {
-    QList<CSSProperty*> new_properties;
+    QList<CSSProperty *> new_properties;
+
     if (styleTextEndPos - 1 <= styleTextStartPos) {
         return new_properties;
     }
+
     const QString &style_text = text.mid(styleTextStartPos, styleTextEndPos - styleTextStartPos);
     QStringList properties = style_text.split(QChar(';'), QString::SkipEmptyParts);
-
-    foreach( QString property_text, properties ) {
+    foreach(QString property_text, properties) {
         if (property_text.trimmed().isEmpty()) {
             continue;
         }
+
         QStringList name_values = property_text.split(QChar(':'), QString::SkipEmptyParts);
         CSSProperty *css_property = new CSSProperty();
 
@@ -244,106 +253,111 @@ QList< CSSInfo::CSSProperty* > CSSInfo::getCSSProperties( const QString &text, c
         if (name_values.count() != 2) {
             css_property->name = property_text.trimmed();
             css_property->value = QString();
-        }
-        else {
+        } else {
             css_property->name = name_values.at(0).trimmed();
             css_property->value = name_values.at(1).trimmed();
         }
+
         new_properties.append(css_property);
     }
     return new_properties;
 }
 
-QString CSSInfo::formatCSSProperties(QList< CSSInfo::CSSProperty* > new_properties, bool multipleLineFormat, const int &selectorIndent)
+QString CSSInfo::formatCSSProperties(QList< CSSInfo::CSSProperty * > new_properties, bool multipleLineFormat, const int &selectorIndent)
 {
     QString tab_spaces = QString(" ").repeated(TAB_SPACES_WIDTH + selectorIndent);
-    
+
     if (new_properties.count() == 0) {
         if (multipleLineFormat) {
             return QString("\n%1")
-                .arg(QString(" ").repeated(selectorIndent));
-        }
-        else {
+                   .arg(QString(" ").repeated(selectorIndent));
+        } else {
             return QString("");
         }
-    }
-    else {
+    } else {
         QStringList property_values;
-        foreach(CSSInfo::CSSProperty *new_property, new_properties) {
+        foreach(CSSInfo::CSSProperty * new_property, new_properties) {
             if (new_property->value.isNull()) {
                 property_values.append(new_property->name);
-            }
-            else {
+            } else {
                 property_values.append(QString("%1: %2").arg(new_property->name).arg(new_property->value));
             }
         }
+
         if (multipleLineFormat) {
             return QString("\n%1%2;\n%3")
-                .arg(tab_spaces)
-                .arg(property_values.join(";\n" % tab_spaces))
-                .arg(QString(" ").repeated(selectorIndent));
-        }
-        else {
+                   .arg(tab_spaces)
+                   .arg(property_values.join(";\n" % tab_spaces))
+                   .arg(QString(" ").repeated(selectorIndent));
+        } else {
             return QString(" %1; ").arg(property_values.join("; "));
         }
     }
 }
 
-bool CSSInfo::findInlineStyleBlock( const QString &text, const int &offset, int &styleStart, int &styleEnd )
+bool CSSInfo::findInlineStyleBlock(const QString &text, const int &offset, int &styleStart, int &styleEnd)
 {
     QRegExp inline_styles_search("<\\s*style\\s[^>]+>", Qt::CaseInsensitive);
     inline_styles_search.setMinimal(true);
-
     styleEnd = -1;
     styleStart = inline_styles_search.indexIn(text, offset);
-    if ( styleStart > 0 ) {
+
+    if (styleStart > 0) {
         styleStart += inline_styles_search.matchedLength();
         styleEnd = text.indexOf(QRegExp("<\\s*/\\s*style\\s*>", Qt::CaseInsensitive), styleStart);
+
         if (styleEnd >= styleStart) {
             return true;
         }
     }
+
     return false;
 }
 
-void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, const int &offsetPos )
+void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, const int &offsetPos)
 {
     QRegExp strip_attributes_regex("\\[[^\\]]*\\]");
     QRegExp strip_ids_regex("#[^\\s\\.]+");
     QRegExp strip_non_name_chars_regex("[^A-Za-z0-9_\\-\\.]+");
-
     QString search_text = replaceBlockComments(text);
-
     // CSS selectors can be in a myriad of formats... the class based selectors could be:
     //    .c1 / e1.c1 / e1.c1.c2 / e1[class~=c1] / e1#id1.c1 / e1.c1#id1 / .c1, .c2 / ...
     // Then the element based selectors could be:
     //    e1 / e1 > e2 / e1 e2 / e1 + e2 / e1[attribs...] / e1#id1 / e1, e2 / ...
     // Really needs a parser to do this properly, this will only handle the 90% scenarios.
-
     int pos = 0;
     int open_brace_pos = -1;
     int close_brace_pos = -1;
+
     while (true) {
         open_brace_pos = search_text.indexOf(QChar('{'), pos);
+
         if (open_brace_pos < 0) {
             break;
         }
+
         // Now search backwards until we get a line containing text.
         bool have_text = false;
         pos = open_brace_pos - 1;
+
         while ((pos >= 0) && ((search_text.at(pos) != QChar('\n') && search_text.at(pos) != QChar('}')) || !have_text)) {
             if (search_text.at(pos).isLetter()) {
                 have_text = true;
             }
+
             pos--;
         }
+
         pos++;
+
         if (!have_text) {
             // Really badly formed CSS document - try to skip ahead
             pos = open_brace_pos + 1;
             continue;
         }
+
         close_brace_pos = search_text.indexOf(QChar('}'), open_brace_pos + 1);
+
         if (close_brace_pos < 0) {
             // Another badly formed scenario - no point in looking further
             break;
@@ -353,15 +367,13 @@ void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, co
         while (search_text.at(pos).isSpace()) {
             pos++;
         }
+
         int line = search_text.left(pos + 1).count(QChar('\n')) + 1;
-
         QString selector_text = search_text.mid(pos, open_brace_pos - pos).trimmed();
-
         // Handle case of a selector group containing multiple declarations
         QStringList matches = selector_text.split(QChar(','), QString::SkipEmptyParts);
-        foreach (QString match, matches) {
+        foreach(QString match, matches) {
             CSSSelector *selector = new CSSSelector();
-
             selector->originalText = selector_text;
             selector->groupText = match.trimmed();
             selector->position = pos + offsetPos;
@@ -369,31 +381,29 @@ void CSSInfo::parseCSSSelectors( const QString &text, const int &offsetLines, co
             selector->isGroup = matches.length() > 1;
             selector->openingBracePos = open_brace_pos + offsetPos;
             selector->closingBracePos = close_brace_pos + offsetPos;
-
             // Need to parse our selector text to determine what sort of selector it contains.
             // First strip out any attributes and then identifiers
             match.replace(QRegExp(strip_attributes_regex), "");
             match.replace(QRegExp(strip_ids_regex), "");
             // Also replace any other characters like > or + not of interest
             match.replace(QRegExp(strip_non_name_chars_regex), QChar(' '));
-
             // Now break it down into the element components
             QStringList elements = match.trimmed().split(QChar(' '), QString::SkipEmptyParts);
-            foreach (QString element, elements) {
+            foreach(QString element, elements) {
                 if (element.contains(QChar('.'))) {
                     QStringList parts = element.split('.');
+
                     if (!parts.at(0).isEmpty()) {
                         selector->elementNames.append(parts.at(0));
                     }
-                    for (int i=1; i <parts.length(); i++) {
+
+                    for (int i = 1; i < parts.length(); i++) {
                         selector->classNames.append(parts.at(i));
                     }
-                }
-                else {
+                } else {
                     selector->elementNames.append(element);
                 }
             }
-
             m_CSSSelectors.append(selector);
         }
         pos = open_brace_pos + 1;
@@ -410,21 +420,25 @@ QString CSSInfo::replaceBlockComments(const QString &text)
     comment_search.setMinimal(true);
     int start = 0;
     int comment_index;
+
     while (true) {
         comment_index = comment_search.indexIn(new_text, start);
+
         if (comment_index < 0) {
             break;
         }
+
         QString match_text = new_text.mid(comment_index, comment_search.matchedLength());
         match_text.replace(QRegExp("[^\r\n]"), QChar(' '));
         new_text.remove(comment_index, match_text.length());
         new_text.insert(comment_index, match_text);
-
         // Prepare for the next comment.
         start = comment_index + comment_search.matchedLength();
+
         if (start >= new_text.length() - 2) {
             break;
         }
     }
+
     return new_text;
 }

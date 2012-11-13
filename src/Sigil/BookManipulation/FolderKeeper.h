@@ -50,10 +50,10 @@ class NCXResource;
  * subfolders. Some are needed by the epub spec,
  * and some are for categorizing files.
  *
- * Also contains all the operations involving 
+ * Also contains all the operations involving
  * the stored files.
  */
-class FolderKeeper : public QObject 
+class FolderKeeper : public QObject
 {
     Q_OBJECT
 
@@ -64,7 +64,7 @@ public:
      *
      * @param parent The object's parent.
      */
-    FolderKeeper( QObject *parent = NULL );
+    FolderKeeper(QObject *parent = NULL);
 
     /**
      *  Destructor.
@@ -75,7 +75,7 @@ public:
      * Adds a content file to the book folder and returns the
      * corresponding Resource object. The file type is recognized
      * according to the extension or mimetype if present.
-     * 
+     *
      * @param fullfilepath The full path to the file to add.
      * @param update_opf If set to \c true, then the OPF will be notified
      *                   that a file was added. This will add entries in the
@@ -83,9 +83,9 @@ public:
      * @param mimetype The mimetype for the associated file.
      * @return The newly created resource.
      */
-    Resource& AddContentFileToFolder( const QString &fullfilepath, 
-                                      bool update_opf = true,
-                                      const QString &mimetype = QString() );
+    Resource &AddContentFileToFolder(const QString &fullfilepath,
+                                     bool update_opf = true,
+                                     const QString &mimetype = QString());
 
     /**
      * Returns the highest reading order number present in the book.
@@ -103,13 +103,13 @@ public:
      * @param filename The original filename.
      * @return The unique filename.
      */
-    QString GetUniqueFilenameVersion( const QString &filename ) const;
+    QString GetUniqueFilenameVersion(const QString &filename) const;
 
     /**
      * Returns a sorted list of all the content filepaths.
      * The paths returned are relative to the OEBPS directory,
      * and the sort is alphabetical.
-     * 
+     *
      * @return The sorted filepaths.
      */
     QStringList GetSortedContentFilesList() const;
@@ -120,7 +120,7 @@ public:
      *
      * @return The resource list.
      */
-    QList< Resource* > GetResourceList() const;
+    QList< Resource * > GetResourceList() const;
 
     /**
      * Returns a list of all resources of type T in a list
@@ -130,7 +130,7 @@ public:
      * @return The resource list.
      */
     template< class T >
-    QList< T* > GetResourceTypeList( bool should_be_sorted = false ) const;
+    QList< T * > GetResourceTypeList(bool should_be_sorted = false) const;
 
     /**
      * Returns a list of all resources of type T in a list
@@ -140,21 +140,21 @@ public:
      * @return The resource list.
      */
     template< class T >
-    QList< Resource* > GetResourceTypeAsGenericList( bool should_be_sorted = false ) const;
+    QList< Resource * > GetResourceTypeAsGenericList(bool should_be_sorted = false) const;
 
     /**
-     * Returns a resource with the given identifier. 
+     * Returns a resource with the given identifier.
      * This function is a very fast O(1).
-     * 
+     *
      * @param identifier The identifier to search for.
      * @return The searched-for resourcse.
      */
-    Resource& GetResourceByIdentifier( const QString &identifier ) const;
+    Resource &GetResourceByIdentifier(const QString &identifier) const;
 
     /**
      * Returns the resource with the given filename.
      * @note NOTE THAT RESOURCE FILENAMES CAN CHANGE,
-     *       while identifiers don't. Also, retrieving 
+     *       while identifiers don't. Also, retrieving
      *       resources by identifier is O(1), this is O(n)
      *       (and a \b very slow O(n) since we query the filesystem).
      * @throws ResourceDoesNotExist if the filename is not found.
@@ -162,35 +162,35 @@ public:
      * @param filename The filename to search for.
      * @return The searched-for resource.
      */
-    Resource& GetResourceByFilename( const QString &filename ) const;
+    Resource &GetResourceByFilename(const QString &filename) const;
 
     /**
      * Returns the book's OPF file.
-     * 
+     *
      * @return The OPF.
      */
-    OPFResource& GetOPF() const;
+    OPFResource &GetOPF() const;
 
     /**
      * Returns the book's NCX file.
-     * 
+     *
      * @return The NCX.
      */
-    NCXResource& GetNCX() const;
+    NCXResource &GetNCX() const;
 
     /**
      * Returns the full path to the main folder of the publication.
      *
      * @return The full path.
      */
-    QString GetFullPathToMainFolder() const;	
+    QString GetFullPathToMainFolder() const;
 
     /**
      * Returns the full path to the OEBPS folder of the publication.
      *
      * @return The full path.
      */
-    QString GetFullPathToOEBPSFolder() const;	
+    QString GetFullPathToOEBPSFolder() const;
 
     /**
      * Returns the full path to the Text folder of the publication.
@@ -207,7 +207,7 @@ public:
     QString GetFullPathToImageFolder() const;
 
     /**
-     * Returns a list of all the resource filenames in the book. 
+     * Returns a list of all the resource filenames in the book.
      *
      * @return The filename list.
      */
@@ -216,7 +216,7 @@ public:
     /**
      * Registers certain file types to be watched for external modifications.
      */
-    void WatchResourceFile( const Resource& resource );
+    void WatchResourceFile(const Resource &resource);
 
     /**
      * Dueing Save operations from Sigil we need to suspend/resume file watching.
@@ -228,38 +228,38 @@ signals:
 
     /**
      * Emitted when a resource is added to the FolderKeeper.
-     * 
+     *
      * @param resource The new resource.
      */
-    void ResourceAdded( const Resource& resource );
+    void ResourceAdded(const Resource &resource);
 
     /**
      * Emitted when a resource is removed from the FolderKeeper.
-     * 
+     *
      * @param resource The removed resource.
      */
-    void ResourceRemoved( const Resource& resource );
+    void ResourceRemoved(const Resource &resource);
 
 private slots:
 
     /**
      * Removes the provided resource from the m_Resources hash.
      * Usually called when a resource is being deleted.
-     * 
+     *
      * @param resource The resource to remove.
      */
-    void RemoveResource( const Resource& resource );
+    void RemoveResource(const Resource &resource);
 
     /**
      * Tell the OPF object to updated itself,
      * and (optionally) register the new file with the FS watcher.
      */
-    void ResourceRenamed( const Resource& resource, const QString& old_full_path );
+    void ResourceRenamed(const Resource &resource, const QString &old_full_path);
 
     /**
      * Called by the FSWatcher when a watched file has changed on disk.
      */
-    void ResourceFileChanged( const QString& path ) const;
+    void ResourceFileChanged(const QString &path) const;
 
 private:
 
@@ -269,7 +269,7 @@ private:
     void CreateFolderStructure();
 
     /**
-     * Creates the book's infrastructure files, like 
+     * Creates the book's infrastructure files, like
      * the NCX and the OPF.
      */
     void CreateInfrastructureFiles();
@@ -282,10 +282,10 @@ private:
      * @return The less-than comparison result.
      */
     template< typename T >
-    static bool PointerLessThan( T* first_item, T* second_item );
+    static bool PointerLessThan(T *first_item, T *second_item);
 
     template< typename T >
-    QList< T* > ListResourceSort( const QList< T* > &resource_list ) const;
+    QList< T * > ListResourceSort(const QList< T * > &resource_list) const;
 
 
     ///////////////////////////////
@@ -309,7 +309,7 @@ private:
      * The keys are the UUID identifiers, the values
      * are the pointers to the actual resources.
      */
-    QHash< QString, Resource* > m_Resources;
+    QHash< QString, Resource * > m_Resources;
 
     /**
      * Ensures thread-safe access to the m_Resources hash.
@@ -341,54 +341,49 @@ private:
 
 
 template< class T >
-QList< T* > FolderKeeper::GetResourceTypeList( bool should_be_sorted ) const
+QList< T * > FolderKeeper::GetResourceTypeList(bool should_be_sorted) const
 {
-    QList< T* > onetype_resources;
+    QList< T * > onetype_resources;
+    foreach(Resource * resource, m_Resources.values()) {
+        T *type_resource = qobject_cast< T * >(resource);
 
-    foreach( Resource *resource, m_Resources.values() )
-    {
-        T* type_resource = qobject_cast< T* >( resource );
-
-        if ( type_resource )
-
-            onetype_resources.append( type_resource );
+        if (type_resource) {
+            onetype_resources.append(type_resource);
+        }
     }
 
-    if ( should_be_sorted )
-
-        onetype_resources = ListResourceSort( onetype_resources );
+    if (should_be_sorted) {
+        onetype_resources = ListResourceSort(onetype_resources);
+    }
 
     return onetype_resources;
 }
 
 template< class T >
-QList< Resource* > FolderKeeper::GetResourceTypeAsGenericList( bool should_be_sorted ) const
+QList< Resource * > FolderKeeper::GetResourceTypeAsGenericList(bool should_be_sorted) const
 {
-    QList< Resource* > resources;
+    QList< Resource * > resources;
+    foreach(Resource * resource, m_Resources.values()) {
+        T *type_resource = qobject_cast< T * >(resource);
 
-    foreach( Resource *resource, m_Resources.values() )
-    {
-        T* type_resource = qobject_cast< T* >( resource );
-
-        if ( type_resource )
-
-            resources.append( resource );
+        if (type_resource) {
+            resources.append(resource);
+        }
     }
 
-    if ( should_be_sorted )
-
-        resources = ListResourceSort( resources );
+    if (should_be_sorted) {
+        resources = ListResourceSort(resources);
+    }
 
     return resources;
 }
 
 
 template< typename T > inline
-QList< T* > FolderKeeper::ListResourceSort( const QList< T* > &resource_list )  const
+QList< T * > FolderKeeper::ListResourceSort(const QList< T * > &resource_list)  const
 {
-    QList< T* > sorted_list = resource_list;
-    qSort( sorted_list.begin(), sorted_list.end(), FolderKeeper::PointerLessThan< T > );
-
+    QList< T * > sorted_list = resource_list;
+    qSort(sorted_list.begin(), sorted_list.end(), FolderKeeper::PointerLessThan< T >);
     return sorted_list;
 }
 
@@ -396,41 +391,33 @@ QList< T* > FolderKeeper::ListResourceSort( const QList< T* > &resource_list )  
 // This has to be inline, otherwise we get linker errors about this
 // specialization already being defined.
 template<> inline
-QList< HTMLResource* > FolderKeeper::ListResourceSort< HTMLResource >( const QList< HTMLResource* > &resource_list ) const
+QList< HTMLResource * > FolderKeeper::ListResourceSort< HTMLResource >(const QList< HTMLResource * > &resource_list) const
 {
     QStringList spine_order_filenames = GetOPF().GetSpineOrderFilenames();
-
-    QList< HTMLResource* > htmls = resource_list;
-    QList< HTMLResource* > sorted_htmls;
-
-    foreach( const QString &spine_filename, spine_order_filenames )
-    {
-        for ( int i = 0; i < htmls.count(); ++i )
-        {
-            if ( spine_filename == htmls[ i ]->Filename() )
-            {
-                sorted_htmls.append( htmls.takeAt( i ) );
+    QList< HTMLResource * > htmls = resource_list;
+    QList< HTMLResource * > sorted_htmls;
+    foreach(const QString & spine_filename, spine_order_filenames) {
+        for (int i = 0; i < htmls.count(); ++i) {
+            if (spine_filename == htmls[ i ]->Filename()) {
+                sorted_htmls.append(htmls.takeAt(i));
                 break;
             }
         }
     }
-
     // It's possible that there are certain HTML files in the
     // given resource list that are not in the spine filenames,
     // for several reasons. So we make sure we add them to the end
     // of the sorted list.
-    sorted_htmls.append( htmls );
-
+    sorted_htmls.append(htmls);
     return sorted_htmls;
 }
 
 
 template< typename T > inline
-bool FolderKeeper::PointerLessThan( T* first_item, T* second_item )
+bool FolderKeeper::PointerLessThan(T *first_item, T *second_item)
 {
-    Q_ASSERT( first_item );
-    Q_ASSERT( second_item );
-
+    Q_ASSERT(first_item);
+    Q_ASSERT(second_item);
     return *first_item < *second_item;
 }
 #endif // FOLDERKEEPER_H

@@ -26,27 +26,23 @@ AlphanumericItem::AlphanumericItem() : QStandardItem()
 {
 }
 
-AlphanumericItem::AlphanumericItem( const QIcon icon, const QString text ) : QStandardItem( icon, text )
+AlphanumericItem::AlphanumericItem(const QIcon icon, const QString text) : QStandardItem(icon, text)
 {
 }
 
 // Override standard sort operator to allow sorting alphanumerically case-sensitive
-bool AlphanumericItem::operator<( const QStandardItem &item ) const
+bool AlphanumericItem::operator<(const QStandardItem &item) const
 {
-    if ( model()->sortRole() == READING_ORDER_ROLE )
-    {
-        return data( READING_ORDER_ROLE ).toInt() < item.data( READING_ORDER_ROLE ).toInt();
-    }
-    else if ( model()->sortRole() != ALPHANUMERIC_ORDER_ROLE )
-    {
-        return text().compare( item.text() ) < 0;
+    if (model()->sortRole() == READING_ORDER_ROLE) {
+        return data(READING_ORDER_ROLE).toInt() < item.data(READING_ORDER_ROLE).toInt();
+    } else if (model()->sortRole() != ALPHANUMERIC_ORDER_ROLE) {
+        return text().compare(item.text()) < 0;
     }
 
-    QString s1 = data( ALPHANUMERIC_ORDER_ROLE ).toString();
-    QString s2 = item.data( ALPHANUMERIC_ORDER_ROLE ).toString();
+    QString s1 = data(ALPHANUMERIC_ORDER_ROLE).toString();
+    QString s2 = item.data(ALPHANUMERIC_ORDER_ROLE).toString();
 
-    if (s1 == NULL || s2 == NULL )
-    {
+    if (s1 == NULL || s2 == NULL) {
         return false;
     }
 
@@ -57,8 +53,7 @@ bool AlphanumericItem::operator<( const QStandardItem &item ) const
     int result  = 0;
 
     // Loop through both strings with separate markers
-    while ( marker1 < len1 && marker2 < len2 )
-    {
+    while (marker1 < len1 && marker2 < len2) {
         QChar ch1 = s1[marker1];
         QChar ch2 = s2[marker2];
         QString space1(s1);
@@ -67,58 +62,45 @@ bool AlphanumericItem::operator<( const QStandardItem &item ) const
         int loc2 = 0;
 
         // Loop over first string at marker collecting consecutive digits (or non-digits)
-        do
-        {
+        do {
             space1[loc1++] = ch1;
             marker1++;
 
-            if ( marker1 < len1 )
-            {
+            if (marker1 < len1) {
                 ch1 = s1[marker1];
-            }
-            else
-            {
+            } else {
                 break;
             }
-        }
-        while ( ch1.isDigit() == space1[0].isDigit() );
+        } while (ch1.isDigit() == space1[0].isDigit());
 
         // Loop over second string at marker collecting consecutive digits (or non-digits)
-        do
-        {
+        do {
             space2[loc2++] = ch2;
             marker2++;
 
-            if ( marker2 < len2 )
-            {
+            if (marker2 < len2) {
                 ch2 = s2[marker2];
-            }
-            else
-            {
+            } else {
                 break;
             }
-        }
-        while ( ch2.isDigit() == space2[0].isDigit() ); 
+        } while (ch2.isDigit() == space2[0].isDigit());
 
-        QString str1 = space1.left( loc1 );
-        QString str2 = space2.left( loc2 );
+        QString str1 = space1.left(loc1);
+        QString str2 = space2.left(loc2);
 
         // If we collected numbers, compare them numerically
-        if (space1[0].isDigit() && space2[0].isDigit())
-        {
+        if (space1[0].isDigit() && space2[0].isDigit()) {
             int n1 = str1.toInt();
             int n2 = str2.toInt();
             result = n1 - n2;
-        }
-        else
-        {
-            result = str1.compare( str2 );
+        } else {
+            result = str1.compare(str2);
         }
 
-        if ( result != 0 )
-        {
+        if (result != 0) {
             return result < 0;
         }
     }
+
     return len1 < len2;
 }

@@ -31,8 +31,8 @@ class ClipEditorTreeView : public QTreeView
 {
 
 public:
-     ClipEditorTreeView(QWidget* parent = 0);
-     ~ClipEditorTreeView();
+    ClipEditorTreeView(QWidget *parent = 0);
+    ~ClipEditorTreeView();
 
 protected:
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);

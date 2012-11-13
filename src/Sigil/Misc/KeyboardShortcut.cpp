@@ -31,7 +31,6 @@ KeyboardShortcutPrivate::KeyboardShortcutPrivate()
     : action(0),
       shortcut(0)
 {
-
 }
 
 KeyboardShortcutPrivate::KeyboardShortcutPrivate(const KeyboardShortcutPrivate &other)
@@ -43,7 +42,6 @@ KeyboardShortcutPrivate::KeyboardShortcutPrivate(const KeyboardShortcutPrivate &
       keySequence(other.keySequence),
       defaultKeySequence(other.defaultKeySequence)
 {
-
 }
 
 KeyboardShortcut::KeyboardShortcut()
@@ -61,6 +59,7 @@ bool KeyboardShortcut::isEmpty()
     if (d->action == 0 && d->shortcut == 0) {
         return true;
     }
+
     return false;
 }
 

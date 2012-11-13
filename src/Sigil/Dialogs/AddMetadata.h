@@ -31,7 +31,7 @@
 
 /**
  * The dialog for adding a single metadata element.
- * Displays a list of available metadata entries with a 
+ * Displays a list of available metadata entries with a
  * detailed description for each. Used for adding basic
  * Dublin Core metadata elements and also all versions
  * of creators and contributors.
@@ -48,7 +48,7 @@ public:
      * @param metadata The metadata list that this dialog displays. \see Metadata
      * @param parent The dialog's parent.
      */
-    AddMetadata( const QHash< QString, Metadata::MetaInfo > &metadata, QWidget *parent = 0 );
+    AddMetadata(const QHash< QString, Metadata::MetaInfo > &metadata, QWidget *parent = 0);
 
     /**
      * Returns the list of names selected by user.
@@ -63,17 +63,17 @@ signals:
      * @param name The name of the metadata the user
      *             wants inserted into the table.
      */
-    void MetadataToAdd( QStringList metadata );
+    void MetadataToAdd(QStringList metadata);
 
 private slots:
-     
+
     /**
      * Updates the description of the currently selected item
      * whenever the user selects a new item.
      *
      * @param current The currently selected item.
      */
-    void UpdateDescription( QListWidgetItem *current );
+    void UpdateDescription(QListWidgetItem *current);
 
     /**
      * Saves the selected names for later retrieval
@@ -96,7 +96,7 @@ private:
 
     /**
      * Represents the metadata list that this dialog displays.
-     * @see Metadata 
+     * @see Metadata
      */
     const QHash< QString, Metadata::MetaInfo > &m_Metadata;
 

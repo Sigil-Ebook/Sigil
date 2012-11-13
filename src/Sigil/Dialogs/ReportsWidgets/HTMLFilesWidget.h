@@ -76,7 +76,7 @@ private:
 
     void connectSignalsSlots();
 
-    QList<HTMLResource*> m_HTMLResources;
+    QList<HTMLResource *> m_HTMLResources;
 
     QSharedPointer< Book > m_Book;
 

@@ -27,8 +27,8 @@
 #include <QtGui/QDialog>
 
 #include "ResourceObjects/Resource.h"
-#include "BookManipulation/Book.h" 
-#include "BookManipulation/BookReports.h" 
+#include "BookManipulation/Book.h"
+#include "BookManipulation/BookReports.h"
 #include "Dialogs/ReportsWidgets/ReportsWidget.h"
 
 #include "ui_Reports.h"
@@ -43,7 +43,7 @@ class Reports : public QDialog
     Q_OBJECT
 
 public:
-    Reports( QWidget *parent = 0);
+    Reports(QWidget *parent = 0);
     ~Reports();
 
     void CreateReports(QSharedPointer< Book > book);
@@ -52,13 +52,13 @@ signals:
     void Refresh();
     void OpenFileRequest(QString, int);
     void DeleteFilesRequest(QStringList);
-    void DeleteStylesRequest(QList<BookReports::StyleData*>);
+    void DeleteStylesRequest(QList<BookReports::StyleData *>);
 
 private slots:
     /**
      * Load the ReportsWidget that the user has selected.
      */
-    void selectPWidget(QListWidgetItem *current, QListWidgetItem *previous=0);
+    void selectPWidget(QListWidgetItem *current, QListWidgetItem *previous = 0);
     /**
      * Saves settings the user has selected.
      *

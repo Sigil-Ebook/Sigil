@@ -38,7 +38,7 @@ class SelectHyperlink: public QDialog
     Q_OBJECT
 
 public:
-    SelectHyperlink(QString href, HTMLResource *html_resource, QList<Resource*> resources, QSharedPointer<Book> book, QWidget *parent = 0);
+    SelectHyperlink(QString href, HTMLResource *html_resource, QList<Resource *> resources, QSharedPointer<Book> book, QWidget *parent = 0);
 
     void SetList();
 
@@ -71,7 +71,7 @@ private:
 
     QHash<QString, QStringList> m_IDNames;
 
-    QList<Resource*> m_Resources;
+    QList<Resource *> m_Resources;
 
     QSharedPointer< Book > m_Book;
 

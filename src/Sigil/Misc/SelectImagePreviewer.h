@@ -39,16 +39,14 @@ class SelectImagePreviewer: public QLabel
 
 public:
     SelectImagePreviewer(QWidget *parent = 0)
-        : QLabel(parent)
-    {
+        : QLabel(parent) {
     }
 
 signals:
     void Resized();
 
 protected:
-    void resizeEvent(QResizeEvent *event)
-    {
+    void resizeEvent(QResizeEvent *event) {
         emit Resized();
     }
 };

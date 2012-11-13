@@ -67,14 +67,14 @@ public:
      * @param line_to_scroll_to To which line should the resource scroll.
      * @param parent The parent of this QObject.
      */
-    FlowTab( HTMLResource& resource,
-             const QUrl &fragment,
-             MainWindow::ViewState view_state,
-             int line_to_scroll_to = -1,
-             int position_to_scroll_to = -1,
-             QString caret_location_to_scroll_to = QString(),
-             bool grab_focus = true,
-             QWidget *parent = 0 );
+    FlowTab(HTMLResource &resource,
+            const QUrl &fragment,
+            MainWindow::ViewState view_state,
+            int line_to_scroll_to = -1,
+            int position_to_scroll_to = -1,
+            QString caret_location_to_scroll_to = QString(),
+            bool grab_focus = true,
+            QWidget *parent = 0);
 
     ~FlowTab();
 
@@ -117,13 +117,13 @@ public:
 
     float GetZoomFactor() const;
 
-    void SetZoomFactor( float new_zoom_factor );
+    void SetZoomFactor(float new_zoom_factor);
 
     void UpdateDisplay();
 
-    Searchable* GetSearchableContent();
+    Searchable *GetSearchableContent();
 
-    bool SetViewState( MainWindow::ViewState new_view_state );
+    bool SetViewState(MainWindow::ViewState new_view_state);
 
     bool IsLoadingFinished();
 
@@ -132,16 +132,16 @@ public:
      *
      * @param fragment The URL fragment ID to which the tab should scroll.
      */
-    void ScrollToFragment( const QString &fragment );
+    void ScrollToFragment(const QString &fragment);
 
     /**
      * Scrolls the tab to the specified line (if in Code View).
      *
      * @param line The line to scroll to.
      */
-    void ScrollToLine( int line );
-    void ScrollToPosition( int cursor_position );
-    void ScrollToCaretLocation( QString caret_location_update );
+    void ScrollToLine(int line);
+    void ScrollToPosition(int cursor_position);
+    void ScrollToCaretLocation(QString caret_location_update);
 
     /**
      * Scrolls the tab to the top.
@@ -199,7 +199,7 @@ public slots:
      *
      * @param image_path The full path to the image that should be inserted.
      */
-    void InsertImage( const QString &image_path );
+    void InsertImage(const QString &image_path);
 
     void PrintPreview();
     void Print();
@@ -226,7 +226,7 @@ public slots:
     void AlignCenter();
     void AlignRight();
     void AlignJustify();
-    
+
     void InsertBulletedList();
     void InsertNumberedList();
 
@@ -239,21 +239,21 @@ public slots:
 
     void ShowTag();
     void RemoveFormatting();
-    
-    void ChangeCasing( const Utility::Casing casing );
 
-    void HeadingStyle( const QString& heading_type, bool preserve_attributes );
+    void ChangeCasing(const Utility::Casing casing);
+
+    void HeadingStyle(const QString &heading_type, bool preserve_attributes);
 
     void AddToIndex();
     bool MarkForIndex(const QString &title);
-    
+
     QString GetAttributeId();
     QString GetAttributeHref();
     QString GetAttributeIndexTitle();
 
     bool InsertId(const QString &id);
     bool InsertHyperlink(const QString &url);
-    
+
     void GoToLinkOrStyle();
 
     void AddMisspelledWord();
@@ -270,7 +270,7 @@ signals:
      *
      * @param url The URL of the clicked link.
      */
-    void LinkClicked( const QUrl &url );
+    void LinkClicked(const QUrl &url);
 
     /**
      * Emitted when an "old" tab should be created.
@@ -280,7 +280,7 @@ signals:
      * @param originating_resource  The original resource from which the content
      *                              was extracted to create the "old" tab/resource.
      */
-    void OldTabRequest( QString content, HTMLResource& originating_resource );
+    void OldTabRequest(QString content, HTMLResource &originating_resource);
 
     void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
 
@@ -318,7 +318,7 @@ private slots:
      *
      * @param A pointer to the editor.
      */
-    void LeaveEditor( QWidget *editor );
+    void LeaveEditor(QWidget *editor);
 
     /**
      * Receives the signal emitted when user settings have changed.
@@ -339,9 +339,9 @@ private slots:
     void PVSplitterMoved(int pos, int index);
 
 private:
-    void CreateBookViewIfRequired(bool is_delayed_load=true);
-    void CreatePreviewViewIfRequired(bool is_delayed_load=true);
-    void CreateCodeViewIfRequired(bool is_delayed_load=true);
+    void CreateBookViewIfRequired(bool is_delayed_load = true);
+    void CreatePreviewViewIfRequired(bool is_delayed_load = true);
+    void CreateCodeViewIfRequired(bool is_delayed_load = true);
 
     void BookView();
     void SplitView();
@@ -417,7 +417,7 @@ private:
      * The component used to display a dialog about
      * well-formedness errors.
      */
-    WellFormedCheckComponent& m_WellFormedCheckComponent;
+    WellFormedCheckComponent &m_WellFormedCheckComponent;
 
     /**
      * A flag to be used in conjunction with the check for well-formedness which

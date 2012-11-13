@@ -38,11 +38,11 @@ public:
 
     // Returns a reference to the importer
     // appropriate for the given filename
-    Importer& GetImporter( const QString &filename );
+    Importer &GetImporter(const QString &filename);
 
 private:
 
-    Importer* imImporter;
+    Importer *imImporter;
 
 };
 

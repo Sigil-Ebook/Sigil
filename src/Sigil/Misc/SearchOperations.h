@@ -36,8 +36,7 @@ class SearchOperations
 
 public:
 
-    enum SearchType
-    {
+    enum SearchType {
         BookViewSearch,
         CodeViewSearch
     };
@@ -48,57 +47,57 @@ public:
      * @param search_regex The regex to match with.
      * @return The number of matching occurrences.
      */
-    static int CountInFiles( const QString &search_regex,
-                             QList< Resource* > resources,
-                             SearchType search_type, 
-                             bool check_spelling = false );
+    static int CountInFiles(const QString &search_regex,
+                            QList< Resource * > resources,
+                            SearchType search_type,
+                            bool check_spelling = false);
 
 
-    static int ReplaceInAllFIles( const QString &search_regex,
-                                  const QString &replacement,
-                                  QList< Resource* > resources,
-                                  SearchType search_type);
+    static int ReplaceInAllFIles(const QString &search_regex,
+                                 const QString &replacement,
+                                 QList< Resource * > resources,
+                                 SearchType search_type);
 
 private:
 
-    static int CountInFile( const QString &search_regex,
-                            Resource* resource,
-                            SearchType search_type, 
-                            bool check_spelling );
+    static int CountInFile(const QString &search_regex,
+                           Resource *resource,
+                           SearchType search_type,
+                           bool check_spelling);
 
 
-    static int CountInHTMLFile( const QString &search_regex,
-                                HTMLResource* html_resource,
-                                SearchType search_type,
-                                bool check_spelling );
+    static int CountInHTMLFile(const QString &search_regex,
+                               HTMLResource *html_resource,
+                               SearchType search_type,
+                               bool check_spelling);
 
 
-    static int CountInTextFile( const QString &search_regex,
-                                TextResource* text_resource );
+    static int CountInTextFile(const QString &search_regex,
+                               TextResource *text_resource);
 
-    static int ReplaceInFile( const QString &search_regex,
-                              const QString &replacement,
-                              Resource* resource,
-                              SearchType search_type );
+    static int ReplaceInFile(const QString &search_regex,
+                             const QString &replacement,
+                             Resource *resource,
+                             SearchType search_type);
 
-    static int ReplaceHTMLInFile( const QString &search_regex,
-                                  const QString &replacement,
-                                  HTMLResource* html_resource,
-                                  SearchType search_type );
+    static int ReplaceHTMLInFile(const QString &search_regex,
+                                 const QString &replacement,
+                                 HTMLResource *html_resource,
+                                 SearchType search_type);
 
-    static int ReplaceTextInFile( const QString &search_regex,
-                                  const QString &replacement,
-                                  TextResource* text_resource );
+    static int ReplaceTextInFile(const QString &search_regex,
+                                 const QString &replacement,
+                                 TextResource *text_resource);
 
-    static tuple< QString, int > PerformGlobalReplace( const QString &text,
-                                         const QString &search_regex,
-                                         const QString &replacement );
+    static tuple< QString, int > PerformGlobalReplace(const QString &text,
+            const QString &search_regex,
+            const QString &replacement);
 
-    static tuple< QString, int > PerformHTMLSpellCheckReplace( const QString &text,
-                                                               const QString &search_regex,
-                                                               const QString &replacement );
+    static tuple< QString, int > PerformHTMLSpellCheckReplace(const QString &text,
+            const QString &search_regex,
+            const QString &replacement);
 
-    static void Accumulate( int &first, const int &second );
+    static void Accumulate(int &first, const int &second);
 };
 
 #endif // SEARCHOPERATIONS_H

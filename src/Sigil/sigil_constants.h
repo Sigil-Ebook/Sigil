@@ -54,9 +54,9 @@ extern const QString SIGIL_TOC_ID_PREFIX;
 extern const QStringList HEADING_TAGS;
 extern const QString SIGIL_NOT_IN_TOC_CLASS;
 extern const QString OLD_SIGIL_NOT_IN_TOC_CLASS;
-extern const QString FIRST_SECTION_PREFIX; 
-extern const QString FIRST_SECTION_NAME; 
-extern const QString OPF_FILE_NAME; 
+extern const QString FIRST_SECTION_PREFIX;
+extern const QString FIRST_SECTION_NAME;
+extern const QString OPF_FILE_NAME;
 extern const QString NCX_FILE_NAME;
 extern const QString CONTAINER_XML_FILE_NAME;
 extern const QStringList TEXT_EXTENSIONS;
@@ -69,13 +69,13 @@ extern const QString ENCODING_ATTRIBUTE;
 extern const QString STANDALONE_ATTRIBUTE;
 extern const QString VERSION_ATTRIBUTE;
 extern const QString ADOBE_FONT_ALGO_ID;
-extern const QString IDPF_FONT_ALGO_ID; 
+extern const QString IDPF_FONT_ALGO_ID;
 extern const QString DUBLIN_CORE_NS;
 extern const int XML_DECLARATION_SEARCH_PREFIX_SIZE;
 
 extern const QString NCX_MIMETYPE;
 
-extern const char*         XHTML_ENTITIES_DTD_ID; 
+extern const char         *XHTML_ENTITIES_DTD_ID;
 extern const unsigned int  XHTML_ENTITIES_DTD_LEN;
 extern const unsigned char XHTML_ENTITIES_DTD[];
 

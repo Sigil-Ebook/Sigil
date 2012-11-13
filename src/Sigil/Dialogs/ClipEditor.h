@@ -46,7 +46,7 @@ public:
     void ForceClose();
 
 public slots:
-    QStandardItem* AddEntry(bool is_group = false, ClipEditorModel::clipEntry *clip_entry = NULL, bool insert_after = true);
+    QStandardItem *AddEntry(bool is_group = false, ClipEditorModel::clipEntry *clip_entry = NULL, bool insert_after = true);
 
 signals:
     void PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *> clip_entries);
@@ -60,7 +60,7 @@ protected slots:
     void showEvent(QShowEvent *event);
 
 private slots:
-    QStandardItem* AddGroup();
+    QStandardItem *AddGroup();
     void Edit();
     void Cut();
     bool Copy();
@@ -70,7 +70,7 @@ private slots:
     void Reload();
     void Export();
     void ExportAll();
-    void CollapseAll(); 
+    void CollapseAll();
     void ExpandAll();
 
     void Apply();
@@ -96,18 +96,18 @@ private:
     void MoveVertical(bool move_down);
     void MoveHorizontal(bool move_left);
 
-    void ExportItems(QList<QStandardItem*> items);
+    void ExportItems(QList<QStandardItem *> items);
 
     void SetupClipEditorTree();
 
     int SelectedRowsCount();
-    QList<ClipEditorModel::clipEntry*> GetSelectedEntries();
+    QList<ClipEditorModel::clipEntry *> GetSelectedEntries();
 
-    QList<QStandardItem*> GetSelectedItems();
+    QList<QStandardItem *> GetSelectedItems();
 
-    bool ItemsAreUnique(QList<QStandardItem*> items);
+    bool ItemsAreUnique(QList<QStandardItem *> items);
 
-    bool SaveData(QList<ClipEditorModel::clipEntry*> entries = QList<ClipEditorModel::clipEntry*>() , QString filename = QString());
+    bool SaveData(QList<ClipEditorModel::clipEntry *> entries = QList<ClipEditorModel::clipEntry *>() , QString filename = QString());
 
     bool FilterEntries(const QString &text, QStandardItem *item = NULL);
     bool SelectFirstVisibleNonGroup(QStandardItem *item);

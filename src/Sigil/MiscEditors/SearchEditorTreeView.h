@@ -31,8 +31,8 @@ class SearchEditorTreeView : public QTreeView
 {
 
 public:
-     SearchEditorTreeView(QWidget* parent = 0);
-     ~SearchEditorTreeView();
+    SearchEditorTreeView(QWidget *parent = 0);
+    ~SearchEditorTreeView();
 
 protected:
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);

@@ -46,25 +46,27 @@ class WrapIndicator : public QWidget
 public:
     WrapIndicator(QWidget *parent = 0)
         : QWidget(parent),
-          m_opacity(1.0)
-    {
+          m_opacity(1.0) {
         if (parent)
             setGeometry(QRect(parent->rect().center() - QPoint(25, 25),
                               parent->rect().center() + QPoint(25, 25)));
     }
 
-    qreal opacity() const { return m_opacity; }
-    void setOpacity(qreal value) { m_opacity = value; update(); }
+    qreal opacity() const {
+        return m_opacity;
+    }
+    void setOpacity(qreal value) {
+        m_opacity = value;
+        update();
+    }
 
-    void run()
-    {
+    void run() {
         show();
         QTimer::singleShot(300, this, SLOT(runInternal()));
     }
 
 protected:
-    void paintEvent(QPaintEvent *)
-    {
+    void paintEvent(QPaintEvent *) {
         static QPixmap foreground(QLatin1String(":/main/wrapindicator.png"));
         QPainter p(this);
         p.setOpacity(m_opacity);
@@ -72,8 +74,7 @@ protected:
     }
 
 private slots:
-    void runInternal()
-    {
+    void runInternal() {
         QPropertyAnimation *anim = new QPropertyAnimation(this, "opacity", this);
         anim->setDuration(250);
         anim->setEndValue(0.);

@@ -91,7 +91,7 @@ public:
      * @param parent The window's parent object.
      * @param flags The flags used to modify window behavior.
      */
-    MainWindow( const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WFlags flags = 0 );
+    MainWindow(const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WFlags flags = 0);
     ~MainWindow();
 
     /**
@@ -133,8 +133,7 @@ public:
      * Describes the type of the View mode
      * currently used in FlowTab.
      */
-    enum ViewState
-    {
+    enum ViewState {
         ViewState_Unknown = 0,     /**< Default non view that we don't know or care what it is */
         ViewState_BookView = 10,   /**< The WYSIWYG view. */
         ViewState_PreviewView = 20,/**< Preview the rendered XHTML. */
@@ -144,8 +143,7 @@ public:
     /**
      * The location of the last bookmark.
      */
-    struct LocationBookmark
-    {
+    struct LocationBookmark {
         QString filename;
         MainWindow::ViewState view_state;
         QString bv_caret_location_update;
@@ -167,25 +165,25 @@ public:
 
     void SaveTabData();
 
-    SearchEditorModel* GetSearchEditorModel();
+    SearchEditorModel *GetSearchEditorModel();
 
-    ClipEditorModel* GetClipEditorModel();
+    ClipEditorModel *GetClipEditorModel();
 
 public slots:
     void AnyCodeView();
 
-    void OpenUrl(const QUrl& url);
+    void OpenUrl(const QUrl &url);
 
     /**
      * Opens the specified resource in the specified view state.
      */
-    void OpenResource( Resource& resource,
-                       int line_to_scroll_to = -1,
-                       int position_to_scroll_to = -1,
-                       const QString &caret_location_to_scroll_to = QString(),
-                       MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
-                       const QUrl &fragment = QUrl(),
-                       bool precede_current_tab = false );
+    void OpenResource(Resource &resource,
+                      int line_to_scroll_to = -1,
+                      int position_to_scroll_to = -1,
+                      const QString &caret_location_to_scroll_to = QString(),
+                      MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
+                      const QUrl &fragment = QUrl(),
+                      bool precede_current_tab = false);
 
     void CreateIndex();
 
@@ -193,13 +191,13 @@ signals:
     void SettingsChanged();
 
 protected:
-    void showEvent( QShowEvent *event );
+    void showEvent(QShowEvent *event);
     /**
-     * Workaround for Qt 4.8 bug, which does not save/restore window state 
+     * Workaround for Qt 4.8 bug, which does not save/restore window state
      * correctly if maximized at the time of calling saveGeometry().
      */
-    void moveEvent( QMoveEvent *event );
-    void resizeEvent( QResizeEvent *event );
+    void moveEvent(QMoveEvent *event);
+    void resizeEvent(QResizeEvent *event);
 
     /**
      * Overrides the closeEvent handler so we can check
@@ -207,7 +205,7 @@ protected:
      *
      * @param event The close event.
      */
-    void closeEvent( QCloseEvent *event );
+    void closeEvent(QCloseEvent *event);
 
 private slots:
 
@@ -241,7 +239,7 @@ private slots:
      */
     bool SaveACopy();
 
-    void ShowMessageOnStatusBar( const QString &message = "", int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME );
+    void ShowMessageOnStatusBar(const QString &message = "", int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME);
 
     void ShowLastOpenFileWarnings();
 
@@ -270,11 +268,11 @@ private slots:
      */
     void ZoomReset();
 
-    void IndexEditorDialog(IndexEditorModel::indexEntry* index_entry = NULL);
+    void IndexEditorDialog(IndexEditorModel::indexEntry *index_entry = NULL);
 
     void ReportsDialog();
 
-    bool DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector*> css_selectors);
+    bool DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector *> css_selectors);
 
     void DeleteUnusedImages();
     void DeleteUnusedStyles();
@@ -296,7 +294,7 @@ private slots:
      * Track the last active control that had focus in the MainWindow that
      * is a valid PasteTarget.
      */
-    void ApplicationFocusChanged( QWidget *old, QWidget *now );
+    void ApplicationFocusChanged(QWidget *old, QWidget *now);
 
     /**
      * Some controls (CodeView, BookView and combo boxes in F&R) inherit PasteTarget
@@ -304,8 +302,8 @@ private slots:
      * Insert Special Characters to insert text into the focused "PasteTarget" control.
      * These two slots will delegate the relevant signal to the current target if any.
      */
-    void PasteTextIntoCurrentTarget( const QString &text );
-    void PasteClipEntriesIntoCurrentTarget( const QList<ClipEditorModel::clipEntry *> &clips );
+    void PasteTextIntoCurrentTarget(const QString &text);
+    void PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::clipEntry *> &clips);
 
     /**
      * Implements the set BookView functionality.
@@ -330,9 +328,9 @@ private slots:
     /**
      * Implements Search Editor Dialog functionality.
      */
-    void SearchEditorDialog(SearchEditorModel::searchEntry* search_entry = NULL);
+    void SearchEditorDialog(SearchEditorModel::searchEntry *search_entry = NULL);
 
-    void ClipEditorDialog(ClipEditorModel::clipEntry* clip_entry = NULL);
+    void ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry = NULL);
 
     /**
      * Implements Tutorials action functionality.
@@ -389,7 +387,7 @@ private slots:
      * @old_tab The tab that was previously in use.
      * @new_tab The tab that is becoming current.
      */
-    void ChangeSignalsWhenTabChanges( ContentTab* old_tab, ContentTab* new_tab );
+    void ChangeSignalsWhenTabChanges(ContentTab *old_tab, ContentTab *new_tab);
 
     /**
      * Updates the toolbars/menus based on current state
@@ -452,21 +450,21 @@ private slots:
      * @param line The line the currsor is currently at.
      * @param column The column within the line that the cursor is currently at.
      */
-    void UpdateCursorPositionLabel( int line, int column );
+    void UpdateCursorPositionLabel(int line, int column);
 
     /**
      * Zooms the current view with the new zoom slider value.
      *
      * @param slider_value The new value from the zoom slider.
      */
-    void SliderZoom( int slider_value );
+    void SliderZoom(int slider_value);
 
     /**
      * Updates the zoom slider to reflect the new zoom factor.
      *
      * @new_zoom_factor The new zoom factor.
      */
-    void UpdateZoomSlider( float new_zoom_factor );
+    void UpdateZoomSlider(float new_zoom_factor);
 
     /**
      * Updates the zoom label to reflect the state of the zoom slider.
@@ -475,12 +473,12 @@ private slots:
      *
      * @param slider_value The new value from the zoom slider.
      */
-    void UpdateZoomLabel( int slider_value );
+    void UpdateZoomLabel(int slider_value);
 
     /**
      * Updates the zoom label to reflect the new zoom factor.
      */
-    void UpdateZoomLabel( float new_zoom_factor );
+    void UpdateZoomLabel(float new_zoom_factor);
 
     /**
      * Creates a new tab from the section splitting operation.
@@ -491,7 +489,7 @@ private slots:
      * @see FlowTab::SplitSection, FlowTab::OldTabRequest,
      *      BookViewEditor::SplitSection, Book::CreateSectionBreakOriginalResource
      */
-    void CreateSectionBreakOldTab( QString content, HTMLResource& originating_resource );
+    void CreateSectionBreakOldTab(QString content, HTMLResource &originating_resource);
 
 
     /**
@@ -506,7 +504,7 @@ private slots:
      */
     void SplitOnSGFSectionMarkers();
 
-    void SetAutoSpellCheck( bool new_state );
+    void SetAutoSpellCheck(bool new_state);
 
     void ClearIgnoredWords();
 
@@ -521,12 +519,12 @@ private slots:
     /**
      * Return a map of stylesheets included/excluded for all given resources
      */
-    QList< std::pair<QString, bool> > GetStylesheetsMap( QList<Resource *> resources );
+    QList< std::pair<QString, bool> > GetStylesheetsMap(QList<Resource *> resources);
 
     /**
      * Return the list of stylesheets linked to the given resource
      */
-    QStringList GetStylesheetsAlreadyLinked( Resource *resource );
+    QStringList GetStylesheetsAlreadyLinked(Resource *resource);
 
     void RemoveResources(QList<Resource *> resources = QList<Resource *>());
 
@@ -537,8 +535,8 @@ private slots:
 
     void ToggleViewState();
 
-    void ApplyHeadingStyleToTab( const QString &heading_type );
-    void SetPreserveHeadingAttributes( bool new_state );
+    void ApplyHeadingStyleToTab(const QString &heading_type);
+    void SetPreserveHeadingAttributes(bool new_state);
 
     void GoBackFromLinkOrStyle();
     void GoToBookmark(LocationBookmark *locationBookmark);
@@ -546,7 +544,7 @@ private slots:
     void GoToLinkedStyleDefinition(const QString &element_name, const QString &style_class_name);
 
     void BookmarkLinkOrStyleLocation();
-    
+
     void ShowPasteClipboardHistoryDialog();
 
     void ResourcesAddedOrDeleted();
@@ -595,7 +593,7 @@ private:
      *
      * @param new_book The new book for editing.
      */
-    void SetNewBook( QSharedPointer< Book > new_book );
+    void SetNewBook(QSharedPointer< Book > new_book);
 
     /**
      * Creates a new, empty book and replaces
@@ -608,14 +606,14 @@ private:
      *
      * @param fullfilepath The path to the file to load.
      */
-    void LoadFile( const QString &fullfilepath );
+    void LoadFile(const QString &fullfilepath);
 
     /**
      * Saves the current book to the file specified.
      *
      * @param fullfilepath The path to save to.
      */
-    bool SaveFile( const QString &fullfilepath, bool update_current_filename = true );
+    bool SaveFile(const QString &fullfilepath, bool update_current_filename = true);
 
     /**
      * Performs zoom operations in the views using the default
@@ -625,7 +623,7 @@ private:
      *
      * @param zoom_in If \c true, zooming in. Otherwise zooming out.
      */
-    void ZoomByStep( bool zoom_in );
+    void ZoomByStep(bool zoom_in);
 
     /**
      * Sets the provided zoom factor on the active view editor.
@@ -633,7 +631,7 @@ private:
      *
      * @param new_zoom_factor The new zoom factor for the view.
      */
-    void ZoomByFactor( float new_zoom_factor );
+    void ZoomByFactor(float new_zoom_factor);
 
     /**
      * Converts a zoom factor to a value in the zoom slider range.
@@ -641,7 +639,7 @@ private:
      * @param zoom_factor The zoom factor being converted.
      * @return The converted slider range value.
      */
-    static int ZoomFactorToSliderRange( float zoom_factor );
+    static int ZoomFactorToSliderRange(float zoom_factor);
 
     /**
      * Converts a value in the zoom slider range to a zoom factor.
@@ -649,7 +647,7 @@ private:
      * @param slider_range_value The slider range value being converted.
      * @return The converted zoom factor value.
      */
-    static float SliderRangeToZoomFactor( int slider_range_value );
+    static float SliderRangeToZoomFactor(int slider_range_value);
 
     /**
      * Returns a map with keys being extensions of file types
@@ -673,18 +671,18 @@ private:
      *
      * @param fullfilepath The path to the currently edited file.
      */
-    void UpdateUiWithCurrentFile( const QString &fullfilepath );
+    void UpdateUiWithCurrentFile(const QString &fullfilepath);
 
     /**
-     * Selects the appropriate entry in the heading combo box 
+     * Selects the appropriate entry in the heading combo box
      * based on the provided name of the element.
      *
      * @param element_name The name of the currently selected element.
      */
-    void SelectEntryOnHeadingToolbar( const QString &element_name );
+    void SelectEntryOnHeadingToolbar(const QString &element_name);
 
     /**
-     * Creates and adds the recent files actions 
+     * Creates and adds the recent files actions
      * to the File menu.
      */
     void CreateRecentFilesActions();
@@ -723,7 +721,7 @@ private:
      *
      * @param openfilepath The path to the file to load. Can be empty.
      */
-    void LoadInitialFile( const QString &openfilepath );
+    void LoadInitialFile(const QString &openfilepath);
 
     /**
      * Connects all the required signals to their slots.
@@ -735,27 +733,27 @@ private:
      *
      * @param tab The tab to connect the signals.
      */
-    void MakeTabConnections( ContentTab *tab );
+    void MakeTabConnections(ContentTab *tab);
 
     /**
      * Disconnects all the UI signals from the provided tab.
      *
      * @param tab The tab from which to disconnect the signals.
      */
-    void BreakTabConnections( ContentTab *tab );
+    void BreakTabConnections(ContentTab *tab);
 
     /**
      * Sets the view state of the current tab to view_state
      *
      * @param view_state - The view state to set.
      */
-    void SetViewState( MainWindow::ViewState view_state );
+    void SetViewState(MainWindow::ViewState view_state);
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    /** 
+    /**
      * Warning messages to be displayed to the user after opening a book
      * if non-fatal errors occurred during loading. When Sigil is started
      * with a filename on command line, we must store these for display

@@ -32,19 +32,18 @@ class QWidget;
 struct ExceptionBase;
 
 class Utility
-{	
+{
 
 public:
 
-    enum Casing
-    {
+    enum Casing {
         Casing_Uppercase,     /**< Change characters to uppercase */
         Casing_Lowercase,     /**< Change characters to lowercase */
         Casing_Titlecase,    /**< Change first character of each word to uppercase, reset to lowercase. */
         Casing_Capitalize,    /**< Change first character of sentence to uppercase, rest to lowercase. */
     };
 
-    static QString ChangeCase( const QString &text, const Casing &casing );
+    static QString ChangeCase(const QString &text, const Casing &casing);
 
     // Uses QUuid to generate a random UUID but also removes
     // the curly braces that QUuid::createUuid() adds
@@ -52,63 +51,63 @@ public:
 
     // Returns true if the string is mixed case, false otherwise.
     // For instance, "test" and "TEST" return false, "teSt" returns true.
-    static bool IsMixedCase( const QString &string );
-
-    // Returns a substring of a specified string;
-    // the characters included are in the interval: 
-    // [ start_index, end_index >
-    static QString Substring( int start_index, int end_index, const QString &string );
+    static bool IsMixedCase(const QString &string);
 
     // Returns a substring of a specified string;
     // the characters included are in the interval:
     // [ start_index, end_index >
-    static QStringRef SubstringRef( int start_index, int end_index, const QString &string );
+    static QString Substring(int start_index, int end_index, const QString &string);
+
+    // Returns a substring of a specified string;
+    // the characters included are in the interval:
+    // [ start_index, end_index >
+    static QStringRef SubstringRef(int start_index, int end_index, const QString &string);
 
     // Replace the first occurrence of string "before"
     // with string "after" in string "string"
-    static QString ReplaceFirst( const QString &before, const QString &after, const QString &string );
-   
-    static QStringList GetAbsolutePathsToFolderDescendantFiles( const QString &fullfolderpath );
+    static QString ReplaceFirst(const QString &before, const QString &after, const QString &string);
 
-    // Copies every file and folder in the source folder 
+    static QStringList GetAbsolutePathsToFolderDescendantFiles(const QString &fullfolderpath);
+
+    // Copies every file and folder in the source folder
     // to the destination folder; the paths to the folders are submitted;
     // the destination folder needs to be created in advance
-    static void CopyFiles( const QString &fullfolderpath_source, const QString &fullfolderpath_destination );
-    
-    // Deletes the specified file if it exists
-    static bool DeleteFile( const QString &fullfilepath );
+    static void CopyFiles(const QString &fullfolderpath_source, const QString &fullfolderpath_destination);
 
-    static bool RenameFile( const QString &oldfilepath, const QString &newfilepath );
-    
+    // Deletes the specified file if it exists
+    static bool DeleteFile(const QString &fullfilepath);
+
+    static bool RenameFile(const QString &oldfilepath, const QString &newfilepath);
+
     // Returns path to a random filename with the specified extension in
     // the systems TEMP directory. The caller has responsibility for
     // creating a file at this location and removing it afterwards.
-    static QString GetTemporaryFileNameWithExtension( const QString &extension ); 
+    static QString GetTemporaryFileNameWithExtension(const QString &extension);
 
     // Creates a copy of the provided file with a random name in
     // the systems TEMP directory and returns the full path to the new file.
     // The extension of the original file is preserved. If the original file
     // doesn't exist, an empty string is returned.
-    static QString CreateTemporaryCopy( const QString &fullfilepath ); 
+    static QString CreateTemporaryCopy(const QString &fullfilepath);
 
     // Returns true if the file can be read;
     // shows an error dialog if it can't
     // with a message elaborating what's wrong
-    static bool IsFileReadable( const QString &fullfilepath );
+    static bool IsFileReadable(const QString &fullfilepath);
 
     // Reads the text file specified with the full file path;
     // text needs to be in UTF-8 or UTF-16; if the file cannot
     // be read, an error dialog is shown and an empty string returned
-    static QString ReadUnicodeTextFile( const QString &fullfilepath );
+    static QString ReadUnicodeTextFile(const QString &fullfilepath);
 
     // Writes the provided text variable to the specified
     // file; if the file exists, it is truncated
-    static void WriteUnicodeTextFile( const QString &text, const QString &fullfilepath );
+    static void WriteUnicodeTextFile(const QString &text, const QString &fullfilepath);
 
     // Converts Mac and Windows style line endings to Unix style
     // line endings that are expected throughout the Qt framework
-    static QString ConvertLineEndings( const QString &text );
-    
+    static QString ConvertLineEndings(const QString &text);
+
     /**
      * URL encodes the provided path string.
      * The path separator ('/') and the ID hash ('#') are left alone.
@@ -116,7 +115,7 @@ public:
      * @param path The path to encode.
      * @return The encoded path string.
      */
-    static QString URLEncodePath( const QString &path );
+    static QString URLEncodePath(const QString &path);
 
     /**
      * URL decodes the provided path string.
@@ -124,24 +123,24 @@ public:
      * @param path The path to decode.
      * @return The decoded path string.
      */
-    static QString URLDecodePath( const QString &path );
+    static QString URLDecodePath(const QString &path);
 
-    static void DisplayStdErrorDialog( const QString &error_message, const QString &detailed_text = QString() );
+    static void DisplayStdErrorDialog(const QString &error_message, const QString &detailed_text = QString());
 
-    static void DisplayStdWarningDialog( const QString &warning_message, const QString &detailed_text = QString() );
+    static void DisplayStdWarningDialog(const QString &warning_message, const QString &detailed_text = QString());
 
-    static void DisplayExceptionErrorDialog( const QString &error_info );
+    static void DisplayExceptionErrorDialog(const QString &error_info);
 
-    static QString GetExceptionInfo( const ExceptionBase &exception );
+    static QString GetExceptionInfo(const ExceptionBase &exception);
 
     // Returns a value for the environment variable name passed;
     // if the env var isn't set, it returns an empty string
-    static QString GetEnvironmentVar( const QString &variable_name );
+    static QString GetEnvironmentVar(const QString &variable_name);
 
     // Returns the same number, but rounded to one decimal place
-    static float RoundToOneDecimal( float number );
+    static float RoundToOneDecimal(float number);
 
-    static QWidget* GetMainWindow();
+    static QWidget *GetMainWindow();
 };
 
 #endif // UTILITY_H

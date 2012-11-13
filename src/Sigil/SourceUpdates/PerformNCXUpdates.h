@@ -30,11 +30,11 @@ class PerformNCXUpdates : public PerformXMLUpdates
 
 public:
 
-    PerformNCXUpdates( const QString &source,
-                       const QHash< QString, QString > &xml_updates );
+    PerformNCXUpdates(const QString &source,
+                      const QHash< QString, QString > &xml_updates);
 
-    PerformNCXUpdates( const xc::DOMDocument &document,
-                       const QHash< QString, QString > &xml_updates );
+    PerformNCXUpdates(const xc::DOMDocument &document,
+                      const QHash< QString, QString > &xml_updates);
 
 private:
 

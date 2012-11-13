@@ -28,11 +28,11 @@
 
 TabBar::TabBar(QWidget *parent)
     : QTabBar(parent),
-    m_TabManager(parent),
-    m_TabIndex(-1)
+      m_TabManager(parent),
+      m_TabIndex(-1)
 {
 }
- 
+
 TabBar::~TabBar()
 {
 }
@@ -41,37 +41,34 @@ void TabBar::mousePressEvent(QMouseEvent *event)
 {
     if (event->type() == QEvent::MouseButtonDblClick) {
         emit TabBarDoubleClicked();
-    }
-    else if (event->button() == Qt::RightButton) {
+    } else if (event->button() == Qt::RightButton) {
         int tabCount = count();
+
         if (tabCount <= 1) {
             return;
         }
-        for( int i = 0; i < tabCount; i++ ) {
+
+        for (int i = 0; i < tabCount; i++) {
             if (tabRect(i).contains(event->pos())) {
                 m_TabIndex = i;
                 ShowContextMenu(event, i);
                 break;
             }
         }
-    }
-    else if (event->button() == Qt::LeftButton) {
+    } else if (event->button() == Qt::LeftButton) {
         emit TabBarClicked();
     }
- 
+
     QTabBar::mousePressEvent(event);
 }
 
 void TabBar::ShowContextMenu(QMouseEvent *event, int tab_index)
 {
     QMenu *menu = new QMenu();
-
     QAction *closeOtherTabsAction = new QAction(tr("Close Other Tabs"), menu);
     menu->addAction(closeOtherTabsAction);
     connect(closeOtherTabsAction, SIGNAL(triggered()), this, SLOT(EmitCloseOtherTabs()));
-
     menu->exec(mapToGlobal(event->pos()));
-
     delete menu;
 }
 

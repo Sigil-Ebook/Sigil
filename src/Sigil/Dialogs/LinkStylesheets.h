@@ -39,7 +39,7 @@ public:
 
     // Constructor;
     // The first parameter is the list of included/excluded stylesheets
-    LinkStylesheets( QList<std::pair<QString, bool> > stylesheet_map, QWidget *parent = 0 );
+    LinkStylesheets(QList<std::pair<QString, bool> > stylesheet_map, QWidget *parent = 0);
 
     QStringList GetStylesheets();
 
@@ -55,13 +55,13 @@ private slots:
 private:
 
     // Updates the display of the tree view (resizes columns etc.)
-    void UpdateTreeViewDisplay();              
+    void UpdateTreeViewDisplay();
 
     // Creates the model that is displayed in the tree view
     void CreateStylesheetsModel();
 
     // Inserts the specified stylesheet into the model
-    void InsertStylesheetIntoModel( std::pair<QString, bool> stylesheet );
+    void InsertStylesheetIntoModel(std::pair<QString, bool> stylesheet);
 
     // Reads all the stored dialog settings like window position, size, etc.
     void ReadSettings();
@@ -76,10 +76,10 @@ private:
     // The model displayed and edited in the tree view
     QStandardItemModel m_StylesheetsModel;
 
-	// The list of stylesheets to include/exclude
+    // The list of stylesheets to include/exclude
     QList< std::pair<QString, bool> > m_StylesheetsMap;
 
-	// The new list of stylesheets to include
+    // The new list of stylesheets to include
     QStringList m_Stylesheets;
 
     // Holds all the widgets Qt Designer created for us

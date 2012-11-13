@@ -43,16 +43,13 @@ Preferences::Preferences(QWidget *parent) :
 {
     ui.setupUi(this);
     extendUI();
-
     // Create and load all of our preference widgets.;
     appendPreferenceWidget(new AppearanceWidget);
     appendPreferenceWidget(new CleanSourceWidget);
     appendPreferenceWidget(new KeyboardShortcutsWidget);
     appendPreferenceWidget(new LanguageWidget);
     appendPreferenceWidget(new SpellCheckWidget);
-
     connectSignalsSlots();
-
     QApplication::setOverrideCursor(Qt::WaitCursor);
     readSettings();
     QApplication::restoreOverrideCursor();
@@ -61,7 +58,6 @@ Preferences::Preferences(QWidget *parent) :
 void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previous)
 {
     Q_UNUSED(previous)
-
     int index = ui.availableWidgets->row(current);
     ui.pWidget->setCurrentIndex(index);
 }
@@ -69,26 +65,23 @@ void Preferences::selectPWidget(QListWidgetItem *current, QListWidgetItem *previ
 void Preferences::saveSettings()
 {
     PreferencesWidget::ResultAction widgetResult;
-
     SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
+    settings.beginGroup(SETTINGS_GROUP);
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
     settings.setValue("geometry", saveGeometry());
     settings.setValue("lastpreference", ui.availableWidgets->currentRow());
 
     for (int i = 0; i < ui.pWidget->count(); ++i) {
-        PreferencesWidget *pw = qobject_cast<PreferencesWidget*>(ui.pWidget->widget(i));
+        PreferencesWidget *pw = qobject_cast<PreferencesWidget *>(ui.pWidget->widget(i));
+
         if (pw != 0) {
             widgetResult = pw->saveSettings();
-            if ( widgetResult == PreferencesWidget::ResultAction_RefreshSpelling ) {
+
+            if (widgetResult == PreferencesWidget::ResultAction_RefreshSpelling) {
                 m_refreshSpellingHighlighting = true;
-            }
-            else if ( widgetResult == PreferencesWidget::ResultAction_ReloadTabs ) {
+            } else if (widgetResult == PreferencesWidget::ResultAction_ReloadTabs) {
                 m_reloadTabs = true;
-            }
-            else if ( widgetResult == PreferencesWidget::ResultAction_RestartSigil ) {
+            } else if (widgetResult == PreferencesWidget::ResultAction_RestartSigil) {
                 m_restartSigil = true;
             }
         }
@@ -97,29 +90,30 @@ void Preferences::saveSettings()
     QApplication::restoreOverrideCursor();
     settings.endGroup();
 
-    if ( m_restartSigil ) {
-        QMessageBox::warning( this, tr( "Sigil" ), tr( "Changes will take effect when you restart Sigil." ) );
+    if (m_restartSigil) {
+        QMessageBox::warning(this, tr("Sigil"), tr("Changes will take effect when you restart Sigil."));
     }
 }
 
 void Preferences::readSettings()
 {
     SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
+    settings.beginGroup(SETTINGS_GROUP);
     QByteArray geometry = settings.value("geometry").toByteArray();
+
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     }
 
     // Ensure the previous item selected in the available preferences widgets list
     // is highlighted.
-    int last_preference_index = settings.value( "lastpreference", 0 ).toInt();
-    if ( last_preference_index > ui.availableWidgets->count() - 1 ) {
+    int last_preference_index = settings.value("lastpreference", 0).toInt();
+
+    if (last_preference_index > ui.availableWidgets->count() - 1) {
         last_preference_index = 0;
     }
-    ui.availableWidgets->setCurrentRow(last_preference_index);
 
+    ui.availableWidgets->setCurrentRow(last_preference_index);
     settings.endGroup();
 }
 
@@ -127,7 +121,6 @@ void Preferences::appendPreferenceWidget(PreferencesWidget *widget)
 {
     // Add the PreferencesWidget to the stack view area.
     ui.pWidget->addWidget(widget);
-
     // Add an entry to the list of available preference widgets.
     ui.availableWidgets->addItem(widget->windowTitle());
 }
@@ -162,7 +155,7 @@ void Preferences::extendUI()
 
 void Preferences::connectSignalsSlots()
 {
-    connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(selectPWidget(QListWidgetItem*, QListWidgetItem*)));
+    connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(selectPWidget(QListWidgetItem *, QListWidgetItem *)));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveSettings()));
     connect(ui.buttonBox->button(QDialogButtonBox::Reset), SIGNAL(clicked()), this, SLOT(openPreferencesLocation()));
 }

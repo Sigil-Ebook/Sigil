@@ -30,7 +30,7 @@ class QIODevice;
 class QXmlStreamWriter;
 
 /**
- * An abstract base class for XML writers like 
+ * An abstract base class for XML writers like
  * NCXWriter and OPFWriter.
  */
 class XMLWriter
@@ -44,18 +44,18 @@ public:
      * @param book The book for which we're writing the XML.
      * @param device The IODevice into which we should write the XML.
      */
-    XMLWriter( const Book &book, QIODevice &device );
+    XMLWriter(const Book &book, QIODevice &device);
 
     /**
      * Destructor.
      */
     virtual ~XMLWriter();
-    
+
     /**
      * Writes the XML file to the disk.
      */
     virtual void WriteXML() = 0;
-    
+
 protected:
 
     /**
@@ -70,7 +70,7 @@ protected:
 
     /**
      *  The XML writer used to write XML.
-     */   
+     */
     QXmlStreamWriter *m_Writer;
 };
 

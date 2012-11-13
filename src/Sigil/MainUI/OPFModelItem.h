@@ -38,14 +38,14 @@ static const int ALPHANUMERIC_ORDER_ROLE = Qt::UserRole + 3;
  * support sorting alphanumerically
  */
 class AlphanumericItem : public QStandardItem
-{	
+{
 
 public:
     AlphanumericItem();
-    AlphanumericItem( QIcon, QString );
+    AlphanumericItem(QIcon, QString);
 
 private:
-    virtual bool operator<( const QStandardItem &item ) const;
+    virtual bool operator<(const QStandardItem &item) const;
 };
 
 #endif // OPFMODELITEM_H

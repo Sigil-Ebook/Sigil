@@ -36,19 +36,19 @@ class PasteTargetComboBox : public QComboBox, public PasteTarget
     Q_OBJECT
 
 public:
-    PasteTargetComboBox( QWidget *parent=0 );
+    PasteTargetComboBox(QWidget *parent = 0);
 
-public slots:    
+public slots:
     /**
      * Replace the current selected text if any in this control with the specified text.
      */
-    void PasteText( const QString &text );
-    
+    void PasteText(const QString &text);
+
     /**
      * Replace the current selected text with using the clipEntry data,
      * which may allow for regex substitutions of the selection.
      */
-    bool PasteClipEntries( const QList<ClipEditorModel::clipEntry *> &clips );
+    bool PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
 
 signals:
     /**

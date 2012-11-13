@@ -31,20 +31,19 @@
 
 const int WAIT_FOR_WRITE_DELAY = 100;
 
-Resource::Resource( const QString &fullfilepath, QObject *parent )
-    : 
-    QObject( parent ),
-    m_Identifier( Utility::CreateUUID() ),
-    m_FullFilePath( fullfilepath ),
-    m_LastSaved( 0 ),
-    m_LastWrittenTo( 0 ),
-    m_LastWrittenSize( 0 ),
-    m_ReadWriteLock( QReadWriteLock::Recursive )
+Resource::Resource(const QString &fullfilepath, QObject *parent)
+    :
+    QObject(parent),
+    m_Identifier(Utility::CreateUUID()),
+    m_FullFilePath(fullfilepath),
+    m_LastSaved(0),
+    m_LastWrittenTo(0),
+    m_LastWrittenSize(0),
+    m_ReadWriteLock(QReadWriteLock::Recursive)
 {
-
 }
 
-bool Resource::operator< ( const Resource& other )
+bool Resource::operator< (const Resource &other)
 {
     return Filename() < other.Filename();
 }
@@ -58,25 +57,23 @@ QString Resource::GetIdentifier() const
 
 QString Resource::Filename() const
 {
-    return QFileInfo( m_FullFilePath ).fileName();
+    return QFileInfo(m_FullFilePath).fileName();
 }
 
 
 QString Resource::GetRelativePathToOEBPS() const
 {
-    return QFileInfo( m_FullFilePath ).dir().dirName() + "/" + Filename();
+    return QFileInfo(m_FullFilePath).dir().dirName() + "/" + Filename();
 }
 
 
 QString Resource::GetRelativePathToRoot() const
 {
-    QFileInfo info( m_FullFilePath );
+    QFileInfo info(m_FullFilePath);
     QDir parent_dir = info.dir();
     QString parent_name = parent_dir.dirName();
-
     parent_dir.cdUp();
     QString grandparent_name = parent_dir.dirName();
-
     return grandparent_name + "/" + parent_name + "/" + Filename();
 }
 
@@ -89,11 +86,11 @@ QString Resource::GetFullPath() const
 
 QUrl Resource::GetBaseUrl() const
 {
-    return QUrl::fromLocalFile( QFileInfo( m_FullFilePath ).absolutePath() + "/" );
+    return QUrl::fromLocalFile(QFileInfo(m_FullFilePath).absolutePath() + "/");
 }
 
 
-QReadWriteLock& Resource::GetLock() const
+QReadWriteLock &Resource::GetLock() const
 {
     return m_ReadWriteLock;
 }
@@ -101,27 +98,24 @@ QReadWriteLock& Resource::GetLock() const
 
 QIcon Resource::Icon() const
 {
-    return QFileIconProvider().icon( QFileInfo( m_FullFilePath ) );
+    return QFileIconProvider().icon(QFileInfo(m_FullFilePath));
 }
 
 
-bool Resource::RenameTo( const QString &new_filename )
+bool Resource::RenameTo(const QString &new_filename)
 {
     QString new_path;
     bool successful = false;
-
     {
-        QWriteLocker locker( &m_ReadWriteLock );
-
-        new_path = QFileInfo( m_FullFilePath ).absolutePath() + "/" + new_filename; 
-        successful = Utility::RenameFile( m_FullFilePath, new_path );
+        QWriteLocker locker(&m_ReadWriteLock);
+        new_path = QFileInfo(m_FullFilePath).absolutePath() + "/" + new_filename;
+        successful = Utility::RenameFile(m_FullFilePath, new_path);
     }
 
-    if ( successful )
-    {
+    if (successful) {
         QString old_path = m_FullFilePath;
         m_FullFilePath = new_path;
-        emit Renamed( *this, old_path );
+        emit Renamed(*this, old_path);
     }
 
     return successful;
@@ -130,16 +124,13 @@ bool Resource::RenameTo( const QString &new_filename )
 bool Resource::Delete()
 {
     bool successful = false;
-
     {
-        QWriteLocker locker( &m_ReadWriteLock );
-        successful = Utility::DeleteFile( m_FullFilePath );
+        QWriteLocker locker(&m_ReadWriteLock);
+        successful = Utility::DeleteFile(m_FullFilePath);
     }
 
-    if ( successful )
-    {
-        emit Deleted( *this );
-
+    if (successful) {
+        emit Deleted(*this);
         deleteLater();
     }
 
@@ -157,11 +148,11 @@ bool Resource::LoadFromDisk()
     return false;
 }
 
-void Resource::SaveToDisk( bool book_wide_save )
+void Resource::SaveToDisk(bool book_wide_save)
 {
     const QDateTime lastModifiedDate = QFileInfo(m_FullFilePath).lastModified();
-    if ( lastModifiedDate.isValid() )
-    {
+
+    if (lastModifiedDate.isValid()) {
         m_LastSaved = lastModifiedDate.toMSecsSinceEpoch();
     }
 }
@@ -172,8 +163,7 @@ void Resource::FileChangedOnDisk()
     const QDateTime lastModifiedDate = latestFileInfo.lastModified();
     m_LastWrittenTo = lastModifiedDate.isValid() ? lastModifiedDate.toMSecsSinceEpoch() : 0;
     m_LastWrittenSize = latestFileInfo.size();
-
-    QTimer::singleShot( WAIT_FOR_WRITE_DELAY, this, SLOT( ResourceFileModified() ) );
+    QTimer::singleShot(WAIT_FOR_WRITE_DELAY, this, SLOT(ResourceFileModified()));
 }
 
 void Resource::ResourceFileModified()
@@ -183,7 +173,7 @@ void Resource::ResourceFileModified()
     qint64 latestWrittenTo = lastModifiedDate.isValid() ? lastModifiedDate.toMSecsSinceEpoch() : 0;
     qint64 latestWrittenSize = newFileInfo.size();
 
-    if ( latestWrittenTo == m_LastSaved ) {
+    if (latestWrittenTo == m_LastSaved) {
         // The FileChangedOnDisk has triggered even though the data in the file has not changed.
         // This can happen if the FileWatcher is monitoring a file that Sigil has just performed
         // a disk operation with, such as Saving before a Merge. In this circumstance the data
@@ -192,14 +182,13 @@ void Resource::ResourceFileModified()
         return;
     }
 
-    if ( (latestWrittenTo != m_LastWrittenTo) || (latestWrittenSize != m_LastWrittenSize ) ) {
+    if ((latestWrittenTo != m_LastWrittenTo) || (latestWrittenSize != m_LastWrittenSize)) {
         // The file is still being written to.
         m_LastWrittenTo = latestWrittenTo;
         m_LastWrittenSize = latestWrittenSize;
-        QTimer::singleShot( WAIT_FOR_WRITE_DELAY, this, SLOT( ResourceFileModified() ) );
-    }
-    else {
-        if ( LoadFromDisk() ) {
+        QTimer::singleShot(WAIT_FOR_WRITE_DELAY, this, SLOT(ResourceFileModified()));
+    } else {
+        if (LoadFromDisk()) {
             // will trigger marking the book as modified
             emit ResourceUpdatedFromDisk(*this);
         }

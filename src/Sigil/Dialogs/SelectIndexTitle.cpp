@@ -32,9 +32,7 @@ SelectIndexTitle::SelectIndexTitle(QString title, QWidget *parent)
 {
     ui.setupUi(this);
     connectSignalsSlots();
-
     ReadSettings();
-
     // Set default title
     ui.title->setText(m_SelectedTitle);
 }
@@ -53,7 +51,6 @@ void SelectIndexTitle::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     QByteArray geometry = settings.value("geometry").toByteArray();
 
@@ -67,13 +64,10 @@ void SelectIndexTitle::ReadSettings()
 void SelectIndexTitle::WriteSettings()
 {
     SetSelectedTitle();
-
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
-
     settings.endGroup();
 }
 

@@ -25,8 +25,8 @@
 
 #include "MiscEditors/SearchEditorTreeView.h"
 
-SearchEditorTreeView::SearchEditorTreeView(QWidget* parent)
- : QTreeView(parent)
+SearchEditorTreeView::SearchEditorTreeView(QWidget *parent)
+    : QTreeView(parent)
 {
     setDragEnabled(true);
     setAcceptDrops(false);
@@ -61,8 +61,7 @@ QModelIndex SearchEditorTreeView::moveCursor(CursorAction cursorAction, Qt::Keyb
         if (indexBelow(index).isValid()) {
             setCurrentIndex(model()->index(index.row(), 0, index.parent()));
         }
-    }
-    else if (cursorAction == QAbstractItemView::MovePrevious) {
+    } else if (cursorAction == QAbstractItemView::MovePrevious) {
         QModelIndex index = currentIndex();
 
         // Only the first column of a group is editable
@@ -77,12 +76,11 @@ QModelIndex SearchEditorTreeView::moveCursor(CursorAction cursorAction, Qt::Keyb
             // If row above is a group always reset to first column otherwise last column
             if (model()->data(indexAbove(index).sibling(indexAbove(index).row(), 0), Qt::UserRole + 1).toBool()) {
                 setCurrentIndex(model()->index(index.row(), 0, index.parent()));
-            }
-            else {
+            } else {
                 setCurrentIndex(model()->index(index.row(), header()->count() - 1, index.parent()));
             }
         }
     }
- 
+
     return QTreeView::moveCursor(cursorAction, modifiers);
 }

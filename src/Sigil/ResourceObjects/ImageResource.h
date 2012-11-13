@@ -25,12 +25,12 @@
 
 #include "ResourceObjects/Resource.h"
 
-class ImageResource : public Resource 
+class ImageResource : public Resource
 {
     Q_OBJECT
 
 public:
-    
+
     /**
      * Constructor.
      *
@@ -38,8 +38,8 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    ImageResource( const QString &fullfilepath,
-                   QObject *parent = NULL );
+    ImageResource(const QString &fullfilepath,
+                  QObject *parent = NULL);
 
     // inherited
     virtual ResourceType Type() const;

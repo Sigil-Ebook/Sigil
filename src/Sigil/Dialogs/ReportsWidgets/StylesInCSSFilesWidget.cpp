@@ -47,26 +47,19 @@ StylesInCSSFilesWidget::StylesInCSSFilesWidget()
     m_ContextMenu(new QMenu(this))
 {
     ui.setupUi(this);
-
     ui.fileTree->setContextMenuPolicy(Qt::CustomContextMenu);
-
     CreateContextMenuActions();
-
     connectSignalsSlots();
 }
 
 void StylesInCSSFilesWidget::CreateReport(QSharedPointer< Book > book)
 {
     m_Book = book;
-
     SetupTable();
-
     // Get the list of classes in HTML and what selectors they match
     QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_Book);
-
     // Get the list of selectors in CSS files and if they were matched by HTML classes
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_classes_usage);
-
     AddTableData(css_selector_usage);
 
     for (int i = 0; i < ui.fileTree->header()->count(); i++) {
@@ -81,32 +74,26 @@ void StylesInCSSFilesWidget::CreateReport(QSharedPointer< Book > book)
 void StylesInCSSFilesWidget::SetupTable()
 {
     m_ItemModel->clear();
-
     QStringList header;
-
     header.append(tr("CSS File"));
     header.append(tr("Class Selector"));
     header.append(tr("Used In HTML File"));
-
     m_ItemModel->setHorizontalHeaderLabels(header);
-
     ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.fileTree->setModel(m_ItemModel);
     ui.fileTree->header()->setSortIndicatorShown(true);
-
     ui.fileTree->header()->setToolTip(
         tr("<p>This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.<p>") %
         tr("<p>NOTE:</p>") %
         tr("<p>Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.</p>")
-        );
+    );
 }
 
 void StylesInCSSFilesWidget::AddTableData(QList<BookReports::StyleData *> css_selectors_usage)
 {
-    foreach (BookReports::StyleData *selector_usage, css_selectors_usage) {
+    foreach(BookReports::StyleData * selector_usage, css_selectors_usage) {
         // Write the table entries
         QList<QStandardItem *> rowItems;
-
         // File name
         QStandardItem *filename_item = new QStandardItem();
         QString css_short_filename = selector_usage->css_filename;
@@ -114,13 +101,11 @@ void StylesInCSSFilesWidget::AddTableData(QList<BookReports::StyleData *> css_se
         filename_item->setText(css_short_filename);
         filename_item->setToolTip(selector_usage->css_filename);
         rowItems << filename_item;
-
         // Selector
         QStandardItem *selector_text_item = new QStandardItem();
         selector_text_item->setText(selector_usage->css_selector_text);
         selector_text_item->setData(selector_usage->css_selector_line);
         rowItems << selector_text_item;
-
         // Found in
         QStandardItem *found_in_item = new QStandardItem();
         found_in_item->setText(selector_usage->html_filename);
@@ -138,23 +123,22 @@ void StylesInCSSFilesWidget::AddTableData(QList<BookReports::StyleData *> css_se
 void StylesInCSSFilesWidget::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
-
     QStandardItem *root_item = m_ItemModel->invisibleRootItem();
     QModelIndex parent_index;
-
     // Hide rows that don't contain the filter text
     int first_visible_row = -1;
+
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText) ||
-                              root_item->child(row, 1)->text().toLower().contains(lowercaseText) ||
-                              root_item->child(row, 2)->text().toLower().contains(lowercaseText) ||
-                              root_item->child(row, 3)->text().toLower().contains(lowercaseText)) {
+            root_item->child(row, 1)->text().toLower().contains(lowercaseText) ||
+            root_item->child(row, 2)->text().toLower().contains(lowercaseText) ||
+            root_item->child(row, 3)->text().toLower().contains(lowercaseText)) {
             ui.fileTree->setRowHidden(row, parent_index, false);
+
             if (first_visible_row == -1) {
                 first_visible_row = row;
             }
-        }
-        else {
+        } else {
             ui.fileTree->setRowHidden(row, parent_index, true);
         }
     }
@@ -162,8 +146,7 @@ void StylesInCSSFilesWidget::FilterEditTextChangedSlot(const QString &text)
     if (!text.isEmpty() && first_visible_row != -1) {
         // Select the first non-hidden row
         ui.fileTree->setCurrentIndex(root_item->child(first_visible_row, 0)->index());
-    }
-    else {
+    } else {
         // Clear current and selection, which clears preview image
         ui.fileTree->setCurrentIndex(QModelIndex());
     }
@@ -180,38 +163,34 @@ void StylesInCSSFilesWidget::DoubleClick()
 
 void StylesInCSSFilesWidget::Delete()
 {
-    QString style_names; 
+    QString style_names;
     QHash< QString, QStringList> stylesheet_styles;
-
-    foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
+    foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
         QString filename = m_ItemModel->itemFromIndex(index)->text();
         QString name = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
         stylesheet_styles[filename].append(name);
     }
-
     int count = 0;
     QHashIterator< QString, QStringList> it_stylesheet_styles(stylesheet_styles);
+
     while (it_stylesheet_styles.hasNext()) {
         it_stylesheet_styles.next();
         style_names += "\n\n" + it_stylesheet_styles.key() + ": " "\n";
-        foreach (QString name, it_stylesheet_styles.value()) {
+        foreach(QString name, it_stylesheet_styles.value()) {
             style_names += name + ", ";
             count++;
         }
         style_names = style_names.left(style_names.length() - 2);
     }
 
-    QList<BookReports::StyleData*> styles_to_delete;
-
-    foreach (QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
+    QList<BookReports::StyleData *> styles_to_delete;
+    foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
         BookReports::StyleData *style = new BookReports::StyleData();
         style->css_filename = m_ItemModel->itemFromIndex(index)->text();
         style->css_selector_text = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
         style->css_selector_line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
-
         styles_to_delete.append(style);
     }
-
     emit DeleteStylesRequest(styles_to_delete);
 }
 
@@ -223,44 +202,44 @@ void StylesInCSSFilesWidget::Save()
     // Get headings
     for (int col = 0; col < ui.fileTree->header()->count(); col++) {
         QStandardItem *item = m_ItemModel->horizontalHeaderItem(col);
+
         if (col == 0) {
             row_text.append(item->text());
-        }
-        else {
+        } else {
             row_text.append("," % item->text());
         }
     }
+
     report_info.append(row_text % "\n");
 
     // Get data from table
     for (int row = 0; row < m_ItemModel->rowCount(); row++) {
         row_text = "";
+
         for (int col = 0; col < ui.fileTree->header()->count(); col++) {
             QStandardItem *item = m_ItemModel->item(row, col);
+
             if (col == 0) {
                 row_text.append(item->text());
-            }
-            else {
+            } else {
                 row_text.append("," % item->text());
             }
         }
+
         report_info.append(row_text % "\n");
     }
 
     // Save the file
     ReadSettings();
-
     QString filter_string = "*.csv;;*.txt;;*.*";
     QString default_filter = "";
-
     QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
-
-    QString destination = QFileDialog::getSaveFileName( this,
-                                                     tr( "Save Report As Comma Separated File" ),
-                                                     save_path,
-                                                     filter_string,
-                                                     &default_filter
-                                                   );
+    QString destination = QFileDialog::getSaveFileName(this,
+                          tr("Save Report As Comma Separated File"),
+                          save_path,
+                          filter_string,
+                          &default_filter
+                                                      );
 
     if (destination.isEmpty()) {
         return;
@@ -268,14 +247,12 @@ void StylesInCSSFilesWidget::Save()
 
     try {
         Utility::WriteUnicodeTextFile(report_info, destination);
-    }
-    catch (CannotOpenFile) {
-        QMessageBox::warning(this, tr( "Sigil" ), tr( "Cannot save report file."));
+    } catch (CannotOpenFile) {
+        QMessageBox::warning(this, tr("Sigil"), tr("Cannot save report file."));
     }
 
     m_LastDirSaved = QFileInfo(destination).absolutePath();
     m_LastFileSaved = QFileInfo(destination).fileName();
-
     WriteSettings();
 }
 
@@ -283,9 +260,7 @@ void StylesInCSSFilesWidget::Save()
 void StylesInCSSFilesWidget::CreateContextMenuActions()
 {
     m_Delete    = new QAction(tr("Delete From Stylesheet") + "...",     this);
-
     m_Delete->setShortcut(QKeySequence::Delete);
-
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_Delete);
 }
@@ -293,7 +268,6 @@ void StylesInCSSFilesWidget::CreateContextMenuActions()
 void StylesInCSSFilesWidget::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
-
     m_ContextMenu->exec(ui.fileTree->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
 }
@@ -310,7 +284,6 @@ void StylesInCSSFilesWidget::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // Last file open
     m_LastDirSaved = settings.value("last_dir_saved").toString();
     m_LastFileSaved = settings.value("last_file_saved_styles_css_files").toString();
@@ -326,25 +299,20 @@ void StylesInCSSFilesWidget::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // Last file open
-    settings.setValue( "last_dir_saved", m_LastDirSaved);
-    settings.setValue( "last_file_saved_styles_css_files", m_LastFileSaved);
-
+    settings.setValue("last_dir_saved", m_LastDirSaved);
+    settings.setValue("last_file_saved_styles_css_files", m_LastFileSaved);
     settings.endGroup();
 }
 
 void StylesInCSSFilesWidget::connectSignalsSlots()
 {
-    connect(ui.Filter,    SIGNAL(textChanged(QString)), 
+    connect(ui.Filter,    SIGNAL(textChanged(QString)),
             this,         SLOT(FilterEditTextChangedSlot(QString)));
-    connect (ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
+    connect(ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
             this,          SLOT(DoubleClick()));
-
-    connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint&)),
-            this,         SLOT(  OpenContextMenu(                  const QPoint&)));
+    connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint &)),
+            this,         SLOT(OpenContextMenu(const QPoint &)));
     connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
-
     connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
-
 }

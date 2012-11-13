@@ -35,17 +35,16 @@
 
 #include <QtGui/QStandardItem>
 
-class NumericItem: public QStandardItem {
+class NumericItem: public QStandardItem
+{
 
 public:
-    NumericItem(QWidget *parent = 0) 
-        : QStandardItem ()
-    {
+    NumericItem(QWidget *parent = 0)
+        : QStandardItem() {
     }
 
 private:
-    bool operator<(const QStandardItem &other) const 
-    {
+    bool operator<(const QStandardItem &other) const {
         return text().toFloat() < other.text().toFloat();
     }
 };

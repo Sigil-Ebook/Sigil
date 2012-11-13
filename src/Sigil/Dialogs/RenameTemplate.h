@@ -44,7 +44,7 @@ public:
      *
      * @param parent The dialog's parent.
      */
-    RenameTemplate( QString &startingName, QWidget *parent = 0 );
+    RenameTemplate(QString &startingName, QWidget *parent = 0);
 
     QString GetTemplateName();
 

@@ -25,14 +25,14 @@
 
 #include <xercesc/util/XercesDefs.hpp>
 
-namespace XERCES_CPP_NAMESPACE 
+namespace XERCES_CPP_NAMESPACE
 {
-    class DOMNode;
-    class DOMAttr;
-    class DOMDocument;
-    class DOMDocumentFragment;
-    class DOMElement;
-    class DOMNodeList;    
+class DOMNode;
+class DOMAttr;
+class DOMDocument;
+class DOMDocumentFragment;
+class DOMElement;
+class DOMNodeList;
 };
 namespace xc = XERCES_CPP_NAMESPACE;
 

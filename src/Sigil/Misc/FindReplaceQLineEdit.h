@@ -33,11 +33,11 @@ class QSignalMapper;
 
 class FindReplaceQLineEdit : public QLineEdit
 {
- 
+
 public:
     FindReplaceQLineEdit(QWidget *parent = 0);
     ~FindReplaceQLineEdit();
- 
+
     virtual void contextMenuEvent(QContextMenuEvent *event);
 
     bool isTokeniseEnabled();

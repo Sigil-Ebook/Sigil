@@ -24,8 +24,8 @@
 
 #include "MiscEditors/IndexEditorTreeView.h"
 
-IndexEditorTreeView::IndexEditorTreeView(QWidget* parent)
- : QTreeView(parent)
+IndexEditorTreeView::IndexEditorTreeView(QWidget *parent)
+    : QTreeView(parent)
 {
     setAcceptDrops(false);
     setDropIndicatorShown(false);
@@ -38,7 +38,7 @@ IndexEditorTreeView::IndexEditorTreeView(QWidget* parent)
 IndexEditorTreeView::~IndexEditorTreeView()
 {
 }
- 
+
 QModelIndex IndexEditorTreeView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
 {
     if (cursorAction == QAbstractItemView::MoveNext) {
@@ -52,8 +52,7 @@ QModelIndex IndexEditorTreeView::moveCursor(CursorAction cursorAction, Qt::Keybo
         if (indexBelow(index).isValid()) {
             setCurrentIndex(model()->index(index.row(), 0, index.parent()));
         }
-    }
-    else if (cursorAction == QAbstractItemView::MovePrevious) {
+    } else if (cursorAction == QAbstractItemView::MovePrevious) {
         QModelIndex index = currentIndex();
 
         if (index.column() > 0) {
@@ -64,6 +63,6 @@ QModelIndex IndexEditorTreeView::moveCursor(CursorAction cursorAction, Qt::Keybo
             setCurrentIndex(model()->index(index.row(), header()->count() - 1, index.parent()));
         }
     }
- 
+
     return QTreeView::moveCursor(cursorAction, modifiers);
 }

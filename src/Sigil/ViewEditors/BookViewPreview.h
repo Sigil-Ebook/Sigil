@@ -45,7 +45,7 @@ public:
      *
      * @param parent The object's parent.
      */
-    BookViewPreview(QWidget *parent=0);
+    BookViewPreview(QWidget *parent = 0);
     ~BookViewPreview();
 
     QSize sizeHint() const;
@@ -77,19 +77,19 @@ public:
 
     bool FindNext(const QString &search_regex,
                   Searchable::Direction search_direction,
-                  bool check_spelling=false,
-                  bool ignore_selection_offset=false,
-                  bool wrap=true);
+                  bool check_spelling = false,
+                  bool ignore_selection_offset = false,
+                  bool wrap = true);
 
     int Count(const QString &search_regex);
 
-    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool keep_selection = false);
+    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction = Searchable::Direction_Down, bool keep_selection = false);
 
     int ReplaceAll(const QString &search_regex, const QString &replacement);
 
     QString GetSelectedText();
 
-    void SetUpFindForSelectedText( const QString &search_regex );
+    void SetUpFindForSelectedText(const QString &search_regex);
 
     /**
      *  Workaround for a crappy setFocus implementation in QtWebKit.
@@ -97,10 +97,10 @@ public:
     void GrabFocus();
 
     // inherited
-    QList< ViewEditor::ElementIndex > GetCaretLocation(); 
+    QList< ViewEditor::ElementIndex > GetCaretLocation();
 
     // inherited
-    void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
+    void StoreCaretLocationUpdate(const QList< ViewEditor::ElementIndex > &hierarchy);
 
     // inherited
     bool ExecuteCaretUpdate();
@@ -111,13 +111,13 @@ public:
     bool ExecuteCaretUpdate(const QString &caret_location);
 
     QString GetCaretLocationUpdate();
-    
+
     void ShowTag();
 
 public slots:
 
     /**
-     * Exposed for the Windows clipboard error workaround to 
+     * Exposed for the Windows clipboard error workaround to
      * retry a clipboard copy operation.
      */
     void copy();
@@ -130,7 +130,7 @@ signals:
      */
     void ZoomFactorChanged(float new_zoom_factor);
 
-    void LinkClicked(const QUrl& url);
+    void LinkClicked(const QUrl &url);
 
     void ShowStatusMessageRequest(const QString &message);
 
@@ -168,21 +168,20 @@ protected slots:
      *
      * @param point The point at which the menu should be opened.
      */
-    virtual void OpenContextMenu( const QPoint &point );
+    virtual void OpenContextMenu(const QPoint &point);
 
 protected:
 
     QMenu &m_ContextMenu;
 
 private slots:
-    
+
     /**
      * Loads the required JavaScript on web page loads.
      */
     void WebPageJavascriptOnLoad();
 
-    void executeCaretUpdateInternal()
-    {
+    void executeCaretUpdateInternal() {
         ExecuteCaretUpdate();
     }
 
@@ -201,8 +200,8 @@ private:
      *
      * @return The element-selecting JavaScript code.
      */
-    QString GetElementSelectingJS_NoTextNodes( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
-    
+    QString GetElementSelectingJS_NoTextNodes(const QList< ViewEditor::ElementIndex > &hierarchy) const;
+
     /**
      * Builds the element-selecting JavaScript code, ignoring all the
      * text nodes except the last one.
@@ -211,16 +210,16 @@ private:
      *
      * @return The element-selecting JavaScript code.
      */
-    QString GetElementSelectingJS_WithTextNode( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
-    
+    QString GetElementSelectingJS_WithTextNode(const QList< ViewEditor::ElementIndex > &hierarchy) const;
+
     /**
      * Converts a DomNode from a Dom of the current page
      * into the QWebElement of that same element on tha page.
      *
      * @param node The node to covert.
      */
-    QWebElement DomNodeToQWebElement( const xc::DOMNode &node );
-    
+    QWebElement DomNodeToQWebElement(const xc::DOMNode &node);
+
     /**
      * Returns the local character offset of the selection.
      * The offset is calculated in the local text node.
@@ -229,7 +228,7 @@ private:
      *                           the start of the selection. Otherwise, from its end.
      * @return The offset.
      */
-    int GetLocalSelectionOffset( bool start_of_selection );
+    int GetLocalSelectionOffset(bool start_of_selection);
 
     /**
      * Returns the selection offset from the start of the document.
@@ -239,66 +238,64 @@ private:
      * @param search_direction The direction of the search.
      * @return The offset.
      */
-    int GetSelectionOffset( const xc::DOMDocument &document,
-                            const QMap< int, xc::DOMNode* > &node_offsets, 
-                            Searchable::Direction search_direction );
+    int GetSelectionOffset(const xc::DOMDocument &document,
+                           const QMap< int, xc::DOMNode * > &node_offsets,
+                           Searchable::Direction search_direction);
 
     /**
      * The necessary tools for searching.
      */
-    struct SearchTools
-    {
+    struct SearchTools {
         /**
          * The full text of the document.
          */
         QString fulltext;
-    
+
         /**
          * A map with text node starting offsets as keys,
          * and those text nodes as values.
          */
-        QMap< int, xc::DOMNode* > node_offsets;
+        QMap< int, xc::DOMNode * > node_offsets;
 
         /**
          *  A DOM document with the loaded text.
          */
         shared_ptr< xc::DOMDocument > document;
     };
-    
+
     /**
      * Private overload for FindNext that allows it to return (by reference) the SearchTools object
      * it creates so that the DOM doesn't need to be parsed again when ReplaceSelected is called immediately
      * after.
      */
-    bool FindNext(  SearchTools &search_tools,
-                    const QString &search_regex,
-                    Searchable::Direction search_direction,
-                    bool check_spelling = false,
-                    bool ignore_selection_offset = false,
-                    bool wrap = true
+    bool FindNext(SearchTools &search_tools,
+                  const QString &search_regex,
+                  Searchable::Direction search_direction,
+                  bool check_spelling = false,
+                  bool ignore_selection_offset = false,
+                  bool wrap = true
                  );
 
     /**
      * The inputs for a new JavaScript \c range object.
      */
-    struct SelectRangeInputs
-    {
-        SelectRangeInputs() 
-            : 
-            start_node( NULL ), 
-            end_node( NULL ), 
-            start_node_index( -1 ), 
-            end_node_index( -1 ) {}
+    struct SelectRangeInputs {
+        SelectRangeInputs()
+            :
+            start_node(NULL),
+            end_node(NULL),
+            start_node_index(-1),
+            end_node_index(-1) {}
 
         /**
          * The range start node.
          */
-        xc::DOMNode* start_node;
+        xc::DOMNode *start_node;
 
         /**
          *  The range end node.
          */
-        xc::DOMNode* end_node;
+        xc::DOMNode *end_node;
 
         /**
          * The char index inside the start node.
@@ -321,34 +318,34 @@ private:
      * @return The inputs for a \c range object.
      * @see SearchTools
      */
-    SelectRangeInputs GetRangeInputs( const QMap< int, xc::DOMNode* > &node_offsets, 
-                                      int string_start, 
-                                      int string_length ) const;
-    
+    SelectRangeInputs GetRangeInputs(const QMap< int, xc::DOMNode * > &node_offsets,
+                                     int string_start,
+                                     int string_length) const;
+
     /**
      * Converts the \c range input struct into the \c range creating JavaScript code.
-     * 
+     *
      * @param input The \c range object inputs.
      * @return The \c range creating JavaScript code.
      */
-    QString GetRangeJS( const SelectRangeInputs &input ) const;
+    QString GetRangeJS(const SelectRangeInputs &input) const;
 
     /**
      * Selects the string identified by the \c range inputs.
      *
      * @param input The \c range inputs.
      */
-    void SelectTextRange( const SelectRangeInputs &input );
+    void SelectTextRange(const SelectRangeInputs &input);
 
     /**
      * Scrolls the view to the specified node and text offset
-     * within that node. 
+     * within that node.
      *
      * @param node The node to scroll to.
      * @param character_offset The specific offset we're interested
      *                         in within the node.
      */
-    void ScrollToNodeText( const xc::DOMNode &node, int character_offset );
+    void ScrollToNodeText(const xc::DOMNode &node, int character_offset);
 
     /**
      * Returns the all the necessary tools for searching.
@@ -356,7 +353,7 @@ private:
      *
      * @return The necessary tools for searching.
      */
-    SearchTools GetSearchTools() const;    
+    SearchTools GetSearchTools() const;
 
     void StoreCurrentCaretLocation();
 
@@ -369,7 +366,7 @@ private:
      * @param point The point at which the menu should be opened.
      * @return \c true if the menu could be set up.
      */
-    bool SuccessfullySetupContextMenu( const QPoint &point );
+    bool SuccessfullySetupContextMenu(const QPoint &point);
 
     /**
      * Connects all the required signals to their respective slots.
@@ -388,9 +385,9 @@ private:
      * The javascript source code of the jQuery library.
      */
     const QString c_jQuery;
-    
+
     /**
-     * The javascript source code of the jQuery 
+     * The javascript source code of the jQuery
      * ScrollTo extension library.
      */
     const QString c_jQueryScrollTo;
@@ -400,13 +397,13 @@ private:
      */
     const QString c_jQueryWrapSelection;
 
-    /** 
-     * The JavaScript source code used 
+    /**
+     * The JavaScript source code used
      * to get a hierarchy of elements from
      * the caret element to the top of the document.
      */
     const QString c_GetCaretLocation;
-    
+
     /**
      * The JavaScript source code
      * for creating DOM ranges.
@@ -420,16 +417,16 @@ private:
      * variable to the current selection.
      */
     const QString c_NewSelection;
-    
+
     /**
-     * The JavaScript source code for getting the html 
+     * The JavaScript source code for getting the html
      * for parent tag at the caret location.
      */
     const QString c_GetParentTags;
 
     /**
-     * Stores the JavaScript source code for the 
-     * caret location update. Used when switching from 
+     * Stores the JavaScript source code for the
+     * caret location update. Used when switching from
      * CodeViewEditor to BookViewEditor.
      */
     QString m_CaretLocationUpdate;

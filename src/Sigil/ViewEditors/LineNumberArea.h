@@ -33,11 +33,11 @@ public:
     // Constructor;
     // The parameter is the CodeViewEditor to
     // which this line number area belongs to
-    LineNumberArea( CodeViewEditor *editor );
+    LineNumberArea(CodeViewEditor *editor);
 
     // Implements QWidget::sizeHint();
     // Asks the CodeViewEditor which width should it take
-    QSize sizeHint() const; 
+    QSize sizeHint() const;
 
     // Updates the size of the line number area.
     // Needed for zoom changes.
@@ -47,17 +47,17 @@ protected:
 
     // The line number area delegates its rendering
     // to the CodeViewEditor that owns it.
-    void paintEvent( QPaintEvent *event );
+    void paintEvent(QPaintEvent *event);
 
     // The line number area delegates its mouse events
     // to the CodeViewEditor that owns it.
-    void mousePressEvent( QMouseEvent *event );
-    void mouseMoveEvent( QMouseEvent *event );
-    void mouseReleaseEvent( QMouseEvent *event );
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
     // Forward the wheel event to the CodeViewEditor that
     // owns it so the view will scroll.
-    void wheelEvent( QWheelEvent *event );
+    void wheelEvent(QWheelEvent *event);
 
 private:
 

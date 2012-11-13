@@ -26,14 +26,14 @@
 #include "ResourceObjects/TextResource.h"
 
 /**
- * Represents an Image file consisting of editable text (svg) on disk. 
+ * Represents an Image file consisting of editable text (svg) on disk.
  */
-class SVGResource : public TextResource 
+class SVGResource : public TextResource
 {
     Q_OBJECT
 
 public:
-    
+
     /**
      * Constructor.
      *
@@ -41,7 +41,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    SVGResource( const QString &fullfilepath, QObject *parent = NULL );
+    SVGResource(const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
     virtual ResourceType Type() const;

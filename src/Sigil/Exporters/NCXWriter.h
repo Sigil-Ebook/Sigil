@@ -41,14 +41,14 @@ public:
      * @param book The book for which we're writing the NCX.
      * @param device The IODevice into which we should write the XML.
      */
-    NCXWriter( const Book &book, QIODevice &device );
+    NCXWriter(const Book &book, QIODevice &device);
 
-    NCXWriter( const Book &book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry );
+    NCXWriter(const Book &book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry);
 
     void WriteXML();
 
     void WriteXMLFromHeadings();
-    
+
 private:
 
     /**
@@ -75,12 +75,12 @@ private:
      * Writes a <navPoint>; called recursively to write the TOC tree.
      *
      * @param heading The heading being written.
-     * @param play_order A reference to the general <navPoints> playorder. 
+     * @param play_order A reference to the general <navPoints> playorder.
      */
-    void WriteNavPoint( const NCXModel::NCXEntry &entry , int &play_order );
+    void WriteNavPoint(const NCXModel::NCXEntry &entry , int &play_order);
 
     /**
-     * Returns the depth of the TOC tree 
+     * Returns the depth of the TOC tree
      *
      * @return The TOC hierarchy depth
      */
@@ -94,11 +94,11 @@ private:
      * @param current_depth A reference to the depth of the current sub-tree.
      * @param max_depth A reference to the current maximum depth.
      */
-    void TOCDepthWalker( const NCXModel::NCXEntry &entry, int &current_depth, int &max_depth ) const;
+    void TOCDepthWalker(const NCXModel::NCXEntry &entry, int &current_depth, int &max_depth) const;
 
     NCXModel::NCXEntry ConvertHeadingsToNCX();
 
-    NCXModel::NCXEntry ConvertHeadingWalker( Headings::Heading &heading );
+    NCXModel::NCXEntry ConvertHeadingWalker(Headings::Heading &heading);
 
 
 

@@ -30,11 +30,11 @@ class PerformOPFUpdates : public PerformXMLUpdates
 
 public:
 
-    PerformOPFUpdates( const QString &source,
-                       const QHash< QString, QString > &xml_updates );
+    PerformOPFUpdates(const QString &source,
+                      const QHash< QString, QString > &xml_updates);
 
-    PerformOPFUpdates( const xc::DOMDocument &document,
-                       const QHash< QString, QString > &xml_updates );
+    PerformOPFUpdates(const xc::DOMDocument &document,
+                      const QHash< QString, QString > &xml_updates);
 
 private:
 

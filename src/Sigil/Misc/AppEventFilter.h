@@ -30,19 +30,19 @@ class QEvent;
 class AppEventFilter : public QObject
 {
     Q_OBJECT
-    
+
 public:
-    
+
     // Constructor;
     // The argument is the object's parent.
-    AppEventFilter( QObject *parent );
-       
+    AppEventFilter(QObject *parent);
+
 protected:
-    
-    // The event filter used to catch OS X's 
+
+    // The event filter used to catch OS X's
     // QFileOpenEvents. These signal the user used the OS's
     // services to start Sigil with an existing document
-    bool eventFilter( QObject *watched_object, QEvent *event );
+    bool eventFilter(QObject *watched_object, QEvent *event);
 
 };
 

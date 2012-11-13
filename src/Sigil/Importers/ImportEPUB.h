@@ -35,11 +35,11 @@ public:
 
     // Constructor;
     // The parameter is the file to be imported
-    ImportEPUB( const QString &fullfilepath );
+    ImportEPUB(const QString &fullfilepath);
 
-    // Reads and parses the file 
+    // Reads and parses the file
     // and returns the created Book
-    virtual QSharedPointer< Book > GetBook();    
+    virtual QSharedPointer< Book > GetBook();
 
 private:
 
@@ -47,16 +47,16 @@ private:
      * Parses the "encryption.xml" file in the META-INF folder.
      * We return the list of file paths and the algorithms used
      * to encrypt them.
-     * 
+     *
      * @return The list of encrypted fsiles. The keys are the
-     *         absolute paths to the files and the values are the 
-     *         encryption algorithm IDs.     
+     *         absolute paths to the files and the values are the
+     *         encryption algorithm IDs.
      */
     QHash< QString, QString > ParseEncryptionXml();
 
-    bool BookContentEncrypted( const QHash< QString, QString > &encrypted_files );
+    bool BookContentEncrypted(const QHash< QString, QString > &encrypted_files);
 
-    void AddObfuscatedButUndeclaredFonts( const QHash< QString, QString > &encrypted_files );
+    void AddObfuscatedButUndeclaredFonts(const QHash< QString, QString > &encrypted_files);
 
     /**
      * Another workaround function to handle com.apple.ibooks.display-options.xml
@@ -69,9 +69,9 @@ private:
      */
     void AddNonStandardAppleXML();
 
-    void ProcessFontFiles( const QList< Resource* > &resources, 
-                           const QHash< QString, QString > &updates,
-                           const QHash< QString, QString > &encrypted_files );    
+    void ProcessFontFiles(const QList< Resource * > &resources,
+                          const QHash< QString, QString > &updates,
+                          const QHash< QString, QString > &encrypted_files);
 };
 
 #endif // IMPORTEPUB_H

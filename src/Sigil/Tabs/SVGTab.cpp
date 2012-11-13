@@ -22,10 +22,10 @@
 #include "ResourceObjects/SVGResource.h"
 #include "Tabs/SVGTab.h"
 
-SVGTab::SVGTab( SVGResource &resource, int line_to_scroll_to, QWidget *parent )
+SVGTab::SVGTab(SVGResource &resource, int line_to_scroll_to, QWidget *parent)
     :
-    TextTab( resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, parent )
+    TextTab(resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, parent)
 {
-    connect( &m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
-}   
+    connect(&m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
+}
 

@@ -49,17 +49,17 @@ public:
      * @param source The raw text source of the XML file to update.
      * @param xml_updates The path updates.
      */
-    PerformXMLUpdates( const QString &source,
-                       const QHash< QString, QString > &xml_updates );
-    
+    PerformXMLUpdates(const QString &source,
+                      const QHash< QString, QString > &xml_updates);
+
     /**
      * Constructor.
      *
      * @param document The already loaded XML document to update.
      * @param xml_updates The path updates.
      */
-    PerformXMLUpdates( const xc::DOMDocument &document,
-                       const QHash< QString, QString > &xml_updates );
+    PerformXMLUpdates(const xc::DOMDocument &document,
+                      const QHash< QString, QString > &xml_updates);
 
     /**
      * Performs the updates.
@@ -98,10 +98,10 @@ protected:
 private:
 
     /**
-     * Updates the resource references in the attributes 
+     * Updates the resource references in the attributes
      * of the one specified node in the XML.
      */
-    void UpdateReferenceInNode( xc::DOMElement *node );
+    void UpdateReferenceInNode(xc::DOMElement *node);
 
     /**
      * Initializes the m_PathAttributes variable.

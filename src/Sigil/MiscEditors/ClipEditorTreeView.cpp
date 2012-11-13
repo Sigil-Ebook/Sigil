@@ -25,8 +25,8 @@
 
 #include "MiscEditors/ClipEditorTreeView.h"
 
-ClipEditorTreeView::ClipEditorTreeView(QWidget* parent)
- : QTreeView(parent)
+ClipEditorTreeView::ClipEditorTreeView(QWidget *parent)
+    : QTreeView(parent)
 {
     setDragEnabled(true);
     setAcceptDrops(false);
@@ -56,13 +56,12 @@ QModelIndex ClipEditorTreeView::moveCursor(CursorAction cursorAction, Qt::Keyboa
                 return model()->index(index.row(), index.column() + 1, index.parent());
             }
         }
- 
+
         // Reset to first column in row so that default moveCursor moves it down one
         if (indexBelow(index).isValid()) {
             setCurrentIndex(model()->index(index.row(), 0, index.parent()));
         }
-    }
-    else if (cursorAction == QAbstractItemView::MovePrevious) {
+    } else if (cursorAction == QAbstractItemView::MovePrevious) {
         QModelIndex index = currentIndex();
 
         // Only the first column of a group is editable
@@ -72,18 +71,16 @@ QModelIndex ClipEditorTreeView::moveCursor(CursorAction cursorAction, Qt::Keyboa
                 return model()->index(index.row(), index.column() - 1, index.parent());
             }
         }
- 
+
         if (indexAbove(index).isValid()) {
             // If row above is a group always reset to first column otherwise last column
             if (model()->data(indexAbove(index).sibling(indexAbove(index).row(), 0), Qt::UserRole + 1).toBool()) {
                 setCurrentIndex(model()->index(index.row(), 0, index.parent()));
-            }
-            else {
+            } else {
                 setCurrentIndex(model()->index(index.row(), header()->count() - 1, index.parent()));
             }
         }
-
     }
- 
+
     return QTreeView::moveCursor(cursorAction, modifiers);
 }

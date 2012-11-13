@@ -27,7 +27,7 @@
 
 static QString SETTINGS_GROUP = "select_hyperlink";
 
-SelectHyperlink::SelectHyperlink(QString default_href, HTMLResource *html_resource, QList<Resource*> resources, QSharedPointer< Book > book, QWidget *parent)
+SelectHyperlink::SelectHyperlink(QString default_href, HTMLResource *html_resource, QList<Resource *> resources, QSharedPointer< Book > book, QWidget *parent)
     :
     QDialog(parent),
     m_CurrentHTMLResource(html_resource),
@@ -39,18 +39,14 @@ SelectHyperlink::SelectHyperlink(QString default_href, HTMLResource *html_resour
 {
     ui.setupUi(this);
     connectSignalsSlots();
-
     ReadSettings();
-
     SetList();
-            
     // Set default href name
     ui.href->setText(m_DefaultTarget);
 
     if (!m_DefaultTarget.isEmpty()) {
         SelectText(m_DefaultTarget);
-    }
-    else {
+    } else {
         SelectText(m_SavedTarget);
     }
 
@@ -61,23 +57,16 @@ SelectHyperlink::SelectHyperlink(QString default_href, HTMLResource *html_resour
 void SelectHyperlink::SetList()
 {
     m_SelectHyperlinkModel->clear();
-
     QStringList header;
-
     header.append(tr("Targets in the Book"));
-
     m_SelectHyperlinkModel->setHorizontalHeaderLabels(header);
-
     ui.list->setSelectionBehavior(QAbstractItemView::SelectRows);
-
     ui.list->setModel(m_SelectHyperlinkModel);
-
     // Get the complete list of valid targets
     m_IDNames = m_Book->GetIdsInHTMLFiles();
-
     // Display in-file targets first, then in order
     AddEntry(m_CurrentHTMLResource);
-    foreach (Resource *resource, m_Resources) {
+    foreach(Resource * resource, m_Resources) {
         if (resource != m_CurrentHTMLResource) {
             AddEntry(resource);
         }
@@ -88,15 +77,16 @@ void SelectHyperlink::AddEntry(Resource *resource)
 {
     QString filename = resource->Filename();
     QStringList ids = QStringList() << "" << m_IDNames[filename];
-
     foreach(QString id, ids) {
         // Do not allow linking to index entries because they can be regenerated
         // and because they can take up a lot of room.
         if (id.startsWith(SIGIL_INDEX_ID_PREFIX)) {
-           continue; 
+            continue;
         }
+
         QString target = filename;
         QString filepath = "../" + resource->GetRelativePathToOEBPS();
+
         if (!id.isEmpty()) {
             QString fragment = "#" % id;
             filepath.append(fragment);
@@ -104,21 +94,17 @@ void SelectHyperlink::AddEntry(Resource *resource)
             // Show the short version if this is the same file
             if (filename == m_CurrentHTMLResource->Filename()) {
                 target = fragment;
-            }
-            else {
+            } else {
                 target.append(fragment);
             }
         }
 
         QList<QStandardItem *> rowItems;
-
         QStandardItem *target_item = new QStandardItem();
         target_item->setText(target);
         target_item->setData(filepath);
         rowItems << target_item;
-
         m_SelectHyperlinkModel->appendRow(rowItems);
-
         rowItems[0]->setEditable(false);
     }
 }
@@ -129,13 +115,16 @@ QString SelectHyperlink::GetSelectedText()
 
     if (ui.list->selectionModel()->hasSelection()) {
         QModelIndexList selected_indexes = ui.list->selectionModel()->selectedRows(0);
-        if (!selected_indexes.isEmpty()) { 
+
+        if (!selected_indexes.isEmpty()) {
             QStandardItem *item = m_SelectHyperlinkModel->itemFromIndex(selected_indexes.last());
+
             if (item) {
                 text = item->text();
             }
         }
     }
+
     return text;
 }
 
@@ -144,21 +133,22 @@ void SelectHyperlink::SelectText(QString &text)
     if (!text.isEmpty()) {
         QModelIndex parent_index;
         QStandardItem *root_item = m_SelectHyperlinkModel->invisibleRootItem();
-
         // Convert search text to filename#fragment
         QString target = text;
+
         if (target.startsWith("#")) {
             target = m_CurrentHTMLResource->Filename() + text;
         }
+
         if (target.contains("/")) {
             target = target.right(target.length() - target.lastIndexOf("/") - 1);
         }
 
         for (int row = 0; row < root_item->rowCount(); row++) {
             QStandardItem *child = root_item->child(row, 0);
-
             // Convert selection text to filename#fragment
             QString selection = child->data().toString();
+
             if (selection.contains("/")) {
                 selection = selection.right(selection.length() - selection.lastIndexOf("/") - 1);
             }
@@ -175,20 +165,19 @@ void SelectHyperlink::SelectText(QString &text)
 void SelectHyperlink::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
-
     QStandardItem *root_item = m_SelectHyperlinkModel->invisibleRootItem();
     QModelIndex parent_index;
-
     // Hide rows that don't contain the filter text
     int first_visible_row = -1;
+
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText)) {
             ui.list->setRowHidden(row, parent_index, false);
+
             if (first_visible_row == -1) {
                 first_visible_row = row;
             }
-        }
-        else {
+        } else {
             ui.list->setRowHidden(row, parent_index, true);
         }
     }
@@ -196,8 +185,7 @@ void SelectHyperlink::FilterEditTextChangedSlot(const QString &text)
     if (!text.isEmpty() && first_visible_row != -1) {
         // Select the first non-hidden row
         ui.list->setCurrentIndex(root_item->child(first_visible_row, 0)->index());
-    }
-    else {
+    } else {
         // Clear current and selection, which clears preview image
         ui.list->setCurrentIndex(QModelIndex());
     }
@@ -217,10 +205,10 @@ void SelectHyperlink::DoubleClicked(const QModelIndex &index)
 void SelectHyperlink::Clicked(const QModelIndex &index)
 {
     QStandardItem *item = m_SelectHyperlinkModel->itemFromIndex(index);
+
     if (item->text().startsWith("#")) {
         ui.href->setText(item->text());
-    }
-    else {
+    } else {
         ui.href->setText(item->data().toString());
     }
 }
@@ -229,7 +217,6 @@ void SelectHyperlink::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     QByteArray geometry = settings.value("geometry").toByteArray();
 
@@ -238,7 +225,6 @@ void SelectHyperlink::ReadSettings()
     }
 
     m_SavedTarget = settings.value("lastselectedentry").toString();
-
     settings.endGroup();
 }
 
@@ -246,12 +232,9 @@ void SelectHyperlink::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
-
     settings.setValue("lastselectedentry", GetSelectedText());
-
     settings.endGroup();
 }
 
@@ -261,8 +244,8 @@ void SelectHyperlink::connectSignalsSlots()
             this,         SLOT(WriteSettings()));
     connect(ui.filter,    SIGNAL(textChanged(QString)),
             this,         SLOT(FilterEditTextChangedSlot(QString)));
-    connect (ui.list,     SIGNAL(doubleClicked(const QModelIndex &)),
+    connect(ui.list,     SIGNAL(doubleClicked(const QModelIndex &)),
             this,         SLOT(DoubleClicked(const QModelIndex &)));
-    connect (ui.list,     SIGNAL(clicked(const QModelIndex &)),
+    connect(ui.list,     SIGNAL(clicked(const QModelIndex &)),
             this,         SLOT(Clicked(const QModelIndex &)));
 }

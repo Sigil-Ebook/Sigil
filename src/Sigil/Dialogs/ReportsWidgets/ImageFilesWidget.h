@@ -79,7 +79,7 @@ private:
 
     void connectSignalsSlots();
 
-    QList<Resource*> m_AllImageResources;
+    QList<Resource *> m_AllImageResources;
 
     QSharedPointer<Book> m_Book;
 

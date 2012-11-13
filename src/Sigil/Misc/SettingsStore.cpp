@@ -147,8 +147,8 @@ QString SettingsStore::renameTemplate()
 SettingsStore::CleanLevel SettingsStore::cleanLevel()
 {
     clearSettingsGroup();
-
     int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_PrettyPrint).toInt();
+
     switch (level) {
         case SettingsStore::CleanLevel_Off:
         case SettingsStore::CleanLevel_PrettyPrint:
@@ -156,6 +156,7 @@ SettingsStore::CleanLevel SettingsStore::cleanLevel()
         case SettingsStore::CleanLevel_Tidy:
             return static_cast<SettingsStore::CleanLevel>(level);
             break;
+
         default:
             return SettingsStore::CleanLevel_Off;
     }
@@ -164,19 +165,17 @@ SettingsStore::CleanLevel SettingsStore::cleanLevel()
 int SettingsStore::cleanOn()
 {
     clearSettingsGroup();
-    return value(KEY_CLEAN_ON, (CLEANON_OPEN|CLEANON_SAVE|CLEANON_REPLACEINALL)).toInt();
+    return value(KEY_CLEAN_ON, (CLEANON_OPEN | CLEANON_SAVE | CLEANON_REPLACEINALL)).toInt();
 }
 
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
 {
     clearSettingsGroup();
     SettingsStore::BookViewAppearance appearance;
-
     appearance.font_family_standard = value(KEY_BOOK_VIEW_FONT_FAMILY_STANDARD, "Arial").toString();
     appearance.font_family_serif = value(KEY_BOOK_VIEW_FONT_FAMILY_SERIF, "Times New Roman").toString();
     appearance.font_family_sans_serif = value(KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF, "Arial").toString();
     appearance.font_size = value(KEY_BOOK_VIEW_FONT_SIZE, 16).toInt();
-
     return appearance;
 }
 
@@ -184,29 +183,22 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
 {
     clearSettingsGroup();
     SettingsStore::CodeViewAppearance appearance;
-
     appearance.background_color = value(KEY_CODE_VIEW_BACKGROUND_COLOR, QColor()).value<QColor>();
     appearance.foreground_color = value(KEY_CODE_VIEW_FOREGROUND_COLOR, QColor()).value<QColor>();
-
     appearance.css_comment_color = value(KEY_CODE_VIEW_CSS_COMMENT_COLOR, Qt::darkGreen).value<QColor>();
     appearance.css_property_color = value(KEY_CODE_VIEW_CSS_PROPERTY_COLOR, Qt::darkBlue).value<QColor>();
     appearance.css_quote_color = value(KEY_CODE_VIEW_CSS_QUOTE_COLOR, Qt::darkMagenta).value<QColor>();
     appearance.css_selector_color = value(KEY_CODE_VIEW_CSS_SELECTOR_COLOR, Qt::darkRed).value<QColor>();
     appearance.css_value_color = value(KEY_CODE_VIEW_CSS_VALUE_COLOR, Qt::black).value<QColor>();
-
     appearance.font_family = value(KEY_CODE_VIEW_FONT_FAMILY, "Consolas").toString();
     appearance.font_size = value(KEY_CODE_VIEW_FONT_SIZE, 10).toInt();
-    
-    QColor defaultlineColor = QColor( Qt::yellow ).lighter( 175 );
+    QColor defaultlineColor = QColor(Qt::yellow).lighter(175);
     appearance.line_highlight_color = value(KEY_CODE_VIEW_LINE_HIGHLIGHT_COLOR, defaultlineColor).value<QColor>();
-    appearance.line_number_background_color = value(KEY_CODE_VIEW_LINE_NUMBER_BACKGROUND_COLOR, QColor( 225, 225, 225 )).value<QColor>();
-    appearance.line_number_foreground_color = value(KEY_CODE_VIEW_LINE_NUMBER_FOREGROUND_COLOR, QColor( 125, 125, 125 )).value<QColor>();
-
+    appearance.line_number_background_color = value(KEY_CODE_VIEW_LINE_NUMBER_BACKGROUND_COLOR, QColor(225, 225, 225)).value<QColor>();
+    appearance.line_number_foreground_color = value(KEY_CODE_VIEW_LINE_NUMBER_FOREGROUND_COLOR, QColor(125, 125, 125)).value<QColor>();
     appearance.selection_background_color = value(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR, QColor()).value<QColor>();
     appearance.selection_foreground_color = value(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR, QColor()).value<QColor>();
-
     appearance.spelling_underline_color = value(KEY_CODE_VIEW_SPELLING_UNDERLINE_COLOR, Qt::red).value<QColor>();
-
     appearance.xhtml_attribute_name_color = value(KEY_CODE_VIEW_XHTML_ATTRIBUTE_NAME_COLOR, Qt::darkRed).value<QColor>();
     appearance.xhtml_attribute_value_color = value(KEY_CODE_VIEW_XHTML_ATTRIBUTE_VALUE_COLOR, Qt::darkCyan).value<QColor>();
     appearance.xhtml_css_color = value(KEY_CODE_VIEW_XHTML_CSS_COLOR, Qt::darkYellow).value<QColor>();
@@ -215,7 +207,6 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
     appearance.xhtml_entity_color = value(KEY_CODE_VIEW_XHTML_ENTITY_COLOR, Qt::darkMagenta).value<QColor>();
     appearance.xhtml_html_color = value(KEY_CODE_VIEW_XHTML_HTML_COLOR, Qt::blue).value<QColor>();
     appearance.xhtml_html_comment_color = value(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR, Qt::darkGreen).value<QColor>();
-
     return appearance;
 }
 
@@ -223,10 +214,8 @@ SettingsStore::SpecialCharacterAppearance SettingsStore::specialCharacterAppeara
 {
     clearSettingsGroup();
     SettingsStore::SpecialCharacterAppearance appearance;
-
     appearance.font_family = value(KEY_SPECIAL_CHARACTER_FONT_FAMILY, "Arial").toString();
     appearance.font_size = value(KEY_SPECIAL_CHARACTER_FONT_SIZE, 14).toInt();
-
     return appearance;
 }
 
@@ -266,7 +255,7 @@ void SettingsStore::setDictionary(const QString &name)
     setValue(KEY_DICTIONARY_NAME, name);
 }
 
-void SettingsStore::setViewState( int state )
+void SettingsStore::setViewState(int state)
 {
     clearSettingsGroup();
     setValue(KEY_VIEW_STATE, state);
@@ -305,7 +294,6 @@ void SettingsStore::setCleanOn(int on)
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)
 {
     clearSettingsGroup();
-
     setValue(KEY_BOOK_VIEW_FONT_FAMILY_STANDARD, book_view_appearance.font_family_standard);
     setValue(KEY_BOOK_VIEW_FONT_FAMILY_SERIF, book_view_appearance.font_family_serif);
     setValue(KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF, book_view_appearance.font_family_sans_serif);
@@ -315,28 +303,21 @@ void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearanc
 void SettingsStore::setCodeViewAppearance(const SettingsStore::CodeViewAppearance &code_view_appearance)
 {
     clearSettingsGroup();
-
     setValue(KEY_CODE_VIEW_BACKGROUND_COLOR, code_view_appearance.background_color);
     setValue(KEY_CODE_VIEW_FOREGROUND_COLOR, code_view_appearance.foreground_color);
-
     setValue(KEY_CODE_VIEW_CSS_COMMENT_COLOR, code_view_appearance.css_comment_color);
     setValue(KEY_CODE_VIEW_CSS_PROPERTY_COLOR, code_view_appearance.css_property_color);
     setValue(KEY_CODE_VIEW_CSS_QUOTE_COLOR, code_view_appearance.css_quote_color);
     setValue(KEY_CODE_VIEW_CSS_SELECTOR_COLOR, code_view_appearance.css_selector_color);
     setValue(KEY_CODE_VIEW_CSS_VALUE_COLOR, code_view_appearance.css_value_color);
-
     setValue(KEY_CODE_VIEW_FONT_FAMILY, code_view_appearance.font_family);
     setValue(KEY_CODE_VIEW_FONT_SIZE, code_view_appearance.font_size);
-
     setValue(KEY_CODE_VIEW_LINE_HIGHLIGHT_COLOR, code_view_appearance.line_highlight_color);
     setValue(KEY_CODE_VIEW_LINE_NUMBER_BACKGROUND_COLOR, code_view_appearance.line_number_background_color);
     setValue(KEY_CODE_VIEW_LINE_NUMBER_FOREGROUND_COLOR, code_view_appearance.line_number_foreground_color);
-
     setValue(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR, code_view_appearance.selection_background_color);
     setValue(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR, code_view_appearance.selection_foreground_color);
-
     setValue(KEY_CODE_VIEW_SPELLING_UNDERLINE_COLOR, code_view_appearance.spelling_underline_color);
-
     setValue(KEY_CODE_VIEW_XHTML_ATTRIBUTE_NAME_COLOR, code_view_appearance.xhtml_attribute_name_color);
     setValue(KEY_CODE_VIEW_XHTML_ATTRIBUTE_VALUE_COLOR, code_view_appearance.xhtml_attribute_value_color);
     setValue(KEY_CODE_VIEW_XHTML_CSS_COLOR, code_view_appearance.xhtml_css_color);
@@ -350,7 +331,6 @@ void SettingsStore::setCodeViewAppearance(const SettingsStore::CodeViewAppearanc
 void SettingsStore::setSpecialCharacterAppearance(const SettingsStore::SpecialCharacterAppearance &special_character_appearance)
 {
     clearSettingsGroup();
-
     setValue(KEY_SPECIAL_CHARACTER_FONT_FAMILY, special_character_appearance.font_family);
     setValue(KEY_SPECIAL_CHARACTER_FONT_SIZE, special_character_appearance.font_size);
 }
@@ -358,33 +338,25 @@ void SettingsStore::setSpecialCharacterAppearance(const SettingsStore::SpecialCh
 void SettingsStore::clearAppearanceSettings()
 {
     clearSettingsGroup();
-
     remove(KEY_BOOK_VIEW_FONT_FAMILY_STANDARD);
     remove(KEY_BOOK_VIEW_FONT_FAMILY_SERIF);
     remove(KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF);
     remove(KEY_BOOK_VIEW_FONT_SIZE);
-
     remove(KEY_CODE_VIEW_BACKGROUND_COLOR);
     remove(KEY_CODE_VIEW_FOREGROUND_COLOR);
-
     remove(KEY_CODE_VIEW_CSS_COMMENT_COLOR);
     remove(KEY_CODE_VIEW_CSS_PROPERTY_COLOR);
     remove(KEY_CODE_VIEW_CSS_QUOTE_COLOR);
     remove(KEY_CODE_VIEW_CSS_SELECTOR_COLOR);
     remove(KEY_CODE_VIEW_CSS_VALUE_COLOR);
-
     remove(KEY_CODE_VIEW_FONT_FAMILY);
     remove(KEY_CODE_VIEW_FONT_SIZE);
-
     remove(KEY_CODE_VIEW_LINE_HIGHLIGHT_COLOR);
     remove(KEY_CODE_VIEW_LINE_NUMBER_BACKGROUND_COLOR);
     remove(KEY_CODE_VIEW_LINE_NUMBER_FOREGROUND_COLOR);
-
     remove(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR);
     remove(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR);
-
     remove(KEY_CODE_VIEW_SPELLING_UNDERLINE_COLOR);
-
     remove(KEY_CODE_VIEW_XHTML_ATTRIBUTE_NAME_COLOR);
     remove(KEY_CODE_VIEW_XHTML_ATTRIBUTE_VALUE_COLOR);
     remove(KEY_CODE_VIEW_XHTML_CSS_COLOR);
@@ -393,7 +365,6 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_CODE_VIEW_XHTML_ENTITY_COLOR);
     remove(KEY_CODE_VIEW_XHTML_HTML_COLOR);
     remove(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR);
-
     remove(KEY_SPECIAL_CHARACTER_FONT_FAMILY);
     remove(KEY_SPECIAL_CHARACTER_FONT_SIZE);
 }

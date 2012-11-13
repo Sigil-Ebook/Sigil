@@ -26,14 +26,14 @@
 #include <QtCore/QString>
 
 
-class WellFormedContent 
+class WellFormedContent
 {
 
 public:
 
     /**
      * Destructor.
-     */ 
+     */
     virtual ~WellFormedContent() {}
 
     /**
@@ -58,7 +58,7 @@ public:
      *
      * @param line The line to scroll to.
      */
-    virtual void ScrollToLine( int line ) = 0;
+    virtual void ScrollToLine(int line) = 0;
 
     /**
      * Takes control of the UI, making the GUI component

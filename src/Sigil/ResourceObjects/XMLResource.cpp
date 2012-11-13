@@ -25,10 +25,9 @@
 #include "ResourceObjects/XMLResource.h"
 
 
-XMLResource::XMLResource( const QString &fullfilepath, QObject *parent )
-    : TextResource( fullfilepath, parent )
+XMLResource::XMLResource(const QString &fullfilepath, QObject *parent)
+    : TextResource(fullfilepath, parent)
 {
-
 }
 
 
@@ -41,62 +40,53 @@ Resource::ResourceType XMLResource::Type() const
 bool XMLResource::FileIsWellFormed() const
 {
     // TODO: expand this with a dialog to fix the problem
-
-    QReadLocker locker( &GetLock() );
-
-    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource( GetText() );
-
+    QReadLocker locker(&GetLock());
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(GetText());
     bool well_formed = error.line == -1;
-
     return well_formed;
 }
 
 
 XhtmlDoc::WellFormedError XMLResource::WellFormedErrorLocation() const
 {
-    QReadLocker locker( &GetLock() );
-
-    return XhtmlDoc::WellFormedErrorForSource( GetText() );
+    QReadLocker locker(&GetLock());
+    return XhtmlDoc::WellFormedErrorForSource(GetText());
 }
 
 
-void XMLResource::UpdateTextFromDom( const xc::DOMDocument &document )
+void XMLResource::UpdateTextFromDom(const xc::DOMDocument &document)
 {
-    QWriteLocker locker( &GetLock() );
-    SetText( CleanSource::ProcessXML( XhtmlDoc::GetDomDocumentAsString( document ) ) );
+    QWriteLocker locker(&GetLock());
+    SetText(CleanSource::ProcessXML(XhtmlDoc::GetDomDocumentAsString(document)));
 }
 
 
-QString XMLResource::GetValidID( const QString &value )
+QString XMLResource::GetValidID(const QString &value)
 {
     QString new_value = value.simplified();
     int i = 0;
 
     // Remove all forbidden characters.
-    while ( i < new_value.size() )
-    {
-        if ( !IsValidIDCharacter( new_value.at( i ) ) )
-
-            new_value.replace( i, 1, "_" );
-
-        else
-
+    while (i < new_value.size()) {
+        if (!IsValidIDCharacter(new_value.at(i))) {
+            new_value.replace(i, 1, "_");
+        } else {
             ++i;
+        }
     }
 
-    if ( new_value.isEmpty() )
-
+    if (new_value.isEmpty()) {
         return Utility::CreateUUID();
+    }
 
-    QChar first_char = new_value.at( 0 );
+    QChar first_char = new_value.at(0);
 
     // IDs cannot start with a number, a dash or a dot
-    if ( first_char.isNumber()      ||
-         first_char == QChar( '-' ) ||
-         first_char == QChar( '.' )
-       )
-    {
-        new_value.prepend( "x" );
+    if (first_char.isNumber()      ||
+        first_char == QChar('-') ||
+        first_char == QChar('.')
+       ) {
+        new_value.prepend("x");
     }
 
     return new_value;
@@ -106,12 +96,12 @@ QString XMLResource::GetValidID( const QString &value )
 // This is probably more rigorous
 // than the XML spec, but it's simpler.
 // (spec ref: http://www.w3.org/TR/xml-id/#processing)
-bool XMLResource::IsValidIDCharacter( const QChar &character )
+bool XMLResource::IsValidIDCharacter(const QChar &character)
 {
     return character.isLetterOrNumber() ||
-           character == QChar( '-' )    ||
-           character == QChar( '_' )    ||
-           character == QChar( '.' )
+           character == QChar('-')    ||
+           character == QChar('_')    ||
+           character == QChar('.')
            ;
 }
 

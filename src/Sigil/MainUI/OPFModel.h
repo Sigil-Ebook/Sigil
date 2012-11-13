@@ -44,8 +44,7 @@ class OPFModel : public QStandardItemModel
 
 public:
 
-    enum IndexChoice
-    { 
+    enum IndexChoice {
         IndexChoice_Current,    /** The current file browser list. */
         IndexChoice_Next,       /** The next file in the browser list. */
         IndexChoice_Previous   /** The previous file in the browser list. */
@@ -57,14 +56,14 @@ public:
      *
      * @param parent The model's parent.
      */
-    OPFModel( QObject *parent = 0 );
+    OPFModel(QObject *parent = 0);
 
     /**
      * Sets the model's book.
      *
      * @param book The book whose model we will be building.
      */
-    void SetBook( QSharedPointer< Book > book );
+    void SetBook(QSharedPointer< Book > book);
 
     /**
      * Forces the recreation of the model
@@ -75,7 +74,7 @@ public:
     /**
      * Re-sorts the selected HTML entires in alphanumeric order
      */
-    void SortHTML( QList <QModelIndex> index_list );
+    void SortHTML(QList <QModelIndex> index_list);
 
 
     /**
@@ -99,14 +98,14 @@ public:
      *
      * @return The QModelIndex of the resource in any folder.
      */
-    QModelIndex GetModelItemIndex( Resource &resource, IndexChoice indexChoice );
+    QModelIndex GetModelItemIndex(Resource &resource, IndexChoice indexChoice);
 
     /**
      * Returns the QModelIndex of the resource in the given folder.
      *
      * @return The QModelIndex of the folder in the given folder.
      */
-    QModelIndex GetModelFolderItemIndex( QStandardItem const *folder, Resource &resource, IndexChoice indexChoice );
+    QModelIndex GetModelFolderItemIndex(QStandardItem const *folder, Resource &resource, IndexChoice indexChoice);
 
     /**
      * Gets a sorted list of the resources in the folder containing the given resource name
@@ -114,7 +113,7 @@ public:
      * @param item The resource in the folder whose list we want
      * @return The list of resources in the same folder as the given resource
      */
-    QList <Resource* > GetResourceListInFolder( Resource *resource );
+    QList <Resource * > GetResourceListInFolder(Resource *resource);
 
     /**
      * Gets a sorted list of the resources in the folder containing the given resource type
@@ -122,7 +121,7 @@ public:
      * @param item The resource type in the folder whose list we want
      * @return The list of resources in the same folder as the given resource
      */
-    QList <Resource* > GetResourceListInFolder( Resource::ResourceType resource_type );
+    QList <Resource * > GetResourceListInFolder(Resource::ResourceType resource_type);
 
     /**
      * Gets an item's resource type.
@@ -130,7 +129,7 @@ public:
      * @param item THe item whose resource type we want.
      * @return The requested resource type.
      */
-    Resource::ResourceType GetResourceType( QStandardItem const *item );
+    Resource::ResourceType GetResourceType(QStandardItem const *item);
 
     /**
      * Kills the inherited sort function.
@@ -138,11 +137,11 @@ public:
      * sort the items with clicks in a View. We don't want that
      * because the HTML files are \em always sorted by their
      * reading order, and the other files by their filenames.
-     * 
+     *
      * @param column The column to sort.
      * @param order The type of sorting needed.
      */
-    virtual void sort( int column, Qt::SortOrder order = Qt::AscendingOrder );
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
     /**
      * Specifies the supported drop actions in the model.
@@ -156,8 +155,8 @@ public:
      *
      * @return Whether rename succeeded or not
      */
-    bool RenameResource( Resource &resource, const QString &new_filename );
-    bool RenameResourceList( QList<Resource *> resources, QList<QString> new_filenames );
+    bool RenameResource(Resource &resource, const QString &new_filename);
+    bool RenameResourceList(QList<Resource *> resources, QList<QString> new_filenames);
 
 signals:
 
@@ -176,12 +175,12 @@ private slots:
     /**
      * Handler for removed rows. Used for updating HTMLResource
      * reading orders when the user reorders them in a View.
-     * 
+     *
      * @param parent The parent model index in which rows were removed.
      * @param start The start index of the removed rows,
      * @param end The end index of the removed rows.
      */
-    void RowsRemovedHandler( const QModelIndex &parent, int start, int end );
+    void RowsRemovedHandler(const QModelIndex &parent, int start, int end);
 
     /**
      * Handler for changed items. Used for handling item renames,
@@ -189,13 +188,13 @@ private slots:
      *
      * @param item The item that was changed.
      */
-    void ItemChangedHandler( QStandardItem *item );
+    void ItemChangedHandler(QStandardItem *item);
 
 
 private:
 
     /**
-     * Initializes an empty model with data. It is filled 
+     * Initializes an empty model with data. It is filled
      * using information from the stored book.
      */
     void InitializeModel();
@@ -219,7 +218,7 @@ private:
     /**
      * Sorts the selected HTML files by alphanumeric order of filename
      */
-    void SortHTMLFilesByAlphanumeric( QList <QModelIndex> index_list );
+    void SortHTMLFilesByAlphanumeric(QList <QModelIndex> index_list);
 
     /**
      * Removes all data from the model.
@@ -235,7 +234,7 @@ private:
      * @param new_filename The requested new filename of the file.
      * @return \c true if the filename is valid.
      */
-    bool FilenameIsValid( const QString &old_filename, const QString &new_filename );
+    bool FilenameIsValid(const QString &old_filename, const QString &new_filename);
 
 
     ///////////////////////////////

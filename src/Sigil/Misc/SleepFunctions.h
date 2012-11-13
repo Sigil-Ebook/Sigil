@@ -34,21 +34,18 @@ class SleepFunctions : public QThread
 public:
 
     // Sleep for num "seconds"
-    static void sleep( unsigned long seconds )
-    {
-        QThread::sleep( seconds );
+    static void sleep(unsigned long seconds) {
+        QThread::sleep(seconds);
     }
 
     // Sleep for num "miliseconds"
-    static void msleep( unsigned long miliseconds )
-    {
-        QThread::msleep( miliseconds );
+    static void msleep(unsigned long miliseconds) {
+        QThread::msleep(miliseconds);
     }
 
     // Sleep for num "microseconds"
-    static void usleep( unsigned long microseconds )
-    {
-        QThread::usleep( microseconds );
+    static void usleep(unsigned long microseconds) {
+        QThread::usleep(microseconds);
     }
 };
 

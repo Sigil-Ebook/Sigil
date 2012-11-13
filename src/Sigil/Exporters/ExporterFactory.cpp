@@ -26,9 +26,8 @@
 
 // Constructor
 ExporterFactory::ExporterFactory()
-    : m_Exporter( NULL )
+    : m_Exporter(NULL)
 {
-
 }
 
 // Destructor
@@ -40,17 +39,15 @@ ExporterFactory::~ExporterFactory()
 
 // Returns a reference to the exporter
 // appropriate for the given filename
-Exporter& ExporterFactory::GetExporter( const QString &filename, QSharedPointer< Book > book  )
+Exporter &ExporterFactory::GetExporter(const QString &filename, QSharedPointer< Book > book)
 {
-    QString extension = QFileInfo( filename ).suffix().toLower();
+    QString extension = QFileInfo(filename).suffix().toLower();
 
-    if ( ( extension == "epub" ) )
-    {
-        m_Exporter = new ExportEPUB( filename, book );
-
+    if ((extension == "epub")) {
+        m_Exporter = new ExportEPUB(filename, book);
         return *m_Exporter;
     }
-    
+
     return *m_Exporter;
 }
 

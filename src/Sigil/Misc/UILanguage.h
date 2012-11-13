@@ -28,7 +28,7 @@ class QStringList;
 /**
  * UI Language routines
  */
-class UILanguage 
+class UILanguage
 {
 
 public:

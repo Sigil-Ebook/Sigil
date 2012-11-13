@@ -45,7 +45,7 @@ public:
     QStringList suggest(const QString &word);
     void ignoreWord(const QString &word);
 
-    void setDictionary(const QString &name, bool forceReplace=false);
+    void setDictionary(const QString &name, bool forceReplace = false);
     void reloadDictionary();
 
     void addToUserDictionary(const QString &word);

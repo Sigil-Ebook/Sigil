@@ -29,11 +29,9 @@ const int PCRE_MAX_CAPTURE_GROUPS = 30;
 SPCRE::SPCRE(const QString &patten)
 {
     m_pattern = patten;
-
     m_re = NULL;
     m_study = NULL;
     m_captureSubpatternCount = 0;
-
     const char *error;
     int erroroffset;
     m_re = pcre16_compile(m_pattern.utf16(), PCRE_UTF16 | PCRE_MULTILINE, &error, &erroroffset, NULL);
@@ -43,7 +41,6 @@ SPCRE::SPCRE(const QString &patten)
         m_valid = true;
         // Study the pattern and save the results of the study.
         m_study = pcre16_study(m_re, 0, &error);
-
         // Store the number of capture subpatterns.
         pcre16_fullinfo(m_re, m_study, PCRE_INFO_CAPTURECOUNT, &m_captureSubpatternCount);
     }
@@ -59,6 +56,7 @@ SPCRE::~SPCRE()
         pcre16_free(m_re);
         m_re = NULL;
     }
+
     if (m_study != NULL) {
         pcre16_free(m_study);
         m_study = NULL;
@@ -97,9 +95,11 @@ int SPCRE::getCaptureStringNumber(const QString &name)
     }
 
     int number = pcre16_get_stringnumber(m_re, name.utf16());
+
     if (number == 0) {
         number = -1;
     }
+
     return number;
 }
 
@@ -119,9 +119,11 @@ QList<SPCRE::MatchInfo> SPCRE::getEveryMatchInfo(const QString &text)
     // Set the size of the array based on the number of capture subpatterns
     // if it does not exceed our maximum size.
     int ovector_count = getCaptureSubpatternCount();
+
     if (ovector_count > PCRE_MAX_CAPTURE_GROUPS) {
         ovector_count = PCRE_MAX_CAPTURE_GROUPS;
     }
+
     // The vector needs to be a multiple of 3 and have at least one location
     // for the full matched string.
     int ovector_size = (1 + ovector_count) * 3;
@@ -149,7 +151,7 @@ QList<SPCRE::MatchInfo> SPCRE::getEveryMatchInfo(const QString &text)
         }
 
         rc = pcre16_exec(m_re, m_study, text.utf16(), text.length(), last_offset[1], 0, ovector, ovector_size);
-    } while(rc >= 0 && ovector[0] != ovector[1] && ovector[1] != last_offset[1] && ovector[0] < ovector[1]);
+    } while (rc >= 0 && ovector[0] != ovector[1] && ovector[1] != last_offset[1] && ovector[0] < ovector[1]);
 
     delete[] ovector;
     return info;
@@ -167,9 +169,11 @@ SPCRE::MatchInfo SPCRE::getFirstMatchInfo(const QString &text)
     // Set the size of the array based on the number of capture subpatterns
     // if it does not exceed our maximum size.
     int ovector_count = getCaptureSubpatternCount();
+
     if (ovector_count > PCRE_MAX_CAPTURE_GROUPS) {
         ovector_count = PCRE_MAX_CAPTURE_GROUPS;
     }
+
     // The vector needs to be a multiple of 3 and have at least one location
     // for the full matched string.
     int ovector_size = (1 + ovector_count) * 3;
@@ -179,7 +183,6 @@ SPCRE::MatchInfo SPCRE::getFirstMatchInfo(const QString &text)
     // MSVC doesn't support it.
     int *ovector = new int[ovector_size];
     memset(ovector, 0, sizeof(int)*ovector_size);
-
     rc = pcre16_exec(m_re, m_study, text.utf16(), text.length(), 0, 0, ovector, ovector_size);
 
     if (rc >= 0 && ovector[0] != ovector[1]) {
@@ -193,7 +196,6 @@ SPCRE::MatchInfo SPCRE::getFirstMatchInfo(const QString &text)
 SPCRE::MatchInfo SPCRE::getLastMatchInfo(const QString &text)
 {
     QList<SPCRE::MatchInfo> info;
-
     info = getEveryMatchInfo(text);
 
     if (!info.isEmpty()) {
@@ -212,25 +214,22 @@ bool SPCRE::replaceText(const QString &text, const QList<std::pair<int, int> > &
 SPCRE::MatchInfo SPCRE::generateMatchInfo(int ovector[], int ovector_count)
 {
     MatchInfo match_info;
-
     // Store the offsets in the QString text that we ar matching
     // against.
     int match_start = ovector[0];
     int match_end = ovector[1];
-
     match_info.offset = std::pair<int, int>(match_start, match_end);
-
     // We keep a list of the substrings within the matched string that
     // are captured by capture patterns.
     //
     // The first match is always the string itself.
     match_info.capture_groups_offsets.append(std::pair<int, int>(0, match_end - match_start));
+
     // Translate the subpattern offsets into locations within the
     // matched substring.
     for (int i = 1; i <= ovector_count; i++) {
         int subpattern_start = ovector[2 * i] - match_start;
-        int subpattern_end = ovector[2 * i + 1] - match_start; 
-
+        int subpattern_end = ovector[2 * i + 1] - match_start;
         match_info.capture_groups_offsets.append(std::pair<int, int>(subpattern_start, subpattern_end));
     }
 

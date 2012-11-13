@@ -43,14 +43,13 @@ const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilRepl
 
 const QString XML_TAG = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>";
 
-HTMLResource::HTMLResource( const QString &fullfilepath,
-                            const QHash< QString, Resource* > &resources,
-                            QObject *parent )
+HTMLResource::HTMLResource(const QString &fullfilepath,
+                           const QHash< QString, Resource * > &resources,
+                           QObject *parent)
     :
-    XMLResource( fullfilepath, parent ),
-    m_Resources( resources )
+    XMLResource(fullfilepath, parent),
+    m_Resources(resources)
 {
-
 }
 
 
@@ -63,15 +62,10 @@ bool HTMLResource::LoadFromDisk()
 {
     try {
         const QString &text = Utility::ReadUnicodeTextFile(GetFullPath());
-
         SetText(text);
-
         emit LoadedFromDisk();
-
         return true;
-    }
-    catch (CannotOpenFile)
-    {
+    } catch (CannotOpenFile) {
         //
     }
 
@@ -81,13 +75,11 @@ bool HTMLResource::LoadFromDisk()
 void HTMLResource::SetText(const QString &text)
 {
     SettingsStore ss;
-
     emit TextChanging();
 
     if (ss.cleanOn() & CLEANON_SAVE) {
         XMLResource::SetText(CleanSource::Clean(text));
-    }
-    else {
+    } else {
         XMLResource::SetText(text);
     }
 
@@ -100,23 +92,20 @@ void HTMLResource::SetText(const QString &text)
 void HTMLResource::SaveToDisk(bool book_wide_save)
 {
     SetText(GetText());
-
     XMLResource::SaveToDisk(book_wide_save);
 }
 
 
 QStringList HTMLResource::GetLinkedStylesheets()
 {
-    return XhtmlDoc::GetLinkedStylesheets( GetText() );
+    return XhtmlDoc::GetLinkedStylesheets(GetText());
 }
 
 
 QStringList HTMLResource::SplitOnSGFSectionMarkers()
 {
     QStringList sections = XhtmlDoc::GetSGFSectionSplits(GetText());
-
     SetText(CleanSource::Clean(sections.takeFirst()));
-
     return sections;
 }
 
@@ -124,21 +113,19 @@ QStringList HTMLResource::SplitOnSGFSectionMarkers()
 QStringList HTMLResource::GetPathsToLinkedResources()
 {
     QStringList linked_resources;
-
     shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(GetText());
     xc::DOMDocument &document = *d.get();
     QStringList tags = QStringList() << "link" << "img";
     Q_FOREACH(QString tag, tags) {
-        xc::DOMNodeList *elems = document.getElementsByTagName( QtoX( tag ) );
+        xc::DOMNodeList *elems = document.getElementsByTagName(QtoX(tag));
+
         for (uint i = 0; i < elems->getLength(); ++i) {
             xc::DOMElement &element = *static_cast< xc::DOMElement *>(elems->item(i));
-
             Q_ASSERT(&element);
 
             // We skip the link elements that are not stylesheets
             if (tag == "link" && element.hasAttribute(QtoX("rel")) &&
-                XtoQ(element.getAttribute(QtoX("rel"))).toLower() != "stylesheet")
-            {
+                XtoQ(element.getAttribute(QtoX("rel"))).toLower() != "stylesheet") {
                 continue;
             }
 
@@ -149,7 +136,6 @@ QStringList HTMLResource::GetPathsToLinkedResources()
             }
         }
     }
-
     return linked_resources;
 }
 
@@ -158,34 +144,30 @@ void HTMLResource::TrackNewResources(const QStringList &filepaths)
 {
     QStringList filenames;
     QStringList linkedResourceIDs;
-
     foreach(QString filepath, filepaths) {
         filenames.append(QFileInfo(filepath).fileName());
     }
-
-    foreach(Resource *resource, m_Resources.values())
-    {
+    foreach(Resource * resource, m_Resources.values()) {
         disconnect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
-        disconnect(resource, SIGNAL(Deleted( const Resource &)), this, SIGNAL(LinkedResourceUpdated()));
+        disconnect(resource, SIGNAL(Deleted(const Resource &)), this, SIGNAL(LinkedResourceUpdated()));
+
         if (filenames.contains(resource->Filename())) {
             linkedResourceIDs.append(resource->GetIdentifier());
         }
     }
-
-    foreach(QString resource_id, linkedResourceIDs)
-    {
+    foreach(QString resource_id, linkedResourceIDs) {
         Resource *resource = m_Resources.value(resource_id);
+
         if (resource) {
             connect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
-            connect(resource, SIGNAL(Deleted( const Resource &)), this, SIGNAL(LinkedResourceUpdated()));
+            connect(resource, SIGNAL(Deleted(const Resource &)), this, SIGNAL(LinkedResourceUpdated()));
         }
     }
 }
 
-bool HTMLResource::DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors)
+bool HTMLResource::DeleteCSStyles(QList<CSSInfo::CSSSelector *> css_selectors)
 {
     CSSInfo css_info(GetText(), false);
-
     // Search for selectors with the same definition and line and remove from text
     const QString &new_resource_text = css_info.removeMatchingSelectors(css_selectors);
 
@@ -195,5 +177,6 @@ bool HTMLResource::DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors)
         emit Modified();
         return true;
     }
+
     return false;
 }

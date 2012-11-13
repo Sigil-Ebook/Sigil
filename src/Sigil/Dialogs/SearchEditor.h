@@ -48,7 +48,7 @@ public:
     void ForceClose();
 
 public slots:
-    QStandardItem* AddEntry(bool is_group = false, SearchEditorModel::searchEntry *search_entry = NULL, bool insert_after = true);
+    QStandardItem *AddEntry(bool is_group = false, SearchEditorModel::searchEntry *search_entry = NULL, bool insert_after = true);
 
     void ShowMessage(const QString &message);
 
@@ -70,7 +70,7 @@ protected slots:
     void showEvent(QShowEvent *event);
 
 private slots:
-    QStandardItem* AddGroup();
+    QStandardItem *AddGroup();
     void Edit();
     void Cut();
     bool Copy();
@@ -80,8 +80,8 @@ private slots:
     void Reload();
     void Export();
     void ExportAll();
-    void CollapseAll(); 
-    void ExpandAll(); 
+    void CollapseAll();
+    void ExpandAll();
 
     void Apply();
     bool Save();
@@ -111,20 +111,20 @@ private:
     void MoveVertical(bool move_down);
     void MoveHorizontal(bool move_left);
 
-    void ExportItems(QList<QStandardItem*> items);
+    void ExportItems(QList<QStandardItem *> items);
 
     void SetupSearchEditorTree();
 
     int SelectedRowsCount();
 
     SearchEditorModel::searchEntry *GetSelectedEntry(bool show_warning = true);
-    QList<SearchEditorModel::searchEntry*> GetSelectedEntries();
+    QList<SearchEditorModel::searchEntry *> GetSelectedEntries();
 
-    QList<QStandardItem*> GetSelectedItems();
+    QList<QStandardItem *> GetSelectedItems();
 
-    bool ItemsAreUnique(QList<QStandardItem*> items);
+    bool ItemsAreUnique(QList<QStandardItem *> items);
 
-    bool SaveData(QList<SearchEditorModel::searchEntry*> entries = QList<SearchEditorModel::searchEntry*>() , QString filename = QString());
+    bool SaveData(QList<SearchEditorModel::searchEntry *> entries = QList<SearchEditorModel::searchEntry *>() , QString filename = QString());
 
     bool FilterEntries(const QString &text, QStandardItem *item = NULL);
     bool SelectFirstVisibleNonGroup(QStandardItem *item);

@@ -56,8 +56,8 @@ public:
      *
      * @param parent The object's parent.
      */
-    BookViewEditor(QWidget *parent=0);
-    
+    BookViewEditor(QWidget *parent = 0);
+
     /**
      * Destructor.
      */
@@ -98,37 +98,39 @@ public:
 
     // Even though the BookViewPreview implements these they are pure virtual
     // in ViewEditor so they have to be implemented here.
-    float GetZoomFactor() const { return BookViewPreview::GetZoomFactor(); }
-    void SetZoomFactor(float factor) { BookViewPreview::SetZoomFactor(factor); }
-    bool IsLoadingFinished() { return BookViewPreview::IsLoadingFinished(); }
+    float GetZoomFactor() const {
+        return BookViewPreview::GetZoomFactor();
+    }
+    void SetZoomFactor(float factor) {
+        BookViewPreview::SetZoomFactor(factor);
+    }
+    bool IsLoadingFinished() {
+        return BookViewPreview::IsLoadingFinished();
+    }
 
     bool FindNext(const QString &search_regex,
                   Searchable::Direction search_direction,
-                  bool check_spelling=false,
-                  bool ignore_selection_offset=false,
-                  bool wrap=true)
-    {
+                  bool check_spelling = false,
+                  bool ignore_selection_offset = false,
+                  bool wrap = true) {
         return BookViewPreview::FindNext(search_regex, search_direction, check_spelling, ignore_selection_offset, wrap);
     }
 
-    int Count(const QString &search_regex )
-    {
+    int Count(const QString &search_regex) {
         return BookViewPreview::Count(search_regex);
     }
 
-    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool keep_selection = false )
-    {
+    bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction = Searchable::Direction_Down, bool keep_selection = false) {
         return BookViewPreview::ReplaceSelected(search_regex, replacement, direction, keep_selection);
     }
 
-    int ReplaceAll(const QString &search_regex, const QString &replacement)
-    {
+    int ReplaceAll(const QString &search_regex, const QString &replacement) {
         return BookViewPreview::ReplaceAll(search_regex, replacement);
     }
 
     QString GetSelectedText();
 
-    void SetUpFindForSelectedText( const QString &search_regex );
+    void SetUpFindForSelectedText(const QString &search_regex);
 
     /**
      * Executes a contentEditable command.
@@ -136,7 +138,7 @@ public:
      *
      * @param command The command to execute.
      */
-    bool ExecCommand( const QString &command );
+    bool ExecCommand(const QString &command);
 
     /**
      * Executes a contentEditable command.
@@ -145,13 +147,13 @@ public:
      * @param command The command to execute.
      * @param parameter The parameter that should be passed to the command.
      */
-    bool ExecCommand( const QString &command, const QString &parameter );
+    bool ExecCommand(const QString &command, const QString &parameter);
 
     /**
      * Returns the state of the contentEditable command.
      * The query is performed through JavaScript.
      */
-    bool QueryCommandState( const QString &command );
+    bool QueryCommandState(const QString &command);
 
     /**
      * Implements the "formatBlock" execCommand because
@@ -162,7 +164,7 @@ public:
      * @param element_name The name of the element to format the block to.
      * @param preserve_attributes Whether to keep any existing attributes on the previous block tag.
      */
-    void FormatBlock( const QString &element_name, bool preserve_attributes );
+    void FormatBlock(const QString &element_name, bool preserve_attributes);
 
     /**
      * Returns the name of the element the caret is located in.
@@ -173,7 +175,7 @@ public:
      */
     QString GetCaretElementName();
 
-    void ApplyCaseChangeToSelection( const Utility::Casing &casing );
+    void ApplyCaseChangeToSelection(const Utility::Casing &casing);
 
     bool InsertId(const QString &id);
     bool InsertHyperlink(const QString &href);
@@ -238,7 +240,7 @@ signals:
     /**
      * Emitted when the focus is lost.
      */
-    void FocusLost(QWidget* editor);
+    void FocusLost(QWidget *editor);
 
     void InsertImage();
 
@@ -295,14 +297,14 @@ private slots:
      *
      * @param modified The new modified state.
      */
-    void SetWebPageModified( bool modified = true );
+    void SetWebPageModified(bool modified = true);
 
     /**
      * Opens the context menu at the requested point.
      *
      * @param point The point at which the menu should be opened.
      */
-    void OpenContextMenu( const QPoint &point );
+    void OpenContextMenu(const QPoint &point);
 
     void PasteClipEntryFromName(const QString &name);
 
@@ -319,7 +321,7 @@ private:
      *
      * @return The escaped string.
      */
-    QString EscapeJSString( const QString &string );
+    QString EscapeJSString(const QString &string);
 
     /**
      * Scrolls the whole screen by one line.
@@ -327,7 +329,7 @@ private:
      *
      * @param down Specifies are we scrolling up or down.
      */
-    void ScrollByLine( bool down );
+    void ScrollByLine(bool down);
 
     /**
      * Scrolls the whole screen a number of pixels.
@@ -335,7 +337,7 @@ private:
      * @param pixel_number The number of pixels to scroll
      * @param down Specifies are we scrolling up or down.
      */
-    void ScrollByNumPixels( int pixel_number, bool down );
+    void ScrollByNumPixels(int pixel_number, bool down);
 
     /**
      * Removes all the cruft with which WebKit litters our source code.
@@ -350,7 +352,7 @@ private:
      * @param The source html from the web page.
      * @return The html cleaned of spans with 'class="SigilReplace_..."'.
      */
-    QString RemoveBookViewReplaceSpans( const QString &source );
+    QString RemoveBookViewReplaceSpans(const QString &source);
 
     bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_selection = false);
 
@@ -368,7 +370,7 @@ private:
      * @param point The point at which the menu should be opened.
      * @return \c true if the menu could be set up.
      */
-    bool SuccessfullySetupContextMenu( const QPoint &point );
+    bool SuccessfullySetupContextMenu(const QPoint &point);
 
     /**
      * Connects all the required signals to their respective slots.
@@ -428,7 +430,7 @@ private:
     /**
      * PageDown keyboard shortcut.
      */
-    QShortcut &m_PageDown; 
+    QShortcut &m_PageDown;
 
     /**
      * Keyboard shortcut for scrolling one line up.

@@ -75,26 +75,25 @@ static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString(
 BookViewEditor::BookViewEditor(QWidget *parent)
     :
     BookViewPreview(parent),
-    m_WebPageModified( false ),
-    m_clipMapper( new QSignalMapper( this ) ),
-    m_OpenWithContextMenu( *new QMenu( this ) ),
-    m_PageUp(   *( new QShortcut( QKeySequence( QKeySequence::MoveToPreviousPage ), this, 0, 0, Qt::WidgetShortcut ) ) ),
-    m_PageDown( *( new QShortcut( QKeySequence( QKeySequence::MoveToNextPage     ), this, 0, 0, Qt::WidgetShortcut ) ) ),
-    m_ScrollOneLineUp(   *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Up   ), this, 0, 0, Qt::WidgetShortcut ) ) ),
-    m_ScrollOneLineDown( *( new QShortcut( QKeySequence( Qt::ControlModifier + Qt::Key_Down ), this, 0, 0, Qt::WidgetShortcut ) ) ),
-    c_GetSegmentHTML(       Utility::ReadUnicodeTextFile( ":/javascript/get_segment_html.js"           ) ),
-    c_FormatBlock(          Utility::ReadUnicodeTextFile( ":/javascript/format_block.js"               ) ),
-    c_GetAncestor(          Utility::ReadUnicodeTextFile( ":/javascript/get_ancestor.js"               ) ),
-    c_GetAncestorAttribute( Utility::ReadUnicodeTextFile( ":/javascript/get_ancestor_attribute.js"     ) ),
-    c_SetAncestorAttribute( Utility::ReadUnicodeTextFile( ":/javascript/set_ancestor_attribute.js"     ) )
+    m_WebPageModified(false),
+    m_clipMapper(new QSignalMapper(this)),
+    m_OpenWithContextMenu(*new QMenu(this)),
+    m_PageUp(*(new QShortcut(QKeySequence(QKeySequence::MoveToPreviousPage), this, 0, 0, Qt::WidgetShortcut))),
+    m_PageDown(*(new QShortcut(QKeySequence(QKeySequence::MoveToNextPage), this, 0, 0, Qt::WidgetShortcut))),
+    m_ScrollOneLineUp(*(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up), this, 0, 0, Qt::WidgetShortcut))),
+    m_ScrollOneLineDown(*(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Down), this, 0, 0, Qt::WidgetShortcut))),
+    c_GetSegmentHTML(Utility::ReadUnicodeTextFile(":/javascript/get_segment_html.js")),
+    c_FormatBlock(Utility::ReadUnicodeTextFile(":/javascript/format_block.js")),
+    c_GetAncestor(Utility::ReadUnicodeTextFile(":/javascript/get_ancestor.js")),
+    c_GetAncestorAttribute(Utility::ReadUnicodeTextFile(":/javascript/get_ancestor_attribute.js")),
+    c_SetAncestorAttribute(Utility::ReadUnicodeTextFile(":/javascript/set_ancestor_attribute.js"))
 {
-    setContextMenuPolicy( Qt::CustomContextMenu );
-    page()->settings()->setAttribute( QWebSettings::DeveloperExtrasEnabled, false );
-    page()->settings()->setAttribute (QWebSettings::JavascriptCanAccessClipboard, true );
-    page()->settings()->setAttribute( QWebSettings::LocalContentCanAccessRemoteUrls, false );
-    page()->settings()->setAttribute( QWebSettings::ZoomTextOnly, true );
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
+    page()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
+    page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, false);
+    page()->settings()->setAttribute(QWebSettings::ZoomTextOnly, true);
     installEventFilter(this);
-
     CreateContextMenuActions();
     ConnectSignalsToSlots();
 }
@@ -105,42 +104,52 @@ BookViewEditor::~BookViewEditor()
         delete m_Undo;
         m_Undo = 0;
     }
+
     if (m_Redo) {
         delete m_Redo;
         m_Redo = 0;
     }
+
     if (m_Cut) {
         delete m_Cut;
         m_Cut = 0;
     }
+
     if (m_Copy) {
         delete m_Copy;
         m_Copy = 0;
     }
+
     if (m_CopyImage) {
         delete m_CopyImage;
         m_CopyImage = 0;
     }
+
     if (m_Paste) {
         delete m_Paste;
         m_Paste = 0;
     }
+
     if (m_SelectAll) {
         delete m_SelectAll;
         m_SelectAll = 0;
     }
+
     if (m_OpenWith) {
         delete m_OpenWith;
         m_OpenWith = 0;
     }
+
     if (m_OpenWithEditor) {
         delete m_OpenWithEditor;
         m_OpenWithEditor = 0;
     }
+
     if (m_SaveAs) {
         delete m_SaveAs;
         m_SaveAs = 0;
     }
+
     if (m_InsertImage) {
         delete m_InsertImage;
         m_InsertImage = 0;
@@ -152,35 +161,30 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
 {
     m_isLoadFinished = false;
     m_path = path;
-
     BookViewPreview::CustomSetDocument(m_path, html);
     page()->setContentEditable(true);
-    SetWebPageModified( false );
+    SetWebPageModified(false);
 }
 
 QString BookViewEditor::GetHtml()
 {
     RemoveWebkitCruft();
-
     // Set the xml tag here rather than let Tidy do it.
     // This prevents false mismatches with the cache later on.
     QString html_from_Qt = page()->mainFrame()->toHtml();
-
-    html_from_Qt = RemoveBookViewReplaceSpans( html_from_Qt );
-
+    html_from_Qt = RemoveBookViewReplaceSpans(html_from_Qt);
     // Remove xml/doctype/html tags even if only some are present.
     // Replace with standard tags that work whether tidy is on or off.
-    QRegExp remove_xml_tag( REMOVE_XML_TAG );
-    remove_xml_tag.setMinimal( true );
-    QRegExp remove_doctype_tag( REMOVE_DOCTYPE_TAG );
-    remove_doctype_tag.setMinimal( true );
-    QRegExp remove_html_tag( REMOVE_HTML_TAG );
-    remove_html_tag.setMinimal( true );
+    QRegExp remove_xml_tag(REMOVE_XML_TAG);
+    remove_xml_tag.setMinimal(true);
+    QRegExp remove_doctype_tag(REMOVE_DOCTYPE_TAG);
+    remove_doctype_tag.setMinimal(true);
+    QRegExp remove_html_tag(REMOVE_HTML_TAG);
+    remove_html_tag.setMinimal(true);
     html_from_Qt.remove(remove_xml_tag);
     html_from_Qt.remove(remove_doctype_tag);
     html_from_Qt.remove(remove_html_tag);
     html_from_Qt.prepend(DOC_PREFIX);
-
     return html_from_Qt;
 }
 
@@ -198,31 +202,27 @@ QString BookViewEditor::GetHtml5()
 
 bool BookViewEditor::InsertHtml(const QString &html)
 {
-    return ExecCommand( "insertHTML", html );
+    return ExecCommand("insertHTML", html);
 }
 
 QString BookViewEditor::SplitSection()
 {
-    QString head     = page()->mainFrame()->documentElement().findFirst( "head" ).toOuterXml();
-    QString body_tag = EvaluateJavascript( GET_BODY_TAG_HTML ).toString();
-    QString segment  = EvaluateJavascript( c_GetBlock % c_GetSegmentHTML ).toString();
-
+    QString head     = page()->mainFrame()->documentElement().findFirst("head").toOuterXml();
+    QString body_tag = EvaluateJavascript(GET_BODY_TAG_HTML).toString();
+    QString segment  = EvaluateJavascript(c_GetBlock % c_GetSegmentHTML).toString();
     emit contentsChangedExtra();
-
     // The <body> tag returned from above will have a closing </body>
     // element. With Tidy turned on, the old code got away with this, but
     // with Tidy turned off it goes horribly wrong. We also want to remove
     // some other webkit cruft that isn't required.
-    body_tag = body_tag.remove( WEBKIT_BODY_STYLE_CRUFT ).remove( "</body>" );
-
+    body_tag = body_tag.remove(WEBKIT_BODY_STYLE_CRUFT).remove("</body>");
     // In addition we strip Webkit namespace cruft out of the above text.
     // Every element will have an xmlns element on it which we want removed.
-    QString new_html = QString( DOC_PREFIX )
-           .append( head.remove( XML_NAMESPACE_CRUFT ) )
-           .append( body_tag.remove( XML_NAMESPACE_CRUFT ) )
-           .append( segment.remove( XML_NAMESPACE_CRUFT ) )
-           .append( "</body></html>" );
-
+    QString new_html = QString(DOC_PREFIX)
+                       .append(head.remove(XML_NAMESPACE_CRUFT))
+                       .append(body_tag.remove(XML_NAMESPACE_CRUFT))
+                       .append(segment.remove(XML_NAMESPACE_CRUFT))
+                       .append("</body></html>");
     return new_html;
 }
 
@@ -238,12 +238,12 @@ void BookViewEditor::ResetModified()
 
 void BookViewEditor::Undo()
 {
-    page()->triggerAction( QWebPage::Undo );
+    page()->triggerAction(QWebPage::Undo);
 }
 
 void BookViewEditor::Redo()
 {
-    page()->triggerAction( QWebPage::Redo );
+    page()->triggerAction(QWebPage::Redo);
 }
 
 // Overridden so we can emit the FocusLost() signal.
@@ -257,11 +257,10 @@ void BookViewEditor::focusOutEvent(QFocusEvent *event)
 QString BookViewEditor::GetSelectedText()
 {
     QString javascript = "window.getSelection().toString();";
-
-    return EvaluateJavascript( javascript ).toString();
+    return EvaluateJavascript(javascript).toString();
 }
 
-void BookViewEditor::SetUpFindForSelectedText( const QString &search_regex )
+void BookViewEditor::SetUpFindForSelectedText(const QString &search_regex)
 {
     // Nothing to do for Book View
 }
@@ -271,226 +270,199 @@ void BookViewEditor::TextChangedFilter()
     emit textChanged();
 }
 
-bool BookViewEditor::ExecCommand( const QString &command )
+bool BookViewEditor::ExecCommand(const QString &command)
 {
-    if( m_isLoadFinished ) {
-        QString javascript = QString( "document.execCommand( '%1', false, null)" ).arg( EscapeJSString( command ) );
-        return EvaluateJavascript( javascript ).toBool();
+    if (m_isLoadFinished) {
+        QString javascript = QString("document.execCommand( '%1', false, null)").arg(EscapeJSString(command));
+        return EvaluateJavascript(javascript).toBool();
     }
+
     return false;
 }
 
-bool BookViewEditor::ExecCommand( const QString &command, const QString &parameter )
+bool BookViewEditor::ExecCommand(const QString &command, const QString &parameter)
 {
-    QString javascript = QString( "document.execCommand( '%1', false, '%2' )" )
-                            .arg( EscapeJSString( command ) )
-                            .arg( EscapeJSString( parameter ) );
-
-    return EvaluateJavascript( javascript ).toBool();
+    QString javascript = QString("document.execCommand( '%1', false, '%2' )")
+                         .arg(EscapeJSString(command))
+                         .arg(EscapeJSString(parameter));
+    return EvaluateJavascript(javascript).toBool();
 }
 
-bool BookViewEditor::QueryCommandState( const QString &command )
+bool BookViewEditor::QueryCommandState(const QString &command)
 {
-    QString javascript = QString( "document.queryCommandState( '%1', false, null)" ).arg( EscapeJSString( command ) );
-
-    return EvaluateJavascript( javascript ).toBool();
+    QString javascript = QString("document.queryCommandState( '%1', false, null)").arg(EscapeJSString(command));
+    return EvaluateJavascript(javascript).toBool();
 }
 
-QString BookViewEditor::EscapeJSString( const QString &string )
+QString BookViewEditor::EscapeJSString(const QString &string)
 {
-    QString new_string( string );
-
+    QString new_string(string);
     /* \ -> \\ */
     // " -> \"
     // ' -> \'
-    return new_string.replace( "\\", "\\\\" ).replace( "\"", "\\\"" ).replace( "'", "\\'" );
+    return new_string.replace("\\", "\\\\").replace("\"", "\\\"").replace("'", "\\'");
 }
 
-void BookViewEditor::ScrollByLine( bool down )
+void BookViewEditor::ScrollByLine(bool down)
 {
     // This is an educated guess at best since QWebView is not
     // using the widget font but whatever font QWebView feels like using.
-    int line_height = qRound( fontMetrics().height() * textSizeMultiplier() );
-
-    ScrollByNumPixels( line_height, down );
+    int line_height = qRound(fontMetrics().height() * textSizeMultiplier());
+    ScrollByNumPixels(line_height, down);
 }
 
-void BookViewEditor::ScrollByNumPixels( int pixel_number, bool down )
+void BookViewEditor::ScrollByNumPixels(int pixel_number, bool down)
 {
-    Q_ASSERT( pixel_number != 0 );
-
-    int current_scroll_offset = page()->mainFrame()->scrollBarValue(   Qt::Vertical );
-    int scroll_maximum        = page()->mainFrame()->scrollBarMaximum( Qt::Vertical );
-
+    Q_ASSERT(pixel_number != 0);
+    int current_scroll_offset = page()->mainFrame()->scrollBarValue(Qt::Vertical);
+    int scroll_maximum        = page()->mainFrame()->scrollBarMaximum(Qt::Vertical);
     int new_scroll_Y = down ? current_scroll_offset + pixel_number : current_scroll_offset - pixel_number;
-
     // qBound(min, ours, max) limits the value to the range
-    new_scroll_Y     = qBound( 0, new_scroll_Y, scroll_maximum );
-
-    page()->mainFrame()->setScrollBarValue( Qt::Vertical, new_scroll_Y );
+    new_scroll_Y     = qBound(0, new_scroll_Y, scroll_maximum);
+    page()->mainFrame()->setScrollBarValue(Qt::Vertical, new_scroll_Y);
 }
 
 void BookViewEditor::PageUp()
 {
     // Scroll by a bit less than the full height to be sure the user does not miss anything.
-    ScrollByNumPixels( height() - 40, false );
+    ScrollByNumPixels(height() - 40, false);
     QTimer::singleShot(0, this, SLOT(ClickAtTopLeft()));
 }
 
 void BookViewEditor::PageDown()
 {
-    ScrollByNumPixels( height() - 40, true );
+    ScrollByNumPixels(height() - 40, true);
     QTimer::singleShot(0, this, SLOT(ClickAtTopLeft()));
 }
 
 void BookViewEditor::ClickAtTopLeft()
 {
-    // As Qt 4.8.3 is still buggy when it comes to page up/down when in edit mode, we simulate the scrolling 
+    // As Qt 4.8.3 is still buggy when it comes to page up/down when in edit mode, we simulate the scrolling
     // by hooking into the PageUp and PageDown keys above, and then send a mouse click event in the top left
     // to ensure the caret gets moved to the new position.
     QPoint topLeft = QPoint(0, 30);
-    QMouseEvent* mouseDownEvent = new QMouseEvent( QEvent::MouseButtonPress, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier );
-    QMouseEvent* mouseUpEvent = new QMouseEvent( QEvent::MouseButtonRelease, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier );
-    QKeyEvent* homeEvent = new QKeyEvent( QEvent::KeyPress, Qt::Key_Home, Qt::NoModifier );
-
+    QMouseEvent *mouseDownEvent = new QMouseEvent(QEvent::MouseButtonPress, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+    QMouseEvent *mouseUpEvent = new QMouseEvent(QEvent::MouseButtonRelease, topLeft, Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+    QKeyEvent *homeEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Home, Qt::NoModifier);
     // We need to disconnect our link clicked events in case our mouse position where we simulate a click
     // happens to be right on top of a link in the document.
-    disconnect(page(), SIGNAL(linkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
-
+    disconnect(page(), SIGNAL(linkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     QApplication::postEvent(this, mouseDownEvent);
     QApplication::postEvent(this, mouseUpEvent);
     QApplication::postEvent(this, homeEvent);
     QApplication::processEvents();
-
-    connect(page(), SIGNAL(linkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
+    connect(page(), SIGNAL(linkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
 }
 
 void BookViewEditor::ScrollOneLineUp()
 {
-    ScrollByLine( false );
+    ScrollByLine(false);
 }
 
 void BookViewEditor::ScrollOneLineDown()
 {
-    ScrollByLine( true );
+    ScrollByLine(true);
 }
 
 void BookViewEditor::RemoveWebkitCruft()
 {
-    QWebElementCollection collection = page()->mainFrame()->findAllElements( ".Apple-style-span" );
-
-    foreach( QWebElement element, collection )
-    {
-        element.toggleClass( "Apple-style-span" );
+    QWebElementCollection collection = page()->mainFrame()->findAllElements(".Apple-style-span");
+    foreach(QWebElement element, collection) {
+        element.toggleClass("Apple-style-span");
     }
-
-    collection = page()->mainFrame()->findAllElements( ".webkit-indent-blockquote" );
-
-    foreach( QWebElement element, collection )
-    {
-        element.toggleClass( "webkit-indent-blockquote" );
+    collection = page()->mainFrame()->findAllElements(".webkit-indent-blockquote");
+    foreach(QWebElement element, collection) {
+        element.toggleClass("webkit-indent-blockquote");
     }
-
-    QWebElement body_tag =  page()->mainFrame()->findFirstElement( "body" );
-
+    QWebElement body_tag =  page()->mainFrame()->findFirstElement("body");
     // Removing junk webkit styles
-    body_tag.setStyleProperty( "word-wrap", "" );
-    body_tag.setStyleProperty( "-webkit-nbsp-mode", "" );
-    body_tag.setStyleProperty( "-webkit-line-break", "" );
+    body_tag.setStyleProperty("word-wrap", "");
+    body_tag.setStyleProperty("-webkit-nbsp-mode", "");
+    body_tag.setStyleProperty("-webkit-line-break", "");
 
     // Banish the irritating <body style=""> tags
-    if( body_tag.attribute( "style", "none" ) == "" )
-    {
-        body_tag.removeAttribute( "style" );
+    if (body_tag.attribute("style", "none") == "") {
+        body_tag.removeAttribute("style");
     }
 }
 
-QString BookViewEditor::RemoveBookViewReplaceSpans( const QString &source )
+QString BookViewEditor::RemoveBookViewReplaceSpans(const QString &source)
 {
-    QRegExp replace_spans( REPLACE_SPANS );
-    replace_spans.setMinimal( true );
-    QRegExp span_open_or_close( "<\\s*(/)*\\s*span\\s*>");
-    span_open_or_close.setMinimal( true );
-
+    QRegExp replace_spans(REPLACE_SPANS);
+    replace_spans.setMinimal(true);
+    QRegExp span_open_or_close("<\\s*(/)*\\s*span\\s*>");
+    span_open_or_close.setMinimal(true);
     QString newsource = "";
     int left_pos = 0;
-    int index = source.indexOf( replace_spans );
-    while( index != -1 )
-    {
-        // Append the text between the last capture and this one.
-        newsource.append( source.mid( left_pos, index - left_pos ) );
+    int index = source.indexOf(replace_spans);
 
+    while (index != -1) {
+        // Append the text between the last capture and this one.
+        newsource.append(source.mid(left_pos, index - left_pos));
         // Advance past the captured opening tag.
         index += replace_spans.cap(0).length();
         left_pos = index;
-
         // Check for nested spans.
         int nest_count = 1; // set to 1 as we already have an open span
         int next_span_tag = index;
-        do
-        {
-            next_span_tag = source.indexOf( span_open_or_close, index );
-            if( next_span_tag == -1 )
-            {
+
+        do {
+            next_span_tag = source.indexOf(span_open_or_close, index);
+
+            if (next_span_tag == -1) {
                 // Content is not well-formed, which should never happen here.
-                boost_throw( ErrorParsingXml()
-                             << errinfo_XML_parsing_error_string( "GetWebPageHTML() has returned invalid xhtml" ) );
+                boost_throw(ErrorParsingXml()
+                            << errinfo_XML_parsing_error_string("GetWebPageHTML() has returned invalid xhtml"));
             }
 
-            if( !span_open_or_close.cap(0).contains( "/" ) )
-            {
+            if (!span_open_or_close.cap(0).contains("/")) {
                 // Opening tag, so increment the counter.
                 nest_count++;
-            }
-            else
-            {
+            } else {
                 // Closing tag, so decrement the counter
                 nest_count--;
             }
-        } while( nest_count > 0 );
+        } while (nest_count > 0);
 
         // next_span_tag now points to the start of the closing tag of the span we're removing.
         // Append the source from the end of the span tag to the start of the closing tag
-        newsource.append( source.mid( index, next_span_tag - index ) );
-
+        newsource.append(source.mid(index, next_span_tag - index));
         // Move left_pos past the closing tag and search for another span to remove.
         left_pos = next_span_tag + span_open_or_close.cap(0).length();
-        index = source.indexOf( replace_spans, left_pos );
+        index = source.indexOf(replace_spans, left_pos);
     }
 
     // Append the rest of the source after all the spans have been removed.
-    newsource.append( source.mid( left_pos ) );
+    newsource.append(source.mid(left_pos));
 
     // It's possible that we might have replace spans nested within each other,
     // so go back to the start and check again, and recurse if found.
-    if( newsource.indexOf( replace_spans ) != -1 )
-    {
-        newsource = RemoveBookViewReplaceSpans( newsource );
+    if (newsource.indexOf(replace_spans) != -1) {
+        newsource = RemoveBookViewReplaceSpans(newsource);
     }
 
     return newsource;
 }
 
-void BookViewEditor::SetWebPageModified( bool modified )
+void BookViewEditor::SetWebPageModified(bool modified)
 {
     m_WebPageModified = modified;
 }
 
-void BookViewEditor::FormatBlock( const QString &element_name, bool preserve_attributes )
+void BookViewEditor::FormatBlock(const QString &element_name, bool preserve_attributes)
 {
-    if ( element_name.isEmpty() ) {
+    if (element_name.isEmpty()) {
         return;
     }
 
     QString preserve = preserve_attributes ? "true" : "false";
     QString javascript =  c_GetBlock % c_FormatBlock %
-            "var node = document.getSelection().anchorNode;"
-            "var startNode = get_block( node );"
-            "var element = format_block( startNode, \""+element_name+"\", "+preserve+" );"
-            "startNode.parentNode.replaceChild( element, startNode );"
-            % SET_CURSOR_JS;
-
-    EvaluateJavascript( javascript );
+                          "var node = document.getSelection().anchorNode;"
+                          "var startNode = get_block( node );"
+                          "var element = format_block( startNode, \"" + element_name + "\", " + preserve + " );"
+                          "startNode.parentNode.replaceChild( element, startNode );"
+                          % SET_CURSOR_JS;
+    EvaluateJavascript(javascript);
     emit contentsChangedExtra();
 }
 
@@ -500,16 +472,16 @@ QString BookViewEditor::GetCaretElementName()
     QString javascript =  "var node = document.getSelection().anchorNode;"
                           "var startNode = get_block( node );"
                           "if (startNode != null) { startNode.nodeName; }";
-
-    return EvaluateJavascript( c_GetBlock % javascript ).toString();
+    return EvaluateJavascript(c_GetBlock % javascript).toString();
 }
 
-void BookViewEditor::ApplyCaseChangeToSelection( const Utility::Casing &casing )
+void BookViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
 {
     // This is going to lose any styles that may have been applied within
     // that selected text.
     QString selected_text = GetSelectedText();
-    QString new_text = Utility::ChangeCase( selected_text, casing );
+    QString new_text = Utility::ChangeCase(selected_text, casing);
+
     if (new_text == selected_text) {
         return;
     }
@@ -520,16 +492,13 @@ void BookViewEditor::ApplyCaseChangeToSelection( const Utility::Casing &casing )
     // However since this will muck around the with clipboard history we need
     // to do a little extra work to disconnect and restore things afterwards.
     emit ClipboardSaveRequest();
-
     QApplication::clipboard()->setText(new_text);
     paste();
-
     emit ClipboardRestoreRequest();
 
     // We will have lost our selection from the paste operation.
-    for (int i = 0; i < new_text.length(); i++ )
-    {
-        page()->triggerAction( QWebPage::SelectPreviousChar );
+    for (int i = 0; i < new_text.length(); i++) {
+        page()->triggerAction(QWebPage::SelectPreviousChar);
     }
 }
 
@@ -556,24 +525,22 @@ void BookViewEditor::AddToIndex()
     }
 
     IndexEditorModel::indexEntry *index = new IndexEditorModel::indexEntry();
-
     index->pattern = selected_text;
-
     emit OpenIndexEditorRequest(index);
 }
 
 bool BookViewEditor::MarkForIndex(const QString &title)
 {
     bool ok = true;
-
     const QString &element_name = "a";
-
     const QString &attribute_name = "class";
+
     if (!InsertTagAttribute(element_name, attribute_name, SIGIL_INDEX_CLASS, ANCHOR_TAGS)) {
         ok = false;
     }
 
     const QString &second_attribute_name = "title";
+
     if (!InsertTagAttribute(element_name, second_attribute_name, title, ANCHOR_TAGS, true)) {
         ok = false;
     }
@@ -584,8 +551,8 @@ bool BookViewEditor::MarkForIndex(const QString &title)
 bool BookViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_selection)
 {
     QString selected_text = GetSelectedText();
-    
-    if ( SetAncestorTagAttributeValue(attribute_name, attribute_value, tag_list) ) {
+
+    if (SetAncestorTagAttributeValue(attribute_name, attribute_value, tag_list)) {
         return true;
     }
 
@@ -595,15 +562,14 @@ bool BookViewEditor::InsertTagAttribute(const QString &element_name, const QStri
     if (selected_text.isEmpty()) {
         selected_text = attribute_value;
     }
-    // Just prepend and append the tag pairs to the text
-    const QString html = "<" % element_name % " " % attribute_name % "=\"" % attribute_value % "\">" % selected_text % "</" % element_name %">";
 
+    // Just prepend and append the tag pairs to the text
+    const QString html = "<" % element_name % " " % attribute_name % "=\"" % attribute_value % "\">" % selected_text % "</" % element_name % ">";
     bool insert_ok = InsertHtml(html);
 
     // We will have lost our selection from the insert - viewable text hasn't changed
-    for (int i = 0; i < selected_text.length(); i++ )
-    {
-        page()->triggerAction( QWebPage::SelectPreviousChar );
+    for (int i = 0; i < selected_text.length(); i++) {
+        page()->triggerAction(QWebPage::SelectPreviousChar);
     }
 
     return insert_ok;
@@ -614,11 +580,12 @@ QString BookViewEditor::GetAncestorTagAttributeValue(const QString &attribute_na
     if (tag_list.isEmpty() || attribute_name.isEmpty()) {
         return QString();
     }
+
     const QString js = c_GetAncestor % c_GetAncestorAttribute %
-        "var tagNames = [\"" % tag_list.join("\", \"") % "\"];"
-        "var attributeName = '" % attribute_name % "';"
-        "var startNode = document.getSelection().anchorNode;"
-        "get_ancestor_attribute(startNode, tagNames, attributeName);";
+                       "var tagNames = [\"" % tag_list.join("\", \"") % "\"];"
+                       "var attributeName = '" % attribute_name % "';"
+                       "var startNode = document.getSelection().anchorNode;"
+                       "get_ancestor_attribute(startNode, tagNames, attributeName);";
     return EvaluateJavascript(js).toString();
 }
 
@@ -627,35 +594,38 @@ bool BookViewEditor::SetAncestorTagAttributeValue(const QString &attribute_name,
     if (tag_list.isEmpty() || attribute_name.isEmpty()) {
         return false;
     }
+
     const QString js = c_GetAncestor % c_SetAncestorAttribute %
-        "var tagNames = [\"" % tag_list.join("\", \"") % "\"];"
-        "var attributeName = '" % attribute_name % "';"
-        "var attributeValue = '" % attribute_value % "';"
-        "var startNode = document.getSelection().anchorNode;"
-        "set_ancestor_attribute(startNode, tagNames, attributeName, attributeValue);";
-    
+                       "var tagNames = [\"" % tag_list.join("\", \"") % "\"];"
+                       "var attributeName = '" % attribute_name % "';"
+                       "var attributeValue = '" % attribute_value % "';"
+                       "var startNode = document.getSelection().anchorNode;"
+                       "set_ancestor_attribute(startNode, tagNames, attributeName, attributeValue);";
     bool applied = EvaluateJavascript(js).toBool();
+
     if (applied) {
         emit contentsChangedExtra();
     }
+
     return applied;
 }
 
 
 void BookViewEditor::cut()
 {
-    page()->triggerAction( QWebPage::Cut );
+    page()->triggerAction(QWebPage::Cut);
 }
 
 void BookViewEditor::paste()
 {
-    page()->triggerAction( QWebPage::Paste );
+    page()->triggerAction(QWebPage::Paste);
 }
 
 void BookViewEditor::copyImage()
 {
-    const QVariant& data = m_CopyImage->data();
-    if ( data.isValid() ) {
+    const QVariant &data = m_CopyImage->data();
+
+    if (data.isValid()) {
         const QUrl &resourceUrl = data.toUrl();
         const QImage img(resourceUrl.toLocalFile());
         QApplication::clipboard()->setImage(img);
@@ -664,20 +634,20 @@ void BookViewEditor::copyImage()
 
 void BookViewEditor::selectAll()
 {
-    page()->triggerAction( QWebPage::SelectAll );
+    page()->triggerAction(QWebPage::SelectAll);
 }
 
-void BookViewEditor::openImage() 
+void BookViewEditor::openImage()
 {
-    const QVariant& data = m_Open->data();
-    if ( data.isValid() )
-    {
+    const QVariant &data = m_Open->data();
+
+    if (data.isValid()) {
         const QUrl &url = data.toUrl();
-        emit LinkClicked( url );
+        emit LinkClicked(url);
     }
 }
 
-void BookViewEditor::insertImage() 
+void BookViewEditor::insertImage()
 {
     emit InsertImage();
 }
@@ -685,13 +655,13 @@ void BookViewEditor::insertImage()
 void BookViewEditor::openWith()
 {
     const QVariant &data = m_OpenWith->data();
-    if ( data.isValid() )
-    {
+
+    if (data.isValid()) {
         const QUrl &resourceUrl = data.toUrl();
-        const QString& editorPath = OpenExternally::selectEditorForResourceType( (Resource::ResourceType) resourceUrl.port() );
-        if ( !editorPath.isEmpty() )
-        {
-            if (OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath )) {
+        const QString &editorPath = OpenExternally::selectEditorForResourceType((Resource::ResourceType) resourceUrl.port());
+
+        if (!editorPath.isEmpty()) {
+            if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {
                 const QString &pathname = resourceUrl.toString();
                 emit ImageOpenedExternally(pathname);
             }
@@ -701,22 +671,23 @@ void BookViewEditor::openWith()
 
 void BookViewEditor::saveAs()
 {
-    const QVariant& data = m_SaveAs->data();
-    if ( data.isValid() )
-    {
+    const QVariant &data = m_SaveAs->data();
+
+    if (data.isValid()) {
         const QUrl &url = data.toUrl();
-        emit ImageSaveAs( url );
+        emit ImageSaveAs(url);
     }
 }
 
 void BookViewEditor::openWithEditor()
 {
     const QVariant &data = m_OpenWithEditor->data();
-    if ( data.isValid() )
-    {
+
+    if (data.isValid()) {
         const QUrl &resourceUrl = data.toUrl();
-        const QString& editorPath = OpenExternally::editorForResourceType( (Resource::ResourceType) resourceUrl.port() );
-        if (OpenExternally::openFile( resourceUrl.toLocalFile(), editorPath )) {
+        const QString &editorPath = OpenExternally::editorForResourceType((Resource::ResourceType) resourceUrl.port());
+
+        if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {
             const QString &pathname = resourceUrl.toString();
             emit ImageOpenedExternally(pathname);
         }
@@ -737,7 +708,7 @@ void BookViewEditor::PasteClipEntryFromName(const QString &name)
 bool BookViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
     bool applied = false;
-    foreach(ClipEditorModel::clipEntry *clip, clips) {
+    foreach(ClipEditorModel::clipEntry * clip, clips) {
         applied = applied || PasteClipEntry(clip);
     }
     return applied;
@@ -752,6 +723,7 @@ bool BookViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
     QString text = clip->text;
     // If Ctrl is used, keep as html
     bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
+
     if (!isCtrl) {
         text.replace(">", "&gt;").replace("<", "&lt;");
     }
@@ -765,114 +737,101 @@ bool BookViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
     return true;
 }
 
-void BookViewEditor::OpenContextMenu( const QPoint &point )
+void BookViewEditor::OpenContextMenu(const QPoint &point)
 {
-    if ( !SuccessfullySetupContextMenu( point ) )
-
+    if (!SuccessfullySetupContextMenu(point)) {
         return;
+    }
 
-    m_ContextMenu.exec( mapToGlobal(point) );
+    m_ContextMenu.exec(mapToGlobal(point));
     m_ContextMenu.clear();
 }
 
-bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
+bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
 {
     const QWebFrame *frame = page()->frameAt(point);
     bool has_image = false;
-    if (frame)
-    {
-        const QWebHitTestResult& hitTest = frame->hitTestContent(point);
+
+    if (frame) {
+        const QWebHitTestResult &hitTest = frame->hitTestContent(point);
         QUrl imageUrl = hitTest.imageUrl();
-        if ( !imageUrl.isValid() && hitTest.element().tagName().toLower() == "image" ) {
+
+        if (!imageUrl.isValid() && hitTest.element().tagName().toLower() == "image") {
             // It is "possible" that we are in an SVG image tag, which the hitTest does
             // not return sufficient information for directly. Go spelunking for an attribute.
             const QWebElement element = hitTest.element();
             foreach(QString attrib, element.attributeNames(XLINK_NAMESPACE)) {
                 if (attrib.toLower() == "href") {
                     QString path = element.attributeNS(XLINK_NAMESPACE, attrib);
+
                     if (!path.isEmpty()) {
                         imageUrl = QUrl::fromLocalFile(QDir::cleanPath(QFileInfo(m_path).absoluteDir().filePath(path)));
                     }
+
                     break;
                 }
             }
         }
 
-        if ( imageUrl.isValid() && imageUrl.isLocalFile() )
-        {
+        if (imageUrl.isValid() && imageUrl.isLocalFile()) {
             has_image = true;
-
             // Open in image tab
             QString filename = imageUrl.toString();
             filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
-            m_Open->setData( imageUrl );
-            m_Open->setText( tr( "Open Tab For" ) + " \"" + filename + "\"");
-            m_ContextMenu.addAction( m_Open );
-
+            m_Open->setData(imageUrl);
+            m_Open->setText(tr("Open Tab For") + " \"" + filename + "\"");
+            m_ContextMenu.addAction(m_Open);
             // Open With
             Resource::ResourceType imageType = Resource::ImageResourceType;
-            if ( imageUrl.path().toLower().endsWith(".svg") )
-            {
+
+            if (imageUrl.path().toLower().endsWith(".svg")) {
                 imageType = Resource::SVGResourceType;
             }
 
-            imageUrl.setPort( imageType ); // "somewhat" ugly, but cheaper than using a QList<QVariant>
-            const QString& editorPath = OpenExternally::editorForResourceType( imageType );
-            if ( editorPath.isEmpty() )
-            {
-                m_OpenWithEditor->setData( QVariant::Invalid );
+            imageUrl.setPort(imageType);   // "somewhat" ugly, but cheaper than using a QList<QVariant>
+            const QString &editorPath = OpenExternally::editorForResourceType(imageType);
 
-                m_OpenWith->setText( tr( "Open With" ) + "...");
-                m_OpenWith->setData( imageUrl );
-
-                m_ContextMenu.addAction( m_OpenWith );
-            }
-            else
-            {
-                const QString& editorDescription = OpenExternally::editorDescriptionForResourceType( imageType );
-                m_OpenWithEditor->setText( editorDescription );
-                m_OpenWithEditor->setData( imageUrl );
-
-                m_OpenWith->setText( tr( "Other Application" ) + "...");
-                m_OpenWith->setData( imageUrl );
-
-                m_ContextMenu.addMenu( &m_OpenWithContextMenu );
+            if (editorPath.isEmpty()) {
+                m_OpenWithEditor->setData(QVariant::Invalid);
+                m_OpenWith->setText(tr("Open With") + "...");
+                m_OpenWith->setData(imageUrl);
+                m_ContextMenu.addAction(m_OpenWith);
+            } else {
+                const QString &editorDescription = OpenExternally::editorDescriptionForResourceType(imageType);
+                m_OpenWithEditor->setText(editorDescription);
+                m_OpenWithEditor->setData(imageUrl);
+                m_OpenWith->setText(tr("Other Application") + "...");
+                m_OpenWith->setData(imageUrl);
+                m_ContextMenu.addMenu(&m_OpenWithContextMenu);
             }
 
             // Save As
-            m_SaveAs->setData( imageUrl );
-            m_CopyImage->setData( imageUrl );
-            m_ContextMenu.addAction( m_SaveAs );
-
+            m_SaveAs->setData(imageUrl);
+            m_CopyImage->setData(imageUrl);
+            m_ContextMenu.addAction(m_SaveAs);
             m_ContextMenu.addSeparator();
-        }
-        else {
+        } else {
             // If not an image allow insert - otherwise cursor is not where you expect.
-
             AddClipContextMenu(&m_ContextMenu);
-
             m_ContextMenu.addSeparator();
-
-            m_ContextMenu.addAction( m_InsertImage );
+            m_ContextMenu.addAction(m_InsertImage);
         }
     }
 
     m_ContextMenu.addSeparator();
-    m_ContextMenu.addAction( m_Undo );
-    m_ContextMenu.addAction( m_Redo );
+    m_ContextMenu.addAction(m_Undo);
+    m_ContextMenu.addAction(m_Redo);
     m_ContextMenu.addSeparator();
-    m_ContextMenu.addAction( m_Cut );
-    m_ContextMenu.addAction( m_Copy );
-    m_ContextMenu.addAction( m_CopyImage );
-    m_ContextMenu.addAction( m_Paste );
+    m_ContextMenu.addAction(m_Cut);
+    m_ContextMenu.addAction(m_Copy);
+    m_ContextMenu.addAction(m_CopyImage);
+    m_ContextMenu.addAction(m_Paste);
     m_ContextMenu.addSeparator();
-    m_ContextMenu.addAction( m_SelectAll );
-
+    m_ContextMenu.addAction(m_SelectAll);
     bool has_selection = !selectedText().isEmpty();
     m_Cut->setEnabled(has_selection);
     m_Copy->setEnabled(has_selection);
     m_CopyImage->setEnabled(has_image);
-
     return true;
 }
 
@@ -880,6 +839,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu( const QPoint &point )
 void BookViewEditor::AddClipContextMenu(QMenu *menu)
 {
     QAction *topAction = 0;
+
     if (!menu->actions().isEmpty()) {
         topAction = menu->actions().at(0);
     }
@@ -887,19 +847,19 @@ void BookViewEditor::AddClipContextMenu(QMenu *menu)
     if (CreateMenuEntries(menu, topAction, ClipEditorModel::instance()->invisibleRootItem())) {
         if (topAction) {
             menu->insertSeparator(topAction);
-        }
-        else {
+        } else {
             menu->addSeparator();
         }
     }
 
-    QAction *saveClipAction = new QAction(tr("Add To Clips" ) + "...", menu);
+    QAction *saveClipAction = new QAction(tr("Add To Clips") + "...", menu);
+
     if (!topAction) {
         menu->addAction(saveClipAction);
-    }
-    else {
+    } else {
         menu->insertAction(topAction, saveClipAction);
     }
+
     connect(saveClipAction, SIGNAL(triggered()), this , SLOT(SaveClipAction()));
     saveClipAction->setEnabled(!GetSelectedText().isEmpty());
 
@@ -923,31 +883,31 @@ bool BookViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, Q
             clipAction = new QAction(item->text(), this);
             connect(clipAction, SIGNAL(triggered()), m_clipMapper, SLOT(map()));
             m_clipMapper->setMapping(clipAction, ClipEditorModel::instance()->GetFullName(item));
+
             if (!topAction) {
                 parent_menu->addAction(clipAction);
-            }
-            else {
+            } else {
                 parent_menu->insertAction(topAction, clipAction);
             }
-        }
-        else {
+        } else {
             group_menu = new QMenu(this);
             group_menu->setTitle(item->text());
 
             if (topAction) {
                 parent_menu->insertMenu(topAction, group_menu);
-            }
-            else {
+            } else {
                 parent_menu->addMenu(group_menu);
             }
+
             topAction = 0;
         }
     }
 
     // Recursively add entries for children
     for (int row = 0; row < item->rowCount(); row++) {
-        CreateMenuEntries(group_menu, topAction, item->child(row,0));
+        CreateMenuEntries(group_menu, topAction, item->child(row, 0));
     }
+
     return item->rowCount() > 0;
 }
 
@@ -957,59 +917,49 @@ void BookViewEditor::SaveClipAction()
     clip.name = "Unnamed Entry";
     clip.is_group = false;
     clip.text = GetSelectedText();
-
     emit OpenClipEditorRequest(&clip);
 }
 
 void BookViewEditor::CreateContextMenuActions()
 {
-    m_InsertImage = new QAction( tr( "Insert Image" ) + "...", this );
-
-    m_Undo      = new QAction( tr( "Undo" ),         this );
-    m_Redo      = new QAction( tr( "Redo" ),         this );
-
-    m_Cut       = new QAction( tr( "Cut" ),         this );
-    m_Copy      = new QAction( tr( "Copy" ),        this );
-    m_CopyImage = new QAction( tr( "Copy Image" ),  this );
-    m_Paste     = new QAction( tr( "Paste" ),       this );
-    m_SelectAll = new QAction( tr( "Select All" ),  this );
-
-    m_Open           = new QAction( tr( "Open" ),  this );
-    m_OpenWithEditor = new QAction( "",          this );
-    m_OpenWith       = new QAction( tr( "Open With" ) + "...",  this );
-    m_SaveAs         = new QAction( tr( "Save As" ) + "...",  this );
-
-    m_OpenWithContextMenu.setTitle( tr( "Open With" ) );
-    m_OpenWithContextMenu.addAction( m_OpenWithEditor );
-    m_OpenWithContextMenu.addAction( m_OpenWith );
+    m_InsertImage = new QAction(tr("Insert Image") + "...", this);
+    m_Undo      = new QAction(tr("Undo"),         this);
+    m_Redo      = new QAction(tr("Redo"),         this);
+    m_Cut       = new QAction(tr("Cut"),         this);
+    m_Copy      = new QAction(tr("Copy"),        this);
+    m_CopyImage = new QAction(tr("Copy Image"),  this);
+    m_Paste     = new QAction(tr("Paste"),       this);
+    m_SelectAll = new QAction(tr("Select All"),  this);
+    m_Open           = new QAction(tr("Open"),  this);
+    m_OpenWithEditor = new QAction("",          this);
+    m_OpenWith       = new QAction(tr("Open With") + "...",  this);
+    m_SaveAs         = new QAction(tr("Save As") + "...",  this);
+    m_OpenWithContextMenu.setTitle(tr("Open With"));
+    m_OpenWithContextMenu.addAction(m_OpenWithEditor);
+    m_OpenWithContextMenu.addAction(m_OpenWith);
 }
 
 void BookViewEditor::ConnectSignalsToSlots()
 {
-    connect( &m_PageUp,            SIGNAL( activated() ), this, SLOT( PageUp()            ) );
-    connect( &m_PageDown,          SIGNAL( activated() ), this, SLOT( PageDown()          ) );
-    connect( &m_ScrollOneLineUp,   SIGNAL( activated() ), this, SLOT( ScrollOneLineUp()   ) );
-    connect( &m_ScrollOneLineDown, SIGNAL( activated() ), this, SLOT( ScrollOneLineDown() ) );
-
-    connect( this,   SIGNAL( contentsChangedExtra() ),  page(), SIGNAL( contentsChanged()        ) );
-    connect( page(), SIGNAL( contentsChanged()  ),      this,   SIGNAL( textChanged()            ) );
-    connect( page(), SIGNAL( selectionChanged() ),      this,   SIGNAL( selectionChanged()       ) );
-
-    connect( page(), SIGNAL( contentsChanged()  ),      this,   SLOT( SetWebPageModified()       ) );
-
-    connect( m_InsertImage,    SIGNAL( triggered() ),  this, SLOT( insertImage()    ) );
-    connect( m_Undo,           SIGNAL( triggered() ),  this, SLOT( Undo()           ) );
-    connect( m_Redo,           SIGNAL( triggered() ),  this, SLOT( Redo()           ) );
-    connect( m_Cut,            SIGNAL( triggered() ),  this, SLOT( cut()            ) );
-    connect( m_Copy,           SIGNAL( triggered() ),  this, SLOT( copy()           ) );
-    connect( m_CopyImage,      SIGNAL( triggered() ),  this, SLOT( copyImage()      ) );
-    connect( m_Paste,          SIGNAL( triggered() ),  this, SLOT( paste()          ) );
-    connect( m_SelectAll,      SIGNAL( triggered() ),  this, SLOT( selectAll()      ) );
-    connect( m_Open,           SIGNAL( triggered() ),  this, SLOT( openImage()      ) );
-    connect( m_OpenWith,       SIGNAL( triggered() ),  this, SLOT( openWith()       ) );
-    connect( m_OpenWithEditor, SIGNAL( triggered() ),  this, SLOT( openWithEditor() ) );
-    connect( m_SaveAs,         SIGNAL( triggered() ),  this, SLOT( saveAs()         ) );
-
-    connect(m_clipMapper, SIGNAL(mapped(const QString&)), this, SLOT(PasteClipEntryFromName(const QString&)));
-
+    connect(&m_PageUp,            SIGNAL(activated()), this, SLOT(PageUp()));
+    connect(&m_PageDown,          SIGNAL(activated()), this, SLOT(PageDown()));
+    connect(&m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
+    connect(&m_ScrollOneLineDown, SIGNAL(activated()), this, SLOT(ScrollOneLineDown()));
+    connect(this,   SIGNAL(contentsChangedExtra()),  page(), SIGNAL(contentsChanged()));
+    connect(page(), SIGNAL(contentsChanged()),      this,   SIGNAL(textChanged()));
+    connect(page(), SIGNAL(selectionChanged()),      this,   SIGNAL(selectionChanged()));
+    connect(page(), SIGNAL(contentsChanged()),      this,   SLOT(SetWebPageModified()));
+    connect(m_InsertImage,    SIGNAL(triggered()),  this, SLOT(insertImage()));
+    connect(m_Undo,           SIGNAL(triggered()),  this, SLOT(Undo()));
+    connect(m_Redo,           SIGNAL(triggered()),  this, SLOT(Redo()));
+    connect(m_Cut,            SIGNAL(triggered()),  this, SLOT(cut()));
+    connect(m_Copy,           SIGNAL(triggered()),  this, SLOT(copy()));
+    connect(m_CopyImage,      SIGNAL(triggered()),  this, SLOT(copyImage()));
+    connect(m_Paste,          SIGNAL(triggered()),  this, SLOT(paste()));
+    connect(m_SelectAll,      SIGNAL(triggered()),  this, SLOT(selectAll()));
+    connect(m_Open,           SIGNAL(triggered()),  this, SLOT(openImage()));
+    connect(m_OpenWith,       SIGNAL(triggered()),  this, SLOT(openWith()));
+    connect(m_OpenWithEditor, SIGNAL(triggered()),  this, SLOT(openWithEditor()));
+    connect(m_SaveAs,         SIGNAL(triggered()),  this, SLOT(saveAs()));
+    connect(m_clipMapper, SIGNAL(mapped(const QString &)), this, SLOT(PasteClipEntryFromName(const QString &)));
 }

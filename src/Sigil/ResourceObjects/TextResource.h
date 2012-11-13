@@ -46,7 +46,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    TextResource( const QString &fullfilepath, QObject *parent = NULL );
+    TextResource(const QString &fullfilepath, QObject *parent = NULL);
 
     /**
      * Returns the text stored in the resource.
@@ -58,7 +58,7 @@ public:
     /**
      * Sets the text of the resource, replacing the stored content.
      */
-    void SetText( const QString& text );
+    void SetText(const QString &text);
 
     /**
      * Returns a reference to the QTextDocument that can be read and written to
@@ -68,10 +68,10 @@ public:
      *
      * @return A reference to the QTextDocument cache.
      */
-    QTextDocument& GetTextDocumentForWriting();
+    QTextDocument &GetTextDocumentForWriting();
 
     // inherited
-    void SaveToDisk( bool book_wide_save = false );
+    void SaveToDisk(bool book_wide_save = false);
 
     /**
      * Loads the text content into the QTextDocument cache if
@@ -103,7 +103,7 @@ private:
      *
      * @param text The text to set.
      */
-    void SetTextInternal( const QString &text );
+    void SetTextInternal(const QString &text);
 
 
     ///////////////////////////////

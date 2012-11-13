@@ -116,8 +116,7 @@ public:
     /**
      * All appearance settings related to BookView.
      */
-    struct BookViewAppearance 
-    {
+    struct BookViewAppearance {
         QString font_family_standard;
         QString font_family_serif;
         QString font_family_sans_serif;
@@ -127,8 +126,7 @@ public:
     /**
      * All appearance settings related to CodeView.
      */
-    struct CodeViewAppearance 
-    {
+    struct CodeViewAppearance {
         QString font_family;
         int font_size;
 
@@ -159,12 +157,11 @@ public:
         QColor xhtml_html_color;
         QColor xhtml_html_comment_color;
     };
-    
+
     /**
      * All appearance settings related to Special Characters.
      */
-    struct SpecialCharacterAppearance 
-    {
+    struct SpecialCharacterAppearance {
         QString font_family;
         int font_size;
     };
@@ -256,9 +253,9 @@ public slots:
      * Set the appearance settings to use for editing in Code View
      */
     void setCodeViewAppearance(const CodeViewAppearance &code_view_appearance);
-        /**
-     * Set the default font settings to use for Special Characters popup window
-     */
+    /**
+    * Set the default font settings to use for Special Characters popup window
+    */
     void setSpecialCharacterAppearance(const SpecialCharacterAppearance &special_character_appearance);
 
 private:

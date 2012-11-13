@@ -27,8 +27,8 @@
 
 #include "Misc/PasteTargetComboBox.h"
 
-PasteTargetComboBox::PasteTargetComboBox( QWidget *parent )
-    : QComboBox( parent )
+PasteTargetComboBox::PasteTargetComboBox(QWidget *parent)
+    : QComboBox(parent)
 {
 }
 
@@ -38,17 +38,15 @@ void PasteTargetComboBox::PasteText(const QString &text)
     // does not support an Undo() if you call setEditText(), only if you call paste()
     // The only downside is that we will want to save/restore the clipboard state around it.
     emit ClipboardSaveRequest();
-    
     QApplication::clipboard()->setText(text);
     lineEdit()->paste();
-    
     emit ClipboardRestoreRequest();
 }
 
 bool PasteTargetComboBox::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
     bool applied = false;
-    foreach(ClipEditorModel::clipEntry *clip, clips) {
+    foreach(ClipEditorModel::clipEntry * clip, clips) {
         applied = applied || PasteClipEntry(clip);
     }
     return applied;

@@ -39,30 +39,22 @@ Reports::Reports(QWidget *parent)
     QDialog(parent)
 {
     ui.setupUi(this);
-
     m_HTMLFilesWidget = new HTMLFilesWidget();
     connect(m_HTMLFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     appendReportsWidget(m_HTMLFilesWidget);
-
     m_ImageFilesWidget = new ImageFilesWidget();
     connect(m_ImageFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     appendReportsWidget(m_ImageFilesWidget);
-
     m_CSSFilesWidget = new CSSFilesWidget();
     connect(m_CSSFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     appendReportsWidget(m_CSSFilesWidget);
-
     m_ClassesInHTMLFilesWidget = new ClassesInHTMLFilesWidget();
     appendReportsWidget(m_ClassesInHTMLFilesWidget);
-
     m_StylesInCSSFilesWidget = new StylesInCSSFilesWidget();
-    connect(m_StylesInCSSFilesWidget, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData*>)), this, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData*>)));
+    connect(m_StylesInCSSFilesWidget, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)));
     appendReportsWidget(m_StylesInCSSFilesWidget);
-
     connectSignalsSlots();
-
     readSettings();
-
     ui.Refresh->setFocus();
 }
 
@@ -97,39 +89,30 @@ Reports::~Reports()
 void Reports::CreateReports(QSharedPointer< Book > book)
 {
     m_Book = book;
-
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Creating reports..."), 0, 0, ui.availableWidgets->count(), this);
     progress.setMinimumDuration(0);
     int progress_value = 0;
     progress.setValue(progress_value++);
     qApp->processEvents();
-
     // Populate all of our report widgets
     m_HTMLFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
-
     m_ImageFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
-
     m_CSSFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
-
     m_ClassesInHTMLFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
-
     m_StylesInCSSFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
-
     QApplication::restoreOverrideCursor();
 }
 
 void Reports::selectPWidget(QListWidgetItem *current, QListWidgetItem *previous)
 {
     Q_UNUSED(previous)
-
     int index = ui.availableWidgets->row(current);
     ui.pWidget->setCurrentIndex(index);
 }
@@ -137,34 +120,32 @@ void Reports::selectPWidget(QListWidgetItem *current, QListWidgetItem *previous)
 void Reports::saveSettings()
 {
     SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
+    settings.beginGroup(SETTINGS_GROUP);
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
     settings.setValue("geometry", saveGeometry());
     settings.setValue("lastreport", ui.availableWidgets->currentRow());
-
     QApplication::restoreOverrideCursor();
 }
 
 void Reports::readSettings()
 {
     SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
+    settings.beginGroup(SETTINGS_GROUP);
     QByteArray geometry = settings.value("geometry").toByteArray();
+
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     }
 
     // Ensure the previous item selected in the available reports widgets list
     // is highlighted.
-    int last_report_index = settings.value( "lastreport", 0 ).toInt();
-    if ( last_report_index > ui.availableWidgets->count() - 1 ) {
+    int last_report_index = settings.value("lastreport", 0).toInt();
+
+    if (last_report_index > ui.availableWidgets->count() - 1) {
         last_report_index = 0;
     }
-    ui.availableWidgets->setCurrentRow(last_report_index);
 
+    ui.availableWidgets->setCurrentRow(last_report_index);
     settings.endGroup();
 }
 
@@ -172,16 +153,14 @@ void Reports::appendReportsWidget(ReportsWidget *widget)
 {
     // Add the ReportsWidget to the stack view area.
     ui.pWidget->addWidget(widget);
-
     connect(widget, SIGNAL(OpenFileRequest(QString, int)), this, SIGNAL(OpenFileRequest(QString, int)));
-
     // Add an entry to the list of available reports widgets.
     ui.availableWidgets->addItem(widget->windowTitle());
 }
 
 void Reports::connectSignalsSlots()
 {
-    connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(selectPWidget(QListWidgetItem*, QListWidgetItem*)));
+    connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(selectPWidget(QListWidgetItem *, QListWidgetItem *)));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveSettings()));
     connect(ui.Refresh, SIGNAL(clicked()), this, SIGNAL(Refresh()));
 }

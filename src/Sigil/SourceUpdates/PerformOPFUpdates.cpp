@@ -23,17 +23,17 @@
 
 #include "SourceUpdates/PerformOPFUpdates.h"
 
-PerformOPFUpdates::PerformOPFUpdates( const QString &source,
-                                      const QHash< QString, QString > &xml_updates )
-    : PerformXMLUpdates( source, xml_updates )
+PerformOPFUpdates::PerformOPFUpdates(const QString &source,
+                                     const QHash< QString, QString > &xml_updates)
+    : PerformXMLUpdates(source, xml_updates)
 {
     InitPathTags();
 }
 
 
-PerformOPFUpdates::PerformOPFUpdates( const xc::DOMDocument &document, 
-                                      const QHash< QString, QString > &xml_updates )
-    : PerformXMLUpdates( document, xml_updates )
+PerformOPFUpdates::PerformOPFUpdates(const xc::DOMDocument &document,
+                                     const QHash< QString, QString > &xml_updates)
+    : PerformXMLUpdates(document, xml_updates)
 {
     InitPathTags();
 }

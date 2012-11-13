@@ -30,9 +30,8 @@
 
 // Constructor
 ImporterFactory::ImporterFactory()
-    : imImporter( NULL )
+    : imImporter(NULL)
 {
-
 }
 
 
@@ -45,39 +44,32 @@ ImporterFactory::~ImporterFactory()
 
 // Returns a reference to the importer
 // appropriate for the given filename
-Importer& ImporterFactory::GetImporter( const QString &filename )
+Importer &ImporterFactory::GetImporter(const QString &filename)
 {
-    QString extension = QFileInfo( filename ).suffix().toLower();
+    QString extension = QFileInfo(filename).suffix().toLower();
 
-    if ( ( extension == "xhtml" ) ||
-         ( extension == "html" )  ||
-         ( extension == "htm" )
-        )
-    {
-        imImporter = new ImportHTML( filename );
-
+    if ((extension == "xhtml") ||
+        (extension == "html")  ||
+        (extension == "htm")
+       ) {
+        imImporter = new ImportHTML(filename);
         return *imImporter;
     }
 
-    if ( ( extension == "txt" ) )
-    {
-        imImporter = new ImportTXT( filename );
-
+    if ((extension == "txt")) {
+        imImporter = new ImportTXT(filename);
         return *imImporter;
     }
 
-    if ( ( extension == "epub" ) )
-    {
-        imImporter = new ImportEPUB( filename );
-
+    if ((extension == "epub")) {
+        imImporter = new ImportEPUB(filename);
         return *imImporter;
     }
 
     // FIXME: Tell the user that the extension wasn't
     // recognized and then offer a default method
     // of loading (or maybe a list of methods?)
-    imImporter = new ImportTXT( filename );
-
+    imImporter = new ImportTXT(filename);
     return *imImporter;
 }
 

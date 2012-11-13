@@ -40,10 +40,9 @@ class Headings
 
 public:
 
-    // Describes a heading element found 
+    // Describes a heading element found
     // in the XHTML source code
-    struct Heading
-    {
+    struct Heading {
         // The HTMLResource file the heading belongs to
         HTMLResource *resource_file;
 
@@ -66,7 +65,7 @@ public:
         int orig_level;
 
         // True if the heading appears within
-        // 20 lines after the body tag 
+        // 20 lines after the body tag
         // (only one heading per file)
         bool at_file_start;
 
@@ -83,45 +82,44 @@ public:
     };
 
     // A wrapper struct for the pointer
-    // because of restrictions on what 
+    // because of restrictions on what
     // can be stored inside a QVariant
-    struct HeadingPointer
-    {
+    struct HeadingPointer {
         Heading *heading;
-    }; 
+    };
 
 
     // Returns a list of headings from the provided XHTML source;
     // the list is flat, the headings are *not* in a hierarchy tree.
-    // Set include_unwanted_headings to true to get headings that the 
+    // Set include_unwanted_headings to true to get headings that the
     // user has marked as unwanted.
-    static QList< Heading > GetHeadingList( QList< HTMLResource* > html_resources,
-                                            bool include_unwanted_headings = false ); 
+    static QList< Heading > GetHeadingList(QList< HTMLResource * > html_resources,
+                                           bool include_unwanted_headings = false);
 
-    static QList< Heading > GetHeadingListForOneFile( HTMLResource* html_resource,
-                                                      bool include_unwanted_headings = false );
+    static QList< Heading > GetHeadingListForOneFile(HTMLResource *html_resource,
+            bool include_unwanted_headings = false);
 
     // Takes a flat list of headings and returns a list with those
     // headings sorted into a hierarchy
-    static QList< Heading > MakeHeadingHeirarchy( const QList< Heading > &headings );
+    static QList< Heading > MakeHeadingHeirarchy(const QList< Heading > &headings);
 
     // Takes a hierarchical list of headings and converts it into a flat list
-    static QList< Heading > GetFlattenedHeadings( const QList< Heading > &headings );       
+    static QList< Heading > GetFlattenedHeadings(const QList< Heading > &headings);
 
 private:
     // Flattens the provided heading node and its children
     // into a list and returns it
-    static QList< Heading > FlattenHeadingNode( Heading heading );   
+    static QList< Heading > FlattenHeadingNode(Heading heading);
 
     // Adds the new_child heading to the parent heading;
     // the new_child is propagated down the tree if necessary
-    static void AddChildHeading( Heading &parent, Heading new_child );
+    static void AddChildHeading(Heading &parent, Heading new_child);
 };
 
 
 // Enables us to store instances of the
 // HeadingPointer struct inside of QVariants
-Q_DECLARE_METATYPE( Headings::HeadingPointer );
+Q_DECLARE_METATYPE(Headings::HeadingPointer);
 
 
 #endif // HEADINGS_H

@@ -57,17 +57,18 @@ SpellCheck::SpellCheck() :
 {
     // There is a considerable lag involved in loading the Spellcheck dictionaries
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    
     loadDictionaryNames();
-
     // Create the user dictionary word list directiory if neccessary and
     // create the configured file if necessary.
     const QString user_directory = userDictionaryDirectory();
     QDir userDir(user_directory);
+
     if (!userDir.exists()) {
         userDir.mkpath(user_directory);
     }
+
     QFile userFile(currentUserDictionaryFile());
+
     if (!userFile.exists()) {
         if (userFile.open(QIODevice::WriteOnly)) {
             userFile.close();
@@ -77,7 +78,6 @@ SpellCheck::SpellCheck() :
     // Load the dictionary the user has selected if one was saved.
     SettingsStore settings;
     setDictionary(settings.dictionary());
-
     QApplication::restoreOverrideCursor();
 }
 
@@ -125,13 +125,13 @@ QStringList SpellCheck::suggest(const QString &word)
 
     QStringList suggestions;
     char **suggestedWords;
-
     int count = m_hunspell->suggest(&suggestedWords, m_codec->fromUnicode(word).constData());
+
     for (int i = 0; i < count; ++i) {
         suggestions << m_codec->toUnicode(suggestedWords[i]);
     }
-    m_hunspell->free_list(&suggestedWords, count);
 
+    m_hunspell->free_list(&suggestedWords, count);
     return suggestions;
 }
 
@@ -171,6 +171,7 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
     QString hyph_dic = QString("%1hyph_%2.dic").arg(m_dictionaries.value(name)).arg(name);
     // Create a new hunspell object.
     m_hunspell = new Hunspell(aff.toLocal8Bit().constData(), dic.toLocal8Bit().constData());
+
     // Load the hyphenation dictionary if it exists.
     if (QFile::exists(hyph_dic)) {
         m_hunspell->add_dic(hyph_dic.toLocal8Bit().constData());
@@ -178,12 +179,13 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
 
     // Get the encoding for the text in the dictionary.
     m_codec = QTextCodec::codecForName(m_hunspell->get_dic_encoding());
+
     if (m_codec == 0) {
         m_codec = QTextCodec::codecForName("UTF-8");
     }
 
     // Load in the words from the user dictionary.
-    foreach (QString word, userDictionaryWords()) {
+    foreach(QString word, userDictionaryWords()) {
         ignoreWord(word);
     }
 }
@@ -205,10 +207,12 @@ void SpellCheck::addToUserDictionary(const QString &word)
     if (!userDictionaryWords().contains(word)) {
         const QString userDict = currentUserDictionaryFile();
         QFile userDictFile(userDict);
+
         if (!userDictFile.exists()) {
             // Try to create the path in case it does not exist.
             QDir().mkpath(QFileInfo(userDict).absolutePath());
         }
+
         // Try to open the file to add the word.
         if (userDictFile.open(QIODevice::Append)) {
             QTextStream userDictStream(&userDictFile);
@@ -222,19 +226,22 @@ void SpellCheck::addToUserDictionary(const QString &word)
 QStringList SpellCheck::userDictionaryWords()
 {
     QStringList userWords;
-
     // Read each word from the user dictionary.
     QFile userDictFile(currentUserDictionaryFile());
+
     if (userDictFile.open(QIODevice::ReadOnly)) {
         QTextStream userDictStream(&userDictFile);
         userDictStream.setCodec("UTF-8");
         QString line;
+
         do {
             line = userDictStream.readLine();
+
             if (!line.isEmpty()) {
                 userWords << line;
             }
         } while (!line.isNull());
+
         userDictFile.close();
     }
 
@@ -245,18 +252,17 @@ QStringList SpellCheck::userDictionaryWords()
 void SpellCheck::replaceUserDictionaryWords(QStringList words)
 {
     words.sort();
-
     // Delete everything from the user dictionary file.
     QFile userDictFile(currentUserDictionaryFile());
+
     if (userDictFile.open(QFile::WriteOnly | QFile::Truncate)) {
         userDictFile.close();
     }
 
     // Add all words to the user dictionary.
-    foreach (QString word, words) {
+    foreach(QString word, words) {
         addToUserDictionary(word);
     }
-
     // Reload the dictionary so old user words are cleared.
     reloadDictionary();
 }
@@ -267,11 +273,10 @@ void SpellCheck::loadDictionaryNames()
     QStringList dictExts;
     dictExts << ".aff"
              << ".dic";
-
     m_dictionaries.clear();
-
     const QString user_directory = dictionaryDirectory();
     QDir userDir(user_directory);
+
     // Create the user dictionary directory if it does not exist.
     if (!userDir.exists()) {
         userDir.mkpath(user_directory);
@@ -288,9 +293,11 @@ void SpellCheck::loadDictionaryNames()
 #ifdef Q_WS_X11
     // The user can specify an env variable that points to the dictionaries.
     const QString env_dic_location = QString(getenv("SIGIL_DICTIONARIES"));
+
     if (!env_dic_location.isEmpty()) {
         paths << env_dic_location;
     }
+
     // Possible location if the user installed from source.
     // This really should be changed to be passed the install prefix given to
     // cmake instead of guessing based upon the executable path.
@@ -299,20 +306,21 @@ void SpellCheck::loadDictionaryNames()
     // Add the user dictionary directory last because anything in here
     // will override installation supplied dictionaries.
     paths << user_directory;
-
-    foreach (QString path, paths) {
+    foreach(QString path, paths) {
         // Find all dictionaries and add them to the avaliable list.
         QDir dictDir(path);
+
         if (dictDir.exists()) {
             QStringList filters;
             // Look for all .dic files.
             filters << "*.dic";
             dictDir.setNameFilters(filters);
             QStringList otherDicts = dictDir.entryList();
-            foreach (QString ud, otherDicts) {
+            foreach(QString ud, otherDicts) {
                 const QFileInfo fileInfo(ud);
                 const QString basename = fileInfo.baseName();
                 const QString udPath = path + "/";
+
                 // We only include the dictionary if it has a corresponding .aff.
                 if (QFile(udPath + basename + ".aff").exists()) {
                     m_dictionaries.insert(basename, udPath);

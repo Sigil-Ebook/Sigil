@@ -44,11 +44,8 @@ SelectImages::SelectImages(QString basepath, QList<Resource *> image_resources, 
     m_IsInsertFromDisk(false)
 {
     ui.setupUi(this);
-
     ReadSettings();
-
     SetImages();
-
     connectSignalsSlots();
 }
 
@@ -66,8 +63,7 @@ QStringList SelectImages::SelectedImages()
 
     if (ui.imageTree->selectionModel()->hasSelection()) {
         QModelIndexList selected_indexes = ui.imageTree->selectionModel()->selectedRows(0);
-
-        foreach (QModelIndex index, selected_indexes) {
+        foreach(QModelIndex index, selected_indexes) {
             selected_images.append(m_SelectImagesModel->itemFromIndex(index)->text());
         }
     }
@@ -78,51 +74,46 @@ QStringList SelectImages::SelectedImages()
 void SelectImages::SetImages()
 {
     m_SelectImagesModel->clear();
-
     QStringList header;
+    header.append(tr("Images In the Book"));
 
-    header.append(tr("Images In the Book" ));
     if (m_ThumbnailSize) {
         header.append(tr("Thumbnails"));
     }
+
     m_SelectImagesModel->setHorizontalHeaderLabels(header);
-
     ui.imageTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-
     ui.imageTree->setModel(m_SelectImagesModel);
-
     QSize icon_size(m_ThumbnailSize, m_ThumbnailSize);
     ui.imageTree->setIconSize(icon_size);
-
     int row = 0;
-    foreach (Resource *resource, m_ImageResources) {
-            QString filepath = "../" + resource->GetRelativePathToOEBPS();
+    foreach(Resource * resource, m_ImageResources) {
+        QString filepath = "../" + resource->GetRelativePathToOEBPS();
+        QList<QStandardItem *> rowItems;
+        QStandardItem *name_item = new QStandardItem();
+        name_item->setText(resource->Filename());
+        name_item->setToolTip(filepath);
+        name_item->setEditable(false);
+        rowItems << name_item;
 
-            QList<QStandardItem *> rowItems;
+        if (m_ThumbnailSize) {
+            QPixmap pixmap(resource->GetFullPath());
 
-            QStandardItem *name_item = new QStandardItem();
-            name_item->setText(resource->Filename());
-            name_item->setToolTip(filepath);
-            name_item->setEditable(false);
-            rowItems << name_item;
-
-            if (m_ThumbnailSize) {
-                QPixmap pixmap(resource->GetFullPath());
-                if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
-                    pixmap = pixmap.scaled(QSize(m_ThumbnailSize, m_ThumbnailSize), Qt::KeepAspectRatio);
-                }
-
-                QStandardItem *icon_item = new QStandardItem();
-                icon_item->setIcon(QIcon(pixmap));
-                icon_item->setEditable(false);
-                rowItems << icon_item;
+            if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
+                pixmap = pixmap.scaled(QSize(m_ThumbnailSize, m_ThumbnailSize), Qt::KeepAspectRatio);
             }
 
-            m_SelectImagesModel->appendRow(rowItems);
-            row++;
-    }
+            QStandardItem *icon_item = new QStandardItem();
+            icon_item->setIcon(QIcon(pixmap));
+            icon_item->setEditable(false);
+            rowItems << icon_item;
+        }
 
+        m_SelectImagesModel->appendRow(rowItems);
+        row++;
+    }
     ui.imageTree->header()->setStretchLastSection(true);
+
     for (int i = 0; i < ui.imageTree->header()->count(); i++) {
         ui.imageTree->resizeColumnToContents(i);
     }
@@ -162,10 +153,12 @@ void SelectImages::IncreaseThumbnailSize()
 void SelectImages::DecreaseThumbnailSize()
 {
     m_ThumbnailSize -= THUMBNAIL_SIZE_INCREMENT;
+
     if (m_ThumbnailSize <= 0) {
         m_ThumbnailSize = 0;
         ui.ThumbnailDecrease->setEnabled(false);
     }
+
     m_DefaultSelectedImage = GetLastSelectedImageName();
     SetImages();
 }
@@ -187,14 +180,11 @@ void SelectImages::SetPreviewImage()
 {
     QPixmap(pixmap);
     QString details = "";
-
     QStandardItem *item = GetLastSelectedImageItem();
 
     if (item && !item->text().isEmpty()) {
-
         QString path = m_Basepath + item->text();
         pixmap = QPixmap(path);
-
         // Set size to match window, with a small border
         int width = ui.preview->width() - 10;
         int height = ui.preview->height() - 10;
@@ -208,48 +198,43 @@ void SelectImages::SetPreviewImage()
         const QFileInfo fileInfo = QFileInfo(path);
         const double ffsize = fileInfo.size() / 1024.0;
         const QString fsize = QLocale().toString(ffsize, 'f', 2);
-    
         const QImage img(path);
         const QUrl imgUrl = QUrl::fromLocalFile(path);
-    
-        QString colors_shades = img.isGrayscale() ? tr("shades") : tr ("colors");
+        QString colors_shades = img.isGrayscale() ? tr("shades") : tr("colors");
         QString grayscale_color = img.isGrayscale() ? tr("Grayscale") : tr("Color");
-        QString colorsInfo = ""; 
+        QString colorsInfo = "";
+
         if (img.depth() == 32) {
             colorsInfo = QString(" %1bpp").arg(img.bitPlaneCount());
-        }
-        else if (img.depth() > 0) {
+        } else if (img.depth() > 0) {
             colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
         }
 
         details = QString("%2x%3px | %4 KB | %5%6").arg(img.width()).arg(img.height())
-                                                .arg(fsize).arg(grayscale_color).arg(colorsInfo);
+                  .arg(fsize).arg(grayscale_color).arg(colorsInfo);
     }
 
     ui.preview->setPixmap(pixmap);
-
     ui.Details->setText(details);
-
     m_PreviewLoaded = true;
 }
 
 void SelectImages::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
-
     QStandardItem *root_item = m_SelectImagesModel->invisibleRootItem();
     QModelIndex parent_index;
-
     // Hide rows that don't contain the filter text
     int first_visible_row = -1;
+
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (text.isEmpty() || root_item->child(row, COL_NAME)->text().toLower().contains(lowercaseText)) {
             ui.imageTree->setRowHidden(row, parent_index, false);
+
             if (first_visible_row == -1) {
                 first_visible_row = row;
             }
-        }
-        else {
+        } else {
             ui.imageTree->setRowHidden(row, parent_index, true);
         }
     }
@@ -257,19 +242,19 @@ void SelectImages::FilterEditTextChangedSlot(const QString &text)
     if (!text.isEmpty() && first_visible_row != -1) {
         // Select the first non-hidden row
         ui.imageTree->setCurrentIndex(root_item->child(first_visible_row, 0)->index());
-    }
-    else {
+    } else {
         // Clear current and selection, which clears preview image
         ui.imageTree->setCurrentIndex(QModelIndex());
     }
 }
 
-QStandardItem* SelectImages::GetLastSelectedImageItem()
+QStandardItem *SelectImages::GetLastSelectedImageItem()
 {
     QStandardItem *item = NULL;
 
     if (ui.imageTree->selectionModel()->hasSelection()) {
         QModelIndexList selected_indexes = ui.imageTree->selectionModel()->selectedRows(0);
+
         if (!selected_indexes.isEmpty()) {
             item = m_SelectImagesModel->itemFromIndex(selected_indexes.last());
         }
@@ -281,7 +266,6 @@ QStandardItem* SelectImages::GetLastSelectedImageItem()
 QString SelectImages::GetLastSelectedImageName()
 {
     QString selected_entry = "";
-
     QStandardItem *item = GetLastSelectedImageItem();
 
     if (item) {
@@ -302,7 +286,6 @@ void SelectImages::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     QByteArray geometry = settings.value("geometry").toByteArray();
 
@@ -319,6 +302,7 @@ void SelectImages::ReadSettings()
 
     // The thumbnail size
     m_ThumbnailSize = settings.value("thumbnail_size").toInt();
+
     if (m_ThumbnailSize <= 0) {
         ui.ThumbnailDecrease->setEnabled(false);
     }
@@ -330,32 +314,26 @@ void SelectImages::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
-
     // The position of the splitter handle
     settings.setValue("splitter", ui.splitter->saveState());
-
     // The thumbnail size
     settings.setValue("thumbnail_size", m_ThumbnailSize);
-
     settings.endGroup();
 }
 
 void SelectImages::connectSignalsSlots()
 {
-    QItemSelectionModel* selectionModel = ui.imageTree->selectionModel();
-
-    connect(selectionModel,     SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), 
-            this,               SLOT(SelectionChanged(const QItemSelection&, const QItemSelection&)));
+    QItemSelectionModel *selectionModel = ui.imageTree->selectionModel();
+    connect(selectionModel,     SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+            this,               SLOT(SelectionChanged(const QItemSelection &, const QItemSelection &)));
     connect(ui.imageTree,       SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(accept()));
     connect(this,               SIGNAL(accepted()), this, SLOT(WriteSettings()));
-    connect(ui.Filter,          SIGNAL(textChanged(QString)), 
+    connect(ui.Filter,          SIGNAL(textChanged(QString)),
             this,               SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.ThumbnailIncrease, SIGNAL(clicked()), this, SLOT(IncreaseThumbnailSize()));
     connect(ui.ThumbnailDecrease, SIGNAL(clicked()), this, SLOT(DecreaseThumbnailSize()));
     connect(ui.preview,         SIGNAL(Resized()), this, SLOT(ReloadPreview()));
     connect(ui.InsertFromDisk,  SIGNAL(clicked()), this, SLOT(InsertFromDisk()));
-
 }

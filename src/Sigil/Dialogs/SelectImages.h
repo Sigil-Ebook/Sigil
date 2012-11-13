@@ -93,7 +93,7 @@ private:
 
     QStandardItemModel *m_SelectImagesModel;
 
-    QStandardItem* GetLastSelectedImageItem();
+    QStandardItem *GetLastSelectedImageItem();
     QString GetLastSelectedImageName();
 
     bool m_PreviewLoaded;

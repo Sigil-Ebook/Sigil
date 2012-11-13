@@ -30,17 +30,17 @@ class OpenExternally
 
 public:
 
-    static bool mayOpen( const Resource::ResourceType type );
+    static bool mayOpen(const Resource::ResourceType type);
 
-    static bool openFile( const QString& filePath, const QString& application );
+    static bool openFile(const QString &filePath, const QString &application);
 
-    static const QString editorForResourceType( const Resource::ResourceType type );
+    static const QString editorForResourceType(const Resource::ResourceType type);
 
-    static const QString editorDescriptionForResourceType( const Resource::ResourceType type );
+    static const QString editorDescriptionForResourceType(const Resource::ResourceType type);
 
-    static const QString selectEditorForResourceType( const Resource::ResourceType type );
+    static const QString selectEditorForResourceType(const Resource::ResourceType type);
 
-    static const QString prettyApplicationName( const QString& applicationpath );
+    static const QString prettyApplicationName(const QString &applicationpath);
 };
 
 #endif // OPENEXTERNALLY_H

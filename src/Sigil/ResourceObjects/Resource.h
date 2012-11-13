@@ -30,12 +30,12 @@
 
 /**
  * Represents a resource file on disk.
- * Stores data caches for improved performance, 
+ * Stores data caches for improved performance,
  * enables safe multi-threaded access to the data
  * and holds all sorts of meta information
  * on the file.
  */
-class Resource : public QObject 
+class Resource : public QObject
 {
     Q_OBJECT
 
@@ -50,8 +50,7 @@ public:
      * that refer to, say, ::HTMLResource as having a parameter type of "::HTMLResource".
      * That is then incompatible with just "HTMLResource". So we use a suffix.
      */
-    enum ResourceType
-    {
+    enum ResourceType {
         GenericResourceType  = 1 <<  0, /**< A \em vulgaris resource; used for Misc resources. */
         TextResourceType     = 1 <<  1, /**< Used for Text resources, but \em not HTML files. */
         XMLResourceType      = 1 <<  2, /**< Used for Text resources, but \em not HTML files. */
@@ -72,7 +71,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    Resource( const QString &fullfilepath, QObject *parent = NULL );
+    Resource(const QString &fullfilepath, QObject *parent = NULL);
 
     /**
      * The less-than operator overload. By default, compares
@@ -80,7 +79,7 @@ public:
      *
      * @param other The other Resource object we're comparing with.
      */
-    virtual bool operator< ( const Resource& other );
+    virtual bool operator< (const Resource &other);
 
     /**
      * Returns the resource's UUID.
@@ -114,7 +113,7 @@ public:
 
     /**
      * Returns the resource's full file path.
-     * We \em really shouldn't be using this, 
+     * We \em really shouldn't be using this,
      * it kinda breaks encapsulation.
      *
      * @return The resource's full file path.
@@ -133,7 +132,7 @@ public:
      *
      * @return The resource's ReadWriteLock.
      */
-    QReadWriteLock& GetLock() const;
+    QReadWriteLock &GetLock() const;
 
     /**
      * Returns the resource's icon.
@@ -148,14 +147,14 @@ public:
      * @param new_filename The new name.
      * @return \c true if the operation was successful.
      */
-    virtual bool RenameTo( const QString &new_filename );
+    virtual bool RenameTo(const QString &new_filename);
 
     /**
      * Deletes the resource.
      *
      * @return \c true if the operation was successful.
      */
-    virtual bool Delete();    
+    virtual bool Delete();
 
     /**
      * Returns the resource's type.
@@ -172,7 +171,7 @@ public:
      * @param book_wide_save If \c false (the default), a ResourceUpdatedOnDisk()
      *                       signal will be emitted.
      */
-    virtual void SaveToDisk( bool book_wide_save = false );
+    virtual void SaveToDisk(bool book_wide_save = false);
 
     /**
      * Called by FolderKeeper when files get changed on disk.
@@ -187,14 +186,14 @@ signals:
      *
      * @param resource The resource's that was renamed.
      */
-    void Renamed( const Resource& resource, QString old_full_path );
+    void Renamed(const Resource &resource, QString old_full_path);
 
     /**
      * Emitted when the resource has been scheduled for deletion.
      *
      * @param resource The resource's that was deleted.
      */
-    void Deleted( const Resource& resource );
+    void Deleted(const Resource &resource);
 
     /**
      * Emitted when the resource has been updated on disk.
@@ -205,10 +204,10 @@ signals:
      * Emitted after a resource was refreshed from a newer version on disk.
      * Caused by book files being modified from outside Sigil.
      */
-    void ResourceUpdatedFromDisk(Resource& resource);
+    void ResourceUpdatedFromDisk(Resource &resource);
 
     /**
-     * Emitted when the resource has been modified. This 
+     * Emitted when the resource has been modified. This
      * modification may or may not be visible on the disk.
      * (this means that the ResourceUpdatedOnDisk may or may
      * not have been also emitted).

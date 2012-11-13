@@ -28,7 +28,7 @@
 
 class Book;
 
-class NCXResource : public XMLResource 
+class NCXResource : public XMLResource
 {
     Q_OBJECT
 
@@ -41,19 +41,19 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    NCXResource( const QString &fullfilepath, QObject *parent = NULL );
+    NCXResource(const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
 
-    virtual bool RenameTo( const QString &new_filename );
+    virtual bool RenameTo(const QString &new_filename);
 
     virtual ResourceType Type() const;
 
-    void SetMainID( const QString &main_id );
+    void SetMainID(const QString &main_id);
 
-    bool GenerateNCXFromBookContents( const Book &book );
+    bool GenerateNCXFromBookContents(const Book &book);
 
-    void GenerateNCXFromTOCContents( const Book &book, NCXModel &ncx_model );
+    void GenerateNCXFromTOCContents(const Book &book, NCXModel &ncx_model);
 
 
 private:

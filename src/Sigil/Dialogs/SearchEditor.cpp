@@ -33,35 +33,28 @@ static const QString SETTINGS_GROUP = "saved_searches";
 static const QString FILE_EXTENSION = "ini";
 
 SearchEditor::SearchEditor(QWidget *parent)
-    : 
+    :
     QDialog(parent),
     m_LastFolderOpen(QString()),
     m_ContextMenu(new QMenu(this))
 {
-    ui.setupUi(this);	
+    ui.setupUi(this);
     ui.FilterText->installEventFilter(this);
-
     ui.LoadSearch->setDefault(true);
-
     SetupSearchEditorTree();
-
     CreateContextMenuActions();
-
     ConnectSignalsSlots();
-} 
+}
 
 void SearchEditor::SetupSearchEditorTree()
 {
     m_SearchEditorModel = SearchEditorModel::instance();
-
     ui.SearchEditorTree->setModel(m_SearchEditorModel);
     ui.SearchEditorTree->setContextMenuPolicy(Qt::CustomContextMenu);
     ui.SearchEditorTree->setSortingEnabled(false);
     ui.SearchEditorTree->setWordWrap(true);
-    ui.SearchEditorTree->setAlternatingRowColors(true); 
-
+    ui.SearchEditorTree->setAlternatingRowColors(true);
     ui.SearchEditorTree->installEventFilter(this);
-
     ui.SearchEditorTree->header()->setToolTip(
         "<p>" + tr("All searches default to Regex, All HTML Files, Down.") + "</p>" +
         "<p>" + tr("Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.") + "</p>" +
@@ -72,12 +65,10 @@ void SearchEditor::SetupSearchEditorTree()
         "<dt><b>" + tr("Find") + "</b><dd>" + tr("The text to put into the Find box.") + "</dd>" +
         "<dt><b>" + tr("Replace") + "</b><dd>" + tr("The text to put into the Replace box.") + "</dd>" +
         "</dl>");
-
-    ui.buttonBox->setToolTip( QString() +
-        "<dl>" +
-        "<dt><b>" + tr("Save") + "</b><dd>" + tr("Save your changes.") + "<br/><br/>" + tr("If any other instances of Sigil are running they will be automatically updated with your changes.") + "</dd>" +
-        "</dl>");
-
+    ui.buttonBox->setToolTip(QString() +
+                             "<dl>" +
+                             "<dt><b>" + tr("Save") + "</b><dd>" + tr("Save your changes.") + "<br/><br/>" + tr("If any other instances of Sigil are running they will be automatically updated with your changes.") + "</dd>" +
+                             "</dl>");
     ui.SearchEditorTree->header()->setStretchLastSection(true);
 }
 
@@ -88,13 +79,14 @@ void SearchEditor::ShowMessage(const QString &message)
     QApplication::processEvents();
 }
 
-bool SearchEditor::SaveData(QList<SearchEditorModel::searchEntry*> entries, QString filename)
+bool SearchEditor::SaveData(QList<SearchEditorModel::searchEntry *> entries, QString filename)
 {
     QString message = m_SearchEditorModel->SaveData(entries, filename);
 
     if (!message.isEmpty()) {
         Utility::DisplayStdErrorDialog(tr("Cannot save entries.") + "\n\n" + message);
     }
+
     return message.isEmpty();
 }
 
@@ -131,7 +123,6 @@ void SearchEditor::ReplaceAll()
 void SearchEditor::showEvent(QShowEvent *event)
 {
     bool has_settings = ReadSettings();
-
     ui.SearchEditorTree->expandAll();
     ui.Filter->setCurrentIndex(0);
     ui.FilterText->clear();
@@ -142,6 +133,7 @@ void SearchEditor::showEvent(QShowEvent *event)
         for (int column = 0; column < ui.SearchEditorTree->header()->count(); column++) {
             ui.SearchEditorTree->resizeColumnToContents(column);
         }
+
         // Hitting an issue for first time user resizing the Find column to only width
         // of the heading. Just force an initial width instead.
         ui.SearchEditorTree->setColumnWidth(1, 150);
@@ -157,7 +149,7 @@ bool SearchEditor::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == ui.FilterText) {
         if (event->type() == QEvent::KeyPress) {
-            QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
             int key = keyEvent->key();
 
             if (key == Qt::Key_Down) {
@@ -166,6 +158,7 @@ bool SearchEditor::eventFilter(QObject *obj, QEvent *event)
             }
         }
     }
+
     // pass the event on to the parent class
     return QDialog::eventFilter(obj, event);
 }
@@ -186,6 +179,7 @@ void SearchEditor::ModelItemDropped(const QModelIndex &index)
 int SearchEditor::SelectedRowsCount()
 {
     int count = 0;
+
     if (ui.SearchEditorTree->selectionModel()->hasSelection()) {
         count = ui.SearchEditorTree->selectionModel()->selectedRows(0).count();
     }
@@ -193,18 +187,17 @@ int SearchEditor::SelectedRowsCount()
     return count;
 }
 
-SearchEditorModel::searchEntry* SearchEditor::GetSelectedEntry(bool show_warning)
+SearchEditorModel::searchEntry *SearchEditor::GetSelectedEntry(bool show_warning)
 {
     SearchEditorModel::searchEntry *entry = NULL;
 
     if (ui.SearchEditorTree->selectionModel()->hasSelection()) {
-        QStandardItem* item = NULL;
+        QStandardItem *item = NULL;
         QModelIndexList selected_indexes = ui.SearchEditorTree->selectionModel()->selectedRows(0);
 
         if (selected_indexes.count() == 1) {
             item = m_SearchEditorModel->itemFromIndex(selected_indexes.first());
-        }
-        else if (show_warning) {
+        } else if (show_warning) {
             Utility::DisplayStdErrorDialog(tr("You cannot select more than one entry when using this action."));
             return entry;
         }
@@ -212,8 +205,7 @@ SearchEditorModel::searchEntry* SearchEditor::GetSelectedEntry(bool show_warning
         if (item) {
             if (!m_SearchEditorModel->ItemIsGroup(item)) {
                 entry = m_SearchEditorModel->GetEntry(item);
-            }
-            else if (show_warning) {
+            } else if (show_warning) {
                 Utility::DisplayStdErrorDialog(tr("You cannot select a group for this action."));
             }
         }
@@ -222,13 +214,12 @@ SearchEditorModel::searchEntry* SearchEditor::GetSelectedEntry(bool show_warning
     return entry;
 }
 
-QList<SearchEditorModel::searchEntry*> SearchEditor::GetSelectedEntries()
+QList<SearchEditorModel::searchEntry *> SearchEditor::GetSelectedEntries()
 {
     QList<SearchEditorModel::searchEntry *> selected_entries;
 
     if (ui.SearchEditorTree->selectionModel()->hasSelection()) {
-
-        QList<QStandardItem*> items = m_SearchEditorModel->GetNonGroupItems(GetSelectedItems());
+        QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(GetSelectedItems());
 
         if (!ItemsAreUnique(items)) {
             return selected_entries;
@@ -240,22 +231,19 @@ QList<SearchEditorModel::searchEntry*> SearchEditor::GetSelectedEntries()
     return selected_entries;
 }
 
-QList<QStandardItem*> SearchEditor::GetSelectedItems()
+QList<QStandardItem *> SearchEditor::GetSelectedItems()
 {
     // Shift-click order is top to bottom regardless of starting position
     // Ctrl-click order is first clicked to last clicked (included shift-clicks stay ordered as is)
-
     QModelIndexList selected_indexes = ui.SearchEditorTree->selectionModel()->selectedRows(0);
-    QList<QStandardItem*> selected_items;
-
-    foreach (QModelIndex index, selected_indexes) {
+    QList<QStandardItem *> selected_items;
+    foreach(QModelIndex index, selected_indexes) {
         selected_items.append(m_SearchEditorModel->itemFromIndex(index));
     }
-
     return selected_items;
 }
 
-bool SearchEditor::ItemsAreUnique(QList<QStandardItem*> items)
+bool SearchEditor::ItemsAreUnique(QList<QStandardItem *> items)
 {
     // Although saving a group and a sub item works, it could be confusing to users to
     // have and entry appear twice so its more predictable just to prevent it and warn the user
@@ -267,7 +255,7 @@ bool SearchEditor::ItemsAreUnique(QList<QStandardItem*> items)
     return true;
 }
 
-QStandardItem* SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEntry *search_entry, bool insert_after)
+QStandardItem *SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEntry *search_entry, bool insert_after)
 {
     QStandardItem *parent_item = NULL;
     QStandardItem *new_item = NULL;
@@ -283,8 +271,8 @@ QStandardItem* SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEn
             }
 
             if (!m_SearchEditorModel->ItemIsGroup(parent_item)) {
-                    row = parent_item->row() + 1;
-                    parent_item = parent_item->parent();
+                row = parent_item->row() + 1;
+                parent_item = parent_item->parent();
             }
         }
     }
@@ -296,7 +284,6 @@ QStandardItem* SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEn
 
     new_item = m_SearchEditorModel->AddEntryToModel(search_entry, is_group, parent_item, row);
     QModelIndex new_index = new_item->index();
-
     // Select the added item and set it for editing
     ui.SearchEditorTree->selectionModel()->clear();
     ui.SearchEditorTree->setCurrentIndex(new_index);
@@ -304,11 +291,10 @@ QStandardItem* SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEn
     ui.SearchEditorTree->edit(new_index);
     ui.SearchEditorTree->setCurrentIndex(new_index);
     ui.SearchEditorTree->selectionModel()->select(new_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
-
     return new_item;
 }
 
-QStandardItem* SearchEditor::AddGroup()
+QStandardItem *SearchEditor::AddGroup()
 {
     return AddEntry(true);
 }
@@ -336,32 +322,32 @@ bool SearchEditor::Copy()
     }
 
     QList<SearchEditorModel::searchEntry *> entries = GetSelectedEntries();
+
     if (!entries.count()) {
         return false;
     }
 
-    foreach (QStandardItem *item, GetSelectedItems()) {
+    foreach(QStandardItem * item, GetSelectedItems()) {
         SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
+
         if (entry->is_group) {
             Utility::DisplayStdErrorDialog(tr("You cannot Copy or Cut groups - use drag-and-drop.")) ;
             return false;
         }
     }
-
-    foreach (SearchEditorModel::searchEntry *entry, entries) {
+    foreach(SearchEditorModel::searchEntry * entry, entries) {
         SearchEditorModel::searchEntry *save_entry = new SearchEditorModel::searchEntry();
         save_entry->name = entry->name;
         save_entry->find = entry->find;
         save_entry->replace = entry->replace;
         m_SavedSearchEntries.append(save_entry);
     }
-
     return true;
 }
 
 void SearchEditor::Paste()
 {
-    foreach (SearchEditorModel::searchEntry *entry, m_SavedSearchEntries) {
+    foreach(SearchEditorModel::searchEntry * entry, m_SavedSearchEntries) {
         AddEntry(entry->is_group, entry);
     }
 }
@@ -375,8 +361,10 @@ void SearchEditor::Delete()
     // Delete one at a time as selection may not be contiguous
     int row = -1;
     QModelIndex parent_index;
+
     while (ui.SearchEditorTree->selectionModel()->hasSelection()) {
         QModelIndex index = ui.SearchEditorTree->selectionModel()->selectedRows(0).first();
+
         if (index.isValid()) {
             row = index.row();
             parent_index = index.parent();
@@ -386,10 +374,10 @@ void SearchEditor::Delete()
 
     // Select the nearest row in the group, or the group if no rows left
     int parent_row_count;
+
     if (parent_index.isValid()) {
         parent_row_count = m_SearchEditorModel->itemFromIndex(parent_index)->rowCount();
-    }
-    else {
+    } else {
         parent_row_count = m_SearchEditorModel->invisibleRootItem()->rowCount();
     }
 
@@ -411,6 +399,7 @@ void SearchEditor::Reload()
 {
     QMessageBox::StandardButton button_pressed;
     button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
+
     if (button_pressed == QMessageBox::Ok) {
         m_SearchEditorModel->LoadInitialData();
     }
@@ -424,11 +413,10 @@ void SearchEditor::Import()
 
     // Get the filename to import from
     QString filter_string = "*." % FILE_EXTENSION;
-
     QString filename = QFileDialog::getOpenFileName(this,
-                                                    tr("Import Search Entries"),
-                                                    m_LastFolderOpen,
-                                                    filter_string
+                       tr("Import Search Entries"),
+                       m_LastFolderOpen,
+                       filter_string
                                                    );
 
     // Load the file and save the last folder opened
@@ -439,9 +427,7 @@ void SearchEditor::Import()
 
         if (item) {
             m_SearchEditorModel->Rename(item, "Imported");
-
             m_SearchEditorModel->LoadData(filename, item);
-    
             m_LastFolderOpen = QFileInfo(filename).absolutePath();
             WriteSettings();
         }
@@ -450,13 +436,12 @@ void SearchEditor::Import()
 
 void SearchEditor::ExportAll()
 {
-    QList<QStandardItem*> items;
-
+    QList<QStandardItem *> items;
     QStandardItem *item = m_SearchEditorModel->invisibleRootItem();
     QModelIndex parent_index;
 
     for (int row = 0; row < item->rowCount(); row++) {
-        items.append(item->child(row,0));
+        items.append(item->child(row, 0));
     }
 
     ExportItems(items);
@@ -468,7 +453,7 @@ void SearchEditor::Export()
         return;
     }
 
-    QList<QStandardItem*> items = GetSelectedItems();
+    QList<QStandardItem *> items = GetSelectedItems();
 
     if (!ItemsAreUnique(m_SearchEditorModel->GetNonParentItems(items))) {
         return;
@@ -477,47 +462,43 @@ void SearchEditor::Export()
     ExportItems(items);
 }
 
-void SearchEditor::ExportItems(QList<QStandardItem*> items)
+void SearchEditor::ExportItems(QList<QStandardItem *> items)
 {
-    QList<SearchEditorModel::searchEntry*> entries;
-
-    foreach (QStandardItem *item, items) {
-
+    QList<SearchEditorModel::searchEntry *> entries;
+    foreach(QStandardItem * item, items) {
         // Get all subitems of an item not just the item itself
-        QList<QStandardItem*> sub_items = m_SearchEditorModel->GetNonParentItems(item);
-
-        // Get the parent path of the item 
+        QList<QStandardItem *> sub_items = m_SearchEditorModel->GetNonParentItems(item);
+        // Get the parent path of the item
         QString parent_path = "";
+
         if (item->parent()) {
             parent_path = m_SearchEditorModel->GetFullName(item->parent());
         }
 
-        foreach (QStandardItem *item, sub_items) {
+        foreach(QStandardItem * item, sub_items) {
             SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
-
             // Remove the top level paths since we're exporting a subset
             entry->fullname.replace(QRegExp(parent_path), "");
             entry->name = entry->fullname;
-
             entries.append(entry);
         }
     }
-
     // Get the filename to use
     QString filter_string = "*." % FILE_EXTENSION;
     QString default_filter = "*";
-
     QString filename = QFileDialog::getSaveFileName(this,
-                                                    tr("Export Selected Searches"),
-                                                    m_LastFolderOpen,
-                                                    filter_string,
-                                                    &default_filter
+                       tr("Export Selected Searches"),
+                       m_LastFolderOpen,
+                       filter_string,
+                       &default_filter
                                                    );
+
     if (filename.isEmpty()) {
         return;
     }
 
     QString extension = QFileInfo(filename).suffix().toLower();
+
     if (extension != FILE_EXTENSION) {
         filename += "." % FILE_EXTENSION;
     }
@@ -543,8 +524,8 @@ bool SearchEditor::FilterEntries(const QString &text, QStandardItem *item)
 {
     const QString lowercaseText = text.toLower();
     bool hidden = false;
-
     QModelIndex parent_index;
+
     if (item && item->parent()) {
         parent_index = item->parent()->index();
     }
@@ -552,17 +533,17 @@ bool SearchEditor::FilterEntries(const QString &text, QStandardItem *item)
     if (item) {
         // Hide the entry if it doesn't contain the entered text, otherwise show it
         SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
+
         if (ui.Filter->currentIndex() == 0) {
             hidden = !(text.isEmpty() || entry->name.toLower().contains(lowercaseText));
-        }
-        else {
+        } else {
             hidden = !(text.isEmpty() || entry->name.toLower().contains(lowercaseText) ||
                        entry->find.toLower().contains(lowercaseText) ||
                        entry->replace.toLower().contains(lowercaseText));
         }
+
         ui.SearchEditorTree->setRowHidden(item->row(), parent_index, hidden);
-    }
-    else {
+    } else {
         item = m_SearchEditorModel->invisibleRootItem();
     }
 
@@ -574,14 +555,13 @@ bool SearchEditor::FilterEntries(const QString &text, QStandardItem *item)
             ui.SearchEditorTree->setRowHidden(item->row(), parent_index, hidden);
         }
     }
-    
+
     return hidden;
 }
 
 void SearchEditor::FilterEditTextChangedSlot(const QString &text)
 {
     FilterEntries(text);
-
     ui.SearchEditorTree->expandAll();
     ui.SearchEditorTree->selectionModel()->clear();
 
@@ -595,6 +575,7 @@ void SearchEditor::FilterEditTextChangedSlot(const QString &text)
 bool SearchEditor::SelectFirstVisibleNonGroup(QStandardItem *item)
 {
     QModelIndex parent_index;
+
     if (item->parent()) {
         parent_index = item->parent()->index();
     }
@@ -622,7 +603,6 @@ bool SearchEditor::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     QByteArray geometry = settings.value("geometry").toByteArray();
 
@@ -632,20 +612,20 @@ bool SearchEditor::ReadSettings()
 
     // Column widths
     int size = settings.beginReadArray("column_data");
+
     for (int column = 0; column < size && column < ui.SearchEditorTree->header()->count(); column++) {
         settings.setArrayIndex(column);
         int column_width = settings.value("width").toInt();
+
         if (column_width) {
             ui.SearchEditorTree->setColumnWidth(column, column_width);
         }
     }
-    settings.endArray();
 
+    settings.endArray();
     // Last folder open
     m_LastFolderOpen = settings.value("last_folder_open").toString();
-
     settings.endGroup();
-
     // Return whether we did have settings to load (based on persisted column data)
     return size > 0;
 }
@@ -654,40 +634,37 @@ void SearchEditor::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
-
     // Column widths
     settings.beginWriteArray("column_data");
+
     for (int column = 0; column < ui.SearchEditorTree->header()->count(); column++) {
         settings.setArrayIndex(column);
         settings.setValue("width", ui.SearchEditorTree->columnWidth(column));
     }
+
     settings.endArray();
-
     // Last folder open
-    settings.setValue( "last_folder_open", m_LastFolderOpen);
-
+    settings.setValue("last_folder_open", m_LastFolderOpen);
     settings.endGroup();
 }
 
 void SearchEditor::CreateContextMenuActions()
 {
-    m_AddEntry  =   new QAction(tr( "Add Entry" ),          this );
-    m_AddGroup  =   new QAction(tr( "Add Group" ),          this );
-    m_Edit      =   new QAction(tr( "Edit" ),               this );
-    m_Cut       =   new QAction(tr( "Cut" ),                this );
-    m_Copy      =   new QAction(tr( "Copy" ),               this );
-    m_Paste     =   new QAction(tr( "Paste" ),              this );
-    m_Delete    =   new QAction(tr( "Delete" ),             this );
-    m_Import    =   new QAction(tr( "Import") + "...",      this );
-    m_Reload    =   new QAction(tr( "Reload" ) + "...",     this );
-    m_Export    =   new QAction(tr( "Export" ) + "...",     this );
-    m_ExportAll =   new QAction(tr( "Export All" ) + "...", this );
-    m_CollapseAll = new QAction(tr( "Collapse All" ),       this );
-    m_ExpandAll =   new QAction(tr( "Expand All" ),         this );
-
+    m_AddEntry  =   new QAction(tr("Add Entry"),          this);
+    m_AddGroup  =   new QAction(tr("Add Group"),          this);
+    m_Edit      =   new QAction(tr("Edit"),               this);
+    m_Cut       =   new QAction(tr("Cut"),                this);
+    m_Copy      =   new QAction(tr("Copy"),               this);
+    m_Paste     =   new QAction(tr("Paste"),              this);
+    m_Delete    =   new QAction(tr("Delete"),             this);
+    m_Import    =   new QAction(tr("Import") + "...",      this);
+    m_Reload    =   new QAction(tr("Reload") + "...",     this);
+    m_Export    =   new QAction(tr("Export") + "...",     this);
+    m_ExportAll =   new QAction(tr("Export All") + "...", this);
+    m_CollapseAll = new QAction(tr("Collapse All"),       this);
+    m_ExpandAll =   new QAction(tr("Expand All"),         this);
     m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
     m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_G));
     m_Edit->setShortcut(QKeySequence(Qt::Key_F2));
@@ -695,7 +672,6 @@ void SearchEditor::CreateContextMenuActions()
     m_Copy->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_C));
     m_Paste->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_V));
     m_Delete->setShortcut(QKeySequence::Delete);
-
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_AddEntry);
     addAction(m_AddGroup);
@@ -709,10 +685,8 @@ void SearchEditor::CreateContextMenuActions()
 void SearchEditor::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
-
     m_ContextMenu->exec(ui.SearchEditorTree->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
-
     // Make sure every action is enabled - in case shortcut is used after context menu disables some.
     m_AddEntry->setEnabled(true);
     m_AddGroup->setEnabled(true);
@@ -732,49 +706,30 @@ void SearchEditor::OpenContextMenu(const QPoint &point)
 void SearchEditor::SetupContextMenu(const QPoint &point)
 {
     int selected_rows_count = SelectedRowsCount();
-
     m_ContextMenu->addAction(m_AddEntry);
-
     m_ContextMenu->addAction(m_AddGroup);
-
     m_ContextMenu->addSeparator();
-
     m_ContextMenu->addAction(m_Edit);
-
     m_ContextMenu->addSeparator();
-
     m_ContextMenu->addAction(m_Cut);
     m_Cut->setEnabled(selected_rows_count > 0);
-
     m_ContextMenu->addAction(m_Copy);
     m_Copy->setEnabled(selected_rows_count > 0);
-
     m_ContextMenu->addAction(m_Paste);
     m_Paste->setEnabled(m_SavedSearchEntries.count());
-
     m_ContextMenu->addSeparator();
-
     m_ContextMenu->addAction(m_Delete);
     m_Delete->setEnabled(selected_rows_count > 0);
-
     m_ContextMenu->addSeparator();
-
     m_ContextMenu->addAction(m_Import);
     m_Import->setEnabled(selected_rows_count <= 1);
-
     m_ContextMenu->addAction(m_Reload);
-
     m_ContextMenu->addSeparator();
-
     m_ContextMenu->addAction(m_Export);
     m_Export->setEnabled(selected_rows_count > 0);
-
     m_ContextMenu->addAction(m_ExportAll);
-
     m_ContextMenu->addSeparator();
-
     m_ContextMenu->addAction(m_CollapseAll);
-
     m_ContextMenu->addAction(m_ExpandAll);
 }
 
@@ -789,12 +744,14 @@ bool SearchEditor::Save()
         emit ShowStatusMessageRequest(tr("Search entries saved."));
         return true;
     }
+
     return false;
 }
 
 void SearchEditor::reject()
 {
     WriteSettings();
+
     if (MaybeSaveDialogSaysProceed(false)) {
         QDialog::reject();
     }
@@ -808,25 +765,22 @@ void SearchEditor::ForceClose()
 
 bool SearchEditor::MaybeSaveDialogSaysProceed(bool is_forced)
 {
-    if ( m_SearchEditorModel->IsDataModified() ) {
+    if (m_SearchEditorModel->IsDataModified()) {
         QMessageBox::StandardButton button_pressed;
         QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
-                                                         : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
-
-        button_pressed = QMessageBox::warning(  this,
-                                                tr( "Sigil: Saved Searches" ),
-                                                tr( "The Search entries may have been modified.\n"
-                                                     "Do you want to save your changes?"),
-                                                buttons
+                                               : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
+        button_pressed = QMessageBox::warning(this,
+                                              tr("Sigil: Saved Searches"),
+                                              tr("The Search entries may have been modified.\n"
+                                                      "Do you want to save your changes?"),
+                                              buttons
                                              );
 
-        if ( button_pressed == QMessageBox::Save ) {
+        if (button_pressed == QMessageBox::Save) {
             return Save();
-        }
-        else if ( button_pressed == QMessageBox::Cancel ) {
+        } else if (button_pressed == QMessageBox::Cancel) {
             return false;
-        }
-        else {
+        } else {
             m_SearchEditorModel->LoadInitialData();
         }
     }
@@ -849,7 +803,9 @@ void SearchEditor::MoveVertical(bool move_down)
     if (!ui.SearchEditorTree->selectionModel()->hasSelection()) {
         return;
     }
+
     QModelIndexList selected_indexes = ui.SearchEditorTree->selectionModel()->selectedRows(0);
+
     if (selected_indexes.count() > 1) {
         return;
     }
@@ -857,15 +813,16 @@ void SearchEditor::MoveVertical(bool move_down)
     // Identify the selected item
     QModelIndex index = selected_indexes.first();
     int row = index.row();
-
     QStandardItem *item = m_SearchEditorModel->itemFromIndex(index);
     QStandardItem *source_parent_item = item->parent();
+
     if (!source_parent_item) {
         source_parent_item = m_SearchEditorModel->invisibleRootItem();
     }
-    QStandardItem *destination_parent_item = source_parent_item;
 
+    QStandardItem *destination_parent_item = source_parent_item;
     int destination_row;
+
     if (move_down) {
         if (row >= source_parent_item->rowCount() - 1) {
             // We are the last child for this group.
@@ -873,32 +830,35 @@ void SearchEditor::MoveVertical(bool move_down)
                 // Can't go any lower than this
                 return;
             }
+
             // Make this the next child of the parent, as though the user hit Left
             destination_parent_item = source_parent_item->parent();
+
             if (!destination_parent_item) {
                 destination_parent_item = m_SearchEditorModel->invisibleRootItem();
             }
+
             destination_row = source_parent_item->index().row() + 1;
-        }
-        else {
+        } else {
             destination_row = row + 1;
         }
-    }
-    else {
+    } else {
         if (row == 0) {
             // We are the first child for this parent.
             if (source_parent_item == m_SearchEditorModel->invisibleRootItem()) {
                 // Can't go any higher than this
                 return;
             }
+
             // Make this the previous child of the parent, as though the user hit Left and Up
             destination_parent_item = source_parent_item->parent();
+
             if (!destination_parent_item) {
                 destination_parent_item = m_SearchEditorModel->invisibleRootItem();
             }
+
             destination_row = source_parent_item->index().row();
-        }
-        else {
+        } else {
             destination_row = row - 1;
         }
     }
@@ -906,18 +866,15 @@ void SearchEditor::MoveVertical(bool move_down)
     // Swap the item rows
     QList<QStandardItem *> row_items = source_parent_item->takeRow(row);
     destination_parent_item->insertRow(destination_row, row_items);
-
     // Get index
     QModelIndex destination_index = destination_parent_item->child(destination_row, 0)->index();
     // Make sure the path to the item is updated
     QStandardItem *destination_item = m_SearchEditorModel->itemFromIndex(destination_index);
     m_SearchEditorModel->UpdateFullName(destination_item);
-
     // Select the item row again
     ui.SearchEditorTree->selectionModel()->clear();
     ui.SearchEditorTree->setCurrentIndex(destination_index);
     ui.SearchEditorTree->selectionModel()->select(destination_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
-
     ui.SearchEditorTree->expand(destination_parent_item->index());
 }
 
@@ -936,7 +893,9 @@ void SearchEditor::MoveHorizontal(bool move_left)
     if (!ui.SearchEditorTree->selectionModel()->hasSelection()) {
         return;
     }
+
     QModelIndexList selected_indexes = ui.SearchEditorTree->selectionModel()->selectedRows(0);
+
     if (selected_indexes.count() > 1) {
         return;
     }
@@ -945,12 +904,12 @@ void SearchEditor::MoveHorizontal(bool move_left)
     QModelIndex source_index = selected_indexes.first();
     int source_row = source_index.row();
     QStandardItem *source_item = m_SearchEditorModel->itemFromIndex(source_index);
-
     QStandardItem *source_parent_item = source_item->parent();
+
     if (!source_parent_item) {
         source_parent_item = m_SearchEditorModel->invisibleRootItem();
     }
-    
+
     QStandardItem *destination_parent_item;
     int destination_row = 0;
 
@@ -962,12 +921,13 @@ void SearchEditor::MoveHorizontal(bool move_left)
 
         // Move below parent
         destination_parent_item = source_parent_item->parent();
+
         if (!destination_parent_item) {
             destination_parent_item = m_SearchEditorModel->invisibleRootItem();
         }
+
         destination_row = source_parent_item->index().row() + 1;
-    }
-    else {
+    } else {
         QModelIndex index_above = ui.SearchEditorTree->indexAbove(source_index);
 
         if (!index_above.isValid()) {
@@ -979,18 +939,17 @@ void SearchEditor::MoveHorizontal(bool move_left)
         if (source_parent_item == item) {
             return;
         }
+
         SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
 
-        // Only move right if immediately under a group 
+        // Only move right if immediately under a group
         if (entry ->is_group) {
             destination_parent_item = item;
-        }
-        else {
+        } else {
             // Or if the item above is in a different group
             if (item->parent() && item->parent() != source_parent_item) {
                 destination_parent_item = item->parent();
-            }
-            else {
+            } else {
                 return;
             }
         }
@@ -1001,12 +960,10 @@ void SearchEditor::MoveHorizontal(bool move_left)
     // Swap the item rows
     QList<QStandardItem *> row_items = source_parent_item->takeRow(source_row);
     destination_parent_item->insertRow(destination_row, row_items);
-
     QModelIndex destination_index = destination_parent_item->child(destination_row)->index();
     // Make sure the path to the item is updated
     QStandardItem *destination_item = m_SearchEditorModel->itemFromIndex(destination_index);
     m_SearchEditorModel->UpdateFullName(destination_item);
-
     // Select the item row again
     ui.SearchEditorTree->selectionModel()->clear();
     ui.SearchEditorTree->setCurrentIndex(destination_index);
@@ -1016,24 +973,19 @@ void SearchEditor::MoveHorizontal(bool move_left)
 void SearchEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText,      SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
-
     connect(ui.LoadSearch,      SIGNAL(clicked()),            this, SLOT(LoadFindReplace()));
     connect(ui.Find,            SIGNAL(clicked()),            this, SLOT(Find()));
     connect(ui.ReplaceCurrent,  SIGNAL(clicked()),            this, SLOT(ReplaceCurrent()));
     connect(ui.Replace,         SIGNAL(clicked()),            this, SLOT(Replace()));
     connect(ui.CountAll,        SIGNAL(clicked()),            this, SLOT(CountAll()));
     connect(ui.ReplaceAll,      SIGNAL(clicked()),            this, SLOT(ReplaceAll()));
-
     connect(ui.MoveUp,     SIGNAL(clicked()),            this, SLOT(MoveUp()));
     connect(ui.MoveDown,   SIGNAL(clicked()),            this, SLOT(MoveDown()));
     connect(ui.MoveLeft,   SIGNAL(clicked()),            this, SLOT(MoveLeft()));
     connect(ui.MoveRight,  SIGNAL(clicked()),            this, SLOT(MoveRight()));
-
     connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
-
-    connect(ui.SearchEditorTree, SIGNAL(customContextMenuRequested(const QPoint&)),
-            this,                SLOT(  OpenContextMenu(           const QPoint&)));
-
+    connect(ui.SearchEditorTree, SIGNAL(customContextMenuRequested(const QPoint &)),
+            this,                SLOT(OpenContextMenu(const QPoint &)));
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));
     connect(m_AddGroup,    SIGNAL(triggered()), this, SLOT(AddGroup()));
     connect(m_Edit,        SIGNAL(triggered()), this, SLOT(Edit()));
@@ -1047,7 +999,6 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
-
     connect(m_SearchEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
-    connect(m_SearchEditorModel, SIGNAL(ItemDropped(const QModelIndex&)), this, SLOT(ModelItemDropped(const QModelIndex&)));
+    connect(m_SearchEditorModel, SIGNAL(ItemDropped(const QModelIndex &)), this, SLOT(ModelItemDropped(const QModelIndex &)));
 }

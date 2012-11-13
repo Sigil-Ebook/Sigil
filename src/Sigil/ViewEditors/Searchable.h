@@ -43,8 +43,7 @@ public:
     /**
      * The search direction.
      */
-    enum Direction
-    {
+    enum Direction {
         Direction_Up,   /**< Search from the caret point upwards. */
         Direction_Down /**< Search from the caret point downwards. */
     };
@@ -62,11 +61,11 @@ public:
      * @param search_direction The direction of the search.
      * @return \c true if the term is found.
      */
-    virtual bool FindNext( const QString &search_regex,
-                           Direction search_direction,
-                           bool misspelled_words = false,
-                           bool ignore_selection_offset = false,
-                           bool wrap = true ) = 0;
+    virtual bool FindNext(const QString &search_regex,
+                          Direction search_direction,
+                          bool misspelled_words = false,
+                          bool ignore_selection_offset = false,
+                          bool wrap = true) = 0;
 
     /**
      * Returns the number of matching occurrences.
@@ -74,7 +73,7 @@ public:
      * @param search_regex The regex to match with.
      * @return The number of matching occurrences.
      */
-    virtual int Count( const QString &search_regex ) = 0;
+    virtual int Count(const QString &search_regex) = 0;
 
     /**
      * If the currently selected text matches the specified regex,
@@ -84,7 +83,7 @@ public:
      * @param replacement The text with which to replace the matched string.
      * @return \c true if the searched term was successfully replaced.
      */
-    virtual bool ReplaceSelected( const QString &search_regex, const QString &replacement, Searchable::Direction direction=Searchable::Direction_Down, bool keep_selection = false) = 0;
+    virtual bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction = Searchable::Direction_Down, bool keep_selection = false) = 0;
 
     /**
      * Replaces all occurrences of the specified regex.
@@ -93,7 +92,7 @@ public:
      * @param replacement The text with which to replace the matched string.
      * @return The number of performed replacements.
      */
-    virtual int ReplaceAll( const QString &search_regex, const QString &replacement ) = 0;
+    virtual int ReplaceAll(const QString &search_regex, const QString &replacement) = 0;
 
     /**
      * Returns the currently selected text string.
@@ -102,9 +101,9 @@ public:
      */
     virtual QString GetSelectedText() = 0;
 
-    virtual void SetUpFindForSelectedText( const QString &search_regex ) = 0;
+    virtual void SetUpFindForSelectedText(const QString &search_regex) = 0;
 
-    static void ShowWrapIndicator( QWidget *parent );
+    static void ShowWrapIndicator(QWidget *parent);
 };
 
 #endif // SEARCHABLE_H

@@ -31,70 +31,67 @@
 LanguageWidget::LanguageWidget()
 {
     ui.setupUi(this);
-
-
     // Metadata language combobox
-    foreach( QString lang, Language::instance()->GetSortedPrimaryLanguageNames() )
-    {
+    foreach(QString lang, Language::instance()->GetSortedPrimaryLanguageNames()) {
         ui.cbMetadataLanguage->addItem(lang);
     }
-
     // UI language combobox - smaller subset of available languages
     QStringList ui_language_names;
-    foreach( QString language_code, UILanguage::GetUILanguages() )
-    {
-        QString language_name = Language::instance()->GetLanguageName( language_code );
+    foreach(QString language_code, UILanguage::GetUILanguages()) {
+        QString language_name = Language::instance()->GetLanguageName(language_code);
+
         if (language_name.isEmpty()) {
             language_name = language_code;
         }
-        ui_language_names.append( language_name );
+
+        ui_language_names.append(language_name);
     }
     ui_language_names.sort();
-
-    foreach( QString ui_language_name, ui_language_names )
-    {
-        ui.cbUILanguage->addItem( ui_language_name );
+    foreach(QString ui_language_name, ui_language_names) {
+        ui.cbUILanguage->addItem(ui_language_name);
     }
-
     readSettings();
 }
 
 PreferencesWidget::ResultAction LanguageWidget::saveSettings()
 {
     SettingsStore settings;
+    settings.setDefaultMetadataLang(Language::instance()->GetLanguageCode(ui.cbMetadataLanguage->currentText()));
+    settings.setUILanguage(Language::instance()->GetLanguageCode(ui.cbUILanguage->currentText()));
 
-    settings.setDefaultMetadataLang( Language::instance()->GetLanguageCode( ui.cbMetadataLanguage->currentText() ) );
-    settings.setUILanguage( Language::instance()->GetLanguageCode( ui.cbUILanguage->currentText() ) );
-
-    if ( ui.cbUILanguage->currentText() != m_UILanguage )
-    {
+    if (ui.cbUILanguage->currentText() != m_UILanguage) {
         return PreferencesWidget::ResultAction_RestartSigil;
     }
+
     return PreferencesWidget::ResultAction_None;
 }
 
 void LanguageWidget::readSettings()
 {
     SettingsStore settings;
-
     // Metadata Language
-    int index = ui.cbMetadataLanguage->findText( Language::instance()->GetLanguageName( settings.defaultMetadataLang() ) );
-    if ( index == -1 ) {
-        index = ui.cbMetadataLanguage->findText( Language::instance()->GetLanguageName( "en" ) );
+    int index = ui.cbMetadataLanguage->findText(Language::instance()->GetLanguageName(settings.defaultMetadataLang()));
+
+    if (index == -1) {
+        index = ui.cbMetadataLanguage->findText(Language::instance()->GetLanguageName("en"));
+
         if (index == -1) {
             index = 0;
         }
     }
-    ui.cbMetadataLanguage->setCurrentIndex( index );
 
+    ui.cbMetadataLanguage->setCurrentIndex(index);
     // UI Language
-    index = ui.cbUILanguage->findText( Language::instance()->GetLanguageName( settings.uiLanguage() ) );
-    if ( index == -1 ) {
-        index = ui.cbUILanguage->findText( Language::instance()->GetLanguageName( "en" ) );
-        if ( index == -1 ) {
+    index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName(settings.uiLanguage()));
+
+    if (index == -1) {
+        index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName("en"));
+
+        if (index == -1) {
             index = 0;
         }
     }
-    ui.cbUILanguage->setCurrentIndex( index );
-    m_UILanguage= ui.cbUILanguage->currentText();
+
+    ui.cbUILanguage->setCurrentIndex(index);
+    m_UILanguage = ui.cbUILanguage->currentText();
 }

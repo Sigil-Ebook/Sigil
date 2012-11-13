@@ -45,11 +45,11 @@ public:
 
     /**
      * Constructor.
-     * 
+     *
      * @param opf The OPF whose metadata we want to edit.
      * @param parent The object's parent.
      */
-    MetaEditor( OPFResource &opf, QWidget *parent = 0 );
+    MetaEditor(OPFResource &opf, QWidget *parent = 0);
     ~MetaEditor();
 
 protected:
@@ -57,56 +57,56 @@ protected:
     /**
      * Overridden to work around a Qt bug.
      */
-    void showEvent( QShowEvent * event );  
+    void showEvent(QShowEvent *event);
 
     void reject();
 
 private slots:
 
     /**
-     * Inserts a metadata field with the provided name 
+     * Inserts a metadata field with the provided name
      * into the table. The value of the new field is empty by default.
-     * 
+     *
      * @param metaname The name of the new metadata field.
      */
-    void AddEmptyMetadataToTable( const QStringList &metanames );
+    void AddEmptyMetadataToTable(const QStringList &metanames);
 
     /**
-     * Add Basic button functionality. 
+     * Add Basic button functionality.
      * Shows the window for selecting the new basic
      * metadata type which creates the new type upon return.
      */
     void AddBasic();
 
     /**
-     * Add Role button functionality. 
+     * Add Role button functionality.
      * Shows the window for selecting the new advanced
      * metadata type which creates the new type upon return.
      */
     void AddRole();
 
     /**
-     * Copy button functionality. 
+     * Copy button functionality.
      * Copies the first selected entry and creates a new
      * entry with the same contents.
      */
     void Copy();
 
     /**
-     * Remove button functionality. 
+     * Remove button functionality.
      * Removes the currently selected rows
      * from the metadata table.
      */
     void Remove();
 
     /**
-     * Move up button functionality. 
+     * Move up button functionality.
      * Moves the first selected entry up one row
      */
     void MoveUp();
 
     /**
-     * Move down button functionality. 
+     * Move down button functionality.
      * Moves the first selected entry down one row
      */
     void MoveDown();
@@ -119,15 +119,15 @@ private slots:
     /**
      * Adds a list of elements from the dialog to the saved metadata one at a time
      */
-    void AddMetaElements( QString name, QList<QVariant> values, QString role_type = "", QString file_as = "" );
+    void AddMetaElements(QString name, QList<QVariant> values, QString role_type = "", QString file_as = "");
 
     /**
      * Adds one element from the dialog to the saved metadata
      */
-    void AddMetaElement( QString name, QVariant value, QString role_type = "", QString file_as = "" );
+    void AddMetaElement(QString name, QVariant value, QString role_type = "", QString file_as = "");
 
     /**
-     * Reads the metadata from the metadata table and transfers it  
+     * Reads the metadata from the metadata table and transfers it
      * to the m_Book variable. This is usually called before closing the dialog.
      */
     void FillMetadataFromDialog();
@@ -142,22 +142,22 @@ private:
 
     // We need this to be able to use a forward
     // declaration of Book in the QSharedPointer
-    Q_DISABLE_COPY( MetaEditor ) 
+    Q_DISABLE_COPY(MetaEditor)
 
     // Set the language choice from book or preferences
     void SetLanguage();
 
     /**
-     * Inserts a metadata field with the provided name 
+     * Inserts a metadata field with the provided name
      * and value into the table.
      *
      * @param metaname The name of the new metadata field.
      * @param metavalue The value of the new metadata field.
      */
-    void AddMetadataToTable( Metadata::MetaElement book_meta, int row = -1 );
+    void AddMetadataToTable(Metadata::MetaElement book_meta, int row = -1);
 
     /**
-     * Reads the metadata from the Book and fills 
+     * Reads the metadata from the Book and fills
      * the metadata table with it.
      */
     void ReadMetadataFromBook();
@@ -170,35 +170,35 @@ private:
      * @param metaname The name of the metadata field.
      * @return \c true if it's ok to split this field.
      */
-    static bool OkToSplitInput( const QString &metaname );
+    static bool OkToSplitInput(const QString &metaname);
 
     /**
-     * Returns a list of all entries in the specified field value. 
+     * Returns a list of all entries in the specified field value.
      * Entries are separated by semicolons, so for instance
      * "Doe, John;Doe, Jane" would return "Doe, John" and "Doe, Jane" in a list.
      *
      * @param field_value The raw string value of the field.
      * @return The list of actual metadata values.
      */
-    static QList< QVariant > InputsInField( const QString &field_value );
+    static QList< QVariant > InputsInField(const QString &field_value);
 
     /**
      * Fills the language combobox with all the supported languages.
      */
-    void FillLanguageComboBox();	
+    void FillLanguageComboBox();
 
     /**
      * Sets up the metadata table.
      */
-    void SetUpMetaTable();	
+    void SetUpMetaTable();
 
     /**
-     * Reads all the stored dialog settings like 
+     * Reads all the stored dialog settings like
      * window position, geometry etc.
      */
     void ReadSettings();
 
-	// Setup signal connections
+    // Setup signal connections
     void ConnectSignals();
 
     ///////////////////////////////
@@ -213,7 +213,7 @@ private:
     /**
      * The OPF whose metadata is being edited.
      */
-    OPFResource& m_OPF;
+    OPFResource &m_OPF;
 
     /**
      * A working copy of the book's metadata store.

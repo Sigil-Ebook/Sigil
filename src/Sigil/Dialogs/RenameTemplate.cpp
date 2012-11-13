@@ -21,12 +21,11 @@
 
 #include "Dialogs/RenameTemplate.h"
 
-RenameTemplate::RenameTemplate( QString &startingName, QWidget *parent )
-    : QDialog( parent )
+RenameTemplate::RenameTemplate(QString &startingName, QWidget *parent)
+    : QDialog(parent)
 {
-    ui.setupUi( this );
-
-    ui.renameTemplate->setText( startingName );
+    ui.setupUi(this);
+    ui.renameTemplate->setText(startingName);
 }
 
 QString RenameTemplate::GetTemplateName()

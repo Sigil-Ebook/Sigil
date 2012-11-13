@@ -39,12 +39,12 @@ public:
 
     // Returns a reference to the exporter
     // appropriate for the given filename
-    Exporter& GetExporter( const QString &filename, QSharedPointer< Book > book );
+    Exporter &GetExporter(const QString &filename, QSharedPointer< Book > book);
 
 private:
 
     // The exporter created
-    Exporter* m_Exporter;
+    Exporter *m_Exporter;
 
 };
 

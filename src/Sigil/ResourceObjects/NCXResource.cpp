@@ -57,11 +57,10 @@ static const QString TEMPLATE_TEXT =
     "</ncx>";
 
 
-NCXResource::NCXResource( const QString &fullfilepath, QObject *parent )
-    : XMLResource( fullfilepath, parent )
+NCXResource::NCXResource(const QString &fullfilepath, QObject *parent)
+    : XMLResource(fullfilepath, parent)
 {
     FillWithDefaultText();
-
     // Make sure the file exists on disk.
     // Among many reasons, this also solves the problem
     // with the Book Browser not displaying an icon for this resource.
@@ -69,7 +68,7 @@ NCXResource::NCXResource( const QString &fullfilepath, QObject *parent )
 }
 
 
-bool NCXResource::RenameTo( const QString &new_filename )
+bool NCXResource::RenameTo(const QString &new_filename)
 {
     // The user is not allowed to rename the NCX file.
     return false;
@@ -82,52 +81,50 @@ Resource::ResourceType NCXResource::Type() const
 }
 
 
-void NCXResource::SetMainID( const QString &main_id )
+void NCXResource::SetMainID(const QString &main_id)
 {
-    SetText( GetText().replace( "ID_UNKNOWN", main_id ) );
+    SetText(GetText().replace("ID_UNKNOWN", main_id));
 }
 
 
-bool NCXResource::GenerateNCXFromBookContents( const Book &book )
+bool NCXResource::GenerateNCXFromBookContents(const Book &book)
 {
     bool is_changed = false;
     QByteArray raw_ncx;
-    QBuffer buffer( &raw_ncx );
-
-    buffer.open( QIODevice::WriteOnly );    
-    NCXWriter ncx( book, buffer );
+    QBuffer buffer(&raw_ncx);
+    buffer.open(QIODevice::WriteOnly);
+    NCXWriter ncx(book, buffer);
     ncx.WriteXMLFromHeadings();
     buffer.close();
-
-    QString new_text = CleanSource::ProcessXML( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) );
+    QString new_text = CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size()));
     QString existing_text = GetText();
+
     // Only update the resource if have changed. Note that this is_changed trick will not
     // work after first loading an EPUB, because the metadata elements have their attributes
     // in swapped in a different order from the xhtml processing. Would have to serialize the
     // NCX back through a Xerces document, not worth doing.
     if (new_text != existing_text) {
-        SetText( new_text );
+        SetText(new_text);
         is_changed = true;
     }
+
     return is_changed;
 }
 
 
-void NCXResource::GenerateNCXFromTOCContents( const Book &book, NCXModel &ncx_model )
+void NCXResource::GenerateNCXFromTOCContents(const Book &book, NCXModel &ncx_model)
 {
     QByteArray raw_ncx;
-    QBuffer buffer( &raw_ncx );
-
-    buffer.open( QIODevice::WriteOnly );    
-    NCXWriter ncx( book, buffer, ncx_model.GetRootNCXEntry() );
+    QBuffer buffer(&raw_ncx);
+    buffer.open(QIODevice::WriteOnly);
+    NCXWriter ncx(book, buffer, ncx_model.GetRootNCXEntry());
     ncx.WriteXML();
     buffer.close();
-
-    SetText( CleanSource::ProcessXML( QString::fromUtf8( raw_ncx.constData(), raw_ncx.size() ) ) );
+    SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size())));
 }
 
 
 void NCXResource::FillWithDefaultText()
 {
-    SetText( TEMPLATE_TEXT.arg( tr( "Start" ) ).arg( FIRST_SECTION_NAME ) );
+    SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(FIRST_SECTION_NAME));
 }

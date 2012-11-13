@@ -22,10 +22,9 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/MiscTextResource.h"
 
-MiscTextResource::MiscTextResource( const QString &fullfilepath, QObject *parent )
-    : TextResource( fullfilepath, parent )
+MiscTextResource::MiscTextResource(const QString &fullfilepath, QObject *parent)
+    : TextResource(fullfilepath, parent)
 {
-
 }
 
 

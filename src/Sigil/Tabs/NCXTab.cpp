@@ -22,8 +22,8 @@
 #include "ResourceObjects/NCXResource.h"
 #include "Tabs/NCXTab.h"
 
-NCXTab::NCXTab( NCXResource& resource, int line_to_scroll_to, QWidget *parent )
+NCXTab::NCXTab(NCXResource &resource, int line_to_scroll_to, QWidget *parent)
     :
-    XMLTab( resource, line_to_scroll_to, parent )
+    XMLTab(resource, line_to_scroll_to, parent)
 {
-}   
+}

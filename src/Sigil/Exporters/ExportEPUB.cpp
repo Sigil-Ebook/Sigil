@@ -50,7 +50,7 @@
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";
 
-const QString OPF_FILE_NAME            = "content.opf"; 
+const QString OPF_FILE_NAME            = "content.opf";
 const QString NCX_FILE_NAME            = "toc.ncx";
 const QString CONTAINER_XML_FILE_NAME  = "container.xml";
 const QString ENCRYPTION_XML_FILE_NAME = "encryption.xml";
@@ -62,65 +62,61 @@ static const QString EPUB_MIME_TYPE = "application/epub+zip";
 
 
 // Constructor;
-// the first parameter is the location where the book 
+// the first parameter is the location where the book
 // should be save to, and the second is the book to be saved
-ExportEPUB::ExportEPUB( const QString &fullfilepath, QSharedPointer< Book > book ) 
-    : 
-    m_FullFilePath( fullfilepath ), 
-    m_Book( book ) 
+ExportEPUB::ExportEPUB(const QString &fullfilepath, QSharedPointer< Book > book)
+    :
+    m_FullFilePath(fullfilepath),
+    m_Book(book)
 {
-    
 }
 
 
 // Destructor
 ExportEPUB::~ExportEPUB()
 {
-
 }
 
 
-// Writes the book to the path 
+// Writes the book to the path
 // specified in the constructor
 void ExportEPUB::WriteBook()
-{    
+{
     // Obfuscating fonts needs an UUID ident
-    if ( m_Book->HasObfuscatedFonts() )
-
+    if (m_Book->HasObfuscatedFonts()) {
         m_Book->GetOPF().EnsureUUIDIdentifierPresent();
+    }
 
     m_Book->GetOPF().AddSigilVersionMeta();
     m_Book->GetOPF().AddModificationDateMeta();
     m_Book->SaveAllResourcesToDisk();
-
     TempFolder tempfolder;
-    CreatePublication( tempfolder.GetPath() );
+    CreatePublication(tempfolder.GetPath());
 
-    if ( m_Book->HasObfuscatedFonts() )
+    if (m_Book->HasObfuscatedFonts()) {
+        ObfuscateFonts(tempfolder.GetPath());
+    }
 
-        ObfuscateFonts( tempfolder.GetPath() );
-
-    SaveFolderAsEpubToLocation( tempfolder.GetPath(), m_FullFilePath );
+    SaveFolderAsEpubToLocation(tempfolder.GetPath(), m_FullFilePath);
 }
 
 
 // Creates the publication from the Book
 // (creates XHTML, CSS, OPF, NCX files etc.)
-void ExportEPUB::CreatePublication( const QString &fullfolderpath )
+void ExportEPUB::CreatePublication(const QString &fullfolderpath)
 {
-    Utility::CopyFiles( m_Book->GetFolderKeeper().GetFullPathToMainFolder(), fullfolderpath );
+    Utility::CopyFiles(m_Book->GetFolderKeeper().GetFullPathToMainFolder(), fullfolderpath);
 
-    if ( m_Book->HasObfuscatedFonts() )
-        
-        CreateEncryptionXML( fullfolderpath + METAINF_FOLDER_SUFFIX );
+    if (m_Book->HasObfuscatedFonts()) {
+        CreateEncryptionXML(fullfolderpath + METAINF_FOLDER_SUFFIX);
+    }
 }
 
-void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath )
+void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const QString &fullfilepath)
 {
     QString tempFile = fullfolderpath + "-tmp.epub";
     QDateTime timeNow = QDateTime::currentDateTime();
     zip_fileinfo fileInfo;
-
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
     fill_win32_filefunc64W(&ffunc);
@@ -147,20 +143,24 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         QFile::remove(tempFile);
         boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
     }
+
     const char *mime_data = EPUB_MIME_TYPE.toUtf8().constData();
+
     if (zipWriteInFileInZip(zfile, mime_data, (unsigned int)strlen(mime_data)) != Z_OK) {
         zipCloseFileInZip(zfile);
         zipClose(zfile, NULL);
         QFile::remove(tempFile);
         boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
     }
-    zipCloseFileInZip(zfile);
 
+    zipCloseFileInZip(zfile);
     // Write all the files in our directory path to the archive.
-    QDirIterator it(fullfolderpath, QDir::Files|QDir::NoDotAndDotDot|QDir::Readable|QDir::Hidden, QDirIterator::Subdirectories);
+    QDirIterator it(fullfolderpath, QDir::Files | QDir::NoDotAndDotDot | QDir::Readable | QDir::Hidden, QDirIterator::Subdirectories);
+
     while (it.hasNext()) {
         it.next();
         QString relpath = it.filePath().remove(fullfolderpath);
+
         while (relpath.startsWith("/")) {
             relpath = relpath.remove(0, 1);
         }
@@ -176,15 +176,18 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
         // Open the file on disk. We will read this and write what we read into
         // the archive.
         QFile dfile(it.filePath());
+
         if (!dfile.open(QIODevice::ReadOnly)) {
             zipCloseFileInZip(zfile);
             zipClose(zfile, NULL);
             QFile::remove(tempFile);
             boost_throw(CannotOpenFile() << errinfo_file_fullpath(it.fileName().toStdString()));
         }
+
         // Write the data from the file on disk into the archive.
         char buff[BUFF_SIZE] = {0};
         qint64 read = 0;
+
         while ((read = dfile.read(buff, BUFF_SIZE)) > 0) {
             if (zipWriteInFileInZip(zfile, buff, read) != Z_OK) {
                 dfile.close();
@@ -194,7 +197,9 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
                 boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
             }
         }
+
         dfile.close();
+
         // There was an error reading the file on disk.
         if (read < 0) {
             zipCloseFileInZip(zfile);
@@ -211,86 +216,85 @@ void ExportEPUB::SaveFolderAsEpubToLocation( const QString &fullfolderpath, cons
     }
 
     zipClose(zfile, NULL);
-
     // Overwrite the contents of the real file with the contents from the temp
     // file we saved the data do. We do this instead of simply copying the file
     // because a file copy will lose extended attributes such as labels on OS X.
     QFile temp_epub(tempFile);
+
     if (!temp_epub.open(QFile::ReadOnly)) {
-        boost_throw(CannotOpenFile () << errinfo_file_fullpath(tempFile.toStdString()));
+        boost_throw(CannotOpenFile() << errinfo_file_fullpath(tempFile.toStdString()));
     }
+
     QFile real_epub(fullfilepath);
-    if (!real_epub.open(QFile::WriteOnly|QFile::Truncate)) {
+
+    if (!real_epub.open(QFile::WriteOnly | QFile::Truncate)) {
         temp_epub.close();
         boost_throw(CannotWriteFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
     }
+
     // Copy the contents from the temp file to the real file.
     char buff[BUFF_SIZE] = {0};
     qint64 read = 0;
     qint64 written = 0;
+
     while ((read = temp_epub.read(buff, BUFF_SIZE)) > 0) {
         written = real_epub.write(buff, read);
+
         if (written != read) {
             temp_epub.close();
             real_epub.close();
             boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
         }
     }
+
     if (read == -1) {
         boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
     }
+
     temp_epub.close();
     real_epub.close();
 }
 
 
-void ExportEPUB::CreateEncryptionXML( const QString &fullfolderpath )
+void ExportEPUB::CreateEncryptionXML(const QString &fullfolderpath)
 {
     QTemporaryFile file;
 
-    if ( !file.open() )
-    {
-        boost_throw( CannotOpenFile() 
-                     << errinfo_file_fullpath( file.fileName().toStdString() )
-                     << errinfo_file_errorstring( file.errorString().toStdString() ) 
+    if (!file.open()) {
+        boost_throw(CannotOpenFile()
+                    << errinfo_file_fullpath(file.fileName().toStdString())
+                    << errinfo_file_errorstring(file.errorString().toStdString())
                    );
     }
-    
-    EncryptionXmlWriter enc( *m_Book, file );
-    enc.WriteXML();
 
+    EncryptionXmlWriter enc(*m_Book, file);
+    enc.WriteXML();
     // Write to disk immediately
     file.flush();
-
-    QFile::copy( file.fileName(), fullfolderpath + "/" + ENCRYPTION_XML_FILE_NAME ); 
+    QFile::copy(file.fileName(), fullfolderpath + "/" + ENCRYPTION_XML_FILE_NAME);
 }
 
 
-void ExportEPUB::ObfuscateFonts( const QString &fullfolderpath )
+void ExportEPUB::ObfuscateFonts(const QString &fullfolderpath)
 {
-    QString uuid_id = m_Book->GetOPF().GetUUIDIdentifierValue();   
+    QString uuid_id = m_Book->GetOPF().GetUUIDIdentifierValue();
     QString main_id = m_Book->GetPublicationIdentifier();
-
-    QList< FontResource* > font_resources = m_Book->GetFolderKeeper().GetResourceTypeList< FontResource >();
-
-    foreach( FontResource *font_resource, font_resources )
-    {
+    QList< FontResource * > font_resources = m_Book->GetFolderKeeper().GetResourceTypeList< FontResource >();
+    foreach(FontResource * font_resource, font_resources) {
         QString algorithm = font_resource->GetObfuscationAlgorithm();
 
-        if ( algorithm.isEmpty() )
-
+        if (algorithm.isEmpty()) {
             continue;
+        }
 
         QString font_path = fullfolderpath + "/" + font_resource->GetRelativePathToRoot();
 
-        if ( algorithm == ADOBE_FONT_ALGO_ID )
-
-            FontObfuscation::ObfuscateFile( font_path, algorithm, uuid_id );
-
-        else 
-
-            FontObfuscation::ObfuscateFile( font_path, algorithm, main_id );
-    }    
+        if (algorithm == ADOBE_FONT_ALGO_ID) {
+            FontObfuscation::ObfuscateFile(font_path, algorithm, uuid_id);
+        } else {
+            FontObfuscation::ObfuscateFile(font_path, algorithm, main_id);
+        }
+    }
 }
 
 

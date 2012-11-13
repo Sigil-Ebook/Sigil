@@ -45,13 +45,13 @@ public:
      *
      * @param parent The dialog's parent.
      */
-    About( QWidget *parent = 0 );
+    About(QWidget *parent = 0);
 
 private:
 
     /**
      * Returns the time that Sigil was built in UTC.
-     * 
+     *
      * @return The build time in UTC.
      */
     static QDateTime GetUTCBuildTime();
@@ -63,7 +63,7 @@ private:
      * @param three_letter_string The month string.
      * @return The index of that month, 1-12.
      */
-    static int MonthIndexFromString( const QString& three_letter_string );
+    static int MonthIndexFromString(const QString &three_letter_string);
 
     /**
      * Holds all the widgets Qt Designer created for us.

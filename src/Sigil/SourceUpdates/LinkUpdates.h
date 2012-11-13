@@ -39,11 +39,11 @@ public:
      * @param new_stylesheets A list of the new links to add
      */
 
-    static void UpdateLinksInAllFiles( const QList< HTMLResource* > &html_resources, const QList<QString> new_stylesheets );
+    static void UpdateLinksInAllFiles(const QList< HTMLResource * > &html_resources, const QList<QString> new_stylesheets);
 
 private:
 
-    static void UpdateLinksInOneFile( HTMLResource* html_resource, const QList<QString> new_stylesheets );
+    static void UpdateLinksInOneFile(HTMLResource *html_resource, const QList<QString> new_stylesheets);
 };
 
 #endif // LINKUPDATES_H

@@ -33,46 +33,46 @@ class XHTMLHighlighter : public QSyntaxHighlighter
 public:
 
     // Constructor
-    XHTMLHighlighter( bool checkSpelling, QObject *parent = 0 );
+    XHTMLHighlighter(bool checkSpelling, QObject *parent = 0);
 
 protected:
 
     // Overrides the function from QSyntaxHighlighter;
     // gets called by QTextEditor whenever
     // a block (line of text) needs to be repainted
-    void highlightBlock( const QString& text );
+    void highlightBlock(const QString &text);
 
-private:	
+private:
 
     // Returns the regex that matches the left bracket of a state
-    QRegExp GetLeftBracketRegEx( int state ) const;
+    QRegExp GetLeftBracketRegEx(int state) const;
 
     // Returns the regex that matches the right bracket of a state
-    QRegExp GetRightBracketRegEx( int state ) const;
+    QRegExp GetRightBracketRegEx(int state) const;
 
     // Sets the requested state for the current text block
-    void SetState( int state );
+    void SetState(int state);
 
     // Clears the requested state for the current text block
-    void ClearState( int state );
+    void ClearState(int state);
 
     // Checks if the requested state is set
     // for the current text block
-    bool StateChecked( int state ) const;
-    
+    bool StateChecked(int state) const;
+
     // Formats the inside of a node;
     // "text" is the textblock/line;
     // "state" describes the node;
     // "index" is the index to start formatting from
     // "length" is the length of chars to format
-    void FormatBody( const QString& text, int state, int index, int length );
+    void FormatBody(const QString &text, int state, int index, int length);
 
     // Highlights the current line according to the state requested;
     // check to see if the node of type "state" is present;
     // if it is, the node is formatted
-    void HighlightLine( const QString& text, int state );
+    void HighlightLine(const QString &text, int state);
 
-    void CheckSpelling( const QString &text );
+    void CheckSpelling(const QString &text);
 
 
     ///////////////////////////////
@@ -80,8 +80,7 @@ private:
     ///////////////////////////////
 
     // Al the possible nodes/states
-    enum BlockState
-    {
+    enum BlockState {
         State_Text          = 1 << 0,
         State_Entity        = 1 << 1,
         State_HTML          = 1 << 2,
@@ -91,8 +90,7 @@ private:
         State_DOCTYPE       = 1 << 6
     };
 
-    struct HighlightingRule
-    {
+    struct HighlightingRule {
         QRegExp pattern;
         QTextCharFormat format;
     };

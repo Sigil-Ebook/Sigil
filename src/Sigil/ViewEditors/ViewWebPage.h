@@ -33,11 +33,11 @@ class ViewWebPage : public QWebPage
     Q_OBJECT
 
 public:
-    ViewWebPage( QObject *parent = 0 );
+    ViewWebPage(QObject *parent = 0);
 
 protected:
     // Allow debugging of javascript errors by redirecting output as required.
-    void javaScriptConsoleMessage( const QString &message, int lineNumber, const QString &sourceID );
+    void javaScriptConsoleMessage(const QString &message, int lineNumber, const QString &sourceID);
 };
 
 #endif // VIEWWEBPAGE_H

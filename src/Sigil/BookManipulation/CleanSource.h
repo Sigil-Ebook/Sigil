@@ -41,12 +41,12 @@ public:
 
     // Performs general cleaning (and improving)
     // of provided book XHTML source code
-    static QString Clean( const QString &source );
+    static QString Clean(const QString &source);
 
     // Convert to valid XHTML with mild cleaning
-    static QString ToValidXHTML( const QString &source );
+    static QString ToValidXHTML(const QString &source);
 
-    static QString ProcessXML( const QString &source );
+    static QString ProcessXML(const QString &source);
 
     /**
      * Xerces when serializing into Sigil will always mess with the line feeds and
@@ -54,75 +54,74 @@ public:
      * noticeable with Tidy turned off. This is a workaround to put document back
      * as though that top portion had been run with Prettify turned on.
      */
-    static QString PrettifyDOCTYPEHeader( const QString &source );
+    static QString PrettifyDOCTYPEHeader(const QString &source);
 
-    static void ReformatAll(QList <TextResource *> resources, QString (clean_fun)(const QString &source));
+    static void ReformatAll(QList <TextResource *> resources, QString(clean_fun)(const QString &source));
 
 private:
 
-    enum TidyType
-    {
+    enum TidyType {
         Tidy_Clean,       /**< Tidy with "clean" option (the works). */
         Tidy_Fast,        /**< Tries to run Tidy's error correcting parser
-                               as fast as possible, with no unnecessary cleaning. */ 
+                               as fast as possible, with no unnecessary cleaning. */
         Tidy_PrettyPrint, /**< Like Tidy_Fast, but pretty printing. */
         Tidy_XML          /**< For XML files. */
     };
 
-    static QString PrettyPrint( const QString &source );
-    static QString PrettyPrintTidy( const QString &source );
+    static QString PrettyPrint(const QString &source);
+    static QString PrettyPrintTidy(const QString &source);
 
-    static int RobustCSSStyleTagCount( const QString &source );
+    static int RobustCSSStyleTagCount(const QString &source);
 
     // Cleans CSS; currently it removes the redundant CSS classes
     // that Tidy sometimes adds because it doesn't parse existing
     // CSS classes, it only adds new ones; this also merges smaller
     // style tags into larger ones
-    static QString CleanCSS( const QString &source, int old_num_styles );
+    static QString CleanCSS(const QString &source, int old_num_styles);
 
     // Returns the content of all CSS style tags in a list,
     // where each element is a QString representing the content
     // of a single CSS style tag
-    static QStringList CSSStyleTags( const QString &source );
+    static QStringList CSSStyleTags(const QString &source);
 
     // Removes empty comments that are
     // sometimes left after CDATA comments
-    static QStringList RemoveEmptyComments( const QStringList &css_style_tags );
+    static QStringList RemoveEmptyComments(const QStringList &css_style_tags);
 
     // Merges smaller styles into bigger ones
-    static QStringList MergeSmallerStyles(  const QStringList &css_style_tags );
+    static QStringList MergeSmallerStyles(const QStringList &css_style_tags);
 
     // Removes blank lines at the top of style tag added by Tidy
-    static QString RemoveBlankStyleLines( const QString &source );
-    
-    // Returns the largest index of all the Sigil CSS classes
-    static int MaxSigilCSSClassIndex(       const QStringList &css_style_tags );
+    static QString RemoveBlankStyleLines(const QString &source);
 
-    static TidyDoc TidyOptions( TidyDoc tidy_document, TidyType type, int max_class_index = 0 );
+    // Returns the largest index of all the Sigil CSS classes
+    static int MaxSigilCSSClassIndex(const QStringList &css_style_tags);
+
+    static TidyDoc TidyOptions(TidyDoc tidy_document, TidyType type, int max_class_index = 0);
 
     // Runs HTML Tidy on the provided XHTML source code
-    static QString HTMLTidy( const QString &source, TidyType type );
+    static QString HTMLTidy(const QString &source, TidyType type);
 
     // Writes the new CSS style tags to the source, replacing the old ones
-    static QString WriteNewCSSStyleTags( const QString &source, const QStringList &css_style_tags );
+    static QString WriteNewCSSStyleTags(const QString &source, const QStringList &css_style_tags);
 
     // Removes redundant CSS classes from the style tags and source code;
     // Calls more specific version.
-    static tuple< QString, QStringList > RemoveRedundantClasses( const QString &source, 
-                                                                 const QStringList &css_style_tags );
+    static tuple< QString, QStringList > RemoveRedundantClasses(const QString &source,
+            const QStringList &css_style_tags);
 
     // Removes redundant CSS classes from the provided CSS style tags
-    static QStringList RemoveRedundantClassesTags(  const QStringList &css_style_tags, 
-                                                    const QHash< QString, QString > redundant_classes );
+    static QStringList RemoveRedundantClassesTags(const QStringList &css_style_tags,
+            const QHash< QString, QString > redundant_classes);
 
     // Removes redundant CSS classes from the provided XHTML source code;
     // Updates references to older classes that do the same thing
-    static QString RemoveRedundantClassesSource(  const QString &source, 
-                                                  const QHash< QString, QString > redundant_classes );
+    static QString RemoveRedundantClassesSource(const QString &source,
+            const QHash< QString, QString > redundant_classes);
 
     // Returns a QHash with keys being the new redundant CSS classes,
     // and the values the old classes that already do the job of the new ones.
-    static QHash< QString, QString > GetRedundantClasses( const QStringList &css_style_tags );
+    static QHash< QString, QString > GetRedundantClasses(const QStringList &css_style_tags);
 
     /**
      * Removes HTML meta tags with charset declarations.
@@ -132,7 +131,7 @@ private:
      * Sigil will specify UTF-8 in the XML declaration on export,
      * so this meta tag is useless anyway.
      */
-    static QString RemoveMetaCharset( const QString &source );
+    static QString RemoveMetaCharset(const QString &source);
 
     /**
      * Additional pre-processing for special cases that aren't handled properly
@@ -141,7 +140,7 @@ private:
      * @param The source code to be cleaned
      * @return The processed code to be fed to HTML Tidy.
      */
-    static QString PreprocessSpecialCases( const QString &source );
+    static QString PreprocessSpecialCases(const QString &source);
 };
 
 

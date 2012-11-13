@@ -25,21 +25,21 @@
 #include "TOCHTMLWriter.h"
 
 static const QString STYLES =
-"div.sgc-toc-title { font-size: 2em; font-face: bold; margin-bottom: 1em; text-align:center; }\n"
-"div.sgc-toc-level-1 { margin-left: 0em; }\n"
-"div.sgc-toc-level-2 { margin-left: 2em; }\n"
-"div.sgc-toc-level-3 { margin-left: 2em; }\n"
-"div.sgc-toc-level-4 { margin-left: 2em; }\n"
-"div.sgc-toc-level-5 { margin-left: 2em; }\n"
-"div.sgc-toc-level-6 { margin-left: 2em; }\n";
-    
+    "div.sgc-toc-title { font-size: 2em; font-face: bold; margin-bottom: 1em; text-align:center; }\n"
+    "div.sgc-toc-level-1 { margin-left: 0em; }\n"
+    "div.sgc-toc-level-2 { margin-left: 2em; }\n"
+    "div.sgc-toc-level-3 { margin-left: 2em; }\n"
+    "div.sgc-toc-level-4 { margin-left: 2em; }\n"
+    "div.sgc-toc-level-5 { margin-left: 2em; }\n"
+    "div.sgc-toc-level-6 { margin-left: 2em; }\n";
+
 TOCHTMLWriter::TOCHTMLWriter(NCXModel::NCXEntry ncx_root_entry)
     :
     m_Writer(0),
     m_NCXRootEntry(ncx_root_entry)
 {
 }
- 
+
 TOCHTMLWriter::~TOCHTMLWriter()
 {
     if (m_Writer) {
@@ -47,7 +47,7 @@ TOCHTMLWriter::~TOCHTMLWriter()
         m_Writer = 0;
     }
 }
- 
+
 QString TOCHTMLWriter::WriteXML()
 {
     QString out;
@@ -57,21 +57,17 @@ QString TOCHTMLWriter::WriteXML()
         delete m_Writer;
         m_Writer = 0;
     }
-    m_Writer = new QXmlStreamWriter(&out);
 
+    m_Writer = new QXmlStreamWriter(&out);
     m_Writer->writeStartDocument();
-    m_Writer->writeDTD( "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
-                        "   \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n" );
+    m_Writer->writeDTD("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
+                       "   \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
     m_Writer->writeStartElement("html");
     m_Writer->writeAttribute("xmlns", "http://www.w3.org/1999/xhtml");
     m_Writer->writeCharacters("\n");
-
     WriteHead();
-
     WriteBody();
-
     m_Writer->writeEndDocument();
-
     return out;
 }
 
@@ -82,16 +78,13 @@ void TOCHTMLWriter::WriteHead()
     m_Writer->writeCharacters("\n");
     m_Writer->writeTextElement("title",  "Contents");
     m_Writer->writeCharacters("\n");
-
     // Styles
     m_Writer->writeStartElement("style");
     m_Writer->writeAttribute("type", "text/css");
     m_Writer->writeCharacters("\n");
-
     m_Writer->writeCharacters(STYLES);
     m_Writer->writeEndElement();
     m_Writer->writeCharacters("\n");
-
     m_Writer->writeEndElement();
     m_Writer->writeCharacters("\n");
 }
@@ -100,14 +93,12 @@ void TOCHTMLWriter::WriteBody()
 {
     m_Writer->writeStartElement("body");
     m_Writer->writeCharacters("\n");
-
     // Page heading
     m_Writer->writeStartElement("div");
     m_Writer->writeAttribute("class", "sgc-toc-title");
     m_Writer->writeCharacters("Table of Contents");
     m_Writer->writeEndElement();
     m_Writer->writeCharacters("\n");
-
     // Entries
     WriteEntries(m_NCXRootEntry);
 }
@@ -118,17 +109,14 @@ void TOCHTMLWriter::WriteEntries(NCXModel::NCXEntry parent_entry, int level)
         m_Writer->writeStartElement("div");
         m_Writer->writeAttribute("class", "sgc-toc-level-" % QString::number(level));
         m_Writer->writeCharacters("\n");
-
         m_Writer->writeCharacters("  ");
         m_Writer->writeStartElement("a");
         m_Writer->writeAttribute("href", "../" + entry.target);
         m_Writer->writeCharacters(entry.text);
         m_Writer->writeEndElement();
         m_Writer->writeCharacters("\n");
-
         // Recursively write out subheadings
         WriteEntries(entry, level + 1);
-
         m_Writer->writeEndElement();
         m_Writer->writeCharacters("\n");
     }

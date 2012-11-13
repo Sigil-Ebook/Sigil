@@ -30,19 +30,19 @@
 #include "MiscEditors/ClipEditorModel.h"
 
 class PasteTarget
-{	
+{
 
 public:
     /**
      * Replace the current selected text if any in this control with the specified text.
      */
-    virtual void PasteText( const QString &text ) = 0;
-    
+    virtual void PasteText(const QString &text) = 0;
+
     /**
      * Replace the current selected text with using the clipEntry data,
      * which may allow for regex substitutions of the selection.
      */
-    virtual bool PasteClipEntries( const QList<ClipEditorModel::clipEntry *> &clips ) = 0;
+    virtual bool PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips) = 0;
 };
 
 #endif // PASTETARGET_H

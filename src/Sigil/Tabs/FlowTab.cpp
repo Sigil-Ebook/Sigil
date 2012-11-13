@@ -49,14 +49,14 @@
 
 static const QString SETTINGS_GROUP = "flowtab";
 
-FlowTab::FlowTab(HTMLResource& resource,
-                  const QUrl &fragment,
-                  MainWindow::ViewState view_state,
-                  int line_to_scroll_to,
-                  int position_to_scroll_to,
-                  QString caret_location_to_scroll_to,
-                  bool grab_focus,
-                  QWidget *parent)
+FlowTab::FlowTab(HTMLResource &resource,
+                 const QUrl &fragment,
+                 MainWindow::ViewState view_state,
+                 int line_to_scroll_to,
+                 int position_to_scroll_to,
+                 QString caret_location_to_scroll_to,
+                 bool grab_focus,
+                 QWidget *parent)
     :
     ContentTab(resource, parent),
     m_FragmentToScroll(fragment),
@@ -84,17 +84,16 @@ FlowTab::FlowTab(HTMLResource& resource,
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
     QApplication::setOverrideCursor(Qt::WaitCursor);
+
     if (view_state == MainWindow::ViewState_BookView) {
         CreateBookViewIfRequired(false);
-    }
-    else if (view_state == MainWindow::ViewState_PreviewView) {
+    } else if (view_state == MainWindow::ViewState_PreviewView) {
         CreatePreviewViewIfRequired(false);
-    }
-    else {
+    } else {
         CreateCodeViewIfRequired(false);
     }
-    m_Layout.addWidget(m_views);
 
+    m_Layout.addWidget(m_views);
     LoadSettings();
 
     // We need to set this in the constructor too,
@@ -103,19 +102,17 @@ FlowTab::FlowTab(HTMLResource& resource,
     if (view_state == MainWindow::ViewState_BookView) {
         setFocusProxy(m_wBookView);
         ConnectBookViewSignalsToSlots();
-    }
-    else if (view_state == MainWindow::ViewState_PreviewView) {
+    } else if (view_state == MainWindow::ViewState_PreviewView) {
         setFocusProxy(m_wBookPreview);
         ConnectPreviewViewSignalsToSlots();
-    }
-    else {
+    } else {
         setFocusProxy(m_wCodeView);
         ConnectCodeViewSignalsToSlots();
     }
 
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
-    QTimer::singleShot( 0, this, SLOT( DelayedInitialization() ) );
+    QTimer::singleShot(0, this, SLOT(DelayedInitialization()));
 }
 
 FlowTab::~FlowTab()
@@ -124,16 +121,18 @@ FlowTab::~FlowTab()
     // function to be called after we delete BV and PV later in this destructor.
     // No idea how that's possible but this prevents a segfault...
     disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
-
     m_WellFormedCheckComponent.deleteLater();
+
     if (m_wBookView) {
         delete m_wBookView;
         m_wBookView = 0;
     }
+
     if (m_wCodeView) {
         delete m_wCodeView;
         m_wCodeView = 0;
     }
+
     // BookViewPreview must be deleted before QWebInspector.
     // BookViewPreview's QWebPage is linked to the QWebInspector
     // and when deleted it will send a message to the linked QWebInspector
@@ -145,14 +144,17 @@ FlowTab::~FlowTab()
         delete m_wBookPreview;
         m_wBookPreview = 0;
     }
+
     if (m_inspector) {
         delete m_inspector;
         m_inspector = 0;
     }
+
     if (m_pvVSplitter) {
         delete m_pvVSplitter;
         m_pvVSplitter = 0;
     }
+
     if (m_views) {
         delete(m_views);
         m_views = 0;
@@ -164,15 +166,16 @@ void FlowTab::CreateBookViewIfRequired(bool is_delayed_load)
     if (m_wBookView) {
         return;
     }
+
     QApplication::setOverrideCursor(Qt::WaitCursor);
     m_wBookView = new BookViewEditor(this);
-
     m_views->addWidget(m_wBookView);
     m_bookViewNeedsReload = true;
 
     if (is_delayed_load) {
         ConnectBookViewSignalsToSlots();
     }
+
     m_wBookView->Zoom();
     QApplication::restoreOverrideCursor();
 }
@@ -182,23 +185,23 @@ void FlowTab::CreatePreviewViewIfRequired(bool is_delayed_load)
     if (m_wBookPreview) {
         return;
     }
+
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    m_wBookPreview = new BookViewPreview(this);    
+    m_wBookPreview = new BookViewPreview(this);
     m_inspector = new QWebInspector(this);
     m_inspector->setPage(m_wBookPreview->page());
-    
     m_pvVSplitter = new QSplitter(this);
     m_pvVSplitter->setOrientation(Qt::Vertical);
     m_pvVSplitter->addWidget(m_wBookPreview);
     m_pvVSplitter->addWidget(m_inspector);
     m_pvVSplitter->setSizes(QList<int>() << 400 << 200);
-
     m_views->addWidget(m_pvVSplitter);
     m_bookPreviewNeedsReload = true;
 
     if (is_delayed_load) {
         ConnectPreviewViewSignalsToSlots();
     }
+
     m_wBookPreview->Zoom();
     QApplication::restoreOverrideCursor();
 }
@@ -208,10 +211,10 @@ void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
     if (m_wCodeView) {
         return;
     }
+
     QApplication::setOverrideCursor(Qt::WaitCursor);
     m_wCodeView = new CodeViewEditor(CodeViewEditor::Highlight_XHTML, true, this);
     m_wCodeView->SetReformatHTMLEnabled(true);
-
     m_views->addWidget(m_wCodeView);
 
     if (is_delayed_load) {
@@ -223,6 +226,7 @@ void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
         // Zoom assignment only works after the document has been loaded
         m_wCodeView->Zoom();
     }
+
     QApplication::restoreOverrideCursor();
 }
 
@@ -231,58 +235,56 @@ void FlowTab::DelayedInitialization()
     if (m_wBookView || m_wBookPreview) {
         m_safeToLoad = true;
         LoadTabContent();
-    }
-    else if (m_wCodeView) {
+    } else if (m_wCodeView) {
         m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
         // Zoom factor for CodeView can only be set when document has been loaded.
         m_wCodeView->Zoom();
     }
 
-    switch(m_ViewState) {
-        case MainWindow::ViewState_CodeView:
-        {
+    switch (m_ViewState) {
+        case MainWindow::ViewState_CodeView: {
             CodeView();
 
             if (m_PositionToScrollTo > 0) {
                 m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
-            }
-            else if (m_LineToScrollTo > 0) {
+            } else if (m_LineToScrollTo > 0) {
                 m_wCodeView->ScrollToLine(m_LineToScrollTo);
-            }
-            else {
+            } else {
                 m_wCodeView->ScrollToFragment(m_FragmentToScroll.toString());
             }
+
             break;
         }
-        case MainWindow::ViewState_PreviewView:
-        {
+
+        case MainWindow::ViewState_PreviewView: {
             SplitView();
+
             if (!m_CaretLocationToScrollTo.isEmpty()) {
                 m_wBookPreview->ExecuteCaretUpdate(m_CaretLocationToScrollTo);
-            }
-            else {
+            } else {
                 m_wBookPreview->ScrollToFragment(m_FragmentToScroll.toString());
             }
+
             break;
         }
+
         case MainWindow::ViewState_BookView:
         default:
             BookView();
+
             if (!m_CaretLocationToScrollTo.isEmpty()) {
                 m_wBookView->ExecuteCaretUpdate(m_CaretLocationToScrollTo);
-            }
-            else {
+            } else {
                 m_wBookView->ScrollToFragment(m_FragmentToScroll.toString());
             }
+
             break;
     }
 
     m_initialLoad = false;
-
     // Only now will we wire up monitoring of ResourceChanged, to prevent
     // unnecessary saving and marking of the resource for reloading.
     DelayedConnectSignalsToSlots();
-
     // Cursor set in constructor
     QApplication::restoreOverrideCursor();
 }
@@ -304,22 +306,23 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     if (new_view_state == m_ViewState) {
         return false;
     }
+
     // Ignore this function if we are in the middle of doing an initial load
     // of the content. We don't want it to save over the content with nothing
     // if this is called before the delayed initialization function is called.
     if (m_initialLoad || !IsLoadingFinished()) {
         return false;
     }
+
     // Our well formed check will be run if switching to BV. If this check fails,
     // that check will set our tab viewstate to be in CV.
-    if (new_view_state == MainWindow::ViewState_BookView && !IsDataWellFormed()) { 
+    if (new_view_state == MainWindow::ViewState_BookView && !IsDataWellFormed()) {
         return false;
     }
 
-    // We do a save (if pending changes) before switching to ensure we don't lose 
+    // We do a save (if pending changes) before switching to ensure we don't lose
     // any unsaved data in the current view, as cannot rely on lost focus happened.
     SaveTabContent();
-
     // Track our preview view state for the purposes of caret syncing
     m_previousViewState = m_ViewState;
     m_ViewState = new_view_state;
@@ -328,14 +331,12 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
         CreatePreviewViewIfRequired();
         LoadTabContent();
         SplitView();
-    }
-    else if (new_view_state == MainWindow::ViewState_CodeView) {
+    } else if (new_view_state == MainWindow::ViewState_CodeView) {
         // As CV is directly hooked to the QTextDocument, we never have to "Load" content
         // except for when creating the CV control for the very first time.
         CreateCodeViewIfRequired();
         CodeView();
-    }
-    else {
+    } else {
         CreateBookViewIfRequired();
         LoadTabContent();
         BookView();
@@ -347,24 +348,30 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
 bool FlowTab::IsLoadingFinished()
 {
     bool is_finished = true;
+
     if (m_wCodeView) {
         is_finished = m_wCodeView->IsLoadingFinished();
     }
+
     if (is_finished && m_wBookView) {
         is_finished = m_wBookView->IsLoadingFinished();
     }
+
     if (is_finished && m_wBookPreview) {
         is_finished = m_wBookPreview->IsLoadingFinished();
     }
+
     return is_finished;
 }
 
 bool FlowTab::IsModified()
 {
     bool is_modified = false;
+
     if (m_wCodeView) {
         is_modified = is_modified || m_wCodeView->document()->isModified();
     }
+
     if (!is_modified && m_wBookView) {
         is_modified = is_modified || m_wBookView->isModified();
     }
@@ -379,81 +386,76 @@ void FlowTab::BookView()
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
     CreateBookViewIfRequired();
     m_views->setCurrentIndex(m_views->indexOf(m_wBookView));
-
     setFocusProxy(m_wBookView);
+
     // We will usually want focus in the tab, except when splitting opens this as a preceding tab.
     if (m_grabFocus) {
         m_wBookView->GrabFocus();
     }
+
     m_grabFocus = true;
 
     // Ensure the caret is positioned corresponding to previous view of this tab
     if (m_previousViewState == MainWindow::ViewState_CodeView) {
-        m_wBookView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
+        m_wBookView->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
+    } else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
+        m_wBookView->StoreCaretLocationUpdate(m_wBookPreview->GetCaretLocation());
     }
-    else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookView->StoreCaretLocationUpdate( m_wBookPreview->GetCaretLocation() );
-    }
-    m_wBookView->ExecuteCaretUpdate();
 
+    m_wBookView->ExecuteCaretUpdate();
     QApplication::restoreOverrideCursor();
 }
 
 void FlowTab::SplitView()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
     CreatePreviewViewIfRequired();
     m_views->setCurrentIndex(m_views->indexOf(m_pvVSplitter));
-
     setFocusProxy(m_wBookPreview);
+
     if (m_grabFocus) {
         m_wBookPreview->GrabFocus();
     }
+
     m_grabFocus = true;
 
     // Ensure the caret is positioned corresponding to previous view of this tab
     if (m_previousViewState == MainWindow::ViewState_BookView) {
-        m_wBookPreview->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+        m_wBookPreview->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation());
+    } else if (m_previousViewState == MainWindow::ViewState_CodeView) {
+        m_wBookPreview->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
     }
-    else if (m_previousViewState == MainWindow::ViewState_CodeView) {
-        m_wBookPreview->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-    }
-    m_wBookPreview->ExecuteCaretUpdate();
 
+    m_wBookPreview->ExecuteCaretUpdate();
     QApplication::restoreOverrideCursor();
 }
 
 void FlowTab::CodeView()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
     m_ViewState = MainWindow::ViewState_CodeView;
-
     CreateCodeViewIfRequired();
     m_views->setCurrentIndex(m_views->indexOf(m_wCodeView));
-
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
-
     setFocusProxy(m_wCodeView);
+
     // We will usually want focus in the tab, except when splitting opens this as a preceding tab.
     if (m_grabFocus) {
         m_wCodeView->setFocus();
     }
+
     m_grabFocus = true;
 
     // Ensure the caret is positioned corresponding to previous view of this tab
     if (m_previousViewState == MainWindow::ViewState_BookView) {
-        m_wCodeView->StoreCaretLocationUpdate( m_wBookView->GetCaretLocation() );
+        m_wCodeView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation());
+    } else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
+        m_wCodeView->StoreCaretLocationUpdate(m_wBookPreview->GetCaretLocation());
     }
-    else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
-        m_wCodeView->StoreCaretLocationUpdate( m_wBookPreview->GetCaretLocation() );
-    }
-    m_wCodeView->ExecuteCaretUpdate();
 
+    m_wCodeView->ExecuteCaretUpdate();
     QApplication::restoreOverrideCursor();
 }
 
@@ -464,15 +466,13 @@ void FlowTab::LoadTabContent()
     // In BV, we will only allow loading if the document is well formed, since loading the
     //        resource into BV and then saving will alter badly formed sections of text.
     // In PV, we can try to load regardless of whether well formed or not.
-
     if (m_ViewState == MainWindow::ViewState_BookView) {
         if (m_safeToLoad && m_bookViewNeedsReload) {
             m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
             m_bookViewNeedsReload = false;
         }
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        if (m_bookPreviewNeedsReload ) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        if (m_bookPreviewNeedsReload) {
             m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
             m_bookPreviewNeedsReload = false;
         }
@@ -486,7 +486,6 @@ void FlowTab::SaveTabContent()
     //        means the resource already is "saved". We just need to reset modified state.
     // In BV, we only need to save the BV HTML into the resource if user has modified it,
     //        which will trigger ResourceModified() to set flag to say PV needs reloading.
-
     if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView->IsModified()) {
         m_HTMLResource.SetText(m_wBookView->GetHtml());
         m_wBookView->ResetModified();
@@ -499,9 +498,8 @@ void FlowTab::SaveTabContent()
 
 void FlowTab::ResourceModified()
 {
-    // This slot tells us that the underlying HTML resource has been changed 
-
-    if ( m_ViewState == MainWindow::ViewState_CodeView ) {
+    // This slot tells us that the underlying HTML resource has been changed
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         // It could be the user has done a Replace All on underlying resource, so reset our well formed check.
         m_safeToLoad = false;
         // When the underlying resource has been modified, it replaces the whole QTextDocument which
@@ -510,6 +508,7 @@ void FlowTab::ResourceModified()
         m_wCodeView->ExecuteCaretUpdate(m_defaultCaretLocationToTop);
         m_defaultCaretLocationToTop = false;
     }
+
     m_bookViewNeedsReload = true;
     m_bookPreviewNeedsReload = true;
 }
@@ -523,10 +522,10 @@ void FlowTab::LinkedResourceModified()
 
 void FlowTab::ResourceTextChanging()
 {
-    if ( m_ViewState == MainWindow::ViewState_CodeView ) {
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         // We need to store the caret location so it can be restored later
-        m_wCodeView->StoreCaretLocationUpdate( m_wCodeView->GetCaretLocation() );
-        // If the caret happened to be at the very top of the document then our location 
+        m_wCodeView->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
+        // If the caret happened to be at the very top of the document then our location
         // will be empty. The problem is that when ResourceModified() fires next
         // it will have effectively moved the caret to the bottom of the document.
         // At which point we will call the CodeView to restore caret location.
@@ -542,13 +541,16 @@ void FlowTab::ReloadTabIfPending()
     if (!isVisible()) {
         return;
     }
+
     if (m_suspendTabReloading) {
         return;
     }
+
     setFocus();
+
     // Reload BV/PV if the resource was marked as changed outside of the editor.
-    if ( (m_bookViewNeedsReload && m_ViewState == MainWindow::ViewState_BookView) ||
-         (m_bookPreviewNeedsReload && m_ViewState == MainWindow::ViewState_PreviewView) ) {
+    if ((m_bookViewNeedsReload && m_ViewState == MainWindow::ViewState_BookView) ||
+        (m_bookPreviewNeedsReload && m_ViewState == MainWindow::ViewState_PreviewView)) {
         LoadTabContent();
     }
 }
@@ -562,18 +564,16 @@ void FlowTab::PVSplitterMoved(int pos, int index)
 {
     Q_UNUSED(pos);
     Q_UNUSED(index);
-
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     settings.setValue("pv_splitter", m_pvVSplitter->saveState());
-
     settings.endGroup();
 }
 
 void FlowTab::LoadSettings()
 {
     UpdateDisplay();
+
     // SettingsChanged can fire for wanting the spelling highlighting to be refreshed on the tab.
     if (m_wCodeView) {
         m_wCodeView->RefreshSpellingHighlighting();
@@ -585,15 +585,15 @@ void FlowTab::UpdateDisplay()
     if (m_wBookView) {
         m_wBookView->UpdateDisplay();
     }
+
     if (m_wBookPreview) {
         SettingsStore settings;
         settings.beginGroup(SETTINGS_GROUP);
-
         m_pvVSplitter->restoreState(settings.value("pv_splitter").toByteArray());
-
         settings.endGroup();
         m_wBookPreview->UpdateDisplay();
     }
+
     if (m_wCodeView) {
         m_wCodeView->UpdateDisplay();
     }
@@ -623,8 +623,7 @@ bool FlowTab::CutEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::Cut)->isEnabled();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->textCursor().hasSelection();
     }
 
@@ -635,11 +634,9 @@ bool FlowTab::CopyEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::Copy)->isEnabled();
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         return m_wBookPreview->pageAction(QWebPage::Copy)->isEnabled();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->textCursor().hasSelection();
     }
 
@@ -650,8 +647,7 @@ bool FlowTab::PasteEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::Paste)->isEnabled();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->canPaste();
     }
 
@@ -672,6 +668,7 @@ bool FlowTab::RemoveFormattingEnabled()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::RemoveFormat)->isEnabled();
     }
+
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsCutCodeTagsAllowed();
     }
@@ -692,8 +689,7 @@ bool FlowTab::AddToIndexEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsAddToIndexAllowed();
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;
     }
 
@@ -704,8 +700,7 @@ bool FlowTab::MarkForIndexEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return true;
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;
     }
 
@@ -716,8 +711,7 @@ bool FlowTab::InsertIdEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsInsertIdAllowed();
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;
     }
 
@@ -728,8 +722,7 @@ bool FlowTab::InsertHyperlinkEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsInsertHyperlinkAllowed();
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;
     }
 
@@ -740,8 +733,7 @@ bool FlowTab::InsertSpecialCharacterEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return true;
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;
     }
 
@@ -752,8 +744,7 @@ bool FlowTab::InsertImageEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsInsertImageAllowed();
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;
     }
 
@@ -773,7 +764,7 @@ bool FlowTab::ViewStatesEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView ||
         m_ViewState == MainWindow::ViewState_PreviewView ||
-        m_ViewState == MainWindow::ViewState_CodeView ) {
+        m_ViewState == MainWindow::ViewState_CodeView) {
         return true;
     }
 
@@ -784,8 +775,7 @@ QString FlowTab::GetCaretLocationUpdate() const
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->GetCaretLocationUpdate();
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         return m_wBookPreview->GetCaretLocationUpdate();
     }
 
@@ -823,11 +813,9 @@ float FlowTab::GetZoomFactor() const
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->GetZoomFactor();
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-            return m_wBookPreview->GetZoomFactor();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        return m_wBookPreview->GetZoomFactor();
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->GetZoomFactor();
     }
 
@@ -840,28 +828,28 @@ void FlowTab::SetZoomFactor(float new_zoom_factor)
     // since zoom operations take some time in it.
     if (m_ViewState == MainWindow::ViewState_BookView || m_ViewState == MainWindow::ViewState_PreviewView) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
+
         if (m_wBookView) {
             m_wBookView->SetZoomFactor(new_zoom_factor);
         }
+
         if (m_wBookPreview) {
             m_wBookPreview->SetZoomFactor(new_zoom_factor);
         }
+
         QApplication::restoreOverrideCursor();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->SetZoomFactor(new_zoom_factor);
     }
 }
 
-Searchable* FlowTab::GetSearchableContent()
+Searchable *FlowTab::GetSearchableContent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView;
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         return m_wBookPreview;
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView;
     }
 
@@ -873,11 +861,9 @@ void FlowTab::ScrollToFragment(const QString &fragment)
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ScrollToFragment(fragment);
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         m_wBookPreview->ScrollToFragment(fragment);
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ScrollToFragment(fragment);
     }
 }
@@ -891,8 +877,7 @@ void FlowTab::ScrollToLine(int line)
     // view to be reset to top for links
     else if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ScrollToTop();
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         m_wBookPreview->ScrollToTop();
     }
 }
@@ -904,12 +889,11 @@ void FlowTab::ScrollToPosition(int cursor_position)
     }
 }
 
-void FlowTab::ScrollToCaretLocation( QString caret_location_update )
+void FlowTab::ScrollToCaretLocation(QString caret_location_update)
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecuteCaretUpdate(caret_location_update);
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         m_wBookPreview->ExecuteCaretUpdate(caret_location_update);
     }
 }
@@ -919,9 +903,11 @@ void FlowTab::ScrollToTop()
     if (m_wBookView) {
         m_wBookView->ScrollToTop();
     }
+
     if (m_wBookPreview) {
         m_wBookPreview->ScrollToTop();
     }
+
     if (m_wCodeView) {
         m_wCodeView->ScrollToTop();
     }
@@ -951,27 +937,26 @@ bool FlowTab::IsDataWellFormed()
 {
     if (!m_safeToLoad) {
         // The content has been changed or was in a not well formed state when last checked.
-
         if (m_ViewState == MainWindow::ViewState_BookView) {
             // If we are in BookView, then we know the data must be well formed, as even if edits have
             // taken place QWebView will have retained the XHTML integrity.
             m_safeToLoad = true;
-        }
-        else {
+        } else {
             // We are in PV or CV. In either situation the xhtml from CV could be invalid as the user may
             // have switched to PV to preview it (as they are allowed to do).
             // It is also possible that they opened the tab in PV as the initial load and CV is not loaded.
             // We are doing a well formed check, but we can only do it on the CV text if CV has been loaded.
             // So lets play safe and have a fallback to use the resource text if CV is not loaded yet.
             XhtmlDoc::WellFormedError error = (m_wCodeView != NULL)
-                                                ? XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText())
-                                                : XhtmlDoc::WellFormedErrorForSource(m_HTMLResource.GetText());
+                                              ? XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText())
+                                              : XhtmlDoc::WellFormedErrorForSource(m_HTMLResource.GetText());
             m_safeToLoad = error.line == -1;
 
             if (!m_safeToLoad) {
                 if (m_ViewState != MainWindow::ViewState_CodeView) {
                     CodeView();
                 }
+
                 m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
             }
         }
@@ -984,8 +969,7 @@ void FlowTab::Undo()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->Undo();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->undo();
     }
 }
@@ -994,8 +978,7 @@ void FlowTab::Redo()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->Redo();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->redo();
     }
 }
@@ -1004,11 +987,9 @@ void FlowTab::Cut()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::Cut);
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         m_wBookPreview->page()->triggerAction(QWebPage::Cut);
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->cut();
     }
 }
@@ -1016,12 +997,10 @@ void FlowTab::Cut()
 void FlowTab::Copy()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::Copy );
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        m_wBookView->page()->triggerAction(QWebPage::Copy);
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         m_wBookPreview->page()->triggerAction(QWebPage::Copy);
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->copy();
     }
 }
@@ -1030,8 +1009,7 @@ void FlowTab::Paste()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->paste();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->paste();
     }
 }
@@ -1050,10 +1028,9 @@ void FlowTab::SplitSection()
     }
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        emit OldTabRequest( m_wBookView->SplitSection(), m_HTMLResource );
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        emit OldTabRequest( m_wCodeView->SplitSection(), m_HTMLResource );
+        emit OldTabRequest(m_wBookView->SplitSection(), m_HTMLResource);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        emit OldTabRequest(m_wCodeView->SplitSection(), m_HTMLResource);
     }
 }
 
@@ -1065,8 +1042,7 @@ void FlowTab::InsertSGFSectionMarker()
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->InsertHtml(BREAK_TAG_INSERT);
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->InsertSGFSectionMarker();
     }
 }
@@ -1082,8 +1058,7 @@ void FlowTab::AddToIndex()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->AddToIndex();
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->AddToIndex();
     }
 }
@@ -1092,8 +1067,7 @@ bool FlowTab::MarkForIndex(const QString &title)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->MarkForIndex(title);
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->MarkForIndex(title);
     }
 
@@ -1103,11 +1077,11 @@ bool FlowTab::MarkForIndex(const QString &title)
 QString FlowTab::GetAttributeId()
 {
     QString attribute_value;
+
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         // We are only interested in ids on <a> anchor elements
         attribute_value = m_wCodeView->GetAttributeId();
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         attribute_value = m_wBookView->GetAncestorTagAttributeValue("id", ANCHOR_TAGS);
     }
 
@@ -1117,10 +1091,10 @@ QString FlowTab::GetAttributeId()
 QString FlowTab::GetAttributeHref()
 {
     QString attribute_value;
+
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         attribute_value = m_wCodeView->GetAttribute("href", ANCHOR_TAGS, false, true);
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         attribute_value = m_wBookView->GetAncestorTagAttributeValue("href", ANCHOR_TAGS);
     }
 
@@ -1130,14 +1104,16 @@ QString FlowTab::GetAttributeHref()
 QString FlowTab::GetAttributeIndexTitle()
 {
     QString attribute_value;
+
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         attribute_value = m_wCodeView->GetAttribute("title", ANCHOR_TAGS, false, true);
+
         if (attribute_value.isEmpty()) {
             attribute_value = m_wCodeView->GetSelectedText();
         }
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         attribute_value = m_wBookView->GetAncestorTagAttributeValue("title", ANCHOR_TAGS);
+
         if (attribute_value.isEmpty()) {
             attribute_value = m_wBookView->GetSelectedText();
         }
@@ -1150,10 +1126,10 @@ bool FlowTab::InsertId(const QString &id)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->InsertId(id);
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->InsertId(id);
     }
+
     return false;
 }
 
@@ -1161,19 +1137,21 @@ bool FlowTab::InsertHyperlink(const QString &href)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->InsertHyperlink(href);
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->InsertHyperlink(href);
     }
+
     return false;
 }
 
-void FlowTab::InsertImage( const QString &image_path )
+void FlowTab::InsertImage(const QString &image_path)
 {
     QString filename = image_path;
+
     if (filename.contains("/")) {
         filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
     }
+
     if (filename.contains(".")) {
         filename = filename.left(filename.lastIndexOf("."));
     }
@@ -1182,8 +1160,7 @@ void FlowTab::InsertImage( const QString &image_path )
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->InsertHtml(html);
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->insertPlainText(html);
     }
 }
@@ -1194,14 +1171,11 @@ void FlowTab::PrintPreview()
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
         connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_wBookView, SLOT(print(QPrinter *)));
-    }
-    else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_wBookPreview, SLOT(print(QPrinter *)));
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_wCodeView, SLOT(print(QPrinter *)));
-    }
-    else {
+    } else {
         return;
     }
 
@@ -1212,18 +1186,15 @@ void FlowTab::PrintPreview()
 void FlowTab::Print()
 {
     QPrinter printer;
-
     QPrintDialog print_dialog(&printer, this);
     print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
 
     if (print_dialog.exec() == QDialog::Accepted) {
         if (m_ViewState == MainWindow::ViewState_BookView) {
             m_wBookView->print(&printer);
-        }
-        else if (m_ViewState == MainWindow::ViewState_PreviewView) {
+        } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
             m_wBookPreview->print(&printer);
-        }
-        else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        } else if (m_ViewState == MainWindow::ViewState_CodeView) {
             m_wCodeView->print(&printer);
         }
     }
@@ -1232,9 +1203,8 @@ void FlowTab::Print()
 void FlowTab::Bold()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::ToggleBold );
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wBookView->page()->triggerAction(QWebPage::ToggleBold);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("b", "font-weight", "bold");
     }
 }
@@ -1242,9 +1212,8 @@ void FlowTab::Bold()
 void FlowTab::Italic()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::ToggleItalic );
-    }    
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wBookView->page()->triggerAction(QWebPage::ToggleItalic);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("i", "font-style", "italic");
     }
 }
@@ -1252,9 +1221,8 @@ void FlowTab::Italic()
 void FlowTab::Underline()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::ToggleUnderline );
-    }    
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wBookView->page()->triggerAction(QWebPage::ToggleUnderline);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("u", "text-decoration", "underline");
     }
 }
@@ -1262,9 +1230,8 @@ void FlowTab::Underline()
 void FlowTab::Strikethrough()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand( "strikeThrough" );
-    }    
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wBookView->ExecCommand("strikeThrough");
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("strike", "text-decoration", "line-through");
     }
 }
@@ -1272,9 +1239,8 @@ void FlowTab::Strikethrough()
 void FlowTab::Subscript()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::ToggleSubscript );
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wBookView->page()->triggerAction(QWebPage::ToggleSubscript);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("sub");
     }
 }
@@ -1282,9 +1248,8 @@ void FlowTab::Subscript()
 void FlowTab::Superscript()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::ToggleSuperscript );
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wBookView->page()->triggerAction(QWebPage::ToggleSuperscript);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("sup");
     }
 }
@@ -1292,286 +1257,281 @@ void FlowTab::Superscript()
 void FlowTab::AlignLeft()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand( "justifyLeft" );
+        m_wBookView->ExecCommand("justifyLeft");
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle("text-align", "left");
     }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle( "text-align", "left" );
-    }    
 }
 
 void FlowTab::AlignCenter()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand( "justifyCenter" );
-    }    
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle( "text-align", "center" );
-    }    
+        m_wBookView->ExecCommand("justifyCenter");
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle("text-align", "center");
+    }
 }
 
 void FlowTab::AlignRight()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand( "justifyRight" );
-    }    
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle( "text-align", "right" );
-    }    
+        m_wBookView->ExecCommand("justifyRight");
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle("text-align", "right");
+    }
 }
 
 void FlowTab::AlignJustify()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand( "justifyFull" );
-    }    
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle( "text-align", "justify" );
-    }    
+        m_wBookView->ExecCommand("justifyFull");
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle("text-align", "justify");
+    }
 }
 
 void FlowTab::InsertBulletedList()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand( "insertUnorderedList" );
+        m_wBookView->ExecCommand("insertUnorderedList");
     }
 }
 
 void FlowTab::InsertNumberedList()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand( "insertOrderedList" );
+        m_wBookView->ExecCommand("insertOrderedList");
     }
 }
 
 void FlowTab::DecreaseIndent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::Outdent );
+        m_wBookView->page()->triggerAction(QWebPage::Outdent);
     }
 }
 
 void FlowTab::IncreaseIndent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::Indent );
+        m_wBookView->page()->triggerAction(QWebPage::Indent);
     }
 }
 
 void FlowTab::TextDirectionLeftToRight()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::SetTextDirectionLeftToRight );
+        m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionLeftToRight);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle("direction", "ltr");
     }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle( "direction", "ltr" );
-    }    
 }
 
 void FlowTab::TextDirectionRightToLeft()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::SetTextDirectionRightToLeft );
+        m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionRightToLeft);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle("direction", "rtl");
     }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle( "direction", "rtl" );
-    }    
 }
 
 void FlowTab::TextDirectionDefault()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::SetTextDirectionDefault );
+        m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionDefault);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->FormatStyle("direction", "inherit");
     }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle( "direction", "inherit" );
-    }    
 }
 
 void FlowTab::ShowTag()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
+    if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ShowTag();
-    else if (m_ViewState == MainWindow::ViewState_PreviewView)
+    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
         m_wBookPreview->ShowTag();
+    }
 }
 
 void FlowTab::RemoveFormatting()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction( QWebPage::RemoveFormat );
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wBookView->page()->triggerAction(QWebPage::RemoveFormat);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->CutCodeTags();
     }
 }
 
-void FlowTab::ChangeCasing( const Utility::Casing casing )
+void FlowTab::ChangeCasing(const Utility::Casing casing)
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ApplyCaseChangeToSelection( casing );
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->ApplyCaseChangeToSelection( casing );
+        m_wBookView->ApplyCaseChangeToSelection(casing);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ApplyCaseChangeToSelection(casing);
     }
 }
 
-void FlowTab::HeadingStyle( const QString& heading_type, bool preserve_attributes )
+void FlowTab::HeadingStyle(const QString &heading_type, bool preserve_attributes)
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-    {
+    if (m_ViewState == MainWindow::ViewState_BookView) {
         QChar last_char = heading_type[ heading_type.count() - 1 ];
 
         // For heading_type == "Heading #"
-        if ( last_char.isDigit() ) {
-            m_wBookView->FormatBlock( "h" % QString( last_char ), preserve_attributes );
+        if (last_char.isDigit()) {
+            m_wBookView->FormatBlock("h" % QString(last_char), preserve_attributes);
+        } else if (heading_type == "Normal") {
+            m_wBookView->FormatBlock("p", preserve_attributes);
         }
-        else if ( heading_type == "Normal" ) {
-            m_wBookView->FormatBlock( "p", preserve_attributes );
-        }
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView)
-    {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         QChar last_char = heading_type[ heading_type.count() - 1 ];
 
         // For heading_type == "Heading #"
-        if ( last_char.isDigit() ) {
-            m_wCodeView->FormatBlock( "h" % QString( last_char ), preserve_attributes );
-        }
-        else if ( heading_type == "Normal" ) {
-            m_wCodeView->FormatBlock( "p", preserve_attributes );
+        if (last_char.isDigit()) {
+            m_wCodeView->FormatBlock("h" % QString(last_char), preserve_attributes);
+        } else if (heading_type == "Normal") {
+            m_wCodeView->FormatBlock("p", preserve_attributes);
         }
     }
 }
 
 void FlowTab::GoToLinkOrStyle()
 {
-    if (m_ViewState == MainWindow::ViewState_CodeView)
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->GoToLinkOrStyle();
+    }
 }
 
 void FlowTab::AddMisspelledWord()
 {
-    if (m_ViewState == MainWindow::ViewState_CodeView)
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->AddMisspelledWord();
+    }
 }
 
 void FlowTab::IgnoreMisspelledWord()
 {
-    if (m_ViewState == MainWindow::ViewState_CodeView)
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->IgnoreMisspelledWord();
+    }
 }
 
 bool FlowTab::BoldChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->pageAction( QWebPage::ToggleBold )->isChecked();
-
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->pageAction(QWebPage::ToggleBold)->isChecked();
+    } else {
         return ContentTab::BoldChecked();
+    }
 }
 
 bool FlowTab::ItalicChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->pageAction( QWebPage::ToggleItalic )->isChecked();
-
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->pageAction(QWebPage::ToggleItalic)->isChecked();
+    } else {
         return ContentTab::ItalicChecked();
+    }
 }
 
 bool FlowTab::UnderlineChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->pageAction( QWebPage::ToggleUnderline )->isChecked(); 
-
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->pageAction(QWebPage::ToggleUnderline)->isChecked();
+    } else {
         return ContentTab::UnderlineChecked();
+    }
 }
 
 bool FlowTab::StrikethroughChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->QueryCommandState( "strikeThrough" );
-
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->QueryCommandState("strikeThrough");
+    } else {
         return ContentTab::StrikethroughChecked();
+    }
 }
 
 bool FlowTab::SubscriptChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->QueryCommandState( "subscript" );
-
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->QueryCommandState("subscript");
+    } else {
         return ContentTab::SubscriptChecked();
+    }
 }
 
 bool FlowTab::SuperscriptChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->QueryCommandState( "superscript" );
-
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->QueryCommandState("superscript");
+    } else {
         return ContentTab::SuperscriptChecked();
+    }
 }
 
 bool FlowTab::AlignLeftChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->QueryCommandState( "justifyLeft" );
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->QueryCommandState("justifyLeft");
+    } else {
         return ContentTab::AlignLeftChecked();
+    }
 }
 
 bool FlowTab::AlignRightChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->QueryCommandState( "justifyRight" );
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->QueryCommandState("justifyRight");
+    } else {
         return ContentTab::AlignRightChecked();
+    }
 }
 
 bool FlowTab::AlignCenterChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->QueryCommandState( "justifyCenter" );
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->QueryCommandState("justifyCenter");
+    } else {
         return ContentTab::AlignCenterChecked();
+    }
 }
 
 bool FlowTab::AlignJustifyChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->QueryCommandState( "justifyFull" );
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->QueryCommandState("justifyFull");
+    } else {
         return ContentTab::AlignJustifyChecked();
+    }
 }
 
 bool FlowTab::BulletListChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->QueryCommandState( "insertUnorderedList" );
-
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->QueryCommandState("insertUnorderedList");
+    } else {
         return ContentTab::BulletListChecked();
+    }
 }
 
 bool FlowTab::NumberListChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
-        return m_wBookView->QueryCommandState( "insertOrderedList" );
-
-    else
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->QueryCommandState("insertOrderedList");
+    } else {
         return ContentTab::NumberListChecked();
+    }
 }
 
 
 QString FlowTab::GetCaretElementName()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView)
+    if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->GetCaretElementName();
-    else
+    } else {
         return ContentTab::GetCaretElementName();
+    }
 }
 
 void FlowTab::SuspendTabReloading()
@@ -1587,6 +1547,7 @@ void FlowTab::ResumeTabReloading()
     // Call this function to resume reloading of BV/PV in response to linked
     // resources changing. If a reload tab request is pending it is executed now.
     m_suspendTabReloading = false;
+
     // Force an immediate reload if there is one pending
     if (m_bookViewNeedsReload || m_bookPreviewNeedsReload) {
         // Must save tab content first or else reload may not take place.
@@ -1609,12 +1570,12 @@ void FlowTab::ConnectBookViewSignalsToSlots()
     connect(m_wBookView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
     connect(m_wBookView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
     connect(m_wBookView, SIGNAL(InsertImage()), this, SIGNAL(InsertImageRequest()));
-    connect(m_wBookView, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
+    connect(m_wBookView, SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(m_wBookView, SIGNAL(ClipboardSaveRequest()),    this, SIGNAL(ClipboardSaveRequest()));
     connect(m_wBookView, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
     connect(m_wBookView, SIGNAL(ImageOpenedExternally(const QString &)), this, SIGNAL(ImageOpenedExternally(const QString &)));
-    connect(m_wBookView, SIGNAL(ImageSaveAs(const QUrl&)), this, SIGNAL(ImageSaveAs(const QUrl&)));
-    connect(m_wBookView, SIGNAL(ShowStatusMessageRequest(const QString&)), this, SIGNAL(ShowStatusMessageRequest(const QString&)));
+    connect(m_wBookView, SIGNAL(ImageSaveAs(const QUrl &)), this, SIGNAL(ImageSaveAs(const QUrl &)));
+    connect(m_wBookView, SIGNAL(ShowStatusMessageRequest(const QString &)), this, SIGNAL(ShowStatusMessageRequest(const QString &)));
     connect(m_wBookView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(m_wBookView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
     connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
@@ -1624,8 +1585,8 @@ void FlowTab::ConnectPreviewViewSignalsToSlots()
 {
     connect(m_wBookPreview, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_wBookPreview, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
-    connect(m_wBookPreview, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
-    connect(m_wBookPreview, SIGNAL(ShowStatusMessageRequest(const QString&)), this, SIGNAL(ShowStatusMessageRequest(const QString&)));
+    connect(m_wBookPreview, SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
+    connect(m_wBookPreview, SIGNAL(ShowStatusMessageRequest(const QString &)), this, SIGNAL(ShowStatusMessageRequest(const QString &)));
     connect(m_pvVSplitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));
 }
 
@@ -1635,12 +1596,12 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_wCodeView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
     connect(m_wCodeView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
-    connect(m_wCodeView, SIGNAL(LinkClicked(const QUrl&)), this, SIGNAL(LinkClicked(const QUrl&)));
+    connect(m_wCodeView, SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
-    connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString&, const QString&)));
+    connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString &, const QString &)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString &, const QString &)));
     connect(m_wCodeView, SIGNAL(BookmarkLinkOrStyleLocationRequest()), this, SIGNAL(BookmarkLinkOrStyleLocationRequest()));
     connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
-    connect(m_wCodeView, SIGNAL(ShowStatusMessageRequest(const QString&)), this, SIGNAL(ShowStatusMessageRequest(const QString&)));
+    connect(m_wCodeView, SIGNAL(ShowStatusMessageRequest(const QString &)), this, SIGNAL(ShowStatusMessageRequest(const QString &)));
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
 }

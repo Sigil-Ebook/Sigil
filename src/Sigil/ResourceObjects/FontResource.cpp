@@ -22,10 +22,9 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/FontResource.h"
 
-FontResource::FontResource( const QString &fullfilepath, QObject *parent )
-    : Resource( fullfilepath, parent )
+FontResource::FontResource(const QString &fullfilepath, QObject *parent)
+    : Resource(fullfilepath, parent)
 {
-
 }
 
 
@@ -41,7 +40,7 @@ QString FontResource::GetObfuscationAlgorithm() const
 }
 
 
-void FontResource::SetObfuscationAlgorithm( const QString &algorithm )
+void FontResource::SetObfuscationAlgorithm(const QString &algorithm)
 {
     m_ObfuscationAlgorithm = algorithm;
 }
@@ -49,6 +48,5 @@ void FontResource::SetObfuscationAlgorithm( const QString &algorithm )
 bool FontResource::LoadFromDisk()
 {
     emit Modified();
-
     return true;
 }

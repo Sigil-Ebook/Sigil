@@ -35,13 +35,16 @@ bool FilenameDelegate::eventFilter(QObject *object, QEvent *event)
         if (QLineEdit *edit = qobject_cast<QLineEdit *>(object)) {
             QString text = edit->text();
             int pos = text.lastIndexOf('.');
+
             if (pos == -1) {
                 pos = text.length();
             }
+
             edit->setSelection(0, pos);
             event->accept();
             return true;
         }
     }
+
     return QStyledItemDelegate::eventFilter(object, event);
 }

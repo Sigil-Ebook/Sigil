@@ -27,40 +27,40 @@
 #include "HTMLPrettyPrint.h"
 
 static QStringList defaultInlineTags = QStringList()
-    << "a"
-    << "abbr"
-    << "acronym"
-    << "audio"
-    << "b"
-    << "bdo"
-    << "big"
-    << "br"
-    << "button"
-    << "cite"
-    << "del"
-    << "dfn"
-    << "em"
-    << "i"
-    << "img"
-    << "ins"
-    << "input"
-    << "label"
-    << "map"
-    << "kbd"
-    << "object"
-    << "q"
-    << "ruby"
-    << "samp"
-    << "select"
-    << "small"
-    << "span"
-    << "strong"
-    << "sub"
-    << "sup"
-    << "textarea"
-    << "tt"
-    << "var"
-    << "video";
+                                       << "a"
+                                       << "abbr"
+                                       << "acronym"
+                                       << "audio"
+                                       << "b"
+                                       << "bdo"
+                                       << "big"
+                                       << "br"
+                                       << "button"
+                                       << "cite"
+                                       << "del"
+                                       << "dfn"
+                                       << "em"
+                                       << "i"
+                                       << "img"
+                                       << "ins"
+                                       << "input"
+                                       << "label"
+                                       << "map"
+                                       << "kbd"
+                                       << "object"
+                                       << "q"
+                                       << "ruby"
+                                       << "samp"
+                                       << "select"
+                                       << "small"
+                                       << "span"
+                                       << "strong"
+                                       << "sub"
+                                       << "sup"
+                                       << "textarea"
+                                       << "tt"
+                                       << "var"
+                                       << "video";
 
 HTMLPrettyPrint::HTMLPrettyPrint(const QString &source)
     : m_source(source),
@@ -75,7 +75,7 @@ HTMLPrettyPrint::HTMLPrettyPrint(const QString &source)
 
 HTMLPrettyPrint::~HTMLPrettyPrint()
 {
-    Q_FOREACH (HTMLToken *t, m_tokens) {
+    Q_FOREACH(HTMLToken * t, m_tokens) {
         delete t;
         t = 0;
     }
@@ -89,19 +89,21 @@ QString HTMLPrettyPrint::prettyPrint()
     QStringList builder;
     QString segment;
     HTMLToken *last_token = 0;
-
-    Q_FOREACH (HTMLToken *token, m_tokens) {
+    Q_FOREACH(HTMLToken * token, m_tokens) {
         if (!token) {
             continue;
         }
 
         segment = m_source.mid(token->start, token->len);
+
         if (token->tag == "pre") {
             in_pre = !in_pre;
         }
+
         if (!in_pre) {
             segment = cleanSegement(segment);
         }
+
         if (segment.trimmed().isEmpty()) {
             continue;
         }
@@ -112,6 +114,7 @@ QString HTMLPrettyPrint::prettyPrint()
             } else if (last_token && (last_token->type == TOKEN_TYPE_CLOSE_TAG || last_token->type == TOKEN_TYPE_SELF_CLOSING_TAG) && token->type != TOKEN_TYPE_OPEN_TAG && token->type != TOKEN_TYPE_SELF_CLOSING_TAG && token->type != TOKEN_TYPE_COMMENT) {
                 level--;
             }
+
             if (level > 0 && !in_pre) {
                 builder.append(indentChar.repeated(m_indentCharCount * level));
             }
@@ -123,10 +126,8 @@ QString HTMLPrettyPrint::prettyPrint()
 
         builder.append(segment);
         builder.append("\n");
-
         last_token = token;
     }
-
     return builder.join("");
 }
 
@@ -183,6 +184,7 @@ void HTMLPrettyPrint::tokenize()
             } else {
                 tag_len++;
             }
+
             if (m_source.midRef(tag_start, tag_len) == "!--") {
                 collect_tag = false;
                 in_comment = true;
@@ -190,17 +192,18 @@ void HTMLPrettyPrint::tokenize()
         }
 
         if (c == '<' || c == '>') {
-            if (in_comment && ((c == '<') || (c == '>' && i >= 2 && m_source.midRef(i-2, 2) != "--"))) {
+            if (in_comment && ((c == '<') || (c == '>' && i >= 2 && m_source.midRef(i - 2, 2) != "--"))) {
                 continue;
             }
 
             HTMLToken *token = new HTMLToken();
             token->start = start;
             token->len = i - start;
-
             start = i;
+
             if (c == '<') {
                 token->type = TOKEN_TYPE_TEXT;
+
                 if (!in_comment) {
                     collect_tag = true;
                     tag_start = i + 1;
@@ -209,11 +212,9 @@ void HTMLPrettyPrint::tokenize()
             } else if (c == '>') {
                 in_comment = false;
                 token->len++;
-
                 QString segment = m_source.mid(token->start, token->len);
                 token->type = tokenType(segment);
                 token->tag = tag(segment);
-
                 i++;
                 start++;
             }
@@ -235,10 +236,8 @@ void HTMLPrettyPrint::tokenize()
 QString HTMLPrettyPrint::cleanSegement(const QString &source)
 {
     QString segment = source;
-
     segment = segment.replace(QRegExp("(\\r\\n)|\\n|\\r"), " ");
     segment = segment.replace(QRegExp("\\s{2,}"), " ");
-
     return segment;
 }
 
@@ -255,6 +254,7 @@ HTMLPrettyPrint::TOKEN_TYPE HTMLPrettyPrint::tokenType(const QString &source)
     } else if (source.startsWith("<!")) {
         return TOKEN_TYPE_DOC_TYPE;
     }
+
     return TOKEN_TYPE_OPEN_TAG;
 }
 

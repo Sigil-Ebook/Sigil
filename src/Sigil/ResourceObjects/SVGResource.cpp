@@ -22,10 +22,9 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/SVGResource.h"
 
-SVGResource::SVGResource( const QString &fullfilepath, QObject *parent )
-    : TextResource( fullfilepath, parent )
+SVGResource::SVGResource(const QString &fullfilepath, QObject *parent)
+    : TextResource(fullfilepath, parent)
 {
-
 }
 
 

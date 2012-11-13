@@ -55,14 +55,13 @@ static const QString UPDATE_ERROR_STRING = "SG_ERROR";
 const QString NCX_MIMETYPE               = "application/x-dtbncx+xml";
 static const QString NCX_EXTENSION       = "ncx";
 
-ImportOEBPS::ImportOEBPS( const QString &fullfilepath )
+ImportOEBPS::ImportOEBPS(const QString &fullfilepath)
     :
-    Importer( fullfilepath ),
-    m_ExtractedFolderPath( m_TempFolder.GetPath() ),
+    Importer(fullfilepath),
+    m_ExtractedFolderPath(m_TempFolder.GetPath()),
     m_HasSpineItems(false),
     m_NCXNotInManifest(false)
 {
-
 }
 
 
@@ -78,10 +77,11 @@ void ImportOEBPS::ExtractContainer()
 #endif
 
     if (zfile == NULL) {
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot open EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString() ) );
+        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot open EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
     }
 
     res = unzGoToFirstFile(zfile);
+
     if (res == UNZ_OK) {
         do {
             // Get the name of the file in the archive.
@@ -110,29 +110,33 @@ void ImportOEBPS::ExtractContainer()
                 // Open the file entry in the archive for reading.
                 if (unzOpenCurrentFile(zfile) != UNZ_OK) {
                     unzClose(zfile);
-                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString() ) );
+                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
 
                 // Open the file on disk to write the entry in the archive to.
                 QFile entry(file_path);
-                if (!entry.open(QIODevice::WriteOnly|QIODevice::Truncate)) {
+
+                if (!entry.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
                     unzCloseCurrentFile(zfile);
                     unzClose(zfile);
-                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString() ) );
+                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
 
                 // Buffered reading and writing.
                 char buff[BUFF_SIZE] = {0};
                 int read = 0;
+
                 while ((read = unzReadCurrentFile(zfile, buff, BUFF_SIZE)) > 0) {
                     entry.write(buff, read);
                 }
+
                 entry.close();
+
                 // Read errors are marked by a negative read amount.
                 if (read < 0) {
                     unzCloseCurrentFile(zfile);
                     unzClose(zfile);
-                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString() ) );
+                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
 
                 // The file was read but the CRC did not match.
@@ -140,7 +144,7 @@ void ImportOEBPS::ExtractContainer()
                 // because if they're different there should be a CRC error.
                 if (unzCloseCurrentFile(zfile) == UNZ_CRCERROR) {
                     unzClose(zfile);
-                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString() ) );
+                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
             }
         } while ((res = unzGoToNextFile(zfile)) == UNZ_OK);
@@ -148,7 +152,7 @@ void ImportOEBPS::ExtractContainer()
 
     if (res != UNZ_END_OF_LIST_OF_FILE) {
         unzClose(zfile);
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors( QString(QObject::tr("Cannot open EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString() ) );
+        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot open EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
     }
 
     unzClose(zfile);
@@ -158,22 +162,18 @@ void ImportOEBPS::ExtractContainer()
 void ImportOEBPS::LocateOPF()
 {
     QString fullpath = m_ExtractedFolderPath + "/META-INF/container.xml";
-    QXmlStreamReader container( Utility::ReadUnicodeTextFile( fullpath ) );
+    QXmlStreamReader container(Utility::ReadUnicodeTextFile(fullpath));
 
-    while ( !container.atEnd() ) 
-    {
+    while (!container.atEnd()) {
         container.readNext();
 
-        if ( container.isStartElement() && 
-             container.name() == "rootfile"
-           ) 
-        {
-            if ( container.attributes().hasAttribute( "media-type" ) &&
-                 container.attributes().value( "", "media-type" ) == OEBPS_MIMETYPE 
-               )
-            {
-                m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value( "", "full-path" ).toString();
-
+        if (container.isStartElement() &&
+            container.name() == "rootfile"
+           ) {
+            if (container.attributes().hasAttribute("media-type") &&
+                container.attributes().value("", "media-type") == OEBPS_MIMETYPE
+               ) {
+                m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value("", "full-path").toString();
                 // As per OCF spec, the first rootfile element
                 // with the OEBPS mimetype is considered the "main" one.
                 break;
@@ -181,64 +181,59 @@ void ImportOEBPS::LocateOPF()
         }
     }
 
-    if ( container.hasError() )
-    {
+    if (container.hasError()) {
         const QString error = QString(
-            QObject::tr("Unable to parse container.xml file.\nLine: %1 Column %2 - %3"))
-                    .arg(container.lineNumber())
-                    .arg(container.columnNumber())
-                    .arg(container.errorString());
-        boost_throw( EPUBLoadParseError() << errinfo_epub_load_parse_errors( error.toStdString() ) );
+                                  QObject::tr("Unable to parse container.xml file.\nLine: %1 Column %2 - %3"))
+                              .arg(container.lineNumber())
+                              .arg(container.columnNumber())
+                              .arg(container.errorString());
+        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(error.toStdString()));
     }
 
-    if ( m_OPFFilePath.isEmpty() || !QFile::exists(m_OPFFilePath) )
-    {
-        boost_throw( EPUBLoadParseError() 
-            << errinfo_epub_load_parse_errors( QString(QObject::tr("No appropriate OPF file found")).toStdString() ) );
+    if (m_OPFFilePath.isEmpty() || !QFile::exists(m_OPFFilePath)) {
+        boost_throw(EPUBLoadParseError()
+                    << errinfo_epub_load_parse_errors(QString(QObject::tr("No appropriate OPF file found")).toStdString()));
     }
 }
 
 
 void ImportOEBPS::ReadOPF()
 {
-    QString opf_text = PrepareOPFForReading( Utility::ReadUnicodeTextFile( m_OPFFilePath ) );
-    QXmlStreamReader opf_reader( opf_text );
-
+    QString opf_text = PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath));
+    QXmlStreamReader opf_reader(opf_text);
     QString ncx_id_on_spine;
-    while ( !opf_reader.atEnd() )
-    {
+
+    while (!opf_reader.atEnd()) {
         opf_reader.readNext();
 
-        if ( !opf_reader.isStartElement() ) {
+        if (!opf_reader.isStartElement()) {
             continue;
         }
 
-        if ( opf_reader.name() == "package" ) {
-            m_UniqueIdentifierId = opf_reader.attributes().value( "", "unique-identifier" ).toString();
-        }
-        else if ( opf_reader.name() == "identifier" ) {
-            ReadIdentifierElement( opf_reader );
+        if (opf_reader.name() == "package") {
+            m_UniqueIdentifierId = opf_reader.attributes().value("", "unique-identifier").toString();
+        } else if (opf_reader.name() == "identifier") {
+            ReadIdentifierElement(opf_reader);
         }
         // Get the list of content files that
         // make up the publication
-        else if ( opf_reader.name() == "item" ) {
-            ReadManifestItemElement( opf_reader );
+        else if (opf_reader.name() == "item") {
+            ReadManifestItemElement(opf_reader);
         }
         // We read this just to get the NCX id
-        else if ( opf_reader.name() == "spine" ) {
-            ncx_id_on_spine = opf_reader.attributes().value( "", "toc" ).toString();
-        }
-        else if ( opf_reader.name() == "itemref" ) {
+        else if (opf_reader.name() == "spine") {
+            ncx_id_on_spine = opf_reader.attributes().value("", "toc").toString();
+        } else if (opf_reader.name() == "itemref") {
             m_HasSpineItems = true;
         }
     }
 
-    if ( opf_reader.hasError() ) {
+    if (opf_reader.hasError()) {
         const QString error = QString(QObject::tr("Unable to read OPF file.\nLine: %1 Column %2 - %3"))
-                                    .arg(opf_reader.lineNumber())
-                                    .arg(opf_reader.columnNumber())
-                                    .arg(opf_reader.errorString());
-        boost_throw( EPUBLoadParseError() << errinfo_epub_load_parse_errors( error.toStdString() ) );
+                              .arg(opf_reader.lineNumber())
+                              .arg(opf_reader.columnNumber())
+                              .arg(opf_reader.errorString());
+        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(error.toStdString()));
     }
 
     // Ensure we have an NCX available
@@ -246,67 +241,63 @@ void ImportOEBPS::ReadOPF()
 }
 
 
-void ImportOEBPS::ReadIdentifierElement( QXmlStreamReader &opf_reader )
+void ImportOEBPS::ReadIdentifierElement(QXmlStreamReader &opf_reader)
 {
-    QString id     = opf_reader.attributes().value( "", "id"     ).toString(); 
-    QString scheme = opf_reader.attributes().value( "", "scheme" ).toString();
+    QString id     = opf_reader.attributes().value("", "id").toString();
+    QString scheme = opf_reader.attributes().value("", "scheme").toString();
     QString value  = opf_reader.readElementText();
 
-    if ( id == m_UniqueIdentifierId )
-
+    if (id == m_UniqueIdentifierId) {
         m_UniqueIdentifierValue = value;
+    }
 
-    if ( m_UuidIdentifierValue.isEmpty() &&
-         ( value.contains( "urn:uuid:" ) || scheme.toLower() == "uuid" ) )
-    {
+    if (m_UuidIdentifierValue.isEmpty() &&
+        (value.contains("urn:uuid:") || scheme.toLower() == "uuid")) {
         m_UuidIdentifierValue = value;
-    }            
+    }
 }
 
 
-void ImportOEBPS::ReadManifestItemElement( QXmlStreamReader &opf_reader )
+void ImportOEBPS::ReadManifestItemElement(QXmlStreamReader &opf_reader)
 {
-    QString id   = opf_reader.attributes().value( "", "id"         ).toString(); 
-    QString href = opf_reader.attributes().value( "", "href"       ).toString();
-    QString type = opf_reader.attributes().value( "", "media-type" ).toString();
-
+    QString id   = opf_reader.attributes().value("", "id").toString();
+    QString href = opf_reader.attributes().value("", "href").toString();
+    QString type = opf_reader.attributes().value("", "media-type").toString();
     // Paths are percent encoded in the OPF, we use "normal" paths internally.
-    href = Utility::URLDecodePath( href );
-    QString extension = QFileInfo( href ).suffix().toLower();
+    href = Utility::URLDecodePath(href);
+    QString extension = QFileInfo(href).suffix().toLower();
 
-    if ( type != NCX_MIMETYPE && extension != NCX_EXTENSION )         
-    {                    
-        if ( !m_MainfestFilePaths.contains( href ) )
-        {
-            if ( m_Files.contains(id) ) {
-                // We have an error situation with a duplicate id in the epub. 
+    if (type != NCX_MIMETYPE && extension != NCX_EXTENSION) {
+        if (!m_MainfestFilePaths.contains(href)) {
+            if (m_Files.contains(id)) {
+                // We have an error situation with a duplicate id in the epub.
                 // We must warn the user, but attempt to use another id so the epub can still be loaded.
                 QString base_id = QFileInfo(href).fileName();
                 QString new_id(base_id);
                 int duplicate_index = 0;
+
                 while (m_Files.contains(new_id)) {
                     duplicate_index++;
                     new_id = QString("%1%2").arg(base_id).arg(duplicate_index);
                 }
+
                 const QString load_warning = "<p>" % QObject::tr("The OPF manifest contains duplicate ids for: <b>%1</b>").arg(id) % "</p>" %
-                           "<p>- " % QObject::tr("A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.") % "</p>";
+                                             "<p>- " % QObject::tr("A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.") % "</p>";
                 id = new_id;
                 AddLoadWarning(load_warning);
             }
+
             m_Files[ id ] = href;
             m_FileMimetypes[ id ] = type;
             m_MainfestFilePaths << href;
         }
-    }
-
-    else
-    {
+    } else {
         m_NcxCandidates[ id ] = href;
     }
 }
 
 
-void ImportOEBPS::LocateOrCreateNCX( const QString &ncx_id_on_spine )
+void ImportOEBPS::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 {
     QString load_warning;
     QString ncx_href = "not_found";
@@ -317,54 +308,50 @@ void ImportOEBPS::LocateOrCreateNCX( const QString &ncx_id_on_spine )
     // - ncx specified in spine, but no matching manifest item entry (create a new one)
     // - ncx file not physically present (create a new one)
     // - ncx not in spine or manifest item (create a new one)
-    if ( !m_NCXId.isEmpty() ) {
+    if (!m_NCXId.isEmpty()) {
         ncx_href = m_NcxCandidates[ m_NCXId ];
-    }
-    else {
+    } else {
         // Search for the ncx in the manifest by looking for files with
         // a .ncx extension.
-        QHashIterator< QString, QString > ncxSearch( m_NcxCandidates );
-        while( ncxSearch.hasNext() )
-        {
+        QHashIterator< QString, QString > ncxSearch(m_NcxCandidates);
+
+        while (ncxSearch.hasNext()) {
             ncxSearch.next();
-            if( QFileInfo( ncxSearch.value() ).suffix().toLower() == NCX_EXTENSION )
-            {
+
+            if (QFileInfo(ncxSearch.value()).suffix().toLower() == NCX_EXTENSION) {
                 m_NCXId = ncxSearch.key();
-
                 load_warning = "<p>" % QObject::tr("The OPF file did not identify the NCX file correctly.") % "</p>" %
-                               "<p>- " % QObject::tr("Sigil has used the following file as the NCX:") % 
+                               "<p>- " % QObject::tr("Sigil has used the following file as the NCX:") %
                                QString(" <b>%1</b></p>").arg(m_NcxCandidates[ m_NCXId ]);
-
                 ncx_href = m_NcxCandidates[ m_NCXId ];
                 break;
             }
         }
     }
 
-    m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() % "/" % ncx_href;
+    m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
 
     if (ncx_href.isEmpty() || !QFile::exists(m_NCXFilePath)) {
         m_NCXNotInManifest = m_NCXId.isEmpty() || ncx_href.isEmpty();
         m_NCXId.clear();
-
         // Things are really bad and no .ncx file was found in the manifest or
         // the file does not physically exist.  We need to create a new one.
-        m_NCXFilePath = QFileInfo( m_OPFFilePath ).absolutePath() % "/" % NCX_FILE_NAME;
-
+        m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % NCX_FILE_NAME;
         // Create a new file for the NCX.
-        NCXResource ncx_resource( m_NCXFilePath, &m_Book->GetFolderKeeper() );
-        // We are relying on an identifier being set from the metadata. 
+        NCXResource ncx_resource(m_NCXFilePath, &m_Book->GetFolderKeeper());
+
+        // We are relying on an identifier being set from the metadata.
         // It might not have one if the book does not have the urn:uuid: format.
         if (!m_UuidIdentifierValue.isEmpty()) {
-            ncx_resource.SetMainID( m_UuidIdentifierValue );
+            ncx_resource.SetMainID(m_UuidIdentifierValue);
         }
+
         ncx_resource.SaveToDisk();
-        
+
         if (ncx_href.isEmpty()) {
             load_warning = "<p>" % QObject::tr("The OPF file does not contain an NCX file.") % "</p>" %
                            "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
-        }
-        else {
+        } else {
             load_warning = "<p>" % QObject::tr("The NCX file is not present in this EPUB.") % "</p>" %
                            "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
         }
@@ -378,78 +365,66 @@ void ImportOEBPS::LocateOrCreateNCX( const QString &ncx_id_on_spine )
 
 void ImportOEBPS::LoadInfrastructureFiles()
 {
-    m_Book->GetOPF().SetText( PrepareOPFForReading( Utility::ReadUnicodeTextFile( m_OPFFilePath ) ) );
-    m_Book->GetNCX().SetText( Utility::ReadUnicodeTextFile( m_NCXFilePath ) );
+    m_Book->GetOPF().SetText(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)));
+    m_Book->GetNCX().SetText(Utility::ReadUnicodeTextFile(m_NCXFilePath));
 }
 
 
 QHash< QString, QString > ImportOEBPS::LoadFolderStructure()
-{ 
+{
     QList< QString > keys = m_Files.keys();
     int num_files = keys.count();
-
     QFutureSynchronizer< tuple< QString, QString > > sync;
 
-    for ( int i = 0; i < num_files; ++i )
-    {   
-        QString id = keys.at( i );
-        sync.addFuture( QtConcurrent::run( 
-                this, 
-                &ImportOEBPS::LoadOneFile, 
-                m_Files.value( id ),
-                m_FileMimetypes.value( id ) ) );
+    for (int i = 0; i < num_files; ++i) {
+        QString id = keys.at(i);
+        sync.addFuture(QtConcurrent::run(
+                           this,
+                           &ImportOEBPS::LoadOneFile,
+                           m_Files.value(id),
+                           m_FileMimetypes.value(id)));
     }
 
     sync.waitForFinished();
-
     QList< QFuture< tuple< QString, QString > > > futures = sync.futures();
     int num_futures = futures.count();
-
     QHash< QString, QString > updates;
 
-    for ( int i = 0; i < num_futures; ++i )
-    {
-        tuple< QString, QString > result = futures.at( i ).result();
+    for (int i = 0; i < num_futures; ++i) {
+        tuple< QString, QString > result = futures.at(i).result();
         updates[ result.get< 0 >() ] = result.get< 1 >();
     }
 
-    updates.remove( UPDATE_ERROR_STRING );
+    updates.remove(UPDATE_ERROR_STRING);
     return updates;
 }
 
 
-tuple< QString, QString > ImportOEBPS::LoadOneFile( const QString &path,
-                                                    const QString &mimetype )
+tuple< QString, QString > ImportOEBPS::LoadOneFile(const QString &path,
+        const QString &mimetype)
 {
-    QString fullfilepath = QFileInfo( m_OPFFilePath ).absolutePath() + "/" + path;
+    QString fullfilepath = QFileInfo(m_OPFFilePath).absolutePath() + "/" + path;
 
-    try
-    {
-        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath, false, mimetype );
-        QString newpath = "../" + resource.GetRelativePathToOEBPS(); 
-
-        return make_tuple( fullfilepath, newpath );
-    }
-    
-    catch ( FileDoesNotExist& )
-    {
-    	return make_tuple( UPDATE_ERROR_STRING, UPDATE_ERROR_STRING );
+    try {
+        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath, false, mimetype);
+        QString newpath = "../" + resource.GetRelativePathToOEBPS();
+        return make_tuple(fullfilepath, newpath);
+    } catch (FileDoesNotExist &) {
+        return make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);
     }
 }
 
 
-QString ImportOEBPS::PrepareOPFForReading( const QString &source )
+QString ImportOEBPS::PrepareOPFForReading(const QString &source)
 {
-    QString source_copy( source );
-    QString prefix = source_copy.left( XML_DECLARATION_SEARCH_PREFIX_SIZE );
-    QRegExp version( VERSION_ATTRIBUTE );
-    prefix.indexOf( version );
-
+    QString source_copy(source);
+    QString prefix = source_copy.left(XML_DECLARATION_SEARCH_PREFIX_SIZE);
+    QRegExp version(VERSION_ATTRIBUTE);
+    prefix.indexOf(version);
     // MASSIVE hack for XML 1.1 "support";
     // this is only for people who specify
     // XML 1.1 when they actually only use XML 1.0
-    source_copy.replace( version.pos(), version.matchedLength(), "version=\"1.0\"" );
-
+    source_copy.replace(version.pos(), version.matchedLength(), "version=\"1.0\"");
     return source_copy;
 }
 

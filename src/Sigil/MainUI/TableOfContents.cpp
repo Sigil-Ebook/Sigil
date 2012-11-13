@@ -38,49 +38,39 @@
 static const int COLUMN_INDENTATION = 10;
 static const int REFRESH_DELAY = 1000;
 
-TableOfContents::TableOfContents( QWidget *parent )
-    : 
-    QDockWidget( tr( "Table Of Contents" ), parent ),
-    m_Book( NULL ),
-    m_MainWidget( *new QWidget( this ) ),
-    m_Layout( *new QVBoxLayout( &m_MainWidget ) ),
-    m_TreeView( *new QTreeView( &m_MainWidget ) ),
-    m_RefreshTimer( *new QTimer( this ) ),
-    m_NCXModel( *new NCXModel( this ) )
+TableOfContents::TableOfContents(QWidget *parent)
+    :
+    QDockWidget(tr("Table Of Contents"), parent),
+    m_Book(NULL),
+    m_MainWidget(*new QWidget(this)),
+    m_Layout(*new QVBoxLayout(&m_MainWidget)),
+    m_TreeView(*new QTreeView(&m_MainWidget)),
+    m_RefreshTimer(*new QTimer(this)),
+    m_NCXModel(*new NCXModel(this))
 {
-    m_Layout.setContentsMargins( 0, 0, 0, 0 );
-    
+    m_Layout.setContentsMargins(0, 0, 0, 0);
 #ifdef Q_WS_MAC
-    m_Layout.setSpacing( 4 );
+    m_Layout.setSpacing(4);
 #endif
-    
-    m_Layout.addWidget( &m_TreeView );
-    
-    m_MainWidget.setLayout( &m_Layout );
-
-    setWidget( &m_MainWidget );
-
-    m_RefreshTimer.setInterval( REFRESH_DELAY );
-    m_RefreshTimer.setSingleShot( true );
-        
+    m_Layout.addWidget(&m_TreeView);
+    m_MainWidget.setLayout(&m_Layout);
+    setWidget(&m_MainWidget);
+    m_RefreshTimer.setInterval(REFRESH_DELAY);
+    m_RefreshTimer.setSingleShot(true);
     SetupTreeView();
-
-    connect( &m_TreeView, SIGNAL( clicked(            const QModelIndex& ) ), 
-             this,        SLOT(   ItemClickedHandler( const QModelIndex& ) ) );
-
-    connect( &m_RefreshTimer, SIGNAL( timeout() ), 
-             this,            SLOT( Refresh() ) );
+    connect(&m_TreeView, SIGNAL(clicked(const QModelIndex &)),
+            this,        SLOT(ItemClickedHandler(const QModelIndex &)));
+    connect(&m_RefreshTimer, SIGNAL(timeout()),
+            this,            SLOT(Refresh()));
 }
 
 
-void TableOfContents::SetBook( QSharedPointer< Book > book )
+void TableOfContents::SetBook(QSharedPointer< Book > book)
 {
     m_Book = book;
-    m_NCXModel.SetBook( book );
-
-    connect( &m_Book->GetNCX(), SIGNAL( Modified()), 
-             this,              SLOT( StartRefreshDelay() ) );
-
+    m_NCXModel.SetBook(book);
+    connect(&m_Book->GetNCX(), SIGNAL(Modified()),
+            this,              SLOT(StartRefreshDelay()));
     Refresh();
 }
 
@@ -103,29 +93,24 @@ void TableOfContents::StartRefreshDelay()
 
 void TableOfContents::RenumberTOCContents()
 {
-    m_Book->GetNCX().GenerateNCXFromTOCContents( *m_Book, m_NCXModel );
+    m_Book->GetNCX().GenerateNCXFromTOCContents(*m_Book, m_NCXModel);
 }
 
 
-void TableOfContents::ItemClickedHandler( const QModelIndex &index )
+void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
-    QUrl url         = m_NCXModel.GetUrlForIndex( index );
-    QString filename = QFileInfo( url.path() ).fileName();
+    QUrl url         = m_NCXModel.GetUrlForIndex(index);
+    QString filename = QFileInfo(url.path()).fileName();
 
-    try
-    {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename( filename );
-
-        emit OpenResourceRequest( resource, -1, -1, QString(), MainWindow::ViewState_Unknown, url.fragment() );
+    try {
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
+        emit OpenResourceRequest(resource, -1, -1, QString(), MainWindow::ViewState_Unknown, url.fragment());
+    } catch (const ResourceDoesNotExist &) {
+        Utility::DisplayStdErrorDialog(
+            tr("The file \"%1\" does not exist.")
+            .arg(filename)
+        );
     }
-
-    catch ( const ResourceDoesNotExist& )
-    {
-        Utility::DisplayStdErrorDialog( 
-            tr( "The file \"%1\" does not exist." )
-            .arg( filename )
-            );
-    }       
 }
 
 
@@ -143,46 +128,40 @@ NCXModel::NCXEntry TableOfContents::GetRootEntry()
 
 void TableOfContents::SetupTreeView()
 {
-    m_TreeView.setEditTriggers( QAbstractItemView::NoEditTriggers );
-    m_TreeView.setSortingEnabled( false );
-    m_TreeView.sortByColumn( -1 );
-    m_TreeView.setUniformRowHeights( true );
-    m_TreeView.setDragEnabled( false );
-    m_TreeView.setAcceptDrops( false );
-    m_TreeView.setDropIndicatorShown( false );
-    m_TreeView.setDragDropMode( QAbstractItemView::NoDragDrop );
-    m_TreeView.setAnimated( true );
-
-    m_TreeView.setModel( &m_NCXModel ); 
-
-    m_TreeView.setIndentation( COLUMN_INDENTATION );
-    m_TreeView.setHeaderHidden( true );
+    m_TreeView.setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_TreeView.setSortingEnabled(false);
+    m_TreeView.sortByColumn(-1);
+    m_TreeView.setUniformRowHeights(true);
+    m_TreeView.setDragEnabled(false);
+    m_TreeView.setAcceptDrops(false);
+    m_TreeView.setDropIndicatorShown(false);
+    m_TreeView.setDragDropMode(QAbstractItemView::NoDragDrop);
+    m_TreeView.setAnimated(true);
+    m_TreeView.setModel(&m_NCXModel);
+    m_TreeView.setIndentation(COLUMN_INDENTATION);
+    m_TreeView.setHeaderHidden(true);
 }
 
 void TableOfContents::CollapseAll()
-{      
+{
     m_TreeView.collapseAll();
 }
 
 void TableOfContents::ExpandAll()
-{      
+{
     m_TreeView.expandAll();
 }
 
 void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *menu = new QMenu(this);
-
     // Add menu options
     QAction *collapseAction = new QAction(tr("Collapse All"), menu);
     QAction *expandAction = new QAction(tr("Expand All"), menu);
-
     menu->addAction(collapseAction);
     connect(collapseAction, SIGNAL(triggered()), this, SLOT(CollapseAll()));
-
     menu->addAction(expandAction);
     connect(expandAction, SIGNAL(triggered()), this, SLOT(ExpandAll()));
-
     menu->exec(mapToGlobal(event->pos()));
 }
 

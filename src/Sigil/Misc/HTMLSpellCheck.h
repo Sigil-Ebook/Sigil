@@ -30,48 +30,47 @@ class HTMLSpellCheck
 
 public:
 
-    struct MisspelledWord 
-    {
+    struct MisspelledWord {
         QString text;
         int offset;
         int length;
     };
 
-    static QList< MisspelledWord > GetMisspelledWords( const QString &text, 
-                                                       int start_offset, 
-                                                       int end_offset, 
-                                                       const QString &search_regex, 
-                                                       bool first_only = false,
-                                                       bool include_all_words = false );
+    static QList< MisspelledWord > GetMisspelledWords(const QString &text,
+            int start_offset,
+            int end_offset,
+            const QString &search_regex,
+            bool first_only = false,
+            bool include_all_words = false);
 
-    static QList< MisspelledWord > GetMisspelledWords( const QString &text );
+    static QList< MisspelledWord > GetMisspelledWords(const QString &text);
 
-    static int CountMisspelledWords( const QString &text, 
-                                     int start_offset, 
-                                     int end_offset, 
-                                     const QString &search_regex,
-                                     bool first_only = false,
-                                     bool include_all_words = false );
+    static int CountMisspelledWords(const QString &text,
+                                    int start_offset,
+                                    int end_offset,
+                                    const QString &search_regex,
+                                    bool first_only = false,
+                                    bool include_all_words = false);
 
-    static int CountMisspelledWords( const QString &text );
+    static int CountMisspelledWords(const QString &text);
 
-    static int CountAllWords( const QString &text );
+    static int CountAllWords(const QString &text);
 
-    static QStringList GetAllWords( const QString &text );
+    static QStringList GetAllWords(const QString &text);
 
-    static MisspelledWord GetFirstMisspelledWord( const QString &text, 
-                                                  int start_offset, 
-                                                  int end_offset, 
-                                                  const QString &search_regex );
+    static MisspelledWord GetFirstMisspelledWord(const QString &text,
+            int start_offset,
+            int end_offset,
+            const QString &search_regex);
 
-    static MisspelledWord GetLastMisspelledWord( const QString &text, 
-                                                 int start_offset, 
-                                                 int end_offset, 
-                                                 const QString &search_regex );
+    static MisspelledWord GetLastMisspelledWord(const QString &text,
+            int start_offset,
+            int end_offset,
+            const QString &search_regex);
 
 private:
 
-    static bool IsBoundary( QChar prev_c, QChar c, QChar next_c );
+    static bool IsBoundary(QChar prev_c, QChar c, QChar next_c);
 
 };
 

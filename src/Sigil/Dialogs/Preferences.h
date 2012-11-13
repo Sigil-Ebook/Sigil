@@ -57,7 +57,7 @@ private slots:
     /**
      * Load the PreferencesWidget that the user has selected.
      */
-    void selectPWidget(QListWidgetItem *current, QListWidgetItem *previous=0);
+    void selectPWidget(QListWidgetItem *current, QListWidgetItem *previous = 0);
     /**
      * Saves settings the user has selected.
      *

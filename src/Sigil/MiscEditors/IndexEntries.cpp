@@ -34,7 +34,7 @@ IndexEntries *IndexEntries::instance()
     return m_instance;
 }
 
-IndexEntries::IndexEntries() 
+IndexEntries::IndexEntries()
     :
     m_BookIndexRootItem(new QStandardItem())
 {
@@ -48,7 +48,7 @@ IndexEntries::~IndexEntries()
     }
 }
 
-QStandardItem* IndexEntries::GetRootItem()
+QStandardItem *IndexEntries::GetRootItem()
 {
     return m_BookIndexRootItem;
 }
@@ -56,14 +56,13 @@ QStandardItem* IndexEntries::GetRootItem()
 void IndexEntries::AddOneEntry(QString text, QString filename, QString index_id_value)
 {
     QStandardItem *parent_item = m_BookIndexRootItem;
-
     QStringList names = text.split("/", QString::SkipEmptyParts);
     names.append(filename % "#" % index_id_value);
-
     // Add names in heirachary
-    foreach (QString name, names) {
+    foreach(QString name, names) {
         bool found = false;
         int insert_at_row = -1;
+
         for (int r = 0; r < parent_item->rowCount(); r++) {
             if (name == parent_item->child(r, 0)->text()) {
                 parent_item = parent_item->child(r, 0);
@@ -72,11 +71,12 @@ void IndexEntries::AddOneEntry(QString text, QString filename, QString index_id_
             }
             // If not already in tree, add the entry in sorted order
             // Only sort categories - leave filename#id (last child) in order found
-            else if (parent_item->child(0,0)->rowCount() && name.toLower() < parent_item->child(r, 0)->text().toLower()) {
+            else if (parent_item->child(0, 0)->rowCount() && name.toLower() < parent_item->child(r, 0)->text().toLower()) {
                 insert_at_row = r ;
                 break;
             }
         }
+
         if (!found) {
             parent_item = AddEntryToModel(name, parent_item, insert_at_row);
         }
@@ -92,14 +92,13 @@ QStandardItem *IndexEntries::AddEntryToModel(QString entry, QStandardItem *paren
 
     QList<QStandardItem *> rowItems;
     rowItems << new QStandardItem(entry);
-
     // Append or insert the item into the model as needed
     QStandardItem *new_item;
+
     if (row < 0 || row >= parent_item->rowCount()) {
         parent_item->appendRow(rowItems);
         new_item = parent_item->child(parent_item->rowCount() - 1, 0);
-    }
-    else {
+    } else {
         parent_item->insertRow(row, rowItems);
         new_item = parent_item->child(row, 0);
     }

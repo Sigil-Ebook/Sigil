@@ -26,14 +26,14 @@
 class QString;
 
 class HTMLEncodingResolver
-{	
+{
 
 public:
 
     // Accepts a full path to an HTML file.
     // Reads the file, detects the encoding
-    // and returns the text converted to Unicode. 
-    static QString ReadHTMLFile( const QString &fullfilepath );
+    // and returns the text converted to Unicode.
+    static QString ReadHTMLFile(const QString &fullfilepath);
 
 private:
 
@@ -41,12 +41,12 @@ private:
     // if no encoding is detected, the default codec for this locale is returned.
     // We use this function because Qt's QTextCodec::codecForHtml() function
     // leaves a *lot* to be desired.
-    static const QTextCodec& GetCodecForHTML( const QByteArray &raw_text );
+    static const QTextCodec &GetCodecForHTML(const QByteArray &raw_text);
 
-    // This function goes through the entire byte array 
+    // This function goes through the entire byte array
     // and tries to see whether this is a valid UTF-8 sequence.
     // If it's valid, this is probably a UTF-8 string.
-    static bool IsValidUtf8( const QByteArray &string );
+    static bool IsValidUtf8(const QByteArray &string);
 };
 
 

@@ -53,34 +53,29 @@ ClipEditorModel *ClipEditorModel::instance()
 }
 
 ClipEditorModel::ClipEditorModel(QObject *parent)
- : QStandardItemModel(parent),
-   m_FSWatcher( new QFileSystemWatcher() ),
-   m_IsDataModified(false)
+    : QStandardItemModel(parent),
+      m_FSWatcher(new QFileSystemWatcher()),
+      m_IsDataModified(false)
 {
     m_SettingsPath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/" + SETTINGS_FILE;
-
     QStringList header;
     header.append(tr("Name"));
     header.append(tr("Text"));
     setHorizontalHeaderLabels(header);
-
     LoadInitialData();
-
     // Save it to make sure we have a file in case it was loaded from examples
     SaveData();
 
-    if (!m_FSWatcher->files().contains(m_SettingsPath) ) {
+    if (!m_FSWatcher->files().contains(m_SettingsPath)) {
         m_FSWatcher->addPath(m_SettingsPath);
     }
- 
-    connect( m_FSWatcher, SIGNAL( fileChanged( const QString& ) ),
-             this,        SLOT( SettingsFileChanged( const QString& )), Qt::DirectConnection );
 
-    connect(this, SIGNAL(itemChanged(QStandardItem*)),
-            this, SLOT(ItemChangedHandler(QStandardItem*)));
-
-    connect( this, SIGNAL( rowsRemoved(        const QModelIndex&, int, int ) ),
-             this, SLOT(   RowsRemovedHandler( const QModelIndex&, int, int ) ) );
+    connect(m_FSWatcher, SIGNAL(fileChanged(const QString &)),
+            this,        SLOT(SettingsFileChanged(const QString &)), Qt::DirectConnection);
+    connect(this, SIGNAL(itemChanged(QStandardItem *)),
+            this, SLOT(ItemChangedHandler(QStandardItem *)));
+    connect(this, SIGNAL(rowsRemoved(const QModelIndex &, int, int)),
+            this, SLOT(RowsRemovedHandler(const QModelIndex &, int, int)));
 }
 
 ClipEditorModel::~ClipEditorModel()
@@ -99,33 +94,36 @@ void ClipEditorModel::SetDataModified(bool modified)
     m_IsDataModified = modified;
 }
 
-bool ClipEditorModel::IsDataModified() 
+bool ClipEditorModel::IsDataModified()
 {
     return m_IsDataModified;
 }
- 
+
 Qt::DropActions ClipEditorModel::supportedDropActions() const
 {
     return Qt::MoveAction;
 }
 
-bool ClipEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex & parent)
+bool ClipEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
     QModelIndex new_parent(parent);
+
     if (parent.column() > 0) {
         // User is trying to drop onto a child column - treat it as though they are dropping in the initial column.
         new_parent = index(parent.row(), 0, parent.parent());
     }
+
     if (column > 0) {
         // Same as above but for when user drops into the between row selector in a child column.
         column = 0;
     }
-    
+
     // If dropped on an non-group entry convert to parent item group/row
     if (new_parent.isValid() && !itemFromIndex(new_parent)->data(IS_GROUP_ROLE).toBool()) {
         row = new_parent.row() + 1;
         new_parent = new_parent.parent();
     }
+
     if (!QStandardItemModel::dropMimeData(data, action, row, column, new_parent)) {
         return false;
     }
@@ -142,7 +140,7 @@ bool ClipEditorModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
     return true;
 }
 
-void ClipEditorModel::RowsRemovedHandler( const QModelIndex & parent, int start, int end )
+void ClipEditorModel::RowsRemovedHandler(const QModelIndex &parent, int start, int end)
 {
     SetDataModified(true);
 }
@@ -160,18 +158,17 @@ void ClipEditorModel::ItemChangedHandler(QStandardItem *item)
     if (item->text().isEmpty() || item->text().contains("/")) {
         QString name = item->data(FULLNAME_ROLE).toString();
         name.replace(QRegExp("/$"), "");
+
         if (name.contains("/")) {
             name = name.split("/").last();
         }
+
         // Disconnect change signal while changing the items
-        disconnect(this, SIGNAL(itemChanged(       QStandardItem*)),
-                   this, SLOT(  ItemChangedHandler(QStandardItem*)));
-
+        disconnect(this, SIGNAL(itemChanged(QStandardItem *)),
+                   this, SLOT(ItemChangedHandler(QStandardItem *)));
         item->setText(name);
-
-        connect(this, SIGNAL(itemChanged(       QStandardItem*)),
-                this, SLOT(  ItemChangedHandler(QStandardItem*)));
-
+        connect(this, SIGNAL(itemChanged(QStandardItem *)),
+                this, SLOT(ItemChangedHandler(QStandardItem *)));
         return;
     }
 
@@ -182,8 +179,8 @@ void ClipEditorModel::Rename(QStandardItem *item, const QString &name)
 {
     // Update the name and all its children
     // Disconnect change signal while changing the items
-    disconnect(this, SIGNAL(itemChanged(       QStandardItem*)),
-               this, SLOT(  ItemChangedHandler(QStandardItem*)));
+    disconnect(this, SIGNAL(itemChanged(QStandardItem *)),
+               this, SLOT(ItemChangedHandler(QStandardItem *)));
 
     // If item name not already changed, set it
     if (name != "") {
@@ -191,21 +188,21 @@ void ClipEditorModel::Rename(QStandardItem *item, const QString &name)
     }
 
     UpdateFullName(item);
-
-    connect(this, SIGNAL(itemChanged(       QStandardItem*)),
-            this, SLOT(  ItemChangedHandler(QStandardItem*)));
-
+    connect(this, SIGNAL(itemChanged(QStandardItem *)),
+            this, SLOT(ItemChangedHandler(QStandardItem *)));
     SetDataModified(true);
 }
 
 void ClipEditorModel::UpdateFullName(QStandardItem *item)
 {
     QStandardItem *parent_item = item->parent();
+
     if (!parent_item) {
         parent_item = invisibleRootItem();
     }
 
     QString fullname = parent_item->data(FULLNAME_ROLE).toString() + item->text();
+
     if (item->data(IS_GROUP_ROLE).toBool()) {
         fullname.append("/");
     }
@@ -214,27 +211,27 @@ void ClipEditorModel::UpdateFullName(QStandardItem *item)
     item->setData(fullname, FULLNAME_ROLE);
 
     for (int row = 0; row < item->rowCount(); row++) {
-        UpdateFullName(item->child(row,0));
+        UpdateFullName(item->child(row, 0));
     }
 }
 
-void ClipEditorModel::SettingsFileChanged( const QString &path ) const
+void ClipEditorModel::SettingsFileChanged(const QString &path) const
 {
     // The file may have been deleted prior to writing a new version - give it a chance to write.
     QTime wake_time = QTime::currentTime().addMSecs(1000);
-    while( !QFile::exists(path) && QTime::currentTime() < wake_time ) {
+
+    while (!QFile::exists(path) && QTime::currentTime() < wake_time) {
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
 
     // The signal is also received after resource files are removed / renamed,
     // but it can be safely ignored because QFileSystemWatcher automatically stops watching them.
-    if ( QFile::exists(path) )
-    {
+    if (QFile::exists(path)) {
         // Some editors write the updated contents to a temporary file
         // and then atomically move it over the watched file.
         // In this case QFileSystemWatcher loses track of the file, so we have to add it again.
-        if ( !m_FSWatcher->files().contains(path) ) {
-            m_FSWatcher->addPath( path );
+        if (!m_FSWatcher->files().contains(path)) {
+            m_FSWatcher->addPath(path);
         }
 
         instance()->LoadInitialData();
@@ -242,24 +239,24 @@ void ClipEditorModel::SettingsFileChanged( const QString &path ) const
     }
 }
 
-bool ClipEditorModel::ItemIsGroup(QStandardItem* item)
+bool ClipEditorModel::ItemIsGroup(QStandardItem *item)
 {
     return item->data(IS_GROUP_ROLE).toBool();
 }
 
-QString ClipEditorModel::GetFullName(QStandardItem* item)
+QString ClipEditorModel::GetFullName(QStandardItem *item)
 {
     return item->data(FULLNAME_ROLE).toString();
 }
 
-ClipEditorModel::clipEntry* ClipEditorModel::GetEntryFromName(const QString &name, QStandardItem *item)
+ClipEditorModel::clipEntry *ClipEditorModel::GetEntryFromName(const QString &name, QStandardItem *item)
 {
     return GetEntry(GetItemFromName(name, item));
 }
 
-QStandardItem* ClipEditorModel::GetItemFromName(QString name, QStandardItem *item)
+QStandardItem *ClipEditorModel::GetItemFromName(QString name, QStandardItem *item)
 {
-    QStandardItem* found_item = NULL;
+    QStandardItem *found_item = NULL;
 
     if (!item) {
         item = invisibleRootItem();
@@ -270,7 +267,7 @@ QStandardItem* ClipEditorModel::GetItemFromName(QString name, QStandardItem *ite
     }
 
     for (int row = 0; row < item->rowCount(); row++) {
-        found_item = GetItemFromName(name, item->child(row,0));
+        found_item = GetItemFromName(name, item->child(row, 0));
 
         // Return with first found entry
         if (found_item) {
@@ -284,7 +281,6 @@ QStandardItem* ClipEditorModel::GetItemFromName(QString name, QStandardItem *ite
 void ClipEditorModel::LoadInitialData()
 {
     removeRows(0, rowCount());
-
     LoadData();
 
     if (invisibleRootItem()->rowCount() == 0) {
@@ -297,10 +293,10 @@ void ClipEditorModel::LoadInitialData()
 void ClipEditorModel::LoadData(const QString &filename, QStandardItem *item)
 {
     SettingsStore *settings;
+
     if (filename.isEmpty()) {
         settings = new SettingsStore(m_SettingsPath);
-    }
-    else {
+    } else {
         settings = new SettingsStore(filename);
     }
 
@@ -309,20 +305,15 @@ void ClipEditorModel::LoadData(const QString &filename, QStandardItem *item)
     // Add one entry at a time to the list
     for (int i = 0; i < size; ++i) {
         settings->setArrayIndex(i);
-
         ClipEditorModel::clipEntry *entry = new ClipEditorModel::clipEntry();
-
         QString fullname = settings->value(ENTRY_NAME).toString();
         fullname.replace(QRegExp("\\s*/+\\s*"), "/");
         fullname.replace(QRegExp("^/"), "");
-
         entry->is_group = fullname.endsWith("/");
-
         // Name is set to fullname only while looping through parent groups when adding
         entry->name = fullname;
         entry->fullname = fullname;
         entry->text = settings->value(ENTRY_TEXT).toString();
-
         AddFullNameEntry(entry, item);
     }
 
@@ -349,12 +340,14 @@ void ClipEditorModel::AddFullNameEntry(ClipEditorModel::clipEntry *entry, QStand
     if (entry->name.contains("/")) {
         QStringList group_names = entry->name.split("/", QString::SkipEmptyParts);
         entry_name = group_names.last();
+
         if (!entry->is_group) {
             group_names.removeLast();
         }
 
-        foreach (QString group_name, group_names) {
+        foreach(QString group_name, group_names) {
             bool found = false;
+
             for (int r = 0; r < parent_item->rowCount(); r++) {
                 if (parent_item->child(r, 0)->data(IS_GROUP_ROLE).toBool() && parent_item->child(r, 0)->text() == group_name) {
                     parent_item = parent_item->child(r, 0);
@@ -362,6 +355,7 @@ void ClipEditorModel::AddFullNameEntry(ClipEditorModel::clipEntry *entry, QStand
                     break;
                 }
             }
+
             if (!found) {
                 ClipEditorModel::clipEntry *new_entry = new ClipEditorModel::clipEntry();
                 new_entry->is_group = true;
@@ -381,7 +375,6 @@ void ClipEditorModel::AddFullNameEntry(ClipEditorModel::clipEntry *entry, QStand
 QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entry, bool is_group, QStandardItem *parent_item, int row)
 {
     // parent_item must be a group item
-
     if (!parent_item) {
         parent_item = invisibleRootItem();
     }
@@ -390,16 +383,17 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
     if (!entry) {
         entry = new ClipEditorModel::clipEntry();
         entry->is_group = is_group;
+
         if (!is_group) {
             entry->name = "Text";
             entry->text = "";
-        }
-        else {
+        } else {
             entry->name = "Group";
         }
     }
 
     entry->fullname = entry->name;
+
     if (parent_item != invisibleRootItem()) {
         // Set the fullname based on the parent entry
         entry->fullname = parent_item->data(FULLNAME_ROLE).toString() + entry->name;
@@ -417,15 +411,14 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
         QFont font = *new QFont();
         font.setWeight(QFont::Bold);
         group_item->setFont(font);
-
         rowItems << group_item;
+
         for (int col = 1; col < COLUMNS ; col++) {
             QStandardItem *item = new QStandardItem("");
             item->setEditable(false);
             rowItems << item;
         }
-    }
-    else {
+    } else {
         rowItems << new QStandardItem(entry->name);
         rowItems << new QStandardItem(entry->text);
     }
@@ -433,14 +426,13 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
     rowItems[0]->setData(entry->is_group, IS_GROUP_ROLE);
     rowItems[0]->setData(entry->fullname, FULLNAME_ROLE);
     rowItems[0]->setToolTip(entry->fullname);
-
     // Add the new item to the model at the specified row
     QStandardItem *new_item;
+
     if (row < 0 || row >= parent_item->rowCount()) {
         parent_item->appendRow(rowItems);
         new_item = parent_item->child(parent_item->rowCount() - 1, 0);
-    }
-    else {
+    } else {
         parent_item->insertRow(row, rowItems);
         new_item = parent_item->child(row, 0);
     }
@@ -452,38 +444,35 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
 void ClipEditorModel::AddExampleEntries()
 {
     QString examples_dir;
-
 #ifdef Q_WS_MAC
     examples_dir = QCoreApplication::applicationDirPath() + "/../examples/";
 #endif
-#ifdef Q_WS_WIN 
+#ifdef Q_WS_WIN
     examples_dir = QCoreApplication::applicationDirPath() + "/examples/";
 #endif
 #ifdef Q_WS_X11
     examples_dir = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/examples/";
 #endif
-
     LoadData(examples_dir % CLIP_EXAMPLES_FILE);
 }
 
 QList<QStandardItem *> ClipEditorModel::GetNonGroupItems(QList<QStandardItem *> items)
 {
     QList<QStandardItem *> all_items;
-
-    foreach (QStandardItem *item, items) {
+    foreach(QStandardItem * item, items) {
         all_items.append(GetNonGroupItems(item));
     }
-
     return all_items;
 }
 
-QList<QStandardItem *> ClipEditorModel::GetNonGroupItems(QStandardItem* item)
+QList<QStandardItem *> ClipEditorModel::GetNonGroupItems(QStandardItem *item)
 {
     QList<QStandardItem *> items;
 
     if (!item->data(IS_GROUP_ROLE).toBool()) {
         items.append(item);
     }
+
     for (int row = 0; row < item->rowCount(); row++) {
         items.append(GetNonGroupItems(item->child(row, 0)));
     }
@@ -494,15 +483,13 @@ QList<QStandardItem *> ClipEditorModel::GetNonGroupItems(QStandardItem* item)
 QList<QStandardItem *> ClipEditorModel::GetNonParentItems(QList<QStandardItem *> items)
 {
     QList<QStandardItem *> all_items;
-
-    foreach (QStandardItem *item, items) {
+    foreach(QStandardItem * item, items) {
         all_items.append(GetNonParentItems(item));
     }
-
     return all_items;
 }
 
-QList<QStandardItem *> ClipEditorModel::GetNonParentItems(QStandardItem* item)
+QList<QStandardItem *> ClipEditorModel::GetNonParentItems(QStandardItem *item)
 {
     QList<QStandardItem *> items;
 
@@ -519,40 +506,36 @@ QList<QStandardItem *> ClipEditorModel::GetNonParentItems(QStandardItem* item)
     return items;
 }
 
-QList<ClipEditorModel::clipEntry *> ClipEditorModel::GetEntries(QList<QStandardItem*> items)
+QList<ClipEditorModel::clipEntry *> ClipEditorModel::GetEntries(QList<QStandardItem *> items)
 {
     QList<ClipEditorModel::clipEntry *> entries;
-
-    foreach (QStandardItem *item, items) {
+    foreach(QStandardItem * item, items) {
         entries.append(GetEntry(item));
     }
     return entries;
 }
 
-ClipEditorModel::clipEntry* ClipEditorModel::GetEntry(QStandardItem *item)
+ClipEditorModel::clipEntry *ClipEditorModel::GetEntry(QStandardItem *item)
 {
     QStandardItem *parent_item;
 
     if (item->parent()) {
         parent_item = item->parent();
-    }
-    else {
+    } else {
         parent_item = invisibleRootItem();
     }
 
     ClipEditorModel::clipEntry *entry = new ClipEditorModel::clipEntry();
-
     entry->is_group =    parent_item->child(item->row(), 0)->data(IS_GROUP_ROLE).toBool();
     entry->fullname =    parent_item->child(item->row(), 0)->data(FULLNAME_ROLE).toString();
     entry->name =        parent_item->child(item->row(), 0)->text();
     entry->text =        parent_item->child(item->row(), 1)->text();
-
     return entry;
 }
 
-QStandardItem* ClipEditorModel::GetItemFromId(qint64 id, int row, QStandardItem *item) const
+QStandardItem *ClipEditorModel::GetItemFromId(qint64 id, int row, QStandardItem *item) const
 {
-    QStandardItem* found_item = NULL;
+    QStandardItem *found_item = NULL;
 
     if (!item) {
         item = invisibleRootItem();
@@ -561,15 +544,15 @@ QStandardItem* ClipEditorModel::GetItemFromId(qint64 id, int row, QStandardItem 
     if (item->index().internalId() == id) {
         if (item->parent()) {
             item = item->parent();
-        }
-        else {
+        } else {
             item = invisibleRootItem();
         }
+
         return item->child(row, 0);
     }
 
     for (int r = 0; r < item->rowCount(); r++) {
-        found_item = GetItemFromId(id, row, item->child(r,0));
+        found_item = GetItemFromId(id, row, item->child(r, 0));
 
         // Return with first found entry
         if (found_item) {
@@ -580,50 +563,47 @@ QStandardItem* ClipEditorModel::GetItemFromId(qint64 id, int row, QStandardItem 
     return found_item;
 }
 
-QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry*> entries, const QString &filename)
+QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry *> entries, const QString &filename)
 {
     QString message = "";
 
     // Save everything if no entries selected
     if (entries.isEmpty()) {
         QList<QStandardItem *> items = GetNonParentItems(invisibleRootItem());
+
         if (!items.isEmpty()) {
             entries = GetEntries(items);
         }
     }
 
     // Stop watching the file while we save it
-    if (m_FSWatcher->files().contains(m_SettingsPath) ) {
+    if (m_FSWatcher->files().contains(m_SettingsPath)) {
         m_FSWatcher->removePath(m_SettingsPath);
     }
 
     // Open the default file for save, or specific file for export
     SettingsStore *settings;
+
     if (filename.isEmpty()) {
         settings = new SettingsStore(m_SettingsPath);
-    }
-    else {
+    } else {
         settings = new SettingsStore(filename);
     }
 
     settings->sync();
+
     if (!settings->isWritable()) {
         message = tr("Unable to create file %1").arg(filename);
-
         // Watch the file again
         m_FSWatcher->addPath(m_SettingsPath);
-
         return message;
     }
 
-
     // Remove the old values to account for deletions
     settings->remove(SETTINGS_GROUP);
-
     settings->beginWriteArray(SETTINGS_GROUP);
-
     int i = 0;
-    foreach (ClipEditorModel::clipEntry *entry, entries) {
+    foreach(ClipEditorModel::clipEntry * entry, entries) {
         settings->setArrayIndex(i++);
         settings->setValue(ENTRY_NAME, entry->fullname);
 
@@ -631,24 +611,21 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry*> entries, co
             settings->setValue(ENTRY_TEXT, entry->text);
         }
     }
-
     settings->endArray();
-
     // Make sure file is created/updated so it can be checked
     settings->sync();
-
     // Watch the file again
     m_FSWatcher->addPath(m_SettingsPath);
-
     SetDataModified(false);
     return message;
 }
 
-QVariant ClipEditorModel::data( const QModelIndex& index, int role ) const
+QVariant ClipEditorModel::data(const QModelIndex &index, int role) const
 {
-    if (index.isValid() && index.column() == 1 && role == Qt::SizeHintRole ) {
+    if (index.isValid() && index.column() == 1 && role == Qt::SizeHintRole) {
         // Make all rows the same height using the name column to ensure text limited to a single line
-        return data(this->index(0,0), role).toSize();
+        return data(this->index(0, 0), role).toSize();
     }
+
     return QStandardItemModel::data(index, role);
 }

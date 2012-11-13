@@ -46,11 +46,10 @@ static const QString W3C_HTML_FORM = "<html>"
                                      " </body>"
                                      "</html>";
 
-CSSResource::CSSResource( const QString &fullfilepath, QObject *parent )
-    : TextResource( fullfilepath, parent ),
-      m_TemporaryValidationFiles( QList< QString >() )
+CSSResource::CSSResource(const QString &fullfilepath, QObject *parent)
+    : TextResource(fullfilepath, parent),
+      m_TemporaryValidationFiles(QList< QString >())
 {
-
 }
 
 CSSResource::~CSSResource()
@@ -60,10 +59,9 @@ CSSResource::~CSSResource()
     }
 }
 
-bool CSSResource::DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors)
+bool CSSResource::DeleteCSStyles(QList<CSSInfo::CSSSelector *> css_selectors)
 {
     CSSInfo css_info(GetText());
-
     // Search for selectors with the same definition and line and remove from text
     const QString &new_resource_text = css_info.removeMatchingSelectors(css_selectors);
 
@@ -73,6 +71,7 @@ bool CSSResource::DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors)
         emit Modified();
         return true;
     }
+
     return false;
 }
 
@@ -84,14 +83,12 @@ Resource::ResourceType CSSResource::Type() const
 void CSSResource::ValidateStylesheetWithW3C()
 {
     const QString &post_form_html = W3C_HTML_FORM
-        .arg( tr("Sigil will send your stylesheet data to the <a href='http://jigsaw.w3.org/css-validator/'>W3C Validation Service</a>.") )
-        .arg( tr("This page should disappear once loaded after 3 seconds.") )
-        .arg( tr("If your browser does not have javascript enabled, click on the button below.") )
-        .arg( GetText() );
-
+                                    .arg(tr("Sigil will send your stylesheet data to the <a href='http://jigsaw.w3.org/css-validator/'>W3C Validation Service</a>."))
+                                    .arg(tr("This page should disappear once loaded after 3 seconds."))
+                                    .arg(tr("If your browser does not have javascript enabled, click on the button below."))
+                                    .arg(GetText());
     const QString &temp_file_path = Utility::GetTemporaryFileNameWithExtension(".html");
-    Utility::WriteUnicodeTextFile( post_form_html, temp_file_path );
-    m_TemporaryValidationFiles.append( temp_file_path );
-
-    QDesktopServices::openUrl( QUrl(temp_file_path) );
+    Utility::WriteUnicodeTextFile(post_form_html, temp_file_path);
+    m_TemporaryValidationFiles.append(temp_file_path);
+    QDesktopServices::openUrl(QUrl(temp_file_path));
 }

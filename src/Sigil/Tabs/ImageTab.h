@@ -38,13 +38,13 @@ class ImageTab : public ContentTab
 
 public:
 
-    ImageTab( ImageResource& resource, QWidget *parent = 0 );
+    ImageTab(ImageResource &resource, QWidget *parent = 0);
     ~ImageTab();
 
     // Overrides inherited from ContentTab
     float GetZoomFactor() const;
 
-    void SetZoomFactor( float new_zoom_factor );
+    void SetZoomFactor(float new_zoom_factor);
 
     void UpdateDisplay();
 
@@ -67,7 +67,7 @@ private slots:
      *
      * @param point The point at which the menu should be opened.
      */
-    void OpenContextMenu( const QPoint &point );
+    void OpenContextMenu(const QPoint &point);
 
 private:
 
@@ -83,7 +83,7 @@ private:
      * @param point The point at which the menu should be opened.
      * @return \c true if the menu could be set up.
      */
-    bool SuccessfullySetupContextMenu( const QPoint &point );
+    bool SuccessfullySetupContextMenu(const QPoint &point);
 
     void ConnectSignalsToSlots();
 

@@ -45,7 +45,7 @@ public:
     // Constructor;
     // the first parameter is the book whose TOC
     // is being edited, the second is the dialog's parent
-    HeadingSelector( QSharedPointer< Book > book, QWidget *parent = 0 );
+    HeadingSelector(QSharedPointer< Book > book, QWidget *parent = 0);
 
     // Destructor
     ~HeadingSelector();
@@ -67,23 +67,23 @@ private slots:
     // We need to filter the calls to functions that would normally
     // connect directly to the itemChanged( QStandardItem* ) signal
     // because some would-be slots delete the item in question.
-    // So, the signal connects here and this function calls the 
-    // appropriate item-handling functions. 
-    void ModelItemFilter( QStandardItem *item  );
-    
+    // So, the signal connects here and this function calls the
+    // appropriate item-handling functions.
+    void ModelItemFilter(QStandardItem *item);
+
     // Switches the display between showing all headings
     // and showing only headings that are to be included in the TOC
-    void ChangeDisplayType( int new_check_state );
+    void ChangeDisplayType(int new_check_state);
 
     // Updates the heading elements with new text
     // values and Sigil inclusion class
     void UpdateHeadingElements();
 
     // Updates files with new heading elements
-    QStringList UpdateOneFile( Headings::Heading &heading, QStringList ids );
+    QStringList UpdateOneFile(Headings::Heading &heading, QStringList ids);
 
     // Selects headings to be included/excluded from TOC
-    void SelectHeadingLevelInclusion( const QString& heading_level );
+    void SelectHeadingLevelInclusion(const QString &heading_level);
 
 private:
     void ExpandChildren(QStandardItem *item);
@@ -99,7 +99,7 @@ private:
 
     // We need this to be able to use a forward
     // declaration of Book in the QSharedPointer
-    Q_DISABLE_COPY( HeadingSelector )
+    Q_DISABLE_COPY(HeadingSelector)
 
     int UpdateOneHeadingElement(QStandardItem *item, QStringList used_ids, int next_toc_id);
 
@@ -107,15 +107,15 @@ private:
 
     // Updates the inclusion of the heading in the TOC
     // whenever that heading's "include in TOC" checkbox
-    // is checked/unchecked. 
-    void UpdateHeadingInclusion( QStandardItem *checkbox_item );
+    // is checked/unchecked.
+    void UpdateHeadingInclusion(QStandardItem *checkbox_item);
 
     // Updates the display of the tree view
     // (resizes columns etc.)
-    void UpdateTreeViewDisplay();              
+    void UpdateTreeViewDisplay();
 
     // Creates the model that is displayed
-    // in the tree view 
+    // in the tree view
     void CreateTOCModel();
 
     void RefreshTOCModelDisplay();
@@ -124,15 +124,15 @@ private:
     // as the child of the specified parent item;
     // recursively calls itself on the headings children,
     // thus building a TOC tree
-    void InsertHeadingIntoModel( Headings::Heading &heading, QStandardItem *parent_item );
+    void InsertHeadingIntoModel(Headings::Heading &heading, QStandardItem *parent_item);
 
     // Removes from the tree items that represent headings
     // that are not to be included in the TOC; the children
     // of those items rise to their parent's hierarchy level
-    void RemoveExcludedItems( QStandardItem *item );
+    void RemoveExcludedItems(QStandardItem *item);
 
-    bool AddRowToVisiblePredecessorSucceeded( const QList< QStandardItem* > &child_row, 
-                                              QStandardItem* row_parent );
+    bool AddRowToVisiblePredecessorSucceeded(const QList< QStandardItem * > &child_row,
+            QStandardItem *row_parent);
 
     /**
      * Adds the child row to the "correct" item in the hierarchy below the
@@ -141,31 +141,31 @@ private:
      *
      * @param item The item in which hierarchy the row should be placed.
      * @param child_row The row that we want to add.
-     * @param child_index_limit If specified, then it's the index of the 
+     * @param child_index_limit If specified, then it's the index of the
      *                          row's (disappearing) parent in row's grandparent
      *                          children list. We only look at children with
      *                          a lower index than this.
      */
-    bool AddRowToCorrectItem( QStandardItem* item, 
-                              const QList< QStandardItem* > &child_row,
-                              int child_index_limit = -1 );
+    bool AddRowToCorrectItem(QStandardItem *item,
+                             const QList< QStandardItem * > &child_row,
+                             int child_index_limit = -1);
 
-    QStandardItem* GetActualItemParent( const QStandardItem *item );
+    QStandardItem *GetActualItemParent(const QStandardItem *item);
 
-    Headings::Heading* GetItemHeading( const QStandardItem *item );    
+    Headings::Heading *GetItemHeading(const QStandardItem *item);
 
 
     // Get the maximum heading level for all headings
-    int GetMaxHeadingLevel( QList< Headings::Heading > flat_headings );
+    int GetMaxHeadingLevel(QList< Headings::Heading > flat_headings);
 
     // Add the selectable entries to the Select Heading combo box
-    void PopulateSelectHeadingCombo( int max_heading_level );
+    void PopulateSelectHeadingCombo(int max_heading_level);
 
     // Sets all headings to be included in or excluded from the TOC
-    void SetAllHeadingInclusion( int upToLevel );
+    void SetAllHeadingInclusion(int upToLevel);
 
     // Sets one heading to be included in or excluded from the TOC
-    void SetOneHeadingInclusion( Headings::Heading &heading, int upToLevel );
+    void SetOneHeadingInclusion(Headings::Heading &heading, int upToLevel);
 
     // Reads all the stored dialog settings like
     // window position, geometry etc.

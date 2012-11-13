@@ -31,9 +31,7 @@ OpenWithName::OpenWithName(QString filename, QWidget *parent)
     m_MenuName(filename)
 {
     ui.setupUi(this);
-
     connectSignalsSlots();
-
     ui.Filename->setText(m_Filename);
     ui.MenuName->setText(m_Filename);
 }

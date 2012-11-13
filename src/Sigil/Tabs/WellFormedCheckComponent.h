@@ -50,22 +50,22 @@ public:
      *
      * @param content The GUI element containing well-formed content.
      */
-    WellFormedCheckComponent( WellFormedContent &content, QWidget *parent=0 );
+    WellFormedCheckComponent(WellFormedContent &content, QWidget *parent = 0);
 
     /**
      * Destructor.
      */
     ~WellFormedCheckComponent();
-    
+
 public slots:
-    
+
     /**
      * Displays a dialog informing the user about the well-formed error
      * if it's allowed to show the dialog.
      *
      * @param error The error info to display.
      */
-    void DemandAttentionIfAllowed( const XhtmlDoc::WellFormedError &error );
+    void DemandAttentionIfAllowed(const XhtmlDoc::WellFormedError &error);
 
     void deleteLater();
 
@@ -91,7 +91,7 @@ private:
     /**
      * The GUI element containing well-formed content.
      */
-    WellFormedContent& m_Content;
+    WellFormedContent &m_Content;
 
     /**
      * The message used in the dialog (with placeholders).
@@ -108,7 +108,7 @@ private:
      * The Fix Automatically button.
      */
     QPushButton *m_AutoFixButton;
-    
+
     /**
      * The Fix Manually button.
      */

@@ -30,14 +30,14 @@
 #include "ResourceObjects/TextResource.h"
 
 /**
- * Represents a CSS stylesheet on disk. 
+ * Represents a CSS stylesheet on disk.
  */
-class CSSResource : public TextResource 
+class CSSResource : public TextResource
 {
     Q_OBJECT
 
 public:
-    
+
     /**
      * Constructor.
      *
@@ -45,11 +45,11 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    CSSResource( const QString &fullfilepath, QObject *parent = NULL );
+    CSSResource(const QString &fullfilepath, QObject *parent = NULL);
 
     ~CSSResource();
 
-    bool DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors);
+    bool DeleteCSStyles(QList<CSSInfo::CSSSelector *> css_selectors);
 
     // inherited
     virtual ResourceType Type() const;

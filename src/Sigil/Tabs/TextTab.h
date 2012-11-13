@@ -38,12 +38,12 @@ class TextTab : public ContentTab
 
 public:
 
-    TextTab( TextResource& resource,
-             CodeViewEditor::HighlighterType type,
-             int line_to_scroll_to = -1,
-             QWidget *parent = 0 );
+    TextTab(TextResource &resource,
+            CodeViewEditor::HighlighterType type,
+            int line_to_scroll_to = -1,
+            QWidget *parent = 0);
 
-    void ScrollToLine( int line );
+    void ScrollToLine(int line);
 
     // Overrides inherited from ContentTab
     bool IsModified();
@@ -63,11 +63,11 @@ public:
 
     float GetZoomFactor() const;
 
-    void SetZoomFactor( float new_zoom_factor );
+    void SetZoomFactor(float new_zoom_factor);
 
     void UpdateDisplay();
 
-    Searchable* GetSearchableContent();
+    Searchable *GetSearchableContent();
 
 public slots:
 
@@ -103,7 +103,7 @@ public slots:
     /**
      * Change casing of the selected text.
      */
-    void ChangeCasing( const Utility::Casing casing );
+    void ChangeCasing(const Utility::Casing casing);
 
     void Print();
     void PrintPreview();
@@ -118,11 +118,11 @@ protected slots:
 
     void SaveTabContent();
 
-    void SaveTabContent( QWidget *editor );
+    void SaveTabContent(QWidget *editor);
 
     void LoadTabContent();
 
-    void LoadTabContent( QWidget *editor );
+    void LoadTabContent(QWidget *editor);
 
 private slots:
 
@@ -136,7 +136,7 @@ private:
 
 protected:
 
-    // The plain text code editor 
+    // The plain text code editor
     CodeViewEditor &m_wCodeView;
 
 private:

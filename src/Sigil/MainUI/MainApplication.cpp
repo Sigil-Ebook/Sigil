@@ -23,18 +23,18 @@
 
 #include "MainUI/MainApplication.h"
 
-MainApplication::MainApplication( int &argc, char **argv )
-    : QApplication( argc, argv ) 
+MainApplication::MainApplication(int &argc, char **argv)
+    : QApplication(argc, argv)
 {
 }
 
-bool MainApplication::event( QEvent *pEvent )
+bool MainApplication::event(QEvent *pEvent)
 {
-    if ( pEvent->type() == QEvent::ApplicationActivate ) {
+    if (pEvent->type() == QEvent::ApplicationActivate) {
         emit applicationActivated();
-    }
-    else if ( pEvent->type() == QEvent::ApplicationDeactivate ) {
+    } else if (pEvent->type() == QEvent::ApplicationDeactivate) {
         emit applicationDeactivated();
     }
-    return QApplication::event( pEvent );
+
+    return QApplication::event(pEvent);
 }

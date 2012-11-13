@@ -32,9 +32,9 @@ class PerformCSSUpdates
 
 public:
 
-    PerformCSSUpdates( const QString &source, const QHash< QString, QString > &css_updates );
+    PerformCSSUpdates(const QString &source, const QHash< QString, QString > &css_updates);
 
-    QString operator()( );
+    QString operator()();
 
 private:
 

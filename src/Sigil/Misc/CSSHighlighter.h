@@ -31,12 +31,12 @@ class CSSHighlighter : public QSyntaxHighlighter
 
 public:
 
-    explicit CSSHighlighter( QObject *parent );
+    explicit CSSHighlighter(QObject *parent);
 
 protected:
 
-    void highlightBlock( const QString& text );
-    void highlight( const QString&, int start, int length, int state );
+    void highlightBlock(const QString &text);
+    void highlight(const QString &, int start, int length, int state);
 
 private:
 

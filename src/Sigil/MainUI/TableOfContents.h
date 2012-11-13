@@ -52,7 +52,7 @@ public:
      *
      * @param parent The QObject's parent.
      */
-    TableOfContents( QWidget *parent = 0 );
+    TableOfContents(QWidget *parent = 0);
 
 public slots:
 
@@ -61,7 +61,7 @@ public slots:
      *
      * @param book The book to be displayed.
      */
-    void SetBook( QSharedPointer< Book > book );
+    void SetBook(QSharedPointer< Book > book);
 
     /**
      * Refreshes the display of the book's TOC.
@@ -91,10 +91,10 @@ private slots:
     /**
      * Handles the mouse clicks in the TOC and causes
      * those clicks to open/activate files in the main view area.
-     * 
+     *
      * @param index The model index of the item clicked.
      */
-    void ItemClickedHandler( const QModelIndex &index );
+    void ItemClickedHandler(const QModelIndex &index);
 
     void CollapseAll();
 
@@ -112,19 +112,19 @@ signals:
      * @param resource The resource that should be opened.
      * @param fragment The fragment ID to which the new tab should be scrolled.
      */
-    void OpenResourceRequest( Resource &resource, 
-                              int line_to_scroll_to = -1,
-                              int position_to_scroll_to = -1,
-                              const QString &caret_location_to_scroll_to = QString(),
-                              MainWindow::ViewState view_state = MainWindow::ViewState_Unknown, 
-                              const QUrl &fragment = QUrl());
+    void OpenResourceRequest(Resource &resource,
+                             int line_to_scroll_to = -1,
+                             int position_to_scroll_to = -1,
+                             const QString &caret_location_to_scroll_to = QString(),
+                             MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
+                             const QUrl &fragment = QUrl());
 
     void GenerateTocRequest();
 
 private:
 
     /**
-     * Performs the initial setup for the tree view. 
+     * Performs the initial setup for the tree view.
      */
     void SetupTreeView();
 
@@ -142,7 +142,7 @@ private:
      * A container widget for the TOC UI widgets.
      */
     QWidget &m_MainWidget;
-    
+
     /**
      * The layout for the container widget.
      */
@@ -157,7 +157,7 @@ private:
      * The timer that provides the delay for the refresh operation.
      */
     QTimer &m_RefreshTimer;
-    
+
     /**
      * The data model used to feed the tree view.
      */

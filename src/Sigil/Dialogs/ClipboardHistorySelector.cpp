@@ -35,17 +35,15 @@ static const QString SETTINGS_GROUP = "clipboard_history";
 static const QString KEY_SELECTORS = "0123456789abcdefghij";
 
 ClipboardHistorySelector::ClipboardHistorySelector(QWidget *parent)
-    : 
+    :
     QDialog(parent),
     m_ClipboardHistoryItems(new QStringList())
 {
     ui.setupUi(this);
     ExtendUI();
-
     ReadSettings();
-
     ConnectSignalsToSlots();
-} 
+}
 
 void ClipboardHistorySelector::showEvent(QShowEvent *event)
 {
@@ -57,7 +55,8 @@ void ClipboardHistorySelector::ApplicationActivated()
 {
     // Turned on when Sigil is activated, put the latest text if any at the top of the history
     ClipboardChanged(QClipboard::Clipboard);
-    connect(QApplication::clipboard(), SIGNAL( changed(QClipboard::Mode) ), this, SLOT( ClipboardChanged(QClipboard::Mode) ));
+    connect(QApplication::clipboard(), SIGNAL(changed(QClipboard::Mode)), this, SLOT(ClipboardChanged(QClipboard::Mode)));
+
     // If we are currently showing this dialog, refresh the display
     if (isVisible()) {
         SetupClipboardHistoryTable();
@@ -83,7 +82,7 @@ QStringList ClipboardHistorySelector::GetClipboardHistory() const
 
 void ClipboardHistorySelector::SaveClipboardState()
 {
-    disconnect(QApplication::clipboard(), 0, this, 0 );
+    disconnect(QApplication::clipboard(), 0, this, 0);
 }
 
 void ClipboardHistorySelector::RestoreClipboardState()
@@ -91,7 +90,8 @@ void ClipboardHistorySelector::RestoreClipboardState()
     if (m_ClipboardHistoryItems->count() > 0) {
         QApplication::clipboard()->setText(m_ClipboardHistoryItems->at(0));
     }
-    connect(QApplication::clipboard(), SIGNAL( changed(QClipboard::Mode) ), this, SLOT( ClipboardChanged(QClipboard::Mode) ));
+
+    connect(QApplication::clipboard(), SIGNAL(changed(QClipboard::Mode)), this, SLOT(ClipboardChanged(QClipboard::Mode)));
 }
 
 void ClipboardHistorySelector::SetupClipboardHistoryTable()
@@ -99,58 +99,65 @@ void ClipboardHistorySelector::SetupClipboardHistoryTable()
     ui.clipboardItemsTable->setRowCount(0);
     ui.clipboardItemsTable->setRowCount(m_ClipboardHistoryItems->count());
 
-    for (int row = 0; row < m_ClipboardHistoryItems->count(); row++)
-    {
+    for (int row = 0; row < m_ClipboardHistoryItems->count(); row++) {
         QTableWidgetItem *selector = new QTableWidgetItem();
         // Keyboard shortcuts are 1-9 then 0 then a-j
         selector->setText(KEY_SELECTORS.at(row));
-        selector->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+        selector->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
         ui.clipboardItemsTable->setItem(row, 0, selector);
-
-        const QString text = m_ClipboardHistoryItems->at(row); 
+        const QString text = m_ClipboardHistoryItems->at(row);
         QString display_text(text);
-        
         // Replace certain non-printable characters with spaces (to avoid
         // drawing boxes when using fonts that don't have glyphs for such
         // characters)
         QChar *uc = display_text.data();
+
         for (int i = 0; i < (int)text.length(); ++i) {
             if ((uc[i] < 0x20 && uc[i] != 0x09)
                 || uc[i] == QChar::LineSeparator
                 || uc[i] == QChar::ParagraphSeparator
-                || uc[i] == QChar::ObjectReplacementCharacter)
+                || uc[i] == QChar::ObjectReplacementCharacter) {
                 uc[i] = QChar(0x0020);
+            }
         }
+
         // Also replace any tab characters with an arrow glyph
         display_text = display_text.replace(QChar('\t'), QChar(0x2192));
-
         QTableWidgetItem *clip = new QTableWidgetItem();
         clip->setText(display_text);
-        clip->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled);
+        clip->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
         clip->setData(Qt::UserRole, QVariant(text));
         clip->setToolTip(text);
         ui.clipboardItemsTable->setItem(row, 1, clip);
     }
+
     ui.clipboardItemsTable->setColumnWidth(0, 20);
     ui.clipboardItemsTable->resizeRowsToContents();
-    if ( m_ClipboardHistoryItems->count() > 0 )
+
+    if (m_ClipboardHistoryItems->count() > 0) {
         ui.clipboardItemsTable->selectRow(0);
+    }
 }
 
-void ClipboardHistorySelector::ClipboardChanged( QClipboard::Mode mode )
+void ClipboardHistorySelector::ClipboardChanged(QClipboard::Mode mode)
 {
-    if ( mode != QClipboard::Clipboard )
+    if (mode != QClipboard::Clipboard) {
         return;
+    }
+
     const QString text = QApplication::clipboard()->text();
-    if ( text.isEmpty() ) {
+
+    if (text.isEmpty()) {
         return;
     }
+
     int existing_index = m_ClipboardHistoryItems->indexOf(text);
-    if (existing_index > 0 ) {
+
+    if (existing_index > 0) {
         m_ClipboardHistoryItems->move(existing_index, 0);
-    }
-    else if (existing_index < 0 ) {
+    } else if (existing_index < 0) {
         m_ClipboardHistoryItems->insert(0, text);
+
         while (m_ClipboardHistoryItems->size() > 20) {
             m_ClipboardHistoryItems->removeLast();
         }
@@ -161,7 +168,6 @@ void ClipboardHistorySelector::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     QByteArray geometry = settings.value("geometry").toByteArray();
 
@@ -176,10 +182,8 @@ void ClipboardHistorySelector::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
-
     settings.endGroup();
 }
 
@@ -187,28 +191,30 @@ bool ClipboardHistorySelector::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == ui.clipboardItemsTable) {
         if (event->type() == QEvent::KeyPress) {
-            QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
             int key = keyEvent->key();
             int row = -1;
 
             if (key == Qt::Key_Delete) {
                 int current_row = ui.clipboardItemsTable->currentRow();
+
                 if (current_row >= 0) {
                     m_ClipboardHistoryItems->removeAt(current_row);
                     SetupClipboardHistoryTable();
+
                     if (current_row >= ui.clipboardItemsTable->rowCount()) {
                         current_row--;
                     }
+
                     ui.clipboardItemsTable->selectRow(current_row);
                     return true;
                 }
-            }
-            else if ((key >= Qt::Key_0) && (key <= Qt::Key_9)) {
+            } else if ((key >= Qt::Key_0) && (key <= Qt::Key_9)) {
                 row = key - Qt::Key_0;
-            }
-            else if ((key >= Qt::Key_A) && (key <= Qt::Key_J)) {
+            } else if ((key >= Qt::Key_A) && (key <= Qt::Key_J)) {
                 row = key - Qt::Key_A + 10;
             }
+
             if (row >= 0 && row < ui.clipboardItemsTable->rowCount()) {
                 ui.clipboardItemsTable->selectRow(row);
                 accept();
@@ -216,6 +222,7 @@ bool ClipboardHistorySelector::eventFilter(QObject *obj, QEvent *event)
             }
         }
     }
+
     // pass the event on to the parent class
     return QDialog::eventFilter(obj, event);
 }
@@ -227,16 +234,15 @@ void ClipboardHistorySelector::ClipboardItemDoubleClicked(QTableWidgetItem *item
 
 void ClipboardHistorySelector::accept()
 {
-    if ( ui.clipboardItemsTable->rowCount() > 0 ) {
+    if (ui.clipboardItemsTable->rowCount() > 0) {
         int selected_row = ui.clipboardItemsTable->currentRow();
+
         if (selected_row >= 0) {
             QTableWidgetItem *item = ui.clipboardItemsTable->item(selected_row, 1);
             const QString text = item->data(Qt::UserRole).toString();
             QApplication::clipboard()->setText(text);
-
             emit PasteRequest(text);
-        }
-        else {
+        } else {
             // user does not have any rows selected - paste text currently on clipboard
             emit PasteRequest(QApplication::clipboard()->text());
         }
@@ -255,8 +261,7 @@ void ClipboardHistorySelector::reject()
 void ClipboardHistorySelector::ExtendUI()
 {
     QPushButton *paste_button = ui.buttonBox->button(QDialogButtonBox::Ok);
-    paste_button->setText( tr("Paste") );
-
+    paste_button->setText(tr("Paste"));
     ui.clipboardItemsTable->installEventFilter(this);
     ui.clipboardItemsTable->setWordWrap(false);
     ui.clipboardItemsTable->horizontalHeader()->setStretchLastSection(true);
@@ -264,9 +269,9 @@ void ClipboardHistorySelector::ExtendUI()
 
 void ClipboardHistorySelector::ConnectSignalsToSlots()
 {
-    connect(ui.clipboardItemsTable,    SIGNAL( itemDoubleClicked(QTableWidgetItem*) ),  this, SLOT( ClipboardItemDoubleClicked(QTableWidgetItem*) ));
-    
-    MainApplication *mainApplication = qobject_cast<MainApplication*>(qApp);
+    connect(ui.clipboardItemsTable,    SIGNAL(itemDoubleClicked(QTableWidgetItem *)),  this, SLOT(ClipboardItemDoubleClicked(QTableWidgetItem *)));
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+
     if (mainApplication) {
         connect(mainApplication, SIGNAL(applicationActivated()),   this, SLOT(ApplicationActivated()));
         connect(mainApplication, SIGNAL(applicationDeactivated()), this, SLOT(ApplicationDeactivated()));

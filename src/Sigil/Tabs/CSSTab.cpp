@@ -22,64 +22,64 @@
 #include "Tabs/CSSTab.h"
 #include "ResourceObjects/CSSResource.h"
 
-CSSTab::CSSTab( CSSResource& resource, int line_to_scroll_to, QWidget *parent )
+CSSTab::CSSTab(CSSResource &resource, int line_to_scroll_to, QWidget *parent)
     :
-    TextTab( resource, CodeViewEditor::Highlight_CSS, line_to_scroll_to, parent )
+    TextTab(resource, CodeViewEditor::Highlight_CSS, line_to_scroll_to, parent)
 {
     m_wCodeView.SetReformatCSSEnabled(true);
 }
-    
+
 void CSSTab::Bold()
 {
-    m_wCodeView.FormatCSSStyle( "font-weight", "bold" );
+    m_wCodeView.FormatCSSStyle("font-weight", "bold");
 }
-    
+
 void CSSTab::Italic()
 {
-    m_wCodeView.FormatCSSStyle( "font-style", "italic" );
+    m_wCodeView.FormatCSSStyle("font-style", "italic");
 }
-    
+
 void CSSTab::Underline()
 {
-    m_wCodeView.FormatCSSStyle( "text-decoration", "underline" );
+    m_wCodeView.FormatCSSStyle("text-decoration", "underline");
 }
-    
+
 void CSSTab::Strikethrough()
 {
-    m_wCodeView.FormatCSSStyle( "text-decoration", "line-through" );
+    m_wCodeView.FormatCSSStyle("text-decoration", "line-through");
 }
 
 void CSSTab::AlignLeft()
 {
-    m_wCodeView.FormatCSSStyle( "text-align", "left" );
+    m_wCodeView.FormatCSSStyle("text-align", "left");
 }
 
 void CSSTab::AlignCenter()
 {
-    m_wCodeView.FormatCSSStyle( "text-align", "center" );
+    m_wCodeView.FormatCSSStyle("text-align", "center");
 }
 
 void CSSTab::AlignRight()
 {
-    m_wCodeView.FormatCSSStyle( "text-align", "right" );
+    m_wCodeView.FormatCSSStyle("text-align", "right");
 }
 
 void CSSTab::AlignJustify()
 {
-    m_wCodeView.FormatCSSStyle( "text-align", "justify" );
+    m_wCodeView.FormatCSSStyle("text-align", "justify");
 }
 
 void CSSTab::TextDirectionLeftToRight()
 {
-    m_wCodeView.FormatCSSStyle( "direction", "ltr" );
+    m_wCodeView.FormatCSSStyle("direction", "ltr");
 }
 
 void CSSTab::TextDirectionRightToLeft()
 {
-    m_wCodeView.FormatCSSStyle( "direction", "rtl" );
+    m_wCodeView.FormatCSSStyle("direction", "rtl");
 }
 
 void CSSTab::TextDirectionDefault()
 {
-    m_wCodeView.FormatCSSStyle( "direction", "inherit" );
+    m_wCodeView.FormatCSSStyle("direction", "inherit");
 }

@@ -50,7 +50,7 @@ public slots:
     void RestoreClipboardState();
 
 signals:
-    void PasteRequest(const QString&);
+    void PasteRequest(const QString &);
 
 protected:
     bool eventFilter(QObject *obj, QEvent *ev);
@@ -64,7 +64,7 @@ private slots:
     void ApplicationActivated();
     void ApplicationDeactivated();
     void ClipboardItemDoubleClicked(QTableWidgetItem *item);
-    void ClipboardChanged( QClipboard::Mode mode );
+    void ClipboardChanged(QClipboard::Mode mode);
 
 private:
     void SetupClipboardHistoryTable();

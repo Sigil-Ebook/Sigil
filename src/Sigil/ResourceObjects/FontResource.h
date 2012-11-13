@@ -26,14 +26,14 @@
 #include "ResourceObjects/Resource.h"
 
 /**
- * Represents a font file on disk (TTF or OTF). 
+ * Represents a font file on disk (TTF or OTF).
  */
-class FontResource : public Resource 
+class FontResource : public Resource
 {
     Q_OBJECT
 
 public:
-       
+
     /**
      * Constructor.
      *
@@ -41,14 +41,14 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    FontResource( const QString &fullfilepath, QObject *parent = NULL );
+    FontResource(const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
     virtual ResourceType Type() const;
 
     QString GetObfuscationAlgorithm() const;
 
-    void SetObfuscationAlgorithm( const QString &algorithm );
+    void SetObfuscationAlgorithm(const QString &algorithm);
 
     virtual bool LoadFromDisk();
 

@@ -46,7 +46,7 @@ private slots:
 private:
     SettingsStore::CodeViewAppearance readSettings();
     void loadComboValueOrDefault(QFontComboBox *fontComboBox, const QString &value, const QString &defaultValue);
-    void loadCodeViewColorsList( SettingsStore::CodeViewAppearance );
+    void loadCodeViewColorsList(SettingsStore::CodeViewAppearance);
     void addColorItem(const QString &text, const QColor &color);
     QColor getListItemColor(const int &row = -1);
     void connectSignalsToSlots();

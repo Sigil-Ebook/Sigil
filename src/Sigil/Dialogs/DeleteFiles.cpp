@@ -25,30 +25,24 @@
 
 static const QString SETTINGS_GROUP      = "delete_files";
 
-DeleteFiles::DeleteFiles(QStringList files_to_delete, QWidget *parent )
+DeleteFiles::DeleteFiles(QStringList files_to_delete, QWidget *parent)
     :
-    QDialog( parent ),
+    QDialog(parent),
     m_FilesToDelete(files_to_delete)
 {
-    ui.setupUi( this );	
-
+    ui.setupUi(this);
     ConnectSignals();
-
     SetUpTable();
-
     ReadSettings();
-
-    foreach (QString filename, m_FilesToDelete) {
+    foreach(QString filename, m_FilesToDelete) {
         QList<QStandardItem *> rowItems;
-
         // Checkbox
-        QStandardItem *checkbox_item= new QStandardItem();
+        QStandardItem *checkbox_item = new QStandardItem();
         checkbox_item->setCheckable(true);
-        checkbox_item->setCheckState( Qt::Checked );
+        checkbox_item->setCheckState(Qt::Checked);
         rowItems << checkbox_item;
-
         // Filename
-        QStandardItem *file_item= new QStandardItem();
+        QStandardItem *file_item = new QStandardItem();
         file_item->setText(filename);
         rowItems << file_item;
 
@@ -68,33 +62,28 @@ DeleteFiles::~DeleteFiles()
 void DeleteFiles::SetUpTable()
 {
     QStringList header;
-    
     QPushButton *delete_button = ui.buttonBox->button(QDialogButtonBox::Ok);
-    delete_button->setText( tr("Delete Marked Files") );
-
-    header.append( tr( "Delete" ) );
-    header.append( tr( "File" ) );
-
-    m_Model.setHorizontalHeaderLabels( header );
-
-    ui.Table->setModel( &m_Model );
-
+    delete_button->setText(tr("Delete Marked Files"));
+    header.append(tr("Delete"));
+    header.append(tr("File"));
+    m_Model.setHorizontalHeaderLabels(header);
+    ui.Table->setModel(&m_Model);
     // Make the header fill all the available space
-    ui.Table->horizontalHeader()->setStretchLastSection( true );
+    ui.Table->horizontalHeader()->setStretchLastSection(true);
     ui.Table->verticalHeader()->setVisible(false);
     ui.Table->setSortingEnabled(true);
     ui.Table->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.Table->setSelectionMode(QAbstractItemView::SingleSelection);
-
-    ui.Table->setAlternatingRowColors( true );    
+    ui.Table->setAlternatingRowColors(true);
 }
 
 void DeleteFiles::SaveFilesToDelete()
 {
-    for ( int row = 0; row < m_Model.rowCount(); row++ ) {
+    for (int row = 0; row < m_Model.rowCount(); row++) {
         bool checked = m_Model.itemFromIndex(m_Model.index(row, 0))->checkState() == Qt::Checked;
+
         if (!checked) {
-            QString filename  = m_Model.data( m_Model.index( row, 1 ) ).toString();
+            QString filename  = m_Model.data(m_Model.index(row, 1)).toString();
             m_FilesToDelete.removeOne(filename);
         }
     }
@@ -108,14 +97,12 @@ QStringList DeleteFiles::GetFilesToDelete()
 void DeleteFiles::ReadSettings()
 {
     SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
+    settings.beginGroup(SETTINGS_GROUP);
     // The size of the window and it's full screen status
-    QByteArray geometry = settings.value( "geometry" ).toByteArray();
+    QByteArray geometry = settings.value("geometry").toByteArray();
 
-    if ( !geometry.isNull() )
-    {
-        restoreGeometry( geometry );
+    if (!geometry.isNull()) {
+        restoreGeometry(geometry);
     }
 
     settings.endGroup();
@@ -125,11 +112,9 @@ void DeleteFiles::ReadSettings()
 void DeleteFiles::WriteSettings()
 {
     SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
+    settings.beginGroup(SETTINGS_GROUP);
     // The size of the window and it's full screen status
-    settings.setValue( "geometry", saveGeometry() );
-
+    settings.setValue("geometry", saveGeometry());
     settings.endGroup();
 }
 
@@ -142,6 +127,6 @@ void DeleteFiles::DoubleClick()
 
 void DeleteFiles::ConnectSignals()
 {
-    connect( this, SIGNAL( accepted() ), this, SLOT( SaveFilesToDelete() ) );
-    connect (ui.Table, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick()));
+    connect(this, SIGNAL(accepted()), this, SLOT(SaveFilesToDelete()));
+    connect(ui.Table, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick()));
 }

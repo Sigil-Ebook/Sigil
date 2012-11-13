@@ -49,17 +49,16 @@ using boost::tie;
 
 // Constructor;
 // The parameter is the file to be imported
-ImportHTML::ImportHTML( const QString &fullfilepath )
-    : 
-    Importer( fullfilepath ),
-    m_IgnoreDuplicates( false ),
-    m_CachedSource( QString() )
+ImportHTML::ImportHTML(const QString &fullfilepath)
+    :
+    Importer(fullfilepath),
+    m_IgnoreDuplicates(false),
+    m_CachedSource(QString())
 {
-
 }
 
 
-void ImportHTML::SetBook( QSharedPointer< Book > book, bool ignore_duplicates )
+void ImportHTML::SetBook(QSharedPointer< Book > book, bool ignore_duplicates)
 {
     m_Book = book;
     m_IgnoreDuplicates = ignore_duplicates;
@@ -73,16 +72,13 @@ XhtmlDoc::WellFormedError ImportHTML::CheckValidToLoad()
 }
 
 
-// Reads and parses the file 
+// Reads and parses the file
 // and returns the created Book
 QSharedPointer< Book > ImportHTML::GetBook()
 {
-    shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument( LoadSource() );
-
-    LoadMetadata( *document );
-
-    UpdateFiles( CreateHTMLResource(), *document, LoadFolderStructure( *document ) );
-
+    shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument(LoadSource());
+    LoadMetadata(*document);
+    UpdateFiles(CreateHTMLResource(), *document, LoadFolderStructure(*document));
     return m_Book;
 }
 
@@ -93,192 +89,160 @@ QString ImportHTML::LoadSource()
     SettingsStore ss;
 
     if (m_CachedSource.isNull()) {
-        if ( !Utility::IsFileReadable( m_FullFilePath ) ) {
-            boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
+        if (!Utility::IsFileReadable(m_FullFilePath)) {
+            boost_throw(CannotReadFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
         }
 
-        m_CachedSource = HTMLEncodingResolver::ReadHTMLFile( m_FullFilePath );
+        m_CachedSource = HTMLEncodingResolver::ReadHTMLFile(m_FullFilePath);
+
         if (ss.cleanOn() & CLEANON_OPEN) {
             m_CachedSource = CleanSource::Clean(XhtmlDoc::ResolveCustomEntities(m_CachedSource));
         }
     }
+
     return m_CachedSource;
 }
 
 
 // Searches for meta information in the HTML file
 // and tries to convert it to Dublin Core
-void ImportHTML::LoadMetadata( const xc::DOMDocument &document )
+void ImportHTML::LoadMetadata(const xc::DOMDocument &document)
 {
-    QList< xc::DOMElement* > metatags = XhtmlDoc::GetTagMatchingDescendants( document, "meta" );
-
+    QList< xc::DOMElement * > metatags = XhtmlDoc::GetTagMatchingDescendants(document, "meta");
     QList< Metadata::MetaElement > metadata;
 
-    for ( int i = 0; i < metatags.count(); ++i )
-    {
-        xc::DOMElement &element = *metatags.at( i );
-       
-        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata( element );
+    for (int i = 0; i < metatags.count(); ++i) {
+        xc::DOMElement &element = *metatags.at(i);
+        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata(element);
 
-        if ( !book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty() )
-        {
-            metadata.append( book_meta );
-        }        
+        if (!book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty()) {
+            metadata.append(book_meta);
+        }
     }
 
-    m_Book->SetMetadata( metadata );
+    m_Book->SetMetadata(metadata);
 }
 
 
-HTMLResource& ImportHTML::CreateHTMLResource()
+HTMLResource &ImportHTML::CreateHTMLResource()
 {
     TempFolder tempfolder;
-
-    QString fullfilepath = tempfolder.GetPath() + "/" + QFileInfo( m_FullFilePath ).fileName();
-    Utility::WriteUnicodeTextFile( "TEMP_SOURCE", fullfilepath );
-
-    HTMLResource &resource = *qobject_cast< HTMLResource* >(
-                                &m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath ) );
-
+    QString fullfilepath = tempfolder.GetPath() + "/" + QFileInfo(m_FullFilePath).fileName();
+    Utility::WriteUnicodeTextFile("TEMP_SOURCE", fullfilepath);
+    HTMLResource &resource = *qobject_cast< HTMLResource * >(
+                                 &m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath));
     return resource;
 }
 
 
-void ImportHTML::UpdateFiles( HTMLResource &html_resource, 
-                              xc::DOMDocument &document,
-                              const QHash< QString, QString > &updates )
+void ImportHTML::UpdateFiles(HTMLResource &html_resource,
+                             xc::DOMDocument &document,
+                             const QHash< QString, QString > &updates)
 {
-    Q_ASSERT( &html_resource != NULL );
-
+    Q_ASSERT(&html_resource != NULL);
     QHash< QString, QString > html_updates;
     QHash< QString, QString > css_updates;
-    tie( html_updates, css_updates, boost::tuples::ignore ) =
-        UniversalUpdates::SeparateHtmlCssXmlUpdates( updates );
-
-    QList< Resource* > all_files = m_Book->GetFolderKeeper().GetResourceList();
+    tie(html_updates, css_updates, boost::tuples::ignore) =
+        UniversalUpdates::SeparateHtmlCssXmlUpdates(updates);
+    QList< Resource * > all_files = m_Book->GetFolderKeeper().GetResourceList();
     int num_files = all_files.count();
+    QList< CSSResource * > css_resources;
 
-    QList< CSSResource* > css_resources;
+    for (int i = 0; i < num_files; ++i) {
+        Resource *resource = all_files.at(i);
 
-    for ( int i = 0; i < num_files; ++i )
-    {
-        Resource *resource = all_files.at( i );
-
-        if ( resource->Type() == Resource::CSSResourceType )   
-        
-            css_resources.append( qobject_cast< CSSResource* >( resource ) );          
+        if (resource->Type() == Resource::CSSResourceType) {
+            css_resources.append(qobject_cast< CSSResource * >(resource));
+        }
     }
 
     QFutureSynchronizer<void> sync;
-    sync.addFuture( QtConcurrent::map( css_resources, 
-        boost::bind( UniversalUpdates::LoadAndUpdateOneCSSFile, _1, css_updates ) ) );
-
-    html_resource.SetText(XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates( document, html_updates, css_updates )().get()));
-
+    sync.addFuture(QtConcurrent::map(css_resources,
+                                     boost::bind(UniversalUpdates::LoadAndUpdateOneCSSFile, _1, css_updates)));
+    html_resource.SetText(XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates(document, html_updates, css_updates)().get()));
     sync.waitForFinished();
 }
 
 
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
-QHash< QString, QString > ImportHTML::LoadFolderStructure( const xc::DOMDocument &document )
+QHash< QString, QString > ImportHTML::LoadFolderStructure(const xc::DOMDocument &document)
 {
     QFutureSynchronizer< QHash< QString, QString > > sync;
-
-    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadImages,     &document ) );
-    sync.addFuture( QtConcurrent::run( this, &ImportHTML::LoadStyleFiles, &document ) );
-    
+    sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadImages,     &document));
+    sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadStyleFiles, &document));
     sync.waitForFinished();
-
     QList< QFuture< QHash< QString, QString > > > futures = sync.futures();
     int num_futures = futures.count();
-
     QHash< QString, QString > updates;
 
-    for ( int i = 0; i < num_futures; ++i )
-    {
-        updates.unite( futures.at( i ).result() );
-    }   
-
-    return updates;
-}
-
-
-// Loads the images into the book
-QHash< QString, QString > ImportHTML::LoadImages( const xc::DOMDocument *document )
-{
-    QStringList image_paths = XhtmlDoc::GetImagePathsFromImageChildren( *document );
-    QHash< QString, QString > updates;
-    QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
-
-    QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
-
-    // Load the images into the book and
-    // update all references with new urls
-    foreach( QString image_path, image_paths )
-    {
-        try
-        {
-            QString filename = QFileInfo( image_path ).fileName();
-            QString fullfilepath  = QFileInfo( folder, image_path ).absoluteFilePath();
-
-            QString newpath;
-            if ( m_IgnoreDuplicates && current_filenames.contains( filename ) ) {
-                newpath = "../" + m_Book->GetFolderKeeper().GetResourceByFilename(filename).GetRelativePathToOEBPS();
-            }
-            else {
-                newpath       = "../" + m_Book->GetFolderKeeper()
-                                            .AddContentFileToFolder( fullfilepath ).GetRelativePathToOEBPS();
-            }
-            updates[ fullfilepath ] = newpath;
-        }
-        
-        catch ( FileDoesNotExist& )
-        {
-            // Do nothing. If the referenced file does not exist,
-            // well then we don't load it.
-        	// TODO: log this.
-        }
+    for (int i = 0; i < num_futures; ++i) {
+        updates.unite(futures.at(i).result());
     }
 
     return updates;
 }
 
 
-QHash< QString, QString > ImportHTML::LoadStyleFiles( const xc::DOMDocument *document )
+// Loads the images into the book
+QHash< QString, QString > ImportHTML::LoadImages(const xc::DOMDocument *document)
 {
-    QList< xc::DOMElement* > link_nodes = XhtmlDoc::GetTagMatchingDescendants( *document, "link" );
+    QStringList image_paths = XhtmlDoc::GetImagePathsFromImageChildren(*document);
     QHash< QString, QString > updates;
-
+    QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
     QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    // Load the images into the book and
+    // update all references with new urls
+    foreach(QString image_path, image_paths) {
+        try {
+            QString filename = QFileInfo(image_path).fileName();
+            QString fullfilepath  = QFileInfo(folder, image_path).absoluteFilePath();
+            QString newpath;
 
-    for ( int i = 0; i < link_nodes.count(); ++i )
-    {
-        xc::DOMElement &element = *link_nodes.at( i );
-        Q_ASSERT( &element );
-
-        QDir folder( QFileInfo( m_FullFilePath ).absoluteDir() );
-        QString relative_path = Utility::URLDecodePath( XtoQ( element.getAttribute( QtoX( "href" ) ) ) );
-
-        QFileInfo file_info( folder, relative_path );
-
-        if ( file_info.suffix().toLower() == "css" )
-        {
-            try
-            {
-                QString newpath;
-                if ( m_IgnoreDuplicates && current_filenames.contains( file_info.fileName() ) ) {
-                    newpath = "../" + m_Book->GetFolderKeeper().GetResourceByFilename(file_info.fileName()).GetRelativePathToOEBPS();
-                }
-                else {
-                    newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder( 
-                                                file_info.absoluteFilePath() ).GetRelativePathToOEBPS();
-                }
-                updates[ relative_path ] = newpath;
+            if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
+                newpath = "../" + m_Book->GetFolderKeeper().GetResourceByFilename(filename).GetRelativePathToOEBPS();
+            } else {
+                newpath       = "../" + m_Book->GetFolderKeeper()
+                                .AddContentFileToFolder(fullfilepath).GetRelativePathToOEBPS();
             }
 
-            catch ( FileDoesNotExist& )
-            {
+            updates[ fullfilepath ] = newpath;
+        } catch (FileDoesNotExist &) {
+            // Do nothing. If the referenced file does not exist,
+            // well then we don't load it.
+            // TODO: log this.
+        }
+    }
+    return updates;
+}
+
+
+QHash< QString, QString > ImportHTML::LoadStyleFiles(const xc::DOMDocument *document)
+{
+    QList< xc::DOMElement * > link_nodes = XhtmlDoc::GetTagMatchingDescendants(*document, "link");
+    QHash< QString, QString > updates;
+    QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+
+    for (int i = 0; i < link_nodes.count(); ++i) {
+        xc::DOMElement &element = *link_nodes.at(i);
+        Q_ASSERT(&element);
+        QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
+        QString relative_path = Utility::URLDecodePath(XtoQ(element.getAttribute(QtoX("href"))));
+        QFileInfo file_info(folder, relative_path);
+
+        if (file_info.suffix().toLower() == "css") {
+            try {
+                QString newpath;
+
+                if (m_IgnoreDuplicates && current_filenames.contains(file_info.fileName())) {
+                    newpath = "../" + m_Book->GetFolderKeeper().GetResourceByFilename(file_info.fileName()).GetRelativePathToOEBPS();
+                } else {
+                    newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder(
+                                  file_info.absoluteFilePath()).GetRelativePathToOEBPS();
+                }
+
+                updates[ relative_path ] = newpath;
+            } catch (FileDoesNotExist &) {
                 // Do nothing. If the referenced file does not exist,
                 // well then we don't load it.
                 // TODO: log this.

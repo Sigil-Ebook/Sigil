@@ -27,9 +27,9 @@ class QString;
 
 namespace FontObfuscation
 {
-    void ObfuscateFile( const QString &filepath, 
-                        const QString &algorithm, 
-                        const QString &identifier );
+void ObfuscateFile(const QString &filepath,
+                   const QString &algorithm,
+                   const QString &identifier);
 }
 
 #endif // FONTOBFUSCATION_H

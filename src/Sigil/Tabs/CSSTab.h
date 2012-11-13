@@ -33,7 +33,7 @@ class CSSTab : public TextTab
 
 public:
 
-    CSSTab( CSSResource& resource, int line_to_scroll_to = -1, QWidget *parent = 0 );
+    CSSTab(CSSResource &resource, int line_to_scroll_to = -1, QWidget *parent = 0);
 
 public slots:
 

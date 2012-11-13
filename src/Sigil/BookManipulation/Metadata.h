@@ -33,13 +33,12 @@ class QMutex;
 class QString;
 
 class Metadata : public QObject
-{	
+{
     Q_OBJECT
 
 public:
 
-    struct MetaInfo
-    {
+    struct MetaInfo {
         // The user-friendly name of the entry
         QString name;
 
@@ -47,8 +46,7 @@ public:
         QString description;
     };
 
-    struct MetaElement
-    {
+    struct MetaElement {
         // The name of the element
         QString name;
 
@@ -67,31 +65,31 @@ public:
         QHash< QString, QString > attributes;
     };
 
-    static Metadata& Instance();
+    static Metadata &Instance();
 
-    const QHash< QString, MetaInfo >& GetRelatorMap();
-    const QHash< QString, MetaInfo >& GetBasicMetaMap();
+    const QHash< QString, MetaInfo > &GetRelatorMap();
+    const QHash< QString, MetaInfo > &GetBasicMetaMap();
 
-    bool IsRelator( QString code );
+    bool IsRelator(QString code);
 
-    QString GetText( QString text );
-    QString GetName( QString code );
-    QString GetCode( QString name );
+    QString GetText(QString text);
+    QString GetName(QString code);
+    QString GetCode(QString name);
 
     /**
      * Maps DC and <meta> metadata elements to "internal" MetaElements.
-     * Accepts both DublinCore metadata elements like one would find in an 
+     * Accepts both DublinCore metadata elements like one would find in an
      * OPF and custom <meta> elements like one would find in an HTML file.
-     * 
+     *
      * @param element The element to convert.
      * @return The converted MetaElement.
      */
-    MetaElement MapToBookMetadata( const xc::DOMElement &element );
+    MetaElement MapToBookMetadata(const xc::DOMElement &element);
 
 private:
 
     // Maps Dublic Core metadata to internal book meta format
-    MetaElement MapToBookMetadata( const MetaElement &meta, bool is_dc_element );
+    MetaElement MapToBookMetadata(const MetaElement &meta, bool is_dc_element);
 
     // Constructor is private because
     // this is a singleton class
@@ -108,19 +106,19 @@ private:
     void LoadRelatorCodes();
 
     // Converts HTML sourced Dublin Core metadata to OPF style metadata
-    MetaElement HtmlToOpfDC( const MetaElement &meta );
+    MetaElement HtmlToOpfDC(const MetaElement &meta);
 
     // Converts free form metadata into internal book metadata
-    MetaElement FreeFormMetadata( const MetaElement &meta );
+    MetaElement FreeFormMetadata(const MetaElement &meta);
 
     // Converts dc:creator and dc:contributor metadata to book internal metadata
-    MetaElement CreateContribMetadata( const MetaElement &meta );
+    MetaElement CreateContribMetadata(const MetaElement &meta);
 
     // Converts dc:date metadata to book internal metadata
-    MetaElement DateMetadata( const MetaElement &meta );
+    MetaElement DateMetadata(const MetaElement &meta);
 
     // Converts dc:identifier metadata to book internal metadata
-    MetaElement IdentifierMetadata( const MetaElement &meta );
+    MetaElement IdentifierMetadata(const MetaElement &meta);
 
 
     ///////////////////////////////

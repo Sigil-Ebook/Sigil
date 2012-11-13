@@ -29,8 +29,8 @@
 #include "BookManipulation/XhtmlDoc.h"
 
 /**
- * The abstract base class for Importers. 
- * Defines the GetBook() method that the importer subclasses need to implement. 
+ * The abstract base class for Importers.
+ * Defines the GetBook() method that the importer subclasses need to implement.
  */
 class Importer
 {
@@ -39,19 +39,19 @@ public:
 
     /**
      * Constructor.
-     * 
+     *
      * @param fullfilepath The path to the file to be imported.
      */
-    Importer( const QString &fullfilepath );
+    Importer(const QString &fullfilepath);
 
     /**
      * Destructor.
      */
     virtual ~Importer() {}
-    
+
     /**
      * Call this prior to calling GetBook() to determine whether the item
-     * is valid to be loaded. 
+     * is valid to be loaded.
      */
     virtual XhtmlDoc::WellFormedError CheckValidToLoad();
 
@@ -82,9 +82,9 @@ protected:
     const QString &m_FullFilePath;
 
     /**
-     * The Book that will be created  
+     * The Book that will be created
      * by the importing process.
-     */ 
+     */
     QSharedPointer< Book > m_Book;
 
     QStringList m_LoadWarnings;

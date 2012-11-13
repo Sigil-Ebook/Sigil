@@ -32,13 +32,13 @@
 
 class IndexEditorModel : public QStandardItemModel
 {
-     Q_OBJECT
+    Q_OBJECT
 
 public:
     IndexEditorModel(QObject *parent = 0);
     ~IndexEditorModel();
 
-    static IndexEditorModel* instance();
+    static IndexEditorModel *instance();
 
     struct indexEntry {
         QString pattern;
@@ -51,25 +51,25 @@ public:
     void LoadInitialData(const QString &filename = QString());
     void LoadData(const QString &filename = QString(), QStandardItem *parent_item = NULL);
 
-    QStandardItem* AddFullNameEntry(IndexEditorModel::indexEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
+    QStandardItem *AddFullNameEntry(IndexEditorModel::indexEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
 
-    QStandardItem* AddEntryToModel(IndexEditorModel::indexEntry *entry, QStandardItem *parent_item = NULL, int row = -1);
+    QStandardItem *AddEntryToModel(IndexEditorModel::indexEntry *entry, QStandardItem *parent_item = NULL, int row = -1);
 
-    QString SaveData(QList<IndexEditorModel::indexEntry*> entries = QList<IndexEditorModel::indexEntry*>(), const QString &filename = QString());
+    QString SaveData(QList<IndexEditorModel::indexEntry *> entries = QList<IndexEditorModel::indexEntry *>(), const QString &filename = QString());
 
-    QList<IndexEditorModel::indexEntry *> GetEntries(QList<QStandardItem*> items = QList<QStandardItem*>());
-    IndexEditorModel::indexEntry* GetEntry(QStandardItem* item);
+    QList<IndexEditorModel::indexEntry *> GetEntries(QList<QStandardItem *> items = QList<QStandardItem *>());
+    IndexEditorModel::indexEntry *GetEntry(QStandardItem *item);
 
-    QList<QStandardItem*> GetItems();
+    QList<QStandardItem *> GetItems();
 
 signals:
     void SettingsFileUpdated() const;
 
 private slots:
-    void RowsRemovedHandler( const QModelIndex & parent, int start, int end );
+    void RowsRemovedHandler(const QModelIndex &parent, int start, int end);
     void ItemChangedHandler(QStandardItem *item);
 
-    void SettingsFileChanged( const QString &path ) const;
+    void SettingsFileChanged(const QString &path) const;
 
 private:
     void SetDataModified(bool modified);

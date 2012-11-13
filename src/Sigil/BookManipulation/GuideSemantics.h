@@ -44,25 +44,24 @@ public:
     *
     * @see http://www.idpf.org/2007/opf/OPF_2.0_final_spec.html#Section2.6
     */
-    enum GuideSemanticType
-    {
+    enum GuideSemanticType {
         NoType = -1,
         Cover,
         TitlePage,
         TableOfContents,
         Index,
-        Glossary, 	
-        Acknowledgements, 	
+        Glossary,
+        Acknowledgements,
         Bibliography,
         Colophon,
-        CopyrightPage, 	
+        CopyrightPage,
         Dedication,
         Epigraph,
-        Foreword,	
+        Foreword,
         ListOfIllustrations,
         ListOfTables,
         Notes,
-        Preface, 	
+        Preface,
         Text
     };
 
@@ -71,14 +70,14 @@ public:
      *
      * @return The reference.
      */
-    static GuideSemantics& Instance();
+    static GuideSemantics &Instance();
 
     /**
      * Returns a reference to m_GuideTypeMapping
-     * 
+     *
      * @return The reference.
      */
-    const QHash< int, tuple< QString, QString > >& GetGuideTypeMapping();
+    const QHash< int, tuple< QString, QString > > &GetGuideTypeMapping();
 
     /**
      * Maps a reference type string ("loi", "cover" etc.)
@@ -87,7 +86,7 @@ public:
      * @param reference_type The type string.
      * @return The corresponding value in the enum.
      */
-    GuideSemanticType MapReferenceTypeToGuideEnum( const QString &reference_type );
+    GuideSemanticType MapReferenceTypeToGuideEnum(const QString &reference_type);
 
 private:
 

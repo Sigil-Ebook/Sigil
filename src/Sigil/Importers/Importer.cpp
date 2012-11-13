@@ -21,13 +21,12 @@
 
 #include "Importers/Importer.h"
 
-Importer::Importer( const QString &fullfilepath )
+Importer::Importer(const QString &fullfilepath)
     :
-    m_FullFilePath( fullfilepath ),
-    m_Book( new Book() ),
-    m_LoadWarnings( QStringList() )
+    m_FullFilePath(fullfilepath),
+    m_Book(new Book()),
+    m_LoadWarnings(QStringList())
 {
-
 }
 
 XhtmlDoc::WellFormedError Importer::CheckValidToLoad()
@@ -45,5 +44,5 @@ QStringList Importer::GetLoadWarnings()
 
 void Importer::AddLoadWarning(const QString &warning)
 {
-    m_LoadWarnings.append( warning );
+    m_LoadWarnings.append(warning);
 }

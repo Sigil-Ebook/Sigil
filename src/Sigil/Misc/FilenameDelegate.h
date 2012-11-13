@@ -27,7 +27,7 @@
 class FilenameDelegate : public QStyledItemDelegate
 {
 public:
-    FilenameDelegate(QWidget *parent=0);
+    FilenameDelegate(QWidget *parent = 0);
 
 protected:
     virtual bool eventFilter(QObject *object, QEvent *event);

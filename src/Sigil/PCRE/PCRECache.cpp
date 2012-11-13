@@ -34,7 +34,6 @@ PCRECache *PCRECache::instance()
 
 PCRECache::PCRECache()
 {
-
 }
 
 bool PCRECache::insert(const QString &key, SPCRE *object)

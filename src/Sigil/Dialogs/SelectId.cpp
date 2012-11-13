@@ -38,9 +38,7 @@ SelectId::SelectId(QString id, HTMLResource *html_resource, QSharedPointer< Book
 {
     ui.setupUi(this);
     connectSignalsSlots();
-
     ReadSettings();
-
     SetList();
 }
 
@@ -48,17 +46,13 @@ void SelectId::SetList()
 {
     QLineEdit *q = new QLineEdit(this);
     ui.id->setLineEdit(q);
-
     QCompleter *qc = ui.id->completer();
     qc->setCaseSensitivity(Qt::CaseSensitive);
     ui.id->setCompleter(qc);
-
     QStringList ids = m_Book->GetIdsInHTMLFile(m_HTMLResource);
-
     foreach(QString id, ids) {
         ui.id->addItem(id);
     }
-
     // Set default id name
     ui.id->setEditText(m_SelectedText);
 }
@@ -78,7 +72,6 @@ void SelectId::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     QByteArray geometry = settings.value("geometry").toByteArray();
 
@@ -92,13 +85,10 @@ void SelectId::ReadSettings()
 void SelectId::WriteSettings()
 {
     SetSelectedText();
-
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
-
     settings.endGroup();
 }
 

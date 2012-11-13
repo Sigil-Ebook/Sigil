@@ -43,18 +43,16 @@ KeyboardShortcutsWidget::KeyboardShortcutsWidget()
 
 PreferencesWidget::ResultAction KeyboardShortcutsWidget::saveSettings()
 {
-     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
+    KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
-     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
-         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
+    for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
+        QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
+        const QString id = item->text(COL_ID);
+        const QKeySequence keySequence = item->text(COL_SHORTCUT);
+        sm->setKeySequence(id, keySequence);
+    }
 
-         const QString id = item->text(COL_ID);
-         const QKeySequence keySequence = item->text(COL_SHORTCUT);
-
-         sm->setKeySequence(id, keySequence);
-     }
-
-     return PreferencesWidget::ResultAction_None;
+    return PreferencesWidget::ResultAction_None;
 }
 
 bool KeyboardShortcutsWidget::eventFilter(QObject *object, QEvent *event)
@@ -62,7 +60,7 @@ bool KeyboardShortcutsWidget::eventFilter(QObject *object, QEvent *event)
     Q_UNUSED(object)
 
     if (event->type() == QEvent::KeyPress) {
-        QKeyEvent *k = static_cast<QKeyEvent*>(event);
+        QKeyEvent *k = static_cast<QKeyEvent *>(event);
         handleKeyEvent(k);
         return true;
     }
@@ -93,16 +91,16 @@ void KeyboardShortcutsWidget::treeWidgetItemChangedSlot(QTreeWidgetItem *current
 {
     if (!current) {
         ui.targetEdit->setText("");
-        ui.assignButton->setEnabled( false );
-        ui.removeButton->setEnabled( false );
+        ui.assignButton->setEnabled(false);
+        ui.removeButton->setEnabled(false);
         ui.infoLabel->setText("");
         return;
     }
 
     const QString shortcut_text = current->text(COL_SHORTCUT);
-    ui.targetEdit->setText( shortcut_text );
-    ui.assignButton->setEnabled( false );
-    ui.removeButton->setEnabled( shortcut_text.length() > 0 );
+    ui.targetEdit->setText(shortcut_text);
+    ui.assignButton->setEnabled(false);
+    ui.removeButton->setEnabled(shortcut_text.length() > 0);
 }
 
 void KeyboardShortcutsWidget::removeButtonClicked()
@@ -116,13 +114,13 @@ void KeyboardShortcutsWidget::removeButtonClicked()
 void KeyboardShortcutsWidget::filterEditTextChangedSlot(const QString &text)
 {
     const QString newText = text.toUpper();
+
     // If text is empty - show all items.
     if (text.isEmpty()) {
-        for(int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
-             ui.commandList->topLevelItem(i)->setHidden(false);
+        for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
+            ui.commandList->topLevelItem(i)->setHidden(false);
         }
-    }
-    else {
+    } else {
         for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
             const QString name = ui.commandList->topLevelItem(i)->text(COL_NAME).toUpper();
             const QString description = ui.commandList->topLevelItem(i)->text(COL_DESCRIPTION).toUpper();
@@ -131,12 +129,10 @@ void KeyboardShortcutsWidget::filterEditTextChangedSlot(const QString &text)
             if (name.contains(newText) ||
                 description.contains(newText) ||
                 sequence.contains(newText)
-              )
-            {
-                 ui.commandList->topLevelItem(i)->setHidden(false);
-            }
-            else {
-                 ui.commandList->topLevelItem(i)->setHidden(true);
+               ) {
+                ui.commandList->topLevelItem(i)->setHidden(false);
+            } else {
+                ui.commandList->topLevelItem(i)->setHidden(true);
             }
         }
     }
@@ -145,9 +141,10 @@ void KeyboardShortcutsWidget::filterEditTextChangedSlot(const QString &text)
 void KeyboardShortcutsWidget::targetEditTextChangedSlot(const QString &text)
 {
     QTreeWidgetItem *item = ui.commandList->currentItem();
+
     if (item != 0) {
-        ui.assignButton->setEnabled( item->text(COL_SHORTCUT) != text );
-        ui.removeButton->setEnabled( item->text(COL_SHORTCUT).length() > 0 );
+        ui.assignButton->setEnabled(item->text(COL_SHORTCUT) != text);
+        ui.removeButton->setEnabled(item->text(COL_SHORTCUT).length() > 0);
     }
 
     showDuplicatesTextIfNeeded();
@@ -156,20 +153,24 @@ void KeyboardShortcutsWidget::targetEditTextChangedSlot(const QString &text)
 void KeyboardShortcutsWidget::assignButtonClickedSlot()
 {
     const QString new_shortcut = ui.targetEdit->text();
+
     if (ui.commandList->currentItem() != 0) {
         ui.commandList->currentItem()->setText(COL_SHORTCUT, new_shortcut);
     }
-    if ( new_shortcut.length() > 0 ) {
+
+    if (new_shortcut.length() > 0) {
         // Go through all items to remove any conflicting shortcuts
         for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
-            if ( i != ui.commandList->currentIndex().row() ) {
+            if (i != ui.commandList->currentIndex().row()) {
                 QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
-                if ( item->text(COL_SHORTCUT) == new_shortcut ) {
+
+                if (item->text(COL_SHORTCUT) == new_shortcut) {
                     item->setText(COL_SHORTCUT, "");
                 }
             }
         }
     }
+
     ui.infoLabel->clear();
     markSequencesAsDuplicatedIfNeeded();
     ui.assignButton->setEnabled(false);
@@ -194,13 +195,11 @@ void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
 void KeyboardShortcutsWidget::readSettings()
 {
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
-
     ui.commandList->clear();
-
     QStringList ids = sm->ids();
-    foreach (QString id, ids)
-    {
+    foreach(QString id, ids) {
         KeyboardShortcut shortcut = sm->keyboardShortcut(id);
+
         if (!shortcut.isEmpty()) {
             QTreeWidgetItem *item = new QTreeWidgetItem();
             item->setText(COL_NAME, shortcut.name());
@@ -211,38 +210,37 @@ void KeyboardShortcutsWidget::readSettings()
             ui.commandList->addTopLevelItem(item);
         }
     }
-    ui.commandList->sortItems( 0, Qt::AscendingOrder );
-
+    ui.commandList->sortItems(0, Qt::AscendingOrder);
     markSequencesAsDuplicatedIfNeeded();
 }
 
 void KeyboardShortcutsWidget::connectSignalsSlots()
 {
-    connect(ui.commandList, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(treeWidgetItemChangedSlot(QTreeWidgetItem*,QTreeWidgetItem*)));
+    connect(ui.commandList, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(treeWidgetItemChangedSlot(QTreeWidgetItem *, QTreeWidgetItem *)));
     connect(ui.removeButton, SIGNAL(clicked()), this, SLOT(removeButtonClicked()));
     connect(ui.filterEdit, SIGNAL(textChanged(QString)), this, SLOT(filterEditTextChangedSlot(QString)));
-    connect(ui.targetEdit, SIGNAL( textChanged(QString)), this, SLOT(targetEditTextChangedSlot(QString)));
+    connect(ui.targetEdit, SIGNAL(textChanged(QString)), this, SLOT(targetEditTextChangedSlot(QString)));
     connect(ui.assignButton, SIGNAL(clicked()), this, SLOT(assignButtonClickedSlot()));
     connect(ui.resetAllButton, SIGNAL(clicked()), this, SLOT(resetAllButtonClickedSlot()));
-
     ui.targetEdit->installEventFilter(this);
 }
 
 void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
 {
     int nextKey = event->key();
+
     if (nextKey == Qt::Key_Control ||
-         nextKey == Qt::Key_Shift   ||
-         nextKey == Qt::Key_Meta    ||
-         nextKey == Qt::Key_Alt     ||
-         nextKey == Qt::Key_Backspace || // This button cannot be assigned, because we want to 'clear' shortcut after backspace push
-         ui.commandList->currentItem() == 0 // Do not allow writting in shortcut line edit if no item is selected
-        )
-    {
+        nextKey == Qt::Key_Shift   ||
+        nextKey == Qt::Key_Meta    ||
+        nextKey == Qt::Key_Alt     ||
+        nextKey == Qt::Key_Backspace || // This button cannot be assigned, because we want to 'clear' shortcut after backspace push
+        ui.commandList->currentItem() == 0 // Do not allow writting in shortcut line edit if no item is selected
+       ) {
         // If key was Qt::Key_Backspace additionaly clear sequence dialog
-        if(nextKey == Qt::Key_Backspace) {
+        if (nextKey == Qt::Key_Backspace) {
             removeButtonClicked();
         }
+
         return;
     }
 
@@ -261,16 +259,19 @@ int KeyboardShortcutsWidget::translateModifiers(Qt::KeyboardModifiers state, con
                                         || !text.at(0).isPrint()
                                         || text.at(0).isLetterOrNumber()
                                         || text.at(0).isSpace()
-                                        )
+                                       )
        ) {
         result |= Qt::SHIFT;
     }
+
     if (state & Qt::ControlModifier) {
         result |= Qt::CTRL;
     }
+
     if (state & Qt::MetaModifier) {
         result |= Qt::META;
     }
+
     if (state & Qt::AltModifier) {
         result |= Qt::ALT;
     }
@@ -282,33 +283,30 @@ void KeyboardShortcutsWidget::markSequencesAsDuplicatedIfNeeded()
 {
     // This is not optized , but since this will be called rather seldom
     // effort for optimization may not be worth it
-
-    QMap<QKeySequence, QSet<QTreeWidgetItem*> > seqMap;
+    QMap<QKeySequence, QSet<QTreeWidgetItem *> > seqMap;
 
     // Go through all items
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
-
         const QKeySequence keySequence = item->text(COL_SHORTCUT);
         seqMap[keySequence].insert(item);
     }
 
     // Now, mark all conflicting sequences
-    foreach (QKeySequence sequence, seqMap.keys()) {
+    foreach(QKeySequence sequence, seqMap.keys()) {
         QSet<QTreeWidgetItem *> itemSet = seqMap[sequence];
+
         if (itemSet.size() > 1) {
             //mark items as conflicted items
-            foreach(QTreeWidgetItem *item, itemSet.values()) {
+            foreach(QTreeWidgetItem * item, itemSet.values()) {
                 QFont font = item->font(COL_SHORTCUT);
                 font.setBold(true);
                 item->setForeground(COL_SHORTCUT, QColor(Qt::red));
                 item->setFont(COL_SHORTCUT, font);
             }
-        }
-        else {
+        } else {
             // Mark as non-confilicted
-            foreach(QTreeWidgetItem *item, itemSet.values())
-            {
+            foreach(QTreeWidgetItem * item, itemSet.values()) {
                 QFont font = item->font(COL_SHORTCUT);
                 font.setBold(false);
                 item->setForeground(COL_SHORTCUT, QColor(Qt::black));
@@ -321,24 +319,24 @@ void KeyboardShortcutsWidget::markSequencesAsDuplicatedIfNeeded()
 void KeyboardShortcutsWidget::showDuplicatesTextIfNeeded()
 {
     ui.infoLabel->clear();
-
     const QString new_shortcut = ui.targetEdit->text();
-    if ( new_shortcut.length() > 0 ) {
+
+    if (new_shortcut.length() > 0) {
         // Display any conflicting shortcuts in the info label
         QStringList *conflicts = new QStringList();
 
-        for ( int i = 0; i < ui.commandList->topLevelItemCount(); i++ ) {
-            if ( i != ui.commandList->currentIndex().row() ) {
+        for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
+            if (i != ui.commandList->currentIndex().row()) {
                 QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
-                if ( item->text(COL_SHORTCUT) == new_shortcut ) {
-                    conflicts->append( item->text(COL_NAME) );
+
+                if (item->text(COL_SHORTCUT) == new_shortcut) {
+                    conflicts->append(item->text(COL_NAME));
                 }
             }
         }
 
-        if ( conflicts->count() > 0 ) {
+        if (conflicts->count() > 0) {
             ui.infoLabel->setText("Conflicts with: <b>" + conflicts->join("</b>, <b>") + "</b>");
         }
     }
-    
 }

@@ -27,37 +27,35 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/NCXResource.h"
 
-NCXModel::NCXModel( QObject *parent )
-    : 
-    QStandardItemModel( parent ),
-    m_Book( NULL ),
-    m_RefreshInProgress( false ),
-    m_NcxRootWatcher( *new QFutureWatcher< NCXModel::NCXEntry >( this ) )
+NCXModel::NCXModel(QObject *parent)
+    :
+    QStandardItemModel(parent),
+    m_Book(NULL),
+    m_RefreshInProgress(false),
+    m_NcxRootWatcher(*new QFutureWatcher< NCXModel::NCXEntry >(this))
 {
-    connect( &m_NcxRootWatcher, SIGNAL( finished() ), this, SLOT( RefreshEnd() ) );
+    connect(&m_NcxRootWatcher, SIGNAL(finished()), this, SLOT(RefreshEnd()));
 }
 
 
-void NCXModel::SetBook( QSharedPointer< Book > book )
+void NCXModel::SetBook(QSharedPointer< Book > book)
 {
     {
         // We need to make sure we don't step on the toes of GetNCXText
-        QMutexLocker book_lock( &m_UsingBookMutex );
-
+        QMutexLocker book_lock(&m_UsingBookMutex);
         m_Book = book;
     }
-
     Refresh();
 }
 
 
-QUrl NCXModel::GetUrlForIndex( const QModelIndex &index )
+QUrl NCXModel::GetUrlForIndex(const QModelIndex &index)
 {
-    QStandardItem *item = itemFromIndex( index );
+    QStandardItem *item = itemFromIndex(index);
 
-    if ( !item )
-
+    if (!item) {
         return QUrl();
+    }
 
     return item->data().toUrl();
 }
@@ -69,85 +67,70 @@ QUrl NCXModel::GetUrlForIndex( const QModelIndex &index )
 // from several threads so we just disallow it with the assert.
 void NCXModel::Refresh()
 {
-    Q_ASSERT( QThread::currentThread() == QApplication::instance()->thread() );
+    Q_ASSERT(QThread::currentThread() == QApplication::instance()->thread());
 
-    if ( m_RefreshInProgress )
-
+    if (m_RefreshInProgress) {
         return;
+    }
 
     m_RefreshInProgress = true;
-
-    m_NcxRootWatcher.setFuture( QtConcurrent::run( this, &NCXModel::GetRootNCXEntry ) );
+    m_NcxRootWatcher.setFuture(QtConcurrent::run(this, &NCXModel::GetRootNCXEntry));
 }
 
 
 void NCXModel::RefreshEnd()
 {
-    BuildModel( m_NcxRootWatcher.result() );
-
+    BuildModel(m_NcxRootWatcher.result());
     m_RefreshInProgress = false;
 }
 
 
 NCXModel::NCXEntry NCXModel::GetRootNCXEntry()
 {
-    return ParseNCX( GetNCXText() );
+    return ParseNCX(GetNCXText());
 }
 
 
 QString NCXModel::GetNCXText()
 {
-    QMutexLocker book_lock( &m_UsingBookMutex );
-
+    QMutexLocker book_lock(&m_UsingBookMutex);
     NCXResource &ncx = m_Book->GetNCX();
-
-    QReadLocker locker( &ncx.GetLock() );
-
+    QReadLocker locker(&ncx.GetLock());
     return ncx.GetText();
 }
 
 
-NCXModel::NCXEntry NCXModel::ParseNCX( const QString &ncx_source )
+NCXModel::NCXEntry NCXModel::ParseNCX(const QString &ncx_source)
 {
-    QXmlStreamReader ncx( ncx_source );
-
+    QXmlStreamReader ncx(ncx_source);
     bool in_navmap = false;
-
     NCXModel::NCXEntry root;
     root.is_root = true;
 
-    while ( !ncx.atEnd() ) 
-    {
+    while (!ncx.atEnd()) {
         ncx.readNext();
 
-        if ( ncx.isStartElement() ) 
-        {
-            if ( !in_navmap )
-            { 
-                if ( ncx.name() == "navMap" )
-
+        if (ncx.isStartElement()) {
+            if (!in_navmap) {
+                if (ncx.name() == "navMap") {
                     in_navmap = true;
+                }
 
                 continue;
             }
 
-            if ( ncx.name() == "navPoint" )
-            
-                root.children.append( ParseNavPoint( ncx ) );            
-        }
-
-        else if ( ncx.isEndElement() && 
-                  ncx.name() == "navMap" )
-        {
+            if (ncx.name() == "navPoint") {
+                root.children.append(ParseNavPoint(ncx));
+            }
+        } else if (ncx.isEndElement() &&
+                   ncx.name() == "navMap") {
             break;
         }
     }
 
-    if ( ncx.hasError() )
-    {
+    if (ncx.hasError()) {
         NCXModel::NCXEntry empty;
         empty.is_root = true;
-
         return empty;
     }
 
@@ -155,42 +138,29 @@ NCXModel::NCXEntry NCXModel::ParseNCX( const QString &ncx_source )
 }
 
 
-NCXModel::NCXEntry NCXModel::ParseNavPoint( QXmlStreamReader &ncx )
+NCXModel::NCXEntry NCXModel::ParseNavPoint(QXmlStreamReader &ncx)
 {
     NCXModel::NCXEntry current;
 
-    while ( !ncx.atEnd() ) 
-    {
+    while (!ncx.atEnd()) {
         ncx.readNext();
 
-        if ( ncx.isStartElement() ) 
-        {
-            if ( ncx.name() == "text" )
-            {                
-                while ( !ncx.isCharacters() )
-                {
+        if (ncx.isStartElement()) {
+            if (ncx.name() == "text") {
+                while (!ncx.isCharacters()) {
                     ncx.readNext();
                 }
 
                 // The string returned from text() is unescaped
                 // (that is, XML entities have already been converted to text).
                 current.text = ncx.text().toString();
+            } else if (ncx.name() == "content") {
+                current.target = Utility::URLDecodePath(ncx.attributes().value("", "src").toString());
+            } else if (ncx.name() == "navPoint") {
+                current.children.append(ParseNavPoint(ncx));
             }
-
-            else if ( ncx.name() == "content" )
-            {
-                current.target = Utility::URLDecodePath( ncx.attributes().value( "", "src" ).toString() );
-            }
-
-            else if ( ncx.name() == "navPoint" )
-            {
-                current.children.append( ParseNavPoint( ncx ) );    
-            }
-        }
-
-        else if ( ncx.isEndElement() && 
-                  ncx.name() == "navPoint" )
-        {
+        } else if (ncx.isEndElement() &&
+                   ncx.name() == "navPoint") {
             break;
         }
     }
@@ -199,33 +169,26 @@ NCXModel::NCXEntry NCXModel::ParseNavPoint( QXmlStreamReader &ncx )
 }
 
 
-void NCXModel::BuildModel( const NCXModel::NCXEntry &root_entry )
+void NCXModel::BuildModel(const NCXModel::NCXEntry &root_entry)
 {
     clear();
-
-    foreach ( const NCXModel::NCXEntry &child_entry, root_entry.children )
-    {
-        AddEntryToParentItem( child_entry, invisibleRootItem() );
+    foreach(const NCXModel::NCXEntry & child_entry, root_entry.children) {
+        AddEntryToParentItem(child_entry, invisibleRootItem());
     }
 }
 
 
-void NCXModel::AddEntryToParentItem( const NCXEntry &entry, QStandardItem *parent )
+void NCXModel::AddEntryToParentItem(const NCXEntry &entry, QStandardItem *parent)
 {
-    Q_ASSERT( parent );
-
-    QStandardItem *item = new QStandardItem( entry.text );
-
-    item->setData( QUrl( entry.target ) );
-    item->setEditable( false );
-    item->setDragEnabled( false );
-    item->setDropEnabled( false );
-
-    parent->appendRow( item );
-    
-    foreach ( const NCXModel::NCXEntry &child_entry, entry.children )
-    {
-        AddEntryToParentItem( child_entry, item );
+    Q_ASSERT(parent);
+    QStandardItem *item = new QStandardItem(entry.text);
+    item->setData(QUrl(entry.target));
+    item->setEditable(false);
+    item->setDragEnabled(false);
+    item->setDropEnabled(false);
+    parent->appendRow(item);
+    foreach(const NCXModel::NCXEntry & child_entry, entry.children) {
+        AddEntryToParentItem(child_entry, item);
     }
 }
 

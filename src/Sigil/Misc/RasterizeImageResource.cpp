@@ -40,13 +40,13 @@ static const QString PAGE_SOURCE =  "<html xmlns=\"http://www.w3.org/1999/xhtml\
                                     "</html>";
 
 
-RasterizeImageResource::RasterizeImageResource( QWidget *parent )
+RasterizeImageResource::RasterizeImageResource(QWidget *parent)
     :
-    QObject( parent ),
-    m_WebPage( *new QWebPage( this ) ),
-    m_LoadFinishedFlag( false )
+    QObject(parent),
+    m_WebPage(*new QWebPage(this)),
+    m_LoadFinishedFlag(false)
 {
-    connect( m_WebPage.mainFrame(), SIGNAL( loadFinished( bool ) ), this, SLOT( SetLoadFinishedFlag() ) );
+    connect(m_WebPage.mainFrame(), SIGNAL(loadFinished(bool)), this, SLOT(SetLoadFinishedFlag()));
 }
 
 
@@ -54,34 +54,29 @@ RasterizeImageResource::RasterizeImageResource( QWidget *parent )
 // But we have to use webkit to rasterize SVG's since QSvgRenderer supports
 // only SVG Tiny. And if we're going to use webkit, then let's use it for all
 // image types to reduce complexity. It also makes zooming/scaling much simpler.
-QPixmap RasterizeImageResource::operator()( const ImageResource &resource, float zoom_factor )
+QPixmap RasterizeImageResource::operator()(const ImageResource &resource, float zoom_factor)
 {
-    QString source( PAGE_SOURCE );
-    source.replace( "REPLACEME", Utility::URLEncodePath( resource.Filename() ) );
+    QString source(PAGE_SOURCE);
+    source.replace("REPLACEME", Utility::URLEncodePath(resource.Filename()));
+    m_WebPage.mainFrame()->setHtml(source, resource.GetBaseUrl());
+    m_WebPage.mainFrame()->setZoomFactor(zoom_factor);
 
-    m_WebPage.mainFrame()->setHtml( source, resource.GetBaseUrl() );
-    m_WebPage.mainFrame()->setZoomFactor( zoom_factor );
-
-    while ( !m_LoadFinishedFlag )
-    {
+    while (!m_LoadFinishedFlag) {
         // Make sure Qt processes events, signals and calls slots
         qApp->processEvents();
-        SleepFunctions::msleep( 10 );
+        SleepFunctions::msleep(10);
     }
 
     // The flag needs to be reset so the caller
     // can call this func multiple times on the same object
     m_LoadFinishedFlag = false;
-
     // Now we render the frame onto an image
-    m_WebPage.setViewportSize( m_WebPage.mainFrame()->contentsSize() );
-    QImage image( m_WebPage.viewportSize(), QImage::Format_ARGB32 );
-    QPainter painter( &image );
-
-    m_WebPage.mainFrame()->render( &painter );
+    m_WebPage.setViewportSize(m_WebPage.mainFrame()->contentsSize());
+    QImage image(m_WebPage.viewportSize(), QImage::Format_ARGB32);
+    QPainter painter(&image);
+    m_WebPage.mainFrame()->render(&painter);
     painter.end();
-
-    return QPixmap::fromImage( image );
+    return QPixmap::fromImage(image);
 }
 
 

@@ -27,7 +27,7 @@
 // Constructor;
 // The parameter is the CodeViewEditor to
 // which this line number area belongs to
-LineNumberArea::LineNumberArea( CodeViewEditor *editor ) : QWidget( editor )
+LineNumberArea::LineNumberArea(CodeViewEditor *editor) : QWidget(editor)
 {
     m_CodeEditor = editor;
 }
@@ -36,45 +36,45 @@ LineNumberArea::LineNumberArea( CodeViewEditor *editor ) : QWidget( editor )
 // Needed for zoom changes.
 void LineNumberArea::MyUpdateGeometry()
 {
-    resize( m_CodeEditor->CalculateLineNumberAreaWidth(), size().height() );
+    resize(m_CodeEditor->CalculateLineNumberAreaWidth(), size().height());
 }
 
 
 // Implements QWidget::sizeHint();
 // Asks the CodeEditor which width should it take
-QSize LineNumberArea::sizeHint() const 
+QSize LineNumberArea::sizeHint() const
 {
-    return QSize( m_CodeEditor->CalculateLineNumberAreaWidth(), 0 );
+    return QSize(m_CodeEditor->CalculateLineNumberAreaWidth(), 0);
 }
 
 
 // The line number area delegates its rendering
 // to the CodeViewEditor that owns it
-void LineNumberArea::paintEvent( QPaintEvent *event ) 
+void LineNumberArea::paintEvent(QPaintEvent *event)
 {
-    m_CodeEditor->LineNumberAreaPaintEvent( event );
+    m_CodeEditor->LineNumberAreaPaintEvent(event);
 }
 
 
-void LineNumberArea::mousePressEvent( QMouseEvent *event )
+void LineNumberArea::mousePressEvent(QMouseEvent *event)
 {
-    m_CodeEditor->LineNumberAreaMouseEvent( event );
+    m_CodeEditor->LineNumberAreaMouseEvent(event);
 }
 
 
-void LineNumberArea::mouseMoveEvent( QMouseEvent *event )
+void LineNumberArea::mouseMoveEvent(QMouseEvent *event)
 {
-    m_CodeEditor->LineNumberAreaMouseEvent( event );
+    m_CodeEditor->LineNumberAreaMouseEvent(event);
 }
 
 
-void LineNumberArea::mouseReleaseEvent( QMouseEvent *event )
+void LineNumberArea::mouseReleaseEvent(QMouseEvent *event)
 {
-    m_CodeEditor->LineNumberAreaMouseEvent( event );
+    m_CodeEditor->LineNumberAreaMouseEvent(event);
 }
 
 
-void LineNumberArea::wheelEvent( QWheelEvent *event )
+void LineNumberArea::wheelEvent(QWheelEvent *event)
 {
-    QCoreApplication::sendEvent( m_CodeEditor->viewport(), event );
+    QCoreApplication::sendEvent(m_CodeEditor->viewport(), event);
 }

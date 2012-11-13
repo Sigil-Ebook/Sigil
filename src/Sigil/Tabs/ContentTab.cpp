@@ -27,18 +27,16 @@
 #include "ViewEditors/Searchable.h"
 
 
-ContentTab::ContentTab( Resource& resource, QWidget *parent )
+ContentTab::ContentTab(Resource &resource, QWidget *parent)
     :
-    QWidget( parent ),
-    m_Resource( resource ),
-    m_Layout( *new QVBoxLayout( this ) )
+    QWidget(parent),
+    m_Resource(resource),
+    m_Layout(*new QVBoxLayout(this))
 {
-    connect( &resource, SIGNAL( Deleted( const Resource& ) ),          this, SLOT( EmitDeleteMe()   ) );
-    connect( &resource, SIGNAL( Renamed( const Resource&, QString ) ), this, SLOT( EmitTabRenamed() ) );
-
-    m_Layout.setContentsMargins( 0, 0, 0, 0 );
-
-    setLayout( &m_Layout );
+    connect(&resource, SIGNAL(Deleted(const Resource &)),          this, SLOT(EmitDeleteMe()));
+    connect(&resource, SIGNAL(Renamed(const Resource &, QString)), this, SLOT(EmitTabRenamed()));
+    m_Layout.setContentsMargins(0, 0, 0, 0);
+    setLayout(&m_Layout);
 }
 
 
@@ -54,13 +52,13 @@ QIcon ContentTab::GetIcon()
 }
 
 
-Resource& ContentTab::GetLoadedResource()
+Resource &ContentTab::GetLoadedResource()
 {
     return m_Resource;
 }
 
 
-Searchable* ContentTab::GetSearchableContent()
+Searchable *ContentTab::GetSearchableContent()
 {
     return NULL;
 }
@@ -69,25 +67,22 @@ Searchable* ContentTab::GetSearchableContent()
 void ContentTab::Close()
 {
     SaveTabContent();
-    
     EmitDeleteMe();
 }
 
 
 void ContentTab::SaveTabContent()
 {
-
 }
 
 
 void ContentTab::LoadTabContent()
 {
-
 }
 
 void ContentTab::EmitCentralTabRequest()
 {
-    emit CentralTabRequest( this );
+    emit CentralTabRequest(this);
 }
 
 
@@ -100,33 +95,31 @@ void ContentTab::ContentChangedExternally()
     activateWindow();
 }
 
-void ContentTab::ChangeCasing( const Utility::Casing casing )
+void ContentTab::ChangeCasing(const Utility::Casing casing)
 {
 }
 
 void ContentTab::EmitDeleteMe()
 {
-    emit DeleteMe( this );
+    emit DeleteMe(this);
 }
 
 
 void ContentTab::EmitTabRenamed()
 {
-    emit TabRenamed( this );
+    emit TabRenamed(this);
 }
 
 
-void ContentTab::focusInEvent( QFocusEvent *event )
+void ContentTab::focusInEvent(QFocusEvent *event)
 {
-    QWidget::focusInEvent( event );
-
+    QWidget::focusInEvent(event);
     LoadTabContent();
 }
 
 
-void ContentTab::focusOutEvent( QFocusEvent *event )
+void ContentTab::focusOutEvent(QFocusEvent *event)
 {
-    QWidget::focusOutEvent( event );
-
+    QWidget::focusOutEvent(event);
     SaveTabContent();
 }

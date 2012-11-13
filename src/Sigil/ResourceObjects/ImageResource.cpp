@@ -22,12 +22,11 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/ImageResource.h"
 
-ImageResource::ImageResource( const QString &fullfilepath,
-                              QObject *parent )
-    : 
-    Resource( fullfilepath, parent )  
+ImageResource::ImageResource(const QString &fullfilepath,
+                             QObject *parent)
+    :
+    Resource(fullfilepath, parent)
 {
-
 }
 
 
@@ -39,6 +38,5 @@ Resource::ResourceType ImageResource::Type() const
 bool ImageResource::LoadFromDisk()
 {
     emit ResourceUpdatedOnDisk();
-
     return true;
 }

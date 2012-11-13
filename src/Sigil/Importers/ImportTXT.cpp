@@ -37,25 +37,22 @@ const QString FIRST_SECTION_NAME   = FIRST_SECTION_PREFIX + ".xhtml";
 
 // Constructor;
 // The parameter is the file to be imported
-ImportTXT::ImportTXT( const QString &fullfilepath )
-    : Importer( fullfilepath )
+ImportTXT::ImportTXT(const QString &fullfilepath)
+    : Importer(fullfilepath)
 {
-
 }
 
 
-// Reads and parses the file 
+// Reads and parses the file
 // and returns the created Book
 QSharedPointer< Book > ImportTXT::GetBook()
 {
-    if ( !Utility::IsFileReadable( m_FullFilePath ) )
-        
-        boost_throw( CannotReadFile() << errinfo_file_fullpath( m_FullFilePath.toStdString() ) );
-    
+    if (!Utility::IsFileReadable(m_FullFilePath)) {
+        boost_throw(CannotReadFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
+    }
+
     QString source = LoadSource();
-
-    InitializeHTMLResource( source, CreateHTMLResource( source ) );
-
+    InitializeHTMLResource(source, CreateHTMLResource(source));
     return m_Book;
 }
 
@@ -63,30 +60,28 @@ QSharedPointer< Book > ImportTXT::GetBook()
 QString ImportTXT::LoadSource() const
 {
     SettingsStore ss;
-    QString source = Utility::ReadUnicodeTextFile( m_FullFilePath );   
+    QString source = Utility::ReadUnicodeTextFile(m_FullFilePath);
+    source = CreateParagraphs(source.split(QChar('\n')));
 
-    source = CreateParagraphs( source.split( QChar( '\n' ) ) );
     if (ss.cleanOn() & CLEANON_OPEN) {
-        return CleanSource::Clean( source );    
+        return CleanSource::Clean(source);
     }
+
     return source;
 }
 
 
-HTMLResource* ImportTXT::CreateHTMLResource( const QString &source )
+HTMLResource *ImportTXT::CreateHTMLResource(const QString &source)
 {
     TempFolder tempfolder;
-
     QString fullfilepath = tempfolder.GetPath() + "/" + FIRST_SECTION_NAME;
-    Utility::WriteUnicodeTextFile( source, fullfilepath );
-
-    m_Book->GetFolderKeeper().AddContentFileToFolder( fullfilepath );
-
+    Utility::WriteUnicodeTextFile(source, fullfilepath);
+    m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath);
     return m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >()[ 0 ];
 }
 
 
-void ImportTXT::InitializeHTMLResource( const QString &source, HTMLResource *resource )
+void ImportTXT::InitializeHTMLResource(const QString &source, HTMLResource *resource)
 {
     resource->SetText(source);
 }
@@ -94,31 +89,26 @@ void ImportTXT::InitializeHTMLResource( const QString &source, HTMLResource *res
 
 // Accepts a list of text lines and returns
 // a string with paragraphs wrapped into <p> tags
-QString ImportTXT::CreateParagraphs( const QStringList &lines ) const
+QString ImportTXT::CreateParagraphs(const QStringList &lines) const
 {
     QString text = "";
     QString paragraph = "<p>";
-
     int num_lines = lines.count();
 
-    for ( int i = 0; i < num_lines; ++i )
-    {
-        QString line = lines.at( i );
+    for (int i = 0; i < num_lines; ++i) {
+        QString line = lines.at(i);
 
-        if ( line.isEmpty() || line[ 0 ].isSpace() )
-        {
-            text.append( paragraph.append( "</p>\n" ) );
-
+        if (line.isEmpty() || line[ 0 ].isSpace()) {
+            text.append(paragraph.append("</p>\n"));
             paragraph = "<p>";
         }
 
-        // We prepend a space so words on 
+        // We prepend a space so words on
         // line breaks don't get merged
-        paragraph.append( Qt::escape( line.prepend( " " ) ) );
+        paragraph.append(Qt::escape(line.prepend(" ")));
     }
 
-    text.append( paragraph.append( "</p>\n" ) );
-
+    text.append(paragraph.append("</p>\n"));
     return text;
 }
 

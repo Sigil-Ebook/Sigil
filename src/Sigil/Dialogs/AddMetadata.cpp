@@ -28,42 +28,35 @@
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
-AddMetadata::AddMetadata( const QHash< QString, Metadata::MetaInfo > &metadata, QWidget *parent )
-    : 
-    QDialog( parent ),
-    m_Metadata( metadata )
+AddMetadata::AddMetadata(const QHash< QString, Metadata::MetaInfo > &metadata, QWidget *parent)
+    :
+    QDialog(parent),
+    m_Metadata(metadata)
 {
-    ui.setupUi( this );
-
-    connect( ui.lwProperties, SIGNAL( currentItemChanged( QListWidgetItem*, QListWidgetItem* ) ),
-             this,	          SLOT(   UpdateDescription(  QListWidgetItem* ) ) );
-
-    connect( this, SIGNAL( accepted() ), this, SLOT( WriteSettings() ) );
-    connect( ui.lwProperties, SIGNAL( doubleClicked(const QModelIndex &) ), this, SLOT( accept() ) );
-
+    ui.setupUi(this);
+    connect(ui.lwProperties, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)),
+            this,	          SLOT(UpdateDescription(QListWidgetItem *)));
+    connect(this, SIGNAL(accepted()), this, SLOT(WriteSettings()));
+    connect(ui.lwProperties, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(accept()));
     // Fill the dialog with sorted translated metadata names
     QStringList names;
-    foreach( QString code, m_Metadata.keys() )
-    {
-        names.append( Metadata::Instance().GetName(code));
+    foreach(QString code, m_Metadata.keys()) {
+        names.append(Metadata::Instance().GetName(code));
     }
     names.sort();
-
-    foreach( QString name, names )
-    {
-        ui.lwProperties->addItem( name );
+    foreach(QString name, names) {
+        ui.lwProperties->addItem(name);
     }
-
     ReadSettings();
 }
 
-void AddMetadata::UpdateDescription( QListWidgetItem *current )
+void AddMetadata::UpdateDescription(QListWidgetItem *current)
 {
-    QString text = m_Metadata.value( Metadata::Instance().GetCode( current->text() ) ).description;
+    QString text = m_Metadata.value(Metadata::Instance().GetCode(current->text())).description;
 
-    if ( !text.isEmpty() )
-    
-        ui.lbDescription->setText( text );
+    if (!text.isEmpty()) {
+        ui.lbDescription->setText(text);
+    }
 }
 
 QStringList AddMetadata::GetSelectedEntries()
@@ -74,10 +67,8 @@ QStringList AddMetadata::GetSelectedEntries()
 void AddMetadata::SaveSelection()
 {
     m_SelectedEntries.clear();
-
-    foreach( QListWidgetItem *item, ui.lwProperties->selectedItems() )
-    {
-        m_SelectedEntries.append( Metadata::Instance().GetCode( item->text() ) );
+    foreach(QListWidgetItem * item, ui.lwProperties->selectedItems()) {
+        m_SelectedEntries.append(Metadata::Instance().GetCode(item->text()));
     }
 }
 
@@ -85,21 +76,18 @@ void AddMetadata::SaveSelection()
 void AddMetadata::ReadSettings()
 {
     SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
+    settings.beginGroup(SETTINGS_GROUP);
     // The size of the window and it's full screen status
-    QByteArray geometry = settings.value( "geometry" ).toByteArray();
+    QByteArray geometry = settings.value("geometry").toByteArray();
 
-    if ( !geometry.isNull() )
-    {
-        restoreGeometry( geometry );
+    if (!geometry.isNull()) {
+        restoreGeometry(geometry);
     }
 
-    QByteArray splitter_position = settings.value( "splitter" ).toByteArray();
+    QByteArray splitter_position = settings.value("splitter").toByteArray();
 
-    if ( !splitter_position.isNull() )
-    {
-        ui.splitter->restoreState( splitter_position );
+    if (!splitter_position.isNull()) {
+        ui.splitter->restoreState(splitter_position);
     }
 
     settings.endGroup();
@@ -108,17 +96,12 @@ void AddMetadata::ReadSettings()
 
 void AddMetadata::WriteSettings()
 {
-
     SaveSelection();
-
     SettingsStore settings;
-    settings.beginGroup( SETTINGS_GROUP );
-
+    settings.beginGroup(SETTINGS_GROUP);
     // The size of the window and it's full screen status
-    settings.setValue( "geometry", saveGeometry() );
-
+    settings.setValue("geometry", saveGeometry());
     // The position of the splitter handle
-    settings.setValue( "splitter", ui.splitter->saveState() );
-
+    settings.setValue("splitter", ui.splitter->saveState());
     settings.endGroup();
 }

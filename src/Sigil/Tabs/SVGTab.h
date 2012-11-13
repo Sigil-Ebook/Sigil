@@ -34,7 +34,7 @@ class SVGTab : public TextTab
     Q_OBJECT
 
 public:
-    SVGTab( SVGResource &resource, int line_to_scroll_to = -1, QWidget *parent = 0);
+    SVGTab(SVGResource &resource, int line_to_scroll_to = -1, QWidget *parent = 0);
 };
 
 #endif // SVGTAB_H

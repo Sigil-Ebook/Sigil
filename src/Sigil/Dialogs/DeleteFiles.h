@@ -36,11 +36,11 @@ public:
 
     /**
      * Constructor.
-     * 
+     *
      * @param opf The OPF whose metadata we want to edit.
      * @param parent The object's parent.
      */
-    DeleteFiles( QStringList files_to_delete, QWidget *parent = 0 );
+    DeleteFiles(QStringList files_to_delete, QWidget *parent = 0);
     ~DeleteFiles();
 
     QStringList GetFilesToDelete();
@@ -54,7 +54,7 @@ private slots:
     void DoubleClick();
 
 private:
-    void SetUpTable();	
+    void SetUpTable();
 
     void ReadSettings();
 

@@ -52,23 +52,23 @@ public:
      *
      * @param parent The model's parent.
      */
-    NCXModel( QObject *parent = 0 );
+    NCXModel(QObject *parent = 0);
 
     /**
      * Sets the model's book.
      *
      * @param book The book whose model we will be building.
      */
-    void SetBook( QSharedPointer< Book > book );
+    void SetBook(QSharedPointer< Book > book);
 
     /**
-     * Translates a model index of an item into an URL 
+     * Translates a model index of an item into an URL
      * that points to the TOC item target.
-     * 
+     *
      * @param index The model index of an item.
      * @return The target URL of the item.
      */
-    QUrl GetUrlForIndex( const QModelIndex &index );
+    QUrl GetUrlForIndex(const QModelIndex &index);
 
     /**
      * Forces the recreation of the model
@@ -79,13 +79,12 @@ public:
      * in RefreshEnd.
      * Can be called repeatedly while a refresh is still in progress.
      */
-    void Refresh();    
+    void Refresh();
 
     /**
      * Represents a single entry in the NCX TOC.
      */
-    struct NCXEntry
-    {
+    struct NCXEntry {
         /**
          * The entry text that will be presented to the user.
          */
@@ -108,13 +107,15 @@ public:
          */
         bool is_root;
 
-        NCXEntry() { is_root = false; }
+        NCXEntry() {
+            is_root = false;
+        }
     };
 
     /**
      * Reads the NCX file, parses it and returns the root NCX
-     * entry (that entry is the tree start). It's basically 
-     * just a function composition of ParseNCX and GetNCXText. 
+     * entry (that entry is the tree start). It's basically
+     * just a function composition of ParseNCX and GetNCXText.
      *
      * @return The root NCX entry.
      */
@@ -133,7 +134,7 @@ private:
 
     /**
      * Reads the NCX file and returns the text in it.
-     * 
+     *
      * @return The NCX text.
      */
     QString GetNCXText();
@@ -144,29 +145,29 @@ private:
      * @param ncx_source The NCX source code.
      * @return The root NCX entry.
      */
-    static NCXEntry ParseNCX( const QString &ncx_source );
+    static NCXEntry ParseNCX(const QString &ncx_source);
 
     /**
      * Parses an NCX navPoint element. Calls itself recursively
      * if there are navPoint children.
-     * 
+     *
      * @param ncx The QXmlStreamReader reading an NCX file positioned
      *            on a navPoint element.
      */
-    static NCXEntry ParseNavPoint( QXmlStreamReader &ncx );
+    static NCXEntry ParseNavPoint(QXmlStreamReader &ncx);
 
     /**
      * Builds the actual display model from the tree of NCXEntries.
-     * 
+     *
      * @param root_entry The root NCX entry.
      */
-    void BuildModel( const NCXEntry &root_entry );
+    void BuildModel(const NCXEntry &root_entry);
 
     /**
      * Adds the provided entry as an item child to the provided parent.
      * Calls itself recursively if the entry has children of it's own.
      */
-    static void AddEntryToParentItem( const NCXEntry &entry, QStandardItem *parent );
+    static void AddEntryToParentItem(const NCXEntry &entry, QStandardItem *parent);
 
 
     ///////////////////////////////

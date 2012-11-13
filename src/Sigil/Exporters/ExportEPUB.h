@@ -33,14 +33,14 @@ class ExportEPUB : public Exporter
 public:
 
     // Constructor;
-    // the first parameter is the location where the book 
+    // the first parameter is the location where the book
     // should be save to, and the second is the book to be saved
-    ExportEPUB( const QString &fullfilepath, QSharedPointer< Book > book );
+    ExportEPUB(const QString &fullfilepath, QSharedPointer< Book > book);
 
     // Destructor
     virtual ~ExportEPUB();
 
-    // Writes the book to the path 
+    // Writes the book to the path
     // specified in the constructor
     virtual void WriteBook();
 
@@ -48,20 +48,20 @@ private:
 
     // Creates the publication from the Book
     // (creates XHTML, CSS, OPF, NCX files etc.)
-    void virtual CreatePublication( const QString &fullfolderpath );
+    void virtual CreatePublication(const QString &fullfolderpath);
 
-    // Saves the publication in the specified folder 
+    // Saves the publication in the specified folder
     // to the specified file path as an epub;
     // the second optional parameter specifies the
     // mimetype to write to the special "mimetype" file
-    void SaveFolderAsEpubToLocation( const QString &fullfolderpath, const QString &fullfilepath );
+    void SaveFolderAsEpubToLocation(const QString &fullfolderpath, const QString &fullfilepath);
 
     // Creates the publication's encryption.xml file,
     // if there are any fonts to obfuscate
-    void CreateEncryptionXML( const QString &fullfolderpath );
+    void CreateEncryptionXML(const QString &fullfolderpath);
 
     // Obfuscates the fonts marked for obfuscation
-    void ObfuscateFonts( const QString &fullfolderpath );
+    void ObfuscateFonts(const QString &fullfolderpath);
 
 
     ///////////////////////////////

@@ -25,23 +25,23 @@
 #include "SourceUpdates/PerformHTMLUpdates.h"
 
 
-PerformHTMLUpdates::PerformHTMLUpdates( const QString &source,
-                                        const QHash< QString, QString > &html_updates,
-                                        const QHash< QString, QString > &css_updates )
+PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
+                                       const QHash< QString, QString > &html_updates,
+                                       const QHash< QString, QString > &css_updates)
     :
-    PerformXMLUpdates( source, html_updates ),
-    m_CSSUpdates( css_updates )
+    PerformXMLUpdates(source, html_updates),
+    m_CSSUpdates(css_updates)
 {
     InitPathTags();
 }
 
 
-PerformHTMLUpdates::PerformHTMLUpdates( const xc::DOMDocument &document, 
-                                        const QHash< QString, QString > &html_updates, 
-                                        const QHash< QString, QString > &css_updates )
-    : 
-    PerformXMLUpdates( document, html_updates ),
-    m_CSSUpdates( css_updates )
+PerformHTMLUpdates::PerformHTMLUpdates(const xc::DOMDocument &document,
+                                       const QHash< QString, QString > &html_updates,
+                                       const QHash< QString, QString > &css_updates)
+    :
+    PerformXMLUpdates(document, html_updates),
+    m_CSSUpdates(css_updates)
 {
     InitPathTags();
 }
@@ -51,10 +51,9 @@ shared_ptr< xc::DOMDocument > PerformHTMLUpdates::operator()()
 {
     UpdateXMLReferences();
 
-    if ( !m_CSSUpdates.isEmpty() )
-    {
-        m_Document = XhtmlDoc::LoadTextIntoDocument( 
-            PerformCSSUpdates( XhtmlDoc::GetDomDocumentAsString( *m_Document ), m_CSSUpdates )() );
+    if (!m_CSSUpdates.isEmpty()) {
+        m_Document = XhtmlDoc::LoadTextIntoDocument(
+                         PerformCSSUpdates(XhtmlDoc::GetDomDocumentAsString(*m_Document), m_CSSUpdates)());
     }
 
     return m_Document;

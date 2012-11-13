@@ -52,7 +52,7 @@ public:
 
 signals:
     void OpenFileRequest(QString, int);
-    void DeleteStylesRequest(QList<BookReports::StyleData*>);
+    void DeleteStylesRequest(QList<BookReports::StyleData *>);
 
 private slots:
     void OpenContextMenu(const QPoint &point);

@@ -36,13 +36,13 @@ class XMLTab : public TextTab, public WellFormedContent
 
 public:
 
-    XMLTab( XMLResource& resource,
-            int line_to_scroll_to = -1,
-            QWidget *parent = 0 );
+    XMLTab(XMLResource &resource,
+           int line_to_scroll_to = -1,
+           QWidget *parent = 0);
 
     ~XMLTab();
 
-    void ScrollToLine( int line );
+    void ScrollToLine(int line);
 
     virtual void AutoFixWellFormedErrors();
 
@@ -51,7 +51,7 @@ public:
     QString GetFilename();
 
 public slots:
-    
+
     bool IsDataWellFormed();
 
 private:
@@ -66,10 +66,10 @@ private:
     XMLResource &m_XMLResource;
 
     /**
-     * The component used to display a dialog about 
+     * The component used to display a dialog about
      * well-formedness errors.
      */
-    WellFormedCheckComponent& m_WellFormedCheckComponent;
+    WellFormedCheckComponent &m_WellFormedCheckComponent;
 };
 
 #endif // XMLTAB_H

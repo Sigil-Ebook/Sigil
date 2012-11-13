@@ -61,7 +61,7 @@ public:
      *
      * @param parent The QObject's parent.
      */
-    BookBrowser( QWidget *parent = 0 );
+    BookBrowser(QWidget *parent = 0);
 
     /**
      * Destructor.
@@ -90,14 +90,14 @@ public:
 
     void SelectResources(QList<Resource *> resources);
 
-    void RemoveSelection( QList<Resource *> tab_resources );
+    void RemoveSelection(QList<Resource *> tab_resources);
 
-    void RemoveResources( QList<Resource *> tab_resources, QList<Resource *> resources);
+    void RemoveResources(QList<Resource *> tab_resources, QList<Resource *> resources);
 
     /**
      * Updates the selection in the book display
      */
-    void UpdateSelection( Resource &resource );
+    void UpdateSelection(Resource &resource);
 
 public slots:
 
@@ -106,7 +106,7 @@ public slots:
      *
      * @param book The book to be displayed.
      */
-    void SetBook( QSharedPointer< Book > book );
+    void SetBook(QSharedPointer< Book > book);
 
     /**
      * Refreshes the display of the book.
@@ -115,9 +115,9 @@ public slots:
      */
     void Refresh();
 
-   /**
-     * Refreshes the TOC file to renumber entries
-     */
+    /**
+      * Refreshes the TOC file to renumber entries
+      */
     void RenumberTOC();
 
     /**
@@ -136,7 +136,7 @@ public slots:
      *
      * @param url The URL to open.
      */
-    Resource* GetUrlResource( const QUrl &url );
+    Resource *GetUrlResource(const QUrl &url);
 
     void CopyHTML();
     void CopyCSS();
@@ -173,7 +173,7 @@ signals:
      *
      * @param resource The selected resource.
      */
-    void ResourceActivated( Resource &resource );
+    void ResourceActivated(Resource &resource);
 
     /**
      * Emitted when merging to force open tabs to close
@@ -200,21 +200,21 @@ signals:
     /**
      * Emitted when the user clicks on a guide semantic type
      * in the Add Semantics sub-menu. Note that this is also emitted
-     * when the user tries to un-check an added type in the menu. 
+     * when the user tries to un-check an added type in the menu.
      *
      * @param html_resource The resource for which the type is being added.
      * @param type The guide semantic type.
      */
-    void GuideSemanticTypeAdded( const HTMLResource &html_resource, GuideSemantics::GuideSemanticType type );
+    void GuideSemanticTypeAdded(const HTMLResource &html_resource, GuideSemantics::GuideSemanticType type);
 
     /**
      * Emitted when the user selects an image as a cover.
-     * Note that this is also emitted when the user tries 
-     * to un-check an image as a cover in the menu. 
+     * Note that this is also emitted when the user tries
+     * to un-check an image as a cover in the menu.
      *
      * @param image_resource The resource being set as the cover.
      */
-    void CoverImageSet( const ImageResource &image_resource );
+    void CoverImageSet(const ImageResource &image_resource);
 
     /**
      * Wired to the current MainWindow::UpdateBrowserSelectionToTab signal.
@@ -236,14 +236,14 @@ private slots:
      *
      * @param The selected model index in the Tree View.
      */
-    void EmitResourceActivated( const QModelIndex &index );
+    void EmitResourceActivated(const QModelIndex &index);
 
     /**
      * Opens the context menu at the requested point.
      *
      * @param point The point at which the menu should be opened.
      */
-    void OpenContextMenu( const QPoint &point );
+    void OpenContextMenu(const QPoint &point);
 
     /**
      * Implements the Add New context menu action functionality.
@@ -276,7 +276,7 @@ private slots:
     /**
      * Returns the resource to select after removal
      */
-    Resource* ResourceToSelectAfterRemove(QList<Resource *> selected_resources);
+    Resource *ResourceToSelectAfterRemove(QList<Resource *> selected_resources);
 
     /**
      * Implements the Cover Image semantic context menu action functionality.
@@ -290,7 +290,7 @@ private slots:
      * @param type The integer value of the GuideSemantics::GuideSemanticType
      *             to be added to the resource.
      */
-    void AddGuideSemanticType( int type );
+    void AddGuideSemanticType(int type);
 
     /**
      * Implements the Merge context menu action functionality.
@@ -320,7 +320,7 @@ private:
     /**
      * Expands the Text folder so that all HTML files are shown.
      */
-    void ExpandTextFolder();    
+    void ExpandTextFolder();
 
     /**
      * Reads all the stored application settings like
@@ -335,7 +335,7 @@ private:
     void WriteSettings();
 
     /**
-     * Performs the initial setup for the tree view. 
+     * Performs the initial setup for the tree view.
      */
     void SetupTreeView();
 
@@ -357,21 +357,21 @@ private:
      * @param point The point at which the menu should be opened.
      * @return \c true if the menu could be set up.
      */
-    bool SuccessfullySetupContextMenu( const QPoint &point );
+    bool SuccessfullySetupContextMenu(const QPoint &point);
 
     /**
      * Sets up the sub-menu for adding resource-specific context menu actions.
      *
      * @param resource The resource on which the context menu was invoked.
      */
-    void SetupResourceSpecificContextMenu( Resource *resource );
+    void SetupResourceSpecificContextMenu(Resource *resource);
 
     /**
      * Sets up the sub-menu for adding semantic information.
      *
      * @param resource The resource on which the context menu was invoked.
      */
-    void SetupSemanticContextmenu( Resource *resource );
+    void SetupSemanticContextmenu(Resource *resource);
 
     /**
      * Sets up the sub-menu for adding semantic information,
@@ -379,7 +379,7 @@ private:
      *
      * @param resource The resource on which the context menu was invoked.
      */
-    void SetupHTMLSemanticContextMenu( Resource *resource );
+    void SetupHTMLSemanticContextMenu(Resource *resource);
 
     /**
      * Sets up the sub-menu for adding semantic information,
@@ -387,7 +387,7 @@ private:
      *
      * @param resource The resource on which the context menu was invoked.
      */
-    void SetupImageSemanticContextMenu( Resource *resource ); 
+    void SetupImageSemanticContextMenu(Resource *resource);
 
     /**
      * Sets the checked state for the HTML semantic actions
@@ -395,7 +395,7 @@ private:
      *
      * @param resource The resource on which the context menu was invoked.
      */
-    void SetHTMLSemanticActionCheckState( Resource *resource );
+    void SetHTMLSemanticActionCheckState(Resource *resource);
 
     /**
      * Sets up the sub-menu for adding or removing font obfuscation,
@@ -413,17 +413,17 @@ private:
      * Returns the currently selected resource in the tree view.
      *
      * @return The currently selected resource in the tree view,
-     *         or NULL if no resource is selected. 
+     *         or NULL if no resource is selected.
      */
-    Resource* GetCurrentResource() const;
+    Resource *GetCurrentResource() const;
 
     /**
      * Returns the resource for the given index in the tree view.
      *
      * @return the resource for the given index in the tree view,
-     *         or NULL if no resource is selected. 
+     *         or NULL if no resource is selected.
      */
-    Resource* GetResourceByIndex( QModelIndex index ) const;
+    Resource *GetResourceByIndex(QModelIndex index) const;
 
 
     /**
@@ -439,7 +439,7 @@ private:
     /**
      * List of selected resources after validating selected resources are of the given type
      */
-    QList <Resource *> ValidSelectedResources( Resource::ResourceType resource_type );
+    QList <Resource *> ValidSelectedResources(Resource::ResourceType resource_type);
 
 
     /**
@@ -448,7 +448,7 @@ private:
     int ValidSelectedItemCount();
 
     void RefreshCounts();
-    
+
 
 
     ///////////////////////////////
@@ -464,7 +464,7 @@ private:
      * The tree view used to represent the book's files.
      */
     QTreeView &m_TreeView;
-    
+
     /**
      * The data model used to feed the tree view.
      */
@@ -518,7 +518,7 @@ private:
      * All the semantic actions for the <guide>
      * element. Only present on HTMLResources.
      */
-    QList< QAction* > m_GuideSemanticActions;
+    QList< QAction * > m_GuideSemanticActions;
 
     /**
      * Used to translate all the triggered() signals from the
@@ -528,7 +528,7 @@ private:
     QSignalMapper &m_GuideSemanticMapper;
 
     /**
-     * The resource type of the last item on which the 
+     * The resource type of the last item on which the
      * the context menu was invoked.
      */
     Resource::ResourceType m_LastContextMenuType;

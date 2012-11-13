@@ -36,36 +36,36 @@ class UniversalUpdates
 public:
 
     // Returns a list of errors if any that occurred while loading.
-    static QStringList PerformUniversalUpdates( bool resources_already_loaded,
-                                                const QList< Resource* > &resources,
-                                                const QHash< QString, QString > &updates );
+    static QStringList PerformUniversalUpdates(bool resources_already_loaded,
+            const QList< Resource * > &resources,
+            const QHash< QString, QString > &updates);
 
-    static tuple< QHash< QString, QString >, 
-                  QHash< QString, QString >,
-                  QHash< QString, QString > > SeparateHtmlCssXmlUpdates( const QHash< QString, QString > &updates );
+    static tuple < QHash< QString, QString >,
+           QHash< QString, QString >,
+           QHash< QString, QString > > SeparateHtmlCssXmlUpdates(const QHash< QString, QString > &updates);
 
     // Made public so that ImportHTML can use it
-    static void LoadAndUpdateOneCSSFile( CSSResource* css_resource, 
-                                         const QHash< QString, QString > &css_updates );
+    static void LoadAndUpdateOneCSSFile(CSSResource *css_resource,
+                                        const QHash< QString, QString > &css_updates);
 
 private:
 
-    static QString UpdateOneHTMLFile( HTMLResource* html_resource, 
-                                      const QHash< QString, QString > &html_updates,
-                                      const QHash< QString, QString > &css_updates );
+    static QString UpdateOneHTMLFile(HTMLResource *html_resource,
+                                     const QHash< QString, QString > &html_updates,
+                                     const QHash< QString, QString > &css_updates);
 
-    static void UpdateOneCSSFile( CSSResource* css_resource, 
-                                  const QHash< QString, QString > &css_updates );
+    static void UpdateOneCSSFile(CSSResource *css_resource,
+                                 const QHash< QString, QString > &css_updates);
 
-    static QString LoadAndUpdateOneHTMLFile( HTMLResource* html_resource, 
-                                             const QHash< QString, QString > &html_updates,
-                                             const QHash< QString, QString > &css_updates );
+    static QString LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
+                                            const QHash< QString, QString > &html_updates,
+                                            const QHash< QString, QString > &css_updates);
 
-    static QString UpdateOPFFile( OPFResource* opf_resource,
-                                  const QHash< QString, QString > &xml_updates );
+    static QString UpdateOPFFile(OPFResource *opf_resource,
+                                 const QHash< QString, QString > &xml_updates);
 
-    static QString UpdateNCXFile( NCXResource* ncx_resource,
-                                  const QHash< QString, QString > &xml_updates );
+    static QString UpdateNCXFile(NCXResource *ncx_resource,
+                                 const QHash< QString, QString > &xml_updates);
 };
 
 #endif // UNIVERSALUPDATES_H

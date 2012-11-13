@@ -30,13 +30,13 @@ class PerformHTMLUpdates : public PerformXMLUpdates
 
 public:
 
-    PerformHTMLUpdates( const QString &source,
-                        const QHash< QString, QString > &html_updates,
-                        const QHash< QString, QString > &css_updates );
+    PerformHTMLUpdates(const QString &source,
+                       const QHash< QString, QString > &html_updates,
+                       const QHash< QString, QString > &css_updates);
 
-    PerformHTMLUpdates( const xc::DOMDocument &document,
-                        const QHash< QString, QString > &html_updates,
-                        const QHash< QString, QString > &css_updates );
+    PerformHTMLUpdates(const xc::DOMDocument &document,
+                       const QHash< QString, QString > &html_updates,
+                       const QHash< QString, QString > &css_updates);
 
     shared_ptr< xc::DOMDocument > operator()();
 

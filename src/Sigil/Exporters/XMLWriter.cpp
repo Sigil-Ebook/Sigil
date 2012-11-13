@@ -25,17 +25,17 @@
 #include "BookManipulation/Book.h"
 #include "Exporters/XMLWriter.h"
 
-XMLWriter::XMLWriter( const Book &book, QIODevice &device )
-    : 
-    m_Book( book ),
-    m_IODevice( device ),
-    m_Writer( new QXmlStreamWriter( &m_IODevice ) )
+XMLWriter::XMLWriter(const Book &book, QIODevice &device)
+    :
+    m_Book(book),
+    m_IODevice(device),
+    m_Writer(new QXmlStreamWriter(&m_IODevice))
 {
-    m_Writer->setAutoFormatting( true );
+    m_Writer->setAutoFormatting(true);
 }
 
 
-XMLWriter::~XMLWriter( )
+XMLWriter::~XMLWriter()
 {
     // TODO: Why is this on the heap?
     delete m_Writer;

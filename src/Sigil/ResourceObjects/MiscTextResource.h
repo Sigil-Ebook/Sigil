@@ -28,12 +28,12 @@
 /**
  * Represents an editable text file that will be in the Misc folder.
  */
-class MiscTextResource : public TextResource 
+class MiscTextResource : public TextResource
 {
     Q_OBJECT
 
 public:
-    
+
     /**
      * Constructor.
      *
@@ -41,7 +41,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    MiscTextResource( const QString &fullfilepath, QObject *parent = NULL );
+    MiscTextResource(const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
     virtual ResourceType Type() const;

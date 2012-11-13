@@ -34,112 +34,101 @@
 
 const int MAX_WORD_LENGTH  = 90;
 
-QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords( const QString &orig_text,
-                                                     int start_offset,
-                                                     int end_offset,
-                                                     const QString &search_regex,
-                                                     bool first_only,
-                                                     bool include_all_words)
+QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const QString &orig_text,
+        int start_offset,
+        int end_offset,
+        const QString &search_regex,
+        bool first_only,
+        bool include_all_words)
 {
     SpellCheck *sc = SpellCheck::instance();
-
     bool in_tag = false;
     bool in_invalid_word = false;
     bool in_entity = false;
     int word_start = 0;
-
-    SPCRE *pcre = PCRECache::instance()->getObject( search_regex );
-
+    SPCRE *pcre = PCRECache::instance()->getObject(search_regex);
     QList< HTMLSpellCheck::MisspelledWord > misspellings;
-
     // Make sure text has beginning/end boundary markers for easier parsing
     QString text = QChar(' ') + orig_text + QChar(' ');
-
     // Ignore <style...</style> wherever it appears - change to spaces to keep text positions
     SPCRE *pcre_style = PCRECache::instance()->getObject("<style[^<]*</style>");
     QList<SPCRE::MatchInfo> match_info = pcre_style->getEveryMatchInfo(text);
+
     for (int i = 0; i < match_info.count(); i++) {
         for (int pos = match_info.at(i).offset.first; pos < match_info.at(i).offset.second; pos++) {
             text[pos] = QChar(' ');
         }
     }
 
-    for ( int i = 0; i < text.count(); i++ )
-    {
+    for (int i = 0; i < text.count(); i++) {
         QChar c = text.at(i);
-        if ( !in_tag )
-        {
-            QChar prev_c = i > 0 ? text.at( i - 1 ): QChar( ' ' );
-            QChar next_c = i < text.count() - 1 ? text.at( i + 1 ): QChar( ' ' );
 
-            if ( IsBoundary( prev_c, c, next_c ) )
-            {
+        if (!in_tag) {
+            QChar prev_c = i > 0 ? text.at(i - 1) : QChar(' ');
+            QChar next_c = i < text.count() - 1 ? text.at(i + 1) : QChar(' ');
+
+            if (IsBoundary(prev_c, c, next_c)) {
                 // If we're in an entity and we hit a boundary and it isn't
                 // part of an entity then this is an invalid entity.
-                if ( in_entity && c != QChar(';') )
-                {
+                if (in_entity && c != QChar(';')) {
                     in_entity = false;
                 }
-                // Check possibilities that would mean this isn't a word worth considering.
-                if ( !in_invalid_word && !in_entity && word_start != -1 && ( i - word_start ) > 0 )
-                {
-                    QString word = Utility::Substring( word_start, i, text );
 
-                    if ( !word.isEmpty() && word_start > start_offset && word_start <= end_offset)
-                    {
-                        if (include_all_words || !sc->spell( word )) {
+                // Check possibilities that would mean this isn't a word worth considering.
+                if (!in_invalid_word && !in_entity && word_start != -1 && (i - word_start) > 0) {
+                    QString word = Utility::Substring(word_start, i, text);
+
+                    if (!word.isEmpty() && word_start > start_offset && word_start <= end_offset) {
+                        if (include_all_words || !sc->spell(word)) {
                             SPCRE::MatchInfo match;
-                            if ( !search_regex.isEmpty() )
-                            {
-                                match = pcre->getFirstMatchInfo( word );
+
+                            if (!search_regex.isEmpty()) {
+                                match = pcre->getFirstMatchInfo(word);
                             }
-                            if ( search_regex.isEmpty() || match.offset.first != -1 )
-                            {
+
+                            if (search_regex.isEmpty() || match.offset.first != -1) {
                                 struct MisspelledWord misspelled_word;
                                 misspelled_word.text = word;
                                 // Make sure we account for the extra boundary added at the beginning
                                 misspelled_word.offset = word_start - 1;
                                 misspelled_word.length = i - word_start ;
-                                misspellings.append( misspelled_word );
+                                misspellings.append(misspelled_word);
 
-                                if ( first_only )
-                                {
+                                if (first_only) {
                                     return misspellings;
                                 }
                             }
                         }
                     }
                 }
+
                 // We want to start the word with the character after the boundary.
                 // If the next character is another boundary we'll just move forwad one.
                 word_start = i + 1;
                 in_invalid_word = false;
-            }
-            else
-            {
+            } else {
                 // Ensure we're not dealing with some crazy run on text that isn't worth
                 // considering as an actual word.
-                if ( !in_invalid_word && ( i - word_start ) > MAX_WORD_LENGTH )
-                {
+                if (!in_invalid_word && (i - word_start) > MAX_WORD_LENGTH) {
                     in_invalid_word = true;
                 }
             }
-            if ( c == QChar( '&' ) )
-            {
+
+            if (c == QChar('&')) {
                 in_entity = true;
             }
-            if ( c == QChar( ';' ) )
-            {
+
+            if (c == QChar(';')) {
                 in_entity = false;
             }
         }
-        if ( c == QChar( '<' ) )
-        {
+
+        if (c == QChar('<')) {
             in_tag = true;
             word_start = -1;
         }
-        if ( in_tag && c == QChar( '>' ) )
-        {
+
+        if (in_tag && c == QChar('>')) {
             word_start = i + 1;
             in_tag = false;
         }
@@ -148,38 +137,40 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords( cons
     return misspellings;
 }
 
-bool HTMLSpellCheck::IsBoundary( QChar prev_c, QChar c, QChar next_c )
+bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c)
 {
     if (c.isLetter()) {
         return false;
     }
+
     // Single quotes of ' and curly version and hyphen/emdash are sometimes a boundary
     // and sometimes not, depending on whether they are surrounded by letters or not.
     // A sentence which 'has some text' should treat the ' as a boundary but didn't should not.
     bool is_potential_boundary = (c == '-' || c == QChar(0x2012) || c == '\'' || c == QChar(0x2019));
+
     if (is_potential_boundary && (!prev_c.isLetter() || !next_c.isLetter())) {
         return true;
     }
+
     return !(is_potential_boundary && (prev_c.isLetter() || next_c.isLetter()));
 }
 
 
-QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords( const QString &text )
+QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const QString &text)
 {
-    return GetMisspelledWords( text, 0, text.count(), "" );
+    return GetMisspelledWords(text, 0, text.count(), "");
 }
 
 
-HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetFirstMisspelledWord( const QString &text,
-                                                                       int start_offset,
-                                                                       int end_offset,
-                                                                       const QString &search_regex )
+HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetFirstMisspelledWord(const QString &text,
+        int start_offset,
+        int end_offset,
+        const QString &search_regex)
 {
-    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = GetMisspelledWords( text, start_offset, end_offset, search_regex, true );
+    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = GetMisspelledWords(text, start_offset, end_offset, search_regex, true);
     HTMLSpellCheck::MisspelledWord misspelled_word;
 
-    if ( !misspelled_words.isEmpty() )
-    {
+    if (!misspelled_words.isEmpty()) {
         misspelled_word = misspelled_words.first();
     }
 
@@ -187,16 +178,15 @@ HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetFirstMisspelledWord( const QSt
 }
 
 
-HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetLastMisspelledWord( const QString &text,
-                                                                      int start_offset,
-                                                                      int end_offset,
-                                                                      const QString &search_regex )
+HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetLastMisspelledWord(const QString &text,
+        int start_offset,
+        int end_offset,
+        const QString &search_regex)
 {
-    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = GetMisspelledWords( text, start_offset, end_offset, search_regex );
+    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = GetMisspelledWords(text, start_offset, end_offset, search_regex);
     HTMLSpellCheck::MisspelledWord misspelled_word;
 
-    if ( !misspelled_words.isEmpty() )
-    {
+    if (!misspelled_words.isEmpty()) {
         misspelled_word = misspelled_words.last();
     }
 
@@ -204,37 +194,35 @@ HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetLastMisspelledWord( const QStr
 }
 
 
-int HTMLSpellCheck::CountMisspelledWords( const QString &text,
-                                          int start_offset,
-                                          int end_offset,
-                                          const QString &search_regex,
-                                          bool first_only,
-                                          bool include_all_words)
+int HTMLSpellCheck::CountMisspelledWords(const QString &text,
+        int start_offset,
+        int end_offset,
+        const QString &search_regex,
+        bool first_only,
+        bool include_all_words)
 {
-    return GetMisspelledWords( text, start_offset, end_offset, search_regex, first_only, include_all_words ).count();
+    return GetMisspelledWords(text, start_offset, end_offset, search_regex, first_only, include_all_words).count();
 }
 
 
-int HTMLSpellCheck::CountMisspelledWords( const QString &text )
+int HTMLSpellCheck::CountMisspelledWords(const QString &text)
 {
-    return CountMisspelledWords( text, 0, text.count(), "" );
+    return CountMisspelledWords(text, 0, text.count(), "");
 }
 
 
-int HTMLSpellCheck::CountAllWords( const QString &text )
+int HTMLSpellCheck::CountAllWords(const QString &text)
 {
-    return CountMisspelledWords( text, 0, text.count(), "", false, true );
+    return CountMisspelledWords(text, 0, text.count(), "", false, true);
 }
 
 
-QStringList HTMLSpellCheck::GetAllWords( const QString &text )
+QStringList HTMLSpellCheck::GetAllWords(const QString &text)
 {
-    QList< HTMLSpellCheck::MisspelledWord > words = GetMisspelledWords( text, 0, text.count(), "", false, true);
+    QList< HTMLSpellCheck::MisspelledWord > words = GetMisspelledWords(text, 0, text.count(), "", false, true);
     QStringList all_words_text;
-
-    foreach (HTMLSpellCheck::MisspelledWord word, words) {
+    foreach(HTMLSpellCheck::MisspelledWord word, words) {
         all_words_text.append(word.text);
     }
-
     return all_words_text;
 }

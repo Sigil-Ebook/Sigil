@@ -27,15 +27,15 @@
 
 #include "ViewEditors/ViewWebPage.h"
 
-ViewWebPage::ViewWebPage( QObject *parent )
+ViewWebPage::ViewWebPage(QObject *parent)
     : QWebPage(parent)
 {
 }
 
-void ViewWebPage::javaScriptConsoleMessage( const QString &message, int lineNumber, const QString &sourceID )
+void ViewWebPage::javaScriptConsoleMessage(const QString &message, int lineNumber, const QString &sourceID)
 {
 #ifdef DEBUG
-    const QString logEntry = message +" on line:" % QString::number(lineNumber) % " Source:"+ sourceID;
+    const QString logEntry = message + " on line:" % QString::number(lineNumber) % " Source:" + sourceID;
     qDebug() << "Javascript error: " << logEntry;
 #endif
 }

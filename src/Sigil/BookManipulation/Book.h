@@ -46,7 +46,7 @@ class Resource;
  * instance.
  */
 class Book : public QObject
-{    
+{
     Q_OBJECT
 
 public:
@@ -57,7 +57,7 @@ public:
     Book();
 
     /**
-     * Returns the base url of the book. 
+     * Returns the base url of the book.
      * This is the location of the text folder
      * within the main folder.
      */
@@ -68,41 +68,41 @@ public:
      *
      * @return A reference to the FolderKeeper instance of the Book.
      */
-    FolderKeeper& GetFolderKeeper();
+    FolderKeeper &GetFolderKeeper();
 
     /**
      * Returns the FolderKeeper instance.
      *
      * @return A const reference to the FolderKeeper instance of the Book.
      */
-    const FolderKeeper& GetFolderKeeper() const;
+    const FolderKeeper &GetFolderKeeper() const;
 
     /**
      * Returns the book's OPF file.
-     * 
+     *
      * @return The OPF.
      */
-    OPFResource& GetOPF();
+    OPFResource &GetOPF();
 
     /**
      * Returns the book's OPF file as a const object.
-     * 
+     *
      * @return The OPF.
      */
-    const OPFResource& GetConstOPF() const;
+    const OPFResource &GetConstOPF() const;
 
     /**
      * Returns the book's NCX file.
-     * 
+     *
      * @return The NCX.
      */
-    NCXResource& GetNCX();
+    NCXResource &GetNCX();
 
     /**
      * Returns the book's publication identifier.
      *
      * @return A string representing the publication identifier
-     *         of the book. Used in the OPF file on epub export. 
+     *         of the book. Used in the OPF file on epub export.
      */
     QString GetPublicationIdentifier() const;
 
@@ -118,7 +118,7 @@ public:
      *
      * @return A list of values
      */
-    QList< QVariant > GetMetadataValues( QString text ) const;
+    QList< QVariant > GetMetadataValues(QString text) const;
 
     /**
      * Replaces the book's current meta information with the received metadata.
@@ -127,46 +127,46 @@ public:
      *                 are the metadata names, and the values are the lists of
      *                 metadata values for that metadata name.
      */
-    void SetMetadata( const QList< Metadata::MetaElement > metadata );
+    void SetMetadata(const QList< Metadata::MetaElement > metadata);
 
-    QString GetFirstUniqueSectionName(QString extension = QString()); 
+    QString GetFirstUniqueSectionName(QString extension = QString());
 
     /**
-     * Creates a new HTMLResource file with no stored data. 
+     * Creates a new HTMLResource file with no stored data.
      * The file on disk has only placeholder text.
      *
      * @return A reference to the created HTMLResource file.
      */
-    HTMLResource& CreateNewHTMLFile();
+    HTMLResource &CreateNewHTMLFile();
 
     /**
      * Moves the first resource to after the second resource
      */
-    void MoveResourceAfter( HTMLResource& from_resource, HTMLResource& to_resource );
+    void MoveResourceAfter(HTMLResource &from_resource, HTMLResource &to_resource);
 
     /**
-     * Creates a new HTMLResource file with a basic XHTML structure. 
+     * Creates a new HTMLResource file with a basic XHTML structure.
      * The file on disk has only placeholder text.
      */
-    HTMLResource& CreateEmptyHTMLFile();
+    HTMLResource &CreateEmptyHTMLFile();
 
     /**
      * Creates a new HTMLResource file with a basic XHTML structure
      * inserted after the given resource.
      * The file on disk has only placeholder text.
      */
-    HTMLResource& CreateEmptyHTMLFile( HTMLResource& resource );
+    HTMLResource &CreateEmptyHTMLFile(HTMLResource &resource);
 
     /**
-     * Creates a new CSSResource file with no stored data. 
+     * Creates a new CSSResource file with no stored data.
      * The file on disk is empty.
      */
-    CSSResource& CreateEmptyCSSFile();
+    CSSResource &CreateEmptyCSSFile();
 
-    SVGResource& CreateEmptySVGFile();
+    SVGResource &CreateEmptySVGFile();
 
     /**
-     * Creates an "old" resource from a section breaking operation. 
+     * Creates an "old" resource from a section breaking operation.
      * The section break operation actually creates a new resource
      * from the section content up to the section break point.
      *
@@ -177,35 +177,35 @@ public:
      * @see FlowTab::SplitSection, FlowTab::OldTabRequest,
      *      BookViewEditor::SplitSection, MainWindow::CreateSectionBreakOldTab
      */
-    HTMLResource& CreateSectionBreakOriginalResource( const QString &content, 
-                                                      HTMLResource& originating_resource );
+    HTMLResource &CreateSectionBreakOriginalResource(const QString &content,
+            HTMLResource &originating_resource);
 
     /**
      * Creates new sections/XHTML documents.
-	 * The only reason why we have an overload instead of just one function
-	 * with a default argument is because then Apple GCC 4.2 flakes out here.
+     * The only reason why we have an overload instead of just one function
+     * with a default argument is because then Apple GCC 4.2 flakes out here.
      *
      * @param new_sections The contents of the new sections.
      * @param originating_resource The original HTML section that sections
      * will be created after.
      */
-    void CreateNewSections( const QStringList& new_sections,
-                            HTMLResource& originalResource );
+    void CreateNewSections(const QStringList &new_sections,
+                           HTMLResource &originalResource);
 
     /**
      * Returns the previous resource, or the same resource if at top of folder
      *
      * @param resource The previous resource
      */
-    Resource* PreviousResource( Resource *resource );
+    Resource *PreviousResource(Resource *resource);
 
     QHash<QString, QStringList> GetIdsInHTMLFiles();
-    static boost::tuple<QString, QStringList> GetIdsInHTMLFileMapped( HTMLResource* html_resource );
-    QStringList GetIdsInHTMLFile( HTMLResource* html_resource );
+    static boost::tuple<QString, QStringList> GetIdsInHTMLFileMapped(HTMLResource *html_resource);
+    QStringList GetIdsInHTMLFile(HTMLResource *html_resource);
 
     QStringList GetIdsInHrefs();
     QHash<QString, QStringList> GetHrefsInHTMLFiles();
-    static boost::tuple<QString, QStringList> GetHrefsInHTMLFileMapped( HTMLResource* html_resource );
+    static boost::tuple<QString, QStringList> GetHrefsInHTMLFileMapped(HTMLResource *html_resource);
 
     QHash<QString, QStringList> GetClassesInHTMLFiles();
     static boost::tuple<QString, QStringList> GetClassesInHTMLFileMapped(HTMLResource *html_resource);
@@ -228,10 +228,10 @@ public:
      * Merges two or more html resources together in order into the first resource in the list.
      * If the merge fails, returns resource which caused the failure, otherwise returns null.
      */
-    Resource* MergeResources( QList<Resource*> resources );
+    Resource *MergeResources(QList<Resource *> resources);
 
     /**
-     * Makes sure that all the resources have saved the state of 
+     * Makes sure that all the resources have saved the state of
      * their caches to the disk.
      */
     void SaveAllResourcesToDisk();
@@ -250,7 +250,7 @@ public:
      *
      * @return true if well formed
      */
-    bool IsDataWellFormed( HTMLResource& html_resource );
+    bool IsDataWellFormed(HTMLResource &html_resource);
 
     /**
      * Returns whether or not a resource's data is well formed
@@ -258,7 +258,7 @@ public:
      *
      * @return true if well formed
      */
-    bool IsDataOnDiskWellFormed( HTMLResource& html_resource );
+    bool IsDataOnDiskWellFormed(HTMLResource &html_resource);
 
     /**
      * Checks for the presence of obfuscated fonts in the book.
@@ -272,12 +272,12 @@ public slots:
     /**
      * Sets the modified state of the book.
      * @note \b Always use this function to change the state of
-     *          m_IsModified variable since this will emit the 
+     *          m_IsModified variable since this will emit the
      *          ModifiedStateChanged() signal if needed.
      *
      * @param modified The new modified state.
      */
-    void SetModified( bool modified = true );
+    void SetModified(bool modified = true);
 
     void ResourceUpdatedFromDisk(Resource &resource);
 
@@ -288,7 +288,7 @@ signals:
      *
      * @param new_state The new modified state.
      */
-    void ModifiedStateChanged( bool new_state );
+    void ModifiedStateChanged(bool new_state);
 
     void ResourceUpdatedFromDiskRequest(Resource &resource);
 
@@ -330,28 +330,28 @@ private:
     };
 
     /**
-     * Syncs the content of one resource to the disk. 
+     * Syncs the content of one resource to the disk.
      * @param resource The resource to be synced.
      */
-    static void SaveOneResourceToDisk( Resource *resource );
+    static void SaveOneResourceToDisk(Resource *resource);
 
     /**
      * Creates one new section/XHTML document.
      *
      * @param section_info New section to create.
      */
-    NewSectionResult CreateOneNewSection( NewSection section_info );
+    NewSectionResult CreateOneNewSection(NewSection section_info);
 
     /**
      * Creates one new section/XHTML document.
      * The only reason why we have an overload instead of just one function
      * with a default argument is because then Apple GCC 4.2 flakes out here.
-     * 
+     *
      * @param section_info New section to create.
      * @param html_updates Any reference updates that need to be performed.
      */
-    NewSectionResult CreateOneNewSection( NewSection section_info,
-                                       const QHash< QString, QString > &html_updates );
+    NewSectionResult CreateOneNewSection(NewSection section_info,
+                                         const QHash< QString, QString > &html_updates);
 
 
     ////////////////////////////
@@ -362,7 +362,7 @@ private:
      * The FolderKeeper object that represents
      * this book's presence on the hard drive.
      */
-    FolderKeeper &m_Mainfolder; 
+    FolderKeeper &m_Mainfolder;
 
     /**
      * A hash with meta information about the book. The keys are

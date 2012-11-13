@@ -53,16 +53,16 @@ public:
      * @param resources The hash of Resources present in the FolderKeeper.
      * @param parent The object's parent.
      */
-    HTMLResource( const QString &fullfilepath, 
-                  const QHash< QString, Resource* > &resources,
-                  QObject *parent = NULL );
+    HTMLResource(const QString &fullfilepath,
+                 const QHash< QString, Resource * > &resources,
+                 QObject *parent = NULL);
 
     /**
      * Sets the guide semantic type information.
      *
      * @param type The new semantic type.
-     */ 
-    void SetGuideSemanticType( GuideSemantics::GuideSemanticType type );
+     */
+    void SetGuideSemanticType(GuideSemantics::GuideSemanticType type);
 
     // inherited
     virtual ResourceType Type() const;
@@ -71,7 +71,7 @@ public:
 
     virtual bool LoadFromDisk();
 
-    void SaveToDisk(bool book_wide_save=false);
+    void SaveToDisk(bool book_wide_save = false);
 
     /**
      * Splits the content of the resource into multiple section.
@@ -79,7 +79,7 @@ public:
      * The first section is set as the content of the resource,
      * and the others are returned.
      *
-     * @return The content of all the sections except the first. 
+     * @return The content of all the sections except the first.
      */
     QStringList SplitOnSGFSectionMarkers();
 
@@ -98,7 +98,7 @@ public:
      */
     QStringList GetLinkedStylesheets();
 
-    bool DeleteCSStyles( QList<CSSInfo::CSSSelector*> css_selectors);
+    bool DeleteCSStyles(QList<CSSInfo::CSSSelector *> css_selectors);
 
 signals:
     void LinkedResourceUpdated();
@@ -108,10 +108,10 @@ signals:
 private:
     /**
      * Makes sure the given paths are watched for updates.
-     * 
+     *
      * @param filepaths The paths to resources to watch.
      */
-    void TrackNewResources( const QStringList &filepaths );
+    void TrackNewResources(const QStringList &filepaths);
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -121,7 +121,7 @@ private:
      * The resource list from FolderKeeper.
      * @todo This is ugly as hell. Find a way to remove this.
      */
-    const QHash< QString, Resource* > &m_Resources;
+    const QHash< QString, Resource * > &m_Resources;
 };
 
 #endif // HTMLRESOURCE_H

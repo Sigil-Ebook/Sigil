@@ -67,7 +67,7 @@ public:
      * the key sequence.
      * @param description A human readable description of what this action represents.
      */
-    void registerAction(QAction *action, const QString &id, const QString &description=QString());
+    void registerAction(QAction *action, const QString &id, const QString &description = QString());
     /**
      * Register a shortcut with an id.
      *
@@ -80,7 +80,7 @@ public:
      * the key sequence.
      * @param description A human readable description of what this shortcut represents.
      */
-    void registerShortcut(QShortcut *shortcut, const QString &id, const QString &description=QString());
+    void registerShortcut(QShortcut *shortcut, const QString &id, const QString &description = QString());
 
     /**
      * Associate a key sequence with a given id.
@@ -96,7 +96,7 @@ public:
      * @return ture if the key sequence was set. False if it is already in use
      * and was not set.
      */
-    bool setKeySequence(const QString &id, const QKeySequence &keySequence, bool isDefault=false);
+    bool setKeySequence(const QString &id, const QKeySequence &keySequence, bool isDefault = false);
     /**
      * Associate a default key sequence with a given id.
      *
@@ -192,7 +192,7 @@ private:
     /**
      * Create a generic KeyboardShortcut.
      */
-    KeyboardShortcut createShortcut(const QKeySequence &keySequence, const QKeySequence &defaultKeySequence=QKeySequence(), const QString &description=QString());
+    KeyboardShortcut createShortcut(const QKeySequence &keySequence, const QKeySequence &defaultKeySequence = QKeySequence(), const QString &description = QString());
 
     /**
      * Loads settings from persistent storage for use.
@@ -206,7 +206,7 @@ private:
 
     // Tracks the KeyboardShortcuts we are managing.
     QHash<QString, KeyboardShortcut> m_shortcuts;
-    
+
     // Tracks the last saved shortcuts. The ini file may contain shortcuts from
     // older versions of Sigil which we will want removed to avoid issues.
     // A saved shortcut will be ignored until its id has been registered by Sigil

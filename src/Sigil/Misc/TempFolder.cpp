@@ -29,16 +29,16 @@
 const QString PATH_SUFFIX = "/Sigil";
 
 TempFolder::TempFolder()
-    : m_PathToFolder( GetNewTempFolderPath() )
+    : m_PathToFolder(GetNewTempFolderPath())
 {
-    QDir folder( m_PathToFolder );
-    folder.mkpath( folder.absolutePath() );
+    QDir folder(m_PathToFolder);
+    folder.mkpath(folder.absolutePath());
 }
 
 
 TempFolder::~TempFolder()
 {
-    QtConcurrent::run( DeleteFolderAndFiles, m_PathToFolder );    
+    QtConcurrent::run(DeleteFolderAndFiles, m_PathToFolder);
 }
 
 
@@ -57,41 +57,34 @@ QString TempFolder::GetPathToSigilScratchpad()
 QString TempFolder::GetNewTempFolderPath()
 {
     QString token = Utility::CreateUUID();
-
     return GetPathToSigilScratchpad() + "/" + token;
 }
 
 
-bool TempFolder::DeleteFolderAndFiles( const QString &fullfolderpath )
+bool TempFolder::DeleteFolderAndFiles(const QString &fullfolderpath)
 {
     // Make sure the path exists, otherwise very
     // bad things could happen
-    if ( !QFileInfo( fullfolderpath ).exists() )
-
+    if (!QFileInfo(fullfolderpath).exists()) {
         return false;
-
-    QDir folder( fullfolderpath );
-
-    // Erase all the files in this folder
-    foreach( QFileInfo file, folder.entryInfoList() )
-    {
-        if ( ( file.fileName() != "." ) && ( file.fileName() != ".." ) )
-        {
-            // If it's a file, delete it
-            if ( file.isFile() )
-
-                folder.remove( file.fileName() );
-
-            // Else it's a directory, delete it recursively
-            else 
-
-                DeleteFolderAndFiles( file.absoluteFilePath() );
-        }
     }
 
+    QDir folder(fullfolderpath);
+    // Erase all the files in this folder
+    foreach(QFileInfo file, folder.entryInfoList()) {
+        if ((file.fileName() != ".") && (file.fileName() != "..")) {
+            // If it's a file, delete it
+            if (file.isFile()) {
+                folder.remove(file.fileName());
+            }
+            // Else it's a directory, delete it recursively
+            else {
+                DeleteFolderAndFiles(file.absoluteFilePath());
+            }
+        }
+    }
     // Delete the folder after it's empty
-    folder.rmdir( folder.absolutePath() );
-
+    folder.rmdir(folder.absolutePath());
     return true;
 }
 

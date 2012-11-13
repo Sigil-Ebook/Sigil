@@ -46,21 +46,21 @@ public:
 
     /**
      * Constructor.
-     * 
+     *
      * @param parent The QObject's parent.
      */
-    TabManager( QWidget *parent = 0 );
+    TabManager(QWidget *parent = 0);
 
     /**
      * Returns a reference to the current content tab.
      *
      * @return A reference to the current content tab.
      */
-    ContentTab& GetCurrentContentTab();
+    ContentTab &GetCurrentContentTab();
 
-    QList<ContentTab*> GetContentTabs();
+    QList<ContentTab *> GetContentTabs();
 
-    QList<Resource*> GetTabResources();
+    QList<Resource *> GetTabResources();
 
     int GetTabCount();
 
@@ -77,7 +77,7 @@ public:
      */
     bool IsAllTabDataWellFormed();
 
-    void ReloadTabDataForResources( const QList<Resource*> &resources );
+    void ReloadTabDataForResources(const QList<Resource *> &resources);
 
     /**
      * Close and reopen all tabs
@@ -95,7 +95,7 @@ public slots:
 
     /**
      * Opens the specified resource in a new tab.
-     * If the resource is already opened, it becomes the current one. 
+     * If the resource is already opened, it becomes the current one.
      *
      * @param resource - The resource that should be opened.
      * @param line_to_scroll_to - To which line should the resource scroll (CV).
@@ -105,13 +105,13 @@ public slots:
      * @param fragment - The fragment ID to which the new tab should be scrolled to.
      * @param precede_current_tab - Should the new tab precede the currently opened one.
      */
-    void OpenResource( Resource& resource, 
-                       int line_to_scroll_to = -1,
-                       int position_to_scroll_to = -1,
-                       const QString &caret_location_to_scroll_to = QString(),
-                       MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
-                       const QUrl &fragment = QUrl(),
-                       bool precede_current_tab = false );
+    void OpenResource(Resource &resource,
+                      int line_to_scroll_to = -1,
+                      int position_to_scroll_to = -1,
+                      const QString &caret_location_to_scroll_to = QString(),
+                      MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
+                      const QUrl &fragment = QUrl(),
+                      bool precede_current_tab = false);
 
     /**
      * Makes the next (right) tab the current one.
@@ -149,7 +149,7 @@ public slots:
      *
      * @param tab The tab to make central.
      */
-    void MakeCentralTab( ContentTab *tab );
+    void MakeCentralTab(ContentTab *tab);
 
     void LinkClicked(const QUrl &url);
 
@@ -162,7 +162,7 @@ signals:
      * @param old_tab The tab \e from which the user is switching.
      * @param new_tab The tab \e to which the user is switching.
      */
-    void TabChanged( ContentTab* old_tab, ContentTab* new_tab );
+    void TabChanged(ContentTab *old_tab, ContentTab *new_tab);
 
     void TabCountChanged();
 
@@ -171,12 +171,12 @@ signals:
      *
      * @param url The URL to open.
      */
-    void OpenUrlRequest( const QUrl &url );
+    void OpenUrlRequest(const QUrl &url);
 
     /**
      * Wired to the current FlowTab::OldTabRequest signal.
      */
-    void OldTabRequest( QString content, HTMLResource& originating_resource );
+    void OldTabRequest(QString content, HTMLResource &originating_resource);
 
     void ShowStatusMessageRequest(const QString &message, int duration = 5000);
 
@@ -195,7 +195,7 @@ private slots:
      *
      * @param tab_to_delete The tab to delete.
      */
-    void DeleteTab( ContentTab *tab_to_delete );
+    void DeleteTab(ContentTab *tab_to_delete);
 
     /**
      * Closes the tab at the specified index.
@@ -203,14 +203,14 @@ private slots:
      *
      * @param tab_index The index of the tab to close.
      */
-    void CloseTab( int tab_index );
+    void CloseTab(int tab_index);
 
     /**
      * Updates the name/header text of the specified tab.
      *
-     * @param renamed_tab The renamed tab. 
+     * @param renamed_tab The renamed tab.
      */
-    void UpdateTabName( ContentTab *renamed_tab );
+    void UpdateTabName(ContentTab *renamed_tab);
 
     void SetFocusInTab();
 
@@ -218,35 +218,35 @@ private:
 
     /**
      * Returns the element of the UI that houses well-formed XML data.
-     * 
+     *
      * @note CAN BE NULL! This means the main tab has no XML data.
      * @param index The index of the tab to retrieve.
      * @return The element with XML data.
      */
-    WellFormedContent* GetWellFormedContent(int index);
+    WellFormedContent *GetWellFormedContent(int index);
 
     /**
      * Returns the index of tab in which the resource is loaded.
-     * If the resource is not currently loaded, -1 is returned. 
+     * If the resource is not currently loaded, -1 is returned.
      *
      * @param resource The resource whose tab index we want.
      * @return The index of the resource.
      */
-    int ResourceTabIndex( const Resource& resource ) const;
+    int ResourceTabIndex(const Resource &resource) const;
 
     /**
      * Returns true if we have succeeded in switching to the tab of the provided resource.
-     * 
+     *
      * @param resource The resource we want to switch to.
      * @param fragment The fragment ID to which the tab should scroll.
      * @param line_to_scroll_to To which line should the resource scroll.
      * @return \c true if we succeeded in switching.
      */
-    bool SwitchedToExistingTab( Resource& resource, 
-                                int line_to_scroll_to,
-                                int position_to_scroll_to,
-                                const QString &caret_location_to_scroll_to,
-                                const QUrl &fragment );
+    bool SwitchedToExistingTab(Resource &resource,
+                               int line_to_scroll_to,
+                               int position_to_scroll_to,
+                               const QString &caret_location_to_scroll_to,
+                               const QUrl &fragment);
 
     /**
      * Creates a tab for the specified resource.
@@ -257,13 +257,13 @@ private:
      * @param fragment The fragment ID to which the tab should scroll after load.
      * @return The newly created tab.
      */
-    ContentTab* CreateTabForResource( Resource& resource, 
-                                      int line_to_scroll_to,
-                                      int position_to_scroll_to,
-                                      const QString &caret_location_to_scroll_to,
-                                      MainWindow::ViewState view_state,
-                                      const QUrl &fragment, 
-                                      bool grab_focus = true);
+    ContentTab *CreateTabForResource(Resource &resource,
+                                     int line_to_scroll_to,
+                                     int position_to_scroll_to,
+                                     const QString &caret_location_to_scroll_to,
+                                     MainWindow::ViewState view_state,
+                                     const QUrl &fragment,
+                                     bool grab_focus = true);
 
     /**
      * Adds a new content tab to the displayed tabs.
@@ -275,7 +275,7 @@ private:
      * @param precede_current_tab Should the new tab precede the current one.
      * @return \c true if the tab was successfully added.
      */
-    bool AddNewContentTab( ContentTab *new_tab, bool precede_current_tab );
+    bool AddNewContentTab(ContentTab *new_tab, bool precede_current_tab);
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

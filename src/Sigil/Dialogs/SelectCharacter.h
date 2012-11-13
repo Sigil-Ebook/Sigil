@@ -54,7 +54,7 @@ signals:
 
 private slots:
     void WriteSettings();
-    void SetSelectedCharacter(const QString& text);
+    void SetSelectedCharacter(const QString &text);
 
 private:
 

@@ -37,12 +37,11 @@ QStringList UILanguage::GetPossibleTranslationPaths()
     // There are a few different places translations can be stored depending
     // on the platform and where they were installed.
     QStringList possible_qm_locations;
-
-    #ifdef Q_WS_X11
+#ifdef Q_WS_X11
     // The user can specify an env variable that points to the translation.
     const QString env_qm_location = QString(getenv("SIGIL_TRANSLATIONS"));
-    if (!env_qm_location.isEmpty())
-    {
+
+    if (!env_qm_location.isEmpty()) {
         possible_qm_locations.append(env_qm_location);
     }
 
@@ -50,30 +49,26 @@ QStringList UILanguage::GetPossibleTranslationPaths()
     // This really should be changed to be passed the install prefix given to
     // cmake instead of guessing based upon the executable path.
     possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/translations/");
-    #endif
-
+#endif
     possible_qm_locations.append(QLibraryInfo::location(QLibraryInfo::TranslationsPath));
     possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/translations");
-
     return possible_qm_locations;
 }
 
 QStringList UILanguage::GetUILanguages()
 {
     QStringList ui_languages;
-
-    foreach (QString path, GetPossibleTranslationPaths()) {
+    foreach(QString path, GetPossibleTranslationPaths()) {
         // Find all translation files and add them to the avaliable list.
         QDir translationDir(path);
-        if (translationDir.exists())
-        {
+
+        if (translationDir.exists()) {
             QStringList filters;
             // Look for all .qm files.
             filters << TRANSLATION_FILE_PREFIX % "*" % TRANSLATION_FILE_SUFFIX;
             translationDir.setNameFilters(filters);
             QStringList translation_files = translationDir.entryList();
-            foreach (QString file, translation_files )
-            {
+            foreach(QString file, translation_files) {
                 QFileInfo fileInfo(file);
                 QString basename = fileInfo.baseName();
                 QString language = basename.right(basename.length() - TRANSLATION_FILE_PREFIX.length());

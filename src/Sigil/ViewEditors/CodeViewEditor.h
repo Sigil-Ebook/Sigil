@@ -45,7 +45,8 @@ class QWidget;
 class QPrinter;
 class QShortcut;
 class LineNumberArea;
-class QSyntaxHighlighter; class QContextMenuEvent;
+class QSyntaxHighlighter;
+class QContextMenuEvent;
 class QSignalMapper;
 
 /**
@@ -62,8 +63,7 @@ public:
     /**
      * What type of syntax highlighting to use.
      */
-    enum HighlighterType
-    {
+    enum HighlighterType {
         Highlight_NONE,  /**< No source code highlighting */
         Highlight_XHTML, /**< XHTML source code highlighting */
         Highlight_CSS    /**< CSS source code highlighting */
@@ -75,7 +75,7 @@ public:
      * @param highlighter_type Which syntax highlighter to use.
      * @param parent The object's parent.
      */
-    CodeViewEditor( HighlighterType highlighter_type, bool check_spelling = false, QWidget *parent = 0 );
+    CodeViewEditor(HighlighterType highlighter_type, bool check_spelling = false, QWidget *parent = 0);
 
     QSize sizeHint() const;
 
@@ -85,7 +85,7 @@ public:
      *
      * @param document The new text document.
      */
-    void CustomSetDocument( QTextDocument &document );
+    void CustomSetDocument(QTextDocument &document);
 
     void DeleteLine();
 
@@ -155,7 +155,7 @@ public:
      *
      * @param event The paint event to process.
      */
-    void LineNumberAreaPaintEvent( QPaintEvent *event );
+    void LineNumberAreaPaintEvent(QPaintEvent *event);
 
     /**
      * Selects the line that was clicked on.
@@ -163,7 +163,7 @@ public:
      *
      * @param event The mouse event to process.
      */
-    void LineNumberAreaMouseEvent( QMouseEvent *event );
+    void LineNumberAreaMouseEvent(QMouseEvent *event);
 
     /**
      * Returns the width the LinuNumberArea should take (in pixels).
@@ -178,23 +178,23 @@ public:
      *
      * @param new_text The new text of the document.
      */
-    void ReplaceDocumentText( const QString &new_text );
+    void ReplaceDocumentText(const QString &new_text);
 
     /**
      * Scrolls the entire view to the top.
      */
     void ScrollToTop();
 
-    void ScrollToPosition( int cursor_position );
+    void ScrollToPosition(int cursor_position);
 
     /**
      * Scrolls the view to the specified line.
      *
      * @param line The line to scroll to.
      */
-    void ScrollToLine( int line );
+    void ScrollToLine(int line);
 
-    void ScrollToFragment( const QString &fragment );
+    void ScrollToFragment(const QString &fragment);
 
     // inherited
     bool IsLoadingFinished();
@@ -203,7 +203,7 @@ public:
     int GetCursorLine() const;
     int GetCursorColumn() const;
 
-    void SetZoomFactor( float factor );
+    void SetZoomFactor(float factor);
 
     float GetZoomFactor() const;
 
@@ -211,31 +211,31 @@ public:
 
     void UpdateDisplay();
 
-    SPCRE::MatchInfo GetMisspelledWord( const QString &text,
-                                        int start_offset,
-                                        int end_offset,
-                                        const QString &search_regex,
-                                        Searchable::Direction search_direction );
+    SPCRE::MatchInfo GetMisspelledWord(const QString &text,
+                                       int start_offset,
+                                       int end_offset,
+                                       const QString &search_regex,
+                                       Searchable::Direction search_direction);
 
-    bool FindNext( const QString &search_regex,
-                   Searchable::Direction search_direction,
-                   bool misspelled_words = false,
-                   bool ignore_selection_offset = false,
-                   bool wrap = true );
+    bool FindNext(const QString &search_regex,
+                  Searchable::Direction search_direction,
+                  bool misspelled_words = false,
+                  bool ignore_selection_offset = false,
+                  bool wrap = true);
 
-    int Count( const QString &search_regex );
+    int Count(const QString &search_regex);
 
-    bool ReplaceSelected( const QString &search_regex,
-                          const QString &replacement,
-                          Searchable::Direction direction = Searchable::Direction_Down,
-                          bool replace_current = false);
+    bool ReplaceSelected(const QString &search_regex,
+                         const QString &replacement,
+                         Searchable::Direction direction = Searchable::Direction_Down,
+                         bool replace_current = false);
 
-    int ReplaceAll( const QString &search_regex,
-                    const QString &replacement );
+    int ReplaceAll(const QString &search_regex,
+                   const QString &replacement);
 
     QString GetSelectedText();
 
-    void SetUpFindForSelectedText( const QString &search_regex );
+    void SetUpFindForSelectedText(const QString &search_regex);
 
     /**
      * Sets flag to execute a centerCursor() call later
@@ -244,14 +244,14 @@ public:
     void SetDelayedCursorScreenCenteringRequired();
 
     // inherited
-    QList< ViewEditor::ElementIndex > GetCaretLocation(); 
+    QList< ViewEditor::ElementIndex > GetCaretLocation();
 
     // inherited
-    void StoreCaretLocationUpdate( const QList< ViewEditor::ElementIndex > &hierarchy );
+    void StoreCaretLocationUpdate(const QList< ViewEditor::ElementIndex > &hierarchy);
 
     // inherited
-    bool ExecuteCaretUpdate(bool default_to_top=false);
-        
+    bool ExecuteCaretUpdate(bool default_to_top = false);
+
     /**
      * Find the containing block for the cursor location and apply a new
      * element tag name to it.
@@ -259,7 +259,7 @@ public:
      * @param element_name The name of the element to format the block to.
      * @param preserve_attributes Whether to keep any existing attributes on the previous block tag.
      */
-    void FormatBlock( const QString &element_name, bool preserve_attributes );
+    void FormatBlock(const QString &element_name, bool preserve_attributes);
 
     /**
      * Given the current cursor position/selection, look to toggle a format style tag
@@ -272,8 +272,8 @@ public:
      * @param property_name If caret is in an inline CSS style instead of the body, property to change
      * @param property_value If caret is in an inline CSS style instead of the body, value of property to change
      */
-    void ToggleFormatSelection( const QString &element_name, const QString property_name="", const QString property_value="" );
-        
+    void ToggleFormatSelection(const QString &element_name, const QString property_name = "", const QString property_value = "");
+
     /**
      * Based on the cursor location (in html file) add/replace as
      * appropriate a style="property_name: property_value" attribute.
@@ -281,19 +281,19 @@ public:
      * @param property_name The name of the style property to be inserted/replaced.
      * @param property_value The new value to be assigned to this property.
      */
-    void FormatStyle( const QString &property_name, const QString &property_value );
+    void FormatStyle(const QString &property_name, const QString &property_value);
 
     /**
-     * Based on the cursor location (in CSS file or inlined in HTML file) 
+     * Based on the cursor location (in CSS file or inlined in HTML file)
      * add/replace as appropriate a property_name: property_value property in
      * the currently selected CSS style if any.
      *
      * @param property_name The name of the style property to be inserted/replaced.
      * @param property_value The new value to be assigned to this property.
      */
-    void FormatCSSStyle( const QString &property_name, const QString &property_value );
+    void FormatCSSStyle(const QString &property_name, const QString &property_value);
 
-    void ApplyCaseChangeToSelection( const Utility::Casing &casing );
+    void ApplyCaseChangeToSelection(const Utility::Casing &casing);
 
     QString GetAttributeId();
 
@@ -313,7 +313,7 @@ public:
      * @param attribute_name The name of the attribute to be inserted/replaced.
      * @param attribute_value The new value to be assigned to this attribute.
      */
-    QString ProcessAttribute( const QString &attribute_name, QStringList tag_list = QStringList(), const QString &attribute_value = QString(), bool set_attribute = false , bool must_be_in_attribute = false, bool skip_paired_tags = false);
+    QString ProcessAttribute(const QString &attribute_name, QStringList tag_list = QStringList(), const QString &attribute_value = QString(), bool set_attribute = false , bool must_be_in_attribute = false, bool skip_paired_tags = false);
 
     /**
      * Control whether the Reformat CSS submenu is available on the context menu.
@@ -323,7 +323,7 @@ public:
 
     /**
      * Control wheter the Reformat (clean) HTML submenu is avaliable on the context menu.
-     */ 
+     */
     bool ReformatHTMLEnabled();
     void SetReformatHTMLEnabled(bool value);
 
@@ -334,17 +334,17 @@ signals:
      *
      * @param new_zoom_factor The new zoom factor of the View.
      */
-    void ZoomFactorChanged( float new_zoom_factor );
+    void ZoomFactorChanged(float new_zoom_factor);
 
     /**
      * Emitted when the focus is lost.
      */
-    void FocusLost( QWidget *editor );
+    void FocusLost(QWidget *editor);
 
     /**
      * Emitted when the focus is gained.
      */
-    void FocusGained( QWidget *editor );
+    void FocusGained(QWidget *editor);
 
     /**
      * A filtered version of the QPlainTextEdit::textChnaged signal.
@@ -359,7 +359,7 @@ signals:
     void LinkClicked(const QUrl &url);
 
     void GoToLinkedStyleDefinitionRequest(const QString &element_name, const QString &style_class_name);
-    
+
     void BookmarkLinkOrStyleLocationRequest();
 
     void SpellingHighlightRefreshRequest();
@@ -373,7 +373,7 @@ public slots:
      *
      * @param printer The printer interface to use for printing.
      */
-    void print( QPrinter* printer );
+    void print(QPrinter *printer);
 
     // Implementations for PasteTarget.h
     void PasteText(const QString &text);
@@ -388,42 +388,42 @@ protected:
      *
      * @param event The event to process.
      */
-    bool event( QEvent *event );
+    bool event(QEvent *event);
 
     /**
      * Handles the resize event for the editor.
      *
      * @param event The event to process.
      */
-    void resizeEvent( QResizeEvent *event );
+    void resizeEvent(QResizeEvent *event);
 
     /**
      * Handles the mouse press event for the editor.
      *
      * @param event The event to process.
      */
-    void mousePressEvent( QMouseEvent *event );
+    void mousePressEvent(QMouseEvent *event);
 
     /**
      * Handles the content menu event for the editor.
      *
      * @param event The event to process.
      */
-    void contextMenuEvent( QContextMenuEvent *event );
+    void contextMenuEvent(QContextMenuEvent *event);
 
     /**
      * Handles the focus in event for the editor.
      *
      * @param event The event to process.
      */
-    void focusInEvent( QFocusEvent *event );
+    void focusInEvent(QFocusEvent *event);
 
     /**
      * Handles the focus out event for the editor.
      *
      * @param event The event to process.
      */
-    void focusOutEvent( QFocusEvent *event );
+    void focusOutEvent(QFocusEvent *event);
 
 private slots:
     void ResetLastFindMatch();
@@ -443,7 +443,7 @@ private slots:
      *
      * @param available The current availability of the undo action.
      */
-    void UpdateUndoAvailable( bool available );
+    void UpdateUndoAvailable(bool available);
 
     /**
      * Creates a margin where the line number are can sit.
@@ -457,7 +457,7 @@ private slots:
      * @param rectangle Represents the area that the editor needs an update of.
      * @param vertical_delta The amount of pixels the viewport has been vertically scrolled.
      */
-    void UpdateLineNumberArea( const QRect &rectangle, int vertical_delta );
+    void UpdateLineNumberArea(const QRect &rectangle, int vertical_delta);
 
     /**
      * Highlights the line the user is editing.
@@ -491,7 +491,7 @@ private slots:
     void ReformatHTMLCleanAllAction();
     void ReformatHTMLToValidAction();
     void ReformatHTMLToValidAllAction();
-    
+
 private:
 
     /**
@@ -520,7 +520,7 @@ private:
      *
      * @param font The new font to use.
      */
-    void UpdateLineNumberAreaFont( const QFont &font );
+    void UpdateLineNumberAreaFont(const QFont &font);
 
     void SetAppearanceColors();
 
@@ -537,7 +537,7 @@ private:
      * @param search_direction Depending on this, the anchor or the focus position is returned.
      * @param ignore_selection_offset Should the selection offset be ignored.
      */
-    int GetSelectionOffset( Searchable::Direction search_direction, bool ignore_selection_offset ) const;
+    int GetSelectionOffset(Searchable::Direction search_direction, bool ignore_selection_offset) const;
 
     /**
      * Scrolls the whole screen by one line.
@@ -547,7 +547,7 @@ private:
      *
      * @param down If \c true, we scroll down. Otherwise, we scroll up.
      */
-    void ScrollByLine( bool down );
+    void ScrollByLine(bool down);
 
     /**
      * Connects all the required signals to their respective slots.
@@ -567,18 +567,17 @@ private:
     bool CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item);
 
     /**
-     * An element on the stack when searching for 
-     * the current caret location. 
+     * An element on the stack when searching for
+     * the current caret location.
      */
-    struct StackElement
-    {
+    struct StackElement {
         /**
          * The tag name.
-         */        
+         */
         QString name;
 
         /**
-         * The number of child elements 
+         * The number of child elements
          * detected for the element, so far.
          */
         int num_children;
@@ -587,64 +586,66 @@ private:
     /**
      * Returns a stack of elements representing the
      * current location of the caret in the document.
-     * 
+     *
      * @param offset The number of characters from document start to the end of
      *               the start tag of the element the caret is residing in.
      * @return The element location stack.
      */
-    QStack< StackElement > GetCaretLocationStack( int offset ) const;
+    QStack< StackElement > GetCaretLocationStack(int offset) const;
 
     /**
-     * Takes the stack provided by GetCaretLocationStack() 
-     * and converts it into the element location hierarchy 
+     * Takes the stack provided by GetCaretLocationStack()
+     * and converts it into the element location hierarchy
      * used by other ViewEditors.
      *
      * @param stack The StackElement stack.
      * @return The converted ElementIndex hierarchy.
      */
-    QList< ElementIndex > ConvertStackToHierarchy( const QStack< StackElement > stack ) const;
+    QList< ElementIndex > ConvertStackToHierarchy(const QStack< StackElement > stack) const;
 
     /**
-     * Converts a ViewEditor element hierarchy to a tuple describing necessary caret moves. 
+     * Converts a ViewEditor element hierarchy to a tuple describing necessary caret moves.
      * The tuple contains the vertical lines and horizontal chars move deltas
      *
      * @param hierarchy The caret location as ElementIndex hierarchy.
      * @return The info needed to move the caret to the new location.
      */
-    boost::tuple< int, int > ConvertHierarchyToCaretMove( const QList< ViewEditor::ElementIndex > &hierarchy ) const;
+    boost::tuple< int, int > ConvertHierarchyToCaretMove(const QList< ViewEditor::ElementIndex > &hierarchy) const;
 
     /**
      * Insert HTML tags around the current selection.
      */
-    void InsertHTMLTagAroundSelection( const QString &left_element_name, const QString &right_element_name, const QString &attributes = QString() );
+    void InsertHTMLTagAroundSelection(const QString &left_element_name, const QString &right_element_name, const QString &attributes = QString());
 
-    void InsertHTMLTagAroundText( const QString &left_element_name, const QString &right_element_name, const QString &attributes, const QString &text );
+    void InsertHTMLTagAroundText(const QString &left_element_name, const QString &right_element_name, const QString &attributes, const QString &text);
 
     /**
      * Is this position within the <body> tag of this text.
      */
-    bool IsPositionInBody( const int &pos, const QString &text );
-    bool IsPositionInTag( const int &pos = -1, const QString &text = QString() );
-    bool IsPositionInOpeningTag( const int &pos = -1, const QString &text = QString() );
-    bool IsPositionInClosingTag( const int &pos = -1, const QString &text = QString() );
-    QString GetOpeningTagName( const int &pos, const QString &text);
-    QString GetClosingTagName( const int &pos, const QString &text);
+    bool IsPositionInBody(const int &pos, const QString &text);
+    bool IsPositionInTag(const int &pos = -1, const QString &text = QString());
+    bool IsPositionInOpeningTag(const int &pos = -1, const QString &text = QString());
+    bool IsPositionInClosingTag(const int &pos = -1, const QString &text = QString());
+    QString GetOpeningTagName(const int &pos, const QString &text);
+    QString GetClosingTagName(const int &pos, const QString &text);
 
     void FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text);
 
-    void ReplaceTags( const int &opening_tag_start, const int &opening_tag_end, const QString &opening_tag_text,
-                      const int &closing_tag_start, const int &closing_tag_end, const QString &closing_tag_text );
-    
+    void ReplaceTags(const int &opening_tag_start, const int &opening_tag_end, const QString &opening_tag_text,
+                     const int &closing_tag_start, const int &closing_tag_end, const QString &closing_tag_text);
+
     /**
-     * An element on the stack when searching for 
-     * the current caret location. 
+     * An element on the stack when searching for
+     * the current caret location.
      */
-    struct StyleTagElement
-    {
-        StyleTagElement() { name = QString(); classStyle = QString(); }
+    struct StyleTagElement {
+        StyleTagElement() {
+            name = QString();
+            classStyle = QString();
+        }
         /**
          * The tag name.
-         */        
+         */
         QString name;
 
         /**
@@ -660,7 +661,7 @@ private:
      * Given a list of CSS properties perform any pruning/replacing/adding as necessary to
      * ensure that property_name:property_value is added (or removed if it already exists).
      */
-    void ApplyChangeToProperties(QList< CSSInfo::CSSProperty* > &css_properties, const QString &property_name, const QString &property_value);
+    void ApplyChangeToProperties(QList< CSSInfo::CSSProperty * > &css_properties, const QString &property_name, const QString &property_value);
 
     void ReformatCSS(bool multiple_line_format);
 
@@ -731,7 +732,7 @@ private:
     int m_caretLocation;
 
     /**
-     * Stores the update for the caret location 
+     * Stores the update for the caret location
      * when switching from BookView to CodeView.
      */
     QList< ViewEditor::ElementIndex > m_CaretUpdate;
