@@ -36,14 +36,15 @@ public:
     // Destructor
     ~ImporterFactory();
 
-    // Returns a reference to the importer
-    // appropriate for the given filename
-    Importer &GetImporter(const QString &filename);
+    // Returns the appropriate importer 
+    // for the given filename
+    Importer *GetImporter(const QString &filename);
 
 private:
 
-    Importer *imImporter;
-
+    Importer *m_importer_html;
+    Importer *m_importer_epub;
+    Importer *m_importer_txt;
 };
 
 #endif // IMPORTERFACTORY_H

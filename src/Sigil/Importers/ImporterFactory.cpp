@@ -30,7 +30,9 @@
 
 // Constructor
 ImporterFactory::ImporterFactory()
-    : imImporter(NULL)
+    : m_importer_html(NULL),
+      m_importer_epub(NULL),
+      m_importer_txt(NULL)
 {
 }
 
@@ -38,13 +40,21 @@ ImporterFactory::ImporterFactory()
 // Destructor
 ImporterFactory::~ImporterFactory()
 {
-    delete imImporter;
+    if (m_importer_html) {
+        delete m_importer_html;
+    }
+    if (m_importer_epub) {
+        delete m_importer_epub;
+    }
+    if (m_importer_txt) {
+        delete m_importer_txt;
+    }
 }
 
 
 // Returns a reference to the importer
 // appropriate for the given filename
-Importer &ImporterFactory::GetImporter(const QString &filename)
+Importer *ImporterFactory::GetImporter(const QString &filename)
 {
     QString extension = QFileInfo(filename).suffix().toLower();
 
@@ -52,25 +62,27 @@ Importer &ImporterFactory::GetImporter(const QString &filename)
         (extension == "html")  ||
         (extension == "htm")
        ) {
-        imImporter = new ImportHTML(filename);
-        return *imImporter;
+        if (!m_importer_html) {
+            m_importer_html = new ImportHTML(filename);
+        }
+        return m_importer_html;
     }
 
     if ((extension == "txt")) {
-        imImporter = new ImportTXT(filename);
-        return *imImporter;
+        if (!m_importer_txt) {
+            m_importer_txt = new ImportTXT(filename);
+        }
+        return m_importer_txt;
     }
 
     if ((extension == "epub")) {
-        imImporter = new ImportEPUB(filename);
-        return *imImporter;
+        if (!m_importer_epub) {
+            m_importer_epub = new ImportEPUB(filename);
+        }
+        return m_importer_epub; 
     }
 
-    // FIXME: Tell the user that the extension wasn't
-    // recognized and then offer a default method
-    // of loading (or maybe a list of methods?)
-    imImporter = new ImportTXT(filename);
-    return *imImporter;
+    return NULL;
 }
 
 

@@ -2616,8 +2616,12 @@ void MainWindow::LoadFile(const QString &fullfilepath)
         ImporterFactory importerFactory;
         // Create the new book, clean up the old one
         // (destructors take care of that)
-        Importer &importer = importerFactory.GetImporter(fullfilepath);
-        XhtmlDoc::WellFormedError error = importer.CheckValidToLoad();
+        Importer *importer = importerFactory.GetImporter(fullfilepath);
+        if (!importer) {
+            throw tr("No importer for file type: %1").arg(QFileInfo(fullfilepath).suffix().toLower());
+        }
+
+        XhtmlDoc::WellFormedError error = importer->CheckValidToLoad();
 
         if (error.line != -1) {
             // Warn the user their content is invalid.
@@ -2628,7 +2632,7 @@ void MainWindow::LoadFile(const QString &fullfilepath)
         } else {
             QApplication::setOverrideCursor(Qt::WaitCursor);
             m_Book->SetModified(false);
-            SetNewBook(importer.GetBook());
+            SetNewBook(importer->GetBook());
 
             // The m_IsModified state variable is set in GetBook() to indicate whether the OPF
             // file was invalid and had to be recreated.
@@ -2644,7 +2648,7 @@ void MainWindow::LoadFile(const QString &fullfilepath)
             ShowMessageOnStatusBar(tr("File loaded."));
             // Get any warnings - if our main window is not currently visible they will be
             // shown when the window is displayed.
-            m_LastOpenFileWarnings.append(importer.GetLoadWarnings());
+            m_LastOpenFileWarnings.append(importer->GetLoadWarnings());
 
             if (!m_IsInitialLoad) {
                 ShowLastOpenFileWarnings();
@@ -2667,6 +2671,9 @@ void MainWindow::LoadFile(const QString &fullfilepath)
         Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
                                              .arg(Utility::GetExceptionInfo(exception)));
+    } catch (const QString &err) {
+        QApplication::restoreOverrideCursor();
+        Utility::DisplayStdErrorDialog(err);
     }
 
     // If we got to here some sort of error occurred while loading the file
