@@ -1028,7 +1028,10 @@ void FlowTab::SplitSection()
     }
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        emit OldTabRequest(m_wBookView->SplitSection(), m_HTMLResource);
+        const QString &content = m_wBookView->SplitSection();
+        // The webview visually has split off the text, but not yet saved to the underlying resource
+        SaveTabContent();
+        emit OldTabRequest(content, m_HTMLResource);
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         emit OldTabRequest(m_wCodeView->SplitSection(), m_HTMLResource);
     }

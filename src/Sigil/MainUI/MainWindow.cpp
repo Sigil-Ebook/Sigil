@@ -2367,9 +2367,9 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource &origina
     OpenResource(html_resource, -1, -1, QString(), m_ViewState, QUrl(), true);
     FlowTab *flow_tab = qobject_cast< FlowTab * >(&GetCurrentContentTab());
 
-    // We want the current tab to be scrolled to the top.
+    // We will reload the reduced content tab to ensure reflects updated resource.
     if (flow_tab) {
-        flow_tab->ScrollToTop();
+        flow_tab->LoadTabContent();
     }
 
     ShowMessageOnStatusBar(tr("Split completed."));
