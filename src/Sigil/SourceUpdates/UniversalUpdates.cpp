@@ -191,7 +191,6 @@ void UniversalUpdates::UpdateOneCSSFile(CSSResource *css_resource,
     css_resource->SetText(PerformCSSUpdates(source, css_updates)());
 }
 
-
 QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         const QHash< QString, QString > &html_updates,
         const QHash< QString, QString > &css_updates)
@@ -209,6 +208,10 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         if (ss.cleanOn() & CLEANON_OPEN) {
             source = CleanSource::Clean(source);
         }
+        XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(source);
+        if (error.line != -1) {
+            throw QObject::tr("Not well formed, Cannot perform html updates");
+        }
 
         html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates(source, html_updates, css_updates)().get()));
         return QString();
@@ -216,8 +219,11 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
-        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates(source, html_updates, css_updates)().get()));
+        html_resource->SetText(source);
         return QString(QObject::tr("Invalid HTML file: %1")).arg(html_resource->Filename());
+    } catch (const QString &err) {
+        html_resource->SetText(source);
+        return QString("%1: %2").arg(err).arg(html_resource->Filename());
     }
 }
 

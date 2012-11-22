@@ -93,7 +93,6 @@ QString CleanSource::Clean(const QString &source)
             css_style_tags = RemoveEmptyComments(css_style_tags);
             return WriteNewCSSStyleTags(newsource, css_style_tags);
         }
-
         case SettingsStore::CleanLevel_Tidy: {
             // We store the number of CSS style tags before
             // running Tidy so CleanCSS can remove redundant classes
@@ -103,7 +102,6 @@ QString CleanSource::Clean(const QString &source)
             newsource = CleanCSS(newsource, old_num_styles);
             return newsource;
         }
-
         default:
             // The only thing we will do for Clean when set to None is just prettify
             // the XML declaration at the top. Xerces puts the xml, DOCTYPE and opening
@@ -140,24 +138,12 @@ QString CleanSource::ToValidXHTML(const QString &source)
 
 QString CleanSource::PrettyPrint(const QString &source)
 {
-    SettingsStore settings;
-
-    if (settings.cleanLevel() == SettingsStore::CleanLevel_Off) {
-        return source;
-    }
-
     HTMLPrettyPrint pp(source);
     return pp.prettyPrint();
 }
 
 QString CleanSource::PrettyPrintTidy(const QString &source)
 {
-    SettingsStore settings;
-
-    if (settings.cleanLevel() == SettingsStore::CleanLevel_Off) {
-        return source;
-    }
-
     return HTMLTidy(source, Tidy_PrettyPrint);
 }
 

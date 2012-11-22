@@ -74,13 +74,8 @@ QSharedPointer< Book > ImportEPUB::GetBook()
     const QList< Resource * > &resources      = m_Book->GetFolderKeeper().GetResourceList();
     const QStringList &load_errors = UniversalUpdates::PerformUniversalUpdates(false, resources, updates);
 
-    if (!load_errors.isEmpty()) {
-        // Hmmm... we could "possibly" recover from some of these (allowing the user to delete an
-        // invalid html file from the EPUB for instance). But then again it could be that the
-        // EPUB is so badly kakked that it is totally invalid. Throw an error, the user can
-        // analyse the warning messages and fix it externally before attempting another load.
-        const QString all_errors = load_errors.join("\n");
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(all_errors.toStdString()));
+    Q_FOREACH (QString err, load_errors) {
+        AddLoadWarning(QString("<p>%1</p>").arg(err));
     }
 
     ProcessFontFiles(resources, updates, encrypted_files);
