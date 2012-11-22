@@ -147,7 +147,7 @@ QString SettingsStore::renameTemplate()
 SettingsStore::CleanLevel SettingsStore::cleanLevel()
 {
     clearSettingsGroup();
-    int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_PrettyPrint).toInt();
+    int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_PrettyPrintTidy).toInt();
 
     switch (level) {
         case SettingsStore::CleanLevel_Off:
