@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include "BookManipulation/CleanSource.h"
+#include "Misc/SettingsStore.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/CSSResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -453,10 +455,15 @@ ContentTab *TabManager::CreateTabForResource(Resource &resource,
         bool grab_focus)
 {
     ContentTab *tab = NULL;
+    SettingsStore ss;
 
     switch (resource.Type()) {
         case Resource::HTMLResourceType: {
-            tab = new FlowTab(*(qobject_cast< HTMLResource * >(&resource)),
+            HTMLResource *html_resource = qobject_cast<HTMLResource *>(&resource);
+            if (!html_resource) {
+                break;
+            }
+            tab = new FlowTab(*html_resource,
                               fragment,
                               view_state,
                               line_to_scroll_to,
@@ -467,6 +474,9 @@ ContentTab *TabManager::CreateTabForResource(Resource &resource,
             connect(tab,  SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
             connect(tab,  SIGNAL(OldTabRequest(QString, HTMLResource &)),
                     this, SIGNAL(OldTabRequest(QString, HTMLResource &)));
+            if (ss.cleanOn() & CLEANON_OPEN) {
+                html_resource->SetText(CleanSource::Clean(html_resource->GetText()));
+            }
             break;
         }
 
