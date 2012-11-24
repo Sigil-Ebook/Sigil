@@ -434,9 +434,14 @@ void FlowTab::SplitView()
 
 void FlowTab::CodeView()
 {
+    SettingsStore ss;
+
     QApplication::setOverrideCursor(Qt::WaitCursor);
     m_ViewState = MainWindow::ViewState_CodeView;
     CreateCodeViewIfRequired();
+    if (ss.cleanOn() & CLEANON_OPEN) {
+        m_HTMLResource.SetText(CleanSource::Clean(m_HTMLResource.GetText()));
+    }
     m_views->setCurrentIndex(m_views->indexOf(m_wCodeView));
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
     setFocusProxy(m_wCodeView);

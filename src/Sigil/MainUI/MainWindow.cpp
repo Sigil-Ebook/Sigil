@@ -314,11 +314,15 @@ void MainWindow::OpenResource(Resource &resource,
 
 void MainWindow::ResourceUpdatedFromDisk(Resource &resource)
 {
+    SettingsStore ss;
     QString message = QString(tr("File")) + " " + resource.Filename() + " " + tr("was updated") + ".";
     int duration = 10000;
 
     if (resource.Type() == Resource::HTMLResourceType) {
         HTMLResource &html_resource = *qobject_cast< HTMLResource *>(&resource);
+        if (ss.cleanOn() & CLEANON_OPEN) {
+            html_resource.SetText(CleanSource::Clean(html_resource.GetText()));
+        }
 
         if (!m_Book->IsDataOnDiskWellFormed(html_resource)) {
             OpenResource(resource, -1, -1, QString(), MainWindow::ViewState_CodeView);
