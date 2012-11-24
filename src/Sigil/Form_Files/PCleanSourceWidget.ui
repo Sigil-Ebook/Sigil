@@ -32,13 +32,14 @@
       <string>Clean and Format Type</string>
      </property>
      <property name="toolTip">
-      <string>Set what type of automatic cleaning and formating should be done.</string>
+      <string>Choose what type of automatic cleaning and formating should be done.</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout2">
       <item>
        <widget class="QRadioButton" name="CleanLevelOff">
         <property name="toolTip">
-         <string>No automatic formatting or cleaning of your code will be done.</string>
+         <string>No automatic formatting or cleaning of your code will be done.
+The options for clean on open, save, replace will be ignored.</string>
         </property>
         <property name="text">
          <string>Off</string>
@@ -91,7 +92,7 @@ This may change your formatting to use inline style sections.</string>
       <string>Automatically Clean and Format HTML Source Code</string>
      </property>
      <property name="toolTip">
-      <string>Set when your HTML code is cleaned using your selected option.</string>
+      <string>Choose when your HTML code is cleaned using your selected option.</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="1">
@@ -100,7 +101,7 @@ This may change your formatting to use inline style sections.</string>
          <string>Save</string>
         </property>
         <property name="toolTip">
-         <string>When saving an EPUB.</string>
+         <string>Clean when saving an EPUB.</string>
         </property>
        </widget>
       </item>
@@ -110,7 +111,9 @@ This may change your formatting to use inline style sections.</string>
          <string>Open</string>
         </property>
         <property name="toolTip">
-         <string>When opening an EPUB or HTML file.</string>
+         <string>Clean when opening an EPUB or HTML file, 
+when switching from Book View to Code View, 
+and when loading a file edited with Open With.</string>
         </property>
        </widget>
       </item>
@@ -120,7 +123,7 @@ This may change your formatting to use inline style sections.</string>
          <string>Replace in all files</string>
         </property>
         <property name="toolTip">
-         <string>After running a Replace All in All HTML Files.</string>
+         <string>Clean after running a Replace All in All HTML Files.</string>
         </property>
        </widget>
       </item>
