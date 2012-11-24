@@ -309,7 +309,7 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
         const QString &old_fullpath = resource->GetFullPath();
         QString old_filename = resource->Filename();
         QString extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
-        //QString new_filename_with_extension = new_filename;
+
         QString new_filename = new_filenames.first();
         new_filenames.removeFirst();
         QString new_filename_with_extension = new_filename;
@@ -319,7 +319,7 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
         }
 
         if (old_filename == new_filename_with_extension) {
-            return true;
+            continue;
         }
 
         if (!FilenameIsValid(old_filename, new_filename_with_extension)) {

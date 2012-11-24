@@ -786,6 +786,30 @@ void BookBrowser::Rename()
     }
 }
 
+QString BookBrowser::GetFirstAvailableTemplateName(QString base, QString number_string)
+{
+    int number = number_string.toInt();
+
+    QStringList book_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    QStringList short_filenames;
+    foreach(QString filename, book_filenames) {
+        short_filenames.append(filename.left(filename.lastIndexOf(".")));
+    }
+
+    QString template_name;
+    while (true) {
+        template_name = QString("%1%2").arg(base).arg(number, number_string.length(), 10, QChar('0'));
+
+        if (!short_filenames.contains(template_name)) {
+            break;
+        }
+
+        number++;
+    }
+
+    return template_name;
+}
+
 
 void BookBrowser::RenameSelected()
 {
@@ -795,137 +819,110 @@ void BookBrowser::RenameSelected()
         return;
     }
 
-    QStringList filenames = m_Book->GetFolderKeeper().GetAllFilenames();
     // Load initial value from stored preferences
     SettingsStore settings;
-    QString templateName = settings.renameTemplate();
+    QString template_name = settings.renameTemplate();
 
-    // If no template set it to the first available default Section0001 name
-    if (templateName.isEmpty()) {
-        QStringList short_filenames;
-        foreach(QString filename, filenames) {
-            short_filenames.append(filename.left(filename.lastIndexOf(".")));
-        }
-        QString name = "Section";
-        int num = 1;
-
-        while (true) {
-            templateName = QString("%1%2").arg(name).arg(num, 4, 10, QChar('0'));
-
-            if (!short_filenames.contains(templateName)) {
-                break;
-            }
-
-            num++;
-        }
+    // If no template set it to the first available default name
+    if (template_name.isEmpty()) {
+        template_name = GetFirstAvailableTemplateName("Section", "0001");
     }
 
-    RenameTemplate rename_template(templateName, this);
+    RenameTemplate rename_template(template_name, this);
 
     // Get the template from the user
     if (rename_template.exec() != QDialog::Accepted) {
         return;
     }
 
-    templateName = rename_template.GetTemplateName();
-    // Save the template for later - save now in case of abort before final save
-    settings.setRenameTemplate(templateName);
-    // Get the extension if any
-    QString new_extension;
+    template_name = rename_template.GetTemplateName();
 
-    if (templateName.contains(".")) {
-        new_extension = templateName.right(templateName.length() - templateName.lastIndexOf("."));
-        templateName = templateName.left(templateName.lastIndexOf("."));
+    // Save the template for later - save now in case of abort before final save
+    settings.setRenameTemplate(template_name);
+
+    // Get the name without extension, and get the extension if any
+    QString new_extension;
+    if (template_name.contains(".")) {
+        new_extension = template_name.right(template_name.length() - template_name.lastIndexOf("."));
+        template_name = template_name.left(template_name.lastIndexOf("."));
     }
 
     // Get the base text and starting number if the template is not just an extension
-    QString templateBase;
-    QString templateNumber;
+    QString template_base;
+    QString template_number_string;
 
-    if (!templateName.isEmpty()) {
-        int pos = templateName.length() - 1;
-
-        while (pos > 0 && templateName[pos].isDigit()) {
-            templateNumber.prepend(QString("%1").arg(templateName[pos]));
+    if (!template_name.isEmpty()) {
+        int pos = template_name.length() - 1;
+        while (pos > 0 && template_name[pos].isDigit()) {
+            template_number_string.prepend(QString("%1").arg(template_name[pos]));
             pos--;
         }
 
-        templateBase = templateName.left(pos + 1);
+        template_base = template_name.left(pos + 1);
 
-        if (templateNumber == "") {
-            templateNumber = "1";
+        if (template_number_string == "") {
+            template_number_string = "1";
         }
     }
 
-    if (!templateNumber.isEmpty()) {
-        // Abort if any of the new names already exist
-        int test_start = templateNumber.toInt();
+    // Get the list of new names that will be created
+    int resources_count = resources.count();
+    int template_number_start = template_number_string.toInt();
 
-        for (int i = test_start; i < test_start + resources.count(); i++) {
-            // Get the extension of the original file
-            QString file_extension = new_extension;
+    QStringList new_filenames;
+    QStringList book_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    int template_number = template_number_start;
 
-            if (file_extension.isEmpty()) {
-                QString old_filename = resources[i - test_start]->Filename();
-
-                if (old_filename.contains('.')) {
-                    file_extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
-                }
-            }
-
-            QString test_name = QString("%1%2").arg(templateBase).arg(i, templateNumber.length(), 10, QChar('0')).append(file_extension);
-
-            if (filenames.contains(test_name)) {
-                QMessageBox::critical(this, tr("Sigil"), tr("Cannot rename since one or more new filenames are already in use."));
-                return;
-            }
-        }
-    }
-
-    // Rename all entries at once
-    QList<QString> new_filenames;
-    int start = templateNumber.toInt();
-    int i = 0;
-
-    for (i = start; i < start + resources.count(); i++) {
-        QString old_filename = resources[i - start]->Filename();
-        // Get the extension of the original file
+    for (int i = 0; i < resources_count; i++) {
         QString file_extension = new_extension;
+        QString old_filename = resources[i]->Filename();
 
-        if (file_extension.isEmpty()) {
-            if (old_filename.contains('.')) {
-                file_extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
-            }
+        // If the user gave a new file extension, use it, else use the old name's extension
+        if (file_extension.isEmpty() && old_filename.contains('.')) {
+            file_extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
         }
 
+        // Save the name 
         QString name;
-
-        if (!templateNumber.isEmpty()) {
-            name = QString("%1%2").arg(templateBase).arg(i, templateNumber.length(), 10, QChar('0')).append(file_extension);
+        if (template_number_string.isEmpty()) {
+            // If no name or number given for template, then use old name but with new extension
+            QString old_filename_no_extension = old_filename.left(old_filename.lastIndexOf('.'));
+            name = QString("%1").arg(old_filename_no_extension).append(file_extension);
         } else {
-            // Just change the extension
-            QString old_filename_only = old_filename.left(old_filename.lastIndexOf('.'));
-            name = QString("%1").arg(old_filename_only).append(file_extension);
+            name = QString("%1%2").arg(template_base).arg(template_number, template_number_string.length(), 10, QChar('0')).append(file_extension);
+        }
+
+        // Stop if the new name is already used or will be used by a different entry
+        if ((book_filenames.contains(name) && resources[i]->Filename() != name) || new_filenames.contains(name)) {
+            QMessageBox::critical(this, tr("Sigil"), tr("Cannot rename files since this would result in duplicate filenames."));
+            return;
         }
 
         new_filenames.append(name);
+
+        template_number++;
     }
 
+    // Save the next name in the sequence for later
     QString next_name_template;
 
-    if (!templateNumber.isEmpty()) {
-        next_name_template = QString("%1%2").arg(templateBase).arg(i, templateNumber.length(), 10, QChar('0'));
+    if (!template_number_string.isEmpty()) {
+        QString next_template_number_string = QString("%1").arg(template_number, template_number_string.length(), 10, QChar('0'));
+        next_name_template = GetFirstAvailableTemplateName(template_base, next_template_number_string);
     }
 
     if (!new_extension.isEmpty()) {
         next_name_template.append(new_extension);
     }
 
-    // Save the next name in the sequence for later
     settings.setRenameTemplate(next_name_template);
+
     // After a rename we want to keep the resources in the identical position.
     int scrollY = m_TreeView.verticalScrollBar()->value();
+
+    // Rename the resources
     m_OPFModel.RenameResourceList(resources, new_filenames);
+
     SelectResources(resources);
     m_TreeView.verticalScrollBar()->setSliderPosition(scrollY);
 }

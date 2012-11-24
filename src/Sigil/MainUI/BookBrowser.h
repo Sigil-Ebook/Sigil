@@ -263,6 +263,8 @@ private slots:
      */
     void Rename();
 
+    QString GetFirstAvailableTemplateName(QString base, QString number_string);
+
     /**
      * Implements the Rename selected context menu action functionality.
      */
