@@ -1,5 +1,5 @@
 Sigil 0.6.1 TBD
-	- Implement issue 1768: Add non-destructive pretty printer as an option in addition to the Tidy provided one.
+    - Implement issue 1768: Add non-destructive pretty printer as an option in addition to the Tidy provided one.
     - Implement issue 1770: Change Clean Source to no longer warn about restarting Sigil.
     - Implement issue 1767: Change default file extension from html to xhtml.
     - Implement issue 1695: Add tooltips to show counts of files in Book Browser and headings in Generate TOC.
@@ -21,7 +21,7 @@ Sigil 0.6.1 TBD
     - Fix issue 1785: Split at Cursor in Book View does not always update href links.
     - Fix issue 1759: Zipped files get wrong date and time.
     - Fix issue 1757: Spellcheck does not handle one letter misspellings properly.
-    - Fix issue 1750: Loading HTML file should not automaticall generate TOC.
+    - Fix issue 1750: Loading HTML file should not automatically generate TOC.
     - Fix issue 1749: Right click on SVG images should give same options as other images.
     - Fix issue 1730: Changing view or using back button should select file in Book Browser.
     - Fix issue 1726: Selecting all text and replacing with a Clip causes crash.
