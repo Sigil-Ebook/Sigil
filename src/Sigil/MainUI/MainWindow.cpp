@@ -2384,6 +2384,7 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource &origina
     // We will reload the reduced content tab to ensure reflects updated resource.
     if (flow_tab) {
         flow_tab->LoadTabContent();
+        flow_tab->ScrollToTop();
     }
 
     ShowMessageOnStatusBar(tr("Split completed."));
