@@ -105,6 +105,8 @@ static const QString HTML_INDEX_FILE = "Index.html";
 
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub";
 
+static const QString DEFAULT_FILENAME = "untitled.epub";
+
 QStringList MainWindow::s_RecentFiles = QStringList();
 
 MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WFlags flags)
@@ -554,7 +556,7 @@ bool MainWindow::SaveAs()
     QString default_filter  = "";
 
     if (m_CurrentFilePath.isEmpty()) {
-        m_CurrentFilePath = "untitled.epub";
+        m_CurrentFilePath = DEFAULT_FILENAME;
     }
 
     // If we can save this file type, then we use the current filename
@@ -601,6 +603,14 @@ bool MainWindow::SaveACopy()
     if (!m_TabManager.IsAllTabDataWellFormed()) {
         ShowMessageOnStatusBar(tr("Save cancelled due to XML not well formed."));
         return false;
+    }
+
+    if (m_CurrentFilePath.isEmpty()) {
+        m_CurrentFilePath = DEFAULT_FILENAME;
+    }
+
+    if (m_SaveACopyFilename.isEmpty()) {
+        m_SaveACopyFilename = m_LastFolderOpen + "/" + QFileInfo(m_CurrentFilePath).completeBaseName() + "_copy." + QFileInfo(m_CurrentFilePath).suffix();
     }
 
     QStringList filters(c_SaveFilters.values());
@@ -2484,8 +2494,6 @@ void MainWindow::ReadSettings()
 
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value("lastfolderopen").toString();
-    // The last filename used for save a copy
-    m_SaveACopyFilename = settings.value("saveacopyfilename").toString();
     // The list of recent files
     s_RecentFiles    = settings.value("recentfiles").toStringList();
     m_preserveHeadingAttributes = settings.value("preserveheadingattributes", true).toBool();
@@ -2518,8 +2526,6 @@ void MainWindow::WriteSettings()
     settings.setValue("toolbars", saveState());
     // The last folders used for saving and opening files
     settings.setValue("lastfolderopen",  m_LastFolderOpen);
-    // The last filename used for save a copy
-    settings.setValue("saveacopyfilename",  m_SaveACopyFilename);
     // The list of recent files
     settings.setValue("recentfiles", s_RecentFiles);
     settings.setValue("preserveheadingattributes", m_preserveHeadingAttributes);
@@ -2601,6 +2607,7 @@ void MainWindow::CreateNewBook()
     new_book->CreateEmptyHTMLFile();
     SetNewBook(new_book);
     new_book->SetModified(false);
+    m_SaveACopyFilename = "";
     UpdateUiWithCurrentFile("");
 }
 
@@ -2648,6 +2655,7 @@ void MainWindow::LoadFile(const QString &fullfilepath)
             }
 
             QApplication::restoreOverrideCursor();
+            m_SaveACopyFilename = "";
             UpdateUiWithCurrentFile(fullfilepath);
             ShowMessageOnStatusBar(tr("File loaded."));
             // Get any warnings - if our main window is not currently visible they will be
@@ -2876,9 +2884,7 @@ const QMap< QString, QString > MainWindow::GetSaveFiltersMap()
 void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath)
 {
     m_CurrentFilePath = fullfilepath;
-    QString file_copy = QFileInfo(m_CurrentFilePath).completeBaseName() + "_copy." + QFileInfo(m_CurrentFilePath).suffix();
-    m_SaveACopyFilename = m_CurrentFilePath.isEmpty() ? "untitled_copy.epub" : file_copy;
-    QString shownName = m_CurrentFilePath.isEmpty() ? "untitled.epub" : QFileInfo(m_CurrentFilePath).fileName();
+    QString shownName = m_CurrentFilePath.isEmpty() ? DEFAULT_FILENAME : QFileInfo(m_CurrentFilePath).fileName();
     // Update the titlebar
     setWindowTitle(tr("%1[*] - %2").arg(shownName).arg(tr("Sigil")));
 
