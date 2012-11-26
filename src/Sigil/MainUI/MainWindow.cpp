@@ -100,8 +100,8 @@ static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 
         "border-left: 1px solid grey;"
         "border-right: 1px solid grey;"
         "border-bottom: 1px solid grey;} ";
-static const QString HTML_TOC_FILE = "TOC.html";
-static const QString HTML_INDEX_FILE = "Index.html";
+static const QString HTML_TOC_FILE = "TOC.xhtml";
+static const QString HTML_INDEX_FILE = "Index.xhtml";
 
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub";
 

@@ -52,7 +52,7 @@ valid for all selected files.
      <item>
       <widget class="QLineEdit" name="renameTemplate">
        <property name="text">
-        <string>Section0001.html</string>
+        <string>Section0001</string>
        </property>
       </widget>
      </item>
