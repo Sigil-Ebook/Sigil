@@ -166,7 +166,6 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     SetWebPageModified(false);
 }
 
-#include <QtDebug>
 QString BookViewEditor::GetHtml()
 {
     RemoveWebkitCruft();
