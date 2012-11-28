@@ -243,16 +243,21 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
         if (written != read) {
             temp_epub.close();
             real_epub.close();
+            QFile::remove(tempFile);
             boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
         }
     }
 
     if (read == -1) {
+        temp_epub.close();
+        real_epub.close();
+        QFile::remove(tempFile);
         boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
     }
 
     temp_epub.close();
     real_epub.close();
+    QFile::remove(tempFile);
 }
 
 

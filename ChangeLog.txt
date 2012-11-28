@@ -18,6 +18,7 @@ Sigil 0.6.1 TBD
     - Implement issue 1734: Splitting files and new blank HTML files should use existing file extension.
     - Implement issue 1732: Index Editor should support opening/importing .txt files.
     - Implement issue 1687: Insert ID should warn if invalid ID names are used.
+    - Fix issue 1798: files, *-tmp.epub, are left in /tmp/Sigil/scratchpad after closing Sigil.
     - Fix issue 1785: Split at Cursor in Book View does not always update href links.
     - Fix issue 1759: Zipped files get wrong date and time.
     - Fix issue 1757: Spellcheck does not handle one letter misspellings properly.
