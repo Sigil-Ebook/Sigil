@@ -5,14 +5,42 @@ var offset = document.getSelection().anchorOffset;
 var splitNode = node.parentNode;
 var splitOffset = 0;
 
+function get_child_offset( node ) {
+    for( var childIndex = 0, e = node; e = e.previousSibling; ++childIndex );
+    return childIndex;
+}
+
 if ( node.nodeType == 3 ) {
-    // We are in a #text node. will want to split it at the caret position
+    // We are in a #text node. Will want to split it at the caret position
     // if we are not at the end of the node text.
-    if ( offset <= node.length - 1 ) {
+    if ( offset == 0 ) {
+        // Splitting will mean the parent tag will become an empty tag.
+        // Keep walking up parent nodes until either the left side will have
+        // content, or we hit the body tag. This is to prevent leaving
+        // an empty tag like <span></span> or <h1></h1> which if user does
+        // not have a Clean/Tidy turned on will be left behind cruft.
+        var parent = node.parentNode;
+        while ( parent != null ) {
+            if ( parent.childNodes[0] != node ) {
+                // We are not the first child of this parent, so can split.
+                break;
+            }
+            node = node.parentNode;
+            parent = node.parentNode;
+            if ( parent.nodeName == "body" ) {
+                // We are going to split here rather than keep walking up.
+                break;
+            }
+        }
+        if ( parent != null ) {
+            splitNode = parent;
+            splitOffset = get_child_offset(node);
+        }
+    }
+    else if ( offset <= node.length - 1 ) {
         node.splitText( offset );
         // Our range will be up to past this #text node
-        for( var childIndex = 0, e = node; e = e.previousSibling; ++childIndex );
-        splitOffset = childIndex + 1;
+        splitOffset = get_child_offset(node) + 1;
     }
     else {
         // The selection should be treated as past this node.
@@ -24,16 +52,14 @@ if ( node.nodeType == 3 ) {
         while ( parent != null ) {
             if ( parent.childNodes[parent.childNodes.length - 1] != node ) {
                 // We are not the last parent so will split before the next node
-                for( var childIndex = 0, e = node; e = e.previousSibling; ++childIndex );
                 splitNode = parent;
-                splitOffset = childIndex + 1;
+                splitOffset = get_child_offset(node) + 1;
                 break;
             }
             if ( parent == blockNode ) {
                 // We reached the parent and must be the last node within it
                 splitNode = parent.parentNode;
-                for( var childIndex = 0, e = parent; e = e.previousSibling; ++childIndex );
-                splitOffset = childIndex + 1;
+                splitOffset = get_child_offset(node) + 1;
                 break;
             }
             node = parent;
