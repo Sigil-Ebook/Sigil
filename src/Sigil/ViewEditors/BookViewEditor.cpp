@@ -166,6 +166,7 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     SetWebPageModified(false);
 }
 
+#include <QtDebug>
 QString BookViewEditor::GetHtml()
 {
     RemoveWebkitCruft();
@@ -185,6 +186,9 @@ QString BookViewEditor::GetHtml()
     html_from_Qt.remove(remove_doctype_tag);
     html_from_Qt.remove(remove_html_tag);
     html_from_Qt.prepend(DOC_PREFIX);
+    // Convert nbsp to entity because it cannot be seen and there are issues
+    // where CV will remove them if they are a single character.
+    html_from_Qt.replace(QChar(160), "&nbsp;");
     return html_from_Qt;
 }
 
