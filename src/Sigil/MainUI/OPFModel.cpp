@@ -50,7 +50,9 @@ OPFModel::OPFModel(QObject *parent)
     m_StylesFolderItem(*new QStandardItem("Styles")),
     m_ImagesFolderItem(*new QStandardItem("Images")),
     m_FontsFolderItem(*new QStandardItem("Fonts")),
-    m_MiscFolderItem(*new QStandardItem("Misc"))
+    m_MiscFolderItem(*new QStandardItem("Misc")),
+    m_AudioFolderItem(*new QStandardItem("Audio")),
+    m_VideoFolderItem(*new QStandardItem("Video"))
 {
     connect(this, SIGNAL(rowsRemoved(const QModelIndex &, int, int)),
             this, SLOT(RowsRemovedHandler(const QModelIndex &, int, int)));
@@ -61,6 +63,8 @@ OPFModel::OPFModel(QObject *parent)
     items.append(&m_StylesFolderItem);
     items.append(&m_ImagesFolderItem);
     items.append(&m_FontsFolderItem);
+    items.append(&m_AudioFolderItem);
+    items.append(&m_VideoFolderItem);
     items.append(&m_MiscFolderItem);
     QIcon folder_icon = QFileIconProvider().icon(QFileIconProvider::Folder);
     foreach(QStandardItem * item, items) {
@@ -140,6 +144,10 @@ QList <Resource * > OPFModel::GetResourceListInFolder(Resource::ResourceType res
         folder = &m_FontsFolderItem;
     } else if (resource_type == Resource::MiscTextResourceType) {
         folder = &m_MiscFolderItem;
+    } else if (resource_type == Resource::AudioResourceType) {
+        folder = &m_AudioFolderItem;
+    } else if (resource_type == Resource::VideoResourceType) {
+        folder = &m_VideoFolderItem;
     } else if (resource_type != Resource::OPFResourceType && resource_type != Resource::NCXResourceType) {
         folder = &m_MiscFolderItem;
     }
@@ -175,7 +183,10 @@ QModelIndex OPFModel::GetModelItemIndex(Resource &resource, IndexChoice indexCho
                 (child == &m_StylesFolderItem &&
                  (resourceType == Resource::CSSResourceType)) ||
                 (child == &m_FontsFolderItem && resourceType == Resource::FontResourceType) ||
-                (child == &m_MiscFolderItem && resourceType == Resource::GenericResourceType)) {
+                (child == &m_MiscFolderItem && resourceType == Resource::GenericResourceType) ||
+                (child == &m_AudioFolderItem && resourceType == Resource::AudioResourceType) ||
+                (child == &m_VideoFolderItem && resourceType == Resource::VideoResourceType)
+            ) {
                 folder = child;
             }
         }
@@ -235,6 +246,14 @@ Resource::ResourceType OPFModel::GetResourceType(QStandardItem const *item)
 
     if (item == &m_MiscFolderItem) {
         return Resource::GenericResourceType;
+    }
+
+    if (item == &m_AudioFolderItem) {
+        return Resource::AudioResourceType;
+    }
+
+    if (item == &m_VideoFolderItem) {
+        return Resource::VideoResourceType;
     }
 
     const QString &identifier = item->data().toString();
@@ -387,6 +406,12 @@ void OPFModel::InitializeModel()
         } else if (resource->Type() == Resource::FontResourceType) {
             item->setDragEnabled(false);
             m_FontsFolderItem.appendRow(item);
+        } else if (resource->Type() == Resource::AudioResourceType) {
+            item->setDragEnabled(false);
+            m_AudioFolderItem.appendRow(item);
+        } else if (resource->Type() == Resource::VideoResourceType) {
+            item->setDragEnabled(false);
+            m_VideoFolderItem.appendRow(item);
         } else if (resource->Type() == Resource::OPFResourceType ||
                    resource->Type() == Resource::NCXResourceType) {
             item->setEditable(false);
@@ -442,6 +467,14 @@ void OPFModel::ClearModel()
         m_MiscFolderItem.removeRow(0);
     }
 
+    while (m_AudioFolderItem.rowCount() != 0) {
+        m_AudioFolderItem.removeRow(0);
+    }
+
+    while (m_VideoFolderItem.rowCount() != 0) {
+        m_VideoFolderItem.removeRow(0);
+    }
+
     int i = 0;
 
     while (i < invisibleRootItem()->rowCount()) {
@@ -451,7 +484,9 @@ void OPFModel::ClearModel()
             child != &m_StylesFolderItem &&
             child != &m_ImagesFolderItem &&
             child != &m_FontsFolderItem  &&
-            child != &m_MiscFolderItem) {
+            child != &m_MiscFolderItem   &&
+            child != &m_AudioFolderItem  &&
+            child != &m_VideoFolderItem) {
             invisibleRootItem()->removeRow(i);
         } else {
             ++i;

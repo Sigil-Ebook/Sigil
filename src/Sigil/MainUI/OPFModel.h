@@ -258,6 +258,8 @@ private:
     QStandardItem &m_ImagesFolderItem; /**< The Images folder item. */
     QStandardItem &m_FontsFolderItem;  /**< The Fonts folder item. */
     QStandardItem &m_MiscFolderItem;   /**< The Misc folder item. */
+    QStandardItem &m_AudioFolderItem;
+    QStandardItem &m_VideoFolderItem;
 };
 
 

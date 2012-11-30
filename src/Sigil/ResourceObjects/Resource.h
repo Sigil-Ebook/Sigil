@@ -61,7 +61,9 @@ public:
         FontResourceType     = 1 <<  7, /**< Used for font resources, both TTF and OTF. */
         OPFResourceType      = 1 <<  8, /**< Used for the OPF document. */
         NCXResourceType      = 1 <<  9, /**< Used for the NCX table of contents. */
-        MiscTextResourceType = 1 <<  10 /**< Used for editable text resource. */
+        MiscTextResourceType = 1 <<  10, /**< Used for editable text resource. */
+        AudioResourceType    = 1 <<  11, /**< Used for Audio resources. */
+        VideoResourceType    = 1 <<  12  /**< Used for Video resources. */
     };
 
     /**

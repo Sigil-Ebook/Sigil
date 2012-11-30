@@ -114,6 +114,8 @@ set( QOBJECT_HEADERS
     ResourceObjects/HTMLResource.h
     ResourceObjects/CSSResource.h
     ResourceObjects/ImageResource.h
+    ResourceObjects/AudioResource.h
+    ResourceObjects/VideoResource.h
     ResourceObjects/MiscTextResource.h
     ResourceObjects/SVGResource.h
     ResourceObjects/FontResource.h
@@ -165,6 +167,10 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/CSSResource.h
     ResourceObjects/ImageResource.cpp
     ResourceObjects/ImageResource.h
+    ResourceObjects/AudioResource.cpp
+    ResourceObjects/AudioResource.h
+    ResourceObjects/VideoResource.cpp
+    ResourceObjects/VideoResource.h
     ResourceObjects/MiscTextResource.cpp
     ResourceObjects/MiscTextResource.h
     ResourceObjects/SVGResource.cpp

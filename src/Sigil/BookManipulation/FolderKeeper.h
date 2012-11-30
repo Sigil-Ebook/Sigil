@@ -206,6 +206,9 @@ public:
      */
     QString GetFullPathToImageFolder() const;
 
+    QString GetFullPathToAudioFolder() const;
+    QString GetFullPathToVideoFolder() const;
+
     /**
      * Returns a list of all the resource filenames in the book.
      *
@@ -332,6 +335,8 @@ private:
     QString m_FullPathToMetaInfFolder;
     QString m_FullPathToOEBPSFolder;
 
+    QString m_FullPathToAudioFolder;
+    QString m_FullPathToVideoFolder;
     QString m_FullPathToImagesFolder;
     QString m_FullPathToFontsFolder;
     QString m_FullPathToTextFolder;

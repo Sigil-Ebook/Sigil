@@ -30,8 +30,10 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
+#include "ResourceObjects/AudioResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/Resource.h"
+#include "ResourceObjects/VideoResource.h"
 #include "Misc/Utility.h"
 #include "Misc/OpenExternally.h"
 
@@ -50,15 +52,18 @@ const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 const QRegExp FILE_EXCEPTIONS("META-INF|page-map");
 
 const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js" << "xpgt";
-
-const QStringList FONT_EXTENSIONS         = QStringList() << "ttf"   << "ttc"   << "otf";
-const QStringList TEXT_EXTENSIONS         = QStringList() << "xhtml" << "html"  << "htm" << "xml";
-static const QStringList STYLE_EXTENSIONS = QStringList() << "css";
+const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf";
+const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm" << "xml";
+const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
+const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg";
+const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v" << "mp4" << "ogg" << "webm";
 
 const QString IMAGE_FOLDER_NAME = "Images";
 const QString FONT_FOLDER_NAME  = "Fonts";
 const QString TEXT_FOLDER_NAME  = "Text";
 const QString STYLE_FOLDER_NAME = "Styles";
+const QString AUDIO_FOLDER_NAME = "Audio";
+const QString VIDEO_FOLDER_NAME = "Video";
 const QString MISC_FOLDER_NAME  = "Misc";
 
 const QStringList IMAGE_MIMEYPES = QStringList() << "image/gif" << "image/jpeg"
@@ -68,6 +73,8 @@ const QStringList TEXT_MIMETYPES = QStringList() << "application/xhtml+xml"
                                    << "application/x-dtbook+xml"
                                    << "application/xml";
 const QStringList STYLE_MIMETYPES = QStringList() << "text/css";
+const QStringList AUDIO_MIMETYPES = QStringList() << "audio/mpeg" << "audio/mp4";
+const QStringList VIDEO_MIMETYPES = QStringList() << "video/mp4" << "video/mp4" << "video/mp4";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                                      "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
@@ -157,6 +164,14 @@ Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             relative_path = MISC_FOLDER_NAME + "/" + filename;
             resource = new MiscTextResource(new_file_path);
+        } else if (AUDIO_EXTENSIONS.contains(extension) || AUDIO_MIMETYPES.contains(mimetype)) {
+            new_file_path = m_FullPathToAudioFolder + "/" + filename;
+            relative_path = AUDIO_FOLDER_NAME + "/" + filename;
+            resource = new AudioResource(new_file_path);
+        } else if (VIDEO_EXTENSIONS.contains(extension) || VIDEO_MIMETYPES.contains(mimetype)) {
+            new_file_path = m_FullPathToVideoFolder + "/" + filename;
+            relative_path = VIDEO_FOLDER_NAME + "/" + filename;
+            resource = new VideoResource(new_file_path);
         } else if (IMAGE_EXTENSIONS.contains(extension) || IMAGE_MIMEYPES.contains(mimetype)) {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             relative_path = IMAGE_FOLDER_NAME + "/" + filename;
@@ -337,6 +352,16 @@ QString FolderKeeper::GetFullPathToImageFolder() const
     return m_FullPathToImagesFolder;
 }
 
+QString FolderKeeper::GetFullPathToAudioFolder() const
+{
+    return m_FullPathToAudioFolder;
+}
+
+QString FolderKeeper::GetFullPathToVideoFolder() const
+{
+    return m_FullPathToVideoFolder;
+}
+
 
 QStringList FolderKeeper::GetAllFilenames() const
 {
@@ -440,6 +465,8 @@ void FolderKeeper::CreateFolderStructure()
     QDir folder(m_FullPathToMainFolder);
     folder.mkdir("META-INF");
     folder.mkdir("OEBPS");
+    folder.mkpath("OEBPS/" + AUDIO_FOLDER_NAME);
+    folder.mkpath("OEBPS/" + VIDEO_FOLDER_NAME);
     folder.mkpath("OEBPS/" + IMAGE_FOLDER_NAME);
     folder.mkpath("OEBPS/" + FONT_FOLDER_NAME);
     folder.mkpath("OEBPS/" + TEXT_FOLDER_NAME);
@@ -447,6 +474,8 @@ void FolderKeeper::CreateFolderStructure()
     folder.mkpath("OEBPS/" + MISC_FOLDER_NAME);
     m_FullPathToMetaInfFolder = m_FullPathToMainFolder + "/META-INF";
     m_FullPathToOEBPSFolder   = m_FullPathToMainFolder + "/OEBPS";
+    m_FullPathToAudioFolder   = m_FullPathToMainFolder + "/" + AUDIO_FOLDER_NAME;
+    m_FullPathToVideoFolder   = m_FullPathToMainFolder + "/" + VIDEO_FOLDER_NAME;
     m_FullPathToImagesFolder  = m_FullPathToOEBPSFolder + "/" + IMAGE_FOLDER_NAME;
     m_FullPathToFontsFolder   = m_FullPathToOEBPSFolder + "/" + FONT_FOLDER_NAME;
     m_FullPathToTextFolder    = m_FullPathToOEBPSFolder + "/" + TEXT_FOLDER_NAME;
