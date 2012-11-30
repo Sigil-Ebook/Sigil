@@ -37,6 +37,7 @@
 #include <QtWebKit/QWebFrame>
 
 #include "BookManipulation/Book.h"
+#include "BookManipulation/CleanSource.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -187,7 +188,7 @@ QString BookViewEditor::GetHtml()
     html_from_Qt.prepend(DOC_PREFIX);
     // Convert nbsp to entity because it cannot be seen and there are issues
     // where CV will remove them if they are a single character.
-    html_from_Qt.replace(QChar(160), "&nbsp;");
+    html_from_Qt = CleanSource::NbspToEntity(html_from_Qt);
     return html_from_Qt;
 }
 

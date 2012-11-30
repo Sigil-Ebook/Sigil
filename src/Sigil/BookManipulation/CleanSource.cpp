@@ -578,6 +578,13 @@ QString CleanSource::PrettifyDOCTYPEHeader(const QString &source)
 }
 
 
+QString CleanSource::NbspToEntity(const QString &source)
+{
+    QString tmp = source;
+    return tmp.replace(QChar(160), "&nbsp;");
+}
+
+
 void CleanSource::ReformatAll(QList <TextResource *> resources, QString(clean_func)(const QString &source))
 {
     //QList <Resource *> resources = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );

@@ -38,7 +38,6 @@ class CleanSource
 {
 
 public:
-
     // Performs general cleaning (and improving)
     // of provided book XHTML source code
     static QString Clean(const QString &source);
@@ -55,6 +54,8 @@ public:
      * as though that top portion had been run with Prettify turned on.
      */
     static QString PrettifyDOCTYPEHeader(const QString &source);
+
+    static QString NbspToEntity(const QString &source);
 
     static void ReformatAll(QList <TextResource *> resources, QString(clean_fun)(const QString &source));
 
