@@ -69,8 +69,9 @@ static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem
         ",rect,script,set,stop,style,svg,switch,symbol,text,textPath,title,tref,tspan"
         ",use,view,vkern";
 
-static QString HTML5_BLOCK_ELEMENTS       = "article,aside,datagrid,details,dialog,figcaption,figure,footer,header,hgroup,menu,nav,section,summary";
-static QString HTML5_INLINE_ELEMENTS      = "audio,canvas,command,mark,meter,progress,rp,rt,ruby,time,video";
+static QString HTML5_BLOCK_ELEMENTS       = "article,aside,audio,canvas,datagrid,details,dialog"
+        ",figcaption,figure,footer,header,hgroup,menu,nav,section,source,summary,video";
+static QString HTML5_INLINE_ELEMENTS      = "command,mark,meter,progress,rp,rt,ruby,time";
 
 static QString BLOCK_ELEMENTS             = SVG_ELEMENTS + "," + HTML5_BLOCK_ELEMENTS;
 static QString INLINE_ELEMENTS            = HTML5_INLINE_ELEMENTS;
