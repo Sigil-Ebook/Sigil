@@ -76,6 +76,7 @@ private:
     void ConnectSignalsToSlots();
 
     QStringList *m_ClipboardHistoryItems;
+    QStringList *m_PreviousClipboardHistoryItems;
 
     Ui::ClipboardHistorySelector ui;
 };

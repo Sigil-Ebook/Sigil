@@ -33,11 +33,13 @@
 
 static const QString SETTINGS_GROUP = "clipboard_history";
 static const QString KEY_SELECTORS = "0123456789abcdefghij";
+const int MAX_DISPLAY_LENGTH = 500;
 
 ClipboardHistorySelector::ClipboardHistorySelector(QWidget *parent)
     :
     QDialog(parent),
-    m_ClipboardHistoryItems(new QStringList())
+    m_ClipboardHistoryItems(new QStringList()),
+    m_PreviousClipboardHistoryItems(new QStringList())
 {
     ui.setupUi(this);
     ExtendUI();
@@ -47,6 +49,11 @@ ClipboardHistorySelector::ClipboardHistorySelector(QWidget *parent)
 
 void ClipboardHistorySelector::showEvent(QShowEvent *event)
 {
+    // Make a copy of the clipboard history in case user clicks Cancel
+    m_PreviousClipboardHistoryItems->clear();
+    for (int i=0; i < m_ClipboardHistoryItems->count(); i++) {
+        m_PreviousClipboardHistoryItems->append(m_ClipboardHistoryItems->at(i));
+    }
     SetupClipboardHistoryTable();
     ui.clipboardItemsTable->setFocus();
 }
@@ -105,7 +112,13 @@ void ClipboardHistorySelector::SetupClipboardHistoryTable()
         selector->setText(KEY_SELECTORS.at(row));
         selector->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
         ui.clipboardItemsTable->setItem(row, 0, selector);
-        const QString text = m_ClipboardHistoryItems->at(row);
+
+        QString text = m_ClipboardHistoryItems->at(row);
+        // In case the user has an enormous amount of data restrict what is displayed.
+        if (text.length() > MAX_DISPLAY_LENGTH) {
+            text.truncate(MAX_DISPLAY_LENGTH);
+            text.append("...");
+        }
         QString display_text(text);
         // Replace certain non-printable characters with spaces (to avoid
         // drawing boxes when using fonts that don't have glyphs for such
@@ -126,7 +139,7 @@ void ClipboardHistorySelector::SetupClipboardHistoryTable()
         QTableWidgetItem *clip = new QTableWidgetItem();
         clip->setText(display_text);
         clip->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
-        clip->setData(Qt::UserRole, QVariant(text));
+        clip->setData(Qt::UserRole, QVariant(m_ClipboardHistoryItems->at(row)));
         clip->setToolTip(text);
         ui.clipboardItemsTable->setItem(row, 1, clip);
     }
@@ -254,6 +267,12 @@ void ClipboardHistorySelector::accept()
 
 void ClipboardHistorySelector::reject()
 {
+    // As user is cancelling, reject any deltions they have done to the history
+    m_ClipboardHistoryItems->clear();
+    for (int i=0; i < m_PreviousClipboardHistoryItems->count(); i++) {
+        m_ClipboardHistoryItems->append(m_PreviousClipboardHistoryItems->at(i));
+    }
+
     WriteSettings();
     QDialog::reject();
 }
