@@ -59,7 +59,7 @@ if ( node.nodeType == 3 ) {
             if ( parent == blockNode ) {
                 // We reached the parent and must be the last node within it
                 splitNode = parent.parentNode;
-                splitOffset = get_child_offset(node) + 1;
+                splitOffset = get_child_offset(parent) + 1;
                 break;
             }
             node = parent;
