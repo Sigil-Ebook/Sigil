@@ -1,4 +1,5 @@
 Sigil 0.6.1 TBD
+    - Implement issue 1801: Audio and Video tags and files should be supported by Sigil.
     - Implement issue 1797: Clean Source should have preference options to set when it should run.
     - Implement issue 1768: Add non-destructive pretty printer as an option in addition to the Tidy provided one.
     - Implement issue 1770: Change Clean Source to no longer warn about restarting Sigil.
