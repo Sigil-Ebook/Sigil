@@ -99,15 +99,12 @@ set( QOBJECT_HEADERS
     Misc/CSSInfo.h
     Misc/PasteTargetComboBox.h
     Misc/SettingsStore.h
-    Misc/UILanguage.h
     Misc/UpdateChecker.h 
     Misc/RasterizeImageResource.h
     Misc/WrapIndicator.h
     MiscEditors/SearchEditorModel.h
-    MiscEditors/ClipEditorTreeView.h
     MiscEditors/ClipEditorModel.h
     MiscEditors/IndexEditorModel.h
-    Misc/NumericItem.h
     Misc/SelectImagePreviewer.h
     ResourceObjects/Resource.h
     ResourceObjects/TextResource.h
