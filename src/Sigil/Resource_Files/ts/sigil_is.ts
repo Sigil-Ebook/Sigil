@@ -1,45 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="km" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="is" version="2.0">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>អំពី</translation>
+        <translation>Um</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation type="unfinished"/>
+        <translation>EPUB ritill</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation>ទូទៅ</translation>
+        <translation>Almennt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="86"/>
         <source>Homepage:</source>
-        <translation>គេហទំព័រ៖</translation>
+        <translation>Heimasíða:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="122"/>
         <source>Version:</source>
-        <translation>ជំនាន់៖</translation>
+        <translation>Útgáfa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="149"/>
         <source>Loaded Qt:</source>
-        <translation>បាន​ផ្ទុក Qt៖</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="179"/>
         <source>License:</source>
-        <translation>អាជ្ញាប័ណ្ណ៖</translation>
+        <translation>Leyfi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="191"/>
         <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="209"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="234"/>
         <source>Authors</source>
-        <translation>អ្នក​បង្កើត</translation>
+        <translation>Höfundar</translation>
     </message>
 </context>
 <context>
@@ -311,12 +311,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="237"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>ពុំ​មាន​ឯកសារ &quot;%1&quot; ទេ។</translation>
+        <translation>Skráin &quot;%1&quot; er ekki til.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="481"/>
         <source>Add existing file(s)</source>
-        <translation>បន្ថែម​ឯកសារ​មាន​ស្រាប់</translation>
+        <translation>Bæta við skrá eða skrám sem til eru</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="210"/>
@@ -326,7 +326,7 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="697"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="897"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="210"/>
@@ -336,7 +336,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="210"/>
         <source>This action cannot be reversed.</source>
-        <translation>សកម្មភាព​នេះ​មិន​អាច​បក​ក្រោយ​បាន​ទេ។</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
@@ -430,7 +430,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1219"/>
         <source>Add Blank Stylesheet</source>
-        <translation>បន្ថែម​សន្លឹក​រចនាបថ​ទទេ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1220"/>
@@ -440,7 +440,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1221"/>
         <source>Add Existing Files...</source>
-        <translation>បន្ថែម​ឯកសារ​មាន​ស្រាប់...</translation>
+        <translation>Bæta við skrám sem til eru...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1222"/>
@@ -451,7 +451,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1224"/>
         <source>Rename</source>
-        <translation>ប្ដូរ​ឈ្មោះ</translation>
+        <translation>Breyta nafni</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1233"/>
@@ -471,22 +471,22 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1226"/>
         <source>Cover Image</source>
-        <translation>រូប​គម្រប</translation>
+        <translation>Forsíðumynd</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1227"/>
         <source>Merge</source>
-        <translation>ច្របាច់​បញ្ចូល</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1229"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>ប្រើ​វិធី​របស់ Adobe</translation>
+        <translation>Nota aðferð Adobe</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1230"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>ប្រើ​វិធី​របស់ IDPF</translation>
+        <translation>Nota aðferð IDPF</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1217"/>
@@ -523,7 +523,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1231"/>
         <source>Sort</source>
-        <translation>តម្រៀប</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1232"/>
@@ -538,27 +538,27 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
         <source>Cover</source>
-        <translation>គម្រប</translation>
+        <translation>Forsíða</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1268"/>
         <source>Title Page</source>
-        <translation>ចំណង​ជើង​ទំព័រ</translation>
+        <translation>Titilsíða</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1272"/>
         <source>Table Of Contents</source>
-        <translation>បញ្ជី​មាតិកា</translation>
+        <translation>Efnisyfirlit</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1276"/>
         <source>Index</source>
-        <translation>លិបិក្រម</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1280"/>
         <source>Glossary</source>
-        <translation>សទ្ទានុក្រម</translation>
+        <translation>Glósur</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1284"/>
@@ -568,7 +568,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
         <source>Bibliography</source>
-        <translation>គន្ថនិទ្ទេស</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1292"/>
@@ -583,7 +583,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1300"/>
         <source>Dedication</source>
-        <translation type="unfinished"/>
+        <translation>Tileinkun</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1304"/>
@@ -593,32 +593,32 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1308"/>
         <source>Foreword</source>
-        <translation type="unfinished"/>
+        <translation>Formáli</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
         <source>List Of Illustrations</source>
-        <translation type="unfinished"/>
+        <translation>Listi yfir myndir</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1316"/>
         <source>List Of Tables</source>
-        <translation>តារាង​បញ្ជី</translation>
+        <translation>Listi yfir töflur</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
         <source>Notes</source>
-        <translation>ចំណាំ</translation>
+        <translation>Glósur</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
         <source>Preface</source>
-        <translation>អារម្ភកថា</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
         <source>Text</source>
-        <translation>អត្ថបទ</translation>
+        <translation>Texti</translation>
     </message>
 </context>
 <context>
@@ -781,7 +781,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="272"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="272"/>
@@ -1065,7 +1065,7 @@ and when loading a file edited with Open With.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="65"/>
         <source>Text</source>
-        <translation>អត្ថបទ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="65"/>
@@ -1120,7 +1120,7 @@ and when loading a file edited with Open With.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="332"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="332"/>
@@ -1150,7 +1150,7 @@ and when loading a file edited with Open With.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="563"/>
         <source>Edit</source>
-        <translation>កែ​សម្រួល</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="564"/>
@@ -1224,7 +1224,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="63"/>
         <source>Text</source>
-        <translation>អត្ថបទ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="596"/>
@@ -1412,7 +1412,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>រក &amp; ជំនួស</translation>
+        <translation>Finna og skipta um</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="103"/>
@@ -1422,7 +1422,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="152"/>
         <source>Find:</source>
-        <translation>ស្វែង​រក៖</translation>
+        <translation>Finna</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
@@ -1438,7 +1438,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation>លាក់ ស្វែង​រក​និង​ជំនួស</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
@@ -1494,7 +1494,7 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="365"/>
         <source>Count All</source>
-        <translation>រាប់​ទាំង​អស់</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
@@ -1504,12 +1504,12 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation>ជំនួស​ទាំង​អស់</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
         <source>Replace:</source>
-        <translation>ជំនួស៖</translation>
+        <translation>Skipta um</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="184"/>
@@ -1529,7 +1529,7 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="372"/>
         <source>Mode:</source>
-        <translation>របៀប៖</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="523"/>
@@ -1553,7 +1553,7 @@ then find the Next match in Code View.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="261"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1118"/>
         <source>%1 matches found</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="337"/>
@@ -1565,17 +1565,17 @@ then find the Next match in Code View.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="339"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1144"/>
         <source>%1 replacements made</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="994"/>
         <source>This tab cannot be searched</source>
-        <translation>ផ្ទាំង​នេះ​មិន​អាច​ស្វែង​រក​បាន​ទេ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1266"/>
         <source>Normal</source>
-        <translation>ធម្មតា</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1275"/>
@@ -1664,7 +1664,7 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1274"/>
         <source>Current File</source>
-        <translation>ឯកសារ​បច្ចុប្បន្ន</translation>
+        <translation>Núverandi skrá</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1276"/>
@@ -1705,7 +1705,7 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="1200"/>
         <source>Print %1</source>
-        <translation>បោះពុម្ព %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1768,7 +1768,7 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="288"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="288"/>
@@ -1798,7 +1798,7 @@ The heading&apos;s title attribute will be updated in the document.</source>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="889"/>
         <source>Rename</source>
-        <translation>ប្ដូរ​ឈ្មោះ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="81"/>
@@ -1834,7 +1834,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="535"/>
         <source>Include</source>
-        <translation>រួម​បញ្ចូល</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="752"/>
@@ -1850,7 +1850,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="757"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="818"/>
         <source>None</source>
-        <translation>មិន​មាន</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="533"/>
@@ -1877,7 +1877,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="763"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="816"/>
         <source>All</source>
-        <translation>ទាំងអស់</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1960,7 +1960,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="329"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="329"/>
@@ -2105,12 +2105,12 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/IndexEditor.cpp" line="322"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="346"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="322"/>
         <source>Added %n entries.</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="330"/>
@@ -2135,7 +2135,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="457"/>
         <source>Edit</source>
-        <translation>កែ​សម្រួល</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="458"/>
@@ -2237,12 +2237,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>ឈ្មោះ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="72"/>
         <source>Description</source>
-        <translation>សេចក្ដី​អធិប្បាយ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
@@ -2268,22 +2268,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="163"/>
         <source>Remove</source>
-        <translation>ដក​ចេញ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>ផ្លូវកាត់</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
         <source>Reset all to default</source>
-        <translation>កំណត់​ទៅ​លក្ខណៈ​ដើម</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation>កំណត់​ឡើង​វិញទាំង​អស់</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
@@ -5199,7 +5199,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>ភាសា</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="36"/>
@@ -5271,27 +5271,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>គ្មាន​ឈ្មោះ.epub[*] - Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="49"/>
         <source>&amp;File</source>
-        <translation>ឯកសារ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="79"/>
         <source>&amp;Edit</source>
-        <translation>កែ​សម្រួល</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="122"/>
         <source>&amp;Help</source>
-        <translation>ជំនួយ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="180"/>
         <source>&amp;View</source>
-        <translation>ទិដ្ឋភាព</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="200"/>
@@ -5306,148 +5306,138 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="233"/>
         <source>&amp;Window</source>
-        <translation>ផ្ទាំង​កម្មវិធី</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="305"/>
         <location filename="../../MainUI/MainWindow.cpp" line="320"/>
         <source>File</source>
-        <translation>ឯកសារ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="320"/>
         <source>Edit</source>
-        <translation>កែ​សម្រួល</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="339"/>
         <source>View</source>
-        <translation>ទិដ្ឋភាព</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="353"/>
         <source>Insert</source>
-        <translation>នាំចូល</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="382"/>
         <source>Donate</source>
-        <translation>បរិច្ចាគ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="526"/>
         <source>Ctrl+N</source>
-        <translation>Ctrl+N</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="535"/>
         <source>&amp;Save</source>
-        <translation>រក្សា​ទុក</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="538"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;រក្សា​ទុក&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;រក្សា​សៀវភៅ​នេះ​ទុក។&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="543"/>
         <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="548"/>
         <source>Save &amp;As...</source>
-        <translation>រក្សា​ទុក​ជា...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="551"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;រក្សា​ទុក​ជា&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;រក្សា​ទុក​សៀវភៅ​នេះ ជាមួយ​នឹង​ឈ្មោះ​ផ្សេង។&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="556"/>
         <source>Ctrl+Shift+S</source>
-        <translation>Ctrl+Shift+S</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="573"/>
         <source>Cu&amp;t</source>
-        <translation>កាត់</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="581"/>
         <source>Ctrl+X</source>
-        <translation>Ctrl+X</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="590"/>
         <source>&amp;Paste</source>
-        <translation>បិទ​ភ្ជាប់</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="593"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;បិទ​ភ្ជាប់&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;បិទ​ភ្ជាប់​ទិន្នន័យ​ពី​ឃ្លីបបត ទៅ​ក្នុង​សៀវភៅ។&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="598"/>
         <source>Ctrl+V</source>
-        <translation>Ctrl+V</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="618"/>
         <source>&amp;Undo</source>
-        <translation>លែង​ធ្វើ​វិញ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="621"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;លែង​ធ្វើ​វិញ&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ត្រឡប់​ការ​ផ្លាស់​ប្ដូរ​មុនៗ ឲ្យ​ទៅ​សភាព ដើម។&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="626"/>
         <source>Ctrl+Z</source>
-        <translation>Ctrl+Z</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="635"/>
         <source>&amp;Redo</source>
-        <translation>ធ្វើ​វិញ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="638"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;ធ្វើ​វិញ&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ស្ដារ​បន្លាស់​ប្ដូរ ដែល​បាន​ធ្វើ​ដោយ​សកម្មភាព លែង​ធ្វើវិញ ។&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="652"/>
         <source>&amp;Copy</source>
-        <translation>ចម្លង</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="660"/>
         <source>Ctrl+C</source>
-        <translation>Ctrl+C</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="675"/>
@@ -5466,41 +5456,39 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="783"/>
         <source>&amp;Open...</source>
-        <translation>បើក...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="786"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;បើក&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;បើក​សៀវភៅ​ពី​ថាស​ទិន្នន័យ។&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="791"/>
         <source>Ctrl+O</source>
-        <translation>Ctrl+O</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="823"/>
         <source>Exit</source>
-        <translation>ចាក​ចេញ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="826"/>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="835"/>
         <source>&amp;About...</source>
-        <translation>អំពី...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="855"/>
         <source>F8</source>
-        <translation>F8</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="884"/>
@@ -5510,27 +5498,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="892"/>
         <source>F9</source>
-        <translation>F9</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="913"/>
         <source>F10</source>
-        <translation>F10</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="925"/>
         <source>&amp;Code View</source>
-        <translation>&amp;មើលកូដ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="933"/>
         <source>F11</source>
-        <translation>F11</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="961"/>
         <source>Ctrl+Return</source>
-        <translation>Ctrl+Return</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="887"/>
@@ -5589,9 +5577,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;ថ្មី&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;បង្កើត​សៀវភៅ​ថ្មី។&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="928"/>
@@ -5620,7 +5606,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="980"/>
         <source>Ctrl+Shift+I</source>
-        <translation>Ctrl+Shift+I</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="989"/>
@@ -5664,27 +5650,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1119"/>
         <source>&amp;Print...</source>
-        <translation>&amp;បោះពុម្ព...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1122"/>
         <source>Print</source>
-        <translation>បោះពុម្ព</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1125"/>
         <source>Ctrl+P</source>
-        <translation>Ctrl+P</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1134"/>
         <source>Print Pre&amp;view...</source>
-        <translation>មើល​ការ​បោះពុម្ព​ជាមុ&amp;ន...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1137"/>
         <source>Print Preview</source>
-        <translation>មើល​ការ​បោះពុម្ព​ជាមុន</translation>
+        <translation>Prentskoðun</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="485"/>
@@ -5992,42 +5978,42 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../Form_Files/main.ui" line="1142"/>
         <location filename="../../Form_Files/main.ui" line="1145"/>
         <source>Close</source>
-        <translation>បិទ</translation>
+        <translation>Loka</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1148"/>
         <source>Ctrl+Shift+W</source>
-        <translation>Ctrl+Shift+W</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1157"/>
         <source>Zoom &amp;In</source>
-        <translation>&amp;ពង្រីក</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1160"/>
         <source>Zoom In</source>
-        <translation>ពង្រីក</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1163"/>
         <source>Ctrl++</source>
-        <translation>Ctrl++</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1172"/>
         <source>Zoom &amp;Out</source>
-        <translation>បង្រួ&amp;ម</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1175"/>
         <source>Zoom Out</source>
-        <translation>បង្រួម</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1178"/>
         <source>Ctrl+-</source>
-        <translation>Ctrl+-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1183"/>
@@ -6061,14 +6047,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;ស្វែងរក​និង​ជំនួស&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ស្វែង​រក​និង​ជំនួស​អក្សរ​នៅ​ក្នុង​អត្ថបទ។&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1206"/>
         <source>Ctrl+F</source>
-        <translation>Ctrl+F</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1218"/>
@@ -6185,37 +6169,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1388"/>
         <source>&amp;Next Tab</source>
-        <translation>&amp;ផ្ទាំង​បន្ទាប់</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1391"/>
         <source>Ctrl+PgUp</source>
-        <translation>Ctrl+PgUp</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1396"/>
         <source>&amp;Previous Tab</source>
-        <translation>ផ្ទាំង​&amp;ខាង​ក្រោយ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1399"/>
         <source>Ctrl+PgDown</source>
-        <translation>Ctrl+PgDown</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1404"/>
         <source>&amp;Close Tab</source>
-        <translation>បិ&amp;ទ​ផ្ទាំង</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1407"/>
         <source>Ctrl+W</source>
-        <translation>Ctrl+W</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1418"/>
         <source>F6</source>
-        <translation>F6</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1465"/>
@@ -6519,7 +6503,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1429"/>
         <source>Ctrl+Shift+Return</source>
-        <translation>Ctrl+Shift+Return</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1198"/>
@@ -6599,12 +6583,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1445"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>សំណួរ​ដែល​បាន​សួរ​ជា​&amp;ញឹកញាប់...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1448"/>
         <source>Frequently Asked Questions</source>
-        <translation>សំណួរ​ដែល​បាន​សួរ​ជា​ញឹកញាប់</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1468"/>
@@ -6665,7 +6649,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1569"/>
         <source>&amp;Donate...</source>
-        <translation>បរិច្ចា&amp;គ...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1580"/>
@@ -6755,42 +6739,42 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1583"/>
         <source>Ctrl+Alt+W</source>
-        <translation>Ctrl+Alt+W</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1591"/>
         <source>Ctrl+/</source>
-        <translation>Ctrl+/</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1599"/>
         <source>Ctrl+G</source>
-        <translation>Ctrl+G</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1607"/>
         <source>Ctrl+Shift+G</source>
-        <translation>Ctrl+Shift+G</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1623"/>
         <source>Ctrl+]</source>
-        <translation>Ctrl+]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1631"/>
         <source>Ctrl+[</source>
-        <translation>Ctrl+[</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1639"/>
         <source>Alt+A</source>
-        <translation>Alt+A</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1647"/>
         <source>Alt+C</source>
-        <translation>Alt+C</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1672"/>
@@ -6820,12 +6804,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1705"/>
         <source>Ctrl+0</source>
-        <translation>Ctrl+0</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1883"/>
         <source>Blank Stylesheet</source>
-        <translation>សន្លឹក​រចនាបថ​ទទេ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1891"/>
@@ -6840,7 +6824,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1905"/>
         <source>Alt+PgUp</source>
-        <translation>Alt+PgUp</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="843"/>
@@ -6888,27 +6872,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1916"/>
         <source>Alt+PgDown</source>
-        <translation>Alt+PgDown</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="459"/>
         <source>Open File</source>
-        <translation>បើក​ឯកសារ</translation>
+        <translation>Opna Skrá</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="574"/>
         <source>Save File</source>
-        <translation>រក្សា​ទុក​ឯកសារ</translation>
+        <translation>Vista Skrá</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="664"/>
         <source>Go To Line</source>
-        <translation>ទៅ​កាន់​បន្ទាត់</translation>
+        <translation>Fara í línu</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="664"/>
         <source>Line #</source>
-        <translation>បន្ទាត់ទី #</translation>
+        <translation>Lína #</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="289"/>
@@ -6923,7 +6907,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="2550"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2890"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="289"/>
@@ -7247,8 +7231,7 @@ Cannot close tab: %1</source>
         <location filename="../../MainUI/MainWindow.cpp" line="2551"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>ឯកសារ​ត្រូវ​បាន​កែ​សម្រួល។
-តើ​អ្នក​ចង់​រក្សា​ទុក​បន្លាស់​ប្ដូរ​ទេ?</translation>
+        <translation>Skjalinu hefur verið breytt.⏎ Vilt þú vista breytingar?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2633"/>
@@ -7265,7 +7248,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2675"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>អ្នក​បង្កើត​ឯកសារ​នេះ​បាន​អ៊ីនគ្រីប​វា​ជាមួយ DRM។ Sigil មិន​អាច​បើក​ឯកសារ​បែប​នេះ​បាន​ទេ។</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2681"/>
@@ -7275,7 +7258,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2684"/>
         <source>Cannot load file %1: %2</source>
-        <translation>មិន​អាច​ផ្ទុក​ឯកសារ %1: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2705"/>
@@ -7291,39 +7274,39 @@ Please choose a different format.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2751"/>
         <source>Cannot save file %1: %2</source>
-        <translation>មិន​អាច​រក្សា​ទុក​ឯកសារ %1: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2867"/>
         <source>EPUB files (*.epub)</source>
-        <translation>ឯកសារ EPUB (*.epub)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2868"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2869"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2870"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>ឯកសារ HTML (*.htm *.html *.xhtml)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2871"/>
         <source>Text files (*.txt)</source>
-        <translation>ឯកសារ​អក្សរ (*.txt)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2872"/>
         <source>All files (*.*)</source>
-        <translation>គ្រប់​ឯកសារ (*.*)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2880"/>
         <source>EPUB file (*.epub)</source>
-        <translation>ឯកសារ EPUB (*.epub)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2890"/>
         <source>%1[*] - %2</source>
-        <translation>%1[*] - %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2961"/>
@@ -7343,7 +7326,7 @@ Please choose a different format.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2987"/>
         <source>&amp;%1 %2</source>
-        <translation>&amp;%1 %2</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7361,7 +7344,7 @@ Please choose a different format.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="31"/>
         <source>Title:</source>
-        <translation>ចំណងជើង៖</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="125"/>
@@ -7409,7 +7392,7 @@ Readers may display entries in the order they are listed.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="99"/>
         <source>Author:</source>
-        <translation>អ្នកនិពន្ធ៖</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="48"/>
@@ -7419,7 +7402,7 @@ Readers may display entries in the order they are listed.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="51"/>
         <source>Language:</source>
-        <translation>ភាសា៖</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="68"/>
@@ -7460,17 +7443,17 @@ entries of the same type.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="177"/>
         <source>Remove</source>
-        <translation>ដក​ចេញ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="395"/>
         <source>Name</source>
-        <translation>ឈ្មោះ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="396"/>
         <source>Value</source>
-        <translation>តម្លៃ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="397"/>
@@ -9852,12 +9835,12 @@ entries of the same type.</source>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>ចំណង់ចំណូលចិត្ត</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="94"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="94"/>
@@ -9885,7 +9868,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="92"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="93"/>
@@ -9896,8 +9879,7 @@ entries of the same type.</source>
         <location filename="../../Misc/Utility.cpp" line="293"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>មិន​អាច​អាន​ឯកសាររ %1:
-%2.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="384"/>
@@ -9958,27 +9940,27 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="70"/>
         <source>Cover</source>
-        <translation>គម្រប</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="72"/>
         <source>Title Page</source>
-        <translation>ចំណង​ជើង​ទំព័រ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="74"/>
         <source>Table Of Contents</source>
-        <translation>បញ្ជី​មាតិកា</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="76"/>
         <source>Index</source>
-        <translation>លិបិក្រម</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="78"/>
         <source>Glossary</source>
-        <translation>សទ្ទានុក្រម</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="80"/>
@@ -9988,7 +9970,7 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="82"/>
         <source>Bibliography</source>
-        <translation>គន្ថនិទ្ទេស</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="84"/>
@@ -10028,17 +10010,17 @@ entries of the same type.</source>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="98"/>
         <source>Notes</source>
-        <translation>ចំណាំ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="100"/>
         <source>Preface</source>
-        <translation>អារម្ភកថា</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="102"/>
         <source>Text</source>
-        <translation>អត្ថបទ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="55"/>
@@ -10185,7 +10167,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="55"/>
         <source>Section0001</source>
-        <translation>Section0001</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -10414,7 +10396,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="401"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="401"/>
@@ -10444,7 +10426,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="657"/>
         <source>Edit</source>
-        <translation>កែ​សម្រួល</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="658"/>
@@ -10687,7 +10669,7 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>Dictionary:</source>
-        <translation>វចនានុក្រម</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="110"/>
@@ -10698,7 +10680,7 @@ add to your book and then insert into your document.</source>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="125"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Rename</source>
-        <translation>ប្ដូរ​ឈ្មោះ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="160"/>
@@ -10709,7 +10691,7 @@ add to your book and then insert into your document.</source>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="118"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="175"/>
         <source>Add</source>
-        <translation>ប​ន្ថែម</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
@@ -10719,18 +10701,18 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="182"/>
         <source>Edit</source>
-        <translation>កែ​សម្រួល</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="132"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="189"/>
         <source>Remove</source>
-        <translation>ដក​ចេញ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="196"/>
         <source>Remove All</source>
-        <translation>ដក​ចេញ​ទាំង​អស់</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="61"/>
@@ -10828,7 +10810,7 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="251"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="262"/>
@@ -10857,12 +10839,12 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="43"/>
         <source>Table Of Contents</source>
-        <translation>បញ្ជី​មាតិកា</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="110"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>ពុំ​មាន​ឯកសារ &quot;%1&quot; ទេ។</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="159"/>
@@ -10888,7 +10870,7 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="43"/>
         <source>Validation Results</source>
-        <translation>លទ្ធផល​បញ្ជាក់​ភាព​ត្រឹម​ត្រូវ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="67"/>
@@ -10898,28 +10880,28 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="155"/>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="176"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="192"/>
         <source>Message</source>
-        <translation>សារ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="177"/>
         <source>No problems found!</source>
-        <translation>រក​មិន​ឃើញ​បញ្ហា!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="192"/>
         <source>File</source>
-        <translation>ឯកសារ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="192"/>
         <source>Line</source>
-        <translation>បន្ទាត់</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -10937,12 +10919,12 @@ add to your book and then insert into your document.</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
         <source>Fix &amp;Automatically</source>
-        <translation>ជួសជុ&amp;ល​ដោយ​ស្វ័យ​ប្រវត្តិ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="57"/>
         <source>Fix &amp;Manually</source>
-        <translation>ជួសជុល​ដោ&amp;យ​ដៃ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
