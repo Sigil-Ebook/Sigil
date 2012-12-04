@@ -1,3 +1,6 @@
+Sigil 0.6.2 TBA
+    - Fix issue 1809: Fix crash related to cursor syncing.
+
 Sigil 0.6.1 2012.12.02
     - Implement issue 1801: Audio and Video tags and files should be supported by Sigil.
     - Implement issue 1797: Clean Source should have preference options to set when it should run.

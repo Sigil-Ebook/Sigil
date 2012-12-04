@@ -1026,15 +1026,22 @@ xc::DOMNode *XhtmlDoc::GetNodeFromHierarchy(const xc::DOMDocument &document,
         const QList< ViewEditor::ElementIndex > &hierarchy)
 {
     xc::DOMNode *node = document.getElementsByTagName(QtoX("html"))->item(0);
+    if (node == NULL) {
+        return NULL;
+    }
     xc::DOMNode *end_node = NULL;
+    xc::DOMNodeList *tmp_node = NULL;
 
     for (int i = 0; i < hierarchy.count() - 1; ++i) {
         QList< xc::DOMNode * > children;
 
-        if (hierarchy[ i + 1 ].name != "#text") {
-            children = ExtractElements(*node->getChildNodes());
-        } else {
-            children = ConvertToRegularList(*node->getChildNodes());
+        tmp_node = node->getChildNodes();
+        if (tmp_node != NULL) {
+            if (hierarchy[ i + 1 ].name != "#text") {
+                children = ExtractElements(*tmp_node);
+            } else {
+                children = ConvertToRegularList(*tmp_node);
+            }
         }
 
         // If the index is within the range, descend
