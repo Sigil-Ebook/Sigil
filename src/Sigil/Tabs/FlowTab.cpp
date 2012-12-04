@@ -495,8 +495,6 @@ void FlowTab::SaveTabContent()
         m_HTMLResource.SetText(m_wBookView->GetHtml());
         m_wBookView->ResetModified();
         m_safeToLoad = true;
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
     }
 
     // Either from being in CV or saving from BV above we now reset the resource to say no user changes unsaved.
