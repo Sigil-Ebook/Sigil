@@ -54,7 +54,7 @@ const QString XML_NAMESPACE_CRUFT = " xmlns=\"http://www.w3.org/1999/xhtml\"";
 const QString WEBKIT_BODY_STYLE_CRUFT = " style=\"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; \"";
 
 const QString DOC_PREFIX = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
-                           "<!DOCTYPE html PUBLIC \"W3C//DTD XHTML 1.1//EN\"\n"
+                           "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
                            "  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
                            "<html xmlns=\"http://www.w3.org/1999/xhtml\">";
 
