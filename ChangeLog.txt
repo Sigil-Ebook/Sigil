@@ -1,4 +1,5 @@
 Sigil 0.6.2 TBA
+    - Fix issue 1816: Height is incorrect in Reports->Image Files.
     - Fix issue 1809: Fix crash related to cursor syncing.
     - Fix issue 1808: Editing in book view changes DTD to incorrect value.
 

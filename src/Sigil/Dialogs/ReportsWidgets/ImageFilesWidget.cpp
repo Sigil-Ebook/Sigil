@@ -131,7 +131,7 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << width_item;
         // Height
         NumericItem *height_item = new NumericItem();
-        height_item->setText(QString::number(image.width()));
+        height_item->setText(QString::number(image.height()));
         rowItems << height_item;
         // Pixels
         NumericItem *pixel_item = new NumericItem();
