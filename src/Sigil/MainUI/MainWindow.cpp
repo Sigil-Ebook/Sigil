@@ -2637,7 +2637,7 @@ void MainWindow::LoadFile(const QString &fullfilepath)
 
         if (error.line != -1) {
             // Warn the user their content is invalid.
-            Utility::DisplayStdErrorDialog(tr("The following file was not loaded due to invalid content or not well formed XML:\n\n%1 (line %2: %3)")
+            Utility::DisplayStdErrorDialog(tr("The following file was not loaded due to invalid content or not well formed XML:\n\n%1 (line %2: %3)\n\nTry setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and reloading the file.")
                                            .arg(QDir::toNativeSeparators(fullfilepath))
                                            .arg(error.line)
                                            .arg(error.message));
