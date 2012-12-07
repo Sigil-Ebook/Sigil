@@ -116,7 +116,6 @@ FolderKeeper::~FolderKeeper()
     }
 }
 
-
 // TODO: This code really needs to be rewritten so that the file-type is determined from the mimetype
 // given in the OPF file, rather than relying on the file's extension.
 Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
@@ -474,8 +473,8 @@ void FolderKeeper::CreateFolderStructure()
     folder.mkpath("OEBPS/" + MISC_FOLDER_NAME);
     m_FullPathToMetaInfFolder = m_FullPathToMainFolder + "/META-INF";
     m_FullPathToOEBPSFolder   = m_FullPathToMainFolder + "/OEBPS";
-    m_FullPathToAudioFolder   = m_FullPathToMainFolder + "/" + AUDIO_FOLDER_NAME;
-    m_FullPathToVideoFolder   = m_FullPathToMainFolder + "/" + VIDEO_FOLDER_NAME;
+    m_FullPathToAudioFolder   = m_FullPathToOEBPSFolder + "/" + AUDIO_FOLDER_NAME;
+    m_FullPathToVideoFolder   = m_FullPathToOEBPSFolder + "/" + VIDEO_FOLDER_NAME;
     m_FullPathToImagesFolder  = m_FullPathToOEBPSFolder + "/" + IMAGE_FOLDER_NAME;
     m_FullPathToFontsFolder   = m_FullPathToOEBPSFolder + "/" + FONT_FOLDER_NAME;
     m_FullPathToTextFolder    = m_FullPathToOEBPSFolder + "/" + TEXT_FOLDER_NAME;
