@@ -586,14 +586,14 @@ QString CleanSource::NbspToEntity(const QString &source)
 }
 
 
-void CleanSource::ReformatAll(QList <TextResource *> resources, QString(clean_func)(const QString &source))
+void CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_func)(const QString &source))
 {
     //QList <Resource *> resources = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
     QProgressDialog progress(QObject::tr("Cleaning..."), 0, 0, resources.count(), Utility::GetMainWindow());
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
     progress.setValue(progress_value);
-    foreach(TextResource * resource, resources) {
+    foreach(HTMLResource * resource, resources) {
         progress.setValue(progress_value++);
         qApp->processEvents();
         QWriteLocker locker(&resource->GetLock());

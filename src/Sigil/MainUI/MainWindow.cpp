@@ -2720,9 +2720,9 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
         if (ss.cleanOn() & CLEANON_SAVE) {
-            QList <TextResource *> resources;
+            QList <HTMLResource *> resources;
             Q_FOREACH(Resource * r, GetAllHTMLResources()) {
-                TextResource *t = dynamic_cast<TextResource *>(r);
+                HTMLResource *t = dynamic_cast<HTMLResource *>(r);
                 if (t) {
                     resources.append(t);
                 }

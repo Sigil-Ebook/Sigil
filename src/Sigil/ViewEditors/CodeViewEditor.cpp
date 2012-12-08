@@ -2838,9 +2838,9 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
         }
 
         mainWindow->GetCurrentContentTab().SaveTabContent();
-        QList <TextResource *> resources;
+        QList <HTMLResource *> resources;
         Q_FOREACH(Resource * r, mainWindow->GetAllHTMLResources()) {
-            TextResource *t = dynamic_cast<TextResource *>(r);
+            HTMLResource *t = dynamic_cast<HTMLResource *>(r);
 
             if (t) {
                 resources.append(t);

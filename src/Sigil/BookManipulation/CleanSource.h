@@ -28,7 +28,7 @@
 
 #include <QtCore/QList>
 
-#include "ResourceObjects/TextResource.h"
+#include "ResourceObjects/HTMLResource.h"
 
 using boost::tuple;
 
@@ -57,7 +57,7 @@ public:
 
     static QString NbspToEntity(const QString &source);
 
-    static void ReformatAll(QList <TextResource *> resources, QString(clean_fun)(const QString &source));
+    static void ReformatAll(QList <HTMLResource *> resources, QString(clean_fun)(const QString &source));
 
 private:
 
