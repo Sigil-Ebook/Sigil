@@ -193,7 +193,15 @@ void SelectHyperlink::FilterEditTextChangedSlot(const QString &text)
 
 QString SelectHyperlink::GetTarget()
 {
-    return ui.href->text();
+    QString target;
+
+    target = ui.href->text();
+
+    // Convert & to legal html, but watch for correctly entered &amp; entities
+    target.replace("&amp;", "&");
+    target.replace("&", "&amp;");
+
+    return target;
 }
 
 void SelectHyperlink::DoubleClicked(const QModelIndex &index)
