@@ -631,7 +631,10 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
     QStringList linked_css_paths;
     foreach(XhtmlDoc::XMLElement element, link_tag_nodes) {
         if (element.attributes.contains("type") &&
-            (element.attributes.value("type").toLower() == "text/css") &&
+            (
+            (element.attributes.value("type").toLower() == "text/css") ||
+            (element.attributes.value("type").toLower() == "text/x-oeb1-css") 
+            ) &&
             element.attributes.contains("rel") &&
             (element.attributes.value("rel").toLower() == "stylesheet") &&
             element.attributes.contains("href")) {
