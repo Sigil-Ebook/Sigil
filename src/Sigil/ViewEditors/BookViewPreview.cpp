@@ -60,7 +60,8 @@ BookViewPreview::BookViewPreview(QWidget *parent)
       c_GetParentTags(Utility::ReadUnicodeTextFile(":/javascript/get_parent_tags.js")),
       m_CaretLocationUpdate(QString()),
       m_pendingLoadCount(0),
-      m_pendingScrollToFragment(QString())
+      m_pendingScrollToFragment(QString()),
+      m_Inspector(NULL)
 {
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
@@ -85,6 +86,11 @@ BookViewPreview::~BookViewPreview()
     if (m_InspectElement) {
         delete m_InspectElement;
         m_InspectElement = 0;
+    }
+
+    if (m_Inspector) {
+        delete m_Inspector;
+        m_Inspector = NULL;
     }
 }
 
@@ -193,7 +199,7 @@ void BookViewPreview::ScrollToFragmentInternal(const QString &fragment)
     }
 
     QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
-    QString scroll = "var from_top = window.innerHeight / 2;"
+    QString scroll = "var from_top = window.innerHeight / 2.5;"
                      "$.scrollTo(element, 0, {offset: {top:-from_top, left:0 } });";
     EvaluateJavascript(caret_location % scroll % SET_CURSOR_JS);
 }
@@ -312,6 +318,13 @@ void BookViewPreview::UpdateFinishedState(int progress)
     } else {
         m_isLoadFinished = false;
     }
+}    
+
+void BookViewPreview::HighlightPosition()
+{
+    page()->setContentEditable(true);
+    page()->triggerAction(QWebPage::SelectEndOfBlock);
+    page()->setContentEditable(false);
 }
 
 QVariant BookViewPreview::EvaluateJavascript(const QString &javascript)
@@ -666,7 +679,12 @@ void BookViewPreview::ScrollToNodeText(const xc::DOMNode &node, int character_of
 
 void BookViewPreview::InspectElement()
 {
-    page()->triggerAction(QWebPage::InspectElement);
+    if (!m_Inspector) {
+        m_Inspector = new QWebInspector();
+        m_Inspector->setPage(page());
+    }
+
+    m_Inspector->setVisible(true);
 }
 
 void BookViewPreview::CreateContextMenuActions()

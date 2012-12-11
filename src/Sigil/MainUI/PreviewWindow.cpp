@@ -29,7 +29,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_MainWidget(*new QWidget(this)),
     m_Layout(*new QVBoxLayout(&m_MainWidget)),
     m_Preview(new BookViewPreview(this)),
-    m_Text(QString())
+    m_OldText(QString())
 {
     m_Layout.setContentsMargins(0, 0, 0, 0);
 #ifdef Q_WS_MAC
@@ -55,21 +55,26 @@ PreviewWindow::~PreviewWindow()
     }
 }
 
-void PreviewWindow::UpdatePage(HTMLResource &resource, QList< ViewEditor::ElementIndex > location)
+void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location)
 {
-    QString text = resource.GetText();
-    if (text != m_Text) {
-        m_Preview->CustomSetDocument(resource.GetFullPath(), text);
+    if (!m_Preview->isVisible()) {
+        return;
     }
+
+    if (text != m_OldText) {
+        m_Preview->CustomSetDocument(filename, text);
+    }
+    m_OldText = text;
+
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
-    m_Text = resource.GetText();
+    m_Preview->HighlightPosition();
 }
 
 void PreviewWindow::ClearPage()
 {
-    m_Preview->CustomSetDocument(QString(), QString());
-    m_Text.clear();
+    m_Preview->CustomSetDocument("", "");
+    m_OldText.clear();
 }
 
 void PreviewWindow::SetZoomFactor(float factor) {

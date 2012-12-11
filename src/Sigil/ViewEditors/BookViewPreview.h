@@ -26,6 +26,7 @@
 
 #include <QtCore/QMap>
 #include <QtWebKit/QWebView>
+#include <QtWebKit/QWebInspector>
 
 #include "BookManipulation/XercesHUse.h"
 #include "ViewEditors/ViewEditor.h"
@@ -113,6 +114,8 @@ public:
     QString GetCaretLocationUpdate();
 
     void ShowTag();
+
+    void HighlightPosition();
 
 public slots:
 
@@ -435,6 +438,8 @@ private:
     QString m_pendingScrollToFragment;
 
     QAction *m_InspectElement;
+
+    QWebInspector *m_Inspector;
 };
 
 #endif // BOOKVIEWPREVIEW_H

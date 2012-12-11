@@ -187,7 +187,6 @@
     <addaction name="menuToolbars"/>
     <addaction name="separator"/>
     <addaction name="actionBookView"/>
-    <addaction name="actionSplitView"/>
     <addaction name="actionCodeView"/>
     <addaction name="actionToggleViewState"/>
     <addaction name="separator"/>
@@ -345,7 +344,6 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionBookView"/>
-   <addaction name="actionSplitView"/>
    <addaction name="actionCodeView"/>
   </widget>
   <widget class="QToolBar" name="toolBarInsertions">
@@ -888,30 +886,6 @@
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</string>
    </property>
-   <property name="shortcut">
-    <string>F9</string>
-   </property>
-  </action>
-  <action name="actionSplitView">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/view-split_22px.png</normaloff>:/main/view-split_22px.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Preview View</string>
-   </property>
-   <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Preview View&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;See a preview of the final rendered document.&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can inspect the layout and arrangement of elements within the document.&lt;/p&gt;</string>
-   </property>
-   <property name="shortcut">
-    <string>F10</string>
-   </property>
   </action>
   <action name="actionCodeView">
    <property name="checkable">
@@ -928,9 +902,6 @@
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</string>
-   </property>
-   <property name="shortcut">
-    <string>F11</string>
    </property>
   </action>
   <action name="actionToggleViewState">

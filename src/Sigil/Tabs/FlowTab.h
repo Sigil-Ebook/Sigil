@@ -35,12 +35,10 @@
 #include "Tabs/ContentTab.h"
 #include "Tabs/WellFormedContent.h"
 
-class QSplitter;
 class QStackedWidget;
 class QUrl;
 class QWebInspector;
 class BookViewEditor;
-class BookViewPreview;
 class CodeViewEditor;
 class HTMLResource;
 class Resource;
@@ -109,7 +107,10 @@ public:
 
     bool ViewStatesEnabled();
 
+    QList< ViewEditor::ElementIndex > GetCaretLocation();
     QString GetCaretLocationUpdate() const;
+
+    QString GetText();
 
     int GetCursorPosition() const;
     int GetCursorLine() const;
@@ -292,6 +293,8 @@ signals:
 
     void InsertImageRequest();
 
+    void UpdatePreview();
+
 private slots:
 
     /**
@@ -309,6 +312,8 @@ private slots:
     void DelayedConnectSignalsToSlots();
 
     void EmitContentChanged();
+
+    void EmitUpdatePreview();
 
     void EmitUpdateCursorPosition();
 
@@ -336,22 +341,17 @@ private slots:
     // Store our caret location as required.
     void ResourceTextChanging();
 
-    void PVSplitterMoved(int pos, int index);
-
 private:
     void CreateBookViewIfRequired(bool is_delayed_load = true);
-    void CreatePreviewViewIfRequired(bool is_delayed_load = true);
     void CreateCodeViewIfRequired(bool is_delayed_load = true);
 
     void BookView();
-    void SplitView();
     void CodeView();
 
     /**
      * Connects all the required signals to their respective slots.
      */
     void ConnectBookViewSignalsToSlots();
-    void ConnectPreviewViewSignalsToSlots();
     void ConnectCodeViewSignalsToSlots();
 
 
@@ -383,15 +383,11 @@ private:
      */
     QStackedWidget *m_views;
 
-    QSplitter *m_pvVSplitter;
-
     /**
      * The Book View Editor.
      * Displays and edits the rendered state of the HTML.
      */
     BookViewEditor *m_wBookView;
-
-    BookViewPreview *m_wBookPreview;
 
     /**
      * The Code View Editor.
@@ -428,7 +424,6 @@ private:
     bool m_initialLoad;
 
     bool m_bookViewNeedsReload;
-    bool m_bookPreviewNeedsReload;
 
     bool m_grabFocus;
 

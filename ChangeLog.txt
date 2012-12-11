@@ -1,6 +1,7 @@
 Sigil 0.6.3 TBD
-    Fix issue 1818: Hyperlink of URL with & causes invalid code.
-    Fix issue 1824: Cursor position changes when saving the book.
+    - Implement issue 1843: Preview should be real-time display of Code View.
+    - Fix issue 1818: Hyperlink of URL with & causes invalid code.
+    - Fix issue 1824: Cursor position changes when saving the book.
 
 Sigil 0.6.2 2012.12.06
     - Fix issue 1834: Pretty Print should be removed due to formatting issues.

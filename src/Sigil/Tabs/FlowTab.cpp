@@ -31,7 +31,6 @@
 #include <QtGui/QPrinter>
 #include <QtGui/QPrintDialog>
 #include <QtGui/QPrintPreviewDialog>
-#include <QtGui/QSplitter>
 #include <QtGui/QStackedWidget>
 #include <QtWebKit/QWebInspector>
 #include <QtWebKit/QWebSettings>
@@ -65,9 +64,7 @@ FlowTab::FlowTab(HTMLResource &resource,
     m_CaretLocationToScrollTo(caret_location_to_scroll_to),
     m_HTMLResource(resource),
     m_views(new QStackedWidget(this)),
-    m_pvVSplitter(NULL),
     m_wBookView(NULL),
-    m_wBookPreview(NULL),
     m_wCodeView(NULL),
     m_inspector(NULL),
     m_ViewState(view_state),
@@ -76,7 +73,6 @@ FlowTab::FlowTab(HTMLResource &resource,
     m_safeToLoad(false),
     m_initialLoad(true),
     m_bookViewNeedsReload(false),
-    m_bookPreviewNeedsReload(false),
     m_grabFocus(grab_focus),
     m_suspendTabReloading(false),
     m_defaultCaretLocationToTop(false)
@@ -87,8 +83,6 @@ FlowTab::FlowTab(HTMLResource &resource,
 
     if (view_state == MainWindow::ViewState_BookView) {
         CreateBookViewIfRequired(false);
-    } else if (view_state == MainWindow::ViewState_PreviewView) {
-        CreatePreviewViewIfRequired(false);
     } else {
         CreateCodeViewIfRequired(false);
     }
@@ -102,9 +96,6 @@ FlowTab::FlowTab(HTMLResource &resource,
     if (view_state == MainWindow::ViewState_BookView) {
         setFocusProxy(m_wBookView);
         ConnectBookViewSignalsToSlots();
-    } else if (view_state == MainWindow::ViewState_PreviewView) {
-        setFocusProxy(m_wBookPreview);
-        ConnectPreviewViewSignalsToSlots();
     } else {
         setFocusProxy(m_wCodeView);
         ConnectCodeViewSignalsToSlots();
@@ -133,28 +124,6 @@ FlowTab::~FlowTab()
         m_wCodeView = 0;
     }
 
-    // BookViewPreview must be deleted before QWebInspector.
-    // BookViewPreview's QWebPage is linked to the QWebInspector
-    // and when deleted it will send a message to the linked QWebInspector
-    // to remove the association. If QWebInspector is deleted before
-    // BookViewPreview, BookViewPreview will try to access the deleted
-    // QWebInspector and the application will SegFault. This is an issue
-    // with how QWebPages interface with QWebInspector.
-    if (m_wBookPreview) {
-        delete m_wBookPreview;
-        m_wBookPreview = 0;
-    }
-
-    if (m_inspector) {
-        delete m_inspector;
-        m_inspector = 0;
-    }
-
-    if (m_pvVSplitter) {
-        delete m_pvVSplitter;
-        m_pvVSplitter = 0;
-    }
-
     if (m_views) {
         delete(m_views);
         m_views = 0;
@@ -177,32 +146,6 @@ void FlowTab::CreateBookViewIfRequired(bool is_delayed_load)
     }
 
     m_wBookView->Zoom();
-    QApplication::restoreOverrideCursor();
-}
-
-void FlowTab::CreatePreviewViewIfRequired(bool is_delayed_load)
-{
-    if (m_wBookPreview) {
-        return;
-    }
-
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    m_wBookPreview = new BookViewPreview(this);
-    m_inspector = new QWebInspector(this);
-    m_inspector->setPage(m_wBookPreview->page());
-    m_pvVSplitter = new QSplitter(this);
-    m_pvVSplitter->setOrientation(Qt::Vertical);
-    m_pvVSplitter->addWidget(m_wBookPreview);
-    m_pvVSplitter->addWidget(m_inspector);
-    m_pvVSplitter->setSizes(QList<int>() << 400 << 200);
-    m_views->addWidget(m_pvVSplitter);
-    m_bookPreviewNeedsReload = true;
-
-    if (is_delayed_load) {
-        ConnectPreviewViewSignalsToSlots();
-    }
-
-    m_wBookPreview->Zoom();
     QApplication::restoreOverrideCursor();
 }
 
@@ -232,7 +175,7 @@ void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
 
 void FlowTab::DelayedInitialization()
 {
-    if (m_wBookView || m_wBookPreview) {
+    if (m_wBookView) {
         m_safeToLoad = true;
         LoadTabContent();
     } else if (m_wCodeView) {
@@ -251,18 +194,6 @@ void FlowTab::DelayedInitialization()
                 m_wCodeView->ScrollToLine(m_LineToScrollTo);
             } else {
                 m_wCodeView->ScrollToFragment(m_FragmentToScroll.toString());
-            }
-
-            break;
-        }
-
-        case MainWindow::ViewState_PreviewView: {
-            SplitView();
-
-            if (!m_CaretLocationToScrollTo.isEmpty()) {
-                m_wBookPreview->ExecuteCaretUpdate(m_CaretLocationToScrollTo);
-            } else {
-                m_wBookPreview->ScrollToFragment(m_FragmentToScroll.toString());
             }
 
             break;
@@ -327,11 +258,7 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     m_previousViewState = m_ViewState;
     m_ViewState = new_view_state;
 
-    if (new_view_state == MainWindow::ViewState_PreviewView) {
-        CreatePreviewViewIfRequired();
-        LoadTabContent();
-        SplitView();
-    } else if (new_view_state == MainWindow::ViewState_CodeView) {
+    if (new_view_state == MainWindow::ViewState_CodeView) {
         // As CV is directly hooked to the QTextDocument, we never have to "Load" content
         // except for when creating the CV control for the very first time.
         CreateCodeViewIfRequired();
@@ -355,10 +282,6 @@ bool FlowTab::IsLoadingFinished()
 
     if (is_finished && m_wBookView) {
         is_finished = m_wBookView->IsLoadingFinished();
-    }
-
-    if (is_finished && m_wBookPreview) {
-        is_finished = m_wBookPreview->IsLoadingFinished();
     }
 
     return is_finished;
@@ -400,35 +323,9 @@ void FlowTab::BookView()
     // Ensure the caret is positioned corresponding to previous view of this tab
     if (m_previousViewState == MainWindow::ViewState_CodeView) {
         m_wBookView->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
-    } else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookView->StoreCaretLocationUpdate(m_wBookPreview->GetCaretLocation());
     }
 
     m_wBookView->ExecuteCaretUpdate();
-    QApplication::restoreOverrideCursor();
-}
-
-void FlowTab::SplitView()
-{
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    CreatePreviewViewIfRequired();
-    m_views->setCurrentIndex(m_views->indexOf(m_pvVSplitter));
-    setFocusProxy(m_wBookPreview);
-
-    if (m_grabFocus) {
-        m_wBookPreview->GrabFocus();
-    }
-
-    m_grabFocus = true;
-
-    // Ensure the caret is positioned corresponding to previous view of this tab
-    if (m_previousViewState == MainWindow::ViewState_BookView) {
-        m_wBookPreview->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation());
-    } else if (m_previousViewState == MainWindow::ViewState_CodeView) {
-        m_wBookPreview->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
-    }
-
-    m_wBookPreview->ExecuteCaretUpdate();
     QApplication::restoreOverrideCursor();
 }
 
@@ -456,8 +353,6 @@ void FlowTab::CodeView()
     // Ensure the caret is positioned corresponding to previous view of this tab
     if (m_previousViewState == MainWindow::ViewState_BookView) {
         m_wCodeView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation());
-    } else if (m_previousViewState == MainWindow::ViewState_PreviewView) {
-        m_wCodeView->StoreCaretLocationUpdate(m_wBookPreview->GetCaretLocation());
     }
 
     m_wCodeView->ExecuteCaretUpdate();
@@ -470,16 +365,10 @@ void FlowTab::LoadTabContent()
     //        The only exception is initial load when control is created, done elsewhere.
     // In BV, we will only allow loading if the document is well formed, since loading the
     //        resource into BV and then saving will alter badly formed sections of text.
-    // In PV, we can try to load regardless of whether well formed or not.
     if (m_ViewState == MainWindow::ViewState_BookView) {
         if (m_safeToLoad && m_bookViewNeedsReload) {
             m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
             m_bookViewNeedsReload = false;
-        }
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        if (m_bookPreviewNeedsReload) {
-            m_wBookPreview->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
-            m_bookPreviewNeedsReload = false;
         }
     }
 }
@@ -515,7 +404,6 @@ void FlowTab::ResourceModified()
     }
 
     m_bookViewNeedsReload = true;
-    m_bookPreviewNeedsReload = true;
 }
 
 void FlowTab::LinkedResourceModified()
@@ -553,9 +441,8 @@ void FlowTab::ReloadTabIfPending()
 
     setFocus();
 
-    // Reload BV/PV if the resource was marked as changed outside of the editor.
-    if ((m_bookViewNeedsReload && m_ViewState == MainWindow::ViewState_BookView) ||
-        (m_bookPreviewNeedsReload && m_ViewState == MainWindow::ViewState_PreviewView)) {
+    // Reload BV if the resource was marked as changed outside of the editor.
+    if ((m_bookViewNeedsReload && m_ViewState == MainWindow::ViewState_BookView)) {
         LoadTabContent();
     }
 }
@@ -563,16 +450,6 @@ void FlowTab::ReloadTabIfPending()
 void FlowTab::LeaveEditor(QWidget *editor)
 {
     SaveTabContent();
-}
-
-void FlowTab::PVSplitterMoved(int pos, int index)
-{
-    Q_UNUSED(pos);
-    Q_UNUSED(index);
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-    settings.setValue("pv_splitter", m_pvVSplitter->saveState());
-    settings.endGroup();
 }
 
 void FlowTab::LoadSettings()
@@ -591,14 +468,6 @@ void FlowTab::UpdateDisplay()
         m_wBookView->UpdateDisplay();
     }
 
-    if (m_wBookPreview) {
-        SettingsStore settings;
-        settings.beginGroup(SETTINGS_GROUP);
-        m_pvVSplitter->restoreState(settings.value("pv_splitter").toByteArray());
-        settings.endGroup();
-        m_wBookPreview->UpdateDisplay();
-    }
-
     if (m_wCodeView) {
         m_wCodeView->UpdateDisplay();
     }
@@ -608,6 +477,11 @@ void FlowTab::EmitContentChanged()
 {
     m_safeToLoad = false;
     emit ContentChanged();
+}
+
+void FlowTab::EmitUpdatePreview()
+{
+    emit UpdatePreview();
 }
 
 void FlowTab::EmitUpdateCursorPosition()
@@ -639,8 +513,6 @@ bool FlowTab::CopyEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::Copy)->isEnabled();
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        return m_wBookPreview->pageAction(QWebPage::Copy)->isEnabled();
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->textCursor().hasSelection();
     }
@@ -768,7 +640,6 @@ bool FlowTab::ToggleAutoSpellcheckEnabled()
 bool FlowTab::ViewStatesEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView ||
-        m_ViewState == MainWindow::ViewState_PreviewView ||
         m_ViewState == MainWindow::ViewState_CodeView) {
         return true;
     }
@@ -776,15 +647,23 @@ bool FlowTab::ViewStatesEnabled()
     return false;
 }
 
+QList< ViewEditor::ElementIndex > FlowTab::GetCaretLocation()
+{
+    return m_wCodeView->GetCaretLocation();
+}
+
 QString FlowTab::GetCaretLocationUpdate() const
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->GetCaretLocationUpdate();
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        return m_wBookPreview->GetCaretLocationUpdate();
     }
 
     return QString();
+}
+
+QString FlowTab::GetText()
+{
+    return m_wCodeView->toPlainText();
 }
 
 int FlowTab::GetCursorPosition() const
@@ -818,8 +697,6 @@ float FlowTab::GetZoomFactor() const
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->GetZoomFactor();
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        return m_wBookPreview->GetZoomFactor();
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->GetZoomFactor();
     }
@@ -831,15 +708,11 @@ void FlowTab::SetZoomFactor(float new_zoom_factor)
 {
     // We need to set a wait cursor for the Book View
     // since zoom operations take some time in it.
-    if (m_ViewState == MainWindow::ViewState_BookView || m_ViewState == MainWindow::ViewState_PreviewView) {
+    if (m_ViewState == MainWindow::ViewState_BookView) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
         if (m_wBookView) {
             m_wBookView->SetZoomFactor(new_zoom_factor);
-        }
-
-        if (m_wBookPreview) {
-            m_wBookPreview->SetZoomFactor(new_zoom_factor);
         }
 
         QApplication::restoreOverrideCursor();
@@ -852,8 +725,6 @@ Searchable *FlowTab::GetSearchableContent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView;
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        return m_wBookPreview;
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView;
     }
@@ -866,8 +737,6 @@ void FlowTab::ScrollToFragment(const QString &fragment)
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ScrollToFragment(fragment);
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookPreview->ScrollToFragment(fragment);
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ScrollToFragment(fragment);
     }
@@ -882,8 +751,6 @@ void FlowTab::ScrollToLine(int line)
     // view to be reset to top for links
     else if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ScrollToTop();
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookPreview->ScrollToTop();
     }
 }
 
@@ -898,8 +765,6 @@ void FlowTab::ScrollToCaretLocation(QString caret_location_update)
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecuteCaretUpdate(caret_location_update);
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookPreview->ExecuteCaretUpdate(caret_location_update);
     }
 }
 
@@ -907,10 +772,6 @@ void FlowTab::ScrollToTop()
 {
     if (m_wBookView) {
         m_wBookView->ScrollToTop();
-    }
-
-    if (m_wBookPreview) {
-        m_wBookPreview->ScrollToTop();
     }
 
     if (m_wCodeView) {
@@ -992,8 +853,6 @@ void FlowTab::Cut()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::Cut);
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookPreview->page()->triggerAction(QWebPage::Cut);
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->cut();
     }
@@ -1003,8 +862,6 @@ void FlowTab::Copy()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::Copy);
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookPreview->page()->triggerAction(QWebPage::Copy);
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->copy();
     }
@@ -1179,8 +1036,6 @@ void FlowTab::PrintPreview()
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
         connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_wBookView, SLOT(print(QPrinter *)));
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_wBookPreview, SLOT(print(QPrinter *)));
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_wCodeView, SLOT(print(QPrinter *)));
     } else {
@@ -1200,8 +1055,6 @@ void FlowTab::Print()
     if (print_dialog.exec() == QDialog::Accepted) {
         if (m_ViewState == MainWindow::ViewState_BookView) {
             m_wBookView->print(&printer);
-        } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-            m_wBookPreview->print(&printer);
         } else if (m_ViewState == MainWindow::ViewState_CodeView) {
             m_wCodeView->print(&printer);
         }
@@ -1357,8 +1210,6 @@ void FlowTab::ShowTag()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ShowTag();
-    } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-        m_wBookPreview->ShowTag();
     }
 }
 
@@ -1557,7 +1408,7 @@ void FlowTab::ResumeTabReloading()
     m_suspendTabReloading = false;
 
     // Force an immediate reload if there is one pending
-    if (m_bookViewNeedsReload || m_bookPreviewNeedsReload) {
+    if (m_bookViewNeedsReload) {
         // Must save tab content first or else reload may not take place.
         SaveTabContent();
         ReloadTabIfPending();
@@ -1589,15 +1440,6 @@ void FlowTab::ConnectBookViewSignalsToSlots()
     connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
 }
 
-void FlowTab::ConnectPreviewViewSignalsToSlots()
-{
-    connect(m_wBookPreview, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
-    connect(m_wBookPreview, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
-    connect(m_wBookPreview, SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
-    connect(m_wBookPreview, SIGNAL(ShowStatusMessageRequest(const QString &)), this, SIGNAL(ShowStatusMessageRequest(const QString &)));
-    connect(m_pvVSplitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(PVSplitterMoved(int, int)));
-}
-
 void FlowTab::ConnectCodeViewSignalsToSlots()
 {
     connect(m_wCodeView, SIGNAL(cursorPositionChanged()), this, SLOT(EmitUpdateCursorPosition()));
@@ -1612,4 +1454,5 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
     connect(m_wCodeView, SIGNAL(ShowStatusMessageRequest(const QString &)), this, SIGNAL(ShowStatusMessageRequest(const QString &)));
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
+    connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
 }

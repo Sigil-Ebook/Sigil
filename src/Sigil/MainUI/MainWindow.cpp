@@ -24,6 +24,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QSignalMapper>
 #include <QtCore/QThread>
+#include <QtCore/QTimer>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QFileDialog>
 #include <QtGui/QInputDialog>
@@ -56,6 +57,7 @@
 #include "MainUI/BookBrowser.h"
 #include "MainUI/MainWindow.h"
 #include "MainUI/FindReplace.h"
+#include "MainUI/PreviewWindow.h"
 #include "MainUI/TableOfContents.h"
 #include "MainUI/ValidationResultsView.h"
 #include "Misc/KeyboardShortcutManager.h"
@@ -95,6 +97,7 @@ static const QString BOOK_BROWSER_NAME            = "bookbrowser";
 static const QString FIND_REPLACE_NAME            = "findreplace";
 static const QString VALIDATION_RESULTS_VIEW_NAME = "validationresultsname";
 static const QString TABLE_OF_CONTENTS_NAME       = "tableofcontents";
+static const QString PREVIEW_WINDOW_NAME          = "previewwindow";
 static const QString FRAME_NAME                   = "managerframe";
 static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 0px solid white;"
         "border-left: 1px solid grey;"
@@ -124,6 +127,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WFlags 
     m_FindReplace(new FindReplace(*this)),
     m_TableOfContents(NULL),
     m_ValidationResultsView(NULL),
+    m_PreviewWindow(NULL),
     m_slZoomSlider(NULL),
     m_lbZoomLabel(NULL),
     c_SaveFilters(GetSaveFiltersMap()),
@@ -140,9 +144,11 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WFlags 
     m_LinkOrStyleBookmark(new LocationBookmark()),
     m_ClipboardHistorySelector(new ClipboardHistorySelector(this)),
     m_LastPasteTarget(NULL),
-    m_LastWindowSize(QByteArray())
+    m_LastWindowSize(QByteArray()),
+    m_PreviewTimer(*new QTimer(this))
 {
     ui.setupUi(this);
+
     // Telling Qt to delete this window
     // from memory when it is closed
     setAttribute(Qt::WA_DeleteOnClose);
@@ -153,6 +159,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WFlags 
     ReadSettings();
     // Ensure the UI is properly set to the saved view state.
     SetDefaultViewState();
+    SetupPreviewTimer();
     ConnectSignalsToSlots();
     CreateRecentFilesActions();
     UpdateRecentFileActions();
@@ -1586,14 +1593,6 @@ void MainWindow::BookView()
     UpdateBrowserSelectionToTab();
 }
 
-
-void MainWindow::SplitView()
-{
-    SetViewState(MainWindow::ViewState_PreviewView);
-    UpdateBrowserSelectionToTab();
-}
-
-
 void MainWindow::CodeView()
 {
     SetViewState(MainWindow::ViewState_CodeView);
@@ -1778,6 +1777,7 @@ void MainWindow::SetViewState(MainWindow::ViewState view_state)
     bool set_tab_state = m_ViewState != view_state;
     m_ViewState = view_state;
     UpdateViewState(set_tab_state);
+    UpdatePreview();
 }
 
 
@@ -1811,8 +1811,6 @@ void MainWindow::UpdateViewState(bool set_tab_state)
 
         if (m_ViewState == MainWindow::ViewState_CodeView) {
             SetStateActionsCodeView();
-        } else if (m_ViewState == MainWindow::ViewState_PreviewView) {
-            SetStateActionsSplitView();
         } else {
             m_ViewState = MainWindow::ViewState_BookView;
             SetStateActionsBookView();
@@ -1895,10 +1893,8 @@ void MainWindow::UpdateUIOnTabCountChange()
 void MainWindow::SetStateActionsBookView()
 {
     ui.actionBookView->setChecked(true);
-    ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
     ui.actionBookView->setEnabled(true);
-    ui.actionSplitView->setEnabled(true);
     ui.actionCodeView->setEnabled(true);
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
@@ -1965,86 +1961,11 @@ void MainWindow::SetStateActionsBookView()
     m_FindReplace->ShowHide();
 }
 
-void MainWindow::SetStateActionsSplitView()
-{
-    ui.actionBookView->setChecked(false);
-    ui.actionSplitView->setChecked(true);
-    ui.actionCodeView->setChecked(false);
-    ui.actionBookView->setEnabled(true);
-    ui.actionSplitView->setEnabled(true);
-    ui.actionCodeView->setEnabled(true);
-    ui.actionPrintPreview->setEnabled(true);
-    ui.actionPrint->setEnabled(true);
-    ui.actionSplitSection->setEnabled(false);
-    ui.actionInsertSGFSectionMarker->setEnabled(false);
-    ui.actionInsertImage->setEnabled(false);
-    ui.actionInsertSpecialCharacter->setEnabled(false);
-    ui.actionInsertId->setEnabled(false);
-    ui.actionInsertHyperlink->setEnabled(false);
-    ui.actionInsertClosingTag->setEnabled(false);
-    ui.actionUndo->setEnabled(false);
-    ui.actionRedo->setEnabled(false);
-    ui.actionPasteClipboardHistory->setEnabled(false);
-    ui.actionBold         ->setEnabled(false);
-    ui.actionItalic       ->setEnabled(false);
-    ui.actionUnderline    ->setEnabled(false);
-    ui.actionStrikethrough->setEnabled(false);
-    ui.actionSubscript    ->setEnabled(false);
-    ui.actionSuperscript  ->setEnabled(false);
-    ui.actionAlignLeft   ->setEnabled(false);
-    ui.actionAlignCenter ->setEnabled(false);
-    ui.actionAlignRight  ->setEnabled(false);
-    ui.actionAlignJustify->setEnabled(false);
-    ui.actionDecreaseIndent->setEnabled(false);
-    ui.actionIncreaseIndent->setEnabled(false);
-    ui.actionTextDirectionLTR    ->setEnabled(false);
-    ui.actionTextDirectionRTL    ->setEnabled(false);
-    ui.actionTextDirectionDefault->setEnabled(false);
-    ui.actionInsertBulletedList->setEnabled(false);
-    ui.actionInsertNumberedList->setEnabled(false);
-    ui.actionShowTag->setEnabled(true);
-    ui.actionRemoveFormatting->setEnabled(false);
-    ui.menuHeadings->setEnabled(false);
-    ui.actionHeading1->setEnabled(false);
-    ui.actionHeading2->setEnabled(false);
-    ui.actionHeading3->setEnabled(false);
-    ui.actionHeading4->setEnabled(false);
-    ui.actionHeading5->setEnabled(false);
-    ui.actionHeading6->setEnabled(false);
-    ui.actionHeadingNormal->setEnabled(false);
-    ui.actionCasingLowercase  ->setEnabled(false);
-    ui.actionCasingUppercase  ->setEnabled(false);
-    ui.actionCasingTitlecase ->setEnabled(false);
-    ui.actionCasingCapitalize ->setEnabled(false);
-    ui.actionFind->setEnabled(true);
-    ui.actionFindNext->setEnabled(true);
-    ui.actionFindPrevious->setEnabled(true);
-    ui.actionReplaceCurrent->setEnabled(true);
-    ui.actionReplaceNext->setEnabled(true);
-    ui.actionReplacePrevious->setEnabled(true);
-    ui.actionReplaceAll->setEnabled(true);
-    ui.actionCount->setEnabled(true);
-    ui.menuSearchCurrentFile->setEnabled(true);
-    ui.actionFindNextInFile->setEnabled(true);
-    ui.actionReplaceNextInFile->setEnabled(true);
-    ui.actionReplaceAllInFile->setEnabled(true);
-    ui.actionCountInFile->setEnabled(true);
-    ui.actionGoToLine->setEnabled(false);
-    ui.actionGoToLinkOrStyle->setEnabled(false);
-    ui.actionAddMisspelledWord->setEnabled(false);
-    ui.actionIgnoreMisspelledWord->setEnabled(false);
-    ui.actionAutoSpellCheck->setEnabled(false);
-    UpdateUIOnTabChanges();
-    m_FindReplace->ShowHide();
-}
-
 void MainWindow::SetStateActionsCodeView()
 {
     ui.actionBookView->setChecked(false);
-    ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(true);
     ui.actionBookView->setEnabled(true);
-    ui.actionSplitView->setEnabled(true);
     ui.actionCodeView->setEnabled(true);
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
@@ -2131,10 +2052,8 @@ void MainWindow::SetStateActionsCSSView()
 void MainWindow::SetStateActionsRawView()
 {
     ui.actionBookView->setChecked(false);
-    ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
     ui.actionBookView->setEnabled(false);
-    ui.actionSplitView->setEnabled(false);
     ui.actionCodeView->setEnabled(false);
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
@@ -2204,10 +2123,8 @@ void MainWindow::SetStateActionsRawView()
 void MainWindow::SetStateActionsStaticView()
 {
     ui.actionBookView->setChecked(false);
-    ui.actionSplitView->setChecked(false);
     ui.actionCodeView->setChecked(false);
     ui.actionBookView->setEnabled(false);
-    ui.actionSplitView->setEnabled(false);
     ui.actionCodeView->setEnabled(false);
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
@@ -2275,6 +2192,39 @@ void MainWindow::SetStateActionsStaticView()
     m_FindReplace->hide();
 }
 
+void MainWindow::SetupPreviewTimer()
+{
+    m_PreviewTimer.setSingleShot(true);
+    m_PreviewTimer.setInterval(200);
+    connect(&m_PreviewTimer, SIGNAL(timeout()),
+            this,            SLOT(UpdatePreview()));
+}
+
+void MainWindow::UpdatePreviewRequest()
+{
+    if (!m_PreviewTimer.isActive()) {
+         m_PreviewTimer.start();
+    }
+}
+
+void MainWindow::UpdatePreview()
+{
+    ContentTab &tab = GetCurrentContentTab();
+    bool preview_valid = false;
+    if (&tab != NULL) {
+        HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
+        if (html_resource) {
+            FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
+            if (flow_tab && m_ViewState == MainWindow::ViewState_CodeView) {
+                m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), flow_tab->GetText(), flow_tab->GetCaretLocation());
+                preview_valid = true;
+            }
+        }
+    }
+    if (!preview_valid) {
+        m_PreviewWindow->ClearPage();
+    }
+}
 
 void MainWindow::UpdateCursorPositionLabel(int line, int column)
 {
@@ -2286,7 +2236,6 @@ void MainWindow::UpdateCursorPositionLabel(int line, int column)
         m_lbCursorPosition->clear();
     }
 }
-
 
 void MainWindow::SliderZoom(int slider_value)
 {
@@ -2326,7 +2275,6 @@ void MainWindow::SetDefaultViewState()
     int view_state_value = settings.viewState();
 
     switch (view_state_value) {
-        case MainWindow::ViewState_PreviewView:
         case MainWindow::ViewState_CodeView:
             m_ViewState = static_cast<MainWindow::ViewState>(view_state_value);
             break;
@@ -2540,7 +2488,7 @@ bool MainWindow::MaybeSaveDialogSaysProceed()
 {
     // Make sure that any tabs currently about to be drawn etc get a chance to do so.
     // or else the process of closing/creating a new book will crash with Qt object errors.
-    // Particularly a problem if open a large tab in PreviewView prior to the action
+    // Particularly a problem if open a large tab in Preview prior to the action
     // due to QWebInspector
     qApp->processEvents();
 
@@ -2798,6 +2746,9 @@ void MainWindow::ZoomByFactor(float new_zoom_factor)
     }
 
     tab.SetZoomFactor(new_zoom_factor);
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_PreviewWindow->SetZoomFactor(new_zoom_factor);
+    }
 }
 
 
@@ -3056,6 +3007,12 @@ void MainWindow::ExtendUI()
     // then it will be open when he opens Sigil the next time.
     // Basically, restoreGeometry() in ReadSettings() overrules this command.
     m_ValidationResultsView->hide();
+
+    m_PreviewWindow = new PreviewWindow(this);
+    m_PreviewWindow->setObjectName(PREVIEW_WINDOW_NAME);
+    addDockWidget(Qt::RightDockWidgetArea, m_PreviewWindow);
+    m_PreviewWindow->hide();
+
     ui.menuView->addSeparator();
     ui.menuView->addAction(m_BookBrowser->toggleViewAction());
     m_BookBrowser->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F1));
@@ -3063,6 +3020,8 @@ void MainWindow::ExtendUI()
     m_ValidationResultsView->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F2));
     ui.menuView->addAction(m_TableOfContents->toggleViewAction());
     m_TableOfContents->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F3));
+    ui.menuView->addAction(m_PreviewWindow->toggleViewAction());
+    m_PreviewWindow->toggleViewAction()->setShortcut(QKeySequence(Qt::Key_F10));
     // Create the view menu to hide and show toolbars.
     ui.menuToolbars->addAction(ui.toolBarFileActions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
@@ -3217,7 +3176,6 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionDeleteUnusedStyles, "MainWindow.DeleteUnusedStyles");
     // View
     sm->registerAction(ui.actionBookView, "MainWindow.BookView");
-    sm->registerAction(ui.actionSplitView, "MainWindow.SplitView");
     sm->registerAction(ui.actionCodeView, "MainWindow.CodeView");
     sm->registerAction(ui.actionToggleViewState, "MainWindow.ToggleViewState");
     sm->registerAction(ui.actionZoomIn, "MainWindow.ZoomIn");
@@ -3374,9 +3332,6 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionBookView->icon();
     icon.addFile(QString::fromUtf8(":/main/view-book_16px.png"));
     ui.actionBookView->setIcon(icon);
-    icon = ui.actionSplitView->icon();
-    icon.addFile(QString::fromUtf8(":/main/view-split_16px.png"));
-    ui.actionSplitView->setIcon(icon);
     icon = ui.actionCodeView->icon();
     icon.addFile(QString::fromUtf8(":/main/view-code_16px.png"));
     ui.actionCodeView->setIcon(icon);
@@ -3513,7 +3468,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionZoomOut,       SIGNAL(triggered()), this, SLOT(ZoomOut()));
     connect(ui.actionZoomReset,     SIGNAL(triggered()), this, SLOT(ZoomReset()));
     connect(ui.actionBookView,      SIGNAL(triggered()),  this,   SLOT(BookView()));
-    connect(ui.actionSplitView,     SIGNAL(triggered()),  this,   SLOT(SplitView()));
     connect(ui.actionCodeView,      SIGNAL(triggered()),  this,   SLOT(CodeView()));
     connect(ui.actionToggleViewState, SIGNAL(triggered()),  this,   SLOT(ToggleViewState()));
     connect(ui.actionHeadingPreserveAttributes, SIGNAL(triggered(bool)), this, SLOT(SetPreserveHeadingAttributes(bool)));
@@ -3541,6 +3495,8 @@ void MainWindow::ConnectSignalsToSlots()
             this,                   SLOT(UpdateUIWhenTabsSwitch()));
     connect(&m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
             this,                    SLOT(UpdateBrowserSelectionToTab()));
+    connect(&m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
+            this,                    SLOT(UpdatePreview()));
     connect(m_BookBrowser,          SIGNAL(UpdateBrowserSelection()),
             this,                    SLOT(UpdateBrowserSelectionToTab()));
     connect(m_BookBrowser, SIGNAL(RenumberTOCContentsRequest()),
@@ -3668,6 +3624,8 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(ClipboardRestoreRequest()),  m_ClipboardHistorySelector,  SLOT(RestoreClipboardState()));
         connect(tab,   SIGNAL(SpellingHighlightRefreshRequest()), this,  SLOT(RefreshSpellingHighlighting()));
         connect(tab,   SIGNAL(InsertImageRequest()), this,  SLOT(InsertImageDialog()));
+
+        connect(tab,   SIGNAL(UpdatePreview()), this, SLOT(UpdatePreviewRequest()));
     }
 
     connect(ui.actionPrintPreview,             SIGNAL(triggered()),  tab,   SLOT(PrintPreview()));

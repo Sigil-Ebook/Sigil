@@ -51,11 +51,13 @@ class QComboBox;
 class QLabel;
 class QSignalMapper;
 class QSlider;
+class QTimer;
 class FindReplace;
 class TabManager;
 class BookBrowser;
 class TableOfContents;
 class ValidationResultsView;
+class PreviewWindow;
 class SearchEditor;
 class ClipEditor;
 class SelectCharacter;
@@ -136,7 +138,6 @@ public:
     enum ViewState {
         ViewState_Unknown = 0,     /**< Default non view that we don't know or care what it is */
         ViewState_BookView = 10,   /**< The WYSIWYG view. */
-        ViewState_PreviewView = 20,/**< Preview the rendered XHTML. */
         ViewState_CodeView = 30    /**< The XHTML code editing view. */
     };
 
@@ -157,10 +158,6 @@ public:
      */
     MainWindow::ViewState GetViewState();
 
-    /**
-     * Sets the current state to CodeView or SplitView CodeView
-     * depending on whether view was split view already
-     */
     bool CloseAllTabs();
 
     void SaveTabData();
@@ -311,11 +308,6 @@ private slots:
     void BookView();
 
     /**
-     * Implements the set SplitView functionality.
-     */
-    void SplitView();
-
-    /**
      * Implements the set CodeView functionality.
      */
     void CodeView();
@@ -416,11 +408,6 @@ private slots:
     void SetStateActionsBookView();
 
     /**
-     * Set initial state for actions in Split View
-     */
-    void SetStateActionsSplitView();
-
-    /**
      * Set initial state for actions in Code View
      */
     void SetStateActionsCodeView();
@@ -440,6 +427,9 @@ private slots:
      * (everything dead, used for viewing images etc.)
      */
     void SetStateActionsStaticView();
+
+    void UpdatePreviewRequest();
+    void UpdatePreview();
 
     /**
      * Updates the cursor postion label to refelect the position of the
@@ -749,6 +739,8 @@ private:
      */
     void SetViewState(MainWindow::ViewState view_state);
 
+    void SetupPreviewTimer();
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
@@ -825,6 +817,8 @@ private:
      */
     ValidationResultsView *m_ValidationResultsView;
 
+    PreviewWindow *m_PreviewWindow;
+
     /**
      * The lable that displays the cursor position.
      * Line and column.
@@ -897,6 +891,8 @@ private:
      * Workaround for Qt 4.8 bug, to track the last known window size when not maximized.
      */
     QByteArray m_LastWindowSize;
+
+    QTimer &m_PreviewTimer;
 
     /**
      * Holds all the widgets Qt Designer created for us.

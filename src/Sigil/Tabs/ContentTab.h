@@ -173,15 +173,6 @@ public:
     }
 
     /**
-     * Checked state of the SplitView action.
-     *
-     * @return \c true if the SplitView action should be checked.
-     */
-    virtual bool SplitViewChecked()     {
-        return false;
-    }
-
-    /**
      * Checked state of the CodeView action.
      *
      * @return \c true if the CodeView action should be checked.

@@ -346,6 +346,8 @@ signals:
      */
     void FocusGained(QWidget *editor);
 
+    void PageUpdated();
+
     /**
      * A filtered version of the QPlainTextEdit::textChnaged signal.
      * We use it to prevent our syntax highlighter from emitting that signal.
@@ -427,6 +429,9 @@ protected:
 
 private slots:
     void ResetLastFindMatch();
+
+    void EmitPageUpdated();
+
     /**
      * Filters the textChanged signal.
      * It does this based on the availability of undo.

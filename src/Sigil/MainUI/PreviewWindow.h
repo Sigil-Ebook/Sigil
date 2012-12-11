@@ -24,6 +24,7 @@
 #define PREVIEWWINDOW_H
 
 #include <QtGui/QDockWidget>
+#include <QtCore/QTime>
 
 #include "MainUI/MainWindow.h"
 
@@ -39,7 +40,7 @@ public:
     ~PreviewWindow();
 
 public slots:
-    void UpdatePage(HTMLResource &resource, QList< ViewEditor::ElementIndex > location);
+    void UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location);
     void ClearPage();
     void SetZoomFactor(float factor);
 
@@ -48,7 +49,7 @@ private:
     QVBoxLayout &m_Layout;
 
     BookViewPreview *m_Preview;
-    QString m_Text;
+    QString m_OldText;
 };
 
 #endif // PREVIEWWINDOW_H
