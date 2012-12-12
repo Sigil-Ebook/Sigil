@@ -62,7 +62,7 @@ void PreviewWindow::showEvent(QShowEvent *event)
     emit Shown();
 }
 
-void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location)
+void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location, bool highlight_location)
 {
     if (!m_Preview->isVisible()) {
         return;
@@ -75,7 +75,9 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor
 
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
-    m_Preview->HighlightPosition();
+    if (highlight_location) {
+        m_Preview->HighlightPosition();
+    }
 }
 
 void PreviewWindow::ClearPage()

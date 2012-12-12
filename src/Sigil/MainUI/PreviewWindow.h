@@ -40,7 +40,7 @@ public:
     ~PreviewWindow();
 
 public slots:
-    void UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location);
+    void UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location, bool highlight_location);
     void ClearPage();
     void SetZoomFactor(float factor);
 

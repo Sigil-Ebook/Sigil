@@ -128,6 +128,8 @@ public:
 
     bool IsLoadingFinished();
 
+    bool IsPositionInBody();
+
     /**
      * Scrolls the tab to the specified fragment (if in Book View).
      *

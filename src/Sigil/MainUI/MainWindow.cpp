@@ -2216,7 +2216,7 @@ void MainWindow::UpdatePreview()
         if (html_resource) {
             FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
             if (flow_tab && m_ViewState == MainWindow::ViewState_CodeView) {
-                m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), flow_tab->GetText(), flow_tab->GetCaretLocation());
+                m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), flow_tab->GetText(), flow_tab->GetCaretLocation(), flow_tab->IsPositionInBody());
                 preview_valid = true;
             }
         }

@@ -327,6 +327,11 @@ public:
     bool ReformatHTMLEnabled();
     void SetReformatHTMLEnabled(bool value);
 
+    /**
+     * Is this position within the <body> tag of this text.
+     */
+    bool IsPositionInBody(const int &pos = -1, const QString &text = QString());
+
 signals:
 
     /**
@@ -624,10 +629,6 @@ private:
 
     void InsertHTMLTagAroundText(const QString &left_element_name, const QString &right_element_name, const QString &attributes, const QString &text);
 
-    /**
-     * Is this position within the <body> tag of this text.
-     */
-    bool IsPositionInBody(const int &pos, const QString &text);
     bool IsPositionInTag(const int &pos = -1, const QString &text = QString());
     bool IsPositionInOpeningTag(const int &pos = -1, const QString &text = QString());
     bool IsPositionInClosingTag(const int &pos = -1, const QString &text = QString());

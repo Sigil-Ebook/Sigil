@@ -2092,13 +2092,25 @@ void CodeViewEditor::InsertHTMLTagAroundSelection(const QString &left_element_na
 
 bool CodeViewEditor::IsPositionInBody(const int &pos, const QString &text)
 {
+    int search_pos = pos;
+
+    if (pos == -1) {
+        search_pos = textCursor().selectionStart();
+    }
+
+    QString search_text = text;
+
+    if (text.isEmpty()) {
+        search_text = toPlainText();
+    }
+
     QRegExp body_search(BODY_START, Qt::CaseInsensitive);
     QRegExp body_end_search(BODY_END, Qt::CaseInsensitive);
-    int body_tag_start = text.indexOf(body_search);
+    int body_tag_start = search_text.indexOf(body_search);
     int body_tag_end   = body_tag_start + body_search.matchedLength();
-    int body_contents_end = text.indexOf(body_end_search);
+    int body_contents_end = search_text.indexOf(body_end_search);
 
-    if ((pos < body_tag_end) || (pos > body_contents_end)) {
+    if ((search_pos < body_tag_end) || (search_pos > body_contents_end)) {
         return false;
     }
 

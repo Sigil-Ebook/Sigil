@@ -484,6 +484,19 @@ void FlowTab::EmitUpdatePreview()
     emit UpdatePreview();
 }
 
+bool FlowTab::IsPositionInBody()
+{
+    if (m_wCodeView) {
+        return m_wCodeView->IsPositionInBody();
+    }
+
+    if (m_wBookView) {
+        return true;
+    }
+
+    return false;
+}
+
 void FlowTab::EmitUpdateCursorPosition()
 {
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
