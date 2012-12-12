@@ -50,6 +50,11 @@ ValidationResultsView::ValidationResultsView(QWidget *parent)
             this,           SLOT(ResultDoubleClicked(QTableWidgetItem *)));
 }
 
+void ValidationResultsView::showEvent(QShowEvent *event)
+{
+    QDockWidget::showEvent(event);
+    raise();
+}
 
 void ValidationResultsView::ValidateCurrentBook()
 {
@@ -73,6 +78,7 @@ void ValidationResultsView::ValidateCurrentBook()
     QApplication::restoreOverrideCursor();
     DisplayResults(results);
     show();
+    raise();
 }
 
 

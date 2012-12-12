@@ -44,6 +44,12 @@ public slots:
     void ClearPage();
     void SetZoomFactor(float factor);
 
+signals:
+    void Shown();
+
+protected:
+    virtual void showEvent(QShowEvent *event);
+
 private:
     QWidget &m_MainWidget;
     QVBoxLayout &m_Layout;

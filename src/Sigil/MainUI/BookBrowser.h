@@ -318,6 +318,9 @@ private slots:
 
     void ValidateStylesheetWithW3C();
 
+protected:
+    virtual void showEvent(QShowEvent *event);
+
 private:
     /**
      * Expands the Text folder so that all HTML files are shown.

@@ -103,6 +103,7 @@ private slots:
 protected:
 
     void contextMenuEvent(QContextMenuEvent *event);
+    virtual void showEvent(QShowEvent *event);
 
 signals:
 

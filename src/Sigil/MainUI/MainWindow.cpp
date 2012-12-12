@@ -3380,6 +3380,7 @@ void MainWindow::LoadInitialFile(const QString &openfilepath)
 
 void MainWindow::ConnectSignalsToSlots()
 {
+    connect(m_PreviewWindow, SIGNAL(Shown()), this, SLOT(UpdatePreview()));
     connect(qApp, SIGNAL(focusChanged(QWidget *, QWidget *)), this, SLOT(ApplicationFocusChanged(QWidget *, QWidget *)));
     // Setup signal mapping for heading actions.
     connect(ui.actionHeading1, SIGNAL(triggered()), m_headingMapper, SLOT(map()));

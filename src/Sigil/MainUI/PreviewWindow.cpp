@@ -55,6 +55,13 @@ PreviewWindow::~PreviewWindow()
     }
 }
 
+void PreviewWindow::showEvent(QShowEvent *event)
+{
+    QDockWidget::showEvent(event);
+    raise();
+    emit Shown();
+}
+
 void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location)
 {
     if (!m_Preview->isVisible()) {

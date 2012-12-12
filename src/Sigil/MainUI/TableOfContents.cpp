@@ -64,6 +64,11 @@ TableOfContents::TableOfContents(QWidget *parent)
             this,            SLOT(Refresh()));
 }
 
+void TableOfContents::showEvent(QShowEvent *event)
+{
+    QDockWidget::showEvent(event);
+    raise();
+}
 
 void TableOfContents::SetBook(QSharedPointer< Book > book)
 {

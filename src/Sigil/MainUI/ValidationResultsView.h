@@ -101,6 +101,9 @@ private slots:
      */
     void ResultDoubleClicked(QTableWidgetItem *item);
 
+protected:
+    virtual void showEvent(QShowEvent *event);
+
 private:
 
     /**

@@ -85,6 +85,11 @@ BookBrowser::~BookBrowser()
     WriteSettings();
 }
 
+void BookBrowser::showEvent(QShowEvent *event)
+{
+    QDockWidget::showEvent(event);
+    raise();
+}
 
 void BookBrowser::SetBook(QSharedPointer< Book > book)
 {
