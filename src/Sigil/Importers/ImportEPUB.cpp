@@ -75,7 +75,7 @@ QSharedPointer< Book > ImportEPUB::GetBook()
     const QStringList &load_errors = UniversalUpdates::PerformUniversalUpdates(false, resources, updates);
 
     Q_FOREACH (QString err, load_errors) {
-        AddLoadWarning(QString("<p>%1</p>").arg(err));
+        AddLoadWarning(QString("%1").arg(err));
     }
 
     ProcessFontFiles(resources, updates, encrypted_files);
@@ -97,8 +97,8 @@ QSharedPointer< Book > ImportEPUB::GetBook()
         QList< Metadata::MetaElement > originalMetadata = m_Book->GetOPF().GetDCMetadata();
         m_Book->GetOPF().AutoFixWellFormedErrors();
         m_Book->GetOPF().SetDCMetadata(originalMetadata);
-        AddLoadWarning("<p>" % QObject::tr("The OPF file does not contain a valid spine.") % "</p>" %
-                       "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>");
+        AddLoadWarning(QObject::tr("The OPF file does not contain a valid spine.") % "\n" %
+                       QObject::tr("Sigil has created a new one for you."));
     }
 
     // If we have modified the book to add spine attribute, manifest item or NCX mark as changed.

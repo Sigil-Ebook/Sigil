@@ -211,7 +211,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         }
         XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(source);
         if (error.line != -1) {
-            throw QObject::tr("Not well formed, Cannot perform html updates");
+            throw QObject::tr("Cannot perform HTML updates since the file is not well formed");
         }
 
         html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates(source, html_updates, css_updates)().get()));

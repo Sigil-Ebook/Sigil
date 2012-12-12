@@ -44,5 +44,5 @@ QStringList Importer::GetLoadWarnings()
 
 void Importer::AddLoadWarning(const QString &warning)
 {
-    m_LoadWarnings.append(warning);
+    m_LoadWarnings.append(warning % "\n");
 }

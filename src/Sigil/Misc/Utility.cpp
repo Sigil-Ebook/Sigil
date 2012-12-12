@@ -417,7 +417,7 @@ void Utility::DisplayStdErrorDialog(const QString &error_message, const QString 
 }
 
 
-void Utility::DisplayStdWarningDialog(const QString &warning_message, const QString &informative_text)
+void Utility::DisplayStdWarningDialog(const QString &warning_message, const QString &detailed_text)
 {
     QMessageBox message_box(QApplication::activeWindow());
     message_box.setIcon(QMessageBox::Warning);
@@ -425,8 +425,8 @@ void Utility::DisplayStdWarningDialog(const QString &warning_message, const QStr
     message_box.setText(warning_message);
     message_box.setTextFormat(Qt::RichText);
 
-    if (!informative_text.isEmpty()) {
-        message_box.setInformativeText(informative_text);
+    if (!detailed_text.isEmpty()) {
+        message_box.setDetailedText(detailed_text);
     }
 
     message_box.setStandardButtons(QMessageBox::Close);

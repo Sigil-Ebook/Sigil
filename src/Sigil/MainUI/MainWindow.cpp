@@ -361,8 +361,15 @@ void MainWindow::ShowMessageOnStatusBar(const QString &message,
 void MainWindow::ShowLastOpenFileWarnings()
 {
     if (!m_LastOpenFileWarnings.isEmpty()) {
-        Utility::DisplayStdWarningDialog("<p><b>" % tr("The following errors occurred when loading the EPUB:") % "</b></p>",
-                                         m_LastOpenFileWarnings.join(""));
+        Utility::DisplayStdWarningDialog(
+            "<p><b>" % 
+            tr("The EPUB contains errors.") % 
+            "</b></p><p>" % 
+            tr("Select Show Details for more information.") % 
+            "</p><p>" %
+            tr("Try changing the Clean Source preferences to automatically clean errors then reload the file.") % 
+            "</p>",
+            m_LastOpenFileWarnings.join("\n"));
         m_LastOpenFileWarnings.clear();
     }
 }
