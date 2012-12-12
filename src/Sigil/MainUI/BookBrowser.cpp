@@ -951,7 +951,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
         return;
     }
 
-    Resource *next_resource;
+    Resource *next_resource = NULL;
     Resource::ResourceType resource_type = resources.first()->Type();
 
     if (resource_type == Resource::OPFResourceType ||
@@ -994,8 +994,23 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
             resources.removeOne(resource);
         }
     }
+
     // Find next resource to select
-    next_resource = ResourceToSelectAfterRemove(resources);
+    QList< Resource *> selected_resources = ValidSelectedResources();
+    bool keep_selection = true;
+    foreach (Resource *resource, selected_resources) {
+        if (resources.contains(resource)) {
+            keep_selection = false;
+            break;
+        }
+    }
+    if (keep_selection) {
+        next_resource = selected_resources.first();
+    }
+    else {
+        next_resource = ResourceToSelectAfterRemove(resources);
+    }
+
     // Check if any tabs will remain after deleting resources
     bool tab_remaining = false;
     foreach(Resource * tab_resource, tab_resources) {
@@ -1007,7 +1022,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     // If no tabs will be left, make sure at least one tab is opened.
     // next_resource will always be an openable type resource if no
     // tabs remain because at least one tab was open before deletion.
-    if (!tab_remaining) {
+    if (!tab_remaining && next_resource) {
         emit ResourceActivated(*next_resource);
     }
 
@@ -1021,8 +1036,13 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     m_OPFModel.Refresh();
     RefreshCounts();
 
-    if (next_resource) {
-        UpdateSelection(*next_resource);
+    if (keep_selection) {
+        SelectResources(selected_resources);
+    }
+    else {
+        if (next_resource) {
+            UpdateSelection(*next_resource);
+        }
     }
 }
 

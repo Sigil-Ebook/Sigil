@@ -95,6 +95,15 @@ public:
     void RemoveResources(QList<Resource *> tab_resources, QList<Resource *> resources);
 
     /**
+     * Returns the currently selected resource in the tree view.
+     *
+     * @return The currently selected resource in the tree view,
+     *         or NULL if no resource is selected.
+     */
+    Resource *GetCurrentResource() const;
+
+
+    /**
      * Updates the selection in the book display
      */
     void UpdateSelection(Resource &resource);
@@ -413,14 +422,6 @@ private:
      * based on the resource's current state.
      */
     void SetFontObfuscationActionCheckState();
-
-    /**
-     * Returns the currently selected resource in the tree view.
-     *
-     * @return The currently selected resource in the tree view,
-     *         or NULL if no resource is selected.
-     */
-    Resource *GetCurrentResource() const;
 
     /**
      * Returns the resource for the given index in the tree view.
