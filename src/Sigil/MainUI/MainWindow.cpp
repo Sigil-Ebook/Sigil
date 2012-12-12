@@ -3683,5 +3683,6 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
     disconnect(tab,                                0, this, 0);
     disconnect(tab,                                0, m_Book.data(), 0);
     disconnect(tab,                                0, m_BookBrowser, 0);
+    disconnect(tab,                                0, m_ClipboardHistorySelector, 0);
 }
 
