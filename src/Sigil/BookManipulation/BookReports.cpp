@@ -25,6 +25,8 @@
 #include <QtCore/QHashIterator>
 #include <QtGui/QFont>
 #include <QtGui/QMessageBox>
+#include <QtGui/QApplication>
+#include <QtGui/QProgressDialog>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/BookReports.h"
@@ -32,7 +34,7 @@
 #include "Misc/CSSInfo.h"
 #include "Misc/SettingsStore.h"
 
-QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer< Book > book)
+QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer< Book > book, bool show_progress)
 {
     QList<HTMLResource *> html_resources = book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(false);
     QList<CSSResource *> css_resources = book->GetFolderKeeper().GetResourceTypeList< CSSResource >(false);
@@ -46,8 +48,23 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer< B
             css_text[css_filename] = css_resource->GetText();
         }
     }
+
+    // Display progress dialog
+    QProgressDialog progress(QObject::tr("Collecting classes..."), 0, 0, html_resources.count(), QApplication::activeWindow());
+    int progress_value = 0;
+    if (show_progress) {
+        progress.setMinimumDuration(0);
+        progress.setValue(progress_value);
+        qApp->processEvents();
+    }
+
     // Check each file for classes to look for in inline and linked stylesheets
     foreach(HTMLResource * html_resource, html_resources) {
+        if (show_progress) {
+            progress.setValue(progress_value++);
+            qApp->processEvents();
+        }
+
         QString html_filename = html_resource->Filename();
         // Get the unique list of classes in this file
         QStringList classes_in_file = book->GetClassesInHTMLFile(html_filename);
