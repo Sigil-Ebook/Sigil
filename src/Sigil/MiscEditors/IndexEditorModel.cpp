@@ -179,7 +179,15 @@ void IndexEditorModel::LoadData(const QString &filename, QStandardItem *item)
         QString index_data = Utility::ReadUnicodeTextFile(filename);
         foreach(QString line, index_data.split("\n")) {
             IndexEditorModel::indexEntry *entry = new IndexEditorModel::indexEntry();
-            entry->pattern = line;
+            // Split on tab if present
+            if (line.contains("\t")) {
+                int tab_position = line.indexOf("\t");
+                entry->pattern = line.left(tab_position);
+                entry->index_entry = line.right(line.length() - tab_position - 1);
+            }
+            else {
+                entry->pattern = line;
+            }
             AddFullNameEntry(entry, item);
         }
         return;
