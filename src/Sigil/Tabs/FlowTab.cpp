@@ -36,6 +36,7 @@
 #include <QtWebKit/QWebSettings>
 
 #include "BookManipulation/CleanSource.h"
+#include "MiscEditors/ClipEditorModel.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -1392,6 +1393,16 @@ bool FlowTab::NumberListChecked()
     }
 }
 
+bool FlowTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips)
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->PasteClipEntries(clips);
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->PasteClipEntries(clips);
+    }
+    return false;
+}
 
 QString FlowTab::GetCaretElementName()
 {

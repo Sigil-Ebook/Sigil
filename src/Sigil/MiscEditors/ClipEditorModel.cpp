@@ -533,6 +533,18 @@ ClipEditorModel::clipEntry *ClipEditorModel::GetEntry(QStandardItem *item)
     return entry;
 }
 
+ClipEditorModel::clipEntry *ClipEditorModel::GetEntry(const QModelIndex &index)
+{
+    QStandardItem *item = itemFromIndex(index);
+
+    if (!item) {
+        return NULL;
+    }
+
+    return GetEntry(item);
+}
+
+
 QStandardItem *ClipEditorModel::GetItemFromId(qint64 id, int row, QStandardItem *item) const
 {
     QStandardItem *found_item = NULL;

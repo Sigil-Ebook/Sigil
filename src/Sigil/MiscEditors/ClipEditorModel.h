@@ -65,6 +65,7 @@ public:
 
     QList<ClipEditorModel::clipEntry *> GetEntries(QList<QStandardItem *> items);
     ClipEditorModel::clipEntry *GetEntry(QStandardItem *item);
+    ClipEditorModel::clipEntry *GetEntry(const QModelIndex &index);
     ClipEditorModel::clipEntry *GetEntryFromName(const QString &name, QStandardItem *parent_item = NULL);
 
 

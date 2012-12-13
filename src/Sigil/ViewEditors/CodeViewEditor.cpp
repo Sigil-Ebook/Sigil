@@ -1143,13 +1143,16 @@ void CodeViewEditor::AddClipContextMenu(QMenu *menu)
         topAction = menu->actions().at(0);
     }
 
-    if (CreateMenuEntries(menu, topAction, ClipEditorModel::instance()->invisibleRootItem())) {
-        if (topAction) {
-            menu->insertSeparator(topAction);
-        } else {
-            menu->addSeparator();
-        }
+    QMenu *clips_menu = new QMenu(this);
+    clips_menu->setTitle(tr("Clips"));
+
+    if (topAction) {
+        menu->insertMenu(topAction, clips_menu);
+    } else {
+        menu->addMenu(clips_menu);
     }
+
+    CreateMenuEntries(clips_menu, 0, ClipEditorModel::instance()->invisibleRootItem());
 
     QAction *saveClipAction = new QAction(tr("Add To Clips") + "...", menu);
 

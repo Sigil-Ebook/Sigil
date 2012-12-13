@@ -60,6 +60,7 @@ class ValidationResultsView;
 class PreviewWindow;
 class SearchEditor;
 class ClipEditor;
+class ClipsWindow;
 class SelectCharacter;
 
 
@@ -301,6 +302,7 @@ private slots:
      */
     void PasteTextIntoCurrentTarget(const QString &text);
     void PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::clipEntry *> &clips);
+    void PasteClipEntriesIntoEditor(const QList<ClipEditorModel::clipEntry *> &clips);
 
     /**
      * Implements the set BookView functionality.
@@ -800,6 +802,8 @@ private:
      * The Book Browser pane that lists all the files in the book.
      */
     BookBrowser *m_BookBrowser;
+
+    ClipsWindow *m_Clips;
 
     /**
      * The find / replace widget.

@@ -676,7 +676,7 @@ bool ClipEditor::MaybeSaveDialogSaysProceed(bool is_forced)
         QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
                                                : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
         button_pressed = QMessageBox::warning(this,
-                                              tr("Sigil: Clips"),
+                                              tr("Sigil: Clip Editor"),
                                               tr("The Clip entries may have been modified.\n"
                                                       "Do you want to save your changes?"),
                                               buttons

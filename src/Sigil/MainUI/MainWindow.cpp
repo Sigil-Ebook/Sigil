@@ -55,6 +55,7 @@
 #include "Importers/ImporterFactory.h"
 #include "Importers/ImportHTML.h"
 #include "MainUI/BookBrowser.h"
+#include "MainUI/ClipsWindow.h"
 #include "MainUI/MainWindow.h"
 #include "MainUI/FindReplace.h"
 #include "MainUI/PreviewWindow.h"
@@ -98,6 +99,7 @@ static const QString FIND_REPLACE_NAME            = "findreplace";
 static const QString VALIDATION_RESULTS_VIEW_NAME = "validationresultsname";
 static const QString TABLE_OF_CONTENTS_NAME       = "tableofcontents";
 static const QString PREVIEW_WINDOW_NAME          = "previewwindow";
+static const QString CLIPS_WINDOW_NAME            = "clipswindow";
 static const QString FRAME_NAME                   = "managerframe";
 static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 0px solid white;"
         "border-left: 1px solid grey;"
@@ -124,6 +126,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WFlags 
     m_LastInsertedImage(QString()),
     m_TabManager(*new TabManager(this)),
     m_BookBrowser(NULL),
+    m_Clips(NULL),
     m_FindReplace(new FindReplace(*this)),
     m_TableOfContents(NULL),
     m_ValidationResultsView(NULL),
@@ -1256,6 +1259,24 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
     if (applied) {
         // Clear the statusbar afterwards but only if entries were pasted.
         ShowMessageOnStatusBar();
+    }
+}
+
+void MainWindow::PasteClipEntriesIntoEditor(const QList<ClipEditorModel::clipEntry *> &clips)
+{
+    ContentTab &tab = GetCurrentContentTab();
+    if (&tab != NULL) {
+        HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
+        if (html_resource) {
+            FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
+            if (flow_tab) {
+                bool applied = flow_tab->PasteClipEntries(clips);
+                if (applied) {
+                    // Clear the statusbar afterwards but only if entries were pasted.
+                    ShowMessageOnStatusBar();
+                }
+            }
+        }
     }
 }
 
@@ -2979,9 +3000,6 @@ void MainWindow::PlatformSpecificTweaks()
     foreach(QToolBar * toolbar, all_toolbars) {
         toolbar->setIconSize(QSize(32, 32));
     }
-    // The F11 shortcust is reserved for the OS on Macs,
-    // so we change it to Cmd/Ctrl+F11
-    ui.actionCodeView->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_F11));
 #endif
 }
 
@@ -3021,6 +3039,11 @@ void MainWindow::ExtendUI()
     addDockWidget(Qt::RightDockWidgetArea, m_PreviewWindow);
     m_PreviewWindow->hide();
 
+    m_Clips = new ClipsWindow(this);
+    m_Clips->setObjectName(CLIPS_WINDOW_NAME);
+    addDockWidget(Qt::LeftDockWidgetArea, m_Clips);
+    m_Clips->hide();
+
     ui.menuView->addSeparator();
     ui.menuView->addAction(m_BookBrowser->toggleViewAction());
     m_BookBrowser->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F1));
@@ -3028,6 +3051,7 @@ void MainWindow::ExtendUI()
     m_ValidationResultsView->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F2));
     ui.menuView->addAction(m_TableOfContents->toggleViewAction());
     m_TableOfContents->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F3));
+    ui.menuView->addAction(m_Clips->toggleViewAction());
     ui.menuView->addAction(m_PreviewWindow->toggleViewAction());
     m_PreviewWindow->toggleViewAction()->setShortcut(QKeySequence(Qt::Key_F10));
     // Create the view menu to hide and show toolbars.
@@ -3553,6 +3577,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_SelectCharacter, SIGNAL(SelectedCharacter(const QString &)), this, SLOT(PasteTextIntoCurrentTarget(const QString &)));
     connect(m_ClipEditor, SIGNAL(PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *>)),
             this,           SLOT(PasteClipEntriesIntoCurrentTarget(QList<ClipEditorModel::clipEntry *>)));
+    connect(m_Clips,        SIGNAL(PasteClips(QList<ClipEditorModel::clipEntry *>)),
+            this,            SLOT(PasteClipEntriesIntoEditor(QList<ClipEditorModel::clipEntry *>)));
     connect(m_SearchEditor, SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_ClipEditor,   SIGNAL(ShowStatusMessageRequest(const QString &)),

@@ -170,6 +170,8 @@ public:
     bool BulletListChecked();
     bool NumberListChecked();
 
+    bool PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips);
+
     QString GetCaretElementName();
 
     void SuspendTabReloading();

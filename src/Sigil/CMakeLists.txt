@@ -91,6 +91,7 @@ set( QOBJECT_HEADERS
     MainUI/MainWindow.h
     MainUI/FindReplace.h
     MainUI/BookBrowser.h
+    MainUI/ClipsWindow.h
     MainUI/PreviewWindow.h
     MainUI/TableOfContents.h
     MainUI/OPFModel.h
@@ -389,6 +390,8 @@ set( MAINUI_FILES
     MainUI/FindReplace.h
     MainUI/BookBrowser.cpp
     MainUI/BookBrowser.h
+    MainUI/ClipsWindow.cpp
+    MainUI/ClipsWindow.h
     MainUI/PreviewWindow.cpp
     MainUI/PreviewWindow.h
     MainUI/TableOfContents.cpp
