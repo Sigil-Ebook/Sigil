@@ -404,6 +404,10 @@ void FlowTab::ResourceModified()
     }
 
     m_bookViewNeedsReload = true;
+
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        EmitUpdatePreview();
+    }
 }
 
 void FlowTab::LinkedResourceModified()
@@ -484,17 +488,9 @@ void FlowTab::EmitUpdatePreview()
     emit UpdatePreview();
 }
 
-bool FlowTab::IsPositionInBody()
+void FlowTab::EmitUpdatePreviewImmediately()
 {
-    if (m_wCodeView) {
-        return m_wCodeView->IsPositionInBody();
-    }
-
-    if (m_wBookView) {
-        return true;
-    }
-
-    return false;
+    emit UpdatePreviewImmediately();
 }
 
 void FlowTab::EmitUpdateCursorPosition()
@@ -1468,4 +1464,5 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(ShowStatusMessageRequest(const QString &)), this, SIGNAL(ShowStatusMessageRequest(const QString &)));
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
     connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
+    connect(m_wCodeView, SIGNAL(PageClicked()), this, SLOT(EmitUpdatePreviewImmediately()));
 }

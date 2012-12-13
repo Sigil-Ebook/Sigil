@@ -2202,16 +2202,17 @@ void MainWindow::SetStateActionsStaticView()
 void MainWindow::SetupPreviewTimer()
 {
     m_PreviewTimer.setSingleShot(true);
-    m_PreviewTimer.setInterval(200);
+    m_PreviewTimer.setInterval(1000);
     connect(&m_PreviewTimer, SIGNAL(timeout()),
             this,            SLOT(UpdatePreview()));
 }
 
 void MainWindow::UpdatePreviewRequest()
 {
-    if (!m_PreviewTimer.isActive()) {
-         m_PreviewTimer.start();
+    if (m_PreviewTimer.isActive()) {
+         m_PreviewTimer.stop();
     }
+    m_PreviewTimer.start();
 }
 
 void MainWindow::UpdatePreview()
@@ -2223,7 +2224,7 @@ void MainWindow::UpdatePreview()
         if (html_resource) {
             FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
             if (flow_tab && m_ViewState == MainWindow::ViewState_CodeView) {
-                m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), flow_tab->GetText(), flow_tab->GetCaretLocation(), flow_tab->IsPositionInBody());
+                m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), flow_tab->GetText(), flow_tab->GetCaretLocation());
                 preview_valid = true;
             }
         }
@@ -3634,6 +3635,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(InsertImageRequest()), this,  SLOT(InsertImageDialog()));
 
         connect(tab,   SIGNAL(UpdatePreview()), this, SLOT(UpdatePreviewRequest()));
+        connect(tab,   SIGNAL(UpdatePreviewImmediately()), this, SLOT(UpdatePreview()));
     }
 
     connect(ui.actionPrintPreview,             SIGNAL(triggered()),  tab,   SLOT(PrintPreview()));

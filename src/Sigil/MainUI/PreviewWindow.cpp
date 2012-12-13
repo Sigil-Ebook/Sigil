@@ -28,8 +28,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     QDockWidget(tr("Preview"), parent),
     m_MainWidget(*new QWidget(this)),
     m_Layout(*new QVBoxLayout(&m_MainWidget)),
-    m_Preview(new BookViewPreview(this)),
-    m_OldText(QString())
+    m_Preview(new BookViewPreview(this))
 {
     m_Layout.setContentsMargins(0, 0, 0, 0);
 #ifdef Q_WS_MAC
@@ -41,7 +40,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
 
     m_MainWidget.setToolTip(
         "<p>" + 
-        tr("Preview shows a read-only view of your page when you are in Code View.  The page is refreshed whenever the cursor is moved.") +
+        tr("Preview shows a read-only view of your page when you are in Code View.  The page after you finish typing or click somewhere in Code View.") +
         "</p><p>" + 
         tr("You can move the Preview window by clicking on the title bar of the window and dragging it to your desktop or to another part of Sigil.  Dropping it on the TOC or Book Browser windows will create a tabbed window.") +
         "</p>");
@@ -62,28 +61,21 @@ void PreviewWindow::showEvent(QShowEvent *event)
     emit Shown();
 }
 
-void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location, bool highlight_location)
+void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location)
 {
     if (!m_Preview->isVisible()) {
         return;
     }
 
-    if (text != m_OldText) {
-        m_Preview->CustomSetDocument(filename, text);
-    }
-    m_OldText = text;
+    m_Preview->CustomSetDocument(filename, text);
 
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
-    if (highlight_location) {
-        m_Preview->HighlightPosition();
-    }
 }
 
 void PreviewWindow::ClearPage()
 {
     m_Preview->CustomSetDocument("", "");
-    m_OldText.clear();
 }
 
 void PreviewWindow::SetZoomFactor(float factor) {

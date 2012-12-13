@@ -128,8 +128,6 @@ public:
 
     bool IsLoadingFinished();
 
-    bool IsPositionInBody();
-
     /**
      * Scrolls the tab to the specified fragment (if in Book View).
      *
@@ -296,6 +294,7 @@ signals:
     void InsertImageRequest();
 
     void UpdatePreview();
+    void UpdatePreviewImmediately();
 
 private slots:
 
@@ -316,6 +315,7 @@ private slots:
     void EmitContentChanged();
 
     void EmitUpdatePreview();
+    void EmitUpdatePreviewImmediately();
 
     void EmitUpdateCursorPosition();
 

@@ -145,7 +145,6 @@ void CodeViewEditor::CustomSetDocument(QTextDocument &document)
 
     ResetFont();
     m_isLoadFinished = true;
-    EmitPageUpdated();
 }
 
 void CodeViewEditor::DeleteLine()
@@ -707,7 +706,6 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
         }
     }
 
-    EmitPageUpdated();
     return replacement_made;
 }
 
@@ -858,6 +856,7 @@ void CodeViewEditor::mousePressEvent(QMouseEvent *event)
     if (isCtrl) {
         GoToLinkOrStyle();
     }
+    emit PageClicked();
 }
 
 
@@ -3075,9 +3074,8 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect(this, SIGNAL(blockCountChanged(int)), this, SLOT(UpdateLineNumberAreaMargin()));
     connect(this, SIGNAL(updateRequest(const QRect &, int)), this, SLOT(UpdateLineNumberArea(const QRect &, int)));
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(HighlightCurrentLine()));
-    connect(this, SIGNAL(textChanged()), this, SLOT(TextChangedFilter()));
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(EmitPageUpdated()));
-    connect(this, SIGNAL(textChanged()), this, SLOT(EmitPageUpdated()));
+    connect(this, SIGNAL(textChanged()), this, SLOT(TextChangedFilter()));
     connect(this, SIGNAL(undoAvailable(bool)), this, SLOT(UpdateUndoAvailable(bool)));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(ResetLastFindMatch()));
     connect(&m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
