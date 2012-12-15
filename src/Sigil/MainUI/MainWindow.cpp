@@ -975,7 +975,7 @@ void MainWindow::DeleteUnusedStyles()
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
-        ShowMessageOnStatusBar(tr("Delete Unused Images cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Delete Unused Styles cancelled due to XML not well formed."));
         return;
     }
 
