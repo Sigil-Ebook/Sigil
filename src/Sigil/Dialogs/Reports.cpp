@@ -35,24 +35,21 @@
 static const QString SETTINGS_GROUP = "reports_dialog";
 
 Reports::Reports(QWidget *parent)
-    :
-    QDialog(parent)
+    : QDialog(parent),
+      m_HTMLFilesWidget(new HTMLFilesWidget()),
+      m_ImageFilesWidget(new ImageFilesWidget()),
+      m_CSSFilesWidget(new CSSFilesWidget()),
+      m_ClassesInHTMLFilesWidget(new ClassesInHTMLFilesWidget()),
+      m_StylesInCSSFilesWidget(new StylesInCSSFilesWidget())
 {
     ui.setupUi(this);
-    m_HTMLFilesWidget = new HTMLFilesWidget();
-    connect(m_HTMLFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
+
     appendReportsWidget(m_HTMLFilesWidget);
-    m_ImageFilesWidget = new ImageFilesWidget();
-    connect(m_ImageFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     appendReportsWidget(m_ImageFilesWidget);
-    m_CSSFilesWidget = new CSSFilesWidget();
-    connect(m_CSSFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     appendReportsWidget(m_CSSFilesWidget);
-    m_ClassesInHTMLFilesWidget = new ClassesInHTMLFilesWidget();
     appendReportsWidget(m_ClassesInHTMLFilesWidget);
-    m_StylesInCSSFilesWidget = new StylesInCSSFilesWidget();
-    connect(m_StylesInCSSFilesWidget, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)));
     appendReportsWidget(m_StylesInCSSFilesWidget);
+
     connectSignalsSlots();
     readSettings();
     ui.Refresh->setFocus();
@@ -160,6 +157,11 @@ void Reports::appendReportsWidget(ReportsWidget *widget)
 
 void Reports::connectSignalsSlots()
 {
+    connect(m_HTMLFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
+    connect(m_ImageFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
+    connect(m_CSSFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
+    connect(m_StylesInCSSFilesWidget, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)));
+
     connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(selectPWidget(QListWidgetItem *, QListWidgetItem *)));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveSettings()));
     connect(ui.Refresh, SIGNAL(clicked()), this, SIGNAL(Refresh()));
