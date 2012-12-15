@@ -6,6 +6,7 @@
 
 # Temporary files used by the vim editor.
 .*.swp
+.swp
 
 # A hidden file created by the Mac OS X Finder.
 .DS_Store
