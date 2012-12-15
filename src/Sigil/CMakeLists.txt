@@ -679,8 +679,7 @@ if( APPLE )
     endif()
 
     add_custom_target(  addframeworks
-                        COMMAND sudo ${QT_BINARY_DIR}/macdeployqt Sigil.app &&
-                        sudo chown -R `whoami` Sigil.app
+                        COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app
                         WORKING_DIRECTORY ${WORK_DIR}
                         DEPENDS ${PROJECT_NAME} )
 
