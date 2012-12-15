@@ -552,6 +552,19 @@ tuple<QString, QStringList> Book::GetImagesInHTMLFileMapped(HTMLResource *html_r
                       XhtmlDoc::GetAllImagePathsFromImageChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()));
 }
 
+QList<HTMLResource *> Book::GetNonWellFormedHTMLFiles()
+{
+    QList<HTMLResource *> malformed_resources;
+
+    foreach (HTMLResource *h, m_Mainfolder.GetResourceTypeList< HTMLResource >(false)) {
+        if (!IsDataWellFormed(*h)) {
+            malformed_resources << h;
+        }
+    }
+
+    return malformed_resources;
+}
+
 QSet<QString> Book::GetWordsInHTMLFiles()
 {
     QStringList all_words;

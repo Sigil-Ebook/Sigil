@@ -64,9 +64,8 @@ public:
 
     int GetTabCount();
 
-    bool TryCloseAllTabs();
-    bool TryCloseTab(int tab_index);
-    bool CloseTabForResource(const Resource &resource);
+    void CloseAllTabs();
+    void CloseTabForResource(const Resource &resource);
 
     /**
      * Returns \c true if all open tabs data is well-formed.

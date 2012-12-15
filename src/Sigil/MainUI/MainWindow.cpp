@@ -232,11 +232,6 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
         return;
     }
 
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Navigation cancelled due to XML not well formed."));
-        return;
-    }
-
     try {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(locationBookmark->filename);
         // The following OpenResource call will switch ViewState if required to be changed.
@@ -537,11 +532,6 @@ void MainWindow::OpenRecentFile()
 
 bool MainWindow::Save()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Save cancelled due to XML not well formed."));
-        return false;
-    }
-
     if (m_CurrentFilePath.isEmpty()) {
         return SaveAs();
     } else {
@@ -558,11 +548,6 @@ bool MainWindow::Save()
 
 bool MainWindow::SaveAs()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Save cancelled due to XML not well formed."));
-        return false;
-    }
-
     QStringList filters(c_SaveFilters.values());
     filters.removeDuplicates();
     QString filter_string = "";
@@ -617,11 +602,6 @@ bool MainWindow::SaveAs()
 
 bool MainWindow::SaveACopy()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Save cancelled due to XML not well formed."));
-        return false;
-    }
-
     if (m_CurrentFilePath.isEmpty()) {
         m_CurrentFilePath = DEFAULT_FILENAME;
     }
@@ -783,11 +763,6 @@ void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry *index_entry)
 
 void MainWindow::CreateIndex()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Create Index cancelled due to XML not well formed."));
-        return;
-    }
-
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
     HTMLResource *index_resource = NULL;
@@ -888,11 +863,6 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
 
 void MainWindow::ReportsDialog()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Reports cancelled due to XML not well formed."));
-        return;
-    }
-
     SaveTabData();
     // non-modal dialog
     m_Reports->show();
@@ -941,11 +911,6 @@ void MainWindow::DeleteFilenames(QStringList files_to_delete)
 bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector *> css_selectors)
 {
     // Save our tabs data as we will be modifying the underlying resources
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Delete CSS Style cancelled due to XML not well formed."));
-        return false;
-    }
-
     SaveTabData();
     bool is_modified = false;
     bool is_found = false;
@@ -982,12 +947,12 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
 
 void MainWindow::DeleteUnusedImages()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
+    SaveTabData();
+    if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
         ShowMessageOnStatusBar(tr("Delete Unused Images cancelled due to XML not well formed."));
         return;
     }
 
-    SaveTabData();
     QList<Resource *> resources;
     QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
     foreach(Resource * resource, m_BookBrowser->AllImageResources()) {
@@ -1008,12 +973,12 @@ void MainWindow::DeleteUnusedImages()
 
 void MainWindow::DeleteUnusedStyles()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Delete Unused Styles cancelled due to XML not well formed."));
+    SaveTabData();
+    if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
+        ShowMessageOnStatusBar(tr("Delete Unused Images cancelled due to XML not well formed."));
         return;
     }
 
-    SaveTabData();
     QList<BookReports::StyleData *> html_class_usage = BookReports::GetHTMLClassUsage(m_Book, true);
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_class_usage);
     QList<BookReports::StyleData *> css_selectors_to_delete;
@@ -1032,11 +997,6 @@ void MainWindow::DeleteUnusedStyles()
 
 void MainWindow::InsertImageDialog()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Insert Image cancelled due to XML not well formed."));
-        return;
-    }
-
     SaveTabData();
     FlowTab *flow_tab = qobject_cast<FlowTab *>(&GetCurrentContentTab());
     ShowMessageOnStatusBar();
@@ -1128,11 +1088,6 @@ void MainWindow::InsertSpecialCharacter()
 
 void MainWindow::InsertId()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Insert ID cancelled due to XML not well formed."));
-        return;
-    }
-
     SaveTabData();
     // Get current id attribute value if any
     ContentTab &tab = GetCurrentContentTab();
@@ -1165,11 +1120,6 @@ void MainWindow::InsertId()
 
 void MainWindow::InsertHyperlink()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Insert Hyperlink cancelled due to XML not well formed."));
-        return;
-    }
-
     SaveTabData();
     // Get current id attribute value if any
     ContentTab &tab = GetCurrentContentTab();
@@ -1195,11 +1145,6 @@ void MainWindow::InsertHyperlink()
 
 void MainWindow::MarkForIndex()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Mark For Index cancelled due to XML not well formed."));
-        return;
-    }
-
     SaveTabData();
     // Get current id attribute value if any
     ContentTab &tab = GetCurrentContentTab();
@@ -1286,6 +1231,9 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         return;
     }
 
+    // Save the tab data
+    SaveTabData();
+
     // Convert merge previous to merge selected so all files can be checked for validity
     if (resources.count() == 1) {
         Resource *resource = m_Book->PreviousResource(resources.first());
@@ -1305,22 +1253,26 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         }
     }
 
-    // Check if data is well formed before saving
+    // Check if data is well formed
+    foreach (Resource *r, resources) {
+        HTMLResource *h = qobject_cast<HTMLResource *>(r);
+        if (!h) {
+            continue;
+        }
+        if (!h->FileIsWellFormed()) {
+            ShowMessageOnStatusBar(tr("Link Stylesheets cancelled: %1, XML not well formed.").arg(h->Filename()));
+            return;
+        }
+    }
     if (!m_TabManager.IsAllTabDataWellFormed()) {
         ShowMessageOnStatusBar(tr("Merge cancelled due to XML not well formed."));
         return;
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    // Save the tab data
-    SaveTabData();
     // Close all tabs being updated to prevent BV overwriting the new data
     foreach(Resource * resource, resources) {
-        if (!m_TabManager.CloseTabForResource(*resource)) {
-            QApplication::restoreOverrideCursor();
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge\n\nCannot close tab: %1").arg(resource->Filename()));
-            return;
-        }
+        m_TabManager.CloseTabForResource(*resource);
     }
     // Display progress dialog
     Resource *resource_to_open = resources.first();
@@ -1347,14 +1299,20 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
         return;
     }
 
+    SaveTabData();
+
     // Check if data is well formed before saving
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Link Stylesheets cancelled due to XML not well formed."));
-        return;
+    foreach (Resource *r, resources) {
+        HTMLResource *h = qobject_cast<HTMLResource *>(r);
+        if (!h) {
+            continue;
+        }
+        if (!h->FileIsWellFormed()) {
+            ShowMessageOnStatusBar(tr("Link Stylesheets cancelled: %1, XML not well formed.").arg(h->Filename()));
+            return;
+        }
     }
 
-    // Save the tab data and recheck if data is still well formed
-    SaveTabData();
     // Choose which stylesheets to link
     LinkStylesheets link(GetStylesheetsMap(resources), this);
 
@@ -1371,10 +1329,7 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
 
     // Close all tabs being updated to prevent BV overwriting the new data
     foreach(Resource * resource, resources) {
-        if (!m_TabManager.CloseTabForResource(*resource)) {
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot link stylesheets\n\nCannot close tab: %1").arg(resource->Filename()));
-            return;
-        }
+        m_TabManager.CloseTabForResource(*resource);
     }
     QStringList stylesheets = link.GetStylesheets();
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -1458,11 +1413,6 @@ void MainWindow::RemoveResources(QList<Resource *> resources)
 
 void MainWindow::GenerateToc()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Generate TOC cancelled due to XML not well formed."));
-        return;
-    }
-
     SaveTabData();
     QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
 
@@ -1501,11 +1451,6 @@ void MainWindow::GenerateToc()
 
 void MainWindow::CreateHTMLTOC()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Create HTML TOC cancelled due to XML not well formed."));
-        return;
-    }
-
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
     HTMLResource *tocResource = NULL;
@@ -1662,9 +1607,9 @@ void MainWindow::ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry)
     }
 }
 
-bool MainWindow::CloseAllTabs()
+void MainWindow::CloseAllTabs()
 {
-    return m_TabManager.TryCloseAllTabs();
+    m_TabManager.CloseAllTabs();
 }
 
 void MainWindow::SaveTabData()
@@ -1674,11 +1619,6 @@ void MainWindow::SaveTabData()
 
 void MainWindow::MetaEditorDialog()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Meta Editor cancelled due to XML not well formed."));
-        return;
-    }
-
     MetaEditor meta(m_Book->GetOPF(), this);
     meta.exec();
 
@@ -1735,11 +1675,6 @@ void MainWindow::AboutDialog()
 
 void MainWindow::PreferencesDialog()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Preferences cancelled due to XML not well formed."));
-        return;
-    }
-
     Preferences preferences(this);
     preferences.exec();
 
@@ -1764,11 +1699,6 @@ void MainWindow::ValidateEpubWithFlightCrew()
 
 void MainWindow::ValidateStylesheetsWithW3C()
 {
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Validation cancelled due to XML not well formed."));
-        return;
-    }
-
     SaveTabData();
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
 
@@ -2371,11 +2301,7 @@ void MainWindow::SplitOnSGFSectionMarkers()
 {
     QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
 
-    // Check if data is well formed before saving
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Split cancelled due to XML not well formed."));
-        return;
-    }
+    SaveTabData();
 
     // If have the current tab is open in BV, make sure it has its content saved so it won't later overwrite a split.
     FlowTab *flow_tab = qobject_cast<FlowTab *>(&GetCurrentContentTab());
@@ -2386,9 +2312,20 @@ void MainWindow::SplitOnSGFSectionMarkers()
 
     foreach(Resource * resource, html_resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (!html_resource) {
+            ShowMessageOnStatusBar(tr("Cannot split since at least one file is not an HTML file."));
+            return;
+        }
 
+        // Check if data is well formed before splitting.
+        if (!html_resource->FileIsWellFormed()) {
+            ShowMessageOnStatusBar(tr("Cannot split: %1 XML is not well formed").arg(html_resource->Filename()));
+            return;
+        }
+
+        // XXX: This should be using the mime type not the extension.
         if (!TEXT_EXTENSIONS.contains(QFileInfo(html_resource->Filename()).suffix().toLower())) {
-            ShowMessageOnStatusBar(tr("Cannot split since at least one file extension is invalid."));
+            ShowMessageOnStatusBar(tr("Cannot split since at least one file may not be an HTML file."));
             return;
         }
     }

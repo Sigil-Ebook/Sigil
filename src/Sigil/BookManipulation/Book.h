@@ -222,6 +222,8 @@ public:
     QHash<QString, QStringList> GetHTMLFilesUsingImages();
     static boost::tuple<QString, QStringList> GetImagesInHTMLFileMapped(HTMLResource *html_resource);
 
+    QList<HTMLResource *> GetNonWellFormedHTMLFiles();
+
     QHash<QString, int> CountAllLinksInHTML();
 
     /**

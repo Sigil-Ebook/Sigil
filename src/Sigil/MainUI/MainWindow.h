@@ -159,7 +159,7 @@ public:
      */
     MainWindow::ViewState GetViewState();
 
-    bool CloseAllTabs();
+    void CloseAllTabs();
 
     void SaveTabData();
 

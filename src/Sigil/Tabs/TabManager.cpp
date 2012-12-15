@@ -99,47 +99,20 @@ int TabManager::GetTabCount()
     return count();
 }
 
-bool TabManager::TryCloseAllTabs()
+void TabManager::CloseAllTabs()
 {
-    bool status;
-
     while (count() > 0) {
-        status = TryCloseTab(0);
-
-        if (!status) {
-            return false;
-        }
+        CloseTab(0);
     }
-
-    return true;
 }
 
-
-bool TabManager::TryCloseTab(int tab_index)
-{
-    Q_ASSERT(tab_index >= 0);
-    WellFormedContent *content = GetWellFormedContent(tab_index);
-
-    if (content && !content->IsDataWellFormed()) {
-        return false;
-    }
-
-    ContentTab *tab = qobject_cast<ContentTab *>(widget(tab_index));
-    tab->Close();
-    emit TabCountChanged();
-    return true;
-}
-
-bool TabManager::CloseTabForResource(const Resource &resource)
+void TabManager::CloseTabForResource(const Resource &resource)
 {
     int index = ResourceTabIndex(resource);
 
     if (index != -1) {
-        return TryCloseTab(index);
+        CloseTab(index);
     }
-
-    // Tab for resource so it's not open.
-    return true;
 }
 
 bool TabManager::IsAllTabDataWellFormed()
@@ -351,7 +324,9 @@ void TabManager::CloseTab(int tab_index)
         return;
     }
 
-    TryCloseTab(tab_index);
+    ContentTab *tab = qobject_cast<ContentTab *>(widget(tab_index));
+    tab->Close();
+    emit TabCountChanged();
 }
 
 
