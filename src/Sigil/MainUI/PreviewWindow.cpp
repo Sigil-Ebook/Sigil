@@ -40,7 +40,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
 
     m_MainWidget.setToolTip(
         "<p>" + 
-        tr("Preview shows a read-only view of your page when you are in Code View.  The page after you finish typing or click somewhere in Code View.") +
+        tr("Preview shows a read-only view of your HTML file when you are in Code View.  The page is refreshed after you finish typing or click somewhere in Code View.") +
         "</p><p>" + 
         tr("You can move the Preview window by clicking on the title bar of the window and dragging it to your desktop or to another part of Sigil.  Dropping it on the TOC or Book Browser windows will create a tabbed window.") +
         "</p>");
