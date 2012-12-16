@@ -685,6 +685,7 @@ void BookViewPreview::InspectElement()
     }
 
     m_Inspector->setVisible(true);
+    page()->triggerAction(QWebPage::InspectElement);
 }
 
 void BookViewPreview::CreateContextMenuActions()
