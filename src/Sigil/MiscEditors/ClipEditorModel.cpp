@@ -444,13 +444,11 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
 void ClipEditorModel::AddExampleEntries()
 {
     QString examples_dir;
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     examples_dir = QCoreApplication::applicationDirPath() + "/../examples/";
-#endif
-#ifdef Q_WS_WIN
+#elif defined(Q_OS_WIN32)
     examples_dir = QCoreApplication::applicationDirPath() + "/examples/";
-#endif
-#ifdef Q_WS_X11
+#else
     examples_dir = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/examples/";
 #endif
     LoadData(examples_dir % CLIP_EXAMPLES_FILE);

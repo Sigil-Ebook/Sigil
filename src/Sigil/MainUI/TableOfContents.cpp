@@ -49,7 +49,7 @@ TableOfContents::TableOfContents(QWidget *parent)
     m_NCXModel(*new NCXModel(this))
 {
     m_Layout.setContentsMargins(0, 0, 0, 0);
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     m_Layout.setSpacing(4);
 #endif
     m_Layout.addWidget(&m_TreeView);

@@ -36,8 +36,8 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/SettingsStore.h"
 
-#ifdef Q_WS_X11
-#include <stdlib.h>
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+# include <stdlib.h>
 #endif
 
 SpellCheck *SpellCheck::m_instance = 0;
@@ -267,7 +267,6 @@ void SpellCheck::replaceUserDictionaryWords(QStringList words)
     reloadDictionary();
 }
 
-
 void SpellCheck::loadDictionaryNames()
 {
     QStringList dictExts;
@@ -284,13 +283,12 @@ void SpellCheck::loadDictionaryNames()
 
     // Paths for each dictionary location.
     QStringList paths;
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     paths << QCoreApplication::applicationDirPath() + "/../hunspell_dictionaries";
-#endif
-#if defined( Q_WS_WIN ) || defined( Q_WS_X11 )
+#else
     paths << QCoreApplication::applicationDirPath() + "/hunspell_dictionaries";
 #endif
-#ifdef Q_WS_X11
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // The user can specify an env variable that points to the dictionaries.
     const QString env_dic_location = QString(getenv("SIGIL_DICTIONARIES"));
 

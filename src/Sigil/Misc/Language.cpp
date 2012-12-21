@@ -220,6 +220,7 @@ void Language::SetLanguageMap()
          "lo"    << tr("Lao") <<
          "la"    << tr("Latin") <<
          "lv"    << tr("Latvian") <<
+         "lv_LV" << tr("Latvian") % " - " % tr("Latvia") <<
          "li"    << tr("Limburgan") <<
          "ln"    << tr("Lingala") <<
          "lt"    << tr("Lithuanian") <<

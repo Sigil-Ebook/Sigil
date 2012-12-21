@@ -41,9 +41,9 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
-#ifdef Q_WS_WIN
-#include <QtWidgets/QPlainTextEdit>
-#include "ViewEditors/BookViewPreview.h"
+#ifdef Q_OS_WIN32
+# include <QtWidgets/QPlainTextEdit>
+# include "ViewEditors/BookViewPreview.h"
 static const QString WIN_CLIPBOARD_ERROR = "QClipboard::setMimeData: Failed to set data on clipboard";
 static const int RETRY_DELAY_MS = 5;
 #endif
@@ -64,7 +64,7 @@ static MainWindow *GetMainWindow(const QStringList &arguments)
 }
 
 
-#ifdef Q_WS_X11
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 // Returns a QIcon with the Sigil "S" logo in various sizes
 static QIcon GetApplicationIcon()
 {
@@ -97,8 +97,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             break;
         case QtCriticalMsg:
             error_message = QString(message.toLatin1().constData());
-#ifdef Q_WS_WIN
-
+#ifdef Q_OS_WIN32
             // On Windows there is a known issue with the clipboard that results in some copy
             // operations in controls being intermittently blocked. Rather than presenting
             // the user with an error dialog, we should simply retry the operation.
@@ -209,13 +208,13 @@ int main(int argc, char *argv[])
         // We set the window icon explicitly on Linux.
         // On Windows this is handled by the RC file,
         // and on Mac by the ICNS file.
-#ifdef Q_WS_X11
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
         app.setWindowIcon(GetApplicationIcon());
 #endif
         // On Unix systems, we make sure that the temp folder we
         // create is accessible by all users. On Windows, there's
         // a temp folder per user.
-#ifndef Q_WS_WIN
+#ifndef Q_OS_WIN32
         CreateTempFolderWithCorrectPermissions();
 #endif
         // Needs to be created on the heap so that

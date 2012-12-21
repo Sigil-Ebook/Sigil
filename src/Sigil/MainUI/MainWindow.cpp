@@ -434,11 +434,11 @@ void MainWindow::New()
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
     // instances of the Sigil application
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     if (MaybeSaveDialogSaysProceed())
 #endif
     {
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
         MainWindow *new_window = new MainWindow();
         new_window->show();
 #else
@@ -455,7 +455,7 @@ void MainWindow::Open()
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
     // instances of the Sigil application
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     if (MaybeSaveDialogSaysProceed())
 #endif
     {
@@ -477,7 +477,7 @@ void MainWindow::Open()
         if (!filename.isEmpty()) {
             // Store the folder the user opened from
             m_LastFolderOpen = QFileInfo(filename).absolutePath();
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
 #else
@@ -496,7 +496,7 @@ void MainWindow::OpenRecentFile()
     QAction *action = qobject_cast< QAction *>(sender());
 
     if (action != NULL) {
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
 
         if (MaybeSaveDialogSaysProceed())
 #endif
@@ -519,7 +519,7 @@ void MainWindow::OpenRecentFile()
                 return;
             }
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
 #else
@@ -576,7 +576,7 @@ bool MainWindow::SaveAs()
                        tr("Save File"),
                        save_path,
                        filter_string,
-#ifdef Q_WS_X11
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
                        & default_filter,
                        QFileDialog::DontUseNativeDialog
 #else
@@ -618,7 +618,7 @@ bool MainWindow::SaveACopy()
                        tr("Save a Copy"),
                        m_SaveACopyFilename,
                        filter_string,
-#ifdef Q_WS_X11
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
                        & default_filter,
                        QFileDialog::DontUseNativeDialog
 #else
@@ -2928,7 +2928,7 @@ void MainWindow::PlatformSpecificTweaks()
 {
     // We use the "close" action only on Macs,
     // because they need it for the multi-document interface
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     ui.actionClose->setEnabled(false);
     ui.actionClose->setVisible(false);
 #else
@@ -3046,7 +3046,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionNewSVGFile, "MainWindow.NewSVGFile");
     sm->registerAction(ui.actionAddExistingFile, "MainWindow.AddExistingFile");
     sm->registerAction(ui.actionOpen, "MainWindow.Open");
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     sm->registerAction(ui.actionClose, "MainWindow.Close");
 #endif
     sm->registerAction(ui.actionSave, "MainWindow.Save");
@@ -3072,7 +3072,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionInsertSGFSectionMarker, "MainWindow.InsertSGFSectionMarker");
     sm->registerAction(ui.actionSplitOnSGFSectionMarkers, "MainWindow.SplitOnSGFSectionMarkers");
     sm->registerAction(ui.actionInsertClosingTag, "MainWindow.InsertClosingTag");
-#ifndef Q_WS_MAC
+#ifndef Q_OS_MAC
     sm->registerAction(ui.actionPreferences, "MainWindow.Preferences");
 #endif
     //Search

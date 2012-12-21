@@ -88,7 +88,7 @@ bool OpenExternally::mayOpen(const Resource::ResourceType type)
 
 bool OpenExternally::openFile(const QString &filePath, const QString &application)
 {
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
 
     if (QFile::exists(filePath) && QDir(application).exists()) {
         QStringList arguments = QStringList() << "-a" << application << filePath;
@@ -159,7 +159,7 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
     const QString &editorDescriptionKey = QString("editor_description_") + RESOURCE_TYPE_NAME(type);
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-#if defined(Q_WS_WIN)
+#if defined(Q_OS_WIN32)
     static QString LAST_LOCATION(getenv("PROGRAMFILES"));
 #else
     static QString LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
@@ -175,11 +175,11 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
     }
 
     static const QString NAME_FILTER = QObject::tr("Applications")
-#if defined(Q_WS_WIN)
+#if defined(Q_OS_WIN32)
                                        + " (*.exe *.com *.bat *.cmd)"
-#elif defined(Q_WS_MAC)
+#elif defined(Q_OS_MAC)
                                        + " (*.app)"
-#elif defined(Q_WS_X11)
+#else
                                        + " (*)"
 #endif
                                        ;

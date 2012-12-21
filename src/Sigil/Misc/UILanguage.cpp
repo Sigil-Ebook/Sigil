@@ -25,7 +25,7 @@
 #include <QtCore/QString>
 #include "Misc/UILanguage.h"
 
-#ifdef Q_WS_X11
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 #include <stdlib.h>
 #endif
 
@@ -37,7 +37,7 @@ QStringList UILanguage::GetPossibleTranslationPaths()
     // There are a few different places translations can be stored depending
     // on the platform and where they were installed.
     QStringList possible_qm_locations;
-#ifdef Q_WS_X11
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // The user can specify an env variable that points to the translation.
     const QString env_qm_location = QString(getenv("SIGIL_TRANSLATIONS"));
 
@@ -50,8 +50,15 @@ QStringList UILanguage::GetPossibleTranslationPaths()
     // cmake instead of guessing based upon the executable path.
     possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/translations/");
 #endif
+
     possible_qm_locations.append(QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+
+#ifdef Q_OS_MAC
+    possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/../translations");
+#else
     possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/translations");
+#endif
+
     return possible_qm_locations;
 }
 
