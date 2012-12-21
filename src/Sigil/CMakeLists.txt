@@ -34,6 +34,7 @@ endif()
 
 #############################################################################
 
+# Qt5 packages
 find_package(Qt5Network)
 find_package(Qt5Svg)
 find_package(Qt5WebKit)
@@ -43,96 +44,8 @@ find_package(Qt5Xml)
 find_package(Qt5XmlPatterns)
 find_package(Qt5Concurrent)
 find_package(Qt5PrintSupport)
-#set(CMAKE_AUTOMOC ON)
-
-# These headers need to go through Qt's MOC compiler
-set( QOBJECT_HEADERS
-    ViewEditors/BookViewEditor.h
-    ViewEditors/BookViewPreview.h
-    ViewEditors/CodeViewEditor.h 
-    ViewEditors/ViewWebPage.h 
-    Dialogs/AddMetadata.h 
-    Dialogs/About.h
-    Dialogs/ClipboardHistorySelector.h
-    Dialogs/DeleteFiles.h
-    Dialogs/DeleteStyles.h
-    Dialogs/HeadingSelector.h 
-    Dialogs/OpenWithName.h
-    Dialogs/SelectCharacter.h
-    Dialogs/SelectHyperlink.h
-    Dialogs/SelectId.h
-    Dialogs/SelectIndexTitle.h
-    Dialogs/SelectImages.h
-    Dialogs/MetaEditor.h
-    Dialogs/MetaEditorItemDelegate.h
-    Dialogs/Preferences.h
-    Dialogs/PreferenceWidgets/AppearanceWidget.h
-    Dialogs/PreferenceWidgets/PreferencesWidget.h
-    Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
-    Dialogs/PreferenceWidgets/SpellCheckWidget.h
-    Dialogs/RenameTemplate.h
-    Dialogs/Reports.h
-    Dialogs/ReportsWidgets/HTMLFilesWidget.h
-    Dialogs/ReportsWidgets/ImageFilesWidget.h
-    Dialogs/ReportsWidgets/CSSFilesWidget.h
-    Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.h
-    Dialogs/ReportsWidgets/StylesInCSSFilesWidget.h
-    Dialogs/ReportsWidgets/ReportsWidget.h
-    Dialogs/LinkStylesheets.h
-    Dialogs/SearchEditor.h
-    Dialogs/ClipEditor.h
-    Dialogs/IndexEditor.h
-    Tabs/TabBar.h
-    Tabs/TabManager.h
-    Tabs/ContentTab.h 
-    Tabs/FlowTab.h
-    Tabs/TextTab.h
-    Tabs/CSSTab.h 
-    Tabs/ImageTab.h
-    Tabs/MiscTextTab.h
-    Tabs/SVGTab.h
-    Tabs/OPFTab.h
-    Tabs/NCXTab.h
-    Tabs/WellFormedCheckComponent.h
-    Tabs/XMLTab.h
-    MainUI/MainApplication.h
-    MainUI/MainWindow.h
-    MainUI/FindReplace.h
-    MainUI/BookBrowser.h
-    MainUI/ClipsWindow.h
-    MainUI/PreviewWindow.h
-    MainUI/TableOfContents.h
-    MainUI/OPFModel.h
-    MainUI/NCXModel.h
-    MainUI/ValidationResultsView.h
-    Misc/AppEventFilter.h
-    Misc/CSSInfo.h
-    Misc/PasteTargetComboBox.h
-    Misc/SettingsStore.h
-    Misc/UpdateChecker.h 
-    Misc/RasterizeImageResource.h
-    Misc/WrapIndicator.h
-    MiscEditors/SearchEditorModel.h
-    MiscEditors/ClipEditorModel.h
-    MiscEditors/IndexEditorModel.h
-    Misc/SelectImagePreviewer.h
-    ResourceObjects/Resource.h
-    ResourceObjects/TextResource.h
-    ResourceObjects/HTMLResource.h
-    ResourceObjects/CSSResource.h
-    ResourceObjects/ImageResource.h
-    ResourceObjects/AudioResource.h
-    ResourceObjects/VideoResource.h
-    ResourceObjects/MiscTextResource.h
-    ResourceObjects/SVGResource.h
-    ResourceObjects/FontResource.h
-    ResourceObjects/NCXResource.h
-    ResourceObjects/OPFResource.h
-    ResourceObjects/XMLResource.h
-    BookManipulation/Book.h
-    BookManipulation/FolderKeeper.h
-    BookManipulation/Metadata.h
-    )
+find_package(Qt5LinguistTools)
+set(CMAKE_AUTOMOC ON)
 
 set( MAIN_FILES
     sigil_constants.h
@@ -523,17 +436,12 @@ set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPUL
 
 #############################################################################
 
-# Runs MOC on specifed files
-qt5_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
-
 # Runs UIC on specified files
 qt5_wrap_ui( UI_FILES_H ${UI_FILES} )
-
 # Runs RCC on specified files
 qt5_add_resources( QRC_FILES_CPP ${QRC_FILES} )
-
 # Runs lrelease on the specified files
-#qt5_add_translation( QM_FILES ${TS_FILES} )
+qt5_add_translation( QM_FILES ${TS_FILES} )
 
 # Define the Sigil version string for use in source files
 set_source_files_properties( Dialogs/About.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
@@ -542,7 +450,6 @@ set_source_files_properties( Misc/Utility.cpp PROPERTIES COMPILE_DEFINITIONS SIG
 #############################################################################
 
 # Adds folders for Visual Studio solution explorer (and for Xcode explorer)
-source_group( "Generated"         FILES ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} )
 source_group( "Forms"             FILES ${UI_FILES} )
 source_group( "Resource Files"    FILES ${QRC_FILES} )
 source_group( "Book Manipulation" FILES ${BOOK_MANIPULATION_FILES} )
@@ -562,10 +469,10 @@ source_group( "Source Updates"    FILES ${SOURCEUPDATE_FILES} )
 
 #############################################################################
 
-set( ALL_SOURCES ${RAW_SOURCES} ${MOC_FILES_CPP} ${UI_FILES_H} ${QRC_FILES_CPP} ${QM_FILES} )
+set( ALL_SOURCES ${RAW_SOURCES} ${UI_FILES_H} ${QRC_FILES_CPP} ${QM_FILES} )
 
 # Adding resource (RC) files for Windows
-if ( MSVC )
+if ( WIN32 )
     configure_file( Resource_files/windows/version.rc.in ${PROJECT_BINARY_DIR}/version.rc )
     set( WINDOWS_RC_FILES
          Resource_Files/icon/icon.rc
@@ -579,7 +486,6 @@ endif()
 
 # Apple bundle configuration
 if( APPLE )
-    # Copy the icon files
     # TODO: put these in some sort of add_custom_command( TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ...)
     # also delete the Sigil.app folder as PRE_BUILD of Sigil executable
     
@@ -867,7 +773,6 @@ elseif (MSVC)
 endif()
 
 #############################################################################
-
 # You can change the install location by 
 # running cmake like this:
 #
