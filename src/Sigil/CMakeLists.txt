@@ -36,7 +36,7 @@ endif()
 
 find_package(Qt5Network)
 find_package(Qt5Svg)
-find_package(Qt5Webkit)
+find_package(Qt5WebKit)
 find_package(Qt5WebKitWidgets)
 find_package(Qt5Widgets)
 find_package(Qt5Xml)
@@ -641,7 +641,7 @@ else()
 endif()
 
 target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} )
-qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg Webkit WebKitWidgets Network Concurrent)
+qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit WebKitWidgets Network Concurrent)
 
 #############################################################################
 
