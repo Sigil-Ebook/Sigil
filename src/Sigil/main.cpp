@@ -28,8 +28,8 @@
 #include <QtCore/QTextCodec>
 #include <QtCore/QThreadPool>
 #include <QtCore/QTranslator>
-#include <QtGui/QApplication>
-#include <QtGui/QMessageBox>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMessageBox>
 
 #include "Misc/UILanguage.h"
 #include "MainUI/MainApplication.h"
@@ -42,7 +42,7 @@
 #include "sigil_exception.h"
 
 #ifdef Q_WS_WIN
-#include <QtGui/QPlainTextEdit>
+#include <QtWidgets/QPlainTextEdit>
 #include "ViewEditors/BookViewPreview.h"
 static const QString WIN_CLIPBOARD_ERROR = "QClipboard::setMimeData: Failed to set data on clipboard";
 static const int RETRY_DELAY_MS = 5;
@@ -82,21 +82,21 @@ static QIcon GetApplicationIcon()
 
 
 // The message handler installed to handle Qt messages
-void MessageHandler(QtMsgType type, const char *message)
+void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message)
 {
     QString error_message;
 
     switch (type) {
             // TODO: should go to a log
         case QtDebugMsg:
-            fprintf(stderr, "Debug: %s\n", message);
+            fprintf(stderr, "Debug: %s\n", message.toLatin1().constData());
             break;
             // TODO: should go to a log
         case QtWarningMsg:
-            fprintf(stderr, "Warning: %s\n", message);
+            fprintf(stderr, "Warning: %s\n", message.toLatin1().constData());
             break;
         case QtCriticalMsg:
-            error_message = QString(message);
+            error_message = QString(message.toLatin1().constData());
 #ifdef Q_WS_WIN
 
             // On Windows there is a known issue with the clipboard that results in some copy
@@ -170,7 +170,7 @@ int main(int argc, char *argv[])
 {
     QT_REQUIRE_VERSION(argc, argv, "4.7.0");
 #ifndef QT_DEBUG
-    qInstallMsgHandler(MessageHandler);
+    qInstallMessageHandler(MessageHandler);
 #endif
     MainApplication app(argc, argv);
     XercesExt::XercesInit init;
@@ -192,7 +192,7 @@ int main(int argc, char *argv[])
         QCoreApplication::setApplicationName("sigil");
         QCoreApplication::setApplicationVersion(SIGIL_VERSION);
         // Setup the translator and load the translation for the selected language
-        QTextCodec::setCodecForTr(QTextCodec::codecForName("utf8"));
+        QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
         QTranslator translator;
         SettingsStore settings;
         const QString qm_name = QString("sigil_%1").arg(settings.uiLanguage());

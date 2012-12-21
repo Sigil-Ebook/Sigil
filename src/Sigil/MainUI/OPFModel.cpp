@@ -21,8 +21,8 @@
 
 #include <limits>
 
-#include <QtGui/QApplication>
-#include <QtGui/QFileIconProvider>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QFileIconProvider>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"

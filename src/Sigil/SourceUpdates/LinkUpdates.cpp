@@ -24,6 +24,7 @@
 
 #include <QtCore/QtCore>
 #include <QtCore/QString>
+#include <QtConcurrent/QtConcurrent>
 
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"

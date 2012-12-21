@@ -26,7 +26,7 @@
 #include <vector>
 
 #include <QtCore/QSharedPointer>
-#include <QtGui/QDockWidget>
+#include <QtWidgets/QDockWidget>
 
 #include "BookManipulation/Book.h"
 #include "MainUI/MainWindow.h"

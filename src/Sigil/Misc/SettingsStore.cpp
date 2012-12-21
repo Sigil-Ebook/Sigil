@@ -22,7 +22,7 @@
 
 #include <QtCore/QLocale>
 #include <QtCore/QCoreApplication>
-#include <QtGui/QDesktopServices>
+#include <QtCore/QStandardPaths>
 
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
@@ -75,7 +75,7 @@ static QString KEY_SPECIAL_CHARACTER_FONT_SIZE = SETTINGS_GROUP + "/" + "special
 
 
 SettingsStore::SettingsStore()
-    : QSettings(QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/sigil.ini", QSettings::IniFormat)
+    : QSettings(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/sigil.ini", QSettings::IniFormat)
 {
 }
 
@@ -185,11 +185,11 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
     SettingsStore::CodeViewAppearance appearance;
     appearance.background_color = value(KEY_CODE_VIEW_BACKGROUND_COLOR, QColor()).value<QColor>();
     appearance.foreground_color = value(KEY_CODE_VIEW_FOREGROUND_COLOR, QColor()).value<QColor>();
-    appearance.css_comment_color = value(KEY_CODE_VIEW_CSS_COMMENT_COLOR, Qt::darkGreen).value<QColor>();
-    appearance.css_property_color = value(KEY_CODE_VIEW_CSS_PROPERTY_COLOR, Qt::darkBlue).value<QColor>();
-    appearance.css_quote_color = value(KEY_CODE_VIEW_CSS_QUOTE_COLOR, Qt::darkMagenta).value<QColor>();
-    appearance.css_selector_color = value(KEY_CODE_VIEW_CSS_SELECTOR_COLOR, Qt::darkRed).value<QColor>();
-    appearance.css_value_color = value(KEY_CODE_VIEW_CSS_VALUE_COLOR, Qt::black).value<QColor>();
+    appearance.css_comment_color = value(KEY_CODE_VIEW_CSS_COMMENT_COLOR, QColor(Qt::darkGreen)).value<QColor>();
+    appearance.css_property_color = value(KEY_CODE_VIEW_CSS_PROPERTY_COLOR, QColor(Qt::darkBlue)).value<QColor>();
+    appearance.css_quote_color = value(KEY_CODE_VIEW_CSS_QUOTE_COLOR, QColor(Qt::darkMagenta)).value<QColor>();
+    appearance.css_selector_color = value(KEY_CODE_VIEW_CSS_SELECTOR_COLOR, QColor(Qt::darkRed)).value<QColor>();
+    appearance.css_value_color = value(KEY_CODE_VIEW_CSS_VALUE_COLOR, QColor(Qt::black)).value<QColor>();
     appearance.font_family = value(KEY_CODE_VIEW_FONT_FAMILY, "Consolas").toString();
     appearance.font_size = value(KEY_CODE_VIEW_FONT_SIZE, 10).toInt();
     QColor defaultlineColor = QColor(Qt::yellow).lighter(175);
@@ -198,15 +198,15 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
     appearance.line_number_foreground_color = value(KEY_CODE_VIEW_LINE_NUMBER_FOREGROUND_COLOR, QColor(125, 125, 125)).value<QColor>();
     appearance.selection_background_color = value(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR, QColor()).value<QColor>();
     appearance.selection_foreground_color = value(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR, QColor()).value<QColor>();
-    appearance.spelling_underline_color = value(KEY_CODE_VIEW_SPELLING_UNDERLINE_COLOR, Qt::red).value<QColor>();
-    appearance.xhtml_attribute_name_color = value(KEY_CODE_VIEW_XHTML_ATTRIBUTE_NAME_COLOR, Qt::darkRed).value<QColor>();
-    appearance.xhtml_attribute_value_color = value(KEY_CODE_VIEW_XHTML_ATTRIBUTE_VALUE_COLOR, Qt::darkCyan).value<QColor>();
-    appearance.xhtml_css_color = value(KEY_CODE_VIEW_XHTML_CSS_COLOR, Qt::darkYellow).value<QColor>();
-    appearance.xhtml_css_comment_color = value(KEY_CODE_VIEW_XHTML_CSS_COMMENT_COLOR, Qt::darkGreen).value<QColor>();
-    appearance.xhtml_doctype_color = value(KEY_CODE_VIEW_XHTML_DOCTYPE_COLOR, Qt::darkBlue).value<QColor>();
-    appearance.xhtml_entity_color = value(KEY_CODE_VIEW_XHTML_ENTITY_COLOR, Qt::darkMagenta).value<QColor>();
-    appearance.xhtml_html_color = value(KEY_CODE_VIEW_XHTML_HTML_COLOR, Qt::blue).value<QColor>();
-    appearance.xhtml_html_comment_color = value(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR, Qt::darkGreen).value<QColor>();
+    appearance.spelling_underline_color = value(KEY_CODE_VIEW_SPELLING_UNDERLINE_COLOR, QColor(Qt::red)).value<QColor>();
+    appearance.xhtml_attribute_name_color = value(KEY_CODE_VIEW_XHTML_ATTRIBUTE_NAME_COLOR, QColor(Qt::darkRed)).value<QColor>();
+    appearance.xhtml_attribute_value_color = value(KEY_CODE_VIEW_XHTML_ATTRIBUTE_VALUE_COLOR, QColor(Qt::darkCyan)).value<QColor>();
+    appearance.xhtml_css_color = value(KEY_CODE_VIEW_XHTML_CSS_COLOR, QColor(Qt::darkYellow)).value<QColor>();
+    appearance.xhtml_css_comment_color = value(KEY_CODE_VIEW_XHTML_CSS_COMMENT_COLOR, QColor(Qt::darkGreen)).value<QColor>();
+    appearance.xhtml_doctype_color = value(KEY_CODE_VIEW_XHTML_DOCTYPE_COLOR, QColor(Qt::darkBlue)).value<QColor>();
+    appearance.xhtml_entity_color = value(KEY_CODE_VIEW_XHTML_ENTITY_COLOR, QColor(Qt::darkMagenta)).value<QColor>();
+    appearance.xhtml_html_color = value(KEY_CODE_VIEW_XHTML_HTML_COLOR, QColor(Qt::blue)).value<QColor>();
+    appearance.xhtml_html_comment_color = value(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR, QColor(Qt::darkGreen)).value<QColor>();
     return appearance;
 }
 

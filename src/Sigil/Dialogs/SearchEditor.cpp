@@ -22,8 +22,8 @@
 *************************************************************************/
 
 #include <QtCore/QSignalMapper>
-#include <QtGui/QFileDialog>
-#include <QtGui/QMessageBox>
+#include <QtWidgets/QFileDialog>
+#include <QtWidgets/QMessageBox>
 #include <QtGui/QContextMenuEvent>
 
 #include "Dialogs/SearchEditor.h"

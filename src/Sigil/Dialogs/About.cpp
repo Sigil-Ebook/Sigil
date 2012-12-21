@@ -48,8 +48,8 @@ About::About(QWidget *parent)
 
 QDateTime About::GetUTCBuildTime()
 {
-    QString time_string = QString::fromAscii(__TIME__);
-    QString date_string = QString::fromAscii(__DATE__);
+    QString time_string = QString::fromLatin1(__TIME__);
+    QString date_string = QString::fromLatin1(__DATE__);
     Q_ASSERT(!date_string.isEmpty());
     Q_ASSERT(!time_string.isEmpty());
     QRegExp date_match("(\\w{3})\\s+(\\d+)\\s+(\\d{4})");

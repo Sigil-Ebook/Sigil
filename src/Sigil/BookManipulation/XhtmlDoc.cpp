@@ -37,11 +37,11 @@
 #include <QtCore/QHash>
 #include <QtCore/QList>
 #include <QtCore/QString>
-#include <QtWebKit/QWebFrame>
-#include <QtWebKit/QWebPage>
+#include <QtCore/QXmlStreamReader>
+#include <QtWebKitWidgets/QWebFrame>
+#include <QtWebKitWidgets/QWebPage>
 #include <QtXml/QXmlInputSource>
 #include <QtXml/QXmlSimpleReader>
-#include <QtXml/QXmlStreamReader>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"

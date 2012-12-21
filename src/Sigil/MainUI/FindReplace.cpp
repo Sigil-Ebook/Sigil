@@ -24,9 +24,9 @@
 
 #include <QRegExp>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QLineEdit>
-#include <QtGui/QMessageBox>
-#include <QtGui/QCompleter>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QCompleter>
 
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"

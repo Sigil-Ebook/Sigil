@@ -22,10 +22,10 @@
 #include <flightcrew.h>
 
 #include <QtCore/QFileInfo>
-#include <QtGui/QApplication>
-#include <QtGui/QDockWidget>
-#include <QtGui/QHeaderView>
-#include <QtGui/QTableWidget>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDockWidget>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QTableWidget>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/ValidationResultsView.h"
@@ -196,7 +196,8 @@ void ValidationResultsView::ConfigureTableForResults()
     m_ResultTable.setColumnCount(3);
     m_ResultTable.setHorizontalHeaderLabels(
         QStringList() << tr("File") << tr("Line") << tr("Message"));
-    m_ResultTable.verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+    // setResizeMode doesn't work with Qt5.
+    //m_ResultTable.verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 }
 
 

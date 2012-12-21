@@ -27,12 +27,12 @@
 #include <QtCore/QString>
 #include <QtCore/QUrl>
 #include <QtGui/QClipboard>
-#include <QtGui/QLayout>
-#include <QtGui/QMenu>
-#include <QtWebKit/QWebView>
-#include <QtGui/QPrinter>
-#include <QtGui/QPrintDialog>
-#include <QtGui/QPrintPreviewDialog>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QMenu>
+#include <QtWebKitWidgets/QWebView>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrintPreviewDialog>
 
 
 #include "Misc/OpenExternally.h"

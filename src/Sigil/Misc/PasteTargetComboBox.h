@@ -26,7 +26,7 @@
 #define PASTETARGETCOMBOBOX_H
 
 #include <QtCore/QObject>
-#include <QtGui/QComboBox>
+#include <QtWidgets/QComboBox>
 
 #include "Misc/PasteTarget.h"
 #include "MiscEditors/ClipEditorModel.h"

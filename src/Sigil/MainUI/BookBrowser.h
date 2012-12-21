@@ -24,7 +24,7 @@
 #define BOOKBROWSER_H
 
 #include <QtCore/QSharedPointer>
-#include <QtGui/QDockWidget>
+#include <QtWidgets/QDockWidget>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/GuideSemantics.h"

@@ -70,7 +70,7 @@ const QTextCodec &HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
         QString head = Utility::Substring(0, head_end, ascii_data);
         QRegExp encoding(ENCODING_ATTRIBUTE);
         head.indexOf(encoding);
-        QTextCodec *encoding_codec = QTextCodec::codecForName(encoding.cap(1).toAscii());
+        QTextCodec *encoding_codec = QTextCodec::codecForName(encoding.cap(1).toLatin1());
 
         if (encoding_codec != 0) {
             return *encoding_codec;
@@ -78,7 +78,7 @@ const QTextCodec &HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
 
         QRegExp charset("charset=([^\"]+)\"");
         head.indexOf(charset);
-        QTextCodec *charset_codec  = QTextCodec::codecForName(charset .cap(1).toAscii());
+        QTextCodec *charset_codec  = QTextCodec::codecForName(charset .cap(1).toLatin1());
 
         if (charset_codec != 0) {
             return *charset_codec;
@@ -93,7 +93,7 @@ const QTextCodec &HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
     // If we couldn't find a codec ourselves,
     // we use Qt's function.
     QTextCodec &locale_codec   = *QTextCodec::codecForLocale();
-    QTextCodec &detected_codec = *QTextCodec::codecForHtml(ascii_data.toAscii(), QTextCodec::codecForLocale());
+    QTextCodec &detected_codec = *QTextCodec::codecForHtml(ascii_data.toLatin1(), QTextCodec::codecForLocale());
 
     if (detected_codec.name() != locale_codec.name()) {
         return detected_codec;

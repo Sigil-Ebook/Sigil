@@ -24,10 +24,10 @@
 #include <QtCore/QRegExp>
 #include <QtCore/QTextStream>
 #include <QtGui/QDesktopServices>
-#include <QtGui/QMessageBox>
+#include <QtWidgets/QMessageBox>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
-#include <QtXml/QXmlStreamReader>
+#include <QtCore/QXmlStreamReader>
 
 #include "Misc/SettingsStore.h"
 #include "Misc/UpdateChecker.h"

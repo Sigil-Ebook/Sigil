@@ -23,9 +23,9 @@
 #include <QtCore/QSize>
 #include <QtCore/QTimer>
 #include <QtCore/QUrl>
-#include <QtGui/QMenu>
-#include <QtGui/QMessageBox>
-#include <QtWebKit/QWebFrame>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QMessageBox>
+#include <QtWebKitWidgets/QWebFrame>
 
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"

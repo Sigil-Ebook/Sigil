@@ -26,7 +26,7 @@
 
 #include <QtCore/QList>
 #include <QtCore/QStringList>
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 
 #include "ui_LinkStylesheets.h"

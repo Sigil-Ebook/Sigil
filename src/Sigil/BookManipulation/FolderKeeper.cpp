@@ -25,7 +25,7 @@
 #include <QtCore/QString>
 #include <QtCore/QThread>
 #include <QtCore/QTime>
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "sigil_constants.h"

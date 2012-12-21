@@ -25,7 +25,7 @@
 #ifndef FINDREPLACEQLINEEDIT_H
 #define FINDREPLACEQLINEEDIT_H
 
-#include <QtGui/QLineEdit>
+#include <QtWidgets/QLineEdit>
 #include <QtGui/QStandardItem>
 
 class QContextMenuEvent;

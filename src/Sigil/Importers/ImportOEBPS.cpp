@@ -27,9 +27,10 @@
 #include <QtCore/QtCore>
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
-#include <QtGui/QMessageBox>
+#include <QtConcurrent/QtConcurrent>
+#include <QtWidgets/QMessageBox>
 #include <QtGui/QTextDocument>
-#include <QtXml/QXmlStreamReader>
+#include <QtCore/QXmlStreamReader>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "Importers/ImportOEBPS.h"

@@ -20,10 +20,10 @@
 **
 *************************************************************************/
 
-#include <QtGui/QCompleter>
-#include <QtGui/QLineEdit>
-#include <QtGui/QToolButton>
-#include <QtGui/QApplication>
+#include <QtWidgets/QCompleter>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QApplication>
 #include <QtCore/QSignalMapper>
 
 #include "Dialogs/SelectCharacter.h"

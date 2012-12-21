@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <QtCore/QIODevice>
-#include <QtXml/QXmlStreamWriter>
+#include <QtCore/QXmlStreamWriter>
 
 #include "BookManipulation/Book.h"
 #include "Exporters/XMLWriter.h"

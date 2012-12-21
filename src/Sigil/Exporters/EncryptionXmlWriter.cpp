@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 
-#include <QtXml/QXmlStreamWriter>
+#include <QtCore/QXmlStreamWriter>
 
 #include "BookManipulation/Book.h"
 #include "Exporters/EncryptionXmlWriter.h"

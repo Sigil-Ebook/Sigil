@@ -22,9 +22,9 @@
 
 #include <QtCore/QFile>
 #include <QtGui/QFont>
-#include <QtGui/QFileDialog>
-#include <QtGui/QMessageBox>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QFileDialog>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QPushButton>
 
 #include "sigil_exception.h"
 #include "BookManipulation/FolderKeeper.h"

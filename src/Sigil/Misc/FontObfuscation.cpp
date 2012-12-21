@@ -41,7 +41,7 @@ QByteArray IdpfKeyFromIdentifier(const QString &identifier)
                               .remove("\x09")
                               .remove("\x0D")
                               .remove("\x0A");
-    return QCryptographicHash::hash(whitespace_free.toAscii(), QCryptographicHash::Sha1);
+    return QCryptographicHash::hash(whitespace_free.toLatin1(), QCryptographicHash::Sha1);
 }
 
 
@@ -51,7 +51,7 @@ QByteArray AdobeKeyFromIdentifier(const QString &identifier)
                          .remove("urn:uuid:")
                          .remove("-")
                          .remove(":");
-    return QByteArray::fromHex(cruft_free.toAscii());
+    return QByteArray::fromHex(cruft_free.toLatin1());
 }
 
 

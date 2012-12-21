@@ -25,7 +25,7 @@
 #ifndef INSERTIMAGE_H
 #define INSERTIMAGE_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 
 #include "ResourceObjects/Resource.h"

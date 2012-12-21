@@ -24,8 +24,8 @@
 #define TABMANAGER_H
 
 #include <QtCore/QUrl>
-#include <QtCore/QWeakPointer>
-#include <QtGui/QTabWidget>
+#include <QtCore/QPointer>
+#include <QtWidgets/QTabWidget>
 
 #include "MainUI/MainWindow.h"
 #include "Tabs/ContentTab.h"
@@ -284,7 +284,7 @@ private:
      * Stores a reference to the tab used before the current one.
      * Needed for the TabChanged signal.
      */
-    QWeakPointer< ContentTab > m_LastContentTab;
+    QPointer< ContentTab > m_LastContentTab;
 
     bool m_CheckWellFormedErrors;
 

@@ -20,7 +20,7 @@
 **
 *************************************************************************/
 
-#include <QtXml/QXmlStreamWriter>
+#include <QtCore/QXmlStreamWriter>
 
 #include "TOCHTMLWriter.h"
 

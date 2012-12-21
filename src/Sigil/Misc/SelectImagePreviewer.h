@@ -30,8 +30,8 @@
 #ifndef SELECTIMAGEPREVIEWER_H
 #define SELECTIMAGEPREVIEWER_H
 
-#include <QtGui/QWidget>
-#include <QtGui/QLabel>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QLabel>
 
 class SelectImagePreviewer: public QLabel
 {

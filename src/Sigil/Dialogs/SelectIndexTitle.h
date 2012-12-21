@@ -24,7 +24,7 @@
 #ifndef SELECTINDEXTITLE_H
 #define SELECTINDEXTITLE_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
 #include "ui_SelectIndexTitle.h"
 

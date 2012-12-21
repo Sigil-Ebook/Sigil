@@ -20,10 +20,10 @@
 *************************************************************************/
 
 #include <QtCore/QTimer>
-#include <QtGui/QLayout>
-#include <QtGui/QPrinter>
-#include <QtGui/QPrintDialog>
-#include <QtGui/QPrintPreviewDialog>
+#include <QtWidgets/QLayout>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrintPreviewDialog>
 
 #include "ResourceObjects/TextResource.h"
 #include "Tabs/TextTab.h"

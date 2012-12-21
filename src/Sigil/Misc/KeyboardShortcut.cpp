@@ -20,9 +20,9 @@
 *************************************************************************/
 
 #include <QtCore/QString>
-#include <QtGui/QAction>
+#include <QtWidgets/QAction>
 #include <QtGui/QKeySequence>
-#include <QtGui/QShortcut>
+#include <QtWidgets/QShortcut>
 
 #include "Misc/KeyboardShortcut.h"
 #include "Misc/KeyboardShortcut_p.h"

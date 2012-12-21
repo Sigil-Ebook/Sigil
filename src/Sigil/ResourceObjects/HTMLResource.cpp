@@ -23,8 +23,8 @@
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QString>
-#include <QtWebKit/QWebFrame>
-#include <QtWebKit/QWebPage>
+#include <QtWebKitWidgets/QWebFrame>
+#include <QtWebKitWidgets/QWebPage>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/GuideSemantics.h"

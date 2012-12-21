@@ -20,8 +20,8 @@
 **
 *************************************************************************/
 
-#include <QtGui/QScrollArea>
-#include <QtGui/QProgressDialog>
+#include <QtWidgets/QScrollArea>
+#include <QtWidgets/QProgressDialog>
 
 #include "Dialogs/Reports.h"
 #include "Misc/SettingsStore.h"

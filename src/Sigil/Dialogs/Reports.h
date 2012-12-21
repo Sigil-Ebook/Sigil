@@ -24,7 +24,7 @@
 #ifndef REPORTS_H
 #define REPORTS_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"

@@ -186,7 +186,7 @@ void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
         QKeySequence seq = sm->keyboardShortcut(item->text(COL_ID)).defaultKeySequence();
-        item->setText(COL_SHORTCUT, seq);
+        item->setText(COL_SHORTCUT, seq.toString());
     }
 
     markSequencesAsDuplicatedIfNeeded();
@@ -203,7 +203,7 @@ void KeyboardShortcutsWidget::readSettings()
         if (!shortcut.isEmpty()) {
             QTreeWidgetItem *item = new QTreeWidgetItem();
             item->setText(COL_NAME, shortcut.name());
-            item->setText(COL_SHORTCUT, shortcut.keySequence());
+            item->setText(COL_SHORTCUT, shortcut.keySequence().toString());
             item->setText(COL_DESCRIPTION, shortcut.description());
             item->setToolTip(COL_DESCRIPTION, shortcut.toolTip());
             item->setText(COL_ID, id);
@@ -245,7 +245,7 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     }
 
     nextKey |= translateModifiers(event->modifiers(), event->text());
-    ui.targetEdit->setText(QKeySequence(nextKey));
+    ui.targetEdit->setText(QKeySequence(nextKey).toString());
     event->accept();
 }
 

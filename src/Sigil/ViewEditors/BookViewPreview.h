@@ -25,8 +25,8 @@
 #include <boost/shared_ptr.hpp>
 
 #include <QtCore/QMap>
-#include <QtWebKit/QWebView>
-#include <QtWebKit/QWebInspector>
+#include <QtWebKitWidgets/QWebView>
+#include <QtWebKitWidgets/QWebInspector>
 
 #include "BookManipulation/XercesHUse.h"
 #include "ViewEditors/ViewEditor.h"

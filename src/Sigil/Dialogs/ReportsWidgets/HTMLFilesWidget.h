@@ -25,11 +25,11 @@
 #define HTMLFILESWIDGET_H
 
 #include <QtCore/QHash>
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 #include <QtCore/QSharedPointer>
-#include <QtGui/QAction>
-#include <QtGui/QMenu>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"

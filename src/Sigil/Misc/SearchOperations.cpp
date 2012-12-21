@@ -24,8 +24,8 @@
 #include <signal.h>
 
 #include <QtCore/QtCore>
-#include <QtGui/QApplication>
-#include <QtGui/QProgressDialog>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QProgressDialog>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"

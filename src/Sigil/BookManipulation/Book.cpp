@@ -24,8 +24,9 @@
 #include <QtCore/QtCore>
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
-#include <QtGui/QApplication>
-#include <QtGui/QProgressDialog>
+#include <QtConcurrent/QtConcurrent>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QProgressDialog>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"

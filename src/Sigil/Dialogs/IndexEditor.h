@@ -24,10 +24,10 @@
 #ifndef INDEXEDITOR_H
 #define INDEXEDITOR_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
-#include <QtGui/QAction>
-#include <QtGui/QMenu>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 #include <QtCore/QSharedPointer>
 
 #include "Misc/SettingsStore.h"

@@ -7,7 +7,7 @@
 #
 #########################################################
 
-cmake_minimum_required( VERSION 2.8 )
+cmake_minimum_required( VERSION 2.8.9 )
 
 #############################################################################
 
@@ -34,8 +34,16 @@ endif()
 
 #############################################################################
 
-find_package( Qt4 4.8.0 COMPONENTS QtCore QtGui QtMain QtNetwork QtWebkit QtSvg QtXml QtXmlPatterns REQUIRED )
-include( ${QT_USE_FILE} )
+find_package(Qt5Network)
+find_package(Qt5Svg)
+find_package(Qt5Webkit)
+find_package(Qt5WebKitWidgets)
+find_package(Qt5Widgets)
+find_package(Qt5Xml)
+find_package(Qt5XmlPatterns)
+find_package(Qt5Concurrent)
+find_package(Qt5PrintSupport)
+#set(CMAKE_AUTOMOC ON)
 
 # These headers need to go through Qt's MOC compiler
 set( QOBJECT_HEADERS
@@ -516,16 +524,16 @@ set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPUL
 #############################################################################
 
 # Runs MOC on specifed files
-qt4_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
+qt5_wrap_cpp( MOC_FILES_CPP ${QOBJECT_HEADERS} )
 
 # Runs UIC on specified files
-qt4_wrap_ui( UI_FILES_H ${UI_FILES} )
+qt5_wrap_ui( UI_FILES_H ${UI_FILES} )
 
 # Runs RCC on specified files
-qt4_add_resources( QRC_FILES_CPP ${QRC_FILES} )
+qt5_add_resources( QRC_FILES_CPP ${QRC_FILES} )
 
 # Runs lrelease on the specified files
-qt4_add_translation( QM_FILES ${TS_FILES} )
+#qt5_add_translation( QM_FILES ${TS_FILES} )
 
 # Define the Sigil version string for use in source files
 set_source_files_properties( Dialogs/About.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
@@ -632,7 +640,8 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
-target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} ${QT_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} )
+qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg Webkit WebKitWidgets Network Concurrent)
 
 #############################################################################
 

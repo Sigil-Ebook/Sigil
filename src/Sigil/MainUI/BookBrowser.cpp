@@ -21,12 +21,12 @@
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QSignalMapper>
-#include <QtGui/QFileDialog>
-#include <QtGui/QMenu>
-#include <QtGui/QMessageBox>
-#include <QtGui/QTreeView>
-#include <QtGui/QProgressDialog>
-#include <QtGui/QScrollBar>
+#include <QtWidgets/QFileDialog>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QTreeView>
+#include <QtWidgets/QProgressDialog>
+#include <QtWidgets/QScrollBar>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"

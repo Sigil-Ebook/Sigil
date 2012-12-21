@@ -25,10 +25,10 @@
 #ifndef SEARCHEDITOR_H
 #define SEARCHEDITOR_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
-#include <QtGui/QAction>
-#include <QtGui/QMenu>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 
 #include "Misc/SettingsStore.h"
 #include "MiscEditors/SearchEditorModel.h"

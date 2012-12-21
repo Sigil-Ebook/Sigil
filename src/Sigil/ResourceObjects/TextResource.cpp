@@ -23,8 +23,8 @@
 #include <QtCore/QString>
 #include <QtCore/QThread>
 #include <QtCore/QTimer>
-#include <QtGui/QApplication>
-#include <QtGui/QPlainTextDocumentLayout>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QPlainTextDocumentLayout>
 #include <QtGui/QTextDocument>
 
 #include "Misc/Utility.h"

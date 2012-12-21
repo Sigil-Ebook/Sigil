@@ -24,15 +24,15 @@
 
 #include <QtCore/QTimer>
 #include <QtCore/QUrl>
-#include <QtGui/QApplication>
-#include <QtGui/QAction>
-#include <QtGui/QDialog>
-#include <QtGui/QLayout>
-#include <QtGui/QPrinter>
-#include <QtGui/QPrintDialog>
-#include <QtGui/QPrintPreviewDialog>
-#include <QtGui/QStackedWidget>
-#include <QtWebKit/QWebInspector>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QLayout>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrintPreviewDialog>
+#include <QtWidgets/QStackedWidget>
+#include <QtWebKitWidgets/QWebInspector>
 #include <QtWebKit/QWebSettings>
 
 #include "BookManipulation/CleanSource.h"

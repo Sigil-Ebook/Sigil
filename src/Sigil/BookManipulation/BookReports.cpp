@@ -24,9 +24,9 @@
 #include <QtCore/QFile>
 #include <QtCore/QHashIterator>
 #include <QtGui/QFont>
-#include <QtGui/QMessageBox>
-#include <QtGui/QApplication>
-#include <QtGui/QProgressDialog>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QProgressDialog>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/BookReports.h"

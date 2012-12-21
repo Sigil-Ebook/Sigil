@@ -19,6 +19,7 @@
 **
 *************************************************************************/
 
+#include <QtCore/QObject>
 #include <QtCore/QMutexLocker>
 #include <QtCore/QString>
 

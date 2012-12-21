@@ -25,10 +25,10 @@
 
 #include <QtCore/QList>
 #include <QtCore/QSharedPointer>
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
-#include <QtGui/QAction>
-#include <QtGui/QMenu>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 
 #include "ui_HeadingSelector.h"
 #include "BookManipulation/Headings.h"

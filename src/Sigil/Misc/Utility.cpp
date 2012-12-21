@@ -33,8 +33,8 @@
 #include <QtCore/QtGlobal>
 #include <QtCore/QUrl>
 #include <QtCore/QUuid>
-#include <QtGui/QMainWindow>
-#include <QtGui/QMessageBox>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMessageBox>
 
 #include "sigil_exception.h"
 #include "Misc/Utility.h"

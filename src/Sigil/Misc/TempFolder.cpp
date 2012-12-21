@@ -22,6 +22,7 @@
 #include <QtCore/QtCore>
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
+#include <QtConcurrent/QtConcurrent>
 
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"

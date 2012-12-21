@@ -24,7 +24,7 @@
 #ifndef OPENWITHNAME_H
 #define OPENWITHNAME_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"

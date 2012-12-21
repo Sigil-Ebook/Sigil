@@ -23,11 +23,11 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QSignalMapper>
-#include <QtGui/QAbstractItemView>
-#include <QtGui/QAction>
-#include <QtGui/QCompleter>
+#include <QtWidgets/QAbstractItemView>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QCompleter>
 #include <QtGui/QContextMenuEvent>
-#include <QtGui/QMenu>
+#include <QtWidgets/QMenu>
 
 #include "Misc/FindReplaceQLineEdit.h"
 #include "MiscEditors/SearchEditorModel.h"

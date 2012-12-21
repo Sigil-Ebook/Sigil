@@ -21,10 +21,10 @@
 *************************************************************************/
 
 #include <QString>
-#include <QtGui/QColorDialog>
-#include <QtGui/QListWidget>
+#include <QtWidgets/QColorDialog>
+#include <QtWidgets/QListWidget>
 #include <QtGui/QPainter>
-#include <QtGui/QStyledItemDelegate>
+#include <QtWidgets/QStyledItemDelegate>
 #include <QtWebKit/QWebSettings>
 
 #include "AppearanceWidget.h"

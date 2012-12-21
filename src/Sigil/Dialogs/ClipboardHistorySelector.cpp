@@ -21,11 +21,11 @@
 *************************************************************************/
 
 #include <QtCore/QSignalMapper>
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <QtGui/QClipboard>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QPushButton>
-#include <QtGui/QTableWidgetItem>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QTableWidgetItem>
 
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "MainUI/MainApplication.h"

@@ -26,11 +26,11 @@
 #include <QtCore/QThread>
 #include <QtCore/QTimer>
 #include <QtGui/QDesktopServices>
-#include <QtGui/QFileDialog>
-#include <QtGui/QInputDialog>
-#include <QtGui/QMessageBox>
-#include <QtGui/QProgressDialog>
-#include <QtGui/QToolBar>
+#include <QtWidgets/QFileDialog>
+#include <QtWidgets/QInputDialog>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QProgressDialog>
+#include <QtWidgets/QToolBar>
 #include <QtWebKit/QWebSettings>
 
 #include "BookManipulation/CleanSource.h"
@@ -114,7 +114,7 @@ static const QString DEFAULT_FILENAME = "untitled.epub";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
-MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WFlags flags)
+MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowFlags flags)
     :
     QMainWindow(parent, flags),
     m_LastOpenFileWarnings(QStringList()),

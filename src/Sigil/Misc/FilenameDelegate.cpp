@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <QtCore/QEvent>
-#include <QtGui/QLineEdit>
+#include <QtWidgets/QLineEdit>
 
 #include "Misc/FilenameDelegate.h"
 

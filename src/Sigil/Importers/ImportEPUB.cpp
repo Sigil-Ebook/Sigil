@@ -22,7 +22,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
-#include <QtXml/QXmlStreamReader>
+#include <QtCore/QXmlStreamReader>
 
 #include "BookManipulation/Metadata.h"
 #include "BookManipulation/FolderKeeper.h"

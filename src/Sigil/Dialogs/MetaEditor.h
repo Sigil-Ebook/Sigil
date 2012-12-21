@@ -25,7 +25,7 @@
 #ifndef METAEDITOR_H
 #define METAEDITOR_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 #include <BookManipulation/Metadata.h>
 

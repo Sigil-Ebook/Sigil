@@ -23,7 +23,7 @@
 #ifndef RENAMETEMPLATE_H
 #define RENAMETEMPLATE_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
 #include "ui_RenameTemplate.h"
 

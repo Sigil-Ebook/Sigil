@@ -25,6 +25,7 @@
 
 #include <QtCore/QtCore>
 #include <QtCore/QFutureSynchronizer>
+#include <QtConcurrent/QtConcurrent>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"

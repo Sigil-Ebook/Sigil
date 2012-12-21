@@ -24,7 +24,7 @@
 #ifndef SELECTID_H
 #define SELECTID_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"

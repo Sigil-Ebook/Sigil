@@ -25,6 +25,7 @@
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
+#include <QtConcurrent/QtConcurrent>
 
 #include "BookManipulation/Headings.h"
 #include "BookManipulation/XercesCppUse.h"

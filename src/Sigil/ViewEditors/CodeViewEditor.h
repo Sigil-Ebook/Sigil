@@ -27,7 +27,7 @@
 
 #include <QtCore/QList>
 #include <QtCore/QStack>
-#include <QtGui/QPlainTextEdit>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtGui/QStandardItem>
 #include <QtCore/QUrl>
 
@@ -376,7 +376,7 @@ public slots:
      *
      * @param printer The printer interface to use for printing.
      */
-    void print(QPrinter *printer);
+    void print(QPagedPaintDevice *printer);
 
     // Implementations for PasteTarget.h
     void PasteText(const QString &text);

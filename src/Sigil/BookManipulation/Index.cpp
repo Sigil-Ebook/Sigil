@@ -23,8 +23,9 @@
 #include <boost/shared_ptr.hpp>
 
 #include <QtCore/QtCore>
-#include <QtGui/QApplication>
-#include <QtGui/QProgressDialog>
+#include <QtConcurrent/QtConcurrent>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QProgressDialog>
 
 #include "ResourceObjects/HTMLResource.h"
 #include "BookManipulation/XercesCppUse.h"

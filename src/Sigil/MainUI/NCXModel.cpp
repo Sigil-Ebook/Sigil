@@ -21,7 +21,8 @@
 
 #include <QtCore/QtCore>
 #include <QtCore/QThread>
-#include <QtGui/QApplication>
+#include <QtConcurrent/QtConcurrent>
+#include <QtWidgets/QApplication>
 
 #include "MainUI/NCXModel.h"
 #include "Misc/Utility.h"

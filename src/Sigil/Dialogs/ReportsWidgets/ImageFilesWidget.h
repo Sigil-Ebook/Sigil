@@ -25,12 +25,12 @@
 #define IMAGEFILESWIDGET_H
 
 #include <QtCore/QSharedPointer>
-#include <QtGui/QAction>
-#include <QtGui/QMenu>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 
 #include "ResourceObjects/Resource.h"
 #include <QtCore/QHash>
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 #include "BookManipulation/Book.h"
 #include "Dialogs/ReportsWidgets/ReportsWidget.h"

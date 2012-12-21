@@ -24,7 +24,7 @@
 #ifndef INDEXEDITORTREEVIEW_H
 #define INDEXEDITORTREEVIEW_H
 
-#include <QtGui/QTreeView>
+#include <QtWidgets/QTreeView>
 #include <QDragEnterEvent>
 #include <QDragMoveEvent>
 

@@ -27,12 +27,12 @@
 
 #include <QtGui/QContextMenuEvent>
 #include <QtCore/QSignalMapper>
-#include <QtGui/QAction>
-#include <QtGui/QMenu>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 #include <QtGui/QPainter>
-#include <QtGui/QScrollBar>
-#include <QtGui/QShortcut>
-#include <QtXml/QXmlStreamReader>
+#include <QtWidgets/QScrollBar>
+#include <QtWidgets/QShortcut>
+#include <QtCore/QXmlStreamReader>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
@@ -795,7 +795,7 @@ void CodeViewEditor::SetUpFindForSelectedText(const QString &search_regex)
 // method is not a slot, and we need it as a slot
 // for print preview support; so this is just
 // a slot wrapper around that function
-void CodeViewEditor::print(QPrinter *printer)
+void CodeViewEditor::print(QPagedPaintDevice *printer)
 {
     QPlainTextEdit::print(printer);
 }

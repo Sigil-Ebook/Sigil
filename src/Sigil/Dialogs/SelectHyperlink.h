@@ -25,7 +25,7 @@
 #define SELECTHYPERLINK_H
 
 #include <QtCore/QHash>
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 
 #include "ResourceObjects/Resource.h"

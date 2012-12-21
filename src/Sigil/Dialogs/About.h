@@ -24,7 +24,7 @@
 #define ABOUT_H
 
 #include <QtCore/QDateTime>
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
 #include "ui_About.h"
 

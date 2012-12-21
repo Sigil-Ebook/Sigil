@@ -29,8 +29,8 @@
 #include "Misc/Utility.h"
 #include "SourceUpdates/PerformXMLUpdates.h"
 
-static const QChar POUND_SIGN    = QChar::fromAscii('#');
-static const QChar FORWARD_SLASH = QChar::fromAscii('/');
+static const QChar POUND_SIGN    = QChar::fromLatin1('#');
+static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
 static const QString DOT         = ".";
 static const QString DOT_DOT     = "..";
 

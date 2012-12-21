@@ -25,7 +25,7 @@
 #define CLASSESINHTMLFILESWIDGET_H
 
 #include <QtCore/QHash>
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 #include <QtCore/QSharedPointer>
 

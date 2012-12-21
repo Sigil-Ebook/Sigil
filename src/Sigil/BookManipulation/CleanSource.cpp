@@ -25,8 +25,8 @@
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QWriteLocker>
-#include <QtGui/QApplication>
-#include <QtGui/QProgressDialog>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QProgressDialog>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"

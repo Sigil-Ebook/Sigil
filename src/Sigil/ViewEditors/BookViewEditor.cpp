@@ -29,12 +29,12 @@
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QMenu>
-#include <QtGui/QMessageBox>
-#include <QtGui/QShortcut>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QShortcut>
 #include <QtGui/QTextDocument>
 #include <QtWebKit/QWebElement>
-#include <QtWebKit/QWebFrame>
+#include <QtWebKitWidgets/QWebFrame>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"

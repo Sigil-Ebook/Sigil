@@ -22,10 +22,10 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QHashIterator>
-#include <QtGui/QFileDialog>
+#include <QtWidgets/QFileDialog>
 #include <QtGui/QFont>
-#include <QtGui/QPushButton>
-#include <QtGui/QMessageBox>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QMessageBox>
 
 #include "sigil_constants.h"
 #include "sigil_exception.h"

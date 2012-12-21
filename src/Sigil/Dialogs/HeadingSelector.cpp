@@ -474,7 +474,8 @@ void HeadingSelector::UpdateTreeViewDisplay()
     ui.tvTOCDisplay->header()->setStretchLastSection(false);
     ui.tvTOCDisplay->resizeColumnToContents(1);
     ui.tvTOCDisplay->resizeColumnToContents(2);
-    ui.tvTOCDisplay->header()->setResizeMode(0, QHeaderView::Stretch);
+    // setResizeMode doesn't work with Qt5.
+    //ui.tvTOCDisplay->header()->setResizeMode(0, QHeaderView::Stretch);
 }
 
 void HeadingSelector::CountHeadings(QStandardItem *item)

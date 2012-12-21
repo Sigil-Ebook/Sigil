@@ -24,7 +24,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QString>
 #include <QtCore/QTimer>
-#include <QtGui/QFileIconProvider>
+#include <QtWidgets/QFileIconProvider>
 
 #include "Misc/Utility.h"
 #include "ResourceObjects/Resource.h"

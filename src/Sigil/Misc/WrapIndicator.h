@@ -34,7 +34,7 @@
 
 #include <QtCore/QTimer>
 #include <QtCore/QPropertyAnimation>
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 #include <QtGui/QPaintEvent>
 #include <QtGui/QPainter>
 

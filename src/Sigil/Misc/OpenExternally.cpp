@@ -20,8 +20,8 @@
 *************************************************************************/
 
 #include <QtCore/QProcess>
-#include <QtGui/QDesktopServices>
-#include <QtGui/QFileDialog>
+#include <QtCore/QStandardPaths>
+#include <QtWidgets/QFileDialog>
 
 #include "Dialogs/OpenWithName.h"
 #include "Misc/OpenExternally.h"
@@ -162,7 +162,7 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
 #if defined(Q_WS_WIN)
     static QString LAST_LOCATION(getenv("PROGRAMFILES"));
 #else
-    static QString LAST_LOCATION = QDesktopServices::storageLocation(QDesktopServices::ApplicationsLocation);
+    static QString LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
 #endif
     QString lastEditor = settings.value(editorKey).toString();
 
@@ -170,7 +170,7 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
         lastEditor = LAST_LOCATION;
 
         if (!QFile::exists(lastEditor)) {
-            lastEditor = LAST_LOCATION = QDesktopServices::storageLocation(QDesktopServices::HomeLocation);
+            lastEditor = LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
         }
     }
 

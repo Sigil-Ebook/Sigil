@@ -25,7 +25,7 @@
 #ifndef SEARCHEDITORTREEVIEW_H
 #define SEARCHEDITORTREEVIEW_H
 
-#include <QtGui/QTreeView>
+#include <QtWidgets/QTreeView>
 
 class SearchEditorTreeView : public QTreeView
 {

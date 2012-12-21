@@ -23,7 +23,7 @@
 #ifndef PREVIEWWINDOW_H
 #define PREVIEWWINDOW_H
 
-#include <QtGui/QDockWidget>
+#include <QtWidgets/QDockWidget>
 #include <QtCore/QTime>
 
 #include "MainUI/MainWindow.h"

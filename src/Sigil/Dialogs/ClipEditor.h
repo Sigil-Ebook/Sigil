@@ -25,7 +25,7 @@
 #ifndef CLIPEDITOR_H
 #define CLIPEDITOR_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 
 #include "Misc/SettingsStore.h"

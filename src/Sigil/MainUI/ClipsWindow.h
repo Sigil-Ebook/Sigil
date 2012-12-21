@@ -24,7 +24,7 @@
 #define CLIPSWINDOW_H
 
 #include <QtCore/QSharedPointer>
-#include <QtGui/QDockWidget>
+#include <QtWidgets/QDockWidget>
 
 #include <QtGui/QStandardItemModel>
 #include "MiscEditors/ClipEditorModel.h"

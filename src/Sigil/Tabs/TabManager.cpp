@@ -305,7 +305,7 @@ void TabManager::EmitTabChanged()
 
     if (m_LastContentTab.data() != current_tab) {
         emit TabChanged(m_LastContentTab.data(), current_tab);
-        m_LastContentTab = QWeakPointer< ContentTab >(current_tab);
+        m_LastContentTab = QPointer< ContentTab >(current_tab);
     }
 }
 
