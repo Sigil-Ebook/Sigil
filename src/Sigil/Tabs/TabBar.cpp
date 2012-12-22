@@ -33,15 +33,14 @@ TabBar::TabBar(QWidget *parent)
 {
 }
 
-TabBar::~TabBar()
+void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
 {
+    emit TabBarDoubleClicked();
 }
 
 void TabBar::mousePressEvent(QMouseEvent *event)
 {
-    if (event->type() == QEvent::MouseButtonDblClick) {
-        emit TabBarDoubleClicked();
-    } else if (event->button() == Qt::RightButton) {
+    if (event->button() == Qt::RightButton) {
         int tabCount = count();
 
         if (tabCount <= 1) {

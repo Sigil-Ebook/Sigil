@@ -34,7 +34,6 @@ class TabBar : public QTabBar
 
 public:
     TabBar(QWidget *parent = 0);
-    ~TabBar();
 
 signals:
     void TabBarClicked();
@@ -42,6 +41,7 @@ signals:
     void CloseOtherTabsRequest(int tab_index);
 
 protected:
+    void mouseDoubleClickEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
 
 private slots:
