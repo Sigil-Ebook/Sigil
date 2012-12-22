@@ -157,7 +157,7 @@ void FindReplace::ShowMessage(const QString &message)
     QString new_message = message;
 
     if (m_LookWhereCurrentFile && GetLookWhere() != FindReplace::LookWhere_CurrentFile) {
-        new_message.append(tr(" (Current File)"));
+        new_message.append(" (" % tr("Current File") % ")");
     }
 
     ui.message->setText(new_message);
@@ -258,8 +258,8 @@ int FindReplace::Count()
     if (count == 0) {
         CannotFindSearchTerm();
     } else {
-        QString message = tr("%1 matches found", 0, count);
-        ShowMessage(message.arg(count));
+        QString message = tr("Matches found: %n", "", count);
+        ShowMessage(message);
     }
 
     UpdatePreviousFindStrings();
@@ -336,8 +336,8 @@ int FindReplace::ReplaceAll()
     if (count == 0) {
         ShowMessage(tr("No replacements made"));
     } else {
-        QString message = tr("%1 replacements made", 0, count);
-        ShowMessage(message.arg(count));
+        QString message = tr("Replacements made: %n", "", count);
+        ShowMessage(message);
     }
 
     if (count > 0) {
@@ -1114,8 +1114,8 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
     if (count == 0) {
         CannotFindSearchTerm();
     } else {
-        QString message = tr("%1 matches found", 0, count);
-        ShowMessage(message.arg(count));
+        QString message = tr("Matches found: %n", "", count);
+        ShowMessage(message);
     }
 
     ResetKeyModifiers();
@@ -1140,8 +1140,8 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
     if (count == 0) {
         ShowMessage(tr("No replacements made"));
     } else {
-        QString message = tr("%1 replacements made", 0, count);
-        ShowMessage(message.arg(count));
+        QString message = tr("Replacements made: %n", "", count);
+        ShowMessage(message);
     }
 
     ResetKeyModifiers();

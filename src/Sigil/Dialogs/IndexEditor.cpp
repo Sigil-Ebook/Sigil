@@ -319,7 +319,7 @@ void IndexEditor::AutoFill()
     // Cancel the progress dialog since the information dialog will keep it open
     progress.cancel();
     show();
-    QMessageBox::information(this, tr("Sigil"), tr("Added %n entries.", "", count));
+    QMessageBox::information(this, tr("Index Editor"), tr("Index entries added: %n", "", count));
 }
 
 void IndexEditor::Open()

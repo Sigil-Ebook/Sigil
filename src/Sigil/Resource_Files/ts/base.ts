@@ -1558,16 +1558,6 @@ then find the Next match in Code View.</source>
         </translation>
     </message>
     <message>
-        <source>Search wrapped around</source>
-        <translation type="obsolete">
-        </translation>
-    </message>
-    <message>
-        <source>No replacement found</source>
-        <translation type="obsolete">
-        </translation>
-    </message>
-    <message>
         <location filename="../../MainUI/FindReplace.cpp" line="160"/>
         <source> (Current File)</source>
         <translation type="unfinished"></translation>
