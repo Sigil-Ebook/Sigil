@@ -1685,13 +1685,6 @@ bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         return false;
     }
 
-    // Remove any existing tags before adding in clip if Control is active
-    bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
-
-    if (isCtrl) {
-        CutCodeTags();
-    }
-
     QTextCursor cursor = textCursor();
     // Convert to plain text or \s won't get newlines
     const QString &document_text = toPlainText();

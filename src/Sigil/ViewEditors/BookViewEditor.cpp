@@ -725,19 +725,13 @@ bool BookViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
     }
 
     QString text = clip->text;
-    // If Ctrl is used, keep as html
-    bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
-
-    if (!isCtrl) {
-        text.replace(">", "&gt;").replace("<", "&lt;");
-    }
 
     if (text.contains("\\1")) {
-        emit ShowStatusMessageRequest(tr("You cannot paste clips in Book View that use regular expressions."));
-        return false;
+        text.replace("\\1", GetSelectedText());
     }
 
     InsertHtml(text);
+
     return true;
 }
 
