@@ -594,19 +594,18 @@ if( APPLE )
     endif()
 
     add_custom_target(  addframeworks
-                        COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app
+                        COMMAND macdeployqt Sigil.app
                         WORKING_DIRECTORY ${WORK_DIR}
                         DEPENDS ${PROJECT_NAME} )
 
     add_custom_target(  makedmg 
-                        COMMAND ${QT_BINARY_DIR}/macdeployqt Sigil.app -dmg -no-plugins
-                        WORKING_DIRECTORY ${WORK_DIR}
-                        DEPENDS addframeworks )
+                        COMMAND macdeployqt Sigil.app -dmg -no-plugins
+                        WORKING_DIRECTORY ${WORK_DIR})
 
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
-                
+ 
 # For Linux and Windows, provide binary installers.
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
 # For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
@@ -622,7 +621,7 @@ elseif (MSVC)
     set( ISS_CONFIGURED_LOCATION ${CMAKE_BINARY_DIR}/Sigil_configured.iss )
     set( ISS_TEMP_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil_configured.iss )
 
-    # Specify platform var for Inno and installjammer
+    # Specify platform var for Inno
     if ( 64_BIT_PLATFORM )
         # Used in the ISS CMake configuration
         set( ISS_ARCH "x64" )
