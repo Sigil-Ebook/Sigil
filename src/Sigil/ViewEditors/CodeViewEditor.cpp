@@ -856,7 +856,12 @@ void CodeViewEditor::mousePressEvent(QMouseEvent *event)
     if (isCtrl) {
         GoToLinkOrStyle();
     }
+}
+
+void CodeViewEditor::mouseReleaseEvent(QMouseEvent *event)
+{
     emit PageClicked();
+    QPlainTextEdit::mousePressEvent(event);
 }
 
 
@@ -1527,9 +1532,12 @@ void CodeViewEditor::focusOutEvent(QFocusEvent *event)
     QPlainTextEdit::focusOutEvent(event);
 }
 
-void CodeViewEditor::EmitPageUpdated()
+void CodeViewEditor::EmitFilteredCursorMoved()
 {
-    emit PageUpdated();
+    // Avoid slowdown while selecting text
+    if (QApplication::mouseButtons() == Qt::NoButton) {
+        emit FilteredCursorMoved();
+    }
 }
 
 void CodeViewEditor::TextChangedFilter()
@@ -3070,7 +3078,8 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect(this, SIGNAL(blockCountChanged(int)), this, SLOT(UpdateLineNumberAreaMargin()));
     connect(this, SIGNAL(updateRequest(const QRect &, int)), this, SLOT(UpdateLineNumberArea(const QRect &, int)));
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(HighlightCurrentLine()));
-    connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(EmitPageUpdated()));
+    connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(EmitFilteredCursorMoved()));
+    connect(this, SIGNAL(textChanged()), this, SIGNAL(PageUpdated()));
     connect(this, SIGNAL(textChanged()), this, SLOT(TextChangedFilter()));
     connect(this, SIGNAL(undoAvailable(bool)), this, SLOT(UpdateUndoAvailable(bool)));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(ResetLastFindMatch()));

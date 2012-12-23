@@ -155,6 +155,11 @@ BookViewEditor::~BookViewEditor()
         delete m_InsertImage;
         m_InsertImage = 0;
     }
+
+    if (m_InspectElement) {
+        delete m_InspectElement;
+        m_InspectElement = 0;
+    }
 }
 
 
@@ -165,6 +170,7 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     BookViewPreview::CustomSetDocument(m_path, html);
     page()->setContentEditable(true);
     SetWebPageModified(false);
+    emit PageOpened();
 }
 
 QString BookViewEditor::GetHtml()
@@ -257,6 +263,10 @@ void BookViewEditor::focusOutEvent(QFocusEvent *event)
     QWebView::focusOutEvent(event);
 }
 
+void BookViewEditor::EmitPageUpdated()
+{
+    emit PageUpdated();
+}
 
 QString BookViewEditor::GetSelectedText()
 {
@@ -735,6 +745,12 @@ bool BookViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
     return true;
 }
 
+void BookViewEditor::EmitInspectElement()
+{
+    StoreCurrentCaretLocation();
+    emit InspectElement();
+}
+
 void BookViewEditor::OpenContextMenu(const QPoint &point)
 {
     if (!SuccessfullySetupContextMenu(point)) {
@@ -815,6 +831,9 @@ bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
             m_ContextMenu.addAction(m_InsertImage);
         }
     }
+
+    m_ContextMenu.addSeparator();
+    m_ContextMenu.addAction(m_InspectElement);
 
     m_ContextMenu.addSeparator();
     m_ContextMenu.addAction(m_Undo);
@@ -921,6 +940,21 @@ void BookViewEditor::SaveClipAction()
     emit OpenClipEditorRequest(&clip);
 }
 
+void BookViewEditor::mouseReleaseEvent(QMouseEvent *event)
+{
+    // Propagate to base class
+    BookViewPreview::mouseReleaseEvent(event);
+    emit PageClicked();
+}
+
+void BookViewEditor::keyReleaseEvent(QKeyEvent *event)
+{
+    // Propagate to base class
+    BookViewPreview::keyReleaseEvent(event);
+    emit PageUpdated();
+}
+
+
 void BookViewEditor::CreateContextMenuActions()
 {
     m_InsertImage = new QAction(tr("Insert Image") + "...", this);
@@ -938,6 +972,7 @@ void BookViewEditor::CreateContextMenuActions()
     m_OpenWithContextMenu.setTitle(tr("Open With"));
     m_OpenWithContextMenu.addAction(m_OpenWithEditor);
     m_OpenWithContextMenu.addAction(m_OpenWith);
+    m_InspectElement = new QAction(tr("Inspect Element") + "...", this);
 }
 
 void BookViewEditor::ConnectSignalsToSlots()
@@ -963,4 +998,6 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect(m_OpenWithEditor, SIGNAL(triggered()),  this, SLOT(openWithEditor()));
     connect(m_SaveAs,         SIGNAL(triggered()),  this, SLOT(saveAs()));
     connect(m_clipMapper, SIGNAL(mapped(const QString &)), this, SLOT(PasteClipEntryFromName(const QString &)));
+    connect(m_InspectElement,      SIGNAL(triggered()),  this, SLOT(EmitInspectElement()));
+    connect(page(), SIGNAL(contentsChanged()), this, SLOT(EmitPageUpdated()));
 }

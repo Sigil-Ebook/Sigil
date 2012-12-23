@@ -148,7 +148,11 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_ClipboardHistorySelector(new ClipboardHistorySelector(this)),
     m_LastPasteTarget(NULL),
     m_LastWindowSize(QByteArray()),
-    m_PreviewTimer(*new QTimer(this))
+    m_PreviewTimer(*new QTimer(this)),
+    m_PreviousHTMLResource(NULL),
+    m_PreviousHTMLText(QString()),
+    m_PreviousHTMLLocation(QList<ViewEditor::ElementIndex>()),
+    m_SaveCSS(false)
 {
     ui.setupUi(this);
 
@@ -2166,23 +2170,66 @@ void MainWindow::UpdatePreviewRequest()
     m_PreviewTimer.start();
 }
 
+void MainWindow::UpdatePreviewCSSRequest()
+{
+    m_SaveCSS = true;
+    UpdatePreviewRequest();
+}
+
 void MainWindow::UpdatePreview()
 {
+    m_PreviewTimer.stop();
+
+    QString text;
+    QList<ViewEditor::ElementIndex> location;
+    HTMLResource *html_resource;
+
     ContentTab &tab = GetCurrentContentTab();
-    bool preview_valid = false;
     if (&tab != NULL) {
-        HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
+
+        // Save CSS if update requested from CSS tab
+        if (m_SaveCSS) {
+            m_SaveCSS = false;
+            tab.SaveTabContent();
+        }
+
+        html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
+        if (!html_resource) {
+            html_resource = m_PreviousHTMLResource;
+        }
+        else {
+            m_PreviousHTMLResource = NULL;
+        }
+
         if (html_resource) {
             FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
-            if (flow_tab && m_ViewState == MainWindow::ViewState_CodeView) {
-                m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), flow_tab->GetText(), flow_tab->GetCaretLocation());
-                preview_valid = true;
+            if (flow_tab) {
+                text = flow_tab->GetText();
+                location = flow_tab->GetCaretLocation();
             }
+            else {
+                text = m_PreviousHTMLText;
+                if (m_PreviousHTMLResource) {
+                    location = m_PreviewWindow->GetCaretLocation();
+                }
+                else {
+                    location = m_PreviousHTMLLocation;
+                }
+            }
+            m_PreviousHTMLResource = html_resource;
+            m_PreviousHTMLText = text;
+            m_PreviousHTMLLocation = location;
+
+            m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), text, location);
         }
     }
-    if (!preview_valid) {
-        m_PreviewWindow->ClearPage();
-    }
+}
+
+void MainWindow::InspectHTML()
+{
+    m_PreviewWindow->show();
+    m_PreviewWindow->raise();
+    UpdatePreview();
 }
 
 void MainWindow::UpdateCursorPositionLabel(int line, int column)
@@ -3553,6 +3600,10 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab, SIGNAL(ImageSaveAs(const QUrl &)), m_BookBrowser, SLOT(SaveAsUrl(const QUrl &)));
     }
 
+    if (tab->GetLoadedResource().Type() == Resource::CSSResourceType) {
+        connect(tab,   SIGNAL(CSSUpdated()), this, SLOT(UpdatePreviewCSSRequest()));
+    }
+
     if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
         tab->GetLoadedResource().Type() == Resource::CSSResourceType) {
         connect(ui.actionBold,                     SIGNAL(triggered()),  tab,   SLOT(Bold()));
@@ -3599,6 +3650,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
 
         connect(tab,   SIGNAL(UpdatePreview()), this, SLOT(UpdatePreviewRequest()));
         connect(tab,   SIGNAL(UpdatePreviewImmediately()), this, SLOT(UpdatePreview()));
+        connect(tab,   SIGNAL(InspectElement()), this, SLOT(InspectHTML()));
     }
 
     connect(ui.actionPrintPreview,             SIGNAL(triggered()),  tab,   SLOT(PrintPreview()));

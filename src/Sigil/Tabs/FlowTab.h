@@ -298,6 +298,8 @@ signals:
     void UpdatePreview();
     void UpdatePreviewImmediately();
 
+    void InspectElement();
+
 private slots:
 
     /**

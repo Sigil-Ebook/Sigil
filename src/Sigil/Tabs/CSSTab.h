@@ -50,6 +50,12 @@ public slots:
     void TextDirectionLeftToRight();
     void TextDirectionRightToLeft();
     void TextDirectionDefault();
+
+signals:
+    void CSSUpdated();
+
+private slots:
+    void EmitCSSUpdated();
 };
 
 #endif // CSSTAB_H

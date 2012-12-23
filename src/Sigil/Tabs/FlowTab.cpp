@@ -406,9 +406,7 @@ void FlowTab::ResourceModified()
 
     m_bookViewNeedsReload = true;
 
-    if (m_ViewState == MainWindow::ViewState_CodeView) {
-        EmitUpdatePreview();
-    }
+    EmitUpdatePreview();
 }
 
 void FlowTab::LinkedResourceModified()
@@ -659,7 +657,14 @@ bool FlowTab::ViewStatesEnabled()
 
 QList< ViewEditor::ElementIndex > FlowTab::GetCaretLocation()
 {
-    return m_wCodeView->GetCaretLocation();
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->GetCaretLocation();
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->GetCaretLocation();
+    }
+
+    return QList<ViewEditor::ElementIndex>();
 }
 
 QString FlowTab::GetCaretLocationUpdate() const
@@ -673,7 +678,14 @@ QString FlowTab::GetCaretLocationUpdate() const
 
 QString FlowTab::GetText()
 {
-    return m_wCodeView->toPlainText();
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->toPlainText();
+    }
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->GetHtml();
+    }
+
+    return "";
 }
 
 int FlowTab::GetCursorPosition() const
@@ -1458,6 +1470,10 @@ void FlowTab::ConnectBookViewSignalsToSlots()
     connect(m_wBookView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(m_wBookView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
     connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
+    connect(m_wBookView, SIGNAL(InspectElement()), this, SIGNAL(InspectElement()));
+    connect(m_wBookView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
+    connect(m_wBookView, SIGNAL(PageClicked()), this, SLOT(EmitUpdatePreviewImmediately()));
+    connect(m_wBookView, SIGNAL(PageOpened()), this, SLOT(EmitUpdatePreviewImmediately()));
 }
 
 void FlowTab::ConnectCodeViewSignalsToSlots()
@@ -1474,6 +1490,7 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
     connect(m_wCodeView, SIGNAL(ShowStatusMessageRequest(const QString &)), this, SIGNAL(ShowStatusMessageRequest(const QString &)));
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
+    connect(m_wCodeView, SIGNAL(FilteredCursorMoved()), this, SLOT(EmitUpdatePreview()));
     connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
     connect(m_wCodeView, SIGNAL(PageClicked()), this, SLOT(EmitUpdatePreviewImmediately()));
 }

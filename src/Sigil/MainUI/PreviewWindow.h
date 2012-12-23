@@ -26,10 +26,15 @@
 #include <QtWidgets/QDockWidget>
 #include <QtCore/QTime>
 
+
 #include "MainUI/MainWindow.h"
 
 class QWidget;
 class BookViewPreview;
+class QSplitter;
+class QStackedWidget;
+class QWebInspector;
+class ViewEditor;
 
 class PreviewWindow : public QDockWidget
 {
@@ -38,11 +43,12 @@ class PreviewWindow : public QDockWidget
 public:
     PreviewWindow(QWidget *parent = 0);
     ~PreviewWindow();
+    QList<ViewEditor::ElementIndex> GetCaretLocation();
 
 public slots:
     void UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location);
-    void ClearPage();
     void SetZoomFactor(float factor);
+    void SplitterMoved(int pos, int index);
 
 signals:
     void Shown();
@@ -51,10 +57,17 @@ protected:
     virtual void showEvent(QShowEvent *event);
 
 private:
+    void SetupView();
+    void LoadSettings();
+    void ConnectSignalsToSlots();
+
     QWidget &m_MainWidget;
     QVBoxLayout &m_Layout;
 
     BookViewPreview *m_Preview;
+    QWebInspector *m_Inspector;
+    QSplitter *m_Splitter;
+    QStackedWidget *m_StackedViews;
 };
 
 #endif // PREVIEWWINDOW_H

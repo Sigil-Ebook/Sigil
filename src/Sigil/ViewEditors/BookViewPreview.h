@@ -117,6 +117,8 @@ public:
 
     void HighlightPosition();
 
+    void StoreCurrentCaretLocation();
+
 public slots:
 
     /**
@@ -124,6 +126,8 @@ public slots:
      * retry a clipboard copy operation.
      */
     void copy();
+
+    void InspectElement();
 
 signals:
     /**
@@ -187,8 +191,6 @@ private slots:
     void executeCaretUpdateInternal() {
         ExecuteCaretUpdate();
     }
-
-    void InspectElement();
 
 private:
 
@@ -357,8 +359,6 @@ private:
      * @return The necessary tools for searching.
      */
     SearchTools GetSearchTools() const;
-
-    void StoreCurrentCaretLocation();
 
     void CreateContextMenuActions();
 

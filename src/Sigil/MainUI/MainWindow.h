@@ -431,7 +431,9 @@ private slots:
     void SetStateActionsStaticView();
 
     void UpdatePreviewRequest();
+    void UpdatePreviewCSSRequest();
     void UpdatePreview();
+    void InspectHTML();
 
     /**
      * Updates the cursor postion label to refelect the position of the
@@ -897,6 +899,12 @@ private:
     QByteArray m_LastWindowSize;
 
     QTimer &m_PreviewTimer;
+
+    HTMLResource *m_PreviousHTMLResource;
+    QString m_PreviousHTMLText;
+    QList<ViewEditor::ElementIndex> m_PreviousHTMLLocation;
+
+    bool m_SaveCSS;
 
     /**
      * Holds all the widgets Qt Designer created for us.

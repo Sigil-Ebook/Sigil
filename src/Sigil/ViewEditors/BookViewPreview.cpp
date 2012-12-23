@@ -640,8 +640,11 @@ void BookViewPreview::SelectTextRange(const SelectRangeInputs &input)
 }
 
 
+#include <QtDebug>
+
 void BookViewPreview::ScrollToNodeText(const xc::DOMNode &node, int character_offset)
 {
+qDebug() << "here";
     const int MIN_MARGIN = 20;
     const QWebElement element = DomNodeToQWebElement(node);
     QRect element_geometry    = element.geometry();
@@ -679,12 +682,6 @@ void BookViewPreview::ScrollToNodeText(const xc::DOMNode &node, int character_of
 
 void BookViewPreview::InspectElement()
 {
-    if (!m_Inspector) {
-        m_Inspector = new QWebInspector();
-        m_Inspector->setPage(page());
-    }
-
-    m_Inspector->setVisible(true);
     page()->triggerAction(QWebPage::InspectElement);
 }
 

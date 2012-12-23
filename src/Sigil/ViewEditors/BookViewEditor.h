@@ -212,11 +212,17 @@ public slots:
 
     void saveAs();
 
+    void EmitInspectElement();
+
     // Implementations for PasteTarget.h
     void PasteText(const QString &text);
     bool PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
 
 signals:
+    void PageUpdated();
+    void PageClicked();
+    void PageOpened();
+
     /**
      * Emitted when the text changes.
      * The contentsChanged QWebPage signal is wired to this one,
@@ -260,6 +266,8 @@ signals:
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
 
+    void InspectElement();
+
 protected:
     /**
      * Handles the focus out event for the editor.
@@ -267,8 +275,12 @@ protected:
      * @param event The event to process.
      */
     void focusOutEvent(QFocusEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
 
 private slots:
+
+    void EmitPageUpdated();
 
     /**
      * Wrapper slot for the Page Up shortcut.
@@ -421,6 +433,7 @@ private:
     QAction *m_OpenWithEditor;
 
     QAction *m_SaveAs;
+    QAction *m_InspectElement;
 
     /**
      * PageUp keyboard shortcut.

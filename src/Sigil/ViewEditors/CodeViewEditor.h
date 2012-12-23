@@ -346,8 +346,9 @@ signals:
      */
     void FocusGained(QWidget *editor);
 
-    void PageUpdated();
+    void FilteredCursorMoved();
     void PageClicked();
+    void PageUpdated();
 
     /**
      * A filtered version of the QPlainTextEdit::textChnaged signal.
@@ -407,6 +408,8 @@ protected:
      */
     void mousePressEvent(QMouseEvent *event);
 
+    void mouseReleaseEvent(QMouseEvent *event);
+
     /**
      * Handles the content menu event for the editor.
      *
@@ -431,7 +434,7 @@ protected:
 private slots:
     void ResetLastFindMatch();
 
-    void EmitPageUpdated();
+    void EmitFilteredCursorMoved();
 
     /**
      * Filters the textChanged signal.

@@ -19,39 +19,84 @@
 **
 *************************************************************************/
 
+#include <QtWidgets/QSplitter>
+#include <QtWidgets/QStackedWidget>
+#include <QtWebKitWidgets/QWebInspector>
+
 #include "MainUI/PreviewWindow.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ViewEditors/BookViewEditor.h"
+
+static const QString SETTINGS_GROUP = "previewwindow";
 
 PreviewWindow::PreviewWindow(QWidget *parent)
     :
     QDockWidget(tr("Preview"), parent),
     m_MainWidget(*new QWidget(this)),
     m_Layout(*new QVBoxLayout(&m_MainWidget)),
-    m_Preview(new BookViewPreview(this))
+    m_Preview(new BookViewPreview(this)),
+    m_Inspector(new QWebInspector(this)),
+    m_Splitter(new QSplitter(this)),
+    m_StackedViews(new QStackedWidget(this))
 {
-    m_Layout.setContentsMargins(0, 0, 0, 0);
-#ifdef Q_OS_MAC
-    m_Layout.setSpacing(4);
-#endif
-    m_Layout.addWidget(m_Preview);
-    m_MainWidget.setLayout(&m_Layout);
-    setWidget(&m_MainWidget);
-
-    m_MainWidget.setToolTip(
-        "<p>" + 
-        tr("Preview shows a read-only view of your HTML file when you are in Code View.  The page is refreshed after you finish typing or click somewhere in Code View.") +
-        "</p><p>" + 
-        tr("You can move the Preview window by clicking on the title bar of the window and dragging it to your desktop or to another part of Sigil.  Dropping it on the TOC or Book Browser windows will create a tabbed window.") +
-        "</p>");
+    SetupView();
+    LoadSettings();
+    ConnectSignalsToSlots();
 }
 
 PreviewWindow::~PreviewWindow()
 {
+    // BookViewPreview must be deleted before QWebInspector.
+    // BookViewPreview's QWebPage is linked to the QWebInspector
+    // and when deleted it will send a message to the linked QWebInspector
+    // to remove the association. If QWebInspector is deleted before
+    // BookViewPreview, BookViewPreview will try to access the deleted
+    // QWebInspector and the application will SegFault. This is an issue
+    // with how QWebPages interface with QWebInspector.
     if (m_Preview) {
         delete m_Preview;
         m_Preview = 0;
     }
+
+    if (m_Inspector) {
+        delete m_Inspector;
+        m_Inspector = 0;
+    }
+
+    if (m_Splitter) {
+        delete m_Splitter;
+        m_Splitter = 0;
+    }
+
+    if (m_StackedViews) {
+        delete(m_StackedViews);
+        m_StackedViews= 0;
+    }
+}
+
+void PreviewWindow::SetupView()
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    m_Inspector->setPage(m_Preview->page());
+
+    m_Layout.setContentsMargins(0, 0, 0, 0);
+#ifdef Q_OS_MAC
+    m_Layout.setSpacing(4);
+#endif
+
+    m_Layout.addWidget(m_StackedViews);
+
+    m_Splitter->setOrientation(Qt::Vertical);
+    m_Splitter->addWidget(m_Preview);
+    m_Splitter->addWidget(m_Inspector);
+    m_Splitter->setSizes(QList<int>() << 400 << 200);
+    m_StackedViews->addWidget(m_Splitter);
+
+    m_MainWidget.setLayout(&m_Layout);
+    setWidget(&m_MainWidget);
+
+    QApplication::restoreOverrideCursor();
 }
 
 void PreviewWindow::showEvent(QShowEvent *event)
@@ -68,16 +113,40 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor
     }
 
     m_Preview->CustomSetDocument(filename, text);
-
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
+    m_Preview->InspectElement();
 }
 
-void PreviewWindow::ClearPage()
+QList<ViewEditor::ElementIndex> PreviewWindow::GetCaretLocation()
 {
-    m_Preview->CustomSetDocument("", "");
+    return m_Preview->GetCaretLocation();
 }
 
 void PreviewWindow::SetZoomFactor(float factor) {
     m_Preview->SetZoomFactor(factor);
 }
+
+void PreviewWindow::SplitterMoved(int pos, int index)
+{
+    Q_UNUSED(pos);
+    Q_UNUSED(index);
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    settings.setValue("splitter", m_Splitter->saveState());
+    settings.endGroup();
+}
+
+void PreviewWindow::LoadSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    m_Splitter->restoreState(settings.value("splitter").toByteArray());
+    settings.endGroup();
+}
+
+void PreviewWindow::ConnectSignalsToSlots()
+{
+    connect(m_Splitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(SplitterMoved(int, int)));
+}
+
