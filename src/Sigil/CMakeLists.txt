@@ -340,6 +340,8 @@ set( TAB_FILES
     Tabs/TextTab.h
     Tabs/CSSTab.cpp
     Tabs/CSSTab.h
+    Tabs/AVTab.cpp
+    Tabs/AVTab.h
     Tabs/ImageTab.cpp
     Tabs/ImageTab.h
     Tabs/MiscTextTab.cpp

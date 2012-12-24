@@ -29,6 +29,7 @@
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/MiscTextResource.h"
 #include "ResourceObjects/SVGResource.h"
+#include "Tabs/AVTab.h"
 #include "Tabs/CSSTab.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/ImageTab.h"
@@ -492,6 +493,12 @@ ContentTab *TabManager::CreateTabForResource(Resource &resource,
 
         case Resource::TextResourceType: {
             tab = new TextTab(*(qobject_cast< TextResource * >(&resource)), CodeViewEditor::Highlight_NONE, line_to_scroll_to, this);
+            break;
+        }
+
+        case Resource::AudioResourceType:
+        case Resource::VideoResourceType: {
+            tab = new AVTab(resource, this);
             break;
         }
 

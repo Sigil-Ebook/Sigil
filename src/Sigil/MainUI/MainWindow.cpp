@@ -3577,12 +3577,16 @@ void MainWindow::ConnectSignalsToSlots()
 
 void MainWindow::MakeTabConnections(ContentTab *tab)
 {
+    Resource::ResourceType rType;
+
     if (tab == NULL) {
         return;
     }
 
+    rType = tab->GetLoadedResource().Type();
+
     // Triggered connections should be disconnected in BreakTabConnections
-    if (tab->GetLoadedResource().Type() != Resource::ImageResourceType) {
+    if (rType != Resource::ImageResourceType && rType != Resource::AudioResourceType && rType != Resource::VideoResourceType) {
         connect(ui.actionUndo,                     SIGNAL(triggered()),  tab,   SLOT(Undo()));
         connect(ui.actionRedo,                     SIGNAL(triggered()),  tab,   SLOT(Redo()));
         connect(ui.actionCut,                      SIGNAL(triggered()),  tab,   SLOT(Cut()));
@@ -3593,19 +3597,19 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
                 this,  SLOT(ClipEditorDialog(ClipEditorModel::clipEntry *)));
     }
 
-    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
-        tab->GetLoadedResource().Type() == Resource::ImageResourceType ||
-        tab->GetLoadedResource().Type() == Resource::SVGResourceType) {
+    if (rType == Resource::HTMLResourceType ||
+        rType == Resource::ImageResourceType ||
+        rType == Resource::SVGResourceType) {
         connect(tab, SIGNAL(ImageOpenedExternally(const QString &)), this, SLOT(SetImageWatchResourceFile(const QString &)));
         connect(tab, SIGNAL(ImageSaveAs(const QUrl &)), m_BookBrowser, SLOT(SaveAsUrl(const QUrl &)));
     }
 
-    if (tab->GetLoadedResource().Type() == Resource::CSSResourceType) {
+    if (rType == Resource::CSSResourceType) {
         connect(tab,   SIGNAL(CSSUpdated()), this, SLOT(UpdatePreviewCSSRequest()));
     }
 
-    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType ||
-        tab->GetLoadedResource().Type() == Resource::CSSResourceType) {
+    if (rType == Resource::HTMLResourceType ||
+        rType == Resource::CSSResourceType) {
         connect(ui.actionBold,                     SIGNAL(triggered()),  tab,   SLOT(Bold()));
         connect(ui.actionItalic,                   SIGNAL(triggered()),  tab,   SLOT(Italic()));
         connect(ui.actionUnderline,                SIGNAL(triggered()),  tab,   SLOT(Underline()));
@@ -3620,7 +3624,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(SelectionChanged()),           this,          SLOT(UpdateUIOnTabChanges()));
     }
 
-    if (tab->GetLoadedResource().Type() == Resource::HTMLResourceType) {
+    if (rType == Resource::HTMLResourceType) {
         connect(ui.actionSubscript,                SIGNAL(triggered()),  tab,   SLOT(Subscript()));
         connect(ui.actionSuperscript,              SIGNAL(triggered()),  tab,   SLOT(Superscript()));
         connect(ui.actionInsertBulletedList,       SIGNAL(triggered()),  tab,   SLOT(InsertBulletedList()));
@@ -3653,13 +3657,15 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(InspectElement()), this, SLOT(InspectHTML()));
     }
 
-    connect(ui.actionPrintPreview,             SIGNAL(triggered()),  tab,   SLOT(PrintPreview()));
-    connect(ui.actionPrint,                    SIGNAL(triggered()),  tab,   SLOT(Print()));
-    connect(tab,   SIGNAL(ContentChanged()),             m_Book.data(), SLOT(SetModified()));
-    connect(tab,   SIGNAL(UpdateCursorPosition(int, int)), this,          SLOT(UpdateCursorPositionLabel(int, int)));
-    connect(tab,   SIGNAL(ZoomFactorChanged(float)),   this,          SLOT(UpdateZoomLabel(float)));
-    connect(tab,   SIGNAL(ZoomFactorChanged(float)),   this,          SLOT(UpdateZoomSlider(float)));
-    connect(tab,   SIGNAL(ShowStatusMessageRequest(const QString &)), this, SLOT(ShowMessageOnStatusBar(const QString &)));
+    if (rType != Resource::AudioResourceType && rType != Resource::VideoResourceType) {
+        connect(ui.actionPrintPreview,             SIGNAL(triggered()),  tab,   SLOT(PrintPreview()));
+        connect(ui.actionPrint,                    SIGNAL(triggered()),  tab,   SLOT(Print()));
+        connect(tab,   SIGNAL(ContentChanged()),             m_Book.data(), SLOT(SetModified()));
+        connect(tab,   SIGNAL(UpdateCursorPosition(int, int)), this,          SLOT(UpdateCursorPositionLabel(int, int)));
+        connect(tab,   SIGNAL(ZoomFactorChanged(float)),   this,          SLOT(UpdateZoomLabel(float)));
+        connect(tab,   SIGNAL(ZoomFactorChanged(float)),   this,          SLOT(UpdateZoomSlider(float)));
+        connect(tab,   SIGNAL(ShowStatusMessageRequest(const QString &)), this, SLOT(ShowMessageOnStatusBar(const QString &)));
+    }
 }
 
 
