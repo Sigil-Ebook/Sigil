@@ -105,7 +105,11 @@ void KeyboardShortcutsWidget::treeWidgetItemChangedSlot(QTreeWidgetItem *current
 
 void KeyboardShortcutsWidget::removeButtonClicked()
 {
-    ui.commandList->currentItem()->setText(COL_SHORTCUT, "");
+    QTreeWidgetItem *item = ui.commandList->currentItem();
+    if (item) {
+        item->setText(COL_SHORTCUT, "");
+    }
+
     ui.targetEdit->setText("");
     ui.targetEdit->setFocus();
     markSequencesAsDuplicatedIfNeeded();
