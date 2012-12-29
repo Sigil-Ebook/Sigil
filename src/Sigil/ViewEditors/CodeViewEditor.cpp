@@ -877,23 +877,20 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
     // events to be triggered which will cause the selection to be changed
     blockSignals(true);
     QMenu *menu = createStandardContextMenu();
-    bool offered_spelling = false;
 
-    if (m_checkSpelling) {
-        offered_spelling = AddSpellCheckContextMenu(menu);
+    if (m_reformatCSSEnabled) {
+        AddReformatCSSContextMenu(menu);
     }
 
-    if (!offered_spelling) {
-        if (m_reformatCSSEnabled) {
-            AddReformatCSSContextMenu(menu);
-        }
+    if (m_reformatHTMLEnabled) {
+        AddReformatHTMLContextMenu(menu);
+    }
 
-        if (m_reformatHTMLEnabled) {
-            AddReformatHTMLContextMenu(menu);
-        }
+    AddGoToLinkOrStyleContextMenu(menu);
+    AddClipContextMenu(menu);
 
-        AddGoToLinkOrStyleContextMenu(menu);
-        AddClipContextMenu(menu);
+    if (m_checkSpelling) {
+        AddSpellCheckContextMenu(menu);
     }
 
     menu->exec(event->globalPos());
@@ -996,7 +993,6 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
 
             if (topAction) {
                 menu->insertAction(topAction, addToDictAction);
-                menu->insertSeparator(topAction);
             } else {
                 menu->addAction(addToDictAction);
             }
