@@ -1021,12 +1021,6 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
 
     UpdatePreviousFindStrings(search_entry->find);
     UpdatePreviousReplaceStrings(search_entry->replace);
-    // Default for all saved searches is Regex, All HTML Files, Down.
-    SetSearchMode(FindReplace::SearchMode_Regex);
-    SetLookWhere(FindReplace::LookWhere_AllHTMLFiles);;
-    SetSearchDirection(FindReplace::SearchDirection_Down);
-    ui.cbLookWhere->setCurrentIndex(1);
-    ui.cbSearchDirection->setCurrentIndex(1);
     // Show a message containing the name that was loaded
     QString message(tr("Unnamed search loaded"));
 
