@@ -332,6 +332,7 @@ bool MetaEditor::SaveData()
     m_IsDataModified = false;
     SetOriginalData();
 
+    emit ShowStatusMessageRequest(tr("Metadata saved."));
     return true;
 }
 
@@ -539,14 +540,10 @@ void MetaEditor::MoveDown()
     }
 }
 
-bool MetaEditor::Save()
+void MetaEditor::Save()
 {
-    if (SaveData()) {
-        emit ShowStatusMessageRequest(tr("Metadata saved."));
-        return true;
-    }
-
-    return false;
+    SaveData();
+    accept();
 }
 
 void MetaEditor::reject()
@@ -581,7 +578,7 @@ bool MetaEditor::MaybeSaveDialogSaysProceed(bool is_forced)
                                              );
 
         if (button_pressed == QMessageBox::Save) {
-            return Save();
+            return SaveData();
         } else if (button_pressed == QMessageBox::Cancel) {
             return false;
         }

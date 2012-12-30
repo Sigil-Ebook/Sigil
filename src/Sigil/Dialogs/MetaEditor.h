@@ -132,7 +132,7 @@ private slots:
      */
     void WriteSettings();
 
-    bool Save();
+    void Save();
 
     void ItemChangedHandler(QStandardItem *item);
 
