@@ -246,7 +246,7 @@ Readers may display entries in the order they are listed.</string>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Save</set>
      </property>
     </widget>
    </item>
@@ -259,38 +259,4 @@ Readers may display entries in the order they are listed.</string>
   <tabstop>btRemove</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>MetaEditor</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>299</x>
-     <y>417</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>299</x>
-     <y>219</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>MetaEditor</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>299</x>
-     <y>417</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>299</x>
-     <y>219</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
 </ui>

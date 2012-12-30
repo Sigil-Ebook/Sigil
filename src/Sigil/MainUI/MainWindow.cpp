@@ -128,6 +128,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_BookBrowser(NULL),
     m_Clips(NULL),
     m_FindReplace(new FindReplace(*this)),
+    m_MetaEditor(new MetaEditor(this)),
     m_TableOfContents(NULL),
     m_ValidationResultsView(NULL),
     m_PreviewWindow(NULL),
@@ -408,11 +409,16 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    // Must check if metadata is saved before book is saved
+    if (m_MetaEditor && m_MetaEditor->isVisible()) {
+        m_MetaEditor->ForceClose();
+    }
+
     if (MaybeSaveDialogSaysProceed()) {
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
         WriteSettings();
 
-        // The user may have unsaved search/clip/index entries if dialogs are open.
+        // The user may have unsaved search/clip/index/meta entries if dialogs are open.
         // Prompt them to save or discard their changes if any.
         if (m_SearchEditor && m_SearchEditor->isVisible()) {
             m_SearchEditor->ForceClose();
@@ -1623,16 +1629,11 @@ void MainWindow::SaveTabData()
 
 void MainWindow::MetaEditorDialog()
 {
-    MetaEditor meta(m_Book->GetOPF(), this);
-    meta.exec();
-
-    // We really should be checking if the metadata was changed
-    // not if the user clicked OK in the dialog.
-    if (meta.result() == QDialog::Accepted) {
-        m_Book->SetModified(true);
-    }
+    // non-modal dialog
+    m_MetaEditor->SetBook(m_Book);
+    m_MetaEditor->show();
+    m_MetaEditor->raise();
 }
-
 
 void MainWindow::UserGuide()
 {
@@ -3568,6 +3569,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_ClipEditor,   SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_IndexEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
+            this,            SLOT(ShowMessageOnStatusBar(const QString &)));
+    connect(m_MetaEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_Reports,       SIGNAL(Refresh()), this, SLOT(ReportsDialog()));
     connect(m_Reports,       SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));

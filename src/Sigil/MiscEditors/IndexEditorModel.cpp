@@ -73,6 +73,8 @@ IndexEditorModel::IndexEditorModel(QObject *parent)
             this,        SLOT(SettingsFileChanged(const QString &)), Qt::DirectConnection);
     connect(this, SIGNAL(itemChanged(QStandardItem *)),
             this, SLOT(ItemChangedHandler(QStandardItem *)));
+    connect(this, SIGNAL(rowsRemoved(const QModelIndex &, int, int)),
+            this, SLOT(RowsRemovedHandler(const QModelIndex &, int, int)));
 }
 
 IndexEditorModel::~IndexEditorModel()

@@ -23,9 +23,10 @@
 
 #include <QtCore/QDate>
 #include <QtGui/QShowEvent>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QPushButton>
 
 #include "Dialogs/MetaEditor.h"
-#include "BookManipulation/Metadata.h"
 #include "Dialogs/AddMetadata.h"
 #include "Dialogs/MetaEditorItemDelegate.h"
 #include "Misc/Language.h"
@@ -34,20 +35,14 @@
 
 static const QString SETTINGS_GROUP      = "meta_editor";
 
-MetaEditor::MetaEditor(OPFResource &opf, QWidget *parent)
+MetaEditor::MetaEditor(QWidget *parent)
     :
     QDialog(parent),
-    m_OPF(opf),
-    m_Metadata(m_OPF.GetDCMetadata()),
-    m_cbDelegate(new MetaEditorItemDelegate())
+    m_cbDelegate(new MetaEditorItemDelegate()),
+    m_IsDataModified(false)
 {
     ui.setupUi(this);
     ConnectSignals();
-    SetUpMetaTable();
-    ReadSettings();
-    FillLanguageComboBox();
-    ReadMetadataFromBook();
-    SetLanguage();
 }
 
 MetaEditor::~MetaEditor()
@@ -56,6 +51,32 @@ MetaEditor::~MetaEditor()
         delete m_cbDelegate;
         m_cbDelegate = 0;
     }
+}
+
+void MetaEditor::SetBook(QSharedPointer< Book > book)
+{
+    m_Book = book;
+    m_OPF = &(m_Book->GetOPF());
+    m_Metadata = m_OPF->GetDCMetadata();
+
+    SetUpMetaTable();
+    // Update position of window only if it was closed
+    if (!isVisible()) {
+        ReadSettings();
+    }
+    FillLanguageComboBox();
+    ReadMetadataFromBook();
+    SetLanguage();
+    SetOriginalData();
+    m_IsDataModified = false;
+}
+
+void MetaEditor::SetOriginalData()
+{
+    m_OriginalData.title = ui.leTitle->text();
+    m_OriginalData.author = ui.leAuthor->text();
+    m_OriginalData.file_as = ui.leAuthorFileAs->text();
+    m_OriginalData.language = ui.cbLanguages->currentText();
 }
 
 void MetaEditor::SetLanguage()
@@ -84,14 +105,6 @@ void MetaEditor::SetLanguage()
         ui.cbLanguages->setCurrentIndex(index);
     }
 }
-
-
-void MetaEditor::showEvent(QShowEvent *event)
-{
-    RefreshVerticalHeader();
-    event->accept();
-}
-
 
 void MetaEditor::AddEmptyMetadataToTable(const QStringList &metanames)
 {
@@ -234,22 +247,6 @@ void MetaEditor::Remove()
     }
 }
 
-
-// Refreshes the vertical header of the table view widget
-void MetaEditor::RefreshVerticalHeader()
-{
-    //    This whole function and all the calls to it are basically
-    // a bug fix. Qt for some strange reason doesn't update the
-    // vertical header of a table when the fields are sorted.
-    // That leaves you with e.g. a vertically single-line field
-    // occupying the space of a five-line field and vice versa.
-    // The section sizes are also screwed up in certain situations
-    // on first draw.
-    //    Oh and the native slot that would handle all of this for us?
-    // It's marked protected. Amazingly frustrating, isn't it?
-    ui.tvMetaTable->verticalHeader()->resizeSections(QHeaderView::ResizeToContents);
-}
-
 void MetaEditor::AddMetaElements(QString name, QList<QVariant> values, QString role_type, QString file_as)
 {
     foreach(QVariant value, values) {
@@ -273,7 +270,17 @@ void MetaEditor::AddMetaElement(QString name, QVariant value, QString role_type,
     m_Metadata.append(book_meta);
 }
 
-void MetaEditor::FillMetadataFromDialog()
+void MetaEditor::SetDataModifiedIfNeeded()
+{
+    if (m_OriginalData.title != ui.leTitle->text() ||
+            m_OriginalData.author != ui.leAuthor->text() ||
+            m_OriginalData.file_as != ui.leAuthorFileAs->text() ||
+            m_OriginalData.language != ui.cbLanguages->currentText()) {
+        m_IsDataModified = true;
+    }
+}
+
+bool MetaEditor::SaveData()
 {
     // Clear the book metadata so we don't duplicate something...
     // Nothing should be lost as everything was loaded into the dialog
@@ -320,7 +327,12 @@ void MetaEditor::FillMetadataFromDialog()
         }
     }
 
-    m_OPF.SetDCMetadata(m_Metadata);
+    m_OPF->SetDCMetadata(m_Metadata);
+    m_Book->SetModified(true);
+    m_IsDataModified = false;
+    SetOriginalData();
+
+    return true;
 }
 
 
@@ -391,6 +403,11 @@ void MetaEditor::FillLanguageComboBox()
 
 void MetaEditor::SetUpMetaTable()
 {
+    m_MetaModel.clear();
+    ui.leTitle->setText("");
+    ui.leAuthor->setText("");
+    ui.leAuthorFileAs->setText("");
+
     QStringList header;
     header.append(tr("Name"));
     header.append(tr("Value"));
@@ -415,14 +432,6 @@ void MetaEditor::SetUpMetaTable()
     // The table's role_type column uses a combobox for editing its values
     ui.tvMetaTable->setItemDelegateForColumn(3, m_cbDelegate);
 }
-
-
-void MetaEditor::reject()
-{
-    WriteSettings();
-    QDialog::reject();
-}
-
 
 void MetaEditor::ReadSettings()
 {
@@ -530,17 +539,79 @@ void MetaEditor::MoveDown()
     }
 }
 
+bool MetaEditor::Save()
+{
+    if (SaveData()) {
+        emit ShowStatusMessageRequest(tr("Metadata saved."));
+        return true;
+    }
+
+    return false;
+}
+
+void MetaEditor::reject()
+{
+    WriteSettings();
+
+    if (MaybeSaveDialogSaysProceed(false)) {
+        QDialog::reject();
+    }
+}
+
+void MetaEditor::ForceClose()
+{
+    MaybeSaveDialogSaysProceed(true);
+    WriteSettings();
+    QDialog::reject();
+}
+
+bool MetaEditor::MaybeSaveDialogSaysProceed(bool is_forced)
+{
+    SetDataModifiedIfNeeded();
+
+    if (m_IsDataModified) {
+        QMessageBox::StandardButton button_pressed;
+        QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
+                                               : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
+        button_pressed = QMessageBox::warning(this,
+                                              tr("Sigil: Metadata Editor"),
+                                              tr("The metadata may have been modified.\n"
+                                                      "Do you want to save your changes?"),
+                                              buttons
+                                             );
+
+        if (button_pressed == QMessageBox::Save) {
+            return Save();
+        } else if (button_pressed == QMessageBox::Cancel) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void MetaEditor::ItemChangedHandler(QStandardItem *item)
+{
+    m_IsDataModified = true;
+}
+
+void MetaEditor::RowsRemovedHandler(const QModelIndex &parent, int start, int end)
+{
+    m_IsDataModified = true;
+}
 
 void MetaEditor::ConnectSignals()
 {
+    connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
     connect(ui.btAddBasic,    SIGNAL(clicked()), this, SLOT(AddBasic()));
     connect(ui.btAddRole,     SIGNAL(clicked()), this, SLOT(AddRole()));
     connect(ui.btCopy,        SIGNAL(clicked()), this, SLOT(Copy()));
     connect(ui.btRemove,      SIGNAL(clicked()), this, SLOT(Remove()));
     connect(ui.tbMoveUp,      SIGNAL(clicked()), this, SLOT(MoveUp()));
     connect(ui.tbMoveDown,    SIGNAL(clicked()), this, SLOT(MoveDown()));
-    connect(this,             SIGNAL(accepted()), this, SLOT(FillMetadataFromDialog()));
-    connect(ui.tvMetaTable->horizontalHeader(),  SIGNAL(sectionClicked(int)),
-            this,                                SLOT(RefreshVerticalHeader()));
-    connect(this, SIGNAL(accepted()), this, SLOT(WriteSettings()));
+
+    connect(&m_MetaModel, SIGNAL(itemChanged(QStandardItem *)),
+            this, SLOT(ItemChangedHandler(QStandardItem *)));
+    connect(&m_MetaModel, SIGNAL(rowsRemoved(const QModelIndex &, int, int)),
+            this, SLOT(RowsRemovedHandler(const QModelIndex &, int, int)));
 }

@@ -27,6 +27,7 @@
 
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
+#include "BookManipulation/Book.h"
 #include <BookManipulation/Metadata.h>
 
 #include "ui_MetaEditor.h"
@@ -46,19 +47,17 @@ public:
     /**
      * Constructor.
      *
-     * @param opf The OPF whose metadata we want to edit.
      * @param parent The object's parent.
      */
-    MetaEditor(OPFResource &opf, QWidget *parent = 0);
+    MetaEditor(QWidget *parent = 0);
     ~MetaEditor();
+    void SetBook(QSharedPointer< Book > book);
+    void ForceClose();
 
-protected:
+signals:
+    void ShowStatusMessageRequest(const QString &message);
 
-    /**
-     * Overridden to work around a Qt bug.
-     */
-    void showEvent(QShowEvent *event);
-
+protected slots:
     void reject();
 
 private slots:
@@ -112,11 +111,6 @@ private slots:
     void MoveDown();
 
     /**
-     * Refreshes the vertical header of the table view widget.
-     */
-    void RefreshVerticalHeader();
-
-    /**
      * Adds a list of elements from the dialog to the saved metadata one at a time
      */
     void AddMetaElements(QString name, QList<QVariant> values, QString role_type = "", QString file_as = "");
@@ -130,13 +124,19 @@ private slots:
      * Reads the metadata from the metadata table and transfers it
      * to the m_Book variable. This is usually called before closing the dialog.
      */
-    void FillMetadataFromDialog();
+    bool SaveData();
 
     /**
      * Writes all the stored dialog settings like
      * window position, geometry etc.
      */
     void WriteSettings();
+
+    bool Save();
+
+    void ItemChangedHandler(QStandardItem *item);
+
+    void RowsRemovedHandler(const QModelIndex &parent, int start, int end);
 
 private:
 
@@ -201,9 +201,21 @@ private:
     // Setup signal connections
     void ConnectSignals();
 
+    bool MaybeSaveDialogSaysProceed(bool is_forced);
+
+    void SetOriginalData();
+    void SetDataModifiedIfNeeded();
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    struct OriginalData {
+        QString title;
+        QString author;
+        QString file_as;
+        QString language;
+    } m_OriginalData;
 
     /**
      * The item model that stores the meta information.
@@ -213,7 +225,7 @@ private:
     /**
      * The OPF whose metadata is being edited.
      */
-    OPFResource &m_OPF;
+    OPFResource *m_OPF;
 
     /**
      * A working copy of the book's metadata store.
@@ -223,13 +235,11 @@ private:
      */
     QList< Metadata::MetaElement > m_Metadata;
 
-    /**
-     * The window height after expansion.
-     */
-    int m_ExpandedHeight;
+    QSharedPointer< Book > m_Book;
 
     MetaEditorItemDelegate *m_cbDelegate;
 
+    bool m_IsDataModified;
     /**
      * Holds all the widgets Qt Designer created for us.
      */
