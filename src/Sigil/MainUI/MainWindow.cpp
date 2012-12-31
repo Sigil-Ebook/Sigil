@@ -875,10 +875,10 @@ void MainWindow::ReportsDialog()
 {
     SaveTabData();
     // non-modal dialog
+    m_Reports->CreateReports(m_Book);
     m_Reports->show();
     m_Reports->raise();
     m_Reports->activateWindow();
-    m_Reports->CreateReports(m_Book);
 }
 
 void MainWindow::OpenFile(QString filename, int line)

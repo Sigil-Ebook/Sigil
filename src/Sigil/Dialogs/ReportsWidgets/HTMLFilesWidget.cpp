@@ -70,18 +70,21 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     header.append(tr("Misspelled Words"));
     header.append(tr("Images"));
     header.append(tr("Stylesheets"));
+    header.append(tr("Well Formed"));
     m_ItemModel->setHorizontalHeaderLabels(header);
     ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.fileTree->setModel(m_ItemModel);
     ui.fileTree->header()->setSortIndicatorShown(true);
+    bool wellformed = true;
     double total_size = 0;
     int total_all_words = 0;
     int total_misspelled_words = 0;
     int total_images = 0;
     int total_stylesheets = 0;
+    int total_wellformed = 0;
     QHash<QString, QStringList> stylesheet_names_hash = m_Book->GetStylesheetsInHTMLFiles();
     QHash<QString, QStringList> image_names_hash = m_Book->GetImagesInHTMLFiles();
-    foreach(HTMLResource * html_resource, m_HTMLResources) {
+    foreach(HTMLResource *html_resource, m_HTMLResources) {
         QString filepath = "../" + html_resource->GetRelativePathToOEBPS();
         QString path = html_resource->GetFullPath();
         QString filename = html_resource->Filename();
@@ -115,29 +118,33 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QStringList image_names = image_names_hash[filename];
         total_images += image_names.count();
         image_item->setText(QString::number(image_names.count()));
-
         if (!image_names.isEmpty()) {
             image_item->setToolTip(image_names.join("\n"));
         }
-
         rowItems << image_item;
         // Linked Stylesheets
         NumericItem *stylesheet_item = new NumericItem();
         QStringList stylesheet_names = stylesheet_names_hash[filename];
         total_stylesheets += stylesheet_names.count();
         stylesheet_item->setText(QString::number(stylesheet_names.count()));
-
         if (!stylesheet_names.isEmpty()) {
             stylesheet_item->setToolTip(stylesheet_names.join("\n"));
         }
-
         rowItems << stylesheet_item;
+        // Well formed
+        QStandardItem *wellformed_item = new QStandardItem();
+        wellformed = html_resource->FileIsWellFormed();
+        if (wellformed) {
+            total_wellformed++;
+        }
+        wellformed_item->setText(wellformed ? tr("Yes") : tr("No"));
+        rowItems << wellformed_item;
 
+        // Add item to table
+        m_ItemModel->appendRow(rowItems);
         for (int i = 0; i < rowItems.count(); i++) {
             rowItems[i]->setEditable(false);
         }
-
-        m_ItemModel->appendRow(rowItems);
     }
     // Sort before adding the totals row
     // Since sortIndicator calls this routine, must disconnect/reconnect while resorting
@@ -171,9 +178,13 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     nitem = new NumericItem();
     nitem->setText(QString::number(total_stylesheets));
     rowItems << nitem;
+    // Well formed
+    nitem = new NumericItem();
+    nitem->setText(QString::number(total_wellformed));
+    rowItems << nitem;
+
     QFont font = *new QFont();
     font.setWeight(QFont::Bold);
-
     for (int i = 0; i < rowItems.count(); i++) {
         rowItems[i]->setEditable(false);
         rowItems[i]->setFont(font);
