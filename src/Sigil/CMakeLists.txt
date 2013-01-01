@@ -191,8 +191,6 @@ set( IMPORTER_FILES
     Importers/ImportEPUB.h
     Importers/Importer.cpp
     Importers/Importer.h
-    Importers/ImportOEBPS.cpp
-    Importers/ImportOEBPS.h
     Importers/ImporterFactory.cpp
     Importers/ImporterFactory.h
     Importers/ImportHTML.cpp
