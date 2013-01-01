@@ -145,7 +145,6 @@ Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
         QMutexLocker locker(&m_AccessMutex);
         QString filename  = GetUniqueFilenameVersion(QFileInfo(normalised_file_path).fileName());
         QString extension = QFileInfo(normalised_file_path).suffix().toLower();
-        QString relative_path;
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
             if (filename == "page-map.xml") {
@@ -155,41 +154,32 @@ Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
                 // This is a big hack that assumes the new and old filepaths use root paths
                 // of the same length. I can't see how to fix this without refactoring
                 // a lot of the code to provide a more generalised interface.
-                relative_path = fullfilepath.right(fullfilepath.size() - m_FullPathToMainFolder.size());
-                new_file_path = m_FullPathToMainFolder % relative_path;
+                new_file_path = m_FullPathToMainFolder % fullfilepath.right(fullfilepath.size() - m_FullPathToMainFolder.size());
                 resource = new Resource(new_file_path);
             }
         } else if (MISC_TEXT_EXTENSIONS.contains(extension)) {
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
-            relative_path = MISC_FOLDER_NAME + "/" + filename;
             resource = new MiscTextResource(new_file_path);
         } else if (AUDIO_EXTENSIONS.contains(extension) || AUDIO_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToAudioFolder + "/" + filename;
-            relative_path = AUDIO_FOLDER_NAME + "/" + filename;
             resource = new AudioResource(new_file_path);
         } else if (VIDEO_EXTENSIONS.contains(extension) || VIDEO_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToVideoFolder + "/" + filename;
-            relative_path = VIDEO_FOLDER_NAME + "/" + filename;
             resource = new VideoResource(new_file_path);
         } else if (IMAGE_EXTENSIONS.contains(extension) || IMAGE_MIMEYPES.contains(mimetype)) {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
-            relative_path = IMAGE_FOLDER_NAME + "/" + filename;
             resource = new ImageResource(new_file_path);
         } else if (SVG_EXTENSIONS.contains(extension) || SVG_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
-            relative_path = IMAGE_FOLDER_NAME + "/" + filename;
             resource = new SVGResource(new_file_path);
         } else if (FONT_EXTENSIONS.contains(extension)) {
             new_file_path = m_FullPathToFontsFolder + "/" + filename;
-            relative_path = FONT_FOLDER_NAME + "/" + filename;
             resource = new FontResource(new_file_path);
         } else if (TEXT_EXTENSIONS.contains(extension) || TEXT_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToTextFolder + "/" + filename;
-            relative_path = TEXT_FOLDER_NAME + "/" + filename;
             resource = new HTMLResource(new_file_path, m_Resources);
         } else if (STYLE_EXTENSIONS.contains(extension) || STYLE_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToStylesFolder + "/" + filename;
-            relative_path = STYLE_FOLDER_NAME + "/" + filename;
 
             if (extension == "css") {
                 resource = new CSSResource(new_file_path);
@@ -197,7 +187,6 @@ Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
         } else {
             // Fallback mechanism
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
-            relative_path = MISC_FOLDER_NAME + "/" + filename;
             resource = new Resource(new_file_path);
         }
 
