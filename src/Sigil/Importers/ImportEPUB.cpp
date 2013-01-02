@@ -102,7 +102,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     LoadInfrastructureFiles();
     const QHash<QString, QString> &updates = LoadFolderStructure();
     const QList<Resource *> &resources     = m_Book->GetFolderKeeper().GetResourceList();
-    const QStringList &load_errors           = UniversalUpdates::PerformUniversalUpdates(false, resources, updates);
+    const QStringList &load_errors         = UniversalUpdates::PerformUniversalUpdates(false, resources, updates);
 
     Q_FOREACH (QString err, load_errors) {
         AddLoadWarning(QString("%1").arg(err));
@@ -617,8 +617,7 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 }
 
 
-tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path,
-        const QString &mimetype)
+tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QString &mimetype)
 {
     QString fullfilepath = QFileInfo(m_OPFFilePath).absolutePath() + "/" + path;
 

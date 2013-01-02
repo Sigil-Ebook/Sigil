@@ -116,11 +116,7 @@ FolderKeeper::~FolderKeeper()
     }
 }
 
-// TODO: This code really needs to be rewritten so that the file-type is determined from the mimetype
-// given in the OPF file, rather than relying on the file's extension.
-Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
-        bool update_opf,
-        const QString &mimetype)
+Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, const QString &mimetype)
 {
     if (!QFileInfo(fullfilepath).exists()) {
         boost_throw(FileDoesNotExist() << errinfo_file_name(fullfilepath.toStdString()));
@@ -180,10 +176,7 @@ Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
             resource = new HTMLResource(new_file_path, m_Resources);
         } else if (STYLE_EXTENSIONS.contains(extension) || STYLE_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToStylesFolder + "/" + filename;
-
-            if (extension == "css") {
-                resource = new CSSResource(new_file_path);
-            }
+            resource = new CSSResource(new_file_path);
         } else {
             // Fallback mechanism
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
