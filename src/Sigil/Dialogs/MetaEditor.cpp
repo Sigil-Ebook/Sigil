@@ -599,7 +599,8 @@ void MetaEditor::RowsRemovedHandler(const QModelIndex &parent, int start, int en
 
 void MetaEditor::ConnectSignals()
 {
-    connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
+    connect(ui.buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), this, SLOT(reject()));
+    connect(ui.buttonBox->button(QDialogButtonBox::Ok), SIGNAL(clicked()), this, SLOT(Save()));
     connect(ui.btAddBasic,    SIGNAL(clicked()), this, SLOT(AddBasic()));
     connect(ui.btAddRole,     SIGNAL(clicked()), this, SLOT(AddRole()));
     connect(ui.btCopy,        SIGNAL(clicked()), this, SLOT(Copy()));
