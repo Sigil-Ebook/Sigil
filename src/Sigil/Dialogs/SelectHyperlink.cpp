@@ -75,6 +75,10 @@ void SelectHyperlink::SetList()
 
 void SelectHyperlink::AddEntry(Resource *resource)
 {
+    if (!resource) {
+        return;
+    }
+
     QString filename = resource->Filename();
     QStringList ids = QStringList() << "" << m_IDNames[filename];
     foreach(QString id, ids) {
@@ -85,14 +89,19 @@ void SelectHyperlink::AddEntry(Resource *resource)
         }
 
         QString target = filename;
-        QString filepath = "../" + resource->GetRelativePathToOEBPS();
+        QString filepath;
+        // Only relative paths if inserting hyperlink not editing TOC
+        if (m_CurrentHTMLResource) {
+            filepath = "../";
+        }
+        filepath += resource->GetRelativePathToOEBPS();
 
         if (!id.isEmpty()) {
             QString fragment = "#" % id;
             filepath.append(fragment);
 
             // Show the short version if this is the same file
-            if (filename == m_CurrentHTMLResource->Filename()) {
+            if (m_CurrentHTMLResource && filename == m_CurrentHTMLResource->Filename()) {
                 target = fragment;
             } else {
                 target.append(fragment);
@@ -136,7 +145,7 @@ void SelectHyperlink::SelectText(QString &text)
         // Convert search text to filename#fragment
         QString target = text;
 
-        if (target.startsWith("#")) {
+        if (target.startsWith("#") && m_CurrentHTMLResource) {
             target = m_CurrentHTMLResource->Filename() + text;
         }
 

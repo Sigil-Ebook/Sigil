@@ -116,6 +116,8 @@ set( DIALOG_FILES
     Dialogs/DeleteFiles.h
     Dialogs/DeleteStyles.cpp
     Dialogs/DeleteStyles.h
+    Dialogs/EditTOC.cpp
+    Dialogs/EditTOC.h
     Dialogs/OpenWithName.cpp
     Dialogs/OpenWithName.h
     Dialogs/SelectCharacter.cpp
@@ -371,6 +373,7 @@ set( UI_FILES
     Form_Files/MetaEditor.ui 
     Form_Files/AddMetadata.ui 
     Form_Files/About.ui 
+    Form_Files/EditTOC.ui 
     Form_Files/HeadingSelector.ui 
     Form_Files/FindReplace.ui
     Form_Files/PAppearanceWidget.ui

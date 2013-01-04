@@ -40,6 +40,7 @@
 #include "Dialogs/ClipEditor.h"
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/DeleteStyles.h"
+#include "Dialogs/EditTOC.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Dialogs/LinkStylesheets.h"
 #include "Dialogs/MetaEditor.h"
@@ -1419,6 +1420,22 @@ void MainWindow::RemoveResources(QList<Resource *> resources)
     }
 
     ShowMessageOnStatusBar(tr("File(s) deleted."));
+}
+
+void MainWindow::EditTOCDialog()
+{
+    SaveTabData();
+
+    QList<Resource *> resources = m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllImageResources();
+    EditTOC toc(m_Book, resources, this);
+
+    if (toc.exec() != QDialog::Accepted) {
+        ShowMessageOnStatusBar(tr("Edit Table of Contents cancelled."));
+        return;
+    }
+
+    m_Book.data()->SetModified();
+    ShowMessageOnStatusBar(tr("Table Of Contents edited."));
 }
 
 void MainWindow::GenerateToc()
@@ -3175,6 +3192,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCasingCapitalize, "MainWindow.CasingCapitalize");
     // Tools
     sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
+    sm->registerAction(ui.actionEditTOC, "MainWindow.EditTOC");
     sm->registerAction(ui.actionGenerateTOC, "MainWindow.GenerateTOC");
     sm->registerAction(ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
     sm->registerAction(ui.actionValidateEpubWithFlightCrew, "MainWindow.ValidateEpub");
@@ -3464,6 +3482,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionSpellCheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
+    connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));
     connect(ui.actionCreateHTMLTOC, SIGNAL(triggered()), this, SLOT(CreateHTMLTOC()));
     connect(ui.actionReports,       SIGNAL(triggered()), this, SLOT(ReportsDialog()));
     connect(ui.actionClipEditor,    SIGNAL(triggered()), this, SLOT(ClipEditorDialog()));
@@ -3521,8 +3540,6 @@ void MainWindow::ConnectSignalsToSlots()
             this,                    SLOT(UpdateBrowserSelectionToTab()));
     connect(m_BookBrowser, SIGNAL(RenumberTOCContentsRequest()),
             m_TableOfContents,     SLOT(RenumberTOCContents()));
-    connect(m_TableOfContents, SIGNAL(GenerateTocRequest()),
-            this,     SLOT(GenerateToc()));
     connect(m_BookBrowser, SIGNAL(RemoveTabRequest()),
             &m_TabManager, SLOT(RemoveTab()));
     connect(m_BookBrowser, SIGNAL(ResourceActivated(Resource &)),

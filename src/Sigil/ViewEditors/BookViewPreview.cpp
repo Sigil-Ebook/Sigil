@@ -640,11 +640,8 @@ void BookViewPreview::SelectTextRange(const SelectRangeInputs &input)
 }
 
 
-#include <QtDebug>
-
 void BookViewPreview::ScrollToNodeText(const xc::DOMNode &node, int character_offset)
 {
-qDebug() << "here";
     const int MIN_MARGIN = 20;
     const QWebElement element = DomNodeToQWebElement(node);
     QRect element_geometry    = element.geometry();

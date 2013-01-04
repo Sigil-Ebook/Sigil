@@ -248,6 +248,7 @@
       <string>&amp;Table Of Contents</string>
      </property>
     <addaction name="actionGenerateTOC"/>
+    <addaction name="actionEditTOC"/>
     <addaction name="actionCreateHTMLTOC"/>
     </widget>
     <widget class="QMenu" name="menuSpellCheckMenu">
@@ -868,6 +869,16 @@
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionEditTOC">
+   <property name="text">
+    <string>&amp;Edit Table Of Contents...</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionBookView">
