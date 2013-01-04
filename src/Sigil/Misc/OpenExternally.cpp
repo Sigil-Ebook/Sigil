@@ -35,6 +35,8 @@ static const QString EMPTY;
 // only watch certain types of resources (auxiliaries)
 static const int WATCHED_RESOURCE_TYPES = Resource::HTMLResourceType       |
         Resource::CSSResourceType        |
+        Resource::AudioResourceType      |
+        Resource::VideoResourceType      |
         Resource::ImageResourceType      |
         Resource::MiscTextResourceType   |
         Resource::SVGResourceType        |
