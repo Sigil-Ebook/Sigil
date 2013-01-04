@@ -92,10 +92,10 @@ void MetaEditor::SetLanguage()
     // Set language from preferences if none in book
     if (metadata_language.isEmpty()) {
         SettingsStore settings;
-        int index = ui.cbLanguages->findText(Language::instance()->GetLanguageName(settings.defaultMetadataLang()));
+        int index = ui.cbLanguages->findText(Language::instance()->GetLanguageName(settings.defaultMetadataLang()), Qt::MatchExactly);
 
         if (index == -1) {
-            index = ui.cbLanguages->findText(Language::instance()->GetLanguageName("en"));
+            index = ui.cbLanguages->findText(Language::instance()->GetLanguageName("en"), Qt::MatchExactly);
 
             if (index == -1) {
                 index = 0;

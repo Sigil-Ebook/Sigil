@@ -60,7 +60,7 @@ QWidget *MetaEditorItemDelegate::createEditor(QWidget *parent, const QStyleOptio
 void MetaEditorItemDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
     if (QComboBox *cb = qobject_cast<QComboBox *>(editor)) {
-        // get the index of the text in the combobox that matches the current value of the itenm
+        // get the index of the text in the combobox that matches the current value of the item
         QString currentText = index.data(Qt::EditRole).toString();
         int cbIndex = cb->findText(currentText);
 
