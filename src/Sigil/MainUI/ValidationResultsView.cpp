@@ -196,8 +196,7 @@ void ValidationResultsView::ConfigureTableForResults()
     m_ResultTable.setColumnCount(3);
     m_ResultTable.setHorizontalHeaderLabels(
         QStringList() << tr("File") << tr("Line") << tr("Message"));
-    // setResizeMode doesn't work with Qt5.
-    //m_ResultTable.verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+    m_ResultTable.verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 }
 
 

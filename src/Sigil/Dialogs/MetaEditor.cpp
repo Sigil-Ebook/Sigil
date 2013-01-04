@@ -418,8 +418,7 @@ void MetaEditor::SetUpMetaTable()
     ui.tvMetaTable->setModel(&m_MetaModel);
     // Make the header fill all the available space
     ui.tvMetaTable->horizontalHeader()->setStretchLastSection(true);
-    // setResizeMode doesn't work with Qt5.
-    //ui.tvMetaTable->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+    ui.tvMetaTable->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     // Divide column widths roughly equally for default view
     int columnCount = m_MetaModel.columnCount();
 
