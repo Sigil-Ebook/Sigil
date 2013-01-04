@@ -2239,8 +2239,10 @@ void MainWindow::UpdateCursorPositionLabel(int line, int column)
         const QString l = QString::number(line);
         const QString c = QString::number(column);
         m_lbCursorPosition->setText(tr("Line: %1, Col: %2").arg(l).arg(c));
+        m_lbCursorPosition->show();
     } else {
         m_lbCursorPosition->clear();
+        m_lbCursorPosition->hide();
     }
 }
 
