@@ -35,6 +35,7 @@
 #include <QtCore/QUuid>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMessageBox>
+#include <QRegularExpression>
 
 #include "sigil_exception.h"
 #include "Misc/Utility.h"
@@ -447,7 +448,7 @@ QString Utility::GetEnvironmentVar(const QString &variable_name)
     // Renaming this function (and all references to it)
     // to GetEnvironmentVariable gets you a linker error
     // on MSVC 9. Funny, innit?
-    QRegExp search_for_name("^" + QRegExp::escape(variable_name) + "=");
+    QRegularExpression search_for_name("^" + QRegularExpression::escape(variable_name) + "=");
     QString variable = QProcess::systemEnvironment().filter(search_for_name).value(0);
 
     if (!variable.isEmpty()) {
