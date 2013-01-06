@@ -21,13 +21,14 @@
 
 #include <QtCore/QDateTime>
 #include <QtCore/QDir>
-#include <QtCore/QRegExp>
 #include <QtCore/QTextStream>
 #include <QtGui/QDesktopServices>
 #include <QtWidgets/QMessageBox>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QtCore/QXmlStreamReader>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "Misc/SettingsStore.h"
 #include "Misc/UpdateChecker.h"
@@ -159,18 +160,26 @@ bool UpdateChecker::IsOnlineVersionNewer(const QString &current_version_string,
         return false;
     }
 
-    QRegExp current_version_numbers(VERSION_NUMBERS);
-    QString(current_version_string).indexOf(current_version_numbers);
-    QRegExp online_version_numbers(VERSION_NUMBERS);
-    QString(online_version_string).indexOf(online_version_numbers);
+    QRegularExpression current_version_numbers(VERSION_NUMBERS);
+    QRegularExpressionMatch current_version_numbers_match = current_version_numbers.match(current_version_string);
+    if (!current_version_numbers_match.hasMatch()) {
+        return false;
+    }
+
+    QRegularExpression online_version_numbers(VERSION_NUMBERS);
+    QRegularExpressionMatch online_version_numbers_match = online_version_numbers.match(online_version_string);
+    if (!online_version_numbers_match.hasMatch()) {
+        return false;
+    }
+
     // This code assumes three digits per field,
     // which should be way more than enough.
-    int current_version = current_version_numbers.cap(1).toInt() * 1000000 +
-                          current_version_numbers.cap(2).toInt() * 1000 +
-                          current_version_numbers.cap(3).toInt();
-    int online_version = online_version_numbers.cap(1).toInt() * 1000000 +
-                         online_version_numbers.cap(2).toInt() * 1000 +
-                         online_version_numbers.cap(3).toInt();
+    int current_version = current_version_numbers_match.captured(1).toInt() * 1000000 +
+                          current_version_numbers_match.captured(2).toInt() * 1000 +
+                          current_version_numbers_match.captured(3).toInt();
+    int online_version  = online_version_numbers_match.captured(1).toInt() * 1000000 +
+                          online_version_numbers_match.captured(2).toInt() * 1000 +
+                          online_version_numbers_match.captured(3).toInt();
     return online_version > current_version;
 }
 
