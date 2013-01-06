@@ -21,6 +21,8 @@
 **
 *************************************************************************/
 
+#include <QRegularExpression>
+
 #include "Misc/CSSInfo.h"
 
 const int TAB_SPACES_WIDTH = 4;
@@ -118,8 +120,8 @@ QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
         // Will ensure the braces are placed on the same line as the selector name,
         // comma separated groups are spaced apart and double spaces are removed.
         QString selector_text = m_OriginalText.mid(cssSelector->position, cssSelector->openingBracePos - cssSelector->position);
-        selector_text.replace(QRegExp(","), ", ");
-        selector_text.replace(QRegExp(" {2,}"), QChar(' '));
+        selector_text.replace(QRegularExpression(","), ", ");
+        selector_text.replace(QRegularExpression(" {2,}"), QChar(' '));
         new_text.replace(cssSelector->position, cssSelector->openingBracePos - cssSelector->position, selector_text.trimmed() % QChar(' '));
 
         // Make sure the selector itself is left-aligned (indented if inline CSS)
@@ -140,7 +142,7 @@ QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
     // Finally remove extra blank lines so styles are placed consecutively if inline, or one line spacing if CSS.
     // If we are reformatting an inline CSS, make sure we are doing so only within style blocks
     if (m_IsCSSFile) {
-        new_text.replace(QRegExp("\n{2,}"), "\n");
+        new_text.replace(QRegularExpression("\n{2,}"), "\n");
     } else {
         int style_start = -1;
         int style_end = -1;
@@ -148,7 +150,7 @@ QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
 
         while (findInlineStyleBlock(new_text, offset, style_start, style_end)) {
             QString script_text = new_text.mid(style_start, style_end - style_start);
-            script_text.replace(QRegExp("\n{2,}"), "\n");
+            script_text.replace(QRegularExpression("\n{2,}"), "\n");
             new_text.replace(style_start, style_end - style_start, script_text);
             offset = style_start + script_text.length();
         }
@@ -297,14 +299,20 @@ QString CSSInfo::formatCSSProperties(QList< CSSInfo::CSSProperty * > new_propert
 
 bool CSSInfo::findInlineStyleBlock(const QString &text, const int &offset, int &styleStart, int &styleEnd)
 {
-    QRegExp inline_styles_search("<\\s*style\\s[^>]+>", Qt::CaseInsensitive);
-    inline_styles_search.setMinimal(true);
+    QRegularExpression inline_styles_search("<\\s*style\\s[^>]+>", QRegularExpression::CaseInsensitiveOption|QRegularExpression::InvertedGreedinessOption);
+    int style_len = 0;
     styleEnd = -1;
-    styleStart = inline_styles_search.indexIn(text, offset);
+    styleStart = -1;
+
+    QRegularExpressionMatch match = inline_styles_search.match(text, offset);
+    if (match.hasMatch()) {
+        styleStart = match.capturedStart(0);
+        style_len = match.capturedRef(0).size();
+    }
 
     if (styleStart > 0) {
-        styleStart += inline_styles_search.matchedLength();
-        styleEnd = text.indexOf(QRegExp("<\\s*/\\s*style\\s*>", Qt::CaseInsensitive), styleStart);
+        styleStart += style_len;
+        styleEnd = text.indexOf(QRegularExpression("<\\s*/\\s*style\\s*>", QRegularExpression::CaseInsensitiveOption), styleStart);
 
         if (styleEnd >= styleStart) {
             return true;
@@ -316,9 +324,9 @@ bool CSSInfo::findInlineStyleBlock(const QString &text, const int &offset, int &
 
 void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, const int &offsetPos)
 {
-    QRegExp strip_attributes_regex("\\[[^\\]]*\\]");
-    QRegExp strip_ids_regex("#[^\\s\\.]+");
-    QRegExp strip_non_name_chars_regex("[^A-Za-z0-9_\\-\\.]+");
+    QRegularExpression strip_attributes_regex("\\[[^\\]]*\\]");
+    QRegularExpression strip_ids_regex("#[^\\s\\.]+");
+    QRegularExpression strip_non_name_chars_regex("[^A-Za-z0-9_\\-\\.]+");
     QString search_text = replaceBlockComments(text);
     // CSS selectors can be in a myriad of formats... the class based selectors could be:
     //    .c1 / e1.c1 / e1.c1.c2 / e1[class~=c1] / e1#id1.c1 / e1.c1#id1 / .c1, .c2 / ...
@@ -383,10 +391,10 @@ void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, con
             selector->closingBracePos = close_brace_pos + offsetPos;
             // Need to parse our selector text to determine what sort of selector it contains.
             // First strip out any attributes and then identifiers
-            match.replace(QRegExp(strip_attributes_regex), "");
-            match.replace(QRegExp(strip_ids_regex), "");
+            match.replace(strip_attributes_regex, "");
+            match.replace(strip_ids_regex, "");
             // Also replace any other characters like > or + not of interest
-            match.replace(QRegExp(strip_non_name_chars_regex), QChar(' '));
+            match.replace(strip_non_name_chars_regex, QChar(' '));
             // Now break it down into the element components
             QStringList elements = match.trimmed().split(QChar(' '), QString::SkipEmptyParts);
             foreach(QString element, elements) {
@@ -416,24 +424,29 @@ QString CSSInfo::replaceBlockComments(const QString &text)
     // However we must be careful to replace with spaces/keep line feeds
     // so that do not corrupt the position information used by the parser.
     QString new_text(text);
-    QRegExp comment_search("/\\*.*\\*/");
-    comment_search.setMinimal(true);
+    QRegularExpression comment_search("/\\*.*\\*/", QRegularExpression::InvertedGreedinessOption);
     int start = 0;
     int comment_index;
 
     while (true) {
-        comment_index = comment_search.indexIn(new_text, start);
+        int comment_len = 0;
+        comment_index = -1;
+        QRegularExpressionMatch match = comment_search.match(new_text, start);
+        if (match.hasMatch()) {
+            comment_index = match.capturedStart();
+            comment_len = match.capturedRef(0).size();
+        }
 
         if (comment_index < 0) {
             break;
         }
 
-        QString match_text = new_text.mid(comment_index, comment_search.matchedLength());
+        QString match_text = new_text.mid(comment_index, comment_len);
         match_text.replace(QRegExp("[^\r\n]"), QChar(' '));
         new_text.remove(comment_index, match_text.length());
         new_text.insert(comment_index, match_text);
         // Prepare for the next comment.
-        start = comment_index + comment_search.matchedLength();
+        start = comment_index + comment_len;
 
         if (start >= new_text.length() - 2) {
             break;
@@ -442,3 +455,4 @@ QString CSSInfo::replaceBlockComments(const QString &text)
 
     return new_text;
 }
+
