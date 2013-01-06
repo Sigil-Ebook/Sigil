@@ -22,11 +22,10 @@
 #include <QtCore/QRegExp>
 #include <QtCore/QString>
 #include <QtCore/QTextCodec>
+#include <QRegularExpression>
 
 #include "Misc/HTMLEncodingResolver.h"
 #include "Misc/Utility.h"
-
-#include "PCRE/PCRECache.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "sigil_constants.h"
@@ -46,16 +45,17 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const
     bool in_invalid_word = false;
     bool in_entity = false;
     int word_start = 0;
-    SPCRE *pcre = PCRECache::instance()->getObject(search_regex);
+    QRegularExpression search(search_regex);
     QList< HTMLSpellCheck::MisspelledWord > misspellings;
     // Make sure text has beginning/end boundary markers for easier parsing
     QString text = QChar(' ') + orig_text + QChar(' ');
     // Ignore <style...</style> wherever it appears - change to spaces to keep text positions
-    SPCRE *pcre_style = PCRECache::instance()->getObject("<style[^<]*</style>");
-    QList<SPCRE::MatchInfo> match_info = pcre_style->getEveryMatchInfo(text);
+    QRegularExpression style_re("<style[^<]*</style>");
 
-    for (int i = 0; i < match_info.count(); i++) {
-        for (int pos = match_info.at(i).offset.first; pos < match_info.at(i).offset.second; pos++) {
+    QRegularExpressionMatchIterator i = style_re.globalMatch(text);
+    while (i.hasNext()) {
+        QRegularExpressionMatch match = i.next();
+        for (int pos = match.capturedStart(0); pos < match.capturedStart(0) + match.capturedRef(0).size(); pos++) {
             text[pos] = QChar(' ');
         }
     }
@@ -80,13 +80,14 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const
 
                     if (!word.isEmpty() && word_start > start_offset && word_start <= end_offset) {
                         if (include_all_words || !sc->spell(word)) {
-                            SPCRE::MatchInfo match;
+                            int cap_start = -1;
 
                             if (!search_regex.isEmpty()) {
-                                match = pcre->getFirstMatchInfo(word);
+                                QRegularExpressionMatch mo = search.match(word);
+                                cap_start = mo.capturedStart(0);
                             }
 
-                            if (search_regex.isEmpty() || match.offset.first != -1) {
+                            if (search_regex.isEmpty() || cap_start != -1) {
                                 struct MisspelledWord misspelled_word;
                                 misspelled_word.text = word;
                                 // Make sure we account for the extra boundary added at the beginning
