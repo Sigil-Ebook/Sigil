@@ -24,6 +24,7 @@
 #define XHTMLHIGHLIGHTER_H
 
 #include <QtGui/QSyntaxHighlighter>
+#include <QRegularExpression>
 
 #include "Misc/SettingsStore.h"
 
@@ -45,10 +46,10 @@ protected:
 private:
 
     // Returns the regex that matches the left bracket of a state
-    QRegExp GetLeftBracketRegEx(int state) const;
+    QRegularExpression GetLeftBracketRegEx(int state) const;
 
     // Returns the regex that matches the right bracket of a state
-    QRegExp GetRightBracketRegEx(int state) const;
+    QRegularExpression GetRightBracketRegEx(int state) const;
 
     // Sets the requested state for the current text block
     void SetState(int state);
@@ -91,7 +92,7 @@ private:
     };
 
     struct HighlightingRule {
-        QRegExp pattern;
+        QRegularExpression pattern;
         QTextCharFormat format;
     };
 

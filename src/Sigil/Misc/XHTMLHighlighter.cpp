@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <QRegularExpressionMatch>
+
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
 #include "Misc/XHTMLHighlighter.h"
@@ -74,43 +76,43 @@ XHTMLHighlighter::XHTMLHighlighter(bool checkSpelling, QObject *parent)
     attribute_value_format.setForeground(m_codeViewAppearance.xhtml_attribute_value_color);
     entity_format         .setForeground(m_codeViewAppearance.xhtml_entity_color);
     HighlightingRule rule;
-    rule.pattern = QRegExp(DOCTYPE_BEGIN);
+    rule.pattern = QRegularExpression(DOCTYPE_BEGIN);
     rule.format  = doctype_format;
     m_Rules[ "DOCTYPE_BEGIN" ] = rule;
-    rule.pattern = QRegExp(HTML_ELEMENT_BEGIN);
+    rule.pattern = QRegularExpression(HTML_ELEMENT_BEGIN);
     rule.format  = html_format;
     m_Rules[ "HTML_ELEMENT_BEGIN" ] = rule;
-    rule.pattern = QRegExp(HTML_ELEMENT_END);
+    rule.pattern = QRegularExpression(HTML_ELEMENT_END);
     rule.format  = html_format;
     m_Rules[ "HTML_ELEMENT_END" ] = rule;
-    rule.pattern = QRegExp(HTML_COMMENT_BEGIN);
+    rule.pattern = QRegularExpression(HTML_COMMENT_BEGIN);
     rule.format  = html_comment_format;
     m_Rules[ "HTML_COMMENT_BEGIN" ] = rule;
-    rule.pattern = QRegExp(HTML_COMMENT_END);
+    rule.pattern = QRegularExpression(HTML_COMMENT_END);
     rule.format  = html_comment_format;
     m_Rules[ "HTML_COMMENT_END" ] = rule;
-    rule.pattern = QRegExp(CSS_BEGIN);
+    rule.pattern = QRegularExpression(CSS_BEGIN);
     rule.format  = css_format;
     m_Rules[ "CSS_BEGIN" ] = rule;
-    rule.pattern = QRegExp(CSS_END);
+    rule.pattern = QRegularExpression(CSS_END);
     rule.format  = css_format;
     m_Rules[ "CSS_END" ] = rule;
-    rule.pattern = QRegExp(CSS_COMMENT_BEGIN);
+    rule.pattern = QRegularExpression(CSS_COMMENT_BEGIN);
     rule.format  = css_comment_format;
     m_Rules[ "CSS_COMMENT_BEGIN" ] = rule;
-    rule.pattern = QRegExp(CSS_COMMENT_END);
+    rule.pattern = QRegularExpression(CSS_COMMENT_END);
     rule.format  = css_comment_format;
     m_Rules[ "CSS_COMMENT_END" ] = rule;
-    rule.pattern = QRegExp(ATTRIBUTE_NAME);
+    rule.pattern = QRegularExpression(ATTRIBUTE_NAME);
     rule.format  = attribute_name_format;
     m_Rules[ "ATTRIBUTE_NAME" ] = rule;
-    rule.pattern = QRegExp(ATTRIBUTE_VALUE);
+    rule.pattern = QRegularExpression(ATTRIBUTE_VALUE);
     rule.format  = attribute_value_format;
     m_Rules[ "ATTRIBUTE_VALUE" ] = rule;
-    rule.pattern = QRegExp(ENTITY_BEGIN);
+    rule.pattern = QRegularExpression(ENTITY_BEGIN);
     rule.format  = entity_format;
     m_Rules[ "ENTITY_BEGIN" ] = rule;
-    rule.pattern = QRegExp(ENTITY_END);
+    rule.pattern = QRegularExpression(ENTITY_END);
     rule.format  = entity_format;
     m_Rules[ "ENTITY_END" ] = rule;
 }
@@ -155,9 +157,9 @@ void XHTMLHighlighter::highlightBlock(const QString &text)
 
 
 // Returns the regex that matches the left bracket of a state
-QRegExp XHTMLHighlighter::GetLeftBracketRegEx(int state) const
+QRegularExpression XHTMLHighlighter::GetLeftBracketRegEx(int state) const
 {
-    QRegExp empty;
+    QRegularExpression empty;
 
     switch (state) {
         case State_Entity:
@@ -185,9 +187,9 @@ QRegExp XHTMLHighlighter::GetLeftBracketRegEx(int state) const
 
 
 // Returns the regex that matches the right bracket of a state
-QRegExp XHTMLHighlighter::GetRightBracketRegEx(int state) const
+QRegularExpression XHTMLHighlighter::GetRightBracketRegEx(int state) const
 {
-    QRegExp empty;
+    QRegularExpression empty;
 
     switch (state) {
         case State_Entity:
@@ -246,7 +248,6 @@ bool XHTMLHighlighter::StateChecked(int state) const
     }
 }
 
-
 // Formats the inside of a node;
 // "text" is the textblock/line of text;
 // "state" describes the node;
@@ -257,46 +258,60 @@ void XHTMLHighlighter::FormatBody(const QString &text, int state, int index, int
     if (state == State_HTML) {
         // First paint everything the color of the brackets
         setFormat(index, length, m_Rules.value("HTML_ELEMENT_BEGIN").format);
-        QRegExp name  = m_Rules.value("ATTRIBUTE_NAME").pattern;
-        QRegExp value = m_Rules.value("ATTRIBUTE_VALUE").pattern;
+        QRegularExpression name  = m_Rules.value("ATTRIBUTE_NAME").pattern;
+        QRegularExpression value = m_Rules.value("ATTRIBUTE_VALUE").pattern;
         // Used to move over the line
         int main_index = index;
-        // We skip over the left bracket (if it's present)
-        QRegExp bracket(HTML_ELEMENT_BEGIN);
 
-        if (text.indexOf(bracket, main_index) == main_index) {
-            main_index += bracket.matchedLength();
+        // We skip over the left bracket (if it's present)
+        QRegularExpression bracket(HTML_ELEMENT_BEGIN);
+        QRegularExpressionMatch bracket_match = bracket.match(text, main_index);
+        if (bracket_match.hasMatch() && bracket_match.capturedStart(0) == main_index) {
+            main_index += bracket_match.capturedRef(0).size();
         }
 
         // We skip over the element name (if it's present)
         // because we want it to be the same color as the brackets
-        QRegExp elem_name(HTML_ELEMENT_NAME);
-
-        if (text.indexOf(elem_name, main_index) == main_index) {
-            main_index += elem_name.matchedLength();
+        QRegularExpression elem_name(HTML_ELEMENT_NAME);
+        QRegularExpressionMatch elem_name_match = elem_name.match(text, main_index);
+        if (elem_name_match.hasMatch() && elem_name_match.capturedStart(0) == main_index) {
+            main_index += elem_name_match.capturedRef(0).size();
         }
 
         while (true) {
             // Get the indexes of the attribute names and values
-            int name_index  = text.indexOf(name, main_index);
-            int value_index = text.indexOf(value, main_index);
+            int name_index = -1;
+            int name_len = 0;
+            QRegularExpressionMatch name_match = name.match(text, main_index);
+            if (name_match.hasMatch()) {
+                name_index = name_match.capturedStart(0);
+                name_len = name_match.capturedRef(0).size();
+            }
+
+            int value_index = -1;
+            int value_len = 0;
+            QRegularExpressionMatch value_match = value.match(text, main_index);
+            if (value_match.hasMatch()) {
+                value_index = value_match.capturedStart(0);
+                value_len = value_match.capturedRef(0).size();
+            }
 
             // If we can't find the names and values or we found them
             // outside of the area we are formatting, we exit
             if (((name_index  != -1) && (name_index  < index + length)) ||
                 ((value_index != -1) && (value_index < index + length))) {
                 // ... otherwise format the found sections
-                setFormat(name_index,  name.matchedLength(),  m_Rules.value("ATTRIBUTE_NAME").format);
-                setFormat(value_index, value.matchedLength(), m_Rules.value("ATTRIBUTE_VALUE").format);
+                setFormat(name_index,  name_len,  m_Rules.value("ATTRIBUTE_NAME").format);
+                setFormat(value_index, value_len, m_Rules.value("ATTRIBUTE_VALUE").format);
             } else {
                 break;
             }
 
             // Update the main index with the regex that matched "further down the line"
-            if (name_index + name.matchedLength() > value_index + value.matchedLength()) {
-                main_index = name_index + name.matchedLength();
+            if (name_index + name_len > value_index + value_len) {
+                main_index = name_index + name_len;
             } else {
-                main_index = value_index + value.matchedLength();
+                main_index = value_index + value_len;
             }
         }
     } else if (state == State_HTMLComment) {
@@ -318,21 +333,32 @@ void XHTMLHighlighter::FormatBody(const QString &text, int state, int index, int
 // if it is, the node is formatted
 void XHTMLHighlighter::HighlightLine(const QString &text, int state)
 {
-    QRegExp left_bracket_regex  = GetLeftBracketRegEx(state);
-    QRegExp right_bracket_regex = GetRightBracketRegEx(state);
-    int left_bracket_index  = -1;
-    int right_bracket_index = -1;
+    QRegularExpression left_bracket_regex  = GetLeftBracketRegEx(state);
+    QRegularExpression right_bracket_regex = GetRightBracketRegEx(state);
     int main_index = 0;
 
     // We loop over the line several times
     // because we could have several nodes on it
     while (main_index < text.length()) {
-        if (!left_bracket_regex.isEmpty()) {
-            left_bracket_index  = text.indexOf(left_bracket_regex, main_index);
+        int left_bracket_index  = -1;
+        int left_bracket_len = 0;
+        int right_bracket_index = -1;
+        int right_bracket_len = 0;
+
+        if (!left_bracket_regex.pattern().isEmpty()) {
+            QRegularExpressionMatch left_bracket_match = left_bracket_regex.match(text, main_index);
+            if (left_bracket_match.hasMatch()) {
+                left_bracket_index = left_bracket_match.capturedStart(0);
+                left_bracket_len = left_bracket_match.capturedRef(0).size();
+            }
         }
 
-        if (!right_bracket_regex.isEmpty()) {
-            right_bracket_index = text.indexOf(right_bracket_regex, main_index);
+        if (!right_bracket_regex.pattern().isEmpty()) {
+            QRegularExpressionMatch right_bracket_match = right_bracket_regex.match(text, main_index);
+            if (right_bracket_match.hasMatch()) {
+                right_bracket_index = right_bracket_match.capturedStart(0);
+                right_bracket_len = right_bracket_match.capturedRef(0).size();
+            }
         }
 
         // If we are not starting our state and our state is
@@ -352,12 +378,12 @@ void XHTMLHighlighter::HighlightLine(const QString &text, int state)
         // We also check the state because we don't want to start a new node
         // if the current node of the same type hasn't finished
         if (left_bracket_index != -1 && !StateChecked(state)) {
-            main_index = left_bracket_index + left_bracket_regex.matchedLength();
+            main_index = left_bracket_index + left_bracket_len;
 
             // (1)
             if (right_bracket_index != -1) {
-                main_index = right_bracket_index + right_bracket_regex.matchedLength();
-                int length = right_bracket_index - left_bracket_index + right_bracket_regex.matchedLength();
+                main_index = right_bracket_index + right_bracket_len;
+                int length = right_bracket_index - left_bracket_index + right_bracket_len;
                 FormatBody(text, state, left_bracket_index, length);
                 // There's no point in setting the state here because the state
                 // starts and ends on this line.
@@ -374,8 +400,8 @@ void XHTMLHighlighter::HighlightLine(const QString &text, int state)
         } else {
             // (3)
             if (right_bracket_index != -1) {
-                main_index = right_bracket_index + right_bracket_regex.matchedLength();
-                int length = right_bracket_index + right_bracket_regex.matchedLength();
+                main_index = right_bracket_index + right_bracket_len;
+                int length = right_bracket_index + right_bracket_len;
                 FormatBody(text, state, 0, length);
                 // Clear the current state because our state has just ended.
                 ClearState(state);
