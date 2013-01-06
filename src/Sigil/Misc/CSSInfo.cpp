@@ -306,8 +306,8 @@ bool CSSInfo::findInlineStyleBlock(const QString &text, const int &offset, int &
 
     QRegularExpressionMatch match = inline_styles_search.match(text, offset);
     if (match.hasMatch()) {
-        styleStart = match.capturedStart(0);
-        style_len = match.capturedRef(0).size();
+        styleStart = match.capturedStart();
+        style_len = match.capturedLength();
     }
 
     if (styleStart > 0) {
@@ -434,7 +434,7 @@ QString CSSInfo::replaceBlockComments(const QString &text)
         QRegularExpressionMatch match = comment_search.match(new_text, start);
         if (match.hasMatch()) {
             comment_index = match.capturedStart();
-            comment_len = match.capturedRef(0).size();
+            comment_len = match.capturedLength();
         }
 
         if (comment_index < 0) {

@@ -22,11 +22,11 @@
 *************************************************************************/
 #include <pcre.h>
 
-#include <QRegExp>
 #include <QtGui/QKeyEvent>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QCompleter>
+#include <QRegularExpression>
 
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"
@@ -535,7 +535,7 @@ QString FindReplace::GetSearchRegex()
 
     // Search type
     if (GetSearchMode() == FindReplace::SearchMode_Normal || GetSearchMode() == FindReplace::SearchMode_Case_Sensitive) {
-        search = QRegExp::escape(search);
+        search = QRegularExpression::escape(search);
 
         if (GetSearchMode() == FindReplace::SearchMode_Normal) {
             search = PrependRegexOptionToSearch(REGEX_OPTION_IGNORE_CASE, search);
@@ -1215,15 +1215,15 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
     if (!text.contains("\\")) {
         // Going to "assume" that this text has already been escaped by the
         // auto-tokenise logic or the user running tokenise already.
-        new_text = QRegExp::escape(text);
+        new_text = QRegularExpression::escape(text);
     }
 
-    QRegExp replace_spaces("([\\n\\s]{2,})");
-    new_text.replace(replace_spaces, "\\s+");
+    // Replace spaces.
+    new_text.replace(QRegularExpression("([\\n\\s]{2,})"), "\\s+");
 
     if (includeNumerics) {
-        QRegExp replace_numerics("(\\d+)");
-        new_text.replace(replace_numerics, "\\d+");
+        // Replace numerics.
+        new_text.replace(QRegularExpression("(\\d+)"), "\\d+");
     }
 
     return new_text;

@@ -33,6 +33,9 @@
 #include <QtWidgets/QScrollBar>
 #include <QtWidgets/QShortcut>
 #include <QtCore/QXmlStreamReader>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include <QRegularExpressionMatchIterator>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
@@ -245,10 +248,11 @@ QString CodeViewEditor::SplitSection()
         return QString();
     }
 
-    QRegExp body_search(BODY_START, Qt::CaseInsensitive);
-    int body_tag_start = text.indexOf(body_search);
-    int body_tag_end   = body_tag_start + body_search.matchedLength();
-    QRegExp body_end_search(BODY_END, Qt::CaseInsensitive);
+    QRegularExpression body_search(BODY_START, QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch body_search_mo = body_search.match(text);
+    int body_tag_start = body_search_mo.capturedStart();
+    int body_tag_end   = body_tag_start + body_search_mo.capturedLength();
+    QRegularExpression body_end_search(BODY_END, QRegularExpression::CaseInsensitiveOption);
     int body_contents_end = text.indexOf(body_end_search);
     QString head = text.left(body_tag_start);
 
@@ -256,7 +260,7 @@ QString CodeViewEditor::SplitSection()
         // Cursor is before the start of the body
         split_position = body_tag_end;
     } else {
-        int next_close_tag_index = text.indexOf(QRegExp(NEXT_CLOSE_TAG_LOCATION), split_position);
+        int next_close_tag_index = text.indexOf(QRegularExpression(NEXT_CLOSE_TAG_LOCATION), split_position);
 
         if (next_close_tag_index == -1) {
             // Cursor is at end of file
@@ -324,11 +328,12 @@ void CodeViewEditor::InsertClosingTag()
     }
 
     QString tag = unmatched_tags.last();
-    QRegExp tag_name_search(TAG_NAME_SEARCH);
-    int tag_name_index = tag_name_search.indexIn(tag);
+    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
+    QRegularExpressionMatch mo = tag_name_search.match(tag);
+    int tag_name_index = mo.capturedStart();
 
     if (tag_name_index >= 0) {
-        const QString closing_tag = "</" %  tag_name_search.cap(1) % ">";
+        const QString closing_tag = "</" %  mo.captured(1) % ">";
         textCursor().insertText(closing_tag);
     }
 }
@@ -501,7 +506,7 @@ void CodeViewEditor::ScrollToFragment(const QString &fragment)
         return;
     }
 
-    QRegExp fragment_search("id=\"" % fragment % "\"");
+    QRegularExpression fragment_search("id=\"" % fragment % "\"");
     int index = toPlainText().indexOf(fragment_search);
     ScrollToPosition(index);
 }
@@ -1705,7 +1710,7 @@ bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         cursor.endEditBlock();
         setTextCursor(cursor);
     } else {
-        QString search_regex = "(?s)(" + QRegExp::escape(selected_text) + ")";
+        QString search_regex = "(?s)(" + QRegularExpression::escape(selected_text) + ")";
         // We must do a Find before we do the Replace in order to ensure the match info that
         // ReplaceSelected relies upon is loaded.
         cursor.setPosition(cursor.selectionStart());
@@ -1813,11 +1818,21 @@ void CodeViewEditor::ScrollByLine(bool down)
 
 QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
 {
-    QRegExp tag(XML_OPENING_TAG);
     // We search for the first opening tag *behind* the caret.
     // This specifies the element the caret is located in.
-    int offset = toPlainText().lastIndexOf(tag, textCursor().position());
-    return ConvertStackToHierarchy(GetCaretLocationStack(offset + tag.matchedLength()));
+    int offset = 0;
+    int len = 0;
+    QRegularExpression tag(XML_OPENING_TAG);
+    QRegularExpressionMatchIterator i = tag.globalMatch(toPlainText().left(textCursor().position()));
+    // There is no way to search for the last match (str.lastIndexOf) in a string and also have
+    // the matched text length. So we search for every match forward (QRegularExpression doen't
+    // have a way to search backwards) and only use the last match's info.
+    while (i.hasNext()) {
+        QRegularExpressionMatch mo = i.next();
+        offset = mo.capturedStart();
+        len = mo.capturedLength();
+    }
+    return ConvertStackToHierarchy(GetCaretLocationStack(offset + len));
 }
 
 
@@ -1963,8 +1978,8 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
     int opening_tag_end = -1;
     int closing_tag_start = -1;
     int closing_tag_end = -1;
-    QRegExp tag_search(NEXT_TAG_LOCATION);
-    QRegExp tag_name_search(TAG_NAME_SEARCH);
+    QRegularExpression tag_search(NEXT_TAG_LOCATION);
+    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
     // Search backwards for the next block tag
     pos--;
 
@@ -1976,14 +1991,15 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
         }
 
         // We found a tag. It could be opening or closing.
-        int tag_name_index = tag_name_search.indexIn(text, previous_tag_index);
+        QRegularExpressionMatch mo = tag_name_search.match(text, previous_tag_index);
+        int tag_name_index = mo.capturedStart();
 
         if (tag_name_index < 0) {
             pos = previous_tag_index - 1;
             continue;
         }
 
-        tag_name = tag_name_search.cap(1).toLower();
+        tag_name = mo.captured(1).toLower();
         // Isolate whether it was opening or closing tag.
         bool is_closing_tag = false;
 
@@ -2019,19 +2035,20 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
         // If we got to here we know we have an opening block tag we shall replace.
         opening_tag_start = previous_tag_index;
         // Grab any attributes applied to this opening tag
-        int attribute_start_index = tag_name_index + tag_name_search.matchedLength();
+        int attribute_start_index = tag_name_index + mo.capturedLength();
         opening_tag_end = text.indexOf('>', attribute_start_index) + 1;
         opening_tag_attributes = text.mid(attribute_start_index, opening_tag_end - attribute_start_index - 1).trimmed();
         // Now find the closing tag for this block.
-        QRegExp closing_tag_search("</\\s*" % tag_name % "\\s*>", Qt::CaseInsensitive);
-        closing_tag_start = text.indexOf(closing_tag_search, opening_tag_end);
+        QRegularExpression closing_tag_search("</\\s*" % tag_name % "\\s*>", QRegularExpression::CaseInsensitiveOption);
+        QRegularExpressionMatch closing_tag_search_mo = closing_tag_search.match(text, opening_tag_end);
+        closing_tag_start = closing_tag_search_mo.capturedStart();
 
         if (closing_tag_start < 0) {
             // Could not find a closing tag for this block name. Invalid HTML.
             return;
         }
 
-        closing_tag_end = closing_tag_start + closing_tag_search.matchedLength();
+        closing_tag_end = closing_tag_start + closing_tag_search_mo.capturedLength();
         // Success
         break;
     }
@@ -2103,10 +2120,12 @@ bool CodeViewEditor::IsPositionInBody(const int &pos, const QString &text)
         search_text = toPlainText();
     }
 
-    QRegExp body_search(BODY_START, Qt::CaseInsensitive);
-    QRegExp body_end_search(BODY_END, Qt::CaseInsensitive);
-    int body_tag_start = search_text.indexOf(body_search);
-    int body_tag_end   = body_tag_start + body_search.matchedLength();
+    QRegularExpression body_search(BODY_START, QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch mo = body_search.match(search_text);
+    int body_tag_start = mo.capturedStart();
+    int body_tag_end   = mo.capturedEnd();
+
+    QRegularExpression body_end_search(BODY_END, QRegularExpression::CaseInsensitiveOption);
     int body_contents_end = search_text.indexOf(body_end_search);
 
     if ((search_pos < body_tag_end) || (search_pos > body_contents_end)) {
@@ -2130,9 +2149,15 @@ bool CodeViewEditor::IsPositionInTag(const int &pos, const QString &text)
         search_text = toPlainText();
     }
 
-    QRegExp tag_search(NEXT_TAG_LOCATION);
-    int tag_start = search_text.lastIndexOf(tag_search, search_pos - 1);
-    int tag_end   = tag_start + tag_search.matchedLength();
+    int tag_start = -1;
+    int tag_end = -1;
+    QRegularExpression tag_search(NEXT_TAG_LOCATION);
+    QRegularExpressionMatchIterator i = tag_search.globalMatch(search_text.left(search_pos-1));
+    while (i.hasNext()) {
+        QRegularExpressionMatch mo = i.next();
+        tag_start = mo.capturedStart();
+        tag_end = mo.capturedEnd();
+    }
 
     if ((search_pos >= tag_start) && (search_pos < tag_end)) {
         return true;
@@ -2155,9 +2180,15 @@ bool CodeViewEditor::IsPositionInOpeningTag(const int &pos, const QString &text)
         search_text = toPlainText();
     }
 
-    QRegExp tag_search("<\\s*[^/][^>]*>");
-    int tag_start = search_text.lastIndexOf(tag_search, search_pos - 1);
-    int tag_end   = tag_start + tag_search.matchedLength();
+    int tag_start = -1;
+    int tag_end = -1;
+    QRegularExpression tag_search("<\\s*[^/][^>]*>");
+    QRegularExpressionMatchIterator i = tag_search.globalMatch(search_text.left(search_pos-1));
+    while (i.hasNext()) {
+        QRegularExpressionMatch mo = i.next();
+        tag_start = mo.capturedStart();
+        tag_end = mo.capturedEnd();
+    }
 
     if ((search_pos >= tag_start) && (search_pos < tag_end)) {
         return true;
@@ -2180,9 +2211,15 @@ bool CodeViewEditor::IsPositionInClosingTag(const int &pos, const QString &text)
         search_text = toPlainText();
     }
 
-    QRegExp tag_search("<\\s*/[^>]*>");
-    int tag_start = search_text.lastIndexOf(tag_search, search_pos - 1);
-    int tag_end   = tag_start + tag_search.matchedLength();
+    int tag_start = -1;
+    int tag_end = -1;
+    QRegularExpression tag_search("<\\s*/[^>]*>");
+    QRegularExpressionMatchIterator i = tag_search.globalMatch(search_text.left(search_pos-1));
+    while (i.hasNext()) {
+        QRegularExpressionMatch mo = i.next();
+        tag_start = mo.capturedStart();
+        tag_end = mo.capturedEnd();
+    }
 
     if ((search_pos >= tag_start) && (search_pos < tag_end)) {
         return true;
@@ -2194,19 +2231,26 @@ bool CodeViewEditor::IsPositionInClosingTag(const int &pos, const QString &text)
 QString CodeViewEditor::GetOpeningTagName(const int &pos, const QString &text)
 {
     QString tag_name;
-    QRegExp tag_search("<\\s*[^/][^>]*>");
-    int tag_start = text.lastIndexOf(tag_search, pos - 1);
-    int tag_end   = tag_start + tag_search.matchedLength();
+    int tag_start = -1;
+    int tag_end = -1;
+    QRegularExpression tag_search("<\\s*[^/][^>]*>");
+    QRegularExpressionMatchIterator i = tag_search.globalMatch(text.left(pos-1));
+    while (i.hasNext()) {
+        QRegularExpressionMatch mo = i.next();
+        tag_start = mo.capturedStart();
+        tag_end = mo.capturedEnd();
+    }
 
     if ((pos >= tag_start) && (pos < tag_end)) {
-        QRegExp tag_name_search(TAG_NAME_SEARCH);
-        int tag_name_index = tag_name_search.indexIn(text, tag_start);
+        QRegularExpression tag_name_search(TAG_NAME_SEARCH);
+        QRegularExpressionMatch tag_name_search_mo = tag_name_search.match(text, tag_start);
+        int tag_name_index = tag_name_search_mo.capturedStart();
 
         if (tag_name_index < 0) {
             return tag_name;
         }
 
-        tag_name = tag_name_search.cap(1).toLower();
+        tag_name = tag_name_search_mo.captured(1).toLower();
     }
 
     return tag_name;
@@ -2215,19 +2259,26 @@ QString CodeViewEditor::GetOpeningTagName(const int &pos, const QString &text)
 QString CodeViewEditor::GetClosingTagName(const int &pos, const QString &text)
 {
     QString tag_name;
-    QRegExp tag_search("<\\s*/[^>]*>");
-    int tag_start = text.lastIndexOf(tag_search, pos - 1);
-    int tag_end   = tag_start + tag_search.matchedLength();
+    int tag_start = -1;
+    int tag_end = -1;
+    QRegularExpression tag_search("<\\s*/[^>]*>");
+    QRegularExpressionMatchIterator i = tag_search.globalMatch(text.left(pos-1));
+    while (i.hasNext()) {
+        QRegularExpressionMatch mo = i.next();
+        tag_start = mo.capturedStart();
+        tag_end = mo.capturedEnd();
+    }
 
     if ((pos >= tag_start) && (pos < tag_end)) {
-        QRegExp tag_name_search(TAG_NAME_SEARCH);
-        int tag_name_index = tag_name_search.indexIn(text, tag_start);
+        QRegularExpression tag_name_search(TAG_NAME_SEARCH);
+        QRegularExpressionMatch tag_name_search_mo = tag_name_search.match(text, tag_start);
+        int tag_name_index = tag_name_search_mo.capturedStart();
 
         if (tag_name_index < 0) {
             return tag_name;
         }
 
-        tag_name = tag_name_search.cap(1).toLower();
+        tag_name = tag_name_search_mo.captured(1).toLower();
         tag_name = tag_name.right(tag_name.length() - 1);
     }
 
@@ -2266,8 +2317,8 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
     }
 
     QString tag_name;
-    QRegExp tag_search(NEXT_TAG_LOCATION);
-    QRegExp tag_name_search(TAG_NAME_SEARCH);
+    QRegularExpression tag_search(NEXT_TAG_LOCATION);
+    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
     bool in_existing_tag_occurrence = false;
     int previous_tag_index = -1;
     pos--;
@@ -2282,14 +2333,15 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
         }
 
         // We found a tag. It could be opening or closing.
-        int tag_name_index = tag_name_search.indexIn(text, previous_tag_index);
+        QRegularExpressionMatch mo = tag_name_search.match(text, previous_tag_index);
+        int tag_name_index = mo.capturedStart();
 
         if (tag_name_index < 0) {
             pos = previous_tag_index - 1;
             continue;
         }
 
-        tag_name = tag_name_search.cap(1).toLower();
+        tag_name = mo.captured(1).toLower();
         // Isolate whether it was opening or closing tag.
         bool is_closing_tag = false;
 
@@ -2334,8 +2386,9 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
     // but  "<b>XXXselected textYYY</b> should result in "<b>XXX</b>selected text<b>YYY</b>"
     // plus the variations where XXX or YYY may be non-existent to make tag adjacent.
     int previous_tag_end_index = text.indexOf(">", previous_tag_index);
-    QRegExp closing_tag_search("</\\s*" % element_name % "\\s*>", Qt::CaseInsensitive);
-    int closing_tag_index = text.indexOf(closing_tag_search, previous_tag_end_index);
+    QRegularExpression closing_tag_search("</\\s*" % element_name % "\\s*>", QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch closing_tag_search_mo = closing_tag_search.match(text, previous_tag_index);
+    int closing_tag_index = closing_tag_search_mo.capturedStart();
 
     if (closing_tag_index < 0) {
         // There is no closing tag for this style (not well formed). Give up.
@@ -2360,7 +2413,7 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, c
         return;
     } else {
         QString opening_tag = text.mid(previous_tag_index, previous_tag_end_index - previous_tag_index + 1);
-        QString closing_tag = text.mid(closing_tag_index, closing_tag_search.matchedLength());
+        QString closing_tag = text.mid(closing_tag_index, closing_tag_search_mo.capturedLength());
         QString replacement_text = cursor.selectedText();
         cursor.beginEditBlock();
         int new_selection_end = selection_end;
@@ -2421,20 +2474,30 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
     CodeViewEditor::StyleTagElement element;
     QString text = toPlainText();
     int pos = textCursor().selectionStart() - 1;
-    QRegExp tag_name_search(TAG_NAME_SEARCH);
-    int tag_name_index = tag_name_search.lastIndexIn(text, pos);
+    int tag_name_index = -1;
+    int tag_name_search_len = 0;
+    QString tag_name_search_cap1;
+    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
+    QRegularExpressionMatchIterator i = tag_name_search.globalMatch(text.left(pos));
+    while (i.hasNext()) {
+        QRegularExpressionMatch mo = i.next();
+        tag_name_index = mo.capturedStart();
+        tag_name_search_len = mo.capturedLength();
+        tag_name_search_cap1 = mo.captured(1);
+    }
 
     if (tag_name_index >= 0) {
-        element.name = tag_name_search.cap(1);
-        int closing_tag_index = text.indexOf(QChar('>'), tag_name_index + tag_name_search.matchedLength());
+        element.name = tag_name_search_cap1;
+        int closing_tag_index = text.indexOf(QChar('>'), tag_name_index + tag_name_search_len);
         text = text.left(closing_tag_index);
-        QRegExp style_names_search("\\s+class\\s*=\\s*\"([^\"]+)\"");
-        int style_names_index = style_names_search.indexIn(text, tag_name_index + tag_name_search.matchedLength());
+        QRegularExpression style_names_search("\\s+class\\s*=\\s*\"([^\"]+)\"");
+        QRegularExpressionMatch style_names_search_mo = style_names_search.match(text, tag_name_index + tag_name_search_len);
+        int style_names_index = style_names_search_mo.capturedStart();
 
         if (style_names_index >= 0) {
             // We have one or more styles. Figure out which one the cursor is in if any.
-            QString style_names_text = style_names_search.cap(1);
-            int styles_end_index = style_names_index + style_names_search.matchedLength() - 1;
+            QString style_names_text = style_names_search_mo.captured(1);
+            int styles_end_index = style_names_index + style_names_search_mo.capturedLength() - 1;
             int styles_start_index = text.indexOf(style_names_text, style_names_index);
 
             if ((pos >= styles_start_index) && (pos < styles_end_index)) {
@@ -2524,10 +2587,10 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
     int attribute_end = -1;
     int previous_tag_index = -1;
     int tag_name_index = -1;
-    QRegExp tag_search(NEXT_TAG_LOCATION);
-    QRegExp tag_name_search(TAG_NAME_SEARCH);
-    QRegExp attribute_name_search(attribute_name % ATTRIBUTE_NAME_POSTFIX_SEARCH, Qt::CaseInsensitive);
-    QRegExp attrib_values_search(ATTRIB_VALUES_SEARCH);
+    QRegularExpression tag_search(NEXT_TAG_LOCATION);
+    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
+    QRegularExpression attribute_name_search(attribute_name % ATTRIBUTE_NAME_POSTFIX_SEARCH, QRegularExpression::CaseInsensitiveOption);
+    QRegularExpression attrib_values_search(ATTRIB_VALUES_SEARCH);
 
     // If we're in a closing tag, move to the text between tags
     // just before/at < to make parsing easier.
@@ -2547,14 +2610,19 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
 
     // Search backwards for the next opening tag
     while (true) {
-        previous_tag_index = text.lastIndexOf(tag_search, pos);
+        QRegularExpressionMatchIterator i = tag_search.globalMatch(text.left(pos));
+        while (i.hasNext()) {
+            QRegularExpressionMatch mo = i.next();
+            previous_tag_index = mo.capturedStart();
+        }
 
         if (previous_tag_index < 0) {
             return QString();
         }
 
         // We found a tag. It could be opening or closing.
-        tag_name_index = tag_name_search.indexIn(text, previous_tag_index);
+        QRegularExpressionMatch tag_name_search_mo = tag_name_search.match(text, previous_tag_index);
+        tag_name_index = tag_name_search_mo.capturedStart();
 
         if (tag_name_index < 0) {
             pos = previous_tag_index - 1;
@@ -2562,7 +2630,7 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
             continue;
         }
 
-        tag_name = tag_name_search.cap(1).toLower();
+        tag_name = tag_name_search_mo.captured(1).toLower();
 
         // Isolate whether it was opening or closing tag.
         if (tag_name.startsWith('/')) {
@@ -2613,7 +2681,8 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
         opening_tag_start = previous_tag_index;
         opening_tag_end = text.indexOf('>', opening_tag_start) + 1;
         // Now look for the attribute, which may or may not already exist
-        attribute_start = attribute_name_search.indexIn(text, opening_tag_start);
+        QRegularExpressionMatch attribute_name_search_mo = attribute_name_search.match(text, opening_tag_start);
+        attribute_start = attribute_name_search_mo.capturedStart();
 
         if ((attribute_start < 0) || (attribute_start >= opening_tag_end)) {
             // There is no attribute currently on this tag.
@@ -2622,9 +2691,9 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
         } else {
             // We have an existing attribute on this tag, need to parse it to rewrite it.
             attribute_start--;
-            attribute_end = attribute_start + attribute_name_search.matchedLength() + 1;
-            attrib_values_search.indexIn(text, attribute_start);
-            old_attribute_value = attrib_values_search.cap(1).trimmed();
+            attribute_end = attribute_start + attribute_name_search_mo.capturedLength() + 1;
+            QRegularExpressionMatch attrib_values_search_mo = attrib_values_search.match(text, attribute_start);
+            old_attribute_value = attrib_values_search_mo.captured(1).trimmed();
 
             // If not in the attribute string return nothing
             if (must_be_in_attribute && (original_position <= attribute_start || original_position >= attribute_end)) {
@@ -2923,19 +2992,26 @@ QStringList CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const
     int closing_tag_count = 0;
     int pos = start_pos;
     QString tag_name;
-    QRegExp tag_search(NEXT_TAG_LOCATION);
-    QRegExp tag_name_search(TAG_NAME_SEARCH);
+    QRegularExpression tag_search(NEXT_TAG_LOCATION);
+    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
     pos--;
 
     while (true) {
-        int previous_tag_index = text.lastIndexOf(tag_search, pos);
+        int previous_tag_index = -1;
+        int tag_search_len = 0;
+        QRegularExpressionMatchIterator i = tag_search.globalMatch(text.left(pos));
+        while (i.hasNext()) {
+            QRegularExpressionMatch mo = i.next();
+            previous_tag_index = mo.capturedStart();
+            tag_search_len = mo.capturedLength();
+        }
 
         if (previous_tag_index < 0) {
             break;
         }
 
         // We found a tag. Is it self-closing? If so, ignore it.
-        const QString &full_tag_text = text.mid(previous_tag_index, tag_search.matchedLength());
+        const QString &full_tag_text = text.mid(previous_tag_index, tag_search_len);
 
         if (full_tag_text.endsWith("/>")) {
             pos = previous_tag_index - 1;
@@ -2943,14 +3019,15 @@ QStringList CodeViewEditor::GetUnmatchedTagsForBlock(const int &start_pos, const
         }
 
         // Is it valid with a name? If not, ignore it
-        int tag_name_index = tag_name_search.indexIn(full_tag_text);
+        QRegularExpressionMatch tag_name_search_mo = tag_name_search.match(full_tag_text);
+        int tag_name_index = tag_name_search_mo.capturedStart();
 
         if (tag_name_index < 0) {
             pos = previous_tag_index - 1;
             continue;
         }
 
-        tag_name = tag_name_search.cap(1).toLower();
+        tag_name = tag_name_search_mo.captured(1).toLower();
 
         if (tag_name == "body") {
             break;

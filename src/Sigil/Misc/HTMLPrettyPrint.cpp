@@ -20,7 +20,8 @@
 *************************************************************************/
 
 #include <QChar>
-#include <QRegExp>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 #include <QString>
 #include <QStringList>
 
@@ -236,8 +237,8 @@ void HTMLPrettyPrint::tokenize()
 QString HTMLPrettyPrint::cleanSegement(const QString &source)
 {
     QString segment = source;
-    segment = segment.replace(QRegExp("(\\r\\n)|\\n|\\r"), " ");
-    segment = segment.replace(QRegExp("\\s{2,}"), " ");
+    segment = segment.replace(QRegularExpression("(\\r\\n)|\\n|\\r"), " ");
+    segment = segment.replace(QRegularExpression("\\s{2,}"), " ");
     return segment;
 }
 
@@ -261,10 +262,11 @@ HTMLPrettyPrint::TOKEN_TYPE HTMLPrettyPrint::tokenType(const QString &source)
 QString HTMLPrettyPrint::tag(const QString &source)
 {
     QString tag;
-    QRegExp tag_cap("</?\\s*([^\\s/>]+)");
+    QRegularExpression tag_cap("</?\\s*([^\\s/>]+)");
+    QRegularExpressionMatch mo = tag_cap.match(source);
 
-    if (tag_cap.indexIn(source) > -1) {
-        tag = tag_cap.cap(1);
+    if (mo.hasMatch()) {
+        tag = mo.captured(1);
     }
 
     return tag.toLower();

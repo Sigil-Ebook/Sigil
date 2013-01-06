@@ -266,16 +266,16 @@ void XHTMLHighlighter::FormatBody(const QString &text, int state, int index, int
         // We skip over the left bracket (if it's present)
         QRegularExpression bracket(HTML_ELEMENT_BEGIN);
         QRegularExpressionMatch bracket_match = bracket.match(text, main_index);
-        if (bracket_match.hasMatch() && bracket_match.capturedStart(0) == main_index) {
-            main_index += bracket_match.capturedRef(0).size();
+        if (bracket_match.hasMatch() && bracket_match.capturedStart() == main_index) {
+            main_index += bracket_match.capturedLength();
         }
 
         // We skip over the element name (if it's present)
         // because we want it to be the same color as the brackets
         QRegularExpression elem_name(HTML_ELEMENT_NAME);
         QRegularExpressionMatch elem_name_match = elem_name.match(text, main_index);
-        if (elem_name_match.hasMatch() && elem_name_match.capturedStart(0) == main_index) {
-            main_index += elem_name_match.capturedRef(0).size();
+        if (elem_name_match.hasMatch() && elem_name_match.capturedStart() == main_index) {
+            main_index += elem_name_match.capturedLength();
         }
 
         while (true) {
@@ -284,16 +284,16 @@ void XHTMLHighlighter::FormatBody(const QString &text, int state, int index, int
             int name_len = 0;
             QRegularExpressionMatch name_match = name.match(text, main_index);
             if (name_match.hasMatch()) {
-                name_index = name_match.capturedStart(0);
-                name_len = name_match.capturedRef(0).size();
+                name_index = name_match.capturedStart();
+                name_len = name_match.capturedLength();
             }
 
             int value_index = -1;
             int value_len = 0;
             QRegularExpressionMatch value_match = value.match(text, main_index);
             if (value_match.hasMatch()) {
-                value_index = value_match.capturedStart(0);
-                value_len = value_match.capturedRef(0).size();
+                value_index = value_match.capturedStart();
+                value_len = value_match.capturedLength();
             }
 
             // If we can't find the names and values or we found them
@@ -348,16 +348,16 @@ void XHTMLHighlighter::HighlightLine(const QString &text, int state)
         if (!left_bracket_regex.pattern().isEmpty()) {
             QRegularExpressionMatch left_bracket_match = left_bracket_regex.match(text, main_index);
             if (left_bracket_match.hasMatch()) {
-                left_bracket_index = left_bracket_match.capturedStart(0);
-                left_bracket_len = left_bracket_match.capturedRef(0).size();
+                left_bracket_index = left_bracket_match.capturedStart();
+                left_bracket_len = left_bracket_match.capturedLength();
             }
         }
 
         if (!right_bracket_regex.pattern().isEmpty()) {
             QRegularExpressionMatch right_bracket_match = right_bracket_regex.match(text, main_index);
             if (right_bracket_match.hasMatch()) {
-                right_bracket_index = right_bracket_match.capturedStart(0);
-                right_bracket_len = right_bracket_match.capturedRef(0).size();
+                right_bracket_index = right_bracket_match.capturedStart();
+                right_bracket_len = right_bracket_match.capturedLength();
             }
         }
 

@@ -34,6 +34,8 @@
 #include <QtWidgets/QMessageBox>
 #include <QtGui/QTextDocument>
 #include <QtCore/QXmlStreamReader>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/Metadata.h"
@@ -635,12 +637,12 @@ QString ImportEPUB::PrepareOPFForReading(const QString &source)
 {
     QString source_copy(source);
     QString prefix = source_copy.left(XML_DECLARATION_SEARCH_PREFIX_SIZE);
-    QRegExp version(VERSION_ATTRIBUTE);
-    prefix.indexOf(version);
+    QRegularExpression version(VERSION_ATTRIBUTE);
+    QRegularExpressionMatch mo = version.match(prefix);
     // MASSIVE hack for XML 1.1 "support";
     // this is only for people who specify
     // XML 1.1 when they actually only use XML 1.0
-    source_copy.replace(version.pos(), version.matchedLength(), "version=\"1.0\"");
+    source_copy.replace(mo.capturedStart(), mo.capturedLength(), "version=\"1.0\"");
     return source_copy;
 }
 

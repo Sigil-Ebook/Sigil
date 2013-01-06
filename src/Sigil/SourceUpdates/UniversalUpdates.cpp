@@ -26,6 +26,7 @@
 #include <QtCore/QtCore>
 #include <QtCore/QFutureSynchronizer>
 #include <QtConcurrent/QtConcurrent>
+#include <QRegularExpression>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
@@ -138,7 +139,7 @@ tuple < QHash< QString, QString >,
         QString extension = QFileInfo(key_path).suffix().toLower();
         // The OPF and NCX files are in the OEBPS folder along with the content folders.
         // This means that the "../" prefix is unnecessary and wrong.
-        xml_updates[ key_path ] = QString(html_updates.value(key_path)).remove(QRegExp("^../"));
+        xml_updates[ key_path ] = QString(html_updates.value(key_path)).remove(QRegularExpression("^../"));
 
         // Font file updates are CSS updates, not HTML updates
         if (FONT_EXTENSIONS.contains(extension)) {

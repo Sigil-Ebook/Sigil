@@ -26,6 +26,8 @@
 #include <QtCore/QThread>
 #include <QtCore/QTime>
 #include <QtWidgets/QApplication>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "sigil_constants.h"
@@ -49,7 +51,7 @@ const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 // container.xml and encryption.xml will be rewritten
 // on export. Other files in this directory are passed
 // through untouched.
-const QRegExp FILE_EXCEPTIONS("META-INF|page-map");
+const QRegularExpression FILE_EXCEPTIONS("META-INF|page-map");
 
 const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js" << "xpgt";
 const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf";
@@ -226,27 +228,28 @@ QString FolderKeeper::GetUniqueFilenameVersion(const QString &filename) const
 
     // name_prefix is part of the name without the number suffix.
     // So for "Section0001.xhtml", it is "Section"
-    QString name_prefix = QFileInfo(filename).baseName().remove(QRegExp("\\d+$"));
+    QString name_prefix = QFileInfo(filename).baseName().remove(QRegularExpression("\\d+$"));
     QString extension   = QFileInfo(filename).completeSuffix();
     // Used to search for the filename number suffixes.
-    QString search_string = QRegExp::escape(name_prefix).prepend("^") +
+    QString search_string = QRegularExpression::escape(name_prefix).prepend("^") +
                             "(\\d*)" +
-                            (!extension.isEmpty() ? ("\\." + QRegExp::escape(extension)) : QString()) +
+                            (!extension.isEmpty() ? ("\\." + QRegularExpression::escape(extension)) : QString()) +
                             "$";
-    QRegExp filename_search(search_string);
+    QRegularExpression filename_search(search_string);
     int max_num_length = -1;
     int max_num = -1;
     foreach(QString existing_file, filenames) {
-        if (existing_file.indexOf(filename_search) == -1) {
+        QRegularExpressionMatch match = filename_search.match(existing_file);
+        if (!match.hasMatch()) {
             continue;
         }
 
         bool conversion_successful = false;
-        int number_suffix = filename_search.cap(1).toInt(&conversion_successful);
+        int number_suffix = match.captured(1).toInt(&conversion_successful);
 
         if (conversion_successful && number_suffix > max_num) {
             max_num = number_suffix;
-            max_num_length = filename_search.cap(1).length();
+            max_num_length = match.capturedLength(1);
         }
     }
 

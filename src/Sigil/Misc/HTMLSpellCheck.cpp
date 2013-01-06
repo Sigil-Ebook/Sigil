@@ -54,7 +54,7 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const
     QRegularExpressionMatchIterator i = style_re.globalMatch(text);
     while (i.hasNext()) {
         QRegularExpressionMatch match = i.next();
-        for (int pos = match.capturedStart(0); pos < match.capturedEnd(0); pos++) {
+        for (int pos = match.capturedStart(); pos < match.capturedEnd(); pos++) {
             text[pos] = QChar(' ');
         }
     }
@@ -83,7 +83,7 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const
 
                             if (!search_regex.isEmpty()) {
                                 QRegularExpressionMatch mo = search.match(word);
-                                cap_start = mo.capturedStart(0);
+                                cap_start = mo.capturedStart();
                             }
 
                             if (search_regex.isEmpty() || cap_start != -1) {

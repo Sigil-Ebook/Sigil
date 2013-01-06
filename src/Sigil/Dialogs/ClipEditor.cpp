@@ -28,6 +28,7 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
+#include <QRegularExpression>
 
 #include "Dialogs/ClipEditor.h"
 #include "Misc/Utility.h"
@@ -409,7 +410,7 @@ void ClipEditor::ExportItems(QList<QStandardItem *> items)
         foreach(QStandardItem * item, sub_items) {
             ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
             // Remove the top level paths since we're exporting a subset
-            entry->fullname.replace(QRegExp(parent_path), "");
+            entry->fullname.replace(QRegularExpression(parent_path), "");
             entry->name = entry->fullname;
             entries.append(entry);
         }

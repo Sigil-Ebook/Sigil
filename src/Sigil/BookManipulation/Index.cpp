@@ -26,6 +26,7 @@
 #include <QtConcurrent/QtConcurrent>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QProgressDialog>
+#include <QRegularExpression>
 
 #include "ResourceObjects/HTMLResource.h"
 #include "BookManipulation/XercesCppUse.h"
@@ -145,7 +146,7 @@ bool Index::CreateIndexEntry(const QString text, HTMLResource *html_resource, QS
                 continue;
             }
 
-            QRegExp index_regex(index_pattern);
+            QRegularExpression index_regex(index_pattern);
 
             if (text.contains(index_regex)) {
                 created_index = true;

@@ -26,6 +26,7 @@
 #include <QtWidgets/QDockWidget>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QTableWidget>
+#include <QRegularExpression>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/ValidationResultsView.h"
@@ -202,6 +203,6 @@ void ValidationResultsView::ConfigureTableForResults()
 
 QString ValidationResultsView::RemoveEpubPathPrefix(const QString &path)
 {
-    return QString(path).remove(QRegExp("^[\\w-]+\\.epub/?"));
+    return QString(path).remove(QRegularExpression("^[\\w-]+\\.epub/?"));
 }
 

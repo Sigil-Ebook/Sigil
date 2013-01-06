@@ -145,7 +145,7 @@ private:
      * Another workaround function to handle com.apple.ibooks.display-options.xml
      * and any future non-standard Apple xml. If additional files need to
      * be excluded from being handled as proper ePub content, you will also
-     * need to alter FILE_EXCEPTIONS at the top of FolderKeeper.cpp so the QRegExp
+     * need to alter FILE_EXCEPTIONS at the top of FolderKeeper.cpp so the regex
      * will detect them.
      * This is not added to the manifest, but epubcheck uses a similar exception
      * and accepts ePubs containing an unmanifested file of this name.

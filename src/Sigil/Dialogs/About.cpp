@@ -20,6 +20,8 @@
 *************************************************************************/
 
 #include <QtCore/QFile>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "Dialogs/About.h"
 #include "Misc/Utility.h"
@@ -35,12 +37,12 @@ About::About(QWidget *parent)
     ui.setupUi(this);
     ui.lbBuildTimeDisplay->setText(GetUTCBuildTime().toString("yyyy.MM.dd HH:mm:ss") + " UTC");
     ui.lbLoadedQtDisplay->setText(QString(qVersion()));
-    QRegExp version_number(VERSION_NUMBERS);
-    QString(SIGIL_VERSION).indexOf(version_number);
-    QString version_text =  QString("%1.%2.%3")
-                            .arg(version_number.cap(1).toInt())
-                            .arg(version_number.cap(2).toInt())
-                            .arg(version_number.cap(3).toInt());
+    QRegularExpression version_number(VERSION_NUMBERS);
+    QRegularExpressionMatch mo = version_number.match(SIGIL_VERSION);
+    QString version_text = QString("%1.%2.%3")
+                               .arg(mo.captured(1).toInt())
+                               .arg(mo.captured(2).toInt())
+                               .arg(mo.captured(3).toInt());
     ui.lbVersionDisplay->setText(version_text);
     ui.creditsDisplay->setHtml(Utility::ReadUnicodeTextFile(":/about/Credits.html"));
 }
@@ -52,11 +54,9 @@ QDateTime About::GetUTCBuildTime()
     QString date_string = QString::fromLatin1(__DATE__);
     Q_ASSERT(!date_string.isEmpty());
     Q_ASSERT(!time_string.isEmpty());
-    QRegExp date_match("(\\w{3})\\s+(\\d+)\\s+(\\d{4})");
-    date_string.indexOf(date_match);
-    QDate date(date_match.cap(3).toInt(),
-               MonthIndexFromString(date_match.cap(1)),
-               date_match.cap(2).toInt());
+    QRegularExpression date_match("(\\w{3})\\s+(\\d+)\\s+(\\d{4})");
+    QRegularExpressionMatch mo = date_match.match(date_string);
+    QDate date(mo.captured(3).toInt(), MonthIndexFromString(mo.captured(1)), mo.captured(2).toInt());
     return QDateTime(date, QTime::fromString(time_string, "hh:mm:ss")).toUTC();
 }
 

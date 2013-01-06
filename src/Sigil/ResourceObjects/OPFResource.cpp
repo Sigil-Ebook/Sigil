@@ -27,6 +27,7 @@
 #include <QtCore/QDate>
 #include <QtCore/QFileInfo>
 #include <QtCore/QUuid>
+#include <QRegularExpression>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
@@ -130,8 +131,7 @@ void OPFResource::SaveToDisk(bool book_wide_save)
 {
     QString text = GetText();
     // Work around for covers appearing on the Nook. Issue 942.
-    QRegExp flip_meta_cover("<meta content=\"([^\"]+)\" name=\"cover\"");
-    text = text.replace(flip_meta_cover, "<meta name=\"cover\" content=\"\\1\"");
+    text = text.replace(QRegularExpression("<meta content=\"([^\"]+)\" name=\"cover\""), "<meta name=\"cover\" content=\"\\1\"");
     SetText(text);
     TextResource::SaveToDisk(book_wide_save);
 }

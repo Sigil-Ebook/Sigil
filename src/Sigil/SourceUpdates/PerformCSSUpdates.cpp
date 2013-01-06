@@ -20,8 +20,9 @@
 *************************************************************************/
 
 #include <QtCore/QFileInfo>
-#include <QtCore/QRegExp>
 #include <QtCore/QString>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "SourceUpdates/PerformCSSUpdates.h"
 
@@ -43,9 +44,9 @@ QString PerformCSSUpdates::operator()()
         const QString &filename = QFileInfo(key_path).fileName();
         QString filename_regex_part =
             "[^\\(\\)\"']*/"
-            + QRegExp::escape(filename) + "|"
-            + QRegExp::escape(filename);
-        QRegExp reference = QRegExp(
+            + QRegularExpression::escape(filename) + "|"
+            + QRegularExpression::escape(filename);
+        QRegularExpression reference(
                                 "(?:(?:src|background|background-image)\\s*:|@import)\\s*"
                                 "[^;\\}\\(\"']*"
                                 "(?:"
@@ -56,20 +57,19 @@ QString PerformCSSUpdates::operator()()
                                 "[^;\\}]*"
                                 "(?:;|\\})");
         int start_index = 0;
-
+        QRegularExpressionMatch mo = reference.match(m_Source, start_index);
         do {
-            m_Source.indexOf(reference, start_index);
-
             for (int i = 1; i < reference.captureCount(); ++i) {
-                if (reference.cap(i).trimmed().isEmpty()) {
+                if (mo.captured(i).trimmed().isEmpty()) {
                     continue;
                 }
 
-                m_Source.replace(reference.pos(i), reference.cap(i).length(), m_CSSUpdates.value(key_path));
+                m_Source.replace(mo.capturedStart(i), mo.capturedLength(i), m_CSSUpdates.value(key_path));
             }
 
-            start_index += reference.matchedLength();
-        } while (reference.matchedLength() != -1);
+            start_index += mo.capturedLength();
+            mo = reference.match(m_Source, start_index);
+        } while (mo.hasMatch());
     }
 
     return m_Source;

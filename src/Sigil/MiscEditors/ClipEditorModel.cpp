@@ -26,6 +26,7 @@
 #include <QDataStream>
 #include <QtCore/QTime>
 #include <QtCore/QStandardPaths>
+#include <QRegularExpression>
 
 #include "MiscEditors/ClipEditorModel.h"
 
@@ -157,7 +158,7 @@ void ClipEditorModel::ItemChangedHandler(QStandardItem *item)
     // Restore name if nothing entered or contains a group indicator
     if (item->text().isEmpty() || item->text().contains("/")) {
         QString name = item->data(FULLNAME_ROLE).toString();
-        name.replace(QRegExp("/$"), "");
+        name.replace(QRegularExpression("/$"), "");
 
         if (name.contains("/")) {
             name = name.split("/").last();
@@ -307,8 +308,8 @@ void ClipEditorModel::LoadData(const QString &filename, QStandardItem *item)
         settings->setArrayIndex(i);
         ClipEditorModel::clipEntry *entry = new ClipEditorModel::clipEntry();
         QString fullname = settings->value(ENTRY_NAME).toString();
-        fullname.replace(QRegExp("\\s*/+\\s*"), "/");
-        fullname.replace(QRegExp("^/"), "");
+        fullname.replace(QRegularExpression("\\s*/+\\s*"), "/");
+        fullname.replace(QRegularExpression("^/"), "");
         entry->is_group = fullname.endsWith("/");
         // Name is set to fullname only while looping through parent groups when adding
         entry->name = fullname;

@@ -25,6 +25,7 @@
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QMessageBox>
 #include <QtGui/QContextMenuEvent>
+#include <QRegularExpression>
 
 #include "Dialogs/SearchEditor.h"
 #include "Misc/Utility.h"
@@ -478,7 +479,7 @@ void SearchEditor::ExportItems(QList<QStandardItem *> items)
         foreach(QStandardItem * item, sub_items) {
             SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
             // Remove the top level paths since we're exporting a subset
-            entry->fullname.replace(QRegExp(parent_path), "");
+            entry->fullname.replace(QRegularExpression(parent_path), "");
             entry->name = entry->fullname;
             entries.append(entry);
         }

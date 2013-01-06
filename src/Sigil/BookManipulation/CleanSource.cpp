@@ -27,6 +27,8 @@
 #include <QtCore/QWriteLocker>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QProgressDialog>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
@@ -45,13 +47,13 @@ static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";
 
 static const QString CSS_STYLE_TAG_START  = "<\\s*style[^>]*type\\s*=\\s*\"text/css\"[^>]*>";
 
-// Use with <QRegExp>.setMinimal( true )
+// Use with minimal matching.
 static const QString STYLE_TAG_CSS_ONLY   = CSS_STYLE_TAG_START + ".*</\\s*style[^>]*>";
 
 static const QString CLASS_REMOVE_START   = "<[^>]*class\\s*=\\s*\"[^\"]*";
 static const QString CLASS_REMOVE_END     = "[^\"]*\"[^>]*>";
 
-// Use with <QRegExp>.setMinimal( true )
+// Use with minimal matching.
 static const QString TIDY_NEW_STYLE       = "(\\w+)\\.[\\w-]+\\s*(\\{.*\\})";
 
 // The value was picked arbitrarily
@@ -159,8 +161,8 @@ QString CleanSource::ProcessXML(const QString &source)
 
 int CleanSource::RobustCSSStyleTagCount(const QString &source)
 {
-    int head_end_index = source.indexOf(QRegExp(HEAD_END));
-    return Utility::Substring(0, head_end_index, source).count(QRegExp(CSS_STYLE_TAG_START));
+    int head_end_index = source.indexOf(QRegularExpression(HEAD_END));
+    return Utility::Substring(0, head_end_index, source).count(QRegularExpression(CSS_STYLE_TAG_START));
 }
 
 
@@ -254,18 +256,23 @@ int CleanSource::MaxSigilCSSClassIndex(const QStringList &css_style_tags)
 {
     int max_class_index = 0;
     foreach(QString style_tag, css_style_tags) {
-        QRegExp sigil_class(SIGIL_CLASS_NAME_REG);
+        QRegularExpression sigil_class(SIGIL_CLASS_NAME_REG);
         int main_index = 0;
 
         while (true) {
-            main_index = style_tag.indexOf(sigil_class, main_index);
+            int sigil_class_len  = 0;
+            QRegularExpressionMatch match = sigil_class.match(style_tag, main_index);
+            if (!match.hasMatch()) {
+                break;
+            }
 
+            main_index = match.capturedStart();
             if (main_index == -1) {
                 break;
             }
 
-            main_index += sigil_class.matchedLength();
-            int class_index = sigil_class.cap(1).toInt();
+            main_index += match.capturedLength();
+            int class_index = match.captured(1).toInt();
 
             if (class_index > max_class_index) {
                 max_class_index = class_index;
@@ -391,11 +398,10 @@ QString CleanSource::HTMLTidy(const QString &source, TidyType type)
 // Writes the new CSS style tags to the source, replacing the old ones
 QString CleanSource::WriteNewCSSStyleTags(const QString &source, const QStringList &css_style_tags)
 {
-    QRegExp body_start_tag(BODY_START);
+    QRegularExpression body_start_tag(BODY_START);
     int body_begin = source.indexOf(body_start_tag, 0);
     QString header = Utility::Substring(0, body_begin, source);
-    QRegExp css_styles_reg(STYLE_TAG_CSS_ONLY);
-    css_styles_reg.setMinimal(true);
+    QRegularExpression css_styles_reg(STYLE_TAG_CSS_ONLY, QRegularExpression::InvertedGreedinessOption);
     // We delete the old CSS style tags
     header.remove(css_styles_reg);
     // For each new style tag, create it
@@ -423,11 +429,10 @@ QStringList CleanSource::RemoveRedundantClassesTags(const QStringList &css_style
     // Searches for the old class in every line;
     // Tidy always creates class definitions as one line
     foreach(QString key, redundant_classes.keys()) {
-        QRegExp remove_old("^.*" + QRegExp::escape(key) + ".*$");
-        remove_old.setMinimal(true);
+        QRegularExpression remove_old("^.*" + QRegularExpression::escape(key) + ".*$", QRegularExpression::InvertedGreedinessOption);
         last_tag_styles.replaceInStrings(remove_old, "");
     }
-    new_css_style_tags[ new_css_style_tags.count() - 1 ] = last_tag_styles.join(QChar('\n'));
+    new_css_style_tags[new_css_style_tags.count() - 1] = last_tag_styles.join(QChar('\n'));
     return new_css_style_tags;
 }
 
@@ -437,12 +442,14 @@ QString CleanSource::RemoveRedundantClassesSource(const QString &source, const Q
 {
     QString newsource = source;
     foreach(QString key, redundant_classes.keys()) {
-        QRegExp remove_old(CLASS_REMOVE_START + key + CLASS_REMOVE_END);
+        QRegularExpression remove_old(CLASS_REMOVE_START + key + CLASS_REMOVE_END);
+        QRegularExpressionMatch match = remove_old.match(newsource);
 
-        while (newsource.indexOf(remove_old) != -1) {
-            QString matched = remove_old.cap(0);
+        while (match.hasMatch() && match.capturedStart() != -1) {
+            QString matched = match.captured();
             matched.replace(key, redundant_classes.value(key));
-            newsource.replace(remove_old.cap(0), matched);
+            newsource.replace(match.captured(), matched);
+            match = remove_old.match(newsource);
         }
     }
     return newsource;
@@ -469,22 +476,27 @@ QHash< QString, QString > CleanSource::GetRedundantClasses(const QStringList &cs
         // We go through all the lines in the last CSS style tag.
         // It contains the new styles Tidy added.
         foreach(QString line_in_new_styles, new_style_tag_lines) {
-            QRegExp class_definition(TIDY_NEW_STYLE);
-            class_definition.setMinimal(true);
+            QRegularExpression class_definition(TIDY_NEW_STYLE, QRegularExpression::InvertedGreedinessOption);
+            QRegularExpressionMatch class_definition_match = class_definition.match(line_in_new_styles);
 
-            if (line_in_new_styles.indexOf(class_definition) != -1) {
-                QRegExp matching_style(QRegExp::escape(class_definition.cap(1)) + "\\.[\\w-]+\\s*" +
-                                       QRegExp::escape(class_definition.cap(2)));
+            if (class_definition_match.hasMatch() && class_definition_match.capturedStart() != -1) {
+                QRegularExpression matching_style(QRegularExpression::escape(class_definition_match.captured(1)) + "\\.[\\w-]+\\s*" +
+                                                  QRegularExpression::escape(class_definition_match.captured(2)));
                 // There should always be just one that matches
                 QStringList matching_lines = old_lines.filter(matching_style);
-
                 if (matching_lines.count() != 0) {
-                    QRegExp sgc_class(SIGIL_CLASS_NAME_REG);
-                    matching_lines[ 0 ].indexOf(sgc_class);
-                    QString oldclass = sgc_class.cap(0);
-                    line_in_new_styles.indexOf(sgc_class);
-                    QString newclass = sgc_class.cap(0);
-                    redundant_classes[ newclass ] = oldclass;
+                    QRegularExpression sgc_class(SIGIL_CLASS_NAME_REG);
+                    QRegularExpressionMatch sgc_class_match = sgc_class.match(matching_lines[0]);
+                    if (!sgc_class_match.hasMatch()) {
+                        continue;
+                    }
+                    QString oldclass = sgc_class_match.captured();
+                    sgc_class_match = sgc_class.match(line_in_new_styles);
+                    if (!sgc_class_match.hasMatch()) {
+                        continue;
+                    }
+                    QString newclass = sgc_class_match.captured();
+                    redundant_classes[newclass] = oldclass;
                 } else {
                     continue;
                 }
@@ -498,21 +510,20 @@ QHash< QString, QString > CleanSource::GetRedundantClasses(const QStringList &cs
 
 QString CleanSource::RemoveMetaCharset(const QString &source)
 {
-    int head_end = source.indexOf(QRegExp(HEAD_END));
-
+    int head_end = source.indexOf(QRegularExpression(HEAD_END));
     if (head_end == -1) {
         return source;
     }
-
     QString head = Utility::Substring(0, head_end, source);
-    QRegExp metacharset("<meta[^>]+charset[^>]+>");
-    int meta_start = head.indexOf(metacharset);
 
-    if (meta_start == -1) {
+    QRegularExpression metacharset("<meta[^>]+charset[^>]+>");
+    QRegularExpressionMatch metacharset_match = metacharset.match(head);
+    if (!metacharset_match.hasMatch()) {
         return source;
     }
+    int meta_start = metacharset_match.capturedStart();
 
-    head.remove(meta_start, metacharset.matchedLength());
+    head.remove(meta_start, metacharset_match.capturedLength());
     return head + Utility::Substring(head_end, source.length(), source);
 }
 
@@ -525,11 +536,11 @@ QString CleanSource::PreprocessSpecialCases(const QString &source)
     // in the <html> tag and simply strips tags with namespace prefixes it
     // doesn't understand. The solution used here is to embed the namespace
     // definition in the root tag itself.
-    QRegExp root_svg_tag_with_prefix("<\\s*svg\\s*:\\s*svg");
+    QRegularExpression root_svg_tag_with_prefix("<\\s*svg\\s*:\\s*svg");
     QString root_svg_embeddedNS = "<svg xmlns=\"http://www.w3.org/2000/svg\"";
     newsource.replace(root_svg_tag_with_prefix, root_svg_embeddedNS);
     // Once the root tag has an embedded namespace, strip the prefix from all other tags
-    QRegExp child_svg_tag_with_prefix("<\\s*svg\\s*:");
+    QRegularExpression child_svg_tag_with_prefix("<\\s*svg\\s*:");
     QString child_tag_no_prefix = "<";
     newsource.replace(child_svg_tag_with_prefix, child_tag_no_prefix);
     return newsource;
@@ -539,36 +550,36 @@ QString CleanSource::PrettifyDOCTYPEHeader(const QString &source)
 {
     QString newsource = source;
     const int SAFE_LENGTH = 200;
-    QRegExp doctype_invalid("<!DOCTYPE html PUBLIC \"W3C");
-    int index = doctype_invalid.indexIn(newsource);
+    QRegularExpression doctype_invalid("<!DOCTYPE html PUBLIC \"W3C");
+    int index = newsource.indexOf(doctype_invalid);
 
     if (index > 0 && index < SAFE_LENGTH) {
         newsource.insert(index + 23, "-//");
     }
 
-    QRegExp doctype_missing_newline("\\?><!DOCTYPE");
-    index = doctype_missing_newline.indexIn(source);
+    QRegularExpression doctype_missing_newline("\\?><!DOCTYPE");
+    index = source.indexOf(doctype_missing_newline);
 
     if (index > 0 && index < SAFE_LENGTH) {
         newsource.insert(index + 2, "\n");
-        QRegExp html_missing_newline("\"><html ");
-        index = html_missing_newline.indexIn(newsource);
+        QRegularExpression html_missing_newline("\"><html ");
+        index = newsource.indexOf(html_missing_newline);
 
         if (index > 0 && index < SAFE_LENGTH) {
             newsource.insert(index + 2, "\n\n");
         }
 
         bool is_ncx = false;
-        QRegExp ncx_missing_newline("\"><ncx ");
-        index = ncx_missing_newline.indexIn(newsource);
+        QRegularExpression ncx_missing_newline("\"><ncx ");
+        index = newsource.indexOf(ncx_missing_newline);
 
         if (index > 0 && index < SAFE_LENGTH) {
             is_ncx = true;
             newsource.insert(index + 2, "\n");
         }
 
-        QRegExp doctype_http_missing_newline("//EN\" \"http://");
-        index = doctype_http_missing_newline.indexIn(newsource);
+        QRegularExpression doctype_http_missing_newline("//EN\" \"http://");
+        index = newsource.indexOf(doctype_http_missing_newline);
 
         if (index > 0 && index < SAFE_LENGTH) {
             newsource.insert(index + 5, is_ncx ? "\n" : "\n ");

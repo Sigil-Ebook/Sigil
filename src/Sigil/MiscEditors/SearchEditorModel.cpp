@@ -26,6 +26,7 @@
 #include <QDataStream>
 #include <QtCore/QTime>
 #include <QtCore/QStandardPaths>
+#include <QRegularExpression>
 
 #include "MiscEditors/SearchEditorModel.h"
 
@@ -156,7 +157,7 @@ void SearchEditorModel::ItemChangedHandler(QStandardItem *item)
     // Restore name if nothing entered or contains a group indicator
     if (item->text().isEmpty() || item->text().contains("/")) {
         QString name = item->data(FULLNAME_ROLE).toString();
-        name.replace(QRegExp("/$"), "");
+        name.replace(QRegularExpression("/$"), "");
 
         if (name.contains("/")) {
             name = name.split("/").last();
@@ -305,8 +306,8 @@ void SearchEditorModel::LoadData(const QString &filename, QStandardItem *item)
         settings->setArrayIndex(i);
         SearchEditorModel::searchEntry *entry = new SearchEditorModel::searchEntry();
         QString fullname = settings->value(ENTRY_NAME).toString();
-        fullname.replace(QRegExp("\\s*/+\\s*"), "/");
-        fullname.replace(QRegExp("^/"), "");
+        fullname.replace(QRegularExpression("\\s*/+\\s*"), "/");
+        fullname.replace(QRegularExpression("^/"), "");
         entry->is_group = fullname.endsWith("/");
         // Name is set to fullname only while looping through parent groups when adding
         entry->name = fullname;

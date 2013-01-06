@@ -35,6 +35,8 @@
 #include <QtGui/QTextDocument>
 #include <QtWebKit/QWebElement>
 #include <QtWebKitWidgets/QWebFrame>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
@@ -182,12 +184,9 @@ QString BookViewEditor::GetHtml()
     html_from_Qt = RemoveBookViewReplaceSpans(html_from_Qt);
     // Remove xml/doctype/html tags even if only some are present.
     // Replace with standard tags that work whether tidy is on or off.
-    QRegExp remove_xml_tag(REMOVE_XML_TAG);
-    remove_xml_tag.setMinimal(true);
-    QRegExp remove_doctype_tag(REMOVE_DOCTYPE_TAG);
-    remove_doctype_tag.setMinimal(true);
-    QRegExp remove_html_tag(REMOVE_HTML_TAG);
-    remove_html_tag.setMinimal(true);
+    QRegularExpression remove_xml_tag(REMOVE_XML_TAG, QRegularExpression::InvertedGreedinessOption);
+    QRegularExpression remove_doctype_tag(REMOVE_DOCTYPE_TAG, QRegularExpression::InvertedGreedinessOption);
+    QRegularExpression remove_html_tag(REMOVE_HTML_TAG, QRegularExpression::InvertedGreedinessOption);
     html_from_Qt.remove(remove_xml_tag);
     html_from_Qt.remove(remove_doctype_tag);
     html_from_Qt.remove(remove_html_tag);
@@ -402,48 +401,32 @@ void BookViewEditor::RemoveWebkitCruft()
 
 QString BookViewEditor::RemoveBookViewReplaceSpans(const QString &source)
 {
-    QRegExp replace_spans(REPLACE_SPANS);
-    replace_spans.setMinimal(true);
-    QRegExp span_open_or_close("<\\s*(/)*\\s*span\\s*>");
-    span_open_or_close.setMinimal(true);
+    QRegularExpression replace_spans(REPLACE_SPANS, QRegularExpression::InvertedGreedinessOption);
+    QRegularExpression span_open_or_close("<\\s*(/)*\\s*span\\s*>", QRegularExpression::InvertedGreedinessOption);
     QString newsource = "";
     int left_pos = 0;
-    int index = source.indexOf(replace_spans);
 
-    while (index != -1) {
+    QRegularExpressionMatch replace_spans_mo = replace_spans.match(source);
+    while (replace_spans_mo.hasMatch()) {
+        int index = replace_spans_mo.capturedStart();
         // Append the text between the last capture and this one.
         newsource.append(source.mid(left_pos, index - left_pos));
         // Advance past the captured opening tag.
-        index += replace_spans.cap(0).length();
+        index += replace_spans_mo.capturedLength();
         left_pos = index;
         // Check for nested spans.
         int nest_count = 1; // set to 1 as we already have an open span
         int next_span_tag = index;
 
-        do {
-            next_span_tag = source.indexOf(span_open_or_close, index);
-
-            if (next_span_tag == -1) {
-                // Content is not well-formed, which should never happen here.
-                boost_throw(ErrorParsingXml()
-                            << errinfo_XML_parsing_error_string("GetWebPageHTML() has returned invalid xhtml"));
-            }
-
-            if (!span_open_or_close.cap(0).contains("/")) {
-                // Opening tag, so increment the counter.
-                nest_count++;
-            } else {
-                // Closing tag, so decrement the counter
-                nest_count--;
-            }
-        } while (nest_count > 0);
+        QRegularExpressionMatch span_open_or_close_mo = span_open_or_close.match(source, index);
+        next_span_tag = span_open_or_close_mo.capturedStart();
 
         // next_span_tag now points to the start of the closing tag of the span we're removing.
         // Append the source from the end of the span tag to the start of the closing tag
         newsource.append(source.mid(index, next_span_tag - index));
         // Move left_pos past the closing tag and search for another span to remove.
-        left_pos = next_span_tag + span_open_or_close.cap(0).length();
-        index = source.indexOf(replace_spans, left_pos);
+        left_pos = next_span_tag + span_open_or_close_mo.capturedLength();
+        replace_spans_mo = replace_spans.match(source, left_pos);
     }
 
     // Append the rest of the source after all the spans have been removed.

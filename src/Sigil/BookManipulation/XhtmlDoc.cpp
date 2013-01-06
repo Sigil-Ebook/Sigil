@@ -42,6 +42,8 @@
 #include <QtWebKitWidgets/QWebPage>
 #include <QtXml/QXmlInputSource>
 #include <QtXml/QXmlSimpleReader>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
@@ -99,21 +101,25 @@ QString XhtmlDoc::ResolveCustomEntities(const QString &source)
     }
 
     QString new_source = source;
-    QRegExp entity_search(ENTITY_SEARCH);
+    QRegularExpression entity_search(ENTITY_SEARCH);
     QHash< QString, QString > entities;
     int main_index = 0;
 
     // Catch all custom entity declarations...
     while (true) {
-        main_index = new_source.indexOf(entity_search, main_index);
+        QRegularExpressionMatch match = entity_search.match(new_source, main_index);
+        if (!match.hasMatch()) {
+            break;
+        }
 
+        main_index = match.capturedStart();
         if (main_index == -1) {
             break;
         }
 
-        entities[ "&" + entity_search.cap(1) + ";" ] = entity_search.cap(2);
+        entities["&" + match.captured(1) + ";"] = match.captured(2);
         // Erase the entity declaration
-        new_source.replace(entity_search.cap(0), "");
+        new_source.replace(match.captured(), "");
     }
 
     // ...and now replace all occurrences
@@ -121,7 +127,7 @@ QString XhtmlDoc::ResolveCustomEntities(const QString &source)
         new_source.replace(key, entities[ key ]);
     }
     // Clean up what's left of the custom entity declaration field
-    new_source.replace(QRegExp("\\[\\s*\\]>"), "");
+    new_source.replace(QRegularExpression("\\[\\s*\\]>"), "");
     return new_source;
 }
 
@@ -387,9 +393,10 @@ QString XhtmlDoc::GetDomNodeAsString(const xc::DOMNode &node)
 QString XhtmlDoc::GetDomDocumentAsString(const xc::DOMDocument &document)
 {
     QString raw_source = GetDomNodeAsString(document);
-    QRegExp encoding(ENCODING_ATTRIBUTE);
-    int encoding_start = raw_source.indexOf(encoding);
-    return raw_source.replace(encoding_start, encoding.matchedLength(), "encoding=\"UTF-8\"");
+    QRegularExpression encoding(ENCODING_ATTRIBUTE);
+    QRegularExpressionMatch match = encoding.match(raw_source);
+    int encoding_start = match.capturedStart();
+    return raw_source.replace(encoding_start, match.capturedLength(), "encoding=\"UTF-8\"");
 }
 
 
@@ -585,27 +592,29 @@ QList< QWebElement > XhtmlDoc::QWebElementChildren(const QWebElement &element)
 QStringList XhtmlDoc::GetSGFSectionSplits(const QString &source,
         const QString &custom_header)
 {
-    QRegExp body_start_tag(BODY_START);
-    QRegExp body_end_tag(BODY_END);
-    int body_begin = source.indexOf(body_start_tag, 0) + body_start_tag.matchedLength();
-    int body_end   = source.indexOf(body_end_tag,   0);
-    int main_index = body_begin;
-    QString header = !custom_header.isEmpty() ? custom_header + "<body>\n" : source.left(body_begin);
+    QRegularExpression body_start_tag(BODY_START);
+    QRegularExpressionMatch body_start_tag_match = body_start_tag.match(source);
+    QRegularExpression body_end_tag(BODY_END);
+
+    int body_end   = source.indexOf(body_end_tag, 0);
+    int main_index = body_start_tag_match.capturedEnd();
+
+    QString header = !custom_header.isEmpty() ? custom_header + "<body>\n" : source.left(main_index);
     QStringList sections;
-    QRegExp break_tag(BREAK_TAG_SEARCH);
+    QRegularExpression break_tag(BREAK_TAG_SEARCH);
 
     while (main_index != body_end) {
-        // We search for our HR break tag
-        int break_index = source.indexOf(break_tag, main_index);
+        QRegularExpressionMatch match = break_tag.match(source, main_index);
         QString body;
 
-        // We break up the remainder of the file on the HR tag index if it's found
-        if (break_index > -1) {
+        // We search for our HR break tag
+        if (match.hasMatch()) {
+            // We break up the remainder of the file on the HR tag index if it's found
+            int break_index = match.capturedStart();
             body = Utility::Substring(main_index, break_index, source);
-            main_index = break_index + break_tag.matchedLength();
-        }
-        // Otherwise, we take the rest of the file
-        else {
+            main_index = break_index + match.capturedLength();
+        } else {
+            // Otherwise, we take the rest of the file
             body = Utility::Substring(main_index, body_end, source);
             main_index = body_end;
         }
@@ -1018,9 +1027,9 @@ XhtmlDoc::XMLElement XhtmlDoc::CreateXMLElement(QXmlStreamReader &reader)
 QString XhtmlDoc::PrepareSourceForXerces(const QString &source)
 {
     QString prefix = source.left(XML_DECLARATION_SEARCH_PREFIX_SIZE);
-    QRegExp standalone(STANDALONE_ATTRIBUTE);
-    prefix.indexOf(standalone);
-    return QString(source).remove(standalone.pos(), standalone.matchedLength());
+    QRegularExpression standalone(STANDALONE_ATTRIBUTE);
+    QRegularExpressionMatch match = standalone.match(prefix);
+    return QString(source).remove(match.capturedStart(), match.capturedLength());
 }
 
 
