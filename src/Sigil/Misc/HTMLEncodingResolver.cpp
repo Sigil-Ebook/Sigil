@@ -20,9 +20,9 @@
 *************************************************************************/
 
 #include <QtCore/QFile>
-#include <QtCore/QRegExp>
 #include <QtCore/QString>
 #include <QtCore/QTextCodec>
+#include <QRegularExpression>
 
 #include "Misc/HTMLEncodingResolver.h"
 #include "Misc/Utility.h"
@@ -64,22 +64,27 @@ const QTextCodec &HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
     // Qt docs say Qt will take care of deleting
     // any QTextCodec objects on application exit
     QString ascii_data = raw_text;
-    int head_end = ascii_data.indexOf(QRegExp(HEAD_END));
+    int head_end = ascii_data.indexOf(QRegularExpression(HEAD_END));
 
     if (head_end != -1) {
         QString head = Utility::Substring(0, head_end, ascii_data);
-        QRegExp encoding(ENCODING_ATTRIBUTE);
-        head.indexOf(encoding);
-        QTextCodec *encoding_codec = QTextCodec::codecForName(encoding.cap(1).toLatin1());
 
+        QTextCodec *encoding_codec = 0;
+        QRegularExpression encoding(ENCODING_ATTRIBUTE);
+        QRegularExpressionMatch enc_mo = encoding.match(head);
+        if (enc_mo.hasMatch()) {
+            encoding_codec = QTextCodec::codecForName(enc_mo.captured(1).toLatin1());
+        }
         if (encoding_codec != 0) {
             return *encoding_codec;
         }
 
-        QRegExp charset("charset=([^\"]+)\"");
-        head.indexOf(charset);
-        QTextCodec *charset_codec  = QTextCodec::codecForName(charset .cap(1).toLatin1());
-
+        QTextCodec *charset_codec = 0;
+        QRegularExpression charset("charset=([^\"]+)\"");
+        QRegularExpressionMatch char_mo = charset.match(head);
+        if (char_mo.hasMatch()) {
+            charset_codec  = QTextCodec::codecForName(char_mo.captured(1).toLatin1());
+        }
         if (charset_codec != 0) {
             return *charset_codec;
         }
@@ -88,7 +93,7 @@ const QTextCodec &HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
     // This is a workaround for a bug in QTextCodec which
     // expects the 'charset' attribute to always come after
     // the 'http-equiv' attribute
-    ascii_data.replace(QRegExp("<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>"),
+    ascii_data.replace(QRegularExpression("<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>"),
                        "<meta http-equiv=\"Content-Type\" \\1 \\2>");
     // If we couldn't find a codec ourselves,
     // we use Qt's function.
