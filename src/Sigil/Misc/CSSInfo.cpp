@@ -442,7 +442,7 @@ QString CSSInfo::replaceBlockComments(const QString &text)
         }
 
         QString match_text = new_text.mid(comment_index, comment_len);
-        match_text.replace(QRegExp("[^\r\n]"), QChar(' '));
+        match_text.replace(QRegularExpression("[^\r\n]"), QChar(' '));
         new_text.remove(comment_index, match_text.length());
         new_text.insert(comment_index, match_text);
         // Prepare for the next comment.
