@@ -19,7 +19,6 @@
 **
 *************************************************************************/
 
-#include <QtCore/QRegExp>
 #include <QtCore/QString>
 #include <QtCore/QTextCodec>
 #include <QRegularExpression>

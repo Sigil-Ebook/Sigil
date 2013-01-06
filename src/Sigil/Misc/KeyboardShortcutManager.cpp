@@ -20,9 +20,9 @@
 *************************************************************************/
 
 #include <QtCore/QHashIterator>
-#include <QtCore/QRegExp>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QShortcut>
+#include <QRegularExpression>
 
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
@@ -66,7 +66,7 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
     // was given.
     if (desc.isEmpty()) {
         desc = action->toolTip();
-        desc.remove(QRegExp("<[^>]*>"));
+        desc.remove(QRegularExpression("<[^>]*>"));
     }
 
     s.setDescription(desc.simplified());
@@ -107,7 +107,7 @@ void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QStrin
     // was given.
     if (!desc.isEmpty()) {
         s.setToolTip(desc);
-        desc.remove(QRegExp("<[^>]*>"));
+        desc.remove(QRegularExpression("<[^>]*>"));
         s.setDescription(desc.simplified());
     }
 
