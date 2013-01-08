@@ -1406,6 +1406,7 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked(Resource *resource)
         existing_stylesheets.append("../" + css_resource->GetRelativePathToOEBPS());
     }
     foreach(QString pathname, html_resource->GetLinkedStylesheets()) {
+        pathname = Utility::URLDecodePath(pathname);
         // Only list the stylesheet if it exists in the book
         if (existing_stylesheets.contains(pathname)) {
             linked_stylesheets.append(pathname);
