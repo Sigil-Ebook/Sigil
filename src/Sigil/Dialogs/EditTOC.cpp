@@ -63,8 +63,6 @@ EditTOC::~EditTOC()
 void EditTOC::UpdateTreeViewDisplay()
 {
     ui.TOCTree->expandAll();
-    ui.TOCTree->setColumnWidth(0, 300);
-    ui.TOCTree->header()->setStretchLastSection(true);
 }
 
 void EditTOC::CreateTOCModel()
@@ -313,7 +311,7 @@ void EditTOC::ReadSettings()
             ui.TOCTree->setColumnWidth(column, column_width);
         }
     }
-
+    settings.endArray();
 
     settings.endGroup();
 }
