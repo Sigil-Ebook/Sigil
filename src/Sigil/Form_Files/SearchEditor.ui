@@ -337,14 +337,14 @@ including entries in selected groups.</string>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="Message">
-       <property name="text">
-        <string/>
-       </property>
        <property name="font">
         <font>
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>
@@ -354,7 +354,7 @@ including entries in selected groups.</string>
         <string>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</string>
        </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Save</set>
+        <set>QDialogButtonBox::Close|QDialogButtonBox::Save</set>
        </property>
       </widget>
      </item>

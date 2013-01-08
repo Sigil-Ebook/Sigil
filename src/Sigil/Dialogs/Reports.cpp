@@ -151,6 +151,7 @@ void Reports::appendReportsWidget(ReportsWidget *widget)
     // Add the ReportsWidget to the stack view area.
     ui.pWidget->addWidget(widget);
     connect(widget, SIGNAL(OpenFileRequest(QString, int)), this, SIGNAL(OpenFileRequest(QString, int)));
+    connect(widget, SIGNAL(CloseDialog()), this, SLOT(accept()));
     // Add an entry to the list of available reports widgets.
     ui.availableWidgets->addItem(widget->windowTitle());
 }

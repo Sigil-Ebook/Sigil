@@ -591,6 +591,7 @@ void IndexEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText,  SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
+    connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(reject()));
     connect(ui.IndexEditorTree, SIGNAL(customContextMenuRequested(const QPoint &)),
             this,        SLOT(OpenContextMenu(const QPoint &)));
     connect(m_AddEntry,  SIGNAL(triggered()), this, SLOT(AddEntry()));

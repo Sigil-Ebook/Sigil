@@ -266,5 +266,6 @@ void ClassesInHTMLFilesWidget::connectSignalsSlots()
             this,         SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
             this,         SLOT(DoubleClick()));
+    connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SIGNAL(CloseDialog()));
     connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
 }

@@ -48,6 +48,7 @@ public:
     void CreateReport(QSharedPointer< Book > book);
 
 signals:
+    void CloseDialog();
     void OpenFileRequest(QString, int);
 
 private slots:

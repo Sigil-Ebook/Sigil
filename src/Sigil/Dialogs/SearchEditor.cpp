@@ -985,6 +985,7 @@ void SearchEditor::ConnectSignalsSlots()
     connect(ui.MoveLeft,   SIGNAL(clicked()),            this, SLOT(MoveLeft()));
     connect(ui.MoveRight,  SIGNAL(clicked()),            this, SLOT(MoveRight()));
     connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
+    connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(reject()));
     connect(ui.SearchEditorTree, SIGNAL(customContextMenuRequested(const QPoint &)),
             this,                SLOT(OpenContextMenu(const QPoint &)));
     connect(m_AddEntry,    SIGNAL(triggered()), this, SLOT(AddEntry()));

@@ -380,6 +380,7 @@ void HTMLFilesWidget::connectSignalsSlots()
     connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint &)),
             this,         SLOT(OpenContextMenu(const QPoint &)));
     connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
+    connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SIGNAL(CloseDialog()));
     connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
 }
 

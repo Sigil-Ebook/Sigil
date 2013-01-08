@@ -53,6 +53,7 @@ public:
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
 signals:
+    void CloseDialog();
     void DeleteFilesRequest(QStringList);
     void OpenFileRequest(QString, int);
 
