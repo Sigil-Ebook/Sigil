@@ -729,15 +729,16 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
             if (style_class_name.isEmpty()) {
                 display_name = element_name;
             } else {
-                display_name = QString(".%1 / %2.%1").arg(style_class_name).arg(element_name);
+                display_name = QString("\".%1\" or \"%2.%1\"").arg(style_class_name).arg(element_name);
             }
-
-            ShowMessageOnStatusBar(QString(tr("No CSS styles named") +  " " + display_name + " " + "or stylesheet not linked."), 5000);
 
             // Open the first linked stylesheet if any
             if (first_css_resource) {
                 OpenResource(*first_css_resource, 1);
             }
+
+            ShowMessageOnStatusBar(QString(tr("No CSS styles named") +  " " + display_name + " found, " + "or stylesheet not linked."), 7000);
+
         }
     }
 }
