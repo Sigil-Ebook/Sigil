@@ -128,6 +128,7 @@ void ClipEditor::SettingsFileModelUpdated()
 {
     ui.ClipEditorTree->expandAll();
     emit ShowStatusMessageRequest(tr("Clip entries loaded from file."));
+    emit ClipsUpdated();
 }
 
 void ClipEditor::ModelItemDropped(const QModelIndex &index)
@@ -905,4 +906,5 @@ void ClipEditor::ConnectSignalsSlots()
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
     connect(m_ClipEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
     connect(m_ClipEditorModel, SIGNAL(ItemDropped(const QModelIndex &)), this, SLOT(ModelItemDropped(const QModelIndex &)));
+    connect(m_ClipEditorModel, SIGNAL(ClipsUpdated()), this, SIGNAL(ClipsUpdated()));
 }

@@ -107,6 +107,31 @@
     <property name="title">
      <string>&amp;Insert</string>
     </property>
+    <widget class="QMenu" name="menuClip">
+     <property name="title">
+      <string>Cli&amp;p</string>
+     </property>
+     <addaction name="actionClip1"/>
+     <addaction name="actionClip2"/>
+     <addaction name="actionClip3"/>
+     <addaction name="actionClip4"/>
+     <addaction name="actionClip5"/>
+     <addaction name="actionClip6"/>
+     <addaction name="actionClip7"/>
+     <addaction name="actionClip8"/>
+     <addaction name="actionClip9"/>
+     <addaction name="actionClip10"/>
+     <addaction name="actionClip11"/>
+     <addaction name="actionClip12"/>
+     <addaction name="actionClip13"/>
+     <addaction name="actionClip14"/>
+     <addaction name="actionClip15"/>
+     <addaction name="actionClip16"/>
+     <addaction name="actionClip17"/>
+     <addaction name="actionClip18"/>
+     <addaction name="actionClip19"/>
+     <addaction name="actionClip20"/>
+    </widget>
     <addaction name="actionInsertSGFSectionMarker"/>
     <addaction name="separator"/>
     <addaction name="actionInsertImage"/>
@@ -116,6 +141,8 @@
     <addaction name="actionInsertHyperlink"/>
     <addaction name="separator"/>
     <addaction name="actionInsertClosingTag"/>
+    <addaction name="separator"/>
+    <addaction name="menuClip"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -507,6 +534,37 @@
    <addaction name="actionTextDirectionLTR"/>
    <addaction name="actionTextDirectionRTL"/>
    <addaction name="actionTextDirectionDefault"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarClips">
+   <property name="windowTitle">
+    <string>Clip Bar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionClip1"/>
+   <addaction name="actionClip2"/>
+   <addaction name="actionClip3"/>
+   <addaction name="actionClip4"/>
+   <addaction name="actionClip5"/>
+   <addaction name="actionClip6"/>
+   <addaction name="actionClip7"/>
+   <addaction name="actionClip8"/>
+   <addaction name="actionClip9"/>
+   <addaction name="actionClip10"/>
+   <addaction name="actionClip11"/>
+   <addaction name="actionClip12"/>
+   <addaction name="actionClip13"/>
+   <addaction name="actionClip14"/>
+   <addaction name="actionClip15"/>
+   <addaction name="actionClip16"/>
+   <addaction name="actionClip17"/>
+   <addaction name="actionClip18"/>
+   <addaction name="actionClip19"/>
+   <addaction name="actionClip20"/>
   </widget>
   <action name="actionNew">
    <property name="icon">
@@ -1666,6 +1724,196 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+C</string>
+   </property>
+  </action>
+  <action name="actionClip1">
+   <property name="text">
+    <string>Clip &amp;1</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 1</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+1</string>
+   </property>
+  </action>
+  <action name="actionClip2">
+   <property name="text">
+    <string>Clip 2&amp;</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 2</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+2</string>
+   </property>
+  </action>
+  <action name="actionClip3">
+   <property name="text">
+    <string>Clip &amp;3</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 3</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+3</string>
+   </property>
+  </action>
+  <action name="actionClip4">
+   <property name="text">
+    <string>Clip &amp;4</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 4</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+4</string>
+   </property>
+  </action>
+  <action name="actionClip5">
+   <property name="text">
+    <string>Clip &amp;5</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 5</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+5</string>
+   </property>
+  </action>
+  <action name="actionClip6">
+   <property name="text">
+    <string>Clip &amp;6</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 6</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+6</string>
+   </property>
+  </action>
+  <action name="actionClip7">
+   <property name="text">
+    <string>Clip &amp;7</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 7</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+7</string>
+   </property>
+  </action>
+  <action name="actionClip8">
+   <property name="text">
+    <string>Clip &amp;8</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 8</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+8</string>
+   </property>
+  </action>
+  <action name="actionClip9">
+   <property name="text">
+    <string>Clip &amp;9</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 9</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+9</string>
+   </property>
+  </action>
+  <action name="actionClip10">
+   <property name="text">
+    <string>Clip 1&amp;0</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 10</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+0</string>
+   </property>
+  </action>
+  <action name="actionClip11">
+   <property name="text">
+    <string>Clip 11</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 11</string>
+   </property>
+  </action>
+  <action name="actionClip12">
+   <property name="text">
+    <string>Clip 12</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 12</string>
+   </property>
+  </action>
+  <action name="actionClip13">
+   <property name="text">
+    <string>Clip 13</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 13</string>
+   </property>
+  </action>
+  <action name="actionClip14">
+   <property name="text">
+    <string>Clip 14</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 14</string>
+   </property>
+  </action>
+  <action name="actionClip15">
+   <property name="text">
+    <string>Clip 15</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 15</string>
+   </property>
+  </action>
+  <action name="actionClip16">
+   <property name="text">
+    <string>Clip 16</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 16</string>
+   </property>
+  </action>
+  <action name="actionClip17">
+   <property name="text">
+    <string>Clip 17</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 17</string>
+   </property>
+  </action>
+  <action name="actionClip18">
+   <property name="text">
+    <string>Clip 18</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 18</string>
+   </property>
+  </action>
+  <action name="actionClip19">
+   <property name="text">
+    <string>Clip 19</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 19</string>
+   </property>
+  </action>
+  <action name="actionClip20">
+   <property name="text">
+    <string>Clip 20</string>
+   </property>
+   <property name="toolTip">
+    <string>Insert Clip 20</string>
    </property>
   </action>
   <action name="actionPreferences">

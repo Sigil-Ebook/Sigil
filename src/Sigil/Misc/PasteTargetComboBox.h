@@ -50,6 +50,8 @@ public slots:
      */
     bool PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
 
+    bool PasteClipNumber(int clip_number);
+
 signals:
     /**
      * Emitted when we want to do some operations with the clipboard

@@ -189,6 +189,8 @@ public:
       */
     QString GetAncestorTagAttributeValue(const QString &attribute_name, const QStringList &tag_list);
 
+    bool PasteClipNumber(int clip_number);
+
 public slots:
     /**
      * Filters the text changed signals by the BVEditor inside of the page

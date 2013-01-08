@@ -93,6 +93,7 @@ ClipEditorModel::~ClipEditorModel()
 void ClipEditorModel::SetDataModified(bool modified)
 {
     m_IsDataModified = modified;
+    ClipsUpdated();
 }
 
 bool ClipEditorModel::IsDataModified()
@@ -203,16 +204,27 @@ void ClipEditorModel::UpdateFullName(QStandardItem *item)
     }
 
     QString fullname = parent_item->data(FULLNAME_ROLE).toString() + item->text();
+    QString tooltip;
 
+    tooltip = fullname;
     if (item->data(IS_GROUP_ROLE).toBool()) {
         fullname.append("/");
     }
+    else {
+        QStandardItem *text_item = parent_item->child(item->row(), 1);
+        if (text_item) {
+            tooltip += "\n\n" % text_item->text();
+            tooltip.replace('&', "&amp;").replace('<', "&lt;").replace('>', "&gt;");
+        }
+    }
 
-    item->setToolTip(fullname);
+    item->setToolTip(tooltip);
     item->setData(fullname, FULLNAME_ROLE);
 
-    for (int row = 0; row < item->rowCount(); row++) {
-        UpdateFullName(item->child(row, 0));
+    if (item->hasChildren()) {
+        for (int row = 0; row < item->rowCount(); row++) {
+            UpdateFullName(item->child(row, 0));
+        }
     }
 }
 
@@ -249,6 +261,45 @@ QString ClipEditorModel::GetFullName(QStandardItem *item)
 {
     return item->data(FULLNAME_ROLE).toString();
 }
+
+ClipEditorModel::clipEntry *ClipEditorModel::GetEntryFromNumber(int clip_number)
+{
+    return GetEntry(GetItemFromNumber(clip_number));
+}
+
+QStandardItem *ClipEditorModel::GetItemFromNumber(int clip_number)
+{
+    QStandardItem *item = NULL;
+
+    clip_number--;
+
+    if (clip_number < 0) {
+        return item;
+    }
+
+    // Get the entry for the number, skipping over group entries so that
+    // the entries can be at top or bottom, or anywhere, in the list.
+    int row = 0;
+    int rows = invisibleRootItem()->rowCount();
+    for (int i = 0; i <= clip_number; i++) {
+        while (row < rows) {
+            item = invisibleRootItem()->child(row, 0);
+            row++;
+            if (!item || !item->data(IS_GROUP_ROLE).toBool()) {
+                break;
+            }
+        }
+        if (row >= rows) {
+            break;
+        }
+        if (i == clip_number) {
+            return item;
+        }
+    }
+
+    return NULL;
+}
+
 
 ClipEditorModel::clipEntry *ClipEditorModel::GetEntryFromName(const QString &name, QStandardItem *item)
 {
@@ -426,7 +477,14 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
 
     rowItems[0]->setData(entry->is_group, IS_GROUP_ROLE);
     rowItems[0]->setData(entry->fullname, FULLNAME_ROLE);
-    rowItems[0]->setToolTip(entry->fullname);
+    QString tooltip;
+    if (entry->is_group) {
+        tooltip = entry->fullname;
+    }
+    else {
+        tooltip = entry->fullname % "\n\n" % entry->text;
+    }
+    rowItems[0]->setToolTip(tooltip);
     // Add the new item to the model at the specified row
     QStandardItem *new_item;
 
@@ -518,6 +576,10 @@ ClipEditorModel::clipEntry *ClipEditorModel::GetEntry(QStandardItem *item)
 {
     QStandardItem *parent_item;
 
+    if (item == NULL) {
+        return NULL;
+    }
+
     if (item->parent()) {
         parent_item = item->parent();
     } else {
@@ -528,7 +590,15 @@ ClipEditorModel::clipEntry *ClipEditorModel::GetEntry(QStandardItem *item)
     entry->is_group =    parent_item->child(item->row(), 0)->data(IS_GROUP_ROLE).toBool();
     entry->fullname =    parent_item->child(item->row(), 0)->data(FULLNAME_ROLE).toString();
     entry->name =        parent_item->child(item->row(), 0)->text();
-    entry->text =        parent_item->child(item->row(), 1)->text();
+    if (!entry->is_group) {
+        QStandardItem *text_item = parent_item->child(item->row(), 1);
+        if (text_item) {
+            entry->text = text_item->text();
+        }
+        else {
+            entry->text = "";
+        }
+    }
     return entry;
 }
 

@@ -327,6 +327,8 @@ public:
     bool ReformatHTMLEnabled();
     void SetReformatHTMLEnabled(bool value);
 
+    bool PasteClipNumber(int clip_number);
+
 signals:
 
     /**

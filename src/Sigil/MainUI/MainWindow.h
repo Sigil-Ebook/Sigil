@@ -166,8 +166,6 @@ public:
 
     SearchEditorModel *GetSearchEditorModel();
 
-    ClipEditorModel *GetClipEditorModel();
-
 public slots:
     void AnyCodeView();
 
@@ -304,6 +302,27 @@ private slots:
     void PasteTextIntoCurrentTarget(const QString &text);
     void PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::clipEntry *> &clips);
     void PasteClipEntriesIntoEditor(const QList<ClipEditorModel::clipEntry *> &clips);
+    void PasteClipIntoCurrentTarget(int clip_number);
+    void PasteClip1IntoCurrentTarget();
+    void PasteClip2IntoCurrentTarget();
+    void PasteClip3IntoCurrentTarget();
+    void PasteClip4IntoCurrentTarget();
+    void PasteClip5IntoCurrentTarget();
+    void PasteClip6IntoCurrentTarget();
+    void PasteClip7IntoCurrentTarget();
+    void PasteClip8IntoCurrentTarget();
+    void PasteClip9IntoCurrentTarget();
+    void PasteClip10IntoCurrentTarget();
+    void PasteClip11IntoCurrentTarget();
+    void PasteClip12IntoCurrentTarget();
+    void PasteClip13IntoCurrentTarget();
+    void PasteClip14IntoCurrentTarget();
+    void PasteClip15IntoCurrentTarget();
+    void PasteClip16IntoCurrentTarget();
+    void PasteClip17IntoCurrentTarget();
+    void PasteClip18IntoCurrentTarget();
+    void PasteClip19IntoCurrentTarget();
+    void PasteClip20IntoCurrentTarget();
 
     /**
      * Implements the set BookView functionality.
@@ -552,7 +571,10 @@ private slots:
     void DeleteFilenames(QStringList files_to_delete);
     void OpenFile(QString filename, int line = -1);
 
+    void UpdateClipsUI();
+
 private:
+    void UpdateClipButton(int clip_number, QAction *ui_action);
     void InsertImages(const QStringList &selected_images);
     void InsertImagesFromDisk();
 

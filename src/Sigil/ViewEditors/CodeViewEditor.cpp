@@ -1673,6 +1673,18 @@ void CodeViewEditor::PasteText(const QString &text)
     InsertText(text);
 }
 
+bool CodeViewEditor::PasteClipNumber(int clip_number)
+{
+    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromNumber(clip_number);
+    if (!clip) {
+        return false;
+    }
+
+    PasteClipEntry(clip);
+
+    return true;
+}
+
 bool CodeViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
     bool applied = false;

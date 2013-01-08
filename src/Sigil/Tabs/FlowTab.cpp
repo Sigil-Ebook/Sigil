@@ -1405,6 +1405,17 @@ bool FlowTab::NumberListChecked()
     }
 }
 
+bool FlowTab::PasteClipNumber(int clip_number)
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->PasteClipNumber(clip_number);
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->PasteClipNumber(clip_number);
+    }
+    return false;
+}
+
 bool FlowTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips)
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {

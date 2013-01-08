@@ -43,6 +43,18 @@ void PasteTargetComboBox::PasteText(const QString &text)
     emit ClipboardRestoreRequest();
 }
 
+bool PasteTargetComboBox::PasteClipNumber(int clip_number)
+{
+    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromNumber(clip_number);
+    if (!clip) {
+        return false;
+    }
+
+    PasteClipEntry(clip);
+
+    return true;
+}
+
 bool PasteTargetComboBox::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips)
 {
     bool applied = false;

@@ -67,7 +67,7 @@ public:
     ClipEditorModel::clipEntry *GetEntry(QStandardItem *item);
     ClipEditorModel::clipEntry *GetEntry(const QModelIndex &index);
     ClipEditorModel::clipEntry *GetEntryFromName(const QString &name, QStandardItem *parent_item = NULL);
-
+    ClipEditorModel::clipEntry *GetEntryFromNumber(int clip_number);
 
     QStandardItem *GetItemFromName(QString name, QStandardItem *item = NULL);
 
@@ -86,6 +86,7 @@ public:
 signals:
     void SettingsFileUpdated() const;
     void ItemDropped(const QModelIndex &) const;
+    void ClipsUpdated();
 
 private slots:
     void RowsRemovedHandler(const QModelIndex &parent, int start, int end);
@@ -99,6 +100,8 @@ private:
     Qt::DropActions supportedDropActions() const;
 
     QStandardItem *GetItemFromId(qint64 id, int row, QStandardItem *item = NULL) const;
+
+    QStandardItem *GetItemFromNumber(int clip_number);
 
     void AddExampleEntries();
 

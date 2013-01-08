@@ -696,6 +696,18 @@ void BookViewEditor::PasteText(const QString &text)
     InsertHtml(text);
 }
 
+bool BookViewEditor::PasteClipNumber(int clip_number)
+{
+    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromNumber(clip_number);
+    if (!clip) {
+        return false;
+    }
+
+    PasteClipEntry(clip);
+
+    return true;
+}
+
 void BookViewEditor::PasteClipEntryFromName(const QString &name)
 {
     ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromName(name);

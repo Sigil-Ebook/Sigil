@@ -43,6 +43,8 @@ public:
      * which may allow for regex substitutions of the selection.
      */
     virtual bool PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips) = 0;
+
+    virtual bool PasteClipNumber(int clip_number) = 0;
 };
 
 #endif // PASTETARGET_H

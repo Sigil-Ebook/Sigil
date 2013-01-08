@@ -170,6 +170,7 @@ public:
     bool BulletListChecked();
     bool NumberListChecked();
 
+    bool PasteClipNumber(int clip_number);
     bool PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips);
 
     QString GetCaretElementName();
