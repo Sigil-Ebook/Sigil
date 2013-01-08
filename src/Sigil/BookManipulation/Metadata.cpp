@@ -169,9 +169,7 @@ Metadata::MetaElement Metadata::MapToBookMetadata(const Metadata::MetaElement &m
     QString value = meta.value.toString();
 
     if (name == "language") {
-        // We convert ISO 639-1 language code into full language name (e.g. en -> English).
-        // Only recognize 2-character primary tags and ignore any subtags.
-        value = Language::instance()->GetLanguageName(value.left(2));
+        value = Language::instance()->GetLanguageName(value);
         // fall through
     }
 
