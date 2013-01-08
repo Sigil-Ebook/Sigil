@@ -167,8 +167,18 @@ int SearchOperations::ReplaceHTMLInFile(const QString &search_regex,
     if (search_type == SearchOperations::CodeViewSearch) {
         int count;
         QString new_text;
-        tie(new_text, count) = PerformGlobalReplace(html_resource->GetText(), search_regex, replacement);
+        QString text = html_resource->GetText();
 
+        // We clean first because most regexs people use won't match if the text isn't
+        // formatted like they expect.
+        if (ss.cleanOn() & CLEANON_REPLACEINALL) {
+            text = CleanSource::Clean(text);
+        }
+
+        tie(new_text, count) = PerformGlobalReplace(text, search_regex, replacement);
+
+        // Clean after the replacement is made because the replace could mess
+        // up the formatting.
         if (ss.cleanOn() & CLEANON_REPLACEINALL) {
             new_text = CleanSource::Clean(new_text);
         }
