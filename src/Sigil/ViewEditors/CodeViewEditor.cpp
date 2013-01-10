@@ -1031,7 +1031,7 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
         // an additionalFormat for the block and if that format is for a misspelled word.
         int pos = c.positionInBlock();
         foreach(QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
-            if (pos > r.start && pos < r.start + r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
+            if (pos > r.start && pos < r.start + r.length && r.format.underlineStyle() == QTextCharFormat::WaveUnderline/*QTextCharFormat::SpellCheckUnderline*/) {
                 if (select_word) {
                     c.setPosition(c.block().position() + r.start);
                     c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
@@ -1048,7 +1048,7 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
         int selStart = c.selectionStart() - c.block().position();
         int selLen = c.selectionEnd() - c.block().position() - selStart;
         foreach(QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
-            if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::SpellCheckUnderline) {
+            if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::WaveUnderline/*QTextCharFormat::SpellCheckUnderline*/) {
                 return c.selectedText();
             }
         }
