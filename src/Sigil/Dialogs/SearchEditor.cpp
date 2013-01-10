@@ -45,6 +45,7 @@ SearchEditor::SearchEditor(QWidget *parent)
     SetupSearchEditorTree();
     CreateContextMenuActions();
     ConnectSignalsSlots();
+    ExpandAll();
 }
 
 void SearchEditor::SetupSearchEditorTree()
@@ -124,9 +125,6 @@ void SearchEditor::ReplaceAll()
 void SearchEditor::showEvent(QShowEvent *event)
 {
     bool has_settings = ReadSettings();
-    ui.SearchEditorTree->expandAll();
-    ui.Filter->setCurrentIndex(0);
-    ui.FilterText->clear();
     ui.FilterText->setFocus();
 
     // If the user has no persisted columns data yet, just resize automatically
@@ -138,11 +136,6 @@ void SearchEditor::showEvent(QShowEvent *event)
         // Hitting an issue for first time user resizing the Find column to only width
         // of the heading. Just force an initial width instead.
         ui.SearchEditorTree->setColumnWidth(1, 150);
-    }
-
-    if (m_SearchEditorModel->rowCount() > 0) {
-        QModelIndex first = m_SearchEditorModel->index(0, 0, QModelIndex());
-        ui.SearchEditorTree->setCurrentIndex(first);
     }
 }
 
