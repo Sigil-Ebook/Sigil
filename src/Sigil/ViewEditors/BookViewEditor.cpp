@@ -772,7 +772,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
             const QWebElement element = hitTest.element();
 
             foreach(QString attrib, element.attributeNames(XLINK_NAMESPACE)) {
-                if (attrib.toLower() == "href")
+                if (attrib.toLower() == "href") {
                     QString path = element.attributeNS(XLINK_NAMESPACE, attrib);
 
                     if (!path.isEmpty()) {
