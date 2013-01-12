@@ -117,7 +117,7 @@ public:
 
     bool MarkForIndex(const QString &title);
 
-    bool IsInsertImageAllowed();
+    bool IsInsertFileAllowed();
 
     bool InsertId(const QString &attribute_value);
     bool InsertHyperlink(const QString &attribute_value);

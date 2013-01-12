@@ -25,6 +25,7 @@
 #include <QtWebKitWidgets/QWebView>
 
 #include "Tabs/AVTab.h"
+#include "sigil_constants.h"
 
 const QString AUDIO_HTML_BASE =
     "<html>"

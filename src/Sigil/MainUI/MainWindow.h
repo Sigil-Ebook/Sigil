@@ -274,10 +274,7 @@ private slots:
     void DeleteUnusedImages();
     void DeleteUnusedStyles();
 
-    /**
-     * Implements Insert image action functionality.
-     */
-    void InsertImageDialog();
+    void InsertFileDialog();
 
     void InsertSpecialCharacter();
 
@@ -564,7 +561,7 @@ private slots:
 
     void ResourcesAddedOrDeleted();
 
-    void SetImageWatchResourceFile(const QString &pathname);
+    void SetInsertedFileWatchResourceFile(const QString &pathname);
 
     void DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete);
 
@@ -575,8 +572,8 @@ private slots:
 
 private:
     void UpdateClipButton(int clip_number, QAction *ui_action);
-    void InsertImages(const QStringList &selected_images);
-    void InsertImagesFromDisk();
+    void InsertFiles(const QStringList &selected_images);
+    void InsertFilesFromDisk();
 
     void ResetLinkOrStyleBookmark();
     void ResetLocationBookmark(LocationBookmark *locationBookmark);
@@ -803,9 +800,9 @@ private:
     QString m_SaveACopyFilename;
 
     /**
-     * The last image selected from Insert Image, per book
+     * The last file selected from Insert File, per book
      */
-    QString m_LastInsertedImage;
+    QString m_LastInsertedFile;
 
     /**
      * The list of full filepaths

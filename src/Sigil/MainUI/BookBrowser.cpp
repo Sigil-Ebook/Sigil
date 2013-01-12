@@ -290,6 +290,15 @@ QList <Resource *> BookBrowser::AllImageResources()
     return m_OPFModel.GetResourceListInFolder(Resource::ImageResourceType);
 }
 
+QList <Resource *> BookBrowser::AllMultimediaResources()
+{
+    QList <Resource *> resources;
+    resources = m_OPFModel.GetResourceListInFolder(Resource::ImageResourceType);
+    resources.append(m_OPFModel.GetResourceListInFolder(Resource::VideoResourceType));
+    resources.append(m_OPFModel.GetResourceListInFolder(Resource::AudioResourceType));
+    return resources;
+}
+
 QList <Resource *> BookBrowser::AllCSSResources()
 {
     return m_OPFModel.GetResourceListInFolder(Resource::CSSResourceType);
@@ -479,7 +488,7 @@ void BookBrowser::AddNewSVG()
 }
 
 
-QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
+QStringList BookBrowser::AddExisting(bool only_multimedia)
 {
     QStringList added_files;
     // The static getOpenFileNames dialog does not always immediately disappear when finished
@@ -517,11 +526,13 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
 
         // Check if the file matches the type requested for adding
         // Only used for inserting images from disk
-        if (add_resource_type == Resource::ImageResourceType || add_resource_type == Resource::SVGResourceType) {
+        if (only_multimedia) {
             if (!IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&
-                !SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
+                !SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&
+                !VIDEO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&
+                !AUDIO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
                 Utility::DisplayStdErrorDialog(
-                    tr("File is not an image and cannot be inserted:\n\n\"%1\".") .arg(filepath));
+                    tr("File is not multimedia (image, video, audio) and cannot be inserted:\n\n\"%1\".") .arg(filepath));
                 continue;
             }
         }
@@ -531,10 +542,12 @@ QStringList BookBrowser::AddExisting(Resource::ResourceType add_resource_type)
         if (current_filenames.contains(filename)) {
             // If this is an image prompt to replace it.
             if (IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
-                SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
+                SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
+                VIDEO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
+                AUDIO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
                 QMessageBox::StandardButton button_pressed;
                 button_pressed = QMessageBox::warning(this,
-                                                      tr("Sigil"), tr("The image \"%1\" already exists in the book.\n\nOK to replace?").arg(filename),
+                                                      tr("Sigil"), tr("The multimedia file \"%1\" already exists in the book.\n\nOK to replace?").arg(filename),
                                                       QMessageBox::Ok | QMessageBox::Cancel);
 
                 if (button_pressed != QMessageBox::Ok) {

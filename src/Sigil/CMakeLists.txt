@@ -128,8 +128,8 @@ set( DIALOG_FILES
     Dialogs/SelectId.h
     Dialogs/SelectIndexTitle.cpp
     Dialogs/SelectIndexTitle.h
-    Dialogs/SelectImages.cpp
-    Dialogs/SelectImages.h
+    Dialogs/SelectFiles.cpp
+    Dialogs/SelectFiles.h
     Dialogs/MetaEditor.cpp
     Dialogs/MetaEditor.h
     Dialogs/MetaEditorItemDelegate.cpp
@@ -254,7 +254,6 @@ set( MISC_FILES
     Misc/TOCHTMLWriter.h
     Misc/NumericItem.h
     Misc/WrapIndicator.h
-    Misc/SelectImagePreviewer.h
     )
 
 set( MISC_EDITORS_FILES    
@@ -369,7 +368,7 @@ set( UI_FILES
     Form_Files/SelectHyperlink.ui
     Form_Files/SelectId.ui
     Form_Files/SelectIndexTitle.ui
-    Form_Files/SelectImages.ui
+    Form_Files/SelectFiles.ui
     Form_Files/MetaEditor.ui 
     Form_Files/AddMetadata.ui 
     Form_Files/About.ui 

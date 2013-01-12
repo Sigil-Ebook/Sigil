@@ -83,6 +83,8 @@ public:
      */
     QList <Resource *> AllImageResources();
 
+    QList <Resource *> AllMultimediaResources();
+
     /*
      * All CSS resources in the Book Browser in order
      */
@@ -155,7 +157,7 @@ public slots:
     /**
      * Implements the Add Existing context menu action functionality.
      */
-    QStringList AddExisting(Resource::ResourceType add_resource_type = Resource::GenericResourceType);
+    QStringList AddExisting(bool only_multimedia = false);
 
     /*
      * Sorts the HTML book entries alphanumerically

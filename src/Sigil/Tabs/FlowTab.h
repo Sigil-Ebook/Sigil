@@ -103,7 +103,7 @@ public:
     bool InsertSpecialCharacterEnabled();
     bool ToggleAutoSpellcheckEnabled();
 
-    bool InsertImageEnabled();
+    bool InsertFileEnabled();
 
     bool ViewStatesEnabled();
 
@@ -196,14 +196,7 @@ public slots:
 
     void InsertClosingTag();
 
-    /**
-     * Implements \em a \em part of Insert image action functionality.
-     * The rest is in MainWindow. It has to be, FlowTabs don't
-     * have a reference to the Book object.
-     *
-     * @param image_path The full path to the image that should be inserted.
-     */
-    void InsertImage(const QString &image_path);
+    void InsertFile(QString html);
 
     void PrintPreview();
     void Print();
@@ -294,7 +287,7 @@ signals:
 
     void BookmarkLinkOrStyleLocationRequest();
 
-    void InsertImageRequest();
+    void InsertFileRequest();
 
     void UpdatePreview();
     void UpdatePreviewImmediately();

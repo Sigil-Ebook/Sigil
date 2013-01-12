@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012, 2013 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012, 2013 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -21,9 +21,12 @@
 *************************************************************************/
 
 #include <QtCore/QFileInfo>
+#include <QtWidgets/QLayout>
+#include <QtWebKitWidgets/QWebView>
 
-#include "Dialogs/SelectImages.h"
+#include "Dialogs/SelectFiles.h"
 #include "Misc/SettingsStore.h"
+#include "sigil_constants.h"
 
 static const int COL_NAME = 0;
 static const int COL_IMAGE = 1;
@@ -33,70 +36,115 @@ static const int THUMBNAIL_SIZE_INCREMENT = 50;
 
 static QString SETTINGS_GROUP = "select_images";
 
-SelectImages::SelectImages(QString basepath, QList<Resource *> image_resources, QString default_selected_image, QWidget *parent) :
+const QString IMAGE_HTML_BASE_PREVIEW =
+    "<html>"
+    "<head>"
+    "<style type=\"text/css\">"
+    "body { -webkit-user-select: none; }"
+    "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; }"
+    "</style>"
+    "<body>"
+    "<div><img %1 src=\"%2\" /></div>"
+    "</body>"
+    "</html>";
+
+SelectFiles::SelectFiles(QList<Resource *> media_resources, QString default_selected_image, QWidget *parent) :
     QDialog(parent),
-    m_Basepath(basepath),
-    m_ImageResources(image_resources),
-    m_SelectImagesModel(new QStandardItemModel),
+    m_MediaResources(media_resources),
+    m_SelectFilesModel(new QStandardItemModel),
     m_PreviewLoaded(false),
     m_DefaultSelectedImage(default_selected_image),
     m_ThumbnailSize(THUMBNAIL_SIZE),
-    m_IsInsertFromDisk(false)
+    m_IsInsertFromDisk(false),
+    m_WebView(new QWebView(this))
 {
     ui.setupUi(this);
+    m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
+    m_WebView->setFocusPolicy(Qt::NoFocus);
+    m_WebView->setAcceptDrops(false);
+    ui.avLayout->addWidget(m_WebView);
+
     ReadSettings();
+
+    m_AllItem = new QListWidgetItem(tr("All"), ui.FileTypes);
+    m_ImageItem = new QListWidgetItem(tr("Images"), ui.FileTypes);
+    m_VideoItem = new QListWidgetItem(tr("Video"), ui.FileTypes);
+    m_AudioItem = new QListWidgetItem(tr("Audio"), ui.FileTypes);
+
+    ui.FileTypes->setCurrentItem(m_AllItem);
+
     SetImages();
+
     connectSignalsSlots();
 }
 
-bool SelectImages::IsInsertFromDisk()
+SelectFiles::~SelectFiles()
+{
+    WriteSettings();
+}
+
+bool SelectFiles::IsInsertFromDisk()
 {
     return m_IsInsertFromDisk;
 }
 
-QStringList SelectImages::SelectedImages()
+QStringList SelectFiles::SelectedImages()
 {
     QList<QString> selected_images;
 
     // Shift-click order is top to bottom regardless of starting position
     // Ctrl-click order is first clicked to last clicked (included shift-clicks stay ordered as is)
-
     if (ui.imageTree->selectionModel()->hasSelection()) {
         QModelIndexList selected_indexes = ui.imageTree->selectionModel()->selectedRows(0);
         foreach(QModelIndex index, selected_indexes) {
-            selected_images.append(m_SelectImagesModel->itemFromIndex(index)->text());
+            selected_images.append(m_SelectFilesModel->itemFromIndex(index)->text());
         }
     }
 
     return selected_images;
 }
 
-void SelectImages::SetImages()
+void SelectFiles::SetImages()
 {
-    m_SelectImagesModel->clear();
+    ui.Details->clear();
+    m_WebView->setHtml("", QUrl());
+
+    m_SelectFilesModel->clear();
     QStringList header;
-    header.append(tr("Images In the Book"));
+    header.append(tr("Files In the Book"));
 
     if (m_ThumbnailSize) {
         header.append(tr("Thumbnails"));
     }
 
-    m_SelectImagesModel->setHorizontalHeaderLabels(header);
+    m_SelectFilesModel->setHorizontalHeaderLabels(header);
     ui.imageTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui.imageTree->setModel(m_SelectImagesModel);
+    ui.imageTree->setModel(m_SelectFilesModel);
     QSize icon_size(m_ThumbnailSize, m_ThumbnailSize);
     ui.imageTree->setIconSize(icon_size);
     int row = 0;
-    foreach(Resource * resource, m_ImageResources) {
+
+    foreach(Resource *resource, m_MediaResources) {
+        // Don't show resources not matching the selected type
+        Resource::ResourceType type = resource->Type();
+        if ((m_ImageItem->isSelected() && type != Resource::ImageResourceType && type != Resource::SVGResourceType) ||
+            (m_VideoItem->isSelected() && type != Resource::VideoResourceType) ||
+            (m_AudioItem->isSelected() && type != Resource::AudioResourceType)) {
+            continue;
+        }
+
         QString filepath = "../" + resource->GetRelativePathToOEBPS();
         QList<QStandardItem *> rowItems;
         QStandardItem *name_item = new QStandardItem();
         name_item->setText(resource->Filename());
         name_item->setToolTip(filepath);
+        name_item->setData(static_cast<int>(type), Qt::UserRole);
+        name_item->setData(resource->GetFullPath(), Qt::UserRole + 1);
         name_item->setEditable(false);
         rowItems << name_item;
 
-        if (m_ThumbnailSize) {
+        // Do not show thumbnail if file is not an image
+        if ((type == Resource::ImageResourceType || type == Resource::SVGResourceType) && m_ThumbnailSize) {
             QPixmap pixmap(resource->GetFullPath());
 
             if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
@@ -109,7 +157,7 @@ void SelectImages::SetImages()
             rowItems << icon_item;
         }
 
-        m_SelectImagesModel->appendRow(rowItems);
+        m_SelectFilesModel->appendRow(rowItems);
         row++;
     }
     ui.imageTree->header()->setStretchLastSection(true);
@@ -122,27 +170,27 @@ void SelectImages::SetImages()
     SelectDefaultImage();
 }
 
-void SelectImages::SelectDefaultImage()
+void SelectFiles::SelectDefaultImage()
 {
-    QStandardItem *root_item = m_SelectImagesModel->invisibleRootItem();
+    QStandardItem *root_item = m_SelectFilesModel->invisibleRootItem();
     QModelIndex parent_index;
 
     // Set the default to the first image if no default is set
     if (m_DefaultSelectedImage.isEmpty() && root_item->rowCount() > 0) {
-        m_DefaultSelectedImage = m_SelectImagesModel->itemFromIndex(m_SelectImagesModel->index(0, 0, parent_index))->text();
+        m_DefaultSelectedImage = m_SelectFilesModel->itemFromIndex(m_SelectFilesModel->index(0, 0, parent_index))->text();
     }
 
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (root_item->child(row, COL_NAME)->text() == m_DefaultSelectedImage) {
-            ui.imageTree->selectionModel()->select(m_SelectImagesModel->index(row, 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+            ui.imageTree->selectionModel()->select(m_SelectFilesModel->index(row, 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
             ui.imageTree->setFocus();
             ui.imageTree->setCurrentIndex(root_item->child(row, 0)->index());
-            SetPreviewImage();
             break;
         }
     }
+    SetPreviewImage();
 }
-void SelectImages::IncreaseThumbnailSize()
+void SelectFiles::IncreaseThumbnailSize()
 {
     m_ThumbnailSize += THUMBNAIL_SIZE_INCREMENT;
     ui.ThumbnailDecrease->setEnabled(true);
@@ -150,7 +198,7 @@ void SelectImages::IncreaseThumbnailSize()
     SetImages();
 }
 
-void SelectImages::DecreaseThumbnailSize()
+void SelectFiles::DecreaseThumbnailSize()
 {
     m_ThumbnailSize -= THUMBNAIL_SIZE_INCREMENT;
 
@@ -163,7 +211,7 @@ void SelectImages::DecreaseThumbnailSize()
     SetImages();
 }
 
-void SelectImages::ReloadPreview()
+void SelectFiles::ReloadPreview()
 {
     // Make sure we don't load when initial painting is resizing
     if (m_PreviewLoaded) {
@@ -171,33 +219,69 @@ void SelectImages::ReloadPreview()
     }
 }
 
-void SelectImages::SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+void SelectFiles::SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
     SetPreviewImage();
 }
 
-void SelectImages::SetPreviewImage()
+void SelectFiles::SplitterMoved(int pos, int index)
+{
+    SetPreviewImage();
+}
+
+void SelectFiles::resizeEvent(QResizeEvent *event)
+{
+    SetPreviewImage();
+}
+
+void SelectFiles::SetPreviewImage()
 {
     QPixmap(pixmap);
     QString details = "";
     QStandardItem *item = GetLastSelectedImageItem();
 
-    if (item && !item->text().isEmpty()) {
-        QString path = m_Basepath + item->text();
+    ui.Details->clear();
+    m_WebView->setHtml("", QUrl());
+
+    if (!item || item->text().isEmpty()) {
+        m_PreviewLoaded = true;
+        return;
+    }
+
+    Resource::ResourceType resource_type = static_cast<Resource::ResourceType>(item->data(Qt::UserRole).toInt());
+
+    // Basic file details
+    QString path = item->data(Qt::UserRole + 1).toString();
+    const QFileInfo fileInfo = QFileInfo(path);
+    const double ffsize = fileInfo.size() / 1024.0;
+    const QString fsize = QLocale().toString(ffsize, 'f', 2);
+    const double ffmbsize = ffsize / 1024.0;
+    const QString fmbsize = QLocale().toString(ffmbsize, 'f', 2);
+
+    // Images
+    if (resource_type == Resource::ImageResourceType || resource_type == Resource::SVGResourceType) {
+
         pixmap = QPixmap(path);
-        // Set size to match window, with a small border
-        int width = ui.preview->width() - 10;
-        int height = ui.preview->height() - 10;
+
+        // Set size to match window, but allow for borders and for scrollbars
+        int width = ui.splitter->width() - ui.imageTree->width() - 20;
+        int height = ui.splitter->height() - 20;
 
         // Resize images before saving - only shrink not enlarge
-        if (pixmap.height() > height || pixmap.width() > width) {
-            pixmap = pixmap.scaled(QSize(width, height), Qt::KeepAspectRatio);
+        QString scale_string;
+        float width_scale = 0.0;
+        if (pixmap.width() > width) {
+            width_scale = 1.0 * width / pixmap.width();
+            scale_string = QString("width=\"95%\"");
+        }
+        if (pixmap.height() > height) {
+            float height_scale = 1.0 * height / pixmap.height();
+            if (scale_string.isEmpty() || height_scale < width_scale) {
+                scale_string = QString("height=\"95%\"");
+            }
         }
 
         // Define detailed information label
-        const QFileInfo fileInfo = QFileInfo(path);
-        const double ffsize = fileInfo.size() / 1024.0;
-        const QString fsize = QLocale().toString(ffsize, 'f', 2);
         const QImage img(path);
         const QUrl imgUrl = QUrl::fromLocalFile(path);
         QString colors_shades = img.isGrayscale() ? tr("shades") : tr("colors");
@@ -212,17 +296,39 @@ void SelectImages::SetPreviewImage()
 
         details = QString("%2x%3px | %4 KB | %5%6").arg(img.width()).arg(img.height())
                   .arg(fsize).arg(grayscale_color).arg(colorsInfo);
+
+        QString html;
+        const QUrl resourceUrl = QUrl::fromLocalFile(path);
+        QWebSettings::clearMemoryCaches();
+        html = IMAGE_HTML_BASE_PREVIEW.arg(scale_string).arg(resourceUrl.toString());
+        m_WebView->setHtml(html, resourceUrl);
     }
 
-    ui.preview->setPixmap(pixmap);
+    if (resource_type == Resource::VideoResourceType) {
+        QString html;
+        const QUrl resourceUrl = QUrl::fromLocalFile(path);
+        QWebSettings::clearMemoryCaches();
+        html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
+        m_WebView->setHtml(html, resourceUrl);
+        details = QString("%1 MB").arg(fmbsize);
+    } else if (resource_type == Resource::AudioResourceType) {
+        QString html;
+        const QUrl resourceUrl = QUrl::fromLocalFile(path);
+        QWebSettings::clearMemoryCaches();
+        html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
+        m_WebView->setHtml(html, resourceUrl);
+        details = QString("%1 MB").arg(fmbsize);
+    }
+
     ui.Details->setText(details);
+
     m_PreviewLoaded = true;
 }
 
-void SelectImages::FilterEditTextChangedSlot(const QString &text)
+void SelectFiles::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
-    QStandardItem *root_item = m_SelectImagesModel->invisibleRootItem();
+    QStandardItem *root_item = m_SelectFilesModel->invisibleRootItem();
     QModelIndex parent_index;
     // Hide rows that don't contain the filter text
     int first_visible_row = -1;
@@ -248,7 +354,7 @@ void SelectImages::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
-QStandardItem *SelectImages::GetLastSelectedImageItem()
+QStandardItem *SelectFiles::GetLastSelectedImageItem()
 {
     QStandardItem *item = NULL;
 
@@ -256,14 +362,14 @@ QStandardItem *SelectImages::GetLastSelectedImageItem()
         QModelIndexList selected_indexes = ui.imageTree->selectionModel()->selectedRows(0);
 
         if (!selected_indexes.isEmpty()) {
-            item = m_SelectImagesModel->itemFromIndex(selected_indexes.last());
+            item = m_SelectFilesModel->itemFromIndex(selected_indexes.last());
         }
     }
 
     return item;
 }
 
-QString SelectImages::GetLastSelectedImageName()
+QString SelectFiles::GetLastSelectedImageName()
 {
     QString selected_entry = "";
     QStandardItem *item = GetLastSelectedImageItem();
@@ -275,14 +381,14 @@ QString SelectImages::GetLastSelectedImageName()
     return selected_entry;
 }
 
-void SelectImages::InsertFromDisk()
+void SelectFiles::InsertFromDisk()
 {
     m_IsInsertFromDisk = true;
     ui.imageTree->selectionModel()->clear();
     accept();
 }
 
-void SelectImages::ReadSettings()
+void SelectFiles::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -310,7 +416,7 @@ void SelectImages::ReadSettings()
     settings.endGroup();
 }
 
-void SelectImages::WriteSettings()
+void SelectFiles::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -323,17 +429,18 @@ void SelectImages::WriteSettings()
     settings.endGroup();
 }
 
-void SelectImages::connectSignalsSlots()
+void SelectFiles::connectSignalsSlots()
 {
     QItemSelectionModel *selectionModel = ui.imageTree->selectionModel();
     connect(selectionModel,     SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
             this,               SLOT(SelectionChanged(const QItemSelection &, const QItemSelection &)));
     connect(ui.imageTree,       SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(accept()));
-    connect(this,               SIGNAL(accepted()), this, SLOT(WriteSettings()));
     connect(ui.Filter,          SIGNAL(textChanged(QString)),
             this,               SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.ThumbnailIncrease, SIGNAL(clicked()), this, SLOT(IncreaseThumbnailSize()));
     connect(ui.ThumbnailDecrease, SIGNAL(clicked()), this, SLOT(DecreaseThumbnailSize()));
-    connect(ui.preview,         SIGNAL(Resized()), this, SLOT(ReloadPreview()));
     connect(ui.InsertFromDisk,  SIGNAL(clicked()), this, SLOT(InsertFromDisk()));
+    connect(ui.FileTypes,       SIGNAL(itemSelectionChanged()), this, SLOT(SetImages()));
+
+    connect(ui.splitter,    SIGNAL(splitterMoved(int, int)), this, SLOT(SplitterMoved(int, int)));
 }

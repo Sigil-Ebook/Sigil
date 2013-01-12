@@ -65,6 +65,8 @@ extern const QStringList IMAGE_EXTENSIONS;
 extern const QStringList SVG_EXTENSIONS;
 extern const QStringList JPG_EXTENSIONS;
 extern const QStringList TIFF_EXTENSIONS;
+extern const QStringList VIDEO_EXTENSIONS;
+extern const QStringList AUDIO_EXTENSIONS;
 extern const QString ENCODING_ATTRIBUTE;
 extern const QString STANDALONE_ATTRIBUTE;
 extern const QString VERSION_ATTRIBUTE;
@@ -90,5 +92,8 @@ extern const QString SET_CURSOR_JS;
 
 extern const QString SIGIL_INDEX_CLASS;
 extern const QString SIGIL_INDEX_ID_PREFIX;
+
+extern const QString VIDEO_HTML_BASE;
+extern const QString AUDIO_HTML_BASE;
 
 #endif // SG_CONSTANTS_H

@@ -1441,7 +1441,7 @@ bool CodeViewEditor::IsInsertHyperlinkAllowed()
     return true;
 }
 
-bool CodeViewEditor::IsInsertImageAllowed()
+bool CodeViewEditor::IsInsertFileAllowed()
 {
     int pos = textCursor().selectionStart();
     QString text = toPlainText();

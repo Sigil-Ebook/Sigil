@@ -134,7 +134,7 @@
     </widget>
     <addaction name="actionInsertSGFSectionMarker"/>
     <addaction name="separator"/>
-    <addaction name="actionInsertImage"/>
+    <addaction name="actionInsertFile"/>
     <addaction name="actionInsertSpecialCharacter"/>
     <addaction name="separator"/>
     <addaction name="actionInsertId"/>
@@ -386,7 +386,7 @@
    </attribute>
    <addaction name="actionSplitSection"/>
    <addaction name="separator"/>
-   <addaction name="actionInsertImage"/>
+   <addaction name="actionInsertFile"/>
    <addaction name="actionInsertSpecialCharacter"/>
    <addaction name="actionInsertId"/>
    <addaction name="actionInsertHyperlink"/>
@@ -1001,7 +1001,7 @@
     <string>Ctrl+Return</string>
    </property>
   </action>
-  <action name="actionInsertImage">
+  <action name="actionInsertFile">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/insert-image_22px.png</normaloff>:/main/insert-image_22px.png</iconset>
@@ -1010,11 +1010,11 @@
     <string>&amp;Image...</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Images&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Files&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select images from your book to insert into the text.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add images to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add files to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+I</string>
