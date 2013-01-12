@@ -145,6 +145,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
+    m_SpellcheckEditor(new SpellcheckEditor(this)),
     m_SelectCharacter(new SelectCharacter(this)),
     m_Reports(new Reports(this)),
     m_preserveHeadingAttributes(true),
@@ -435,6 +436,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
             m_IndexEditor->ForceClose();
         }
 
+        if (m_SpellcheckEditor && m_SpellcheckEditor->isVisible()) {
+            m_SpellcheckEditor->ForceClose();
+        }
+
         event->accept();
     } else {
         event->ignore();
@@ -662,7 +667,6 @@ void MainWindow::Find()
     m_FindReplace->show();
 }
 
-
 void MainWindow::GoToLine()
 {
     ContentTab &tab = GetCurrentContentTab();
@@ -774,6 +778,16 @@ void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry *index_entry)
         m_IndexEditor->AddEntry(false, index_entry, false);
     }
 }
+
+void MainWindow::SpellcheckEditorDialog()
+{
+    m_TabManager.SaveTabData();
+    // non-modal dialog
+    m_SpellcheckEditor->show();
+    m_SpellcheckEditor->raise();
+    m_SpellcheckEditor->activateWindow();
+}
+
 
 void MainWindow::CreateIndex()
 {
@@ -2686,6 +2700,7 @@ void MainWindow::SetNewBook(QSharedPointer< Book > new_book)
     m_ValidationResultsView->SetBook(m_Book);
     // Reset variables and data for new books
     m_IndexEditor->SetBook(m_Book);
+    m_SpellcheckEditor->SetBook(m_Book);
     ResetLinkOrStyleBookmark();
     SettingsStore settings;
     settings.setRenameTemplate("");
@@ -3676,6 +3691,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMetaEditor,    SIGNAL(triggered()), this, SLOT(MetaEditorDialog()));
     connect(ui.actionValidateEpubWithFlightCrew,  SIGNAL(triggered()), this, SLOT(ValidateEpubWithFlightCrew()));
     connect(ui.actionValidateStylesheetsWithW3C,  SIGNAL(triggered()), this, SLOT(ValidateStylesheetsWithW3C()));
+    connect(ui.actionSpellcheckEditor,   SIGNAL(triggered()), this, SLOT(SpellcheckEditorDialog()));
     connect(ui.actionAutoSpellCheck, SIGNAL(triggered(bool)), this, SLOT(SetAutoSpellCheck(bool)));
     connect(ui.actionSpellCheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
@@ -3812,6 +3828,10 @@ void MainWindow::ConnectSignalsToSlots()
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_MetaEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
+    connect(m_SpellcheckEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
+            this,            SLOT(ShowMessageOnStatusBar(const QString &)));
+    connect(m_SpellcheckEditor,   SIGNAL(SpellingHighlightRefreshRequest()), this,  SLOT(RefreshSpellingHighlighting()));
+    connect(m_SpellcheckEditor,   SIGNAL(FindWordRequest(QString)), m_FindReplace,  SLOT(FindWord(QString)));
     connect(m_Reports,       SIGNAL(Refresh()), this, SLOT(ReportsDialog()));
     connect(m_Reports,       SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
     connect(m_Reports,       SIGNAL(DeleteFilesRequest(QStringList)), this, SLOT(DeleteFilenames(QStringList)));

@@ -34,6 +34,7 @@
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/IndexEditor.h"
 #include "Dialogs/Reports.h"
+#include "Dialogs/SpellcheckEditor.h"
 #include "MainUI/FindReplace.h"
 #include "MainUI/NCXModel.h"
 #include "Misc/CSSInfo.h"
@@ -266,6 +267,7 @@ private slots:
     void ZoomReset();
 
     void IndexEditorDialog(IndexEditorModel::indexEntry *index_entry = NULL);
+    void SpellcheckEditorDialog();
 
     void ReportsDialog();
 
@@ -900,6 +902,7 @@ private:
     ClipEditor *m_ClipEditor;
 
     IndexEditor *m_IndexEditor;
+    SpellcheckEditor *m_SpellcheckEditor;
 
     SelectCharacter *m_SelectCharacter;
 

@@ -141,6 +141,8 @@ public:
     static float RoundToOneDecimal(float number);
 
     static QWidget *GetMainWindow();
+
+    static QString getSpellingSafeText(const QString &raw_text);
 };
 
 #endif // UTILITY_H

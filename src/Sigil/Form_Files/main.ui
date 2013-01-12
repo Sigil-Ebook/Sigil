@@ -282,6 +282,8 @@
      <property name="title">
       <string>Spe&amp;llcheck</string>
      </property>
+     <addaction name="actionSpellcheckEditor"/>
+     <addaction name="separator"/>
      <addaction name="actionAutoSpellCheck"/>
      <addaction name="actionSpellCheck"/>
      <addaction name="separator"/>
@@ -1523,6 +1525,14 @@
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </string>
+   </property>
+  </action>
+  <action name="actionSpellcheckEditor">
+   <property name="text">
+    <string>&amp;QuickSpell...</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+Q</string>
    </property>
   </action>
   <action name="actionAutoSpellCheck">

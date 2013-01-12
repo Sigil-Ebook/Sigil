@@ -566,6 +566,25 @@ QList<HTMLResource *> Book::GetNonWellFormedHTMLFiles()
     return malformed_resources;
 }
 
+QSet<QString> Book::GetMisspelledWordsInHTMLFiles()
+{
+    QStringList all_words;
+    const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetMisspelledWordsInHTMLFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QStringList result = future.resultAt(i);
+        all_words.append(result);
+    }
+
+    return all_words.toSet();
+}
+
+QStringList Book::GetMisspelledWordsInHTMLFileMapped(HTMLResource *html_resource)
+{
+    return HTMLSpellCheck::GetAllMisspelledWords(html_resource->GetText());
+}
+
 QSet<QString> Book::GetWordsInHTMLFiles()
 {
     QStringList all_words;

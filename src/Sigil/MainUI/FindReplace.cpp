@@ -204,6 +204,24 @@ void FindReplace::CountClicked()
     ResetKeyModifiers();
 }
 
+void FindReplace::FindWord(QString word)
+{
+    SetCodeViewIfNeeded(true);
+    WriteSettings();
+
+    SetSearchMode(FindReplace::SearchMode_Regex);
+    SetLookWhere(FindReplace::LookWhere_AllHTMLFiles);
+    SetSearchDirection(FindReplace::SearchDirection_Down);
+    SetRegexOptionDotAll(true);
+    SetRegexOptionMinimalMatch(true);
+
+    word = "\\b" + word + "\\b" + "(?![^<>]*>)(?!.*<body[^>]*>)";
+    ui.cbFind->setEditText(word);
+    FindNext();
+
+    ReadSettings();
+}
+
 bool FindReplace::Find()
 {
     bool found = false;

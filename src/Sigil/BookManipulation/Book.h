@@ -214,6 +214,9 @@ public:
     QSet<QString> GetWordsInHTMLFiles();
     static QStringList GetWordsInHTMLFileMapped(HTMLResource *html_resource);
 
+    QSet<QString> GetMisspelledWordsInHTMLFiles();
+    static QStringList GetMisspelledWordsInHTMLFileMapped(HTMLResource *html_resource);
+
     QHash<QString, QStringList> GetStylesheetsInHTMLFiles();
     static boost::tuple<QString, QStringList> GetStylesheetsInHTMLFileMapped(HTMLResource *html_resource);
     QStringList GetStylesheetsInHTMLFile(HTMLResource *html_resource);

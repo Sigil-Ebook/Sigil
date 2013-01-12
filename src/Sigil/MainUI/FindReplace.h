@@ -93,6 +93,8 @@ public slots:
     void SetRegexOptionMinimalMatch(bool new_state);
     void SetRegexOptionAutoTokenise(bool new_state);
 
+    void FindWord(QString text);
+
 signals:
 
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);

@@ -1645,7 +1645,7 @@ void CodeViewEditor::RefreshSpellingHighlighting()
 void CodeViewEditor::addToUserDictionary(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
-    sc->addToUserDictionary(getSpellingSafeText(text));
+    sc->addToUserDictionary(Utility::getSpellingSafeText(text));
     // Cannot emit a signal right now to refresh tabs since signals are blocked
     m_pendingSpellingHighlighting = true;
 }
@@ -1653,19 +1653,9 @@ void CodeViewEditor::addToUserDictionary(const QString &text)
 void CodeViewEditor::ignoreWordInDictionary(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
-    sc->ignoreWord(getSpellingSafeText(text));
+    sc->ignoreWord(Utility::getSpellingSafeText(text));
     // Cannot emit a signal right now to refresh tabs since signals are blocked
     m_pendingSpellingHighlighting = true;
-}
-
-QString CodeViewEditor::getSpellingSafeText(const QString &raw_text)
-{
-    // There is currently a problem with Hunspell if we attempt to pass
-    // words with smart apostrophes from the CodeView encoding.
-    // There are likely better ways to solve this, but this one does
-    // get the job done until someone can implement something better.
-    QString text(raw_text);
-    return text.replace(QString::fromWCharArray(L"\u2019"), "'");
 }
 
 void CodeViewEditor::PasteText(const QString &text)
