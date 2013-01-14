@@ -315,7 +315,7 @@
     <addaction name="actionClipEditor"/>
     <addaction name="actionSearchEditor"/>
     <addaction name="separator"/>
-    <addaction name="actionDeleteUnusedImages"/>
+    <addaction name="actionDeleteUnusedMedia"/>
     <addaction name="actionDeleteUnusedStyles"/>
    </widget>
    <addaction name="menuFile"/>
@@ -1592,9 +1592,9 @@
     <string>Ctrl+Alt+I</string>
    </property>
   </action>
-  <action name="actionDeleteUnusedImages">
+  <action name="actionDeleteUnusedMedia">
    <property name="text">
-    <string>&amp;Delete Unused Image Files...</string>
+    <string>&amp;Delete Unused Media Files...</string>
    </property>
   </action>
   <action name="actionDeleteUnusedStyles">

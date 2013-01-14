@@ -973,29 +973,29 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
     return is_modified;
 }
 
-void MainWindow::DeleteUnusedImages()
+void MainWindow::DeleteUnusedMedia()
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
-        ShowMessageOnStatusBar(tr("Delete Unused Images cancelled due to XML not well formed."));
+        ShowMessageOnStatusBar(tr("Delete Unused Media Files cancelled due to XML not well formed."));
         return;
     }
 
     QList<Resource *> resources;
-    QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
-    foreach(Resource * resource, m_BookBrowser->AllImageResources()) {
+    QHash<QString, QStringList> html_files_hash = m_Book->GetHTMLFilesUsingMedia();
+    foreach(Resource * resource, m_BookBrowser->AllMediaResources()) {
         QString filepath = "../" + resource->GetRelativePathToOEBPS();
 
-        if (image_html_files_hash[filepath].count() == 0) {
+        if (html_files_hash[filepath].count() == 0) {
             resources.append(resource);
         }
     }
 
     if (resources.count() > 0) {
         RemoveResources(resources);
-        ShowMessageOnStatusBar(tr("Unused images deleted."));
+        ShowMessageOnStatusBar(tr("Unused media files deleted."));
     } else {
-        QMessageBox::information(this, tr("Sigil"), tr("There are no unused images to delete."));
+        QMessageBox::information(this, tr("Sigil"), tr("There are no unused image, video or audio files to delete."));
     }
 }
 
@@ -1035,7 +1035,7 @@ void MainWindow::InsertFileDialog()
     }
 
     QStringList selected_files;
-    QList<Resource *> media_resources = m_BookBrowser->AllMultimediaResources();
+    QList<Resource *> media_resources = m_BookBrowser->AllMediaResources();
 
     SelectFiles select_files(media_resources, m_LastInsertedFile, this);
 
@@ -1175,7 +1175,7 @@ void MainWindow::InsertHyperlink()
 
     QString href = flow_tab->GetAttributeHref();
     HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
-    QList<Resource *> resources = m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllImageResources();
+    QList<Resource *> resources = m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllMediaResources();
     SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);
 
     if (select_hyperlink.exec() == QDialog::Accepted) {
@@ -1573,7 +1573,7 @@ void MainWindow::EditTOCDialog()
 {
     SaveTabData();
 
-    QList<Resource *> resources = m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllImageResources();
+    QList<Resource *> resources = m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllMediaResources();
     EditTOC toc(m_Book, resources, this);
 
     if (toc.exec() != QDialog::Accepted) {
@@ -3358,7 +3358,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionAddToIndex, "MainWindow.AddToIndex");
     sm->registerAction(ui.actionMarkForIndex, "MainWindow.MarkForIndex");
     sm->registerAction(ui.actionCreateIndex, "MainWindow.CreateIndex");
-    sm->registerAction(ui.actionDeleteUnusedImages, "MainWindow.DeleteUnusedImages");
+    sm->registerAction(ui.actionDeleteUnusedMedia, "MainWindow.DeleteUnusedMedia");
     sm->registerAction(ui.actionDeleteUnusedStyles, "MainWindow.DeleteUnusedStyles");
     // View
     sm->registerAction(ui.actionBookView, "MainWindow.BookView");
@@ -3704,7 +3704,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionIndexEditor,   SIGNAL(triggered()), this, SLOT(IndexEditorDialog()));
     connect(ui.actionMarkForIndex,  SIGNAL(triggered()), this, SLOT(MarkForIndex()));
     connect(ui.actionCreateIndex,   SIGNAL(triggered()), this, SLOT(CreateIndex()));
-    connect(ui.actionDeleteUnusedImages,    SIGNAL(triggered()), this, SLOT(DeleteUnusedImages()));
+    connect(ui.actionDeleteUnusedMedia,    SIGNAL(triggered()), this, SLOT(DeleteUnusedMedia()));
     connect(ui.actionDeleteUnusedStyles,    SIGNAL(triggered()), this, SLOT(DeleteUnusedStyles()));
     // Change case
     connect(ui.actionCasingLowercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));

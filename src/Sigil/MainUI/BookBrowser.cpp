@@ -290,7 +290,7 @@ QList <Resource *> BookBrowser::AllImageResources()
     return m_OPFModel.GetResourceListInFolder(Resource::ImageResourceType);
 }
 
-QList <Resource *> BookBrowser::AllMultimediaResources()
+QList <Resource *> BookBrowser::AllMediaResources()
 {
     QList <Resource *> resources;
     resources = m_OPFModel.GetResourceListInFolder(Resource::ImageResourceType);

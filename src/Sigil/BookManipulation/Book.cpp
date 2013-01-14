@@ -480,8 +480,8 @@ QHash<QString, QStringList> Book::GetClassesInHTMLFiles()
 {
     QHash<QString, QStringList> classes_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
-    QFuture< tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetClassesInHTMLFileMapped);
 
+    QFuture< tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetClassesInHTMLFileMapped);
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QStringList class_names;
@@ -514,43 +514,114 @@ QStringList Book::GetClassesInHTMLFile(QString filename)
 
 QHash<QString, QStringList> Book::GetImagesInHTMLFiles()
 {
-    QHash<QString, QStringList> images_in_html;
+    QHash<QString, QStringList> media_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
     QFuture< tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetImagesInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
-        QStringList images;
-        tie(filename, images) = future.resultAt(i);
-        images_in_html[filename] = images;
+        QStringList media_files;
+        tie(filename, media_files) = future.resultAt(i);
+        media_in_html[filename] = media_files;
     }
 
-    return images_in_html;
+    return media_in_html;
+}
+
+QHash<QString, QStringList> Book::GetVideoInHTMLFiles()
+{
+    QHash<QString, QStringList> media_in_html;
+    const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+    QFuture< tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetVideoInHTMLFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QString filename;
+        QStringList media_files;
+        tie(filename, media_files) = future.resultAt(i);
+        media_in_html[filename] = media_files;
+    }
+
+    return media_in_html;
+}
+
+QHash<QString, QStringList> Book::GetAudioInHTMLFiles()
+{
+    QHash<QString, QStringList> media_in_html;
+    const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+    QFuture< tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetAudioInHTMLFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QString filename;
+        QStringList media_files;
+        tie(filename, media_files) = future.resultAt(i);
+        media_in_html[filename] = media_files;
+    }
+
+    return media_in_html;
+}
+
+QHash<QString, QStringList> Book::GetHTMLFilesUsingMedia()
+{
+    QHash<QString, QStringList> html_files;
+    const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+
+    QFuture< tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetMediaInHTMLFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QString html_filename;
+        QStringList media_filenames;
+        tie(html_filename, media_filenames) = future.resultAt(i);
+        foreach(QString media_filename, media_filenames) {
+            html_files[media_filename].append(html_filename);
+        }
+    }
+
+    return html_files;
 }
 
 QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
 {
-    QHash<QString, QStringList> image_html_files;
+    QHash<QString, QStringList> html_files;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+
     QFuture< tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetImagesInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString html_filename;
-        QStringList image_filenames;
-        tie(html_filename, image_filenames) = future.resultAt(i);
-        foreach(QString image_filename, image_filenames) {
-            image_html_files[image_filename].append(html_filename);
+        QStringList media_filenames;
+        tie(html_filename, media_filenames) = future.resultAt(i);
+        foreach(QString media_filename, media_filenames) {
+            html_files[media_filename].append(html_filename);
         }
     }
 
-    return image_html_files;
+    return html_files;
 }
 
+
+tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *html_resource)
+{
+    return make_tuple(html_resource->Filename(),
+                      //XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()), IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS).get());
+                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS));
+}
 
 tuple<QString, QStringList> Book::GetImagesInHTMLFileMapped(HTMLResource *html_resource)
 {
     return make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllImagePathsFromImageChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()));
+                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), IMAGE_TAGS));
+}
+
+tuple<QString, QStringList> Book::GetVideoInHTMLFileMapped(HTMLResource *html_resource)
+{
+    return make_tuple(html_resource->Filename(),
+                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), VIDEO_TAGS));
+}
+
+tuple<QString, QStringList> Book::GetAudioInHTMLFileMapped(HTMLResource *html_resource)
+{
+    return make_tuple(html_resource->Filename(),
+                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), AUDIO_TAGS));
 }
 
 QList<HTMLResource *> Book::GetNonWellFormedHTMLFiles()

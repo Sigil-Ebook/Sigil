@@ -171,7 +171,7 @@ void ImportHTML::UpdateFiles(HTMLResource &html_resource,
 QHash< QString, QString > ImportHTML::LoadFolderStructure(const xc::DOMDocument &document)
 {
     QFutureSynchronizer< QHash< QString, QString > > sync;
-    sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadImages,     &document));
+    sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadMediaFiles,     &document));
     sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadStyleFiles, &document));
     sync.waitForFinished();
     QList< QFuture< QHash< QString, QString > > > futures = sync.futures();
@@ -186,19 +186,18 @@ QHash< QString, QString > ImportHTML::LoadFolderStructure(const xc::DOMDocument 
 }
 
 
-// Loads the images into the book
-QHash< QString, QString > ImportHTML::LoadImages(const xc::DOMDocument *document)
+QHash< QString, QString > ImportHTML::LoadMediaFiles(const xc::DOMDocument *document)
 {
-    QStringList image_paths = XhtmlDoc::GetImagePathsFromImageChildren(*document);
+    QStringList file_paths = XhtmlDoc::GetMediaPathsFromMediaChildren(*document, IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS);
     QHash< QString, QString > updates;
     QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
     QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
-    // Load the images into the book and
+    // Load the media files (images, video, audio) into the book and
     // update all references with new urls
-    foreach(QString image_path, image_paths) {
+    foreach(QString file_path, file_paths) {
         try {
-            QString filename = QFileInfo(image_path).fileName();
-            QString fullfilepath  = QFileInfo(folder, image_path).absoluteFilePath();
+            QString filename = QFileInfo(file_path).fileName();
+            QString fullfilepath  = QFileInfo(folder, file_path).absoluteFilePath();
             QString newpath;
 
             if (m_IgnoreDuplicates && current_filenames.contains(filename)) {

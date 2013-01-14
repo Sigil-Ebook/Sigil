@@ -71,7 +71,7 @@ private:
 
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
-    QHash< QString, QString > LoadImages(const xc::DOMDocument *document);
+    QHash< QString, QString > LoadMediaFiles(const xc::DOMDocument *document);
 
     QHash< QString, QString > LoadStyleFiles(const xc::DOMDocument *document);
 
