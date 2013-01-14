@@ -107,9 +107,16 @@ void TableOfContents::ItemClickedHandler(const QModelIndex &index)
     QUrl url         = m_NCXModel.GetUrlForIndex(index);
     QString filename = QFileInfo(url.path()).fileName();
 
+    int line = -1;
+
+    // If no id, go to the top of the page
+    if (url.fragment().isEmpty()) {
+        line = 1;
+    }
+
     try {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
-        emit OpenResourceRequest(resource, -1, -1, QString(), MainWindow::ViewState_Unknown, url.fragment());
+        emit OpenResourceRequest(resource, line, -1, QString(), MainWindow::ViewState_Unknown, url.fragment());
     } catch (const ResourceDoesNotExist &) {
         Utility::DisplayStdErrorDialog(
             tr("The file \"%1\" does not exist.")
