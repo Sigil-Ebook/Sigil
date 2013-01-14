@@ -36,7 +36,6 @@ TempFolder::TempFolder()
     folder.mkpath(folder.absolutePath());
 }
 
-
 TempFolder::~TempFolder()
 {
     QtConcurrent::run(DeleteFolderAndFiles, m_PathToFolder);
@@ -72,16 +71,14 @@ bool TempFolder::DeleteFolderAndFiles(const QString &fullfolderpath)
 
     QDir folder(fullfolderpath);
     // Erase all the files in this folder
-    foreach(QFileInfo file, folder.entryInfoList()) {
-        if ((file.fileName() != ".") && (file.fileName() != "..")) {
-            // If it's a file, delete it
-            if (file.isFile()) {
-                folder.remove(file.fileName());
-            }
-            // Else it's a directory, delete it recursively
-            else {
-                DeleteFolderAndFiles(file.absoluteFilePath());
-            }
+    foreach(QFileInfo file, folder.entryInfoList(QDir::Dirs|QDir::Files|QDir::NoDotAndDotDot|QDir::Hidden)) {
+        // If it's a file, delete it
+        if (file.isFile()) {
+            folder.remove(file.fileName());
+        }
+        // Else it's a directory, delete it recursively
+        else {
+            DeleteFolderAndFiles(file.absoluteFilePath());
         }
     }
     // Delete the folder after it's empty
