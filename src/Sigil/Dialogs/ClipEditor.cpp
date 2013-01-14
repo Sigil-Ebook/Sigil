@@ -48,6 +48,7 @@ ClipEditor::ClipEditor(QWidget *parent)
     SetupClipEditorTree();
     CreateContextMenuActions();
     ConnectSignalsSlots();
+    ExpandAll();
 }
 
 void ClipEditor::SetupClipEditorTree()
@@ -91,18 +92,10 @@ void ClipEditor::PasteIntoDocument()
 void ClipEditor::showEvent(QShowEvent *event)
 {
     ReadSettings();
-    ui.ClipEditorTree->expandAll();
-    ui.Filter->setCurrentIndex(0);
-    ui.FilterText->clear();
     ui.FilterText->setFocus();
 
     for (int column = 0; column < ui.ClipEditorTree->header()->count() - 1; column++) {
         ui.ClipEditorTree->resizeColumnToContents(column);
-    }
-
-    if (m_ClipEditorModel->rowCount() > 0) {
-        QModelIndex first = m_ClipEditorModel->index(0, 0, QModelIndex());
-        ui.ClipEditorTree->setCurrentIndex(first);
     }
 }
 

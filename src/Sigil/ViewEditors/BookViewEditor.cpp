@@ -67,6 +67,7 @@ const QString REMOVE_HTML_TAG = "<html.*>";
 const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilReplace_\\d*\")*>";
 
 const QString XLINK_NAMESPACE = "http://www.w3.org/1999/xlink";
+const QString XHTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
 
 /**
  * The JavaScript source code for getting a string representation
@@ -153,9 +154,9 @@ BookViewEditor::~BookViewEditor()
         m_SaveAs = 0;
     }
 
-    if (m_InsertImage) {
-        delete m_InsertImage;
-        m_InsertImage = 0;
+    if (m_InsertFile) {
+        delete m_InsertFile;
+        m_InsertFile = 0;
     }
 
     if (m_InspectElement) {
@@ -644,9 +645,9 @@ void BookViewEditor::openImage()
     }
 }
 
-void BookViewEditor::insertImage()
+void BookViewEditor::insertFile()
 {
-    emit InsertImage();
+    emit InsertFile();
 }
 
 void BookViewEditor::openWith()
@@ -660,7 +661,7 @@ void BookViewEditor::openWith()
         if (!editorPath.isEmpty()) {
             if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {
                 const QString &pathname = resourceUrl.toString();
-                emit ImageOpenedExternally(pathname);
+                emit InsertedFileOpenedExternally(pathname);
             }
         }
     }
@@ -672,7 +673,7 @@ void BookViewEditor::saveAs()
 
     if (data.isValid()) {
         const QUrl &url = data.toUrl();
-        emit ImageSaveAs(url);
+        emit InsertedFileSaveAs(url);
     }
 }
 
@@ -686,7 +687,7 @@ void BookViewEditor::openWithEditor()
 
         if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {
             const QString &pathname = resourceUrl.toString();
-            emit ImageOpenedExternally(pathname);
+            emit InsertedFileOpenedExternally(pathname);
         }
     }
 }
@@ -764,11 +765,12 @@ bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
     if (frame) {
         const QWebHitTestResult &hitTest = frame->hitTestContent(point);
         QUrl imageUrl = hitTest.imageUrl();
-
-        if (!imageUrl.isValid() && hitTest.element().tagName().toLower() == "image") {
-            // It is "possible" that we are in an SVG image tag, which the hitTest does
+        QString tag = hitTest.element().tagName().toLower();
+        if (!imageUrl.isValid() && (tag == "image" || tag == "video" || tag == "audio" )) {
+            // It is "possible" that we are in an SVG image tag which the hitTest does
             // not return sufficient information for directly. Go spelunking for an attribute.
             const QWebElement element = hitTest.element();
+
             foreach(QString attrib, element.attributeNames(XLINK_NAMESPACE)) {
                 if (attrib.toLower() == "href") {
                     QString path = element.attributeNS(XLINK_NAMESPACE, attrib);
@@ -823,7 +825,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
             // If not an image allow insert - otherwise cursor is not where you expect.
             AddClipContextMenu(&m_ContextMenu);
             m_ContextMenu.addSeparator();
-            m_ContextMenu.addAction(m_InsertImage);
+            m_ContextMenu.addAction(m_InsertFile);
         }
     }
 
@@ -952,7 +954,7 @@ void BookViewEditor::keyReleaseEvent(QKeyEvent *event)
 
 void BookViewEditor::CreateContextMenuActions()
 {
-    m_InsertImage = new QAction(tr("Insert Image") + "...", this);
+    m_InsertFile = new QAction(tr("Insert File") + "...", this);
     m_Undo      = new QAction(tr("Undo"),         this);
     m_Redo      = new QAction(tr("Redo"),         this);
     m_Cut       = new QAction(tr("Cut"),         this);
@@ -980,7 +982,7 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect(page(), SIGNAL(contentsChanged()),      this,   SIGNAL(textChanged()));
     connect(page(), SIGNAL(selectionChanged()),      this,   SIGNAL(selectionChanged()));
     connect(page(), SIGNAL(contentsChanged()),      this,   SLOT(SetWebPageModified()));
-    connect(m_InsertImage,    SIGNAL(triggered()),  this, SLOT(insertImage()));
+    connect(m_InsertFile,     SIGNAL(triggered()),  this, SLOT(insertFile()));
     connect(m_Undo,           SIGNAL(triggered()),  this, SLOT(Undo()));
     connect(m_Redo,           SIGNAL(triggered()),  this, SLOT(Redo()));
     connect(m_Cut,            SIGNAL(triggered()),  this, SLOT(cut()));

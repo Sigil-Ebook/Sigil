@@ -205,7 +205,7 @@ public slots:
     void paste();
     void selectAll();
 
-    void insertImage();
+    void insertFile();
     void openImage();
     void copyImage();
 
@@ -250,11 +250,11 @@ signals:
      */
     void FocusLost(QWidget *editor);
 
-    void InsertImage();
+    void InsertFile();
 
-    void ImageOpenedExternally(const QString &pathname);
+    void InsertedFileOpenedExternally(const QString &pathname);
 
-    void ImageSaveAs(const QUrl &url);
+    void InsertedFileSaveAs(const QUrl &url);
 
     /**
      * Emitted when we want to do some operations with the clipboard
@@ -426,7 +426,7 @@ private:
     QAction *m_Paste;
     QAction *m_SelectAll;
 
-    QAction *m_InsertImage;
+    QAction *m_InsertFile;
     QAction *m_Open;
 
     QMenu &m_OpenWithContextMenu;

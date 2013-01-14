@@ -152,7 +152,7 @@ public:
     virtual bool InsertSpecialCharacterEnabled() {
         return false;
     }
-    virtual bool InsertImageEnabled() {
+    virtual bool InsertFileEnabled() {
         return false;
     }
     virtual bool ToggleAutoSpellcheckEnabled() {
@@ -405,9 +405,9 @@ signals:
 
     void SpellingHighlightRefreshRequest();
 
-    void ImageOpenedExternally(const QString &pathname);
+    void InsertedFileOpenedExternally(const QString &pathname);
 
-    void ImageSaveAs(const QUrl &url);
+    void InsertedFileSaveAs(const QUrl &url);
 
     void ShowStatusMessageRequest(const QString &message);
 

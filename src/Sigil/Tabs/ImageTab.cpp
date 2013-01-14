@@ -157,7 +157,7 @@ void ImageTab::saveAs()
 
     if (data.isValid()) {
         const QUrl &url = data.toUrl();
-        emit ImageSaveAs(url);
+        emit InsertedFileSaveAs(url);
     }
 }
 
@@ -178,7 +178,7 @@ void ImageTab::openWith()
         if (!editorPath.isEmpty()) {
             if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {
                 const QString &pathname = resourceUrl.toString();
-                emit ImageOpenedExternally(pathname);
+                emit InsertedFileOpenedExternally(pathname);
             }
         }
     }
@@ -194,7 +194,7 @@ void ImageTab::openWithEditor()
 
         if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {
             const QString &pathname = resourceUrl.toString();
-            emit ImageOpenedExternally(pathname);
+            emit InsertedFileOpenedExternally(pathname);
         }
     }
 }

@@ -57,6 +57,7 @@ public:
     static int CountAllWords(const QString &text);
 
     static QStringList GetAllWords(const QString &text);
+    static QStringList GetAllMisspelledWords(const QString &text);
 
     static MisspelledWord GetFirstMisspelledWord(const QString &text,
             int start_offset,

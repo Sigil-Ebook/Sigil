@@ -23,7 +23,6 @@
 #include <QtCore/QSignalMapper>
 #include <QtWidgets/QFileDialog>
 #include <QtGui/QContextMenuEvent>
-#include <QtWidgets/QProgressDialog>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
 
@@ -238,13 +237,6 @@ void IndexEditor::Delete()
         return;
     }
 
-    // Display progress dialog
-    QProgressDialog progress(QObject::tr("Deleting entries..."), tr("Cancel"), 0, SelectedRowsCount(), this);
-    progress.setMinimumDuration(0);
-    int progress_value = 0;
-    progress.setValue(progress_value);
-    qApp->processEvents();
-
     // Deleting all entries can be done much quicker than deleting one by one.
     if (SelectedRowsCount() == m_IndexEditorModel->invisibleRootItem()->rowCount()) {
         m_IndexEditorModel->ClearData();
@@ -255,13 +247,6 @@ void IndexEditor::Delete()
     int row = -1;
 
     while (ui.IndexEditorTree->selectionModel()->hasSelection()) {
-        // Set progress value and ensure dialog has time to display when doing extensive updates
-        if (progress.wasCanceled()) {
-            break;
-        }
-
-        progress.setValue(progress_value++);
-        qApp->processEvents();
         QModelIndex index = ui.IndexEditorTree->selectionModel()->selectedRows(0).first();
 
         if (index.isValid()) {
@@ -290,25 +275,8 @@ void IndexEditor::AutoFill()
     }
 
     QSet<QString> unique_words = m_Book->GetWordsInHTMLFiles();
-    // Display progress dialog
-    QProgressDialog progress(QObject::tr("Automatically Filling Index..."), tr("Cancel"), 0, unique_words.count(), this);
-    progress.setMinimumDuration(0);
-    int progress_value = 0;
-    progress.setValue(progress_value);
-    qApp->processEvents();
-    // Temporarily hide the Index dialog to significantly speed up adding entries by reducing gui updates
-    hide();
     int count = 0;
     foreach(QString word, unique_words) {
-        // Set progress value and ensure dialog has time to display when doing extensive updates
-        progress.setValue(progress_value++);
-        qApp->processEvents();
-
-        if (progress.wasCanceled()) {
-            break;
-        }
-
-        qApp->processEvents();
         IndexEditorModel::indexEntry *entry = new IndexEditorModel::indexEntry();
         entry->pattern = word;
         entry->index_entry = "";
@@ -316,10 +284,7 @@ void IndexEditor::AutoFill()
         count++;
     }
     ui.IndexEditorTree->sortByColumn(0, Qt::AscendingOrder);
-    // Cancel the progress dialog since the information dialog will keep it open
-    progress.cancel();
-    show();
-    QMessageBox::information(this, tr("Index Editor"), tr("Index entries added: %n", "", count));
+    QMessageBox::information(this, tr("Index Editor"), tr("Entries added: %n", "", count));
 }
 
 void IndexEditor::Open()

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012, 2013 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012, 2013 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -49,7 +49,7 @@
 #include "Dialogs/Preferences.h"
 #include "Dialogs/SearchEditor.h"
 #include "Dialogs/SelectCharacter.h"
-#include "Dialogs/SelectImages.h"
+#include "Dialogs/SelectFiles.h"
 #include "Dialogs/SelectHyperlink.h"
 #include "Dialogs/SelectId.h"
 #include "Dialogs/SelectIndexTitle.h"
@@ -126,7 +126,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_Book(new Book()),
     m_LastFolderOpen(QString()),
     m_SaveACopyFilename(QString()),
-    m_LastInsertedImage(QString()),
+    m_LastInsertedFile(QString()),
     m_TabManager(*new TabManager(this)),
     m_BookBrowser(NULL),
     m_Clips(NULL),
@@ -145,6 +145,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
+    m_SpellcheckEditor(new SpellcheckEditor(this)),
     m_SelectCharacter(new SelectCharacter(this)),
     m_Reports(new Reports(this)),
     m_preserveHeadingAttributes(true),
@@ -435,6 +436,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
             m_IndexEditor->ForceClose();
         }
 
+        if (m_SpellcheckEditor && m_SpellcheckEditor->isVisible()) {
+            m_SpellcheckEditor->ForceClose();
+        }
+
         event->accept();
     } else {
         event->ignore();
@@ -662,7 +667,6 @@ void MainWindow::Find()
     m_FindReplace->show();
 }
 
-
 void MainWindow::GoToLine()
 {
     ContentTab &tab = GetCurrentContentTab();
@@ -774,6 +778,16 @@ void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry *index_entry)
         m_IndexEditor->AddEntry(false, index_entry, false);
     }
 }
+
+void MainWindow::SpellcheckEditorDialog()
+{
+    m_TabManager.SaveTabData();
+    // non-modal dialog
+    m_SpellcheckEditor->show();
+    m_SpellcheckEditor->raise();
+    m_SpellcheckEditor->activateWindow();
+}
+
 
 void MainWindow::CreateIndex()
 {
@@ -1009,64 +1023,77 @@ void MainWindow::DeleteUnusedStyles()
     }
 }
 
-void MainWindow::InsertImageDialog()
+void MainWindow::InsertFileDialog()
 {
     SaveTabData();
     FlowTab *flow_tab = qobject_cast<FlowTab *>(&GetCurrentContentTab());
     ShowMessageOnStatusBar();
 
-    if (!flow_tab || !flow_tab->InsertImageEnabled()) {
-        ShowMessageOnStatusBar(tr("You cannot insert an image at this position."));
+    if (!flow_tab || !flow_tab->InsertFileEnabled()) {
+        ShowMessageOnStatusBar(tr("You cannot insert a file at this position."));
         return;
     }
 
-    QStringList selected_images;
-    QList<Resource *> image_resources = m_BookBrowser->AllImageResources();
-    QString basepath = m_Book->GetFolderKeeper().GetFullPathToImageFolder();
+    QStringList selected_files;
+    QList<Resource *> media_resources = m_BookBrowser->AllMultimediaResources();
 
-    if (!basepath.endsWith("/")) {
-        basepath.append("/");
-    }
+    SelectFiles select_files(media_resources, m_LastInsertedFile, this);
 
-    SelectImages select_images(basepath, image_resources, m_LastInsertedImage, this);
-
-    if (select_images.exec() == QDialog::Accepted) {
-        if (select_images.IsInsertFromDisk()) {
-            InsertImagesFromDisk();
+    if (select_files.exec() == QDialog::Accepted) {
+        if (select_files.IsInsertFromDisk()) {
+            InsertFilesFromDisk();
         } else {
-            selected_images = select_images.SelectedImages();
-            InsertImages(selected_images);
+            selected_files = select_files.SelectedImages();
+            InsertFiles(selected_files);
         }
     }
 }
 
-void MainWindow::InsertImages(const QStringList &selected_images)
+void MainWindow::InsertFiles(const QStringList &selected_files)
 {
-    if (!selected_images.isEmpty()) {
+    if (!selected_files.isEmpty()) {
         FlowTab *flow_tab = qobject_cast<FlowTab *>(&GetCurrentContentTab());
 
         if (!flow_tab) {
             return;
         }
 
-        if (flow_tab->InsertImageEnabled()) {
-            foreach(QString selected_image, selected_images) {
+        if (flow_tab->InsertFileEnabled()) {
+            foreach(QString selected_file, selected_files) {
                 try {
-                    const Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_image);
-                    const QString &relative_path = "../" + resource.GetRelativePathToOEBPS();
-                    flow_tab->InsertImage(relative_path);
+                    Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_file);
+                    QString relative_path = "../" + resource.GetRelativePathToOEBPS();
+
+                    QString filename = relative_path.right(relative_path.length() - relative_path.lastIndexOf("/") - 1);
+                    if (filename.contains(".")) {
+                        filename = filename.left(filename.lastIndexOf("."));
+                    }
+
+                    QString html;
+                    if (resource.Type() == Resource::ImageResourceType || resource.Type() == Resource::SVGResourceType) {
+                        html = QString("<img alt=\"%1\" src=\"%2\"/>").arg(filename).arg(relative_path);
+                    } 
+                    else if (resource.Type() == Resource::VideoResourceType) {
+                        // When inserted in BV the filename will disappear
+                        html = QString("<video controls=\"controls\" src=\"%1\">%2</video>").arg(relative_path).arg(filename);
+                    }
+                    else if (resource.Type() == Resource::AudioResourceType) {
+                        html = QString("<audio controls=\"controls\" src=\"%1\">%2</audio>").arg(relative_path).arg(filename);
+                    }
+
+                    flow_tab->InsertFile(html);
                 } catch (const ResourceDoesNotExist &) {
-                    Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.") .arg(selected_image));
+                    Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.") .arg(selected_file));
                 }
             }
         }
 
         flow_tab->ResumeTabReloading();
-        m_LastInsertedImage = selected_images.last();
+        m_LastInsertedFile = selected_files.last();
     }
 }
 
-void MainWindow::InsertImagesFromDisk()
+void MainWindow::InsertFilesFromDisk()
 {
     // Prompt the user for the images to add.
     // Workaround for insert same image twice from disk causing a book view refresh
@@ -1080,7 +1107,7 @@ void MainWindow::InsertImagesFromDisk()
     // We must disconnect the ResourcesAdded signal to avoid LoadTabContent being called
     // which results in the inserted image being cleared from the BV page immediately.
     disconnect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
-    QStringList filenames = m_BookBrowser->AddExisting(Resource::ImageResourceType);
+    QStringList filenames = m_BookBrowser->AddExisting(true);
     connect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
     // Since we disconnected the signal we will have missed forced clearing of cache
     QWebSettings::clearMemoryCaches();
@@ -1089,7 +1116,7 @@ void MainWindow::InsertImagesFromDisk()
         QString internal_filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
         internal_filenames.append(internal_filename);
     }
-    InsertImages(internal_filenames);
+    InsertFiles(internal_filenames);
 }
 
 void MainWindow::InsertSpecialCharacter()
@@ -2000,7 +2027,7 @@ void MainWindow::SetStateActionsBookView()
     ui.actionPrint->setEnabled(true);
     ui.actionSplitSection->setEnabled(true);
     ui.actionInsertSGFSectionMarker->setEnabled(true);
-    ui.actionInsertImage->setEnabled(true);
+    ui.actionInsertFile->setEnabled(true);
     ui.actionInsertSpecialCharacter->setEnabled(true);
     ui.actionInsertId->setEnabled(true);
     ui.actionInsertHyperlink->setEnabled(true);
@@ -2071,7 +2098,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionPrint->setEnabled(true);
     ui.actionSplitSection->setEnabled(true);
     ui.actionInsertSGFSectionMarker->setEnabled(true);
-    ui.actionInsertImage->setEnabled(true);
+    ui.actionInsertFile->setEnabled(true);
     ui.actionInsertSpecialCharacter->setEnabled(true);
     ui.actionInsertId->setEnabled(true);
     ui.actionInsertHyperlink->setEnabled(true);
@@ -2159,7 +2186,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionPrint->setEnabled(true);
     ui.actionSplitSection->setEnabled(false);
     ui.actionInsertSGFSectionMarker->setEnabled(false);
-    ui.actionInsertImage->setEnabled(false);
+    ui.actionInsertFile->setEnabled(false);
     ui.actionInsertSpecialCharacter->setEnabled(false);
     ui.actionInsertId->setEnabled(false);
     ui.actionInsertHyperlink->setEnabled(false);
@@ -2230,7 +2257,7 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionPrint->setEnabled(true);
     ui.actionSplitSection->setEnabled(false);
     ui.actionInsertSGFSectionMarker->setEnabled(false);
-    ui.actionInsertImage->setEnabled(false);
+    ui.actionInsertFile->setEnabled(false);
     ui.actionInsertSpecialCharacter->setEnabled(false);
     ui.actionInsertId->setEnabled(false);
     ui.actionInsertHyperlink->setEnabled(false);
@@ -2673,6 +2700,7 @@ void MainWindow::SetNewBook(QSharedPointer< Book > new_book)
     m_ValidationResultsView->SetBook(m_Book);
     // Reset variables and data for new books
     m_IndexEditor->SetBook(m_Book);
+    m_SpellcheckEditor->SetBook(m_Book);
     ResetLinkOrStyleBookmark();
     SettingsStore settings;
     settings.setRenameTemplate("");
@@ -2722,8 +2750,8 @@ void MainWindow::LoadFile(const QString &fullfilepath)
 
     // Store the folder the user opened from
     m_LastFolderOpen = QFileInfo(fullfilepath).absolutePath();
-    // Clear the last inserted image
-    m_LastInsertedImage = "";
+    // Clear the last inserted file
+    m_LastInsertedFile = "";
 
     try {
         ImporterFactory importerFactory;
@@ -2953,7 +2981,7 @@ float MainWindow::SliderRangeToZoomFactor(int slider_range_value)
     }
 }
 
-void MainWindow::SetImageWatchResourceFile(const QString &pathname)
+void MainWindow::SetInsertedFileWatchResourceFile(const QString &pathname)
 {
     QString filename = QFileInfo(pathname).fileName();
 
@@ -3252,7 +3280,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionPaste, "MainWindow.Paste");
     sm->registerAction(ui.actionPasteClipboardHistory, "MainWindow.PasteClipboardHistory");
     sm->registerAction(ui.actionDeleteLine, "MainWindow.DeleteLine");
-    sm->registerAction(ui.actionInsertImage, "MainWindow.InsertImage");
+    sm->registerAction(ui.actionInsertFile, "MainWindow.InsertFile");
     sm->registerAction(ui.actionInsertSpecialCharacter, "MainWindow.InsertSpecialCharacter");
     sm->registerAction(ui.actionInsertId, "MainWindow.InsertId");
     sm->registerAction(ui.actionInsertHyperlink, "MainWindow.InsertHyperlink");
@@ -3560,9 +3588,9 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionSplitSection->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-section-break_16px.png"));
     ui.actionSplitSection->setIcon(icon);
-    icon = ui.actionInsertImage->icon();
+    icon = ui.actionInsertFile->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-image_16px.png"));
-    ui.actionInsertImage->setIcon(icon);
+    ui.actionInsertFile->setIcon(icon);
     icon = ui.actionPrint->icon();
     icon.addFile(QString::fromUtf8(":/main/document-print_16px.png"));
     ui.actionPrint->setIcon(icon);
@@ -3632,7 +3660,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionClose,         SIGNAL(triggered()), this, SLOT(close()));
     connect(ui.actionExit,          SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
     // Edit
-    connect(ui.actionInsertImage,     SIGNAL(triggered()), this, SLOT(InsertImageDialog()));
+    connect(ui.actionInsertFile,     SIGNAL(triggered()), this, SLOT(InsertFileDialog()));
     connect(ui.actionInsertSpecialCharacter, SIGNAL(triggered()), this, SLOT(InsertSpecialCharacter()));
     connect(ui.actionInsertId,        SIGNAL(triggered()),  this,   SLOT(InsertId()));
     connect(ui.actionInsertHyperlink, SIGNAL(triggered()),  this,   SLOT(InsertHyperlink()));
@@ -3663,6 +3691,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMetaEditor,    SIGNAL(triggered()), this, SLOT(MetaEditorDialog()));
     connect(ui.actionValidateEpubWithFlightCrew,  SIGNAL(triggered()), this, SLOT(ValidateEpubWithFlightCrew()));
     connect(ui.actionValidateStylesheetsWithW3C,  SIGNAL(triggered()), this, SLOT(ValidateStylesheetsWithW3C()));
+    connect(ui.actionSpellcheckEditor,   SIGNAL(triggered()), this, SLOT(SpellcheckEditorDialog()));
     connect(ui.actionAutoSpellCheck, SIGNAL(triggered(bool)), this, SLOT(SetAutoSpellCheck(bool)));
     connect(ui.actionSpellCheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
@@ -3799,6 +3828,10 @@ void MainWindow::ConnectSignalsToSlots()
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_MetaEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
+    connect(m_SpellcheckEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
+            this,            SLOT(ShowMessageOnStatusBar(const QString &)));
+    connect(m_SpellcheckEditor,   SIGNAL(SpellingHighlightRefreshRequest()), this,  SLOT(RefreshSpellingHighlighting()));
+    connect(m_SpellcheckEditor,   SIGNAL(FindWordRequest(QString)), m_FindReplace,  SLOT(FindWord(QString)));
     connect(m_Reports,       SIGNAL(Refresh()), this, SLOT(ReportsDialog()));
     connect(m_Reports,       SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
     connect(m_Reports,       SIGNAL(DeleteFilesRequest(QStringList)), this, SLOT(DeleteFilenames(QStringList)));
@@ -3830,8 +3863,8 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
     if (rType == Resource::HTMLResourceType ||
         rType == Resource::ImageResourceType ||
         rType == Resource::SVGResourceType) {
-        connect(tab, SIGNAL(ImageOpenedExternally(const QString &)), this, SLOT(SetImageWatchResourceFile(const QString &)));
-        connect(tab, SIGNAL(ImageSaveAs(const QUrl &)), m_BookBrowser, SLOT(SaveAsUrl(const QUrl &)));
+        connect(tab, SIGNAL(InsertedFileOpenedExternally(const QString &)), this, SLOT(SetInsertedFileWatchResourceFile(const QString &)));
+        connect(tab, SIGNAL(InsertedFileSaveAs(const QUrl &)), m_BookBrowser, SLOT(SaveAsUrl(const QUrl &)));
     }
 
     if (rType == Resource::CSSResourceType) {
@@ -3880,7 +3913,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(ClipboardSaveRequest()),     m_ClipboardHistorySelector,  SLOT(SaveClipboardState()));
         connect(tab,   SIGNAL(ClipboardRestoreRequest()),  m_ClipboardHistorySelector,  SLOT(RestoreClipboardState()));
         connect(tab,   SIGNAL(SpellingHighlightRefreshRequest()), this,  SLOT(RefreshSpellingHighlighting()));
-        connect(tab,   SIGNAL(InsertImageRequest()), this,  SLOT(InsertImageDialog()));
+        connect(tab,   SIGNAL(InsertFileRequest()), this,  SLOT(InsertFileDialog()));
 
         connect(tab,   SIGNAL(UpdatePreview()), this, SLOT(UpdatePreviewRequest()));
         connect(tab,   SIGNAL(UpdatePreviewImmediately()), this, SLOT(UpdatePreview()));

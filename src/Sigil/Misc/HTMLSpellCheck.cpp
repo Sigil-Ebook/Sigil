@@ -103,7 +103,7 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const
                 }
 
                 // We want to start the word with the character after the boundary.
-                // If the next character is another boundary we'll just move forwad one.
+                // If the next character is another boundary we'll just move forward one.
                 word_start = i + 1;
                 in_invalid_word = false;
             } else {
@@ -226,3 +226,14 @@ QStringList HTMLSpellCheck::GetAllWords(const QString &text)
     }
     return all_words_text;
 }
+
+QStringList HTMLSpellCheck::GetAllMisspelledWords(const QString &text)
+{
+    QList< HTMLSpellCheck::MisspelledWord > words = GetMisspelledWords(text, 0, text.count(), "", false, false);
+    QStringList all_words_text;
+    foreach(HTMLSpellCheck::MisspelledWord word, words) {
+        all_words_text.append(word.text);
+    }
+    return all_words_text;
+}
+

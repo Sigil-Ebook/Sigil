@@ -25,6 +25,7 @@
 #include <QtWebKitWidgets/QWebView>
 
 #include "Tabs/AVTab.h"
+#include "sigil_constants.h"
 
 const QString AUDIO_HTML_BASE =
     "<html>"
@@ -46,7 +47,7 @@ const QString VIDEO_HTML_BASE =
     "video { display: block; margin-left: auto; margin-right: auto; }"
     "</style>"
     "<body>"
-    "<p><video controls=\"controls\" width=\"560\" src=\"%1\"></audio></p>"
+    "<p><video controls=\"controls\" width=\"560\" src=\"%1\"></video></p>"
     "</body>"
     "</html>";
 

@@ -625,10 +625,10 @@ bool FlowTab::InsertSpecialCharacterEnabled()
     return false;
 }
 
-bool FlowTab::InsertImageEnabled()
+bool FlowTab::InsertFileEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return m_wCodeView->IsInsertImageAllowed();
+        return m_wCodeView->IsInsertFileAllowed();
     } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return true;
     }
@@ -1031,20 +1031,8 @@ bool FlowTab::InsertHyperlink(const QString &href)
     return false;
 }
 
-void FlowTab::InsertImage(const QString &image_path)
+void FlowTab::InsertFile(QString html)
 {
-    QString filename = image_path;
-
-    if (filename.contains("/")) {
-        filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
-    }
-
-    if (filename.contains(".")) {
-        filename = filename.left(filename.lastIndexOf("."));
-    }
-
-    QString html = QString("<img alt=\"%1\" src=\"%2\"/>").arg(filename).arg(image_path);
-
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->InsertHtml(html);
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -1471,12 +1459,12 @@ void FlowTab::ConnectBookViewSignalsToSlots()
     connect(m_wBookView, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_wBookView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
     connect(m_wBookView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
-    connect(m_wBookView, SIGNAL(InsertImage()), this, SIGNAL(InsertImageRequest()));
+    connect(m_wBookView, SIGNAL(InsertFile()), this, SIGNAL(InsertFileRequest()));
     connect(m_wBookView, SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(m_wBookView, SIGNAL(ClipboardSaveRequest()),    this, SIGNAL(ClipboardSaveRequest()));
     connect(m_wBookView, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
-    connect(m_wBookView, SIGNAL(ImageOpenedExternally(const QString &)), this, SIGNAL(ImageOpenedExternally(const QString &)));
-    connect(m_wBookView, SIGNAL(ImageSaveAs(const QUrl &)), this, SIGNAL(ImageSaveAs(const QUrl &)));
+    connect(m_wBookView, SIGNAL(InsertedFileOpenedExternally(const QString &)), this, SIGNAL(InsertedFileOpenedExternally(const QString &)));
+    connect(m_wBookView, SIGNAL(InsertedFileSaveAs(const QUrl &)), this, SIGNAL(InsertedFileSaveAs(const QUrl &)));
     connect(m_wBookView, SIGNAL(ShowStatusMessageRequest(const QString &)), this, SIGNAL(ShowStatusMessageRequest(const QString &)));
     connect(m_wBookView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(m_wBookView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));

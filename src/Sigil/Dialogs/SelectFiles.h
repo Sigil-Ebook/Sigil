@@ -1,8 +1,8 @@
 /************************************************************************
 **
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012,2013 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012,2013 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -22,31 +22,27 @@
 *************************************************************************/
 
 #pragma once
-#ifndef INSERTIMAGE_H
-#define INSERTIMAGE_H
+#ifndef SELECTFILES_H
+#define SELECTFILES_H
 
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 
 #include "ResourceObjects/Resource.h"
-#include "Misc/SelectImagePreviewer.h"
 
-#include "ui_SelectImages.h"
+#include "ui_SelectFiles.h"
 
 class QString;
 class QStringList;
+class QWebView;
 
-class SelectImages : public QDialog
+class SelectFiles : public QDialog
 {
     Q_OBJECT
 
 public:
-    SelectImages(QString basepath, QList<Resource *> image_resources, QString default_selected_image, QWidget *parent = 0);
-
-    /**
-     * Set the list of image resources to display.
-     */
-    void SetImages();
+    SelectFiles(QList<Resource *> image_resources, QString default_selected_image, QWidget *parent = 0);
+    ~SelectFiles();
 
     /**
      * The image(s) selected in the dialog.
@@ -57,8 +53,14 @@ public:
 
     bool IsInsertFromDisk();
 
-signals:
-    void InsertImageFromDiskRequest();
+public slots:
+    /**
+     * Set the list of image resources to display.
+     */
+    void SetImages();
+protected:
+
+    void resizeEvent(QResizeEvent *event);
 
 private slots:
     /**
@@ -81,17 +83,17 @@ private slots:
 
     void InsertFromDisk();
 
+    void SplitterMoved(int pos, int index);
+
 private:
     void ReadSettings();
     void connectSignalsSlots();
 
     void SetPreviewImage();
 
-    QString m_Basepath;
+    QList<Resource *> m_MediaResources;
 
-    QList<Resource *> m_ImageResources;
-
-    QStandardItemModel *m_SelectImagesModel;
+    QStandardItemModel *m_SelectFilesModel;
 
     QStandardItem *GetLastSelectedImageItem();
     QString GetLastSelectedImageName();
@@ -104,7 +106,14 @@ private:
 
     bool m_IsInsertFromDisk;
 
-    Ui::SelectImages ui;
+    QListWidgetItem *m_AllItem;
+    QListWidgetItem *m_ImageItem;
+    QListWidgetItem *m_VideoItem;
+    QListWidgetItem *m_AudioItem;
+
+    QWebView *m_WebView;
+
+    Ui::SelectFiles ui;
 };
 
-#endif // INSERTIMAGE_H
+#endif // SELECTFILES_H
