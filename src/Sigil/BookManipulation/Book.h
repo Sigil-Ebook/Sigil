@@ -235,11 +235,14 @@ public:
      */
     Resource *MergeResources(QList<Resource *> resources);
 
+    QList <Resource * > GetAllResources();
+
     /**
      * Makes sure that all the resources have saved the state of
      * their caches to the disk.
      */
     void SaveAllResourcesToDisk();
+
 
     /**
      * Returns the modified state of the book. A book

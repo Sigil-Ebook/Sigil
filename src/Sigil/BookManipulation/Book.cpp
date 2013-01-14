@@ -710,6 +710,11 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     return NULL;
 }
 
+QList <Resource * > Book::GetAllResources()
+{
+    return m_Mainfolder.GetResourceList();
+}
+
 void Book::SaveAllResourcesToDisk()
 {
     QList< Resource * > resources = m_Mainfolder.GetResourceList();
