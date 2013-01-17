@@ -262,10 +262,6 @@ int CleanSource::MaxSigilCSSClassIndex(const QStringList &css_style_tags)
         while (true) {
             int sigil_class_len  = 0;
             QRegularExpressionMatch match = sigil_class.match(style_tag, main_index);
-            if (!match.hasMatch()) {
-                break;
-            }
-
             main_index = match.capturedStart();
             if (main_index == -1) {
                 break;
@@ -401,7 +397,7 @@ QString CleanSource::WriteNewCSSStyleTags(const QString &source, const QStringLi
     QRegularExpression body_start_tag(BODY_START);
     int body_begin = source.indexOf(body_start_tag, 0);
     QString header = Utility::Substring(0, body_begin, source);
-    QRegularExpression css_styles_reg(STYLE_TAG_CSS_ONLY, QRegularExpression::InvertedGreedinessOption);
+    QRegularExpression css_styles_reg(STYLE_TAG_CSS_ONLY, QRegularExpression::InvertedGreedinessOption|QRegularExpression::DotMatchesEverythingOption);
     // We delete the old CSS style tags
     header.remove(css_styles_reg);
     // For each new style tag, create it
@@ -429,7 +425,7 @@ QStringList CleanSource::RemoveRedundantClassesTags(const QStringList &css_style
     // Searches for the old class in every line;
     // Tidy always creates class definitions as one line
     foreach(QString key, redundant_classes.keys()) {
-        QRegularExpression remove_old("^.*" + QRegularExpression::escape(key) + ".*$", QRegularExpression::InvertedGreedinessOption);
+        QRegularExpression remove_old("^.*" + QRegularExpression::escape(key) + ".*$", QRegularExpression::InvertedGreedinessOption|QRegularExpression::DotMatchesEverythingOption);
         last_tag_styles.replaceInStrings(remove_old, "");
     }
     new_css_style_tags[new_css_style_tags.count() - 1] = last_tag_styles.join(QChar('\n'));
@@ -476,7 +472,7 @@ QHash< QString, QString > CleanSource::GetRedundantClasses(const QStringList &cs
         // We go through all the lines in the last CSS style tag.
         // It contains the new styles Tidy added.
         foreach(QString line_in_new_styles, new_style_tag_lines) {
-            QRegularExpression class_definition(TIDY_NEW_STYLE, QRegularExpression::InvertedGreedinessOption);
+            QRegularExpression class_definition(TIDY_NEW_STYLE, QRegularExpression::InvertedGreedinessOption|QRegularExpression::DotMatchesEverythingOption);
             QRegularExpressionMatch class_definition_match = class_definition.match(line_in_new_styles);
 
             if (class_definition_match.hasMatch() && class_definition_match.capturedStart() != -1) {
