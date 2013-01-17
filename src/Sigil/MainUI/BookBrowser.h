@@ -83,7 +83,7 @@ public:
      */
     QList <Resource *> AllImageResources();
 
-    QList <Resource *> AllMultimediaResources();
+    QList <Resource *> AllMediaResources();
 
     /*
      * All CSS resources in the Book Browser in order

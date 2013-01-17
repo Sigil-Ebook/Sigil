@@ -84,6 +84,7 @@ private:
 
     QSharedPointer< Book > m_Book;
 
+    ReportsWidget *m_AllFilesWidget;
     ReportsWidget *m_HTMLFilesWidget;
     ReportsWidget *m_ImageFilesWidget;
     ReportsWidget *m_CSSFilesWidget;

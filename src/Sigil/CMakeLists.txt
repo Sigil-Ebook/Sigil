@@ -153,6 +153,8 @@ set( DIALOG_FILES
     Dialogs/RenameTemplate.h
     Dialogs/Reports.cpp
     Dialogs/Reports.h
+    Dialogs/ReportsWidgets/AllFilesWidget.cpp
+    Dialogs/ReportsWidgets/AllFilesWidget.h
     Dialogs/ReportsWidgets/HTMLFilesWidget.cpp
     Dialogs/ReportsWidgets/HTMLFilesWidget.h
     Dialogs/ReportsWidgets/ImageFilesWidget.cpp
@@ -385,6 +387,7 @@ set( UI_FILES
     Form_Files/PSpellCheckWidget.ui
     Form_Files/RenameTemplate.ui 
     Form_Files/Reports.ui
+    Form_Files/ReportsAllFilesWidget.ui
     Form_Files/ReportsHTMLFilesWidget.ui
     Form_Files/ReportsImageFilesWidget.ui
     Form_Files/ReportsCSSFilesWidget.ui

@@ -29,7 +29,7 @@
 
 #include "sigil_exception.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "Dialogs/ReportsWidgets/HTMLFilesWidget.h"
+#include "Dialogs/ReportsWidgets/AllFilesWidget.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
@@ -37,63 +37,42 @@
 #include "ResourceObjects/HTMLResource.h"
 
 static const QString SETTINGS_GROUP = "reports";
-static const QString DEFAULT_REPORT_FILE = "HTMLFilesReport.csv";
+static const QString DEFAULT_REPORT_FILE = "AllFilesReport.csv";
 
 
-HTMLFilesWidget::HTMLFilesWidget()
+AllFilesWidget::AllFilesWidget()
     :
     m_ItemModel(new QStandardItemModel),
-    m_ContextMenu(new QMenu(this)),
     m_LastDirSaved(QString()),
     m_LastFileSaved(QString())
 {
     ui.setupUi(this);
-    ui.fileTree->setContextMenuPolicy(Qt::CustomContextMenu);
-    CreateContextMenuActions();
     connectSignalsSlots();
 }
 
-void HTMLFilesWidget::CreateReport(QSharedPointer< Book > book)
+void AllFilesWidget::CreateReport(QSharedPointer< Book > book)
 {
     m_Book = book;
-    m_HTMLResources = m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(false);
+    m_AllResources = m_Book->GetAllResources();
     SetupTable();
 }
 
-void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
+void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 {
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("Name"));
     header.append(tr("File Size (KB)"));
-    header.append(tr("All Words"));
-    header.append(tr("Misspelled Words"));
-    header.append(tr("Images"));
-    header.append(tr("Video"));
-    header.append(tr("Audio"));
-    header.append(tr("Stylesheets"));
-    header.append(tr("Well Formed"));
+    header.append(tr("Type"));
     m_ItemModel->setHorizontalHeaderLabels(header);
     ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.fileTree->setModel(m_ItemModel);
     ui.fileTree->header()->setSortIndicatorShown(true);
-    bool wellformed = true;
     double total_size = 0;
-    int total_all_words = 0;
-    int total_misspelled_words = 0;
-    int total_images = 0;
-    int total_video = 0;
-    int total_audio = 0;
-    int total_stylesheets = 0;
-    int total_wellformed = 0;
-    QHash<QString, QStringList> stylesheet_names_hash = m_Book->GetStylesheetsInHTMLFiles();
-    QHash<QString, QStringList> image_names_hash = m_Book->GetImagesInHTMLFiles();
-    QHash<QString, QStringList> video_names_hash = m_Book->GetVideoInHTMLFiles();
-    QHash<QString, QStringList> audio_names_hash = m_Book->GetAudioInHTMLFiles();
-    foreach(HTMLResource *html_resource, m_HTMLResources) {
-        QString filepath = "../" + html_resource->GetRelativePathToOEBPS();
-        QString path = html_resource->GetFullPath();
-        QString filename = html_resource->Filename();
+    foreach(Resource *resource, m_AllResources) {
+        QString filepath = "../" + resource->GetRelativePathToOEBPS();
+        QString path = resource->GetFullPath();
+        QString filename = resource->Filename();
         QList<QStandardItem *> rowItems;
         // Filename
         QStandardItem *name_item = new QStandardItem();
@@ -107,62 +86,10 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         NumericItem *size_item = new NumericItem();
         size_item->setText(fsize);
         rowItems << size_item;
-        // All words
-        int all_words = HTMLSpellCheck::CountAllWords(html_resource->GetText());
-        total_all_words += all_words;
-        NumericItem *words_item = new NumericItem();
-        words_item->setText(QString::number(all_words));
-        rowItems << words_item;
-        // Misspelled words
-        int misspelled_words = HTMLSpellCheck::CountMisspelledWords(html_resource->GetText());
-        total_misspelled_words += misspelled_words;
-        NumericItem *misspelled_item = new NumericItem();
-        misspelled_item->setText(QString::number(misspelled_words));
-        rowItems << misspelled_item;
-        // Images
-        NumericItem *image_item = new NumericItem();
-        QStringList image_names = image_names_hash[filename];
-        total_images += image_names.count();
-        image_item->setText(QString::number(image_names.count()));
-        if (!image_names.isEmpty()) {
-            image_item->setToolTip(image_names.join("\n"));
-        }
-        rowItems << image_item;
-        // Video
-        NumericItem *video_item = new NumericItem();
-        QStringList video_names = video_names_hash[filename];
-        total_video += video_names.count();
-        video_item->setText(QString::number(video_names.count()));
-        if (!video_names.isEmpty()) {
-            video_item->setToolTip(video_names.join("\n"));
-        }
-        rowItems << video_item;
-        // Audio
-        NumericItem *audio_item = new NumericItem();
-        QStringList audio_names = audio_names_hash[filename];
-        total_audio += audio_names.count();
-        audio_item->setText(QString::number(audio_names.count()));
-        if (!audio_names.isEmpty()) {
-            audio_item->setToolTip(audio_names.join("\n"));
-        }
-        rowItems << audio_item;
-        // Linked Stylesheets
-        NumericItem *stylesheet_item = new NumericItem();
-        QStringList stylesheet_names = stylesheet_names_hash[filename];
-        total_stylesheets += stylesheet_names.count();
-        stylesheet_item->setText(QString::number(stylesheet_names.count()));
-        if (!stylesheet_names.isEmpty()) {
-            stylesheet_item->setToolTip(stylesheet_names.join("\n"));
-        }
-        rowItems << stylesheet_item;
-        // Well formed
-        QStandardItem *wellformed_item = new QStandardItem();
-        wellformed = html_resource->FileIsWellFormed();
-        if (wellformed) {
-            total_wellformed++;
-        }
-        wellformed_item->setText(wellformed ? tr("Yes") : tr("No"));
-        rowItems << wellformed_item;
+        // Type
+        QStandardItem *type_item = new QStandardItem();
+        type_item->setText(GetType(resource));
+        rowItems << type_item;
 
         // Add item to table
         m_ItemModel->appendRow(rowItems);
@@ -180,39 +107,11 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     QList<QStandardItem *> rowItems;
     // Files
     nitem = new NumericItem();
-    nitem->setText(QString::number(m_HTMLResources.count()) % tr(" files"));
+    nitem->setText(QString::number(m_AllResources.count()) % tr(" files"));
     rowItems << nitem;
     // File size
     nitem = new NumericItem();
     nitem->setText(QLocale().toString(total_size, 'f', 2));
-    rowItems << nitem;
-    // All Words
-    nitem = new NumericItem();
-    nitem->setText(QString::number(total_all_words));
-    rowItems << nitem;
-    // Misspelled Words
-    nitem = new NumericItem();
-    nitem->setText(QString::number(total_misspelled_words));
-    rowItems << nitem;
-    // Images
-    nitem = new NumericItem();
-    nitem->setText(QString::number(total_images));
-    rowItems << nitem;
-    // Video
-    nitem = new NumericItem();
-    nitem->setText(QString::number(total_video));
-    rowItems << nitem;
-    // Audio
-    nitem = new NumericItem();
-    nitem->setText(QString::number(total_audio));
-    rowItems << nitem;
-    // Stylesheets
-    nitem = new NumericItem();
-    nitem->setText(QString::number(total_stylesheets));
-    rowItems << nitem;
-    // Well formed
-    nitem = new NumericItem();
-    nitem->setText(QString::number(total_wellformed));
     rowItems << nitem;
 
     QFont font = *new QFont();
@@ -230,7 +129,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 }
 
 
-void HTMLFilesWidget::FilterEditTextChangedSlot(const QString &text)
+void AllFilesWidget::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
     QStandardItem *root_item = m_ItemModel->invisibleRootItem();
@@ -259,12 +158,12 @@ void HTMLFilesWidget::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
-void HTMLFilesWidget::Sort(int logicalindex, Qt::SortOrder order)
+void AllFilesWidget::Sort(int logicalindex, Qt::SortOrder order)
 {
     SetupTable(logicalindex, order);
 }
 
-void HTMLFilesWidget::DoubleClick()
+void AllFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
 
@@ -274,7 +173,7 @@ void HTMLFilesWidget::DoubleClick()
     }
 }
 
-void HTMLFilesWidget::Save()
+void AllFilesWidget::Save()
 {
     QString report_info;
     QString row_text;
@@ -336,53 +235,79 @@ void HTMLFilesWidget::Save()
     WriteSettings();
 }
 
-void HTMLFilesWidget::Delete()
+QString AllFilesWidget::GetType(Resource *resource)
 {
-    QStringList files_to_delete;
+    QString type;
 
-    if (ui.fileTree->selectionModel()->hasSelection()) {
-        foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-            files_to_delete.append(m_ItemModel->itemFromIndex(index)->text());
+    switch (resource->Type()) {
+        case Resource::HTMLResourceType: {
+            type = "HTML";
+            break;
         }
+
+        case Resource::CSSResourceType: {
+            type = "CSS";
+            break;
+        }
+
+        case Resource::ImageResourceType:
+        case Resource::SVGResourceType: {
+            type = tr("Image");
+            break;
+        }
+
+        case Resource::AudioResourceType: {
+            type = tr("Audio");
+            break;
+        }
+
+        case Resource::VideoResourceType: {
+            type = tr("Video");
+            break;
+        }
+
+        case Resource::FontResourceType: {
+            type = tr("Font");
+            break;
+        }
+
+
+        case Resource::OPFResourceType: {
+            type = "OPF";
+            break;
+        }
+
+        case Resource::NCXResourceType: {
+            type = "NCX";
+            break;
+        }
+
+        case Resource::XMLResourceType: {
+            type = "XML";
+            break;
+        }
+
+        case Resource::MiscTextResourceType: 
+        case Resource::TextResourceType: {
+            type = "Text";
+            break;
+        }
+
+        default:
+            type = tr("Unknown");
+            break;
     }
 
-    emit DeleteFilesRequest(files_to_delete);
+    return type;
 }
 
-void HTMLFilesWidget::CreateContextMenuActions()
-{
-    m_Delete    = new QAction(tr("Delete From Book") + "...",     this);
-    m_Delete->setShortcut(QKeySequence::Delete);
-    // Has to be added to the dialog itself for the keyboard shortcut to work.
-    addAction(m_Delete);
-}
-
-void HTMLFilesWidget::OpenContextMenu(const QPoint &point)
-{
-    SetupContextMenu(point);
-    m_ContextMenu->exec(ui.fileTree->viewport()->mapToGlobal(point));
-    m_ContextMenu->clear();
-}
-
-void HTMLFilesWidget::SetupContextMenu(const QPoint &point)
-{
-    m_ContextMenu->addAction(m_Delete);
-    // We do not enable the delete option if no rows selected or the totals row is selected.
-    m_Delete->setEnabled(ui.fileTree->selectionModel()->selectedRows().count() > 0);
-    int last_row = ui.fileTree->model()->rowCount() - 1;
-
-    if (ui.fileTree->selectionModel()->isRowSelected(last_row, QModelIndex())) {
-        m_Delete->setEnabled(false);
-    }
-}
-
-void HTMLFilesWidget::ReadSettings()
+void AllFilesWidget::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
     // Last file open
     m_LastDirSaved = settings.value("last_dir_saved").toString();
-    m_LastFileSaved = settings.value("last_file_saved_html_files").toString();
+    m_LastFileSaved = settings.value("last_file_saved_all_files").toString();
 
     if (m_LastFileSaved.isEmpty()) {
         m_LastFileSaved = DEFAULT_REPORT_FILE;
@@ -391,27 +316,24 @@ void HTMLFilesWidget::ReadSettings()
     settings.endGroup();
 }
 
-void HTMLFilesWidget::WriteSettings()
+void AllFilesWidget::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
     // Last file open
     settings.setValue("last_dir_saved", m_LastDirSaved);
-    settings.setValue("last_file_saved_html_files", m_LastFileSaved);
+    settings.setValue("last_file_saved_all_files", m_LastFileSaved);
     settings.endGroup();
 }
 
 
-void HTMLFilesWidget::connectSignalsSlots()
+void AllFilesWidget::connectSignalsSlots()
 {
     connect(ui.leFilter,  SIGNAL(textChanged(QString)),
             this,         SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.fileTree, SIGNAL(doubleClicked(const QModelIndex &)),
             this,         SLOT(DoubleClick()));
     connect(ui.fileTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
-    connect(ui.fileTree,  SIGNAL(customContextMenuRequested(const QPoint &)),
-            this,         SLOT(OpenContextMenu(const QPoint &)));
-    connect(m_Delete,     SIGNAL(triggered()), this, SLOT(Delete()));
     connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SIGNAL(CloseDialog()));
     connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
 }

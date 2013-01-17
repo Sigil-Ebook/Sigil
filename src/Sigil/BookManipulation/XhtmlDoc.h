@@ -223,9 +223,9 @@ public:
 
     static xc::DOMNode &GetAncestorIDElement(const xc::DOMNode &node);
 
-    static QStringList GetImagePathsFromImageChildren(const xc::DOMNode &node);
+    static QStringList GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags);
 
-    static QStringList GetAllImagePathsFromImageChildren(const xc::DOMNode &node);
+    static QStringList GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags); 
 
     static QStringList GetAllHrefPaths(const xc::DOMNode &node);
 

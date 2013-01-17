@@ -61,6 +61,8 @@ const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "blockquote" 
                                      "table" << "ul" << "body";
 
 const QStringList IMAGE_TAGS = QStringList() << "img" << "image";
+const QStringList VIDEO_TAGS = QStringList() << "video";
+const QStringList AUDIO_TAGS = QStringList() << "audio";
 
 static const QStringList INVALID_ID_TAGS = QStringList() << "base" << "head" << "meta" << "param" << "script" << "style" << "title";
 static const QStringList SKIP_ID_TAGS = QStringList() << "html" << "#document" << "body";
@@ -957,34 +959,34 @@ xc::DOMNode &XhtmlDoc::GetAncestorIDElement(const xc::DOMNode &node)
     }
 }
 
-QStringList XhtmlDoc::GetImagePathsFromImageChildren(const xc::DOMNode &node)
+QStringList XhtmlDoc::GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags)
 {
-    QStringList image_links = GetAllImagePathsFromImageChildren(node);
+    QStringList links = GetAllMediaPathsFromMediaChildren(node, tags);
     // Remove duplicate references
-    image_links.removeDuplicates();
-    return image_links;
+    links.removeDuplicates();
+    return links;
 }
 
-QStringList XhtmlDoc::GetAllImagePathsFromImageChildren(const xc::DOMNode &node)
+QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags)
 {
-    // "Normal" HTML image elements
-    QList< xc::DOMElement * > image_nodes = GetTagMatchingDescendants(node, IMAGE_TAGS);
-    QStringList image_links;
-    // Get a list of all images referenced
-    foreach(xc::DOMElement * image_node, image_nodes) {
+    // "Normal" HTML media file elements
+    QList< xc::DOMElement * > nodes = GetTagMatchingDescendants(node, tags);
+    QStringList links;
+    // Get a list of all media files referenced
+    foreach(xc::DOMElement * node, nodes) {
         QString url_reference;
 
-        if (image_node->hasAttribute(QtoX("src"))) {
-            url_reference = Utility::URLDecodePath(XtoQ(image_node->getAttribute(QtoX("src"))));
+        if (node->hasAttribute(QtoX("src"))) {
+            url_reference = Utility::URLDecodePath(XtoQ(node->getAttribute(QtoX("src"))));
         } else { // This covers the SVG "image" tags
-            url_reference = Utility::URLDecodePath(XtoQ(image_node->getAttribute(QtoX("xlink:href"))));
+            url_reference = Utility::URLDecodePath(XtoQ(node->getAttribute(QtoX("xlink:href"))));
         }
 
         if (!url_reference.isEmpty()) {
-            image_links << url_reference;
+            links << url_reference;
         }
     }
-    return image_links;
+    return links;
 }
 
 QStringList XhtmlDoc::GetAllHrefPaths(const xc::DOMNode &node)

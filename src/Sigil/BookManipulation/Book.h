@@ -222,8 +222,15 @@ public:
     QStringList GetStylesheetsInHTMLFile(HTMLResource *html_resource);
 
     QHash<QString, QStringList> GetImagesInHTMLFiles();
+    QHash<QString, QStringList> GetVideoInHTMLFiles();
+    QHash<QString, QStringList> GetAudioInHTMLFiles();
+
+    QHash<QString, QStringList> GetHTMLFilesUsingMedia();
     QHash<QString, QStringList> GetHTMLFilesUsingImages();
+    static boost::tuple<QString, QStringList> GetMediaInHTMLFileMapped(HTMLResource *html_resource);
     static boost::tuple<QString, QStringList> GetImagesInHTMLFileMapped(HTMLResource *html_resource);
+    static boost::tuple<QString, QStringList> GetVideoInHTMLFileMapped(HTMLResource *html_resource);
+    static boost::tuple<QString, QStringList> GetAudioInHTMLFileMapped(HTMLResource *html_resource);
 
     QList<HTMLResource *> GetNonWellFormedHTMLFiles();
 
@@ -235,11 +242,14 @@ public:
      */
     Resource *MergeResources(QList<Resource *> resources);
 
+    QList <Resource * > GetAllResources();
+
     /**
      * Makes sure that all the resources have saved the state of
      * their caches to the disk.
      */
     void SaveAllResourcesToDisk();
+
 
     /**
      * Returns the modified state of the book. A book

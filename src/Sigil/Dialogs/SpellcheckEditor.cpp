@@ -64,11 +64,10 @@ void SpellcheckEditor::SetupSpellcheckEditorTree()
     ui.SpellcheckEditorTree->setModel(m_SpellcheckEditorModel);
     ui.SpellcheckEditorTree->setContextMenuPolicy(Qt::CustomContextMenu);
     ui.SpellcheckEditorTree->setSortingEnabled(true);
-    ui.SpellcheckEditorTree->sortByColumn(0, Qt::AscendingOrder);
+    ui.SpellcheckEditorTree->setSortingEnabled(false);
     ui.SpellcheckEditorTree->setWordWrap(true);
     ui.SpellcheckEditorTree->setAlternatingRowColors(true);
-    ui.SpellcheckEditorTree->header()->setStretchLastSection(false);
-    ui.SpellcheckEditorTree->setColumnWidth(1, 150);
+    ui.SpellcheckEditorTree->header()->setStretchLastSection(true);
 }
 
 void SpellcheckEditor::showEvent(QShowEvent *event)
@@ -148,16 +147,16 @@ void SpellcheckEditor::Add()
 
 void SpellcheckEditor::CreateModel()
 {
-    //hide();
     m_SpellcheckEditorModel->clear();
     QStringList header;
     header.append(tr("Word"));
-    header.append(tr("Not in Dictionary?"));
+    header.append(tr("Misspelled?"));
     m_SpellcheckEditorModel->setHorizontalHeaderLabels(header);
-    ui.SpellcheckEditorTree->header()->setSectionResizeMode(0, QHeaderView::Stretch);
 
     QSet<QString> unique_words = m_Book->GetWordsInHTMLFiles();
     QSet<QString> misspelled_words = m_Book->GetMisspelledWordsInHTMLFiles();
+    ui.SpellcheckEditorTree->header()->setToolTip("<table><tr><td>" % tr("Misspelled Words") % ":</td><td>" % QString::number(misspelled_words.count()) % "</td></tr><tr><td>" % tr("Total Words") % ":</td><td>" % QString::number(unique_words.count()) % "</td></tr></table>");
+
     foreach(QString word, unique_words) {
         bool misspelled = false;
         if (misspelled_words.contains(word)) {
@@ -189,7 +188,9 @@ void SpellcheckEditor::CreateModel()
 
 void SpellcheckEditor::Refresh()
 {
+    WriteSettings();
     CreateModel();
+    ReadSettings();
 
     ui.FilterText->setFocus();
 }

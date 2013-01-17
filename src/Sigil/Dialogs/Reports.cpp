@@ -26,6 +26,7 @@
 #include "Dialogs/Reports.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/CSSInfo.h"
+#include "ReportsWidgets/AllFilesWidget.h"
 #include "ReportsWidgets/HTMLFilesWidget.h"
 #include "ReportsWidgets/ImageFilesWidget.h"
 #include "ReportsWidgets/CSSFilesWidget.h"
@@ -36,6 +37,7 @@ static const QString SETTINGS_GROUP = "reports_dialog";
 
 Reports::Reports(QWidget *parent)
     : QDialog(parent),
+      m_AllFilesWidget(new AllFilesWidget()),
       m_HTMLFilesWidget(new HTMLFilesWidget()),
       m_ImageFilesWidget(new ImageFilesWidget()),
       m_CSSFilesWidget(new CSSFilesWidget()),
@@ -44,6 +46,7 @@ Reports::Reports(QWidget *parent)
 {
     ui.setupUi(this);
 
+    appendReportsWidget(m_AllFilesWidget);
     appendReportsWidget(m_HTMLFilesWidget);
     appendReportsWidget(m_ImageFilesWidget);
     appendReportsWidget(m_CSSFilesWidget);
@@ -57,6 +60,11 @@ Reports::Reports(QWidget *parent)
 
 Reports::~Reports()
 {
+    if (m_AllFilesWidget) {
+        delete m_AllFilesWidget;
+        m_AllFilesWidget = 0;
+    }
+
     if (m_HTMLFilesWidget) {
         delete m_HTMLFilesWidget;
         m_HTMLFilesWidget = 0;
@@ -94,6 +102,8 @@ void Reports::CreateReports(QSharedPointer< Book > book)
     progress.setValue(progress_value++);
     qApp->processEvents();
     // Populate all of our report widgets
+    m_AllFilesWidget->CreateReport(m_Book);
+    progress.setValue(progress_value++);
     m_HTMLFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
     m_ImageFilesWidget->CreateReport(m_Book);

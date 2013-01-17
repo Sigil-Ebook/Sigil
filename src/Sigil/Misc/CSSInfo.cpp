@@ -326,7 +326,7 @@ void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, con
 {
     QRegularExpression strip_attributes_regex("\\[[^\\]]*\\]");
     QRegularExpression strip_ids_regex("#[^\\s\\.]+");
-    QRegularExpression strip_non_name_chars_regex("[^A-Za-z0-9_\\-\\.]+");
+    QRegularExpression strip_non_name_chars_regex("[^A-Za-z0-9_\\-\\.:]+");
     QString search_text = replaceBlockComments(text);
     // CSS selectors can be in a myriad of formats... the class based selectors could be:
     //    .c1 / e1.c1 / e1.c1.c2 / e1[class~=c1] / e1#id1.c1 / e1.c1#id1 / .c1, .c2 / ...
