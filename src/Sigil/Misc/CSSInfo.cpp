@@ -70,19 +70,27 @@ CSSInfo::CSSSelector *CSSInfo::getCSSSelectorForElementClass(const QString &elem
         if (class_selectors.count() > 0) {
             // First look for match on element and class
             foreach(CSSInfo::CSSSelector * cssSelector, class_selectors) {
-                if (cssSelector->elementNames.contains(elementName)) {
+                // Always match on wildcard class selector
+                if (cssSelector->elementNames.isEmpty()) {
                     return cssSelector;
                 }
+                if (cssSelector->elementNames.contains(elementName)) {
+                    // Doublecheck that the full element.class is actually in the text
+                    // to avoid, e.g.,  div class="test" matching p.test + div
+                    if (cssSelector->groupText.contains(elementName % "." % className)) {
+                        return cssSelector;
+                    }
+                }
             }
-            // Just return the first match on class.
-            return class_selectors.at(0);
         }
     }
+    else {
 
-    // try match on element name alone
-    foreach(CSSInfo::CSSSelector * cssSelector, m_CSSSelectors) {
-        if (cssSelector->elementNames.contains(elementName) && cssSelector->classNames.isEmpty()) {
-            return cssSelector;
+        // try match on element name alone
+        foreach(CSSInfo::CSSSelector * cssSelector, m_CSSSelectors) {
+            if (cssSelector->elementNames.contains(elementName) && cssSelector->classNames.isEmpty()) {
+                return cssSelector;
+            }
         }
     }
     return NULL;
