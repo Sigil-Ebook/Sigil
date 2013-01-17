@@ -47,6 +47,7 @@ FindReplace::FindReplace(MainWindow &main_window)
       m_RegexOptionDotAll(false),
       m_RegexOptionMinimalMatch(false),
       m_RegexOptionAutoTokenise(false),
+      m_OptionWrap(true),
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
       m_IsSearchGroupRunning(false)
@@ -214,6 +215,7 @@ void FindReplace::FindWord(QString word)
     SetSearchDirection(FindReplace::SearchDirection_Down);
     SetRegexOptionDotAll(true);
     SetRegexOptionMinimalMatch(true);
+    SetOptionWrap(true);
 
     word = "\\b" + word + "\\b" + "(?![^<>]*>)(?!.*<body[^>]*>)";
     ui.cbFind->setEditText(word);
@@ -268,9 +270,17 @@ int FindReplace::Count()
             return 0;
         }
 
-        count = searchable->Count(GetSearchRegex());
+        count = searchable->Count(GetSearchRegex(), GetSearchableDirection(), m_OptionWrap);
     } else {
+        // If wrap, all files are counted, otherwise only files before/after
+        // the current file are counted, and then added to the count of current file.
         count = CountInFiles();
+        if (!m_OptionWrap) {
+            Searchable *searchable = GetAvailableSearchable();
+            if (searchable) {
+                count += searchable->Count(GetSearchRegex(), GetSearchableDirection(), m_OptionWrap);
+            }
+        }
     }
 
     if (count == 0) {
@@ -346,9 +356,17 @@ int FindReplace::ReplaceAll()
             return 0;
         }
 
-        count = searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text());
+        count = searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchableDirection(), m_OptionWrap);
     } else {
+        // If wrap, all files are replaced, otherwise only files before/after
+        // the current file are updated, and then the current file is done.
         count = ReplaceInAllFiles();
+        if (!m_OptionWrap) {
+            Searchable *searchable = GetAvailableSearchable();
+            if (searchable) {
+                count += searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchableDirection(), m_OptionWrap);
+            }
+        }
     }
 
     if (count == 0) {
@@ -397,6 +415,15 @@ void FindReplace::CountInFile()
     m_LookWhereCurrentFile = false;
 }
 
+Searchable::Direction FindReplace::GetSearchableDirection()
+{
+    Searchable::Direction direction = Searchable::Direction_Down;
+    if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
+        direction = Searchable::Direction_Up;
+    }
+    return direction;
+}
+
 
 void FindReplace::clearMessage()
 {
@@ -418,7 +445,16 @@ bool FindReplace::FindMisspelledWord()
     clearMessage();
     SetCodeViewIfNeeded(true);
     m_SpellCheck = true;
+
+    WriteSettings();
+    // Only files, direction, wrap are checked for misspelled searches
+    SetLookWhere(FindReplace::LookWhere_AllHTMLFiles);
+    SetSearchDirection(FindReplace::SearchDirection_Down);
+    SetOptionWrap(true);
+
     bool found = FindInAllFiles(Searchable::Direction_Down);
+
+    ReadSettings();
     m_SpellCheck = false;
 
     if (found) {
@@ -450,7 +486,7 @@ bool FindReplace::FindText(Searchable::Direction direction)
             return found;
         }
 
-        found = searchable->FindNext(GetSearchRegex(), direction);
+        found = searchable->FindNext(GetSearchRegex(), direction, false, false, m_OptionWrap);
     } else {
         found = FindInAllFiles(direction);
     }
@@ -604,13 +640,42 @@ bool FindReplace::IsCurrentFileInHTMLSelection()
 QList <Resource *> FindReplace::GetHTMLFiles()
 {
     // For now, this must hold
-    Q_ASSERT(GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles || m_SpellCheck);
+    Q_ASSERT(GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles);
+    QList <Resource *> all_resources;
     QList <Resource *> resources;
 
-    if (GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || m_SpellCheck) {
-        resources = m_MainWindow.GetAllHTMLResources();
+    if (GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles) {
+        all_resources = m_MainWindow.GetAllHTMLResources();
     } else {
-        resources = m_MainWindow.GetValidSelectedHTMLResources();
+        all_resources = m_MainWindow.GetValidSelectedHTMLResources();
+    }
+
+    // If wrapping, or the current resource is not in the HTML files to search
+    // (meaning there is no before/after for wrap to use) then just return all files
+    Resource *current_resource = GetCurrentResource();
+    if (m_OptionWrap || !all_resources.contains(current_resource)) {
+        return all_resources;
+    }
+
+    // Return only the current file and before/after files
+    if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
+        foreach (Resource *resource, all_resources) {
+            resources.append(resource);
+            if (resource == current_resource) {
+                break;
+            }
+        }
+    } 
+    else {
+        bool keep = false;
+        foreach (Resource *resource, all_resources) {
+            if (resource == current_resource) {
+                keep = true;
+            }
+            if (keep) {
+                resources.append(resource);
+            }
+        }
     }
 
     return resources;
@@ -621,9 +686,15 @@ int FindReplace::CountInFiles()
     // For now, this must hold
     Q_ASSERT(GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles);
     m_MainWindow.GetCurrentContentTab().SaveTabContent();
+
+    // When not wrapping remove the current resource as it's counted separately
+    QList<Resource *>html_files = GetHTMLFiles();
+    if (!m_OptionWrap) {
+        html_files.removeOne(GetCurrentResource());
+    }
     return SearchOperations::CountInFiles(
                GetSearchRegex(),
-               GetHTMLFiles(),
+               html_files,
                SearchOperations::CodeViewSearch);
 }
 
@@ -633,10 +704,15 @@ int FindReplace::ReplaceInAllFiles()
     // For now, this must hold
     Q_ASSERT(GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles);
     m_MainWindow.GetCurrentContentTab().SaveTabContent();
+    // When not wrapping remove the current resource as it's replace separately
+    QList<Resource *>html_files = GetHTMLFiles();
+    if (!m_OptionWrap) {
+        html_files.removeOne(GetCurrentResource());
+    }
     int count = SearchOperations::ReplaceInAllFIles(
                     GetSearchRegex(),
                     ui.cbReplace->lineEdit()->text(),
-                    GetHTMLFiles(),
+                    html_files,
                     SearchOperations::CodeViewSearch);
     return count;
 }
@@ -703,13 +779,13 @@ HTMLResource *FindReplace::GetNextContainingHTMLResource(Searchable::Direction d
     Resource *current_resource = GetCurrentResource();
     HTMLResource *starting_html_resource = qobject_cast< HTMLResource *> (current_resource);
 
+    QList<Resource *> resources = GetHTMLFiles();
+
+    if (resources.isEmpty()) {
+        return NULL;
+    }
+
     if (!starting_html_resource || (GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles && !IsCurrentFileInHTMLSelection())) {
-        QList<Resource *> resources = GetHTMLFiles();
-
-        if (resources.isEmpty()) {
-            return NULL;
-        }
-
         if (direction == Searchable::Direction_Up) {
             starting_html_resource = qobject_cast< HTMLResource *>(resources.first());
         } else {
@@ -931,6 +1007,8 @@ void FindReplace::ReadSettings()
     SetRegexOptionMinimalMatch(regexOptionMinimalMatch);
     bool regexOptionAutoTokenise = settings.value("regexoptionautotokenise", false).toBool();
     SetRegexOptionAutoTokenise(regexOptionAutoTokenise);
+    bool optionWrap = settings.value("optionwrap", true).toBool();
+    SetOptionWrap(optionWrap);
     settings.endGroup();
 }
 
@@ -959,6 +1037,7 @@ void FindReplace::ShowHideAdvancedOptions()
     ui.chkRegexOptionDotAll->setVisible(show_advanced);
     ui.chkRegexOptionMinimalMatch->setVisible(show_advanced);
     ui.chkRegexOptionAutoTokenise->setVisible(show_advanced);
+    ui.chkOptionWrap->setVisible(show_advanced);
     ui.count->setVisible(show_advanced);
     QIcon icon;
 
@@ -999,6 +1078,7 @@ void FindReplace::WriteSettings()
     settings.setValue("regexoptiondotall", ui.chkRegexOptionDotAll->isChecked());
     settings.setValue("regexoptionminimalmatch", ui.chkRegexOptionMinimalMatch->isChecked());
     settings.setValue("regexoptionautotokenise", ui.chkRegexOptionAutoTokenise->isChecked());
+    settings.setValue("optionwrap", ui.chkOptionWrap->isChecked());
     settings.endGroup();
 }
 
@@ -1265,6 +1345,12 @@ void FindReplace::SetRegexOptionAutoTokenise(bool new_state)
     ui.chkRegexOptionAutoTokenise->setChecked(new_state);
 }
 
+void FindReplace::SetOptionWrap(bool new_state)
+{
+    m_OptionWrap = new_state;
+    ui.chkOptionWrap->setChecked(new_state);
+}
+
 // The UI is setup based on the capabilities.
 void FindReplace::ExtendUI()
 {
@@ -1318,4 +1404,5 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.chkRegexOptionDotAll, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionDotAll(bool)));
     connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
     connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
+    connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
 }
