@@ -157,6 +157,8 @@ set( DIALOG_FILES
     Dialogs/ReportsWidgets/AllFilesWidget.h
     Dialogs/ReportsWidgets/HTMLFilesWidget.cpp
     Dialogs/ReportsWidgets/HTMLFilesWidget.h
+    Dialogs/ReportsWidgets/LinksWidget.cpp
+    Dialogs/ReportsWidgets/LinksWidget.h
     Dialogs/ReportsWidgets/ImageFilesWidget.cpp
     Dialogs/ReportsWidgets/ImageFilesWidget.h
     Dialogs/ReportsWidgets/CSSFilesWidget.cpp
@@ -389,6 +391,7 @@ set( UI_FILES
     Form_Files/Reports.ui
     Form_Files/ReportsAllFilesWidget.ui
     Form_Files/ReportsHTMLFilesWidget.ui
+    Form_Files/ReportsLinksWidget.ui
     Form_Files/ReportsImageFilesWidget.ui
     Form_Files/ReportsCSSFilesWidget.ui
     Form_Files/ReportsClassesInHTMLFilesWidget.ui

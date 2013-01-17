@@ -28,6 +28,7 @@
 #include "Misc/CSSInfo.h"
 #include "ReportsWidgets/AllFilesWidget.h"
 #include "ReportsWidgets/HTMLFilesWidget.h"
+#include "ReportsWidgets/LinksWidget.h"
 #include "ReportsWidgets/ImageFilesWidget.h"
 #include "ReportsWidgets/CSSFilesWidget.h"
 #include "ReportsWidgets/ClassesInHTMLFilesWidget.h"
@@ -39,6 +40,7 @@ Reports::Reports(QWidget *parent)
     : QDialog(parent),
       m_AllFilesWidget(new AllFilesWidget()),
       m_HTMLFilesWidget(new HTMLFilesWidget()),
+      m_LinksWidget(new LinksWidget()),
       m_ImageFilesWidget(new ImageFilesWidget()),
       m_CSSFilesWidget(new CSSFilesWidget()),
       m_ClassesInHTMLFilesWidget(new ClassesInHTMLFilesWidget()),
@@ -52,6 +54,7 @@ Reports::Reports(QWidget *parent)
     appendReportsWidget(m_CSSFilesWidget);
     appendReportsWidget(m_ClassesInHTMLFilesWidget);
     appendReportsWidget(m_StylesInCSSFilesWidget);
+    appendReportsWidget(m_LinksWidget);
 
     connectSignalsSlots();
     readSettings();
@@ -68,6 +71,11 @@ Reports::~Reports()
     if (m_HTMLFilesWidget) {
         delete m_HTMLFilesWidget;
         m_HTMLFilesWidget = 0;
+    }
+
+    if (m_LinksWidget) {
+        delete m_LinksWidget;
+        m_LinksWidget = 0;
     }
 
     if (m_ImageFilesWidget) {
@@ -105,6 +113,8 @@ void Reports::CreateReports(QSharedPointer< Book > book)
     m_AllFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
     m_HTMLFilesWidget->CreateReport(m_Book);
+    progress.setValue(progress_value++);
+    m_LinksWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
     m_ImageFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);

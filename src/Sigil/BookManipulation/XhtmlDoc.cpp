@@ -1021,7 +1021,9 @@ XhtmlDoc::XMLElement XhtmlDoc::CreateXMLElement(QXmlStreamReader &reader)
         element.attributes[ attribute_name ] = attribute.value().toString();
     }
     element.name = reader.name().toString();
-    element.text = reader.readElementText();
+    // Includes child text to avoid error for some XML (e.g. <a><img/></a>)
+    element.text = reader.readElementText(QXmlStreamReader::IncludeChildElements);
+
     return element;
 }
 
