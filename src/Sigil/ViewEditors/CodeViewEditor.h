@@ -223,7 +223,7 @@ public:
                   bool ignore_selection_offset = false,
                   bool wrap = true);
 
-    int Count(const QString &search_regex);
+    int Count(const QString &search_regex, Searchable::Direction direction, bool wrap);
 
     bool ReplaceSelected(const QString &search_regex,
                          const QString &replacement,
@@ -231,7 +231,9 @@ public:
                          bool replace_current = false);
 
     int ReplaceAll(const QString &search_regex,
-                   const QString &replacement);
+                   const QString &replacement,
+                   Searchable::Direction direction,
+                   bool wrap);
 
     QString GetSelectedText();
 

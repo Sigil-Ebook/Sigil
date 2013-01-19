@@ -30,6 +30,7 @@
 #include <QtCore/QUrl>
 #include <QtCore/QVariant>
 #include "BookManipulation/Metadata.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/Resource.h"
 
 class CSSResource;
@@ -199,6 +200,11 @@ public:
      */
     Resource *PreviousResource(Resource *resource);
 
+    QHash < QString, QList< XhtmlDoc::XMLElement > > GetLinkElements();
+    static boost::tuple<QString, QList< XhtmlDoc::XMLElement > > GetLinkElementsInHTMLFileMapped(HTMLResource *html_resource);
+
+    QStringList GetBackgroundImagesInHTMLFiles();
+    static boost::tuple<QString, QStringList> GetBackgroundImagesInHTMLFileMapped(HTMLResource *html_resource);
     QHash<QString, QStringList> GetIdsInHTMLFiles();
     static boost::tuple<QString, QStringList> GetIdsInHTMLFileMapped(HTMLResource *html_resource);
     QStringList GetIdsInHTMLFile(HTMLResource *html_resource);

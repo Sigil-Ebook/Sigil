@@ -327,6 +327,18 @@ then find the Next match in Code View.</string>
            </widget>
           </item>
           <item>
+           <widget class="QCheckBox" name="chkOptionWrap">
+            <property name="toolTip">
+             <string>Search from current position to end of the 
+current file or book, and then wrap to the
+other end to continue searching.</string>
+            </property>
+            <property name="text">
+             <string>Wrap</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="horizontalSpacerAdvanced">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>

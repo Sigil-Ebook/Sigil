@@ -892,6 +892,10 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
 void MainWindow::ReportsDialog()
 {
     SaveTabData();
+    if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
+        ShowMessageOnStatusBar(tr("Reports cancelled due to XML not well formed."));
+        return;
+    }
     // non-modal dialog
     m_Reports->CreateReports(m_Book);
     m_Reports->show();
@@ -983,10 +987,45 @@ void MainWindow::DeleteUnusedMedia()
 
     QList<Resource *> resources;
     QHash<QString, QStringList> html_files_hash = m_Book->GetHTMLFilesUsingMedia();
+
+    // Get background-image files from HTML inline styles
+    QStringList background_images = m_Book->GetBackgroundImagesInHTMLFiles();
+
+    // Get background-image files from CSS files
+    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+    foreach(Resource *resource, css_resources) {
+        CSSResource *css_resource = dynamic_cast<CSSResource *>(resource);
+        CSSInfo css_info(css_resource->GetText(), true);
+
+        background_images.append(css_info.getAllPropertyValues("background-image"));
+        background_images.append(css_info.getAllPropertyValues("background"));
+    }
+    // Get background-image files from HTML CSS files
+    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+    foreach(Resource *resource, html_resources) {
+        HTMLResource *html_resource = dynamic_cast<HTMLResource *>(resource);
+        CSSInfo css_info(html_resource->GetText(), false);
+
+        background_images.append(css_info.getAllPropertyValues("background-image"));
+        background_images.append(css_info.getAllPropertyValues("background"));
+    }
+
+    background_images.removeDuplicates();
+
+    QStringList background_image_files;
+    QRegularExpression image_file_search("url\\s*\\(\\s*['\"]([^'\"]*).*");
+    foreach (QString url, background_images) {
+        QRegularExpressionMatch match = image_file_search.match(url);
+        if (match.hasMatch()) {
+            background_image_files.append(match.captured(1));
+        }
+    }
+
     foreach(Resource * resource, m_BookBrowser->AllMediaResources()) {
         QString filepath = "../" + resource->GetRelativePathToOEBPS();
 
-        if (html_files_hash[filepath].count() == 0) {
+        // Include the file in the list to delete if it was not referenced
+        if (html_files_hash[filepath].count() == 0 && !background_image_files.contains(filepath)) {
             resources.append(resource);
         }
     }
@@ -1851,6 +1890,9 @@ void MainWindow::PreferencesDialog()
         m_TabManager.ReopenTabs(m_ViewState);
     } else if (preferences.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
+        // Make sure menu state is set
+        SettingsStore settings;
+        ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
     }
 
     if (m_SelectCharacter->isVisible()) {
@@ -3348,7 +3390,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionValidateEpubWithFlightCrew, "MainWindow.ValidateEpub");
     sm->registerAction(ui.actionValidateStylesheetsWithW3C, "MainWindow.ValidateStylesheetsWithW3C");
     sm->registerAction(ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
-    sm->registerAction(ui.actionSpellCheck, "MainWindow.SpellCheck");
+    sm->registerAction(ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
+    sm->registerAction(ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
     sm->registerAction(ui.actionIgnoreMisspelledWord, "MainWindow.IgnoreMispelledWord");
     sm->registerAction(ui.actionClearIgnoredWords, "MainWindow.ClearIgnoredWords");
@@ -3468,9 +3511,9 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionValidateEpubWithFlightCrew->icon();
     icon.addFile(QString::fromUtf8(":/main/document-validate_16px.png"));
     ui.actionValidateEpubWithFlightCrew->setIcon(icon);
-    icon = ui.actionSpellCheck->icon();
+    icon = ui.actionSpellcheckEditor->icon();
     icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
-    ui.actionSpellCheck->setIcon(icon);
+    ui.actionSpellcheckEditor->setIcon(icon);
     icon = ui.actionCut->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-cut_16px.png"));
     ui.actionCut->setIcon(icon);
@@ -3693,7 +3736,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionValidateStylesheetsWithW3C,  SIGNAL(triggered()), this, SLOT(ValidateStylesheetsWithW3C()));
     connect(ui.actionSpellcheckEditor,   SIGNAL(triggered()), this, SLOT(SpellcheckEditorDialog()));
     connect(ui.actionAutoSpellCheck, SIGNAL(triggered(bool)), this, SLOT(SetAutoSpellCheck(bool)));
-    connect(ui.actionSpellCheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
+    connect(ui.actionSpellcheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

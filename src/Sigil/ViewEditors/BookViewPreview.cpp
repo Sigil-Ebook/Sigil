@@ -280,7 +280,7 @@ bool BookViewPreview::FindNext(SearchTools &search_tools,
     return false;
 }
 
-int BookViewPreview::Count(const QString &search_regex)
+int BookViewPreview::Count(const QString &search_regex, Searchable::Direction direction, bool wrap)
 {
     // Spell check not actually used
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
@@ -293,7 +293,7 @@ bool BookViewPreview::ReplaceSelected(const QString &search_regex, const QString
     return false;
 }
 
-int BookViewPreview::ReplaceAll(const QString &search_regex, const QString &replacement)
+int BookViewPreview::ReplaceAll(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool wrap)
 {
     QMessageBox::critical(this, tr("Unsupported"), tr("Replace All for the current file is not supported in this view. Switch to Code View."));
     return 0;

@@ -185,19 +185,12 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
                                        + " (*)"
 #endif
                                        ;
-#if defined(USE_NATIVE_DIALOG)
     const QString selectedFile = QFileDialog::getOpenFileName(0,
                                  QObject::tr("Open With"),
                                  lastEditor,
                                  NAME_FILTER,
                                  0,
                                  QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails);
-#else
-    QFileDialog fileDialog(0, QObject::tr("Open With"), lastEditor, NAME_FILTER);
-    fileDialog.setOptions(QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails);
-    fileDialog.setFileMode(QFileDialog::ExistingFile);
-    const QString selectedFile = fileDialog.exec() ? fileDialog.selectedFiles().first() : EMPTY;
-#endif
 
     if (!selectedFile.isEmpty()) {
         settings.setValue(editorKey, selectedFile);
@@ -205,7 +198,7 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
         // Let the user choose a friendly menu name for the application
         QString editorDescription;
         QString prettyName = prettyApplicationName(selectedFile);
-        OpenWithName name(prettyName);
+        OpenWithName name(prettyName, QApplication::activeWindow());
         name.exec();
         editorDescription = name.GetName();
 

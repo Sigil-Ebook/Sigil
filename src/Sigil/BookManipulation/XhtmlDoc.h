@@ -88,6 +88,8 @@ public:
         const QString &tag_name,
         const QString &namespace_name);
 
+    static QList< QString > GetAllDescendantBackgroundImages(const xc::DOMNode &node);
+
     static QList< QString > GetAllDescendantHrefs(const xc::DOMNode &node);
 
     static QList< QString > GetAllDescendantIDs(const xc::DOMNode &node);

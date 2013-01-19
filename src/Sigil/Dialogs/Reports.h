@@ -86,6 +86,7 @@ private:
 
     ReportsWidget *m_AllFilesWidget;
     ReportsWidget *m_HTMLFilesWidget;
+    ReportsWidget *m_LinksWidget;
     ReportsWidget *m_ImageFilesWidget;
     ReportsWidget *m_CSSFilesWidget;
     ReportsWidget *m_ClassesInHTMLFilesWidget;

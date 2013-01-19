@@ -32,7 +32,6 @@
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/XercesCppUse.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "Misc/HTMLSpellCheck.h"
@@ -401,6 +400,53 @@ Resource *Book::PreviousResource(Resource *resource)
     return qobject_cast< Resource *>(&previous_html);
 }
 
+QHash < QString, QList< XhtmlDoc::XMLElement > > Book::GetLinkElements()
+{
+    QHash< QString, QList< XhtmlDoc::XMLElement > > links_in_html;
+    const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+    QFuture< boost::tuple<QString, QList< XhtmlDoc::XMLElement > > > future = QtConcurrent::mapped(html_resources, GetLinkElementsInHTMLFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QString filename;
+        QList< XhtmlDoc::XMLElement > links;
+        tie(filename, links) = future.resultAt(i);
+        // Each target entry has a list of filenames that contain it
+        links_in_html[filename] = links;
+    }
+
+    return links_in_html;
+}
+
+tuple<QString, QList< XhtmlDoc::XMLElement > > Book::GetLinkElementsInHTMLFileMapped(HTMLResource *html_resource)
+{
+    return make_tuple(html_resource->Filename(),
+                      XhtmlDoc::GetTagsInDocument(html_resource->GetText(), "a"));
+}
+
+
+QStringList Book::GetBackgroundImagesInHTMLFiles()
+{
+    QStringList images_in_html;
+    const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+    QFuture< boost::tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetBackgroundImagesInHTMLFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QString filename;
+        QStringList images;
+        tie(filename, images) = future.resultAt(i);
+        // Each target entry has a list of filenames that contain it
+        images_in_html.append(images);
+    }
+
+    return images_in_html;
+}
+
+tuple<QString, QStringList> Book::GetBackgroundImagesInHTMLFileMapped(HTMLResource *html_resource)
+{
+    return make_tuple(html_resource->Filename(),
+                      XhtmlDoc::GetAllDescendantBackgroundImages(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+}
+
 QHash<QString, QStringList> Book::GetIdsInHTMLFiles()
 {
     QHash<QString, QStringList> ids_in_html;
@@ -428,6 +474,7 @@ QStringList Book::GetIdsInHTMLFile(HTMLResource *html_resource)
 {
     return XhtmlDoc::GetAllDescendantIDs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement());
 }
+
 
 QStringList Book::GetIdsInHrefs()
 {
@@ -602,7 +649,6 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
 tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *html_resource)
 {
     return make_tuple(html_resource->Filename(),
-                      //XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()), IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS).get());
                       XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS));
 }
 
