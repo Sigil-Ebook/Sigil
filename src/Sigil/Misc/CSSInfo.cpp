@@ -424,7 +424,7 @@ QString CSSInfo::replaceBlockComments(const QString &text)
     // However we must be careful to replace with spaces/keep line feeds
     // so that do not corrupt the position information used by the parser.
     QString new_text(text);
-    QRegularExpression comment_search("/\\*.*\\*/", QRegularExpression::InvertedGreedinessOption);
+    QRegularExpression comment_search("/\\*.*\\*/", QRegularExpression::InvertedGreedinessOption|QRegularExpression::DotMatchesEverythingOption);
     int start = 0;
     int comment_index;
 
