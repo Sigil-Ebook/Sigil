@@ -491,15 +491,12 @@ void BookBrowser::AddNewSVG()
 QStringList BookBrowser::AddExisting(bool only_multimedia)
 {
     QStringList added_files;
-    // The static getOpenFileNames dialog does not always immediately disappear when finished
-    QFileDialog file_dialog(this, tr("Add existing file(s)"), m_LastFolderOpen);
-    file_dialog.setViewMode(QFileDialog::List);
-    file_dialog.setFileMode(QFileDialog::ExistingFiles);
-    QStringList filepaths;
 
-    if (file_dialog.exec()) {
-        filepaths = file_dialog.selectedFiles();
-    }
+    QString filter_string = "";
+    QStringList filepaths = QFileDialog::getOpenFileNames(this,
+                          tr("Add Existing Files"),
+                          m_LastFolderOpen,
+                          filter_string);
 
     if (filepaths.isEmpty()) {
         return added_files;
