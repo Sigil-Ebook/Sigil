@@ -892,6 +892,10 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
 void MainWindow::ReportsDialog()
 {
     SaveTabData();
+    if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
+        ShowMessageOnStatusBar(tr("Reports cancelled due to XML not well formed."));
+        return;
+    }
     // non-modal dialog
     m_Reports->CreateReports(m_Book);
     m_Reports->show();
