@@ -74,6 +74,12 @@ public:
      */
     CSSSelector *getCSSSelectorForElementClass(const QString &elementName, const QString &className);
 
+     
+    /**
+     * Return a list of all property values for the given property in the CSS.
+     */
+    QStringList getAllPropertyValues(QString property);
+    
     /**
      * Return the original text with a reformatted appearance either to
      * a multiple line style (each property on its own line) or single line style.

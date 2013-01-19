@@ -987,10 +987,45 @@ void MainWindow::DeleteUnusedMedia()
 
     QList<Resource *> resources;
     QHash<QString, QStringList> html_files_hash = m_Book->GetHTMLFilesUsingMedia();
+
+    // Get background-image files from HTML inline styles
+    QStringList background_images = m_Book->GetBackgroundImagesInHTMLFiles();
+
+    // Get background-image files from CSS files
+    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+    foreach(Resource *resource, css_resources) {
+        CSSResource *css_resource = dynamic_cast<CSSResource *>(resource);
+        CSSInfo css_info(css_resource->GetText(), true);
+
+        background_images.append(css_info.getAllPropertyValues("background-image"));
+        background_images.append(css_info.getAllPropertyValues("background"));
+    }
+    // Get background-image files from HTML CSS files
+    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+    foreach(Resource *resource, html_resources) {
+        HTMLResource *html_resource = dynamic_cast<HTMLResource *>(resource);
+        CSSInfo css_info(html_resource->GetText(), false);
+
+        background_images.append(css_info.getAllPropertyValues("background-image"));
+        background_images.append(css_info.getAllPropertyValues("background"));
+    }
+
+    background_images.removeDuplicates();
+
+    QStringList background_image_files;
+    QRegularExpression image_file_search("url\\s*\\(\\s*['\"]([^'\"]*).*");
+    foreach (QString url, background_images) {
+        QRegularExpressionMatch match = image_file_search.match(url);
+        if (match.hasMatch()) {
+            background_image_files.append(match.captured(1));
+        }
+    }
+
     foreach(Resource * resource, m_BookBrowser->AllMediaResources()) {
         QString filepath = "../" + resource->GetRelativePathToOEBPS();
 
-        if (html_files_hash[filepath].count() == 0) {
+        // Include the file in the list to delete if it was not referenced
+        if (html_files_hash[filepath].count() == 0 && !background_image_files.contains(filepath)) {
             resources.append(resource);
         }
     }

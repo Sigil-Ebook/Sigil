@@ -96,6 +96,33 @@ CSSInfo::CSSSelector *CSSInfo::getCSSSelectorForElementClass(const QString &elem
     return NULL;
 }
 
+QStringList CSSInfo::getAllPropertyValues(QString property)
+{
+    QStringList property_values;
+
+    int last_selector_line = -1;
+
+    for (int i = m_CSSSelectors.count() - 1; i >= 0; i--) {
+        CSSInfo::CSSSelector *cssSelector = m_CSSSelectors.at(i);
+
+        if (cssSelector->isGroup && cssSelector->line == last_selector_line) {
+            // Must be a selector group which we have already processed.
+            continue;
+        }
+
+        last_selector_line = cssSelector->line;
+
+        QList< CSSInfo::CSSProperty * > properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
+        foreach (CSSInfo::CSSProperty *p, properties) {
+            if (p->name == property) {
+                property_values.append(p->value);
+            }
+        }
+    }
+
+    return property_values;
+}
+
 QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
 {
     QString new_text(m_OriginalText);
@@ -241,6 +268,7 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
     return new_text;
 }
 
+//meme use this one
 QList< CSSInfo::CSSProperty * > CSSInfo::getCSSProperties(const QString &text, const int &styleTextStartPos, const int &styleTextEndPos)
 {
     QList<CSSProperty *> new_properties;

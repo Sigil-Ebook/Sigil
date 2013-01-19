@@ -424,6 +424,29 @@ tuple<QString, QList< XhtmlDoc::XMLElement > > Book::GetLinkElementsInHTMLFileMa
 }
 
 
+QStringList Book::GetBackgroundImagesInHTMLFiles()
+{
+    QStringList images_in_html;
+    const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+    QFuture< boost::tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetBackgroundImagesInHTMLFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QString filename;
+        QStringList images;
+        tie(filename, images) = future.resultAt(i);
+        // Each target entry has a list of filenames that contain it
+        images_in_html.append(images);
+    }
+
+    return images_in_html;
+}
+
+tuple<QString, QStringList> Book::GetBackgroundImagesInHTMLFileMapped(HTMLResource *html_resource)
+{
+    return make_tuple(html_resource->Filename(),
+                      XhtmlDoc::GetAllDescendantBackgroundImages(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+}
+
 QHash<QString, QStringList> Book::GetIdsInHTMLFiles()
 {
     QHash<QString, QStringList> ids_in_html;
@@ -626,7 +649,6 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
 tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *html_resource)
 {
     return make_tuple(html_resource->Filename(),
-                      //XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()), IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS).get());
                       XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS));
 }
 
