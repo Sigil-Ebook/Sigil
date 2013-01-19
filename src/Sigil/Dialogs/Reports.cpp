@@ -112,18 +112,25 @@ void Reports::CreateReports(QSharedPointer< Book > book)
     // Populate all of our report widgets
     m_AllFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
+    qApp->processEvents();
     m_HTMLFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
+    qApp->processEvents();
     m_LinksWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
+    qApp->processEvents();
     m_ImageFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
+    qApp->processEvents();
     m_CSSFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
+    qApp->processEvents();
     m_ClassesInHTMLFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
+    qApp->processEvents();
     m_StylesInCSSFilesWidget->CreateReport(m_Book);
     progress.setValue(progress_value++);
+    qApp->processEvents();
     QApplication::restoreOverrideCursor();
 }
 
