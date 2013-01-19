@@ -1890,6 +1890,9 @@ void MainWindow::PreferencesDialog()
         m_TabManager.ReopenTabs(m_ViewState);
     } else if (preferences.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
+        // Make sure menu state is set
+        SettingsStore settings;
+        ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
     }
 
     if (m_SelectCharacter->isVisible()) {
@@ -3387,7 +3390,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionValidateEpubWithFlightCrew, "MainWindow.ValidateEpub");
     sm->registerAction(ui.actionValidateStylesheetsWithW3C, "MainWindow.ValidateStylesheetsWithW3C");
     sm->registerAction(ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
-    sm->registerAction(ui.actionSpellCheck, "MainWindow.SpellCheck");
+    sm->registerAction(ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
+    sm->registerAction(ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
     sm->registerAction(ui.actionIgnoreMisspelledWord, "MainWindow.IgnoreMispelledWord");
     sm->registerAction(ui.actionClearIgnoredWords, "MainWindow.ClearIgnoredWords");
@@ -3507,9 +3511,9 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionValidateEpubWithFlightCrew->icon();
     icon.addFile(QString::fromUtf8(":/main/document-validate_16px.png"));
     ui.actionValidateEpubWithFlightCrew->setIcon(icon);
-    icon = ui.actionSpellCheck->icon();
+    icon = ui.actionSpellcheckEditor->icon();
     icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
-    ui.actionSpellCheck->setIcon(icon);
+    ui.actionSpellcheckEditor->setIcon(icon);
     icon = ui.actionCut->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-cut_16px.png"));
     ui.actionCut->setIcon(icon);
@@ -3732,7 +3736,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionValidateStylesheetsWithW3C,  SIGNAL(triggered()), this, SLOT(ValidateStylesheetsWithW3C()));
     connect(ui.actionSpellcheckEditor,   SIGNAL(triggered()), this, SLOT(SpellcheckEditorDialog()));
     connect(ui.actionAutoSpellCheck, SIGNAL(triggered(bool)), this, SLOT(SetAutoSpellCheck(bool)));
-    connect(ui.actionSpellCheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
+    connect(ui.actionSpellcheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

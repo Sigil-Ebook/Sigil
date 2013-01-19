@@ -125,7 +125,7 @@ void SpellcheckEditor::Ignore()
     SpellCheck *sc = SpellCheck::instance();
     foreach (QStandardItem *item, GetSelectedItems()) {
         sc->ignoreWord(Utility::getSpellingSafeText(item->text()));
-        m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setCheckState(Qt::Unchecked);
+        m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setText(tr("No"));
     }
 
     emit SpellingHighlightRefreshRequest();
@@ -139,7 +139,7 @@ void SpellcheckEditor::Add()
     SpellCheck *sc = SpellCheck::instance();
     foreach (QStandardItem *item, GetSelectedItems()) {
         sc->addToUserDictionary(Utility::getSpellingSafeText(item->text()));
-        m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setCheckState(Qt::Unchecked);
+        m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setText(tr("No"));
     }
 
     emit SpellingHighlightRefreshRequest();
@@ -171,12 +171,11 @@ void SpellcheckEditor::CreateModel()
         QStandardItem *misspelled_item = new QStandardItem();
         word_item->setEditable(false);
         misspelled_item->setEditable(false);
-        misspelled_item->setCheckable(false);
         if (misspelled) {
-            misspelled_item->setCheckState(Qt::Checked);
+            misspelled_item->setText(tr("Yes"));
         }
         else {
-            misspelled_item->setCheckState(Qt::Unchecked);
+            misspelled_item->setText(tr("No"));
         }
 
         QList<QStandardItem *> row_items;

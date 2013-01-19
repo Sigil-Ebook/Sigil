@@ -285,7 +285,7 @@
      <addaction name="actionSpellcheckEditor"/>
      <addaction name="separator"/>
      <addaction name="actionAutoSpellCheck"/>
-     <addaction name="actionSpellCheck"/>
+     <addaction name="actionSpellcheck"/>
      <addaction name="separator"/>
      <addaction name="actionAddMisspelledWord"/>
      <addaction name="actionIgnoreMisspelledWord"/>
@@ -429,7 +429,7 @@
    </attribute>
    <addaction name="actionMetaEditor"/>
    <addaction name="actionGenerateTOC"/>
-   <addaction name="actionSpellCheck"/>
+   <addaction name="actionSpellcheckEditor"/>
    <addaction name="actionValidateEpubWithFlightCrew"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
@@ -1529,7 +1529,16 @@
   </action>
   <action name="actionSpellcheckEditor">
    <property name="text">
-    <string>&amp;QuickSpell...</string>
+    <string>&amp;Spellcheck...</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-spellcheck_22px.png</normaloff>:/main/document-spellcheck_22px.png</iconset>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Alt+Q</string>
@@ -1542,19 +1551,16 @@
    <property name="text">
     <string>&amp;Highlight Misspelled Words</string>
    </property>
-  </action>
-  <action name="actionSpellCheck">
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/document-spellcheck_22px.png</normaloff>:/main/document-spellcheck_22px.png</iconset>
+   <property name="toolTip">
+    <string>Enable or disable highlighting of misspelled words in Code View.</string>
    </property>
+  </action>
+  <action name="actionSpellcheck">
    <property name="text">
     <string>&amp;Next Misspelled Word</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Next Misspelled Word&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find the next misspelled word in Code View.&lt;/p&gt;</string>
+    <string>Find the next misspelled word in the book.</string>
    </property>
    <property name="shortcut">
     <string>F4</string>

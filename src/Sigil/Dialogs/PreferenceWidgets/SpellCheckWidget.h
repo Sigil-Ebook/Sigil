@@ -51,6 +51,7 @@ private slots:
 
     void userDictionaryChanged(QListWidgetItem *current, QListWidgetItem *previous);
     void dictionariesCurrentIndexChanged(int index);
+    void highlightChanged(int state);
 
 private:
     void readSettings();

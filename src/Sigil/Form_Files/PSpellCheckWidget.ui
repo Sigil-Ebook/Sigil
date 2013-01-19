@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Spellcheck Dictionaries</string>
   </property>
+  <property name="toolTip">
+   <string>Highlight misspelled words in Code View.</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="leftMargin">
     <number>6</number>
@@ -57,6 +60,16 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="HighlightMisspelled">
+       <property name="toolTip">
+        <string>Highlight misspelled words in Code View.</string>
+       </property>
+       <property name="text">
+        <string>Highlight Misspelled Words</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
