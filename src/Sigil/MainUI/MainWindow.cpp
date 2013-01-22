@@ -665,7 +665,7 @@ bool MainWindow::SaveACopy()
 
 void MainWindow::Find()
 {
-    m_TabManager.SaveTabData();
+    SaveTabData();
     m_FindReplace->SetUpFindText();
     m_FindReplace->show();
 }
@@ -771,7 +771,7 @@ void MainWindow::ZoomReset()
 
 void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry *index_entry)
 {
-    m_TabManager.SaveTabData();
+    SaveTabData();
     // non-modal dialog
     m_IndexEditor->show();
     m_IndexEditor->raise();
@@ -784,7 +784,7 @@ void MainWindow::IndexEditorDialog(IndexEditorModel::indexEntry *index_entry)
 
 void MainWindow::SpellcheckEditorDialog()
 {
-    m_TabManager.SaveTabData();
+    SaveTabData();
     // non-modal dialog
     m_SpellcheckEditor->show();
     m_SpellcheckEditor->raise();
@@ -800,7 +800,7 @@ void MainWindow::CreateIndex()
     QList<HTMLResource *> html_resources;
     // Turn the list of Resources that are really HTMLResources to a real list
     // of HTMLResources.
-    QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
+    QList<Resource *> resources = GetAllHTMLResources();
     foreach(Resource * resource, resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
@@ -962,7 +962,7 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
 
     if (!is_found) {
         // Try an inline style instead
-        QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+        QList<Resource *> html_resources = GetAllHTMLResources();
         foreach(Resource * resource, html_resources) {
             if (resource->Filename() == filename) {
                 HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
@@ -1004,7 +1004,7 @@ void MainWindow::DeleteUnusedMedia()
         background_images.append(css_info.getAllPropertyValues("background"));
     }
     // Get background-image files from HTML CSS files
-    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+    QList<Resource *> html_resources = GetAllHTMLResources();
     foreach(Resource *resource, html_resources) {
         HTMLResource *html_resource = dynamic_cast<HTMLResource *>(resource);
         CSSInfo css_info(html_resource->GetText(), false);
@@ -1217,7 +1217,7 @@ void MainWindow::InsertHyperlink()
 
     QString href = flow_tab->GetAttributeHref();
     HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
-    QList<Resource *> resources = m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllMediaResources();
+    QList<Resource *> resources = GetAllHTMLResources() + m_BookBrowser->AllMediaResources();
     SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);
 
     if (select_hyperlink.exec() == QDialog::Accepted) {
@@ -1615,7 +1615,7 @@ void MainWindow::EditTOCDialog()
 {
     SaveTabData();
 
-    QList<Resource *> resources = m_BookBrowser->AllHTMLResources() + m_BookBrowser->AllMediaResources();
+    QList<Resource *> resources = GetAllHTMLResources() + m_BookBrowser->AllMediaResources();
     EditTOC toc(m_Book, resources, this);
 
     if (toc.exec() != QDialog::Accepted) {
@@ -1630,7 +1630,7 @@ void MainWindow::EditTOCDialog()
 void MainWindow::GenerateToc()
 {
     SaveTabData();
-    QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
+    QList<Resource *> resources = GetAllHTMLResources();
 
     if (resources.isEmpty()) {
         return;
@@ -1673,7 +1673,7 @@ void MainWindow::CreateHTMLTOC()
     QList<HTMLResource *> htmlResources;
     // Turn the list of Resources that are really HTMLResources to a real list
     // of HTMLResources.
-    QList<Resource *> resources = m_BookBrowser->AllHTMLResources();
+    QList<Resource *> resources = GetAllHTMLResources();
     foreach(Resource * resource, resources) {
         HTMLResource *htmlResource = qobject_cast<HTMLResource *>(resource);
 
@@ -2563,7 +2563,7 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource &origina
 
 void MainWindow::SplitOnSGFSectionMarkers()
 {
-    QList<Resource *> html_resources = m_BookBrowser->AllHTMLResources();
+    QList<Resource *> html_resources = GetAllHTMLResources();
 
     SaveTabData();
 
@@ -2882,7 +2882,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
 
     try {
         ShowMessageOnStatusBar(tr("Saving file..."));
-        m_TabManager.SaveTabData();
+        SaveTabData();
         QString extension = QFileInfo(fullfilepath).suffix().toLower();
 
         // TODO: Move to ExporterFactory and throw exception
