@@ -268,7 +268,6 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
     return new_text;
 }
 
-//meme use this one
 QList< CSSInfo::CSSProperty * > CSSInfo::getCSSProperties(const QString &text, const int &styleTextStartPos, const int &styleTextEndPos)
 {
     QList<CSSProperty *> new_properties;

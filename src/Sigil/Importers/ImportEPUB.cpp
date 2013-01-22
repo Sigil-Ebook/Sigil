@@ -296,7 +296,7 @@ void ImportEPUB::ExtractContainer()
 #endif
 
     if (zfile == NULL) {
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot open EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
+        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot unzip EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
     }
 
     res = unzGoToFirstFile(zfile);
