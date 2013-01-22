@@ -206,7 +206,6 @@ protected:
     void closeEvent(QCloseEvent *event);
 
 private slots:
-
     /**
      * Implements New action functionality.
      */
@@ -391,6 +390,8 @@ private slots:
     void ValidateEpubWithFlightCrew();
 
     void ValidateStylesheetsWithW3C();
+
+    bool CharLessThan(const QChar &s1, const QChar &s2);
 
     /**
      * Disconnects all signals to the old tab

@@ -288,6 +288,8 @@ public:
      */
     bool HasObfuscatedFonts() const ;
 
+    QList<HTMLResource *> GetHTMLResources();
+
 public slots:
 
     /**

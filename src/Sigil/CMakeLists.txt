@@ -167,6 +167,8 @@ set( DIALOG_FILES
     Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.h
     Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp
     Dialogs/ReportsWidgets/StylesInCSSFilesWidget.h
+    Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp
+    Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.h
     Dialogs/ReportsWidgets/ReportsWidget.h
     Dialogs/LinkStylesheets.cpp
     Dialogs/LinkStylesheets.h
@@ -260,6 +262,7 @@ set( MISC_FILES
     Misc/TOCHTMLWriter.h
     Misc/NumericItem.h
     Misc/WrapIndicator.h
+    Misc/XMLEntities.cpp
     )
 
 set( MISC_EDITORS_FILES    
@@ -396,6 +399,7 @@ set( UI_FILES
     Form_Files/ReportsCSSFilesWidget.ui
     Form_Files/ReportsClassesInHTMLFilesWidget.ui
     Form_Files/ReportsStylesInCSSFilesWidget.ui
+    Form_Files/ReportsCharactersInHTMLFilesWidget.ui
     Form_Files/LinkStylesheets.ui 
     Form_Files/SearchEditor.ui
     Form_Files/ClipEditor.ui

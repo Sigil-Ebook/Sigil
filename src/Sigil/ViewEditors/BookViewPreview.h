@@ -113,6 +113,7 @@ public:
 
     QString GetCaretLocationUpdate();
 
+    QString GetDisplayedCharacters();
     void ShowTag();
 
     void HighlightPosition();

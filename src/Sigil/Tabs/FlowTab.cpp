@@ -676,6 +676,15 @@ QString FlowTab::GetCaretLocationUpdate() const
     return QString();
 }
 
+QString FlowTab::GetDisplayedCharacters()
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->GetDisplayedCharacters();
+    }
+
+    return "";
+}
+
 QString FlowTab::GetText()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {

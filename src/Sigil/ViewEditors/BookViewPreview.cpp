@@ -100,6 +100,15 @@ QString BookViewPreview::GetCaretLocationUpdate()
     return m_CaretLocationUpdate;
 }
 
+QString BookViewPreview::GetDisplayedCharacters()
+{
+    page()->triggerAction(QWebPage::SelectAll);
+    QString text = selectedText();
+    page()->triggerAction(QWebPage::MoveToStartOfDocument);
+    page()->triggerAction(QWebPage::SelectNextChar);
+    return text;
+}
+
 void BookViewPreview::ShowTag()
 {
     // Walk up the parent tag element hierarhcy at the caret location appending html

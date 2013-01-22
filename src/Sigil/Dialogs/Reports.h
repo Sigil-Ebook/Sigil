@@ -53,6 +53,7 @@ signals:
     void OpenFileRequest(QString, int);
     void DeleteFilesRequest(QStringList);
     void DeleteStylesRequest(QList<BookReports::StyleData *>);
+    void FindText(QString);
 
 private slots:
     /**
@@ -82,8 +83,6 @@ private:
 
     void connectSignalsSlots();
 
-    QSharedPointer< Book > m_Book;
-
     ReportsWidget *m_AllFilesWidget;
     ReportsWidget *m_HTMLFilesWidget;
     ReportsWidget *m_LinksWidget;
@@ -91,6 +90,7 @@ private:
     ReportsWidget *m_CSSFilesWidget;
     ReportsWidget *m_ClassesInHTMLFilesWidget;
     ReportsWidget *m_StylesInCSSFilesWidget;
+    ReportsWidget *m_CharactersInHTMLFilesWidget;
 
     Ui::Reports ui;
 };

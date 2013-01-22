@@ -33,6 +33,7 @@
 #include "ReportsWidgets/CSSFilesWidget.h"
 #include "ReportsWidgets/ClassesInHTMLFilesWidget.h"
 #include "ReportsWidgets/StylesInCSSFilesWidget.h"
+#include "ReportsWidgets/CharactersInHTMLFilesWidget.h"
 
 static const QString SETTINGS_GROUP = "reports_dialog";
 
@@ -44,7 +45,8 @@ Reports::Reports(QWidget *parent)
       m_ImageFilesWidget(new ImageFilesWidget()),
       m_CSSFilesWidget(new CSSFilesWidget()),
       m_ClassesInHTMLFilesWidget(new ClassesInHTMLFilesWidget()),
-      m_StylesInCSSFilesWidget(new StylesInCSSFilesWidget())
+      m_StylesInCSSFilesWidget(new StylesInCSSFilesWidget()),
+      m_CharactersInHTMLFilesWidget(new CharactersInHTMLFilesWidget())
 {
     ui.setupUi(this);
 
@@ -55,6 +57,7 @@ Reports::Reports(QWidget *parent)
     appendReportsWidget(m_ClassesInHTMLFilesWidget);
     appendReportsWidget(m_StylesInCSSFilesWidget);
     appendReportsWidget(m_LinksWidget);
+    appendReportsWidget(m_CharactersInHTMLFilesWidget);
 
     connectSignalsSlots();
     readSettings();
@@ -97,11 +100,15 @@ Reports::~Reports()
         delete m_StylesInCSSFilesWidget;
         m_StylesInCSSFilesWidget = 0;
     }
+
+    if (m_CharactersInHTMLFilesWidget) {
+        delete m_CharactersInHTMLFilesWidget;
+        m_CharactersInHTMLFilesWidget = 0;
+    }
 }
 
 void Reports::CreateReports(QSharedPointer< Book > book)
 {
-    m_Book = book;
     QApplication::setOverrideCursor(Qt::WaitCursor);
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Creating reports..."), 0, 0, ui.availableWidgets->count(), this);
@@ -110,25 +117,28 @@ void Reports::CreateReports(QSharedPointer< Book > book)
     progress.setValue(progress_value++);
     qApp->processEvents();
     // Populate all of our report widgets
-    m_AllFilesWidget->CreateReport(m_Book);
+    m_AllFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
-    m_HTMLFilesWidget->CreateReport(m_Book);
+    m_HTMLFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
-    m_LinksWidget->CreateReport(m_Book);
+    m_LinksWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
-    m_ImageFilesWidget->CreateReport(m_Book);
+    m_ImageFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
-    m_CSSFilesWidget->CreateReport(m_Book);
+    m_CSSFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
-    m_ClassesInHTMLFilesWidget->CreateReport(m_Book);
+    m_ClassesInHTMLFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
-    m_StylesInCSSFilesWidget->CreateReport(m_Book);
+    m_StylesInCSSFilesWidget->CreateReport(book);
+    progress.setValue(progress_value++);
+    qApp->processEvents();
+    m_CharactersInHTMLFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
     QApplication::restoreOverrideCursor();
@@ -189,6 +199,7 @@ void Reports::connectSignalsSlots()
     connect(m_ImageFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     connect(m_CSSFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     connect(m_StylesInCSSFilesWidget, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)));
+    connect(m_CharactersInHTMLFilesWidget, SIGNAL(FindText(QString)), this, SIGNAL(FindText(QString)));
 
     connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(selectPWidget(QListWidgetItem *, QListWidgetItem *)));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveSettings()));

@@ -95,6 +95,7 @@ public slots:
     void SetOptionWrap(bool new_state);
 
     void FindWord(QString text);
+    void FindAnyText(QString text);
 
 signals:
 

@@ -163,6 +163,11 @@ QString Book::GetFirstUniqueSectionName(QString extension)
     return m_Mainfolder.GetUniqueFilenameVersion(filename);
 }
 
+QList<HTMLResource *> Book::GetHTMLResources()
+{
+    return m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
+}
+
 HTMLResource &Book::CreateNewHTMLFile()
 {
     TempFolder tempfolder;

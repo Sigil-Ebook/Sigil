@@ -207,6 +207,26 @@ void FindReplace::CountClicked()
 
 void FindReplace::FindWord(QString word)
 {
+//    SetCodeViewIfNeeded(true);
+//    WriteSettings();
+//
+//    SetSearchMode(FindReplace::SearchMode_Regex);
+//    SetLookWhere(FindReplace::LookWhere_AllHTMLFiles);
+//    SetSearchDirection(FindReplace::SearchDirection_Down);
+//    SetRegexOptionDotAll(true);
+//    SetRegexOptionMinimalMatch(true);
+//    SetOptionWrap(true);
+
+    word = "\\b" + word + "\\b";
+    FindAnyText(word);
+//    ui.cbFind->setEditText(word);
+//    FindNext();
+//
+//    ReadSettings();
+}
+
+void FindReplace::FindAnyText(QString text)
+{
     SetCodeViewIfNeeded(true);
     WriteSettings();
 
@@ -217,8 +237,8 @@ void FindReplace::FindWord(QString word)
     SetRegexOptionMinimalMatch(true);
     SetOptionWrap(true);
 
-    word = "\\b" + word + "\\b" + "(?![^<>]*>)(?!.*<body[^>]*>)";
-    ui.cbFind->setEditText(word);
+    text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
+    ui.cbFind->setEditText(text);
     FindNext();
 
     ReadSettings();

@@ -142,9 +142,8 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             // Target exists in book
             QString target_valid = "n/a";
             if (is_target_file) {
-                target_valid = "no";
-
                 if (!href.isEmpty()) {
+                    target_valid = "no";
                     QString file = href_file;
                     if (href_file.isEmpty()) {
                         file = filename;

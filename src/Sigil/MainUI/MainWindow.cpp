@@ -20,6 +20,9 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
+#include <QWebView>
+#include <QWebPage>
+#include "Misc/SleepFunctions.h"
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QSignalMapper>
@@ -1905,6 +1908,11 @@ void MainWindow::PreferencesDialog()
 void MainWindow::ValidateEpubWithFlightCrew()
 {
     m_ValidationResultsView->ValidateCurrentBook();
+}
+
+bool MainWindow::CharLessThan(const QChar &s1, const QChar &s2)
+{
+    return s1 < s2;
 }
 
 
@@ -3879,6 +3887,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_Reports,       SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
     connect(m_Reports,       SIGNAL(DeleteFilesRequest(QStringList)), this, SLOT(DeleteFilenames(QStringList)));
     connect(m_Reports,       SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SLOT(DeleteReportsStyles(QList<BookReports::StyleData *>)));
+    connect(m_Reports,       SIGNAL(FindText(QString)), m_FindReplace, SLOT(FindAnyText(QString)));
 }
 
 void MainWindow::MakeTabConnections(ContentTab *tab)
