@@ -27,10 +27,12 @@
 
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
+#include <QtCore/QSharedPointer>
 
 #include "Misc/SettingsStore.h"
 #include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/ClipEditorTreeView.h"
+#include "BookManipulation/Book.h"
 
 #include "ui_ClipEditor.h"
 
@@ -44,6 +46,7 @@ class ClipEditor : public QDialog
 public:
     ClipEditor(QWidget *parent);
     void ForceClose();
+    void SetBook(QSharedPointer <Book> book);
 
 public slots:
     QStandardItem *AddEntry(bool is_group = false, ClipEditorModel::clipEntry *clip_entry = NULL, bool insert_after = true);
@@ -73,6 +76,7 @@ private slots:
     void ExportAll();
     void CollapseAll();
     void ExpandAll();
+    void AutoFill();
 
     void Apply();
     bool Save();
@@ -134,8 +138,11 @@ private:
     QAction *m_ExportAll;
     QAction *m_CollapseAll;
     QAction *m_ExpandAll;
+    QAction *m_AutoFill;
 
     ClipEditorModel *m_ClipEditorModel;
+
+    QSharedPointer< Book > m_Book;
 
     QString m_LastFolderOpen;
 

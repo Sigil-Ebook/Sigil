@@ -2740,8 +2740,8 @@ void MainWindow::SetNewBook(QSharedPointer< Book > new_book)
     m_BookBrowser->SetBook(m_Book);
     m_TableOfContents->SetBook(m_Book);
     m_ValidationResultsView->SetBook(m_Book);
-    // Reset variables and data for new books
     m_IndexEditor->SetBook(m_Book);
+    m_ClipEditor->SetBook(m_Book);
     m_SpellcheckEditor->SetBook(m_Book);
     ResetLinkOrStyleBookmark();
     SettingsStore settings;
