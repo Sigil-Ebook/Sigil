@@ -29,7 +29,7 @@
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="toolTip">
-      <string>Choose what type of automatic cleaning and formating should be done.</string>
+      <string>Choose what type of automatic cleaning and formatting should be done.</string>
      </property>
      <property name="title">
       <string>Clean and Format Type</string>
