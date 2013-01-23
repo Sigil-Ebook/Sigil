@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/about">
         <file>Sigil_logo.png</file>
-        <file>Credits.html</file>
     </qresource>
 </RCC>

@@ -29,12 +29,16 @@
 
 const QString VERSION_NUMBERS = "(\\d+)\\.(\\d+)\\.(\\d+)";
 const QString SIGIL_VERSION   = QString(SIGIL_FULL_VERSION);
+const QString SIGIL_HOMEPAGE  = "http://code.google.com/p/sigil/";
+const QString GNU_LICENSE     = "http://www.gnu.org/licenses/gpl-3.0-standalone.html";
 
 
 About::About(QWidget *parent)
     : QDialog(parent)
 {
     ui.setupUi(this);
+    ui.lbHomepageDisplay->setText("<a href=\"" % SIGIL_HOMEPAGE % "\">" % SIGIL_HOMEPAGE % "</a>");
+    ui.lbLicenseDisplay->setText("<a href=\"" % GNU_LICENSE % "\">" % tr("GNU General Public License v3") % "</a>");
     ui.lbBuildTimeDisplay->setText(GetUTCBuildTime().toString("yyyy.MM.dd HH:mm:ss") + " UTC");
     ui.lbLoadedQtDisplay->setText(QString(qVersion()));
     QRegularExpression version_number(VERSION_NUMBERS);
@@ -44,7 +48,21 @@ About::About(QWidget *parent)
                                .arg(mo.captured(2).toInt())
                                .arg(mo.captured(3).toInt());
     ui.lbVersionDisplay->setText(version_text);
-    ui.creditsDisplay->setHtml(Utility::ReadUnicodeTextFile(":/about/Credits.html"));
+    QString credits = "<h4>" + tr("Maintainer / Lead Developer") + "</h4>" +
+        "<ul><li>John Schember</li></ul>" +
+        "<h4>" + tr("Code Contributors") + "</h4>" +
+        "<ul>" + 
+        "<li>Grant Drake</li>" + 
+        "<li>Dave Heiland</li>" + 
+        "<li>Charles King</li>" + 
+        "<li>Daniel Pavel</li>" + 
+        "<li>Grzegorz Wolszczak</li>" + 
+        "</ul>" + 
+        "<h4>" + tr("Translators") + "</h4>" +
+        "<ul><li><a href=\"https://www.transifex.net/projects/p/sigil/\">https://www.transifex.net/projects/p/sigil/teams/</a></li></ul>";
+        "<h4>" + tr("Original Creator") + "</h4>" +
+        "<ul><li>Strahinja Marković  (" + tr("retired") + ")</li></ul>";
+    ui.creditsDisplay->setText(credits);
 }
 
 
