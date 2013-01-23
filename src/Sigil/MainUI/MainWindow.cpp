@@ -1954,7 +1954,6 @@ void MainWindow::SetViewState(MainWindow::ViewState view_state)
     bool set_tab_state = m_ViewState != view_state;
     m_ViewState = view_state;
     UpdateViewState(set_tab_state);
-    UpdatePreview();
 }
 
 
