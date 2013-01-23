@@ -183,15 +183,6 @@ QString BookViewEditor::GetHtml()
     // This prevents false mismatches with the cache later on.
     QString html_from_Qt = page()->mainFrame()->toHtml();
     html_from_Qt = RemoveBookViewReplaceSpans(html_from_Qt);
-    // Remove xml/doctype/html tags even if only some are present.
-    // Replace with standard tags that work whether tidy is on or off.
-    QRegularExpression remove_xml_tag(REMOVE_XML_TAG, QRegularExpression::InvertedGreedinessOption|QRegularExpression::DotMatchesEverythingOption);
-    QRegularExpression remove_doctype_tag(REMOVE_DOCTYPE_TAG, QRegularExpression::InvertedGreedinessOption|QRegularExpression::DotMatchesEverythingOption);
-    QRegularExpression remove_html_tag(REMOVE_HTML_TAG, QRegularExpression::InvertedGreedinessOption|QRegularExpression::DotMatchesEverythingOption);
-    html_from_Qt.remove(remove_xml_tag);
-    html_from_Qt.remove(remove_doctype_tag);
-    html_from_Qt.remove(remove_html_tag);
-    html_from_Qt.prepend(DOC_PREFIX);
     // Convert nbsp to entity because it cannot be seen and there are issues
     // where CV will remove them if they are a single character.
     html_from_Qt = CleanSource::NbspToEntity(html_from_Qt);
