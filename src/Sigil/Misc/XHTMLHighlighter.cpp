@@ -123,11 +123,6 @@ XHTMLHighlighter::XHTMLHighlighter(bool checkSpelling, QObject *parent)
 // a block (line of text) needs to be repainted
 void XHTMLHighlighter::highlightBlock(const QString &text)
 {
-    if (text.isEmpty()) {
-        return;
-    }
-
-    // By default, all block states are -1;
     // in our implementation regular text is state == 1
     if (previousBlockState() == -1) {
         setCurrentBlockState(State_Text);
@@ -136,6 +131,12 @@ void XHTMLHighlighter::highlightBlock(const QString &text)
     else {
         setCurrentBlockState(previousBlockState());
     }
+
+    if (text.isEmpty()) {
+        return;
+    }
+
+    // By default, all block states are -1;
 
     SettingsStore settings;
     m_enableSpellCheck = settings.spellCheck();
