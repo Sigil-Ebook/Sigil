@@ -490,8 +490,8 @@ private slots:
     void InsertText(const QString &text);
 
     void addToUserDictionary(const QString &text);
-
-    void ignoreWordInDictionary(const QString &text);
+    void addToDefaultDictionary(const QString &text);
+    void ignoreWord(const QString &text);
 
     void SaveClipAction();
 
@@ -782,6 +782,7 @@ private:
      */
     QSignalMapper *m_spellingMapper;
     QSignalMapper *m_addSpellingMapper;
+    QSignalMapper *m_addDictMapper;
     QSignalMapper *m_ignoreSpellingMapper;
     QSignalMapper *m_clipMapper;
 

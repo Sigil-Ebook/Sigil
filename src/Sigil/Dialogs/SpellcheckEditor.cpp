@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012, 2013 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012, 2013 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -26,11 +26,13 @@
 #include <QtWidgets/QPushButton>
 
 #include "Dialogs/SpellcheckEditor.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/Resource.h"
 
 static const QString SETTINGS_GROUP = "spellcheck_editor";
+static const QString SELECTED_DICTIONARY = "selected_dictionary";
 static const QString FILE_EXTENSION = "ini";
 
 SpellcheckEditor::SpellcheckEditor(QWidget *parent)
@@ -46,6 +48,7 @@ SpellcheckEditor::SpellcheckEditor(QWidget *parent)
     SetupSpellcheckEditorTree();
     CreateContextMenuActions();
     ConnectSignalsSlots();
+    UpdateDictionaries();
     ReadSettings();
 }
 
@@ -67,14 +70,13 @@ void SpellcheckEditor::SetupSpellcheckEditorTree()
     ui.SpellcheckEditorTree->setSortingEnabled(false);
     ui.SpellcheckEditorTree->setWordWrap(true);
     ui.SpellcheckEditorTree->setAlternatingRowColors(true);
-    ui.SpellcheckEditorTree->header()->setStretchLastSection(true);
+    ui.SpellcheckEditorTree->header()->setStretchLastSection(false);
 }
 
 void SpellcheckEditor::showEvent(QShowEvent *event)
 {
     Refresh();
 }
-
 bool SpellcheckEditor::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == ui.FilterText) {
@@ -119,6 +121,7 @@ QList<QStandardItem *> SpellcheckEditor::GetSelectedItems()
 void SpellcheckEditor::Ignore()
 {
     if (SelectedRowsCount() < 1) {
+        emit ShowStatusMessageRequest(tr("No words selected."));
         return;
     }
 
@@ -128,20 +131,28 @@ void SpellcheckEditor::Ignore()
         m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setText(tr("No"));
     }
 
+    emit ShowStatusMessageRequest(tr("Ignored word(s)."));
     emit SpellingHighlightRefreshRequest();
 }
 
 void SpellcheckEditor::Add()
 {
     if (SelectedRowsCount() < 1) {
+        emit ShowStatusMessageRequest(tr("No words selected."));
+        return;
+    }
+    QString dict_name = ui.Dictionaries->currentText();
+    if (dict_name.isEmpty()) {
+        emit ShowStatusMessageRequest(tr("No dictionaries enabled in Preferences."));
         return;
     }
     SpellCheck *sc = SpellCheck::instance();
     foreach (QStandardItem *item, GetSelectedItems()) {
-        sc->addToUserDictionary(Utility::getSpellingSafeText(item->text()));
+        sc->addToUserDictionary(Utility::getSpellingSafeText(item->text()), dict_name);
         m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setText(tr("No"));
     }
 
+    emit ShowStatusMessageRequest(tr("Added word(s) to dictionary."));
     emit SpellingHighlightRefreshRequest();
 }
 
@@ -152,6 +163,8 @@ void SpellcheckEditor::CreateModel()
     header.append(tr("Word"));
     header.append(tr("Misspelled?"));
     m_SpellcheckEditorModel->setHorizontalHeaderLabels(header);
+    ui.SpellcheckEditorTree->header()->setSectionResizeMode(0, QHeaderView::Stretch);
+    ui.SpellcheckEditorTree->resizeColumnToContents(1);
 
     QSet<QString> unique_words = m_Book->GetWordsInHTMLFiles();
     QSet<QString> misspelled_words = m_Book->GetMisspelledWordsInHTMLFiles();
@@ -189,9 +202,21 @@ void SpellcheckEditor::Refresh()
 {
     WriteSettings();
     CreateModel();
+    UpdateDictionaries();
+
     ReadSettings();
 
     ui.FilterText->setFocus();
+}
+
+void SpellcheckEditor::UpdateDictionaries()
+{
+    ui.Dictionaries->clear();
+    SettingsStore settings;
+    const QStringList dicts = settings.enabledUserDictionaries();
+    if (dicts.count() > 0) {
+        ui.Dictionaries->addItems(dicts);
+    }
 }
 
 void SpellcheckEditor::ChangeDisplayType(int state)
@@ -235,18 +260,17 @@ void SpellcheckEditor::ReadSettings()
         restoreGeometry(geometry);
     }
 
-    // Column widths
-    int size = settings.beginReadArray("column_data");
-
-    for (int column = 0; column < size && column < ui.SpellcheckEditorTree->header()->count(); column++) {
-        settings.setArrayIndex(column);
-        int column_width = settings.value("width").toInt();
-
-        if (column_width) {
-            ui.SpellcheckEditorTree->setColumnWidth(column, column_width);
-        }
+    // Selected Dictionary
+    int index = -1;
+    if (settings.contains(SELECTED_DICTIONARY)) {
+        index = ui.Dictionaries->findText(settings.value(SELECTED_DICTIONARY).toString());
     }
+    if (index < 0) {
+        index = 0;
+    }
+    ui.Dictionaries->setCurrentIndex(index);
 
+    settings.endGroup();
 }
 
 void SpellcheckEditor::WriteSettings()
@@ -255,15 +279,10 @@ void SpellcheckEditor::WriteSettings()
     settings.beginGroup(SETTINGS_GROUP);
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
-    // Column widths
-    settings.beginWriteArray("column_data");
 
-    for (int column = 0; column < ui.SpellcheckEditorTree->header()->count(); column++) {
-        settings.setArrayIndex(column);
-        settings.setValue("width", ui.SpellcheckEditorTree->columnWidth(column));
-    }
+    // Selected Dictionary
+    settings.setValue(SELECTED_DICTIONARY, ui.Dictionaries->currentText());
 
-    settings.endArray();
     settings.endGroup();
 }
 

@@ -25,6 +25,7 @@
 
 #include <QtCore/QHash>
 #include <QtCore/QString>
+#include <QtCore/QStringList>
 
 class Hunspell;
 class QStringList;
@@ -43,14 +44,16 @@ public:
     QString currentDictionary() const;
     bool spell(const QString &word);
     QStringList suggest(const QString &word);
+    void clearIgnoredWords();
     void ignoreWord(const QString &word);
+    void ignoreWordInDictionary(const QString &word);
 
     void setDictionary(const QString &name, bool forceReplace = false);
     void reloadDictionary();
 
-    void addToUserDictionary(const QString &word);
-    QStringList userDictionaryWords();
-    void replaceUserDictionaryWords(QStringList words);
+    void addToUserDictionary(const QString &word, QString dict_name = "");
+    QStringList allUserDictionaryWords();
+    QStringList userDictionaryWords(QString dict_name);
 
     /**
      * The location of the user dictionary directories.
@@ -58,6 +61,7 @@ public:
     static QString dictionaryDirectory();
     static QString userDictionaryDirectory();
     static QString currentUserDictionaryFile();
+    static QString userDictionaryFile(QString dict_name);
 
     void loadDictionaryNames();
 
@@ -69,6 +73,7 @@ private:
     QString m_dictionaryName;
     //
     QHash<QString, QString> m_dictionaries;
+    QStringList m_ignoredWords;
 
     static SpellCheck *m_instance;
 };

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012  Dave Heiland
+**  Copyright (C) 2011, 2012, 2013  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012, 2013  Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -37,7 +37,8 @@ static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
 static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
 static QString KEY_VIEW_STATE = SETTINGS_GROUP + "/" + "view_state";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
-static QString KEY_USER_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "user_dictionary_name";
+static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "default_user_dictionary";
+static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_user_dictionaries";
 static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
 
@@ -120,6 +121,12 @@ QString SettingsStore::dictionary()
     return value(KEY_DICTIONARY_NAME, "en_US").toString();
 }
 
+QStringList SettingsStore::enabledUserDictionaries()
+{
+    clearSettingsGroup();
+    return value(KEY_ENABLED_USER_DICTIONARIES, "").toStringList();
+}
+
 int SettingsStore::viewState()
 {
     clearSettingsGroup();
@@ -132,10 +139,10 @@ bool SettingsStore::spellCheck()
     return static_cast<bool>(value(KEY_SPELL_CHECK, true).toBool());
 }
 
-QString SettingsStore::userDictionaryName()
+QString SettingsStore::defaultUserDictionary()
 {
     clearSettingsGroup();
-    return value(KEY_USER_DICTIONARY_NAME, "default").toString();
+    return value(KEY_DEFAULT_USER_DICTIONARY, "default").toString();
 }
 
 QString SettingsStore::renameTemplate()
@@ -255,6 +262,12 @@ void SettingsStore::setDictionary(const QString &name)
     setValue(KEY_DICTIONARY_NAME, name);
 }
 
+void SettingsStore::setEnabledUserDictionaries(const QStringList names)
+{
+    clearSettingsGroup();
+    setValue(KEY_ENABLED_USER_DICTIONARIES, names);
+}
+
 void SettingsStore::setViewState(int state)
 {
     clearSettingsGroup();
@@ -267,10 +280,10 @@ void SettingsStore::setSpellCheck(bool enabled)
     setValue(KEY_SPELL_CHECK, enabled);
 }
 
-void SettingsStore::setUserDictionaryName(const QString &name)
+void SettingsStore::setDefaultUserDictionary(const QString &name)
 {
     clearSettingsGroup();
-    setValue(KEY_USER_DICTIONARY_NAME, name);
+    setValue(KEY_DEFAULT_USER_DICTIONARY, name);
 }
 
 void SettingsStore::setRenameTemplate(const QString &name)

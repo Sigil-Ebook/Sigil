@@ -26,7 +26,6 @@
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QIODevice>
-#include <QtCore/QStringList>
 #include <QtCore/QTextCodec>
 #include <QtCore/QTextStream>
 #include <QtCore/QUrl>
@@ -58,8 +57,7 @@ SpellCheck::SpellCheck() :
     // There is a considerable lag involved in loading the Spellcheck dictionaries
     QApplication::setOverrideCursor(Qt::WaitCursor);
     loadDictionaryNames();
-    // Create the user dictionary word list directiory if neccessary and
-    // create the configured file if necessary.
+    // Create the user dictionary word list directiory if necessary.
     const QString user_directory = userDictionaryDirectory();
     QDir userDir(user_directory);
 
@@ -67,6 +65,7 @@ SpellCheck::SpellCheck() :
         userDir.mkpath(user_directory);
     }
 
+    // Create the configured file if necessary.
     QFile userFile(currentUserDictionaryFile());
 
     if (!userFile.exists()) {
@@ -135,12 +134,24 @@ QStringList SpellCheck::suggest(const QString &word)
     return suggestions;
 }
 
+void SpellCheck::clearIgnoredWords()
+{
+    m_ignoredWords.clear();
+}
+
 void SpellCheck::ignoreWord(const QString &word)
+{
+    ignoreWordInDictionary(word);
+
+    m_ignoredWords.append(word);
+}
+
+void SpellCheck::ignoreWordInDictionary(const QString &word)
 {
     if (!m_hunspell) {
         return;
     }
-
+    
     m_hunspell->add(m_codec->fromUnicode(word).constData());
 }
 
@@ -184,9 +195,14 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
         m_codec = QTextCodec::codecForName("UTF-8");
     }
 
-    // Load in the words from the user dictionary.
-    foreach(QString word, userDictionaryWords()) {
-        ignoreWord(word);
+    // Load in the words from the user dictionaries.
+    foreach(QString word, allUserDictionaryWords()) {
+        ignoreWordInDictionary(word);
+    }
+
+    // Reload the words in the "Ignored" dictionary.
+    foreach(QString word, m_ignoredWords) {
+        ignoreWordInDictionary(word);
     }
 }
 
@@ -195,17 +211,25 @@ void SpellCheck::reloadDictionary()
     setDictionary(m_dictionaryName, true);
 }
 
-void SpellCheck::addToUserDictionary(const QString &word)
+void SpellCheck::addToUserDictionary(const QString &word, QString dict_name)
 {
     // Adding to the user dictionary also marks the word as a correct spelling.
     if (word.isEmpty()) {
         return;
     }
 
-    ignoreWord(word);
+    SettingsStore settings;
+    if (dict_name.isEmpty()) {
+        dict_name = settings.defaultUserDictionary();
+    }
 
-    if (!userDictionaryWords().contains(word)) {
-        const QString userDict = currentUserDictionaryFile();
+    // Ignore the word only if the dictionary is enabled
+    if (settings.enabledUserDictionaries().contains(dict_name)) {
+        ignoreWordInDictionary(word);
+    }
+
+    if (!userDictionaryWords(dict_name).contains(word)) {
+        const QString userDict = userDictionaryFile(dict_name);
         QFile userDictFile(userDict);
 
         if (!userDictFile.exists()) {
@@ -223,11 +247,22 @@ void SpellCheck::addToUserDictionary(const QString &word)
     }
 }
 
-QStringList SpellCheck::userDictionaryWords()
+QStringList SpellCheck::allUserDictionaryWords()
+{
+    QStringList userWords;
+    SettingsStore settings;
+    foreach (QString dict_name, settings.enabledUserDictionaries()) {
+        userWords.append(userDictionaryWords(dict_name));
+    }
+    return userWords;
+}
+
+QStringList SpellCheck::userDictionaryWords(QString dict_name)
 {
     QStringList userWords;
     // Read each word from the user dictionary.
-    QFile userDictFile(currentUserDictionaryFile());
+
+    QFile userDictFile(userDictionaryFile(dict_name));
 
     if (userDictFile.open(QIODevice::ReadOnly)) {
         QTextStream userDictStream(&userDictFile);
@@ -247,24 +282,6 @@ QStringList SpellCheck::userDictionaryWords()
 
     userWords.sort();
     return userWords;
-}
-
-void SpellCheck::replaceUserDictionaryWords(QStringList words)
-{
-    words.sort();
-    // Delete everything from the user dictionary file.
-    QFile userDictFile(currentUserDictionaryFile());
-
-    if (userDictFile.open(QFile::WriteOnly | QFile::Truncate)) {
-        userDictFile.close();
-    }
-
-    // Add all words to the user dictionary.
-    foreach(QString word, words) {
-        addToUserDictionary(word);
-    }
-    // Reload the dictionary so old user words are cleared.
-    reloadDictionary();
 }
 
 void SpellCheck::loadDictionaryNames()
@@ -341,5 +358,11 @@ QString SpellCheck::userDictionaryDirectory()
 QString SpellCheck::currentUserDictionaryFile()
 {
     SettingsStore settings;
-    return userDictionaryDirectory() + "/" + settings.userDictionaryName();
+    return userDictionaryDirectory() + "/" + settings.defaultUserDictionary();
 }
+
+QString SpellCheck::userDictionaryFile(QString dict_name)
+{
+    return userDictionaryDirectory() + "/" + dict_name;
+}
+

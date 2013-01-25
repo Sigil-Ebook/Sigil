@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2013 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,6 +25,8 @@
 #define SPELLCHECKWIDGET_H
 
 #include "PreferencesWidget.h"
+#include <QtGui/QStandardItemModel>
+
 #include "ui_PSpellCheckWidget.h"
 
 class SpellCheckWidget : public PreferencesWidget
@@ -37,6 +40,7 @@ public:
 private slots:
     void addUserDict();
     void renameUserDict();
+    void copyUserDict();
     void removeUserDict();
 
     void addWord();
@@ -46,19 +50,28 @@ private slots:
 
     void userWordChanged(QListWidgetItem *item);
 
-    void loadUserDictionaryWordList(QListWidgetItem *item = 0);
-    void saveUserDictionaryWordList(QListWidgetItem *item = 0);
+    void loadUserDictionaryWordList(QString dict_name = "");
+    void saveUserDictionaryWordList(QString dict_name = "");
 
-    void userDictionaryChanged(QListWidgetItem *current, QListWidgetItem *previous);
+    void SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void dictionariesCurrentIndexChanged(int index);
     void highlightChanged(int state);
+    void ItemChanged(QStandardItem *item);
 
 private:
+    void setUpTable();
+    void setDefaultUserDictionary();
+    bool createUserDict(QString dict_name);
+
+    void addNewItem(bool enabled, QString dict_name);
+
     void readSettings();
     void connectSignalsToSlots();
 
     Ui::SpellCheckWidget ui;
     bool m_isDirty;
+
+    QStandardItemModel m_Model;
 };
 
 #endif // SPELLCHECKWIDGET_H

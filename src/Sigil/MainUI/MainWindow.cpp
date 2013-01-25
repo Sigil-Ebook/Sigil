@@ -20,6 +20,7 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
+
 #include <QWebView>
 #include <QWebPage>
 #include "Misc/SleepFunctions.h"
@@ -2750,6 +2751,8 @@ void MainWindow::SetNewBook(QSharedPointer< Book > new_book)
     m_IndexEditor->SetBook(m_Book);
     m_ClipEditor->SetBook(m_Book);
     m_SpellcheckEditor->SetBook(m_Book);
+    SpellCheck *sc = SpellCheck::instance();
+    sc->clearIgnoredWords();
     ResetLinkOrStyleBookmark();
     SettingsStore settings;
     settings.setRenameTemplate("");
@@ -3882,6 +3885,8 @@ void MainWindow::ConnectSignalsToSlots()
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_SpellcheckEditor,   SIGNAL(SpellingHighlightRefreshRequest()), this,  SLOT(RefreshSpellingHighlighting()));
     connect(m_SpellcheckEditor,   SIGNAL(FindWordRequest(QString)), m_FindReplace,  SLOT(FindWord(QString)));
+    connect(m_SpellcheckEditor,   SIGNAL(ShowStatusMessageRequest(const QString &)), 
+            this,  SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_Reports,       SIGNAL(Refresh()), this, SLOT(ReportsDialog()));
     connect(m_Reports,       SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
     connect(m_Reports,       SIGNAL(DeleteFilesRequest(QStringList)), this, SLOT(DeleteFilenames(QStringList)));

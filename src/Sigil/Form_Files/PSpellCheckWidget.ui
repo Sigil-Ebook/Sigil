@@ -29,7 +29,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="dict_label">
        <property name="text">
         <string>Dictionary:</string>
        </property>
@@ -137,11 +137,21 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="copyUserDict">
+            <property name="text">
+             <string>Copy</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="removeUserDict">
             <property name="text">
              <string>Remove</string>
             </property>
            </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2"/>
           </item>
           <item>
            <spacer name="verticalSpacer_2">
@@ -159,7 +169,15 @@
          </layout>
         </item>
         <item>
-         <widget class="QListWidget" name="userDictList"/>
+         <widget class="QTableView" name="userDictList">
+          <property name="toolTip">
+           <string>Choose which dictionaries are used for
+checking spelling by marking the checkboxes.
+
+Select a dictionary to display its words,
+and to make it the default dictionary.</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -224,6 +242,41 @@
         </item>
        </layout>
       </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="toolTip">
+        <string>The default dictionary is used when you add words to the
+default dictionary or use the shortcuts for Add Misspelled Words.</string>
+       </property>
+       <property name="text">
+        <string>Default Dictionary:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="defaultUserDictionary">
+       <property name="text">
+        <string>none</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>

@@ -91,6 +91,7 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_lastFindRegex(QString()),
     m_spellingMapper(new QSignalMapper(this)),
     m_addSpellingMapper(new QSignalMapper(this)),
+    m_addDictMapper(new QSignalMapper(this)),
     m_ignoreSpellingMapper(new QSignalMapper(this)),
     m_clipMapper(new QSignalMapper(this)),
     m_pendingClipEntryRequest(NULL),
@@ -1016,8 +1017,8 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
                 menu->insertSeparator(topAction);
             }
 
-            // Allow the user to add the misspelled word to their user dictionary.
-            QAction *addToDictAction = new QAction(tr("Add To Dictionary"), menu);
+            // Allow the user to add the misspelled word to their default user dictionary.
+            QAction *addToDictAction = new QAction(tr("Add To Default Dictionary"), menu);
             connect(addToDictAction, SIGNAL(triggered()), m_addSpellingMapper, SLOT(map()));
             m_addSpellingMapper->setMapping(addToDictAction, selected_word);
 
@@ -1025,6 +1026,25 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
                 menu->insertAction(topAction, addToDictAction);
             } else {
                 menu->addAction(addToDictAction);
+            }
+
+            // Allow the user to select a dictionary
+            QMenu *dictionary_menu = new QMenu(this);
+            dictionary_menu->setTitle(tr("Add To Dictionary"));
+
+            if (topAction) {
+                menu->insertMenu(topAction, dictionary_menu);
+            } else {
+                menu->addMenu(dictionary_menu);
+            }
+
+            SettingsStore settings;
+            foreach (QString dict_name, settings.enabledUserDictionaries()) {
+                QAction *dictAction = new QAction(dict_name, dictionary_menu);
+                connect(dictAction, SIGNAL(triggered()), m_addDictMapper, SLOT(map()));
+                QString key = selected_word + "\t" + dict_name;
+                m_addDictMapper->setMapping(dictAction, key);
+                dictionary_menu->addAction(dictAction);
             }
 
             // Allow the user to ignore misspelled words until the program exits
@@ -1313,7 +1333,7 @@ void CodeViewEditor::AddMisspelledWord()
         const QString &selected_word = GetCurrentWordAtCaret(false);
 
         if (!selected_word.isNull() && !selected_word.isEmpty()) {
-            addToUserDictionary(selected_word);
+            addToDefaultDictionary(selected_word);
             emit SpellingHighlightRefreshRequest();
         }
     }
@@ -1325,7 +1345,7 @@ void CodeViewEditor::IgnoreMisspelledWord()
         const QString &selected_word = GetCurrentWordAtCaret(false);
 
         if (!selected_word.isNull() && !selected_word.isEmpty()) {
-            ignoreWordInDictionary(selected_word);
+            ignoreWord(selected_word);
             emit SpellingHighlightRefreshRequest();
         }
     }
@@ -1669,13 +1689,23 @@ void CodeViewEditor::RefreshSpellingHighlighting()
 
 void CodeViewEditor::addToUserDictionary(const QString &text)
 {
+    QString word = text.split("\t")[0];
+    QString dict_name = text.split("\t")[1];
+    SpellCheck *sc = SpellCheck::instance();
+    sc->addToUserDictionary(Utility::getSpellingSafeText(word), dict_name);
+    // Cannot emit a signal right now to refresh tabs since signals are blocked
+    m_pendingSpellingHighlighting = true;
+}
+
+void CodeViewEditor::addToDefaultDictionary(const QString &text)
+{
     SpellCheck *sc = SpellCheck::instance();
     sc->addToUserDictionary(Utility::getSpellingSafeText(text));
     // Cannot emit a signal right now to refresh tabs since signals are blocked
     m_pendingSpellingHighlighting = true;
 }
 
-void CodeViewEditor::ignoreWordInDictionary(const QString &text)
+void CodeViewEditor::ignoreWord(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
     sc->ignoreWord(Utility::getSpellingSafeText(text));
@@ -3222,7 +3252,8 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect(&m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
     connect(&m_ScrollOneLineDown, SIGNAL(activated()), this, SLOT(ScrollOneLineDown()));
     connect(m_spellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(InsertText(const QString &)));
-    connect(m_addSpellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(addToUserDictionary(const QString &)));
-    connect(m_ignoreSpellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(ignoreWordInDictionary(const QString &)));
+    connect(m_addSpellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(addToDefaultDictionary(const QString &)));
+    connect(m_addDictMapper, SIGNAL(mapped(const QString &)), this, SLOT(addToUserDictionary(const QString &)));
+    connect(m_ignoreSpellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(ignoreWord(const QString &)));
     connect(m_clipMapper, SIGNAL(mapped(const QString &)), this, SLOT(PasteClipEntryFromName(const QString &)));
 }

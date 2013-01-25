@@ -1571,7 +1571,7 @@
     <string>&amp;Add Misspelled Word</string>
    </property>
    <property name="toolTip">
-    <string>Add the current misspelled word under the caret to the user dictionary.</string>
+    <string>Add the current misspelled word under the caret to the default user dictionary.</string>
    </property>
   </action>
   <action name="actionIgnoreMisspelledWord">

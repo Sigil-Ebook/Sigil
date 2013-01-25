@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012  Dave Heiland
+**  Copyright (C) 2011, 2012, 2013  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012, 2013  Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -86,6 +86,8 @@ public:
      */
     QString dictionary();
 
+    QStringList enabledUserDictionaries();
+
     /**
      * Whether automatic Spellcheck is enabled or not
      *
@@ -100,7 +102,7 @@ public:
      *
      * @return The dictionary name.
      */
-    QString userDictionaryName();
+    QString defaultUserDictionary();
 
     /**
      * The template name for renaming selections in book browser
@@ -218,6 +220,8 @@ public slots:
      */
     void setDictionary(const QString &name);
 
+    void setEnabledUserDictionaries(const QStringList name);
+
     /**
      * Set whether automatic Spellcheck is enabled
      *
@@ -232,7 +236,7 @@ public slots:
      *
      * @param name The name of the dictionary file.
      */
-    void setUserDictionaryName(const QString &name);
+    void setDefaultUserDictionary(const QString &name);
 
     /**
      * Set the name of the dictionary the user has selected.
