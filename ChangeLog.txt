@@ -1,4 +1,5 @@
 Sigil 0.7.0 TBD
+    - Implement issue 1949: Add support for multiple active user dictionaries.
     - Implement issue 1947: Spellcheck dialog to manage all misspelled words at once.
     - Implement issue 1945: Allow editing of CSS while displaying page.
     - Implement issue 1942: Add Report for Links and Footnotes.
@@ -32,6 +33,7 @@ Sigil 0.7.0 TBD
     - Fix issue 1933: No message is displayed if Go To Style can't find a style.
     - Fix issue 1932: Replace All needs to be run twice in some cases.
     - Fix issue 1930: Fix Metadata language dropdown selection incorrect matching.
+    - Fix issue 1764:  Sigil crashes on KDE after rearranging text sections.
     - Fix issue 1720: Book View highlights text apparently randomly.
     - Fix issue 1923: CSS validation should use EPUB 2 profile.
     - Fix issue 1922: Invalid EPUB warning dialog is not long enough.
