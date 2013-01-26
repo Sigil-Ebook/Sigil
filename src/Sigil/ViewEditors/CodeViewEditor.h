@@ -374,6 +374,8 @@ signals:
 
     void ShowStatusMessageRequest(const QString &message);
 
+    void DocumentSet();
+
 public slots:
 
     /**

@@ -149,6 +149,7 @@ void CodeViewEditor::CustomSetDocument(QTextDocument &document)
 
     ResetFont();
     m_isLoadFinished = true;
+    emit DocumentSet();
 }
 
 void CodeViewEditor::DeleteLine()

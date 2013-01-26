@@ -21,10 +21,6 @@
 **
 *************************************************************************/
 
-#include <QWebView>
-#include <QWebPage>
-#include "Misc/SleepFunctions.h"
-
 #include <QtCore/QFileInfo>
 #include <QtCore/QSignalMapper>
 #include <QtCore/QThread>
@@ -38,6 +34,8 @@
 #include <QtWebKit/QWebSettings>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QWebView>
+#include <QWebPage>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/Index.h"
@@ -2419,6 +2417,12 @@ void MainWindow::UpdatePreview()
         if (html_resource) {
             FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
             if (flow_tab) {
+                // Make sure the document is loaded.  As soon as the views are created
+                // signals are sent that it has changed which requests Preview to update
+                // so these need to be ignored.  Once the document is loaded it signals again.
+                if(!flow_tab->IsLoadingFinished()) {
+                    return;
+                }
                 text = flow_tab->GetText();
                 location = flow_tab->GetCaretLocation();
             }

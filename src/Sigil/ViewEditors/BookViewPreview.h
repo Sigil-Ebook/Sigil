@@ -142,6 +142,8 @@ signals:
 
     void ShowStatusMessageRequest(const QString &message);
 
+    void DocumentLoaded();
+
 protected:
     /**
      * Evaluates the provided javascript source code

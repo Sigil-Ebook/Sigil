@@ -132,6 +132,10 @@ void BookViewPreview::CustomSetDocument(const QString &path, const QString &html
 {
     m_pendingLoadCount += 1;
 
+    if (html.isEmpty()) {
+        return;
+    }
+
     // If this is not the very first load of this document, store the caret location
     if (!url().isEmpty()) {
         StoreCurrentCaretLocation();
@@ -324,6 +328,7 @@ void BookViewPreview::UpdateFinishedState(int progress)
 {
     if (progress == 100) {
         m_isLoadFinished = true;
+        emit DocumentLoaded();
     } else {
         m_isLoadFinished = false;
     }
