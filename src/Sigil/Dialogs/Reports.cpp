@@ -197,6 +197,7 @@ void Reports::connectSignalsSlots()
 {
     connect(m_HTMLFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     connect(m_ImageFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
+    connect(m_ImageFilesWidget, SIGNAL(FindTextInTags(QString)), this, SIGNAL(FindTextInTags(QString)));
     connect(m_CSSFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     connect(m_StylesInCSSFilesWidget, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)));
     connect(m_CharactersInHTMLFilesWidget, SIGNAL(FindText(QString)), this, SIGNAL(FindText(QString)));

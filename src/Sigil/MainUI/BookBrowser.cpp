@@ -1274,6 +1274,8 @@ void BookBrowser::CreateContextMenuActions()
     m_NoObfuscationMethod    ->setCheckable(true);
     m_AdobesObfuscationMethod->setCheckable(true);
     m_IdpfsObfuscationMethod ->setCheckable(true);
+    m_CopyHTML->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Y));
+    sm->registerAction(m_CopyHTML, "MainWindow.BookBrowser.CopyHTML");
     m_Delete->setShortcut(QKeySequence::Delete);
     m_Merge->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_M));
     m_Merge->setToolTip("Merge with previous file, or merge multiple files into one.");
@@ -1285,6 +1287,7 @@ void BookBrowser::CreateContextMenuActions()
     sm->registerAction(m_LinkStylesheets, "MainWindow.BookBrowser.LinkStylesheets");
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.
+    addAction(m_CopyHTML);
     addAction(m_Delete);
     addAction(m_Merge);
     addAction(m_Rename);

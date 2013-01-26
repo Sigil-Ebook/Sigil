@@ -3896,6 +3896,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_Reports,       SIGNAL(DeleteFilesRequest(QStringList)), this, SLOT(DeleteFilenames(QStringList)));
     connect(m_Reports,       SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SLOT(DeleteReportsStyles(QList<BookReports::StyleData *>)));
     connect(m_Reports,       SIGNAL(FindText(QString)), m_FindReplace, SLOT(FindAnyText(QString)));
+    connect(m_Reports,       SIGNAL(FindTextInTags(QString)), m_FindReplace, SLOT(FindAnyTextInTags(QString)));
 }
 
 void MainWindow::MakeTabConnections(ContentTab *tab)

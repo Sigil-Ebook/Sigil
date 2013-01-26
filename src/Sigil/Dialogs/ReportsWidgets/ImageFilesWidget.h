@@ -55,6 +55,7 @@ signals:
     void CloseDialog();
     void DeleteFilesRequest(QStringList);
     void OpenFileRequest(QString, int);
+    void FindTextInTags(QString);
 
 private slots:
     void OpenContextMenu(const QPoint &point);

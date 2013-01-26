@@ -54,6 +54,7 @@ signals:
     void DeleteFilesRequest(QStringList);
     void DeleteStylesRequest(QList<BookReports::StyleData *>);
     void FindText(QString);
+    void FindTextInTags(QString);
 
 private slots:
     /**

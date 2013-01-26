@@ -96,6 +96,7 @@ public slots:
 
     void FindWord(QString text);
     void FindAnyText(QString text);
+    void FindAnyTextInTags(QString text);
 
 signals:
 
