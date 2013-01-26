@@ -362,9 +362,12 @@ void EditTOC::ExpandAll()
 void EditTOC::CreateContextMenuActions()
 {
     m_Rename = new QAction(tr("Rename"),     this);
+    m_Delete = new QAction(tr("Delete"),     this);
     m_Rename->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_R));
+    m_Delete->setShortcut(QKeySequence::Delete);
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_Rename);
+    addAction(m_Delete);
 
     m_ExpandAll= new QAction(tr("Expand All"),     this);
     m_CollapseAll = new QAction(tr("Collapse All"),  this);
@@ -380,6 +383,7 @@ void EditTOC::OpenContextMenu(const QPoint &point)
 void EditTOC::SetupContextMenu(const QPoint &point)
 {
     m_ContextMenu->addAction(m_Rename);
+    m_ContextMenu->addAction(m_Delete);
     m_ContextMenu->addSeparator();
     m_ContextMenu->addAction(m_CollapseAll);
     m_ContextMenu->addAction(m_ExpandAll);
@@ -440,6 +444,7 @@ void EditTOC::ConnectSignalsToSlots()
     connect(ui.TOCTree,         SIGNAL(customContextMenuRequested(const QPoint &)),
             this,               SLOT(OpenContextMenu(const QPoint &)));
     connect(m_Rename,           SIGNAL(triggered()), this, SLOT(Rename()));
+    connect(m_Delete,           SIGNAL(triggered()), this, SLOT(DeleteEntry()));
     connect(m_CollapseAll,      SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,        SIGNAL(triggered()), this, SLOT(ExpandAll()));
 }

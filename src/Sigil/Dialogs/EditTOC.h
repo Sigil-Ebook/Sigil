@@ -104,6 +104,7 @@ private:
     QMenu *m_ContextMenu;
 
     QAction *m_Rename;
+    QAction *m_Delete;
     QAction *m_CollapseAll;
     QAction *m_ExpandAll;
 
