@@ -120,6 +120,31 @@ void SpellCheckWidget::addUserDict()
     createUserDict(name);
 }
 
+void SpellCheckWidget::addUserWords()
+{
+    QString list = QInputDialog::getText(this, tr("Words To Add"), tr("Words:"));
+
+    if (list.isEmpty()) {
+        return;
+    }
+
+    list.replace(" ", ",");
+    list.replace(",", "\n");
+    QStringList words = list.split("\n");
+
+    // Add the words to the dictionary
+    foreach(QString word, words) {
+        if (!word.isEmpty()) {
+            QListWidgetItem *item = new QListWidgetItem(word, ui.userWordList);
+            item->setFlags(item->flags() | Qt::ItemIsEditable);
+            ui.userWordList->addItem(item);
+        }
+    }
+    ui.userWordList->sortItems(Qt::AscendingOrder);
+
+    m_isDirty = true;
+}
+
 bool SpellCheckWidget::createUserDict(QString dict_name)
 {
     QString path = SpellCheck::userDictionaryDirectory() + "/" + dict_name;
@@ -284,16 +309,6 @@ void SpellCheckWidget::copyUserDict()
         ui.userWordList->addItem(item);
     }
 
-    m_isDirty = true;
-}
-
-void SpellCheckWidget::addWord()
-{
-    QListWidgetItem *item = new QListWidgetItem(ui.userWordList);
-    item->setFlags(item->flags() | Qt::ItemIsEditable);
-    ui.userWordList->addItem(item);
-    ui.userWordList->scrollToBottom();
-    ui.userWordList->editItem(item);
     m_isDirty = true;
 }
 
@@ -538,12 +553,12 @@ void SpellCheckWidget::connectSignalsToSlots()
 {
     // User dict list.
     connect(ui.addUserDict, SIGNAL(clicked()), this, SLOT(addUserDict()));
+    connect(ui.addUserWords, SIGNAL(clicked()), this, SLOT(addUserWords()));
     connect(ui.renameUserDict, SIGNAL(clicked()), this, SLOT(renameUserDict()));
     connect(ui.copyUserDict, SIGNAL(clicked()), this, SLOT(copyUserDict()));
     connect(ui.removeUserDict, SIGNAL(clicked()), this, SLOT(removeUserDict()));
     connect(ui.userWordList, SIGNAL(itemChanged(QListWidgetItem *)), this, SLOT(userWordChanged(QListWidgetItem *)));
     // Word list.
-    connect(ui.addWord, SIGNAL(clicked()), this, SLOT(addWord()));
     connect(ui.editWord, SIGNAL(clicked()), this, SLOT(editWord()));
     connect(ui.removeWord, SIGNAL(clicked()), this, SLOT(removeWord()));
     connect(ui.removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));

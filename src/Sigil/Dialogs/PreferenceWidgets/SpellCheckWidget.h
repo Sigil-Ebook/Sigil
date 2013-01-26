@@ -43,7 +43,7 @@ private slots:
     void copyUserDict();
     void removeUserDict();
 
-    void addWord();
+    void addUserWords();
     void editWord();
     void removeWord();
     void removeAll();

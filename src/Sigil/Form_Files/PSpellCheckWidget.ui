@@ -198,7 +198,11 @@ and to make it the default dictionary.</string>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QPushButton" name="addWord">
+           <widget class="QPushButton" name="addUserWords">
+            <property name="toolTip">
+             <string>Enter or paste words to add - separated
+by lines, commas, or spaces.</string>
+            </property>
             <property name="text">
              <string>Add</string>
             </property>

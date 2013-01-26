@@ -1,4 +1,5 @@
 Sigil 0.7.0 TBD
+    - Implement issue 1953: Allow entering a list of new words into dictionary preferences.
     - Implement issue 1952: Add shortcut for Copy HTML file.
     - Implement issue 1951: Doubleclick on Image Report file should find next use of image.
     - Implement issue 1949: Add support for multiple active user dictionaries.
