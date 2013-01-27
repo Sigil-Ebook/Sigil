@@ -1009,10 +1009,10 @@
      <normaloff>:/main/insert-image_22px.png</normaloff>:/main/insert-image_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Image...</string>
+    <string>&amp;File...</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Files&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
