@@ -242,7 +242,7 @@ void FindReplace::FindAnyTextInTags(QString text)
     SetRegexOptionMinimalMatch(true);
     SetOptionWrap(true);
 
-    text = text + "(?=[^<]*>)(?!(?:[^<\"]*\"[^<\"]*\")+\s*/?>)";
+    text = text + "(?=[^<]*>)(?!(?:[^<\"]*\"[^<\"]*\")+\\s*/?>)";
     ui.cbFind->setEditText(text);
     FindNext();
 
