@@ -240,7 +240,7 @@ bool Utility::RenameFile(const QString &oldfilepath, const QString &newfilepath)
     // same (case insensitive) to the old one. This is workaround for that issue.
     int ret = -1;
 #if defined(Q_OS_WIN32)
-    ret = _wrename(oldfilepath.toStdWString().data(), newfilepath.toStdWString().data());
+    ret = _wrename(QStringToStdWString(oldfilepath).data(), QStringToStdWString(newfilepath).data());
 #else
     ret = rename(oldfilepath.toUtf8().data(), newfilepath.toUtf8().data());
 #endif
@@ -492,3 +492,22 @@ QString Utility::getSpellingSafeText(const QString &raw_text)
     QString text(raw_text);
     return text.replace(QString::fromWCharArray(L"\u2019"), "'");
 }
+
+std::wstring Utility::QStringToStdWString(const QString &str);
+{
+#if defined(Q_OS_WIN32)
+    return std::wstring((const wchar_t *)str.utf16());
+#else
+    return str.toStdWString();
+#endif
+}
+
+QString Utility::stdWStringToQString(const std::wstring &str);
+{
+#if defined(Q_OS_WIN32)
+    return QString::fromUtf16((const ushort *)str.c_str());
+#else
+    return QString::fromStdWString(str);
+#endif
+}
+
