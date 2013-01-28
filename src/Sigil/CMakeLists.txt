@@ -630,6 +630,18 @@ if( APPLE )
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
 # For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
 elseif (MSVC)
+    get_target_property(QMAKE_EXECUTABLE Qt5::qmake LOCATION)
+    function(QUERY_QMAKE VAR RESULT)
+        exec_program(${QMAKE_EXECUTABLE} ARGS "-query ${VAR}" RETURN_VALUE return_code OUTPUT_VARIABLE output )
+        if(NOT return_code)
+            file(TO_CMAKE_PATH "${output}" output)
+            set(${RESULT} ${output} PARENT_SCOPE)
+        endif(NOT return_code)
+    endfunction(QUERY_QMAKE)
+
+    query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
+    query_qmake(QT_INSTALL_PLUGINS QT_PLUGINS_DIR)
+
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
