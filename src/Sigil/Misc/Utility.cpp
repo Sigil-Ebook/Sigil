@@ -490,24 +490,18 @@ QString Utility::getSpellingSafeText(const QString &raw_text)
     // There are likely better ways to solve this, but this one does
     // get the job done until someone can implement something better.
     QString text(raw_text);
-    return text.replace(QString::fromWCharArray(L"\u2019"), "'");
+    return text.replace(QString::fromUtf8("\u2019"), "'");
 }
 
-std::wstring Utility::QStringToStdWString(const QString &str);
-{
 #if defined(Q_OS_WIN32)
+std::wstring Utility::QStringToStdWString(const QString &str)
+{
     return std::wstring((const wchar_t *)str.utf16());
-#else
-    return str.toStdWString();
-#endif
 }
 
-QString Utility::stdWStringToQString(const std::wstring &str);
+QString Utility::stdWStringToQString(const std::wstring &str)
 {
-#if defined(Q_OS_WIN32)
     return QString::fromUtf16((const ushort *)str.c_str());
-#else
-    return QString::fromStdWString(str);
-#endif
 }
+#endif
 

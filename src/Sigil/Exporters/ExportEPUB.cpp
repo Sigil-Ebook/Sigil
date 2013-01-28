@@ -124,7 +124,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
     fill_win32_filefunc64W(&ffunc);
-    zipFile zfile = zipOpen2_64(QStringToStdWString(QDir::toNativeSeparators(tempFile)).c_str(), APPEND_STATUS_CREATE, NULL, &ffunc);
+    zipFile zfile = zipOpen2_64(Utility::QStringToStdWString(QDir::toNativeSeparators(tempFile)).c_str(), APPEND_STATUS_CREATE, NULL, &ffunc);
 #else
     zipFile zfile = zipOpen64(QDir::toNativeSeparators(tempFile).toUtf8().constData(), APPEND_STATUS_CREATE);
 #endif

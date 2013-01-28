@@ -294,7 +294,7 @@ void ImportEPUB::ExtractContainer()
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
     fill_win32_filefunc64W(&ffunc);
-    unzFile zfile = unzOpen2_64(QStringToStdWString(QDir::toNativeSeparators(m_FullFilePath)).c_str(), &ffunc);
+    unzFile zfile = unzOpen2_64(Utility::QStringToStdWString(QDir::toNativeSeparators(m_FullFilePath)).c_str(), &ffunc);
 #else
     unzFile zfile = unzOpen64(QDir::toNativeSeparators(m_FullFilePath).toUtf8().constData());
 #endif
