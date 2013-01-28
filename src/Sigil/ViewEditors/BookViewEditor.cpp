@@ -407,7 +407,6 @@ QString BookViewEditor::RemoveBookViewReplaceSpans(const QString &source)
         index += replace_spans_mo.capturedLength();
         left_pos = index;
         // Check for nested spans.
-        int nest_count = 1; // set to 1 as we already have an open span
         int next_span_tag = index;
 
         QRegularExpressionMatch span_open_or_close_mo = span_open_or_close.match(source, index);
