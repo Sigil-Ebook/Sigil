@@ -109,6 +109,7 @@ public:
 
     QList< ViewEditor::ElementIndex > GetCaretLocation();
     QString GetCaretLocationUpdate() const;
+    void GoToCaretLocation(QList< ViewEditor::ElementIndex > location);
 
     QString GetDisplayedCharacters();
     QString GetText();

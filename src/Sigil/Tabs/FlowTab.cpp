@@ -655,6 +655,18 @@ bool FlowTab::ViewStatesEnabled()
     return false;
 }
 
+void FlowTab::GoToCaretLocation(QList< ViewEditor::ElementIndex > location)
+{
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->StoreCaretLocationUpdate(location);
+        m_wBookView->ExecuteCaretUpdate();
+    }
+    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->StoreCaretLocationUpdate(location);
+        m_wCodeView->ExecuteCaretUpdate();
+    }
+}
+
 QList< ViewEditor::ElementIndex > FlowTab::GetCaretLocation()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {

@@ -560,6 +560,8 @@ private slots:
 
     void BookmarkLinkOrStyleLocation();
 
+    void GoToPreviewLocation();
+
     void ShowPasteClipboardHistoryDialog();
 
     void ResourcesAddedOrDeleted();

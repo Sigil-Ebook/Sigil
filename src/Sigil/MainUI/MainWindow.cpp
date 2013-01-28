@@ -258,6 +258,20 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
     }
 }
 
+void MainWindow::GoToPreviewLocation()
+{
+    ContentTab &tab = GetCurrentContentTab();
+    if (&tab != NULL) {
+        HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
+        if (html_resource) {
+            FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
+            if (flow_tab) {
+                flow_tab->GoToCaretLocation(m_PreviewWindow->GetCaretLocation());
+            }
+        }
+    }
+}
+
 void MainWindow::BookmarkLinkOrStyleLocation()
 {
     ResetLinkOrStyleBookmark();
@@ -3688,6 +3702,7 @@ void MainWindow::LoadInitialFile(const QString &openfilepath)
 void MainWindow::ConnectSignalsToSlots()
 {
     connect(m_PreviewWindow, SIGNAL(Shown()), this, SLOT(UpdatePreview()));
+    connect(m_PreviewWindow, SIGNAL(GoToPreviewLocationRequest()), this, SLOT(GoToPreviewLocation()));
     connect(qApp, SIGNAL(focusChanged(QWidget *, QWidget *)), this, SLOT(ApplicationFocusChanged(QWidget *, QWidget *)));
     // Setup signal mapping for heading actions.
     connect(ui.actionHeading1, SIGNAL(triggered()), m_headingMapper, SLOT(map()));

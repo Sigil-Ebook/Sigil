@@ -148,5 +148,6 @@ void PreviewWindow::LoadSettings()
 void PreviewWindow::ConnectSignalsToSlots()
 {
     connect(m_Splitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(SplitterMoved(int, int)));
+    connect(m_Preview,   SIGNAL(GoToPreviewLocationRequest()), this, SIGNAL(GoToPreviewLocationRequest()));
 }
 

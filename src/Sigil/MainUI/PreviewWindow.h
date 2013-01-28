@@ -52,6 +52,7 @@ public slots:
 
 signals:
     void Shown();
+    void GoToPreviewLocationRequest();
 
 protected:
     virtual void showEvent(QShowEvent *event);

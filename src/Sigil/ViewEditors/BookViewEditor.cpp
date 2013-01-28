@@ -930,7 +930,7 @@ void BookViewEditor::SaveClipAction()
 void BookViewEditor::mouseReleaseEvent(QMouseEvent *event)
 {
     // Propagate to base class
-    BookViewPreview::mouseReleaseEvent(event);
+    QWebView::mouseReleaseEvent(event);
     emit PageClicked();
 }
 
