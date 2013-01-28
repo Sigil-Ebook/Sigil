@@ -683,22 +683,13 @@ elseif (MSVC)
                         COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
     
     # Copy Qt runtime libs
-    set( QT_LIBS QtCore QtGui QtNetwork QtSvg QtWebKit QtXml QtXmlPatterns phonon )
+    set( QT_LIBS Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5PrintSupport Qt5WebKit Qt5WebkitWidgets Qt5Widgets )
     
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_LIBS} )
         set( location location-NOTFOUND )
-        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so.4 PATHS ${QT_LIBRARY_DIR} )
+        find_file( location ${lib} NAMES ${lib}.dll PATHS ${QT_LIBRARY_DIR} )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/ )
-    endforeach( lib )
-
-    # Copy codecs plugins
-    set( QT_CODECS qcncodecs qjpcodecs qkrcodecs qtwcodecs )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/codecs/ )    
-    foreach( lib ${QT_CODECS} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/codecs/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/codecs/ )
     endforeach( lib )
     
     # Copy iconengines plugins
@@ -706,7 +697,7 @@ elseif (MSVC)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/iconengines/ )
     foreach( lib ${QT_ICONENGINES} )
         set( location location-NOTFOUND )
-        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/iconengines/ )
+        find_file( location ${lib} NAMES ${lib}.dll PATHS ${QT_PLUGINS_DIR}/iconengines/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/iconengines/ )
     endforeach( lib )    
 
@@ -715,7 +706,7 @@ elseif (MSVC)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/imageformats/ )
     foreach( lib ${QT_IMAGEFORMATS} )   
         set( location location-NOTFOUND )
-        find_file( location ${lib} NAMES ${lib}4.dll lib${lib}.so PATHS ${QT_PLUGINS_DIR}/imageformats/ )
+        find_file( location ${lib} NAMES ${lib}.dll PATHS ${QT_PLUGINS_DIR}/imageformats/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/imageformats/ )
     endforeach( lib )
 
