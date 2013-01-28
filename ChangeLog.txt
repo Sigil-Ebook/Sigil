@@ -4,8 +4,10 @@ Sigil 0.7.0 TBD
     - Implement issue 1951: Doubleclick on Image Report file should find next use of image.
     - Implement issue 1949: Add support for multiple active user dictionaries.
     - Implement issue 1947: Spellcheck dialog to manage all misspelled words at once.
+    - Implement issue 62: Add document's css styles to menu.
     - Implement issue 1945: Allow editing of CSS while displaying page.
-    - Implement issue 1942: Add Report for Links and Footnotes.
+    - Implement issue 1661: Report list of all different characters in the book.
+    - Implement issue 1746: Add Report for Links and Footnotes.
     - Implement issue 1941: Add Find & Replace option to wrap or not wrap searches.
     - Implement issue 1940: Update Insert Image to Insert File to support insert of audio/video.
     - Implement issue 1938: Update Delete Image files to Delete Media files to include audio/video.
@@ -14,11 +16,13 @@ Sigil 0.7.0 TBD
     - Implement issue 1931: Change to QRegularExpression for most regexes.
     - Implement issue 1185: Edit Table of Contents without needing Generate TOC.
     - Implement issue 1929: Add support for playing audio and video files.
+    - Implement issue 917: Sigil should support audio and video tags.
     - Implement issue 1928: Add well-formed check to HTML File Report.
     - Implement issue 1864: Allow Metadata Editor dialog to stay open while editing.
     - Implement issue 1871: Code View context menu should show clips even if word is misspelled.
     - Implement issue 1870: Saved Searches should use mode settings from Find & Replace.
     - Implement issue 1927: Add support for basic replacement Clips (e.g. span) in Book View.
+    - Implement issue 20: Embedded fonts support.
     - Implement issue 1926: Upgrade to Qt5.
     - Implement issue 1924: Add dockable Clips window to select clips.
     - Implement issue 1925: Don't force well formed checks unless absolutely necessary.
@@ -28,6 +32,7 @@ Sigil 0.7.0 TBD
     - Fix issue 1944: Delete Unused Images should check background attributes.
     - Fix issue 1943: Reports can crash if file has non well-formed xml.
     - Fix issue 1883: TOC window does not jump to right location for some entries.
+    - Fix issue 1906: "Delete unused image files" deleting background images.
     - Fix issue 1874: Using Delete Unused Stylesheet Classes deletes pseudo-elements.
     - Fix issue 1939: CSS parser does not match wildcard selectors consistently.
     - Fix issue 1935: Improve speed of Index Editor autofill by removing progress dialog.
@@ -36,13 +41,15 @@ Sigil 0.7.0 TBD
     - Fix issue 1933: No message is displayed if Go To Style can't find a style.
     - Fix issue 1932: Replace All needs to be run twice in some cases.
     - Fix issue 1930: Fix Metadata language dropdown selection incorrect matching.
-    - Fix issue 1764:  Sigil crashes on KDE after rearranging text sections.
+    - Fix issue 1775: Sigil-0.6.0 edit very slow with Thai e-Pub.
+    - Fix issue 1764: Sigil crashes on KDE after rearranging text sections.
     - Fix issue 1720: Book View highlights text apparently randomly.
     - Fix issue 1923: CSS validation should use EPUB 2 profile.
     - Fix issue 1922: Invalid EPUB warning dialog is not long enough.
     - Fix issue 1918: Support import of tab separated entries for Index Editor.
     - Fix issue 1917: Keep selection when deleting unused images if an HTML file was selected.
     - Fix issue 1916: Allow Go To Style to work for link type text/x-oeb1-css.
+    - Fix issue 1869: Backspace in Preferences - Shortcuts causes crash.
     - Fix issue 1818: Hyperlink of URL with & causes invalid code.
     - Fix issue 1824: Cursor position changes when saving the book.
 
