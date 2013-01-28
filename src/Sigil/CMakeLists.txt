@@ -640,6 +640,7 @@ elseif (MSVC)
     endfunction(QUERY_QMAKE)
 
     query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
+    query_qmake(QT_INSTALL_BINS QT_INSTALL_BINS)
     query_qmake(QT_INSTALL_PLUGINS QT_PLUGINS_DIR)
 
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
@@ -695,12 +696,20 @@ elseif (MSVC)
                         COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
     
     # Copy Qt runtime libs
-    set( QT_LIBS Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5PrintSupport Qt5WebKit Qt5WebkitWidgets Qt5Widgets )
-    
+    set( QT_LIBS libEGL libGLESv2 Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5OpenGL Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sql Qt5WebKit Qt5WebkitWidgets Qt5Widgets )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_LIBS} )
         set( location location-NOTFOUND )
         find_file( location ${lib}.dll PATHS ${QT_LIBRARY_DIR} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/ )
+    endforeach( lib )
+
+    # Copy bin libs
+    set( QT_BIN_LIBS icuin icuuc )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
+    foreach( lib ${QT_BIN_LIBS} )
+        set( location location-NOTFOUND )
+        find_file( location ${lib}*.dll PATHS ${QT_INSTALL_BINS} )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/ )
     endforeach( lib )
     
