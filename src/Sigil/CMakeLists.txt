@@ -35,6 +35,7 @@ endif()
 #############################################################################
 
 # Qt5 packages
+find_package(Qt5Core REQUIRED)
 find_package(Qt5Network)
 find_package(Qt5Svg)
 find_package(Qt5WebKit)
@@ -561,9 +562,11 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
-set(${QT_LIBRARIES} qtmain ${QT_LIBRARIES})
+if (MSVC)
+    set(QT_MAIN Qt5::WinMain)
+endif()
 
-target_link_libraries( ${PROJECT_NAME} ${QT_LIBRARIES} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} )
 qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit WebKitWidgets Network Concurrent)
 
 #############################################################################
