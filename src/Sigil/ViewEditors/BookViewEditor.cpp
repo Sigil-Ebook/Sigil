@@ -407,7 +407,7 @@ QString BookViewEditor::RemoveBookViewReplaceSpans(const QString &source)
         index += replace_spans_mo.capturedLength();
 
         QRegularExpressionMatch span_open_or_close_mo = span_open_or_close.match(source, index);
-        next_span_tag = span_open_or_close_mo.capturedStart();
+        int next_span_tag = span_open_or_close_mo.capturedStart();
 
         // next_span_tag now points to the start of the closing tag of the span we're removing.
         // Append the source from the end of the span tag to the start of the closing tag
