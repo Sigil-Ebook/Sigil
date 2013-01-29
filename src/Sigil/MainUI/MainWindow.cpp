@@ -1086,7 +1086,7 @@ void MainWindow::InsertFileDialog()
     ShowMessageOnStatusBar();
 
     if (!flow_tab || !flow_tab->InsertFileEnabled()) {
-        ShowMessageOnStatusBar(tr("You cannot insert a file at this position."));
+        QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a file at this position."));
         return;
     }
 
@@ -1192,7 +1192,7 @@ void MainWindow::InsertId()
     ShowMessageOnStatusBar();
 
     if (!flow_tab || !flow_tab->InsertIdEnabled()) {
-        ShowMessageOnStatusBar(tr("You cannot insert an id at this position."));
+        QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert an id at this position."));
         return;
     }
 
@@ -1211,7 +1211,7 @@ void MainWindow::InsertId()
         };
 
         if (!flow_tab->InsertId(select_id.GetId())) {
-            ShowMessageOnStatusBar(tr("You cannot insert an id at this position."));
+            QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert an id at this position."));
         }
     }
 }
@@ -1225,7 +1225,7 @@ void MainWindow::InsertHyperlink()
     ShowMessageOnStatusBar();
 
     if (!flow_tab || !flow_tab->InsertHyperlinkEnabled()) {
-        ShowMessageOnStatusBar(tr("You cannot insert a hyperlink at this position."));
+        QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a hyperlink at this position."));
         return;
     }
 
@@ -1236,7 +1236,7 @@ void MainWindow::InsertHyperlink()
 
     if (select_hyperlink.exec() == QDialog::Accepted) {
         if (!flow_tab->InsertHyperlink(select_hyperlink.GetTarget())) {
-            ShowMessageOnStatusBar(tr("You cannot insert a hyperlink at this position."));
+            QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a hyperlink at this position."));
         }
     }
 }
@@ -1250,7 +1250,7 @@ void MainWindow::MarkForIndex()
     ShowMessageOnStatusBar();
 
     if (!flow_tab || !flow_tab->MarkForIndexEnabled()) {
-        ShowMessageOnStatusBar(tr("You cannot mark an index at this position or without selecting text."));
+        QMessageBox::warning(this, tr("Sigil"), tr("You cannot mark an index at this position or without selecting text."));
         return;
     }
 
@@ -1259,7 +1259,7 @@ void MainWindow::MarkForIndex()
 
     if (select_index_title.exec() == QDialog::Accepted) {
         if (!flow_tab->MarkForIndex(select_index_title.GetTitle())) {
-            ShowMessageOnStatusBar(tr("You cannot mark an index at this position."));
+            QMessageBox::warning(this, tr("Sigil"), tr("You cannot mark an index at this position."));
         }
     }
 }
