@@ -381,7 +381,7 @@ void FlowTab::SaveTabContent()
     //        means the resource already is "saved". We just need to reset modified state.
     // In BV, we only need to save the BV HTML into the resource if user has modified it,
     //        which will trigger ResourceModified() to set flag to say PV needs reloading.
-    if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView->IsModified()) {
+    if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView && m_wBookView->IsModified()) {
         m_HTMLResource.SetText(m_wBookView->GetHtml());
         m_wBookView->ResetModified();
         m_safeToLoad = true;
@@ -937,7 +937,7 @@ void FlowTab::SplitSection()
         // The webview visually has split off the text, but not yet saved to the underlying resource
         SaveTabContent();
         emit OldTabRequest(content, m_HTMLResource);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView && m_wCodeView) {
         emit OldTabRequest(m_wCodeView->SplitSection(), m_HTMLResource);
     }
 }
@@ -950,7 +950,7 @@ void FlowTab::InsertSGFSectionMarker()
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->InsertHtml(BREAK_TAG_INSERT);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView && m_wCodeView) {
         m_wCodeView->InsertSGFSectionMarker();
     }
 }

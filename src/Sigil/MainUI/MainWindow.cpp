@@ -733,13 +733,15 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
                     break;
                 }
             }
-            CSSInfo css_info(css_resource->GetText(), true);
-            CSSInfo::CSSSelector *selector = css_info.getCSSSelectorForElementClass(element_name, style_class_name);
+            if (css_resource) {
+                CSSInfo css_info(css_resource->GetText(), true);
+                CSSInfo::CSSSelector *selector = css_info.getCSSSelectorForElementClass(element_name, style_class_name);
 
-            if (selector) {
-                m_TabManager.OpenResource(*css_resource, selector->line);
-                found_match = true;
-                break;
+                if (selector) {
+                    m_TabManager.OpenResource(*css_resource, selector->line);
+                    found_match = true;
+                    break;
+                }
             }
         }
 
@@ -979,7 +981,6 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
         foreach(Resource * resource, html_resources) {
             if (resource->Filename() == filename) {
                 HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-                is_found = true;
                 is_modified = html_resource->DeleteCSStyles(css_selectors);
                 break;
             }
