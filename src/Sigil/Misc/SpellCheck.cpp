@@ -93,6 +93,15 @@ SpellCheck::~SpellCheck()
     }
 }
 
+QStringList SpellCheck::userDictionaries()
+{
+    // Load the list of user dictionaries.
+    QDir userDictDir(userDictionaryDirectory());
+    QStringList user_dicts = userDictDir.entryList(QDir::Files | QDir::NoDotAndDotDot);
+    user_dicts.sort();
+    return user_dicts;
+}
+
 QStringList SpellCheck::dictionaries()
 {
     loadDictionaryNames();

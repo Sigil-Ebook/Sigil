@@ -92,11 +92,7 @@ is restarted or a new book is opened.</string>
          </property>
          <property name="toolTip">
           <string>Add the selected words to the
-dictionary below.
-
-The dictionaries listed are those 
-that are marked "use" in Preferences.
-</string>
+dictionary selected below.</string>
          </property>
         </widget>
        </item>

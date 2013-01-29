@@ -143,13 +143,16 @@ void SpellcheckEditor::Add()
     }
     QString dict_name = ui.Dictionaries->currentText();
     if (dict_name.isEmpty()) {
-        emit ShowStatusMessageRequest(tr("No dictionaries enabled in Preferences."));
         return;
     }
     SpellCheck *sc = SpellCheck::instance();
+    SettingsStore settings;
+    QStringList enabled_dicts = settings.enabledUserDictionaries();
     foreach (QStandardItem *item, GetSelectedItems()) {
         sc->addToUserDictionary(Utility::getSpellingSafeText(item->text()), dict_name);
-        m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setText(tr("No"));
+        if (enabled_dicts.contains(dict_name)) {
+            m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setText(tr("No"));
+        }
     }
 
     emit ShowStatusMessageRequest(tr("Added word(s) to dictionary."));
@@ -212,11 +215,16 @@ void SpellcheckEditor::Refresh()
 void SpellcheckEditor::UpdateDictionaries()
 {
     ui.Dictionaries->clear();
-    SettingsStore settings;
-    const QStringList dicts = settings.enabledUserDictionaries();
+    SpellCheck *sc = SpellCheck::instance();
+    QStringList dicts = sc->userDictionaries();
     if (dicts.count() > 0) {
         ui.Dictionaries->addItems(dicts);
     }
+}
+
+void SpellcheckEditor::DictionaryChanged(QString dictionary)
+{
+    ui.Dictionaries->setToolTip(dictionary);
 }
 
 void SpellcheckEditor::ChangeDisplayType(int state)
@@ -262,13 +270,20 @@ void SpellcheckEditor::ReadSettings()
 
     // Selected Dictionary
     int index = -1;
+    QString dictionary;
     if (settings.contains(SELECTED_DICTIONARY)) {
-        index = ui.Dictionaries->findText(settings.value(SELECTED_DICTIONARY).toString());
+        dictionary = settings.value(SELECTED_DICTIONARY).toString();
+        index = ui.Dictionaries->findText(dictionary);
     }
     if (index < 0) {
         index = 0;
+//meme
     }
     ui.Dictionaries->setCurrentIndex(index);
+    if (dictionary.isEmpty()) {
+        dictionary = ui.Dictionaries->currentText();
+    }
+    ui.Dictionaries->setToolTip(dictionary);
 
     settings.endGroup();
 }
@@ -347,5 +362,8 @@ void SpellcheckEditor::ConnectSignalsSlots()
             this,         SLOT(DoubleClick()));
     connect(ui.ShowAllWords,  SIGNAL(stateChanged(int)),
             this,               SLOT(ChangeDisplayType(int))
+           );
+    connect(ui.Dictionaries, SIGNAL(activated(const QString &)),
+            this,            SLOT(DictionaryChanged(const QString &))
            );
 }

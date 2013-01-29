@@ -1030,6 +1030,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
             }
 
             // Allow the user to select a dictionary
+            QStringList dictionaries = sc->userDictionaries();
             QMenu *dictionary_menu = new QMenu(this);
             dictionary_menu->setTitle(tr("Add To Dictionary"));
 
@@ -1039,8 +1040,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
                 menu->addMenu(dictionary_menu);
             }
 
-            SettingsStore settings;
-            foreach (QString dict_name, settings.enabledUserDictionaries()) {
+            foreach (QString dict_name, dictionaries) {
                 QAction *dictAction = new QAction(dict_name, dictionary_menu);
                 connect(dictAction, SIGNAL(triggered()), m_addDictMapper, SLOT(map()));
                 QString key = selected_word + "\t" + dict_name;

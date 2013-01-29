@@ -37,7 +37,7 @@ static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
 static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
 static QString KEY_VIEW_STATE = SETTINGS_GROUP + "/" + "view_state";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
-static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "default_user_dictionary";
+static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictionary_name";
 static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_user_dictionaries";
 static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
@@ -124,7 +124,7 @@ QString SettingsStore::dictionary()
 QStringList SettingsStore::enabledUserDictionaries()
 {
     clearSettingsGroup();
-    return value(KEY_ENABLED_USER_DICTIONARIES, "").toStringList();
+    return value(KEY_ENABLED_USER_DICTIONARIES, "default").toStringList();
 }
 
 int SettingsStore::viewState()

@@ -40,6 +40,7 @@ public:
     static SpellCheck *instance();
     ~SpellCheck();
 
+    QStringList userDictionaries();
     QStringList dictionaries();
     QString currentDictionary() const;
     bool spell(const QString &word);

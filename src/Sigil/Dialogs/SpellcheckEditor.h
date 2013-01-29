@@ -66,6 +66,7 @@ private slots:
     void ChangeDisplayType(int state);
     void DoubleClick();
     void Refresh();
+    void DictionaryChanged(QString dictionary);
 
     void Ignore();
     void Add();

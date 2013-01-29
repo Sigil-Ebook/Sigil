@@ -34,6 +34,8 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
 
+const QString DEFAULT_DICTIONARY_NAME = "default";
+
 SpellCheckWidget::SpellCheckWidget()
     :
     m_isDirty(false)
@@ -47,7 +49,7 @@ SpellCheckWidget::SpellCheckWidget()
 void SpellCheckWidget::setUpTable()
 {
     QStringList header;
-    header.append(tr("Use"));
+    header.append(tr("Enable"));
     header.append(tr("Dictionary"));
     m_Model.setHorizontalHeaderLabels(header);
     ui.userDictList->setModel(&m_Model);
@@ -75,7 +77,21 @@ PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
         saveUserDictionaryWordList(name);
     }
 
-    // Save which dictionaries are enabled
+    // Save dictionary information
+    SettingsStore settings;
+    settings.setEnabledUserDictionaries(EnabledDictionaries());
+    settings.setDefaultUserDictionary(ui.defaultUserDictionary->text());
+    settings.setDictionary(ui.dictionaries->itemData(ui.dictionaries->currentIndex()).toString());
+    settings.setSpellCheck(ui.HighlightMisspelled->checkState() == Qt::Checked);
+
+    SpellCheck *sc = SpellCheck::instance();
+    sc->setDictionary(settings.dictionary(), true);
+
+    return PreferencesWidget::ResultAction_RefreshSpelling;
+}
+
+QStringList SpellCheckWidget::EnabledDictionaries()
+{
     QStringList enabled_dicts;
     for (int row = 0; row < m_Model.rowCount(); ++row) {
         QStandardItem *item = m_Model.itemFromIndex(m_Model.index(row, 0));
@@ -84,22 +100,12 @@ PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
             enabled_dicts.append(name_item->text());
         }
     }
-    SettingsStore settings;
-    settings.setEnabledUserDictionaries(enabled_dicts);
-
-    QString confUserDict = SettingsStore().defaultUserDictionary();
-
-    settings.setDefaultUserDictionary(ui.defaultUserDictionary->text());
-    settings.setDictionary(ui.dictionaries->itemData(ui.dictionaries->currentIndex()).toString());
-    settings.setSpellCheck(ui.HighlightMisspelled->checkState() == Qt::Checked);
-    SpellCheck *sc = SpellCheck::instance();
-    sc->setDictionary(settings.dictionary(), true);
-    return PreferencesWidget::ResultAction_RefreshSpelling;
+    return enabled_dicts;
 }
 
 void SpellCheckWidget::addUserDict()
 {
-    QString name = QInputDialog::getText(this, tr("Word List Name"), tr("Name:"));
+    QString name = QInputDialog::getText(this, tr("Add Dictionary"), tr("Name:"));
 
     if (name.isEmpty()) {
         return;
@@ -122,7 +128,7 @@ void SpellCheckWidget::addUserDict()
 
 void SpellCheckWidget::addUserWords()
 {
-    QString list = QInputDialog::getText(this, tr("Words To Add"), tr("Words:"));
+    QString list = QInputDialog::getText(this, tr("Add Words"), tr("Words:"));
 
     if (list.isEmpty()) {
         return;
@@ -236,8 +242,13 @@ void SpellCheckWidget::renameUserDict()
 
 void SpellCheckWidget::removeUserDict()
 {
-    // Get the current dictionary.
     if (!ui.userDictList->selectionModel()->hasSelection()) {
+        return;
+    }
+
+    // Don't remove the last dictionary
+    if (m_Model.rowCount() == 1) {
+        QMessageBox::warning(this, tr("Error"), tr("You cannot delete the last dictionary."));
         return;
     }
 
@@ -249,18 +260,6 @@ void SpellCheckWidget::removeUserDict()
         QString dict_name = item->text();
         m_Model.removeRow(row);
         Utility::DeleteFile(SpellCheck::userDictionaryDirectory() + "/" + dict_name);
-    }
-
-    // We have to have at least one user dict.
-    if (m_Model.rowCount() < 1) {
-        QFile defaultFile(SpellCheck::userDictionaryDirectory() + "/default");
-
-        if (defaultFile.open(QIODevice::WriteOnly)) {
-            defaultFile.close();
-        }
-
-        addNewItem(true, "default");
-        loadUserDictionaryWordList("default");
     }
 
     m_isDirty = true;
@@ -378,35 +377,28 @@ void SpellCheckWidget::readSettings()
     QDir userDictDir(SpellCheck::userDictionaryDirectory());
     QStringList userDicts = userDictDir.entryList(QDir::Files | QDir::NoDotAndDotDot);
     userDicts.sort();
-    // Get the dict that should be in use.
-    QString confUserDict = SettingsStore().defaultUserDictionary();
 
-    // Ensure at least one user dictionary is available.
-    if (userDicts.isEmpty()) {
-        userDicts << confUserDict;
-        // Create the file.
-        QFile confUserDictFile(SpellCheck::userDictionaryDirectory() + "/" + confUserDict);
+    // Make sure at least one dictionary exists
+    // Should never happen since spellcheck creates one
+    if (userDicts.count() < 1) {
+        QFile defaultFile(SpellCheck::userDictionaryDirectory() + "/" + DEFAULT_DICTIONARY_NAME);
 
-        if (confUserDictFile.open(QIODevice::WriteOnly)) {
-            confUserDictFile.close();
+        if (defaultFile.open(QIODevice::WriteOnly)) {
+            defaultFile.close();
         }
+        // Add and enable a default dictionary
+        addNewItem(true, DEFAULT_DICTIONARY_NAME);
     }
 
-    // Load the list of dictionary files into the UI, checked if enabled
+    // Load the list of dictionary files into the UI, marking if enabled
     QStringList enabled_dicts = settings.enabledUserDictionaries();
     foreach(QString dict_name, userDicts) {
         addNewItem(enabled_dicts.contains(dict_name), dict_name);
     }
 
-    // Select default dictionary
-    for (int row = 0; row < m_Model.rowCount(); ++row) {
-        QStandardItem *item = m_Model.itemFromIndex(m_Model.index(row, 1));
-        if (confUserDict == item->text()) {
-            ui.userDictList->setCurrentIndex(item->index());
-        }
-    }
+    // Get the default dictionary - it should always exist
+    setDefaultUserDictionary(SettingsStore().defaultUserDictionary());
 
-    setDefaultUserDictionary();
     loadUserDictionaryWordList();
 
     // Set whether mispelled words are highlighted or not
@@ -520,17 +512,32 @@ void SpellCheckWidget::SelectionChanged(const QItemSelection &selected, const QI
     m_isDirty = true;
 }
 
-void SpellCheckWidget::setDefaultUserDictionary()
+void SpellCheckWidget::setDefaultUserDictionary(QString dict_name)
 {
-    // Show which dictionary is selected to make it clear
+    if (m_Model.rowCount() < 1) {
+        return;
+    }
+
+    // Highlight the dictionary if a specific name was given
+    if (!dict_name.isEmpty()) {
+        for (int row = 0; row < m_Model.rowCount(); ++row) {
+            QStandardItem *item = m_Model.itemFromIndex(m_Model.index(row, 1));
+            if (dict_name == item->text()) {
+                ui.userDictList->setCurrentIndex(item->index());
+            }
+        }
+    }
+
+    // Update the dictionary label to match the highlighted entry
+    // Default to the first entry if name is not matched
+    QStandardItem *item = m_Model.item(0, 1);
     if (ui.userDictList->selectionModel()->hasSelection()) {
         int row = ui.userDictList->selectionModel()->selectedIndexes().first().row();
-        QStandardItem *item = m_Model.item(row, 1);
-        ui.defaultUserDictionary->setText(item->text());
+        item = m_Model.item(row, 1);
     }
-    else {
-        ui.defaultUserDictionary->setText("");
-    }
+    ui.defaultUserDictionary->setText(item->text());
+    SettingsStore settings;
+    settings.setDefaultUserDictionary(ui.defaultUserDictionary->text());
 }
 
 void SpellCheckWidget::dictionariesCurrentIndexChanged(int index)

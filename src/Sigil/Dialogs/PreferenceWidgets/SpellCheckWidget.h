@@ -60,8 +60,10 @@ private slots:
 
 private:
     void setUpTable();
-    void setDefaultUserDictionary();
+    void setDefaultUserDictionary(QString dict_name = QString());
     bool createUserDict(QString dict_name);
+
+    QStringList EnabledDictionaries();
 
     void addNewItem(bool enabled, QString dict_name);
 

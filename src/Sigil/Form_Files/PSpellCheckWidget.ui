@@ -117,7 +117,7 @@
         <string/>
        </property>
        <property name="title">
-        <string>User Dictionary</string>
+        <string>User Dictionaries</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
@@ -148,6 +148,11 @@
             <property name="text">
              <string>Remove</string>
             </property>
+            <property name="toolTip">
+             <string>Remove the selected dictionary.
+
+You cannot remove the last dictionary.</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -171,8 +176,8 @@
         <item>
          <widget class="QTableView" name="userDictList">
           <property name="toolTip">
-           <string>Choose which dictionaries are used for
-checking spelling by marking the checkboxes.
+           <string>Mark which dictionaries are enabled for
+spell checking.
 
 Select a dictionary to display its words,
 and to make it the default dictionary.</string>
@@ -200,8 +205,8 @@ and to make it the default dictionary.</string>
           <item>
            <widget class="QPushButton" name="addUserWords">
             <property name="toolTip">
-             <string>Enter or paste words to add - separated
-by lines, commas, or spaces.</string>
+             <string>Enter or paste words to add to the dictionary.
+Words can be separated by lines, commas, or spaces.</string>
             </property>
             <property name="text">
              <string>Add</string>
