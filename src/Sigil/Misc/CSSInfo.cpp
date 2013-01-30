@@ -114,7 +114,8 @@ QStringList CSSInfo::getAllPropertyValues(QString property)
 
         QList< CSSInfo::CSSProperty * > properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
         foreach (CSSInfo::CSSProperty *p, properties) {
-            if (p->name == property) {
+            // If property is empty return properties of everything
+            if (property.isEmpty() || p->name == property) {
                 property_values.append(p->value);
             }
         }

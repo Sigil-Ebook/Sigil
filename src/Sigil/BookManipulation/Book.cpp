@@ -429,11 +429,11 @@ tuple<QString, QList< XhtmlDoc::XMLElement > > Book::GetLinkElementsInHTMLFileMa
 }
 
 
-QStringList Book::GetBackgroundImagesInHTMLFiles()
+QStringList Book::GetStyleUrlsInHTMLFiles()
 {
     QStringList images_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(false);
-    QFuture< boost::tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetBackgroundImagesInHTMLFileMapped);
+    QFuture< boost::tuple<QString, QStringList> > future = QtConcurrent::mapped(html_resources, GetStyleUrlsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
@@ -446,10 +446,10 @@ QStringList Book::GetBackgroundImagesInHTMLFiles()
     return images_in_html;
 }
 
-tuple<QString, QStringList> Book::GetBackgroundImagesInHTMLFileMapped(HTMLResource *html_resource)
+tuple<QString, QStringList> Book::GetStyleUrlsInHTMLFileMapped(HTMLResource *html_resource)
 {
     return make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllDescendantBackgroundImages(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+                      XhtmlDoc::GetAllDescendantStyleUrls(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
 }
 
 QHash<QString, QStringList> Book::GetIdsInHTMLFiles()

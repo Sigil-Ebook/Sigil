@@ -80,7 +80,7 @@ const QStringList SRC_TAGS = QStringList() << "link" << "img";
 const int XML_DECLARATION_SEARCH_PREFIX_SIZE = 150;
 static const int XML_CUSTOM_ENTITY_SEARCH_PREFIX_SIZE = 500;
 static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
-static const QString BACKGROUND_SEARCH = "(background-image|background)\\s*:.*(url\\s*\\([^\\)]+\\))";
+static const QString URL_ATTRIBUTE_SEARCH = ":.*(url\\s*\\([^\\)]+\\))";
 
 const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*(sigil_split_marker|sigilChapterBreak)[^\"]*\"\\s*/>(\\s*</div>)?";
 
@@ -322,7 +322,7 @@ QList<QString> XhtmlDoc::GetAllDescendantClasses(const xc::DOMNode &node)
     return classes;
 }
 
-QList< QString > XhtmlDoc::GetAllDescendantBackgroundImages(const xc::DOMNode &node)
+QList< QString > XhtmlDoc::GetAllDescendantStyleUrls(const xc::DOMNode &node)
 {
     if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
         return QList< QString >();
@@ -333,10 +333,10 @@ QList< QString > XhtmlDoc::GetAllDescendantBackgroundImages(const xc::DOMNode &n
 
     if (element->hasAttribute(QtoX("style"))) {
         QString attribute = XtoQ(element->getAttribute(QtoX("style")));
-        QRegularExpression background_search(BACKGROUND_SEARCH);
-        QRegularExpressionMatch match = background_search.match(attribute);
+        QRegularExpression url_search(URL_ATTRIBUTE_SEARCH);
+        QRegularExpressionMatch match = url_search.match(attribute);
         if (match.hasMatch()) {
-            styles.append(match.captured(2));
+            styles.append(match.captured(1));
         }
     }
 
@@ -344,7 +344,7 @@ QList< QString > XhtmlDoc::GetAllDescendantBackgroundImages(const xc::DOMNode &n
         QList< xc::DOMNode * > children = GetNodeChildren(node);
 
         for (int i = 0; i < children.count(); ++i) {
-            styles.append(GetAllDescendantBackgroundImages(*children.at(i)));
+            styles.append(GetAllDescendantStyleUrls(*children.at(i)));
         }
     }
 

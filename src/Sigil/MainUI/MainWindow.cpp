@@ -1010,36 +1010,34 @@ void MainWindow::DeleteUnusedMedia()
     QList<Resource *> resources;
     QHash<QString, QStringList> html_files_hash = m_Book->GetHTMLFilesUsingMedia();
 
-    // Get background-image files from HTML inline styles
-    QStringList background_images = m_Book->GetBackgroundImagesInHTMLFiles();
+    // Get file urls from HTML inline styles
+    QStringList style_urls = m_Book->GetStyleUrlsInHTMLFiles();
 
-    // Get background-image files from CSS files
+    // Get files urls from CSS files
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
     foreach(Resource *resource, css_resources) {
         CSSResource *css_resource = dynamic_cast<CSSResource *>(resource);
         CSSInfo css_info(css_resource->GetText(), true);
 
-        background_images.append(css_info.getAllPropertyValues("background-image"));
-        background_images.append(css_info.getAllPropertyValues("background"));
+        style_urls.append(css_info.getAllPropertyValues(""));
     }
-    // Get background-image files from HTML CSS files
+    // Get file urls from HTML CSS files
     QList<Resource *> html_resources = GetAllHTMLResources();
     foreach(Resource *resource, html_resources) {
         HTMLResource *html_resource = dynamic_cast<HTMLResource *>(resource);
         CSSInfo css_info(html_resource->GetText(), false);
 
-        background_images.append(css_info.getAllPropertyValues("background-image"));
-        background_images.append(css_info.getAllPropertyValues("background"));
+        style_urls.append(css_info.getAllPropertyValues(""));
     }
 
-    background_images.removeDuplicates();
+    style_urls.removeDuplicates();
 
-    QStringList background_image_files;
-    QRegularExpression image_file_search("url\\s*\\(\\s*['\"]([^'\"]*).*");
-    foreach (QString url, background_images) {
-        QRegularExpressionMatch match = image_file_search.match(url);
+    QStringList style_url_files;
+    QRegularExpression url_file_search("url\\s*\\(\\s*['\"]([^'\"]*).*");
+    foreach (QString url, style_urls) {
+        QRegularExpressionMatch match = url_file_search.match(url);
         if (match.hasMatch()) {
-            background_image_files.append(match.captured(1));
+            style_url_files.append(match.captured(1));
         }
     }
 
@@ -1047,7 +1045,7 @@ void MainWindow::DeleteUnusedMedia()
         QString filepath = "../" + resource->GetRelativePathToOEBPS();
 
         // Include the file in the list to delete if it was not referenced
-        if (html_files_hash[filepath].count() == 0 && !background_image_files.contains(filepath)) {
+        if (html_files_hash[filepath].count() == 0 && !style_url_files.contains(filepath)) {
             resources.append(resource);
         }
     }
