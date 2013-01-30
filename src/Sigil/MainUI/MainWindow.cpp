@@ -737,6 +737,11 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
                 CSSInfo css_info(css_resource->GetText(), true);
                 CSSInfo::CSSSelector *selector = css_info.getCSSSelectorForElementClass(element_name, style_class_name);
 
+                // If we fail to find a matching class, search again with just the element
+                if (!style_class_name.isEmpty() && !selector) {
+                    selector = css_info.getCSSSelectorForElementClass(element_name, "");
+                }
+
                 if (selector) {
                     m_TabManager.OpenResource(*css_resource, selector->line);
                     found_match = true;
