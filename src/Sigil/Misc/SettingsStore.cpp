@@ -124,7 +124,7 @@ QString SettingsStore::dictionary()
 QStringList SettingsStore::enabledUserDictionaries()
 {
     clearSettingsGroup();
-    return value(KEY_ENABLED_USER_DICTIONARIES, "default").toStringList();
+    return value(KEY_ENABLED_USER_DICTIONARIES, defaultUserDictionary()).toStringList();
 }
 
 int SettingsStore::viewState()

@@ -235,6 +235,7 @@ void SpellCheckWidget::renameUserDict()
     }
 
     item->setText(new_name);
+    setDefaultUserDictionary(new_name);
 
     ui.userDictList->sortByColumn(1, Qt::AscendingOrder);
     m_isDirty = true;
