@@ -980,7 +980,7 @@
     <string>&amp;Toggle View State</string>
    </property>
    <property name="toolTip">
-    <string>Toggle Book View or Preview View to Code View or Code View to Book View</string>
+    <string>Toggle Book View to Code View or Code View to Book View</string>
    </property>
    <property name="shortcut">
     <string>F2</string>
@@ -1225,7 +1225,7 @@
     <string>Sho&amp;w Tag</string>
    </property>
    <property name="toolTip">
-    <string>Show the enclosing tag HTML for the cursor position in Book View/Preview View.</string>
+    <string>Show the enclosing tag HTML for the cursor position in Book View.</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+T</string>

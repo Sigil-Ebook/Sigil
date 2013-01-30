@@ -255,7 +255,7 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     // We do a save (if pending changes) before switching to ensure we don't lose
     // any unsaved data in the current view, as cannot rely on lost focus happened.
     SaveTabContent();
-    // Track our preview view state for the purposes of caret syncing
+    // Track our previous view state for the purposes of caret syncing
     m_previousViewState = m_ViewState;
     m_ViewState = new_view_state;
 

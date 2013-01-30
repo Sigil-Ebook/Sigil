@@ -29,7 +29,7 @@
    <item>
     <widget class="QGroupBox" name="groupBoxBookView">
      <property name="title">
-      <string>Book View / Preview View:</string>
+      <string>Book View / Preview:</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayoutBV">
       <item>
@@ -58,7 +58,7 @@
              </size>
             </property>
             <property name="toolTip">
-             <string>Default font size to be used for Book View/Preview View
+             <string>Default font size to be used for Book View and Preview
 if no font-size specified in your CSS</string>
             </property>
             <property name="text">
@@ -92,7 +92,7 @@ if no font-size specified in your CSS</string>
           <item row="1" column="0">
            <widget class="QLabel" name="labelBookViewFontStandard">
             <property name="toolTip">
-             <string>Default font family to be used for Book View/Preview View
+             <string>Default font family to be used for Book View and Preview
 if no font-family specified in your CSS</string>
             </property>
             <property name="text">
@@ -106,7 +106,7 @@ if no font-family specified in your CSS</string>
           <item row="2" column="0">
            <widget class="QLabel" name="labelBookViewFontSerif">
             <property name="toolTip">
-             <string>Default font family to be used for Book View/Preview View
+             <string>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</string>
             </property>
             <property name="text">
@@ -120,7 +120,7 @@ if a serif font-family specified in your CSS</string>
           <item row="3" column="0">
            <widget class="QLabel" name="labelBookViewFontSansSerif">
             <property name="toolTip">
-             <string>Default font family to be used for Book View/Preview View
+             <string>Default font family to be used for Book View and Preview
 if a sans-serif font-family specified in your CSS</string>
             </property>
             <property name="text">
