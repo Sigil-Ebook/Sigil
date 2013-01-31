@@ -184,6 +184,7 @@ void NCXModel::AddEntryToParentItem(const NCXEntry &entry, QStandardItem *parent
     Q_ASSERT(parent);
     QStandardItem *item = new QStandardItem(entry.text);
     item->setData(QUrl(entry.target));
+    item->setToolTip(entry.target);
     item->setEditable(false);
     item->setDragEnabled(false);
     item->setDropEnabled(false);

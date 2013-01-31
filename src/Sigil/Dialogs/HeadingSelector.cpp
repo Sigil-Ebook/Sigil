@@ -293,8 +293,9 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
                                                : QString();
         QString new_id_attribute(existing_id_attribute);
 
-        if (!heading->include_in_toc) {
-            // Since this heading is not being put in the toc, we will remove any existing id from it
+        if (!heading->include_in_toc || heading->at_file_start) {
+            // Since this heading is not being put in the toc or does not need an id 
+            // because it is at the top of the file, we will remove any existing id from it
             // provided it is Sigil generated and not in use already.
             if (!used_ids.contains(existing_id_attribute) &&
                 (existing_id_attribute.startsWith(SIGIL_TOC_ID_PREFIX) ||
