@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Insert Files</string>
+   <string>Insert File</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
