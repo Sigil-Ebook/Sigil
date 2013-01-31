@@ -1335,14 +1335,26 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
 {
     QString new_text(text);
 
+    // If the text does not contain a backslash we "assume" it has not been
+    // tokenised already so we need to escape it
     if (!text.contains("\\")) {
-        // Going to "assume" that this text has already been escaped by the
-        // auto-tokenise logic or the user running tokenise already.
         new_text = QRegularExpression::escape(text);
     }
 
-    // Replace spaces.
-    new_text.replace(QRegularExpression("([\\n\\s]{2,})"), "\\s+");
+    // Restore some characters for readability
+    new_text.replace("\\ ", " ");
+    new_text.replace("\\<", "<");
+    new_text.replace("\\>", ">");
+    new_text.replace("\\/", "/");
+    new_text.replace("\\;", ";");
+    new_text.replace("\\&", "&");
+
+    // Convert lines and paragraph separators to multiple spaces
+    new_text.replace("\\n", "  ");
+    new_text.replace("\\" % QString::fromUtf8("\u2029"), "  ");
+
+    // Replace multiple spaces
+    new_text.replace(QRegularExpression("(\\s{2,})"), "\\s+");
 
     if (includeNumerics) {
         // Replace numerics.
