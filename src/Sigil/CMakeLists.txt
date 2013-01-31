@@ -696,7 +696,7 @@ elseif (MSVC)
                         COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
     
     # Copy Qt runtime libs
-    set( QT_LIBS libEGL libGLESv2 Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5OpenGL Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sql Qt5V8 Qt5WebKit Qt5WebkitWidgets Qt5Widgets )
+    set( QT_LIBS libEGL libGLESv2 Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5OpenGL Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sql Qt5V8 Qt5WebKit Qt5WebkitWidgets Qt5Widgets Qt5Xml Qt5XmlPatterns )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_LIBS} )
         set( location location-NOTFOUND )
@@ -729,6 +729,42 @@ elseif (MSVC)
         set( location location-NOTFOUND )
         find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/imageformats/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/imageformats/ )
+    endforeach( lib )
+
+    # Copy platform plugins
+    set( QT_PLATFORMS qminimal qwindows)
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/platforms/ )
+    foreach( lib ${QT_PLATFORMS} )   
+        set( location location-NOTFOUND )
+        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/platforms/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/platforms/ )
+    endforeach( lib )
+
+    # Copy printsupport plugins
+    set( QT_PRINTSUPPORT windowsprintersupport )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/printsupport/ )
+    foreach( lib ${QT_PRINTSUPPORT} )   
+        set( location location-NOTFOUND )
+        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/printsupport/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/printsupport/ )
+    endforeach( lib )
+
+    # Copy sqldrivers plugins
+    set( QT_SQLDRIVERS qsqlite )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/sqldrivers/ )
+    foreach( lib ${QT_SQLDRIVERS} )   
+        set( location location-NOTFOUND )
+        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/sqldrivers/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/sqldrivers/ )
+    endforeach( lib )
+
+    # Copy accessible plugins
+    set( QT_ACCESSIBLE qtaccessiblequick qtaccessiblewidgets )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/accessible/ )
+    foreach( lib ${QT_ACCESSIBLE} )   
+        set( location location-NOTFOUND )
+        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/accessible/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/accessible/ )
     endforeach( lib )
 
     # Copy the translation qm files
