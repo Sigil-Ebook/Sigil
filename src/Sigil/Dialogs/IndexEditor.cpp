@@ -424,7 +424,7 @@ void IndexEditor::CreateContextMenuActions()
     m_Copy      = new QAction(tr("Copy"),            this);
     m_Paste     = new QAction(tr("Paste"),           this);
     m_Delete    = new QAction(tr("Delete"),          this);
-    m_AutoFill  = new QAction(tr("Auto Fill"),       this);
+    m_AutoFill  = new QAction(tr("Autofill"),        this);
     m_Open      = new QAction(tr("Open") + "...",    this);
     m_Reload    = new QAction(tr("Reload") + "...",  this);
     m_SaveAs    = new QAction(tr("Save As") + "...", this);

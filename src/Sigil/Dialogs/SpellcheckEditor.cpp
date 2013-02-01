@@ -152,6 +152,19 @@ void SpellcheckEditor::Add()
         sc->addToUserDictionary(Utility::getSpellingSafeText(item->text()), dict_name);
         if (enabled_dicts.contains(dict_name)) {
             m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setText(tr("No"));
+            if (ui.ShowAllWords->checkState() == Qt::Unchecked) {
+                int row = item->row();
+                m_SpellcheckEditorModel->removeRows(row, 1);
+                if (row >= m_SpellcheckEditorModel->rowCount()) {
+                    row--;
+                }
+                if (row >= 0) {
+                    ui.SpellcheckEditorTree->selectionModel()->clear();
+                    QModelIndex index = m_SpellcheckEditorModel->index(row, 0);
+                    ui.SpellcheckEditorTree->setCurrentIndex(index);
+                    ui.SpellcheckEditorTree->selectionModel()->select(index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+                }
+            }
         }
     }
 

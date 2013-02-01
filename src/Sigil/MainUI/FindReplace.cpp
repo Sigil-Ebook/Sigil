@@ -207,7 +207,7 @@ void FindReplace::CountClicked()
 
 void FindReplace::FindWord(QString word)
 {
-    word = "\\b" + word + "\\b";
+    word = "(\\b|[_\\.0-9])" + word + "(\\b|[_\\.0-9])";
     FindAnyText(word);
 }
 
@@ -223,11 +223,14 @@ void FindReplace::FindAnyText(QString text)
     SetRegexOptionMinimalMatch(true);
     SetOptionWrap(true);
 
-    text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
-    ui.cbFind->setEditText(text);
+    QString search_text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
+    ui.cbFind->setEditText(search_text);
+    int count = Count();
     FindNext();
-
     ReadSettings();
+
+    QString message = tr("%n found: ", "", count) % " \"" % text % "\"";
+    emit ShowStatusMessageRequest(message, 7000);
 }
 
 void FindReplace::FindAnyTextInTags(QString text)

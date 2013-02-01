@@ -485,7 +485,7 @@ void ClipEditor::AutoFill()
     }
 
     ClipEditorModel::clipEntry *entry = new ClipEditorModel::clipEntry();
-    entry->name = "AutoFill";
+    entry->name = "Autofill";
     entry->is_group = true;
     QStandardItem *group_item = m_ClipEditorModel->AddEntryToModel(entry, true);
 
@@ -625,7 +625,7 @@ void ClipEditor::CreateContextMenuActions()
     m_ExportAll =   new QAction(tr("Export All") + "...", this);
     m_CollapseAll = new QAction(tr("Collapse All"),       this);
     m_ExpandAll =   new QAction(tr("Expand All"),         this);
-    m_AutoFill  =   new QAction(tr("AutoFill"),           this);
+    m_AutoFill  =   new QAction(tr("Autofill"),           this);
     m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
     m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_G));
     m_Edit->setShortcut(QKeySequence(Qt::Key_F2));

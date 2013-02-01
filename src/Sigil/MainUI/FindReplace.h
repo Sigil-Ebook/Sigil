@@ -103,6 +103,7 @@ signals:
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);
 
     void ShowMessageRequest(const QString &message);
+    void ShowStatusMessageRequest(const QString &message, int duration);
 
     /**
      * Emitted when we want to do some operations with the clipboard
