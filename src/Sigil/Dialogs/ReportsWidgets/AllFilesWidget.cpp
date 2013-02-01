@@ -82,7 +82,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         // File Size
         double ffsize = QFile(path).size() / 1024.0;
         total_size += ffsize;
-        QString fsize = QLocale().toString(ffsize, 'f', 2);
+        QString fsize = QString::number(ffsize, 'f', 2);
         NumericItem *size_item = new NumericItem();
         size_item->setText(fsize);
         rowItems << size_item;
