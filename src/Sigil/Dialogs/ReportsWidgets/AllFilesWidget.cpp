@@ -181,12 +181,15 @@ void AllFilesWidget::Save()
     // Get headings
     for (int col = 0; col < ui.fileTree->header()->count(); col++) {
         QStandardItem *item = m_ItemModel->horizontalHeaderItem(col);
-
-        if (col == 0) {
-            row_text.append(item->text());
-        } else {
-            row_text.append("," % item->text());
+        QString text = "";
+        if (item) {
+            text = item->text();
         }
+        if (col == 0) {
+            row_text.append(text);
+        } else {
+            row_text.append("," % text);
+        }   
     }
 
     report_info.append(row_text % "\n");
@@ -197,11 +200,14 @@ void AllFilesWidget::Save()
 
         for (int col = 0; col < ui.fileTree->header()->count(); col++) {
             QStandardItem *item = m_ItemModel->item(row, col);
-
+            QString text = "";
+            if (item) {
+                text = item->text();
+            }
             if (col == 0) {
-                row_text.append(item->text());
+                row_text.append(text);
             } else {
-                row_text.append("," % item->text());
+                row_text.append("," % text);
             }
         }
 

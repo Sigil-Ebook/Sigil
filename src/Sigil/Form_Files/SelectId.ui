@@ -21,7 +21,9 @@
        <property name="toolTip">
         <string>Enter an ID name to use as a destination for hyperlinks, footnotes, and TOC entries.
 
-The dropdown box shows existing ID names in the current file.   ID names must be unique.</string>
+The dropdown box shows existing ID names in the current file.
+
+ID names must be unique and start with a letter.</string>
        </property>
        <property name="text">
         <string>ID:</string>

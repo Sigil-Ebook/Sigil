@@ -277,7 +277,6 @@ void SpellcheckEditor::ReadSettings()
     }
     if (index < 0) {
         index = 0;
-//meme
     }
     ui.Dictionaries->setCurrentIndex(index);
     if (dictionary.isEmpty()) {

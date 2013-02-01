@@ -510,16 +510,22 @@ QStringList BookBrowser::AddExisting(bool only_multimedia)
     QStringList invalid_filenames;
     HTMLResource *current_html_resource = qobject_cast< HTMLResource * >(GetCurrentResource());
     Resource *open_resource = NULL;
-    // Display progress dialog
-    QProgressDialog progress(QObject::tr("Adding Existing Files.."), 0, 0, filepaths.count(), this);
-    progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
+    // Display progress dialog if adding several items
+    // Avoid dialog popping up over Insert File from disk for duplicate file all the time
     int progress_value = 0;
-    progress.setValue(progress_value);
+    int file_count = filepaths.count();
+    QProgressDialog progress(QObject::tr("Adding Existing Files.."), 0, 0, file_count, this);
+    if (file_count > 1) {
+        progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
+        progress.setValue(progress_value);
+    }
     foreach(QString filepath, filepaths) {
-        // Set progress value and ensure dialog has time to display when doing extensive updates
-        // Set ahead of actual add since it can abort in several places
-        progress.setValue(progress_value++);
-        qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+        if (file_count > 1) {
+            // Set progress value and ensure dialog has time to display when doing extensive updates
+            // Set ahead of actual add since it can abort in several places
+            progress.setValue(progress_value++);
+            qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+        }
 
         // Check if the file matches the type requested for adding
         // Only used for inserting images from disk
