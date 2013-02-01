@@ -30,7 +30,6 @@ Sigil 0.7.0 TBD
     - Fix issue 1961: Generate TOC should not create IDs for headings when it only points to filenames.
     - Fix issue 1857: CSS Highlighting inline styles inconsistent.
     - Fix issue 1946: Highlight misspelled words checkbox should be available in Preferences.
-    - Fix issue 1944: Delete Unused Images should check background attributes.
     - Fix issue 1943: Reports can crash if file has non well-formed xml.
     - Fix issue 1883: TOC window does not jump to right location for some entries.
     - Fix issue 1906: "Delete unused image files" deleting background images.
