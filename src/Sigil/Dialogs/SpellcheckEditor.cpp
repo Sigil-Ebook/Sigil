@@ -128,7 +128,7 @@ void SpellcheckEditor::Ignore()
     SpellCheck *sc = SpellCheck::instance();
     foreach (QStandardItem *item, GetSelectedItems()) {
         sc->ignoreWord(Utility::getSpellingSafeText(item->text()));
-        m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setText(tr("No"));
+        MarkSpelledOkay(item->row());
     }
 
     emit ShowStatusMessageRequest(tr("Ignored word(s)."));
@@ -151,25 +151,29 @@ void SpellcheckEditor::Add()
     foreach (QStandardItem *item, GetSelectedItems()) {
         sc->addToUserDictionary(Utility::getSpellingSafeText(item->text()), dict_name);
         if (enabled_dicts.contains(dict_name)) {
-            m_SpellcheckEditorModel->invisibleRootItem()->child(item->row(), 1)->setText(tr("No"));
-            if (ui.ShowAllWords->checkState() == Qt::Unchecked) {
-                int row = item->row();
-                m_SpellcheckEditorModel->removeRows(row, 1);
-                if (row >= m_SpellcheckEditorModel->rowCount()) {
-                    row--;
-                }
-                if (row >= 0) {
-                    ui.SpellcheckEditorTree->selectionModel()->clear();
-                    QModelIndex index = m_SpellcheckEditorModel->index(row, 0);
-                    ui.SpellcheckEditorTree->setCurrentIndex(index);
-                    ui.SpellcheckEditorTree->selectionModel()->select(index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
-                }
-            }
+            MarkSpelledOkay(item->row());
         }
     }
 
     emit ShowStatusMessageRequest(tr("Added word(s) to dictionary."));
     emit SpellingHighlightRefreshRequest();
+}
+
+void SpellcheckEditor::MarkSpelledOkay(int row)
+{
+    m_SpellcheckEditorModel->invisibleRootItem()->child(row, 1)->setText(tr("No"));
+    if (ui.ShowAllWords->checkState() == Qt::Unchecked) {
+        m_SpellcheckEditorModel->removeRows(row, 1);
+        if (row >= m_SpellcheckEditorModel->rowCount()) {
+            row--;
+        }
+        if (row >= 0) {
+            ui.SpellcheckEditorTree->selectionModel()->clear();
+            QModelIndex index = m_SpellcheckEditorModel->index(row, 0);
+            ui.SpellcheckEditorTree->setCurrentIndex(index);
+            ui.SpellcheckEditorTree->selectionModel()->select(index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+        }
+    }
 }
 
 void SpellcheckEditor::CreateModel()

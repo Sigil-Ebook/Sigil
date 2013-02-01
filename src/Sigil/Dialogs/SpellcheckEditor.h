@@ -80,6 +80,7 @@ private:
     void CreateModel();
     void UpdateDictionaries();
     void SetupSpellcheckEditorTree();
+    void MarkSpelledOkay(int row);
 
     int SelectedRowsCount();
 
