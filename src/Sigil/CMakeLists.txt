@@ -696,7 +696,7 @@ elseif (MSVC)
                         COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
     
     # Copy Qt runtime libs
-    set( QT_LIBS libEGL libGLESv2 Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5OpenGL Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sql Qt5V8 Qt5WebKit Qt5WebkitWidgets Qt5Widgets Qt5Xml Qt5XmlPatterns )
+    set( QT_LIBS libEGL libGLESv2 Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5OpenGL Qt5Multimedia Qt5MultimediaWidgets Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sql Qt5V8 Qt5WebKit Qt5WebkitWidgets Qt5Widgets Qt5Xml Qt5XmlPatterns )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_LIBS} )
         set( location location-NOTFOUND )
@@ -800,18 +800,17 @@ elseif (MSVC)
     # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
     # an installer for the x64 verison of Sigil. This will make sure that the
     # correct CRT libs are included in the installer.
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/vendor/ )
     if ( WIN_INSTALLER_USE_64BIT_CRT )
         message( STATUS "Using the 64 bit CRT in the Sigil Windows installer" )
+        message( STATUS "Ensure vcredist_x64.exe has been placed in installer/ if you plan on running makeinstaller" )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcp100.dll ${MAIN_PACKAGE_DIR} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcr100.dll ${MAIN_PACKAGE_DIR} )
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x64.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist.exe )
     else()
         message( STATUS "Using the 32 bit CRT in the Sigil Windows installer" )
+        message( STATUS "Ensure vcredist_x86.exe has been placed in installer/ if you plan on running makeinstaller" )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcp100.dll ${MAIN_PACKAGE_DIR} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcr100.dll ${MAIN_PACKAGE_DIR} )            
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x86.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist.exe )
     endif()
 
     # Copy the Changelog
