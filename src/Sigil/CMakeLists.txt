@@ -800,18 +800,17 @@ elseif (MSVC)
     # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
     # an installer for the x64 verison of Sigil. This will make sure that the
     # correct CRT libs are included in the installer.
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/vendor/ )
     if ( WIN_INSTALLER_USE_64BIT_CRT )
         message( STATUS "Using the 64 bit CRT in the Sigil Windows installer" )
+        message( STATUS "Ensure the x64 vcredist.exe has been placed in installer/msvc_crt/x64 if you plan on running makeinstaller" )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcp100.dll ${MAIN_PACKAGE_DIR} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/msvcr100.dll ${MAIN_PACKAGE_DIR} )
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/vcredist.exe ${TEMP_PACKAGE_DIR}/vendor )
     else()
         message( STATUS "Using the 32 bit CRT in the Sigil Windows installer" )
+        message( STATUS "Ensure the x86 vcredist.exe has been placed in installer/msvc_crt/x86 if you plan on running makeinstaller" )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcp100.dll ${MAIN_PACKAGE_DIR} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/msvcr100.dll ${MAIN_PACKAGE_DIR} )            
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/vcredist.exe ${TEMP_PACKAGE_DIR}/vendor )
     endif()
 
     # Copy the Changelog
