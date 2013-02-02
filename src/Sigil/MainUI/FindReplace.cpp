@@ -1338,10 +1338,17 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
 {
     QString new_text(text);
 
+    // Convert newlines, carriage-returns, unicode line separators, and
+    // paragraph separators to multiple spaces
+    new_text.replace("\\n", "  ");
+    new_text.replace("\\r", "  ");
+    new_text.replace("\\R", "  ");
+    new_text.replace(QString::fromUtf8("\u2029"), "  ");
+
     // If the text does not contain a backslash we "assume" it has not been
     // tokenised already so we need to escape it
-    if (!text.contains("\\")) {
-        new_text = QRegularExpression::escape(text);
+    if (!new_text.contains("\\")) {
+        new_text = QRegularExpression::escape(new_text);
     }
 
     // Restore some characters for readability
@@ -1352,13 +1359,6 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
     new_text.replace("\\;", ";");
     new_text.replace("\\:", ":");
     new_text.replace("\\&", "&");
-
-    // Convert newlines, carriage-returns, unicode line separators, and
-    // paragraph separators to multiple spaces
-    new_text.replace("\\n", "  ");
-    new_text.replace("\\r", "  ");
-    new_text.replace("\\R", "  ");
-    new_text.replace("\\" % QString::fromUtf8("\u2029"), "  ");
 
     // Replace multiple spaces
     new_text.replace(QRegularExpression("(\\s{2,})"), "\\s+");
