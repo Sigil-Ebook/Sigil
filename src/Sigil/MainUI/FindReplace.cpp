@@ -229,7 +229,7 @@ void FindReplace::FindAnyText(QString text)
     FindNext();
     ReadSettings();
 
-    QString message = tr("%n found: ", "", count) % " \"" % text % "\"";
+    QString message = tr("Matches found: %n", "", count);
     emit ShowStatusMessageRequest(message, 7000);
 }
 

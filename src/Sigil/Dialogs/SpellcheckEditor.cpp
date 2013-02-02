@@ -256,10 +256,18 @@ void SpellcheckEditor::SelectAll()
 
 void SpellcheckEditor::DoubleClick()
 {
+    if (ui.SpellcheckEditorTree->selectionModel()->selectedRows().count() > 1) {
+        return;
+    }
     QModelIndex index = ui.SpellcheckEditorTree->selectionModel()->selectedRows(0).first();
     QString word = m_SpellcheckEditorModel->itemFromIndex(index)->text();
 
     emit FindWordRequest(word);
+}
+
+void SpellcheckEditor::SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+{
+    DoubleClick();
 }
 
 void SpellcheckEditor::FilterEditTextChangedSlot(const QString &text)
@@ -364,6 +372,10 @@ void SpellcheckEditor::ForceClose()
 
 void SpellcheckEditor::ConnectSignalsSlots()
 {
+    QItemSelectionModel *selectionModel = ui.SpellcheckEditorTree->selectionModel();
+    connect(selectionModel,     SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+            this,               SLOT(SelectionChanged(const QItemSelection &, const QItemSelection &)));
+
     connect(ui.FilterText,  SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.Refresh, SIGNAL(clicked()), this, SLOT(Refresh()));
     connect(ui.Ignore, SIGNAL(clicked()), this, SLOT(Ignore()));

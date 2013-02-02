@@ -65,6 +65,7 @@ protected slots:
 private slots:
     void ChangeDisplayType(int state);
     void DoubleClick();
+    void SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void Refresh();
     void DictionaryChanged(QString dictionary);
 
