@@ -62,6 +62,8 @@ TableOfContents::TableOfContents(QWidget *parent)
             this,        SLOT(ItemClickedHandler(const QModelIndex &)));
     connect(&m_RefreshTimer, SIGNAL(timeout()),
             this,            SLOT(Refresh()));
+    connect(&m_NCXModel, SIGNAL(RefreshDone()),
+            this,            SLOT(ExpandAll()));
 }
 
 void TableOfContents::showEvent(QShowEvent *event)

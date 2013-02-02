@@ -121,6 +121,9 @@ public:
      */
     NCXEntry GetRootNCXEntry();
 
+signals:
+    void RefreshDone();
+
 private slots:
 
     /**

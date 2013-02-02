@@ -83,6 +83,7 @@ void NCXModel::RefreshEnd()
 {
     BuildModel(m_NcxRootWatcher.result());
     m_RefreshInProgress = false;
+    emit RefreshDone();
 }
 
 
