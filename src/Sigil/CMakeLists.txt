@@ -803,14 +803,14 @@ elseif (MSVC)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/vendor/ )
     if ( WIN_INSTALLER_USE_64BIT_CRT )
         message( STATUS "Using the 64 bit CRT in the Sigil Windows installer" )
-        message( STATUS "Ensure the x64 vcredist.exe has been placed in installer/msvc_crt/x64 if you plan on running makeinstaller" )
+        message( STATUS "Ensure vcredist_x64.exe has been placed in installer/ if you plan on running makeinstaller" )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x64/vcredist.exe ${TEMP_PACKAGE_DIR}/vendor )
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x64.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist.exe )
     else()
         message( STATUS "Using the 32 bit CRT in the Sigil Windows installer" )
-        message( STATUS "Ensure the x86 vcredist.exe has been placed in installer/msvc_crt/x86 if you plan on running makeinstaller" )
+        message( STATUS "Ensure vcredist_x86.exe has been placed in installer/ if you plan on running makeinstaller" )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/msvc_crt/x86/vcredist.exe ${TEMP_PACKAGE_DIR}/vendor )
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x86.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist.exe )
     endif()
 
     # Copy the Changelog
