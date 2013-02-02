@@ -1350,10 +1350,14 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
     new_text.replace("\\>", ">");
     new_text.replace("\\/", "/");
     new_text.replace("\\;", ";");
+    new_text.replace("\\:", ":");
     new_text.replace("\\&", "&");
 
-    // Convert lines and paragraph separators to multiple spaces
+    // Convert newlines, carriage-returns, unicode line separators, and
+    // paragraph separators to multiple spaces
     new_text.replace("\\n", "  ");
+    new_text.replace("\\r", "  ");
+    new_text.replace("\\R", "  ");
     new_text.replace("\\" % QString::fromUtf8("\u2029"), "  ");
 
     // Replace multiple spaces
