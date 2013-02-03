@@ -260,7 +260,6 @@ int CleanSource::MaxSigilCSSClassIndex(const QStringList &css_style_tags)
         int main_index = 0;
 
         while (true) {
-            int sigil_class_len  = 0;
             QRegularExpressionMatch match = sigil_class.match(style_tag, main_index);
             main_index = match.capturedStart();
             if (main_index == -1) {
