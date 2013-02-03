@@ -207,11 +207,16 @@ void FindReplace::CountClicked()
 
 void FindReplace::FindWord(QString word)
 {
-    word = "(\\b|[_\\.0-9])" + word + "(\\b|[_\\.0-9])";
-    FindAnyText(word);
+    QString word_pattern = "[\\W_0-9\\.\\<\\>]" + QRegularExpression::escape(word) + "[\\W_0-9\\.\\<\\>]";
+    bool found = FindAnyText(word_pattern, false);
+    // We expect the word to be found.  If not found try without pattern as
+    // some words bordered by < or > are not matched when using the pattern.
+    if (!found) {
+        FindAnyText(word, false);
+    }
 }
 
-void FindReplace::FindAnyText(QString text)
+bool FindReplace::FindAnyText(QString text, bool escape)
 {
     SetCodeViewIfNeeded(true);
     WriteSettings();
@@ -223,14 +228,23 @@ void FindReplace::FindAnyText(QString text)
     SetRegexOptionMinimalMatch(true);
     SetOptionWrap(true);
 
-    QString search_text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
+    QString search_text;
+    if (escape) {
+        search_text = QRegularExpression::escape(text);
+    }
+    else {
+        search_text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
+    }
     ui.cbFind->setEditText(search_text);
     int count = Count();
-    FindNext();
+    bool found = FindNext();
     ReadSettings();
+    // Show the search term in case it's needed
+    ui.cbFind->setEditText(search_text);
 
     QString message = tr("Matches found: %n", "", count);
     emit ShowStatusMessageRequest(message, 7000);
+    return found;
 }
 
 void FindReplace::FindAnyTextInTags(QString text)
@@ -1338,12 +1352,8 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
 {
     QString new_text(text);
 
-    // Convert newlines, carriage-returns, unicode line separators, and
-    // paragraph separators to multiple spaces
-    new_text.replace("\\n", "  ");
-    new_text.replace("\\r", "  ");
-    new_text.replace("\\R", "  ");
-    new_text.replace(QString::fromUtf8("\u2029"), "  ");
+    // Convert any form of newline to multiple spaces
+    new_text.replace(QRegularExpression("\\R"), "  ");
 
     // If the text does not contain a backslash we "assume" it has not been
     // tokenised already so we need to escape it
