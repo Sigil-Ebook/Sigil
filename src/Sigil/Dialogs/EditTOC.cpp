@@ -131,9 +131,13 @@ void EditTOC::ExpandChildren(QStandardItem *item)
 
 void EditTOC::MoveLeft()
 {
+    if (!ui.TOCTree->selectionModel()->hasSelection()) {
+        return;
+    }
+
     QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(0);
 
-    if (selected_indexes.count() > 1) {
+    if (selected_indexes.count() != 1) {
         return;
     }
 
@@ -175,9 +179,13 @@ void EditTOC::MoveLeft()
 
 void EditTOC::MoveRight()
 {
+    if (!ui.TOCTree->selectionModel()->hasSelection()) {
+        return;
+    }
+
     QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(0);
 
-    if (selected_indexes.count() > 1) {
+    if (selected_indexes.count() != 1) {
         return;
     }
 
@@ -221,9 +229,13 @@ void EditTOC::AddEntryBelow()
 
 void EditTOC::AddEntry(bool above)
 {
+    if (!ui.TOCTree->selectionModel()->hasSelection()) {
+        return;
+    }
+
     QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(0);
 
-    if (selected_indexes.count() > 1) {
+    if (selected_indexes.count() != 1) {
         return;
     }
 
@@ -254,9 +266,13 @@ void EditTOC::AddEntry(bool above)
 
 void EditTOC::DeleteEntry()
 {
+    if (!ui.TOCTree->selectionModel()->hasSelection()) {
+        return;
+    }
+
     QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(0);
 
-    if (selected_indexes.count() > 1) {
+    if (selected_indexes.count() != 1) {
         return;
     }
 
@@ -273,9 +289,13 @@ void EditTOC::DeleteEntry()
 
 void EditTOC::SelectTarget()
 {
+    if (!ui.TOCTree->selectionModel()->hasSelection()) {
+        return;
+    }
+
     QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(1);
 
-    if (selected_indexes.count() > 1) {
+    if (selected_indexes.count() != 1) {
         return;
     }
 
@@ -342,7 +362,7 @@ void EditTOC::Rename()
         return;
     }
 
-    if (ui.TOCTree->selectionModel()->selectedRows(0).count() > 1) {
+    if (ui.TOCTree->selectionModel()->selectedRows(0).count() != 1) {
         return;
     }
 

@@ -108,10 +108,14 @@ int SpellcheckEditor::SelectedRowsCount()
 
 QList<QStandardItem *> SpellcheckEditor::GetSelectedItems()
 {
+    QList<QStandardItem *> selected_items;
+    if (SelectedRowsCount() < 1) {
+        return selected_items;
+    }
+
     // Shift-click order is top to bottom regardless of starting position
     // Ctrl-click order is first clicked to last clicked (included shift-clicks stay ordered as is)
     QModelIndexList selected_indexes = ui.SpellcheckEditorTree->selectionModel()->selectedRows(0);
-    QList<QStandardItem *> selected_items;
     foreach(QModelIndex index, selected_indexes) {
         selected_items.append(m_SpellcheckEditorModel->itemFromIndex(index));
     }
@@ -256,9 +260,10 @@ void SpellcheckEditor::SelectAll()
 
 void SpellcheckEditor::DoubleClick()
 {
-    if (ui.SpellcheckEditorTree->selectionModel()->selectedRows().count() > 1) {
+    if (SelectedRowsCount() != 1) {
         return;
     }
+
     QModelIndex index = ui.SpellcheckEditorTree->selectionModel()->selectedRows(0).first();
     QString word = m_SpellcheckEditorModel->itemFromIndex(index)->text();
 
