@@ -1,4 +1,3 @@
-
 Sigil is a free, open source, multi-platform WYSIWYG ebook editor.
 It is designed to edit books in ePub format. The version of the package
 can be found in the ChangeLog.txt file.
@@ -19,15 +18,15 @@ a few subdirectories:
                      required by Xerces.
     src/minizip - source code for minizip, a zipping library.
     src/zlib - source code for the zlib compression library.
+    src/hunspell - spell checking library.
+    src/pcre - regular epression library.
 
 The installer directory contains the files needed to produce
-a binary installer for Windows and Linux.
-
-The manual directory contains the manual in reStructuredText format,
-designed to be preprocessed with Sphinx.
+a binary installer for Windows.
 
 The INSTALL.txt file contains information on building Sigil from
 source code (and installing it on Linux machines).
 
 The GPLv3 license under which Sigil is released is located in
 the file called COPYING.txt.
+
