@@ -93,15 +93,7 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_addSpellingMapper(new QSignalMapper(this)),
     m_addDictMapper(new QSignalMapper(this)),
     m_ignoreSpellingMapper(new QSignalMapper(this)),
-    m_clipMapper(new QSignalMapper(this)),
-    m_pendingClipEntryRequest(NULL),
-    m_pendingGoToLinkOrStyleRequest(false),
-    m_pendingReformatCSSRequest(false),
-    m_reformatCSSMultiLine(false),
-    m_pendingReformatHTMLRequest(false),
-    m_reformatHTMLAll(false),
-    m_reformatHTMLToValid(false),
-    m_pendingSpellingHighlighting(false)
+    m_clipMapper(new QSignalMapper(this))
 {
     if (high_type == CodeViewEditor::Highlight_XHTML) {
         m_Highlighter = new XHTMLHighlighter(check_spelling, this);
@@ -905,9 +897,6 @@ void CodeViewEditor::mouseReleaseEvent(QMouseEvent *event)
 // menu to disappear and thus be inaccessible to the user.
 void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
 {
-    // We block signals while the menu is executed because we don't want the LostFocus/GainedFocus
-    // events to be triggered which will cause the selection to be changed
-    blockSignals(true);
     QMenu *menu = createStandardContextMenu();
 
     if (m_reformatCSSEnabled) {
@@ -927,33 +916,6 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
 
     menu->exec(event->globalPos());
     delete menu;
-    blockSignals(false);
-
-    // Now that we are no longer blocking signals we can execute any pending signal emits
-    if (m_pendingClipEntryRequest) {
-        emit OpenClipEditorRequest(m_pendingClipEntryRequest);
-        m_pendingClipEntryRequest = NULL;
-    }
-
-    if (m_pendingGoToLinkOrStyleRequest) {
-        m_pendingGoToLinkOrStyleRequest = false;
-        GoToLinkOrStyle();
-    }
-
-    if (m_pendingSpellingHighlighting) {
-        m_pendingSpellingHighlighting = false;
-        emit SpellingHighlightRefreshRequest();
-    }
-
-    if (m_pendingReformatCSSRequest) {
-        m_pendingReformatCSSRequest = false;
-        ReformatCSS(m_reformatCSSMultiLine);
-    }
-
-    if (m_pendingReformatHTMLRequest) {
-        m_pendingReformatHTMLRequest = false;
-        ReformatHTML(m_reformatHTMLAll, m_reformatHTMLToValid);
-    }
 }
 
 bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
@@ -1267,18 +1229,17 @@ bool CodeViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, Q
 
 void CodeViewEditor::SaveClipAction()
 {
-    m_pendingClipEntryRequest = new ClipEditorModel::clipEntry();
-    m_pendingClipEntryRequest->name = "Unnamed Entry";
-    m_pendingClipEntryRequest->is_group = false;
+    ClipEditorModel::clipEntry *pendingClipEntryRequest = new ClipEditorModel::clipEntry();
+    pendingClipEntryRequest->name = "Unnamed Entry";
+    pendingClipEntryRequest->is_group = false;
     QTextCursor cursor = textCursor();
-    m_pendingClipEntryRequest->text = cursor.selectedText();
+    pendingClipEntryRequest->text = cursor.selectedText();
+    emit OpenClipEditorRequest(pendingClipEntryRequest);
 }
 
 void CodeViewEditor::GoToLinkOrStyleAction()
 {
-    // We don't do anything at this point - wait for the context menu
-    // to be closed and signals are no longer blocked.
-    m_pendingGoToLinkOrStyleRequest = true;
+    GoToLinkOrStyle();
 }
 
 void CodeViewEditor::GoToLinkOrStyle()
@@ -1354,42 +1315,32 @@ void CodeViewEditor::IgnoreMisspelledWord()
 
 void CodeViewEditor::ReformatCSSMultiLineAction()
 {
-    m_reformatCSSMultiLine = true;
-    m_pendingReformatCSSRequest = true;
+    ReformatCSS(true);
 }
 
 void CodeViewEditor::ReformatCSSSingleLineAction()
 {
-    m_reformatCSSMultiLine = false;
-    m_pendingReformatCSSRequest = true;
+    ReformatCSS(false);
 }
 
 void CodeViewEditor::ReformatHTMLCleanAction()
 {
-    m_reformatHTMLToValid = false;
-    m_reformatHTMLAll = false;
-    m_pendingReformatHTMLRequest = true;
+    ReformatHTML(false, false);
 }
 
 void CodeViewEditor::ReformatHTMLCleanAllAction()
 {
-    m_reformatHTMLToValid = false;
-    m_reformatHTMLAll = true;
-    m_pendingReformatHTMLRequest = true;
+    ReformatHTML(true, false);
 }
 
 void CodeViewEditor::ReformatHTMLToValidAction()
 {
-    m_reformatHTMLToValid = true;
-    m_reformatHTMLAll = false;
-    m_pendingReformatHTMLRequest = true;
+    ReformatHTML(false, true);
 }
 
 void CodeViewEditor::ReformatHTMLToValidAllAction()
 {
-    m_reformatHTMLToValid = true;
-    m_reformatHTMLAll = true;
-    m_pendingReformatHTMLRequest = true;
+    ReformatHTML(true, true);
 }
 
 QString CodeViewEditor::GetTagText()
@@ -1563,10 +1514,7 @@ bool CodeViewEditor::MarkForIndex(const QString &title)
 // Overridden so we can emit the FocusGained() signal.
 void CodeViewEditor::focusInEvent(QFocusEvent *event)
 {
-    if (m_pendingSpellingHighlighting) {
-        RehighlightDocument();
-    }
-
+    RehighlightDocument();
     emit FocusGained(this);
     QPlainTextEdit::focusInEvent(event);
 }
@@ -1599,11 +1547,8 @@ void CodeViewEditor::TextChangedFilter()
 void CodeViewEditor::RehighlightDocument()
 {
     if (!isVisible()) {
-        m_pendingSpellingHighlighting = true;
         return;
     }
-
-    m_pendingSpellingHighlighting = false;
 
     if (m_Highlighter) {
         // We block signals from the document while highlighting takes place,
@@ -1684,7 +1629,7 @@ void CodeViewEditor::RefreshSpellingHighlighting()
     if (hasFocus()) {
         RehighlightDocument();
     } else {
-        m_pendingSpellingHighlighting = true;
+        emit SpellingHighlightRefreshRequest();
     }
 }
 
@@ -1694,24 +1639,21 @@ void CodeViewEditor::addToUserDictionary(const QString &text)
     QString dict_name = text.split("\t")[1];
     SpellCheck *sc = SpellCheck::instance();
     sc->addToUserDictionary(Utility::getSpellingSafeText(word), dict_name);
-    // Cannot emit a signal right now to refresh tabs since signals are blocked
-    m_pendingSpellingHighlighting = true;
+    emit SpellingHighlightRefreshRequest();
 }
 
 void CodeViewEditor::addToDefaultDictionary(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
     sc->addToUserDictionary(Utility::getSpellingSafeText(text));
-    // Cannot emit a signal right now to refresh tabs since signals are blocked
-    m_pendingSpellingHighlighting = true;
+    emit SpellingHighlightRefreshRequest();
 }
 
 void CodeViewEditor::ignoreWord(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
     sc->ignoreWord(Utility::getSpellingSafeText(text));
-    // Cannot emit a signal right now to refresh tabs since signals are blocked
-    m_pendingSpellingHighlighting = true;
+    emit SpellingHighlightRefreshRequest();
 }
 
 void CodeViewEditor::PasteText(const QString &text)
@@ -3004,7 +2946,7 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
     QString original_text;
     QString new_text;
 
-    if (m_reformatHTMLAll) {
+    if (all) {
         QWidget *mainWindow_w = Utility::GetMainWindow();
         MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
 
@@ -3022,11 +2964,11 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
                 resources.append(t);
             }
         }
-        CleanSource::ReformatAll(resources, m_reformatHTMLAll ? CleanSource::ToValidXHTML : CleanSource::Clean);
+        CleanSource::ReformatAll(resources, all ? CleanSource::ToValidXHTML : CleanSource::Clean);
     } else {
         original_text = toPlainText();
 
-        if (m_reformatHTMLToValid) {
+        if (to_valid) {
             new_text = CleanSource::ToValidXHTML(original_text);
         } else {
             new_text = CleanSource::Clean(original_text);

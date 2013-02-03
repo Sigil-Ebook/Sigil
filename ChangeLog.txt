@@ -28,6 +28,7 @@ Sigil 0.7.0 TBD
     - Implement issue 1924: Add dockable Clips window to select clips.
     - Implement issue 1925: Don't force well formed checks unless absolutely necessary.
     - Implement issue 1843: Preview should be real-time display of Code View.
+    - Fix issue 1964: Correctiong a word using spellcheck does not make file go to "not saved" state.
     - Fix issue 1961: Generate TOC should not create IDs for headings when it only points to filenames.
     - Fix issue 1857: CSS Highlighting inline styles inconsistent.
     - Fix issue 1946: Highlight misspelled words checkbox should be available in Preferences.

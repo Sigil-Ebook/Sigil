@@ -789,18 +789,6 @@ private:
     QSignalMapper *m_clipMapper;
 
     /**
-     * We have to block signals while displaying a context menu to prevent focus issues.
-     * Use this to store state to emit the signal after the menu is closed.
-     */
-    ClipEditorModel::clipEntry *m_pendingClipEntryRequest;
-    bool m_pendingGoToLinkOrStyleRequest;
-    bool m_pendingReformatCSSRequest;
-    bool m_reformatCSSMultiLine;
-    bool m_pendingReformatHTMLRequest;
-    bool m_reformatHTMLAll;
-    bool m_reformatHTMLToValid;
-
-    /**
      * The fonts and colors for appearance of xhtml and text.
      */
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
