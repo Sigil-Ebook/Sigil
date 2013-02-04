@@ -1628,8 +1628,6 @@ void CodeViewEditor::RefreshSpellingHighlighting()
 {
     if (hasFocus()) {
         RehighlightDocument();
-    } else {
-        emit SpellingHighlightRefreshRequest();
     }
 }
 
