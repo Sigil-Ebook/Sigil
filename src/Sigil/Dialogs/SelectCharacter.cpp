@@ -78,6 +78,7 @@ void SelectCharacter::SetList()
                          << "&emsp;"                             << "emsp"       << "&emsp;"     << "EM SPACE"
                          << "&thinsp;"                           << "thinsp"     << "&thinsp;"   << "THIN SPACE"
                          << "&shy;"                              << "shy"        << "&shy;"      << "SOFT HYPHEN"
+                         << QString::fromUtf8("\xe2\x80\x9A")    << "nnbsp"     << "&#8239;"   << "NARROW NON-BREAKING SPACE"
                          ;
     QStringList characters = QStringList()
                              << QString::fromUtf8("\xe2\x80\x98")    << ""           << "&lsquo;"    << "LEFT SINGLE QUOTE"
