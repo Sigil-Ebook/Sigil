@@ -272,6 +272,12 @@ void MainWindow::GoToPreviewLocation()
     }
 }
 
+void MainWindow::BookmarkLocation()
+{
+    BookmarkLinkOrStyleLocation();
+    ShowMessageOnStatusBar(tr("Location bookmarked."));
+}
+
 void MainWindow::BookmarkLinkOrStyleLocation()
 {
     ResetLinkOrStyleBookmark();
@@ -3380,6 +3386,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionReplaceAllInFile, "MainWindow.ReplaceAllInFile");
     sm->registerAction(ui.actionCountInFile, "MainWindow.CountInFile");
     sm->registerAction(ui.actionGoToLine, "MainWindow.GoToLine");
+    sm->registerAction(ui.actionBookmarkLocation, "MainWindow.BookmarkLocation");
     sm->registerAction(ui.actionGoToLinkOrStyle, "MainWindow.GoToLinkOrStyle");
     sm->registerAction(ui.actionGoBackFromLinkOrStyle, "MainWindow.GoBackFromLinkOrStyle");
     // Format
@@ -3808,6 +3815,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionCloseOtherTabs, SIGNAL(triggered()), &m_TabManager, SLOT(CloseOtherTabs()));
     connect(ui.actionPreviousResource, SIGNAL(triggered()), m_BookBrowser, SLOT(PreviousResource()));
     connect(ui.actionNextResource,     SIGNAL(triggered()), m_BookBrowser, SLOT(NextResource()));
+    connect(ui.actionBookmarkLocation,  SIGNAL(triggered()), this,   SLOT(BookmarkLocation()));
     connect(ui.actionGoBackFromLinkOrStyle,  SIGNAL(triggered()), this,   SLOT(GoBackFromLinkOrStyle()));
     connect(ui.actionSplitOnSGFSectionMarkers, SIGNAL(triggered()),  this,   SLOT(SplitOnSGFSectionMarkers()));
     connect(ui.actionPasteClipboardHistory,    SIGNAL(triggered()),  this,   SLOT(ShowPasteClipboardHistoryDialog()));

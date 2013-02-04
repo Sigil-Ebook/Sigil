@@ -1,4 +1,5 @@
 Sigil 0.7.0 TBD
+    - Implement issue 1968: Bookmark location in editing window.
     - Implement issue 1963: Table Of Contents window should default to expanded when opened or refreshed.
     - Implement issue 1953: Allow entering a list of new words into dictionary preferences.
     - Implement issue 1952: Add shortcut for Copy HTML file.

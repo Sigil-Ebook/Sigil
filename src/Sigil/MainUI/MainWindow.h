@@ -558,6 +558,7 @@ private slots:
 
     void GoToLinkedStyleDefinition(const QString &element_name, const QString &style_class_name);
 
+    void BookmarkLocation();
     void BookmarkLinkOrStyleLocation();
 
     void GoToPreviewLocation();

@@ -250,8 +250,10 @@
     </widget>
     <addaction name="menuSearchCurrentFile"/>
     <addaction name="separator"/>
+    <addaction name="actionBookmarkLocation"/>
     <addaction name="actionGoToLinkOrStyle"/>
     <addaction name="actionGoBackFromLinkOrStyle"/>
+    <addaction name="separator"/>
     <addaction name="actionGoToLine"/>
    </widget>
    <widget class="QMenu" name="menuWindow">
@@ -2197,6 +2199,14 @@
     <string>Create a new HTML file using the current TOC.</string>
    </property>
   </action>
+  <action name="actionBookmarkLocation">
+   <property name="text">
+    <string>&amp;Bookmark Location</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+B</string>
+   </property>
+  </action>
   <action name="actionGoToLinkOrStyle">
    <property name="text">
     <string>&amp;Go To Link Or Style</string>
@@ -2211,7 +2221,7 @@
      <normaloff>:/main/back-to-link-style_22px.png</normaloff>:/main/back-to-link-style_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Go &amp;Back To Link Or Style</string>
+    <string>Go &amp;Back</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
