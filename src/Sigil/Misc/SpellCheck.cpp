@@ -146,6 +146,7 @@ QStringList SpellCheck::suggest(const QString &word)
 void SpellCheck::clearIgnoredWords()
 {
     m_ignoredWords.clear();
+    reloadDictionary();
 }
 
 void SpellCheck::ignoreWord(const QString &word)

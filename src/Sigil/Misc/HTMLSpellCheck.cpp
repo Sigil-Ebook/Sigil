@@ -216,7 +216,6 @@ int HTMLSpellCheck::CountAllWords(const QString &text)
     return CountMisspelledWords(text, 0, text.count(), "", false, true);
 }
 
-
 QStringList HTMLSpellCheck::GetAllWords(const QString &text)
 {
     QList< HTMLSpellCheck::MisspelledWord > words = GetMisspelledWords(text, 0, text.count(), "", false, true);
@@ -226,14 +225,3 @@ QStringList HTMLSpellCheck::GetAllWords(const QString &text)
     }
     return all_words_text;
 }
-
-QStringList HTMLSpellCheck::GetAllMisspelledWords(const QString &text)
-{
-    QList< HTMLSpellCheck::MisspelledWord > words = GetMisspelledWords(text, 0, text.count(), "", false, false);
-    QStringList all_words_text;
-    foreach(HTMLSpellCheck::MisspelledWord word, words) {
-        all_words_text.append(word.text);
-    }
-    return all_words_text;
-}
-

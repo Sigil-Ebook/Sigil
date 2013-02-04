@@ -20,12 +20,14 @@
 **
 *************************************************************************/
 
+#include <QtCore/QHashIterator>
 #include <QtCore/QSignalMapper>
 #include <QtGui/QContextMenuEvent>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
 
 #include "Dialogs/SpellcheckEditor.h"
+#include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
@@ -40,7 +42,8 @@ SpellcheckEditor::SpellcheckEditor(QWidget *parent)
     QDialog(parent),
     m_Book(NULL),
     m_SpellcheckEditorModel(new QStandardItemModel(this)),
-    m_ContextMenu(new QMenu(this))
+    m_ContextMenu(new QMenu(this)),
+    m_MultipleSelection(false)
 {
     ui.setupUi(this);
     ui.FilterText->installEventFilter(this);
@@ -67,7 +70,6 @@ void SpellcheckEditor::SetupSpellcheckEditorTree()
     ui.SpellcheckEditorTree->setModel(m_SpellcheckEditorModel);
     ui.SpellcheckEditorTree->setContextMenuPolicy(Qt::CustomContextMenu);
     ui.SpellcheckEditorTree->setSortingEnabled(true);
-    ui.SpellcheckEditorTree->setSortingEnabled(false);
     ui.SpellcheckEditorTree->setWordWrap(true);
     ui.SpellcheckEditorTree->setAlternatingRowColors(true);
     ui.SpellcheckEditorTree->header()->setStretchLastSection(false);
@@ -129,14 +131,22 @@ void SpellcheckEditor::Ignore()
         return;
     }
 
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    m_MultipleSelection = SelectedRowsCount() > 1;
+
     SpellCheck *sc = SpellCheck::instance();
     foreach (QStandardItem *item, GetSelectedItems()) {
         sc->ignoreWord(Utility::getSpellingSafeText(item->text()));
         MarkSpelledOkay(item->row());
     }
 
+    if (m_MultipleSelection) {
+        m_MultipleSelection = false;
+        FindSelectedWord();
+    }
     emit ShowStatusMessageRequest(tr("Ignored word(s)."));
     emit SpellingHighlightRefreshRequest();
+    QApplication::restoreOverrideCursor();
 }
 
 void SpellcheckEditor::Add()
@@ -145,10 +155,15 @@ void SpellcheckEditor::Add()
         emit ShowStatusMessageRequest(tr("No words selected."));
         return;
     }
+
     QString dict_name = ui.Dictionaries->currentText();
     if (dict_name.isEmpty()) {
         return;
     }
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    m_MultipleSelection = SelectedRowsCount() > 1;
+
     SpellCheck *sc = SpellCheck::instance();
     SettingsStore settings;
     QStringList enabled_dicts = settings.enabledUserDictionaries();
@@ -159,8 +174,13 @@ void SpellcheckEditor::Add()
         }
     }
 
+    if (m_MultipleSelection) {
+        m_MultipleSelection = false;
+        FindSelectedWord();
+    }
     emit ShowStatusMessageRequest(tr("Added word(s) to dictionary."));
     emit SpellingHighlightRefreshRequest();
+    QApplication::restoreOverrideCursor();
 }
 
 void SpellcheckEditor::MarkSpelledOkay(int row)
@@ -185,19 +205,27 @@ void SpellcheckEditor::CreateModel()
     m_SpellcheckEditorModel->clear();
     QStringList header;
     header.append(tr("Word"));
+    header.append(tr("Count"));
     header.append(tr("Misspelled?"));
     m_SpellcheckEditorModel->setHorizontalHeaderLabels(header);
     ui.SpellcheckEditorTree->header()->setSectionResizeMode(0, QHeaderView::Stretch);
     ui.SpellcheckEditorTree->resizeColumnToContents(1);
+    ui.SpellcheckEditorTree->resizeColumnToContents(2);
 
-    QSet<QString> unique_words = m_Book->GetWordsInHTMLFiles();
-    QSet<QString> misspelled_words = m_Book->GetMisspelledWordsInHTMLFiles();
-    ui.SpellcheckEditorTree->header()->setToolTip("<table><tr><td>" % tr("Misspelled Words") % ":</td><td>" % QString::number(misspelled_words.count()) % "</td></tr><tr><td>" % tr("Total Words") % ":</td><td>" % QString::number(unique_words.count()) % "</td></tr></table>");
+    QHash<QString, int> unique_words = m_Book->GetUniqueWordsInHTMLFiles();
 
-    foreach(QString word, unique_words) {
-        bool misspelled = false;
-        if (misspelled_words.contains(word)) {
-            misspelled = true;
+    int total_misspelled_words = 0;
+    SpellCheck *sc = SpellCheck::instance();
+
+    QHashIterator<QString, int> i(unique_words);
+    while (i.hasNext()) {
+        i.next();
+        QString word = i.key();
+        int count = unique_words.value(word);
+        
+        bool misspelled = !sc->spell(word);
+        if (misspelled) {
+            total_misspelled_words++;
         }
 
         if (ui.ShowAllWords->checkState() == Qt::Unchecked && !misspelled) {
@@ -205,6 +233,8 @@ void SpellcheckEditor::CreateModel()
         }
 
         QStandardItem *word_item = new QStandardItem(word);
+        NumericItem *count_item = new NumericItem();
+        count_item->setText(QString::number(count));
         QStandardItem *misspelled_item = new QStandardItem();
         word_item->setEditable(false);
         misspelled_item->setEditable(false);
@@ -216,10 +246,12 @@ void SpellcheckEditor::CreateModel()
         }
 
         QList<QStandardItem *> row_items;
-        row_items << word_item << misspelled_item ;
+        row_items << word_item << count_item << misspelled_item ;
         m_SpellcheckEditorModel->invisibleRootItem()->appendRow(row_items);
     }
     ui.SpellcheckEditorTree->sortByColumn(0, Qt::AscendingOrder);
+
+    ui.SpellcheckEditorTree->header()->setToolTip("<table><tr><td>" % tr("Misspelled Words") % ":</td><td>" % QString::number(total_misspelled_words) % "</td></tr><tr><td>" % tr("Total Unique Words") % ":</td><td>" % QString::number(unique_words.count()) % "</td></tr></table>");
 }
 
 void SpellcheckEditor::Refresh()
@@ -258,9 +290,9 @@ void SpellcheckEditor::SelectAll()
     ui.SpellcheckEditorTree->selectAll();
 }
 
-void SpellcheckEditor::DoubleClick()
+void SpellcheckEditor::FindSelectedWord()
 {
-    if (SelectedRowsCount() != 1) {
+    if (SelectedRowsCount() != 1 || m_MultipleSelection) {
         return;
     }
 
@@ -272,7 +304,7 @@ void SpellcheckEditor::DoubleClick()
 
 void SpellcheckEditor::SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
-    DoubleClick();
+    FindSelectedWord();
 }
 
 void SpellcheckEditor::FilterEditTextChangedSlot(const QString &text)
@@ -389,10 +421,10 @@ void SpellcheckEditor::ConnectSignalsSlots()
             this,        SLOT(OpenContextMenu(const QPoint &)));
     connect(m_Ignore,       SIGNAL(triggered()), this, SLOT(Ignore()));
     connect(m_Add,      SIGNAL(triggered()), this, SLOT(Add()));
-    connect(m_Find,      SIGNAL(triggered()), this, SLOT(DoubleClick()));
+    connect(m_Find,      SIGNAL(triggered()), this, SLOT(FindSelectedWord()));
     connect(m_SelectAll, SIGNAL(triggered()), this, SLOT(SelectAll()));
     connect(ui.SpellcheckEditorTree, SIGNAL(doubleClicked(const QModelIndex &)),
-            this,         SLOT(DoubleClick()));
+            this,         SLOT(FindSelectedWord()));
     connect(ui.ShowAllWords,  SIGNAL(stateChanged(int)),
             this,               SLOT(ChangeDisplayType(int))
            );

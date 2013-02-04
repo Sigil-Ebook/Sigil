@@ -236,14 +236,11 @@ bool FindReplace::FindAnyText(QString text, bool escape)
         search_text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
     }
     ui.cbFind->setEditText(search_text);
-    int count = Count();
     bool found = FindNext();
     ReadSettings();
     // Show the search term in case it's needed
     ui.cbFind->setEditText(search_text);
 
-    QString message = tr("Matches found: %n", "", count);
-    emit ShowStatusMessageRequest(message, 7000);
     return found;
 }
 

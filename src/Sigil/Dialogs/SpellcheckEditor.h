@@ -64,7 +64,7 @@ protected slots:
 
 private slots:
     void ChangeDisplayType(int state);
-    void DoubleClick();
+    void FindSelectedWord();
     void SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void Refresh();
     void DictionaryChanged(QString dictionary);
@@ -105,6 +105,8 @@ private:
     QStandardItemModel *m_SpellcheckEditorModel;
 
     QMenu *m_ContextMenu;
+
+    bool m_MultipleSelection;
 
     Ui::SpellcheckEditor ui;
 };
