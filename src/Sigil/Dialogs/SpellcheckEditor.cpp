@@ -79,6 +79,7 @@ void SpellcheckEditor::showEvent(QShowEvent *event)
 {
     Refresh();
 }
+
 bool SpellcheckEditor::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == ui.FilterText) {
@@ -262,6 +263,7 @@ void SpellcheckEditor::Refresh()
 
     ReadSettings();
 
+    ui.FilterText->clear();
     ui.FilterText->setFocus();
 }
 
