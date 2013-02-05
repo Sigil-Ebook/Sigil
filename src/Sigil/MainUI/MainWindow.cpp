@@ -628,6 +628,12 @@ bool MainWindow::SaveAs()
         return false;
     }
 
+    QString extension = QFileInfo(filename).suffix().toLower();
+    if (extension.isEmpty()) {
+        filename += ".epub";
+    }
+
+
     // Store the folder the user saved to
     m_LastFolderOpen = QFileInfo(filename).absolutePath();
     bool save_result = SaveFile(filename);
@@ -2919,7 +2925,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
         // when the user tries to save an unsupported type
         if (!SUPPORTED_SAVE_TYPE.contains(extension)) {
             Utility::DisplayStdErrorDialog(
-                tr("Sigil currently cannot save files of type \"%1\".\n"
+                tr("Sigil cannot save files of type \"%1\".\n"
                    "Please choose a different format.")
                 .arg(extension)
             );
