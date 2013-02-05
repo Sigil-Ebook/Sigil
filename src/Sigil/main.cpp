@@ -167,7 +167,7 @@ void CreateTempFolderWithCorrectPermissions()
 // Application entry point
 int main(int argc, char *argv[])
 {
-    QT_REQUIRE_VERSION(argc, argv, "4.7.0");
+    QT_REQUIRE_VERSION(argc, argv, "5.0.0");
 #ifndef QT_DEBUG
     qInstallMessageHandler(MessageHandler);
 #endif
