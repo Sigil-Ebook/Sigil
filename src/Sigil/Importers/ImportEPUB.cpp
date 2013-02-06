@@ -385,7 +385,17 @@ void ImportEPUB::ExtractContainer()
 void ImportEPUB::LocateOPF()
 {
     QString fullpath = m_ExtractedFolderPath + "/META-INF/container.xml";
-    QXmlStreamReader container(Utility::ReadUnicodeTextFile(fullpath));
+    QXmlStreamReader container;
+    try {
+        container.addData(Utility::ReadUnicodeTextFile(fullpath));
+    }
+    catch (CannotOpenFile) {
+        // If there is no container file, then create a default one
+        QDir folder(m_ExtractedFolderPath);
+        folder.mkdir("META-INF");
+        Utility::WriteUnicodeTextFile(CONTAINER_XML, fullpath);
+        container.addData(Utility::ReadUnicodeTextFile(fullpath));
+    }
 
     while (!container.atEnd()) {
         container.readNext();
