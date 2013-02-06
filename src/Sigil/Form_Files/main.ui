@@ -2201,7 +2201,7 @@
   </action>
   <action name="actionBookmarkLocation">
    <property name="text">
-    <string>&amp;Bookmark Location</string>
+    <string>Book&amp;mark Location</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+B</string>
@@ -2221,7 +2221,7 @@
      <normaloff>:/main/back-to-link-style_22px.png</normaloff>:/main/back-to-link-style_22px.png</iconset>
    </property>
    <property name="text">
-    <string>Go &amp;Back</string>
+    <string>&amp;Back</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
