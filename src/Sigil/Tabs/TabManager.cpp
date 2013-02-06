@@ -321,6 +321,9 @@ void TabManager::DeleteTab(ContentTab *tab_to_delete)
 
 void TabManager::CloseTab(int tab_index, bool force)
 {
+    if (count() == 0) {
+        return;
+    }
     if (!force && count() <= 1) {
         return;
     }
