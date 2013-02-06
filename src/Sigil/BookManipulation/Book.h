@@ -151,6 +151,7 @@ public:
      */
     HTMLResource &CreateEmptyHTMLFile();
 
+
     /**
      * Creates a new HTMLResource file with a basic XHTML structure
      * inserted after the given resource.
@@ -165,6 +166,9 @@ public:
     CSSResource &CreateEmptyCSSFile();
 
     SVGResource &CreateEmptySVGFile();
+
+    CSSResource &CreateHTMLTOCCSSFile();
+    CSSResource &CreateIndexCSSFile();
 
     /**
      * Creates an "old" resource from a section breaking operation.

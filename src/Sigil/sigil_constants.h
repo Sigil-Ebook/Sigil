@@ -98,4 +98,7 @@ extern const QString SIGIL_INDEX_ID_PREFIX;
 extern const QString VIDEO_HTML_BASE;
 extern const QString AUDIO_HTML_BASE;
 
+extern const QString SGC_TOC_CSS_FILENAME;
+extern const QString SGC_INDEX_CSS_FILENAME;
+
 #endif // SG_CONSTANTS_H

@@ -22,6 +22,9 @@
 
 #include "MiscEditors/IndexHTMLWriter.h"
 #include "MiscEditors/IndexEntries.h"
+#include "sigil_constants.h"
+
+const QString SGC_INDEX_CSS_FILENAME = "sgc-index.css";
 
 static const QString TEMPLATE_BEGIN_TEXT =
     "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
@@ -32,15 +35,7 @@ static const QString TEMPLATE_BEGIN_TEXT =
     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
     "<head>\n"
     "<title>Index</title>\n"
-    "<style type=\"text/css\">\n"
-    "/*<![CDATA[*/"
-    "  div.sgc-index-title { font-size: 2em; font-face: bold; margin-bottom: 1em; text-align:center; }\n"
-    "  div.sgc-index-body { margin-left: -2em;}\n"
-    "  div.sgc-index-key { margin-top: 0em; margin-bottom: 0em; margin-left: 2em;}\n"
-    "  div.sgc-index-entry { margin-top: 0em; margin-bottom: 0em; margin-left: 3.5em; text-indent: -1.5em;}\n"
-    "  div.sgc-index-new-letter { margin-top: 1em; }\n"
-    "/*]]>*/"
-    "</style>\n"
+    "<link href=\"../Styles/" % SGC_INDEX_CSS_FILENAME % "\" rel=\"stylesheet\" type=\"text/css\" />\n" 
     "</head>\n"
     "<body>\n";
 

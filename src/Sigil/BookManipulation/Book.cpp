@@ -67,6 +67,53 @@ static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\
                                         "</body>\n"
                                         "</html>";
 
+static const QString SGC_TOC_CSS_FILE = 
+										"div.sgc-toc-title {\n"
+										"    font-size: 2em;\n"
+										"    font-face: bold;\n"
+										"    margin-bottom: 1em;\n"
+										"    text-align: center;\n"
+										"}\n\n"
+										"div.sgc-toc-level-2 {\n"
+										"    margin-left: 2em;\n"
+										"}\n\n"
+										"div.sgc-toc-level-3 {\n"
+										"    margin-left: 2em;\n"
+										"}\n\n"
+										"div.sgc-toc-level-4 {\n"
+										"    margin-left: 2em;\n"
+										"}\n\n"
+										"div.sgc-toc-level-5 {\n"
+										"    margin-left: 2em;\n"
+										"}\n\n"
+										"div.sgc-toc-level-6 {\n"
+										"    margin-left: 2em;\n"
+										"}\n";
+
+static const QString SGC_INDEX_CSS_FILE = 
+										"div.sgc-index-title {\n"
+										"    font-size: 2em;\n"
+										"    font-face: bold;\n"
+										"    margin-bottom: 1em;\n"
+										"    text-align: center;\n"
+										"}\n\n"
+										"div.sgc-index-body {\n"
+										"    margin-left: -2em;\n"
+										"}\n\n"
+										"div.sgc-index-key {\n"
+										"    margin-top: 0em;\n"
+										"    margin-bottom: 0em;\n"
+										"    margin-left: 2em;\n"
+										"}\n\n"
+										"div.sgc-index-entry {\n"
+										"    margin-top: 0em;\n"
+										"    margin-bottom: 0em;\n"
+										"    margin-left: 3.5em;\n"
+										"    text-indent: -1.5em;\n"
+										"}\n\n"
+										"div.sgc-index-new-letter {\n"
+                                        "    margin-top: 1em;\n"
+                                        "}\n";
 
 Book::Book()
     :
@@ -227,6 +274,19 @@ void Book::MoveResourceAfter(HTMLResource &from_resource, HTMLResource &to_resou
     SetModified(true);
 }
 
+CSSResource &Book::CreateHTMLTOCCSSFile()
+{
+    CSSResource &css_resource = CreateEmptyCSSFile();
+    css_resource.SetText(SGC_TOC_CSS_FILE);
+    return css_resource;
+}
+
+CSSResource &Book::CreateIndexCSSFile()
+{
+    CSSResource &css_resource = CreateEmptyCSSFile();
+    css_resource.SetText(SGC_INDEX_CSS_FILE);
+    return css_resource;
+}
 
 CSSResource &Book::CreateEmptyCSSFile()
 {

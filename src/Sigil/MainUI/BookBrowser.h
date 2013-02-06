@@ -154,6 +154,8 @@ public slots:
     void AddNewHTML();
     void AddNewCSS();
     void AddNewSVG();
+    void CreateHTMLTOCCSSFile();
+    void CreateIndexCSSFile();
     /**
      * Implements the Add Existing context menu action functionality.
      */

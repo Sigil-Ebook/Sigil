@@ -828,6 +828,19 @@ void MainWindow::CreateIndex()
 {
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // If Index CSS file does not exist create one.
+    bool found_toc_css = false;
+    foreach(Resource *resource, m_BookBrowser->AllCSSResources()) {
+        if (resource->Filename() == SGC_INDEX_CSS_FILENAME) {
+            found_toc_css = true;
+        }
+    }
+    
+    if (!found_toc_css) {
+        m_BookBrowser->CreateIndexCSSFile();
+    }
+
     HTMLResource *index_resource = NULL;
     QList<HTMLResource *> html_resources;
     // Turn the list of Resources that are really HTMLResources to a real list
@@ -1698,6 +1711,19 @@ void MainWindow::CreateHTMLTOC()
 {
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // If HTML TOC CSS file does not exist create one.
+    bool found_toc_css = false;
+    foreach(Resource *resource, m_BookBrowser->AllCSSResources()) {
+        if (resource->Filename() == SGC_TOC_CSS_FILENAME) {
+            found_toc_css = true;
+        }
+    }
+    
+    if (!found_toc_css) {
+        m_BookBrowser->CreateHTMLTOCCSSFile();
+    }
+
     HTMLResource *tocResource = NULL;
     QList<HTMLResource *> htmlResources;
     // Turn the list of Resources that are really HTMLResources to a real list

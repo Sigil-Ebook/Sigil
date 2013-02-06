@@ -466,8 +466,6 @@ void BookBrowser::CopyCSS()
     Refresh();
 }
 
-
-
 void BookBrowser::AddNewCSS()
 {
     CSSResource &new_resource = m_Book->CreateEmptyCSSFile();
@@ -476,7 +474,6 @@ void BookBrowser::AddNewCSS()
     emit BookContentModified();
     Refresh();
 }
-
 
 void BookBrowser::AddNewSVG()
 {
@@ -487,6 +484,21 @@ void BookBrowser::AddNewSVG()
     Refresh();
 }
 
+void BookBrowser::CreateHTMLTOCCSSFile()
+{
+    CSSResource &css_resource = m_Book->CreateHTMLTOCCSSFile();
+    m_OPFModel.RenameResource(css_resource, SGC_TOC_CSS_FILENAME);
+    emit BookContentModified();
+    Refresh();
+}
+
+void BookBrowser::CreateIndexCSSFile()
+{
+    CSSResource &css_resource = m_Book->CreateIndexCSSFile();
+    m_OPFModel.RenameResource(css_resource, SGC_INDEX_CSS_FILENAME);
+    emit BookContentModified();
+    Refresh();
+}
 
 QStringList BookBrowser::AddExisting(bool only_multimedia)
 {

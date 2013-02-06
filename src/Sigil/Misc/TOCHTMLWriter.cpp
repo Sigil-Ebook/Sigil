@@ -23,15 +23,9 @@
 #include <QtCore/QXmlStreamWriter>
 
 #include "TOCHTMLWriter.h"
+#include "sigil_constants.h"
 
-static const QString STYLES =
-    "div.sgc-toc-title { font-size: 2em; font-face: bold; margin-bottom: 1em; text-align:center; }\n"
-    "div.sgc-toc-level-1 { margin-left: 0em; }\n"
-    "div.sgc-toc-level-2 { margin-left: 2em; }\n"
-    "div.sgc-toc-level-3 { margin-left: 2em; }\n"
-    "div.sgc-toc-level-4 { margin-left: 2em; }\n"
-    "div.sgc-toc-level-5 { margin-left: 2em; }\n"
-    "div.sgc-toc-level-6 { margin-left: 2em; }\n";
+const QString SGC_TOC_CSS_FILENAME = "sgc-toc.css";
 
 TOCHTMLWriter::TOCHTMLWriter(NCXModel::NCXEntry ncx_root_entry)
     :
@@ -78,13 +72,16 @@ void TOCHTMLWriter::WriteHead()
     m_Writer->writeCharacters("\n");
     m_Writer->writeTextElement("title",  "Contents");
     m_Writer->writeCharacters("\n");
-    // Styles
-    m_Writer->writeStartElement("style");
+
+    // TOC
+    m_Writer->writeStartElement("link");
+    m_Writer->writeAttribute("href", "../Styles/" % SGC_TOC_CSS_FILENAME);
+    m_Writer->writeAttribute("rel", "stylesheet");
     m_Writer->writeAttribute("type", "text/css");
-    m_Writer->writeCharacters("\n");
-    m_Writer->writeCharacters(STYLES);
     m_Writer->writeEndElement();
     m_Writer->writeCharacters("\n");
+
+    // End head
     m_Writer->writeEndElement();
     m_Writer->writeCharacters("\n");
 }
