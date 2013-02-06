@@ -2778,6 +2778,7 @@ bool MainWindow::MaybeSaveDialogSaysProceed()
 
 void MainWindow::SetNewBook(QSharedPointer< Book > new_book)
 {
+    m_TabManager.CloseOtherTabs();
     m_TabManager.CloseAllTabs(true);
     m_Book = new_book;
     m_BookBrowser->SetBook(m_Book);
