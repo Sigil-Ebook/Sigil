@@ -64,7 +64,7 @@ public:
 
     int GetTabCount();
 
-    void CloseAllTabs();
+    void CloseAllTabs(bool all=false);
     void CloseTabForResource(const Resource &resource);
 
     /**
@@ -201,8 +201,9 @@ private slots:
      * If there is only one tab left, the command is ignored.
      *
      * @param tab_index The index of the tab to close.
+     * @param force Ignore checks that would prevent a tab from closing.
      */
-    void CloseTab(int tab_index);
+    void CloseTab(int tab_index, bool force=false);
 
     /**
      * Updates the name/header text of the specified tab.

@@ -100,10 +100,10 @@ int TabManager::GetTabCount()
     return count();
 }
 
-void TabManager::CloseAllTabs()
+void TabManager::CloseAllTabs(bool all)
 {
     while (count() > 0) {
-        CloseTab(0);
+        CloseTab(0, all);
     }
 }
 
@@ -319,9 +319,9 @@ void TabManager::DeleteTab(ContentTab *tab_to_delete)
 }
 
 
-void TabManager::CloseTab(int tab_index)
+void TabManager::CloseTab(int tab_index, bool force)
 {
-    if (count() <= 1) {
+    if (!force && count() <= 1) {
         return;
     }
 
