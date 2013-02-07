@@ -38,8 +38,10 @@
 #include <QtWidgets/QMessageBox>
 #include <QtGui/QTextDocument>
 #include <QtCore/QXmlStreamReader>
+#include <QDirIterator>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QStringList>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/Metadata.h"
@@ -71,6 +73,12 @@ const QString NCX_MIMETYPE               = "application/x-dtbncx+xml";
 static const QString NCX_EXTENSION       = "ncx";
 const QString ADOBE_FONT_ALGO_ID         = "http://ns.adobe.com/pdf/enc#RC";
 const QString IDPF_FONT_ALGO_ID          = "http://www.idpf.org/2008/embedding";
+static const QString CONTAINER_XML       = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                                           "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
+                                           "    <rootfiles>\n"
+                                           "        <rootfile full-path=\"%1\" media-type=\"application/oebps-package+xml\"/>\n"
+                                           "   </rootfiles>\n"
+                                           "</container>\n";
 
 
 // Constructor;
@@ -381,7 +389,6 @@ void ImportEPUB::ExtractContainer()
     unzClose(zfile);
 }
 
-
 void ImportEPUB::LocateOPF()
 {
     QString fullpath = m_ExtractedFolderPath + "/META-INF/container.xml";
@@ -390,10 +397,24 @@ void ImportEPUB::LocateOPF()
         container.addData(Utility::ReadUnicodeTextFile(fullpath));
     }
     catch (CannotOpenFile) {
-        // If there is no container file, then create a default one
+        // Find the first OPF file.
+        QString OPFfile;
+        QDirIterator files(m_ExtractedFolderPath, QStringList() << "*.opf", QDir::NoFilter, QDirIterator::Subdirectories);
+        while (files.hasNext()) {
+            OPFfile = QDir(m_ExtractedFolderPath).relativeFilePath(files.next());
+            break;
+        }
+
+        if (OPFfile.isEmpty()) {
+            boost_throw(CannotOpenFile()
+                    << errinfo_file_fullpath(fullpath.toStdString())
+                    << errinfo_file_errorstring("Missing and no OPF in archive."));
+        }
+
+        // Create a default container.xml.
         QDir folder(m_ExtractedFolderPath);
         folder.mkdir("META-INF");
-        Utility::WriteUnicodeTextFile(CONTAINER_XML, fullpath);
+        Utility::WriteUnicodeTextFile(CONTAINER_XML.arg(OPFfile), fullpath);
         container.addData(Utility::ReadUnicodeTextFile(fullpath));
     }
 

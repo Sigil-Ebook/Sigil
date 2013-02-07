@@ -78,7 +78,7 @@ const QStringList STYLE_MIMETYPES = QStringList() << "text/css";
 const QStringList AUDIO_MIMETYPES = QStringList() << "audio/mpeg" << "audio/mp4";
 const QStringList VIDEO_MIMETYPES = QStringList() << "video/mp4" << "video/mp4" << "video/mp4";
 
-const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                                      "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
                                      "    <rootfiles>\n"
                                      "        <rootfile full-path=\"OEBPS/content.opf\" media-type=\"application/oebps-package+xml\"/>\n"
