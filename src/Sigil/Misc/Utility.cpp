@@ -483,16 +483,6 @@ QWidget *Utility::GetMainWindow()
     return parent_window;
 }
 
-QString Utility::getSpellingSafeText(const QString &raw_text)
-{
-    // There is currently a problem with Hunspell if we attempt to pass
-    // words with smart apostrophes from the CodeView encoding.
-    // There are likely better ways to solve this, but this one does
-    // get the job done until someone can implement something better.
-    QString text(raw_text);
-    return text.replace(QString::fromUtf8("\u2019"), "'");
-}
-
 #if defined(Q_OS_WIN32)
 std::wstring Utility::QStringToStdWString(const QString &str)
 {

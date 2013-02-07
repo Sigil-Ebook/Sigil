@@ -362,16 +362,17 @@ void SpellCheckWidget::readSettings()
 
         ui.dictionaries->addItem(name, dict);
     }
+    // Add an blank entry so the user does not have to use a dictionary
+    ui.dictionaries->addItem("", "");
+
     // Select the current dictionary.
     QString currentDict = sc->currentDictionary();
     SettingsStore settings;
 
-    if (!currentDict.isEmpty()) {
-        int index = ui.dictionaries->findData(currentDict);
+    int index = ui.dictionaries->findData(currentDict);
 
-        if (index > -1) {
-            ui.dictionaries->setCurrentIndex(index);
-        }
+    if (index > -1) {
+        ui.dictionaries->setCurrentIndex(index);
     }
 
     // Load the list of user dictionaries.

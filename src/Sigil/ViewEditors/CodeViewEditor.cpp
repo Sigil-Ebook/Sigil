@@ -1636,21 +1636,21 @@ void CodeViewEditor::addToUserDictionary(const QString &text)
     QString word = text.split("\t")[0];
     QString dict_name = text.split("\t")[1];
     SpellCheck *sc = SpellCheck::instance();
-    sc->addToUserDictionary(Utility::getSpellingSafeText(word), dict_name);
+    sc->addToUserDictionary(word, dict_name);
     emit SpellingHighlightRefreshRequest();
 }
 
 void CodeViewEditor::addToDefaultDictionary(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
-    sc->addToUserDictionary(Utility::getSpellingSafeText(text));
+    sc->addToUserDictionary(text);
     emit SpellingHighlightRefreshRequest();
 }
 
 void CodeViewEditor::ignoreWord(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
-    sc->ignoreWord(Utility::getSpellingSafeText(text));
+    sc->ignoreWord(text);
     emit SpellingHighlightRefreshRequest();
 }
 
