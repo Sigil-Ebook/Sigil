@@ -186,7 +186,7 @@ void SpellcheckEditor::Add()
 
 void SpellcheckEditor::MarkSpelledOkay(int row)
 {
-    m_SpellcheckEditorModel->invisibleRootItem()->child(row, 1)->setText(tr("No"));
+    m_SpellcheckEditorModel->invisibleRootItem()->child(row, 2)->setText(tr("No"));
     if (ui.ShowAllWords->checkState() == Qt::Unchecked) {
         m_SpellcheckEditorModel->removeRows(row, 1);
         if (row >= m_SpellcheckEditorModel->rowCount()) {
