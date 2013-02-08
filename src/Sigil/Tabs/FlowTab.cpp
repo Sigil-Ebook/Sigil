@@ -497,6 +497,13 @@ void FlowTab::EmitUpdateCursorPosition()
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
 }
 
+void FlowTab::HighlightWord(QString word, int pos)
+{
+    if (m_wCodeView) {
+        m_wCodeView->HighlightWord(word, pos);
+    }
+}
+
 void FlowTab::RefreshSpellingHighlighting()
 {
     // We always want this to happen, regardless of what the current view is.

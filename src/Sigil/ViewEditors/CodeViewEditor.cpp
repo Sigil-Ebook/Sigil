@@ -1624,6 +1624,15 @@ void CodeViewEditor::InsertText(const QString &text)
     setTextCursor(c);
 }
 
+void CodeViewEditor::HighlightWord(const QString &word, int pos)
+{
+    QTextCursor cursor = textCursor();
+    cursor.clearSelection();
+    cursor.setPosition(pos);
+    cursor.setPosition(pos + word.length(), QTextCursor::KeepAnchor);
+    setTextCursor(cursor);
+}
+
 void CodeViewEditor::RefreshSpellingHighlighting()
 {
     if (hasFocus()) {

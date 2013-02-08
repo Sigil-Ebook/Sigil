@@ -161,6 +161,10 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const
     return GetMisspelledWords(text, 0, text.count(), "");
 }
 
+QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetWords(const QString &text)
+{
+    return GetMisspelledWords(text, 0, text.count(), "", false, true);
+}
 
 HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetFirstMisspelledWord(const QString &text,
         int start_offset,
@@ -224,4 +228,20 @@ QStringList HTMLSpellCheck::GetAllWords(const QString &text)
         all_words_text.append(word.text);
     }
     return all_words_text;
+}
+
+int HTMLSpellCheck::WordPosition(QString text, QString word, int start_pos)
+{
+    QList< HTMLSpellCheck::MisspelledWord > words = GetWords(text);
+
+    foreach (HTMLSpellCheck::MisspelledWord w, words) {
+        if (w.offset < start_pos) {
+            continue;
+        }
+        if (w.text == word) {
+            return w.offset;
+        }
+    }
+
+    return -1;
 }

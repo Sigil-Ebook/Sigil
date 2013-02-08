@@ -45,6 +45,8 @@ public:
 
     static QList< MisspelledWord > GetMisspelledWords(const QString &text);
 
+    static QList< HTMLSpellCheck::MisspelledWord > GetWords(const QString &text);
+
     static int CountMisspelledWords(const QString &text,
                                     int start_offset,
                                     int end_offset,
@@ -67,6 +69,8 @@ public:
             int start_offset,
             int end_offset,
             const QString &search_regex);
+
+    static int WordPosition(QString text, QString word, int start_pos);
 
 private:
 

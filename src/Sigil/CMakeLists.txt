@@ -423,6 +423,8 @@ set( SOURCEUPDATE_FILES
     SourceUpdates/AnchorUpdates.h
     SourceUpdates/LinkUpdates.cpp
     SourceUpdates/LinkUpdates.h
+    SourceUpdates/WordUpdates.cpp
+    SourceUpdates/WordUpdates.h
     SourceUpdates/UniversalUpdates.cpp
     SourceUpdates/UniversalUpdates.h
     )

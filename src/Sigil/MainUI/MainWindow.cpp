@@ -66,6 +66,7 @@
 #include "MainUI/PreviewWindow.h"
 #include "MainUI/TableOfContents.h"
 #include "MainUI/ValidationResultsView.h"
+#include "Misc/HTMLSpellCheck.h"
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
@@ -78,6 +79,7 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 #include "SourceUpdates/LinkUpdates.h"
+#include "SourceUpdates/WordUpdates.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/OPFTab.h"
 #include "Tabs/TabManager.h"
@@ -1587,6 +1589,102 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
     }
 
     SelectResources(resources);
+    QApplication::restoreOverrideCursor();
+}
+
+void MainWindow::FindWord(QString word)
+{
+    SaveTabData();
+    SetViewState(MainWindow::ViewState_CodeView);
+
+    // Check the current file after the user's position
+    ContentTab &tab = GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+    Resource *resource = &tab.GetLoadedResource();
+    Resource::ResourceType type = resource->Type();
+    HTMLResource *current_html_resource = NULL;
+    QString current_html_filename;
+    if (type == Resource::HTMLResourceType) {
+        current_html_resource = qobject_cast<HTMLResource *>(resource);
+        current_html_filename = current_html_resource->Filename();
+    }
+
+    // Get list of files from current to end followed 
+    // by start to just before current file.
+    QList<Resource *> html_resources;
+    QList<Resource *> resources = GetAllHTMLResources();
+    int passed_current = false;
+    foreach(Resource *resource, resources) {
+        if (!passed_current && resource->Filename() != current_html_filename) {
+            continue;
+        }
+        passed_current = true;
+        html_resources.append(resource);
+    }
+    foreach(Resource * resource, resources) {
+        html_resources.append(resource);
+        if (resource->Filename() == current_html_filename) {
+            break;
+        }
+    }
+
+    int done_current = false;
+    foreach (Resource *resource, html_resources) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (!html_resource) {
+            continue;
+        }
+        int start_pos = 0;
+        if (!done_current && resource->Filename() == current_html_filename) {
+            ContentTab &tab = GetCurrentContentTab();
+            if (&tab == NULL) {
+                return;
+            }
+            FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
+            if (flow_tab) {
+                start_pos = flow_tab->GetCursorPosition();
+            }
+            done_current = true;
+        }
+        QString text = CleanSource::Clean(html_resource->GetText());
+        int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
+        if (found_pos >= 0) {
+            OpenResource(*resource, -1, found_pos);
+            ContentTab &tab = GetCurrentContentTab();
+            if (&tab == NULL) {
+                return;
+            }
+            FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
+            if (flow_tab) {
+                flow_tab->HighlightWord(word, found_pos);
+            }
+            return;
+        }
+    }
+}
+
+void MainWindow::UpdateWord(QString old_word, QString new_word)
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    SaveTabData();
+    SetViewState(MainWindow::ViewState_CodeView);
+
+    QList<HTMLResource *> html_resources;
+    QList<Resource *> resources = GetAllHTMLResources();
+    foreach(Resource * resource, resources) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (html_resource) {
+            html_resources.append(html_resource);
+        }
+    }
+
+    WordUpdates::UpdateWordInAllFiles(html_resources, old_word, new_word);
+    m_SpellcheckEditor->Refresh();
+    ShowMessageOnStatusBar(tr("Word updated."));
+
     QApplication::restoreOverrideCursor();
 }
 
@@ -3949,7 +4047,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_SpellcheckEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_SpellcheckEditor,   SIGNAL(SpellingHighlightRefreshRequest()), this,  SLOT(RefreshSpellingHighlighting()));
-    connect(m_SpellcheckEditor,   SIGNAL(FindWordRequest(QString)), m_FindReplace,  SLOT(FindWord(QString)));
+    connect(m_SpellcheckEditor,   SIGNAL(FindWordRequest(QString)), this,  SLOT(FindWord(QString)));
+    connect(m_SpellcheckEditor,   SIGNAL(UpdateWordRequest(QString, QString)), this,  SLOT(UpdateWord(QString, QString)));
     connect(m_SpellcheckEditor,   SIGNAL(ShowStatusMessageRequest(const QString &)), 
             this,  SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_Reports,       SIGNAL(Refresh()), this, SLOT(ReportsDialog()));

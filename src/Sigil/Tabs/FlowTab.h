@@ -258,6 +258,7 @@ public slots:
     void AddMisspelledWord();
     void IgnoreMisspelledWord();
 
+    void HighlightWord(QString word, int pos);
     void RefreshSpellingHighlighting();
 
 signals:

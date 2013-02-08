@@ -331,6 +331,8 @@ public:
 
     bool PasteClipNumber(int clip_number);
 
+    void HighlightWord(const QString &word, int pos);
+
 signals:
 
     /**

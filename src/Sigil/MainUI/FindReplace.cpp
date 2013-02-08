@@ -205,17 +205,6 @@ void FindReplace::CountClicked()
     ResetKeyModifiers();
 }
 
-void FindReplace::FindWord(QString word)
-{
-    QString word_pattern = "[\\W_0-9\\.\\<\\>]" + QRegularExpression::escape(word) + "[\\W_0-9\\.\\<\\>]";
-    bool found = FindAnyText(word_pattern, false);
-    // We expect the word to be found.  If not found try without pattern as
-    // some words bordered by < or > are not matched when using the pattern.
-    if (!found) {
-        FindAnyText(word, false);
-    }
-}
-
 bool FindReplace::FindAnyText(QString text, bool escape)
 {
     SetCodeViewIfNeeded(true);

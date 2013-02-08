@@ -51,15 +51,15 @@
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0">
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,0,0">
        <item>
         <widget class="QPushButton" name="Ignore">
-         <property name="text">
-          <string>Ignore</string>
-         </property>
          <property name="toolTip">
           <string>Ignore the selected words until Sigil
 is restarted or a new book is opened.</string>
+         </property>
+         <property name="text">
+          <string>Ignore</string>
          </property>
         </widget>
        </item>
@@ -87,12 +87,12 @@ is restarted or a new book is opened.</string>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="text">
-          <string>Add to Dictionary:</string>
-         </property>
          <property name="toolTip">
           <string>Add the selected words to the
 dictionary selected below.</string>
+         </property>
+         <property name="text">
+          <string>Add To Dictionary:</string>
          </property>
         </widget>
        </item>
@@ -109,6 +109,50 @@ dictionary selected below.</string>
            <width>150</width>
            <height>16777215</height>
           </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="ChangeAll">
+         <property name="toolTip">
+          <string>Change all occurrences of the selected word  in
+HTML files to the word you select or type below.
+The selected word does not have to be misspelled.</string>
+         </property>
+         <property name="text">
+          <string>Change Selected Word To:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cbChangeAll">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <property name="maxCount">
+          <number>25</number>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+         </property>
+         <property name="duplicatesEnabled">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -135,6 +179,10 @@ dictionary selected below.</string>
       <widget class="QPushButton" name="Refresh">
        <property name="text">
         <string>Refresh</string>
+       </property>
+       <property name="toolTip">
+        <string>Re-check the HTML files for misspelled words.
+Use if you edit any HTML files while Spellcheck is open.</string>
        </property>
       </widget>
      </item>

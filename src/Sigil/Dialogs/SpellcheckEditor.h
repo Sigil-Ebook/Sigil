@@ -51,10 +51,14 @@ public:
     void SetBook(QSharedPointer <Book> book);
     void ForceClose();
 
+public slots:
+    void Refresh();
+
 signals:
     void ShowStatusMessageRequest(const QString &message);
     void SpellingHighlightRefreshRequest();
     void FindWordRequest(QString word);
+    void UpdateWordRequest(QString old_word, QString new_word);
 
 protected:
     bool eventFilter(QObject *obj, QEvent *ev);
@@ -66,12 +70,14 @@ private slots:
     void ChangeDisplayType(int state);
     void FindSelectedWord();
     void SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
-    void Refresh();
+    void UpdateSuggestions();
+
     void DictionaryChanged(QString dictionary);
 
     void Ignore();
     void Add();
     void SelectAll();
+    void ChangeAll();
 
     void FilterEditTextChangedSlot(const QString &text);
 
@@ -82,6 +88,7 @@ private:
     void UpdateDictionaries();
     void SetupSpellcheckEditorTree();
     void MarkSpelledOkay(int row);
+    QString GetSelectedWord();
 
     int SelectedRowsCount();
 

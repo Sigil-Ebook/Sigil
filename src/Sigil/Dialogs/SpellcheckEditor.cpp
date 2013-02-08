@@ -77,6 +77,7 @@ void SpellcheckEditor::SetupSpellcheckEditorTree()
 
 void SpellcheckEditor::showEvent(QShowEvent *event)
 {
+    ui.FilterText->clear();
     Refresh();
 }
 
@@ -132,7 +133,6 @@ void SpellcheckEditor::Ignore()
         return;
     }
 
-    QApplication::setOverrideCursor(Qt::WaitCursor);
     m_MultipleSelection = SelectedRowsCount() > 1;
 
     SpellCheck *sc = SpellCheck::instance();
@@ -147,7 +147,6 @@ void SpellcheckEditor::Ignore()
     }
     emit ShowStatusMessageRequest(tr("Ignored word(s)."));
     emit SpellingHighlightRefreshRequest();
-    QApplication::restoreOverrideCursor();
 }
 
 void SpellcheckEditor::Add()
@@ -162,15 +161,16 @@ void SpellcheckEditor::Add()
         return;
     }
 
-    QApplication::setOverrideCursor(Qt::WaitCursor);
     m_MultipleSelection = SelectedRowsCount() > 1;
 
     SpellCheck *sc = SpellCheck::instance();
     SettingsStore settings;
     QStringList enabled_dicts = settings.enabledUserDictionaries();
+    bool enabled = false;
     foreach (QStandardItem *item, GetSelectedItems()) {
         sc->addToUserDictionary(item->text(), dict_name);
         if (enabled_dicts.contains(dict_name)) {
+            enabled = true;
             MarkSpelledOkay(item->row());
         }
     }
@@ -179,9 +179,25 @@ void SpellcheckEditor::Add()
         m_MultipleSelection = false;
         FindSelectedWord();
     }
-    emit ShowStatusMessageRequest(tr("Added word(s) to dictionary."));
+    if (enabled) {
+        emit ShowStatusMessageRequest(tr("Added word(s) to dictionary."));
+    }
+    else {
+        emit ShowStatusMessageRequest(tr("Added word(s) to dictionary. The dictionary is not enabled in Preferences."));
+    }
     emit SpellingHighlightRefreshRequest();
-    QApplication::restoreOverrideCursor();
+}
+
+void SpellcheckEditor::ChangeAll()
+{
+    QString old_word = GetSelectedWord();
+    if (old_word.isEmpty()) {
+        emit ShowStatusMessageRequest(tr("No words selected."));
+        return;
+    }
+    QString new_word = ui.cbChangeAll->currentText();
+
+    emit UpdateWordRequest(old_word, new_word);
 }
 
 void SpellcheckEditor::MarkSpelledOkay(int row)
@@ -257,14 +273,18 @@ void SpellcheckEditor::CreateModel()
 
 void SpellcheckEditor::Refresh()
 {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     WriteSettings();
     CreateModel();
     UpdateDictionaries();
 
     ReadSettings();
 
-    ui.FilterText->clear();
     ui.FilterText->setFocus();
+    FilterEditTextChangedSlot(ui.FilterText->text());
+
+    QApplication::restoreOverrideCursor();
 }
 
 void SpellcheckEditor::UpdateDictionaries()
@@ -292,20 +312,40 @@ void SpellcheckEditor::SelectAll()
     ui.SpellcheckEditorTree->selectAll();
 }
 
-void SpellcheckEditor::FindSelectedWord()
+QString SpellcheckEditor::GetSelectedWord()
 {
+    QString word;
+
     if (SelectedRowsCount() != 1 || m_MultipleSelection) {
-        return;
+        return word;
     }
 
     QModelIndex index = ui.SpellcheckEditorTree->selectionModel()->selectedRows(0).first();
-    QString word = m_SpellcheckEditorModel->itemFromIndex(index)->text();
+    word = m_SpellcheckEditorModel->itemFromIndex(index)->text();
+    return word;
+}
 
-    emit FindWordRequest(word);
+void SpellcheckEditor::UpdateSuggestions()
+{
+    ui.cbChangeAll->clear();
+    QString word = GetSelectedWord();
+    if (!word.isEmpty()) {
+        SpellCheck *sc = SpellCheck::instance();
+        ui.cbChangeAll->addItems(sc->suggest(word));
+    }
+}
+
+void SpellcheckEditor::FindSelectedWord()
+{
+    QString word = GetSelectedWord();
+    if (!word.isEmpty()) {
+        emit FindWordRequest(word);
+    }
 }
 
 void SpellcheckEditor::SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
+    UpdateSuggestions();
     FindSelectedWord();
 }
 
@@ -419,6 +459,7 @@ void SpellcheckEditor::ConnectSignalsSlots()
     connect(ui.Refresh, SIGNAL(clicked()), this, SLOT(Refresh()));
     connect(ui.Ignore, SIGNAL(clicked()), this, SLOT(Ignore()));
     connect(ui.Add, SIGNAL(clicked()), this, SLOT(Add()));
+    connect(ui.ChangeAll, SIGNAL(clicked()), this, SLOT(ChangeAll()));
     connect(ui.SpellcheckEditorTree, SIGNAL(customContextMenuRequested(const QPoint &)),
             this,        SLOT(OpenContextMenu(const QPoint &)));
     connect(m_Ignore,       SIGNAL(triggered()), this, SLOT(Ignore()));
