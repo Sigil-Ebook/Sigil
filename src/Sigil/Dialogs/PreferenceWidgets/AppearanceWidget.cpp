@@ -116,11 +116,17 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     codeViewAppearance.xhtml_entity_color           = getListItemColor(i++);
     codeViewAppearance.xhtml_html_color             = getListItemColor(i++);
     codeViewAppearance.xhtml_html_comment_color     = getListItemColor(i++);
+    // Special Character settings
     settings.setCodeViewAppearance(codeViewAppearance);
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance;
     specialCharacterAppearance.font_family = ui.cbSpecialCharacterFont->currentText();
     specialCharacterAppearance.font_size   = ui.specialCharacterFontSizeSpin->value();
     settings.setSpecialCharacterAppearance(specialCharacterAppearance);
+    // Find Replace settings
+    SettingsStore::FindReplaceAppearance findReplaceAppearance;
+    findReplaceAppearance.font_family = ui.cbFindReplaceFont->currentText();
+    findReplaceAppearance.font_size   = ui.findReplaceFontSizeSpin->value();
+    settings.setFindReplaceAppearance(findReplaceAppearance);
     // BV/PV settings can be globally changed and will take effect immediately
     QWebSettings *web_settings = QWebSettings::globalSettings();
     web_settings->setFontSize(QWebSettings::DefaultFontSize, bookViewAppearance.font_size);
@@ -128,6 +134,11 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     web_settings->setFontFamily(QWebSettings::SerifFont,       bookViewAppearance.font_family_serif);
     web_settings->setFontFamily(QWebSettings::SansSerifFont,   bookViewAppearance.font_family_sans_serif);
 
+    // Changing the Find & Replace font size requires a restart for now
+    if ((m_findReplaceAppearance.font_family               != findReplaceAppearance.font_family) ||
+        (m_findReplaceAppearance.font_size                 != findReplaceAppearance.font_size)) {
+        return PreferencesWidget::ResultAction_RestartSigil;
+    }
     // CV settings require the tab to be closed/reopened. It is easiest to tell the user
     // to reopen tabs or reload, perhaps in future the Preferences widget may have a signal
     // to the MainWindow requesting a reload of all open tabs.
@@ -166,14 +177,18 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     SettingsStore::BookViewAppearance bookViewAppearance = settings.bookViewAppearance();
     SettingsStore::CodeViewAppearance codeViewAppearance = settings.codeViewAppearance();
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance = settings.specialCharacterAppearance();
+    SettingsStore::FindReplaceAppearance findReplaceAppearance = settings.findReplaceAppearance();
+    m_findReplaceAppearance = findReplaceAppearance;
     loadComboValueOrDefault(ui.cbBookViewFontStandard,  bookViewAppearance.font_family_standard,    "Arial");
     loadComboValueOrDefault(ui.cbBookViewFontSerif,     bookViewAppearance.font_family_serif,       "Times New Roman");
     loadComboValueOrDefault(ui.cbBookViewFontSansSerif, bookViewAppearance.font_family_sans_serif,  "Arial");
     loadComboValueOrDefault(ui.cbCodeViewFont,          codeViewAppearance.font_family,             "Consolas");
     loadComboValueOrDefault(ui.cbSpecialCharacterFont,  specialCharacterAppearance.font_family,     "Helvetica");
+    loadComboValueOrDefault(ui.cbFindReplaceFont,       findReplaceAppearance.font_family,          "Helvetica");
     ui.bookViewFontSizeSpin->setValue(bookViewAppearance.font_size);
     ui.codeViewFontSizeSpin->setValue(codeViewAppearance.font_size);
     ui.specialCharacterFontSizeSpin->setValue(specialCharacterAppearance.font_size);
+    ui.findReplaceFontSizeSpin->setValue(findReplaceAppearance.font_size);
     codeViewAppearance.font_family = ui.cbCodeViewFont->currentText();
     return codeViewAppearance;
 }

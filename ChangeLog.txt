@@ -1,4 +1,5 @@
 Sigil 0.7.0 TBD
+    - Implement issue 1980: Preference option to set the font and size of text in Find & Replace.
     - Implement issue 1965: Allow opening files that are missing container.xml.
     - Implement issue 1975: HTML TOC and Index should use CSS files instead of inline stylesheet.
     - Implement issue 1968: Bookmark location in editing window.

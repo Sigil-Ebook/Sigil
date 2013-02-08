@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>425</width>
-    <height>512</height>
+    <width>765</width>
+    <height>534</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,6 +49,38 @@
        <layout class="QHBoxLayout" name="horizontalLayoutBV" stretch="0,0">
         <item>
          <layout class="QGridLayout" name="gridLayoutBV">
+          <item row="1" column="4">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="4">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="labelBookViewFontSize">
             <property name="minimumSize">
@@ -66,7 +98,7 @@ if no font-size specified in your CSS</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="3">
+          <item row="0" column="7">
            <spacer name="horizontalSpacerBV">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -79,15 +111,36 @@ if no font-size specified in your CSS</string>
             </property>
            </spacer>
           </item>
-          <item row="0" column="2">
-           <widget class="QSpinBox" name="bookViewFontSizeSpin">
-            <property name="minimum">
-             <number>6</number>
+          <item row="1" column="5">
+           <widget class="QLabel" name="labelBookViewFontSansSerif">
+            <property name="toolTip">
+             <string>Default font family to be used for Book View and Preview
+if a sans-serif font-family specified in your CSS</string>
             </property>
-            <property name="maximum">
-             <number>99</number>
+            <property name="text">
+             <string>Sans-Serif Font:</string>
             </property>
            </widget>
+          </item>
+          <item row="1" column="6">
+           <widget class="QFontComboBox" name="cbBookViewFontSansSerif"/>
+          </item>
+          <item row="0" column="5">
+           <widget class="QLabel" name="labelBookViewFontSerif">
+            <property name="toolTip">
+             <string>Default font family to be used for Book View and Preview
+if a serif font-family specified in your CSS</string>
+            </property>
+            <property name="text">
+             <string>Serif Font:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="6">
+           <widget class="QFontComboBox" name="cbBookViewFontSerif"/>
+          </item>
+          <item row="1" column="2" colspan="2">
+           <widget class="QFontComboBox" name="cbBookViewFontStandard"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="labelBookViewFontStandard">
@@ -100,36 +153,28 @@ if no font-family specified in your CSS</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="2" colspan="2">
-           <widget class="QFontComboBox" name="cbBookViewFontStandard"/>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="labelBookViewFontSerif">
-            <property name="toolTip">
-             <string>Default font family to be used for Book View and Preview
-if a serif font-family specified in your CSS</string>
+          <item row="0" column="2">
+           <widget class="QSpinBox" name="bookViewFontSizeSpin">
+            <property name="minimum">
+             <number>6</number>
             </property>
-            <property name="text">
-             <string>Serif Font:</string>
+            <property name="maximum">
+             <number>99</number>
             </property>
            </widget>
           </item>
-          <item row="2" column="2" colspan="2">
-           <widget class="QFontComboBox" name="cbBookViewFontSerif"/>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="labelBookViewFontSansSerif">
-            <property name="toolTip">
-             <string>Default font family to be used for Book View and Preview
-if a sans-serif font-family specified in your CSS</string>
+          <item row="0" column="3">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="text">
-             <string>Sans-Serif Font:</string>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
             </property>
-           </widget>
-          </item>
-          <item row="3" column="2" colspan="2">
-           <widget class="QFontComboBox" name="cbBookViewFontSansSerif"/>
+           </spacer>
           </item>
          </layout>
         </item>
@@ -174,9 +219,16 @@ if a sans-serif font-family specified in your CSS</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayoutCV">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayoutCV" stretch="0">
+       <layout class="QHBoxLayout" name="horizontalLayoutCV" stretch="0,0">
         <item>
-         <layout class="QGridLayout" name="gridLayoutCV">
+         <layout class="QGridLayout" name="gridLayoutCV" columnstretch="0,0,0,0,0">
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="codeViewFontSizeSpin">
+            <property name="minimum">
+             <number>6</number>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="3">
            <widget class="QLabel" name="labelColors">
             <property name="text">
@@ -212,13 +264,6 @@ if a sans-serif font-family specified in your CSS</string>
              </size>
             </property>
            </spacer>
-          </item>
-          <item row="0" column="1">
-           <widget class="QSpinBox" name="codeViewFontSizeSpin">
-            <property name="minimum">
-             <number>6</number>
-            </property>
-           </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="labelCodeViewFont">
@@ -271,6 +316,19 @@ if a sans-serif font-family specified in your CSS</string>
           </item>
          </layout>
         </item>
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
       </item>
      </layout>
@@ -316,7 +374,7 @@ if a sans-serif font-family specified in your CSS</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="3">
+        <item row="0" column="6">
          <spacer name="horizontalSpacerSC">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -339,7 +397,7 @@ if a sans-serif font-family specified in your CSS</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item row="0" column="4">
          <widget class="QLabel" name="labelSpecialCharacterFont">
           <property name="toolTip">
            <string>Font family to be used for Insert Special Characters window</string>
@@ -349,8 +407,24 @@ if a sans-serif font-family specified in your CSS</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="2" colspan="2">
+        <item row="0" column="5">
          <widget class="QFontComboBox" name="cbSpecialCharacterFont"/>
+        </item>
+        <item row="0" column="3">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </item>
@@ -369,6 +443,113 @@ if a sans-serif font-family specified in your CSS</string>
       </item>
      </layout>
     </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacerFR">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBoxFindReplace">
+     <property name="title">
+      <string>Find and Replace:</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayoutSC" stretch="0,0">
+      <item>
+       <layout class="QGridLayout" name="gridLayoutFR">
+        <item row="0" column="3">
+         <widget class="QLabel" name="labelFindReplaceFont">
+          <property name="toolTip">
+           <string>Font family to be used for Find and Replace text boxes.</string>
+          </property>
+          <property name="text">
+           <string>Standard Font:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="findReplaceFontSizeSpin">
+          <property name="minimum">
+           <number>6</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelFindReplaceFontSize">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Font size to be used for Find and Replace text boxes.</string>
+          </property>
+          <property name="text">
+           <string>Font Size:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QFontComboBox" name="cbFindReplaceFont"/>
+        </item>
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacerFR">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayoutReset">
@@ -402,19 +583,6 @@ if a sans-serif font-family specified in your CSS</string>
       </spacer>
      </item>
     </layout>
-   </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>0</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>

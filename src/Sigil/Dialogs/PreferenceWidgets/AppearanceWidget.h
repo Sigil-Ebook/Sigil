@@ -52,6 +52,7 @@ private:
     void connectSignalsToSlots();
 
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
+    SettingsStore::FindReplaceAppearance m_findReplaceAppearance;
     QColor m_currentColor;
 
     Ui::AppearanceWidget ui;
