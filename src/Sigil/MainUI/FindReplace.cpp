@@ -1338,8 +1338,9 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
 {
     QString new_text(text);
 
-    // Convert any form of newline to multiple spaces
+    // Convert any form of newline or tabs to multiple spaces
     new_text.replace(QRegularExpression("\\R"), "  ");
+    new_text.replace("\\t", "  ");
 
     // If the text does not contain a backslash we "assume" it has not been
     // tokenised already so we need to escape it
@@ -1355,6 +1356,7 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
     new_text.replace("\\;", ";");
     new_text.replace("\\:", ":");
     new_text.replace("\\&", "&");
+    new_text.replace("\\=", "=");
 
     // Replace multiple spaces
     new_text.replace(QRegularExpression("(\\s{2,})"), "\\s+");
