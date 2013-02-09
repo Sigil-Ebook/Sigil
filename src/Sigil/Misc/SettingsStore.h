@@ -169,14 +169,6 @@ public:
     };
 
     /**
-     * All appearance settings related to Find & Replace.
-     */
-    struct FindReplaceAppearance {
-        QString font_family;
-        int font_size;
-    };
-
-    /**
      * The default font to use for rendering Book View/Preview.
      */
     BookViewAppearance bookViewAppearance();
@@ -190,8 +182,6 @@ public:
      * The appearance settings to use for editing in Code View.
      */
     SpecialCharacterAppearance specialCharacterAppearance();
-
-    FindReplaceAppearance findReplaceAppearance();
 
     /**
      * Clear all Book View, Code View and Special Characters settings back to their defaults.
@@ -271,8 +261,6 @@ public slots:
     * Set the default font settings to use for Special Characters popup window
     */
     void setSpecialCharacterAppearance(const SpecialCharacterAppearance &special_character_appearance);
-
-    void setFindReplaceAppearance(const FindReplaceAppearance &appearance);
 
 private:
     /**

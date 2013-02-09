@@ -73,8 +73,6 @@ static QString KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "
 
 static QString KEY_SPECIAL_CHARACTER_FONT_FAMILY = SETTINGS_GROUP + "/" + "special_character_font_family";
 static QString KEY_SPECIAL_CHARACTER_FONT_SIZE = SETTINGS_GROUP + "/" + "special_character_font_size";
-static QString KEY_FIND_REPLACE_FONT_FAMILY = SETTINGS_GROUP + "/" + "find_replace_font_family";
-static QString KEY_FIND_REPLACE_FONT_SIZE = SETTINGS_GROUP + "/" + "find_replace_font_size";
 
 
 SettingsStore::SettingsStore()
@@ -228,15 +226,6 @@ SettingsStore::SpecialCharacterAppearance SettingsStore::specialCharacterAppeara
     return appearance;
 }
 
-SettingsStore::FindReplaceAppearance SettingsStore::findReplaceAppearance()
-{
-    clearSettingsGroup();
-    SettingsStore::FindReplaceAppearance appearance;
-    appearance.font_family = value(KEY_FIND_REPLACE_FONT_FAMILY, "Arial").toString();
-    appearance.font_size = value(KEY_FIND_REPLACE_FONT_SIZE, 10).toInt();
-    return appearance;
-}
-
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
     clearSettingsGroup();
@@ -359,13 +348,6 @@ void SettingsStore::setSpecialCharacterAppearance(const SettingsStore::SpecialCh
     setValue(KEY_SPECIAL_CHARACTER_FONT_SIZE, special_character_appearance.font_size);
 }
 
-void SettingsStore::setFindReplaceAppearance(const SettingsStore::FindReplaceAppearance &appearance)
-{
-    clearSettingsGroup();
-    setValue(KEY_FIND_REPLACE_FONT_FAMILY, appearance.font_family);
-    setValue(KEY_FIND_REPLACE_FONT_SIZE, appearance.font_size);
-}
-
 void SettingsStore::clearAppearanceSettings()
 {
     clearSettingsGroup();
@@ -398,8 +380,6 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR);
     remove(KEY_SPECIAL_CHARACTER_FONT_FAMILY);
     remove(KEY_SPECIAL_CHARACTER_FONT_SIZE);
-    remove(KEY_FIND_REPLACE_FONT_FAMILY);
-    remove(KEY_FIND_REPLACE_FONT_SIZE);
 }
 
 void SettingsStore::clearSettingsGroup()

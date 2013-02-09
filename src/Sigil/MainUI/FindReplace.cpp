@@ -53,14 +53,9 @@ FindReplace::FindReplace(MainWindow &main_window)
       m_IsSearchGroupRunning(false)
 {
     ui.setupUi(this);
-    SettingsStore settings;
-    SettingsStore::FindReplaceAppearance appearance = settings.findReplaceAppearance();
-    QFont font(appearance.font_family, appearance.font_size);
     FindReplaceQLineEdit *find_ledit = new FindReplaceQLineEdit(this);
-    find_ledit->setFont(font);
     ui.cbFind->setLineEdit(find_ledit);
     FindReplaceQLineEdit *replace_ledit = new FindReplaceQLineEdit(this);
-    replace_ledit->setFont(font);
     replace_ledit->setTokeniseEnabled(false);
     ui.cbReplace->setLineEdit(replace_ledit);
     QCompleter *fqc = ui.cbFind->completer();
