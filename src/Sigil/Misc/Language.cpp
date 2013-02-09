@@ -554,7 +554,7 @@ void Language::SetLanguageMap()
          "nyn"   << tr("Nyankole") <<
          "nyo"   << tr("Nyoro") <<
          "nzi"   << tr("Nzima") <<
-         "pro"   << tr("Occitan/Provençal- Old (to 1500)") <<
+         "pro"   << tr("Occitan/Provencal- Old (to 1500)") <<
          "arc"   << tr("Official/Imperial Aramaic (700-300 BCE)") <<
          "osa"   << tr("Osage") <<
          "oto"   << tr("Otomian languages") <<
