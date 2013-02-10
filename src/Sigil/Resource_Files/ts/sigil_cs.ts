@@ -54,32 +54,32 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation type="unfinished"/>
+        <translation>GNU General Public License v3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer / Lead Developer</source>
-        <translation type="unfinished"/>
+        <translation>Správce/Hlavní vývojář</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="53"/>
         <source>Code Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Přispěvatelé kódem</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="61"/>
         <source>Translators</source>
-        <translation type="unfinished"/>
+        <translation>Překladatelé</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="63"/>
         <source>Original Creator</source>
-        <translation type="unfinished"/>
+        <translation>Původní tvůrce</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="64"/>
         <source>retired</source>
-        <translation type="unfinished"/>
+        <translation>odešel na odpočinek</translation>
     </message>
 </context>
 <context>
@@ -100,77 +100,77 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation type="unfinished"/>
+        <translation>Všechny soubory</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Vypsat pouze názvy souborů obsahující vámi zadaný text.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filtr:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="64"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Název</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
         <source>File Size (KB)</source>
-        <translation type="unfinished"/>
+        <translation>Velikost souboru (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="66"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="110"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation> souborů</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="217"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="223"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="230"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="236"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="230"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="236"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="255"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="261"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Obrázek</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="260"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="266"/>
         <source>Audio</source>
-        <translation type="unfinished"/>
+        <translation>Zvuk</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="265"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="271"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Obraz</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="270"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="276"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Písmo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="297"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="303"/>
         <source>Unknown</source>
-        <translation type="unfinished"/>
+        <translation>Neznámý</translation>
     </message>
 </context>
 <context>
@@ -189,13 +189,15 @@
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="61"/>
         <source>Default font size to be used for Book View and Preview
 if no font-size specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí velikost písma, která se použije v Pohledu na knihu a v náhledu,
+pokud není velikost písma stanovena ve vašem CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="95"/>
         <source>Default font family to be used for Book View and Preview
 if no font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí rodina písma, která se použije v Pohledu na knihu a v náhledu,
+pokud není rodina písma stanovena ve vašem CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="99"/>
@@ -208,7 +210,8 @@ if no font-family specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="109"/>
         <source>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí rodina písma, která se použije v Pohledu na knihu a v náhledu,
+pokud je ve vašem CSS stanovena rodina patkového písma</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="113"/>
@@ -219,7 +222,8 @@ if a serif font-family specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="123"/>
         <source>Default font family to be used for Book View and Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí rodina písma, která se použije v Pohledu na knihu a v náhledu,
+pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="127"/>
@@ -236,7 +240,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="32"/>
         <source>Book View / Preview:</source>
-        <translation type="unfinished"/>
+        <translation>Pohled na knihu/Náhled:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="173"/>
@@ -423,11 +427,11 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="547"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="566"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="613"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="712"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="912"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="565"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="584"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="631"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="730"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="930"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -443,8 +447,8 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1270"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1442"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1460"/>
         <source>Open With</source>
         <translation>Otevřít s</translation>
     </message>
@@ -459,12 +463,12 @@ if a sans-serif font-family specified in your CSS</source>
         <translation>Soubory</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="559"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="577"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Nelze smazat nebo nahradit soubor &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="585"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -473,139 +477,143 @@ A file with this name already exists in the book.</source>
 Soubor s tímto názvem již v knize je.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="662"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="680"/>
         <source>Save As File</source>
         <translation>Uložit jako soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="684"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="702"/>
         <source>Unable to save the file.</source>
         <translation>Nelze uložit soubor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="692"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="710"/>
         <source>Choose the directory to save the files to</source>
         <translation>Vyberte adresář, do něhož se mají soubory ukládat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="712"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="730"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Jeden nebo více souborů již existuje. Přepsat je?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="729"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="747"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Nelze uložit soubory. Cíl může být adresář.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="737"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="755"/>
         <source>Unable to save files.</source>
         <translation>Nelze uložit soubory.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="912"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="930"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Soubory nelze přejmenovat, protože by to vedlo ke zdvojeným souborovým názvům.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="970"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>Ani NCX ani OPF nelze odstranit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="977"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="995"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Nemůžete odstranit všechny soubory html.
 Vždy tu musí být alespoň jeden.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1272"/>
         <source>Add Blank Stylesheet</source>
         <translation>Přidat prázdný styl</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1273"/>
         <source>Add Blank SVG Image</source>
         <translation>Přidat prázdný obrázek SVG</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1274"/>
         <source>Add Existing Files...</source>
         <translation>Přidat stávající soubory...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1258"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1275"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1276"/>
         <source>Add Copy</source>
         <translation>Přidat kopii</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1259"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1277"/>
         <source>Rename</source>
         <translation>Přejmenovat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1268"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1286"/>
         <source>Link Stylesheets...</source>
         <translation>Propojit stylové listy...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1271"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1289"/>
         <source>Save As</source>
         <translation>Uložit jako</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1448"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1466"/>
         <source>Other Application</source>
         <translation>Jiný program</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1261"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1279"/>
         <source>Cover Image</source>
         <translation>Obrázek obalu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1262"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1280"/>
         <source>Merge</source>
         <translation>Sloučit</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1264"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1282"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Použít způsob Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1265"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Použít způsob IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1252"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1270"/>
         <source>Select All</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="497"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="509"/>
         <source>Add Existing Files</source>
-        <translation type="unfinished"/>
+        <translation>Přidat stávající soubory</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="532"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="550"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Soubor není multimediální (obrázek, zvuk, obrazový záznam) a nelze jej vložit:
+
+&quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="547"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="565"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation type="unfinished"/>
+        <translation>Multimediální soubor &quot;%1&quot; již v knize je.
+
+Nahradit jej?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="614"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="632"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -614,122 +622,122 @@ OK to replace?</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="628"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="646"/>
         <source>File(s) added.</source>
         <translation>Soubor(y) přidán(y).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1253"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1271"/>
         <source>Add Blank HTML File</source>
         <translation>Přidat prázdný soubor HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1260"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1278"/>
         <source>Delete</source>
         <translation>Smazat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1263"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1281"/>
         <source>None</source>
         <translation>Žádný</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1266"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1284"/>
         <source>Sort</source>
         <translation>Třídit</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1267"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1285"/>
         <source>Renumber TOC Entries</source>
         <translation>Přečíslovat položky obsahu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1269"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1287"/>
         <source>Validate with W3C</source>
         <translation>Schválit pomocí W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1302"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
         <source>Cover</source>
         <translation>Obal</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1306"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
         <source>Title Page</source>
         <translation>Titulní strana</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1310"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
         <source>Table Of Contents</source>
         <translation>Obsah</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1314"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
         <source>Index</source>
         <translation>Rejstřík</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1318"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1336"/>
         <source>Glossary</source>
         <translation>Slovníček</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
         <source>Acknowledgements</source>
         <translation>Poděkování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1326"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1344"/>
         <source>Bibliography</source>
         <translation>Bibliografie</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1348"/>
         <source>Colophon</source>
         <translation>Tiráž</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1334"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
         <source>CopyrightPage</source>
         <translation>Stránka s autorskými právy</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1338"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1356"/>
         <source>Dedication</source>
         <translation>Věnování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1360"/>
         <source>Epigraph</source>
         <translation>Epigraf</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1346"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1364"/>
         <source>Foreword</source>
         <translation>Předmluva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1350"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1368"/>
         <source>List Of Illustrations</source>
         <translation>Seznam ilustrací</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1354"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
         <source>List Of Tables</source>
         <translation>Seznam tabulek</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1358"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1376"/>
         <source>Notes</source>
         <translation>Poznámky</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1380"/>
         <source>Preface</source>
         <translation>Úvod</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1366"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
@@ -771,7 +779,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="944"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Vložit soubor</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="945"/>
@@ -816,7 +824,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="959"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>Přezkoumat prvek</translation>
     </message>
 </context>
 <context>
@@ -892,22 +900,22 @@ OK to replace?</source>
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="259"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="272"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="272"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
         <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="283"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="289"/>
         <source>Delete From Book</source>
         <translation>Smazat v knize</translation>
     </message>
@@ -935,67 +943,67 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters in HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Znaky v souborech HTML</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Vypsat pouze názvy souborů obsahující vámi zadaný text.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filtr:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation type="unfinished"/>
+        <translation>Znaky:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="74"/>
         <source>Character</source>
-        <translation type="unfinished"/>
+        <translation>Znak</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="75"/>
         <source>Decimal</source>
-        <translation type="unfinished"/>
+        <translation>Desetinný</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="76"/>
         <source>Hexadecimal</source>
-        <translation type="unfinished"/>
+        <translation>Šestnáctkový</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="77"/>
         <source>Entity Name</source>
-        <translation type="unfinished"/>
+        <translation>Název entity</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="78"/>
         <source>Entity Description</source>
-        <translation type="unfinished"/>
+        <translation>Popis entity</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="84"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Toto je seznam znaků použitých ve všech souborech HTML.&lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="259"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="272"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="272"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
 </context>
 <context>
@@ -1056,17 +1064,17 @@ OK to replace?</source>
         <translation>&lt;p&gt;Kvůli složitostem CSS musíte svůj kód prověřit ručně, abyste si byli jisti, že je styl používán, nebo není.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="216"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="222"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="229"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="229"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
         <source>Cannot save report file.</source>
         <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
@@ -1103,7 +1111,7 @@ Volby pro úklid při otevření, uložení, nahrazení se budou přehlížet.</
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="32"/>
         <source>Choose what type of automatic cleaning and formatting should be done.</source>
-        <translation type="unfinished"/>
+        <translation>Vybrat, jaký druh automatického úklidu a formátování se má udělat.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="65"/>
@@ -1323,7 +1331,7 @@ To přepíše všechny neuložené změny.</translation>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="504"/>
         <source>CSS entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Přidána %n položka CSS</numerusform><numerusform>Přidány %n položky CSS</numerusform><numerusform>Přidáno %n položek CSS</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="615"/>
@@ -1378,7 +1386,7 @@ To přepíše všechny neuložené změny.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="626"/>
         <source>Collapse All</source>
-        <translation>Složit vše</translation>
+        <translation>Sbalit vše</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="627"/>
@@ -1387,7 +1395,7 @@ To přepíše všechny neuložené změny.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="628"/>
-        <source>AutoFill</source>
+        <source>Autofill</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1465,92 +1473,92 @@ Chcete uložit své změny?</translation>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="319"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="311"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>Nelze vložit uzavírající značku v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="328"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="320"/>
         <source>No open tags found at this position.</source>
         <translation>V této poloze nebyly nalezeny žádné otevírající značky.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1022"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="984"/>
         <source>Add To Default Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Přidat do výchozího slovníku</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1035"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="997"/>
         <source>Add To Dictionary</source>
         <translation>Přidat do slovníku</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1052"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1014"/>
         <source>Ignore</source>
         <translation>Přehlížet</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1114"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1076"/>
         <source>Reformat CSS</source>
         <translation>Přeformátovat CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1115"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1077"/>
         <source>Multiple Lines Per Style</source>
         <translation>Více řádků na styl</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1116"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1078"/>
         <source>Single Line Per Style</source>
         <translation>Jeden řádek na styl</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1141"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1103"/>
         <source>Reformat HTML</source>
         <translation>Přeformátovat HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1142"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1104"/>
         <source>Clean Source</source>
         <translation>Uklizení zdroje</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1143"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1105"/>
         <source>Clean Source - All HTML Files</source>
         <translation>Uklidit zdroj - všechny soubory HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1144"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1106"/>
         <source>To Valid HTML</source>
         <translation>Na platný HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1145"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1107"/>
         <source>To Valid HTML - All HTML Files</source>
         <translation>Na platný HTML - všechny soubory HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1175"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1137"/>
         <source>Go To Link Or Style</source>
         <translation>Jít na odkaz nebo styl</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1199"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1161"/>
         <source>Clips</source>
         <translation>Úryvky</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1209"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1171"/>
         <source>Add To Clips</source>
         <translation>Přidat do úryvků</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1303"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1264"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Abyste použil tuto funkci, musíte být v otevírající značce HTML.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1313"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1274"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Abyste použil tuto funkci, musíte být uvnitř otevírající značky HTML.</translation>
     </message>
@@ -1634,90 +1642,92 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Upravit obsah</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Add a new TOC entry.</source>
-        <translation type="unfinished"/>
+        <translation>Přidat novou položku obsahu.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
-        <translation type="unfinished"/>
+        <translation>Přidat nad</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="58"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>Vložit prázdnou položku nad nyní vybranou položku.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
         <source>Add Below</source>
-        <translation type="unfinished"/>
+        <translation>Přidat pod</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="68"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>Vložit prázdnou položku pod nyní vybranou položku.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <source>Delete the selected TOC entry</source>
-        <translation type="unfinished"/>
+        <translation>Smazat vybranou položku obsahu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="78"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="365"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="385"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Smazat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation type="unfinished"/>
+        <translation>Vybrat cíl</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="88"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
-        <translation type="unfinished"/>
+        <translation>Nastavit cíl položky obsahu ze seznamu platných cílů v knize.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="113"/>
         <source>Decrease the heading level of the selected entry.
 You can also use the left arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Snížit úroveň nadpisu vybrané položky.
+Také můžete použít klávesu levé šipky.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="127"/>
         <source>Increase the heading level of the selected entry.
 You can also use the right arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Zvýšit úroveň nadpisu vybrané položky.
+Také můžete použít klávesu pravé šipky.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="76"/>
         <source>TOC Entry</source>
-        <translation type="unfinished"/>
+        <translation>Položka obsahu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="77"/>
         <source>Target</source>
-        <translation type="unfinished"/>
+        <translation>Cíl</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="364"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Přejmenovat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="372"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="392"/>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Rozbalit vše</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="373"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="393"/>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Sbalit vše</translation>
     </message>
 </context>
 <context>
@@ -1810,12 +1820,14 @@ pak najít v Pohledu na kód další shodu.</translation>
         <source>Search from current position to end of the 
 current file or book, and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Hledat od nynější polohy po konec nynějšího
+souboru nebo knihy, a pak pokračovat v hledání
+od opačného konce.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
         <source>Wrap</source>
-        <translation type="unfinished"/>
+        <translation>Pokračovat od opačného konce</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
@@ -1858,7 +1870,7 @@ other end to continue searching.</source>
         <translation>Režim:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="601"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="604"/>
         <source>No matches found</source>
         <translation>Nenalezeny žádné shody</translation>
     </message>
@@ -1869,8 +1881,8 @@ other end to continue searching.</source>
         </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="398"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1258"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="401"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1261"/>
         <source>No replacements made</source>
         <translation>Neudělána žádná nahrazení</translation>
     </message>
@@ -1881,134 +1893,134 @@ other end to continue searching.</source>
         </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1116"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1119"/>
         <source>This tab cannot be searched</source>
         <translation>Tuto kartu nelze prohledat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1400"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1405"/>
         <source>Normal</source>
         <translation>Obvyklý</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1409"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Omezit hledání nebo nahrazování na otevřený soubor.  Podržte klávesu Ctrl, když klepáte na jakékoli z tlačítek pro hledání, abyste hledání dočasně omezili na nynější soubor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1411"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1416"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Najít nebo nahradit ve všech souborech HTML v Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1412"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1417"/>
         <source>Selected Files</source>
         <translation>Vybrané soubory</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1413"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1418"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Omezit hledání nebo nahrazování na soubory HTML vybrané v Prohlížeči knihy v Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1420"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Hledat předchozí shodu od vaší nynější polohy.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <source>Search for the next match from your current position.</source>
         <translation>Hledat další shodu od vaší nynější polohy.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1148"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1151"/>
         <source>Unnamed search loaded</source>
         <translation>Nahráno nepojmenované hledání</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="314"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1234"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="317"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1237"/>
         <source>Matches found: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nalezena %n shoda</numerusform><numerusform>Nalezeny %n shody</numerusform><numerusform>Nalezeno %n shod</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="400"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1260"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="403"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1263"/>
         <source>Replacements made: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Uděláno %n nahrazení</numerusform><numerusform>Udělána %n nahrazení</numerusform><numerusform>Uděláno %n nahrazení</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1154"/>
         <source>Loaded</source>
         <translation>Nahráno</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1160"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1180"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1198"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1218"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1244"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1163"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1183"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1201"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1247"/>
         <source>No searches selected</source>
         <translation>Nevybrána žádná hledání</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1402"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1407"/>
         <source>Case Sensitive</source>
         <translation>Rozlišovat velká a malá písmena</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1404"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1409"/>
         <source>Regex</source>
         <translation>Regulární výraz</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1399"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1404"/>
         <source>What to search for</source>
         <translation>Co hledat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1401"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>Hledání přesně toho, co napíšete (rozlišující velká a malá písmena).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1403"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1408"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Hledání přesně toho, co napíšete (rozlišující velká a malá písmena).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1405"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Hledání vzoru pomocí skladby regulárního výrazu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1407"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1412"/>
         <source>Where to search</source>
         <translation>Kde hledat</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="161"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1408"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1413"/>
         <source>Current File</source>
         <translation>Nynější soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
         <source>All HTML Files</source>
         <translation>Všechny soubory HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1416"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
         <source>Up</source>
         <translation>Nahoru</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1417"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
         <source>Down</source>
         <translation>Dolů</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1418"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Direction to search</source>
         <translation>Směr hledání</translation>
     </message>
@@ -2029,7 +2041,7 @@ other end to continue searching.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1084"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1091"/>
         <source>Print %1</source>
         <translation>Tisk %1</translation>
     </message>
@@ -2079,12 +2091,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="72"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Obraz</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="73"/>
         <source>Audio</source>
-        <translation type="unfinished"/>
+        <translation>Zvuk</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="74"/>
@@ -2094,17 +2106,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="75"/>
         <source>Well Formed</source>
-        <translation type="unfinished"/>
+        <translation>Dobře utvořený</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Ano</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Ne</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="183"/>
@@ -2112,22 +2124,22 @@ other end to continue searching.</source>
         <translation> souborů</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="318"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="324"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="331"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="331"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Cannot save report file.</source>
         <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="354"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="360"/>
         <source>Delete From Book</source>
         <translation>Smazat v knize</translation>
     </message>
@@ -2311,22 +2323,22 @@ Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu v
         <translation>KB</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="317"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="323"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="330"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="330"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Cannot save report file.</source>
         <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="402"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="408"/>
         <source>Delete From Book</source>
         <translation>Smazat v knize</translation>
     </message>
@@ -2459,10 +2471,15 @@ Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu v
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
+    <message>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
+        <source>Autofill</source>
+        <translation type="unfinished"/>
+    </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Přidána %n položka</numerusform><numerusform>Přidány %n položky</numerusform><numerusform>Přidáno %n položek</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
@@ -2514,11 +2531,6 @@ To přepíše všechny neuložené změny.</translation>
         <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Delete</source>
         <translation>Smazat</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
-        <source>Auto Fill</source>
-        <translation>Vyplnit automaticky</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
@@ -3406,7 +3418,7 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Latvia</source>
-        <translation type="unfinished"/>
+        <translation>Lotyšsko</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
@@ -5110,7 +5122,7 @@ Chcete uložit své změny?</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
-        <source>Occitan/ProvenÃ§al- Old (to 1500)</source>
+        <source>Occitan/Provencal- Old (to 1500)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5156,7 +5168,7 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
-        <translation>Stará perština (asi600-400 př.n.l.)</translation>
+        <translation>Stará perština (asi 600-400 př.n.l.)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
@@ -5644,87 +5656,87 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links and Footnotes</source>
-        <translation type="unfinished"/>
+        <translation>Odkazy a poznámky pod čarou</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Vypsat pouze názvy souborů obsahující vámi zadaný text.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filtr:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="65"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation>Soubor</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="66"/>
         <source>ID</source>
-        <translation type="unfinished"/>
+        <translation>ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="67"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Text</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="68"/>
         <source>Target File</source>
-        <translation type="unfinished"/>
+        <translation>Cílový soubor</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="69"/>
         <source>Target ID</source>
-        <translation type="unfinished"/>
+        <translation>Cílové ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="70"/>
         <source>Target Exists?</source>
-        <translation type="unfinished"/>
+        <translation>Cíl existuje?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>Target Text</source>
-        <translation type="unfinished"/>
+        <translation>Text cíle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Target&apos;s Target File</source>
-        <translation type="unfinished"/>
+        <translation>Cílový soubor cíle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
         <source>Target&apos;s Target ID</source>
-        <translation type="unfinished"/>
+        <translation>Cílové ID cíle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Match?</source>
-        <translation type="unfinished"/>
+        <translation>Odpovídá?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Zpráva ukazuje všechny zdrojové a cílové odkazy používající kotevní značku &quot;a&quot;.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="323"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="329"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="336"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="342"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="336"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="342"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
 </context>
 <context>
@@ -5747,7 +5759,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="112"/>
         <source>Cli&amp;p</source>
-        <translation type="unfinished"/>
+        <translation>Úryv&amp;ek</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="149"/>
@@ -5770,53 +5782,53 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <translation>Nynější &amp;soubor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="259"/>
+        <location filename="../../Form_Files/main.ui" line="261"/>
         <source>&amp;Window</source>
         <translation>&amp;Okno</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="334"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="350"/>
+        <location filename="../../Form_Files/main.ui" line="336"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="358"/>
         <source>File</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="349"/>
+        <location filename="../../Form_Files/main.ui" line="351"/>
         <source>Edit</source>
         <translation>Úpravy</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="368"/>
+        <location filename="../../Form_Files/main.ui" line="370"/>
         <source>View</source>
         <translation>Pohled</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="381"/>
+        <location filename="../../Form_Files/main.ui" line="383"/>
         <source>Insert</source>
         <translation>Vložka</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="410"/>
+        <location filename="../../Form_Files/main.ui" line="412"/>
         <source>Donate</source>
         <translation>Dary</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="542"/>
+        <location filename="../../Form_Files/main.ui" line="544"/>
         <source>Clip Bar</source>
-        <translation type="unfinished"/>
+        <translation>Úryvky</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="585"/>
+        <location filename="../../Form_Files/main.ui" line="587"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="594"/>
+        <location filename="../../Form_Files/main.ui" line="596"/>
         <source>&amp;Save</source>
         <translation>&amp;Uložit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="597"/>
+        <location filename="../../Form_Files/main.ui" line="599"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -5824,17 +5836,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Uloží nynější knihu. &lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="602"/>
+        <location filename="../../Form_Files/main.ui" line="604"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="607"/>
+        <location filename="../../Form_Files/main.ui" line="609"/>
         <source>Save &amp;As...</source>
         <translation>Uložit &amp;jako...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="610"/>
+        <location filename="../../Form_Files/main.ui" line="612"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -5843,27 +5855,27 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Uloží nynější knihu pod jiným názvem.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="615"/>
+        <location filename="../../Form_Files/main.ui" line="617"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="632"/>
+        <location filename="../../Form_Files/main.ui" line="634"/>
         <source>Cu&amp;t</source>
         <translation>Vyj&amp;mout</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="640"/>
+        <location filename="../../Form_Files/main.ui" line="642"/>
         <source>Ctrl+X</source>
         <translation>Ctrl+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="649"/>
+        <location filename="../../Form_Files/main.ui" line="651"/>
         <source>&amp;Paste</source>
         <translation>&amp;Vložit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="652"/>
+        <location filename="../../Form_Files/main.ui" line="654"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -5872,17 +5884,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vloží obsah schránky do knihy.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="657"/>
+        <location filename="../../Form_Files/main.ui" line="659"/>
         <source>Ctrl+V</source>
         <translation>Ctrl+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="677"/>
+        <location filename="../../Form_Files/main.ui" line="679"/>
         <source>&amp;Undo</source>
         <translation>&amp;Zpět</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="680"/>
+        <location filename="../../Form_Files/main.ui" line="682"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -5891,17 +5903,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zruší změny předchozí operace.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="685"/>
+        <location filename="../../Form_Files/main.ui" line="687"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="694"/>
+        <location filename="../../Form_Files/main.ui" line="696"/>
         <source>&amp;Redo</source>
         <translation>&amp;Znovu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="697"/>
+        <location filename="../../Form_Files/main.ui" line="699"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -5910,17 +5922,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Obnoví změny zrušené předchozím krokem zpět.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="711"/>
+        <location filename="../../Form_Files/main.ui" line="713"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopírovat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="719"/>
+        <location filename="../../Form_Files/main.ui" line="721"/>
         <source>Ctrl+C</source>
         <translation>Ctrl+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="734"/>
+        <location filename="../../Form_Files/main.ui" line="736"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -5929,7 +5941,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zarovnat odstavec vlevo.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="751"/>
+        <location filename="../../Form_Files/main.ui" line="753"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -5938,12 +5950,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zarovnat odstavec vpravo.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="842"/>
+        <location filename="../../Form_Files/main.ui" line="844"/>
         <source>&amp;Open...</source>
         <translation>&amp;Otevřít...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="845"/>
+        <location filename="../../Form_Files/main.ui" line="847"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -5952,64 +5964,68 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Otevře knihu z disku.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="850"/>
+        <location filename="../../Form_Files/main.ui" line="852"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="882"/>
+        <location filename="../../Form_Files/main.ui" line="884"/>
         <source>Exit</source>
         <translation>Ukončit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="885"/>
+        <location filename="../../Form_Files/main.ui" line="887"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="894"/>
+        <location filename="../../Form_Files/main.ui" line="896"/>
         <source>&amp;About...</source>
         <translation>&amp;O programu...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="914"/>
+        <location filename="../../Form_Files/main.ui" line="916"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="936"/>
+        <location filename="../../Form_Files/main.ui" line="938"/>
         <source>&amp;Edit Table Of Contents...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Upravit obsah...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="939"/>
+        <location filename="../../Form_Files/main.ui" line="941"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Upravit obsah&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Přímo upravit stávající obsah.&lt;/p&gt;
+    </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="953"/>
+        <location filename="../../Form_Files/main.ui" line="955"/>
         <source>&amp;Book View</source>
         <translation>Pohled na &amp;knihu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="970"/>
+        <location filename="../../Form_Files/main.ui" line="972"/>
         <source>&amp;Code View</source>
         <translation>Pohled na &amp;kód</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="983"/>
+        <location filename="../../Form_Files/main.ui" line="985"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
-        <translation type="unfinished"/>
+        <translation>Přepnout Pohled na knihu na Pohled na kód nebo Pohled na kód na Pohled na knihu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1003"/>
+        <location filename="../../Form_Files/main.ui" line="1005"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="956"/>
+        <location filename="../../Form_Files/main.ui" line="958"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
@@ -6038,32 +6054,32 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <translation>Ná&amp;strojové panely</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="275"/>
+        <location filename="../../Form_Files/main.ui" line="277"/>
         <source>&amp;Table Of Contents</source>
         <translation>&amp;Obsah</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="283"/>
+        <location filename="../../Form_Files/main.ui" line="285"/>
         <source>Spe&amp;llcheck</source>
         <translation>Ověření &amp;pravopisu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="297"/>
+        <location filename="../../Form_Files/main.ui" line="299"/>
         <source>&amp;Index</source>
         <translation>&amp;Rejstřík</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="398"/>
+        <location filename="../../Form_Files/main.ui" line="400"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="422"/>
+        <location filename="../../Form_Files/main.ui" line="424"/>
         <source>Tools</source>
         <translation>Nástroje</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="580"/>
+        <location filename="../../Form_Files/main.ui" line="582"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
@@ -6071,7 +6087,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit novou knihu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="973"/>
+        <location filename="../../Form_Files/main.ui" line="975"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
@@ -6080,12 +6096,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Upravit a zobrazit skutečný obsah souborů ve vaší knize, včetně formátovacího kódu, jenž řídí, jak se bude vaše kniha jevit čtenářům.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="995"/>
+        <location filename="../../Form_Files/main.ui" line="997"/>
         <source>&amp;Split At Cursor</source>
         <translation>Roz&amp;dělit na ukazovátku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="998"/>
+        <location filename="../../Form_Files/main.ui" line="1000"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -6094,22 +6110,22 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Rozdělit nynější soubor na dva soubory pomocí polohy vašeho ukazovátka jako dělicího bodu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1022"/>
+        <location filename="../../Form_Files/main.ui" line="1024"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1031"/>
+        <location filename="../../Form_Files/main.ui" line="1033"/>
         <source>&amp;Special Character...</source>
         <translation>Zv&amp;láštní znak...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1045"/>
+        <location filename="../../Form_Files/main.ui" line="1047"/>
         <source>I&amp;D...</source>
         <translation>&amp;Identifikátor...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1048"/>
+        <location filename="../../Form_Files/main.ui" line="1050"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -6120,12 +6136,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1059"/>
+        <location filename="../../Form_Files/main.ui" line="1061"/>
         <source>&amp;Hyperlink...</source>
         <translation>Odk&amp;az...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1062"/>
+        <location filename="../../Form_Files/main.ui" line="1064"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Hyperlink&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -6136,42 +6152,42 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1113"/>
+        <location filename="../../Form_Files/main.ui" line="1115"/>
         <source>Stri&amp;kethrough</source>
         <translation>Přeš&amp;krtnutí</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1130"/>
+        <location filename="../../Form_Files/main.ui" line="1132"/>
         <source>&amp;Subscript</source>
         <translation>Do&amp;lní index</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1161"/>
+        <location filename="../../Form_Files/main.ui" line="1163"/>
         <source>&amp;Print...</source>
         <translation>&amp;Tisk...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1164"/>
+        <location filename="../../Form_Files/main.ui" line="1166"/>
         <source>Print</source>
         <translation>Tisk</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1167"/>
+        <location filename="../../Form_Files/main.ui" line="1169"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1176"/>
+        <location filename="../../Form_Files/main.ui" line="1178"/>
         <source>Print Pre&amp;view...</source>
         <translation>Ná&amp;hled tisku...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1179"/>
+        <location filename="../../Form_Files/main.ui" line="1181"/>
         <source>Print Preview</source>
         <translation>Náhled tisku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="513"/>
+        <location filename="../../Form_Files/main.ui" line="515"/>
         <source>Change Case</source>
         <translation>Změnit velikost písmen</translation>
     </message>
@@ -6186,57 +6202,57 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <translation>For&amp;mát</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="437"/>
+        <location filename="../../Form_Files/main.ui" line="439"/>
         <source>Heading</source>
         <translation>Nadpis</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="271"/>
+        <location filename="../../Form_Files/main.ui" line="273"/>
         <source>&amp;Tools</source>
         <translation>Nás&amp;troje</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="455"/>
+        <location filename="../../Form_Files/main.ui" line="457"/>
         <source>Format</source>
         <translation>Formát</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="472"/>
+        <location filename="../../Form_Files/main.ui" line="474"/>
         <source>Align</source>
         <translation>Zarovnání</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="487"/>
+        <location filename="../../Form_Files/main.ui" line="489"/>
         <source>List</source>
         <translation>Seznam</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="500"/>
+        <location filename="../../Form_Files/main.ui" line="502"/>
         <source>Indent</source>
         <translation>Odsazení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="528"/>
+        <location filename="../../Form_Files/main.ui" line="530"/>
         <source>Text Direction</source>
         <translation>Směr textu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="577"/>
+        <location filename="../../Form_Files/main.ui" line="579"/>
         <source>&amp;New</source>
         <translation>&amp;Nový</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="620"/>
+        <location filename="../../Form_Files/main.ui" line="622"/>
         <source>Save A &amp;Copy...</source>
         <translation>Uložit &amp;kopii...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="623"/>
+        <location filename="../../Form_Files/main.ui" line="625"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>Uložit kopii vaší knihy pod jiným souborovým názvem.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="635"/>
+        <location filename="../../Form_Files/main.ui" line="637"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6245,27 +6261,27 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vyjme vybraný text z dokumentu a dá jej do schránky.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="662"/>
+        <location filename="../../Form_Files/main.ui" line="664"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="665"/>
+        <location filename="../../Form_Files/main.ui" line="667"/>
         <source>&amp;Closing Tag</source>
         <translation>&amp;Uzavírající značka</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="668"/>
+        <location filename="../../Form_Files/main.ui" line="670"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>Vložit uzavírající značku v Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="702"/>
+        <location filename="../../Form_Files/main.ui" line="704"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="714"/>
+        <location filename="../../Form_Files/main.ui" line="716"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6274,27 +6290,27 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zkopíruje vybraný text a dá jej do schránky.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="731"/>
+        <location filename="../../Form_Files/main.ui" line="733"/>
         <source>Align &amp;Left</source>
         <translation>Zarovnat &amp;vlevo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="748"/>
+        <location filename="../../Form_Files/main.ui" line="750"/>
         <source>Align &amp;Right</source>
         <translation>Zarovnat &amp;vpravo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1671"/>
+        <location filename="../../Form_Files/main.ui" line="1673"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="765"/>
+        <location filename="../../Form_Files/main.ui" line="767"/>
         <source>&amp;Center</source>
         <translation>Zarovnat &amp;na střed</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="768"/>
+        <location filename="../../Form_Files/main.ui" line="770"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -6303,17 +6319,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zarovnat odstavec na střed.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="773"/>
+        <location filename="../../Form_Files/main.ui" line="775"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="785"/>
+        <location filename="../../Form_Files/main.ui" line="787"/>
         <source>&amp;Justify</source>
         <translation>&amp;Zarovnat do bloku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="788"/>
+        <location filename="../../Form_Files/main.ui" line="790"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -6322,17 +6338,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zarovnat odstavec do bloku, jak k levému tak k pravému okraji.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="793"/>
+        <location filename="../../Form_Files/main.ui" line="795"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="805"/>
+        <location filename="../../Form_Files/main.ui" line="807"/>
         <source>&amp;Bold</source>
         <translation>&amp;Tučné</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="808"/>
+        <location filename="../../Form_Files/main.ui" line="810"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -6341,17 +6357,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Udělat vybraný text tučným.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="813"/>
+        <location filename="../../Form_Files/main.ui" line="815"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="825"/>
+        <location filename="../../Form_Files/main.ui" line="827"/>
         <source>&amp;Italic</source>
         <translation>&amp;Kurzíva</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="828"/>
+        <location filename="../../Form_Files/main.ui" line="830"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -6360,17 +6376,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Udělat vybraný text kurzívním.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="833"/>
+        <location filename="../../Form_Files/main.ui" line="835"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="862"/>
+        <location filename="../../Form_Files/main.ui" line="864"/>
         <source>&amp;Underline</source>
         <translation>&amp;Podtržení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="865"/>
+        <location filename="../../Form_Files/main.ui" line="867"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -6379,22 +6395,22 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Podtrhnout vybraný text.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="870"/>
+        <location filename="../../Form_Files/main.ui" line="872"/>
         <source>Ctrl+U</source>
         <translation>CTRL+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="879"/>
+        <location filename="../../Form_Files/main.ui" line="881"/>
         <source>&amp;Quit</source>
         <translation>U&amp;končit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="897"/>
+        <location filename="../../Form_Files/main.ui" line="899"/>
         <source>Show information about Sigil.</source>
         <translation>Ukázat informace o Sigilu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="909"/>
+        <location filename="../../Form_Files/main.ui" line="911"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -6403,17 +6419,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Upravit a zobrazit údaje o vaší knize včetně autora a názvu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="980"/>
+        <location filename="../../Form_Files/main.ui" line="982"/>
         <source>&amp;Toggle View State</source>
         <translation>&amp;Přepnout stav pohledu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="986"/>
+        <location filename="../../Form_Files/main.ui" line="988"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1034"/>
+        <location filename="../../Form_Files/main.ui" line="1036"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -6422,12 +6438,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vyberte znak k vložení do vašeho textu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1076"/>
+        <location filename="../../Form_Files/main.ui" line="1078"/>
         <source>&amp;Numbered List</source>
         <translation>Čís&amp;lovaný seznam</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1079"/>
+        <location filename="../../Form_Files/main.ui" line="1081"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -6436,12 +6452,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit číslovaný seznam.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1093"/>
+        <location filename="../../Form_Files/main.ui" line="1095"/>
         <source>Bulle&amp;ted List</source>
         <translation>S&amp;eznam s odrážkami</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1096"/>
+        <location filename="../../Form_Files/main.ui" line="1098"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -6450,12 +6466,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit seznam s odrážkami.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1101"/>
+        <location filename="../../Form_Files/main.ui" line="1103"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1116"/>
+        <location filename="../../Form_Files/main.ui" line="1118"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -6464,7 +6480,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Nakreslit čáru přes vybraný text.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1133"/>
+        <location filename="../../Form_Files/main.ui" line="1135"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -6473,12 +6489,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Nastavit vybraný text lehce menší a pod normálním řádkem.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1147"/>
+        <location filename="../../Form_Files/main.ui" line="1149"/>
         <source>Su&amp;perscript</source>
         <translation>&amp;Horní index</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1150"/>
+        <location filename="../../Form_Files/main.ui" line="1152"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -6487,58 +6503,53 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Nastavit vybraný text lehce menší a nad normálním řádkem.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1184"/>
-        <location filename="../../Form_Files/main.ui" line="1187"/>
+        <location filename="../../Form_Files/main.ui" line="1186"/>
+        <location filename="../../Form_Files/main.ui" line="1189"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1190"/>
+        <location filename="../../Form_Files/main.ui" line="1192"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1199"/>
+        <location filename="../../Form_Files/main.ui" line="1201"/>
         <source>Zoom &amp;In</source>
         <translation>&amp;Přiblížit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1202"/>
+        <location filename="../../Form_Files/main.ui" line="1204"/>
         <source>Zoom In</source>
         <translation>Přiblížit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1205"/>
-        <source>Ctrl++</source>
-        <translation>Ctrl++</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1214"/>
+        <location filename="../../Form_Files/main.ui" line="1216"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Oddálit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1217"/>
+        <location filename="../../Form_Files/main.ui" line="1219"/>
         <source>Zoom Out</source>
         <translation>Oddálit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1220"/>
+        <location filename="../../Form_Files/main.ui" line="1222"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1225"/>
+        <location filename="../../Form_Files/main.ui" line="1227"/>
         <source>Sho&amp;w Tag</source>
         <translation>&amp;Ukázat značku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="922"/>
+        <location filename="../../Form_Files/main.ui" line="924"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="929"/>
+        <location filename="../../Form_Files/main.ui" line="931"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -6547,31 +6558,40 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit nový obsah z nadpisů vaší knihy.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1012"/>
+        <location filename="../../Form_Files/main.ui" line="1014"/>
         <source>&amp;File...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Soubor...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1015"/>
+        <location filename="../../Form_Files/main.ui" line="1017"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add files to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vložit soubor&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vyberte obrázek, obrazové nebo zvukové soubory k vložení do textu.&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Soubory můžete do své knihy přidat pomocí nabídky Soubor -&gt; Přidat -&gt; Stávající soubory.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1207"/>
+        <source>Ctrl+=</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1228"/>
+        <location filename="../../Form_Files/main.ui" line="1230"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
-        <translation type="unfinished"/>
+        <translation>Ukázat uzavírající značku HTML pro polohu ukazatele v pohledu na knihu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1231"/>
+        <location filename="../../Form_Files/main.ui" line="1233"/>
         <source>Ctrl+Alt+T</source>
         <translation>Ctrl+Alt+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1243"/>
+        <location filename="../../Form_Files/main.ui" line="1245"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -6580,12 +6600,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Najít a nahradit text v dokumentu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1248"/>
+        <location filename="../../Form_Files/main.ui" line="1250"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1260"/>
+        <location filename="../../Form_Files/main.ui" line="1262"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6594,12 +6614,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zvětšit úroveň odsazení odstavce.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1265"/>
+        <location filename="../../Form_Files/main.ui" line="1267"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1277"/>
+        <location filename="../../Form_Files/main.ui" line="1279"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6608,12 +6628,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zmenšit úroveň odsazení odstavce.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1282"/>
+        <location filename="../../Form_Files/main.ui" line="1284"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1295"/>
+        <location filename="../../Form_Files/main.ui" line="1297"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -6626,7 +6646,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1312"/>
+        <location filename="../../Form_Files/main.ui" line="1314"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -6639,7 +6659,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1329"/>
+        <location filename="../../Form_Files/main.ui" line="1331"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -6652,12 +6672,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1341"/>
+        <location filename="../../Form_Files/main.ui" line="1343"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+Mezerník</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1354"/>
+        <location filename="../../Form_Files/main.ui" line="1356"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6670,12 +6690,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1361"/>
+        <location filename="../../Form_Files/main.ui" line="1363"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1374"/>
+        <location filename="../../Form_Files/main.ui" line="1376"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6688,12 +6708,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1381"/>
+        <location filename="../../Form_Files/main.ui" line="1383"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1394"/>
+        <location filename="../../Form_Files/main.ui" line="1396"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -6706,7 +6726,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1411"/>
+        <location filename="../../Form_Files/main.ui" line="1413"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -6719,124 +6739,126 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1420"/>
+        <location filename="../../Form_Files/main.ui" line="1422"/>
         <source>&amp;Report An Issue...</source>
         <translation>&amp;Nahlásit chybu nebo požadavek...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1425"/>
+        <location filename="../../Form_Files/main.ui" line="1427"/>
         <source>Sigil Dev &amp;Blog...</source>
         <translation>Vývojářské &amp;stránky Sigilu...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1430"/>
+        <location filename="../../Form_Files/main.ui" line="1432"/>
         <source>&amp;Next Tab</source>
         <translation>&amp;Další karta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1433"/>
+        <location filename="../../Form_Files/main.ui" line="1435"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1438"/>
+        <location filename="../../Form_Files/main.ui" line="1440"/>
         <source>&amp;Previous Tab</source>
         <translation>&amp;Předchozí karta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1441"/>
+        <location filename="../../Form_Files/main.ui" line="1443"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1446"/>
+        <location filename="../../Form_Files/main.ui" line="1448"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;Zavřít kartu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1449"/>
+        <location filename="../../Form_Files/main.ui" line="1451"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1460"/>
+        <location filename="../../Form_Files/main.ui" line="1462"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1507"/>
+        <location filename="../../Form_Files/main.ui" line="1509"/>
         <source>&amp;Validate EPUB With FlightCrew</source>
         <translation>&amp;Schválit EPUB pomocí FlightCrew</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1515"/>
+        <location filename="../../Form_Files/main.ui" line="1517"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1520"/>
+        <location filename="../../Form_Files/main.ui" line="1522"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>Schválit stylové listy pomocí &amp;W3C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1532"/>
+        <location filename="../../Form_Files/main.ui" line="1534"/>
         <source>&amp;Spellcheck...</source>
-        <translation type="unfinished"/>
+        <translation>Ověření &amp;pravopisu...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1539"/>
+        <location filename="../../Form_Files/main.ui" line="1541"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ověření pravopisu&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Najít všechna špatně napsaná slova a umožnit vám jejich přidání do slovníku, nebo jejich přehlížení.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1544"/>
+        <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>Alt+Q</source>
-        <translation type="unfinished"/>
+        <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1555"/>
+        <location filename="../../Form_Files/main.ui" line="1557"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Povolit nebo zakázat zvýraznění špatně napsaných slov v Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1560"/>
+        <location filename="../../Form_Files/main.ui" line="1562"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>&amp;Další špatně napsané slovo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1582"/>
+        <location filename="../../Form_Files/main.ui" line="1584"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>Přehlížet nynější špatně napsané slovo pod vsuvkou dokud Sigil nebude spuštěn znovu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1590"/>
+        <location filename="../../Form_Files/main.ui" line="1592"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>Přehlížet přehlížená slova z ověření pravopisu, aniž by se Sigil musel spustit znovu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1598"/>
+        <location filename="../../Form_Files/main.ui" line="1600"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1603"/>
+        <location filename="../../Form_Files/main.ui" line="1605"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation type="unfinished"/>
+        <translation>Smazat &amp;nepoužívané multimediální soubory...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1608"/>
+        <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation>Smazat &amp;nepoužívané třídy stylových listů...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1616"/>
+        <location filename="../../Form_Files/main.ui" line="1618"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1628"/>
+        <location filename="../../Form_Files/main.ui" line="1630"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -6846,302 +6868,302 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Poskytněte dar, a tím podpořte Sigil.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1668"/>
+        <location filename="../../Form_Files/main.ui" line="1670"/>
         <source>Replace</source>
         <translation>Nahradit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1676"/>
+        <location filename="../../Form_Files/main.ui" line="1678"/>
         <source>&amp;Replace/Find Next</source>
         <translation>N&amp;ahradit/Najít další</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1684"/>
+        <location filename="../../Form_Files/main.ui" line="1686"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>Na&amp;hradit/Najít předchozí</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1708"/>
+        <location filename="../../Form_Files/main.ui" line="1710"/>
         <source>Find &amp;Next In File</source>
         <translation>Najít &amp;další v souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1713"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>&amp;Replace Next In File</source>
         <translation>Nahra&amp;dit další v souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1718"/>
+        <location filename="../../Form_Files/main.ui" line="1720"/>
         <source>Replace &amp;All In File</source>
         <translation>Nahradit &amp;vše v souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1723"/>
+        <location filename="../../Form_Files/main.ui" line="1725"/>
         <source>&amp;Count All In File</source>
         <translation>Spočí&amp;tat vše v souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1731"/>
+        <location filename="../../Form_Files/main.ui" line="1733"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1742"/>
+        <location filename="../../Form_Files/main.ui" line="1744"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1747"/>
+        <location filename="../../Form_Files/main.ui" line="1749"/>
         <source>Clip &amp;1</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1750"/>
+        <location filename="../../Form_Files/main.ui" line="1752"/>
         <source>Insert Clip 1</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1753"/>
+        <location filename="../../Form_Files/main.ui" line="1755"/>
         <source>Ctrl+Alt+1</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1758"/>
+        <location filename="../../Form_Files/main.ui" line="1760"/>
         <source>Clip 2&amp;</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1761"/>
+        <location filename="../../Form_Files/main.ui" line="1763"/>
         <source>Insert Clip 2</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1764"/>
+        <location filename="../../Form_Files/main.ui" line="1766"/>
         <source>Ctrl+Alt+2</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1769"/>
+        <location filename="../../Form_Files/main.ui" line="1771"/>
         <source>Clip &amp;3</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1772"/>
+        <location filename="../../Form_Files/main.ui" line="1774"/>
         <source>Insert Clip 3</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1775"/>
+        <location filename="../../Form_Files/main.ui" line="1777"/>
         <source>Ctrl+Alt+3</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1780"/>
+        <location filename="../../Form_Files/main.ui" line="1782"/>
         <source>Clip &amp;4</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1783"/>
+        <location filename="../../Form_Files/main.ui" line="1785"/>
         <source>Insert Clip 4</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1786"/>
+        <location filename="../../Form_Files/main.ui" line="1788"/>
         <source>Ctrl+Alt+4</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1791"/>
+        <location filename="../../Form_Files/main.ui" line="1793"/>
         <source>Clip &amp;5</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1794"/>
+        <location filename="../../Form_Files/main.ui" line="1796"/>
         <source>Insert Clip 5</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1797"/>
+        <location filename="../../Form_Files/main.ui" line="1799"/>
         <source>Ctrl+Alt+5</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1802"/>
+        <location filename="../../Form_Files/main.ui" line="1804"/>
         <source>Clip &amp;6</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1805"/>
+        <location filename="../../Form_Files/main.ui" line="1807"/>
         <source>Insert Clip 6</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1808"/>
+        <location filename="../../Form_Files/main.ui" line="1810"/>
         <source>Ctrl+Alt+6</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1813"/>
+        <location filename="../../Form_Files/main.ui" line="1815"/>
         <source>Clip &amp;7</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1816"/>
+        <location filename="../../Form_Files/main.ui" line="1818"/>
         <source>Insert Clip 7</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1819"/>
+        <location filename="../../Form_Files/main.ui" line="1821"/>
         <source>Ctrl+Alt+7</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1824"/>
+        <location filename="../../Form_Files/main.ui" line="1826"/>
         <source>Clip &amp;8</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1827"/>
+        <location filename="../../Form_Files/main.ui" line="1829"/>
         <source>Insert Clip 8</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1830"/>
+        <location filename="../../Form_Files/main.ui" line="1832"/>
         <source>Ctrl+Alt+8</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1835"/>
+        <location filename="../../Form_Files/main.ui" line="1837"/>
         <source>Clip &amp;9</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1838"/>
+        <location filename="../../Form_Files/main.ui" line="1840"/>
         <source>Insert Clip 9</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1841"/>
+        <location filename="../../Form_Files/main.ui" line="1843"/>
         <source>Ctrl+Alt+9</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1846"/>
+        <location filename="../../Form_Files/main.ui" line="1848"/>
         <source>Clip 1&amp;0</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1849"/>
+        <location filename="../../Form_Files/main.ui" line="1851"/>
         <source>Insert Clip 10</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1852"/>
+        <location filename="../../Form_Files/main.ui" line="1854"/>
         <source>Ctrl+Alt+0</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1857"/>
+        <location filename="../../Form_Files/main.ui" line="1859"/>
         <source>Clip 11</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1860"/>
+        <location filename="../../Form_Files/main.ui" line="1862"/>
         <source>Insert Clip 11</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1865"/>
+        <location filename="../../Form_Files/main.ui" line="1867"/>
         <source>Clip 12</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1868"/>
+        <location filename="../../Form_Files/main.ui" line="1870"/>
         <source>Insert Clip 12</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1873"/>
+        <location filename="../../Form_Files/main.ui" line="1875"/>
         <source>Clip 13</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1876"/>
+        <location filename="../../Form_Files/main.ui" line="1878"/>
         <source>Insert Clip 13</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1881"/>
+        <location filename="../../Form_Files/main.ui" line="1883"/>
         <source>Clip 14</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1884"/>
+        <location filename="../../Form_Files/main.ui" line="1886"/>
         <source>Insert Clip 14</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1889"/>
+        <location filename="../../Form_Files/main.ui" line="1891"/>
         <source>Clip 15</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1892"/>
+        <location filename="../../Form_Files/main.ui" line="1894"/>
         <source>Insert Clip 15</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1897"/>
+        <location filename="../../Form_Files/main.ui" line="1899"/>
         <source>Clip 16</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1900"/>
+        <location filename="../../Form_Files/main.ui" line="1902"/>
         <source>Insert Clip 16</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1905"/>
+        <location filename="../../Form_Files/main.ui" line="1907"/>
         <source>Clip 17</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1908"/>
+        <location filename="../../Form_Files/main.ui" line="1910"/>
         <source>Insert Clip 17</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1913"/>
+        <location filename="../../Form_Files/main.ui" line="1915"/>
         <source>Clip 18</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1916"/>
+        <location filename="../../Form_Files/main.ui" line="1918"/>
         <source>Insert Clip 18</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1921"/>
+        <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Clip 19</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1924"/>
+        <location filename="../../Form_Files/main.ui" line="1926"/>
         <source>Insert Clip 19</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1929"/>
+        <location filename="../../Form_Files/main.ui" line="1931"/>
         <source>Clip 20</source>
-        <translation type="unfinished"/>
+        <translation>Úryvek 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1932"/>
+        <location filename="../../Form_Files/main.ui" line="1934"/>
         <source>Insert Clip 20</source>
-        <translation type="unfinished"/>
+        <translation>Vložit úryvek 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1962"/>
+        <location filename="../../Form_Files/main.ui" line="1964"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -7150,12 +7172,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 1.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1967"/>
+        <location filename="../../Form_Files/main.ui" line="1969"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1982"/>
+        <location filename="../../Form_Files/main.ui" line="1984"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -7164,12 +7186,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 2.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1987"/>
+        <location filename="../../Form_Files/main.ui" line="1989"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2002"/>
+        <location filename="../../Form_Files/main.ui" line="2004"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -7178,12 +7200,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 3.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2007"/>
+        <location filename="../../Form_Files/main.ui" line="2009"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2022"/>
+        <location filename="../../Form_Files/main.ui" line="2024"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -7192,12 +7214,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 4.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2027"/>
+        <location filename="../../Form_Files/main.ui" line="2029"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2042"/>
+        <location filename="../../Form_Files/main.ui" line="2044"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -7206,12 +7228,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 5.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2047"/>
+        <location filename="../../Form_Files/main.ui" line="2049"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2062"/>
+        <location filename="../../Form_Files/main.ui" line="2064"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -7220,12 +7242,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 6.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2067"/>
+        <location filename="../../Form_Files/main.ui" line="2069"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2082"/>
+        <location filename="../../Form_Files/main.ui" line="2084"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -7234,32 +7256,32 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako normální odstavec.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2087"/>
+        <location filename="../../Form_Files/main.ui" line="2089"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2102"/>
+        <location filename="../../Form_Files/main.ui" line="2104"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>Při použití tohoto stylu zachovat všechny stávající vlastnosti na značce</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2107"/>
+        <location filename="../../Form_Files/main.ui" line="2109"/>
         <source>Blank HTML File</source>
         <translation>Prázdný soubor HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2110"/>
+        <location filename="../../Form_Files/main.ui" line="2112"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>Přidat do knihy nový prázdný soubor HTML.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2119"/>
+        <location filename="../../Form_Files/main.ui" line="2121"/>
         <source>Existing Files...</source>
         <translation>Stávající soubory...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2122"/>
+        <location filename="../../Form_Files/main.ui" line="2124"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -7268,167 +7290,180 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Přidat soubory z vašeho počítače do knihy.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2132"/>
+        <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>Přidat do knihy nový prázdný stylový list.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2140"/>
+        <location filename="../../Form_Files/main.ui" line="2142"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>Přidat do knihy nový prázdný obrázkový soubor SVG.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2148"/>
+        <location filename="../../Form_Files/main.ui" line="2150"/>
         <source>Open previous file of the same type.</source>
         <translation>Otevřít předchozí soubor stejného typu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2159"/>
+        <location filename="../../Form_Files/main.ui" line="2161"/>
         <source>Open next file of the same type.</source>
         <translation>Otevřít další soubor stejného typu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2170"/>
+        <location filename="../../Form_Files/main.ui" line="2172"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>Přidat vybraný text do editoru rejstříku.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2178"/>
+        <location filename="../../Form_Files/main.ui" line="2180"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2181"/>
+        <location filename="../../Form_Files/main.ui" line="2183"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>Označit vybraný text pro zahrnutí do rejstříku.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2189"/>
+        <location filename="../../Form_Files/main.ui" line="2191"/>
         <source>Generate a new Index HTML file.</source>
         <translation>Vytvořit nový soubor HTML rejstříku.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2197"/>
+        <location filename="../../Form_Files/main.ui" line="2199"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>Vytvořit nový soubor HTML za použití nynějšího obsahu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2205"/>
+        <location filename="../../Form_Files/main.ui" line="2204"/>
+        <source>Book&amp;mark Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2207"/>
+        <source>Ctrl+Alt+B</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2215"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2217"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to the last link you clicked or back to where you used Go to Link or Style.&lt;/p&gt;
-    </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zpět&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Jít zpět na poslední odkaz, na který jste klepnul, nebo nazpět tam, kde jste použil Jít na odkaz nebo styl.&lt;/p&gt;</translation>
+        <location filename="../../Form_Files/main.ui" line="2224"/>
+        <source>&amp;Back</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2223"/>
+        <location filename="../../Form_Files/main.ui" line="2227"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
+    </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2233"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2231"/>
+        <location filename="../../Form_Files/main.ui" line="2241"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1471"/>
+        <location filename="../../Form_Files/main.ui" line="1473"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1240"/>
+        <location filename="../../Form_Files/main.ui" line="1242"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;Najít a nahradit...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1257"/>
+        <location filename="../../Form_Files/main.ui" line="1259"/>
         <source>Incre&amp;ase Indent</source>
         <translation>Zvě&amp;tšit odsazení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1274"/>
+        <location filename="../../Form_Files/main.ui" line="1276"/>
         <source>&amp;Decrease Indent</source>
         <translation>Z&amp;menšit odsazení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1292"/>
+        <location filename="../../Form_Files/main.ui" line="1294"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>Směr te&amp;xtu zleva doprava</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1309"/>
+        <location filename="../../Form_Files/main.ui" line="1311"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>Směr t&amp;extu zprava doleva</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1326"/>
+        <location filename="../../Form_Files/main.ui" line="1328"/>
         <source>Text Directi&amp;on Default</source>
         <translation>Výchozí &amp;směr textu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1338"/>
+        <location filename="../../Form_Files/main.ui" line="1340"/>
         <source>Remove &amp;Formatting</source>
         <translation>Odstranit &amp;formátování</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1351"/>
+        <location filename="../../Form_Files/main.ui" line="1353"/>
         <source>&amp;Lowercase</source>
         <translation>&amp;Malá písmena</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1371"/>
+        <location filename="../../Form_Files/main.ui" line="1373"/>
         <source>&amp;Uppercase</source>
         <translation>&amp;Velká písmena</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1391"/>
+        <location filename="../../Form_Files/main.ui" line="1393"/>
         <source>&amp;Titlecase</source>
         <translation>&amp;První písmeno velké</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1408"/>
+        <location filename="../../Form_Files/main.ui" line="1410"/>
         <source>&amp;Capitalize</source>
         <translation>&amp;Kapitálky</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1454"/>
+        <location filename="../../Form_Files/main.ui" line="1456"/>
         <source>Split At &amp;Markers</source>
         <translation>Rozdělit na &amp;značkách</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1457"/>
+        <location filename="../../Form_Files/main.ui" line="1459"/>
         <source>Split At Sigil split file markers</source>
         <translation>Rozdělit na značkách Sigilu pro rozdělení souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1465"/>
+        <location filename="../../Form_Files/main.ui" line="1467"/>
         <source>Split &amp;Marker</source>
         <translation>&amp;Značka pro rozdělení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1468"/>
+        <location filename="../../Form_Files/main.ui" line="1470"/>
         <source>Insert Sigil split file marker</source>
         <translation>Vložit značku Sigilu pro rozdělení souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1487"/>
+        <location filename="../../Form_Files/main.ui" line="1489"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>Čas&amp;to kladené otázky...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1490"/>
+        <location filename="../../Form_Files/main.ui" line="1492"/>
         <source>Frequently Asked Questions</source>
         <translation>Často kladené otázky</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1510"/>
+        <location filename="../../Form_Files/main.ui" line="1512"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB with FlightCrew&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</source>
@@ -7437,7 +7472,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ověřit, že váš dokument vyhovuje standardům EPUB pomocí FlightCrew.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1523"/>
+        <location filename="../../Form_Files/main.ui" line="1525"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -7449,357 +7484,357 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ověřit, že vaše stylové listy CSS vyhovují standardům W3C pomocí internetové schvalovací služby W3C CSS.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1552"/>
+        <location filename="../../Form_Files/main.ui" line="1554"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>&amp;Zvýraznit špatně napsaná slova</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1563"/>
+        <location filename="../../Form_Files/main.ui" line="1565"/>
         <source>Find the next misspelled word in the book.</source>
-        <translation type="unfinished"/>
+        <translation>Najít další špatně napsané slovo v knize.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1566"/>
+        <location filename="../../Form_Files/main.ui" line="1568"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1571"/>
+        <location filename="../../Form_Files/main.ui" line="1573"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>&amp;Přidat špatně napsané slovo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1574"/>
+        <location filename="../../Form_Files/main.ui" line="1576"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Přidat nynější špatně napsané slovo pod šipkou do výchozího uživatelského slovníku.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1579"/>
+        <location filename="../../Form_Files/main.ui" line="1581"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>Pře&amp;hlížet špatně napsané slovo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1587"/>
+        <location filename="../../Form_Files/main.ui" line="1589"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>S&amp;mazat přehlížená slova</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1595"/>
+        <location filename="../../Form_Files/main.ui" line="1597"/>
         <source>&amp;Index Editor...</source>
         <translation>Editor &amp;rejstříku...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1613"/>
+        <location filename="../../Form_Files/main.ui" line="1615"/>
         <source>&amp;Reports...</source>
         <translation>Zp&amp;rávy...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1625"/>
+        <location filename="../../Form_Files/main.ui" line="1627"/>
         <source>&amp;Donate...</source>
         <translation>&amp;Darovat...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1636"/>
+        <location filename="../../Form_Files/main.ui" line="1638"/>
         <source>Close &amp;Other Tabs</source>
         <translation>Zavřít da&amp;lší karty</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1644"/>
+        <location filename="../../Form_Files/main.ui" line="1646"/>
         <source>Go To &amp;Line...</source>
         <translation>Jít na řád&amp;ek...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1652"/>
+        <location filename="../../Form_Files/main.ui" line="1654"/>
         <source>Find &amp;Next</source>
         <translation>Najít &amp;další</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1660"/>
+        <location filename="../../Form_Files/main.ui" line="1662"/>
         <source>Find &amp;Previous</source>
         <translation>Najít &amp;předchozí</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1692"/>
+        <location filename="../../Form_Files/main.ui" line="1694"/>
         <source>Replace &amp;All</source>
         <translation>Nahradit vš&amp;e</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1700"/>
+        <location filename="../../Form_Files/main.ui" line="1702"/>
         <source>&amp;Count All</source>
         <translation>Spočí&amp;tat vše</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1736"/>
+        <location filename="../../Form_Files/main.ui" line="1738"/>
         <source>&amp;Clip Editor...</source>
         <translation>&amp;Editor úryvků...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1739"/>
+        <location filename="../../Form_Files/main.ui" line="1741"/>
         <source>Open the Clip Editor.</source>
         <translation>Otevřít editor úryvků.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1959"/>
+        <location filename="../../Form_Files/main.ui" line="1961"/>
         <source>Heading &amp;1</source>
         <translation>Nadpis &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1979"/>
+        <location filename="../../Form_Files/main.ui" line="1981"/>
         <source>Heading &amp;2</source>
         <translation>Nadpis &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1999"/>
+        <location filename="../../Form_Files/main.ui" line="2001"/>
         <source>Heading &amp;3</source>
         <translation>Nadpis &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2019"/>
+        <location filename="../../Form_Files/main.ui" line="2021"/>
         <source>Heading &amp;4</source>
         <translation>Nadpis &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2039"/>
+        <location filename="../../Form_Files/main.ui" line="2041"/>
         <source>Heading &amp;5</source>
         <translation>Nadpis &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2059"/>
+        <location filename="../../Form_Files/main.ui" line="2061"/>
         <source>Heading &amp;6</source>
         <translation>Nadpis &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2079"/>
+        <location filename="../../Form_Files/main.ui" line="2081"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normální</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2099"/>
+        <location filename="../../Form_Files/main.ui" line="2101"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>&amp;Zachovat stávající vlastnosti</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2156"/>
+        <location filename="../../Form_Files/main.ui" line="2158"/>
         <source>Next &amp;File</source>
         <translation>Další s&amp;oubor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2167"/>
+        <location filename="../../Form_Files/main.ui" line="2169"/>
         <source>&amp;Add To Index Editor</source>
         <translation>Př&amp;idat do editoru rejstříku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2175"/>
+        <location filename="../../Form_Files/main.ui" line="2177"/>
         <source>&amp;Mark For Index</source>
         <translation>Označit pro re&amp;jstřík</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2186"/>
+        <location filename="../../Form_Files/main.ui" line="2188"/>
         <source>&amp;Create Index</source>
         <translation>&amp;Vytvořit rejstřík</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="919"/>
+        <location filename="../../Form_Files/main.ui" line="921"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>V&amp;ytvořit obsah...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2194"/>
+        <location filename="../../Form_Files/main.ui" line="2196"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation>Vy&amp;tvořit obsah HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2202"/>
+        <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>&amp;Jít na odkaz nebo styl</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2214"/>
-        <source>Go &amp;Back To Link Or Style</source>
-        <translation>Jít &amp;zpět na odkaz nebo styl</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2228"/>
+        <location filename="../../Form_Files/main.ui" line="2238"/>
         <source>Paste From Clipboard &amp;History...</source>
         <translation>Vložit z &amp;historie schránky...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2236"/>
+        <location filename="../../Form_Files/main.ui" line="2246"/>
         <source>&amp;Delete Line</source>
         <translation>&amp;Smazat řádek</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2239"/>
+        <location filename="../../Form_Files/main.ui" line="2249"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1639"/>
+        <location filename="../../Form_Files/main.ui" line="1641"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1647"/>
+        <location filename="../../Form_Files/main.ui" line="1649"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1655"/>
+        <location filename="../../Form_Files/main.ui" line="1657"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1663"/>
+        <location filename="../../Form_Files/main.ui" line="1665"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1679"/>
+        <location filename="../../Form_Files/main.ui" line="1681"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1687"/>
+        <location filename="../../Form_Files/main.ui" line="1689"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1695"/>
+        <location filename="../../Form_Files/main.ui" line="1697"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1703"/>
+        <location filename="../../Form_Files/main.ui" line="1705"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1728"/>
+        <location filename="../../Form_Files/main.ui" line="1730"/>
         <source>&amp;Saved Searches...</source>
         <translation>&amp;Uložená hledání...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1937"/>
+        <location filename="../../Form_Files/main.ui" line="1939"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Nastavení...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1940"/>
+        <location filename="../../Form_Files/main.ui" line="1942"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1945"/>
+        <location filename="../../Form_Files/main.ui" line="1947"/>
         <source>&amp;Zoom Reset</source>
         <translation>Nastavit &amp;zvětšení znovu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1948"/>
+        <location filename="../../Form_Files/main.ui" line="1950"/>
         <source>Zoom Reset</source>
         <translation>Nastavit zvětšení znovu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1951"/>
+        <location filename="../../Form_Files/main.ui" line="1953"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2129"/>
+        <location filename="../../Form_Files/main.ui" line="2131"/>
         <source>Blank Stylesheet</source>
         <translation>Prázdný styl</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2137"/>
+        <location filename="../../Form_Files/main.ui" line="2139"/>
         <source>Blank SVG Image</source>
         <translation>Prázdný obrázek SVG</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2145"/>
+        <location filename="../../Form_Files/main.ui" line="2147"/>
         <source>Pre&amp;vious File</source>
         <translation>&amp;Předchozí soubor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2151"/>
+        <location filename="../../Form_Files/main.ui" line="2153"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="902"/>
+        <location filename="../../Form_Files/main.ui" line="904"/>
         <source>&amp;Metadata Editor...</source>
         <translation>&amp;Editor popisu...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1476"/>
+        <location filename="../../Form_Files/main.ui" line="1478"/>
         <source>User &amp;Guide...</source>
         <translation>&amp;Průvodce pro uživatele...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1479"/>
+        <location filename="../../Form_Files/main.ui" line="1481"/>
         <source>User Guide</source>
         <translation>Průvodce pro uživatele</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1482"/>
+        <location filename="../../Form_Files/main.ui" line="1484"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1495"/>
+        <location filename="../../Form_Files/main.ui" line="1497"/>
         <source>&amp;Tutorials...</source>
         <translation>&amp;Návody...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1498"/>
+        <location filename="../../Form_Files/main.ui" line="1500"/>
         <source>Tutorials</source>
         <translation>Návody</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2162"/>
+        <location filename="../../Form_Files/main.ui" line="2164"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="513"/>
         <source>Open File</source>
         <translation>Otevřít soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="610"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="618"/>
         <source>Save File</source>
         <translation>Uložit soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="708"/>
         <source>Go To Line</source>
         <translation>Jít na řádek</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="708"/>
         <source>Line #</source>
         <translation>Řádek #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="319"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="545"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1057"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1081"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1092"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1198"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1217"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1231"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1242"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1256"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1265"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1458"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1465"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2750"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="327"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="553"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1119"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1292"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2886"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3234"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="280"/>
+        <source>Location bookmarked.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="327"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -7809,283 +7844,294 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="491"/>
         <source>New file created.</source>
         <translation>Nový soubor vytvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="666"/>
         <source>Save a Copy</source>
         <translation>Uložit kopii</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="767"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="781"/>
         <source>No CSS styles named</source>
         <translation>Žádné pojmenované styly CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="911"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="938"/>
         <source>Styles deleted.</source>
         <translation>Styly smazány.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1145"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1172"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Soubor &quot;%1&quot; neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1198"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1217"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Nemůžete vložit ID v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1231"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
         <source>You cannot insert a hyperlink at this position.</source>
         <translation>Nemůžete vložit odkaz v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1288"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1299"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1315"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1441"/>
         <source>Select the destination to paste into first.</source>
         <translation>Vyberte cíl, do kterého vkládat nejprve.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1458"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1485"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Jeden zdroj byl vybrán, ale není tu předchozí zdroj, se kterým by se sloučil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1465"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1492"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Jste si jistý, že chcete sloučit vybrané soubory?
 Tento krok nelze vrátit zpět.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1479"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1527"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1554"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Odkazování stylových listů zrušeno: %1, XML není dobře utvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1484"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1511"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Sloučení zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1536"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Sloučení dokončeno. Možná bude potřeba vytvořit obsah znovu nebo jej upravit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1628"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1686"/>
+        <source>Word updated.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
         <source>File(s) deleted.</source>
         <translation>Soubor(y) smazán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1676"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1799"/>
         <source>Table Of Contents generated.</source>
         <translation>Obsah vytvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1942"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2078"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Tento EPUB neobsahuje žádné stylové listy ke schválení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2566"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
         <source>File cannot be split at this position.</source>
         <translation>Soubor nelze v tomto místě rozdělit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2583"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2719"/>
         <source>Split completed.</source>
         <translation>Rozdělení dokončeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2633"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2769"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Rozdělení dokončeno. Možná bude potřeba obnovit obsah.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2642"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2778"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Nenalezeny žádné značky pro rozdělení souboru. Použijte Vložka-&gt;Značka pro rozdělení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2864"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3002"/>
         <source>File loaded.</source>
         <translation>Soubor nahrán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2951"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3054"/>
+        <source>Sigil cannot save files of type &quot;%1&quot;.
+Please choose a different format.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3089"/>
         <source>File saved.</source>
         <translation>Soubor uložen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="256"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="258"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Pohyb byl zrušen, protože poloha už neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="350"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="358"/>
         <source>was updated</source>
         <translation>byl aktualizován</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="361"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="369"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="361"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="369"/>
         <source>The file was NOT well-formed and may be corrupted.</source>
         <translation>Soubor NEBYL dobře utvořen a může být poškozen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="389"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="397"/>
         <source>The EPUB contains errors.</source>
         <translation>EPUB obsahuje chyby.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="399"/>
         <source>Select Show Details for more information.</source>
         <translation>Vyberte Ukázat podrobnosti pro zobrazení dalších informací.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="401"/>
         <source>Try changing the Clean Source preferences to automatically clean errors then reload the file.</source>
         <translation>Zkuste změnit nastavení pro Uklidit zdroj, aby se automaticky uklidily chyby, pak soubor nahrajte znovu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="438"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="446"/>
         <source>Sigil is closing...</source>
         <translation>Sigil zavírá...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="544"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="552"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Tento soubor už neexistuje. Klepněte na OK pro jeho odstranění z nabídky.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1092"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Smazání nepoužívaných stylů zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1081"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Nejsou žádné nepoužívané třídy stylových listů ke smazání.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1212"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1239"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID je neplatné - musí začínat písmenem, následováno číslem písmene _ : - nebo .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1256"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1283"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Nemůžete označit rejstřík v této poloze nebo bez vybrání textu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1265"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1292"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Nemůžete označit rejstřík v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
         <source>Cannot merge file %1</source>
         <translation>Nelze sloučit soubor %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1784"/>
         <source>Generate TOC cancelled.</source>
         <translation>Vytvoření obsahu zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1678"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1801"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Nebyly nutné žádné změny obsahu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2613"/>
         <source>Line: %1, Col: %2</source>
         <translation>Řádek: %1, sloupec: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2887"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokument byl změněn.
 Chcete uložit své změny?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2836"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2974"/>
         <source>No importer for file type: %1</source>
         <translation>Žádný zavaděč pro souborový typ: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2602"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Nelze rozdělit, protože alespoň jeden soubor není souborem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="919"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="946"/>
         <source>Reports cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Zprávy zrušeny kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1006"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1033"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Smazání nepoužívaných multimediálních souborů zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1082"/>
         <source>Unused media files deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Nepoužívané multimediální soubory smazány.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1057"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1084"/>
         <source>There are no unused image, video or audio files to delete.</source>
-        <translation type="unfinished"/>
+        <translation>Nejsou žádné nepoužívané obrázky, obrazové nebo zvukové záznamy ke smazání.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1092"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1119"/>
         <source>You cannot insert a file at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Nemůžete vložit soubor v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1307"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1334"/>
         <source>Pasted clip entry %1.</source>
-        <translation type="unfinished"/>
+        <translation>Vložena položka úryvku %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1639"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1762"/>
         <source>Edit Table of Contents cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Upravení obsahu zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1644"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1767"/>
         <source>Table Of Contents edited.</source>
-        <translation type="unfinished"/>
+        <translation>Obsah upraven.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2744"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Nelze rozdělit: %1 XML není dobře utvořen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2750"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Nelze rozdělit, protože alespoň jeden soubor nemusí být souborem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2843"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2981"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8098,86 +8144,79 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
 Zkuste nastavit nastavení pro Uklidit zdroj na Pretty Print Tidy nebo HTML Tidy a soubor nahrajte znovu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3016"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tvůrce tohoto souboru jej zašifroval DRM. Sigil takové soubory otevřít nedokáže.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2884"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3022"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Nelze nahrát EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2887"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3025"/>
         <source>Cannot load file %1: %2</source>
         <translation>Nelze nahrát soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2908"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3046"/>
         <source>Saving file...</source>
         <translation>Ukládá se soubor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2916"/>
-        <source>Sigil currently cannot save files of type &quot;%1&quot;.
-Please choose a different format.</source>
-        <translation>Sigil nyní nedokáže ukládat soubory typu &quot;%1&quot;.
-Vyberte, prosím, jiný formát.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2954"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3092"/>
         <source>Cannot save file %1: %2</source>
         <translation>Nelze uložit soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3211"/>
         <source>EPUB files (*.epub)</source>
         <translation>Soubory EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3074"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3075"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3076"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3212"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3213"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3214"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Soubory HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3077"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3215"/>
         <source>Text files (*.txt)</source>
         <translation>Textové soubory (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3078"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3216"/>
         <source>All files (*.*)</source>
         <translation>Všechny soubory (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3086"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3224"/>
         <source>EPUB file (*.epub)</source>
         <translation>Soubor EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3234"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3167"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Zachování stávajících vlastností nadpisů je nyní:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3306"/>
         <source>ON</source>
         <translation>ZAPNUTO</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3306"/>
         <source>OFF</source>
         <translation>VYPNUTO</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3193"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -8314,7 +8353,7 @@ více položek téhož typu.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="335"/>
         <source>Metadata saved.</source>
-        <translation type="unfinished"/>
+        <translation>Popis uložen.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="413"/>
@@ -8339,13 +8378,14 @@ více položek téhož typu.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
         <source>Sigil: Metadata Editor</source>
-        <translation type="unfinished"/>
+        <translation>Sigil: Editor popisu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
         <source>The metadata may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>Popis byl zřejmě změněn.
+Chcete uložit své změny?</translation>
     </message>
 </context>
 <context>
@@ -10554,7 +10594,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mÃ©moire, or text of a dissertation. </source>
-        <translation type="unfinished"/>
+        <translation>Použijte pro osobu, pod jejímž dohledem kandidát rozvíjí a představuje diplomovou práci, životopis, nebo text dizertace. </translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
@@ -10668,17 +10708,17 @@ Do you want to save your changes?</source>
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="574"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="575"/>
         <source>The filename cannot be empty.</source>
         <translation>Soubor nemůže být prázdný.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="563"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="564"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>Název souboru nemůže obsahovat znak &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="581"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="582"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>Soubor s názvem &quot;%1&quot; se už používá.
@@ -10799,12 +10839,12 @@ Do you want to save your changes?</source>
         <translation>Vytváří se zprávy...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="514"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="529"/>
         <source>Adding Existing Files..</source>
         <translation>Přidávají se stávající soubory...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="758"/>
+        <location filename="../../BookManipulation/Book.cpp" line="823"/>
         <source>Merging Files..</source>
         <translation>Slučují se soubory...</translation>
     </message>
@@ -10904,93 +10944,93 @@ Do you want to save your changes?</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="91"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="99"/>
         <source>Cannot read EPUB: %1</source>
         <translation>Nelze přečíst EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="136"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="144"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>Soubor OPF neobsahuje platnou kostru.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="137"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="576"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="579"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="145"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="607"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="610"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil pro vás jednu vytvořil.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="174"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="182"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Chyba při zpracování zakódování xml.
 Řádek: %1, Sloupec %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="378"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="386"/>
         <source>Cannot open EPUB: %1</source>
         <translation>Nelze otevřít EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="336"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="345"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="362"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="344"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="353"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="370"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="378"/>
         <source>Cannot extract file: %1</source>
         <translation>Nelze vytáhnout soubor: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="303"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="311"/>
         <source>Cannot unzip EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nelze rozbalit EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="409"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="440"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Nelze zpracovat soubor container.xml.
 Řádek: %1, Sloupec %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="418"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="449"/>
         <source>No appropriate OPF file found</source>
         <translation>Nenalezen žádný náležitý soubor OPF</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="455"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="486"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>Nelze přečíst soubor OPF.
 Řádek: %1, Sloupec %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="507"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="538"/>
         <source>The OPF manifest contains duplicate ids for: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Manifest OPF obsahuje zdvojená ID pro: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="508"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="539"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Pro nahrání tohoto EPUB bylo přiřazeno dočasné ID. Měl byste kvůli odstranění zdvojení váš soubor OPF upravit.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="546"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="577"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>Soubor OPF nerozpoznal soubor NCX správně.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="547"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="578"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil použil následující soubor jako NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="575"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>Soubor OPF neobsahuje soubor NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="578"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
         <source>The NCX file is not present in this EPUB.</source>
         <translation>Soubor NCX není přítomen v tomto EPUB.</translation>
     </message>
@@ -11016,7 +11056,7 @@ Line: %1 Column %2 - %3</source>
         <translation>Neplatný soubor NCX: %1</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="599"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="598"/>
         <source>Cleaning...</source>
         <translation>Uklízí se...</translation>
     </message>
@@ -11387,7 +11427,7 @@ To přepíše všechny neuložené změny.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="660"/>
         <source>Collapse All</source>
-        <translation>Složit vše</translation>
+        <translation>Sbalit vše</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="661"/>
@@ -11448,83 +11488,84 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Vložit soubor</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Vypsat pouze názvy souborů obsahující vámi zadaný text.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filtr:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
         <source>Choose which image, video, or audio files from your computer to add to
 your book and automatically insert into your document.</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte, které obrázkové, obrazové nebo zvukové soubory z vašeho počítače
+se mají přidat do vaší knihy a automaticky vložit do vašeho dokumentu.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation type="unfinished"/>
+        <translation>Jiné soubory...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
         <source>Thumbnail size:</source>
-        <translation type="unfinished"/>
+        <translation>Velikost náhledu:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="69"/>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Vše</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="70"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Obrázky</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="71"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Obraz</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="72"/>
         <source>Audio</source>
-        <translation type="unfinished"/>
+        <translation>Zvuk</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="114"/>
         <source>Files In the Book</source>
-        <translation type="unfinished"/>
+        <translation>Soubory v knize</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="117"/>
         <source>Thumbnails</source>
-        <translation type="unfinished"/>
+        <translation>Náhledy</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
         <source>shades</source>
-        <translation type="unfinished"/>
+        <translation>Odstíny</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
         <source>colors</source>
-        <translation type="unfinished"/>
+        <translation>Barvy</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="288"/>
         <source>Grayscale</source>
-        <translation type="unfinished"/>
+        <translation>Stupnice šedi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="288"/>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Barva</translation>
     </message>
 </context>
 <context>
@@ -11532,7 +11573,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation type="unfinished"/>
+        <translation>Vybrat cíl</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
@@ -11548,7 +11589,9 @@ your book and automatically insert into your document.</source>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
         <source>Enter the target URL for this hyperlink.  You can select or 
 double click on existing destinations in your book from the list above.</source>
-        <translation type="unfinished"/>
+        <translation>Vyberte adresu cíle (URL) pro tento odkaz. Můžete
+vybrat nebo dvakrát klepnout na stávající cíle ve vaší
+knize v seznamu výše.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
@@ -11572,13 +11615,13 @@ double click on existing destinations in your book from the list above.</source>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
         <source>Enter an ID name to use as a destination for hyperlinks, footnotes, and TOC entries.
 
-The dropdown box shows existing ID names in the current file.   ID names must be unique.</source>
-        <translation>Zadejte název ID, který se použije jako cíl pro odkazy, poznámky pod čarou a položky obsahu.
+The dropdown box shows existing ID names in the current file.
 
-Rozbalovací seznam ukazuje stávající názvy ID v nynějším souboru. Názva identifikátorů musí být jedinečné.</translation>
+ID names must be unique and start with a letter.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/SelectId.ui" line="27"/>
+        <location filename="../../Form_Files/SelectId.ui" line="29"/>
         <source>ID:</source>
         <translation>ID:</translation>
     </message>
@@ -11633,29 +11676,31 @@ Rozbalovací seznam ukazuje stávající názvy ID v nynějším souboru. Názva
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="64"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Zvýraznit špatně napsaná slova v Pohledu na kód.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="67"/>
         <source>Highlight Misspelled Words</source>
-        <translation type="unfinished"/>
+        <translation>Zvýraznit špatně napsaná slova</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="120"/>
         <source>User Dictionaries</source>
-        <translation type="unfinished"/>
+        <translation>Uživatelské slovníky</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Kopírovat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
         <source>Remove the selected dictionary.
 
 You cannot remove the last dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Odstranit vybraný slovník.
+
+Nemůžete odstranit poslední slovník.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="179"/>
@@ -11664,13 +11709,18 @@ spell checking.
 
 Select a dictionary to display its words,
 and to make it the default dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Označit, které slovníky jsou povoleny
+pro ověřování pravopisu.
+
+Vyberte slovník, aby se zobrazovala jeho
+slova, a aby se z něj udělal výchozí slovník.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="208"/>
         <source>Enter or paste words to add to the dictionary.
 Words can be separated by lines, commas, or spaces.</source>
-        <translation type="unfinished"/>
+        <translation>Zadejte nebo vložte slova pro přidání do slovníku.
+Slova mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="219"/>
@@ -11681,17 +11731,19 @@ Words can be separated by lines, commas, or spaces.</source>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="262"/>
         <source>The default dictionary is used when you add words to the
 default dictionary or use the shortcuts for Add Misspelled Words.</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí slovník se používá, když přidáte slova do výchozího
+slovníku nebo použijete zkratku pro přidávání špatně
+napsaných slov.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="266"/>
         <source>Default Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Výchozí slovník:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="273"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>žádný</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
@@ -11707,12 +11759,12 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="52"/>
         <source>Enable</source>
-        <translation type="unfinished"/>
+        <translation>Povolit</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Slovník</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
@@ -11723,7 +11775,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Add Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Přidat slovník</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
@@ -11743,12 +11795,12 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Add Words</source>
-        <translation type="unfinished"/>
+        <translation>Přidat slova</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Words:</source>
-        <translation type="unfinished"/>
+        <translation>Slova:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="162"/>
@@ -11763,7 +11815,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Nemůžete smazat poslední slovník.</translation>
     </message>
 </context>
 <context>
@@ -11771,113 +11823,144 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation type="unfinished"/>
+        <translation>Ověření pravopisu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filtr:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Vypsat pouze položky obsahující vámi zadaný text.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="409"/>
+        <source>Ignore</source>
+        <translation>Přehlížet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="306"/>
-        <source>Ignore</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Form_Files/SpellcheckEditor.ui" line="61"/>
         <source>Ignore the selected words until Sigil
 is restarted or a new book is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Přehlížet vybraná slova, dokud není Sigil
+spuštěn znovu, nebo není otevřena
+nová kniha.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="91"/>
-        <source>Add to Dictionary:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Form_Files/SpellcheckEditor.ui" line="94"/>
         <source>Add the selected words to the
 dictionary selected below.</source>
+        <translation>Přidat vybraná slova do slovníku
+vybranéh níže.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
+        <source>Add To Dictionary:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/SpellcheckEditor.ui" line="137"/>
+        <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
+        <source>Change all occurrences of the selected word  in
+HTML files to the word you select or type below.
+The selected word does not have to be misspelled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SpellcheckEditor.ui" line="139"/>
+        <source>Change Selected Word To:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Refresh</source>
+        <translation>Obnovit</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SpellcheckEditor.ui" line="184"/>
+        <source>Re-check the HTML files for misspelled words.
+Use if you edit any HTML files while Spellcheck is open.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/SpellcheckEditor.ui" line="144"/>
+        <location filename="../../Form_Files/SpellcheckEditor.ui" line="192"/>
         <source>Show All Words</source>
-        <translation type="unfinished"/>
+        <translation>Ukázat všechna slova</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="124"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="141"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="132"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="155"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="195"/>
         <source>No words selected.</source>
-        <translation type="unfinished"/>
+        <translation>Nevybrána žádná slova.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="131"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="154"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="194"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="205"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="262"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Ne</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="134"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="148"/>
         <source>Ignored word(s).</source>
-        <translation type="unfinished"/>
+        <translation>Přehlížená slova.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="158"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="183"/>
         <source>Added word(s) to dictionary.</source>
+        <translation>Slova přidaná do slovníku.</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="186"/>
+        <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="166"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="224"/>
         <source>Word</source>
+        <translation>Slovo</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="225"/>
+        <source>Count</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="167"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="226"/>
         <source>Misspelled?</source>
-        <translation type="unfinished"/>
+        <translation>Špatně napsáno?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="174"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="271"/>
         <source>Misspelled Words</source>
-        <translation type="unfinished"/>
+        <translation>Špatně napsaná slova</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="174"/>
-        <source>Total Words</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="191"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="259"/>
         <source>Yes</source>
+        <translation>Ano</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="271"/>
+        <source>Total Unique Words</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="307"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="410"/>
         <source>Add to Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Přidat do slovníku</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="308"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="411"/>
         <source>Find in Text</source>
-        <translation type="unfinished"/>
+        <translation>Najít v textu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="309"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="412"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Vybrat vše</translation>
     </message>
 </context>
 <context>
@@ -11928,22 +12011,22 @@ dictionary selected below.</source>
         <translation>&lt;p&gt;Kvůli složitostem CSS musíte svůj kód prověřit ručně, abyste si byli jisti, že je styl používán, nebo není.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="238"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="244"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="251"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="257"/>
         <source>Cannot save report file.</source>
         <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="251"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="257"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="262"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="268"/>
         <source>Delete From Stylesheet</source>
         <translation>Smazat ze stylového listu</translation>
     </message>
@@ -11972,17 +12055,17 @@ dictionary selected below.</source>
         <translation>Obsah</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="122"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="124"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Soubor &quot;%1&quot; neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="171"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="173"/>
         <source>Collapse All</source>
-        <translation>Složit vše</translation>
+        <translation>Sbalit vše</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="172"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="174"/>
         <source>Expand All</source>
         <translation>Rozbalit vše</translation>
     </message>
@@ -12062,1267 +12145,1267 @@ dictionary selected below.</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="69"/>
         <source>quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="70"/>
         <source>ampersand</source>
-        <translation type="unfinished"/>
+        <translation>Symbol &amp;</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="71"/>
         <source>apostrophe</source>
-        <translation type="unfinished"/>
+        <translation>Odsuvník</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="72"/>
         <source>less-than sign</source>
-        <translation type="unfinished"/>
+        <translation>Znaménko menší než</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="73"/>
         <source>greater-than sign</source>
-        <translation type="unfinished"/>
+        <translation>Znaménko větší než</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="74"/>
         <source>no-break space</source>
-        <translation type="unfinished"/>
+        <translation>Nezalomitelná mezera</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="75"/>
         <source>inverted exclamation mark</source>
-        <translation type="unfinished"/>
+        <translation>Obrácený vykřičník</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="76"/>
         <source>cent sign</source>
-        <translation type="unfinished"/>
+        <translation>Značka pro cent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="77"/>
         <source>pound sign</source>
-        <translation type="unfinished"/>
+        <translation>Značka pro libru</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="78"/>
         <source>currency sign</source>
-        <translation type="unfinished"/>
+        <translation>Znak měny</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="79"/>
         <source>yen sign</source>
-        <translation type="unfinished"/>
+        <translation>Značka pro jen</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="80"/>
         <source>broken bar</source>
-        <translation type="unfinished"/>
+        <translation>Přerušené svislítko</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="81"/>
         <source>section sign</source>
-        <translation type="unfinished"/>
+        <translation>Značka u oddílu textu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="82"/>
         <source>diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Přehláska</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="83"/>
         <source>copyright symbol</source>
-        <translation type="unfinished"/>
+        <translation>Symbol pro autorské právo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="84"/>
         <source>feminineÂ ordinal indicator</source>
-        <translation type="unfinished"/>
+        <translation>Ukazatel ženského rodu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="85"/>
         <source>left-pointing double angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Vlevo směřující dvojitá špičatá uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="86"/>
         <source>not sign</source>
-        <translation type="unfinished"/>
+        <translation>Znak ne</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="87"/>
         <source>soft hyphen</source>
-        <translation type="unfinished"/>
+        <translation>Měkké dělítko</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="88"/>
         <source>registered sign</source>
-        <translation type="unfinished"/>
+        <translation>Znak registrováno</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="89"/>
         <source>macron</source>
-        <translation type="unfinished"/>
+        <translation>Vodorovná čárka nad samohláskou označující její délku nebo přízvučnost</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="90"/>
         <source>degree symbol</source>
-        <translation type="unfinished"/>
+        <translation>Symbol pro stupeň</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="91"/>
         <source>plus-minus sign</source>
-        <translation type="unfinished"/>
+        <translation>Znaménko plus-minus</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="92"/>
         <source>superscript two</source>
-        <translation type="unfinished"/>
+        <translation>Horní index 2</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="93"/>
         <source>superscript three</source>
-        <translation type="unfinished"/>
+        <translation>Horní index 3</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="94"/>
         <source>acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Hlavní přízvuk</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="95"/>
         <source>micro sign</source>
-        <translation type="unfinished"/>
+        <translation>Značka pro mikro</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="96"/>
         <source>pilcrowÂ sign</source>
-        <translation type="unfinished"/>
+        <translation>Značka pro znak odstavce</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>middle dot</source>
-        <translation type="unfinished"/>
+        <translation>Tečka uprostřed</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>cedilla</source>
-        <translation type="unfinished"/>
+        <translation>Cédille (háček pod písmeny c, s či t)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>superscript one</source>
-        <translation type="unfinished"/>
+        <translation>Horní index 1</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>masculineÂ ordinal indicator</source>
-        <translation type="unfinished"/>
+        <translation>Ukazatel mužského rodu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>right-pointing double angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Vpravo směřující dvojitá špičatá uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>vulgar fraction one quarter</source>
-        <translation type="unfinished"/>
+        <translation>Jednoduchý zlomek pro jednu čtvrtinu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>vulgar fraction one half</source>
-        <translation type="unfinished"/>
+        <translation>Jednoduchý zlomek pro jednu polovinu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>vulgar fraction three quarters</source>
-        <translation type="unfinished"/>
+        <translation>Jednoduchý zlomek pro tři čtvrtiny</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>inverted question mark</source>
-        <translation type="unfinished"/>
+        <translation>Obrácený otazník</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>Latin capital letter A withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno A s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>Latin capital letter A withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno A s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>Latin capital letter A withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno A se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>Latin capital letter A withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno A s vlnovkou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>Latin capital letter A withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno A s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>Latin capital letter A with ring above</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno A s kroužkem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>Latin capital letter AE</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno AE (slitek)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>Latin capital letter C withÂ cedilla</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno C s háčkem pod písmenem (cédille)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>Latin capital letter E withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno E s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>Latin capital letter E withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno E s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>Latin capital letter E withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno E se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>Latin capital letter E withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno E s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>Latin capital letter I withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno I s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>Latin capital letter I withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno I s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>Latin capital letter I withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno I se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>Latin capital letter I withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno I s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>Latin capital letterÂ Eth</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno pro znělou frikativu TH</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>Latin capital letter N withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno N s vlnovkou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>Latin capital letter O withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno O s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>Latin capital letter O withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno O s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>Latin capital letter O withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno O se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>Latin capital letter O withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno O s vlnovkou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>Latin capital letter O withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno O s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>multiplication sign</source>
-        <translation type="unfinished"/>
+        <translation>Znaménko násobení (krát)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>Latin capital letter O with stroke</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno O se šikmým tahem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>Latin capital letter U withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno O s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>Latin capital letter U withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno U s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>Latin capital letter U withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno U se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter U withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno U s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter Y withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno Y s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letterÂ THORN</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno dnes přepisované jako th</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin small letter sharp s</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno ostré s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin small letter a withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin small letter a withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin small letter a withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin small letter a withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno s vlnovkou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin small letter a withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin small letter a with ring above</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno s kroužkem nad</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin small letter ae</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno ae (slitek)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin small letter c withÂ cedilla</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno c s háčkem pod písmenem (cédille)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin small letter e withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno e s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>Latin small letter e withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno e s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin small letter e withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno e se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin small letter e withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno e s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin small letter i withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno i s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin small letter i withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno i s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin small letter i withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno i se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin small letter i withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno i s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin small letterÂ eth</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno pro znělou frikativu th</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin small letter n withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno n s vlnovkou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin small letter o withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno o s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>Latin small letter o withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno o s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin small letter o withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno o se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin small letter o withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno o s vlnovkou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin small letter o withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno o s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>division sign</source>
-        <translation type="unfinished"/>
+        <translation>Znaménko pro dělení</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin small letter o with stroke</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno o se šikmým tahem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin small letter u withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno i s čárkou směřující vlevo (accent grave)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin small letter u withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno u s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter u withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno u se stříškou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter u withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno u s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter y withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno y s hlavním přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letterÂ thorn</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno dnes přepisované jako th</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter y withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno y s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin capital ligature oe</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno OE (slitek)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small ligature oe</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno oe (slitek)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin capital letter s withÂ caron</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno s háčkem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter s withÂ caron</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno s háčkem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin capital letter y withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latinské velké písmeno Y s přehláskou</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter f with hook</source>
-        <translation type="unfinished"/>
+        <translation>Latinské malé písmeno f s háčkem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>modifier letterÂ circumflexÂ accent</source>
-        <translation type="unfinished"/>
+        <translation>Písmeno modifikátoru se znakem stříšky jako přízvukem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>smallÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>Malá vlnovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Greek capital letter Alpha</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno alfa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Greek capital letter Beta</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno beta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Greek capital letter Gamma</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Greek capital letter Delta</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Greek capital letter Epsilon</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno Epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Greek capital letter Zeta</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno zéta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Greek capital letter Eta</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno éta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Greek capital letter Theta</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno théta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Greek capital letter Iota</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno ióta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Greek capital letter Kappa</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Greek capital letter Lambda</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>Greek capital letter Mu</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno mí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Greek capital letter Nu</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno ný</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Greek capital letter Xi</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno ksí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Greek capital letter Omicron</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno o mikron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Greek capital letter Pi</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno pí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Greek capital letter Rho</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno rhó</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Greek capital letter Sigma</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Greek capital letter Tau</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Greek capital letter Upsilon</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno Y psilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Greek capital letter Phi</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno fí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Greek capital letter Chi</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno chí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Greek capital letter Psi</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno psí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Greek capital letter Omega</source>
-        <translation type="unfinished"/>
+        <translation>Velké řecké písmeno Ó mega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Greek small letter alpha</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno alfa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Greek small letter beta</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno beta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>Greek small letter gamma</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>Greek small letter delta</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek small letter epsilon</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek small letter zeta</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno zéta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek small letter eta</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno éta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek small letter theta</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno théta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek small letter iota</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno ióta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek small letter kappa</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek small letter lambda</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek small letter mu</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno mí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek small letter nu</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno ný</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek small letter xi</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno ksí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek small letter omicron</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno o mikron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek small letter pi</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno pí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek small letter rho</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno rhó</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek small letter final sigma</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno koncová sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek small letter sigma</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek small letter tau</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek small letter upsilon</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno Y psilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek small letter phi</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno fí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek small letter chi</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno chí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek small letter psi</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno psí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek small letter omega</source>
-        <translation type="unfinished"/>
+        <translation>Malé řecké písmeno Ó mega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek theta symbol</source>
-        <translation type="unfinished"/>
+        <translation>Řecký symbol pro thétu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek Upsilon with hook symbol</source>
-        <translation type="unfinished"/>
+        <translation>Řecký symbol pro Y psilon s háčkem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek pi symbol</source>
-        <translation type="unfinished"/>
+        <translation>Řecký symbol pro pí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>en space</source>
-        <translation type="unfinished"/>
+        <translation>Mezera en</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>em space</source>
-        <translation type="unfinished"/>
+        <translation>Mezera em</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>thin space</source>
-        <translation type="unfinished"/>
+        <translation>Úzká mezera</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>zero-width non-joiner</source>
-        <translation type="unfinished"/>
+        <translation>Ne-spojovník o nulové šířce</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>zero-width joiner</source>
-        <translation type="unfinished"/>
+        <translation>Spojovník o nulové šířce</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>left-to-right mark</source>
-        <translation type="unfinished"/>
+        <translation>Značka pro směr zleva doprava</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>right-to-left mark</source>
-        <translation type="unfinished"/>
+        <translation>Značka pro směr zprava doleva</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>en dash</source>
-        <translation type="unfinished"/>
+        <translation>Pomlčka en</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>em dash</source>
-        <translation type="unfinished"/>
+        <translation>Pomlčka em</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>left singleÂ quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Levá jednoduchá uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>right singleÂ quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Pravá jednoduchá uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>single low-9Â quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Jednoduchá nízká uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>left doubleÂ quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Levá dvojitá uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>right doubleÂ quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Pravá dvojitá uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>double low-9Â quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Dvojitá nízká uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>dagger, obelisk</source>
-        <translation type="unfinished"/>
+        <translation>Křížek</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>double dagger, double obelisk</source>
-        <translation type="unfinished"/>
+        <translation>Dvojitý křížek</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>bullet</source>
-        <translation type="unfinished"/>
+        <translation>Kulatá odrážka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>horizontalÂ ellipsis</source>
-        <translation type="unfinished"/>
+        <translation>Vodorovná výpustka (tři tečky)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>per milleÂ sign</source>
-        <translation type="unfinished"/>
+        <translation>Značka promile</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>prime</source>
-        <translation type="unfinished"/>
+        <translation>Symbol  ′ (kvůli pohodlí se běžně používá jednoduchá uvozovka)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>double prime</source>
-        <translation type="unfinished"/>
+        <translation>Dvojitý symbol  ′ ( ″)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>single left-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Jednoduché vlevo směřující špičatá uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>single right-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>Jednoduché vpravo směřující špičatá uvozovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>overline</source>
-        <translation type="unfinished"/>
+        <translation>Nadtržení</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>fraction slash</source>
-        <translation type="unfinished"/>
+        <translation>Zlomková čára</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>euro sign</source>
-        <translation type="unfinished"/>
+        <translation>Znak pro Euro</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>black-letter capital I</source>
-        <translation type="unfinished"/>
+        <translation>Černé velké písmeno I</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>script capital P</source>
-        <translation type="unfinished"/>
+        <translation>Velké skriptové písmeno P</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>black-letter capital R</source>
-        <translation type="unfinished"/>
+        <translation>Černé velké písmeno R</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>trademark symbol</source>
-        <translation type="unfinished"/>
+        <translation>Symbol obchodní značka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>alef symbol</source>
-        <translation type="unfinished"/>
+        <translation>Symbol aleph</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>leftwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>Šipka směřující doleva</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>upwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>Šipka směřující nahoru</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>rightwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>Šipka směřující doprava</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>downwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>Šipka směřující dolů</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>left right arrow</source>
-        <translation type="unfinished"/>
+        <translation>Šipka vlevo vpravo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>downwards arrow with corner leftwards</source>
-        <translation type="unfinished"/>
+        <translation>Šipka směřující dolů s rohem doleva</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>leftwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>Dvojitá šipka směřující doleva</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>upwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>Dvojitá šipka směřující nahoru</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>rightwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>Dvojitá šipka směřující doprava</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>downwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>Dvojitá šipka směřující dolů</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>left right double arrow</source>
-        <translation type="unfinished"/>
+        <translation>Dvojitá šipka vlevo vpravo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>for all</source>
-        <translation type="unfinished"/>
+        <translation>Pro vše</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>partial differential</source>
-        <translation type="unfinished"/>
+        <translation>Částečný rozdíl</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>there exists</source>
-        <translation type="unfinished"/>
+        <translation>Je</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>empty set</source>
-        <translation type="unfinished"/>
+        <translation>Prázdná množina</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>nabla</source>
-        <translation type="unfinished"/>
+        <translation>Symbol nabla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>element of</source>
-        <translation type="unfinished"/>
+        <translation>Prvek</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>not an element of</source>
-        <translation type="unfinished"/>
+        <translation>Není prvkem</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>contains as member</source>
-        <translation type="unfinished"/>
+        <translation>Obsahuje jako člen</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>n-ary product</source>
-        <translation type="unfinished"/>
+        <translation>n-ární součin</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>n-ary summation</source>
-        <translation type="unfinished"/>
+        <translation>n-ární součet</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>minus sign</source>
-        <translation type="unfinished"/>
+        <translation>Znaménko minus</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>asterisk operator</source>
-        <translation type="unfinished"/>
+        <translation>Operátor hvězdička</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>square root</source>
-        <translation type="unfinished"/>
+        <translation>Odmocnina</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>proportional to</source>
-        <translation type="unfinished"/>
+        <translation>Poměrný k</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>infinity</source>
-        <translation type="unfinished"/>
+        <translation>Nekonečno</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>angle</source>
-        <translation type="unfinished"/>
+        <translation>Úhel</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>logical and</source>
-        <translation type="unfinished"/>
+        <translation>Logické ANO</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>logical or</source>
-        <translation type="unfinished"/>
+        <translation>Logické NEBO</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>intersection</source>
-        <translation type="unfinished"/>
+        <translation>Průnik</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>union</source>
-        <translation type="unfinished"/>
+        <translation>Sjednocení</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>integral</source>
-        <translation type="unfinished"/>
+        <translation>Integrál</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>therefore sign</source>
-        <translation type="unfinished"/>
+        <translation>Znaménko proto</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>tilde operator</source>
-        <translation type="unfinished"/>
+        <translation>Operátor vlnovka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>congruent to</source>
-        <translation type="unfinished"/>
+        <translation>Shodný s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>almost equal to</source>
-        <translation type="unfinished"/>
+        <translation>Téměř stejný s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>not equal to</source>
-        <translation type="unfinished"/>
+        <translation>Není rovno</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>identical to</source>
-        <translation type="unfinished"/>
+        <translation>Stejné s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>less-than or equal to</source>
-        <translation type="unfinished"/>
+        <translation>Menší než nebo rovná se</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>greater-than or equal to</source>
-        <translation type="unfinished"/>
+        <translation>Větší než nebo rovná se</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>subset of</source>
-        <translation type="unfinished"/>
+        <translation>Podmnožina</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>superset of</source>
-        <translation type="unfinished"/>
+        <translation>Nadmnožina</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>not a subset of</source>
-        <translation type="unfinished"/>
+        <translation>Není podmnožina</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>subset of or equal to</source>
-        <translation type="unfinished"/>
+        <translation>Podmnožina nebo rovná se</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>superset of or equal to</source>
-        <translation type="unfinished"/>
+        <translation>Nadmnožina nebo rovná se</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>circled plus</source>
-        <translation type="unfinished"/>
+        <translation>Plus v kroužku</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>circled times</source>
-        <translation type="unfinished"/>
+        <translation>tenzorový součin</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>up tack</source>
-        <translation type="unfinished"/>
+        <translation>Připínáček nahoru</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>dot operator</source>
-        <translation type="unfinished"/>
+        <translation>Operátor tečka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>left ceiling</source>
-        <translation type="unfinished"/>
+        <translation>Strop vlevo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>right ceiling</source>
-        <translation type="unfinished"/>
+        <translation>Strop vpravo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>left floor</source>
-        <translation type="unfinished"/>
+        <translation>Dno vlevo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>right floor</source>
-        <translation type="unfinished"/>
+        <translation>Dno vpravo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>left-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>Vlevo směřující špičatá závorka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>right-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>Vpravo směřující špičatá závorka</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>lozenge</source>
-        <translation type="unfinished"/>
+        <translation>Kosočtverec</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>black spade suit</source>
-        <translation type="unfinished"/>
+        <translation>Černé piky</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>black club suit</source>
-        <translation type="unfinished"/>
+        <translation>Černé kříže</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>black heart suit</source>
-        <translation type="unfinished"/>
+        <translation>Černá srdce</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>black diamond suit</source>
-        <translation type="unfinished"/>
+        <translation>Černé kosočtverce</translation>
     </message>
 </context>
 </TS>
