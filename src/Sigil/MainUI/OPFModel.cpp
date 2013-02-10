@@ -382,6 +382,7 @@ void OPFModel::InitializeModel()
         AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->Filename());
         item->setDropEnabled(false);
         item->setData(resource->GetIdentifier());
+        item->setToolTip(resource->Filename());
 
         if (resource->Type() == Resource::HTMLResourceType) {
             int reading_order =
