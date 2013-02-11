@@ -395,6 +395,12 @@ int BookBrowser::ValidSelectedItemCount()
     return count;
 }
 
+void BookBrowser::AddFile(QString filepath)
+{
+    m_Book->GetFolderKeeper().AddContentFileToFolder(filepath);
+    emit BookContentModified();
+    Refresh();
+}
 
 void BookBrowser::AddNew()
 {

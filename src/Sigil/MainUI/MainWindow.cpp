@@ -832,15 +832,23 @@ void MainWindow::CreateIndex()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     // If Index CSS file does not exist create one.
-    bool found_toc_css = false;
+    bool found_css = false;
     foreach(Resource *resource, m_BookBrowser->AllCSSResources()) {
         if (resource->Filename() == SGC_INDEX_CSS_FILENAME) {
-            found_toc_css = true;
+            found_css = true;
         }
     }
     
-    if (!found_toc_css) {
-        m_BookBrowser->CreateIndexCSSFile();
+    // If Index CSS file does not exist look for a default file
+    // in preferences directory and if none create one.
+    if (!found_css) {
+        QString css_path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/" + SGC_INDEX_CSS_FILENAME;
+        if (QFile::exists(css_path)) {
+            m_BookBrowser->AddFile(css_path);
+        }
+        else {
+            m_BookBrowser->CreateIndexCSSFile();
+        }
     }
 
     HTMLResource *index_resource = NULL;
@@ -1810,16 +1818,23 @@ void MainWindow::CreateHTMLTOC()
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    // If HTML TOC CSS file does not exist create one.
-    bool found_toc_css = false;
+    bool found_css = false;
     foreach(Resource *resource, m_BookBrowser->AllCSSResources()) {
         if (resource->Filename() == SGC_TOC_CSS_FILENAME) {
-            found_toc_css = true;
+            found_css = true;
         }
     }
     
-    if (!found_toc_css) {
-        m_BookBrowser->CreateHTMLTOCCSSFile();
+    // If HTML TOC CSS file does not exist look for a default file
+    // in preferences directory and if none create one.
+    if (!found_css) {
+        QString css_path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/" + SGC_TOC_CSS_FILENAME;
+        if (QFile::exists(css_path)) {
+            m_BookBrowser->AddFile(css_path);
+        }
+        else {
+            m_BookBrowser->CreateHTMLTOCCSSFile();
+        }
     }
 
     HTMLResource *tocResource = NULL;

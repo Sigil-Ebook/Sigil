@@ -110,6 +110,8 @@ public:
      */
     void UpdateSelection(Resource &resource);
 
+    void AddFile(QString filepath);
+
 public slots:
 
     /**

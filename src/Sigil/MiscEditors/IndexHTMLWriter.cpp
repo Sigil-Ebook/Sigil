@@ -53,7 +53,9 @@ IndexHTMLWriter::IndexHTMLWriter()
 QString IndexHTMLWriter::WriteXML()
 {
     m_IndexHTMLFile += TEMPLATE_BEGIN_TEXT;
-    m_IndexHTMLFile += "<div class=\"sgc-index-title\">Index</div>\n";
+    m_IndexHTMLFile += "<div class=\"sgc-index-title\">";
+    m_IndexHTMLFile += QObject::tr("Index");
+    m_IndexHTMLFile += "</div>\n";
     m_IndexHTMLFile += "<div class=\"sgc-index-body\">";
     WriteEntries();
     m_IndexHTMLFile += "</div>";

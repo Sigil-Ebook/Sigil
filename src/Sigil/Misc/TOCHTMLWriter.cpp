@@ -93,7 +93,7 @@ void TOCHTMLWriter::WriteBody()
     // Page heading
     m_Writer->writeStartElement("div");
     m_Writer->writeAttribute("class", "sgc-toc-title");
-    m_Writer->writeCharacters("Table of Contents");
+    m_Writer->writeCharacters(QObject::tr("Table of Contents"));
     m_Writer->writeEndElement();
     m_Writer->writeCharacters("\n");
     // Entries
