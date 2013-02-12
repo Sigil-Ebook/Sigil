@@ -197,6 +197,11 @@ void SpellcheckEditor::ChangeAll()
     }
     QString new_word = ui.cbChangeAll->currentText();
 
+    if (new_word.contains("<") || new_word.contains(">") || new_word.contains("&")) {
+        Utility::DisplayStdErrorDialog(tr("The new word cannot contain \"<\", \">\", or \"&\"."));
+        return;
+    }
+
     emit UpdateWordRequest(old_word, new_word);
 }
 

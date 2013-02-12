@@ -1605,7 +1605,7 @@ void MainWindow::FindWord(QString word)
     SaveTabData();
     SetViewState(MainWindow::ViewState_CodeView);
 
-    // Check the current file after the user's position
+    // Make a note of the currently opened resource.
     ContentTab &tab = GetCurrentContentTab();
     if (&tab == NULL) {
         return;
@@ -1656,7 +1656,13 @@ void MainWindow::FindWord(QString word)
             }
             done_current = true;
         }
-        QString text = CleanSource::Clean(html_resource->GetText());
+
+        SettingsStore ss;
+        if (ss.cleanOn() & CLEANON_OPEN) {
+            html_resource->SetText(CleanSource::Clean(html_resource->GetText()));
+        }
+        QString text = html_resource->GetText();
+
         int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
         if (found_pos >= 0) {
             OpenResource(*resource, -1, found_pos);
