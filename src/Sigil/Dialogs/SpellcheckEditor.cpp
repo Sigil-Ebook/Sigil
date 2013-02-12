@@ -137,7 +137,7 @@ void SpellcheckEditor::Ignore()
 
     SpellCheck *sc = SpellCheck::instance();
     foreach (QStandardItem *item, GetSelectedItems()) {
-        sc->ignoreWord(Utility::getSpellingSafeText(item->text()));
+        sc->ignoreWord(item->text());
         MarkSpelledOkay(item->row());
     }
 
@@ -168,7 +168,7 @@ void SpellcheckEditor::Add()
     QStringList enabled_dicts = settings.enabledUserDictionaries();
     bool enabled = false;
     foreach (QStandardItem *item, GetSelectedItems()) {
-        sc->addToUserDictionary(Utility::getSpellingSafeText(item->text()), dict_name);
+        sc->addToUserDictionary(item->text(), dict_name);
         if (enabled_dicts.contains(dict_name)) {
             enabled = true;
             MarkSpelledOkay(item->row());

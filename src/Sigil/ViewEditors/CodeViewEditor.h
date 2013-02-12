@@ -511,12 +511,6 @@ private slots:
 
 private:
 
-    /**
-     * Workaround to ensure that words passed from CodeView to Ignore/Add features of SpellCheck
-     * have smart apostrophes replaced to ensure words will match.
-     */
-    QString getSpellingSafeText(const QString &text);
-
     QString GetCurrentWordAtCaret(bool select_word);
 
     bool PasteClipEntry(ClipEditorModel::clipEntry *clip);

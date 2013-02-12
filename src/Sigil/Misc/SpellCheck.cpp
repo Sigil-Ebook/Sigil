@@ -34,6 +34,7 @@
 
 #include "Misc/SpellCheck.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 # include <stdlib.h>
@@ -122,7 +123,7 @@ bool SpellCheck::spell(const QString &word)
         return true;
     }
 
-    return m_hunspell->spell(m_codec->fromUnicode(word).constData()) != 0;
+    return m_hunspell->spell(m_codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
 }
 
 QStringList SpellCheck::suggest(const QString &word)
@@ -133,7 +134,7 @@ QStringList SpellCheck::suggest(const QString &word)
 
     QStringList suggestions;
     char **suggestedWords;
-    int count = m_hunspell->suggest(&suggestedWords, m_codec->fromUnicode(word).constData());
+    int count = m_hunspell->suggest(&suggestedWords, m_codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
 
     for (int i = 0; i < count; ++i) {
         suggestions << m_codec->toUnicode(suggestedWords[i]);
@@ -162,7 +163,7 @@ void SpellCheck::ignoreWordInDictionary(const QString &word)
         return;
     }
     
-    m_hunspell->add(m_codec->fromUnicode(word).constData());
+    m_hunspell->add(m_codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
 }
 
 void SpellCheck::setDictionary(const QString &name, bool forceReplace)
