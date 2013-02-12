@@ -119,10 +119,10 @@ QString SpellCheck::currentDictionary() const
 bool SpellCheck::spell(const QString &word)
 {
     if (!m_hunspell) {
-        return m_UserWords.contains(word);
+        return true;
     }
 
-    return m_hunspell->spell(m_codec->fromUnicode(word).constData()) != 0 || m_UserWords.contains(word);
+    return m_hunspell->spell(m_codec->fromUnicode(word).constData()) != 0;
 }
 
 QStringList SpellCheck::suggest(const QString &word)
@@ -151,7 +151,7 @@ void SpellCheck::clearIgnoredWords()
 
 void SpellCheck::ignoreWord(const QString &word)
 {
-    m_UserWords[word] = true;
+    ignoreWordInDictionary(word);
 
     m_ignoredWords.append(word);
 }
@@ -182,36 +182,37 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
     m_dictionaryName = name;
 
     // If we don't have a dictionary we cannot continue.
-    if (m_dictionaries.contains(name) && !name.isEmpty()) {
-        // Dictionary files to use.
-        QString aff = QString("%1%2.aff").arg(m_dictionaries.value(name)).arg(name);
-        QString dic = QString("%1%2.dic").arg(m_dictionaries.value(name)).arg(name);
-        QString hyph_dic = QString("%1hyph_%2.dic").arg(m_dictionaries.value(name)).arg(name);
-        // Create a new hunspell object.
-        m_hunspell = new Hunspell(aff.toLocal8Bit().constData(), dic.toLocal8Bit().constData());
+    if (name.isEmpty() || !m_dictionaries.contains(name)) {
+        return;
+    }
 
-        // Load the hyphenation dictionary if it exists.
-        if (QFile::exists(hyph_dic)) {
-            m_hunspell->add_dic(hyph_dic.toLocal8Bit().constData());
-        }
+    // Dictionary files to use.
+    QString aff = QString("%1%2.aff").arg(m_dictionaries.value(name)).arg(name);
+    QString dic = QString("%1%2.dic").arg(m_dictionaries.value(name)).arg(name);
+    QString hyph_dic = QString("%1hyph_%2.dic").arg(m_dictionaries.value(name)).arg(name);
+    // Create a new hunspell object.
+    m_hunspell = new Hunspell(aff.toLocal8Bit().constData(), dic.toLocal8Bit().constData());
 
-        // Get the encoding for the text in the dictionary.
-        m_codec = QTextCodec::codecForName(m_hunspell->get_dic_encoding());
+    // Load the hyphenation dictionary if it exists.
+    if (QFile::exists(hyph_dic)) {
+        m_hunspell->add_dic(hyph_dic.toLocal8Bit().constData());
+    }
 
-        if (m_codec == 0) {
-            m_codec = QTextCodec::codecForName("UTF-8");
-        }
+    // Get the encoding for the text in the dictionary.
+    m_codec = QTextCodec::codecForName(m_hunspell->get_dic_encoding());
+
+    if (m_codec == 0) {
+        m_codec = QTextCodec::codecForName("UTF-8");
     }
 
     // Load in the words from the user dictionaries.
-    m_UserWords.clear();
     foreach(QString word, allUserDictionaryWords()) {
-        m_UserWords[word] = true;
+        ignoreWordInDictionary(word);
     }
 
     // Reload the words in the "Ignored" dictionary.
     foreach(QString word, m_ignoredWords) {
-        m_UserWords[word] = true;
+        ignoreWordInDictionary(word);
     }
 }
 
@@ -234,7 +235,7 @@ void SpellCheck::addToUserDictionary(const QString &word, QString dict_name)
 
     // Ignore the word only if the dictionary is enabled
     if (settings.enabledUserDictionaries().contains(dict_name)) {
-        m_UserWords[word] = true;
+        ignoreWordInDictionary(word);
     }
 
     if (!userDictionaryWords(dict_name).contains(word)) {

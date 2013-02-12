@@ -76,8 +76,6 @@ private:
     QHash<QString, QString> m_dictionaries;
     QStringList m_ignoredWords;
 
-    QHash<QString, bool> m_UserWords;
-
     static SpellCheck *m_instance;
 };
 
