@@ -1468,6 +1468,7 @@ void MainWindow::PasteClipEntriesIntoEditor(const QList<ClipEditorModel::clipEnt
             if (flow_tab) {
                 bool applied = flow_tab->PasteClipEntries(clips);
                 if (applied) {
+                    flow_tab->setFocus();
                     // Clear the statusbar afterwards but only if entries were pasted.
                     ShowMessageOnStatusBar();
                 }

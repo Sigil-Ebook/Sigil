@@ -1727,6 +1727,8 @@ bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         if (found) {
             ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down, true);
         }
+        cursor.setPosition(cursor.selectionEnd());
+        setTextCursor(cursor);
     }
 
     return true;
