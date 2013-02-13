@@ -103,11 +103,6 @@ static const QString SGC_INDEX_CSS_FILE =
 										"div.sgc-index-body {\n"
 										"    margin-left: -2em;\n"
 										"}\n\n"
-										"div.sgc-index-key {\n"
-										"    margin-top: 0em;\n"
-										"    margin-bottom: 0em;\n"
-										"    margin-left: 2em;\n"
-										"}\n\n"
 										"div.sgc-index-entry {\n"
 										"    margin-top: 0em;\n"
 										"    margin-bottom: 0em;\n"
@@ -115,7 +110,13 @@ static const QString SGC_INDEX_CSS_FILE =
 										"    text-indent: -1.5em;\n"
 										"}\n\n"
 										"div.sgc-index-new-letter {\n"
-                                        "    margin-top: 1em;\n"
+                                        "    margin-top: 1.5em;\n"
+                                        "    margin-left: 1.3em;\n"
+                                        "    margin-bottom: 0.5em;\n"
+                                        "    font-size: 1.5em;\n"
+                                        "    font-weight: bold;\n"
+                                        "    border-bottom: solid black 4px;\n"
+                                        "    width: 50%;\n"
                                         "}\n";
 
 Book::Book()

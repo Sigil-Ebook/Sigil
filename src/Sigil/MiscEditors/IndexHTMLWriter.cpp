@@ -76,42 +76,43 @@ void IndexHTMLWriter::WriteEntries(QStandardItem *parent_item)
     }
 
     QChar letter = ' ';
+    for (int i = 0; i < parent_item->rowCount(); i++) {
+        QStandardItem *item = parent_item->child(i, 0);
 
-    if (parent_item->child(0, 0)->rowCount()) {
-        // Print Index groups/entries
-        for (int i = 0; i < parent_item->rowCount(); i++) {
-            QString new_letter_text = "";
-            // Space between top level entries if first letter changes
-            QChar new_letter = parent_item->child(i, 0)->text()[0].toLower();
-
-            if (new_letter != letter && parent_item == root_item) {
-                letter = new_letter;
-                new_letter_text = " sgc-index-new-letter";
-            }
-
-            if (parent_item->child(i, 0)->rowCount()) {
-                if (parent_item->child(i, 0)->child(0, 0)->rowCount()) {
-                    m_IndexHTMLFile += "<div class=\"sgc-index-key" % new_letter_text % "\">";
-                } else {
-                    m_IndexHTMLFile += "<div class=\"sgc-index-entry" % new_letter_text % "\">";
-                }
-
-                m_IndexHTMLFile += parent_item->child(i, 0)->text() % "\n";
-                WriteEntries(parent_item->child(i, 0));
-                m_IndexHTMLFile += "</div>";
-            }
+        // If this is a target entry then skip.
+        if (!item->rowCount()) {
+            continue;
         }
-    } else {
-        // Print links
+
+        // If the first letter of this entry is different than the last
+        // entry then insert a special separator.
+        QChar new_letter = item->text()[0].toLower();
+        if (new_letter != letter && parent_item == root_item) {
+            letter = new_letter;  
+            m_IndexHTMLFile += "<div class=\"sgc-index-new-letter\">";
+            m_IndexHTMLFile += QString(letter.toUpper());
+            m_IndexHTMLFile += "</div>";
+        }
+
+        m_IndexHTMLFile += "<div class=\"sgc-index-entry\">";
+        m_IndexHTMLFile += item->text() % "\n";
         m_IndexHTMLFile += " ";
 
-        for (int i = 0; i < parent_item->rowCount(); i++) {
-            QString target = "../Text/" % parent_item->child(i, 0)->text();
-            m_IndexHTMLFile += "<a href=\"" % target % "\">" % QString::number(i + 1) % "</a>";
-
-            if (i < parent_item->rowCount() - 1) {
-                m_IndexHTMLFile += ", ";
+        // Print all the targets for this entry
+        for (int j = 0; j < item->rowCount(); j++) {
+            // If the entry has no children then its a target id.
+            if (item->child(j, 0)->rowCount() == 0) {
+                QString target = "../Text/" % item->child(j, 0)->text();
+                m_IndexHTMLFile += "<a href=\"" % target % "\">" % QString::number(j + 1) % "</a>";
+    
+                if (j < item->rowCount() - 1) {
+                    m_IndexHTMLFile += ", ";
+                }
             }
         }
+
+        // Print any subentries and their targets
+        WriteEntries(item);
+        m_IndexHTMLFile += "</div>";
     }
 }
