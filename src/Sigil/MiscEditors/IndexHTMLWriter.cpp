@@ -99,11 +99,13 @@ void IndexHTMLWriter::WriteEntries(QStandardItem *parent_item)
         m_IndexHTMLFile += " ";
 
         // Print all the targets for this entry
+        int ref_count = 1;
         for (int j = 0; j < item->rowCount(); j++) {
             // If the entry has no children then its a target id.
             if (item->child(j, 0)->rowCount() == 0) {
                 QString target = "../Text/" % item->child(j, 0)->text();
-                m_IndexHTMLFile += "<a href=\"" % target % "\">" % QString::number(j + 1) % "</a>";
+                m_IndexHTMLFile += "<a href=\"" % target % "\">" % QString::number(ref_count) % "</a>";
+                ref_count++;
     
                 if (j < item->rowCount() - 1) {
                     m_IndexHTMLFile += ", ";
