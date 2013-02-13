@@ -70,7 +70,7 @@ static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\
 static const QString SGC_TOC_CSS_FILE = 
 										"div.sgc-toc-title {\n"
 										"    font-size: 2em;\n"
-										"    font-face: bold;\n"
+										"    font-weight: bold;\n"
 										"    margin-bottom: 1em;\n"
 										"    text-align: center;\n"
 										"}\n\n"
@@ -96,7 +96,7 @@ static const QString SGC_TOC_CSS_FILE =
 static const QString SGC_INDEX_CSS_FILE = 
 										"div.sgc-index-title {\n"
 										"    font-size: 2em;\n"
-										"    font-face: bold;\n"
+										"    font-weight: bold;\n"
 										"    margin-bottom: 1em;\n"
 										"    text-align: center;\n"
 										"}\n\n"
@@ -281,6 +281,7 @@ CSSResource &Book::CreateHTMLTOCCSSFile()
 {
     CSSResource &css_resource = CreateEmptyCSSFile();
     css_resource.SetText(SGC_TOC_CSS_FILE);
+    css_resource.SaveToDisk();
     return css_resource;
 }
 
@@ -288,6 +289,7 @@ CSSResource &Book::CreateIndexCSSFile()
 {
     CSSResource &css_resource = CreateEmptyCSSFile();
     css_resource.SetText(SGC_INDEX_CSS_FILE);
+    css_resource.SaveToDisk();
     return css_resource;
 }
 
