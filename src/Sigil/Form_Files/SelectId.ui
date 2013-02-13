@@ -19,7 +19,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="toolTip">
-        <string>Enter an ID name to use as a destination for hyperlinks, footnotes, and TOC entries.
+        <string>Enter an ID name to use as a destination for hyperlinks, notes, and TOC entries.
 
 The dropdown box shows existing ID names in the current file.
 
