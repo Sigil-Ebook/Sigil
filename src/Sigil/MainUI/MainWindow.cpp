@@ -935,6 +935,8 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
         return;
     }
 
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     // Actually delete the styles
     QHashIterator< QString, QList<CSSInfo::CSSSelector *> > stylesheets_to_delete(css_styles_to_delete);
 
@@ -944,6 +946,8 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
     }
 
     ShowMessageOnStatusBar(tr("Styles deleted."));
+
+    QApplication::restoreOverrideCursor();
 }
 
 
@@ -1756,6 +1760,8 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked(Resource *resource)
 
 void MainWindow::RemoveResources(QList<Resource *> resources)
 {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     // Provide the open tab list to ensure one tab stays open
     if (resources.count() > 0) {
         m_BookBrowser->RemoveResources(m_TabManager.GetTabResources(), resources);
@@ -1764,6 +1770,8 @@ void MainWindow::RemoveResources(QList<Resource *> resources)
     }
 
     ShowMessageOnStatusBar(tr("File(s) deleted."));
+
+    QApplication::restoreOverrideCursor();
 }
 
 void MainWindow::EditTOCDialog()
