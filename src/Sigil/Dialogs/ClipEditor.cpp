@@ -939,6 +939,8 @@ void ClipEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText,          SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.PasteClip,  SIGNAL(clicked()),            this, SLOT(PasteIntoDocument()));
+    connect(ui.AddEntry,   SIGNAL(clicked()),            this, SLOT(AddEntry()));
+    connect(ui.AddGroup,   SIGNAL(clicked()),            this, SLOT(AddGroup()));
     connect(ui.MoveUp,     SIGNAL(clicked()),            this, SLOT(MoveUp()));
     connect(ui.MoveDown,   SIGNAL(clicked()),            this, SLOT(MoveDown()));
     connect(ui.MoveLeft,   SIGNAL(clicked()),            this, SLOT(MoveLeft()));
