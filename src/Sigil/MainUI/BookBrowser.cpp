@@ -1023,6 +1023,8 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
         return;
     }
 
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     foreach(Resource * resource, resources) {
         if (!files_to_delete.contains(resource->Filename())) {
             resources.removeOne(resource);
@@ -1078,6 +1080,8 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
             UpdateSelection(*next_resource);
         }
     }
+
+    QApplication::restoreOverrideCursor();
 }
 
 
