@@ -1058,10 +1058,10 @@
      <normaloff>:/main/insert-hyperlink_22px.png</normaloff>:/main/insert-hyperlink_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Hyperlink...</string>
+    <string>&amp;Link...</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Hyperlink&lt;/b&gt;&lt;/p&gt;
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</string>
    </property>

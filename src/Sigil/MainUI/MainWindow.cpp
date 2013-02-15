@@ -1267,7 +1267,7 @@ void MainWindow::InsertHyperlink()
     ShowMessageOnStatusBar();
 
     if (!flow_tab || !flow_tab->InsertHyperlinkEnabled()) {
-        QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a hyperlink at this position."));
+        QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a link at this position."));
         return;
     }
 
@@ -1278,7 +1278,7 @@ void MainWindow::InsertHyperlink()
 
     if (select_hyperlink.exec() == QDialog::Accepted) {
         if (!flow_tab->InsertHyperlink(select_hyperlink.GetTarget())) {
-            QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a hyperlink at this position."));
+            QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a link at this position."));
         }
     }
 }
