@@ -149,8 +149,8 @@
      <string>&amp;Help</string>
     </property>
     <addaction name="actionUserGuide"/>
-    <addaction name="actionFAQ"/>
     <addaction name="actionTutorials"/>
+    <addaction name="actionFAQ"/>
     <addaction name="separator"/>
     <addaction name="actionDonate"/>
     <addaction name="actionReportAnIssue"/>

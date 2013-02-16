@@ -105,7 +105,7 @@ static const QString SGC_INDEX_CSS_FILE =
 										"}\n\n"
 										"div.sgc-index-entry {\n"
 										"    margin-top: 0em;\n"
-										"    margin-bottom: 0em;\n"
+										"    margin-bottom: 0.5em;\n"
 										"    margin-left: 3.5em;\n"
 										"    text-indent: -1.5em;\n"
 										"}\n\n"
