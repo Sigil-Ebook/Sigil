@@ -189,6 +189,7 @@ void Language::SetLanguageMap()
          "hi"    << tr("Hindi") <<
          "ho"    << tr("Hiri Motu") <<
          "hu"    << tr("Hungarian") <<
+         "hu_HU" << tr("Hungarian") % " - " % tr("Hungary") <<
          "is"    << tr("Icelandic") <<
          "io"    << tr("Ido") <<
          "ig"    << tr("Igbo") <<
@@ -328,6 +329,7 @@ void Language::SetLanguageMap()
          "tw"    << tr("Twi") <<
          "ug"    << tr("Uighur") <<
          "uk"    << tr("Ukrainian") <<
+         "uk_UK" << tr("Ukrainian") % " - " % tr("Ukraine") <<
          "ur"    << tr("Urdu") <<
          "uz"    << tr("Uzbek") <<
          "uz_UX" << tr("Uzbek") % " - " % tr("Uzbekistan") <<
