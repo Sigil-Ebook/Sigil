@@ -118,6 +118,7 @@ void Language::SetLanguageMap()
          "bg"    << tr("Bulgarian") <<
          "my"    << tr("Burmese") <<
          "ca"    << tr("Catalan") <<
+         "ca_ES" << tr("Catalan") % " - " % tr("Spain") <<
          "km"    << tr("Central Khmer") <<
          "ch"    << tr("Chamorro") <<
          "ce"    << tr("Chechen") <<
@@ -329,7 +330,7 @@ void Language::SetLanguageMap()
          "tw"    << tr("Twi") <<
          "ug"    << tr("Uighur") <<
          "uk"    << tr("Ukrainian") <<
-         "uk_UK" << tr("Ukrainian") % " - " % tr("Ukraine") <<
+         "uk_UA" << tr("Ukrainian") % " - " % tr("Ukraine") <<
          "ur"    << tr("Urdu") <<
          "uz"    << tr("Uzbek") <<
          "uz_UX" << tr("Uzbek") % " - " % tr("Uzbekistan") <<
