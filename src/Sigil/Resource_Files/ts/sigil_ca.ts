@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca_ES" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.0">
 <context>
     <name>About</name>
     <message>
@@ -427,11 +427,11 @@ si al CSS s&apos;especifica un tipus de lletra de pal sec</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="565"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="584"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="631"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="730"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="930"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="571"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="590"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="637"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="736"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="936"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -447,8 +447,8 @@ si al CSS s&apos;especifica un tipus de lletra de pal sec</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1460"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1298"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1470"/>
         <source>Open With</source>
         <translation>Obre amb</translation>
     </message>
@@ -463,12 +463,12 @@ si al CSS s&apos;especifica un tipus de lletra de pal sec</translation>
         <translation>fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="577"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="583"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>No s&apos;ha pogut esborrar ni reemplaçar el fitxer «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="585"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="591"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -477,125 +477,125 @@ A file with this name already exists in the book.</source>
 Al llibre, ja hi ha un fitxer amb el mateix nom.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="680"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="686"/>
         <source>Save As File</source>
         <translation>Desa com a fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="702"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="708"/>
         <source>Unable to save the file.</source>
         <translation>No s&apos;ha pogut desar el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="710"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="716"/>
         <source>Choose the directory to save the files to</source>
         <translation>Escolliu el directori on voleu desar els fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="730"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="736"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Un o més fitxers ja existeixen.  Voleu sobreescriure&apos;ls?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="747"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="753"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>No s&apos;ha pogut desar els fitxers. La destinació ha de ser un directori.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="755"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
         <source>Unable to save files.</source>
         <translation>No s&apos;ha pogut desar els fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="930"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="936"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>No s&apos;ha pogut canviar el nom dels fitxers ja que es repetirien noms.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="994"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>No es poden eliminar els fitxers NCX i OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="995"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1001"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>No podeu esborrar tots els fitxers HTML.
 Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1272"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1282"/>
         <source>Add Blank Stylesheet</source>
         <translation>Afegeix un full d&apos;estils en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1273"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
         <source>Add Blank SVG Image</source>
         <translation>Afegeix una imatge SVG en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1274"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1284"/>
         <source>Add Existing Files...</source>
         <translation>Afegeix fitxers...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1275"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1276"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1285"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1286"/>
         <source>Add Copy</source>
         <translation>Afegeix una còpia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1277"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1287"/>
         <source>Rename</source>
         <translation>Canvia el nom</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1286"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1296"/>
         <source>Link Stylesheets...</source>
         <translation>Enllaça-hi fulls d&apos;estils...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1289"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1299"/>
         <source>Save As</source>
         <translation>Anomena i desa</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1466"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1476"/>
         <source>Other Application</source>
         <translation>Una altra aplicació</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1279"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1289"/>
         <source>Cover Image</source>
         <translation>Imatge de la coberta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1280"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1290"/>
         <source>Merge</source>
         <translation>Combina</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1282"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1292"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Utilitza el mètode d&apos;Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1293"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Utilitza el mètode de l&apos;IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1270"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1280"/>
         <source>Select All</source>
         <translation>Selecciona-ho tot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="509"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="515"/>
         <source>Add Existing Files</source>
         <translation>Afegeix fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="550"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="556"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -604,7 +604,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="565"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="571"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -613,7 +613,7 @@ OK to replace?</source>
 Voleu reemplaçar-lo?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="632"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="638"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -622,122 +622,122 @@ Voleu reemplaçar-lo?</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="646"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="652"/>
         <source>File(s) added.</source>
         <translation>Fitxers afegits.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1271"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1281"/>
         <source>Add Blank HTML File</source>
         <translation>Afegeix un fitxer HTML en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1278"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
         <source>Delete</source>
         <translation>Esborrar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1281"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1291"/>
         <source>None</source>
         <translation>Cap</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1284"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1294"/>
         <source>Sort</source>
         <translation>Ordena</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1285"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1295"/>
         <source>Renumber TOC Entries</source>
         <translation>Torna a numerar les entrades de la taula de continguts</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1287"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1297"/>
         <source>Validate with W3C</source>
         <translation>Valida amb el W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
         <source>Cover</source>
         <translation>Coberta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1334"/>
         <source>Title Page</source>
         <translation>Portada</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1338"/>
         <source>Table Of Contents</source>
         <translation>Taula de continguts</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
         <source>Index</source>
         <translation>Índex</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1336"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1346"/>
         <source>Glossary</source>
         <translation>Glossari</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1350"/>
         <source>Acknowledgements</source>
         <translation>Agraïments</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1344"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1354"/>
         <source>Bibliography</source>
         <translation>Bibliografia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1348"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1358"/>
         <source>Colophon</source>
         <translation>Colofó</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>CopyrightPage</source>
         <translation>Pàgina de crèdits</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1356"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1366"/>
         <source>Dedication</source>
         <translation>Dedicatòria</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1360"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1370"/>
         <source>Epigraph</source>
         <translation>Epígraf</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1364"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1374"/>
         <source>Foreword</source>
         <translation>Prefaci de l&apos;autor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1368"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
         <source>List Of Illustrations</source>
         <translation>Llista d&apos;il·lustracions</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
         <source>List Of Tables</source>
         <translation>Llista de taules</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1376"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1386"/>
         <source>Notes</source>
         <translation>Notes</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1380"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1390"/>
         <source>Preface</source>
         <translation>Prefaci</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1394"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
@@ -1204,30 +1204,30 @@ i quan es carrega un fitxer editat amb «Obre amb...».</translation>
         <translation>Enganxa el retall</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="93"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
         <translation>Mou una entrada una posició amunt dins del seu grup.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="96"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
-        <location filename="../../Form_Files/ClipEditor.ui" line="155"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="156"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="185"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="215"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
         <translation>Mou una entrada al mateix nivell que el seu pare.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="152"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
         <translation>Cal que l&apos;element estigui just a sota del grup per poder-lo moure dins.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="212"/>
         <source>Move an entry down one in the group.</source>
         <translation>Mou una entrada una posició avall dins del seu grup.</translation>
     </message>
@@ -1333,11 +1333,13 @@ un menú d&apos;accions contextual.</translation>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
+        <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="615"/>
         <source>Add Entry</source>
         <translation>Afegeix una entrada</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="616"/>
         <source>Add Group</source>
         <translation>Afegeix un grup</translation>
@@ -1395,7 +1397,7 @@ un menú d&apos;accions contextual.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="628"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>Emplena automàticament</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="708"/>
@@ -2475,7 +2477,7 @@ exemple: «Gutenberg;gutenberg». Pot ser un patró d&apos;expressió regular; e
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>Emplena automàticament</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
@@ -2503,6 +2505,7 @@ exemple: «Gutenberg;gutenberg». Pot ser un patró d&apos;expressió regular; e
         <translation>Desa les entrades a un fitxer</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="421"/>
         <source>Add Entry</source>
         <translation>Afegeix una entrada</translation>
@@ -2667,12 +2670,12 @@ Voleu desar els canvis?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="79"/>
         <source>Abkhazian</source>
-        <translation>Abkhàzia</translation>
+        <translation>Abkhaz</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="80"/>
         <source>Afar</source>
-        <translation>Regió Àfar</translation>
+        <translation>Àfar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="81"/>
@@ -2782,7 +2785,7 @@ Voleu desar els canvis?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>United Arab Emirates</source>
-        <translation>Emirats Àrabs Units</translation>
+        <translation>Unió dels Emirats Àrabs</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
@@ -2828,7 +2831,7 @@ Voleu desar els canvis?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Azerbaijan</source>
-        <translation>Azerbaidjan</translation>
+        <translation>Azerbaitjan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
@@ -2843,7 +2846,7 @@ Voleu desar els canvis?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Basque</source>
-        <translation>Basc</translation>
+        <translation>Basc; èuscar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
@@ -2887,135 +2890,135 @@ Voleu desar els canvis?</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
+        <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Catalan</source>
         <translation>Català</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="121"/>
-        <source>Central Khmer</source>
-        <translation>Llengua khmer</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
-        <source>Chamorro</source>
-        <translation>Chamorro</translation>
+        <source>Central Khmer</source>
+        <translation>Khmer central</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
+        <source>Chamorro</source>
+        <translation>Chamorro; chamoru</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Chechen</source>
         <translation>Txetxè</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="124"/>
         <location filename="../../Misc/Language.cpp" line="125"/>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <location filename="../../Misc/Language.cpp" line="129"/>
+        <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chinese</source>
         <translation>Xinès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="125"/>
+        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>China</source>
         <translation>Xina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="126"/>
+        <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Hong Kong</source>
         <translation>Hong Kong</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="127"/>
+        <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Macau</source>
         <translation>Macau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="128"/>
+        <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Singapore</source>
         <translation>Singapur</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="129"/>
+        <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Taiwan</source>
         <translation>Taiwan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="130"/>
+        <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Church Slavic</source>
         <translation>Eslau eclesiàstic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="131"/>
+        <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Chuvash</source>
         <translation>Txuvaix</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="132"/>
+        <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Cornish</source>
         <translation>Còrnic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="133"/>
+        <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Corsican</source>
         <translation>Cors</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="134"/>
+        <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Cree</source>
         <translation>Cree</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="135"/>
+        <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Croatian</source>
         <translation>Croat</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="136"/>
+        <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Czech</source>
         <translation>Txec</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="137"/>
         <location filename="../../Misc/Language.cpp" line="138"/>
+        <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Danish</source>
         <translation>Danès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="138"/>
+        <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Denmark</source>
         <translation>Dinamarca</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="139"/>
+        <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Dhivehi</source>
         <translation>Divehi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="140"/>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Dutch</source>
         <translation>Neerlandès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="141"/>
-        <location filename="../../Misc/Language.cpp" line="164"/>
+        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Belgium</source>
         <translation>Bèlgica</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Netherlands</source>
         <translation>Països Baixos</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="144"/>
         <source>Dzongkha</source>
-        <translation>Dzongkha</translation>
+        <translation>Bhutanès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="144"/>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <location filename="../../Misc/Language.cpp" line="147"/>
@@ -3028,728 +3031,728 @@ Voleu desar els canvis?</translation>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="157"/>
         <source>English</source>
         <translation>Anglès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="145"/>
+        <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Australia</source>
         <translation>Austràlia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="146"/>
+        <location filename="../../Misc/Language.cpp" line="147"/>
         <source>Belize</source>
         <translation>Belize</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="147"/>
-        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="148"/>
+        <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Canada</source>
         <translation>Canadà</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="148"/>
+        <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Caribbean</source>
         <translation>Carib</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="149"/>
+        <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Great Britain</source>
         <translation>Gran Bretanya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="150"/>
+        <location filename="../../Misc/Language.cpp" line="151"/>
         <source>India</source>
         <translation>Índia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="151"/>
-        <location filename="../../Misc/Language.cpp" line="171"/>
+        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Ireland</source>
         <translation>Illa d&apos;Irlanda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Jamaica</source>
         <translation>Jamaica</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="153"/>
+        <location filename="../../Misc/Language.cpp" line="154"/>
         <source>Phillippines</source>
         <translation>Filipines</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="154"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Trinidad</source>
         <translation>Illa de Trinitat</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="155"/>
+        <location filename="../../Misc/Language.cpp" line="156"/>
         <source>South Africa</source>
-        <translation>Sud-àfrica</translation>
+        <translation>Sudàfrica</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="157"/>
         <source>United States</source>
         <translation>Estats Units</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="157"/>
+        <location filename="../../Misc/Language.cpp" line="158"/>
         <source>Esperanto</source>
         <translation>Esperanto</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Estonian</source>
         <translation>Estonià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="159"/>
+        <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Ewe</source>
         <translation>Ewe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="160"/>
+        <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Faroese</source>
         <translation>Feroès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="161"/>
+        <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Fijian</source>
-        <translation>Fiyià</translation>
+        <translation>Fijià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="162"/>
+        <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Finnish</source>
         <translation>Finès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="163"/>
         <location filename="../../Misc/Language.cpp" line="164"/>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
         <source>French</source>
         <translation>Francès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="166"/>
+        <location filename="../../Misc/Language.cpp" line="167"/>
         <source>France</source>
         <translation>França</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="167"/>
-        <location filename="../../Misc/Language.cpp" line="179"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Luxembourg</source>
         <translation>Luxemburg</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <location filename="../../Misc/Language.cpp" line="180"/>
-        <location filename="../../Misc/Language.cpp" line="204"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Switzerland</source>
         <translation>Suïssa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Fulah</source>
         <translation>Ful</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="170"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
+        <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Gaelic</source>
         <translation>Gaèlic irlandès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="170"/>
+        <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Scotland</source>
         <translation>Escòcia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="172"/>
+        <location filename="../../Misc/Language.cpp" line="173"/>
         <source>Galician</source>
         <translation>Gallec</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="173"/>
+        <location filename="../../Misc/Language.cpp" line="174"/>
         <source>Ganda</source>
         <translation>Ganda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="174"/>
+        <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Georgian</source>
         <translation>Georgià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="175"/>
         <location filename="../../Misc/Language.cpp" line="176"/>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <location filename="../../Misc/Language.cpp" line="180"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
         <source>German</source>
         <translation>Alemany</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="176"/>
+        <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Austria</source>
         <translation>Àustria</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="177"/>
+        <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Germany</source>
         <translation>Alemanya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="178"/>
+        <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Liechtenstein</source>
         <translation>Liechtenstein</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="182"/>
         <source>Greek, Modern</source>
         <translation>Grec demòtic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="182"/>
+        <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Greek</source>
         <translation>Grec</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="183"/>
+        <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Guarani</source>
         <translation>Guaraní</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Gujarati</source>
         <translation>Gujarati</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="185"/>
+        <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Haitian</source>
         <translation>Crioll haitià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="186"/>
+        <location filename="../../Misc/Language.cpp" line="187"/>
         <source>Hausa</source>
-        <translation>Haussa</translation>
+        <translation>Hausa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="187"/>
+        <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Hebrew</source>
         <translation>Hebreu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="188"/>
+        <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Herero</source>
         <translation>Herero</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="189"/>
+        <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Hindi</source>
         <translation>Hindi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="190"/>
+        <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Hiri Motu</source>
         <translation>Hiri motu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="191"/>
+        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hungarian</source>
-        <translation>Hongarès</translation>
+        <translation>Hongarès; magiar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Icelandic</source>
         <translation>Islandès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Ido</source>
         <translation>Ido</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="194"/>
+        <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Igbo</source>
         <translation>Igbo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Indonesian</source>
         <translation>Indonesi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="196"/>
+        <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Indonesian - Indonesia</source>
-        <translation>Indonesi - Indonesia</translation>
+        <translation>Indonesi - Indonèsia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Interlingua</source>
         <translation>Interlingua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="198"/>
+        <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Interlingue</source>
         <translation>Interlingue</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="199"/>
+        <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Inuktitut</source>
         <translation>Inuktitut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="200"/>
-        <source>Inupiaq</source>
-        <translation>Inupiaq</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="201"/>
-        <source>Irish</source>
-        <translation>Gaèlic irlandès</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
+        <source>Inupiaq</source>
+        <translation>Inupiak</translation>
+    </message>
+    <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
+        <source>Irish</source>
+        <translation>Irlandès; gaèlic irlandès</translation>
+    </message>
+    <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
+        <location filename="../../Misc/Language.cpp" line="205"/>
+        <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Italian</source>
         <translation>Italià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="203"/>
+        <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Italy</source>
-        <translation>Itàlis</translation>
+        <translation>Itàlia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="205"/>
+        <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Japanese</source>
         <translation>Japonès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="206"/>
+        <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Javanese</source>
         <translation>Javanès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="207"/>
+        <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Kalaallisut</source>
         <translation>Grenlandès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="208"/>
+        <location filename="../../Misc/Language.cpp" line="210"/>
         <source>Kannada</source>
-        <translation>Kanara</translation>
+        <translation>Kanarès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="209"/>
+        <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Kanuri</source>
         <translation>Kanuri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="210"/>
+        <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Kashmiri</source>
-        <translation>Caixmir</translation>
+        <translation>Caixmiri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="211"/>
+        <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Kazakh</source>
         <translation>Kazakh</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="212"/>
+        <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Kikuyu</source>
         <translation>Kikuyu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="213"/>
+        <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kinyarwanda</source>
         <translation>Kinyarwanda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="214"/>
+        <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Kirghiz</source>
         <translation>Kirguís</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="215"/>
+        <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Komi</source>
         <translation>República de Komi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="216"/>
+        <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kongo</source>
-        <translation>Congo</translation>
+        <translation>Kongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="217"/>
+        <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Korean</source>
         <translation>Coreà</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="218"/>
+        <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Kuanyama</source>
         <translation>Kwanyama</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kurdish</source>
         <translation>Kurd</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="220"/>
+        <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Lao</source>
         <translation>Laosià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="221"/>
+        <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Latin</source>
         <translation>Llatí</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="222"/>
-        <location filename="../../Misc/Language.cpp" line="223"/>
+        <location filename="../../Misc/Language.cpp" line="224"/>
+        <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvian</source>
         <translation>Letó</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="223"/>
+        <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvia</source>
-        <translation type="unfinished"/>
+        <translation>Letònia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="224"/>
+        <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Limburgan</source>
         <translation>Limburgan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="225"/>
+        <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Lingala</source>
         <translation>Lingala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="226"/>
+        <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lithuanian</source>
         <translation>Lituà</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="227"/>
+        <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Luba-Katanga</source>
         <translation>Luba-Katanga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="228"/>
+        <location filename="../../Misc/Language.cpp" line="230"/>
         <source>Luxembourgish</source>
         <translation>Luxemburguès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="229"/>
+        <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Macedonian</source>
-        <translation>Macedònic</translation>
+        <translation>Macedoni</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="230"/>
+        <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Malagasy</source>
         <translation>Malgaix</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="231"/>
+        <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Malayalam</source>
         <translation>Malaiàlam</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="232"/>
-        <location filename="../../Misc/Language.cpp" line="233"/>
         <location filename="../../Misc/Language.cpp" line="234"/>
+        <location filename="../../Misc/Language.cpp" line="235"/>
+        <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Malay</source>
         <translation>Malai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="233"/>
+        <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Brunei</source>
         <translation>Brunei</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="234"/>
+        <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Malaysia</source>
         <translation>Malàisia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="235"/>
+        <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Maltese</source>
         <translation>Maltès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="236"/>
+        <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Manx</source>
         <translation>Gaèlic manx</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="237"/>
+        <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Maori</source>
         <translation>Maori</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="238"/>
+        <location filename="../../Misc/Language.cpp" line="240"/>
         <source>Marathi</source>
         <translation>Marathi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="239"/>
+        <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Marshallese</source>
-        <translation>marshalés</translation>
+        <translation>Marshallès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="240"/>
+        <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Mongolian</source>
         <translation>Mongol</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="241"/>
+        <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Nauru</source>
-        <translation>Nauru</translation>
+        <translation>Nauruà</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="242"/>
+        <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Navajo</source>
         <translation>Navaho</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="243"/>
-        <location filename="../../Misc/Language.cpp" line="244"/>
+        <location filename="../../Misc/Language.cpp" line="245"/>
+        <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Ndebele</source>
         <translation>Ndebele</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="243"/>
+        <location filename="../../Misc/Language.cpp" line="245"/>
         <source>North</source>
         <translation>Nord</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="244"/>
+        <location filename="../../Misc/Language.cpp" line="246"/>
         <source>South</source>
         <translation>Sud</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="245"/>
+        <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Ndonga</source>
         <translation>Ndonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="246"/>
+        <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Nepali</source>
         <translation>Nepalès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="247"/>
+        <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Northern, Sami</source>
         <translation>Sami septentrional</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="248"/>
-        <location filename="../../Misc/Language.cpp" line="249"/>
         <location filename="../../Misc/Language.cpp" line="250"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Norwegian</source>
         <translation>Noruec</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="249"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Bokmal</source>
         <translation>Bokmål</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="250"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Nynorsk</source>
         <translation>Nynorsk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Nyanja</source>
         <translation>Nyanja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="252"/>
+        <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Occitan</source>
         <translation>Occità</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="253"/>
+        <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Ojibwa</source>
-        <translation>Chippewa</translation>
+        <translation>Ojibwa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="254"/>
+        <location filename="../../Misc/Language.cpp" line="256"/>
         <source>Oriya</source>
         <translation>Oriya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="255"/>
+        <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Oromo</source>
         <translation>Oromo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="256"/>
+        <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Ossetian</source>
         <translation>Osseta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="257"/>
+        <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Pali</source>
         <translation>Pali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="258"/>
+        <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Panjabi</source>
         <translation>Panjabi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="259"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Persian</source>
-        <translation>Persa</translation>
+        <translation>Persa; farsi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="260"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Polish</source>
         <translation>Polonès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="261"/>
-        <location filename="../../Misc/Language.cpp" line="262"/>
         <location filename="../../Misc/Language.cpp" line="263"/>
+        <location filename="../../Misc/Language.cpp" line="264"/>
+        <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Portuguese</source>
         <translation>Portuguès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="262"/>
+        <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Brazil</source>
         <translation>Brasil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="263"/>
+        <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Portugal</source>
         <translation>Portugal</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="264"/>
+        <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Pushto</source>
         <translation>Paixtu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="265"/>
+        <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Quechua</source>
         <translation>Quítxua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="266"/>
-        <location filename="../../Misc/Language.cpp" line="267"/>
         <location filename="../../Misc/Language.cpp" line="268"/>
+        <location filename="../../Misc/Language.cpp" line="269"/>
+        <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romanian</source>
         <translation>Romanès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="267"/>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="269"/>
+        <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Moldova</source>
         <translation>República de Moldàvia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="268"/>
+        <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romania</source>
         <translation>Romania</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="269"/>
+        <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Romansh</source>
         <translation>Romanx</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="270"/>
+        <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Rundi</source>
-        <translation>Rundi</translation>
+        <translation>Kirundi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="271"/>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="273"/>
+        <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Russian</source>
         <translation>Rus</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="273"/>
+        <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Samoan</source>
         <translation>Samoà</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="274"/>
+        <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Sango</source>
         <translation>Sango</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="275"/>
+        <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Sanskrit</source>
         <translation>Sànscrit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="276"/>
+        <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Sardinian</source>
         <translation>Sard</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="277"/>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbian</source>
         <translation>Serbi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
         <source>SP</source>
         <translation>SP</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Shona</source>
-        <translation>Xona</translation>
+        <translation>Shona</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="280"/>
+        <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sichuan Yi</source>
         <translation>Sichuan Yi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="281"/>
+        <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sindhi</source>
         <translation>Sindhi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="282"/>
+        <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sinhala</source>
         <translation>Singalès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="283"/>
+        <location filename="../../Misc/Language.cpp" line="285"/>
         <source>Slovak</source>
-        <translation>Eslovàquia</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="284"/>
-        <source>Slovenian</source>
         <translation>Eslovac</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="286"/>
+        <source>Slovenian</source>
+        <translation>Eslovè</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Somali</source>
         <translation>Somali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="286"/>
+        <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sotho, Southern</source>
         <translation>Sotho del sud</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="287"/>
-        <location filename="../../Misc/Language.cpp" line="288"/>
         <location filename="../../Misc/Language.cpp" line="289"/>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <location filename="../../Misc/Language.cpp" line="291"/>
@@ -3768,1807 +3771,1821 @@ Voleu desar els canvis?</translation>
         <location filename="../../Misc/Language.cpp" line="304"/>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Spanish</source>
         <translation>Espanyol</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="288"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Argentina</source>
         <translation>Argentina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="289"/>
+        <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Bolivia</source>
         <translation>Bolívia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="290"/>
+        <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Chile</source>
         <translation>Xile</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="291"/>
+        <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Columbia</source>
         <translation>Colombia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="292"/>
+        <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Costa Rica</source>
         <translation>Costa Rica</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="293"/>
+        <location filename="../../Misc/Language.cpp" line="295"/>
         <source>Dominican Republic</source>
         <translation>República Dominicana</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="294"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Ecuador</source>
         <translation>Equador</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="295"/>
+        <location filename="../../Misc/Language.cpp" line="297"/>
         <source>El Salvador</source>
         <translation>El Salvador</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="296"/>
+        <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Guatemala</source>
         <translation>Guatemala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="297"/>
+        <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Honduras</source>
         <translation>Hondures</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="298"/>
+        <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Mexico</source>
         <translation>Mèxic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="299"/>
+        <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Nicaragua</source>
         <translation>Nicaragua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="300"/>
+        <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Panama</source>
         <translation>Panamà</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="301"/>
+        <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Paraguay</source>
         <translation>Paraguai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="302"/>
+        <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Peru</source>
         <translation>Perú</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="303"/>
+        <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Puerto Rico</source>
         <translation>Puerto Rico</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="304"/>
+        <location filename="../../Misc/Language.cpp" line="121"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Spain</source>
         <translation>Espanya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="305"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
+        <source>Hungary</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Uruguay</source>
         <translation>Uruguai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Venezuela</source>
         <translation>Veneçuela</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="307"/>
-        <source>Sundanese</source>
-        <translation>Sondanès</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="308"/>
-        <source>Swahili</source>
-        <translation>Suahili</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
-        <source>Swati</source>
-        <translation>Suazi</translation>
+        <source>Sundanese</source>
+        <translation>Sundanès</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
+        <source>Swahili</source>
+        <translation>Swahili</translation>
+    </message>
+    <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
+        <source>Swati</source>
+        <translation>Siswati</translation>
+    </message>
+    <message>
         <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Swedish</source>
         <translation>Suec</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="311"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Finland</source>
         <translation>Finlàndia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Sweden</source>
         <translation>Suècia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Tagalog</source>
-        <translation>Tagal</translation>
+        <translation>Tagal; tagàlog</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="314"/>
+        <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Tahitian</source>
         <translation>Tahitià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="315"/>
+        <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Tajik</source>
         <translation>Tadjik</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="316"/>
+        <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Tamil</source>
         <translation>Tàmil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="317"/>
+        <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Tatar</source>
         <translation>Tàtar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="318"/>
+        <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Telugu</source>
         <translation>Telugu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="319"/>
+        <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Thai</source>
         <translation>Tailandès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="320"/>
+        <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tibetan</source>
         <translation>Tibetà</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="321"/>
+        <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tigrinya</source>
         <translation>Tigrinya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="322"/>
+        <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tonga</source>
         <translation>Tongalès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="323"/>
+        <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tsonga</source>
         <translation>Tsonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="324"/>
+        <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Tswana</source>
         <translation>Tswana</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="325"/>
-        <location filename="../../Misc/Language.cpp" line="326"/>
+        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkish</source>
         <translation>Turc</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="326"/>
+        <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkey</source>
         <translation>Turquia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Turkmen</source>
         <translation>Turcman</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Twi</source>
         <translation>Twi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Uighur</source>
         <translation>Uigur</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="330"/>
+        <location filename="../../Misc/Language.cpp" line="332"/>
+        <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukrainian</source>
         <translation>Ucraïnès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="331"/>
+        <location filename="../../Misc/Language.cpp" line="333"/>
+        <source>Ukraine</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Urdu</source>
         <translation>Urdú</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="332"/>
-        <location filename="../../Misc/Language.cpp" line="333"/>
+        <location filename="../../Misc/Language.cpp" line="335"/>
+        <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbek</source>
         <translation>Uzbek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="333"/>
+        <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbekistan</source>
         <translation>Uzbekistan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="334"/>
+        <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Venda</source>
         <translation>Venda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="335"/>
+        <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Vietnamese</source>
         <translation>Vietnamita</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="336"/>
+        <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Volapuk</source>
         <translation>Volapük</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="337"/>
+        <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Walloon</source>
         <translation>Való</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="338"/>
+        <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Welsh</source>
         <translation>Gal·lès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="339"/>
+        <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Western Frisian</source>
         <translation>Frisó occidental</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="340"/>
+        <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Wolof</source>
         <translation>Wòlof</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="341"/>
+        <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Xhosa</source>
-        <translation>Xoses</translation>
+        <translation>Xosa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="342"/>
+        <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Yiddish</source>
         <translation>Jiddisch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="343"/>
+        <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Yoruba</source>
         <translation>Ioruba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="344"/>
+        <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Zhuang</source>
         <translation>Zhuang</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="345"/>
+        <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Zulu</source>
         <translation>Zulu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="346"/>
+        <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Achinese</source>
-        <translation type="unfinished"/>
+        <translation>Axinès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="347"/>
+        <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Acoli</source>
-        <translation type="unfinished"/>
+        <translation>Acoli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="348"/>
+        <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Adangme</source>
         <translation>Adangme</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="349"/>
+        <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Adygei, Adyghe</source>
-        <translation type="unfinished"/>
+        <translation>Adigué</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="350"/>
+        <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Afrihili</source>
         <translation>Afrihili</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="351"/>
+        <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Afro-Asiatic languages</source>
-        <translation type="unfinished"/>
+        <translation>Llengües afroasiàtiques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="352"/>
+        <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Ainu</source>
         <translation>Ainu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="353"/>
+        <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Akkadian</source>
         <translation>Accadi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="354"/>
+        <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Aleut</source>
         <translation>Aleutià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="355"/>
+        <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Algonquian languages</source>
         <translation>Llengües algonquines</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="356"/>
+        <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Altaic languages</source>
         <translation>Llengües altaiques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="357"/>
+        <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Angika</source>
         <translation>Angika</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="358"/>
+        <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Apache languages</source>
-        <translation type="unfinished"/>
+        <translation>Llengües apatxes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="359"/>
+        <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Arapaho</source>
         <translation>Arapaho</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="360"/>
+        <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Arawak</source>
-        <translation type="unfinished"/>
+        <translation>Arauac; arawak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="361"/>
+        <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
-        <translation type="unfinished"/>
+        <translation>Aromanès; macedoromanès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="362"/>
+        <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Artificial languages</source>
         <translation>Llengües artificials</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="363"/>
+        <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
-        <translation type="unfinished"/>
+        <translation>Asturià; bable; lleonès; asturlleonès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="364"/>
+        <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Athapascan languages</source>
-        <translation type="unfinished"/>
+        <translation>Llengües atapascanes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="365"/>
+        <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Australian languages</source>
         <translation>Llengües australianes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="366"/>
+        <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Austronesian languages</source>
-        <translation>Llengües aLlengües austronèsiesustronèsies</translation>
+        <translation>Llengües austronèsiques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="367"/>
+        <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Awadhi</source>
-        <translation type="unfinished"/>
+        <translation>Awadhi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="368"/>
+        <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Balinese</source>
         <translation>Balinès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="369"/>
+        <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Baltic languages</source>
         <translation>Llengües bàltiques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="370"/>
-        <source>Baluchi</source>
-        <translation>Balutxi</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="371"/>
-        <source>Bamileke languages</source>
-        <translation>Llengües Bamilekes</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="372"/>
-        <source>Banda languages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="373"/>
+        <source>Baluchi</source>
+        <translation>Balutxí</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="374"/>
+        <source>Bamileke languages</source>
+        <translation>Llengües bamileké</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="375"/>
+        <source>Banda languages</source>
+        <translation>Llengües banda</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Bantu languages</source>
         <translation>Llengües bantus</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="374"/>
-        <source>Basa</source>
-        <translation>Javanès</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="375"/>
-        <source>Batak languages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="376"/>
-        <source>Bedawiyet, Beja</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="377"/>
+        <source>Basa</source>
+        <translation>Basa</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="378"/>
+        <source>Batak languages</source>
+        <translation>Llengües bataks</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="379"/>
+        <source>Bedawiyet, Beja</source>
+        <translation>Beja; bedawiye</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Bemba</source>
         <translation>Bemba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="378"/>
-        <source>Berber languages</source>
-        <translation>Berber</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="379"/>
-        <source>Bhojpuri</source>
-        <translation>Bopurí</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="380"/>
-        <source>Bikol</source>
-        <translation>Bicol</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="381"/>
-        <source>Bilin, Blin</source>
-        <translation type="unfinished"/>
+        <source>Berber languages</source>
+        <translation>Llengües berbers</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="382"/>
-        <source>Bini, Edo</source>
-        <translation type="unfinished"/>
+        <source>Bhojpuri</source>
+        <translation>Bhojpuri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="383"/>
-        <source>Bliss, Blissymbols, Blissymbolics</source>
-        <translation type="unfinished"/>
+        <source>Bikol</source>
+        <translation>Bikol</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="384"/>
-        <source>Braj</source>
-        <translation type="unfinished"/>
+        <source>Bilin, Blin</source>
+        <translation>Bilin; blin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="385"/>
+        <source>Bini, Edo</source>
+        <translation>Bini; edo</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="386"/>
+        <source>Bliss, Blissymbols, Blissymbolics</source>
+        <translation>Blissymbols; blissymbolics; bliss</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="387"/>
+        <source>Braj</source>
+        <translation>Braj</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Buginese</source>
         <translation>Bugui</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="386"/>
+        <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Buriat</source>
         <translation>Buriats</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="387"/>
+        <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Caddo</source>
         <translation>Caddo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="388"/>
+        <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Caucasian languages</source>
         <translation>Llengües caucàsiques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="389"/>
+        <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Cebuano</source>
-        <translation>Cebuà</translation>
+        <translation>Cebuano</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="390"/>
+        <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Celtic languages</source>
         <translation>Llengües cèltiques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="391"/>
+        <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Central American Indian languages</source>
-        <translation>Llengües ameríndies</translation>
+        <translation>Llengües ameríndies d&apos;Amèrica Central</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="392"/>
+        <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Chagatai</source>
         <translation>Txagatai Khan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="393"/>
+        <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Chamic languages</source>
-        <translation type="unfinished"/>
+        <translation>Llengües txam</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="394"/>
+        <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Cherokee</source>
         <translation>Cherokee</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="395"/>
-        <source>Cheyenne</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="396"/>
-        <source>Chibcha</source>
-        <translation>Txibtxa</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="397"/>
-        <source>Chinook jargon</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="398"/>
-        <source>Chipewyan, Dene Suline</source>
-        <translation type="unfinished"/>
+        <source>Cheyenne</source>
+        <translation>Xeienne; cheyenne</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="399"/>
+        <source>Chibcha</source>
+        <translation>Chibcha</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="400"/>
+        <source>Chinook jargon</source>
+        <translation>Pidgin chinook</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="401"/>
+        <source>Chipewyan, Dene Suline</source>
+        <translation>Chipewyan</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Choctaw</source>
         <translation>Choctaw</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="400"/>
+        <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Chuukese</source>
-        <translation type="unfinished"/>
+        <translation>Chuukese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="401"/>
+        <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
-        <translation type="unfinished"/>
+        <translation>Newari clàssic; newari antic; bhasa nepalès clàssic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="402"/>
+        <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Classical Syriac</source>
         <translation>Siríac clàssic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="403"/>
+        <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Coptic</source>
         <translation>Copte</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="404"/>
+        <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Creek</source>
         <translation>Creek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="405"/>
-        <source>Creoles and pidgins</source>
-        <translation>Llengua criolla</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="406"/>
-        <source>Creoles and pidgins- English based</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="407"/>
-        <source>Creoles and pidgins- French-based</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="408"/>
-        <source>Creoles and pidgins- Portuguese-based</source>
-        <translation type="unfinished"/>
+        <source>Creoles and pidgins</source>
+        <translation>Criolls i pidgins</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="409"/>
-        <source>Crimean Tatar/Turkish</source>
-        <translation type="unfinished"/>
+        <source>Creoles and pidgins- English based</source>
+        <translation>Criolls i pidgins basats en l&apos;anglès</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="410"/>
+        <source>Creoles and pidgins- French-based</source>
+        <translation>Criolls i pidgins basats en el francès</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="411"/>
+        <source>Creoles and pidgins- Portuguese-based</source>
+        <translation>Criolls i pidgins basats en el portuguès</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="412"/>
+        <source>Crimean Tatar/Turkish</source>
+        <translation>Tàtar de Crimea; turc de Crimea</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Cushitic languages</source>
         <translation>Llengües cuixítiques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="411"/>
+        <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Dakota</source>
         <translation>Dakota</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="412"/>
+        <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Dargwa</source>
         <translation>Darguà</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="413"/>
+        <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Delaware</source>
         <translation>Delaware</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="414"/>
+        <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
-        <translation type="unfinished"/>
+        <translation>Zaza; dimilki; kirmanjki; zazaki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="415"/>
+        <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Dinka</source>
         <translation>Dinka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="416"/>
+        <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Dogri</source>
         <translation>Dogri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="417"/>
+        <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Dogrib</source>
         <translation>Dogrib</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="418"/>
+        <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Dravidian languages</source>
         <translation>Llengües dravídiques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="419"/>
-        <source>Duala</source>
-        <translation>Douala</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="420"/>
-        <source>Dutch- Middle (ca.1050-1350)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="421"/>
-        <source>Dyula</source>
-        <translation>Diula</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="422"/>
-        <source>Eastern Frisian</source>
-        <translation type="unfinished"/>
+        <source>Duala</source>
+        <translation>Duala</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="423"/>
-        <source>Efik</source>
-        <translation type="unfinished"/>
+        <source>Dutch- Middle (ca.1050-1350)</source>
+        <translation>Holandès mitjà (ca. 1050-1350)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="424"/>
+        <source>Dyula</source>
+        <translation>Dyula</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="425"/>
+        <source>Eastern Frisian</source>
+        <translation>Frisó oriental</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="426"/>
+        <source>Efik</source>
+        <translation>Efik</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Egyptian (Ancient)</source>
         <translation>Egipci (antic)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="425"/>
+        <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Ekajuk</source>
-        <translation type="unfinished"/>
+        <translation>Ekajuk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="426"/>
+        <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Elamite</source>
         <translation>Llengua elamita</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="427"/>
+        <location filename="../../Misc/Language.cpp" line="430"/>
         <source>English- Middle (1100-1500)</source>
         <translation>Anglès mitjà (1100-1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="428"/>
+        <location filename="../../Misc/Language.cpp" line="431"/>
         <source>English- Old (ca.450-1100)</source>
         <translation>Anglès antic (ca.450-1100)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="429"/>
+        <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Erzya</source>
         <translation>Erzya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="430"/>
+        <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Ewondo</source>
         <translation>Ewondo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="431"/>
+        <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Fang</source>
         <translation>Llengua fang</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="432"/>
-        <source>Fanti</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="433"/>
-        <source>Filipino, Pilipino</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="434"/>
-        <source>Finno-Ugrian languages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="435"/>
+        <source>Fanti</source>
+        <translation>Fanti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="436"/>
+        <source>Filipino, Pilipino</source>
+        <translation>Filipi; pilipino</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="437"/>
+        <source>Finno-Ugrian languages</source>
+        <translation>Llengües finoúgriques</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Fon</source>
         <translation>Fon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="436"/>
+        <location filename="../../Misc/Language.cpp" line="439"/>
         <source>French- Middle (ca.1400-1600)</source>
         <translation>Francès mitjà (ca.1400-1600)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="437"/>
+        <location filename="../../Misc/Language.cpp" line="440"/>
         <source>French- Old (842-ca.1400)</source>
         <translation>Francès antic (842-ca.1400)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="438"/>
+        <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Friulian</source>
-        <translation>Furlà</translation>
+        <translation>Friülès; friülà</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="439"/>
+        <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Ga</source>
         <translation>Ga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="440"/>
-        <source>Galibi Carib</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="441"/>
-        <source>Gayo</source>
-        <translation>Gajo</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="442"/>
-        <source>Gbaya</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="443"/>
+        <source>Galibi Carib</source>
+        <translation>Carib</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="444"/>
+        <source>Gayo</source>
+        <translation>Gayo</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="445"/>
+        <source>Gbaya</source>
+        <translation>Gbaya</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="446"/>
         <source>Geez</source>
         <translation>Gueez</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="444"/>
+        <location filename="../../Misc/Language.cpp" line="447"/>
         <source>German- Middle High (ca.1050-1500)</source>
         <translation>Alt alemany mitjà (ca.1050-1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="445"/>
+        <location filename="../../Misc/Language.cpp" line="448"/>
         <source>German- Old High (ca.750-1050)</source>
         <translation>Alt alemany antic (ca.750-1050)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="446"/>
+        <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Germanic languages</source>
         <translation>Llengües germàniques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="447"/>
+        <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Gilbertese</source>
         <translation>Gilbertès</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="448"/>
+        <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Gondi</source>
         <translation>Gondi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="449"/>
+        <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Gorontalo</source>
         <translation>Gorontalo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="450"/>
+        <location filename="../../Misc/Language.cpp" line="453"/>
         <source>Gothic</source>
         <translation>Gòtic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="451"/>
+        <location filename="../../Misc/Language.cpp" line="454"/>
         <source>Grebo</source>
         <translation>Grebo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="452"/>
+        <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Greek- Ancient (to 1453)</source>
-        <translation>Grec antic (fins 1453)</translation>
+        <translation>Grec antic (fins al 1453)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="453"/>
+        <location filename="../../Misc/Language.cpp" line="456"/>
         <source>Gwich&apos;in</source>
         <translation>Gwich&apos;in</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="454"/>
+        <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Haida</source>
-        <translation type="unfinished"/>
+        <translation>Haida</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="455"/>
+        <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Hawaiian</source>
         <translation>Hawaià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="456"/>
-        <source>Hiligaynon</source>
-        <translation>Idioma hiligainó</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="457"/>
-        <source>Himachali, Western Pahari languages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="458"/>
-        <source>Hittite</source>
-        <translation>Llengua hittita</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="459"/>
-        <source>Hmong, Mong</source>
-        <translation type="unfinished"/>
+        <source>Hiligaynon</source>
+        <translation>Hiligaynon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="460"/>
+        <source>Himachali, Western Pahari languages</source>
+        <translation>Llengües himachalis; llengües paharis occidentals</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="461"/>
+        <source>Hittite</source>
+        <translation>Hitita</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="462"/>
+        <source>Hmong, Mong</source>
+        <translation>Hmong; mong</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="463"/>
         <source>Hupa</source>
         <translation>Hupa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="461"/>
+        <location filename="../../Misc/Language.cpp" line="464"/>
         <source>Iban</source>
         <translation>Iban</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="462"/>
-        <source>Ijo languages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="463"/>
-        <source>Iloko</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="464"/>
-        <source>Inari Sami</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="465"/>
-        <source>Indic languages</source>
-        <translation type="unfinished"/>
+        <source>Ijo languages</source>
+        <translation>Llengües ijo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="466"/>
-        <source>Indo-European languages</source>
-        <translation type="unfinished"/>
+        <source>Iloko</source>
+        <translation>Ilocà</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
-        <source>Ingush</source>
-        <translation type="unfinished"/>
+        <source>Inari Sami</source>
+        <translation>Sami d&apos;Inari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
-        <source>Iranian languages</source>
-        <translation>Llengües iràniques</translation>
+        <source>Indic languages</source>
+        <translation>Llengües índiques</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="469"/>
-        <source>Irish- Middle (900-1200)</source>
-        <translation type="unfinished"/>
+        <source>Indo-European languages</source>
+        <translation>Llengües indoeuropees</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="470"/>
-        <source>Irish- Old (to 900)</source>
-        <translation>Irlandès antic (fins 900)</translation>
+        <source>Ingush</source>
+        <translation>Ingúix</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="471"/>
+        <source>Iranian languages</source>
+        <translation>Llengües iranianes</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="472"/>
+        <source>Irish- Middle (900-1200)</source>
+        <translation>Irlandès mitjà (900-1200)</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="473"/>
+        <source>Irish- Old (to 900)</source>
+        <translation>Irlandès antic (fins al 900)</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Iroquoian languages</source>
         <translation>Llengües iroqueses</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="472"/>
-        <source>Jingpho, Kachin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="473"/>
-        <source>Judeo-Arabic</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="474"/>
-        <source>Judeo-Persian</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="475"/>
+        <source>Jingpho, Kachin</source>
+        <translation>Kachin; jingpho</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="476"/>
+        <source>Judeo-Arabic</source>
+        <translation>Judeoàrab</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="477"/>
+        <source>Judeo-Persian</source>
+        <translation>Judeopersa</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Kabardian</source>
         <translation>Kabardí</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="476"/>
+        <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Kabyle</source>
-        <translation>Cabil</translation>
+        <translation>Cabilenc</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="477"/>
+        <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Kalmyk, Oirat</source>
-        <translation type="unfinished"/>
+        <translation>Calmuc</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="478"/>
+        <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Kamba</source>
         <translation>Kamba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="479"/>
-        <source>Kapampangan, Pampanga</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="480"/>
-        <source>Kara-Kalpak</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="481"/>
-        <source>Karachay-Balkar</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="482"/>
+        <source>Kapampangan, Pampanga</source>
+        <translation>Pampanga; kapampangan</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="483"/>
+        <source>Kara-Kalpak</source>
+        <translation>Karakalpak</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="484"/>
+        <source>Karachay-Balkar</source>
+        <translation>Karatxai-balkar</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Karelian</source>
         <translation>Carelià</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="483"/>
+        <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Karen languages</source>
-        <translation type="unfinished"/>
+        <translation>Llengües karenes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="484"/>
+        <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Kashubian</source>
         <translation>Caixubi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="485"/>
+        <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Kawi</source>
-        <translation type="unfinished"/>
+        <translation>Kawi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="486"/>
+        <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Khasi</source>
-        <translation type="unfinished"/>
+        <translation>Khasi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="487"/>
+        <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Khoisan languages</source>
         <translation>Llengües khoisànides</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="488"/>
-        <source>Khotanese, Sakan</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="489"/>
-        <source>Kimbundu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="490"/>
-        <source>Klingon, tlhIngan-Hol</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="491"/>
-        <source>Konkani</source>
-        <translation type="unfinished"/>
+        <source>Khotanese, Sakan</source>
+        <translation>Khotanès</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="492"/>
-        <source>Kosraean</source>
-        <translation type="unfinished"/>
+        <source>Kimbundu</source>
+        <translation>Kimbundu; mbundu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="493"/>
+        <source>Klingon, tlhIngan-Hol</source>
+        <translation>Klíngon; klingonès; tlhIngan Hol</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="494"/>
+        <source>Konkani</source>
+        <translation>Konkani</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="495"/>
+        <source>Kosraean</source>
+        <translation>Kosraeà</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Kpelle</source>
         <translation>Kpelle</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="494"/>
+        <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Kru languages</source>
         <translation>Llengües Kru</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="495"/>
+        <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kumyk</source>
-        <translation>Kumyk</translation>
+        <translation>Kúmik</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="496"/>
+        <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Kurukh</source>
         <translation>Kurukh</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="497"/>
+        <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Kutenai</source>
-        <translation>Kootenai</translation>
+        <translation>Kutenai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="498"/>
+        <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Ladino</source>
         <translation>Ladí</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="499"/>
-        <source>Lahnda</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="500"/>
-        <source>Lamba</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="501"/>
-        <source>Land Dayak languages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="502"/>
-        <source>Lezghian</source>
-        <translation type="unfinished"/>
+        <source>Lahnda</source>
+        <translation>Lahnda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="503"/>
-        <source>Lojban</source>
-        <translation type="unfinished"/>
+        <source>Lamba</source>
+        <translation>Lamba</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="504"/>
-        <source>German-Low, Low Saxon</source>
-        <translation type="unfinished"/>
+        <source>Land Dayak languages</source>
+        <translation>Llengües daiaks</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="505"/>
-        <source>Lower Sorbian</source>
-        <translation type="unfinished"/>
+        <source>Lezghian</source>
+        <translation>Lesguià; lèsguic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="506"/>
-        <source>Lozi</source>
-        <translation type="unfinished"/>
+        <source>Lojban</source>
+        <translation>Lojban</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="507"/>
-        <source>Luba-Lulua</source>
-        <translation type="unfinished"/>
+        <source>German-Low, Low Saxon</source>
+        <translation>Baix alemany; baix saxó</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="508"/>
-        <source>Luiseno</source>
-        <translation type="unfinished"/>
+        <source>Lower Sorbian</source>
+        <translation>Baix sòrab</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="509"/>
-        <source>Lule Sami</source>
-        <translation type="unfinished"/>
+        <source>Lozi</source>
+        <translation>Lozi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="510"/>
-        <source>Lunda</source>
-        <translation type="unfinished"/>
+        <source>Luba-Lulua</source>
+        <translation>Luba-lulua</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="511"/>
-        <source>Luo (Kenya and Tanzania)</source>
-        <translation type="unfinished"/>
+        <source>Luiseno</source>
+        <translation>Luisenyo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="512"/>
-        <source>Lushai</source>
-        <translation type="unfinished"/>
+        <source>Lule Sami</source>
+        <translation>Sami de Lule</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="513"/>
-        <source>Madurese</source>
-        <translation type="unfinished"/>
+        <source>Lunda</source>
+        <translation>Lunda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="514"/>
-        <source>Magahi</source>
-        <translation type="unfinished"/>
+        <source>Luo (Kenya and Tanzania)</source>
+        <translation>Luo (Kenya i Tanzània)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="515"/>
-        <source>Maithili</source>
-        <translation type="unfinished"/>
+        <source>Lushai</source>
+        <translation>Lushai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="516"/>
-        <source>Makasar</source>
-        <translation type="unfinished"/>
+        <source>Madurese</source>
+        <translation>Madurès</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="517"/>
-        <source>Manchu</source>
-        <translation type="unfinished"/>
+        <source>Magahi</source>
+        <translation>Magahi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="518"/>
-        <source>Mandar</source>
-        <translation type="unfinished"/>
+        <source>Maithili</source>
+        <translation>Maithili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="519"/>
-        <source>Mandingo</source>
-        <translation type="unfinished"/>
+        <source>Makasar</source>
+        <translation>Makasar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="520"/>
-        <source>Manipuri</source>
-        <translation type="unfinished"/>
+        <source>Manchu</source>
+        <translation>Mantxú</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="521"/>
-        <source>Manobo languages</source>
-        <translation type="unfinished"/>
+        <source>Mandar</source>
+        <translation>Mandar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="522"/>
-        <source>Mapuche/Mapudungun</source>
-        <translation type="unfinished"/>
+        <source>Mandingo</source>
+        <translation>Manding</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="523"/>
-        <source>Mari</source>
-        <translation type="unfinished"/>
+        <source>Manipuri</source>
+        <translation>Manipuri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="524"/>
-        <source>Marwari</source>
-        <translation type="unfinished"/>
+        <source>Manobo languages</source>
+        <translation>Llengües manobo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="525"/>
-        <source>Masai</source>
-        <translation type="unfinished"/>
+        <source>Mapuche/Mapudungun</source>
+        <translation>Mapudungun; maputxe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="526"/>
-        <source>Mayan languages</source>
-        <translation type="unfinished"/>
+        <source>Mari</source>
+        <translation>Mari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="527"/>
-        <source>Mende</source>
-        <translation type="unfinished"/>
+        <source>Marwari</source>
+        <translation>Marwari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="528"/>
-        <source>Mi&apos;kmaq, Micmac</source>
-        <translation type="unfinished"/>
+        <source>Masai</source>
+        <translation>Massai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="529"/>
-        <source>Minangkabau</source>
-        <translation type="unfinished"/>
+        <source>Mayan languages</source>
+        <translation>Llengües maies</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="530"/>
-        <source>Mirandese</source>
-        <translation type="unfinished"/>
+        <source>Mende</source>
+        <translation>Mende</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="531"/>
-        <source>Mohawk</source>
-        <translation type="unfinished"/>
+        <source>Mi&apos;kmaq, Micmac</source>
+        <translation>Mi&apos;kmaq; micmac</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="532"/>
-        <source>Moksha</source>
-        <translation type="unfinished"/>
+        <source>Minangkabau</source>
+        <translation>Minangkabau</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="533"/>
-        <source>Mon-Khmer languages</source>
-        <translation type="unfinished"/>
+        <source>Mirandese</source>
+        <translation>Mirandès</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="534"/>
-        <source>Mongo</source>
-        <translation type="unfinished"/>
+        <source>Mohawk</source>
+        <translation>Mohawk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="535"/>
-        <source>Mossi</source>
-        <translation type="unfinished"/>
+        <source>Moksha</source>
+        <translation>Moksha</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="536"/>
-        <source>Multiple languages</source>
-        <translation>En diversos idiomes</translation>
+        <source>Mon-Khmer languages</source>
+        <translation>Llengües mon-khmer</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="537"/>
-        <source>Munda languages</source>
-        <translation>Llengües Munda</translation>
+        <source>Mongo</source>
+        <translation>Mongo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
-        <source>N&apos;Ko</source>
-        <translation>N&apos;Ko</translation>
+        <source>Mossi</source>
+        <translation>Mossi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
-        <source>Nahuatl languages</source>
-        <translation type="unfinished"/>
+        <source>Multiple languages</source>
+        <translation>Diferents llengües</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="540"/>
-        <source>Neapolitan</source>
-        <translation type="unfinished"/>
+        <source>Munda languages</source>
+        <translation>Llengües mundes</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="541"/>
-        <source>Nepal Bhasa/Newari</source>
-        <translation type="unfinished"/>
+        <source>N&apos;Ko</source>
+        <translation>Nko</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="542"/>
-        <source>Nias</source>
-        <translation type="unfinished"/>
+        <source>Nahuatl languages</source>
+        <translation>Llengües nàhuatl</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="543"/>
-        <source>Niger-Kordofanian languages</source>
-        <translation type="unfinished"/>
+        <source>Neapolitan</source>
+        <translation>Napolità</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="544"/>
-        <source>Nilo-Saharan languages</source>
-        <translation type="unfinished"/>
+        <source>Nepal Bhasa/Newari</source>
+        <translation>Newar; Bhasa Nepal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="545"/>
-        <source>Niuean</source>
-        <translation type="unfinished"/>
+        <source>Nias</source>
+        <translation>Nias</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="546"/>
-        <source>No linguistic content/Not applicable</source>
-        <translation type="unfinished"/>
+        <source>Niger-Kordofanian languages</source>
+        <translation>Llengües nigerokordofanianes</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
-        <source>Nogai</source>
-        <translation type="unfinished"/>
+        <source>Nilo-Saharan languages</source>
+        <translation>Llengües nilosaharianes</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
-        <source>Norse- Old</source>
-        <translation type="unfinished"/>
+        <source>Niuean</source>
+        <translation>Niueà</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="549"/>
-        <source>North American Indian languages</source>
-        <translation type="unfinished"/>
+        <source>No linguistic content/Not applicable</source>
+        <translation>Sense contingut lingüístic / No aplicable</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="550"/>
+        <source>Nogai</source>
+        <translation>Nogai</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="551"/>
+        <source>Norse- Old</source>
+        <translation>Nòrdic antic</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="552"/>
+        <source>North American Indian languages</source>
+        <translation>Llengües ameríndies d&apos;Amèrica del Nord</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Northern Frisian</source>
         <translation>Frisó septentrional</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
-        <translation type="unfinished"/>
+        <translation>Pedi; sepedi; sotho septrentional</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Nubian languages</source>
-        <translation>Llengües núbies</translation>
+        <translation>Llengües nubianes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Nyamwezi</source>
         <translation>Nyamwezi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
-        <source>Nyankole</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
-        <source>Nyoro</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
-        <source>Nzima</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
-        <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation type="unfinished"/>
+        <source>Nyankole</source>
+        <translation>Nyankole</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="558"/>
-        <source>Official/Imperial Aramaic (700-300 BCE)</source>
-        <translation type="unfinished"/>
+        <source>Nyoro</source>
+        <translation>Nyoro</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="559"/>
-        <source>Osage</source>
-        <translation type="unfinished"/>
+        <source>Nzima</source>
+        <translation>Nzema; Nzima; Appolo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
-        <source>Otomian languages</source>
-        <translation type="unfinished"/>
+        <source>Occitan/Provencal- Old (to 1500)</source>
+        <translation>Provençal antic (fins al 1500); occità antic (fins al 1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
-        <source>Pahlavi</source>
-        <translation type="unfinished"/>
+        <source>Official/Imperial Aramaic (700-300 BCE)</source>
+        <translation>Aramaic oficial (700-300 a.C.); aramaic imperial (700-300 a.C.)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
-        <source>Palauan</source>
-        <translation type="unfinished"/>
+        <source>Osage</source>
+        <translation>Osage</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="563"/>
-        <source>Pangasinan</source>
-        <translation type="unfinished"/>
+        <source>Otomian languages</source>
+        <translation>Llengües otomianes</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="564"/>
-        <source>Papiamento</source>
-        <translation type="unfinished"/>
+        <source>Pahlavi</source>
+        <translation>Pahlavi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="565"/>
-        <source>Papuan languages</source>
-        <translation type="unfinished"/>
+        <source>Palauan</source>
+        <translation>Palauà; palauès</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
-        <source>Persian- Old (ca.600-400 B.C.)</source>
-        <translation>Persa antic (ca.600-400 B.C.)</translation>
+        <source>Pangasinan</source>
+        <translation>Pangasinan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
-        <source>Philippine languages</source>
-        <translation type="unfinished"/>
+        <source>Papiamento</source>
+        <translation>Papiamento</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="568"/>
-        <source>Phoenician</source>
-        <translation>Llengua fenícia</translation>
+        <source>Papuan languages</source>
+        <translation>Llengües papús</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
-        <source>Pohnpeian</source>
-        <translation type="unfinished"/>
+        <source>Persian- Old (ca.600-400 B.C.)</source>
+        <translation>Persa antic (ca. 600-400 AC)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
-        <source>Prakrit languages</source>
-        <translation type="unfinished"/>
+        <source>Philippine languages</source>
+        <translation>Llengües filipines</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
-        <source>Rajasthani</source>
-        <translation type="unfinished"/>
+        <source>Phoenician</source>
+        <translation>Fenici</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
-        <source>Rapanui</source>
-        <translation type="unfinished"/>
+        <source>Pohnpeian</source>
+        <translation>Ponapeà</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
-        <source>Rarotongan, Cook Islands Maori</source>
-        <translation type="unfinished"/>
+        <source>Prakrit languages</source>
+        <translation>Llengües pràcrits</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
-        <source>Reserved for local use</source>
-        <translation type="unfinished"/>
+        <source>Rajasthani</source>
+        <translation>Rajasthani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
+        <source>Rapanui</source>
+        <translation>Rapanui</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="576"/>
+        <source>Rarotongan, Cook Islands Maori</source>
+        <translation>Rarotongan; maori de les Illes Cook</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="577"/>
+        <source>Reserved for local use</source>
+        <translation>Reservat per a ús local</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Romance languages</source>
         <translation>Llengües romàniques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
-        <source>Romany</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
-        <source>Salishan languages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
-        <source>Samaritan Aramaic</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
-        <source>Sami languages</source>
-        <translation type="unfinished"/>
+        <source>Romany</source>
+        <translation>Romaní</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
-        <source>Sandawe</source>
-        <translation type="unfinished"/>
+        <source>Salishan languages</source>
+        <translation>Llengües salish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
-        <source>Santali</source>
-        <translation type="unfinished"/>
+        <source>Samaritan Aramaic</source>
+        <translation>Arameu samarità</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
-        <source>Sasak</source>
-        <translation type="unfinished"/>
+        <source>Sami languages</source>
+        <translation>Llengües sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
-        <source>Scots</source>
-        <translation type="unfinished"/>
+        <source>Sandawe</source>
+        <translation>Sandawe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="584"/>
-        <source>Selkup</source>
-        <translation type="unfinished"/>
+        <source>Santali</source>
+        <translation>Santali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="585"/>
-        <source>Semitic languages</source>
-        <translation type="unfinished"/>
+        <source>Sasak</source>
+        <translation>Sasak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
-        <source>Serer</source>
-        <translation type="unfinished"/>
+        <source>Scots</source>
+        <translation>Escocès</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="587"/>
-        <source>Shan</source>
-        <translation type="unfinished"/>
+        <source>Selkup</source>
+        <translation>Selkup</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
-        <source>Sicilian</source>
-        <translation type="unfinished"/>
+        <source>Semitic languages</source>
+        <translation>Llengües semítiques</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
-        <source>Sidamo</source>
-        <translation type="unfinished"/>
+        <source>Serer</source>
+        <translation>Serer</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="590"/>
-        <source>Sign Languages</source>
-        <translation type="unfinished"/>
+        <source>Shan</source>
+        <translation>Shan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="591"/>
-        <source>Siksika</source>
-        <translation type="unfinished"/>
+        <source>Sicilian</source>
+        <translation>Sicilià</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="592"/>
-        <source>Sino-Tibetan languages</source>
-        <translation type="unfinished"/>
+        <source>Sidamo</source>
+        <translation>Sidamo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="593"/>
-        <source>Siouan languages</source>
-        <translation>Llengües siouan</translation>
+        <source>Sign Languages</source>
+        <translation>Llengües de signes</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="594"/>
-        <source>Skolt Sami</source>
-        <translation type="unfinished"/>
+        <source>Siksika</source>
+        <translation>Siksika; peus negres</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
-        <source>Slave (Athapascan)</source>
-        <translation type="unfinished"/>
+        <source>Sino-Tibetan languages</source>
+        <translation>Llengües sinotibetanes</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="596"/>
-        <source>Slavic languages</source>
-        <translation type="unfinished"/>
+        <source>Siouan languages</source>
+        <translation>Llengües siux</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
-        <source>Sogdian</source>
-        <translation type="unfinished"/>
+        <source>Skolt Sami</source>
+        <translation>Sami skolt</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
-        <source>Songhai languages</source>
-        <translation type="unfinished"/>
+        <source>Slave (Athapascan)</source>
+        <translation>Slave (atapascà)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
-        <source>Soninke</source>
-        <translation type="unfinished"/>
+        <source>Slavic languages</source>
+        <translation>Llengües eslàviques</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
-        <source>Sorbian languages</source>
-        <translation type="unfinished"/>
+        <source>Sogdian</source>
+        <translation>Sogdià</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
-        <source>South American Indian languages</source>
-        <translation type="unfinished"/>
+        <source>Songhai languages</source>
+        <translation>Llengües songhai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
-        <source>Southern Altai</source>
-        <translation type="unfinished"/>
+        <source>Soninke</source>
+        <translation>Soninke</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
-        <source>Southern Sami</source>
-        <translation type="unfinished"/>
+        <source>Sorbian languages</source>
+        <translation>Llengües sòrabes</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
-        <source>Sranan Tongo</source>
-        <translation type="unfinished"/>
+        <source>South American Indian languages</source>
+        <translation>Llengües ameríndies d&apos;Amèrica del Sud</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
-        <source>Sukuma</source>
-        <translation type="unfinished"/>
+        <source>Southern Altai</source>
+        <translation>Altaic meridional</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="606"/>
-        <source>Sumerian</source>
-        <translation type="unfinished"/>
+        <source>Southern Sami</source>
+        <translation>Sami meridional</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="607"/>
-        <source>Susu</source>
-        <translation type="unfinished"/>
+        <source>Sranan Tongo</source>
+        <translation>Sranan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
-        <source>Alsatian, Swiss German, Alemannic</source>
-        <translation type="unfinished"/>
+        <source>Sukuma</source>
+        <translation>Sukuma</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
-        <source>Syriac</source>
-        <translation type="unfinished"/>
+        <source>Sumerian</source>
+        <translation>Sumeri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
-        <source>Tai languages</source>
-        <translation type="unfinished"/>
+        <source>Susu</source>
+        <translation>Susu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="611"/>
-        <source>Tamashek</source>
-        <translation type="unfinished"/>
+        <source>Alsatian, Swiss German, Alemannic</source>
+        <translation>Alemany suís; alamànic; alsacià</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
-        <source>Tereno</source>
-        <translation type="unfinished"/>
+        <source>Syriac</source>
+        <translation>Siríac</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
-        <source>Tetum</source>
-        <translation type="unfinished"/>
+        <source>Tai languages</source>
+        <translation>Llengües tais</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
-        <source>Tigre</source>
-        <translation type="unfinished"/>
+        <source>Tamashek</source>
+        <translation>Tamahaq</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="615"/>
-        <source>Timne</source>
-        <translation type="unfinished"/>
+        <source>Tereno</source>
+        <translation>Tereno; terêna</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="616"/>
-        <source>Tiv</source>
-        <translation type="unfinished"/>
+        <source>Tetum</source>
+        <translation>Tetum; tetun</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="617"/>
-        <source>Tlingit</source>
-        <translation type="unfinished"/>
+        <source>Tigre</source>
+        <translation>Tigre; tigré</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="618"/>
-        <source>Tok Pisin</source>
-        <translation type="unfinished"/>
+        <source>Timne</source>
+        <translation>Timne; themne</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
-        <source>Tokelau</source>
-        <translation type="unfinished"/>
+        <source>Tiv</source>
+        <translation>Tiv</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
-        <source>Tonga (Nyasa)</source>
-        <translation type="unfinished"/>
+        <source>Tlingit</source>
+        <translation>Tlingit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="621"/>
-        <source>Tsimshian</source>
-        <translation type="unfinished"/>
+        <source>Tok Pisin</source>
+        <translation>Tok pisin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
-        <source>Tumbuka</source>
-        <translation type="unfinished"/>
+        <source>Tokelau</source>
+        <translation>Tokelauès</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
-        <source>Tupi languages</source>
-        <translation type="unfinished"/>
+        <source>Tonga (Nyasa)</source>
+        <translation>Tonga (Nyasa)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="624"/>
+        <source>Tsimshian</source>
+        <translation>Tsimshian</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="625"/>
+        <source>Tumbuka</source>
+        <translation>Tumbuka</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="626"/>
+        <source>Tupi languages</source>
+        <translation>Llengües tupís</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>Turc otomà (1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
-        <source>Tuvalu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
-        <source>Tuvinian</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
-        <source>Udmurt</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
-        <source>Ugaritic</source>
-        <translation type="unfinished"/>
+        <source>Tuvalu</source>
+        <translation>Tuvalu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
-        <source>Umbundu</source>
-        <translation type="unfinished"/>
+        <source>Tuvinian</source>
+        <translation>Tuvinià</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
-        <source>Uncoded languages</source>
-        <translation>Idiomes sense codificar</translation>
+        <source>Udmurt</source>
+        <translation>Udmurt</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
-        <source>Undetermined</source>
-        <translation>Sense determinar</translation>
+        <source>Ugaritic</source>
+        <translation>Ugarític</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
-        <source>Upper Sorbian</source>
-        <translation type="unfinished"/>
+        <source>Umbundu</source>
+        <translation>Umbundu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
-        <source>Vai</source>
-        <translation type="unfinished"/>
+        <source>Uncoded languages</source>
+        <translation>Llengües sense codificació</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
-        <source>Votic</source>
-        <translation type="unfinished"/>
+        <source>Undetermined</source>
+        <translation>Indeterminat</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
-        <source>Wakashan languages</source>
-        <translation type="unfinished"/>
+        <source>Upper Sorbian</source>
+        <translation>Alt sòrab</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
-        <source>Waray</source>
-        <translation type="unfinished"/>
+        <source>Vai</source>
+        <translation>Vai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
-        <source>Washo</source>
-        <translation type="unfinished"/>
+        <source>Votic</source>
+        <translation>Votic; vod</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
-        <source>Wolaitta, Wolaytta</source>
-        <translation type="unfinished"/>
+        <source>Wakashan languages</source>
+        <translation>Llengües wakashan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
-        <source>Yakut</source>
-        <translation type="unfinished"/>
+        <source>Waray</source>
+        <translation>Waray</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
-        <source>Yao</source>
-        <translation type="unfinished"/>
+        <source>Washo</source>
+        <translation>Washo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
-        <source>Yapese</source>
-        <translation type="unfinished"/>
+        <source>Wolaitta, Wolaytta</source>
+        <translation>Walamo, wolaytta</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
-        <source>Yupik languages</source>
-        <translation type="unfinished"/>
+        <source>Yakut</source>
+        <translation>Iacut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
-        <source>Zande languages</source>
-        <translation type="unfinished"/>
+        <source>Yao</source>
+        <translation>Yao</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
-        <source>Zapotec</source>
-        <translation type="unfinished"/>
+        <source>Yapese</source>
+        <translation>Yapeà; yapà</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
-        <source>Zenaga</source>
-        <translation type="unfinished"/>
+        <source>Yupik languages</source>
+        <translation>Llengües yupik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="646"/>
+        <source>Zande languages</source>
+        <translation>Llengües zande</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="647"/>
+        <source>Zapotec</source>
+        <translation>Zapoteca</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="648"/>
+        <source>Zenaga</source>
+        <translation>Zenaga</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Zuni</source>
-        <translation type="unfinished"/>
+        <translation>Zuni</translation>
     </message>
 </context>
 <context>
@@ -5653,8 +5670,8 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <name>LinksWidget</name>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
-        <source>Links and Footnotes</source>
-        <translation>Enllaços i notes al peu</translation>
+        <source>Links</source>
+        <translation>Enllaços</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
@@ -6132,20 +6149,6 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insereix o edita una àncora amb un nom identificador per a utilitzar-la com a objectiu d&apos;un enllaç.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1061"/>
-        <source>&amp;Hyperlink...</source>
-        <translation>Enlla&amp;ç...</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1064"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Hyperlink&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insereix un enllaç&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insereix o edita una àncora amb un enllaç a un objectiu.&lt;/p&gt;</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="1115"/>
         <source>Stri&amp;kethrough</source>
         <translation>Barra&amp;t</translation>
@@ -6570,9 +6573,21 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Podeu afegir fitxers al llibre amb l&apos;ordre «Afegeix» i «fitxers» del menú «Fitxer».&lt;/p&gt;</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1061"/>
+        <source>&amp;Link...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1064"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/main.ui" line="1207"/>
         <source>Ctrl+=</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+=</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1230"/>
@@ -7332,12 +7347,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="2204"/>
         <source>Book&amp;mark Location</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Ubicació de les adreces d&apos;interès</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2207"/>
         <source>Ctrl+Alt+B</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2215"/>
@@ -7347,7 +7362,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="2224"/>
         <source>&amp;Back</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Enrere</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2227"/>
@@ -7355,7 +7370,10 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Enrere&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vés enrere fins al lloc de destí del darrer enllaç, estil o ubicació dels preferits.&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2233"/>
@@ -7420,7 +7438,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="1393"/>
         <source>&amp;Titlecase</source>
-        <translation>Majúscula &amp;posicional</translation>
+        <translation>Majúscules &amp;posicionals</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1410"/>
@@ -7802,32 +7820,32 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="708"/>
         <source>Line #</source>
-        <translation>Linia núm. </translation>
+        <translation>Linia número</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="327"/>
         <location filename="../../MainUI/MainWindow.cpp" line="553"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1084"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1119"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1225"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1283"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1292"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1485"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1492"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2886"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3234"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1120"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1131"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1237"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1256"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1498"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2912"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3260"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="280"/>
         <source>Location bookmarked.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha desat l&apos;adreça d&apos;interès.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="327"/>
@@ -7854,116 +7872,111 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <translation>No hi ha cap estil CSS anomenat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="938"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="948"/>
         <source>Styles deleted.</source>
         <translation>S&apos;han esborrat els estils.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1172"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1184"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>El fitxer «%1» no existeix.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1225"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1237"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1256"/>
         <source>You cannot insert an id at this position.</source>
         <translation>No es pot inserir un identificador en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
-        <source>You cannot insert a hyperlink at this position.</source>
-        <translation>No es pot inserir un enllaç en aquesta posició.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1315"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1326"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1441"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1338"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1453"/>
         <source>Select the destination to paste into first.</source>
         <translation>Seleccioneu una destinació per enganxar-hi a dins.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1498"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Hi ha un recurs seleccionat i cap recurs previ per combinar-lo dins seu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1505"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Esteu segur que voleu combinar els fitxers seleccionats?
 Aquesta acció no es pot desfer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1554"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>S&apos;ha cancel·lat l&apos;enllaç amb el full d&apos;estil %1 ja que l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1524"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>S&apos;ha cancel·lat la combinació ja que l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1536"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1549"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>S&apos;ha completat la combinació. Si cal, editeu o tornau a generar la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1705"/>
         <source>Word updated.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha actualitzat la paraula.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1770"/>
         <source>File(s) deleted.</source>
         <translation>S&apos;han esborrat els fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1799"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1818"/>
         <source>Table Of Contents generated.</source>
         <translation>S&apos;ha generat la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2078"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2104"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Aquest EPUB no conté cap full d&apos;estil CSS per validar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2728"/>
         <source>File cannot be split at this position.</source>
         <translation>El fitxer no es pot dividir en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2745"/>
         <source>Split completed.</source>
         <translation>S&apos;ha completat la divisió.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2769"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>S&apos;ha completat la divisió. Si cal, actualitzau la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2778"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2804"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>No s&apos;ha trobat cap marcador de divisió de fitxer.
 Utilizeu l&apos;ordre «Marcador de divisió» del menú «Insereix».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3002"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3028"/>
         <source>File loaded.</source>
         <translation>S&apos;ha carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3054"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3080"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation type="unfinished"/>
+        <translation>El Sigil no pot desar fitxers del tipus «%1».
+Trieu un altre format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3089"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3115"/>
         <source>File saved.</source>
         <translation>S&apos;ha desat el fitxer.</translation>
     </message>
@@ -8015,119 +8028,125 @@ Please choose a different format.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1092"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Esborra els fulls d&apos;estil sense utilitzar cancel·lats per tenir l&apos;XML mal format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1120"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Als fulls d&apos;estil, no hi ha cap classe sense utilitzar per esborrar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1251"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>L&apos;identificador no és vàlid; ha de començar amb una lletra seguida de lletre, números _ : o .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>No es pot marcar un índex en aquesta posició o sense seleccionar text.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1292"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1304"/>
         <source>You cannot mark an index at this position.</source>
         <translation>No es pot marcar un índex en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
         <source>Cannot merge file %1</source>
         <translation>No es pot combinar el fitxer %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1803"/>
         <source>Generate TOC cancelled.</source>
         <translation>S&apos;ha cancel·lat la generació de la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1801"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>No cal fer canvis a la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2613"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2639"/>
         <source>Line: %1, Col: %2</source>
-        <translation>Línia: %1, Col: %2</translation>
+        <translation>Línia %1 - Columna %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2887"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2913"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>El document s&apos;ha modificat.
 Voleu desar-ne els canvis?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2974"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3000"/>
         <source>No importer for file type: %1</source>
         <translation>No es poden importar els fitxers de tipus %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2764"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>No es po dividir ja que un dels fitxers, com a mínim, no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="946"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="958"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>S&apos;han cancel·lat els informes ja que l&apos;XML és mal format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1033"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1045"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>S&apos;ha cancel·lat la supressió de fitxers multimèdia sense utilitzar ja que l&apos;XML és mal format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1082"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1094"/>
         <source>Unused media files deleted.</source>
         <translation>S&apos;han suprimit els fitxers multimèdia no utilitzats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1096"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>No hi ha cap imatge, vídeo o fitxer d&apos;àudio sense utilitzar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1119"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1131"/>
         <source>You cannot insert a file at this position.</source>
         <translation>No es pot inserir un fitxer en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1334"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
+        <source>You cannot insert a link at this position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1346"/>
         <source>Pasted clip entry %1.</source>
         <translation>S&apos;ha enganxat l&apos;entrada de retall %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1781"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>S&apos;ha cancel·lat l&apos;edició de la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1767"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1786"/>
         <source>Table Of Contents edited.</source>
         <translation>S&apos;ha editat la taula de contonguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2744"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2770"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>No es pot dividir %1 ja que l&apos;XML no és ben format</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2750"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2776"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>No es pot dividir ja que un dels fitxers, com a mínim, potser no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2981"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8140,79 +8159,79 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
 Proveu de canviar les preferències de netedat del codi a «Endreçat per impressió polida» o a «HTML endreçat» i torneu a carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3016"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3042"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>El creador d&apos;aquest fitxer l&apos;ha encriptat amb DRM. El Sigil no pot obrir aquests fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3022"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3048"/>
         <source>Cannot load EPUB: %1</source>
         <translation>No es pot carregar l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3025"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3051"/>
         <source>Cannot load file %1: %2</source>
         <translation>No es pot carregar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3046"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
         <source>Saving file...</source>
         <translation>S&apos;està desant el fitxer...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3092"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
         <source>Cannot save file %1: %2</source>
         <translation>No es pot desar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3211"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3237"/>
         <source>EPUB files (*.epub)</source>
         <translation>Fitxers EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3212"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3213"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3214"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3238"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3240"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Fitxers HTML  (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3215"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
         <source>Text files (*.txt)</source>
         <translation>Fitxers de text (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3216"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3242"/>
         <source>All files (*.*)</source>
         <translation>Tots els fitxers (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3250"/>
         <source>EPUB file (*.epub)</source>
         <translation>Fitxer EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3234"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3260"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Conservació d&apos;atributs d&apos;encapçalament:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3332"/>
         <source>ON</source>
         <translation>Actiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3332"/>
         <source>OFF</source>
         <translation>Inactiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3357"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -8396,7 +8415,8 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
-        <translation>Paraula o paraules clau que descriuen el contingut del document. Feu servir múltiples &apos;matèries&apos; si és necessari.</translation>
+        <translation>Frase o paraula clau arbitrària que descriu el tema o l&apos;assumpte tractat.
+Si cal, podeu fer servis més d&apos;un element «Tema».</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
@@ -8412,37 +8432,37 @@ Voleu desar-ne els canvis?</translation>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Publisher</source>
-        <translation>Editor</translation>
+        <translation>Editorial</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation>Entitat resposanble de la publicació.</translation>
+        <translation>Persona, organització, o servei responsables de fer disponible el recurs i proporcionar-ne accés.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
         <source>The date of publication.</source>
-        <translation>Data de publicació.</translation>
+        <translation>Data de la publicació de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="221"/>
         <source>The date of creation.</source>
-        <translation>Data de producció.</translation>
+        <translation>Data de la creació de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="222"/>
         <source>The date of modification.</source>
-        <translation>Data de modificació.</translation>
+        <translation>Data de la modificació de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
         <source>Type</source>
-        <translation>Tipus</translation>
+        <translation>Gènere</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation>Natura o gènere del contingut del recurs.</translation>
+        <translation>Descripció de la naturalesa o gènere del contingut del recurs.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
@@ -8452,7 +8472,8 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
-        <translation>El tipus de medi o dimensions d&apos;una publicació. Una bona pràctica és fer servir un vocabulari controlat (per exemple el MIME media types).</translation>
+        <translation>Format del fitxer, suport físic, o dimensions del recurs.
+Es recomana usar un vocabulari controlat, per exemple, la llista de Internet Media Types (MIME).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
@@ -8462,17 +8483,18 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
         <source>A reference to a resource from which the present publication is derived.</source>
-        <translation>Una referència a un recurs del qual deriva aquesta publicació</translation>
+        <translation>Referència a un altre recurs del qual se’n deriva en tot o en part el recurs descrit.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
         <source>Language</source>
-        <translation>Idioma</translation>
+        <translation>Llengua</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
         <source>An optional extra language of the publication.  Use a value from the Language drop down menu.  For example use &apos;English&apos; instead of the language code &apos;en&apos;.</source>
-        <translation>Un idioma extr per a la publicació de caràcter opcional. Feu servir un valor del desplegable Idioma. Per exemple &apos;Anglès&apos; en comptes del codi d&apos;idioma &apos;en&apos;.</translation>
+        <translation>Idioma addicional opcional de la publicaió.
+Utilitzeu una valor del menú emergent d&apos;idiomes. Per exemple, «Anglès» en lloc del codi d&apos;idioma «en».</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="228"/>
@@ -8482,7 +8504,8 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="228"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
-        <translation>Una referència a un recurs relacionat. Una bona pràctica és identificar el recurs mitjançant una sèrie de lletres o números d’identificació estandarditzats.</translation>
+        <translation>Referència a un recurs relacionat.
+Una bona pràctica és identificar el recurs mitjançant una sèrie de lletres o números d&apos;acord amb un sistema d&apos;identificació formal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
@@ -8492,7 +8515,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
-        <translation>L&amp;#8217;abast del contingut de la publicació.</translation>
+        <translation>Extensió o abast del contingut de la publicació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
@@ -8502,7 +8525,9 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation type="unfinished"/>
+        <translation>Informació sobre els drets legals que afecten l&apos;obra.
+Normalment, inclou els drets de propietat intel·lectual, el copyright i altres drets de propietat.
+El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
@@ -8512,22 +8537,22 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
         <source>An optional extra title of the publication in addition to the main title already entered.</source>
-        <translation>Altre títol de la publicació, de caràcter opcional.</translation>
+        <translation>Titol addicional opcional de l&apos;obra, a més a més del títol principal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="232"/>
         <source>Digital Object Identifier</source>
-        <translation>Digital Object Identifier</translation>
+        <translation>Identificador d&apos;objecte digital</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="233"/>
         <source>International Standard Book Number</source>
-        <translation>International Standard Book Number (ISBN)</translation>
+        <translation>Número Internacional Normalitzat per a llibres</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="234"/>
         <source>International Standard Serial Number</source>
-        <translation>International Standard Serial Number (ISSN)</translation>
+        <translation>Número Internacional Normalitzat per a Publicacions en Sèrie</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
@@ -8537,7 +8562,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Persona o organització que principalment mostra habilitats per actuar en una actuació musical, dramàtica o d&apos;entreteniment.</translation>
+        <translation>Persona o organització que principalment mostra habilitats per actuar en una obra musical, dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
@@ -8547,7 +8572,9 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que:
+1) refà una composició musical, noemalment per a un mitjà diferent, o
+2) reescriu novel·les o escrits per al cinema o altres mitjans audiovisuals.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
@@ -8557,7 +8584,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation>Persona o organització que ressenya, examina i interpreta dades o informació en una àrea específica.</translation>
+        <translation>Persona o organització que revisa, examina i interpreta dades o informació en una àrea específica.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
@@ -8567,7 +8594,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que dibuixa les imatges planes, manipula els objectes en tres dimensions o programa els ordinadors per fer moure objectes i imatges per tal de crear pel·lícules d&apos;animació. L&apos;animador fa servir eines com ara càmeres d&apos;animació, suports, pantalles de cel·luloide i tintes.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
@@ -8577,7 +8604,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation>Persona que escriu anotacions manuscrites en un document imprès.</translation>
+        <translation>Persona que escriu notes manuscrites en un document imprès.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
@@ -8587,7 +8614,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de la presentació d&apos;una sol·licitud o que es designada com a titular per rebre el resultat de la sol·licitud (per exemple, concessió de drets, remuneració, títol o càrrec).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
@@ -8597,7 +8624,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que dissenya estructures o en supervisa la construcció.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
@@ -8607,17 +8634,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>Músic que adapta composicions musicals a instruments i veus diferents dels originals.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
         <source>Art copyist</source>
-        <translation type="unfinished"/>
+        <translation>Copista d&apos;art</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation>Persona (per exemple pintor o escultor) que fa copies d&apos;obres d&apos;art.</translation>
+        <translation>Persona que copia l’obra d’un artista.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
@@ -8627,7 +8654,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que concep i, potser, també du a terme un disseny gràfic original o una obra d&apos;art, si no es volen fer servir altres codis més concrets (com [egr] o [etr]). Per a il·lustradors de llibres, utilitzeu preferentment «il·lustrador» [ill].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
@@ -8637,7 +8664,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation type="unfinished"/>
+        <translation>Persona responsable de controlar el desenvolupament de l&apos;estil artístic d&apos;una producció sencera; incloent-ne la tria de les obres que s&apos;hi presenten i la selecció del personal principal de la producció.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
@@ -8647,7 +8674,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització a favor de la qual ha estat atorgada la llicència d&apos;impressió o publicació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
@@ -8657,7 +8684,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització associada o que es troba en un objecte o col·lecció, la qual no es pot determinar si es un propietari anterior [fmo] o altre indicador de relació que n&apos;indiqui l&apos;origen.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
@@ -8667,7 +8694,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation type="unfinished"/>
+        <translation>Autor, artista, etc. relacionat amb una obra amb la qual hi ha, o hi va haver, constància en ferm de ser-ne l&apos;autor, el creador, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
@@ -8677,7 +8704,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització encarregada de la valoració i la subhasta pública de bens, especialment de llibres, obres d&apos;art, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
@@ -8687,12 +8714,12 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation>Persona o organització principal responsable del contingut intel·lectual o artístic de l&apos;obra, generalment un text imprès. Aquest terme també es pot emprar quan la responsabilitat correspon a més d&apos;una persona o organització.</translation>
+        <translation>Persona o organització que és la principal responsable del contingut intel·lectual o artístic de l&apos;obra, generalment un text imprès. Aquest terme també es pot fer servir quan la responsabilitat correspon a més d&apos;una persona o organització.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
         <source>Author in quotations or text extracts</source>
-        <translation>Autor de cites o extractes del text</translation>
+        <translation>Autor de cites o extractes textuals</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
@@ -8707,7 +8734,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation>Persona o organització responsable del epíleg, nota final, colofó, etc., però que no és l&apos;autor principal de l&apos;obra.</translation>
+        <translation>Persona o organització responsable de l&apos;epíleg, nota final, colofó, etc., però que no és l&apos;autor principal de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
@@ -8717,12 +8744,12 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable del diàleg o del comentari parlat d&apos;un guió o d&apos;un enregistrament de so.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Author of introduction, etc.</source>
-        <translation>Resposable de la introducció, etc.</translation>
+        <translation>Autor de la introducció, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
@@ -8747,7 +8774,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable d&apos;una obra en la qual es basa l&apos;obra descrita. Pot ser adequat per adaptacions, seqüeles, continuacions, índexs, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
@@ -8757,7 +8784,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de l&apos;enquadernació de materials impresos o manuscrits.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
@@ -8767,7 +8794,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable del disseny del relligat d&apos;un llibre, incloent-ne en tipus d&apos;enquadernació, els materials utilitzats i qualsevol aspecte decoratiu del relligat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
@@ -8777,7 +8804,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable del disseny gràfic complet d&apos;un llibre, incloent-ne la maquetació del text i de les il·lustracions, la tria dels materials i el procés utilitzat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
@@ -8787,7 +8814,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de la producció de llibres i d&apos;altres mitjans impresos, si no es volen utilitzar altres codis més concrets (per exemple, [bkd], [egr], [tyd], [prt]).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
@@ -8797,17 +8824,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable del disseny de les cobertes flexibles d&apos;un llibre, incloent-ne els tipus de materials utilitzats i qualsevol aspecte decoratiu de la sobrecoberta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Bookplate designer</source>
-        <translation>Dissenyador de l&amp;#8217;ex-libris</translation>
+        <translation>Dissenyador de l&apos;ex-libris</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable del disseny de l&apos;etiqueta que identifica el propietari d&apos;un llibre, que generalment s&apos;enganxa a l&apos;interior de la coberta frontal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
@@ -8817,7 +8844,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que ven llibres i altres materials bibliogràfics, principalment, amb afany de lucre.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
@@ -8827,7 +8854,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que escriu a mà de manera artística, normalment com a copista o cal·lígraf.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
@@ -8837,7 +8864,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de la creació de mapes i altres materials cartogràfics.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
@@ -8847,7 +8874,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation>Emprat per un censor, expurgador, mutilador, etc. oficial o privat.</translation>
+        <translation>Censor, expurgador, mutilador, etc. oficial o privat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
@@ -8857,7 +8884,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que compon o arranja danses o altres moviments (per exemple, «mestre d&apos;espases») per a un musical, representació dramàtica o espectacle d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
@@ -8867,7 +8894,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització encarregada de les imatges rodades per a una pel·lícula. Treballa sota la supervisió d&apos;un director. No s&apos;ha de confondre amb l&apos;operador de càmera o cameràman.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
@@ -8887,7 +8914,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Use for a person or organization that takes a limited part in the elaboration of a work of another person or organization that brings complements (e.g., appendices, notes) to the work.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que intervé d&apos;una forma limitada en l&apos;elaboració d&apos;una obre d&apos;una altra persona o organització per tal de complementar l&apos;obra amb apèndixs, notes, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
@@ -8897,7 +8924,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que ha compilat material de diverses fonts que ha estat ordenat, descrit i catalogat com a col·lecció. Un col·leccionista no és ni el creador del material ni la persona a la qual els manuscrits d&apos;una col·lecció s&apos;hi poden haver adreçat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
@@ -8907,7 +8934,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de la producció d&apos;impressions fotogràfiques a partir d&apos;una pel·licula o d&apos;un altre col·loide que tingui superfícies receptores o repel·lents a la tinta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
@@ -8927,7 +8954,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable dels comentaris o de les notes explicatives d&apos;un text. Per a l&apos;autor de les notes manuscrites d&apos;un llibre imprès, feu servir Anotador [ann].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
@@ -8937,7 +8964,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que produeix una obra o una publicació selecccionant i compilant material a partir d&apos;obres de diverses persones o entitats.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
@@ -8947,27 +8974,27 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Part que recorre als tribunals per a una reparació, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
         <source>Complainant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Querellant apel·lant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Querellant que presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
         <source>Complainant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Querellant apel·lat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Querellant contra el qual es presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
@@ -8977,7 +9004,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que crea una obra musical, noemalment una peça de música en forma manuscrita o impresa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
@@ -8987,27 +9014,27 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de la creació dels motlles de metall o d&apos;altres materials utilitzats per obtenir text i imatges en un imprès.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
         <source>Conceptor</source>
-        <translation>Responsable de la idea</translation>
+        <translation>Autor de la idea</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de la idea original en la qual es basa l&apos;obra, incloent-ne l&apos;autor científic d&apos;un element audiovisual i l&apos;autor d ela idea d&apos;un anunci.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Conductor</source>
-        <translation>Director de l&apos;orquestra</translation>
+        <translation>Director d&apos;orquestra</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que dirigeix un grup d&apos;intèrprets (orquestra, cor, òpera, etc.) en una representació musical, dràmatica o espectacle d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
@@ -9017,7 +9044,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització competent en la matèria a qui es demana consell professional o serveis en un camp especialitzat de coneixement o d&apos;habilitats.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
@@ -9027,67 +9054,67 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització competent en la matèria a qui es contracta específicament per a supervisar intel·lectualment una tasca estratègica o operativa i per a crear o proposar-ne una solució o un pla d&apos;acció eficient mitjançant l&apos;anàlisi, l&apos;especificació o la indicació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Contestant</source>
-        <translation type="unfinished"/>
+        <translation>Impugnador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Part que s&apos;oposa, rebutja o impugna, en un tribunal, una reclamació, decisió, resultat, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Contestant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Impugnador apel·lant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Impugnador que presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Contestant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Impugnador apel·lat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Impugnador en contra del qual es presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
         <source>Contestee</source>
-        <translation type="unfinished"/>
+        <translation>Impugnat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation type="unfinished"/>
+        <translation>Part que defensa una reclamació, decisió, resultat, etc. que ha estat rebutjada o impugnada en un tribunal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
         <source>Contestee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Impugnat apel·lant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Impugnat que presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
         <source>Contestee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Impugnat apel·lant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Impugnat en contra del qual es presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
@@ -9097,38 +9124,38 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització competent en la matèria que estableix un contracte amb una altra persona o organització per dur a terme una tasca concreta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="197"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
         <source>Contributor</source>
-        <translation>Col·laborador</translation>
+        <translation>Contribuïdor</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització l&apos;obra de la qual contribueix a una obra més gran, com ara un antologia, publicació en sèrie, o altre tipus de recopilació d&apos;obres individuals. No s&apos;ha de fer servir aquest element si l&apos;única funció en relació amb l&apos;obra és la d&apos;autor, editor, compilador o traductor.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
         <source>Copyright claimant</source>
-        <translation>Sol·licitant dels drets</translation>
+        <translation>Sol·licitant del copyright</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que s&apos;inscriu com a propietària del copyright en el moment del registre. El copyright pot concesir-se o ser transferit després a una altra persona o organització i, aleshores, el sol·licitant es converteix en el titular del copyright.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
         <source>Copyright holder</source>
-        <translation>Titular dels drets</translation>
+        <translation>Titular del copyright</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització a qui es concedeixen o es trasfereixen els drets legals i de còpia pel que fa al contingut intel·lectual d&apos;una obra. El titular del copyright, encara que no sigui necessàriament el creador de l&apos;obra, normalment té els drets exclusius per a rebre beneficis econòmics provinents de la venda i l&apos;ús de l&apos;obra afectada per la protecció del copyright.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
@@ -9138,7 +9165,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que corregeix manuscrits, com ara l&apos;encarregat oficial de corregir el treballs dels escrivents en un scriptòrium. Per a materials impresos, feu servir Corrector de proves.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
@@ -9148,7 +9175,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que ha estat el remitent o el destinatari d&apos;una carta o d&apos;un altra mena de comunicació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
@@ -9158,7 +9185,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Personao organització que dissenya o fa vestits, s&apos;encarrega dels pentinats, etc. en una representació musical o dramàtica o en un espectacle d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
@@ -9168,13 +9195,13 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable del disseny gràfic de la coberta d&apos;un llibre o d&apos;un àlbum, o de l&apos;estoig, la capsa, el contenidor, etc. Per a la persona o orgnaització responsable del disseny gràfic del llibre sencer, feu servir Dissenyador del llibre; per a la sobrecoberta, Dissenyador de la sobrecoberta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="196"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Creator</source>
-        <translation>Autor</translation>
+        <translation>Creador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="198"/>
@@ -9212,7 +9239,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="223"/>
         <source>Enter your own event name in the File As column, e.g. updated.</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu l&apos;esdeveniment que volgueu a la columna «Ordena com»; per exemple, «actualitzat».</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="235"/>
@@ -9222,17 +9249,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="235"/>
         <source>Enter your own custom identifier name in the File As column, e.g. stocknumber</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu el nom d&apos;identificador personalizat a la columna «Ordena com»; per exemple, «número de registre».</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable del contingut intel·lectual o artístic d&apos;una obra.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Curator of an exhibition</source>
-        <translation>Curador de l&apos;exposició</translation>
+        <translation>Comissari de l&apos;exposició</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
@@ -9247,17 +9274,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Persona o organització que presenta principalment habilitats de ball en una presentació musical o dramàtica o d&apos;entreteniment.</translation>
+        <translation>Persona o organització que presenta principalment habilitats de ball en una representació musical o dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Data contributor</source>
-        <translation type="unfinished"/>
+        <translation>Contribuïdor de dades</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que proporciona dades per incloure-les en una base de dades o una altra col·lecció de dades.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
@@ -9272,7 +9299,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Dedicatee</source>
-        <translation>Dedicatari</translation>
+        <translation>A qui es dedica</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
@@ -9282,42 +9309,42 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Dedicator</source>
-        <translation type="unfinished"/>
+        <translation>Qui dedica</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
-        <translation type="unfinished"/>
+        <translation>Autor d&apos;una dedicatòria, que pot ser redactada de manera formal, epistolar o en vers.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Defendant</source>
-        <translation>Demandant</translation>
+        <translation>Demandat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>Part que nega o es defensa de les al·legacions que es fan en contra d&apos;ella en un plet i a qui es demana reparació o compensació, normalment en una acció legal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Defendant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Demandat apel·lant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>Demandat que presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en una acció legal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Defendant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Demandat apel·lat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>Demandat en contra del qual es presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència, normalment e una acció legal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
@@ -9337,7 +9364,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que executa els dibuixos tècnics a partir dels dissenys d&apos;altres.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
@@ -9352,12 +9379,12 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Depositor</source>
-        <translation type="unfinished"/>
+        <translation>Dipositant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que diposita materials sota la custòdia d&apos;una biblioteca o arxiu sense transferir els drets de propietat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
@@ -9367,7 +9394,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable del disseny si no es volen fer servir altres codis més concrets, com ara [bkd] o [tyd].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
@@ -9377,17 +9404,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de la gestió general d&apos;una obra o que supervisa la producció d&apos;una representació, pel·lícula o enregistrament de so.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Dissertant</source>
-        <translation>Dissertant</translation>
+        <translation>Aspirant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que defensa una tesi per assolir un grau universitari o d&apos;educació superior.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
@@ -9397,7 +9424,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que té drets exclusius o compartits per comercialitzar un objecte.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
@@ -9407,7 +9434,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que dóna un llibre, un manuscrit, etc. al seu propietari actual. Els donants als propietaris anteriors s&apos;anomenen «Propietari anterior» [fmo] o  Inscriptor [ins].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
@@ -9417,17 +9444,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que prepara dibuixos tècnics o artístics.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Dubious author</source>
-        <translation>Autor probable</translation>
+        <translation>Autor dubtós</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització a qui s&apos;atribueix una autoria dubtosa o incorrecta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
@@ -9437,7 +9464,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que prepara una obra en principi aliena per a ser publicada, interpretant o aclarint el text, afegint-ne una introducció o altre contingut introductori o dirigint tècnicament el personal d&apos;una editorial.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
@@ -9447,7 +9474,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation type="unfinished"/>
+        <translation>Persona responsable d&apos;instal·lar un equip d&apos;il·luminació i d&apos;enfocar els llums d&apos;una producció i de controlar la il·luminació d&apos;una representació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
@@ -9457,7 +9484,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que crea una planxa d&apos;impressió per mitjà de procediments electroquímics.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
@@ -9467,7 +9494,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de la planificació i del disseny tècnic, especialment en la construcció.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
@@ -9477,17 +9504,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation>Persona o organització que talla les lletres, xifres, etc, sobre una superfície, com ara una placa de fusta o de metall, per a la impressió.</translation>
+        <translation>Persona o organització que talla les lletres, figures, etc, sobre una superfície, com ara una placa de fusta o de metall, per a la impressió.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Etcher</source>
-        <translation>Autor d&apos;aiguaforts</translation>
+        <translation>Gravador d&apos;aiguaforts</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que prepara textos o imatges per ser impresos atacant amb àcid, o altra substància corrosiva, metall, fusta o una altra superfície.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
@@ -9497,7 +9524,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització encarregada de la descripció i taxació de bens, especialment objectes rars, obres d&apos;art, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
@@ -9507,7 +9534,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Use for a person or organization that executed the facsimile. </source>
-        <translation>Persona o organització responsable del facsímil.</translation>
+        <translation>Persona o organització autora del facsímil.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
@@ -9517,27 +9544,27 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que gestiona o supervisa la feina feta per tal de recollir dades o fer recerca en un entorn o localització real (generalment s&apos;aplica a les ciències naturals i socials).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Film editor</source>
-        <translation type="unfinished"/>
+        <translation>Muntador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que fa el muntatge d&apos;una pel·lícula de cinema.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>First party</source>
-        <translation type="unfinished"/>
+        <translation>Primera part</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que s&apos;identifica com a part única o com a primera part. En cas d&apos;un traspàs de drets, és qui els cedeix. La primera part pot dessignar diverses parts alhora.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
@@ -9547,22 +9574,22 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que fa o imita alguna cosa de valor o d&apos;importància, especialment amb la intenció d&apos;estafar.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Former owner</source>
-        <translation type="unfinished"/>
+        <translation>Propietari anterior</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr]</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que va ser propietària d&apos;un objecte en algun moment passat. Inclou aquells a qui el material els va ser regalat. Qui dona l&apos;objecte al propietari actual s&apos;anomena «Donant» [dnr].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Funder</source>
-        <translation>Finançament</translation>
+        <translation>Financer</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
@@ -9577,12 +9604,12 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
-        <translation type="unfinished"/>
+        <translation>Persona responsable del desenvolupament de sistemes d&apos;informació geogràfica (GIS) i de la seva integració amb dades de sistemes de posicionament global.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Honoree</source>
-        <translation type="unfinished"/>
+        <translation>Homenatjat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
@@ -9592,12 +9619,12 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Host</source>
-        <translation>Amfitrió</translation>
+        <translation>Presentador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
-        <translation type="unfinished"/>
+        <translation>Persona invitada o que sovint presenta un programa (normalment retransmès) que inclou altres convidats, intèrprets, etc. (per exemple, un presentador de programes d&apos;entrevistes).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
@@ -9612,32 +9639,32 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Illustrator</source>
-        <translation>Il&amp;#183;lustrador</translation>
+        <translation>Il·lustrador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que idea i, potser també fa, un disseny o una il·lustració, normalment per tal d&apos;acompanyar un text escrit.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Inscriber</source>
-        <translation type="unfinished"/>
+        <translation>Inscriptor</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Use for a person who signs a presentation statement.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que signa una declaració d&apos;obsequi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Instrumentalist</source>
-        <translation type="unfinished"/>
+        <translation>Instrumentista</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que principalment toca un intrument en una obra musical, dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
@@ -9647,7 +9674,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que es entrevistada en una consulta o reunió, generalment per un reporter, enquestador o qualsevol altre agent recol·lector d&apos;informació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
@@ -9657,17 +9684,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que actua com a reporter, enquestador o qualsevol altre agent recol·lector d&apos;informació en una consulta o reunió amb un o més individus.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Inventor</source>
-        <translation type="unfinished"/>
+        <translation>Inventor</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que crea per primera vegada un objecte d&apos;una utilitat concreta, o desenvolupa un procés nou per obtenir un objecte o un resultat conegut.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
@@ -9682,7 +9709,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Laboratory director</source>
-        <translation>Director del laboratori</translation>
+        <translation>Director de laboratori</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
@@ -9697,17 +9724,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio el treball de la qual inclou coordinar la distribució de les estructures i les característiques esxistents i proposades del terreny.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Lead</source>
-        <translation type="unfinished"/>
+        <translation>Cap</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que té una responsabilitat principal en una activitat o tasca concreta. S&apos;utilitza amb un altre codi o terme de relació per indicar que, en aquesta funció en particular, la persona o organització tenen una importància més gran. Si hi ha una o més persones o organitzacions en l&apos;element, s&apos;ha d&apos;utilitzar «Cap» només si s&apos;ha d&apos;aplicar a totes.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
@@ -9727,27 +9754,27 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
-        <translation type="unfinished"/>
+        <translation>Part que interposa una demanda per difamació en un tribunal eclesiàstic o militar.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Libelant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Demandant apel·lant per difamació</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Demandant per difamació que presenta una apel·lació en un altre tibunal eclesiàstic o militar per tal de revocar una sentència.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Libelant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Demandant apel·lat per difamació</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Demandant per difamació en contra del qual es presenta una apel·lació en un altre tribunal eclesiàstic o militar per tal de revocar una sentència.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
@@ -9757,67 +9784,67 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
-        <translation type="unfinished"/>
+        <translation>Part en contra de la qual s&apos;interposa una demanda per difamació en un tribunal eclesiàstic o militar.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Libelee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Demandat apel·lant per difamació</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Demandat per difamació que presenta una apel·lació en un altre tribunal eclesiàstic o militar per tal de revocar una sentència.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Libelee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Demandat apel·lat per difamació</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Demandat per difamació en contra del qual es presenta una apel·lació en un altre tribunal eclesiàstic o militar per tal de revocar una sentència.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Librettist</source>
-        <translation type="unfinished"/>
+        <translation>Llibretista</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que escriu el text d&apos;una òpera, oratori, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Licensee</source>
-        <translation type="unfinished"/>
+        <translation>Concessionari de la llicència</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que es el receptor original del dret d&apos;impressió o publicació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Licensor</source>
-        <translation type="unfinished"/>
+        <translation>Atorgant de la llicència</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que signa la llicència, imprimàtur, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Lighting designer</source>
-        <translation type="unfinished"/>
+        <translation>Dissenyador d&apos;il·luminació</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation>Persona o organització que dissenya el pla d&apos;il·luminació d&apos;una presentació teatral, espectacle, pel·lícula, etc.</translation>
+        <translation>Persona o organització que dissenya el pla d&apos;il·luminació d&apos;una representació teatral, espectacle, pel·lícula, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
@@ -9827,7 +9854,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation>Persona o organització que prepara la pedra o placa per a la impressió litogràfica, incloent els artistes gràfics que creen un disseny directament sobre la superfície de la qual es realitzarà la impressió.</translation>
+        <translation>Persona o organització que prepara la pedra o la planxa per a la impressió litogràfica, incloent els artistes gràfics que creen un disseny directament sobre la superfície amb la qual es farà la impressió.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
@@ -9837,7 +9864,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation>Persona o organització que és l&apos;autor del text d&apos;una cançó.</translation>
+        <translation>Persona o organització autora del text d&apos;una cançó.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
@@ -9847,37 +9874,37 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que fa un treball manufacturat (un objecte fet o modificat per una o més persones). Exemples de treballs manufacturats: gerros, canons o mobles.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Markup editor</source>
-        <translation type="unfinished"/>
+        <translation>Editor de marcatge</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que codifica en SGML, HTML o fa el marcatge en XML de metadades, text, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Metadata contact</source>
-        <translation type="unfinished"/>
+        <translation>Contacte per a metadades</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio responsable principalment de compilar i mantenir la descripcions originals d&apos;un conjunt de metadades (per exemple, un conjunt de metadades geogràfiques espacials).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Metal-engraver</source>
-        <translation type="unfinished"/>
+        <translation>Gravador de metall</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio responsable de la decoració, les il·lustracions, les lletres, etc. gravades en una superfície de metall per tal d&apos;imprimir o decaorar.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
@@ -9887,22 +9914,22 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que presenta un programa (normalment retransmès) on es tracten temes, generalment amb la participació d&apos;experts en la matèria que es debat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Monitor</source>
-        <translation>Monitor</translation>
+        <translation>Supervisor</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que supervisa el compliment d&apos;un contracte i que es responsable de l&apos;informe i en controla la distribució. També se&apos;n pot dir agència de control.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Music copyist</source>
-        <translation type="unfinished"/>
+        <translation>Copista de música</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
@@ -9917,7 +9944,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
-        <translation type="unfinished"/>
+        <translation>Persona responsable de decisions musicals bàsiques sobre una producció, incloent-ne la coordinació del treball del compositor i  l&apos;editor de so i els mescladors, la selecció de músics i l&apos;organització o la direcció del so als assajos i les representacions.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
@@ -9927,7 +9954,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que interpreta música o constribueix al context musical d&apos;una obra quan no és possible o no es vol identificar la funció d&apos;una forma més precisa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
@@ -9937,17 +9964,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que narra els detall d&apos;una acció, un succés o una cadena d&apos;esdeveniments.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Opponent</source>
-        <translation>Adversari</translation>
+        <translation>Oponent</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio responsable d&apos;oposar una tesi o una memòria.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
@@ -9957,17 +9984,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio responsable d&apos;organitzar una reunió amb el propòsit d&apos;informar o planificar.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Originator</source>
-        <translation type="unfinished"/>
+        <translation>Autor original</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que executa l&apos;obra, és a dir, el nom de la persona o l&apos;organització associada amb el contingut intel·lectual d&apos;una obra. Aquesta categoria no inclou l&apos;editorial o el seu personal ni el patrocinador, si no és que també en són els autors materials.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
@@ -9977,7 +10004,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation type="unfinished"/>
+        <translation>Codis de relació d&apos;altres llistes que no tenen equivalent a la llista MARC o per a termes que no hi ténen un codi assignat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
@@ -9987,7 +10014,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que actualment és la propietària d&apos;un objecte o d&apos;una col·lecció.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
@@ -9997,12 +10024,12 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que fabrica paper, normalment a partir de fusta, roba o altres materials fibrosos.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Patent applicant</source>
-        <translation>Sol·licitant de patent</translation>
+        <translation>Sol·licitant de la patent</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
@@ -10027,7 +10054,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio responsable de l&apos;encàrrec d&apos;una obra.Normalment, un patró dona suport al treball dels artistes, excriptors, etc. mitjançant els seus medis o la seva influència. S&apos;inclou els que encarreguen i paguen obres individuals.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
@@ -10037,17 +10064,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organitzacio que mostren habilitats musicals o d&apos;actuació en una representació dramàtica, musical o d&apos;entreteniment, si no s&apos;utilitzen altres codis més concrets ([act], [dnc], [itr], [voc], etc.) per indicar aquestes funcions. Si s&apos;utilizen codis concrets, aleshores «Intèrpret» [prf] es fa servir per algú de qui no es coneix o no s&apos;indica la seva habilitat principal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Permitting agency</source>
-        <translation type="unfinished"/>
+        <translation>Autoritat permitent</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
-        <translation type="unfinished"/>
+        <translation>Autoritat (normalment un departament del govern) que atorga el permís per fer l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
@@ -10057,7 +10084,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de fer fotografies per tal de ser utilitzades en la seva forma original o com a reproduccions.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
@@ -10067,27 +10094,27 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Part que denuncia o demanda en un tribunal com a acció personal, normalment en un procés legal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Plaintiff-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Demandant apel·lant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Demandant que presenta una apel·lació a un altre tribunal o jurisdicció perl tal de revocar una sentència, normalment en un procés legal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Plaintiff-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Demandant apel·lat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Demandant en contra del qual es presenta una apel·lació a un altre tribunal o jurisdicció perl tal de revocar una sentència, normalment en un procés legal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
@@ -10097,7 +10124,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de fabricar les planxes que, normalment, s&apos;utilitzen per la impressió d&apos;imatges o text.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
@@ -10107,7 +10134,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation>Persona o organització que imprimeix textos, ja siguin tipus o plaques.</translation>
+        <translation>Persona o organització que imprimeix textos amb motlles tipogràfics o planxes d&apos;impressió.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
@@ -10117,27 +10144,27 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation>Persona o organització que imprimeix il·lustracions des de plaques.</translation>
+        <translation>Persona o organització que imprimeix il·lustracions amb planxes d&apos;impressió.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Printmaker</source>
-        <translation>Productor d&apos;il·lustracions</translation>
+        <translation>Impremter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que prepara les formes impressores en relleu, rotogravat o planografia.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Process contact</source>
-        <translation type="unfinished"/>
+        <translation>Contacte de processament</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable principalment de dur a terme o iniciar un procés, com ara la compilació de conjunts de metadades.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
@@ -10147,27 +10174,27 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de fer una pel·lícula incloent-ne els aspectes financers, la gestió de la producció i l&apos;èxit comercial de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Production manager</source>
-        <translation type="unfinished"/>
+        <translation>Director de producció</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
-        <translation type="unfinished"/>
+        <translation>Persona responsable de totes les qüestions tècniques i financeres d&apos;una producció.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Production personnel</source>
-        <translation type="unfinished"/>
+        <translation>Personal de producció</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització associada amb la producció (utillatge, il·luminació, efectes especials, etc.) d&apos;una representació musical, dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
@@ -10177,7 +10204,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de la cració o el manteniment del disseny, codi font, fitxers executables i documentació dels programes d&apos;ordinador.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
@@ -10187,7 +10214,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització amb responsabilitat principal en tots els aspectes d&apos;un projecte, o que gestiona projectes molt grans que requereixen un nivell de responsabilitat superior, o que te responsabilitat general en la gestió de projectes, o que du a terme la direcció general sobre el gestor del projecte.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
@@ -10197,22 +10224,22 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation type="unfinished"/>
+        <translation>Persona que corregeix proves d&apos;impressió. Per a manuscrits, feu servir «Corrector» [crr].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que imprimeix materials i els posa a l&apos;abast del públic, generalment text però també música, il·lustracions, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Publishing director</source>
-        <translation>Director de la publicació</translation>
+        <translation>Director editorial</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que encapçala l&apos;elaboració d&apos;una obra col·lectiva per assegurar-ne la coherència o la continuïtat. Inclou els caps de redacció, els editors literaris, els editors de sèries, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
@@ -10222,27 +10249,27 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que manipula, controla o dirigeix titelles en una representació musical, dràmatica o d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Recipient</source>
-        <translation type="unfinished"/>
+        <translation>Destinatari</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització a qui s&apos;adreça la correspondència.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Recording engineer</source>
-        <translation type="unfinished"/>
+        <translation>Enginyer de gravació</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que supervisa els aspectes tècnics d&apos;una sessió d&apos;enregistrament de vídeo o d&apos;àudio.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
@@ -10252,17 +10279,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que escriu o desenvolupa la trama d&apos;un assumpte sense ser-ne el responsable intel·lectual del contingut.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Renderer</source>
-        <translation type="unfinished"/>
+        <translation>Representador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que prepara dibuixos de dissenys arquitectònics (representacions) amb una representació acurada en perspectiva per tal de mostrar l&apos;aspecte final del projecte.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
@@ -10277,22 +10304,22 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Repository</source>
-        <translation>Repositori</translation>
+        <translation>Dipòsit</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
-        <translation type="unfinished"/>
+        <translation>Organisme que custodia dades o objectes físics culturals i proporciona serveis per promoure&apos;n l&apos;ús continuat, compartit i coherent.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Research team head</source>
-        <translation>Director de l&apos;equip d&apos;investigació</translation>
+        <translation>Cap de l&apos;equip d&apos;investigació</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Use for a person who directed or managed a research project.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que dirigeix o gestiona un projecte de recerca.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
@@ -10302,7 +10329,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que participa en un projecte de recerca amb una funció que no n&apos;inclou la direcció o la gestió.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
@@ -10312,47 +10339,47 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Use for a person or organization responsible for performing research. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que es decica a fer investigació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Respondent</source>
-        <translation type="unfinished"/>
+        <translation>Demandat contestador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Part que presenta una resposta als tribunals com a conseqüència d&apos;una sol·licitud de reparació, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Respondent-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Demandat contestador apel·lant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Demandat contestatdor que presenta una apel·lació a un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Respondent-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Demandat contestador apel·lat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Demandat contestatdor en contra del qual es presenta una apel·lació a un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Responsible party</source>
-        <translation type="unfinished"/>
+        <translation>Part responsable</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització legalment responsable del contingut del material publicat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
@@ -10362,7 +10389,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització, diferents del coreògraf o del director originals, responsables de tornar a escenificar una obra dramàtica o coreogràfica i que hi contribueix amb un contingut nou mínim.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
@@ -10372,7 +10399,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
-        <translation>Persona o organització responsable de la ressenya o crítica d&apos;un llibre, pel·lícula cinematogràfica, acció artística, etc.</translation>
+        <translation>Persona o organització responsable de la ressenya o crítica d&apos;un llibre, pel·lícula cinematogràfica, representació, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
@@ -10382,7 +10409,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització responsable de parts d&apos;una obra, generalment capçaleres o els títols d&apos;un manuscrit que apareixen en un color diferent, normalment vermell.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
@@ -10402,17 +10429,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que aporta el seu coneixement científic, pedagògic o històric a la concepció i a la realització d&apos;una obra, especialment si es tracta d&apos;una obra audiovisual.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Scribe</source>
-        <translation>Copist</translation>
+        <translation>Copista</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
-        <translation type="unfinished"/>
+        <translation>Amanuense o escriptor de manuscrits polits. La persona que fa facsímils a mà s&apos;anomena «Autor de facsímils» [fac].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
@@ -10427,32 +10454,32 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Second party</source>
-        <translation type="unfinished"/>
+        <translation>Segona part</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització identificada com a segona part. En cas de transferència de drets, és el concessionari o destinatari, etc. La segona part pot estar formada per més d&apos;una entitat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Secretary</source>
-        <translation>Secretari/a</translation>
+        <translation>Secretari</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que enregistra, redacta o és potaveu dels punts de vista de l&apos;organització.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Set designer</source>
-        <translation>Decorador</translation>
+        <translation>Escenògraf</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que interpreta els esbossos del director artístic per tal de construir les estructures físiques reals d&apos;una representació teatral, d&apos;entreteniment, pel·lícula, etc. Els escenògrafs creen els esquemes detallats i les especificacions per construir els decorats.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
@@ -10462,7 +10489,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
-        <translation type="unfinished"/>
+        <translation>Persona la signatura de la qual apareix sense cap indicació de procedència o d&apos;oferiment. Si hi ha una declaració d&apos;oferiment, feu servir «Inscriptor» [ins].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
@@ -10472,17 +10499,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o orgnaització que fa servir la seva veu, amb o sense acompanyament instrumental, per fer música. Una representació pot incloure o no paraules reals.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Sound designer</source>
-        <translation type="unfinished"/>
+        <translation>Dissenyador de so</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que produeix i reprodueix la banda sonora (en directe o enregistrada), que instal·la els micròfons, que ajusta els nivells de so i que coordina les fonts de so en una producció.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
@@ -10492,7 +10519,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que participa en un programa (normalment retransmès) i fa una contribució formal o una presentació generalment no improvisada.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
@@ -10502,57 +10529,57 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
-        <translation>Persona o organització sota els auspicis de la qual s&apos;ha publicat o imprès un treball escrit.</translation>
+        <translation>Persona o organització que facilita un contracte que permet o afavoreix l&apos;escriptura, o la impressió, o la publicació, etc. d&apos;una obra.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Stage manager</source>
-        <translation type="unfinished"/>
+        <translation>Director d&apos;escena</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
-        <translation type="unfinished"/>
+        <translation>Persona encarregada de tot allò que passa en escena durant una representació i que actua com a cap de tots els equips i com a ajudant del director en els assajos.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Standards body</source>
-        <translation type="unfinished"/>
+        <translation>Organisme de normalització</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
-        <translation type="unfinished"/>
+        <translation>Organització responsable del desenvolupar o de fer complir d&apos;un estàndard.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Stereotyper</source>
-        <translation type="unfinished"/>
+        <translation>Estereotipista</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que crea una planxa d&apos;impressió nova a partir d&apos;una altra superfície d&apos;impressió mitjançant motlle o còpia.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Storyteller</source>
-        <translation type="unfinished"/>
+        <translation>Conta contes</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
-        <translation type="unfinished"/>
+        <translation>Persona que narra contes amb una interpretació creativa o teatral.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Supporting host</source>
-        <translation type="unfinished"/>
+        <translation>Anfitrió</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que dóna suport (amb instal·lacions, personal o altres medis) a un projecte, programa, reunió, esdeveniment, objecte de dades, objecte cultural físic, o qualsevol altra entitat que pugui rebre suport.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
@@ -10562,7 +10589,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que mesura els terrenys per tal de determinar-ne les ubicacions, les formes i els límits.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
@@ -10572,7 +10599,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
-        <translation type="unfinished"/>
+        <translation>Persona que, en el context d&apos;un recurs, instrueix una matèria intel·lectual o ensenya a fer una habilitat física.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
@@ -10582,17 +10609,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation type="unfinished"/>
+        <translation>Responsable general dels decorats, l&apos;utillatge, les llums i el so d&apos;una producció.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Thesis advisor</source>
-        <translation type="unfinished"/>
+        <translation>Director de la tesi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mÃ©moire, or text of a dissertation. </source>
-        <translation type="unfinished"/>
+        <translation>Persona que supervisa un candidat a graduació en el desenvolupament i la presentació d&apos;una tesi, memòria o discurs.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
@@ -10602,7 +10629,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
-        <translation type="unfinished"/>
+        <translation>Persona que prepara una còpia, manuscrita o tipogràfica, d&apos;un original, incloent materials dictats oralment o enregistrats. Els autors de facsímils manuals usen el codi [fac].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
@@ -10612,17 +10639,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que tradueix un text d&apos;una llengua a una altra, o d&apos;una forma antiga d&apos;una llengüa a la forma moderna.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Type designer</source>
-        <translation type="unfinished"/>
+        <translation>Diseñador tipogràfic</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que ha dissenyat el tipus de lletra d&apos;un objecte concret.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
@@ -10632,17 +10659,17 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que es dedica principalment a triar i organitzar la tipografia d&apos;un objecte. Si el tipògraf també és responsable d&apos;altres aspectes del disseny gràfic d&apos;un llibre (per exemple, «Dissenyador del libre [bkd]», es poden posar els codis de les dues funcions.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Videographer</source>
-        <translation type="unfinished"/>
+        <translation>Productor de vídeo</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització encarregada de la producció de vídeo; per exemple, l&apos;enregistrament de vídeo d&apos;una representació escènica en contraposició a una pel·lícula comercial. Pot ser l&apos;operador de càmera o supervisar un o més operadors de càmera. No s&apos;ha de conforndre amb el director de fotografia.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
@@ -10652,7 +10679,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Use for a person or organization who principally exhibits singing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que principalment mostra l&apos;habilitat de cantar en una representació musical, dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
@@ -10662,37 +10689,37 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
-        <translation type="unfinished"/>
+        <translation>Persona que confirma la veracitat d&apos;un esdeveniment o d&apos;una acció.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Wood-engraver</source>
-        <translation type="unfinished"/>
+        <translation>Xilògraf (a contrafibra)</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que imprimeix gravant en relleu sobre una superfície perpendicular a la fibra d&apos;un bloc de fusta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Woodcutter</source>
-        <translation type="unfinished"/>
+        <translation>Xilògraf (a fibra)</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que imprimeix gravant en relleu sobre una superfície paral·lela a la fibra d&apos;un bloc de fusta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Writer of accompanying material</source>
-        <translation type="unfinished"/>
+        <translation>Autor del text addicional</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que escriu el material significatiu que acompanya un enregistrament de so o altres tipus de material audiovisual.</translation>
     </message>
 </context>
 <context>
@@ -10836,12 +10863,12 @@ Voleu desar-ne els canvis?</translation>
         <translation>S&apos;estan creant els informes...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="529"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="535"/>
         <source>Adding Existing Files..</source>
         <translation>S&apos;estan afegint els fitxers...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="823"/>
+        <location filename="../../BookManipulation/Book.cpp" line="826"/>
         <source>Merging Files..</source>
         <translation>S&apos;estan combinant els fitxers...</translation>
     </message>
@@ -10872,6 +10899,7 @@ Voleu desar-ne els canvis?</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="77"/>
+        <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="57"/>
         <source>Index</source>
         <translation>Índex</translation>
     </message>
@@ -11061,6 +11089,11 @@ Línia %1 - Columna %2 - %3</translation>
         <location filename="../../BookManipulation/BookReports.cpp" line="53"/>
         <source>Collecting classes...</source>
         <translation>S&apos;estan aplegant les classes...</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/TOCHTMLWriter.cpp" line="96"/>
+        <source>Table of Contents</source>
+        <translation>Taula de continguts</translation>
     </message>
 </context>
 <context>
@@ -11614,12 +11647,16 @@ a la llista del damunt.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
-        <source>Enter an ID name to use as a destination for hyperlinks, footnotes, and TOC entries.
+        <source>Enter an ID name to use as a destination for hyperlinks, notes, and TOC entries.
 
 The dropdown box shows existing ID names in the current file.
 
 ID names must be unique and start with a letter.</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu un nom d&apos;identificador per als enllaços, notes i entrades de la taula de continguts.
+
+El menú emergent mostra els noms d&apos;identificador disponibles al fixer actual.
+
+Els noms d&apos;identificador han de únics i començar amb una lletra.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
@@ -11838,7 +11875,7 @@ paraules no reconegudes.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="409"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="414"/>
         <source>Ignore</source>
         <translation>Ignora</translation>
     </message>
@@ -11859,19 +11896,21 @@ al diccionari seleccionat de sota.</translation>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix al diccionari:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
         <source>Change all occurrences of the selected word  in
 HTML files to the word you select or type below.
 The selected word does not have to be misspelled.</source>
-        <translation type="unfinished"/>
+        <translation>Canvia totes les aparicions de la paraula seleccionada
+als fitxers HTML amb la paraula que trieu o tecelegeu a sota.
+No es verifica l&apos;ortografia de la paraula seleccionada.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="139"/>
         <source>Change Selected Word To:</source>
-        <translation type="unfinished"/>
+        <translation>Canvia la parula seleccionada per:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
@@ -11882,7 +11921,9 @@ The selected word does not have to be misspelled.</source>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="184"/>
         <source>Re-check the HTML files for misspelled words.
 Use if you edit any HTML files while Spellcheck is open.</source>
-        <translation type="unfinished"/>
+        <translation>Torna a fer la verificació ortogràfica dels fitxers HTML.
+Utilitzeu-ho si editeu un fitxer HTML mentre la verificació
+ortogràfica és oberta.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="192"/>
@@ -11897,8 +11938,8 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation>No hi ha cap paraula seleccionada.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="205"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="262"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="210"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="267"/>
         <source>No</source>
         <translation>No</translation>
     </message>
@@ -11915,50 +11956,55 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="186"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
-        <translation type="unfinished"/>
+        <translation>Paraules afegides al diccionari. El diccionari no és habilitat a les preferències.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="224"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="201"/>
+        <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
+        <translation>La paraula nova no pot tenir cap «&lt;», «&gt;» ni «&amp;».</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="229"/>
         <source>Word</source>
         <translation>Paraula</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="225"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="230"/>
         <source>Count</source>
-        <translation type="unfinished"/>
+        <translation>Compta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="226"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="231"/>
         <source>Misspelled?</source>
         <translation>És un error ortogràfic?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="271"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="276"/>
         <source>Misspelled Words</source>
         <translation>Errors ortogràfics</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="259"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="264"/>
         <source>Yes</source>
         <translation>Sí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="271"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="276"/>
         <source>Total Unique Words</source>
-        <translation type="unfinished"/>
+        <translation>Total de paraules úniques</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="410"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="415"/>
         <source>Add to Dictionary</source>
         <translation>Afegeix al diccionari</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="411"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="416"/>
         <source>Find in Text</source>
         <translation>Cerca al text</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="412"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="417"/>
         <source>Select All</source>
         <translation>Selecciona-ho tot</translation>
     </message>
@@ -12147,12 +12193,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="69"/>
         <source>quotation mark</source>
-        <translation>cometes</translation>
+        <translation>cometes rectes</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="70"/>
         <source>ampersand</source>
-        <translation>et</translation>
+        <translation>et (i comercial)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="71"/>
@@ -12162,1252 +12208,1252 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="72"/>
         <source>less-than sign</source>
-        <translation type="unfinished"/>
+        <translation>més petit que</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="73"/>
         <source>greater-than sign</source>
-        <translation type="unfinished"/>
+        <translation>més gran que</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="74"/>
         <source>no-break space</source>
-        <translation type="unfinished"/>
+        <translation>espai indivisible</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="75"/>
         <source>inverted exclamation mark</source>
-        <translation type="unfinished"/>
+        <translation>exclamació inicial</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="76"/>
         <source>cent sign</source>
-        <translation type="unfinished"/>
+        <translation>símbol de centau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="77"/>
         <source>pound sign</source>
-        <translation type="unfinished"/>
+        <translation>símbol de lliura</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="78"/>
         <source>currency sign</source>
-        <translation type="unfinished"/>
+        <translation>símbol de moneda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="79"/>
         <source>yen sign</source>
-        <translation type="unfinished"/>
+        <translation>símbol del ien</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="80"/>
         <source>broken bar</source>
-        <translation type="unfinished"/>
+        <translation>barra trencada</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="81"/>
         <source>section sign</source>
-        <translation type="unfinished"/>
+        <translation>signe de secció</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="82"/>
         <source>diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="83"/>
         <source>copyright symbol</source>
-        <translation type="unfinished"/>
+        <translation>símbol de copyright</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="84"/>
         <source>feminineÂ ordinal indicator</source>
-        <translation type="unfinished"/>
+        <translation>a volada</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="85"/>
         <source>left-pointing double angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometes baixes inicials</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="86"/>
         <source>not sign</source>
-        <translation type="unfinished"/>
+        <translation>signe de negació</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="87"/>
         <source>soft hyphen</source>
-        <translation type="unfinished"/>
+        <translation>guionet opcional</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="88"/>
         <source>registered sign</source>
-        <translation type="unfinished"/>
+        <translation>símbol de registrat</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="89"/>
         <source>macron</source>
-        <translation type="unfinished"/>
+        <translation>màcron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="90"/>
         <source>degree symbol</source>
-        <translation type="unfinished"/>
+        <translation>símbol de grau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="91"/>
         <source>plus-minus sign</source>
-        <translation type="unfinished"/>
+        <translation>signe més menys</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="92"/>
         <source>superscript two</source>
-        <translation type="unfinished"/>
+        <translation>dos volat</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="93"/>
         <source>superscript three</source>
-        <translation type="unfinished"/>
+        <translation>tres volat</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="94"/>
         <source>acute accent</source>
-        <translation type="unfinished"/>
+        <translation>accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="95"/>
         <source>micro sign</source>
-        <translation type="unfinished"/>
+        <translation>signe micro</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="96"/>
         <source>pilcrowÂ sign</source>
-        <translation type="unfinished"/>
+        <translation>calderó</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>middle dot</source>
-        <translation type="unfinished"/>
+        <translation>punt volat</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>cedilla</source>
-        <translation type="unfinished"/>
+        <translation>vírgula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>superscript one</source>
-        <translation type="unfinished"/>
+        <translation>u volat</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>masculineÂ ordinal indicator</source>
-        <translation type="unfinished"/>
+        <translation>o volada</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>right-pointing double angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometes baixes finals</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>vulgar fraction one quarter</source>
-        <translation type="unfinished"/>
+        <translation>fracció un quart</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>vulgar fraction one half</source>
-        <translation type="unfinished"/>
+        <translation>fracció un mig</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>vulgar fraction three quarters</source>
-        <translation type="unfinished"/>
+        <translation>fracció tres quarts</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>inverted question mark</source>
-        <translation type="unfinished"/>
+        <translation>interrogant inicial</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>Latin capital letter A withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina A majúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>Latin capital letter A withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina A majúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>Latin capital letter A withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina A majúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>Latin capital letter A withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina A majúscula amb titlla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>Latin capital letter A withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina A majúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>Latin capital letter A with ring above</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina A majúscula amb rodoneta damunt</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>Latin capital letter AE</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina AE majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>Latin capital letter C withÂ cedilla</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina C trencada majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>Latin capital letter E withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina E majúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>Latin capital letter E withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina E majúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>Latin capital letter E withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina E majúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>Latin capital letter E withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina E majúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>Latin capital letter I withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina I majúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>Latin capital letter I withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina I majúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>Latin capital letter I withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina I majúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>Latin capital letter I withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina I majúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>Latin capital letterÂ Eth</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina ETH majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>Latin capital letter N withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina N majúscula amb titlla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>Latin capital letter O withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina O majúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>Latin capital letter O withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina O majúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>Latin capital letter O withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina O majúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>Latin capital letter O withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina O majúscula amb titlla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>Latin capital letter O withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina O majúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>multiplication sign</source>
-        <translation type="unfinished"/>
+        <translation>signe de multiplicació</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>Latin capital letter O with stroke</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina O barrada majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>Latin capital letter U withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina U majúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>Latin capital letter U withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina U majúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>Latin capital letter U withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina U majúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter U withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina U majúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter Y withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina Y majúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letterÂ THORN</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina THORN majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin small letter sharp s</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina eszett minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin small letter a withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina a minúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin small letter a withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina a minúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin small letter a withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina a minúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin small letter a withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina a minúscula amb titlla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin small letter a withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina a minúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin small letter a with ring above</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina a minúscula amb rodoneta damunt</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin small letter ae</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina ae minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin small letter c withÂ cedilla</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina c trencada minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin small letter e withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina e minúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>Latin small letter e withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina e minúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin small letter e withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina a minúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin small letter e withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina e minúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin small letter i withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina i minúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin small letter i withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina i minúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin small letter i withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina i minúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin small letter i withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina i minúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin small letterÂ eth</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina eth minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin small letter n withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina n minúscula amb titlla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin small letter o withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina o minúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>Latin small letter o withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina o minúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin small letter o withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina o minúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin small letter o withÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina o minúscula amb titlla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin small letter o withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina o minúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>division sign</source>
-        <translation type="unfinished"/>
+        <translation>signe de dividir</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin small letter o with stroke</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina o barrada minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin small letter u withÂ grave accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina u minúscula amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin small letter u withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina u minúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter u withÂ circumflex</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina u minúscula amb circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter u withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina u minúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter y withÂ acute accent</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina y minúscula amb accent agut</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letterÂ thorn</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina thorn minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter y withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina y minúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin capital ligature oe</source>
-        <translation type="unfinished"/>
+        <translation>lligadura llatina OE majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small ligature oe</source>
-        <translation type="unfinished"/>
+        <translation>lligadura llatina oe minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin capital letter s withÂ caron</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina A majúscula amb anticircumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter s withÂ caron</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina s minúscula amb anticircumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin capital letter y withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina Y majúscula amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter f with hook</source>
-        <translation type="unfinished"/>
+        <translation>lletra llatina f minúscula amb ganxo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>modifier letterÂ circumflexÂ accent</source>
-        <translation type="unfinished"/>
+        <translation>accent circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>smallÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>titlla petita</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Greek capital letter Alpha</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega ALFA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Greek capital letter Beta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega BETA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Greek capital letter Gamma</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega GAMMA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Greek capital letter Delta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega DELTA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Greek capital letter Epsilon</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega ÈPSILON majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Greek capital letter Zeta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega ZETA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Greek capital letter Eta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega ETA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Greek capital letter Theta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega THETA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Greek capital letter Iota</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega IOTA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Greek capital letter Kappa</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega KAPPA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Greek capital letter Lambda</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega LAMBDA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>Greek capital letter Mu</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega MI majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Greek capital letter Nu</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega NI majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Greek capital letter Xi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega CSI majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Greek capital letter Omicron</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega ÒMICRON majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Greek capital letter Pi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega PI majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Greek capital letter Rho</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega RO majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Greek capital letter Sigma</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega SIGMA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Greek capital letter Tau</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega TAU majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Greek capital letter Upsilon</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega ÍPSILON majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Greek capital letter Phi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega FI majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Greek capital letter Chi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega KHI majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Greek capital letter Psi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega PSI majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Greek capital letter Omega</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega OMEGA majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Greek small letter alpha</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega alfa minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Greek small letter beta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega beta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>Greek small letter gamma</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega gamma minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>Greek small letter delta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega delta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek small letter epsilon</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega èpsilon minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek small letter zeta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega zeta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek small letter eta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega eta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek small letter theta</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega theta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek small letter iota</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega iota minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek small letter kappa</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega kappa minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek small letter lambda</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega lambda minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek small letter mu</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega mi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek small letter nu</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega ni minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek small letter xi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega csi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek small letter omicron</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega òmicron minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek small letter pi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega pi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek small letter rho</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega ro minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek small letter final sigma</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega sigma final minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek small letter sigma</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega sigma minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek small letter tau</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega tau minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek small letter upsilon</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega ípsilon minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek small letter phi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega fi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek small letter chi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega khi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek small letter psi</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega psi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek small letter omega</source>
-        <translation type="unfinished"/>
+        <translation>lletra grega omega minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek theta symbol</source>
-        <translation type="unfinished"/>
+        <translation>símbol grec theta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek Upsilon with hook symbol</source>
-        <translation type="unfinished"/>
+        <translation>símbol grec ípsilon amb ganxo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek pi symbol</source>
-        <translation type="unfinished"/>
+        <translation>símbol grec pi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>en space</source>
-        <translation type="unfinished"/>
+        <translation>mig quadratí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>em space</source>
-        <translation type="unfinished"/>
+        <translation>quadratí</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>thin space</source>
-        <translation type="unfinished"/>
+        <translation>espai fi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>zero-width non-joiner</source>
-        <translation type="unfinished"/>
+        <translation>separador sense amplada</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>zero-width joiner</source>
-        <translation type="unfinished"/>
+        <translation>unió sense amplada</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>left-to-right mark</source>
-        <translation type="unfinished"/>
+        <translation>marca de esquerra a dreta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>right-to-left mark</source>
-        <translation type="unfinished"/>
+        <translation>marca de dreta a esquerra</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>en dash</source>
-        <translation type="unfinished"/>
+        <translation>guió mig</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>em dash</source>
-        <translation type="unfinished"/>
+        <translation>guió llarg</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>left singleÂ quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometa inicial</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>right singleÂ quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometa final</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>single low-9Â quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometa recta baixa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>left doubleÂ quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometes altes inicials</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>right doubleÂ quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometes altes finals</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>double low-9Â quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometes rectes baixes</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>dagger, obelisk</source>
-        <translation type="unfinished"/>
+        <translation>creu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>double dagger, double obelisk</source>
-        <translation type="unfinished"/>
+        <translation>creu doble</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>bullet</source>
-        <translation type="unfinished"/>
+        <translation>pic</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>horizontalÂ ellipsis</source>
-        <translation type="unfinished"/>
+        <translation>punts suspensius</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>per milleÂ sign</source>
-        <translation type="unfinished"/>
+        <translation>per miler</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>prime</source>
-        <translation type="unfinished"/>
+        <translation>prima</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>double prime</source>
-        <translation type="unfinished"/>
+        <translation>doble prima</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>single left-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometa baixa angular inicial</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>single right-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>cometa baixa angular final</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>overline</source>
-        <translation type="unfinished"/>
+        <translation>línia superior</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>fraction slash</source>
-        <translation type="unfinished"/>
+        <translation>ratlla de fracció</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>euro sign</source>
-        <translation type="unfinished"/>
+        <translation>símbol de l&apos;euro</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>black-letter capital I</source>
-        <translation type="unfinished"/>
+        <translation>lletra gòtica I majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>script capital P</source>
-        <translation type="unfinished"/>
+        <translation>lletra cal·ligràfica P majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>black-letter capital R</source>
-        <translation type="unfinished"/>
+        <translation>lletra gòtica R majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>trademark symbol</source>
-        <translation type="unfinished"/>
+        <translation>símbol de marca registrada</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>alef symbol</source>
-        <translation type="unfinished"/>
+        <translation>àlef</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>leftwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>fletxa esquerra</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>upwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>flrtxa amunt</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>rightwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>fletxa dreta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>downwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>fletxa avall</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>left right arrow</source>
-        <translation type="unfinished"/>
+        <translation>fletxa esquerra dreta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>downwards arrow with corner leftwards</source>
-        <translation type="unfinished"/>
+        <translation>fletxa avall amb cantonada esquerra</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>leftwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>doble fletxa esquerra</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>upwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>doble fletxa amunt</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>rightwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>doble fletxa dreta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>downwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>doble fletxa avall</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>left right double arrow</source>
-        <translation type="unfinished"/>
+        <translation>doble fletxa esquerra dreta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>for all</source>
-        <translation type="unfinished"/>
+        <translation>per a tot</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>partial differential</source>
-        <translation type="unfinished"/>
+        <translation>derivada parcial</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>there exists</source>
-        <translation type="unfinished"/>
+        <translation>existeix</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>empty set</source>
-        <translation type="unfinished"/>
+        <translation>conjunt buit</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>nabla</source>
-        <translation type="unfinished"/>
+        <translation>nabla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>element of</source>
-        <translation type="unfinished"/>
+        <translation>pertany</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>not an element of</source>
-        <translation type="unfinished"/>
+        <translation>no pertany a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>contains as member</source>
-        <translation type="unfinished"/>
+        <translation>conté</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>n-ary product</source>
-        <translation type="unfinished"/>
+        <translation>producte n-ari</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>n-ary summation</source>
-        <translation type="unfinished"/>
+        <translation>suma n-aria</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>minus sign</source>
-        <translation type="unfinished"/>
+        <translation>signe menys</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>asterisk operator</source>
-        <translation type="unfinished"/>
+        <translation>operador asterisc</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>square root</source>
-        <translation type="unfinished"/>
+        <translation>arrel quadrada</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>proportional to</source>
-        <translation type="unfinished"/>
+        <translation>proporcional a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>infinity</source>
-        <translation type="unfinished"/>
+        <translation>infinit</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>angle</source>
-        <translation type="unfinished"/>
+        <translation>angle</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>logical and</source>
-        <translation type="unfinished"/>
+        <translation>i lògic</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>logical or</source>
-        <translation type="unfinished"/>
+        <translation>o lògic</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>intersection</source>
-        <translation type="unfinished"/>
+        <translation>intersecció</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>union</source>
-        <translation type="unfinished"/>
+        <translation>unió</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>integral</source>
-        <translation type="unfinished"/>
+        <translation>integral</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>therefore sign</source>
-        <translation type="unfinished"/>
+        <translation>implica</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>tilde operator</source>
-        <translation type="unfinished"/>
+        <translation>operador titlla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>congruent to</source>
-        <translation type="unfinished"/>
+        <translation>congruent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>almost equal to</source>
-        <translation type="unfinished"/>
+        <translation>aproximadament igual a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>not equal to</source>
-        <translation type="unfinished"/>
+        <translation>diferent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>identical to</source>
-        <translation type="unfinished"/>
+        <translation>idèntic a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>less-than or equal to</source>
-        <translation type="unfinished"/>
+        <translation>igual o menor que</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>greater-than or equal to</source>
-        <translation type="unfinished"/>
+        <translation>igual o més gran que</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>subset of</source>
-        <translation type="unfinished"/>
+        <translation>subconjunt de</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>superset of</source>
-        <translation type="unfinished"/>
+        <translation>superconjunt de</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>not a subset of</source>
-        <translation type="unfinished"/>
+        <translation>no és subconjunt de</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>subset of or equal to</source>
-        <translation type="unfinished"/>
+        <translation>subconjunt o igual a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>superset of or equal to</source>
-        <translation type="unfinished"/>
+        <translation>superconjunt o igual a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>circled plus</source>
-        <translation type="unfinished"/>
+        <translation>suma directa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>circled times</source>
-        <translation type="unfinished"/>
+        <translation>producte tensorial</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>up tack</source>
-        <translation type="unfinished"/>
+        <translation>perpendicular</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>dot operator</source>
-        <translation type="unfinished"/>
+        <translation>operador punt</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>left ceiling</source>
-        <translation type="unfinished"/>
+        <translation>sostre esquerra</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>right ceiling</source>
-        <translation type="unfinished"/>
+        <translation>sostre dreta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>left floor</source>
-        <translation type="unfinished"/>
+        <translation>terra esquerra</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>right floor</source>
-        <translation type="unfinished"/>
+        <translation>terra dreta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>left-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>parèntesi angular inicial</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>right-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>pràntesi angular final</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>lozenge</source>
-        <translation type="unfinished"/>
+        <translation>rombe</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>black spade suit</source>
-        <translation type="unfinished"/>
+        <translation>coll de piques negre</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>black club suit</source>
-        <translation type="unfinished"/>
+        <translation>coll de trèvols negre</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>black heart suit</source>
-        <translation type="unfinished"/>
+        <translation>coll de cors negre</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>black diamond suit</source>
-        <translation type="unfinished"/>
+        <translation>coll de diamants negre</translation>
     </message>
 </context>
 </TS>

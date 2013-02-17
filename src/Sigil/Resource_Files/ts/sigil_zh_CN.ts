@@ -423,11 +423,11 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="565"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="584"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="631"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="730"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="930"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="571"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="590"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="637"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="736"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="936"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -443,8 +443,8 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1460"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1298"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1470"/>
         <source>Open With</source>
         <translation>打开方式</translation>
     </message>
@@ -459,12 +459,12 @@ if a sans-serif font-family specified in your CSS</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="577"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="583"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>无法删除或替换文件 &quot;%1&quot;。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="585"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="591"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -473,139 +473,139 @@ A file with this name already exists in the book.</source>
 A file with this name already exists in the book.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="680"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="686"/>
         <source>Save As File</source>
         <translation>另存为文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="702"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="708"/>
         <source>Unable to save the file.</source>
         <translation>无法保存文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="710"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="716"/>
         <source>Choose the directory to save the files to</source>
         <translation>Choose the directory to save the files to</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="730"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="736"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>One or more files already exists.  OK to overwrite?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="747"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="753"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>无法保存文件。  目标可能是一个目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="755"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
         <source>Unable to save files.</source>
         <translation>无法保存文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="930"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="936"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>不能重命名文件，这可能导致文件名重复。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="994"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>NCX和OPF均不能被删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="995"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1001"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>您不能删除所有的HTML文件。
 至少必须存在一个。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1272"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1282"/>
         <source>Add Blank Stylesheet</source>
         <translation>新增空白样式表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1273"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
         <source>Add Blank SVG Image</source>
         <translation>添加空白SVG图片</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1274"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1284"/>
         <source>Add Existing Files...</source>
         <translation>添加现有文件...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1275"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1276"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1285"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1286"/>
         <source>Add Copy</source>
         <translation>添加副本</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1277"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1287"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1286"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1296"/>
         <source>Link Stylesheets...</source>
         <translation>链接样式表...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1289"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1299"/>
         <source>Save As</source>
         <translation>另存为</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1466"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1476"/>
         <source>Other Application</source>
         <translation>其他程序</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1279"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1289"/>
         <source>Cover Image</source>
         <translation>封面图片</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1280"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1290"/>
         <source>Merge</source>
         <translation>合并</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1282"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1292"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>使用Adobe的方法</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1293"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>使用IDPF的方法</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1270"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1280"/>
         <source>Select All</source>
         <translation>选择所有</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="509"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="515"/>
         <source>Add Existing Files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="550"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="556"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="565"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="571"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="632"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="638"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -615,122 +615,122 @@ OK to replace?</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="646"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="652"/>
         <source>File(s) added.</source>
         <translation>文件已添加。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1271"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1281"/>
         <source>Add Blank HTML File</source>
         <translation>添加空白HTML文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1278"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1281"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1291"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1284"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1294"/>
         <source>Sort</source>
         <translation>排序</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1285"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1295"/>
         <source>Renumber TOC Entries</source>
         <translation>重新编排目录项</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1287"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1297"/>
         <source>Validate with W3C</source>
         <translation>用W3C验证</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
         <source>Cover</source>
         <translation>封面</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1334"/>
         <source>Title Page</source>
         <translation>标题页</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1338"/>
         <source>Table Of Contents</source>
         <translation>目录</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1342"/>
         <source>Index</source>
         <translation>索引</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1336"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1346"/>
         <source>Glossary</source>
         <translation>词汇</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1350"/>
         <source>Acknowledgements</source>
         <translation>致谢</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1344"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1354"/>
         <source>Bibliography</source>
         <translation>参考书目</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1348"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1358"/>
         <source>Colophon</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>CopyrightPage</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1356"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1366"/>
         <source>Dedication</source>
         <translation>贡献</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1360"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1370"/>
         <source>Epigraph</source>
         <translation>题词</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1364"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1374"/>
         <source>Foreword</source>
         <translation>前言</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1368"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
         <source>List Of Illustrations</source>
         <translation>插图列表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
         <source>List Of Tables</source>
         <translation>表格列表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1376"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1386"/>
         <source>Notes</source>
         <translation>注释</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1380"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1390"/>
         <source>Preface</source>
         <translation>序言</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1394"/>
         <source>Text</source>
         <translation>文本</translation>
     </message>
@@ -1195,30 +1195,30 @@ and when loading a file edited with Open With.</source>
         <translation>粘贴</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="93"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
         <translation>上移。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="96"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
-        <location filename="../../Form_Files/ClipEditor.ui" line="155"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="156"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="185"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="215"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
         <translation>升级。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="152"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
         <translation>降级。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
+        <location filename="../../Form_Files/ClipEditor.ui" line="212"/>
         <source>Move an entry down one in the group.</source>
         <translation>下移。</translation>
     </message>
@@ -1323,11 +1323,13 @@ and when loading a file edited with Open With.</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
+        <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="615"/>
         <source>Add Entry</source>
         <translation>添加条目</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="616"/>
         <source>Add Group</source>
         <translation>添加组</translation>
@@ -2490,6 +2492,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation>保存到文件</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="421"/>
         <source>Add Entry</source>
         <translation>添加条目</translation>
@@ -2874,135 +2877,135 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
+        <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Catalan</source>
         <translation>加泰罗尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="121"/>
+        <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Central Khmer</source>
         <translation>中央高棉</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="122"/>
+        <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Chamorro</source>
         <translation>查莫罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="123"/>
+        <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Chechen</source>
         <translation>车臣语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="124"/>
         <location filename="../../Misc/Language.cpp" line="125"/>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <location filename="../../Misc/Language.cpp" line="129"/>
+        <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chinese</source>
         <translation>中文</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="125"/>
+        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>China</source>
         <translation>中国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="126"/>
+        <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Hong Kong</source>
         <translation>香港</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="127"/>
+        <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Macau</source>
         <translation>澳门</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="128"/>
+        <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Singapore</source>
         <translation>新加坡</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="129"/>
+        <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Taiwan</source>
         <translation>台湾</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="130"/>
+        <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Church Slavic</source>
         <translation>教会斯拉夫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="131"/>
+        <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Chuvash</source>
         <translation>楚瓦什语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="132"/>
+        <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Cornish</source>
         <translation>凯尔特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="133"/>
+        <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Corsican</source>
         <translation>科西嘉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="134"/>
+        <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Cree</source>
         <translation>克里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="135"/>
+        <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Croatian</source>
         <translation>克罗地亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="136"/>
+        <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Czech</source>
         <translation>捷克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="137"/>
         <location filename="../../Misc/Language.cpp" line="138"/>
+        <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Danish</source>
         <translation>丹麦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="138"/>
+        <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Denmark</source>
         <translation>丹麦</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="139"/>
+        <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Dhivehi</source>
         <translation>迪维希</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="140"/>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Dutch</source>
         <translation>荷兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="141"/>
-        <location filename="../../Misc/Language.cpp" line="164"/>
+        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Belgium</source>
         <translation>比利时</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Netherlands</source>
         <translation>荷兰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="144"/>
         <source>Dzongkha</source>
         <translation>宗喀语（不丹语）</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="144"/>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <location filename="../../Misc/Language.cpp" line="147"/>
@@ -3015,728 +3018,728 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="157"/>
         <source>English</source>
         <translation>英语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="145"/>
+        <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Australia</source>
         <translation>澳大利亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="146"/>
+        <location filename="../../Misc/Language.cpp" line="147"/>
         <source>Belize</source>
         <translation>伯利兹</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="147"/>
-        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="148"/>
+        <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Canada</source>
         <translation>加拿大</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="148"/>
+        <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Caribbean</source>
         <translation>加勒比</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="149"/>
+        <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Great Britain</source>
         <translation>大不列颠</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="150"/>
+        <location filename="../../Misc/Language.cpp" line="151"/>
         <source>India</source>
         <translation>印度</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="151"/>
-        <location filename="../../Misc/Language.cpp" line="171"/>
+        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Ireland</source>
         <translation>爱尔兰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Jamaica</source>
         <translation>牙买加</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="153"/>
+        <location filename="../../Misc/Language.cpp" line="154"/>
         <source>Phillippines</source>
         <translation>菲律宾</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="154"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Trinidad</source>
         <translation>特立尼达</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="155"/>
+        <location filename="../../Misc/Language.cpp" line="156"/>
         <source>South Africa</source>
         <translation>南非</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="157"/>
         <source>United States</source>
         <translation>美国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="157"/>
+        <location filename="../../Misc/Language.cpp" line="158"/>
         <source>Esperanto</source>
         <translation>世界语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Estonian</source>
         <translation>爱沙尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="159"/>
+        <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Ewe</source>
         <translation>埃维语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="160"/>
+        <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Faroese</source>
         <translation>法罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="161"/>
+        <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Fijian</source>
         <translation>斐济语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="162"/>
+        <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Finnish</source>
         <translation>芬兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="163"/>
         <location filename="../../Misc/Language.cpp" line="164"/>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
         <source>French</source>
         <translation>法语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="166"/>
+        <location filename="../../Misc/Language.cpp" line="167"/>
         <source>France</source>
         <translation>法国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="167"/>
-        <location filename="../../Misc/Language.cpp" line="179"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Luxembourg</source>
         <translation>卢森堡</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <location filename="../../Misc/Language.cpp" line="180"/>
-        <location filename="../../Misc/Language.cpp" line="204"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Switzerland</source>
         <translation>瑞士</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Fulah</source>
         <translation>富拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="170"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
+        <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Gaelic</source>
         <translation>盖尔</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="170"/>
+        <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Scotland</source>
         <translation>苏格兰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="172"/>
+        <location filename="../../Misc/Language.cpp" line="173"/>
         <source>Galician</source>
         <translation>加利西亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="173"/>
+        <location filename="../../Misc/Language.cpp" line="174"/>
         <source>Ganda</source>
         <translation>卢甘达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="174"/>
+        <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Georgian</source>
         <translation>格鲁吉亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="175"/>
         <location filename="../../Misc/Language.cpp" line="176"/>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <location filename="../../Misc/Language.cpp" line="180"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
         <source>German</source>
         <translation>德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="176"/>
+        <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Austria</source>
         <translation>奥地利</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="177"/>
+        <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Germany</source>
         <translation>德国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="178"/>
+        <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Liechtenstein</source>
         <translation>列支敦士登</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="182"/>
         <source>Greek, Modern</source>
         <translation>希腊，现代</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="182"/>
+        <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Greek</source>
         <translation>希腊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="183"/>
+        <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Guarani</source>
         <translation>瓜拉尼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Gujarati</source>
         <translation>古吉拉特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="185"/>
+        <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Haitian</source>
         <translation>海地语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="186"/>
+        <location filename="../../Misc/Language.cpp" line="187"/>
         <source>Hausa</source>
         <translation>豪萨语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="187"/>
+        <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Hebrew</source>
         <translation>希伯来语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="188"/>
+        <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Herero</source>
         <translation>赫雷罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="189"/>
+        <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Hindi</source>
         <translation>印地语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="190"/>
+        <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Hiri Motu</source>
         <translation>希里莫图语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="191"/>
+        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hungarian</source>
         <translation>匈牙利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Icelandic</source>
         <translation>冰岛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Ido</source>
         <translation>伊多语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="194"/>
+        <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Igbo</source>
         <translation>伊博语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Indonesian</source>
         <translation>印度尼西亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="196"/>
+        <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Indonesian - Indonesia</source>
         <translation>印度尼西亚－印尼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Interlingua</source>
         <translation>国际语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="198"/>
+        <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Interlingue</source>
         <translation>西方国际语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="199"/>
+        <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Inuktitut</source>
         <translation>因纽特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="200"/>
+        <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Inupiaq</source>
         <translation>伊努庇克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="201"/>
+        <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Irish</source>
         <translation>爱尔兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="202"/>
-        <location filename="../../Misc/Language.cpp" line="203"/>
         <location filename="../../Misc/Language.cpp" line="204"/>
+        <location filename="../../Misc/Language.cpp" line="205"/>
+        <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Italian</source>
         <translation>意大利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="203"/>
+        <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Italy</source>
         <translation>意大利</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="205"/>
+        <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Japanese</source>
         <translation>日语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="206"/>
+        <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Javanese</source>
         <translation>爪哇语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="207"/>
+        <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Kalaallisut</source>
         <translation>格陵兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="208"/>
+        <location filename="../../Misc/Language.cpp" line="210"/>
         <source>Kannada</source>
         <translation>卡纳达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="209"/>
+        <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Kanuri</source>
         <translation>卡努里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="210"/>
+        <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Kashmiri</source>
         <translation>克什米尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="211"/>
+        <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Kazakh</source>
         <translation>哈萨克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="212"/>
+        <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Kikuyu</source>
         <translation>基库尤语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="213"/>
+        <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kinyarwanda</source>
         <translation>卢旺达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="214"/>
+        <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Kirghiz</source>
         <translation>吉尔吉斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="215"/>
+        <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Komi</source>
         <translation>科米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="216"/>
+        <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kongo</source>
         <translation>刚果语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="217"/>
+        <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Korean</source>
         <translation>韩国语（朝鲜语）</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="218"/>
+        <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Kuanyama</source>
         <translation>库瓦亚马语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kurdish</source>
         <translation>库尔德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="220"/>
+        <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Lao</source>
         <translation>老挝语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="221"/>
+        <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Latin</source>
         <translation>拉丁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="222"/>
-        <location filename="../../Misc/Language.cpp" line="223"/>
+        <location filename="../../Misc/Language.cpp" line="224"/>
+        <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvian</source>
         <translation>拉脱维亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="223"/>
+        <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvia</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="224"/>
+        <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Limburgan</source>
         <translation>林堡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="225"/>
+        <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Lingala</source>
         <translation>林加拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="226"/>
+        <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lithuanian</source>
         <translation>立陶宛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="227"/>
+        <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Luba-Katanga</source>
         <translation>卢巴 - 加丹加</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="228"/>
+        <location filename="../../Misc/Language.cpp" line="230"/>
         <source>Luxembourgish</source>
         <translation>卢森堡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="229"/>
+        <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Macedonian</source>
         <translation>马其顿语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="230"/>
+        <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Malagasy</source>
         <translation>马达加斯加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="231"/>
+        <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Malayalam</source>
         <translation>马拉雅拉姆语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="232"/>
-        <location filename="../../Misc/Language.cpp" line="233"/>
         <location filename="../../Misc/Language.cpp" line="234"/>
+        <location filename="../../Misc/Language.cpp" line="235"/>
+        <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Malay</source>
         <translation>马来语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="233"/>
+        <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Brunei</source>
         <translation>文莱</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="234"/>
+        <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Malaysia</source>
         <translation>马来西亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="235"/>
+        <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Maltese</source>
         <translation>马耳他语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="236"/>
+        <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Manx</source>
         <translation>曼岛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="237"/>
+        <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Maori</source>
         <translation>毛利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="238"/>
+        <location filename="../../Misc/Language.cpp" line="240"/>
         <source>Marathi</source>
         <translation>马拉地语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="239"/>
+        <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Marshallese</source>
         <translation>马绍尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="240"/>
+        <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Mongolian</source>
         <translation>蒙古语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="241"/>
+        <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Nauru</source>
         <translation>瑙鲁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="242"/>
+        <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Navajo</source>
         <translation>纳瓦霍语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="243"/>
-        <location filename="../../Misc/Language.cpp" line="244"/>
+        <location filename="../../Misc/Language.cpp" line="245"/>
+        <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Ndebele</source>
         <translation>恩德贝莱</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="243"/>
+        <location filename="../../Misc/Language.cpp" line="245"/>
         <source>North</source>
         <translation>北</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="244"/>
+        <location filename="../../Misc/Language.cpp" line="246"/>
         <source>South</source>
         <translation>南</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="245"/>
+        <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Ndonga</source>
         <translation>恩敦加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="246"/>
+        <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Nepali</source>
         <translation>尼泊尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="247"/>
+        <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Northern, Sami</source>
         <translation>北萨米</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="248"/>
-        <location filename="../../Misc/Language.cpp" line="249"/>
         <location filename="../../Misc/Language.cpp" line="250"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Norwegian</source>
         <translation>挪威语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="249"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Bokmal</source>
         <translation>巴克摩</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="250"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Nynorsk</source>
         <translation>尼诺斯克</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Nyanja</source>
         <translation>尼昂加</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="252"/>
+        <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Occitan</source>
         <translation>奥西坦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="253"/>
+        <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Ojibwa</source>
         <translation>奥吉布瓦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="254"/>
+        <location filename="../../Misc/Language.cpp" line="256"/>
         <source>Oriya</source>
         <translation>奥里亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="255"/>
+        <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Oromo</source>
         <translation>奥洛莫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="256"/>
+        <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Ossetian</source>
         <translation>奥塞梯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="257"/>
+        <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Pali</source>
         <translation>巴利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="258"/>
+        <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Panjabi</source>
         <translation>旁遮普语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="259"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Persian</source>
         <translation>波斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="260"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Polish</source>
         <translation>波兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="261"/>
-        <location filename="../../Misc/Language.cpp" line="262"/>
         <location filename="../../Misc/Language.cpp" line="263"/>
+        <location filename="../../Misc/Language.cpp" line="264"/>
+        <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Portuguese</source>
         <translation>葡萄牙语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="262"/>
+        <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Brazil</source>
         <translation>巴西</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="263"/>
+        <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Portugal</source>
         <translation>葡萄牙</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="264"/>
+        <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Pushto</source>
         <translation>普什图语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="265"/>
+        <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Quechua</source>
         <translation>科察语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="266"/>
-        <location filename="../../Misc/Language.cpp" line="267"/>
         <location filename="../../Misc/Language.cpp" line="268"/>
+        <location filename="../../Misc/Language.cpp" line="269"/>
+        <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romanian</source>
         <translation>罗马尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="267"/>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="269"/>
+        <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Moldova</source>
         <translation>摩尔多瓦</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="268"/>
+        <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romania</source>
         <translation>罗马尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="269"/>
+        <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Romansh</source>
         <translation>罗曼斯</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="270"/>
+        <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Rundi</source>
         <translation>隆迪语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="271"/>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="273"/>
+        <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Russian</source>
         <translation>俄语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="273"/>
+        <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Samoan</source>
         <translation>萨摩亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="274"/>
+        <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Sango</source>
         <translation>桑戈语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="275"/>
+        <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Sanskrit</source>
         <translation>梵语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="276"/>
+        <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Sardinian</source>
         <translation>撒丁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="277"/>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbian</source>
         <translation>塞尔维亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
         <source>SP</source>
         <translation>SP</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Shona</source>
         <translation>绍纳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="280"/>
+        <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sichuan Yi</source>
         <translation>四川彝语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="281"/>
+        <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sindhi</source>
         <translation>信德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="282"/>
+        <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sinhala</source>
         <translation>僧加罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="283"/>
+        <location filename="../../Misc/Language.cpp" line="285"/>
         <source>Slovak</source>
         <translation>斯洛伐克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="284"/>
+        <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Slovenian</source>
         <translation>斯洛文尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Somali</source>
         <translation>索马里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="286"/>
+        <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sotho, Southern</source>
         <translation>索托，南</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="287"/>
-        <location filename="../../Misc/Language.cpp" line="288"/>
         <location filename="../../Misc/Language.cpp" line="289"/>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <location filename="../../Misc/Language.cpp" line="291"/>
@@ -3755,1805 +3758,1819 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="304"/>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Spanish</source>
         <translation>西班牙语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="288"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Argentina</source>
         <translation>阿根廷</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="289"/>
+        <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Bolivia</source>
         <translation>玻利维亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="290"/>
+        <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Chile</source>
         <translation>智利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="291"/>
+        <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Columbia</source>
         <translation>哥伦比亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="292"/>
+        <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Costa Rica</source>
         <translation>哥斯达黎加</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="293"/>
+        <location filename="../../Misc/Language.cpp" line="295"/>
         <source>Dominican Republic</source>
         <translation>多米尼加共和国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="294"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Ecuador</source>
         <translation>厄瓜多尔</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="295"/>
+        <location filename="../../Misc/Language.cpp" line="297"/>
         <source>El Salvador</source>
         <translation>萨尔瓦多</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="296"/>
+        <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Guatemala</source>
         <translation>危地马拉</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="297"/>
+        <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Honduras</source>
         <translation>洪都拉斯</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="298"/>
+        <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Mexico</source>
         <translation>墨西哥</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="299"/>
+        <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Nicaragua</source>
         <translation>尼加拉瓜</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="300"/>
+        <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Panama</source>
         <translation>巴拿马</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="301"/>
+        <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Paraguay</source>
         <translation>巴拉圭</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="302"/>
+        <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Peru</source>
         <translation>秘鲁</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="303"/>
+        <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Puerto Rico</source>
         <translation>波多黎各</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="304"/>
+        <location filename="../../Misc/Language.cpp" line="121"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Spain</source>
         <translation>西班牙</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="305"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
+        <source>Hungary</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Uruguay</source>
         <translation>乌拉圭</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Venezuela</source>
         <translation>委内瑞拉</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Sundanese</source>
         <translation>巽他语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="308"/>
+        <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Swahili</source>
         <translation>斯瓦希里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="309"/>
+        <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Swati</source>
         <translation>斯瓦特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="310"/>
-        <location filename="../../Misc/Language.cpp" line="311"/>
         <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Swedish</source>
         <translation>瑞典语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="311"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Finland</source>
         <translation>芬兰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Sweden</source>
         <translation>瑞典</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Tagalog</source>
         <translation>他加禄语（菲律宾）</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="314"/>
+        <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Tahitian</source>
         <translation>塔希提语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="315"/>
+        <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Tajik</source>
         <translation>塔吉克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="316"/>
+        <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Tamil</source>
         <translation>泰米尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="317"/>
+        <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Tatar</source>
         <translation>鞑靼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="318"/>
+        <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Telugu</source>
         <translation>泰卢固语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="319"/>
+        <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Thai</source>
         <translation>泰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="320"/>
+        <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tibetan</source>
         <translation>西藏语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="321"/>
+        <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tigrinya</source>
         <translation>提格里尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="322"/>
+        <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tonga</source>
         <translation>东加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="323"/>
+        <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tsonga</source>
         <translation>颂加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="324"/>
+        <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Tswana</source>
         <translation>茨瓦纳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="325"/>
-        <location filename="../../Misc/Language.cpp" line="326"/>
+        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkish</source>
         <translation>土耳其语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="326"/>
+        <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkey</source>
         <translation>土耳其</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Turkmen</source>
         <translation>土库曼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Twi</source>
         <translation>维特语（加纳）</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Uighur</source>
         <translation>维吾尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="330"/>
+        <location filename="../../Misc/Language.cpp" line="332"/>
+        <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukrainian</source>
         <translation>乌克兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="331"/>
+        <location filename="../../Misc/Language.cpp" line="333"/>
+        <source>Ukraine</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Urdu</source>
         <translation>乌尔都语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="332"/>
-        <location filename="../../Misc/Language.cpp" line="333"/>
+        <location filename="../../Misc/Language.cpp" line="335"/>
+        <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbek</source>
         <translation>乌兹别克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="333"/>
+        <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbekistan</source>
         <translation>乌兹别克斯坦</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="334"/>
+        <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Venda</source>
         <translation>文达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="335"/>
+        <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Vietnamese</source>
         <translation>越南语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="336"/>
+        <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Volapuk</source>
         <translation>沃拉普克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="337"/>
+        <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Walloon</source>
         <translation>华隆语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="338"/>
+        <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Welsh</source>
         <translation>威尔士语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="339"/>
+        <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Western Frisian</source>
         <translation>西弗里西语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="340"/>
+        <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Wolof</source>
         <translation>沃洛夫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="341"/>
+        <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Xhosa</source>
         <translation>科萨语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="342"/>
+        <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Yiddish</source>
         <translation>意第绪语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="343"/>
+        <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Yoruba</source>
         <translation>约鲁巴语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="344"/>
+        <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Zhuang</source>
         <translation>壮语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="345"/>
+        <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Zulu</source>
         <translation>祖鲁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="346"/>
+        <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Achinese</source>
         <translation>亚齐语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="347"/>
+        <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Acoli</source>
         <translation>阿乔利语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="348"/>
+        <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Adangme</source>
         <translation>阿当梅语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="349"/>
+        <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Adygei, Adyghe</source>
         <translation>阿迪格人，阿迪格语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="350"/>
+        <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Afrihili</source>
         <translation>阿弗里希利语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="351"/>
+        <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Afro-Asiatic languages</source>
         <translation>亚非语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="352"/>
+        <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Ainu</source>
         <translation>阿伊努语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="353"/>
+        <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Akkadian</source>
         <translation>阿卡德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="354"/>
+        <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Aleut</source>
         <translation>阿留申语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="355"/>
+        <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Algonquian languages</source>
         <translation>阿尔冈昆语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="356"/>
+        <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Altaic languages</source>
         <translation>阿尔泰语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="357"/>
+        <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Angika</source>
         <translation>安吉卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="358"/>
+        <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Apache languages</source>
         <translation>阿帕契语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="359"/>
+        <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Arapaho</source>
         <translation>阿拉巴霍语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="360"/>
+        <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Arawak</source>
         <translation>阿拉瓦克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="361"/>
+        <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
         <translation>阿罗马尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="362"/>
+        <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Artificial languages</source>
         <translation>人工语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="363"/>
+        <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
         <translation>莱昂语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="364"/>
+        <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Athapascan languages</source>
         <translation>阿撒巴斯卡语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="365"/>
+        <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Australian languages</source>
         <translation>澳大利亚原住民语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="366"/>
+        <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Austronesian languages</source>
         <translation>南岛语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="367"/>
+        <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Awadhi</source>
         <translation>阿瓦德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="368"/>
+        <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Balinese</source>
         <translation>巴里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="369"/>
+        <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Baltic languages</source>
         <translation>波罗的海地区之语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="370"/>
+        <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Baluchi</source>
         <translation>俾路支语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="371"/>
+        <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Bamileke languages</source>
         <translation>巴米累克语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="372"/>
+        <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Banda languages</source>
         <translation>班达语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="373"/>
+        <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Bantu languages</source>
         <translation>班图语支</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="374"/>
+        <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Basa</source>
         <translation>巴萨语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="375"/>
+        <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Batak languages</source>
         <translation>巴达克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="376"/>
+        <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Bedawiyet, Beja</source>
         <translation>别札语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="377"/>
+        <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Bemba</source>
         <translation>别姆巴语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="378"/>
+        <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Berber languages</source>
         <translation>北非&amp;回教土族之语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="379"/>
+        <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Bhojpuri</source>
         <translation>博杰普尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="380"/>
+        <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Bikol</source>
         <translation>（菲律宾岛）比科尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="381"/>
+        <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Bilin, Blin</source>
         <translation>比林语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="382"/>
+        <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Bini, Edo</source>
         <translation>伊多語</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="383"/>
+        <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
         <translation>布利斯符号</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="384"/>
+        <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Braj</source>
         <translation>布拉杰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="385"/>
+        <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Buginese</source>
         <translation>布吉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="386"/>
+        <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Buriat</source>
         <translation>布里亚特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="387"/>
+        <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Caddo</source>
         <translation>比林语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="388"/>
+        <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Caucasian languages</source>
         <translation>高加索诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="389"/>
+        <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Cebuano</source>
         <translation>宿务语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="390"/>
+        <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Celtic languages</source>
         <translation>凯尔特语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="391"/>
+        <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Central American Indian languages</source>
         <translation>中美印第安语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="392"/>
+        <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Chagatai</source>
         <translation>查加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="393"/>
+        <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Chamic languages</source>
         <translation>查米克语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="394"/>
+        <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Cherokee</source>
         <translation>彻罗基语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="395"/>
+        <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Cheyenne</source>
         <translation>夏延语(切延内语)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="396"/>
+        <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Chibcha</source>
         <translation>契布卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="397"/>
+        <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Chinook jargon</source>
         <translation>契努克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="398"/>
+        <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Chipewyan, Dene Suline</source>
         <translation>契帕瓦族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="399"/>
+        <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Choctaw</source>
         <translation>乔克托语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="400"/>
+        <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Chuukese</source>
         <translation>楚克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="401"/>
+        <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
         <translation>尼瓦尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="402"/>
+        <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Classical Syriac</source>
         <translation>叙利亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="403"/>
+        <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Coptic</source>
         <translation>科普特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="404"/>
+        <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Creek</source>
         <translation>克里克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="405"/>
+        <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Creoles and pidgins</source>
         <translation>皮钦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="406"/>
+        <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Creoles and pidgins- English based</source>
         <translation>英语克里奥尔混合语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="407"/>
+        <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Creoles and pidgins- French-based</source>
         <translation>法语克里奥尔混合语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="408"/>
+        <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Creoles and pidgins- Portuguese-based</source>
         <translation>葡萄牙语克里奥尔混合语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="409"/>
+        <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Crimean Tatar/Turkish</source>
         <translation>土耳其语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="410"/>
+        <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Cushitic languages</source>
         <translation>库希特语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="411"/>
+        <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Dakota</source>
         <translation>达科他语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="412"/>
+        <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Dargwa</source>
         <translation>达尔格瓦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="413"/>
+        <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Delaware</source>
         <translation>特拉瓦印第安人语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="414"/>
+        <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
         <translation>扎扎其语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="415"/>
+        <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Dinka</source>
         <translation>丁卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="416"/>
+        <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Dogri</source>
         <translation>多格拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="417"/>
+        <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Dogrib</source>
         <translation>多格里布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="418"/>
+        <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Dravidian languages</source>
         <translation>达罗毗荼语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="419"/>
+        <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Duala</source>
         <translation>杜阿拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="420"/>
+        <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
         <translation>中古荷兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="421"/>
+        <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Dyula</source>
         <translation>迪尤拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="422"/>
+        <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Eastern Frisian</source>
         <translation>沙特弗里西语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="423"/>
+        <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Efik</source>
         <translation>艾非克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="424"/>
+        <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Egyptian (Ancient)</source>
         <translation>古代埃及语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="425"/>
+        <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Ekajuk</source>
         <translation>艾卡朱克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="426"/>
+        <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Elamite</source>
         <translation>埃兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="427"/>
+        <location filename="../../Misc/Language.cpp" line="430"/>
         <source>English- Middle (1100-1500)</source>
         <translation>中古英语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="428"/>
+        <location filename="../../Misc/Language.cpp" line="431"/>
         <source>English- Old (ca.450-1100)</source>
         <translation>古英语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="429"/>
+        <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Erzya</source>
         <translation>厄尔兹亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="430"/>
+        <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Ewondo</source>
         <translation>埃翁多语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="431"/>
+        <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Fang</source>
         <translation>芳格语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="432"/>
+        <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Fanti</source>
         <translation>芳蒂语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="433"/>
+        <location filename="../../Misc/Language.cpp" line="436"/>
         <source>Filipino, Pilipino</source>
         <translation>菲律宾语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="434"/>
+        <location filename="../../Misc/Language.cpp" line="437"/>
         <source>Finno-Ugrian languages</source>
         <translation>芬兰-乌戈尔语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="435"/>
+        <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Fon</source>
         <translation>丰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="436"/>
+        <location filename="../../Misc/Language.cpp" line="439"/>
         <source>French- Middle (ca.1400-1600)</source>
         <translation>中古法语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="437"/>
+        <location filename="../../Misc/Language.cpp" line="440"/>
         <source>French- Old (842-ca.1400)</source>
         <translation>古法语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="438"/>
+        <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Friulian</source>
         <translation>弗留利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="439"/>
+        <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Ga</source>
         <translation>加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="440"/>
+        <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Galibi Carib</source>
         <translation>加勒比诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="441"/>
+        <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Gayo</source>
         <translation>迦约语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="442"/>
+        <location filename="../../Misc/Language.cpp" line="445"/>
         <source>Gbaya</source>
         <translation>巴亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="443"/>
+        <location filename="../../Misc/Language.cpp" line="446"/>
         <source>Geez</source>
         <translation>吉兹语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="444"/>
+        <location filename="../../Misc/Language.cpp" line="447"/>
         <source>German- Middle High (ca.1050-1500)</source>
         <translation>中古高地德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="445"/>
+        <location filename="../../Misc/Language.cpp" line="448"/>
         <source>German- Old High (ca.750-1050)</source>
         <translation>古高地德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="446"/>
+        <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Germanic languages</source>
         <translation>日耳曼语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="447"/>
+        <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Gilbertese</source>
         <translation>吉尔伯特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="448"/>
+        <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Gondi</source>
         <translation>冈德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="449"/>
+        <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Gorontalo</source>
         <translation>哥伦打洛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="450"/>
+        <location filename="../../Misc/Language.cpp" line="453"/>
         <source>Gothic</source>
         <translation>哥达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="451"/>
+        <location filename="../../Misc/Language.cpp" line="454"/>
         <source>Grebo</source>
         <translation>格列博语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="452"/>
+        <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Greek- Ancient (to 1453)</source>
         <translation>古希腊罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="453"/>
+        <location filename="../../Misc/Language.cpp" line="456"/>
         <source>Gwich&apos;in</source>
         <translation>哥威迅语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="454"/>
+        <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Haida</source>
         <translation>海达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="455"/>
+        <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Hawaiian</source>
         <translation>夏威夷语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="456"/>
+        <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Hiligaynon</source>
         <translation>希利盖侬语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="457"/>
+        <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Himachali, Western Pahari languages</source>
         <translation>喜马偕尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="458"/>
+        <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Hittite</source>
         <translation>赫梯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="459"/>
+        <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Hmong, Mong</source>
         <translation>苗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="460"/>
+        <location filename="../../Misc/Language.cpp" line="463"/>
         <source>Hupa</source>
         <translation>胡帕语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="461"/>
+        <location filename="../../Misc/Language.cpp" line="464"/>
         <source>Iban</source>
         <translation>伊班语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="462"/>
+        <location filename="../../Misc/Language.cpp" line="465"/>
         <source>Ijo languages</source>
         <translation>伊乔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="463"/>
+        <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Iloko</source>
         <translation>伊洛卡诺语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="464"/>
+        <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Inari Sami</source>
         <translation>伊纳里-萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="465"/>
+        <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Indic languages</source>
         <translation>印度-雅利安语支</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="466"/>
+        <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Indo-European languages</source>
         <translation>印欧语(系)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="467"/>
+        <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Ingush</source>
         <translation>印古什语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="468"/>
+        <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Iranian languages</source>
         <translation>伊朗诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="469"/>
+        <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Irish- Middle (900-1200)</source>
         <translation>中古爱尔兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="470"/>
+        <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Irish- Old (to 900)</source>
         <translation>古爱尔兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="471"/>
+        <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Iroquoian languages</source>
         <translation>伊拉克依语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="472"/>
+        <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Jingpho, Kachin</source>
         <translation>景颇语、克钦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="473"/>
+        <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Judeo-Arabic</source>
         <translation>犹太-阿拉伯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="474"/>
+        <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Judeo-Persian</source>
         <translation>犹太-波斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="475"/>
+        <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Kabardian</source>
         <translation>卡巴尔德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="476"/>
+        <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Kabyle</source>
         <translation>卡拜尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="477"/>
+        <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Kalmyk, Oirat</source>
         <translation>卡尔梅克语、卫拉特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="478"/>
+        <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Kamba</source>
         <translation>卡姆巴语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="479"/>
+        <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Kapampangan, Pampanga</source>
         <translation>邦板牙语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="480"/>
+        <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Kara-Kalpak</source>
         <translation>卡拉卡尔帕克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="481"/>
+        <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Karachay-Balkar</source>
         <translation>卡拉恰伊-巴尔卡尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="482"/>
+        <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Karelian</source>
         <translation>卡累利阿语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="483"/>
+        <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Karen languages</source>
         <translation>克伦语支</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="484"/>
+        <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Kashubian</source>
         <translation>卡舒比语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="485"/>
+        <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Kawi</source>
         <translation>股爪哇语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="486"/>
+        <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Khasi</source>
         <translation>卡西语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="487"/>
+        <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Khoisan languages</source>
         <translation>科依桑语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="488"/>
+        <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Khotanese, Sakan</source>
         <translation>和阗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="489"/>
+        <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Kimbundu</source>
         <translation>金邦杜语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="490"/>
+        <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Klingon, tlhIngan-Hol</source>
         <translation>克林贡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="491"/>
+        <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Konkani</source>
         <translation>贡根语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="492"/>
+        <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Kosraean</source>
         <translation>科斯拉伊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="493"/>
+        <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Kpelle</source>
         <translation>克佩列语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="494"/>
+        <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Kru languages</source>
         <translation>克鲁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="495"/>
+        <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kumyk</source>
         <translation>库米克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="496"/>
+        <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Kurukh</source>
         <translation>库鲁克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="497"/>
+        <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Kutenai</source>
         <translation>库特奈语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="498"/>
+        <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Ladino</source>
         <translation>拉地诺语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="499"/>
+        <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Lahnda</source>
         <translation>印度-雅利安语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="500"/>
+        <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Lamba</source>
         <translation>兰巴语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="501"/>
+        <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Land Dayak languages</source>
         <translation>达雅克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="502"/>
+        <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Lezghian</source>
         <translation>立陶宛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="503"/>
+        <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Lojban</source>
         <translation>逻辑语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="504"/>
+        <location filename="../../Misc/Language.cpp" line="507"/>
         <source>German-Low, Low Saxon</source>
         <translation>低地德语，古代撒克逊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="505"/>
+        <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Lower Sorbian</source>
         <translation>下索布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="506"/>
+        <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Lozi</source>
         <translation>洛奇语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="507"/>
+        <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Luba-Lulua</source>
         <translation>卢巴-卢拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="508"/>
+        <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Luiseno</source>
         <translation>卢伊塞诺语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="509"/>
+        <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Lule Sami</source>
         <translation>律勒欧-萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="510"/>
+        <location filename="../../Misc/Language.cpp" line="513"/>
         <source>Lunda</source>
         <translation>隆达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="511"/>
+        <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Luo (Kenya and Tanzania)</source>
         <translation>卢奥语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="512"/>
+        <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Lushai</source>
         <translation>卢舍依语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="513"/>
+        <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Madurese</source>
         <translation>马都拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="514"/>
+        <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Magahi</source>
         <translation>马加伊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="515"/>
+        <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Maithili</source>
         <translation>迈蒂利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="516"/>
+        <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Makasar</source>
         <translation>望加锡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="517"/>
+        <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Manchu</source>
         <translation>满族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="518"/>
+        <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Mandar</source>
         <translation>曼迪安语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="519"/>
+        <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Mandingo</source>
         <translation>曼丁果语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="520"/>
+        <location filename="../../Misc/Language.cpp" line="523"/>
         <source>Manipuri</source>
         <translation>曼尼普尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="521"/>
+        <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Manobo languages</source>
         <translation>马诺博诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="522"/>
+        <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Mapuche/Mapudungun</source>
         <translation>阿劳坎语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="523"/>
+        <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Mari</source>
         <translation>马里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="524"/>
+        <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Marwari</source>
         <translation>马尔瓦尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="525"/>
+        <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Masai</source>
         <translation>马塞族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="526"/>
+        <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Mayan languages</source>
         <translation>马雅语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="527"/>
+        <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Mende</source>
         <translation>门德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="528"/>
+        <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Mi&apos;kmaq, Micmac</source>
         <translation>密克马克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="529"/>
+        <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Minangkabau</source>
         <translation>米南加保语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="530"/>
+        <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Mirandese</source>
         <translation>米兰德斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="531"/>
+        <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Mohawk</source>
         <translation>莫霍克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="532"/>
+        <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Moksha</source>
         <translation>莫克沙语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="533"/>
+        <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Mon-Khmer languages</source>
         <translation>孟－高棉语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="534"/>
+        <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Mongo</source>
         <translation>蒙古语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="535"/>
+        <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Mossi</source>
         <translation>莫西语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="536"/>
+        <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Multiple languages</source>
         <translation>多种语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="537"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Munda languages</source>
         <translation>蒙达诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="538"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>N&apos;Ko</source>
         <translation>N&apos;Ko</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="539"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Nahuatl languages</source>
         <translation>纳瓦特尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Neapolitan</source>
         <translation>那不勒斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Nepal Bhasa/Newari</source>
         <translation>尼瓦尔语/内瓦里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Nias</source>
         <translation>尼亚斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Niger-Kordofanian languages</source>
         <translation>尼日尔-科尔多凡语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Nilo-Saharan languages</source>
         <translation>尼罗-撒哈拉语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Niuean</source>
         <translation>纽埃语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>No linguistic content/Not applicable</source>
         <translation>无语言内容/不适用</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nogai</source>
         <translation>诺盖语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Norse- Old</source>
         <translation>古诺尔斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>North American Indian languages</source>
         <translation>北美洲印第安诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Northern Frisian</source>
         <translation>北弗里西亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>北索托语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Nubian languages</source>
         <translation>努比亚语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Nyamwezi</source>
         <translation>尼亚姆韦齐语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Nyankole</source>
         <translation>尼扬科莱语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Nyoro</source>
         <translation>尼奥罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Nzima</source>
         <translation>恩济马语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>阿拉米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Osage</source>
         <translation>奥塞奇语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Otomian languages</source>
         <translation>奥托米语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Pahlavi</source>
         <translation>巴拉维语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Palauan</source>
         <translation>帕劳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Pangasinan</source>
         <translation>邦阿西楠语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Papiamento</source>
         <translation>帕皮阿门托语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Papuan languages</source>
         <translation>巴布亚诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>古波斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Philippine languages</source>
         <translation>菲律宾诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Phoenician</source>
         <translation>腓尼基语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Pohnpeian</source>
         <translation>波纳佩语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Prakrit languages</source>
         <translation>普拉克利特语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Rajasthani</source>
         <translation>拉贾斯坦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="572"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Rapanui</source>
         <translation>拉帕努伊语、复活节岛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>拉罗汤加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Reserved for local use</source>
         <translation>保留供本地使用</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Romance languages</source>
         <translation>罗曼斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Romany</source>
         <translation>吉普赛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Salishan languages</source>
         <translation>萨利希语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Samaritan Aramaic</source>
         <translation>萨玛利亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Sami languages</source>
         <translation>萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Sandawe</source>
         <translation>桑达韦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Santali</source>
         <translation>桑塔尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Sasak</source>
         <translation>萨萨克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Scots</source>
         <translation>苏格兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Selkup</source>
         <translation>塞尔库普语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Semitic languages</source>
         <translation>闪米特语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Serer</source>
         <translation>谢列尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Shan</source>
         <translation>掸语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Sicilian</source>
         <translation>西西里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Sidamo</source>
         <translation>锡达莫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Sign Languages</source>
         <translation>手语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Siksika</source>
         <translation>西克西卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Sino-Tibetan languages</source>
         <translation>汉藏语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Siouan languages</source>
         <translation>操苏语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Skolt Sami</source>
         <translation>斯科特-萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Slave (Athapascan)</source>
         <translation>史拉维语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Slavic languages</source>
         <translation>斯拉夫语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sogdian</source>
         <translation>粟特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Songhai languages</source>
         <translation>桑海语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Soninke</source>
         <translation>索宁克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Sorbian languages</source>
         <translation>索布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>South American Indian languages</source>
         <translation>南美印第安语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Southern Altai</source>
         <translation>南阿尔泰语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Southern Sami</source>
         <translation>南萨莫斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Sranan Tongo</source>
         <translation>苏里南汤加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Sukuma</source>
         <translation>苏库马方言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Sumerian</source>
         <translation>闪族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Susu</source>
         <translation>苏苏语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>阿勒曼尼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Syriac</source>
         <translation>古代叙利亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Tai languages</source>
         <translation>泰语支</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Tamashek</source>
         <translation>塔马奇克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Tereno</source>
         <translation>特列纳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Tetum</source>
         <translation>德顿语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Tigre</source>
         <translation>提格雷语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Timne</source>
         <translation>滕内语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tiv</source>
         <translation>蒂夫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tlingit</source>
         <translation>特林吉特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Tok Pisin</source>
         <translation>巴布亚皮钦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tokelau</source>
         <translation>托克劳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tonga (Nyasa)</source>
         <translation>汤加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Tsimshian</source>
         <translation>钦西安语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Tumbuka</source>
         <translation>奇图姆布卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Tupi languages</source>
         <translation>瓜拉尼诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>土耳其-奥斯曼(1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Tuvalu</source>
         <translation>图瓦卢</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Tuvinian</source>
         <translation>图瓦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Udmurt</source>
         <translation>乌德穆尔特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Ugaritic</source>
         <translation>乌加里特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Umbundu</source>
         <translation>姆班杜语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Uncoded languages</source>
         <translation>未编码的语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Undetermined</source>
         <translation>待定的</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Upper Sorbian</source>
         <translation>上索布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Vai</source>
         <translation>瓦伊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Votic</source>
         <translation>沃提克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Wakashan languages</source>
         <translation>瓦卡什语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Waray</source>
         <translation>瓦瑞语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Washo</source>
         <translation>瓦绍语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>Wolaitta, Wolaytta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Yakut</source>
         <translation>雅库特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Yao</source>
         <translation>瑶语 (马拉维)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Yapese</source>
         <translation>雅浦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Yupik languages</source>
         <translation>尤皮克语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Zande languages</source>
         <translation>赞德诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Zapotec</source>
         <translation>萨巴特克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="645"/>
+        <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Zenaga</source>
         <translation>哲纳加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="646"/>
+        <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Zuni</source>
         <translation>祖尼语</translation>
     </message>
@@ -5641,7 +5658,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <name>LinksWidget</name>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
-        <source>Links and Footnotes</source>
+        <source>Links</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -6119,20 +6136,6 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或编辑锚点，并给该位置一个名称，作为一个链接的目标。&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1061"/>
-        <source>&amp;Hyperlink...</source>
-        <translation>超链接(&amp;H)...</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1064"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Hyperlink&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入超链接&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或编辑带有链接的锚点作为目标。&lt;/p&gt;</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="1115"/>
         <source>Stri&amp;kethrough</source>
         <translation>删除线(&amp;S)</translation>
@@ -6553,9 +6556,21 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1061"/>
+        <source>&amp;Link...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1064"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/main.ui" line="1207"/>
         <source>Ctrl+=</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+=</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1230"/>
@@ -7313,12 +7328,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2204"/>
         <source>Book&amp;mark Location</source>
-        <translation type="unfinished"/>
+        <translation>书签位置(B)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2207"/>
         <source>Ctrl+Alt+B</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2215"/>
@@ -7328,7 +7343,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2224"/>
         <source>&amp;Back</source>
-        <translation type="unfinished"/>
+        <translation>&amp;返回</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2227"/>
@@ -7336,7 +7351,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;返回&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;返回到到你最后点击的链接或样式或书签位置。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2233"/>
@@ -7788,27 +7805,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="327"/>
         <location filename="../../MainUI/MainWindow.cpp" line="553"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1084"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1119"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1225"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1283"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1292"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1485"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1492"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2886"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3234"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1120"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1131"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1237"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1256"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1498"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2912"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3260"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="280"/>
         <source>Location bookmarked.</source>
-        <translation type="unfinished"/>
+        <translation>书签位置。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="327"/>
@@ -7835,115 +7852,109 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>没有CSS样式命名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="938"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="948"/>
         <source>Styles deleted.</source>
         <translation>样式表已删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1172"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1184"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>文件“%1”不存在。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1225"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1237"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1256"/>
         <source>You cannot insert an id at this position.</source>
         <translation>您无法在此处插入id。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
-        <source>You cannot insert a hyperlink at this position.</source>
-        <translation>您无法在此处插入超链接。</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1315"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1326"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1441"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1338"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1453"/>
         <source>Select the destination to paste into first.</source>
         <translation>选择粘贴到第一个目标。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1498"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1505"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>您确定要合并选定的文件吗？
 这个动作无法逆转。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1554"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1524"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>由于XML格式不正确合并文件失败。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1536"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1549"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>合并完成，您可能需要更新或修改目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1705"/>
         <source>Word updated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1770"/>
         <source>File(s) deleted.</source>
         <translation>文件已删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1799"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1818"/>
         <source>Table Of Contents generated.</source>
         <translation>目录已生成。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2078"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2104"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>此EPUB没有包含任何CSS样式表来验证。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2728"/>
         <source>File cannot be split at this position.</source>
         <translation>文件在此处无法分割。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2745"/>
         <source>Split completed.</source>
         <translation>分割完成。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2769"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>分割完成，您可能需要更新目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2778"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2804"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>没有拆分标记，点击菜单 插入-&gt; 拆分标记。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3002"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3028"/>
         <source>File loaded.</source>
         <translation>文件已加载。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3054"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3080"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3089"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3115"/>
         <source>File saved.</source>
         <translation>文件已保存。</translation>
     </message>
@@ -7995,119 +8006,125 @@ Please choose a different format.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1092"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>由于XML格式不正确删除未使用过的的样式失败。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1120"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>没有未使用的样式需删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1251"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID是无效的，必须以字母开头，后面跟_ : - 或 .符号。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>此处无法标记为索引或没有选择文本。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1292"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1304"/>
         <source>You cannot mark an index at this position.</source>
         <translation>此处无法标记为索引。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
         <source>Cannot merge file %1</source>
         <translation>无法合并件 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1803"/>
         <source>Generate TOC cancelled.</source>
         <translation>取消生成目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1801"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>目录变动不是必要的。 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2613"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2639"/>
         <source>Line: %1, Col: %2</source>
         <translation>行：%1，列：%2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2887"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2913"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>该文件已被修改。
 是否保存更改？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2974"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3000"/>
         <source>No importer for file type: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2764"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>由于至少有一个不是HTML文件，无法拆分文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="946"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="958"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>由于XML格式不正确保存报告失败。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1033"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1045"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1082"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1094"/>
         <source>Unused media files deleted.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1096"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1119"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1131"/>
         <source>You cannot insert a file at this position.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1334"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
+        <source>You cannot insert a link at this position.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1346"/>
         <source>Pasted clip entry %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1781"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1767"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1786"/>
         <source>Table Of Contents edited.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2744"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2770"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2750"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2776"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>由于至少有一个不是HTML文件，无法拆分文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2981"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8116,79 +8133,79 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3016"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3042"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>这个文件的创建者使用DRM加密。Sigil无法打开此类文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3022"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3048"/>
         <source>Cannot load EPUB: %1</source>
         <translation>无法加载EPUB：%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3025"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3051"/>
         <source>Cannot load file %1: %2</source>
         <translation>无法加载文件%1：%2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3046"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
         <source>Saving file...</source>
         <translation> 正在保存文件...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3092"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
         <source>Cannot save file %1: %2</source>
         <translation>无法保存文件%1：%2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3211"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3237"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3212"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3213"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3214"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3238"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3240"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML文件(*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3215"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
         <source>Text files (*.txt)</source>
         <translation>文本文件(*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3216"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3242"/>
         <source>All files (*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3250"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3234"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3260"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>保留现有的标题属性是：</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3332"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3332"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3357"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -10810,12 +10827,12 @@ Do you want to save your changes?</source>
         <translation>正在创建报告...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="529"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="535"/>
         <source>Adding Existing Files..</source>
         <translation>添加现有文件...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="823"/>
+        <location filename="../../BookManipulation/Book.cpp" line="826"/>
         <source>Merging Files..</source>
         <translation>合并文件中..</translation>
     </message>
@@ -10846,6 +10863,7 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="77"/>
+        <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="57"/>
         <source>Index</source>
         <translation>索引</translation>
     </message>
@@ -11035,6 +11053,11 @@ Line: %1 Column %2 - %3</source>
         <location filename="../../BookManipulation/BookReports.cpp" line="53"/>
         <source>Collecting classes...</source>
         <translation>正在收集classes...</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/TOCHTMLWriter.cpp" line="96"/>
+        <source>Table of Contents</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -11579,7 +11602,7 @@ double click on existing destinations in your book from the list above.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
-        <source>Enter an ID name to use as a destination for hyperlinks, footnotes, and TOC entries.
+        <source>Enter an ID name to use as a destination for hyperlinks, notes, and TOC entries.
 
 The dropdown box shows existing ID names in the current file.
 
@@ -11642,17 +11665,17 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="64"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>在代码视图中突出拼错的单词。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="67"/>
         <source>Highlight Misspelled Words</source>
-        <translation type="unfinished"/>
+        <translation>突出拼错的单词</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="120"/>
         <source>User Dictionaries</source>
-        <translation type="unfinished"/>
+        <translation>用户词典</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
@@ -11772,7 +11795,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>你无法删除最后的词典。</translation>
     </message>
 </context>
 <context>
@@ -11780,7 +11803,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation type="unfinished"/>
+        <translation>拼写检查</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
@@ -11794,9 +11817,9 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="409"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="414"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>忽略</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
@@ -11808,12 +11831,13 @@ is restarted or a new book is opened.</source>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="91"/>
         <source>Add the selected words to the
 dictionary selected below.</source>
-        <translation type="unfinished"/>
+        <translation>添加选定的单词
+到下选定字典。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>添加到词典：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
@@ -11841,7 +11865,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="192"/>
         <source>Show All Words</source>
-        <translation type="unfinished"/>
+        <translation>显示所有单词</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="132"/>
@@ -11851,8 +11875,8 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="205"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="262"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="210"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="267"/>
         <source>No</source>
         <translation type="unfinished"/>
     </message>
@@ -11872,47 +11896,52 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="224"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="201"/>
+        <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="229"/>
         <source>Word</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="225"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="230"/>
         <source>Count</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="226"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="231"/>
         <source>Misspelled?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="271"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="276"/>
         <source>Misspelled Words</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="259"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="264"/>
         <source>Yes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="271"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="276"/>
         <source>Total Unique Words</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="410"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="415"/>
         <source>Add to Dictionary</source>
         <translation>添加到词典</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="411"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="416"/>
         <source>Find in Text</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="412"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="417"/>
         <source>Select All</source>
         <translation type="unfinished"/>
     </message>
