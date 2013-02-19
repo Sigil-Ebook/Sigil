@@ -4,26 +4,85 @@
 // accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
 // (C) Copyright 2007 Anthony Williams
+// (C) Copyright 2011-2012 Vicente J. Botet Escriba
 
 #include <boost/thread/detail/config.hpp>
 #include <boost/thread/exceptions.hpp>
+#include <boost/thread/lock_guard.hpp>
+#include <boost/thread/lock_types.hpp>
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/pthread/condition_variable_fwd.hpp>
+
 #include <boost/shared_ptr.hpp>
 #include <boost/enable_shared_from_this.hpp>
-#include <boost/thread/mutex.hpp>
 #include <boost/optional.hpp>
-#include <pthread.h>
 #include <boost/assert.hpp>
-#include <boost/thread/pthread/condition_variable_fwd.hpp>
+#ifdef BOOST_THREAD_USES_CHRONO
+#include <boost/chrono/system_clocks.hpp>
+#endif
+
 #include <map>
+#include <vector>
+#include <utility>
+
+#if defined(__ANDROID__)
+#include <asm/page.h> // http://code.google.com/p/android/issues/detail?id=39983
+#endif
+
+#include <pthread.h>
+#include <unistd.h>
 
 #include <boost/config/abi_prefix.hpp>
 
 namespace boost
 {
+    class thread_attributes {
+    public:
+        thread_attributes() BOOST_NOEXCEPT {
+            int res = pthread_attr_init(&val_);
+            BOOST_VERIFY(!res && "pthread_attr_init failed");
+        }
+        ~thread_attributes() {
+          int res = pthread_attr_destroy(&val_);
+          BOOST_VERIFY(!res && "pthread_attr_destroy failed");
+        }
+        // stack
+        void set_stack_size(std::size_t size) BOOST_NOEXCEPT {
+          if (size==0) return;
+          std::size_t page_size = getpagesize();
+#ifdef PTHREAD_STACK_MIN
+          if (size<PTHREAD_STACK_MIN) size=PTHREAD_STACK_MIN;
+#endif
+          size = ((size+page_size-1)/page_size)*page_size;
+          int res = pthread_attr_setstacksize(&val_, size);
+          BOOST_VERIFY(!res && "pthread_attr_setstacksize failed");
+        }
+
+        std::size_t get_stack_size() const BOOST_NOEXCEPT {
+            std::size_t size;
+            int res = pthread_attr_getstacksize(&val_, &size);
+            BOOST_VERIFY(!res && "pthread_attr_getstacksize failed");
+            return size;
+        }
+#define BOOST_THREAD_DEFINES_THREAD_ATTRIBUTES_NATIVE_HANDLE
+
+        typedef pthread_attr_t native_handle_type;
+        native_handle_type* native_handle() BOOST_NOEXCEPT {
+          return &val_;
+        }
+        const native_handle_type* native_handle() const BOOST_NOEXCEPT {
+          return &val_;
+        }
+
+    private:
+        pthread_attr_t val_;
+    };
+
     class thread;
 
     namespace detail
     {
+        struct future_object_base;
         struct tss_cleanup_function;
         struct thread_exit_callback_node;
         struct tss_data_node
@@ -54,27 +113,55 @@ namespace boost
             bool joined;
             boost::detail::thread_exit_callback_node* thread_exit_callbacks;
             std::map<void const*,boost::detail::tss_data_node> tss_data;
-            bool interrupt_enabled;
-            bool interrupt_requested;
+
             pthread_mutex_t* cond_mutex;
             pthread_cond_t* current_cond;
+            typedef std::vector<std::pair<condition_variable*, mutex*>
+            //, hidden_allocator<std::pair<condition_variable*, mutex*> >
+            > notify_list_t;
+            notify_list_t notify;
 
+            typedef std::vector<shared_ptr<future_object_base> > async_states_t;
+            async_states_t async_states_;
+
+//#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
+            // These data must be at the end so that the access to the other fields doesn't change
+            // when BOOST_THREAD_PROVIDES_INTERRUPTIONS is defined.
+            // Another option is to have them always
+            bool interrupt_enabled;
+            bool interrupt_requested;
+//#endif
             thread_data_base():
                 done(false),join_started(false),joined(false),
                 thread_exit_callbacks(0),
-                interrupt_enabled(true),
-                interrupt_requested(false),
-                current_cond(0)
+                current_cond(0),
+                notify(),
+                async_states_()
+//#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
+                , interrupt_enabled(true)
+                , interrupt_requested(false)
+//#endif
             {}
             virtual ~thread_data_base();
 
             typedef pthread_t native_handle_type;
 
             virtual void run()=0;
+            virtual void notify_all_at_thread_exit(condition_variable* cv, mutex* m)
+            {
+              notify.push_back(std::pair<condition_variable*, mutex*>(cv, m));
+            }
+
+            void make_ready_at_thread_exit(shared_ptr<future_object_base> as)
+            {
+              async_states_.push_back(as);
+            }
+
         };
 
         BOOST_THREAD_DECL thread_data_base* get_current_thread_data();
 
+#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
         class interruption_checker
         {
             thread_data_base* const thread_info;
@@ -83,11 +170,13 @@ namespace boost
 
             void check_for_interruption()
             {
+#ifndef BOOST_NO_EXCEPTIONS
                 if(thread_info->interrupt_requested)
                 {
                     thread_info->interrupt_requested=false;
-                    throw thread_interrupted();
+                    throw thread_interrupted(); // BOOST_NO_EXCEPTIONS protected
                 }
+#endif
             }
 
             void operator=(interruption_checker&);
@@ -124,32 +213,47 @@ namespace boost
                 }
             }
         };
+#endif
     }
 
     namespace this_thread
     {
-        void BOOST_THREAD_DECL yield();
+      namespace hiden
+      {
+        void BOOST_THREAD_DECL sleep_for(const timespec& ts);
+        void BOOST_THREAD_DECL sleep_until(const timespec& ts);
+      }
 
+#ifdef BOOST_THREAD_USES_CHRONO
+#ifdef BOOST_THREAD_SLEEP_FOR_IS_STEADY
+
+        inline
+        void BOOST_SYMBOL_VISIBLE sleep_for(const chrono::nanoseconds& ns)
+        {
+            return boost::this_thread::hiden::sleep_for(boost::detail::to_timespec(ns));
+        }
+#endif
+#endif // BOOST_THREAD_USES_CHRONO
+
+        void BOOST_THREAD_DECL yield() BOOST_NOEXCEPT;
+
+#if defined BOOST_THREAD_USES_DATETIME
 #ifdef __DECXXX
         /// Workaround of DECCXX issue of incorrect template substitution
-        template<typename TimeDuration>
-        inline void sleep(TimeDuration const& rel_time)
-        {
-            this_thread::sleep(get_system_time()+rel_time);
-        }
-
         template<>
-        void BOOST_THREAD_DECL sleep(system_time const& abs_time);
-#else
-        void BOOST_THREAD_DECL sleep(system_time const& abs_time);
+#endif
+        inline void sleep(system_time const& abs_time)
+        {
+          return boost::this_thread::hiden::sleep_until(boost::detail::to_timespec(abs_time));
+        }
 
         template<typename TimeDuration>
         inline BOOST_SYMBOL_VISIBLE void sleep(TimeDuration const& rel_time)
         {
             this_thread::sleep(get_system_time()+rel_time);
         }
-#endif
-    }
+#endif // BOOST_THREAD_USES_DATETIME
+    } // this_thread
 }
 
 #include <boost/config/abi_suffix.hpp>

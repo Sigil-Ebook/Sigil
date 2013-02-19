@@ -34,7 +34,7 @@ namespace boost { namespace program_options {
     positional_options_description::max_total_count() const
     {
         return m_trailing.empty() ? 
-          m_names.size() : (std::numeric_limits<unsigned>::max)();
+          static_cast<unsigned>(m_names.size()) : (std::numeric_limits<unsigned>::max)();
     }
     
     const std::string& 

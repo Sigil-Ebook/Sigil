@@ -57,7 +57,9 @@ namespace boost { namespace program_options { namespace detail {
                     bad_prefixes = true;
             }
             if (bad_prefixes)
-                boost::throw_exception(error("bad prefixes"));
+                boost::throw_exception(error("options '" + string(name) + "' and '" +
+                                             *i + "*' will both match the same "
+                                             "arguments from the configuration file"));
             allowed_prefixes.insert(s);
         }
     }
@@ -117,7 +119,7 @@ namespace boost { namespace program_options { namespace detail {
                     break;
 
                 } else {
-                    boost::throw_exception(invalid_syntax(s, invalid_syntax::unrecognized_line));
+                    boost::throw_exception(invalid_config_file_syntax(s, invalid_syntax::unrecognized_line));
                 }
             }
         }

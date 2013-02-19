@@ -10,10 +10,12 @@
 //  http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <boost/utility.hpp>
 #include <boost/thread/win32/basic_recursive_mutex.hpp>
 #include <boost/thread/exceptions.hpp>
-#include <boost/thread/locks.hpp>
+#include <boost/thread/detail/delete.hpp>
+#if defined BOOST_THREAD_PROVIDES_NESTED_LOCKS
+#include <boost/thread/lock_types.hpp>
+#endif
 
 #include <boost/config/abi_prefix.hpp>
 
@@ -22,10 +24,8 @@ namespace boost
     class recursive_mutex:
         public ::boost::detail::basic_recursive_mutex
     {
-    private:
-        recursive_mutex(recursive_mutex const&);
-        recursive_mutex& operator=(recursive_mutex const&);
     public:
+        BOOST_THREAD_NO_COPYABLE(recursive_mutex)
         recursive_mutex()
         {
             ::boost::detail::basic_recursive_mutex::initialize();
@@ -35,8 +35,10 @@ namespace boost
             ::boost::detail::basic_recursive_mutex::destroy();
         }
 
+#if defined BOOST_THREAD_PROVIDES_NESTED_LOCKS
         typedef unique_lock<recursive_mutex> scoped_lock;
         typedef detail::try_lock_wrapper<recursive_mutex> scoped_try_lock;
+#endif
     };
 
     typedef recursive_mutex recursive_try_mutex;
@@ -44,10 +46,8 @@ namespace boost
     class recursive_timed_mutex:
         public ::boost::detail::basic_recursive_timed_mutex
     {
-    private:
-        recursive_timed_mutex(recursive_timed_mutex const&);
-        recursive_timed_mutex& operator=(recursive_timed_mutex const&);
     public:
+        BOOST_THREAD_NO_COPYABLE(recursive_timed_mutex)
         recursive_timed_mutex()
         {
             ::boost::detail::basic_recursive_timed_mutex::initialize();
@@ -57,9 +57,11 @@ namespace boost
             ::boost::detail::basic_recursive_timed_mutex::destroy();
         }
 
+#if defined BOOST_THREAD_PROVIDES_NESTED_LOCKS
         typedef unique_lock<recursive_timed_mutex> scoped_timed_lock;
         typedef detail::try_lock_wrapper<recursive_timed_mutex> scoped_try_lock;
         typedef scoped_timed_lock scoped_lock;
+#endif
     };
 }
 

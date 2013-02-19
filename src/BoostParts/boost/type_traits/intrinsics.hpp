@@ -79,8 +79,10 @@
 #   define BOOST_HAS_TYPE_TRAITS_INTRINSICS
 #endif
 
-#if defined(BOOST_MSVC) && defined(BOOST_MSVC_FULL_VER) && (BOOST_MSVC_FULL_VER >=140050215)
+#if (defined(BOOST_MSVC) && defined(BOOST_MSVC_FULL_VER) && (BOOST_MSVC_FULL_VER >=140050215))\
+         || (defined(BOOST_INTEL) && defined(_MSC_VER) && (_MSC_VER >= 1500))
 #   include <boost/type_traits/is_same.hpp>
+#   include <boost/type_traits/is_function.hpp>
 
 #   define BOOST_IS_UNION(T) __is_union(T)
 #   define BOOST_IS_POD(T) (__is_pod(T) && __has_trivial_constructor(T))
@@ -97,7 +99,7 @@
 #   define BOOST_IS_ABSTRACT(T) __is_abstract(T)
 #   define BOOST_IS_BASE_OF(T,U) (__is_base_of(T,U) && !is_same<T,U>::value)
 #   define BOOST_IS_CLASS(T) __is_class(T)
-#   define BOOST_IS_CONVERTIBLE(T,U) ((__is_convertible_to(T,U) || is_same<T,U>::value) && !__is_abstract(U))
+#   define BOOST_IS_CONVERTIBLE(T,U) ((__is_convertible_to(T,U) || (is_same<T,U>::value && !is_function<U>::value)) && !__is_abstract(U))
 #   define BOOST_IS_ENUM(T) __is_enum(T)
 //  This one doesn't quite always do the right thing:
 //  #   define BOOST_IS_POLYMORPHIC(T) __is_polymorphic(T)
@@ -124,6 +126,7 @@
 #endif
 
 #if defined(BOOST_CLANG) && defined(__has_feature)
+#   include <cstddef>
 #   include <boost/type_traits/is_same.hpp>
 #   include <boost/type_traits/is_reference.hpp>
 #   include <boost/type_traits/is_volatile.hpp>
@@ -131,10 +134,10 @@
 #   if __has_feature(is_union)
 #     define BOOST_IS_UNION(T) __is_union(T)
 #   endif
-#   if __has_feature(is_pod) && defined(_LIBCPP_VERSION)
+#   if (!defined(__GLIBCXX__) || (__GLIBCXX__ >= 20080306 && __GLIBCXX__ != 20080519)) && __has_feature(is_pod)
 #     define BOOST_IS_POD(T) __is_pod(T)
 #   endif
-#   if __has_feature(is_empty) && defined(_LIBCPP_VERSION)
+#   if (!defined(__GLIBCXX__) || (__GLIBCXX__ >= 20080306 && __GLIBCXX__ != 20080519)) && __has_feature(is_empty)
 #     define BOOST_IS_EMPTY(T) __is_empty(T)
 #   endif
 #   if __has_feature(has_trivial_constructor)
@@ -185,7 +188,7 @@
 #   define BOOST_HAS_TYPE_TRAITS_INTRINSICS
 #endif
 
-#if defined(__GNUC__) && ((__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ >= 3) && !defined(__GCCXML__)))
+#if defined(__GNUC__) && ((__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ >= 3) && !defined(__GCCXML__))) && !defined(BOOST_CLANG)
 #   include <boost/type_traits/is_same.hpp>
 #   include <boost/type_traits/is_reference.hpp>
 #   include <boost/type_traits/is_volatile.hpp>
@@ -280,6 +283,7 @@
 #endif
 
 #endif // BOOST_TT_INTRINSICS_HPP_INCLUDED
+
 
 
 

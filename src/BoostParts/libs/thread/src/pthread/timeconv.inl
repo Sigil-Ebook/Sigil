@@ -17,11 +17,12 @@ const int NANOSECONDS_PER_MILLISECOND = 1000000;
 const int MICROSECONDS_PER_SECOND = 1000000;
 const int NANOSECONDS_PER_MICROSECOND = 1000;
 
+#if defined BOOST_THREAD_USES_DATETIME
 inline void to_time(int milliseconds, boost::xtime& xt)
 {
     int res = 0;
-    res = boost::xtime_get(&xt, boost::TIME_UTC);
-    BOOST_ASSERT(res == boost::TIME_UTC); (void)res;
+    res = boost::xtime_get(&xt, boost::TIME_UTC_);
+    BOOST_ASSERT(res == boost::TIME_UTC_); (void)res;
 
     xt.sec += (milliseconds / MILLISECONDS_PER_SECOND);
     xt.nsec += ((milliseconds % MILLISECONDS_PER_SECOND) *
@@ -33,7 +34,9 @@ inline void to_time(int milliseconds, boost::xtime& xt)
         xt.nsec -= NANOSECONDS_PER_SECOND;
     }
 }
+#endif
 #if defined(BOOST_HAS_PTHREADS)
+#if defined BOOST_THREAD_USES_DATETIME
 inline void to_timespec(const boost::xtime& xt, timespec& ts)
 {
     ts.tv_sec = static_cast<int>(xt.sec);
@@ -44,20 +47,33 @@ inline void to_timespec(const boost::xtime& xt, timespec& ts)
         ts.tv_nsec %= NANOSECONDS_PER_SECOND;
     }
 }
-
+#endif
 inline void to_time(int milliseconds, timespec& ts)
 {
+#if defined BOOST_THREAD_USES_DATETIME
     boost::xtime xt;
     to_time(milliseconds, xt);
     to_timespec(xt, ts);
+#else
+    ts.tv_sec += (milliseconds / MILLISECONDS_PER_SECOND);
+    ts.tv_nsec += ((milliseconds % MILLISECONDS_PER_SECOND) *
+        NANOSECONDS_PER_MILLISECOND);
+
+    if (ts.tv_nsec >= NANOSECONDS_PER_SECOND)
+    {
+        ++ts.tv_sec;
+        ts.tv_nsec -= NANOSECONDS_PER_SECOND;
+    }
+#endif
 }
 
+#if defined BOOST_THREAD_USES_DATETIME
 inline void to_timespec_duration(const boost::xtime& xt, timespec& ts)
 {
     boost::xtime cur;
     int res = 0;
-    res = boost::xtime_get(&cur, boost::TIME_UTC);
-    BOOST_ASSERT(res == boost::TIME_UTC); (void)res;
+    res = boost::xtime_get(&cur, boost::TIME_UTC_);
+    BOOST_ASSERT(res == boost::TIME_UTC_); (void)res;
 
     if (boost::xtime_cmp(xt, cur) <= 0)
     {
@@ -82,13 +98,15 @@ inline void to_timespec_duration(const boost::xtime& xt, timespec& ts)
     }
 }
 #endif
+#endif
 
+#if defined BOOST_THREAD_USES_DATETIME
 inline void to_duration(boost::xtime xt, int& milliseconds)
 {
     boost::xtime cur;
     int res = 0;
-    res = boost::xtime_get(&cur, boost::TIME_UTC);
-    BOOST_ASSERT(res == boost::TIME_UTC); (void)res;
+    res = boost::xtime_get(&cur, boost::TIME_UTC_);
+    BOOST_ASSERT(res == boost::TIME_UTC_); (void)res;
 
     if (boost::xtime_cmp(xt, cur) <= 0)
         milliseconds = 0;
@@ -109,8 +127,8 @@ inline void to_microduration(boost::xtime xt, int& microseconds)
 {
     boost::xtime cur;
     int res = 0;
-    res = boost::xtime_get(&cur, boost::TIME_UTC);
-    BOOST_ASSERT(res == boost::TIME_UTC); (void)res;
+    res = boost::xtime_get(&cur, boost::TIME_UTC_);
+    BOOST_ASSERT(res == boost::TIME_UTC_); (void)res;
 
     if (boost::xtime_cmp(xt, cur) <= 0)
         microseconds = 0;
@@ -126,6 +144,7 @@ inline void to_microduration(boost::xtime xt, int& microseconds)
                 NANOSECONDS_PER_MICROSECOND);
     }
 }
+#endif
 }
 
 // Change Log:

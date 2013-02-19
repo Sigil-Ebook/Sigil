@@ -677,7 +677,7 @@ namespace boost {
 
     vtable_type* get_vtable() const {
       return reinterpret_cast<vtable_type*>(
-               reinterpret_cast<std::size_t>(vtable) & ~static_cast<size_t>(0x01));
+               reinterpret_cast<std::size_t>(vtable) & ~static_cast<std::size_t>(0x01));
     }
 
     struct clear_type {};
@@ -748,7 +748,14 @@ namespace boost {
     {
       this->assign_to_own(f);
     }
-
+    
+#ifndef BOOST_NO_CXX11_RVALUE_REFERENCES
+    BOOST_FUNCTION_FUNCTION(BOOST_FUNCTION_FUNCTION&& f) : function_base()
+    {
+      this->move_assign(f);
+    }
+#endif
+    
     ~BOOST_FUNCTION_FUNCTION() { clear(); }
 
     result_type operator()(BOOST_FUNCTION_PARMS) const
@@ -830,6 +837,26 @@ namespace boost {
       BOOST_CATCH_END
       return *this;
     }
+    
+#ifndef BOOST_NO_CXX11_RVALUE_REFERENCES
+    // Move assignment from another BOOST_FUNCTION_FUNCTION
+    BOOST_FUNCTION_FUNCTION& operator=(BOOST_FUNCTION_FUNCTION&& f)
+    {
+      
+      if (&f == this)
+        return *this;
+
+      this->clear();
+      BOOST_TRY {
+        this->move_assign(f);
+      } BOOST_CATCH (...) {
+        vtable = 0;
+        BOOST_RETHROW;
+      }
+      BOOST_CATCH_END
+      return *this;
+    }
+#endif
 
     void swap(BOOST_FUNCTION_FUNCTION& other)
     {
@@ -1063,11 +1090,25 @@ public:
 
   function(const base_type& f) : base_type(static_cast<const base_type&>(f)){}
 
+#ifndef BOOST_NO_CXX11_RVALUE_REFERENCES
+  // Move constructors
+  function(self_type&& f): base_type(static_cast<base_type&&>(f)){}
+  function(base_type&& f): base_type(static_cast<base_type&&>(f)){}
+#endif
+  
   self_type& operator=(const self_type& f)
   {
     self_type(f).swap(*this);
     return *this;
   }
+
+#ifndef BOOST_NO_CXX11_RVALUE_REFERENCES
+  self_type& operator=(self_type&& f)
+  {
+    self_type(static_cast<self_type&&>(f)).swap(*this);
+    return *this;
+  }
+#endif  
 
   template<typename Functor>
 #ifndef BOOST_NO_SFINAE
@@ -1097,6 +1138,14 @@ public:
     self_type(f).swap(*this);
     return *this;
   }
+  
+#ifndef BOOST_NO_CXX11_RVALUE_REFERENCES
+  self_type& operator=(base_type&& f)
+  {
+    self_type(static_cast<base_type&&>(f)).swap(*this);
+    return *this;
+  }
+#endif 
 };
 
 #undef BOOST_FUNCTION_PARTIAL_SPEC

@@ -38,65 +38,68 @@ namespace boost { namespace program_options {
         // Declared once, to please Intel in VC++ mode;
         unsigned i;
 
-        // First, convert/store all given options
-        for (i = 0; i < options.options.size(); ++i) {
+        // Declared here so can be used to provide context for exceptions
+        string option_name;
+        string original_token;
 
-            const string& name = options.options[i].string_key;
-            // Skip positional options without name
-            if (name.empty())
-                continue;
+        try
+        {
 
-            // Ignore unregistered option. The 'unregistered'
-            // field can be true only if user has explicitly asked
-            // to allow unregistered options. We can't store them
-            // to variables map (lacking any information about paring), 
-            // so just ignore them.
-            if (options.options[i].unregistered)
-                continue;
+            // First, convert/store all given options
+            for (i = 0; i < options.options.size(); ++i) {
 
-            // If option has final value, skip this assignment
-            if (xm.m_final.count(name))
-                continue;
+                option_name = options.options[i].string_key;
+                original_token = options.options[i].original_tokens.size() ? 
+                                options.options[i].original_tokens[0] :
+                                option_name;
+                // Skip positional options without name
+                if (option_name.empty())
+                    continue;
 
-            const option_description& d = desc.find(name, false, 
-                                                      false, false);
+                // Ignore unregistered option. The 'unregistered'
+                // field can be true only if user has explicitly asked
+                // to allow unregistered options. We can't store them
+                // to variables map (lacking any information about paring), 
+                // so just ignore them.
+                if (options.options[i].unregistered)
+                    continue;
 
-            variable_value& v = m[name];            
-            if (v.defaulted()) {
-                // Explicit assignment here erases defaulted value
-                v = variable_value();
-            }
-            
-            try {
+                // If option has final value, skip this assignment
+                if (xm.m_final.count(option_name))
+                    continue;
+
+                string original_token = options.options[i].original_tokens.size() ? 
+                                        options.options[i].original_tokens[0]     : "";
+                const option_description& d = desc.find(option_name, false, 
+                                                        false, false);
+
+                variable_value& v = m[option_name];            
+                if (v.defaulted()) {
+                    // Explicit assignment here erases defaulted value
+                    v = variable_value();
+                }
+                
                 d.semantic()->parse(v.value(), options.options[i].value, utf8);
+
+                v.m_value_semantic = d.semantic();
+                
+                // The option is not composing, and the value is explicitly
+                // provided. Ignore values of this option for subsequent
+                // calls to 'store'. We store this to a temporary set,
+                // so that several assignment inside *this* 'store' call
+                // are allowed.
+                if (!d.semantic()->is_composing())
+                    new_final.insert(option_name);
             }
+        } 
 #ifndef BOOST_NO_EXCEPTIONS
-            catch(validation_error& e)
-            {
-                e.set_option_name(name);
-                throw;
-            }
-            catch(multiple_occurrences& e)
-            {
-                e.set_option_name(name);
-                throw;
-            }
-            catch(multiple_values& e) 
-            {
-                e.set_option_name(name);
-                throw;
-            }
-#endif
-            v.m_value_semantic = d.semantic();
-            
-            // The option is not composing, and the value is explicitly
-            // provided. Ignore values of this option for subsequent
-            // calls to 'store'. We store this to a temporary set,
-            // so that several assignment inside *this* 'store' call
-            // are allowed.
-            if (!d.semantic()->is_composing())
-                new_final.insert(name);
+        catch(error_with_option_name& e)
+        {
+            // add context and rethrow
+            e.add_context(option_name, original_token, options.m_options_prefix);
+            throw;
         }
+#endif
         xm.m_final.insert(new_final.begin(), new_final.end());
 
         
@@ -127,7 +130,14 @@ namespace boost { namespace program_options {
 
             // add empty value if this is an required option
             if (d.semantic()->is_required()) {
-               xm.m_required.insert(key);
+
+                // For option names specified in multiple ways, e.g. on the command line,
+                // config file etc, the following precedence rules apply:
+                //  "--"  >  ("-" or "/")  >  ""
+                //  Precedence is set conveniently by a single call to length()
+                string canonical_name = d.canonical_display_name(options.m_options_prefix);
+                if (canonical_name.length() > xm.m_required[key].length())
+                    xm.m_required[key] = canonical_name;
             }
         }
     }
@@ -182,6 +192,13 @@ namespace boost { namespace program_options {
     : abstract_variables_map(next)
     {}
 
+    void variables_map::clear()
+    {
+        std::map<std::string, variable_value>::clear();
+        m_final.clear();
+        m_required.clear();
+    }
+
     const variable_value&
     variables_map::get(const std::string& name) const
     {
@@ -197,15 +214,16 @@ namespace boost { namespace program_options {
     variables_map::notify()
     {
         // This checks if all required options occur
-        for (set<string>::const_iterator r = m_required.begin();
+        for (map<string, string>::const_iterator r = m_required.begin();
              r != m_required.end();
              ++r)
         {
-            const string& opt = *r;
+            const string& opt = r->first;
+            const string& display_opt = r->second;
             map<string, variable_value>::const_iterator iter = find(opt);
             if (iter == end() || iter->second.empty()) 
             {
-                boost::throw_exception(required_option(opt));
+                boost::throw_exception(required_option(display_opt));
             
             }
         }

@@ -84,7 +84,10 @@ template class BOOST_REGEX_DECL ::boost::re_detail::perl_matcher<BOOST_REGEX_CHA
 
 #  ifdef BOOST_MSVC
 #     pragma warning(push)
-#     pragma warning(disable : 4251 4231 4660)
+#     pragma warning(disable : 4251 4231)
+#     if BOOST_MSVC < 1600
+#     pragma warning(disable : 4660)
+#     endif
 #  endif
 
 template class BOOST_REGEX_TEMPLATE_DECL basic_regex< BOOST_REGEX_CHAR_T BOOST_REGEX_TRAITS_T >;
@@ -118,7 +121,7 @@ template class BOOST_REGEX_TEMPLATE_DECL ::boost::re_detail::perl_matcher< std::
 
 #undef BOOST_REGEX_TEMPLATE_DECL
 
-#elif (defined(__GNUC__) && (__GNUC__ >= 3)) || !defined(BOOST_NO_EXTERN_TEMPLATE)
+#elif (defined(__GNUC__) && (__GNUC__ >= 3)) || !defined(BOOST_NO_CXX11_EXTERN_TEMPLATE)
 
 #  ifndef BOOST_REGEX_INSTANTIATE
 #     ifdef __GNUC__

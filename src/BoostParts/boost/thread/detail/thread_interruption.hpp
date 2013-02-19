@@ -4,6 +4,12 @@
 // accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
 // (C) Copyright 2007-9 Anthony Williams
+// (C) Copyright 2012 Vicente J. Botet Escriba
+
+#include <boost/thread/detail/config.hpp>
+#include <boost/thread/detail/delete.hpp>
+
+#if defined BOOST_THREAD_PROVIDES_INTERRUPTIONS
 
 namespace boost
 {
@@ -11,25 +17,23 @@ namespace boost
     {
         class BOOST_THREAD_DECL disable_interruption
         {
-            disable_interruption(const disable_interruption&);
-            disable_interruption& operator=(const disable_interruption&);
-            
-            bool interruption_was_enabled;
-            friend class restore_interruption;
+          bool interruption_was_enabled;
+          friend class restore_interruption;
         public:
-            disable_interruption();
-            ~disable_interruption();
+            BOOST_THREAD_NO_COPYABLE(disable_interruption)
+            disable_interruption() BOOST_NOEXCEPT;
+            ~disable_interruption() BOOST_NOEXCEPT;
         };
 
         class BOOST_THREAD_DECL restore_interruption
         {
-            restore_interruption(const restore_interruption&);
-            restore_interruption& operator=(const restore_interruption&);
         public:
-            explicit restore_interruption(disable_interruption& d);
-            ~restore_interruption();
+            BOOST_THREAD_NO_COPYABLE(restore_interruption)
+            explicit restore_interruption(disable_interruption& d) BOOST_NOEXCEPT;
+            ~restore_interruption() BOOST_NOEXCEPT;
         };
     }
 }
 
-#endif
+#endif // BOOST_THREAD_PROVIDES_INTERRUPTIONS
+#endif // header

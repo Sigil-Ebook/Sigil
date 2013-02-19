@@ -191,6 +191,7 @@ void basic_regex_parser<charT, traits>::fail(regex_constants::error_type error_c
       this->m_pdata->m_status = error_code;
    m_position = m_end; // don't bother parsing anything else
 
+#ifndef BOOST_NO_TEMPLATED_ITERATOR_CONSTRUCTORS
    //
    // Augment error message with the regular expression text:
    //
@@ -211,6 +212,7 @@ void basic_regex_parser<charT, traits>::fail(regex_constants::error_type error_c
       }
       message += "'.";
    }
+#endif
 
 #ifndef BOOST_NO_EXCEPTIONS
    if(0 == (this->flags() & regex_constants::no_except))
@@ -660,6 +662,11 @@ template <class charT, class traits>
 bool basic_regex_parser<charT, traits>::parse_extended_escape()
 {
    ++m_position;
+   if(m_position == m_end)
+   {
+      fail(regex_constants::error_escape, m_position - m_base, "Incomplete escape sequence found.");
+      return false;
+   }
    bool negate = false; // in case this is a character class escape: \w \d etc
    switch(this->m_traits.escape_syntax_type(*m_position))
    {
@@ -669,8 +676,8 @@ bool basic_regex_parser<charT, traits>::parse_extended_escape()
    case regex_constants::escape_type_class:
       {
 escape_type_class_jump:
-         typedef typename traits::char_class_type mask_type;
-         mask_type m = this->m_traits.lookup_classname(m_position, m_position+1);
+         typedef typename traits::char_class_type m_type;
+         m_type m = this->m_traits.lookup_classname(m_position, m_position+1);
          if(m != 0)
          {
             basic_char_set<charT, traits> char_set;
@@ -1383,8 +1390,8 @@ bool basic_regex_parser<charT, traits>::parse_inner_set(basic_char_set<charT, tr
          ++name_first;
          negated = true;
       }
-      typedef typename traits::char_class_type mask_type;
-      mask_type m = this->m_traits.lookup_classname(name_first, name_last);
+      typedef typename traits::char_class_type m_type;
+      m_type m = this->m_traits.lookup_classname(name_first, name_last);
       if(m == 0)
       {
          if(char_set.empty() && (name_last - name_first == 1))
@@ -2089,6 +2096,14 @@ insert_recursion:
          return false;
       }
       v = this->m_traits.toi(m_position, m_end, 10);
+      if(m_position == m_end)
+      {
+         // Rewind to start of (? sequence:
+         --m_position;
+         while(this->m_traits.syntax_type(*m_position) != regex_constants::syntax_open_mark) --m_position;
+         fail(regex_constants::error_perl_extension, m_position - m_base);
+         return false;
+      }
       if(*m_position == charT('R'))
       {
          if(++m_position == m_end)
@@ -2492,9 +2507,11 @@ option_group_jump:
       this->m_pdata->m_data.align();
       re_jump* jmp = static_cast<re_jump*>(this->getaddress(jump_offset));
       jmp->alt.i = this->m_pdata->m_data.size() - this->getoffset(jmp);
-      if(this->m_last_state == jmp)
+      if((this->m_last_state == jmp) && (markid != -2))
       {
-         // Oops... we didn't have anything inside the assertion:
+         // Oops... we didn't have anything inside the assertion.
+         // Note we don't get here for negated forward lookahead as (?!)
+         // does have some uses.
          // Rewind to start of (? sequence:
          --m_position;
          while(this->m_traits.syntax_type(*m_position) != regex_constants::syntax_open_mark) --m_position;

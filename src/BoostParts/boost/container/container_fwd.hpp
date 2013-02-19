@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -21,8 +21,8 @@
 
 /// @cond
 
-namespace boost{ 
-namespace intrusive{ 
+namespace boost{
+namespace intrusive{
    //Create namespace to avoid compilation errors
 }}
 
@@ -32,9 +32,9 @@ namespace bi = boost::intrusive;
 
 }}}
 
-#include <utility> 
-#include <memory> 
-#include <functional> 
+#include <utility>
+#include <memory>
+#include <functional>
 #include <iosfwd>
 #include <string>
 
@@ -49,109 +49,105 @@ namespace container {
 
 //vector class
 template <class T
-         ,class A = std::allocator<T> >
+         ,class Allocator = std::allocator<T> >
 class vector;
 
 //vector class
 template <class T
-         ,class A = std::allocator<T> >
+         ,class Allocator = std::allocator<T> >
 class stable_vector;
 
 //vector class
 template <class T
-         ,class A = std::allocator<T> >
+         ,class Allocator = std::allocator<T> >
 class deque;
 
 //list class
 template <class T
-         ,class A = std::allocator<T> >
+         ,class Allocator = std::allocator<T> >
 class list;
 
 //slist class
 template <class T
-         ,class A = std::allocator<T> >
+         ,class Allocator = std::allocator<T> >
 class slist;
 
 //set class
-template <class T
-         ,class Pred  = std::less<T>
-         ,class A = std::allocator<T> >
+template <class Key
+         ,class Compare  = std::less<Key>
+         ,class Allocator = std::allocator<Key> >
 class set;
 
 //multiset class
-template <class T
-         ,class Pred  = std::less<T>
-         ,class A = std::allocator<T> >
+template <class Key
+         ,class Compare  = std::less<Key>
+         ,class Allocator = std::allocator<Key> >
 class multiset;
 
 //map class
 template <class Key
          ,class T
-         ,class Pred  = std::less<Key>
-         ,class A = std::allocator<std::pair<const Key, T> > >
+         ,class Compare  = std::less<Key>
+         ,class Allocator = std::allocator<std::pair<const Key, T> > >
 class map;
 
 //multimap class
 template <class Key
          ,class T
-         ,class Pred  = std::less<Key>
-         ,class A = std::allocator<std::pair<const Key, T> > >
+         ,class Compare  = std::less<Key>
+         ,class Allocator = std::allocator<std::pair<const Key, T> > >
 class multimap;
 
 //flat_set class
-template <class T
-         ,class Pred  = std::less<T>
-         ,class A = std::allocator<T> >
+template <class Key
+         ,class Compare  = std::less<Key>
+         ,class Allocator = std::allocator<Key> >
 class flat_set;
 
 //flat_multiset class
-template <class T
-         ,class Pred  = std::less<T>
-         ,class A = std::allocator<T> >
+template <class Key
+         ,class Compare  = std::less<Key>
+         ,class Allocator = std::allocator<Key> >
 class flat_multiset;
 
 //flat_map class
 template <class Key
          ,class T
-         ,class Pred  = std::less<Key>
-         ,class A = std::allocator<std::pair<Key, T> > >
+         ,class Compare  = std::less<Key>
+         ,class Allocator = std::allocator<std::pair<Key, T> > >
 class flat_map;
 
 //flat_multimap class
 template <class Key
          ,class T
-         ,class Pred  = std::less<Key>
-         ,class A = std::allocator<std::pair<Key, T> > >
+         ,class Compare  = std::less<Key>
+         ,class Allocator = std::allocator<std::pair<Key, T> > >
 class flat_multimap;
 
 //basic_string class
 template <class CharT
          ,class Traits = std::char_traits<CharT>
-         ,class A  = std::allocator<CharT> > 
+         ,class Allocator  = std::allocator<CharT> >
 class basic_string;
 
 //! Type used to tag that the input range is
 //! guaranteed to be ordered
-struct ordered_range_impl_t {};
+struct ordered_range_t
+{};
 
 //! Type used to tag that the input range is
 //! guaranteed to be ordered and unique
-struct ordered_unique_range_impl_t{};
-
-/// @cond
-
-typedef ordered_range_impl_t * ordered_range_t;
-typedef ordered_unique_range_impl_t *ordered_unique_range_t;
-
-/// @endcond
+struct ordered_unique_range_t
+   : public ordered_range_t
+{};
 
 //! Value used to tag that the input range is
 //! guaranteed to be ordered
-static const ordered_range_t ordered_range = 0;
+static const ordered_range_t ordered_range = ordered_range_t();
 
 //! Value used to tag that the input range is
 //! guaranteed to be ordered and unique
-static const ordered_unique_range_t ordered_unique_range = 0;
+static const ordered_unique_range_t ordered_unique_range = ordered_unique_range_t();
 
 /// @cond
 
