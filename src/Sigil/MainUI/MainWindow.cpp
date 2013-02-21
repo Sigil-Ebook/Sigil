@@ -397,8 +397,6 @@ void MainWindow::ShowLastOpenFileWarnings()
             tr("The EPUB contains errors.") % 
             "</b></p><p>" % 
             tr("Select Show Details for more information.") % 
-            "</p><p>" %
-            tr("Try changing the Clean Source preferences to automatically clean errors then reload the file.") % 
             "</p>",
             m_LastOpenFileWarnings.join("\n"));
         m_LastOpenFileWarnings.clear();
@@ -3067,6 +3065,7 @@ void MainWindow::LoadFile(const QString &fullfilepath)
 bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filename)
 {
     SettingsStore ss;
+    bool not_well_formed = false;
 
     try {
         ShowMessageOnStatusBar(tr("Saving file..."));
@@ -3092,9 +3091,26 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
                 HTMLResource *t = dynamic_cast<HTMLResource *>(r);
                 if (t) {
                     resources.append(t);
+                    if (!XhtmlDoc::IsDataWellFormed(t->GetText())) {
+                        not_well_formed = true;
+                    }
                 }
             }
-            CleanSource::ReformatAll(resources, CleanSource::Clean);
+            if (not_well_formed) {
+                if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
+                            tr("Sigil"),
+                            tr("Some HTML files are not well formed and "
+                                "your current clean source settings are set to auto clean on save. "
+                                "Saving any non-well formed file will cause it to be auto fix which "
+                                "can result in data loss.\n\n"
+                                "Are you sure you want to auto clean?"),
+                            QMessageBox::Yes|QMessageBox::No)
+                ) {
+                    CleanSource::ReformatAll(resources, CleanSource::Clean);
+                }
+            } else {
+                CleanSource::ReformatAll(resources, CleanSource::Clean);
+            }
         }
         
         ExporterFactory().GetExporter(fullfilepath, m_Book).WriteBook();

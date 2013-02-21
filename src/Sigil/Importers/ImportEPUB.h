@@ -26,6 +26,7 @@
 
 #include <boost/tuple/tuple.hpp>
 
+#include <QCoreApplication>
 #include <QtCore/QHash>
 #include <QtCore/QSet>
 #include <QtCore/QStringList>
@@ -41,6 +42,8 @@ class QXmlStreamReader;
 
 class ImportEPUB : public Importer
 {
+    Q_DECLARE_TR_FUNCTIONS(ImportEPUB)
+
 public:
     // The parameter is the file to be imported
     ImportEPUB(const QString &fullfilepath);

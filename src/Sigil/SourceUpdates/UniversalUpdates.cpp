@@ -53,7 +53,8 @@ using boost::tuple;
 
 QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loaded,
         const QList< Resource * > &resources,
-        const QHash< QString, QString > &updates)
+        const QHash< QString, QString > &updates,
+        const QList<XMLResource *> &non_well_formed)
 {
     QHash< QString, QString > html_updates;
     QHash< QString, QString > css_updates;
@@ -87,7 +88,7 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
         html_future = QtConcurrent::mapped(html_resources, boost::bind(UpdateOneHTMLFile, _1, html_updates, css_updates));
         css_future = QtConcurrent::map(css_resources,  boost::bind(UpdateOneCSSFile,  _1, css_updates));
     } else {
-        html_future = QtConcurrent::mapped(html_resources, boost::bind(LoadAndUpdateOneHTMLFile, _1, html_updates, css_updates));
+        html_future = QtConcurrent::mapped(html_resources, boost::bind(LoadAndUpdateOneHTMLFile, _1, html_updates, css_updates, non_well_formed));
         css_future = QtConcurrent::map(css_resources,  boost::bind(LoadAndUpdateOneCSSFile,  _1, css_updates));
     }
 
@@ -195,7 +196,8 @@ void UniversalUpdates::UpdateOneCSSFile(CSSResource *css_resource,
 
 QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         const QHash< QString, QString > &html_updates,
-        const QHash< QString, QString > &css_updates)
+        const QHash< QString, QString > &css_updates,
+        const QList<XMLResource *> &non_well_formed)
 {
     SettingsStore ss;
     QString source;
@@ -208,11 +210,12 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         source = XhtmlDoc::ResolveCustomEntities(HTMLEncodingResolver::ReadHTMLFile(html_resource->GetFullPath()));
         source = CleanSource::NbspToEntity(source);
 
-        if (ss.cleanOn() & CLEANON_OPEN) {
+        if (ss.cleanOn() & CLEANON_OPEN && !non_well_formed.contains(html_resource)) {
             source = CleanSource::Clean(source);
         }
-        XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(source);
-        if (error.line != -1) {
+        // Even though well formed checks might have already run we need to double check because cleaning might
+        // have tried to fix and may have failed.
+        if (!XhtmlDoc::IsDataWellFormed(source)) {
             throw QObject::tr("Cannot perform HTML updates since the file is not well formed");
         }
 

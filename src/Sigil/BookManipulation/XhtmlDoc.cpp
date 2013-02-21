@@ -531,6 +531,12 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
     return XhtmlDoc::WellFormedError();
 }
 
+bool XhtmlDoc::IsDataWellFormed(const QString &data)
+{
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
+    return error.line == -1;
+}
+
 
 // This only exist because of a bug in Apple's GCC.
 // It has problems with templates in default arguments.

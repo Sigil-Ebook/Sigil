@@ -25,6 +25,7 @@
 
 class CSSResource;
 class HTMLResource;
+class XMLResource;
 class NCXResource;
 class OPFResource;
 class Resource;
@@ -38,7 +39,8 @@ public:
     // Returns a list of errors if any that occurred while loading.
     static QStringList PerformUniversalUpdates(bool resources_already_loaded,
             const QList< Resource * > &resources,
-            const QHash< QString, QString > &updates);
+            const QHash< QString, QString > &updates,
+            const QList<XMLResource *> &non_well_formed=QList<XMLResource *>());
 
     static tuple < QHash< QString, QString >,
            QHash< QString, QString >,
@@ -59,7 +61,8 @@ private:
 
     static QString LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
                                             const QHash< QString, QString > &html_updates,
-                                            const QHash< QString, QString > &css_updates);
+                                            const QHash< QString, QString > &css_updates,
+                                            const QList<XMLResource *> &non_well_formed=QList<XMLResource *>());
 
     static QString UpdateOPFFile(OPFResource *opf_resource,
                                  const QHash< QString, QString > &xml_updates);

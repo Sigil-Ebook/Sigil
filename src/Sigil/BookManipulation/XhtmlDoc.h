@@ -122,6 +122,7 @@ public:
     };
 
     static WellFormedError WellFormedErrorForSource(const QString &source);
+    static bool IsDataWellFormed(const QString &data);
 
     static xc::DOMElement *CreateElementInDocument(
         const QString &tag_name,

@@ -29,6 +29,7 @@
 #include <iowin32.h>
 #endif
 
+#include <QApplication>
 #include <QtCore/QtCore>
 #include <QtCore/QDir>
 #include <QtCore/QFile>
@@ -42,11 +43,13 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QStringList>
+#include <QMessageBox>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/Metadata.h"
 #include "Importers/ImportEPUB.h"
 #include "Misc/FontObfuscation.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/CSSResource.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -95,6 +98,9 @@ ImportEPUB::ImportEPUB(const QString &fullfilepath)
 // and returns the created Book
 QSharedPointer<Book> ImportEPUB::GetBook()
 {
+    QList<XMLResource *> non_well_formed;
+    SettingsStore ss;
+
     if (!Utility::IsFileReadable(m_FullFilePath)) {
         boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot read EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
     }
@@ -115,8 +121,41 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     AddNonStandardAppleXML();
     LoadInfrastructureFiles();
     const QHash<QString, QString> &updates = LoadFolderStructure();
-    const QList<Resource *> &resources     = m_Book->GetFolderKeeper().GetResourceList();
-    const QStringList &load_errors         = UniversalUpdates::PerformUniversalUpdates(false, resources, updates);
+    const QList<Resource *> resources     = m_Book->GetFolderKeeper().GetResourceList();
+
+    // We're going to check all html files until we find one that isn't well formed then we'll prompt
+    // the user if they want to auto fix or not.
+    //
+    // If we have non-well formed content and they shouldn't be auto fixed we'll pass that on to
+    // the universal update function so it knows to skip them. Otherwise we won't include them and
+    // let it modify the file.
+    if (ss.cleanOn() & CLEANON_OPEN) {
+        for (int i=0; i<resources.count(); ++i) {
+            if (resources.at(i)->Type() == Resource::HTMLResourceType) {
+                HTMLResource *hresource = dynamic_cast<HTMLResource *>(resources.at(i));
+                if (!hresource) {
+                    continue;
+                }
+                if (!XhtmlDoc::IsDataWellFormed(hresource->GetText())) {
+                    non_well_formed << hresource;
+                }
+            }
+        }
+    }
+    if (!non_well_formed.isEmpty()) {
+        if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
+                tr("Sigil"),
+                tr("The EPUB has HTML files that are not well-formed. "
+                    "Sigil can attempt to auto fix these files however there "
+                    "could be data lost due from this process\n\n"
+                    "Do you want Sigil to try to auto fix these files?"),
+                QMessageBox::Yes|QMessageBox::No)
+        ) {
+            non_well_formed.clear();
+        }
+    }
+
+    const QStringList &load_errors         = UniversalUpdates::PerformUniversalUpdates(false, resources, updates, non_well_formed);
 
     Q_FOREACH (QString err, load_errors) {
         AddLoadWarning(QString("%1").arg(err));
@@ -147,6 +186,31 @@ QSharedPointer<Book> ImportEPUB::GetBook()
 
     // If we have modified the book to add spine attribute, manifest item or NCX mark as changed.
     m_Book->SetModified(GetLoadWarnings().count() > 0);
+
+    if (ss.cleanOn() & CLEANON_OPEN) {
+        bool not_well_formed = false;
+        QList<HTMLResource *> hresources = m_Book->GetHTMLResources();
+        for (int i=0; i<hresources.count(); ++i) {
+            if (!XhtmlDoc::IsDataWellFormed(hresources.at(i)->GetText())) {
+                not_well_formed = true;
+                break;
+            }
+        }
+        if (not_well_formed && ss.cleanOn() & CLEANON_OPEN) {
+            if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
+                        tr("Sigil"),
+                        tr("Some of the html files in the EPUB are not well formed and "
+                            "your current clean source settings are set to auto clean on open. "
+                            "Opening any non-well formed file will cause it to be auto fix which "
+                            "can result in data loss.\n\n"
+                            "Do you want to disable auto cleaning on opening of files?"),
+                        QMessageBox::Yes|QMessageBox::No)
+            ) {
+                ss.setCleanOn(ss.cleanOn() & ~CLEANON_OPEN);
+            }
+        }
+    }
+
     return m_Book;
 }
 
