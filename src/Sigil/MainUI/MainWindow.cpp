@@ -156,6 +156,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_LinkOrStyleBookmark(new LocationBookmark()),
     m_ClipboardHistorySelector(new ClipboardHistorySelector(this)),
     m_LastPasteTarget(NULL),
+    m_PreviousLastPasteTarget(NULL),
     m_LastWindowSize(QByteArray()),
     m_PreviewTimer(*new QTimer(this)),
     m_PreviousHTMLResource(NULL),
@@ -1315,6 +1316,7 @@ void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
 
     // We are only interested in focus events that take place in this MainWindow
     if (window == this) {
+        m_PreviousLastPasteTarget = m_LastPasteTarget;
         m_LastPasteTarget = dynamic_cast<PasteTarget *>(now);
     }
 }
@@ -1460,22 +1462,18 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
     }
 }
 
-void MainWindow::PasteClipEntriesIntoEditor(const QList<ClipEditorModel::clipEntry *> &clips)
+void MainWindow::PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel::clipEntry *> &clips)
 {
-    ContentTab &tab = GetCurrentContentTab();
-    if (&tab != NULL) {
-        HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
-        if (html_resource) {
-            FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
-            if (flow_tab) {
-                bool applied = flow_tab->PasteClipEntries(clips);
-                if (applied) {
-                    flow_tab->setFocus();
-                    // Clear the statusbar afterwards but only if entries were pasted.
-                    ShowMessageOnStatusBar();
-                }
-            }
-        }
+    if (m_PreviousLastPasteTarget == NULL) {
+        ShowMessageOnStatusBar(tr("Select the destination to paste into first."));
+        return;
+    }
+
+    bool applied = m_PreviousLastPasteTarget->PasteClipEntries(clips);
+
+    if (applied) {
+        // Clear the statusbar afterwards but only if entries were pasted.
+        ShowMessageOnStatusBar();
     }
 }
 
@@ -4075,7 +4073,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_ClipEditor, SIGNAL(PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *>)),
             this,           SLOT(PasteClipEntriesIntoCurrentTarget(QList<ClipEditorModel::clipEntry *>)));
     connect(m_Clips,        SIGNAL(PasteClips(QList<ClipEditorModel::clipEntry *>)),
-            this,            SLOT(PasteClipEntriesIntoEditor(QList<ClipEditorModel::clipEntry *>)));
+            this,            SLOT(PasteClipEntriesIntoPreviousTarget(QList<ClipEditorModel::clipEntry *>)));
     connect(m_SearchEditor, SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_ClipEditor,   SIGNAL(ShowStatusMessageRequest(const QString &)),

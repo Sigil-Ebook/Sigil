@@ -299,7 +299,7 @@ private slots:
      */
     void PasteTextIntoCurrentTarget(const QString &text);
     void PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::clipEntry *> &clips);
-    void PasteClipEntriesIntoEditor(const QList<ClipEditorModel::clipEntry *> &clips);
+    void PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel::clipEntry *> &clips);
     void PasteClipIntoCurrentTarget(int clip_number);
     void PasteClip1IntoCurrentTarget();
     void PasteClip2IntoCurrentTarget();
@@ -925,6 +925,7 @@ private:
      * The last widget in this window that had focus that inherited PasteTarget.
      */
     PasteTarget *m_LastPasteTarget;
+    PasteTarget *m_PreviousLastPasteTarget;
 
     /**
      * Workaround for Qt 4.8 bug, to track the last known window size when not maximized.

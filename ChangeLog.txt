@@ -1,5 +1,6 @@
 Sigil 0.7.1 TBD
     - Implement issue 2027: Upgrade boost software.
+    - Fix issue 2017: Clips pasted into some windows does not work correctly.
     - Fix issue 2008: Index adds extra comma in some cases.
 
 Sigil 0.7.0 2013.02.17
