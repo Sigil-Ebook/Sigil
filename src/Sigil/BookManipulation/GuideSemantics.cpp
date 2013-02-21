@@ -26,6 +26,7 @@
 #include "GuideSemantics.h"
 
 using boost::make_tuple;
+using boost::tie;
 
 QMutex GuideSemantics::s_AccessMutex;
 GuideSemantics *GuideSemantics::m_Instance = NULL;
@@ -51,6 +52,17 @@ const QHash< int, tuple< QString, QString > > &GuideSemantics::GetGuideTypeMappi
     return m_GuideTypeMapping;
 }
 
+QString GuideSemantics::GetGuideName(GuideSemantics::GuideSemanticType type)
+{
+    if (m_GuideTypeMapping.contains(type)) {
+        QString abbrev;
+        QString name;
+        tie(abbrev, name) = m_GuideTypeMapping[type];
+        return name;
+    }
+
+    return "";
+}
 
 GuideSemantics::GuideSemanticType GuideSemantics::MapReferenceTypeToGuideEnum(const QString &reference_type)
 {

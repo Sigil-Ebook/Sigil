@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012, 2013 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -61,24 +61,34 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 {
     m_ItemModel->clear();
     QStringList header;
+    header.append(tr("Directory"));
     header.append(tr("Name"));
     header.append(tr("File Size (KB)"));
     header.append(tr("Type"));
+    header.append(tr("Semantics"));
     m_ItemModel->setHorizontalHeaderLabels(header);
     ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.fileTree->setModel(m_ItemModel);
     ui.fileTree->header()->setSortIndicatorShown(true);
     double total_size = 0;
+    QString main_folder = m_Book->GetFolderKeeper().GetFullPathToMainFolder();
     foreach(Resource *resource, m_AllResources) {
         QString filepath = "../" + resource->GetRelativePathToOEBPS();
         QString path = resource->GetFullPath();
+        QString relativepath = path.right(path.length() - main_folder.length() - 1);
+        QString directory = QFileInfo(relativepath).absolutePath() + "/";
         QString filename = resource->Filename();
         QList<QStandardItem *> rowItems;
+        QStandardItem *item;
+        // Directory
+        item = new QStandardItem();
+        item->setText(directory);
+        rowItems << item;
         // Filename
-        QStandardItem *name_item = new QStandardItem();
-        name_item->setText(filename);
-        name_item->setToolTip(filepath);
-        rowItems << name_item;
+        item = new QStandardItem();
+        item->setText(filename);
+        item->setToolTip(filepath);
+        rowItems << item;
         // File Size
         double ffsize = QFile(path).size() / 1024.0;
         total_size += ffsize;
@@ -87,9 +97,13 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         size_item->setText(fsize);
         rowItems << size_item;
         // Type
-        QStandardItem *type_item = new QStandardItem();
-        type_item->setText(GetType(resource));
-        rowItems << type_item;
+        item = new QStandardItem();
+        item ->setText(GetType(resource));
+        rowItems << item;
+        // Semantics
+        item = new QStandardItem();
+        item->setText(m_Book->GetOPF().GetGuideSemanticNameForResource(resource));
+        rowItems << item;
 
         // Add item to table
         m_ItemModel->appendRow(rowItems);
@@ -105,6 +119,9 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     // Totals
     NumericItem *nitem;
     QList<QStandardItem *> rowItems;
+    // Directory
+    nitem = new NumericItem();
+    rowItems << nitem;
     // Files
     nitem = new NumericItem();
     nitem->setText(QString::number(m_AllResources.count()) % tr(" files"));
@@ -165,7 +182,7 @@ void AllFilesWidget::Sort(int logicalindex, Qt::SortOrder order)
 
 void AllFilesWidget::DoubleClick()
 {
-    QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
+    QModelIndex index = ui.fileTree->selectionModel()->selectedRows(1).first();
 
     if (index.row() != m_ItemModel->rowCount() - 1) {
         QString filename = m_ItemModel->itemFromIndex(index)->text();

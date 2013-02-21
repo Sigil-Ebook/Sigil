@@ -88,6 +88,8 @@ public:
      */
     GuideSemanticType MapReferenceTypeToGuideEnum(const QString &reference_type);
 
+    QString GetGuideName(GuideSemantics::GuideSemanticType type);
+
 private:
 
     /**

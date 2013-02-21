@@ -372,7 +372,6 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
     return false;
 }
 
-
 void OPFModel::InitializeModel()
 {
     Q_ASSERT(m_Book);
@@ -382,7 +381,13 @@ void OPFModel::InitializeModel()
         AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->Filename());
         item->setDropEnabled(false);
         item->setData(resource->GetIdentifier());
-        item->setToolTip(resource->Filename());
+        QString tooltip = resource->Filename();
+
+        QString semantic = m_Book->GetOPF().GetGuideSemanticNameForResource(resource);
+        if (!semantic.isEmpty()) {
+            tooltip += "(" + semantic + ")";
+        }
+        item->setToolTip(tooltip);
 
         if (resource->Type() == Resource::HTMLResourceType) {
             int reading_order =

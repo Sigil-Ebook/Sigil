@@ -58,6 +58,7 @@ public:
     virtual ResourceType Type() const;
 
     GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource &resource) const;
+    QString GetGuideSemanticNameForResource(Resource *resource);
 
     int GetReadingOrder(const ::HTMLResource &html_resource) const;
 

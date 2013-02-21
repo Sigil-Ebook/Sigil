@@ -97,6 +97,10 @@ GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(c
     return GetGuideSemanticTypeForResource(resource, *document);
 }
 
+QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
+{
+    return GuideSemantics::Instance().GetGuideName(GetGuideSemanticTypeForResource(*resource));
+}
 
 int OPFResource::GetReadingOrder(const ::HTMLResource &html_resource) const
 {

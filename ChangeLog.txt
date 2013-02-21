@@ -1,4 +1,5 @@
 Sigil 0.7.1 TBD
+    - Implement issue 2009: Add semantic tags to filenames in reports.
     - Implement issue 2028: Special characters should work in non-html files.
     - Implement issue 2027: Upgrade boost software.
     - Fix issue 2016: Find with wrap off and All HTML Files still wraps on last file.
