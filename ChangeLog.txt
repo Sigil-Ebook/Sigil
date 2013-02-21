@@ -1,3 +1,7 @@
+Sigil 0.7.1 TBD
+    - Implement issue 2027: Upgrade boost software.
+    - Fix issue 2008: Index adds extra comma in some cases.
+
 Sigil 0.7.0 2013.02.17
     - Implement issue 1983: Set the tooltips of files in Book Browser to the filename.
     - Implement issue 1965: Allow opening files that are missing container.xml.
