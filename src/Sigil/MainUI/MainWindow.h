@@ -64,6 +64,7 @@ class SearchEditor;
 class ClipEditor;
 class ClipsWindow;
 class SelectCharacter;
+class FlowTab;
 
 
 /**
@@ -112,6 +113,8 @@ public:
      * @return A reference to the current content tab.
      */
     ContentTab &GetCurrentContentTab();
+
+    FlowTab *GetCurrentFlowTab();
 
     /**
      * Returns a list of valid selected HTML resources
@@ -176,6 +179,14 @@ public slots:
      * Opens the specified resource in the specified view state.
      */
     void OpenResource(Resource &resource,
+                      int line_to_scroll_to = -1,
+                      int position_to_scroll_to = -1,
+                      const QString &caret_location_to_scroll_to = QString(),
+                      MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
+                      const QUrl &fragment = QUrl(),
+                      bool precede_current_tab = false);
+
+    void OpenResourceAndWaitUntilLoaded(Resource &resource,
                       int line_to_scroll_to = -1,
                       int position_to_scroll_to = -1,
                       const QString &caret_location_to_scroll_to = QString(),

@@ -69,6 +69,7 @@
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/SleepFunctions.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/TOCHTMLWriter.h"
 #include "Misc/Utility.h"
@@ -223,6 +224,11 @@ ContentTab &MainWindow::GetCurrentContentTab()
     return m_TabManager.GetCurrentContentTab();
 }
 
+FlowTab *MainWindow::GetCurrentFlowTab()
+{
+    return qobject_cast< FlowTab * >(&GetCurrentContentTab());
+}
+
 void MainWindow::ResetLinkOrStyleBookmark()
 {
     ResetLocationBookmark(m_LinkOrStyleBookmark);
@@ -263,15 +269,9 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
 
 void MainWindow::GoToPreviewLocation()
 {
-    ContentTab &tab = GetCurrentContentTab();
-    if (&tab != NULL) {
-        HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
-        if (html_resource) {
-            FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
-            if (flow_tab) {
-                flow_tab->GoToCaretLocation(m_PreviewWindow->GetCaretLocation());
-            }
-        }
+    FlowTab *flow_tab = GetCurrentFlowTab();
+    if (flow_tab && flow_tab->GetLoadedResource().Type() == Resource::HTMLResourceType) {
+        flow_tab->GoToCaretLocation(m_PreviewWindow->GetCaretLocation());
     }
 }
 
@@ -350,6 +350,21 @@ void MainWindow::OpenResource(Resource &resource,
 
     if (view_state != m_ViewState) {
         SetViewState(view_state);
+    }
+}
+
+void MainWindow::OpenResourceAndWaitUntilLoaded(Resource &resource,
+                              int line_to_scroll_to,
+                              int position_to_scroll_to,
+                              const QString &caret_location_to_scroll_to,
+                              MainWindow::ViewState view_state,
+                              const QUrl &fragment,
+                              bool precede_current_tab)
+{
+    OpenResource(resource, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, view_state, fragment, precede_current_tab);
+    while (!GetCurrentContentTab().IsLoadingFinished()) {
+        qApp->processEvents();
+        SleepFunctions::msleep(100);
     }
 }
 
@@ -1123,9 +1138,9 @@ void MainWindow::DeleteUnusedStyles()
 void MainWindow::InsertFileDialog()
 {
     SaveTabData();
-    FlowTab *flow_tab = qobject_cast<FlowTab *>(&GetCurrentContentTab());
     ShowMessageOnStatusBar();
 
+    FlowTab *flow_tab = GetCurrentFlowTab();
     if (!flow_tab || !flow_tab->InsertFileEnabled()) {
         QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a file at this position."));
         return;
@@ -1149,8 +1164,8 @@ void MainWindow::InsertFileDialog()
 void MainWindow::InsertFiles(const QStringList &selected_files)
 {
     if (!selected_files.isEmpty()) {
-        FlowTab *flow_tab = qobject_cast<FlowTab *>(&GetCurrentContentTab());
 
+        FlowTab *flow_tab = GetCurrentFlowTab();
         if (!flow_tab) {
             return;
         }
@@ -1195,8 +1210,7 @@ void MainWindow::InsertFilesFromDisk()
     // Prompt the user for the images to add.
     // Workaround for insert same image twice from disk causing a book view refresh
     // due to the linked resource being modified. Will perform the refresh afterwards.
-    FlowTab *flow_tab = qobject_cast< FlowTab * >(&GetCurrentContentTab());
-
+    FlowTab *flow_tab = GetCurrentFlowTab();
     if (flow_tab) {
         flow_tab->SuspendTabReloading();
     }
@@ -1228,17 +1242,17 @@ void MainWindow::InsertId()
 {
     SaveTabData();
     // Get current id attribute value if any
-    ContentTab &tab = GetCurrentContentTab();
-    FlowTab *flow_tab = qobject_cast<FlowTab *>(&tab);
     ShowMessageOnStatusBar();
 
+    FlowTab *flow_tab = GetCurrentFlowTab();
     if (!flow_tab || !flow_tab->InsertIdEnabled()) {
         QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert an id at this position."));
         return;
     }
 
     QString id = flow_tab->GetAttributeId();
-    HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
+    HTMLResource *html_resource = qobject_cast< HTMLResource * >(&flow_tab->GetLoadedResource());
+
     SelectId select_id(id, html_resource, m_Book, this);
 
     if (select_id.exec() == QDialog::Accepted) {
@@ -1261,17 +1275,16 @@ void MainWindow::InsertHyperlink()
 {
     SaveTabData();
     // Get current id attribute value if any
-    ContentTab &tab = GetCurrentContentTab();
-    FlowTab *flow_tab = qobject_cast<FlowTab *>(&tab);
     ShowMessageOnStatusBar();
 
+    FlowTab *flow_tab = GetCurrentFlowTab();
     if (!flow_tab || !flow_tab->InsertHyperlinkEnabled()) {
         QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a link at this position."));
         return;
     }
 
     QString href = flow_tab->GetAttributeHref();
-    HTMLResource *html_resource = qobject_cast< HTMLResource * >(&tab.GetLoadedResource());
+    HTMLResource *html_resource = qobject_cast< HTMLResource * >(&flow_tab->GetLoadedResource());
     QList<Resource *> resources = GetAllHTMLResources() + m_BookBrowser->AllMediaResources();
     SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);
 
@@ -1287,9 +1300,9 @@ void MainWindow::MarkForIndex()
     SaveTabData();
     // Get current id attribute value if any
     ContentTab &tab = GetCurrentContentTab();
-    FlowTab *flow_tab = qobject_cast<FlowTab *>(&tab);
     ShowMessageOnStatusBar();
 
+    FlowTab *flow_tab = qobject_cast<FlowTab *>(&tab);
     if (!flow_tab || !flow_tab->MarkForIndexEnabled()) {
         QMessageBox::warning(this, tr("Sigil"), tr("You cannot mark an index at this position or without selecting text."));
         return;
@@ -1464,16 +1477,14 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
 
 void MainWindow::PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel::clipEntry *> &clips)
 {
-    if (m_PreviousLastPasteTarget == NULL) {
-        ShowMessageOnStatusBar(tr("Select the destination to paste into first."));
-        return;
-    }
-
-    bool applied = m_PreviousLastPasteTarget->PasteClipEntries(clips);
-
-    if (applied) {
-        // Clear the statusbar afterwards but only if entries were pasted.
-        ShowMessageOnStatusBar();
+    FlowTab *flow_tab = GetCurrentFlowTab();
+    if (flow_tab && flow_tab->GetLoadedResource().Type() == Resource::HTMLResourceType) {
+        bool applied = flow_tab->PasteClipEntries(clips);
+        if (applied) {
+            flow_tab->setFocus();
+            // Clear the statusbar afterwards but only if entries were pasted.
+            ShowMessageOnStatusBar();
+        }
     }
 }
 
@@ -1606,18 +1617,16 @@ void MainWindow::FindWord(QString word)
     SaveTabData();
     SetViewState(MainWindow::ViewState_CodeView);
 
-    // Make a note of the currently opened resource.
-    ContentTab &tab = GetCurrentContentTab();
-    if (&tab == NULL) {
-        return;
-    }
-    Resource *resource = &tab.GetLoadedResource();
-    Resource::ResourceType type = resource->Type();
+    // Note the current tab if it is an HTML file.
     HTMLResource *current_html_resource = NULL;
     QString current_html_filename;
-    if (type == Resource::HTMLResourceType) {
-        current_html_resource = qobject_cast<HTMLResource *>(resource);
-        current_html_filename = current_html_resource->Filename();
+    FlowTab *flow_tab = GetCurrentFlowTab();
+    if (flow_tab) {
+        Resource *resource = &flow_tab->GetLoadedResource();
+        if (resource->Type() == Resource::HTMLResourceType) {
+            current_html_resource = qobject_cast<HTMLResource *>(resource);
+            current_html_filename = current_html_resource->Filename();
+        }
     }
 
     // Get list of files from current to end followed 
@@ -1639,43 +1648,44 @@ void MainWindow::FindWord(QString word)
         }
     }
 
-    int done_current = false;
+    // Search for the word.
+    bool done_current = false;
     foreach (Resource *resource, html_resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         if (!html_resource) {
             continue;
         }
         int start_pos = 0;
-        if (!done_current && resource->Filename() == current_html_filename) {
-            ContentTab &tab = GetCurrentContentTab();
-            if (&tab == NULL) {
-                return;
-            }
-            FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
-            if (flow_tab) {
-                start_pos = flow_tab->GetCursorPosition();
+        // Reset the start to current cursor position only if this is the
+        // first time we are in the current file.
+        if (resource->Filename() == current_html_filename) {
+            if (!done_current) {
+                FlowTab *flow_tab = GetCurrentFlowTab();
+                if (flow_tab) {
+                    start_pos = flow_tab->GetCursorPosition();
+                }
             }
             done_current = true;
         }
-
-        SettingsStore ss;
-        if (ss.cleanOn() & CLEANON_OPEN) {
-            html_resource->SetText(CleanSource::Clean(html_resource->GetText()));
+        else {
+            // Only clean if not the current file - otherwise lose cursor position
+            SettingsStore ss;
+            if (ss.cleanOn() & CLEANON_OPEN) {
+                html_resource->SetText(CleanSource::Clean(html_resource->GetText()));
+            }
         }
         QString text = html_resource->GetText();
 
         int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
         if (found_pos >= 0) {
-            OpenResource(*resource, -1, found_pos);
-            ContentTab &tab = GetCurrentContentTab();
-            if (&tab == NULL) {
-                return;
+            if (resource->Filename() != current_html_filename) {
+                OpenResourceAndWaitUntilLoaded(*resource, -1, found_pos);
             }
-            FlowTab *flow_tab = qobject_cast< FlowTab * >(&tab);
+            FlowTab *flow_tab = GetCurrentFlowTab();
             if (flow_tab) {
                 flow_tab->HighlightWord(word, found_pos);
+                break;
             }
-            return;
         }
     }
 }
@@ -2730,7 +2740,7 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource &origina
     // Open the old shortened content in a new tab preceding the current one.
     // without grabbing focus
     OpenResource(html_resource, -1, -1, QString(), m_ViewState, QUrl(), true);
-    FlowTab *flow_tab = qobject_cast< FlowTab * >(&GetCurrentContentTab());
+    FlowTab *flow_tab = GetCurrentFlowTab();
 
     // We will reload the reduced content tab to ensure reflects updated resource.
     if (flow_tab) {
@@ -2748,7 +2758,7 @@ void MainWindow::SplitOnSGFSectionMarkers()
     SaveTabData();
 
     // If have the current tab is open in BV, make sure it has its content saved so it won't later overwrite a split.
-    FlowTab *flow_tab = qobject_cast<FlowTab *>(&GetCurrentContentTab());
+    FlowTab *flow_tab = GetCurrentFlowTab();
 
     if (flow_tab && (flow_tab->GetViewState() == MainWindow::ViewState_BookView)) {
         flow_tab->SaveTabContent();
@@ -2951,16 +2961,12 @@ void MainWindow::SetNewBook(QSharedPointer< Book > new_book)
 
 void MainWindow::ResourcesAddedOrDeleted()
 {
-    ContentTab &tab = GetCurrentContentTab();
     QWebSettings::clearMemoryCaches();
 
     // Make sure currently visible tab is updated immediately
-    if (&tab != NULL) {
-        FlowTab *flow_tab = dynamic_cast<FlowTab *>(&tab);
-
-        if (flow_tab) {
-            flow_tab->LoadTabContent();
-        }
+    FlowTab *flow_tab = GetCurrentFlowTab();
+    if (flow_tab) {
+        flow_tab->LoadTabContent();
     }
 }
 
@@ -3331,7 +3337,7 @@ void MainWindow::SelectEntryOnHeadingToolbar(const QString &element_name)
 
 void MainWindow::ApplyHeadingStyleToTab(const QString &heading_type)
 {
-    FlowTab *flow_tab = qobject_cast<FlowTab *>(&GetCurrentContentTab());
+    FlowTab *flow_tab = GetCurrentFlowTab();
 
     if (flow_tab) {
         flow_tab->HeadingStyle(heading_type, m_preserveHeadingAttributes);

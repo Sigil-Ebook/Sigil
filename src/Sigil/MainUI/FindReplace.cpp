@@ -30,7 +30,6 @@
 
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"
-#include "Misc/SleepFunctions.h"
 #include "Misc/FindReplaceQLineEdit.h"
 
 static const QString SETTINGS_GROUP = "find_replace";
@@ -768,13 +767,8 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
             bool has_focus = HasFocus();
             // Save selected resources since opening tabs changes selection
             QList<Resource *>selected_resources = GetHTMLFiles();
-            m_MainWindow.OpenResource(*containing_resource);
 
-            while (!m_MainWindow.GetCurrentContentTab().IsLoadingFinished()) {
-                // Make sure Qt processes events, signals and calls slots
-                qApp->processEvents();
-                SleepFunctions::msleep(100);
-            }
+            m_MainWindow.OpenResourceAndWaitUntilLoaded(*containing_resource);
 
             // Restore selection since opening tabs changes selection
             if (GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles && !m_SpellCheck) {
