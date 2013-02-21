@@ -3097,7 +3097,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
                 }
             }
             if (not_well_formed) {
-                if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
+                if (QMessageBox::Yes == QMessageBox::warning(this,
                             tr("Sigil"),
                             tr("Some HTML files are not well formed and "
                                 "your current clean source settings are set to auto clean on save. "
