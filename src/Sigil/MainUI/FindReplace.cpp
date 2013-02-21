@@ -759,7 +759,6 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
     }
 
     if (!found) {
-        // TODO: make this handle all types of files
         Resource *containing_resource = GetNextContainingHTMLResource(direction);
 
         if (containing_resource) {
@@ -822,6 +821,9 @@ HTMLResource *FindReplace::GetNextContainingHTMLResource(Searchable::Direction d
         next_html_resource = GetNextHTMLResource(next_html_resource, direction);
 
         if (next_html_resource == starting_html_resource) {
+            if (!m_OptionWrap) {
+                return NULL;
+            }
             passed_starting_html_resource = true ;
         }
 

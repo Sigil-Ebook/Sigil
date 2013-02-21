@@ -1,6 +1,7 @@
 Sigil 0.7.1 TBD
     - Implement issue 2028: Special characters should work in non-html files.
     - Implement issue 2027: Upgrade boost software.
+    - Fix issue 2016: Find with wrap off and All HTML Files still wraps on last file.
     - Fix issue 2001: Spellcheck does not always highlight a word the first time.
     - Fix issue 2017: Clips pasted into some windows does not work correctly.
     - Fix issue 2008: Index adds extra comma in some cases.
