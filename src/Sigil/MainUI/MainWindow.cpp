@@ -2411,7 +2411,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionSplitSection->setEnabled(false);
     ui.actionInsertSGFSectionMarker->setEnabled(false);
     ui.actionInsertFile->setEnabled(false);
-    ui.actionInsertSpecialCharacter->setEnabled(false);
+    ui.actionInsertSpecialCharacter->setEnabled(true);
     ui.actionInsertId->setEnabled(false);
     ui.actionInsertHyperlink->setEnabled(false);
     ui.actionInsertClosingTag->setEnabled(false);
