@@ -3089,7 +3089,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
 
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
-        if (ss.cleanOn() & CLEANON_SAVE) {
+        if (ss.cleanOn() & CLEANON_SAVE && ss.cleanLevel() != SettingsStore::CleanLevel_Off) {
             QList <HTMLResource *> resources;
             Q_FOREACH(Resource * r, GetAllHTMLResources()) {
                 HTMLResource *t = dynamic_cast<HTMLResource *>(r);

@@ -129,7 +129,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     // If we have non-well formed content and they shouldn't be auto fixed we'll pass that on to
     // the universal update function so it knows to skip them. Otherwise we won't include them and
     // let it modify the file.
-    if (ss.cleanOn() & CLEANON_OPEN) {
+    if (ss.cleanOn() & CLEANON_OPEN && ss.cleanLevel() != SettingsStore::CleanLevel_Off) {
         for (int i=0; i<resources.count(); ++i) {
             if (resources.at(i)->Type() == Resource::HTMLResourceType) {
                 HTMLResource *hresource = dynamic_cast<HTMLResource *>(resources.at(i));
@@ -187,7 +187,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     // If we have modified the book to add spine attribute, manifest item or NCX mark as changed.
     m_Book->SetModified(GetLoadWarnings().count() > 0);
 
-    if (ss.cleanOn() & CLEANON_OPEN) {
+    if (ss.cleanOn() & CLEANON_OPEN && ss.cleanLevel() != SettingsStore::CleanLevel_Off) {
         bool not_well_formed = false;
         QList<HTMLResource *> hresources = m_Book->GetHTMLResources();
         for (int i=0; i<hresources.count(); ++i) {
@@ -196,7 +196,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
                 break;
             }
         }
-        if (not_well_formed && ss.cleanOn() & CLEANON_OPEN) {
+        if (not_well_formed) {
             if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
                         tr("Sigil"),
                         tr("Some of the html files in the EPUB are not well formed and "
