@@ -442,6 +442,9 @@ ContentTab *TabManager::CreateTabForResource(Resource &resource,
             if (!html_resource) {
                 break;
             }
+            if (ss.cleanOn() & CLEANON_OPEN) {
+                html_resource->SetText(CleanSource::Clean(html_resource->GetText()));
+            }
             tab = new FlowTab(*html_resource,
                               fragment,
                               view_state,
@@ -453,9 +456,6 @@ ContentTab *TabManager::CreateTabForResource(Resource &resource,
             connect(tab,  SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
             connect(tab,  SIGNAL(OldTabRequest(QString, HTMLResource &)),
                     this, SIGNAL(OldTabRequest(QString, HTMLResource &)));
-            if (ss.cleanOn() & CLEANON_OPEN) {
-                html_resource->SetText(CleanSource::Clean(html_resource->GetText()));
-            }
             break;
         }
 
