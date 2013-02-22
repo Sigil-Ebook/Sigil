@@ -30,7 +30,16 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <property name="margin">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
      <number>0</number>
     </property>
    </layout>
@@ -40,7 +49,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>945</width>
+     <width>1000</width>
      <height>22</height>
     </rect>
    </property>
@@ -58,7 +67,7 @@
      <addaction name="actionNewCSSFile"/>
      <addaction name="actionNewSVGFile"/>
     </widget>
-     <addaction name="actionNew"/>
+    <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="separator"/>
     <addaction name="menuAdd"/>
@@ -225,6 +234,17 @@
     <property name="title">
      <string>&amp;Search</string>
     </property>
+    <widget class="QMenu" name="menuSearchCurrentFile">
+     <property name="title">
+      <string>Current Fil&amp;e</string>
+     </property>
+     <addaction name="actionFindNextInFile"/>
+     <addaction name="separator"/>
+     <addaction name="actionReplaceNextInFile"/>
+     <addaction name="actionReplaceAllInFile"/>
+     <addaction name="separator"/>
+     <addaction name="actionCountInFile"/>
+    </widget>
     <addaction name="actionFind"/>
     <addaction name="separator"/>
     <addaction name="actionFindNext"/>
@@ -237,17 +257,6 @@
     <addaction name="separator"/>
     <addaction name="actionCount"/>
     <addaction name="separator"/>
-    <widget class="QMenu" name="menuSearchCurrentFile">
-     <property name="title">
-      <string>Current Fil&amp;e</string>
-     </property>
-     <addaction name="actionFindNextInFile"/>
-     <addaction name="separator"/>
-     <addaction name="actionReplaceNextInFile"/>
-     <addaction name="actionReplaceAllInFile"/>
-     <addaction name="separator"/>
-     <addaction name="actionCountInFile"/>
-    </widget>
     <addaction name="menuSearchCurrentFile"/>
     <addaction name="separator"/>
     <addaction name="actionBookmarkLocation"/>
@@ -276,9 +285,9 @@
      <property name="title">
       <string>&amp;Table Of Contents</string>
      </property>
-    <addaction name="actionGenerateTOC"/>
-    <addaction name="actionEditTOC"/>
-    <addaction name="actionCreateHTMLTOC"/>
+     <addaction name="actionGenerateTOC"/>
+     <addaction name="actionEditTOC"/>
+     <addaction name="actionCreateHTMLTOC"/>
     </widget>
     <widget class="QMenu" name="menuSpellCheckMenu">
      <property name="title">
@@ -638,9 +647,6 @@
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+X</string>
-   </property>
   </action>
   <action name="actionPaste">
    <property name="icon">
@@ -655,19 +661,16 @@
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+V</string>
-   </property>
   </action>
   <action name="actionInsertClosingTag">
-   <property name="shortcut">
-    <string>Ctrl+.</string>
-   </property>
    <property name="text">
     <string>&amp;Closing Tag</string>
    </property>
    <property name="toolTip">
     <string>Insert a closing tag in Code View.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+.</string>
    </property>
   </action>
   <action name="actionUndo">
@@ -716,9 +719,6 @@
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+C</string>
    </property>
   </action>
   <action name="actionAlignLeft">
@@ -900,12 +900,12 @@
    </property>
   </action>
   <action name="actionMetaEditor">
-   <property name="text">
-    <string>&amp;Metadata Editor...</string>
-   </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/metadata-editor_22px.png</normaloff>:/main/metadata-editor_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Metadata Editor...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
@@ -917,20 +917,20 @@
    </property>
   </action>
   <action name="actionGenerateTOC">
-   <property name="text">
-    <string>&amp;Generate Table Of Contents...</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+T</string>
-   </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/generate-toc_22px.png</normaloff>:/main/generate-toc_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Generate Table Of Contents...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
    </property>
   </action>
   <action name="actionEditTOC">
@@ -1024,7 +1024,7 @@
     <string>Ctrl+Shift+I</string>
    </property>
   </action>
- <action name="actionInsertSpecialCharacter">
+  <action name="actionInsertSpecialCharacter">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/insert-special-character_22px.png</normaloff>:/main/insert-special-character_22px.png</iconset>
@@ -1032,16 +1032,16 @@
    <property name="text">
     <string>&amp;Special Character...</string>
    </property>
-    <property name="toolTip">
+   <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</string>
-    </property>
+   </property>
   </action>
- <action name="actionInsertId">
+  <action name="actionInsertId">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/insert-id_22px.png</normaloff>:/main/insert-iid_22px.png</iconset>
+     <normaloff>:/main/insert-id_22px.png</normaloff>:/main/insert-id_22px.png</iconset>
    </property>
    <property name="text">
     <string>I&amp;D...</string>
@@ -1052,7 +1052,7 @@
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</string>
    </property>
   </action>
- <action name="actionInsertHyperlink">
+  <action name="actionInsertHyperlink">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/insert-hyperlink_22px.png</normaloff>:/main/insert-hyperlink_22px.png</iconset>
@@ -1287,8 +1287,7 @@
   <action name="actionTextDirectionLTR">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-direction-ltr_22px.png</normaloff>:/main/format-direction-ltr_22px.png
-    </iconset>
+     <normaloff>:/main/format-direction-ltr_22px.png</normaloff>:/main/format-direction-ltr_22px.png</iconset>
    </property>
    <property name="text">
     <string>Te&amp;xt Direction LTR</string>
@@ -1304,8 +1303,7 @@
   <action name="actionTextDirectionRTL">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-direction-rtl_22px.png</normaloff>:/main/format-direction-rtl_22px.png
-    </iconset>
+     <normaloff>:/main/format-direction-rtl_22px.png</normaloff>:/main/format-direction-rtl_22px.png</iconset>
    </property>
    <property name="text">
     <string>T&amp;ext Direction RTL</string>
@@ -1321,8 +1319,7 @@
   <action name="actionTextDirectionDefault">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-direction-default_22px.png</normaloff>:/main/format-direction-default_22px.png
-    </iconset>
+     <normaloff>:/main/format-direction-default_22px.png</normaloff>:/main/format-direction-default_22px.png</iconset>
    </property>
    <property name="text">
     <string>Text Directi&amp;on Default</string>
@@ -1346,8 +1343,7 @@
   <action name="actionCasingLowercase">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-case-lowercase_22px.png</normaloff>:/main/format-case-lowercase_22px.png
-    </iconset>
+     <normaloff>:/main/format-case-lowercase_22px.png</normaloff>:/main/format-case-lowercase_22px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Lowercase</string>
@@ -1366,8 +1362,7 @@
   <action name="actionCasingUppercase">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-case-uppercase_22px.png</normaloff>:/main/format-case-uppercase_22px.png
-    </iconset>
+     <normaloff>:/main/format-case-uppercase_22px.png</normaloff>:/main/format-case-uppercase_22px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Uppercase</string>
@@ -1386,8 +1381,7 @@
   <action name="actionCasingTitlecase">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-case-titlecase_22px.png</normaloff>:/main/format-case-titlecase_22px.png
-    </iconset>
+     <normaloff>:/main/format-case-titlecase_22px.png</normaloff>:/main/format-case-titlecase_22px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Titlecase</string>
@@ -1403,8 +1397,7 @@
   <action name="actionCasingCapitalize">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-case-capitalize_22px.png</normaloff>:/main/format-case-capitalize_22px.png
-    </iconset>
+     <normaloff>:/main/format-case-capitalize_22px.png</normaloff>:/main/format-case-capitalize_22px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Capitalize</string>
@@ -1530,12 +1523,12 @@
    </property>
   </action>
   <action name="actionSpellcheckEditor">
-   <property name="text">
-    <string>&amp;Spellcheck...</string>
-   </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/document-spellcheck_22px.png</normaloff>:/main/document-spellcheck_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Spellcheck...</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
@@ -1957,6 +1950,10 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-1_22px.png</normaloff>:/main/heading-1_22px.png</iconset>
+   </property>
    <property name="text">
     <string>Heading &amp;1</string>
    </property>
@@ -1968,14 +1965,14 @@
    <property name="shortcut">
     <string>Ctrl+1</string>
    </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-1_22px.png</normaloff>:/main/heading-1_22px.png</iconset>
-   </property>
- </action>
+  </action>
   <action name="actionHeading2">
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-2_22px.png</normaloff>:/main/heading-2_22px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;2</string>
@@ -1988,14 +1985,14 @@
    <property name="shortcut">
     <string>Ctrl+2</string>
    </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-2_22px.png</normaloff>:/main/heading-2_22px.png</iconset>
-   </property>
   </action>
   <action name="actionHeading3">
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-3_22px.png</normaloff>:/main/heading-3_22px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;3</string>
@@ -2008,14 +2005,14 @@
    <property name="shortcut">
     <string>Ctrl+3</string>
    </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-3_22px.png</normaloff>:/main/heading-3_22px.png</iconset>
-   </property>
   </action>
   <action name="actionHeading4">
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-4_22px.png</normaloff>:/main/heading-4_22px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;4</string>
@@ -2028,14 +2025,14 @@
    <property name="shortcut">
     <string>Ctrl+4</string>
    </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-4_22px.png</normaloff>:/main/heading-4_22px.png</iconset>
-   </property>
   </action>
   <action name="actionHeading5">
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-5_22px.png</normaloff>:/main/heading-5_22px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;5</string>
@@ -2048,14 +2045,14 @@
    <property name="shortcut">
     <string>Ctrl+5</string>
    </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-5_22px.png</normaloff>:/main/heading-5_22px.png</iconset>
-   </property>
   </action>
   <action name="actionHeading6">
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-6_22px.png</normaloff>:/main/heading-6_22px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;6</string>
@@ -2068,14 +2065,14 @@
    <property name="shortcut">
     <string>Ctrl+6</string>
    </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-6_22px.png</normaloff>:/main/heading-6_22px.png</iconset>
-   </property>
   </action>
   <action name="actionHeadingNormal">
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-normal_22px.png</normaloff>:/main/heading-normal_22px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Normal</string>
@@ -2087,10 +2084,6 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+7</string>
-   </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-normal_22px.png</normaloff>:/main/heading-normal_22px.png</iconset>
    </property>
   </action>
   <action name="actionHeadingPreserveAttributes">
@@ -2176,11 +2169,11 @@
    <property name="text">
     <string>&amp;Mark For Index</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+Shift+X</string>
-   </property>
    <property name="toolTip">
     <string>Mark the selected text for inclusion in the Index.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+X</string>
    </property>
   </action>
   <action name="actionCreateIndex">
@@ -2255,4 +2248,3 @@
  </resources>
  <connections/>
 </ui>
-
