@@ -37,6 +37,7 @@
 
 #include "BookManipulation/CleanSource.h"
 #include "MiscEditors/ClipEditorModel.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_constants.h"
@@ -376,7 +377,12 @@ void FlowTab::SaveTabContent()
     // In BV, we only need to save the BV HTML into the resource if user has modified it,
     //        which will trigger ResourceModified() to set flag to say PV needs reloading.
     if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView && m_wBookView->IsModified()) {
-        m_HTMLResource.SetText(CleanSource::Clean(m_wBookView->GetHtml()));
+        SettingsStore ss;
+        QString html = m_wBookView->GetHtml();
+        if (ss.cleanOn() & CLEANON_OPEN) {
+            html = CleanSource::Clean(html);
+        }
+        m_HTMLResource.SetText(html);
         m_wBookView->ResetModified();
         m_safeToLoad = true;
     }
