@@ -41,7 +41,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    MiscTextResource(const QString &fullfilepath, QObject *parent = NULL);
+    MiscTextResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
     virtual ResourceType Type() const;

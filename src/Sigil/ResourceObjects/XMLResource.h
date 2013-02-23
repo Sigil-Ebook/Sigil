@@ -41,7 +41,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    XMLResource(const QString &fullfilepath, QObject *parent = NULL);
+    XMLResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
 

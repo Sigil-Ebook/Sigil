@@ -21,8 +21,8 @@
 
 #include "ResourceObjects/VideoResource.h"
 
-VideoResource::VideoResource(const QString &fullfilepath, QObject *parent)
-    : Resource(fullfilepath, parent)
+VideoResource::VideoResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
+    : Resource(mainfolder, fullfilepath, parent)
 {
 }
 

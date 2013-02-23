@@ -73,7 +73,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    Resource(const QString &fullfilepath, QObject *parent = NULL);
+    Resource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
 
     /**
      * The less-than operator overload. By default, compares
@@ -96,6 +96,10 @@ public:
      * @return The resource's filename.
      */
     QString Filename() const;
+
+    QString GetFolder() const;
+
+    QString GetRelativePath() const;
 
     /**
      * Returns the resource's path relative to the OEBPS folder.
@@ -240,6 +244,8 @@ private:
      * The resources identifying UUID.
      */
     QString m_Identifier;
+
+    QString m_MainFolder;
 
     /**
      * The full path to the resource on disk.

@@ -22,8 +22,8 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/FontResource.h"
 
-FontResource::FontResource(const QString &fullfilepath, QObject *parent)
-    : Resource(fullfilepath, parent)
+FontResource::FontResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
+    : Resource(mainfolder, fullfilepath, parent)
 {
 }
 

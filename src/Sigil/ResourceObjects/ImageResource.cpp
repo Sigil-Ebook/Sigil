@@ -22,10 +22,10 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/ImageResource.h"
 
-ImageResource::ImageResource(const QString &fullfilepath,
+ImageResource::ImageResource(const QString &mainfolder, const QString &fullfilepath,
                              QObject *parent)
     :
-    Resource(fullfilepath, parent)
+    Resource(mainfolder, fullfilepath, parent)
 {
 }
 

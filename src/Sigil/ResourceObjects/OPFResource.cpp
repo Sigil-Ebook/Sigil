@@ -65,8 +65,8 @@ static const QString TEMPLATE_TEXT =
     "</package>";
 
 
-OPFResource::OPFResource(const QString &fullfilepath, QObject *parent)
-    : XMLResource(fullfilepath, parent)
+OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
+    : XMLResource(mainfolder, fullfilepath, parent)
 {
     CreateMimetypes();
     FillWithDefaultText();

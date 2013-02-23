@@ -38,7 +38,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    ImageResource(const QString &fullfilepath,
+    ImageResource(const QString &mainfolder, const QString &fullfilepath,
                   QObject *parent = NULL);
 
     // inherited

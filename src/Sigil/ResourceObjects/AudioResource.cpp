@@ -21,8 +21,8 @@
 
 #include "ResourceObjects/AudioResource.h"
 
-AudioResource::AudioResource(const QString &fullfilepath, QObject *parent)
-    : Resource(fullfilepath, parent)
+AudioResource::AudioResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
+    : Resource(mainfolder, fullfilepath, parent)
 {
 }
 

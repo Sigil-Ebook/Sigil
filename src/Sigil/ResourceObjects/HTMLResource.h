@@ -53,7 +53,7 @@ public:
      * @param resources The hash of Resources present in the FolderKeeper.
      * @param parent The object's parent.
      */
-    HTMLResource(const QString &fullfilepath,
+    HTMLResource(const QString &mainfolder, const QString &fullfilepath,
                  const QHash< QString, Resource * > &resources,
                  QObject *parent = NULL);
 

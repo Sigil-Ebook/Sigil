@@ -41,7 +41,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    FontResource(const QString &fullfilepath, QObject *parent = NULL);
+    FontResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
     virtual ResourceType Type() const;

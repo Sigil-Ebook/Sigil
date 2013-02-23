@@ -46,7 +46,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    TextResource(const QString &fullfilepath, QObject *parent = NULL);
+    TextResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
 
     /**
      * Returns the text stored in the resource.

@@ -45,7 +45,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    CSSResource(const QString &fullfilepath, QObject *parent = NULL);
+    CSSResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
 
     ~CSSResource();
 

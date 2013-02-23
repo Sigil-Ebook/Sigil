@@ -31,7 +31,7 @@ class VideoResource : public Resource
 
 public:
 
-    VideoResource(const QString &fullfilepath, QObject *parent = NULL);
+    VideoResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
     virtual ResourceType Type() const;

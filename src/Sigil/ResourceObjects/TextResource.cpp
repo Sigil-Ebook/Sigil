@@ -31,9 +31,9 @@
 #include "ResourceObjects/TextResource.h"
 #include "sigil_exception.h"
 
-TextResource::TextResource(const QString &fullfilepath, QObject *parent)
+TextResource::TextResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
     :
-    Resource(fullfilepath, parent),
+    Resource(mainfolder, fullfilepath, parent),
     m_CacheInUse(false),
     m_TextDocument(new QTextDocument(this)),
     m_IsLoaded(false)

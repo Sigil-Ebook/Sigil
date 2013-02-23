@@ -31,7 +31,7 @@ class AudioResource : public Resource
 
 public:
 
-    AudioResource(const QString &fullfilepath, QObject *parent = NULL);
+    AudioResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
     virtual ResourceType Type() const;

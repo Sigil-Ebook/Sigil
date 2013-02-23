@@ -25,8 +25,8 @@
 #include "ResourceObjects/XMLResource.h"
 
 
-XMLResource::XMLResource(const QString &fullfilepath, QObject *parent)
-    : TextResource(fullfilepath, parent)
+XMLResource::XMLResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
+    : TextResource(mainfolder, fullfilepath, parent)
 {
 }
 

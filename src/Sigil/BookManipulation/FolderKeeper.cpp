@@ -147,42 +147,42 @@ Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
             if (filename == "page-map.xml") {
                 new_file_path = m_FullPathToMiscFolder + "/" + filename;
-                resource = new MiscTextResource(new_file_path);
+                resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
             } else {
                 // This is a big hack that assumes the new and old filepaths use root paths
                 // of the same length. I can't see how to fix this without refactoring
                 // a lot of the code to provide a more generalised interface.
                 new_file_path = m_FullPathToMainFolder % fullfilepath.right(fullfilepath.size() - m_FullPathToMainFolder.size());
-                resource = new Resource(new_file_path);
+                resource = new Resource(m_FullPathToMainFolder, new_file_path);
             }
         } else if (MISC_TEXT_EXTENSIONS.contains(extension)) {
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
-            resource = new MiscTextResource(new_file_path);
+            resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
         } else if (AUDIO_EXTENSIONS.contains(extension) || AUDIO_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToAudioFolder + "/" + filename;
-            resource = new AudioResource(new_file_path);
+            resource = new AudioResource(m_FullPathToMainFolder, new_file_path);
         } else if (VIDEO_EXTENSIONS.contains(extension) || VIDEO_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToVideoFolder + "/" + filename;
-            resource = new VideoResource(new_file_path);
+            resource = new VideoResource(m_FullPathToMainFolder, new_file_path);
         } else if (IMAGE_EXTENSIONS.contains(extension) || IMAGE_MIMEYPES.contains(mimetype)) {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
-            resource = new ImageResource(new_file_path);
+            resource = new ImageResource(m_FullPathToMainFolder, new_file_path);
         } else if (SVG_EXTENSIONS.contains(extension) || SVG_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
-            resource = new SVGResource(new_file_path);
+            resource = new SVGResource(m_FullPathToMainFolder, new_file_path);
         } else if (FONT_EXTENSIONS.contains(extension)) {
             new_file_path = m_FullPathToFontsFolder + "/" + filename;
-            resource = new FontResource(new_file_path);
+            resource = new FontResource(m_FullPathToMainFolder, new_file_path);
         } else if (TEXT_EXTENSIONS.contains(extension) || TEXT_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToTextFolder + "/" + filename;
-            resource = new HTMLResource(new_file_path, m_Resources);
+            resource = new HTMLResource(m_FullPathToMainFolder, new_file_path, m_Resources);
         } else if (STYLE_EXTENSIONS.contains(extension) || STYLE_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToStylesFolder + "/" + filename;
-            resource = new CSSResource(new_file_path);
+            resource = new CSSResource(m_FullPathToMainFolder, new_file_path);
         } else {
             // Fallback mechanism
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
-            resource = new Resource(new_file_path);
+            resource = new Resource(m_FullPathToMainFolder, new_file_path);
         }
 
         m_Resources[ resource->GetIdentifier() ] = resource;
@@ -470,8 +470,8 @@ void FolderKeeper::CreateFolderStructure()
 
 void FolderKeeper::CreateInfrastructureFiles()
 {
-    m_OPF = new OPFResource(m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this);
-    m_NCX = new NCXResource(m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this);
+    m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this);
+    m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this);
     m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;

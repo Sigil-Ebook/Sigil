@@ -42,11 +42,11 @@ const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilRepl
 
 const QString XML_TAG = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>";
 
-HTMLResource::HTMLResource(const QString &fullfilepath,
+HTMLResource::HTMLResource(const QString &mainfolder, const QString &fullfilepath,
                            const QHash< QString, Resource * > &resources,
                            QObject *parent)
     :
-    XMLResource(fullfilepath, parent),
+    XMLResource(mainfolder, fullfilepath, parent),
     m_Resources(resources)
 {
 }

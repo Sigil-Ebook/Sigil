@@ -57,8 +57,8 @@ static const QString TEMPLATE_TEXT =
     "</ncx>";
 
 
-NCXResource::NCXResource(const QString &fullfilepath, QObject *parent)
-    : XMLResource(fullfilepath, parent)
+NCXResource::NCXResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
+    : XMLResource(mainfolder, fullfilepath, parent)
 {
     FillWithDefaultText();
     // Make sure the file exists on disk.

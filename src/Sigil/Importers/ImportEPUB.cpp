@@ -631,7 +631,7 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         // the file does not physically exist.  We need to create a new one.
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % NCX_FILE_NAME;
         // Create a new file for the NCX.
-        NCXResource ncx_resource(m_NCXFilePath, &m_Book->GetFolderKeeper());
+        NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, &m_Book->GetFolderKeeper());
 
         // We are relying on an identifier being set from the metadata.
         // It might not have one if the book does not have the urn:uuid: format.

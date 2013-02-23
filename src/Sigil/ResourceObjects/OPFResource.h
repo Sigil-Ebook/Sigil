@@ -49,7 +49,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    OPFResource(const QString &fullfilepath, QObject *parent = NULL);
+    OPFResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
 
     // inherited
 

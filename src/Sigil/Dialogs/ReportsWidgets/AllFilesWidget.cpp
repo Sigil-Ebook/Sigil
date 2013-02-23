@@ -73,10 +73,9 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     double total_size = 0;
     QString main_folder = m_Book->GetFolderKeeper().GetFullPathToMainFolder();
     foreach(Resource *resource, m_AllResources) {
-        QString filepath = "../" + resource->GetRelativePathToOEBPS();
-        QString path = resource->GetFullPath();
-        QString relativepath = path.right(path.length() - main_folder.length() - 1);
-        QString directory = QFileInfo(relativepath).absolutePath() + "/";
+        QString fullpath = resource->GetFullPath();
+        QString filepath = resource->GetRelativePath();
+        QString directory = resource->GetFolder();
         QString filename = resource->Filename();
         QList<QStandardItem *> rowItems;
         QStandardItem *item;
@@ -90,7 +89,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         item->setToolTip(filepath);
         rowItems << item;
         // File Size
-        double ffsize = QFile(path).size() / 1024.0;
+        double ffsize = QFile(fullpath).size() / 1024.0;
         total_size += ffsize;
         QString fsize = QString::number(ffsize, 'f', 2);
         NumericItem *size_item = new NumericItem();

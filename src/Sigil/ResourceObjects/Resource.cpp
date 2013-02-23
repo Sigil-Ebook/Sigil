@@ -31,10 +31,11 @@
 
 const int WAIT_FOR_WRITE_DELAY = 100;
 
-Resource::Resource(const QString &fullfilepath, QObject *parent)
+Resource::Resource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
     :
     QObject(parent),
     m_Identifier(Utility::CreateUUID()),
+    m_MainFolder(mainfolder),
     m_FullFilePath(fullfilepath),
     m_LastSaved(0),
     m_LastWrittenTo(0),
@@ -60,6 +61,19 @@ QString Resource::Filename() const
     return QFileInfo(m_FullFilePath).fileName();
 }
 
+
+QString Resource::GetFolder() const
+{
+    // Pathname of the directory within the EPUB.
+    return QFileInfo(GetRelativePath()).absolutePath().remove(0, 1);
+}
+
+
+QString Resource::GetRelativePath() const
+{
+    // Pathname of the file within the EPUB.
+    return m_FullFilePath.right(m_FullFilePath.length() - m_MainFolder.length());
+}
 
 QString Resource::GetRelativePathToOEBPS() const
 {

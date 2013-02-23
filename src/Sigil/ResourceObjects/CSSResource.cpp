@@ -47,8 +47,8 @@ static const QString W3C_HTML_FORM = "<html>"
                                      " </body>"
                                      "</html>";
 
-CSSResource::CSSResource(const QString &fullfilepath, QObject *parent)
-    : TextResource(fullfilepath, parent),
+CSSResource::CSSResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
+    : TextResource(mainfolder, fullfilepath, parent),
       m_TemporaryValidationFiles(QList< QString >())
 {
 }
