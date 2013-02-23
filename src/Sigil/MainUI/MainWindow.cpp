@@ -969,7 +969,7 @@ void MainWindow::ReportsDialog()
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
-        ShowMessageOnStatusBar(tr("Reports cancelled due to XML not well formed."));
+        QMessageBox::warning(this, tr("Sigil"), tr("Reports cancelled due to XML not well formed."));
         return;
     }
     // non-modal dialog
@@ -1056,7 +1056,7 @@ void MainWindow::DeleteUnusedMedia()
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
-        ShowMessageOnStatusBar(tr("Delete Unused Media Files cancelled due to XML not well formed."));
+        QMessageBox::warning(this, tr("Sigil"), tr("Delete Unused Media Files cancelled due to XML not well formed."));
         return;
     }
 
@@ -1115,7 +1115,7 @@ void MainWindow::DeleteUnusedStyles()
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
-        ShowMessageOnStatusBar(tr("Delete Unused Styles cancelled due to XML not well formed."));
+        QMessageBox::warning(this, tr("Sigil"), tr("Delete Unused Styles cancelled due to XML not well formed."));
         return;
     }
 
@@ -1261,7 +1261,7 @@ void MainWindow::InsertId()
         QRegularExpressionMatch mo = invalid_id.match(selected_id);
 
         if (mo.hasMatch()) {
-            ShowMessageOnStatusBar(tr("ID is invalid - must start with a letter, followed by letter number _ : - or ."));
+            QMessageBox::warning(this, tr("Sigil"), tr("ID is invalid - must start with a letter, followed by letter number _ : - or ."));
             return;
         };
 
@@ -1523,12 +1523,12 @@ void MainWindow::MergeResources(QList <Resource *> resources)
             continue;
         }
         if (!h->FileIsWellFormed()) {
-            ShowMessageOnStatusBar(tr("Link Stylesheets cancelled: %1, XML not well formed.").arg(h->Filename()));
+            QMessageBox::warning(this, tr("Sigil"), tr("Merge cancelled: %1, XML not well formed.").arg(h->Filename()));
             return;
         }
     }
     if (!m_TabManager.IsAllTabDataWellFormed()) {
-        ShowMessageOnStatusBar(tr("Merge cancelled due to XML not well formed."));
+        QMessageBox::warning(this, tr("Sigil"), tr("Merge cancelled due to XML not well formed."));
         return;
     }
 
@@ -1571,7 +1571,7 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
             continue;
         }
         if (!h->FileIsWellFormed()) {
-            ShowMessageOnStatusBar(tr("Link Stylesheets cancelled: %1, XML not well formed.").arg(h->Filename()));
+            QMessageBox::warning(this, tr("Sigil"), tr("Link Stylesheets cancelled: %1, XML not well formed.").arg(h->Filename()));
             return;
         }
     }
@@ -2724,7 +2724,7 @@ void MainWindow::UpdateZoomLabel(float new_zoom_factor)
 void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource &originating_resource)
 {
     if (content.isEmpty()) {
-        ShowMessageOnStatusBar(tr("File cannot be split at this position."));
+        QMessageBox::warning(this, tr("Sigil"), tr("File cannot be split at this position."));
         return;
     }
 
@@ -2760,19 +2760,19 @@ void MainWindow::SplitOnSGFSectionMarkers()
     foreach(Resource * resource, html_resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         if (!html_resource) {
-            ShowMessageOnStatusBar(tr("Cannot split since at least one file is not an HTML file."));
+            QMessageBox::warning(this, tr("Sigil"), tr("Cannot split since at least one file is not an HTML file."));
             return;
         }
 
         // Check if data is well formed before splitting.
         if (!html_resource->FileIsWellFormed()) {
-            ShowMessageOnStatusBar(tr("Cannot split: %1 XML is not well formed").arg(html_resource->Filename()));
+            QMessageBox::warning(this, tr("Sigil"), tr("Cannot split: %1 XML is not well formed").arg(html_resource->Filename()));
             return;
         }
 
         // XXX: This should be using the mime type not the extension.
         if (!TEXT_EXTENSIONS.contains(QFileInfo(html_resource->Filename()).suffix().toLower())) {
-            ShowMessageOnStatusBar(tr("Cannot split since at least one file may not be an HTML file."));
+            QMessageBox::warning(this, tr("Sigil"), tr("Cannot split since at least one file may not be an HTML file."));
             return;
         }
     }
