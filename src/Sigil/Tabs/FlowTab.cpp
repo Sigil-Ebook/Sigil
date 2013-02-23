@@ -376,7 +376,7 @@ void FlowTab::SaveTabContent()
     // In BV, we only need to save the BV HTML into the resource if user has modified it,
     //        which will trigger ResourceModified() to set flag to say PV needs reloading.
     if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView && m_wBookView->IsModified()) {
-        m_HTMLResource.SetText(m_wBookView->GetHtml());
+        m_HTMLResource.SetText(CleanSource::Clean(m_wBookView->GetHtml()));
         m_wBookView->ResetModified();
         m_safeToLoad = true;
     }
