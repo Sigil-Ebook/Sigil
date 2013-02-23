@@ -75,7 +75,11 @@ void Index::AddIndexIDsOneFile(HTMLResource *html_resource)
     foreach(xc::DOMNode * node, nodes) {
         QString index_id_value;
         xc::DOMElement &element = static_cast< xc::DOMElement &>(*node);
-        QString text_node_text = XhtmlDoc::GetIDElementText(*node);
+
+        // Get the text of all sub-nodes.
+         QString text_node_text = XhtmlDoc::GetIDElementText(*node);
+        // Convert &nbsp; to space since Index Editor unfortunately does the same.
+        text_node_text.replace(QChar(160), " ");
 
         // Remove existing index ids
         if (element.hasAttribute(QtoX("id"))) {
