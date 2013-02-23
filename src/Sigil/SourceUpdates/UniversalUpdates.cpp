@@ -194,6 +194,7 @@ void UniversalUpdates::UpdateOneCSSFile(CSSResource *css_resource,
     css_resource->SetText(PerformCSSUpdates(source, css_updates)());
 }
 
+#include <QtDebug>
 QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         const QHash< QString, QString > &html_updates,
         const QHash< QString, QString > &css_updates,
@@ -214,12 +215,18 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
             source = CleanSource::Clean(source);
         }
         // Even though well formed checks might have already run we need to double check because cleaning might
-        // have tried to fix and may have failed.
+        // have tried to fix and may have failed or the user may have said to skip cleanning.
         if (!XhtmlDoc::IsDataWellFormed(source)) {
             throw QObject::tr("Cannot perform HTML updates since the file is not well formed");
         }
 
-        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates(source, html_updates, css_updates)().get()));
+        source = XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates(source, html_updates, css_updates)().get());
+        // For files that are valid we need to do a second clean because Xerces (PerformHTMLUpdates) will remove
+        // the formatting.
+        if (ss.cleanOn() & CLEANON_OPEN && !non_well_formed.contains(html_resource)) {
+            source = CleanSource::Clean(source);
+        }
+        html_resource->SetText(source);
         return QString();
     } catch (const ErrorBuildingDOM &) {
         // It would be great if we could just let this exception bubble up,

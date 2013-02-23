@@ -155,7 +155,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
         }
     }
 
-    const QStringList &load_errors         = UniversalUpdates::PerformUniversalUpdates(false, resources, updates, non_well_formed);
+    const QStringList load_errors = UniversalUpdates::PerformUniversalUpdates(false, resources, updates, non_well_formed);
 
     Q_FOREACH (QString err, load_errors) {
         AddLoadWarning(QString("%1").arg(err));
@@ -186,31 +186,6 @@ QSharedPointer<Book> ImportEPUB::GetBook()
 
     // If we have modified the book to add spine attribute, manifest item or NCX mark as changed.
     m_Book->SetModified(GetLoadWarnings().count() > 0);
-
-    if (ss.cleanOn() & CLEANON_OPEN && ss.cleanLevel() != SettingsStore::CleanLevel_Off) {
-        bool not_well_formed = false;
-        QList<HTMLResource *> hresources = m_Book->GetHTMLResources();
-        for (int i=0; i<hresources.count(); ++i) {
-            if (!XhtmlDoc::IsDataWellFormed(hresources.at(i)->GetText())) {
-                not_well_formed = true;
-                break;
-            }
-        }
-        if (not_well_formed) {
-            if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
-                        tr("Sigil"),
-                        tr("Some of the html files in the EPUB are not well formed and "
-                            "your current clean source settings are set to auto clean on open. "
-                            "Opening any non-well formed file will cause it to be auto fix which "
-                            "can result in data loss.\n\n"
-                            "Do you want to disable auto cleaning on opening of files?"),
-                        QMessageBox::Yes|QMessageBox::No)
-            ) {
-                ss.setCleanOn(ss.cleanOn() & ~CLEANON_OPEN);
-            }
-        }
-    }
-
     return m_Book;
 }
 

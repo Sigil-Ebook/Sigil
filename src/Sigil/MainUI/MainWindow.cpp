@@ -1667,13 +1667,6 @@ void MainWindow::FindWord(QString word)
             }
             done_current = true;
         }
-        else {
-            // Only clean if not the current file - otherwise lose cursor position
-            SettingsStore ss;
-            if (ss.cleanOn() & CLEANON_OPEN) {
-                html_resource->SetText(CleanSource::Clean(html_resource->GetText()));
-            }
-        }
         QString text = html_resource->GetText();
 
         int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
