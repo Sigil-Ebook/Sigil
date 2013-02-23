@@ -376,10 +376,6 @@ void MainWindow::ResourceUpdatedFromDisk(Resource &resource)
 
     if (resource.Type() == Resource::HTMLResourceType) {
         HTMLResource &html_resource = *qobject_cast< HTMLResource *>(&resource);
-        if (ss.cleanOn() & CLEANON_OPEN) {
-            html_resource.SetText(CleanSource::Clean(html_resource.GetText()));
-        }
-
         if (!m_Book->IsDataOnDiskWellFormed(html_resource)) {
             OpenResource(resource, -1, -1, QString(), MainWindow::ViewState_CodeView);
             message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well-formed and may be corrupted.");
@@ -3082,7 +3078,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
 
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
-        if (ss.cleanOn() & CLEANON_SAVE && ss.cleanLevel() != SettingsStore::CleanLevel_Off) {
+        if (ss.cleanOn() & CLEANON_SAVE) {
             QList <HTMLResource *> resources;
             Q_FOREACH(Resource * r, GetAllHTMLResources()) {
                 HTMLResource *t = dynamic_cast<HTMLResource *>(r);

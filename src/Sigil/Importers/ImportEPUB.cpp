@@ -49,6 +49,7 @@
 #include "BookManipulation/Metadata.h"
 #include "Importers/ImportEPUB.h"
 #include "Misc/FontObfuscation.h"
+#include "Misc/HTMLEncodingResolver.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/CSSResource.h"
@@ -120,7 +121,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     AddObfuscatedButUndeclaredFonts(encrypted_files);
     AddNonStandardAppleXML();
     LoadInfrastructureFiles();
-    const QHash<QString, QString> &updates = LoadFolderStructure();
+    const QHash<QString, QString> updates = LoadFolderStructure();
     const QList<Resource *> resources     = m_Book->GetFolderKeeper().GetResourceList();
 
     // We're going to check all html files until we find one that isn't well formed then we'll prompt
@@ -129,11 +130,18 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     // If we have non-well formed content and they shouldn't be auto fixed we'll pass that on to
     // the universal update function so it knows to skip them. Otherwise we won't include them and
     // let it modify the file.
-    if (ss.cleanOn() & CLEANON_OPEN && ss.cleanLevel() != SettingsStore::CleanLevel_Off) {
+    if (ss.cleanOn() & CLEANON_OPEN) {
         for (int i=0; i<resources.count(); ++i) {
             if (resources.at(i)->Type() == Resource::HTMLResourceType) {
                 HTMLResource *hresource = dynamic_cast<HTMLResource *>(resources.at(i));
                 if (!hresource) {
+                    continue;
+                }
+                // Load the content into the HTMLResource so we can perform a well formed check.
+                try {
+                    hresource->SetText(HTMLEncodingResolver::ReadHTMLFile(hresource->GetFullPath()));
+                } catch(...) {
+                    non_well_formed << hresource;
                     continue;
                 }
                 if (!XhtmlDoc::IsDataWellFormed(hresource->GetText())) {

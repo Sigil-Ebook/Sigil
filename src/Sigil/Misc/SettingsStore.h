@@ -30,7 +30,6 @@
 
 #define CLEANON_OPEN         (1 << 0)
 #define CLEANON_SAVE         (1 << 1)
-#define CLEANON_REPLACEINALL (1 << 2)
 
 class QColor;
 

@@ -157,7 +157,6 @@ SettingsStore::CleanLevel SettingsStore::cleanLevel()
     int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_PrettyPrintTidy).toInt();
 
     switch (level) {
-        case SettingsStore::CleanLevel_Off:
         case SettingsStore::CleanLevel_PrettyPrint:
         case SettingsStore::CleanLevel_PrettyPrintTidy:
         case SettingsStore::CleanLevel_Tidy:
@@ -165,14 +164,14 @@ SettingsStore::CleanLevel SettingsStore::cleanLevel()
             break;
 
         default:
-            return SettingsStore::CleanLevel_Off;
+            return SettingsStore::CleanLevel_PrettyPrintTidy;
     }
 }
 
 int SettingsStore::cleanOn()
 {
     clearSettingsGroup();
-    return value(KEY_CLEAN_ON, (CLEANON_OPEN | CLEANON_SAVE | CLEANON_REPLACEINALL)).toInt();
+    return value(KEY_CLEAN_ON, (CLEANON_OPEN | CLEANON_SAVE)).toInt();
 }
 
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()

@@ -38,22 +38,15 @@ PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
 
     if (ui.CleanLevelTidy->isChecked()) {
         new_clean_level = SettingsStore::CleanLevel_Tidy;
-    } else if (ui.CleanLevelPrettyPrintTidy->isChecked()) {
-        new_clean_level = SettingsStore::CleanLevel_PrettyPrintTidy;
     } else {
-        new_clean_level = SettingsStore::CleanLevel_Off;
+        new_clean_level = SettingsStore::CleanLevel_PrettyPrintTidy;
     }
 
     if (ui.CleanOnOpen->isChecked()) {
         new_clean_on_level |= CLEANON_OPEN;
     }
-
     if (ui.CleanOnSave->isChecked()) {
         new_clean_on_level |= CLEANON_SAVE;
-    }
-
-    if (ui.CleanOnReplaceInAll->isChecked()) {
-        new_clean_on_level |= CLEANON_REPLACEINALL;
     }
 
     SettingsStore settings;
@@ -66,12 +59,10 @@ void CleanSourceWidget::readSettings()
 {
     SettingsStore settings;
     SettingsStore::CleanLevel level = settings.cleanLevel();
-    ui.CleanLevelOff->setChecked(level == SettingsStore::CleanLevel_Off);
     ui.CleanLevelPrettyPrintTidy->setChecked(level == SettingsStore::CleanLevel_PrettyPrintTidy);
     ui.CleanLevelTidy->setChecked(level == SettingsStore::CleanLevel_Tidy);
     int cleanOn = settings.cleanOn();
     ui.CleanOnOpen->setChecked(cleanOn & CLEANON_OPEN);
     ui.CleanOnSave->setChecked(cleanOn & CLEANON_SAVE);
-    ui.CleanOnReplaceInAll->setChecked(cleanOn & CLEANON_REPLACEINALL);
 }
 
