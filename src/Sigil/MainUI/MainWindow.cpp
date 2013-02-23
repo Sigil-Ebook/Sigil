@@ -1257,10 +1257,10 @@ void MainWindow::InsertId()
 
     if (select_id.exec() == QDialog::Accepted) {
         QString selected_id = select_id.GetId();
-        QRegularExpression valid_id("^[A-Za-z][A-Za-z0-9_:\\.-]*");
+        QRegularExpression invalid_id("(^[^A-Za-z]|[^A-Za-z0-9_:\\.-])");
+        QRegularExpressionMatch mo = invalid_id.match(selected_id);
 
-        QRegularExpressionMatch mo = valid_id.match(selected_id);
-        if (!mo.hasMatch()) {
+        if (mo.hasMatch()) {
             ShowMessageOnStatusBar(tr("ID is invalid - must start with a letter, followed by letter number _ : - or ."));
             return;
         };
