@@ -27,12 +27,46 @@
     <number>0</number>
    </property>
    <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="toolTip">
+      <string>Choose when your HTML code is cleaned using your selected option.</string>
+     </property>
+     <property name="title">
+      <string>Automatically Clean and Format HTML Source Code:</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="CleanOnOpen">
+        <property name="toolTip">
+         <string>Clean when opening an EPUB or HTML file, 
+when switching from Book View to Code View, 
+and when loading a file edited with Open With.</string>
+        </property>
+        <property name="text">
+         <string>Open</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="CleanOnSave">
+        <property name="toolTip">
+         <string>Clean when saving an EPUB.</string>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="toolTip">
       <string>Choose what type of automatic cleaning and formatting should be done.</string>
      </property>
      <property name="title">
-      <string>Clean and Format Type</string>
+      <string>If automatically cleaning, use this type:</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout2">
       <item>
@@ -59,40 +93,6 @@ This may change your formatting to use inline style sections.</string>
         </property>
         <property name="checked">
          <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="toolTip">
-      <string>Choose when your HTML code is cleaned using your selected option.</string>
-     </property>
-     <property name="title">
-      <string>Automatically Clean and Format HTML Source Code</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QCheckBox" name="CleanOnOpen">
-        <property name="toolTip">
-         <string>Clean when opening an EPUB or HTML file, 
-when switching from Book View to Code View, 
-and when loading a file edited with Open With.</string>
-        </property>
-        <property name="text">
-         <string>Open</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QCheckBox" name="CleanOnSave">
-        <property name="toolTip">
-         <string>Clean when saving an EPUB.</string>
-        </property>
-        <property name="text">
-         <string>Save</string>
         </property>
        </widget>
       </item>

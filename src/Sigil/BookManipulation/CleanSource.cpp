@@ -593,8 +593,12 @@ QString CleanSource::PrettifyDOCTYPEHeader(const QString &source)
 
 QString CleanSource::NbspToEntity(const QString &source)
 {
-    QString tmp = source;
-    return tmp.replace(QChar(160), "&nbsp;");
+    QString new_source = source;
+    new_source.replace(QChar(160), "&nbsp;");
+    new_source.replace("&#160;", "&nbsp;");
+    new_source.replace("&#x00a0;", "&nbsp;");
+    new_source.replace("&#x00A0;", "&nbsp;");
+    return new_source;
 }
 
 

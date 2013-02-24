@@ -2,6 +2,7 @@ Sigil 0.7.1 TBD
     - Implement issue 2009: Add semantic tags to filenames in reports.
     - Implement issue 2028: Special characters should work in non-html files.
     - Implement issue 2027: Upgrade boost software.
+    - Fix issue 2030: The &#160; character is incorrectly converted to space on open.
     - Fix issue 2035: Index Editor entries with nbsp character don't match text.
     - Fix issue 2016: Find with wrap off and All HTML Files still wraps on last file.
     - Fix issue 2001: Spellcheck does not always highlight a word the first time.
