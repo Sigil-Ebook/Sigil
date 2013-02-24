@@ -132,10 +132,14 @@ QString CleanSource::RemoveBlankStyleLines(const QString &source)
 // No cleaning, just convert the source to valid XHTML
 QString CleanSource::ToValidXHTML(const QString &source)
 {
-    QString newsource = HTMLTidy(source, Tidy_Fast);
-    newsource = RemoveBlankStyleLines(newsource);
-    // Run Clean to ensure proper formatting based on the user's settings.
-    newsource = Clean(newsource);
+    QString newsource = source;
+
+    if (!XhtmlDoc::IsDataWellFormed(source)) {
+        newsource = HTMLTidy(source, Tidy_Fast);
+        newsource = RemoveBlankStyleLines(newsource);
+        // Run PP to ensure proper formatting.
+        newsource = PrettyPrintTidy(newsource);
+    }
     return newsource;
 }
 
@@ -152,10 +156,12 @@ QString CleanSource::PrettyPrintTidy(const QString &source)
 
 QString CleanSource::ProcessXML(const QString &source)
 {
+#if 0
     HTMLPrettyPrint pp(source);
     pp.setIndentLevel(0);
     return pp.prettyPrint();
-    //return HTMLTidy( source, Tidy_XML );
+#endif
+    return HTMLTidy( source, Tidy_XML );
 }
 
 
