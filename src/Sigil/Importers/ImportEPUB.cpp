@@ -130,20 +130,22 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     // If we have non-well formed content and they shouldn't be auto fixed we'll pass that on to
     // the universal update function so it knows to skip them. Otherwise we won't include them and
     // let it modify the file.
-    if (ss.cleanOn() & CLEANON_OPEN) {
-        for (int i=0; i<resources.count(); ++i) {
-            if (resources.at(i)->Type() == Resource::HTMLResourceType) {
-                HTMLResource *hresource = dynamic_cast<HTMLResource *>(resources.at(i));
-                if (!hresource) {
-                    continue;
-                }
-                // Load the content into the HTMLResource so we can perform a well formed check.
-                try {
-                    hresource->SetText(HTMLEncodingResolver::ReadHTMLFile(hresource->GetFullPath()));
-                } catch(...) {
+    for (int i=0; i<resources.count(); ++i) {
+        if (resources.at(i)->Type() == Resource::HTMLResourceType) {
+            HTMLResource *hresource = dynamic_cast<HTMLResource *>(resources.at(i));
+            if (!hresource) {
+                continue;
+            }
+            // Load the content into the HTMLResource so we can perform a well formed check.
+            try {
+                hresource->SetText(HTMLEncodingResolver::ReadHTMLFile(hresource->GetFullPath()));
+            } catch(...) {
+                if (ss.cleanOn() & CLEANON_OPEN) {
                     non_well_formed << hresource;
                     continue;
                 }
+            }
+            if (ss.cleanOn() & CLEANON_OPEN) {
                 if (!XhtmlDoc::IsDataWellFormed(hresource->GetText())) {
                     non_well_formed << hresource;
                 }
