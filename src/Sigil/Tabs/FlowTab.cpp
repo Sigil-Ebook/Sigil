@@ -854,30 +854,28 @@ QString FlowTab::GetFilename()
 
 bool FlowTab::IsDataWellFormed()
 {
-    if (!m_safeToLoad) {
-        // The content has been changed or was in a not well formed state when last checked.
-        if (m_ViewState == MainWindow::ViewState_BookView) {
-            // If we are in BookView, then we know the data must be well formed, as even if edits have
-            // taken place QWebView will have retained the XHTML integrity.
-            m_safeToLoad = true;
-        } else {
-            // We are in PV or CV. In either situation the xhtml from CV could be invalid as the user may
-            // have switched to PV to preview it (as they are allowed to do).
-            // It is also possible that they opened the tab in PV as the initial load and CV is not loaded.
-            // We are doing a well formed check, but we can only do it on the CV text if CV has been loaded.
-            // So lets play safe and have a fallback to use the resource text if CV is not loaded yet.
-            XhtmlDoc::WellFormedError error = (m_wCodeView != NULL)
-                                              ? XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText())
-                                              : XhtmlDoc::WellFormedErrorForSource(m_HTMLResource.GetText());
-            m_safeToLoad = error.line == -1;
+    // The content has been changed or was in a not well formed state when last checked.
+    if (m_ViewState == MainWindow::ViewState_BookView) {
+        // If we are in BookView, then we know the data must be well formed, as even if edits have
+        // taken place QWebView will have retained the XHTML integrity.
+        m_safeToLoad = true;
+    } else {
+        // We are in PV or CV. In either situation the xhtml from CV could be invalid as the user may
+        // have switched to PV to preview it (as they are allowed to do).
+        // It is also possible that they opened the tab in PV as the initial load and CV is not loaded.
+        // We are doing a well formed check, but we can only do it on the CV text if CV has been loaded.
+        // So lets play safe and have a fallback to use the resource text if CV is not loaded yet.
+        XhtmlDoc::WellFormedError error = (m_wCodeView != NULL)
+                                          ? XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText())
+                                          : XhtmlDoc::WellFormedErrorForSource(m_HTMLResource.GetText());
+        m_safeToLoad = error.line == -1;
 
-            if (!m_safeToLoad) {
-                if (m_ViewState != MainWindow::ViewState_CodeView) {
-                    CodeView();
-                }
-
-                m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
+        if (!m_safeToLoad) {
+            if (m_ViewState != MainWindow::ViewState_CodeView) {
+                CodeView();
             }
+
+            m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
         }
     }
 
