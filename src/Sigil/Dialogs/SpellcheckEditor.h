@@ -52,7 +52,7 @@ public:
     void ForceClose();
 
 public slots:
-    void Refresh();
+    void Refresh(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
 signals:
     void ShowStatusMessageRequest(const QString &message);
@@ -83,8 +83,10 @@ private slots:
 
     void OpenContextMenu(const QPoint &point);
 
+    void Sort(int logicalindex, Qt::SortOrder order);
+
 private:
-    void CreateModel();
+    void CreateModel(int logicalindex, Qt::SortOrder order);
     void UpdateDictionaries();
     void SetupSpellcheckEditorTree();
     void MarkSpelledOkay(int row);

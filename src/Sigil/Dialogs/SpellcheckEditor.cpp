@@ -38,6 +38,8 @@ static const QString SETTINGS_GROUP = "spellcheck_editor";
 static const QString SELECTED_DICTIONARY = "selected_dictionary";
 static const QString SHOW_ALL_WORDS = "show_all_words";
 static const QString CASE_INSENSITIVE_SORT = "case_insensitive_sort";
+static const QString SORT_COLUMN = "sort_column";
+static const QString SORT_ORDER = "sort_order";
 static const QString FILE_EXTENSION = "ini";
 
 SpellcheckEditor::SpellcheckEditor(QWidget *parent)
@@ -225,7 +227,7 @@ void SpellcheckEditor::MarkSpelledOkay(int row)
     }
 }
 
-void SpellcheckEditor::CreateModel()
+void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
 {
     m_SpellcheckEditorModel->clear();
     QStringList header;
@@ -286,17 +288,22 @@ void SpellcheckEditor::CreateModel()
 
         m_SpellcheckEditorModel->invisibleRootItem()->appendRow(row_items);
     }
-    ui.SpellcheckEditorTree->sortByColumn(0, Qt::AscendingOrder);
+
+    // Since sortIndicator calls this routine, must disconnect/reconnect while resorting
+    disconnect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+    ui.SpellcheckEditorTree->header()->setSortIndicator(sort_column, sort_order);
+    connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+
 
     ui.SpellcheckEditorTree->header()->setToolTip("<table><tr><td>" % tr("Misspelled Words") % ":</td><td>" % QString::number(total_misspelled_words) % "</td></tr><tr><td>" % tr("Total Unique Words") % ":</td><td>" % QString::number(unique_words.count()) % "</td></tr></table>");
 }
 
-void SpellcheckEditor::Refresh()
+void SpellcheckEditor::Refresh(int sort_column, Qt::SortOrder sort_order)
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     WriteSettings();
-    CreateModel();
+    CreateModel(sort_column, sort_order);
     UpdateDictionaries();
 
     ReadSettings();
@@ -381,6 +388,11 @@ void SpellcheckEditor::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
+void SpellcheckEditor::Sort(int logicalindex, Qt::SortOrder order)
+{
+    Refresh(logicalindex, order);
+}
+
 void SpellcheckEditor::ReadSettings()
 {
     SettingsStore settings;
@@ -429,6 +441,19 @@ void SpellcheckEditor::ReadSettings()
         }
     }
 
+    // Sort Order.
+    if (settings.contains(SORT_COLUMN) && settings.contains(SORT_ORDER)) {
+        int sort_column = settings.value(SORT_COLUMN).toInt();
+        Qt::SortOrder sort_order = Qt::AscendingOrder;
+        if (!settings.value(SORT_ORDER).toBool()) {
+            sort_order = Qt::DescendingOrder;
+        }
+        // Since sortIndicator calls this routine, must disconnect/reconnect while resorting
+        disconnect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+        ui.SpellcheckEditorTree->header()->setSortIndicator(sort_column, sort_order);
+        connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+    }
+
     settings.endGroup();
 }
 
@@ -445,6 +470,8 @@ void SpellcheckEditor::WriteSettings()
     // Checkboxes
     settings.setValue(SHOW_ALL_WORDS, ui.ShowAllWords->checkState() == Qt::Checked);
     settings.setValue(CASE_INSENSITIVE_SORT, ui.CaseInsensitiveSort->checkState() == Qt::Checked);
+    settings.setValue(SORT_COLUMN, ui.SpellcheckEditorTree->header()->sortIndicatorSection());
+    settings.setValue(SORT_ORDER, ui.SpellcheckEditorTree->header()->sortIndicatorOrder() == Qt::AscendingOrder);
 
     settings.endGroup();
 }
@@ -507,6 +534,8 @@ void SpellcheckEditor::ConnectSignalsSlots()
     connect(ui.ChangeAll, SIGNAL(clicked()), this, SLOT(ChangeAll()));
     connect(ui.SpellcheckEditorTree, SIGNAL(customContextMenuRequested(const QPoint &)),
             this,        SLOT(OpenContextMenu(const QPoint &)));
+    connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), 
+            this, SLOT(Sort(int, Qt::SortOrder)));
     connect(m_Ignore,       SIGNAL(triggered()), this, SLOT(Ignore()));
     connect(m_Add,      SIGNAL(triggered()), this, SLOT(Add()));
     connect(m_Find,      SIGNAL(triggered()), this, SLOT(FindSelectedWord()));
@@ -518,6 +547,6 @@ void SpellcheckEditor::ConnectSignalsSlots()
     connect(ui.CaseInsensitiveSort,  SIGNAL(stateChanged(int)),
             this,               SLOT(ChangeState(int)));
     connect(ui.Dictionaries, SIGNAL(activated(const QString &)),
-            this,            SLOT(DictionaryChanged(const QString &))
-           );
+            this,            SLOT(DictionaryChanged(const QString &)));
+
 }
