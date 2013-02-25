@@ -24,6 +24,7 @@
 #include <QtWebKitWidgets/QWebInspector>
 
 #include "MainUI/PreviewWindow.h"
+#include "Misc/SleepFunctions.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ViewEditors/BookViewEditor.h"
 
@@ -113,6 +114,13 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor
     }
 
     m_Preview->CustomSetDocument(filename, text);
+
+    // Wait until the preview is loaded before moving cursor.
+    while (!m_Preview->IsLoadingFinished()) {
+        qApp->processEvents();
+        SleepFunctions::msleep(100);
+    }
+
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
     m_Preview->InspectElement();
