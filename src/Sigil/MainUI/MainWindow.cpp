@@ -406,7 +406,7 @@ void MainWindow::ShowLastOpenFileWarnings()
     if (!m_LastOpenFileWarnings.isEmpty()) {
         Utility::DisplayStdWarningDialog(
             "<p><b>" % 
-            tr("The EPUB contains errors.") % 
+            tr("This EPUB contains errors.") % 
             "</b></p><p>" % 
             tr("Select Show Details for more information.") % 
             "</p>",
@@ -3092,11 +3092,11 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
             if (not_well_formed) {
                 if (QMessageBox::Yes == QMessageBox::warning(this,
                             tr("Sigil"),
-                            tr("Some HTML files are not well formed and "
-                                "your current clean source settings are set to auto clean on save. "
-                                "Saving any non-well formed file will cause it to be auto fix which "
-                                "can result in data loss.\n\n"
-                                "Are you sure you want to auto clean?"),
+                            tr("This EPUB has HTML files that are not well formed and "
+                                "your current Clean Source preferences are set to automatically clean on Save. "
+                                "Saving a file that is not well formed will cause it to be automatically "
+                                "fixed, which can result in data loss.\n\n"
+                                "Do you want to automatically fix the files before saving?"),
                             QMessageBox::Yes|QMessageBox::No)
                 ) {
                     CleanSource::ReformatAll(resources, CleanSource::Clean);

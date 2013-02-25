@@ -63,10 +63,12 @@ and when loading a file edited with Open With.</string>
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="toolTip">
-      <string>Choose what type of automatic cleaning and formatting should be done.</string>
+      <string>Choose what type of cleaning and formatting
+should be done when automatic cleaning is enabled,
+or when cleaning manually.</string>
      </property>
      <property name="title">
-      <string>If automatically cleaning, use this type:</string>
+      <string>When cleaning, use this type:</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout2">
       <item>

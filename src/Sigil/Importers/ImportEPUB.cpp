@@ -153,10 +153,10 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     if (!non_well_formed.isEmpty()) {
         if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
                 tr("Sigil"),
-                tr("The EPUB has HTML files that are not well-formed. "
-                    "Sigil can attempt to auto fix these files however there "
-                    "could be data lost due from this process\n\n"
-                    "Do you want Sigil to try to auto fix these files?"),
+                tr("This EPUB has HTML files that are not well formed. "
+                    "Sigil can attempt to automatically fix these files, although this "
+                    "can result in data loss.\n\n"
+                    "Do you want to automatically fix the files?"),
                 QMessageBox::Yes|QMessageBox::No)
         ) {
             non_well_formed.clear();
