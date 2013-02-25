@@ -176,17 +176,6 @@ The selected word does not have to be misspelled.</string>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="Refresh">
-       <property name="text">
-        <string>Refresh</string>
-       </property>
-       <property name="toolTip">
-        <string>Re-check the HTML files for misspelled words.
-Use if you edit any HTML files while Spellcheck is open.</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QCheckBox" name="ShowAllWords">
        <property name="text">
         <string>Show All Words</string>
@@ -194,7 +183,45 @@ Use if you edit any HTML files while Spellcheck is open.</string>
       </widget>
      </item>
      <item>
+      <widget class="QCheckBox" name="CaseInsensitiveSort">
+       <property name="toolTip">
+        <string>Sort words as AaBbCc instead of ABCabc.</string>
+       </property>
+       <property name="text">
+        <string>Case Insensitive Sort</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QPushButton" name="Refresh">
+       <property name="toolTip">
+        <string>Re-check the HTML files for misspelled words.
+Use if you edit any HTML files while Spellcheck is open.</string>
+       </property>
+       <property name="text">
+        <string>Refresh</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>

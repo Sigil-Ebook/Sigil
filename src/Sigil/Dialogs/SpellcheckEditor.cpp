@@ -27,6 +27,7 @@
 #include <QtWidgets/QPushButton>
 
 #include "Dialogs/SpellcheckEditor.h"
+#include "Misc/CaseInsensitiveItem.h"
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
@@ -35,6 +36,8 @@
 
 static const QString SETTINGS_GROUP = "spellcheck_editor";
 static const QString SELECTED_DICTIONARY = "selected_dictionary";
+static const QString SHOW_ALL_WORDS = "show_all_words";
+static const QString CASE_INSENSITIVE_SORT = "case_insensitive_sort";
 static const QString FILE_EXTENSION = "ini";
 
 SpellcheckEditor::SpellcheckEditor(QWidget *parent)
@@ -254,11 +257,24 @@ void SpellcheckEditor::CreateModel()
             continue;
         }
 
-        QStandardItem *word_item = new QStandardItem(word);
+        QList<QStandardItem *> row_items;
+
+        if (ui.CaseInsensitiveSort->checkState() == Qt::Unchecked) {
+            QStandardItem *word_item = new QStandardItem(word);
+            word_item->setEditable(false);
+            row_items << word_item;
+        }
+        else {
+            CaseInsensitiveItem *word_item = new CaseInsensitiveItem();
+            word_item->setText(word);
+            word_item->setEditable(false);
+            row_items << word_item;
+        }
         NumericItem *count_item = new NumericItem();
         count_item->setText(QString::number(count));
+        row_items << count_item;
+
         QStandardItem *misspelled_item = new QStandardItem();
-        word_item->setEditable(false);
         misspelled_item->setEditable(false);
         if (misspelled) {
             misspelled_item->setText(tr("Yes"));
@@ -266,9 +282,8 @@ void SpellcheckEditor::CreateModel()
         else {
             misspelled_item->setText(tr("No"));
         }
+        row_items << misspelled_item ;
 
-        QList<QStandardItem *> row_items;
-        row_items << word_item << count_item << misspelled_item ;
         m_SpellcheckEditorModel->invisibleRootItem()->appendRow(row_items);
     }
     ui.SpellcheckEditorTree->sortByColumn(0, Qt::AscendingOrder);
@@ -307,7 +322,7 @@ void SpellcheckEditor::DictionaryChanged(QString dictionary)
     ui.Dictionaries->setToolTip(dictionary);
 }
 
-void SpellcheckEditor::ChangeDisplayType(int state)
+void SpellcheckEditor::ChangeState(int state)
 {
     Refresh();
 }
@@ -393,6 +408,27 @@ void SpellcheckEditor::ReadSettings()
     }
     ui.Dictionaries->setToolTip(dictionary);
 
+    // Checkboxes
+    // Disconnect signals to avoid refresh when setting.
+    if (settings.contains(SHOW_ALL_WORDS)) {
+        if (settings.value(SHOW_ALL_WORDS).toBool()) {
+            disconnect(ui.ShowAllWords, SIGNAL(stateChanged(int)),
+                    this, SLOT(ChangeState(int)));
+            ui.ShowAllWords->setCheckState(Qt::Checked);
+            connect(ui.ShowAllWords, SIGNAL(stateChanged(int)),
+                    this, SLOT(ChangeState(int)));
+        }
+    }
+    if (settings.contains(CASE_INSENSITIVE_SORT)) {
+        if (settings.value(CASE_INSENSITIVE_SORT).toBool()) {
+            disconnect(ui.CaseInsensitiveSort, SIGNAL(stateChanged(int)),
+                    this, SLOT(ChangeState(int)));
+            ui.CaseInsensitiveSort->setCheckState(Qt::Checked);
+            connect(ui.CaseInsensitiveSort, SIGNAL(stateChanged(int)),
+                    this, SLOT(ChangeState(int)));
+        }
+    }
+
     settings.endGroup();
 }
 
@@ -405,6 +441,10 @@ void SpellcheckEditor::WriteSettings()
 
     // Selected Dictionary
     settings.setValue(SELECTED_DICTIONARY, ui.Dictionaries->currentText());
+
+    // Checkboxes
+    settings.setValue(SHOW_ALL_WORDS, ui.ShowAllWords->checkState() == Qt::Checked);
+    settings.setValue(CASE_INSENSITIVE_SORT, ui.CaseInsensitiveSort->checkState() == Qt::Checked);
 
     settings.endGroup();
 }
@@ -474,8 +514,9 @@ void SpellcheckEditor::ConnectSignalsSlots()
     connect(ui.SpellcheckEditorTree, SIGNAL(doubleClicked(const QModelIndex &)),
             this,         SLOT(FindSelectedWord()));
     connect(ui.ShowAllWords,  SIGNAL(stateChanged(int)),
-            this,               SLOT(ChangeDisplayType(int))
-           );
+            this,               SLOT(ChangeState(int)));
+    connect(ui.CaseInsensitiveSort,  SIGNAL(stateChanged(int)),
+            this,               SLOT(ChangeState(int)));
     connect(ui.Dictionaries, SIGNAL(activated(const QString &)),
             this,            SLOT(DictionaryChanged(const QString &))
            );

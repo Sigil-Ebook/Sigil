@@ -67,12 +67,12 @@ protected slots:
     void showEvent(QShowEvent *event);
 
 private slots:
-    void ChangeDisplayType(int state);
     void FindSelectedWord();
     void SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void UpdateSuggestions();
 
     void DictionaryChanged(QString dictionary);
+    void ChangeState(int state);
 
     void Ignore();
     void Add();

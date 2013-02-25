@@ -262,6 +262,7 @@ set( MISC_FILES
     Misc/TOCHTMLWriter.cpp
     Misc/TOCHTMLWriter.h
     Misc/NumericItem.h
+    Misc/CaseInsensitiveItem.h
     Misc/WrapIndicator.h
     Misc/XMLEntities.cpp
     )
