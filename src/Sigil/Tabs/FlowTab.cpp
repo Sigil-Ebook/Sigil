@@ -664,6 +664,9 @@ bool FlowTab::ViewStatesEnabled()
 
 void FlowTab::GoToCaretLocation(QList< ViewEditor::ElementIndex > location)
 {
+    if (location.isEmpty()) {
+        return;
+    }
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->StoreCaretLocationUpdate(location);
         m_wBookView->ExecuteCaretUpdate();
