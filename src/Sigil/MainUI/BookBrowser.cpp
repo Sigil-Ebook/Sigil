@@ -640,6 +640,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia)
     }
 
     if (!added_files.isEmpty()) {
+        QApplication::setOverrideCursor(Qt::WaitCursor);
         emit ResourcesAdded();
 
         if (open_resource) {
@@ -650,6 +651,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia)
         emit BookContentModified();
         Refresh();
         emit ShowStatusMessageRequest(tr("File(s) added."));
+        QApplication::restoreOverrideCursor();
     }
 
     return added_files;

@@ -29,7 +29,8 @@
    <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="toolTip">
-      <string>Choose when your HTML code is cleaned using your selected option.</string>
+      <string>Choose when your HTML code is automatically 
+formatted and cleaned using your selected option.</string>
      </property>
      <property name="title">
       <string>Automatically Clean and Format HTML Source Code:</string>
@@ -39,8 +40,7 @@
        <widget class="QCheckBox" name="CleanOnOpen">
         <property name="toolTip">
          <string>Clean when opening an EPUB or HTML file, 
-when switching from Book View to Code View, 
-and when loading a file edited with Open With.</string>
+and when switching from Book View to Code View.</string>
         </property>
         <property name="text">
          <string>Open</string>
@@ -68,7 +68,7 @@ should be done when automatic cleaning is enabled,
 or when cleaning manually.</string>
      </property>
      <property name="title">
-      <string>When cleaning, use this type:</string>
+      <string>When Cleaning, Use This Type:</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout2">
       <item>

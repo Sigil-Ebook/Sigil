@@ -188,7 +188,7 @@ The selected word does not have to be misspelled.</string>
         <string>Sort words as AaBbCc instead of ABCabc.</string>
        </property>
        <property name="text">
-        <string>Case Insensitive Sort</string>
+        <string>Case-Insensitive Sort</string>
        </property>
       </widget>
      </item>

@@ -322,6 +322,7 @@ bool OPFModel:: RenameResource(Resource &resource, const QString &new_filename)
 
 bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> new_filenames)
 {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     QStringList not_renamed;
     QHash< QString, QString > update;
     foreach(Resource * resource, resources) {
@@ -357,13 +358,12 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
     }
 
     if (update.count() > 0) {
-        QApplication::setOverrideCursor(Qt::WaitCursor);
         UniversalUpdates::PerformUniversalUpdates(true, m_Book->GetFolderKeeper().GetResourceList(), update);
-        QApplication::restoreOverrideCursor();
         emit BookContentModified();
     }
 
     Refresh();
+    QApplication::restoreOverrideCursor();
 
     if (not_renamed.isEmpty()) {
         return true;
@@ -385,7 +385,7 @@ void OPFModel::InitializeModel()
 
         QString semantic = m_Book->GetOPF().GetGuideSemanticNameForResource(resource);
         if (!semantic.isEmpty()) {
-            tooltip += "(" + semantic + ")";
+            tooltip += " (" + semantic + ")";
         }
         item->setToolTip(tooltip);
 

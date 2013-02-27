@@ -3012,6 +3012,7 @@ void MainWindow::LoadFile(const QString &fullfilepath)
                                            .arg(error.message));
         } else {
             QApplication::setOverrideCursor(Qt::WaitCursor);
+            ShowMessageOnStatusBar(tr("Loading file..."), 0);
             m_Book->SetModified(false);
             SetNewBook(importer->GetBook());
 
@@ -3039,21 +3040,25 @@ void MainWindow::LoadFile(const QString &fullfilepath)
             return;
         }
     } catch (const FileEncryptedWithDrm &) {
+        ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         Utility::DisplayStdErrorDialog(
             tr("The creator of this file has encrypted it with DRM. "
                "Sigil cannot open such files."));
     } catch (const EPUBLoadParseError &epub_load_error) {
+        ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         const QString errors = QString::fromStdString(*boost::get_error_info<errinfo_epub_load_parse_errors>(epub_load_error));
         Utility::DisplayStdErrorDialog(
             tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
     } catch (const ExceptionBase &exception) {
+        ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
                                              .arg(Utility::GetExceptionInfo(exception)));
     } catch (const QString &err) {
+        ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         Utility::DisplayStdErrorDialog(err);
     }
@@ -3072,13 +3077,14 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
     bool not_well_formed = false;
 
     try {
-        ShowMessageOnStatusBar(tr("Saving file..."));
+        ShowMessageOnStatusBar(tr("Saving file..."), 0);
         SaveTabData();
         QString extension = QFileInfo(fullfilepath).suffix().toLower();
 
         // TODO: Move to ExporterFactory and throw exception
         // when the user tries to save an unsupported type
         if (!SUPPORTED_SAVE_TYPE.contains(extension)) {
+            ShowMessageOnStatusBar();
             Utility::DisplayStdErrorDialog(
                 tr("Sigil cannot save files of type \"%1\".\n"
                    "Please choose a different format.")
@@ -3134,6 +3140,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
 
         ShowMessageOnStatusBar(tr("File saved."));
     } catch (const ExceptionBase &exception) {
+        ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         Utility::DisplayExceptionErrorDialog(tr("Cannot save file %1: %2").arg(fullfilepath).arg(Utility::GetExceptionInfo(exception)));
         return false;
