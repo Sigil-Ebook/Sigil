@@ -106,7 +106,6 @@ public:
     void InsertClosingTag();
     bool IsInsertClosingTagAllowed();
 
-    void GoToLinkOrStyle();
     void GoToStyleDefinition();
 
     void AddMisspelledWord();
@@ -368,6 +367,8 @@ signals:
 
     void LinkClicked(const QUrl &url);
 
+    void ViewImage(const QUrl &url);
+
     void GoToLinkedStyleDefinitionRequest(const QString &element_name, const QString &style_class_name);
 
     void BookmarkLinkOrStyleLocationRequest();
@@ -392,6 +393,10 @@ public slots:
     bool PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
 
     void RefreshSpellingHighlighting();
+
+    void OpenImageAction();
+
+    void GoToLinkOrStyle();
 
 protected:
 
@@ -575,7 +580,11 @@ private:
 
     bool AddSpellCheckContextMenu(QMenu *menu);
 
+    void AddViewImageContextMenu(QMenu *menu);
+
     bool CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item);
+
+    bool InViewableImage();
 
     /**
      * An element on the stack when searching for

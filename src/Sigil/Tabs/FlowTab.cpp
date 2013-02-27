@@ -1512,6 +1512,7 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
     connect(m_wCodeView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
     connect(m_wCodeView, SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
+    connect(m_wCodeView, SIGNAL(ViewImage(const QUrl &)), this, SIGNAL(ViewImageRequest(const QUrl &)));
     connect(m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
     connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString &, const QString &)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString &, const QString &)));

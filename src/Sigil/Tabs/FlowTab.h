@@ -272,6 +272,8 @@ signals:
      */
     void LinkClicked(const QUrl &url);
 
+    void ViewImageRequest(const QUrl &url);
+
     /**
      * Emitted when an "old" tab should be created.
      * Emitted as part of the section break operation.

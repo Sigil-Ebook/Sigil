@@ -914,6 +914,10 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
         AddSpellCheckContextMenu(menu);
     }
 
+    if (InViewableImage()) {
+        AddViewImageContextMenu(menu);
+    }
+
     menu->exec(event->globalPos());
     delete menu;
 }
@@ -1149,6 +1153,33 @@ void CodeViewEditor::AddGoToLinkOrStyleContextMenu(QMenu *menu)
     }
 }
 
+void CodeViewEditor::AddViewImageContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QAction *viewImageAction = new QAction(tr("View Image"), menu);
+    QAction *openImageAction = new QAction(tr("Open Tab For Image"), menu);
+
+    if (!topAction) {
+        menu->addAction(viewImageAction);
+        menu->addAction(openImageAction);
+    } else {
+        menu->insertAction(topAction, viewImageAction);
+        menu->insertAction(topAction, openImageAction);
+    }
+
+    connect(viewImageAction, SIGNAL(triggered()), this, SLOT(GoToLinkOrStyle()));
+    connect(openImageAction, SIGNAL(triggered()), this, SLOT(OpenImageAction()));
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
+}
+
 void CodeViewEditor::AddClipContextMenu(QMenu *menu)
 {
     QAction *topAction = 0;
@@ -1237,6 +1268,32 @@ void CodeViewEditor::SaveClipAction()
     emit OpenClipEditorRequest(pendingClipEntryRequest);
 }
 
+bool CodeViewEditor::InViewableImage()
+{
+    QString text = toPlainText();
+    QString url_name = GetAttribute("src", SRC_TAGS, true);
+
+    if (url_name.isEmpty()) {
+        // We do not know what namespace may have been used
+        url_name = GetAttribute(":href", IMAGE_TAGS, true);
+    }
+
+    return !url_name.isEmpty();
+}
+
+void CodeViewEditor::OpenImageAction()
+{
+    QString text = toPlainText();
+    QString url_name = GetAttribute("src", SRC_TAGS, true);
+
+    if (url_name.isEmpty()) {
+        // We do not know what namespace may have been used
+        url_name = GetAttribute(":href", IMAGE_TAGS, true);
+    }
+
+    emit LinkClicked(QUrl(url_name));
+}
+
 void CodeViewEditor::GoToLinkOrStyleAction()
 {
     GoToLinkOrStyle();
@@ -1257,7 +1314,7 @@ void CodeViewEditor::GoToLinkOrStyle()
     }
 
     if (!url_name.isEmpty()) {
-        emit LinkClicked(QUrl(url_name));
+        emit ViewImage(QUrl(url_name));
     } else if (IsPositionInOpeningTag()) {
         GoToStyleDefinition();
     } else {

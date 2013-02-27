@@ -181,6 +181,8 @@ set( DIALOG_FILES
     Dialogs/IndexEditor.h
     Dialogs/SpellcheckEditor.cpp
     Dialogs/SpellcheckEditor.h
+    Dialogs/ViewImage.cpp
+    Dialogs/ViewImage.h
     )
 
 set( EXPORTER_FILES
@@ -407,6 +409,7 @@ set( UI_FILES
     Form_Files/ClipEditor.ui
     Form_Files/IndexEditor.ui 
     Form_Files/SpellcheckEditor.ui 
+    Form_Files/ViewImage.ui
     )
     
 set( SOURCEUPDATE_FILES   

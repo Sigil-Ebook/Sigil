@@ -22,6 +22,7 @@
 
 #include <QtCore/QFileInfo>
 #include <QtWidgets/QLayout>
+#include <QtWebKitWidgets/QWebFrame>
 #include <QtWebKitWidgets/QWebView>
 
 #include "Dialogs/SelectFiles.h"
@@ -41,10 +42,10 @@ const QString IMAGE_HTML_BASE_PREVIEW =
     "<head>"
     "<style type=\"text/css\">"
     "body { -webkit-user-select: none; }"
-    "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; }"
+    "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; max-width: 95%; max-height: 95%}"
     "</style>"
     "<body>"
-    "<div><img %1 src=\"%2\" /></div>"
+    "<div><img src=\"%2\" /></div>"
     "</body>"
     "</html>";
 
@@ -62,6 +63,8 @@ SelectFiles::SelectFiles(QList<Resource *> media_resources, QString default_sele
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
+    m_WebView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
+    m_WebView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
     ui.avLayout->addWidget(m_WebView);
 
     ReadSettings();
@@ -261,26 +264,6 @@ void SelectFiles::SetPreviewImage()
     // Images
     if (resource_type == Resource::ImageResourceType || resource_type == Resource::SVGResourceType) {
 
-        pixmap = QPixmap(path);
-
-        // Set size to match window, but allow for borders and for scrollbars
-        int width = ui.splitter->width() - ui.imageTree->width() - 20;
-        int height = ui.splitter->height() - 20;
-
-        // Resize images before saving - only shrink not enlarge
-        QString scale_string;
-        float width_scale = 0.0;
-        if (pixmap.width() > width) {
-            width_scale = 1.0 * width / pixmap.width();
-            scale_string = QString("width=\"95%\"");
-        }
-        if (pixmap.height() > height) {
-            float height_scale = 1.0 * height / pixmap.height();
-            if (scale_string.isEmpty() || height_scale < width_scale) {
-                scale_string = QString("height=\"95%\"");
-            }
-        }
-
         // Define detailed information label
         const QImage img(path);
         const QUrl imgUrl = QUrl::fromLocalFile(path);
@@ -297,10 +280,9 @@ void SelectFiles::SetPreviewImage()
         details = QString("%2x%3px | %4 KB | %5%6").arg(img.width()).arg(img.height())
                   .arg(fsize).arg(grayscale_color).arg(colorsInfo);
 
-        QString html;
-        const QUrl resourceUrl = QUrl::fromLocalFile(path);
         QWebSettings::clearMemoryCaches();
-        html = IMAGE_HTML_BASE_PREVIEW.arg(scale_string).arg(resourceUrl.toString());
+        const QUrl resourceUrl = QUrl::fromLocalFile(path);
+        QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
         m_WebView->setHtml(html, resourceUrl);
     }
 

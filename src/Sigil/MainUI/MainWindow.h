@@ -35,6 +35,7 @@
 #include "Dialogs/IndexEditor.h"
 #include "Dialogs/Reports.h"
 #include "Dialogs/SpellcheckEditor.h"
+#include "Dialogs/ViewImage.h"
 #include "MainUI/FindReplace.h"
 #include "MainUI/NCXModel.h"
 #include "Misc/CSSInfo.h"
@@ -64,6 +65,7 @@ class SearchEditor;
 class ClipEditor;
 class ClipsWindow;
 class SelectCharacter;
+class ViewImage;
 class FlowTab;
 
 
@@ -572,6 +574,8 @@ private slots:
 
     void GoToLinkedStyleDefinition(const QString &element_name, const QString &style_class_name);
 
+    void ViewImageDialog(const QUrl &url);
+
     void BookmarkLocation();
     void BookmarkLinkOrStyleLocation();
 
@@ -923,6 +927,8 @@ private:
     SpellcheckEditor *m_SpellcheckEditor;
 
     SelectCharacter *m_SelectCharacter;
+
+    ViewImage *m_ViewImage;
 
     Reports *m_Reports;
 

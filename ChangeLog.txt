@@ -1,4 +1,5 @@
 Sigil 0.7.1 TBD
+    - Implement issue 2058: Code View should be able to show resizable image.
     - Implement issue 2038: Spellcheck "change selected word to" should remember sorting order.
     - Implement issue 2043: Spellcheck should allow case-insensitive sorting.
     - Implement issue 2029: Save and open should warn if HTML files are not well formed.

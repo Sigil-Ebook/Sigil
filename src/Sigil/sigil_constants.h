@@ -95,6 +95,7 @@ extern const QString SET_CURSOR_JS;
 extern const QString SIGIL_INDEX_CLASS;
 extern const QString SIGIL_INDEX_ID_PREFIX;
 
+extern const QString IMAGE_HTML_BASE_PREVIEW;
 extern const QString VIDEO_HTML_BASE;
 extern const QString AUDIO_HTML_BASE;
 

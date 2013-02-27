@@ -152,6 +152,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_IndexEditor(new IndexEditor(this)),
     m_SpellcheckEditor(new SpellcheckEditor(this)),
     m_SelectCharacter(new SelectCharacter(this)),
+    m_ViewImage(new ViewImage(this)),
     m_Reports(new Reports(this)),
     m_preserveHeadingAttributes(true),
     m_LinkOrStyleBookmark(new LocationBookmark()),
@@ -192,6 +193,10 @@ MainWindow::~MainWindow()
     if (m_SelectCharacter && m_SelectCharacter->isVisible()) {
         m_SelectCharacter->close();
         m_SelectCharacter = NULL;
+    }
+    if (m_ViewImage && m_ViewImage->isVisible()) {
+        m_ViewImage->close();
+        m_ViewImage = NULL;
     }
 }
 
@@ -719,6 +724,26 @@ void MainWindow::GoToLine()
 
     if (line >= 1) {
         OpenResource(tab.GetLoadedResource(), line, -1, QString(), MainWindow::ViewState_CodeView);
+    }
+}
+
+void MainWindow::ViewImageDialog(const QUrl &url)
+{
+    // non-modal dialog
+    m_ViewImage->show();
+    m_ViewImage->raise();
+    m_ViewImage->activateWindow();
+
+    QString image_path = url.toString();
+    QString filename = QFileInfo(image_path).fileName();
+
+    try {
+        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
+        if (resource.Type() == Resource::ImageResourceType || resource.Type() == Resource::SVGResourceType) {
+            m_ViewImage->ShowImage(resource.GetFullPath());
+        }
+    } catch (const ResourceDoesNotExist &) {
+        QMessageBox::warning(this, tr("Sigil"), tr("Image does not exist: ") + image_path);
     }
 }
 
@@ -4180,6 +4205,8 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(this,                              SIGNAL(SettingsChanged()), tab, SLOT(LoadSettings()));
         connect(tab,   SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)),
                 this,  SLOT(IndexEditorDialog(IndexEditorModel::indexEntry *)));
+        connect(tab,   SIGNAL(ViewImageRequest(const QUrl&)),
+                this,  SLOT(ViewImageDialog(const QUrl&)));
         connect(tab,   SIGNAL(GoToLinkedStyleDefinitionRequest(const QString &, const QString &)),
                 this,  SLOT(GoToLinkedStyleDefinition(const QString &, const QString &)));
         connect(tab,   SIGNAL(BookmarkLinkOrStyleLocationRequest()),
