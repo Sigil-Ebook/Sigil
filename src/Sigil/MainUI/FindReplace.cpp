@@ -612,7 +612,11 @@ QString FindReplace::GetSearchRegex()
         return QString();
     }
 
-    QString search(ui.cbFind->currentText());
+    QString text = ui.cbFind->lineEdit()->text();
+    // Convert &#x2029; to match line separator used by plainText.
+    text.replace(QRegularExpression("\\R"), "\n");
+
+    QString search(text);
 
     // Search type
     if (GetSearchMode() == FindReplace::SearchMode_Normal || GetSearchMode() == FindReplace::SearchMode_Case_Sensitive) {
