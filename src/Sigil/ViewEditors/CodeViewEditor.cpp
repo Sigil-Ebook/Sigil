@@ -1465,7 +1465,15 @@ bool CodeViewEditor::InsertHyperlink(const QString &attribute_value)
 {
     const QString &element_name = "a";
     const QString &attribute_name = "href";
-    return InsertTagAttribute(element_name, attribute_name, attribute_value, ANCHOR_TAGS);
+
+    // HTML safe.
+    QString safe_attribute_value = attribute_value;
+    safe_attribute_value.replace("&amp;", "&");
+    safe_attribute_value.replace("&", "&amp;");
+    safe_attribute_value.replace("<", "&lt;");
+    safe_attribute_value.replace(">", "&gt;");
+
+    return InsertTagAttribute(element_name, attribute_name, safe_attribute_value, ANCHOR_TAGS);
 }
 
 bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_selection)
@@ -1493,6 +1501,13 @@ bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QStri
 
 bool CodeViewEditor::MarkForIndex(const QString &title)
 {
+    QString safe_title = title;
+    // HTML safe.
+    safe_title.replace("&amp;", "&");
+    safe_title.replace("&", "&amp;");
+    safe_title.replace("<", "&lt;");
+    safe_title.replace(">", "&gt;");
+
     bool ok = true;
     QString selected_text = textCursor().selectedText();
     const QString &element_name = "a";
@@ -1504,7 +1519,7 @@ bool CodeViewEditor::MarkForIndex(const QString &title)
 
     const QString &second_attribute_name = "title";
 
-    if (!InsertTagAttribute(element_name, second_attribute_name, title, ANCHOR_TAGS, true)) {
+    if (!InsertTagAttribute(element_name, second_attribute_name, safe_title, ANCHOR_TAGS, true)) {
         ok = false;
     }
 

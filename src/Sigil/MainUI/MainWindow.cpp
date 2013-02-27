@@ -1285,7 +1285,13 @@ void MainWindow::InsertHyperlink()
     SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);
 
     if (select_hyperlink.exec() == QDialog::Accepted) {
-        if (!flow_tab->InsertHyperlink(select_hyperlink.GetTarget())) {
+        QString target = select_hyperlink.GetTarget();
+        if (target.contains("<") || target.contains(">")) {
+            QMessageBox::warning(this, tr("Sigil"), tr("Link is invalid - cannot contain '<' or '>'"));
+            return;
+        };
+
+        if (!flow_tab->InsertHyperlink(target)) {
             QMessageBox::warning(this, tr("Sigil"), tr("You cannot insert a link at this position."));
         }
     }
@@ -1306,9 +1312,14 @@ void MainWindow::MarkForIndex()
 
     QString title = flow_tab->GetAttributeIndexTitle();
     SelectIndexTitle select_index_title(title, this);
-
     if (select_index_title.exec() == QDialog::Accepted) {
-        if (!flow_tab->MarkForIndex(select_index_title.GetTitle())) {
+        QString entry = select_index_title.GetTitle();
+        if (entry.contains("<") || entry.contains(">")) {
+            QMessageBox::warning(this, tr("Sigil"), tr("Entry is invalid - cannot contain '<' or '>'"));
+            return;
+        };
+
+        if (!flow_tab->MarkForIndex(entry)) {
             QMessageBox::warning(this, tr("Sigil"), tr("You cannot mark an index at this position."));
         }
     }

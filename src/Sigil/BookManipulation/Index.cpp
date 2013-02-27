@@ -145,27 +145,25 @@ bool Index::CreateIndexEntry(const QString text, HTMLResource *html_resource, QS
     }
 
     foreach(IndexEditorModel::indexEntry * entry, entries) {
-        foreach(QString index_pattern, entry->pattern.split(";")) {
-            if (index_pattern.isEmpty()) {
-                continue;
-            }
+        QString index_pattern = entry->pattern;
+        if (index_pattern.isEmpty()) {
+            continue;
+        }
 
-            QRegularExpression index_regex(index_pattern);
+        QRegularExpression index_regex(index_pattern);
 
-            if (text.contains(index_regex)) {
-                created_index = true;
-                foreach(QString index_entry, entry->index_entry.split(";")) {
-                    if (index_entry.isEmpty()) {
-                        // If no index text, use the pattern
-                        IndexEntries::instance()->AddOneEntry(index_pattern, html_resource->Filename(), index_id_value);
-                    } else if (entry->index_entry.endsWith("/")) {
-                        // If index text is a category then append the pattern
-                        IndexEntries::instance()->AddOneEntry(index_entry + index_pattern, html_resource->Filename(), index_id_value);
-                    } else {
-                        // Use the given index text
-                        IndexEntries::instance()->AddOneEntry(index_entry, html_resource->Filename(), index_id_value);
-                    }
-                }
+        if (text.contains(index_regex)) {
+            created_index = true;
+            QString index_entry = entry->index_entry;
+            if (index_entry.isEmpty()) {
+                // If no index text, use the pattern
+                IndexEntries::instance()->AddOneEntry(index_pattern, html_resource->Filename(), index_id_value);
+            } else if (entry->index_entry.endsWith("/")) {
+                // If index text is a category then append the pattern
+                IndexEntries::instance()->AddOneEntry(index_entry + index_pattern, html_resource->Filename(), index_id_value);
+            } else {
+                // Use the given index text
+                IndexEntries::instance()->AddOneEntry(index_entry, html_resource->Filename(), index_id_value);
             }
         }
     }

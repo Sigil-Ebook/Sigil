@@ -66,8 +66,8 @@ void IndexEditor::SetupIndexEditorTree()
         "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
         "<p>" + tr("You can also right click in your document to add selected text to the Index.") + "</p>" +
         "<dl>" +
-        "<dt><b>" + tr("Text to Include") + "</b><dd>" + tr("The text to match in your document, e.g. 'Gutenberg'. You can list similar patterns by separating them with ';', e.g. 'Gutenberg;gutenberg'.  The text to match can be a regex pattern, e.g. '[gG]utenberg'.") + "</dd>" +
-        "<dt><b>" + tr("Index Entries") + "</b><dd>" + tr("The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multiple entries by separating entries by ';'.  Create multi-level entries by using '/' after a level name, e.g. 'Books/Fantasy/Alice in Wonderland;Characters/Alice") + "</dd>" +
+        "<dt><b>" + tr("Text to Include") + "</b><dd>" + tr("The pattern to match in your document, e.g. \"Gutenberg\". This is a regex pattern so \"(?i)Gutenberg\" ignores case when matching.") + "</dd>" +
+        "<dt><b>" + tr("Index Entries") + "</b><dd>" + tr("The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using '/' after a level name, e.g. \"Books/Fantasy/Alice in Wonderland\" or \"Books/Fantasy/\".") + "</dd>" +
         "</dl>");
     ui.buttonBox->setToolTip(QString() +
                              "<dl>" +

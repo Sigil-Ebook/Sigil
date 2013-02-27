@@ -206,10 +206,6 @@ QString SelectHyperlink::GetTarget()
 
     target = ui.href->text();
 
-    // Convert & to legal html, but watch for correctly entered &amp; entities
-    target.replace("&amp;", "&");
-    target.replace("&", "&amp;");
-
     return target;
 }
 
