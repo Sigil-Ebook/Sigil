@@ -383,7 +383,7 @@ void MainWindow::ResourceUpdatedFromDisk(Resource &resource)
         HTMLResource &html_resource = *qobject_cast< HTMLResource *>(&resource);
         if (!m_Book->IsDataOnDiskWellFormed(html_resource)) {
             OpenResource(resource, -1, -1, QString(), MainWindow::ViewState_CodeView);
-            message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well-formed and may be corrupted.");
+            message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well formed and may be corrupted.");
             duration = 20000;
         }
     }
@@ -3102,7 +3102,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
     bool not_well_formed = false;
 
     try {
-        ShowMessageOnStatusBar(tr("Saving file..."), 0);
+        ShowMessageOnStatusBar(tr("Saving EPUB..."), 0);
         SaveTabData();
         QString extension = QFileInfo(fullfilepath).suffix().toLower();
 
@@ -3120,17 +3120,18 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
 
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
-        if (ss.cleanOn() & CLEANON_SAVE) {
-            QList <HTMLResource *> resources;
-            Q_FOREACH(Resource * r, GetAllHTMLResources()) {
-                HTMLResource *t = dynamic_cast<HTMLResource *>(r);
-                if (t) {
-                    resources.append(t);
-                    if (!XhtmlDoc::IsDataWellFormed(t->GetText())) {
-                        not_well_formed = true;
-                    }
+        QList <HTMLResource *> resources;
+        Q_FOREACH(Resource * r, GetAllHTMLResources()) {
+            HTMLResource *t = dynamic_cast<HTMLResource *>(r);
+            if (t) {
+                resources.append(t);
+                if (!XhtmlDoc::IsDataWellFormed(t->GetText())) {
+                    not_well_formed = true;
+                    break;
                 }
             }
+        }
+        if (ss.cleanOn() & CLEANON_SAVE) {
             if (not_well_formed) {
                 if (QMessageBox::Yes == QMessageBox::warning(this,
                             tr("Sigil"),
@@ -3142,6 +3143,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
                             QMessageBox::Yes|QMessageBox::No)
                 ) {
                     CleanSource::ReformatAll(resources, CleanSource::Clean);
+                    not_well_formed = false;
                 }
             } else {
                 CleanSource::ReformatAll(resources, CleanSource::Clean);
@@ -3163,7 +3165,12 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
             UpdateUiWithCurrentFile(fullfilepath);
         }
 
-        ShowMessageOnStatusBar(tr("File saved."));
+        if (not_well_formed) {
+            ShowMessageOnStatusBar(tr("EPUB saved, but not all HTML files are well formed."));
+        } 
+        else {
+            ShowMessageOnStatusBar(tr("EPUB saved."));
+        }
     } catch (const ExceptionBase &exception) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
