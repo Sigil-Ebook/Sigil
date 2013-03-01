@@ -6,6 +6,7 @@ Sigil 0.7.1 TBD
     - Implement issue 2009: Add semantic tags to filenames in reports.
     - Implement issue 2028: Special characters should work in non-html files.
     - Implement issue 2027: Upgrade boost software.
+    - Fix issue 2061: Language code using wrong character to separate country code.
     - Fix issue 2057: Text selected across lines using Ctrl-F cannot be found with Find.
     - Fix issue 2036: Mark for Index can insert HTML tags into code making it invalid.
     - Fix issue 2041: Preview does not sync cursor after using Sigil for a while.

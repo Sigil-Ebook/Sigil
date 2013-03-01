@@ -83,21 +83,21 @@ void Language::SetLanguageMap()
          "sq"    << tr("Albanian") <<
          "am"    << tr("Amharic") <<
          "ar"    << tr("Arabic") <<
-         "ar_DZ" << tr("Arabic") % " - " % tr("Algeria") <<
-         "ar_BH" << tr("Arabic") % " - " % tr("Bahrain") <<
-         "ar_EG" << tr("Arabic") % " - " % tr("Egypt") <<
-         "ar_IQ" << tr("Arabic") % " - " % tr("Iraq") <<
-         "ar_JO" << tr("Arabic") % " - " % tr("Jordan") <<
-         "ar_KW" << tr("Arabic") % " - " % tr("Kuwait") <<
-         "ar_LB" << tr("Arabic") % " - " % tr("Lebanon") <<
-         "ar_LY" << tr("Arabic") % " - " % tr("Libya") <<
-         "ar_MA" << tr("Arabic") % " - " % tr("Morocco") <<
-         "ar_OM" << tr("Arabic") % " - " % tr("Oman") <<
-         "ar_QA" << tr("Arabic") % " - " % tr("Qatar") <<
-         "ar_SY" << tr("Arabic") % " - " % tr("Syria") <<
-         "ar_TN" << tr("Arabic") % " - " % tr("Tunisia") <<
-         "ar_AE" << tr("Arabic") % " - " % tr("United Arab Emirates") <<
-         "ar_YE" << tr("Arabic") % " - " % tr("Yemen") <<
+         "ar-DZ" << tr("Arabic") % " - " % tr("Algeria") <<
+         "ar-BH" << tr("Arabic") % " - " % tr("Bahrain") <<
+         "ar-EG" << tr("Arabic") % " - " % tr("Egypt") <<
+         "ar-IQ" << tr("Arabic") % " - " % tr("Iraq") <<
+         "ar-JO" << tr("Arabic") % " - " % tr("Jordan") <<
+         "ar-KW" << tr("Arabic") % " - " % tr("Kuwait") <<
+         "ar-LB" << tr("Arabic") % " - " % tr("Lebanon") <<
+         "ar-LY" << tr("Arabic") % " - " % tr("Libya") <<
+         "ar-MA" << tr("Arabic") % " - " % tr("Morocco") <<
+         "ar-OM" << tr("Arabic") % " - " % tr("Oman") <<
+         "ar-QA" << tr("Arabic") % " - " % tr("Qatar") <<
+         "ar-SY" << tr("Arabic") % " - " % tr("Syria") <<
+         "ar-TN" << tr("Arabic") % " - " % tr("Tunisia") <<
+         "ar-AE" << tr("Arabic") % " - " % tr("United Arab Emirates") <<
+         "ar-YE" << tr("Arabic") % " - " % tr("Yemen") <<
          "an"    << tr("Aragonese") <<
          "hy"    << tr("Armenian") <<
          "as"    << tr("Assamese") <<
@@ -105,7 +105,7 @@ void Language::SetLanguageMap()
          "ae"    << tr("Avestan") <<
          "ay"    << tr("Aymara") <<
          "az"    << tr("Azerbaijani") <<
-         "az_AZ" << tr("Azerbaijani") % " - " % tr("Azerbaijan") <<
+         "az-AZ" << tr("Azerbaijani") % " - " % tr("Azerbaijan") <<
          "bm"    << tr("Bambara") <<
          "ba"    << tr("Bashkir") <<
          "eu"    << tr("Basque") <<
@@ -118,16 +118,16 @@ void Language::SetLanguageMap()
          "bg"    << tr("Bulgarian") <<
          "my"    << tr("Burmese") <<
          "ca"    << tr("Catalan") <<
-         "ca_ES" << tr("Catalan") % " - " % tr("Spain") <<
+         "ca-ES" << tr("Catalan") % " - " % tr("Spain") <<
          "km"    << tr("Central Khmer") <<
          "ch"    << tr("Chamorro") <<
          "ce"    << tr("Chechen") <<
          "zh"    << tr("Chinese") <<
-         "zh_CN" << tr("Chinese") % " - " % tr("China") <<
-         "zh_HK" << tr("Chinese") % " - " % tr("Hong Kong") <<
-         "zh_MO" << tr("Chinese") % " - " % tr("Macau") <<
-         "zh_SG" << tr("Chinese") % " - " % tr("Singapore") <<
-         "zh_TW" << tr("Chinese") % " - " % tr("Taiwan") <<
+         "zh-CN" << tr("Chinese") % " - " % tr("China") <<
+         "zh-HK" << tr("Chinese") % " - " % tr("Hong Kong") <<
+         "zh-MO" << tr("Chinese") % " - " % tr("Macau") <<
+         "zh-SG" << tr("Chinese") % " - " % tr("Singapore") <<
+         "zh-TW" << tr("Chinese") % " - " % tr("Taiwan") <<
          "cu"    << tr("Church Slavic") <<
          "cv"    << tr("Chuvash") <<
          "kw"    << tr("Cornish") <<
@@ -136,25 +136,25 @@ void Language::SetLanguageMap()
          "hr"    << tr("Croatian") <<
          "cs"    << tr("Czech") <<
          "da"    << tr("Danish") <<
-         "da_DK" << tr("Danish") % " - " % tr("Denmark") <<
+         "da-DK" << tr("Danish") % " - " % tr("Denmark") <<
          "dv"    << tr("Dhivehi") <<
          "nl"    << tr("Dutch") <<
-         "nl_BE" << tr("Dutch") % " - " % tr("Belgium") <<
-         "nl_NL" << tr("Dutch") % " - " % tr("Netherlands") <<
+         "nl-BE" << tr("Dutch") % " - " % tr("Belgium") <<
+         "nl-NL" << tr("Dutch") % " - " % tr("Netherlands") <<
          "dz"    << tr("Dzongkha") <<
          "en"    << tr("English") <<
-         "en_AU" << tr("English") % " - " % tr("Australia") <<
-         "en_BZ" << tr("English") % " - " % tr("Belize") <<
-         "en_CA" << tr("English") % " - " % tr("Canada") <<
-         "en_CB" << tr("English") % " - " % tr("Caribbean") <<
-         "en_GB" << tr("English") % " - " % tr("Great Britain") <<
-         "en_IN" << tr("English") % " - " % tr("India") <<
-         "en_IE" << tr("English") % " - " % tr("Ireland") <<
-         "en_JM" << tr("English") % " - " % tr("Jamaica") <<
-         "en_PH" << tr("English") % " - " % tr("Phillippines") <<
-         "en_TT" << tr("English") % " - " % tr("Trinidad") <<
-         "en_ZA" << tr("English") % " - " % tr("South Africa") <<
-         "en_US" << tr("English") % " - " % tr("United States") <<
+         "en-AU" << tr("English") % " - " % tr("Australia") <<
+         "en-BZ" << tr("English") % " - " % tr("Belize") <<
+         "en-CA" << tr("English") % " - " % tr("Canada") <<
+         "en-CB" << tr("English") % " - " % tr("Caribbean") <<
+         "en-GB" << tr("English") % " - " % tr("Great Britain") <<
+         "en-IN" << tr("English") % " - " % tr("India") <<
+         "en-IE" << tr("English") % " - " % tr("Ireland") <<
+         "en-JM" << tr("English") % " - " % tr("Jamaica") <<
+         "en-PH" << tr("English") % " - " % tr("Phillippines") <<
+         "en-TT" << tr("English") % " - " % tr("Trinidad") <<
+         "en-ZA" << tr("English") % " - " % tr("South Africa") <<
+         "en-US" << tr("English") % " - " % tr("United States") <<
          "eo"    << tr("Esperanto") <<
          "et"    << tr("Estonian") <<
          "ee"    << tr("Ewe") <<
@@ -162,25 +162,25 @@ void Language::SetLanguageMap()
          "fj"    << tr("Fijian") <<
          "fi"    << tr("Finnish") <<
          "fr"    << tr("French") <<
-         "fr_BE" << tr("French") % " - " % tr("Belgium") <<
-         "fr_CA" << tr("French") % " - " % tr("Canada") <<
-         "fr_FR" << tr("French") % " - " % tr("France") <<
-         "fr_LU" << tr("French") % " - " % tr("Luxembourg") <<
-         "fr_CH" << tr("French") % " - " % tr("Switzerland") <<
+         "fr-BE" << tr("French") % " - " % tr("Belgium") <<
+         "fr-CA" << tr("French") % " - " % tr("Canada") <<
+         "fr-FR" << tr("French") % " - " % tr("France") <<
+         "fr-LU" << tr("French") % " - " % tr("Luxembourg") <<
+         "fr-CH" << tr("French") % " - " % tr("Switzerland") <<
          "ff"    << tr("Fulah") <<
          "gd"    << tr("Gaelic") % " - " % tr("Scotland") <<
-         "gd_IE" << tr("Gaelic") % " - " % tr("Ireland") <<
+         "gd-IE" << tr("Gaelic") % " - " % tr("Ireland") <<
          "gl"    << tr("Galician") <<
          "lg"    << tr("Ganda") <<
          "ka"    << tr("Georgian") <<
          "de"    << tr("German") <<
-         "de_AT" << tr("German") % " - " % tr("Austria") <<
-         "de_DE" << tr("German") % " - " % tr("Germany") <<
-         "de_LI" << tr("German") % " - " % tr("Liechtenstein") <<
-         "de_LU" << tr("German") % " - " % tr("Luxembourg") <<
-         "de_CH" << tr("German") % " - " % tr("Switzerland") <<
+         "de-AT" << tr("German") % " - " % tr("Austria") <<
+         "de-DE" << tr("German") % " - " % tr("Germany") <<
+         "de-LI" << tr("German") % " - " % tr("Liechtenstein") <<
+         "de-LU" << tr("German") % " - " % tr("Luxembourg") <<
+         "de-CH" << tr("German") % " - " % tr("Switzerland") <<
          "el"    << tr("Greek, Modern") <<
-         "el_GR" << tr("Greek") <<
+         "el-GR" << tr("Greek") <<
          "gn"    << tr("Guarani") <<
          "gu"    << tr("Gujarati") <<
          "ht"    << tr("Haitian") <<
@@ -190,20 +190,20 @@ void Language::SetLanguageMap()
          "hi"    << tr("Hindi") <<
          "ho"    << tr("Hiri Motu") <<
          "hu"    << tr("Hungarian") <<
-         "hu_HU" << tr("Hungarian") % " - " % tr("Hungary") <<
+         "hu-HU" << tr("Hungarian") % " - " % tr("Hungary") <<
          "is"    << tr("Icelandic") <<
          "io"    << tr("Ido") <<
          "ig"    << tr("Igbo") <<
          "id"    << tr("Indonesian") <<
-         "id_ID" << tr("Indonesian - Indonesia") <<
+         "id-ID" << tr("Indonesian - Indonesia") <<
          "ia"    << tr("Interlingua") <<
          "ie"    << tr("Interlingue") <<
          "iu"    << tr("Inuktitut") <<
          "ik"    << tr("Inupiaq") <<
          "ga"    << tr("Irish") <<
          "it"    << tr("Italian") <<
-         "it_IT" << tr("Italian") % " - " % tr("Italy") <<
-         "it_CH" << tr("Italian") % " - " % tr("Switzerland") <<
+         "it-IT" << tr("Italian") % " - " % tr("Italy") <<
+         "it-CH" << tr("Italian") % " - " % tr("Switzerland") <<
          "ja"    << tr("Japanese") <<
          "jv"    << tr("Javanese") <<
          "kl"    << tr("Kalaallisut") <<
@@ -222,7 +222,7 @@ void Language::SetLanguageMap()
          "lo"    << tr("Lao") <<
          "la"    << tr("Latin") <<
          "lv"    << tr("Latvian") <<
-         "lv_LV" << tr("Latvian") % " - " % tr("Latvia") <<
+         "lv-LV" << tr("Latvian") % " - " % tr("Latvia") <<
          "li"    << tr("Limburgan") <<
          "ln"    << tr("Lingala") <<
          "lt"    << tr("Lithuanian") <<
@@ -232,8 +232,8 @@ void Language::SetLanguageMap()
          "mg"    << tr("Malagasy") <<
          "ml"    << tr("Malayalam") <<
          "ms"    << tr("Malay") <<
-         "ms_BN" << tr("Malay") % " - " % tr("Brunei") <<
-         "ms_MY" << tr("Malay") % " - " % tr("Malaysia") <<
+         "ms-BN" << tr("Malay") % " - " % tr("Brunei") <<
+         "ms-MY" << tr("Malay") % " - " % tr("Malaysia") <<
          "mt"    << tr("Maltese") <<
          "gv"    << tr("Manx") <<
          "mi"    << tr("Maori") <<
@@ -261,23 +261,23 @@ void Language::SetLanguageMap()
          "fa"    << tr("Persian") <<
          "pl"    << tr("Polish") <<
          "pt"    << tr("Portuguese") <<
-         "pt_BR" << tr("Portuguese") % " - " % tr("Brazil") <<
-         "pt_TT" << tr("Portuguese") % " - " % tr("Portugal") <<
+         "pt-BR" << tr("Portuguese") % " - " % tr("Brazil") <<
+         "pt-TT" << tr("Portuguese") % " - " % tr("Portugal") <<
          "ps"    << tr("Pushto") <<
          "qu"    << tr("Quechua") <<
          "ro"    << tr("Romanian") <<
-         "ro_MO" << tr("Romanian") % " - " % tr("Moldova") <<
-         "ro_RO" << tr("Romanian") % " - " % tr("Romania") <<
+         "ro-MO" << tr("Romanian") % " - " % tr("Moldova") <<
+         "ro-RO" << tr("Romanian") % " - " % tr("Romania") <<
          "rm"    << tr("Romansh") <<
          "rn"    << tr("Rundi") <<
          "ru"    << tr("Russian") <<
-         "ru_MO" << tr("Russian") % " - " % tr("Moldova") <<
+         "ru-MO" << tr("Russian") % " - " % tr("Moldova") <<
          "sm"    << tr("Samoan") <<
          "sg"    << tr("Sango") <<
          "sa"    << tr("Sanskrit") <<
          "sc"    << tr("Sardinian") <<
          "sr"    << tr("Serbian") <<
-         "sr_SP" << tr("Serbian") % " - " % tr("SP") <<
+         "sr-SP" << tr("Serbian") % " - " % tr("SP") <<
          "sn"    << tr("Shona") <<
          "ii"    << tr("Sichuan Yi") <<
          "sd"    << tr("Sindhi") <<
@@ -287,31 +287,31 @@ void Language::SetLanguageMap()
          "so"    << tr("Somali") <<
          "st"    << tr("Sotho, Southern") <<
          "es"    << tr("Spanish") <<
-         "es_AR" << tr("Spanish") % " - " % tr("Argentina") <<
-         "es_BO" << tr("Spanish") % " - " % tr("Bolivia") <<
-         "es_CL" << tr("Spanish") % " - " % tr("Chile") <<
-         "es_CO" << tr("Spanish") % " - " % tr("Columbia") <<
-         "es_CR" << tr("Spanish") % " - " % tr("Costa Rica") <<
-         "es_DO" << tr("Spanish") % " - " % tr("Dominican Republic") <<
-         "es_EC" << tr("Spanish") % " - " % tr("Ecuador") <<
-         "es_SV" << tr("Spanish") % " - " % tr("El Salvador") <<
-         "es_GT" << tr("Spanish") % " - " % tr("Guatemala") <<
-         "es_HN" << tr("Spanish") % " - " % tr("Honduras") <<
-         "es_MX" << tr("Spanish") % " - " % tr("Mexico") <<
-         "es_NI" << tr("Spanish") % " - " % tr("Nicaragua") <<
-         "es_PA" << tr("Spanish") % " - " % tr("Panama") <<
-         "es_PY" << tr("Spanish") % " - " % tr("Paraguay") <<
-         "es_PE" << tr("Spanish") % " - " % tr("Peru") <<
-         "es_PR" << tr("Spanish") % " - " % tr("Puerto Rico") <<
-         "es_ES" << tr("Spanish") % " - " % tr("Spain") <<
-         "es_UY" << tr("Spanish") % " - " % tr("Uruguay") <<
-         "es_VE" << tr("Spanish") % " - " % tr("Venezuela") <<
+         "es-AR" << tr("Spanish") % " - " % tr("Argentina") <<
+         "es-BO" << tr("Spanish") % " - " % tr("Bolivia") <<
+         "es-CL" << tr("Spanish") % " - " % tr("Chile") <<
+         "es-CO" << tr("Spanish") % " - " % tr("Columbia") <<
+         "es-CR" << tr("Spanish") % " - " % tr("Costa Rica") <<
+         "es-DO" << tr("Spanish") % " - " % tr("Dominican Republic") <<
+         "es-EC" << tr("Spanish") % " - " % tr("Ecuador") <<
+         "es-SV" << tr("Spanish") % " - " % tr("El Salvador") <<
+         "es-GT" << tr("Spanish") % " - " % tr("Guatemala") <<
+         "es-HN" << tr("Spanish") % " - " % tr("Honduras") <<
+         "es-MX" << tr("Spanish") % " - " % tr("Mexico") <<
+         "es-NI" << tr("Spanish") % " - " % tr("Nicaragua") <<
+         "es-PA" << tr("Spanish") % " - " % tr("Panama") <<
+         "es-PY" << tr("Spanish") % " - " % tr("Paraguay") <<
+         "es-PE" << tr("Spanish") % " - " % tr("Peru") <<
+         "es-PR" << tr("Spanish") % " - " % tr("Puerto Rico") <<
+         "es-ES" << tr("Spanish") % " - " % tr("Spain") <<
+         "es-UY" << tr("Spanish") % " - " % tr("Uruguay") <<
+         "es-VE" << tr("Spanish") % " - " % tr("Venezuela") <<
          "su"    << tr("Sundanese") <<
          "sw"    << tr("Swahili") <<
          "ss"    << tr("Swati") <<
          "sv"    << tr("Swedish") <<
-         "sv_FI" << tr("Swedish") % " - " % tr("Finland") <<
-         "sv_SE" << tr("Swedish") % " - " % tr("Sweden") <<
+         "sv-FI" << tr("Swedish") % " - " % tr("Finland") <<
+         "sv-SE" << tr("Swedish") % " - " % tr("Sweden") <<
          "tl"    << tr("Tagalog") <<
          "ty"    << tr("Tahitian") <<
          "tg"    << tr("Tajik") <<
@@ -325,15 +325,15 @@ void Language::SetLanguageMap()
          "ts"    << tr("Tsonga") <<
          "tn"    << tr("Tswana") <<
          "tr"    << tr("Turkish") <<
-         "tr_TR" << tr("Turkish") % " - " % tr("Turkey") <<
+         "tr-TR" << tr("Turkish") % " - " % tr("Turkey") <<
          "tk"    << tr("Turkmen") <<
          "tw"    << tr("Twi") <<
          "ug"    << tr("Uighur") <<
          "uk"    << tr("Ukrainian") <<
-         "uk_UA" << tr("Ukrainian") % " - " % tr("Ukraine") <<
+         "uk-UA" << tr("Ukrainian") % " - " % tr("Ukraine") <<
          "ur"    << tr("Urdu") <<
          "uz"    << tr("Uzbek") <<
-         "uz_UX" << tr("Uzbek") % " - " % tr("Uzbekistan") <<
+         "uz-UX" << tr("Uzbek") % " - " % tr("Uzbekistan") <<
          "ve"    << tr("Venda") <<
          "vi"    << tr("Vietnamese") <<
          "vo"    << tr("Volapuk") <<
