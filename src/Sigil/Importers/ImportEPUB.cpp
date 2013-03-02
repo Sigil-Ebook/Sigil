@@ -50,6 +50,7 @@
 #include "Importers/ImportEPUB.h"
 #include "Misc/FontObfuscation.h"
 #include "Misc/HTMLEncodingResolver.h"
+#include "Misc/QCodePage437Codec.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/CSSResource.h"
@@ -60,6 +61,8 @@
 #include "SourceUpdates/UniversalUpdates.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
+
+#include <QtDebug>
 
 #ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
@@ -84,6 +87,7 @@ static const QString CONTAINER_XML       = "<?xml version=\"1.0\" encoding=\"UTF
                                            "   </rootfiles>\n"
                                            "</container>\n";
 
+static QCodePage437Codec *cp437 = 0; 
 
 // Constructor;
 // The parameter is the file to be imported
@@ -348,6 +352,9 @@ void ImportEPUB::ProcessFontFiles(const QList<Resource *> &resources,
 void ImportEPUB::ExtractContainer()
 {
     int res = 0;
+    if (!cp437) {
+        cp437 = new QCodePage437Codec();
+    }
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
     fill_win32_filefunc64W(&ffunc);
@@ -368,7 +375,14 @@ void ImportEPUB::ExtractContainer()
             char file_name[MAX_PATH] = {0};
             unz_file_info64 file_info;
             unzGetCurrentFileInfo64(zfile, &file_info, file_name, MAX_PATH, NULL, 0, NULL, 0);
-            QString qfile_name = QString::fromUtf8(file_name);
+            QString qfile_name;
+            // General purpose bit 11 says the filename is utf-8 encoded. If not set then
+            // IBM 437 encoding is used.
+            if (file_info.flag & (1<<11)) {
+                qfile_name = QString::fromUtf8(file_name);
+            } else {
+                qfile_name = cp437->toUnicode(file_name);
+            }
 
             // If there is no file name then we can't do anything with it.
             if (!qfile_name.isEmpty()) {
@@ -706,12 +720,13 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QString &mimetype)
 {
     QString fullfilepath = QFileInfo(m_OPFFilePath).absolutePath() + "/" + path;
-
+    
     try {
         Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath, false, mimetype);
         QString newpath = "../" + resource.GetRelativePathToOEBPS();
         return make_tuple(fullfilepath, newpath);
     } catch (FileDoesNotExist &) {
+        qDebug() << "FNDE: " << path;
         return make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);
     }
 }
