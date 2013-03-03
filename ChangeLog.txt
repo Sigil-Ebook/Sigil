@@ -1,11 +1,13 @@
-Sigil 0.7.1 TBD
+Sigil 0.7.1 2013.03.03
     - Implement issue 2058: Code View should be able to show resizable image.
     - Implement issue 2038: Spellcheck "change selected word to" should remember sorting order.
     - Implement issue 2043: Spellcheck should allow case-insensitive sorting.
     - Implement issue 2029: Save and open should warn if HTML files are not well formed.
     - Implement issue 2009: Add semantic tags to filenames in reports.
     - Implement issue 2028: Special characters should work in non-html files.
-    - Implement issue 2027: Upgrade boost software.
+    - Implement issue 2027: Upgrade Boost to Boost 1.53.0.
+    - Fix issue 2069: Work around for archives where filenames are not utf-8 encoded.
+    - Fix issue 2068: ZIP general purpose bit 11 (utf-8) filename not set.
     - Fix issue 2061: Language code using wrong character to separate country code.
     - Fix issue 2057: Text selected across lines using Ctrl-F cannot be found with Find.
     - Fix issue 2036: Mark for Index can insert HTML tags into code making it invalid.
