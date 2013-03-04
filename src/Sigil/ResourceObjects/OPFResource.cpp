@@ -102,6 +102,74 @@ QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
     return GuideSemantics::Instance().GetGuideName(GetGuideSemanticTypeForResource(*resource));
 }
 
+QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
+{
+    QHash <QString, QString> semantic_types;
+
+    QReadLocker locker(&GetLock());
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QList< xc::DOMElement * > references =
+        XhtmlDoc::GetTagMatchingDescendants(*document, "reference", OPF_XML_NAMESPACE);
+
+    foreach(xc::DOMElement *reference, references) {
+        const QString &href = XtoQ(reference->getAttribute(QtoX("href")));
+        QStringList parts = href.split('#', QString::KeepEmptyParts);
+
+        const QString &type_text = XtoQ(reference->getAttribute(QtoX("type")));
+        GuideSemantics::GuideSemanticType type =
+            GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type_text);
+        semantic_types[parts.at(0)] = GuideSemantics::Instance().GetGuideName(type);
+    }
+
+    // Cover image semantics don't use reference
+    xc::DOMElement *meta = GetCoverMeta(*document);
+    if (meta) {
+
+        QString cover_id = XtoQ(meta->getAttribute(QtoX("content")));
+
+        QList< xc::DOMElement * > items =
+                XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
+        foreach(xc::DOMElement *item, items) {
+            QString id = XtoQ(item->getAttribute(QtoX("id")));
+
+            if (id == cover_id) {
+                QString href = XtoQ(item->getAttribute(QtoX("href")));
+                GuideSemantics::GuideSemanticType type =
+                     GuideSemantics::Instance().MapReferenceTypeToGuideEnum("cover");
+                semantic_types[href] = GuideSemantics::Instance().GetGuideName(type);
+            }
+        }
+    }
+
+    return semantic_types;
+}
+
+QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList < Resource *> resources)
+{
+    QHash <Resource *, int> reading_order;
+
+    QReadLocker locker(&GetLock());
+    shared_ptr< xc::DOMDocument > document = GetDocument();
+
+    QList< xc::DOMElement * > itemrefs =
+        XhtmlDoc::GetTagMatchingDescendants(*document, "itemref", OPF_XML_NAMESPACE);
+
+    QHash<QString, int> id_order;
+    for (int i = 0; i < itemrefs.count(); ++i) {
+        QString idref = XtoQ(itemrefs[ i ]->getAttribute(QtoX("idref")));
+        id_order[idref] = i;
+    }
+
+    QHash< Resource *, QString > id_mapping = GetResourceManifestIDMapping(resources, *document);
+
+    foreach(Resource *resource, resources) {
+        reading_order[resource] = id_order[id_mapping[resource]];
+    }
+
+    return reading_order;
+}
+
 int OPFResource::GetReadingOrder(const ::HTMLResource &html_resource) const
 {
     QReadLocker locker(&GetLock());

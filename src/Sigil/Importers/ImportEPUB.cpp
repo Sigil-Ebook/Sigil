@@ -62,7 +62,6 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
-#include <QtDebug>
 
 #ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
@@ -726,7 +725,6 @@ tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QStri
         QString newpath = "../" + resource.GetRelativePathToOEBPS();
         return make_tuple(fullfilepath, newpath);
     } catch (FileDoesNotExist &) {
-        qDebug() << "FNDE: " << path;
         return make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);
     }
 }

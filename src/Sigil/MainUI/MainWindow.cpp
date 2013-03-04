@@ -2976,10 +2976,6 @@ void MainWindow::SetNewBook(QSharedPointer< Book > new_book)
     connect(m_Book.data(),     SIGNAL(ModifiedStateChanged(bool)), this, SLOT(setWindowModified(bool)));
     connect(m_Book.data(),     SIGNAL(ResourceUpdatedFromDiskRequest(Resource &)), this, SLOT(ResourceUpdatedFromDisk(Resource &)));
     connect(m_BookBrowser,     SIGNAL(ShowStatusMessageRequest(const QString &, int)), this, SLOT(ShowMessageOnStatusBar(const QString &, int)));
-    connect(m_BookBrowser,     SIGNAL(GuideSemanticTypeAdded(const HTMLResource &, GuideSemantics::GuideSemanticType)),
-            &m_Book->GetOPF(), SLOT(AddGuideSemanticType(const HTMLResource &, GuideSemantics::GuideSemanticType)));
-    connect(m_BookBrowser,     SIGNAL(CoverImageSet(const ImageResource &)),
-            &m_Book->GetOPF(), SLOT(SetResourceAsCoverImage(const ImageResource &)));
     connect(m_BookBrowser,     SIGNAL(ResourcesDeleted()), this, SLOT(ResourcesAddedOrDeleted()));
     connect(m_BookBrowser,     SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
 }

@@ -1137,16 +1137,24 @@ Resource *BookBrowser::ResourceToSelectAfterRemove(QList<Resource *> selected_re
 
 void BookBrowser::SetCoverImage()
 {
+    QList <Resource *> resources = ValidSelectedResources();
+    int scrollY = m_TreeView.verticalScrollBar()->value();
+
     ImageResource *image_resource = qobject_cast< ImageResource * >(GetCurrentResource());
     Q_ASSERT(image_resource);
-    emit CoverImageSet(*image_resource);
+    m_Book->GetOPF().SetResourceAsCoverImage(*image_resource);
+    m_OPFModel.Refresh();
     emit BookContentModified();
+
+    SelectResources(resources);
+    m_TreeView.verticalScrollBar()->setSliderPosition(scrollY);
 }
 
 
 void BookBrowser::AddGuideSemanticType(int type)
 {
     QList <Resource *> resources = ValidSelectedResources();
+    int scrollY = m_TreeView.verticalScrollBar()->value();
 
     if (resources.isEmpty()) {
         return;
@@ -1154,9 +1162,14 @@ void BookBrowser::AddGuideSemanticType(int type)
 
     foreach(Resource * resource, resources) {
         HTMLResource *html_resource = qobject_cast< HTMLResource * >(resource);
-        emit GuideSemanticTypeAdded(*html_resource, (GuideSemantics::GuideSemanticType) type);
+        m_Book->GetOPF().AddGuideSemanticType(*html_resource, (GuideSemantics::GuideSemanticType) type);
+
     }
+    m_OPFModel.Refresh();
     emit BookContentModified();
+
+    SelectResources(resources);
+    m_TreeView.verticalScrollBar()->setSliderPosition(scrollY);
 }
 
 void BookBrowser::Merge()

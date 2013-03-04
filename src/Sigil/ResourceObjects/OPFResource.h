@@ -60,7 +60,10 @@ public:
     GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource &resource) const;
     QString GetGuideSemanticNameForResource(Resource *resource);
 
+    QHash <QString, QString> GetGuideSemanticNameForPaths();
+
     int GetReadingOrder(const ::HTMLResource &html_resource) const;
+    QHash <Resource *, int> GetReadingOrderAll( const QList < Resource *> resources);
 
     QString GetMainIdentifierValue() const;
 

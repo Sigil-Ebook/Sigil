@@ -377,23 +377,27 @@ void OPFModel::InitializeModel()
     Q_ASSERT(m_Book);
     ClearModel();
     QList< Resource * > resources = m_Book->GetFolderKeeper().GetResourceList();
+    QHash <Resource *, int> reading_order_all = m_Book->GetOPF().GetReadingOrderAll(resources);
+    QHash <QString, QString> semantic_type_all = m_Book->GetOPF().GetGuideSemanticNameForPaths();
+
     foreach(Resource * resource, resources) {
         AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->Filename());
         item->setDropEnabled(false);
         item->setData(resource->GetIdentifier());
         QString tooltip = resource->Filename();
+        QString path = resource->GetRelativePathToOEBPS();
 
-        QString semantic = m_Book->GetOPF().GetGuideSemanticNameForResource(resource);
-        if (!semantic.isEmpty()) {
-            tooltip += " (" + semantic + ")";
+        if (semantic_type_all.contains(path)) {
+            tooltip += " (" + semantic_type_all[path] + ")";
         }
         item->setToolTip(tooltip);
 
         if (resource->Type() == Resource::HTMLResourceType) {
-            int reading_order =
-                m_Book->GetOPF().GetReadingOrder(*qobject_cast< HTMLResource * >(resource));
-
-            if (reading_order == -1) {
+            int reading_order = -1;
+            if (reading_order_all.contains(resource)) {
+                reading_order = reading_order_all[resource];
+            }
+            else {
                 reading_order = NO_READING_ORDER;
             }
 
