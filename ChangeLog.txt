@@ -1,3 +1,6 @@
+Sigil 0.7.2 TBD
+    - Fix issue 2080: OPF meta title not updated correctly for Add Semantic.
+    - Fix issue 2079: UI Language dropdown does not show language names for entries containing _.
 Sigil 0.7.1 2013.03.03
     - Implement issue 2058: Code View should be able to show resizable image.
     - Implement issue 2038: Spellcheck "change selected word to" should remember sorting order.

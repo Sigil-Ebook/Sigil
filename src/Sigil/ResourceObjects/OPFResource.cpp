@@ -749,6 +749,7 @@ void OPFResource::SetGuideSemanticTypeForResource(
 
     if (reference) {
         reference->setAttribute(QtoX("type"), QtoX(type_attribute));
+        reference->setAttribute(QtoX("title"), QtoX(title_attribute));
     } else {
         QHash< QString, QString > attributes;
         attributes[ "type"  ] = type_attribute;
