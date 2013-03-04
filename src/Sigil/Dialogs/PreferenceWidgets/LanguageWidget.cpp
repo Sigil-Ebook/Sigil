@@ -38,7 +38,10 @@ LanguageWidget::LanguageWidget()
     // UI language combobox - smaller subset of available languages
     QStringList ui_language_names;
     foreach(QString language_code, UILanguage::GetUILanguages()) {
-        QString language_name = Language::instance()->GetLanguageName(language_code);
+        // Convert standard language codes to those used for translations.
+        QString std_language_code = language_code;
+        std_language_code.replace("_", "-");
+        QString language_name = Language::instance()->GetLanguageName(std_language_code);
 
         if (language_name.isEmpty()) {
             language_name = language_code;
@@ -57,7 +60,7 @@ PreferencesWidget::ResultAction LanguageWidget::saveSettings()
 {
     SettingsStore settings;
     settings.setDefaultMetadataLang(Language::instance()->GetLanguageCode(ui.cbMetadataLanguage->currentText()));
-    settings.setUILanguage(Language::instance()->GetLanguageCode(ui.cbUILanguage->currentText()));
+    settings.setUILanguage(Language::instance()->GetLanguageCode(ui.cbUILanguage->currentText()).replace("-", "_"));
 
     if (ui.cbUILanguage->currentText() != m_UILanguage) {
         return PreferencesWidget::ResultAction_RestartSigil;
