@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>497</width>
-    <height>80</height>
+    <height>87</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,11 +19,8 @@
   <property name="windowTitle">
    <string>Rename Files</string>
   </property>
-  <layout class="QGridLayout">
-   <property name="sizeConstraint">
-    <enum>QLayout::SetMaximumSize</enum>
-   </property>
-   <item row="1" column="0">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLabel" name="label_2">
@@ -58,7 +55,7 @@ valid for all selected files.
      </item>
     </layout>
    </item>
-   <item row="2" column="0">
+   <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
