@@ -159,15 +159,16 @@ private:
 
     boost::shared_ptr< xc::DOMDocument > GetDocument() const;
 
-    static xc::DOMElement &GetPackageElement(const xc::DOMDocument &document);
+    static xc::DOMElement *GetPackageElement(const xc::DOMDocument &document);
 
-    static xc::DOMElement &GetMetadataElement(const xc::DOMDocument &document);
+    static xc::DOMElement *GetMetadataElement(const xc::DOMDocument &document);
 
-    static xc::DOMElement &GetManifestElement(const xc::DOMDocument &document);
+    static xc::DOMElement *GetManifestElement(const xc::DOMDocument &document);
 
-    static xc::DOMElement &GetSpineElement(const xc::DOMDocument &document);
+    static xc::DOMElement *GetSpineElement(const xc::DOMDocument &document);
 
-    static xc::DOMElement &GetGuideElement(xc::DOMDocument &document);
+    static xc::DOMElement *GetGuideElement(const xc::DOMDocument &document);
+    static xc::DOMElement *GetGuideElement(xc::DOMDocument &document);
 
     // CAN BE NULL! NULL means no reference for resource
     static xc::DOMElement *GetGuideReferenceForResource(
@@ -262,7 +263,7 @@ private:
 
     static bool BasicStructurePresent(const xc::DOMDocument &document);
 
-    boost::shared_ptr< xc::DOMDocument > CreateOPFFromScratch() const;
+    boost::shared_ptr< xc::DOMDocument > CreateOPFFromScratch(const xc::DOMDocument *document=NULL) const;
 
     QStringList GetRelativePathsToAllFilesInOEPBS() const;
 

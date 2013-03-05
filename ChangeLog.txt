@@ -1,5 +1,8 @@
 Sigil 0.7.2 TBD
+    - Implement issue 2083: Enhance invalid OPF recovery.
     - Implement issue 2082: Improve performance of Book Browser refresh.
+    - Fix Issue 2071: Anchor dialog has disabled textfield.
+    - Fix Issue 2077: Rename dialog incorrectly sized.
     - Fix issue 2081: Book Browser tooltips are not updated when semantics change or for cover images.
     - Fix issue 2080: OPF meta title not updated correctly for Add Semantic.
     - Fix issue 2079: UI Language dropdown does not show language names for entries containing _.

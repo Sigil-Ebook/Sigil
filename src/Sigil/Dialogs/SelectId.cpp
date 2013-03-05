@@ -37,6 +37,10 @@ SelectId::SelectId(QString id, HTMLResource *html_resource, QSharedPointer< Book
     m_Book(book)
 {
     ui.setupUi(this);
+
+    QCompleter *qc = ui.id->completer();
+    qc->setCaseSensitivity(Qt::CaseSensitive);
+
     connectSignalsSlots();
     ReadSettings();
     SetList();
@@ -44,11 +48,6 @@ SelectId::SelectId(QString id, HTMLResource *html_resource, QSharedPointer< Book
 
 void SelectId::SetList()
 {
-    QLineEdit *q = new QLineEdit(this);
-    ui.id->setLineEdit(q);
-    QCompleter *qc = ui.id->completer();
-    qc->setCaseSensitivity(Qt::CaseSensitive);
-    ui.id->setCompleter(qc);
     QStringList ids = m_Book->GetIdsInHTMLFile(m_HTMLResource);
     foreach(QString id, ids) {
         ui.id->addItem(id);
@@ -94,6 +93,5 @@ void SelectId::WriteSettings()
 
 void SelectId::connectSignalsSlots()
 {
-    connect(this,         SIGNAL(accepted()),
-            this,         SLOT(WriteSettings()));
+    connect(this, SIGNAL(accepted()), this, SLOT(WriteSettings()));
 }

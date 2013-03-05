@@ -49,7 +49,7 @@ static const QString FALLBACK_MIMETYPE        = "text/plain";
 static const QString ITEM_ELEMENT_TEMPLATE    = "<item id=\"%1\" href=\"%2\" media-type=\"%3\"/>";
 static const QString ITEMREF_ELEMENT_TEMPLATE = "<itemref idref=\"%1\"/>";
 static const QString OPF_REWRITTEN_COMMENT    = "<!-- Your OPF file was broken so Sigil "
-        "was forced to create a new one from scratch. -->";
+        "tried to rebuild it for you. -->";
 
 static const QString TEMPLATE_TEXT =
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
@@ -62,6 +62,7 @@ static const QString TEMPLATE_TEXT =
     "  </manifest>\n\n"
     "  <spine toc=\"ncx\">\n"
     "  </spine>\n\n"
+    "  <guide>\n\n</guide>\n\n"
     "</package>";
 
 
@@ -259,8 +260,11 @@ QString OPFResource::AddNCXItem(const QString &ncx_path)
     attributes[ "media-type" ] = "application/x-dtbncx+xml";
     xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
                                    "item", OPF_XML_NAMESPACE, *document, attributes);
-    xc::DOMElement &manifest = GetManifestElement(*document);
-    manifest.appendChild(new_item);
+    xc::DOMElement *manifest = GetManifestElement(*document);
+    if (!manifest) {
+        return QString();
+    }
+    manifest->appendChild(new_item);
     UpdateTextFromDom(*document);
     return attributes[ "id" ];
 }
@@ -269,11 +273,14 @@ void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
 {
     QWriteLocker locker(&GetLock());
     shared_ptr< xc::DOMDocument > document = GetDocument();
-    xc::DOMElement &spine = GetSpineElement(*document);
-    QString ncx_id = XtoQ(spine.getAttribute(QtoX("toc")));
+    xc::DOMElement *spine = GetSpineElement(*document);
+    if (!spine) {
+        return;
+    }
+    QString ncx_id = XtoQ(spine->getAttribute(QtoX("toc")));
 
     if (new_ncx_id != ncx_id) {
-        spine.setAttribute(QtoX("toc"), QtoX(new_ncx_id));
+        spine->setAttribute(QtoX("toc"), QtoX(new_ncx_id));
         UpdateTextFromDom(*document);
     }
 }
@@ -282,10 +289,9 @@ void OPFResource::UpdateNCXLocationInManifest(const ::NCXResource &ncx)
 {
     QWriteLocker locker(&GetLock());
     shared_ptr< xc::DOMDocument > document = GetDocument();
-    xc::DOMElement &spine = GetSpineElement(*document);
-    QString ncx_id = XtoQ(spine.getAttribute(QtoX("toc")));
-    QList< xc::DOMElement * > items =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
+    xc::DOMElement *spine = GetSpineElement(*document);
+    QString ncx_id = XtoQ(spine->getAttribute(QtoX("toc")));
+    QList<xc::DOMElement *> items = XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
     foreach(xc::DOMElement * item, items) {
         QString id = XtoQ(item->getAttribute(QtoX("id")));
 
@@ -316,8 +322,11 @@ void OPFResource::AddSigilVersionMeta()
     xc::DOMElement *element = document->createElementNS(QtoX(OPF_XML_NAMESPACE), QtoX("meta"));
     element->setAttribute(QtoX("name"),    QtoX("Sigil version"));
     element->setAttribute(QtoX("content"), QtoX(SIGIL_VERSION));
-    xc::DOMElement &metadata = GetMetadataElement(*document);
-    metadata.appendChild(element);
+    xc::DOMElement *metadata = GetMetadataElement(*document);
+    if (!metadata) {
+        return;
+    }
+    metadata->appendChild(element);
     UpdateTextFromDom(*document);
 }
 
@@ -416,12 +425,15 @@ void OPFResource::SetSpineOrderFromFilenames(const QStringList spineOrder)
             }
         }
     }
-    xc::DOMElement &spine = GetSpineElement(*document);
-    XhtmlDoc::RemoveChildren(spine);
-    QListIterator< xc::DOMElement * > spineWriter(newSpine);
+    xc::DOMElement *spine = GetSpineElement(*document);
+    if (!spine) {
+        return;
+    }
+    XhtmlDoc::RemoveChildren(*spine);
+    QListIterator<xc::DOMElement *> spineWriter(newSpine);
 
     while (spineWriter.hasNext()) {
-        spine.appendChild(spineWriter.next());
+        spine->appendChild(spineWriter.next());
     }
 
     UpdateTextFromDom(*document);
@@ -482,8 +494,11 @@ void OPFResource::AddResource(const Resource &resource)
     attributes[ "media-type" ] = GetResourceMimetype(resource);
     xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
                                    "item", OPF_XML_NAMESPACE, *document, attributes);
-    xc::DOMElement &manifest = GetManifestElement(*document);
-    manifest.appendChild(new_item);
+    xc::DOMElement *manifest = GetManifestElement(*document);
+    if (!manifest) {
+        return;
+    }
+    manifest->appendChild(new_item);
 
     if (resource.Type() == Resource::HTMLResourceType) {
         AppendToSpine(attributes[ "id" ], *document);
@@ -499,7 +514,7 @@ void OPFResource::RemoveCoverMetaForImage(const Resource &resource, xc::DOMDocum
 
     // Remove entry if there is a cover in meta and if this file is marked as cover
     if (meta && XtoQ(meta->getAttribute(QtoX("content"))) == resource_id) {
-        GetMetadataElement(document).removeChild(meta);
+        GetMetadataElement(document)->removeChild(meta);
     }
 }
 
@@ -517,8 +532,8 @@ void OPFResource::AddCoverMetaForImage(const Resource &resource, xc::DOMDocument
         attributes[ "content" ] = resource_id;
         xc::DOMElement *new_meta = XhtmlDoc::CreateElementInDocument(
                                        "meta", OPF_XML_NAMESPACE, document, attributes);
-        xc::DOMElement &metadata = GetMetadataElement(document);
-        metadata.appendChild(new_meta);
+        xc::DOMElement *metadata = GetMetadataElement(document);
+        metadata->appendChild(new_meta);
     }
 }
 
@@ -526,8 +541,11 @@ void OPFResource::RemoveResource(const Resource &resource)
 {
     QWriteLocker locker(&GetLock());
     shared_ptr< xc::DOMDocument > document  = GetDocument();
-    xc::DOMElement &manifest                = GetManifestElement(*document);
-    std::vector< xc::DOMElement * > children = xe::GetElementChildren(manifest);
+    xc::DOMElement *manifest                = GetManifestElement(*document);
+    if (!manifest) {
+        return;
+    }
+    std::vector< xc::DOMElement * > children = xe::GetElementChildren(*manifest);
     QString resource_oebps_path             = Utility::URLEncodePath(resource.GetRelativePathToOEBPS());
     QString item_id;
 
@@ -541,7 +559,7 @@ void OPFResource::RemoveResource(const Resource &resource)
 
         if (href == resource_oebps_path) {
             item_id = XtoQ(child->getAttribute(QtoX("id")));
-            manifest.removeChild(child);
+            manifest->removeChild(child);
             break;
         }
     }
@@ -596,15 +614,17 @@ void OPFResource::UpdateSpineOrder(const QList< ::HTMLResource * > html_files)
 {
     QWriteLocker locker(&GetLock());
     shared_ptr< xc::DOMDocument > document = GetDocument();
-    QHash< ::HTMLResource *, xc::DOMElement * > itemref_mapping =
-        GetItemrefsForHTMLResources(html_files, *document);
-    xc::DOMElement &spine = GetSpineElement(*document);
-    XhtmlDoc::RemoveChildren(spine);
+    QHash< ::HTMLResource *, xc::DOMElement *> itemref_mapping = GetItemrefsForHTMLResources(html_files, *document);
+    xc::DOMElement *spine = GetSpineElement(*document);
+    if (!spine) {
+        return;
+    }
+    XhtmlDoc::RemoveChildren(*spine);
     foreach(::HTMLResource * resource, html_files) {
         xc::DOMElement *itemref = itemref_mapping.value(resource, NULL);
 
         if (itemref) {
-            spine.appendChild(itemref);
+            spine->appendChild(itemref);
         }
     }
     UpdateTextFromDom(*document);
@@ -655,20 +675,26 @@ void OPFResource::AppendToSpine(const QString &id, xc::DOMDocument &document)
     attributes[ "idref" ] = id;
     xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
                                    "itemref", OPF_XML_NAMESPACE, document, attributes);
-    xc::DOMElement &spine = GetSpineElement(document);
-    spine.appendChild(new_item);
+    xc::DOMElement *spine = GetSpineElement(document);
+    if (!spine) {
+        return;
+    }
+    spine->appendChild(new_item);
 }
 
 
 void OPFResource::RemoveFromSpine(const QString &id, xc::DOMDocument &document)
 {
-    xc::DOMElement &spine = GetSpineElement(document);
-    std::vector< xc::DOMElement * > children = xe::GetElementChildren(spine);
+    xc::DOMElement *spine = GetSpineElement(document);
+    if (!spine) {
+        return;
+    }
+    std::vector< xc::DOMElement * > children = xe::GetElementChildren(*spine);
     foreach(xc::DOMElement * child, children) {
         QString idref = XtoQ(child->getAttribute(QtoX("idref")));
 
         if (idref == id) {
-            spine.removeChild(child);
+            spine->removeChild(child);
             break;
         }
     }
@@ -677,8 +703,8 @@ void OPFResource::RemoveFromSpine(const QString &id, xc::DOMDocument &document)
 
 void OPFResource::UpdateItemrefID(const QString &old_id, const QString &new_id, xc::DOMDocument &document)
 {
-    xc::DOMElement &spine = GetSpineElement(document);
-    std::vector< xc::DOMElement * > children = xe::GetElementChildren(spine);
+    xc::DOMElement *spine = GetSpineElement(document);
+    std::vector< xc::DOMElement * > children = xe::GetElementChildren(*spine);
     foreach(xc::DOMElement * child, children) {
         QString idref = XtoQ(child->getAttribute(QtoX("idref")));
 
@@ -700,7 +726,7 @@ shared_ptr< xc::DOMDocument > OPFResource::GetDocument() const
         XhtmlDoc::LoadTextIntoDocument(CleanSource::ProcessXML(GetText()));
 
     if (!BasicStructurePresent(*document)) {
-        document = CreateOPFFromScratch();
+        document = CreateOPFFromScratch(document.get());
     }
 
     // For NCX files, the default of standalone == false should remain
@@ -709,56 +735,68 @@ shared_ptr< xc::DOMDocument > OPFResource::GetDocument() const
 }
 
 
-xc::DOMElement &OPFResource::GetPackageElement(const xc::DOMDocument &document)
+xc::DOMElement *OPFResource::GetPackageElement(const xc::DOMDocument &document)
 {
-    QList< xc::DOMElement * > packages =
-        XhtmlDoc::GetTagMatchingDescendants(document, "package", OPF_XML_NAMESPACE);
-    Q_ASSERT(!packages.isEmpty());
-    return *packages[ 0 ];
+    QList<xc::DOMElement *> packages = XhtmlDoc::GetTagMatchingDescendants(document, "package", OPF_XML_NAMESPACE);
+    if (!packages.isEmpty()) {
+        return packages[0];
+    }
+    return NULL;
 }
 
 
-xc::DOMElement &OPFResource::GetMetadataElement(const xc::DOMDocument &document)
+xc::DOMElement *OPFResource::GetMetadataElement(const xc::DOMDocument &document)
 {
-    QList< xc::DOMElement * > metadatas =
-        XhtmlDoc::GetTagMatchingDescendants(document, "metadata", OPF_XML_NAMESPACE);
-    Q_ASSERT(!metadatas.isEmpty());
-    return *metadatas[ 0 ];
+    QList<xc::DOMElement *> metadatas = XhtmlDoc::GetTagMatchingDescendants(document, "metadata", OPF_XML_NAMESPACE);
+    if (!metadatas.isEmpty()) {
+        return metadatas[0];
+    }
+    return NULL;
 }
 
 
-xc::DOMElement &OPFResource::GetManifestElement(const xc::DOMDocument &document)
+xc::DOMElement *OPFResource::GetManifestElement(const xc::DOMDocument &document)
 {
-    QList< xc::DOMElement * > manifests =
-        XhtmlDoc::GetTagMatchingDescendants(document, "manifest", OPF_XML_NAMESPACE);
-    Q_ASSERT(!manifests.isEmpty());
-    return *manifests[ 0 ];
+    QList<xc::DOMElement *> manifests = XhtmlDoc::GetTagMatchingDescendants(document, "manifest", OPF_XML_NAMESPACE);
+    if (!manifests.isEmpty()) {
+        return manifests[0];
+    }
+    return NULL;
 }
 
 
-xc::DOMElement &OPFResource::GetSpineElement(const xc::DOMDocument &document)
+xc::DOMElement *OPFResource::GetSpineElement(const xc::DOMDocument &document)
 {
-    QList< xc::DOMElement * > spines =
-        XhtmlDoc::GetTagMatchingDescendants(document, "spine", OPF_XML_NAMESPACE);
-    Q_ASSERT(!spines.isEmpty());
-    return *spines[ 0 ];
+    QList<xc::DOMElement *> spines = XhtmlDoc::GetTagMatchingDescendants(document, "spine", OPF_XML_NAMESPACE);
+    if (!spines.isEmpty()) {
+        return spines[0];
+    }
+    return NULL;
 }
 
 
-xc::DOMElement &OPFResource::GetGuideElement(xc::DOMDocument &document)
+xc::DOMElement *OPFResource::GetGuideElement(const xc::DOMDocument &document)
 {
-    QList< xc::DOMElement * > guides =
-        XhtmlDoc::GetTagMatchingDescendants(document, "guide", OPF_XML_NAMESPACE);
+    QList<xc::DOMElement *> guides = XhtmlDoc::GetTagMatchingDescendants(document, "guide", OPF_XML_NAMESPACE);
+    if (!guides.isEmpty()) {
+        return guides[0];
+    }
+    return NULL;
+}
+
+
+xc::DOMElement *OPFResource::GetGuideElement(xc::DOMDocument &document)
+{
+    QList<xc::DOMElement *> guides = XhtmlDoc::GetTagMatchingDescendants(document, "guide", OPF_XML_NAMESPACE);
 
     if (!guides.isEmpty()) {
-        return *guides[ 0 ];
+        return guides[0];
     }
 
-    xc::DOMElement *guide = XhtmlDoc::CreateElementInDocument(
-                                "guide", OPF_XML_NAMESPACE, document, QHash< QString, QString >());
+    xc::DOMElement *guide = XhtmlDoc::CreateElementInDocument("guide", OPF_XML_NAMESPACE, document, QHash< QString, QString >());
     xc::DOMElement &package = *document.getDocumentElement();
     package.appendChild(guide);
-    return *guide;
+    return guide;
 }
 
 
@@ -781,11 +819,14 @@ xc::DOMElement *OPFResource::GetGuideReferenceForResource(const Resource &resour
 
 void OPFResource::RemoveGuideReferenceForResource(const Resource &resource, xc::DOMDocument &document)
 {
-    xc::DOMElement &guide = GetGuideElement(document);
+    xc::DOMElement *guide = GetGuideElement(document);
+    if (!guide) {
+        return;
+    }
     xc::DOMElement *elem = GetGuideReferenceForResource(resource, document);
 
     if (elem) {
-        guide.removeChild(elem);
+        guide->removeChild(elem);
     }
 }
 
@@ -825,8 +866,10 @@ void OPFResource::SetGuideSemanticTypeForResource(
         attributes[ "href"  ] = Utility::URLEncodePath(resource.GetRelativePathToOEBPS());
         xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
                                        "reference", OPF_XML_NAMESPACE, document, attributes);
-        xc::DOMElement &guide = GetGuideElement(document);
-        guide.appendChild(new_item);
+        xc::DOMElement *guide = GetGuideElement(document);
+        if (guide) {
+            guide->appendChild(new_item);
+        }
     }
 }
 
@@ -842,16 +885,17 @@ void OPFResource::RemoveDuplicateGuideTypes(
         return;
     }
 
-    xc::DOMElement &guide               = GetGuideElement(document);
-    QList< xc::DOMElement * > references =
-        XhtmlDoc::GetTagMatchingDescendants(document, "reference", OPF_XML_NAMESPACE);
+    xc::DOMElement *guide = GetGuideElement(document);
+    if (!guide) {
+        return;
+    }
+    QList<xc::DOMElement *> references = XhtmlDoc::GetTagMatchingDescendants(document, "reference", OPF_XML_NAMESPACE);
     foreach(xc::DOMElement * reference, references) {
         QString type_text = XtoQ(reference->getAttribute(QtoX("type")));
-        GuideSemantics::GuideSemanticType current_type =
-            GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type_text);
+        GuideSemantics::GuideSemanticType current_type = GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type_text);
 
         if (current_type == new_type) {
-            guide.removeChild(reference);
+            guide->removeChild(reference);
             // There is no "break" statement here because we might
             // load an epub that has several instance of one guide type.
             // We preserve them on load, but if the user is intent on
@@ -938,10 +982,12 @@ xc::DOMElement &OPFResource::GetMainIdentifier(const xc::DOMDocument &document)
 // during DOM validation. But after that, the GetMainIdentifier func should be used.
 xc::DOMElement *OPFResource::GetMainIdentifierUnsafe(const xc::DOMDocument &document)
 {
-    xc::DOMElement &package = GetPackageElement(document);
-    QString unique_identifier = XtoQ(package.getAttribute(QtoX("unique-identifier")));
-    QList< xc::DOMElement * > identifiers =
-        XhtmlDoc::GetTagMatchingDescendants(document, "identifier", DUBLIN_CORE_NS);
+    xc::DOMElement *package = GetPackageElement(document);
+    if (!package) {
+        return NULL;
+    }
+    QString unique_identifier = XtoQ(package->getAttribute(QtoX("unique-identifier")));
+    QList<xc::DOMElement *> identifiers = XhtmlDoc::GetTagMatchingDescendants(document, "identifier", DUBLIN_CORE_NS);
     foreach(xc::DOMElement * identifier, identifiers) {
         QString id = XtoQ(identifier->getAttribute(QtoX("id")));
 
@@ -994,11 +1040,14 @@ void OPFResource::SetMetaElementsLast(xc::DOMDocument &document)
 {
     QList< xc::DOMElement * > metas =
         XhtmlDoc::GetTagMatchingDescendants(document, "meta", OPF_XML_NAMESPACE);
-    xc::DOMElement &metadata = GetMetadataElement(document);
+    xc::DOMElement *metadata = GetMetadataElement(document);
+    if (!metadata) {
+        return;
+    }
     foreach(xc::DOMElement * meta, metas) {
         // This makes sure that the <meta> elements come last
-        metadata.removeChild(meta);
-        metadata.appendChild(meta);
+        metadata->removeChild(meta);
+        metadata->appendChild(meta);
     }
 }
 
@@ -1077,8 +1126,11 @@ void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_met
     }
 
     element->setTextContent(QtoX(value));
-    xc::DOMElement &metadata = GetMetadataElement(document);
-    metadata.appendChild(element);
+    xc::DOMElement *metadata = GetMetadataElement(document);
+    if (!metadata) {
+        return;
+    }
+    metadata->appendChild(element);
 }
 
 
@@ -1091,8 +1143,11 @@ void OPFResource::WriteSimpleMetadata(
         // This assumes that the "dc" prefix has been declared for the DC namespace
         xc::DOMElement *element = document.createElementNS(QtoX(DUBLIN_CORE_NS), QtoX("dc:" + metaname));
         element->setTextContent(QtoX(metavalue));
-        xc::DOMElement &metadata = GetMetadataElement(document);
-        metadata.appendChild(element);
+        xc::DOMElement *metadata = GetMetadataElement(document);
+        if (!metadata) {
+            return;
+        }
+        metadata->appendChild(element);
     } catch (...) {
         // "dc" prefix isn't always declared when importing HTML.
     }
@@ -1124,8 +1179,11 @@ void OPFResource::WriteIdentifier(
         element->setTextContent(QtoX(metavalue));
     }
 
-    xc::DOMElement &metadata = GetMetadataElement(document);
-    metadata.appendChild(element);
+    xc::DOMElement *metadata = GetMetadataElement(document);
+    if (!metadata) {
+        return;
+    }
+    metadata->appendChild(element);
 }
 
 void OPFResource::AddModificationDateMeta()
@@ -1147,8 +1205,11 @@ void OPFResource::AddModificationDateMeta()
     xc::DOMElement *element = document->createElementNS(QtoX(DUBLIN_CORE_NS), QtoX("dc:date"));
     element->setAttributeNS(QtoX(OPF_XML_NAMESPACE), QtoX("opf:event"), QtoX("modification"));
     element->setTextContent(QtoX(date));
-    xc::DOMElement &metadata = GetMetadataElement(*document);
-    metadata.appendChild(element);
+    xc::DOMElement *metadata = GetMetadataElement(*document);
+    if (!metadata) {
+        return;
+    }
+    metadata->appendChild(element);
     UpdateTextFromDom(*document);
 }
 
@@ -1162,8 +1223,11 @@ void OPFResource::WriteDate(
     xc::DOMElement *element = document.createElementNS(QtoX(DUBLIN_CORE_NS), QtoX("dc:date"));
     element->setAttributeNS(QtoX(OPF_XML_NAMESPACE), QtoX("opf:event"), QtoX(metaname));
     element->setTextContent(QtoX(date));
-    xc::DOMElement &metadata = GetMetadataElement(document);
-    metadata.appendChild(element);
+    xc::DOMElement *metadata = GetMetadataElement(document);
+    if (!metadata) {
+        return;
+    }
+    metadata->appendChild(element);
 }
 
 
@@ -1207,12 +1271,32 @@ bool OPFResource::BasicStructurePresent(const xc::DOMDocument &document)
 }
 
 
-shared_ptr< xc::DOMDocument > OPFResource::CreateOPFFromScratch() const
+shared_ptr< xc::DOMDocument > OPFResource::CreateOPFFromScratch(const xc::DOMDocument *d) const
 {
-    QString xml_source = GetOPFDefaultText();
+    xc::DOMElement *elem;
+    QString xml_source;
+    QString manifest;
+    QString spine;
+    QString metadata_content;
     QString manifest_content;
+    QString manifest_holder;
     QString spine_content;
-    QStringList relative_oebps_paths = GetRelativePathsToAllFilesInOEPBS();
+    QString guide_content;
+    QStringList relative_oebps_paths;
+    bool have_manifest;
+    bool have_spine;
+
+    if (d) {
+        metadata_content = XhtmlDoc::GetNodeChildrenAsString(GetMetadataElement(*d));
+        manifest_content = XhtmlDoc::GetNodeChildrenAsString(GetManifestElement(*d));
+        spine_content = XhtmlDoc::GetNodeChildrenAsString(GetSpineElement(*d));
+        guide_content = XhtmlDoc::GetNodeChildrenAsString(GetGuideElement(*d));
+    }
+
+    have_manifest = !manifest_content.isEmpty();
+    have_spine    = !spine_content.isEmpty();
+
+    relative_oebps_paths = GetRelativePathsToAllFilesInOEPBS();
     foreach(QString path, relative_oebps_paths) {
         // The OPF is not allowed to be in the manifest and the NCX
         // is already in the template.
@@ -1222,20 +1306,32 @@ shared_ptr< xc::DOMDocument > OPFResource::CreateOPFFromScratch() const
 
         QString item_id = GetValidID(QFileInfo(path).fileName());
         QString item = ITEM_ELEMENT_TEMPLATE
-                       .arg(item_id)
-                       .arg(path)
-                       .arg(GetFileMimetype(path));
-        manifest_content.append(item);
+            .arg(item_id)
+            .arg(path)
+            .arg(GetFileMimetype(path));
+        if (!have_manifest) {
+            manifest_content.append(item);
+        }
+        /* We're going to put a list of all items in the archive in a comment
+         * in case the manifest was recoverable but damaged. This should make it
+         * easier to manually add the entires. */
+        manifest_holder.append(item);
+        manifest_holder.append("\n");
 
-        if (TEXT_EXTENSIONS.contains(QFileInfo(path).suffix().toLower())) {
+        if (!have_spine && TEXT_EXTENSIONS.contains(QFileInfo(path).suffix().toLower())) {
             spine_content.append(ITEMREF_ELEMENT_TEMPLATE.arg(item_id));
         }
     }
-    xml_source.replace("</manifest>", manifest_content + "</manifest>")
-    .replace("</spine>", spine_content + "</spine>")
-    .replace("<metadata", OPF_REWRITTEN_COMMENT + "<metadata");
-    shared_ptr< xc::DOMDocument > document =
-        XhtmlDoc::LoadTextIntoDocument(xml_source);
+
+    xml_source = GetOPFDefaultText();
+    xml_source.replace("</manifest>", "<!-- All detected files in the archive:\n\n" + manifest_holder + "-->" + manifest_content + "</manifest>")
+        .replace("</spine>", spine_content + "</spine>")
+        .replace("<metadata", OPF_REWRITTEN_COMMENT + "<metadata")
+        .replace("</metadata>", metadata_content + "</metadata>")
+        .replace("</guide>", guide_content + "</guide>")
+        .replace("<guide>\n\n</guide>\n\n", "");
+    
+    shared_ptr< xc::DOMDocument > document = XhtmlDoc::LoadTextIntoDocument(xml_source);
     document->setXmlStandalone(true);
     return document;
 }

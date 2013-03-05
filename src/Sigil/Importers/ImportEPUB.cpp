@@ -62,7 +62,6 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
-
 #ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
 #define MAX_PATH 256
