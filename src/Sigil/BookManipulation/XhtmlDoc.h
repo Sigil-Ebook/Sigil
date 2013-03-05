@@ -239,6 +239,9 @@ public:
     // Creates a ViewEditor element hierarchy from the specified node
     static QList< ViewEditor::ElementIndex > GetHierarchyFromNode(const xc::DOMNode &node);
 
+    // Gets all children of a node as a string.
+    static QString GetNodeChildrenAsString(const xc::DOMNode *node);
+
 private:
 
     // Accepts a reference to an XML stream reader positioned on an XML element.

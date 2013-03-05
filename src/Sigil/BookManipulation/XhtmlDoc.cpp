@@ -1136,3 +1136,20 @@ QList< ViewEditor::ElementIndex > XhtmlDoc::GetHierarchyFromNode(const xc::DOMNo
     return element_list;
 }
 
+QString XhtmlDoc::GetNodeChildrenAsString(const xc::DOMNode *node)
+{
+    QStringList builder;
+    QList<xc::DOMNode *> children;
+
+    if (!node) {
+        return QString();
+    }
+
+    children = GetNodeChildren(*node);
+    for (int i=0; i<children.count(); ++i) {
+        builder.append(GetDomNodeAsString(*children.at(i)));
+    }
+    
+    return builder.join("");
+}
+

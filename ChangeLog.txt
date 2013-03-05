@@ -1,4 +1,5 @@
 Sigil 0.7.2 TBD
+    - Implement issue 2083: Enhance invalid OPF recovery.
     - Fix Issue 2071: Anchor dialog has disabled textfield.
     - Fix Issue 2077: Rename dialog incorrectly sized.
     - Fix issue 2080: OPF meta title not updated correctly for Add Semantic.
