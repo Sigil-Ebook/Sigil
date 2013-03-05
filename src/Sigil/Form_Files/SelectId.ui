@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>504</width>
-    <height>95</height>
+    <height>100</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,6 +37,9 @@ ID names must be unique and start with a letter.</string>
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="editable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
