@@ -25,6 +25,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/tuple/tuple.hpp>
 
+#include <QtCore/QFileInfo>
 #include <QtGui/QContextMenuEvent>
 #include <QtCore/QSignalMapper>
 #include <QtWidgets/QAction>
@@ -1314,7 +1315,15 @@ void CodeViewEditor::GoToLinkOrStyle()
     }
 
     if (!url_name.isEmpty()) {
-        emit ViewImage(QUrl(url_name));
+        QUrl url = QUrl(url_name);
+        QString extension = url_name.right(url_name.length() - url_name.lastIndexOf('.') - 1).toLower();
+        
+        if (IMAGE_EXTENSIONS.contains(extension)) {
+            emit ViewImage(QUrl(url_name));
+        }
+        else {
+            emit LinkClicked(QUrl(url_name));
+        }
     } else if (IsPositionInOpeningTag()) {
         GoToStyleDefinition();
     } else {
