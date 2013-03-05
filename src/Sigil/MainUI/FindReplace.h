@@ -52,7 +52,8 @@ public:
     enum LookWhere {
         LookWhere_CurrentFile = 0,
         LookWhere_AllHTMLFiles = 10,
-        LookWhere_SelectedHTMLFiles = 20
+        LookWhere_SelectedHTMLFiles = 20,
+        LookWhere_SelectedText = 30
     };
 
     enum SearchMode {

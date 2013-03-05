@@ -1,4 +1,5 @@
 Sigil 0.7.2 TBD
+    - Implement issue 1993: Find & Replace should have a Selected Text option.
     - Implement issue 2083: Enhance invalid OPF recovery.
     - Implement issue 2082: Improve performance of Book Browser refresh.
     - Fix issue 2088: Ctrl-click on text files does not work in Code View.

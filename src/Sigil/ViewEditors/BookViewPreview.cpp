@@ -229,11 +229,11 @@ bool BookViewPreview::FindNext(const QString &search_regex,
                                Searchable::Direction search_direction,
                                bool check_spelling,
                                bool ignore_selection_offset,
-                               bool wrap
-                              )
+                               bool wrap,
+                               bool selected_text)
 {
     SearchTools search_tools = GetSearchTools();
-    return FindNext(search_tools, search_regex, search_direction, check_spelling, ignore_selection_offset, wrap);
+    return FindNext(search_tools, search_regex, search_direction, check_spelling, ignore_selection_offset, wrap, selected_text);
 }
 
 bool BookViewPreview::FindNext(SearchTools &search_tools,
@@ -241,7 +241,8 @@ bool BookViewPreview::FindNext(SearchTools &search_tools,
                                Searchable::Direction search_direction,
                                bool check_spelling,
                                bool ignore_selection_offset,
-                               bool wrap
+                               bool wrap,
+                               bool selected_text
                               )
 {
     if (check_spelling) {
@@ -301,7 +302,7 @@ bool BookViewPreview::FindNext(SearchTools &search_tools,
     return false;
 }
 
-int BookViewPreview::Count(const QString &search_regex, Searchable::Direction direction, bool wrap)
+int BookViewPreview::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text)
 {
     // Spell check not actually used
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
@@ -314,7 +315,7 @@ bool BookViewPreview::ReplaceSelected(const QString &search_regex, const QString
     return false;
 }
 
-int BookViewPreview::ReplaceAll(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool wrap)
+int BookViewPreview::ReplaceAll(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool wrap, bool selected_text)
 {
     QMessageBox::critical(this, tr("Unsupported"), tr("Replace All for the current file is not supported in this view. Switch to Code View."));
     return 0;
