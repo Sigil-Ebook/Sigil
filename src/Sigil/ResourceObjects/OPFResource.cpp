@@ -234,9 +234,9 @@ void OPFResource::EnsureUUIDIdentifierPresent()
 {
     QWriteLocker locker(&GetLock());
     shared_ptr< xc::DOMDocument > document = GetDocument();
-    QList< xc::DOMElement * > identifiers =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "identifier", DUBLIN_CORE_NS);
-    foreach(xc::DOMElement * identifier, identifiers) {
+    QList<xc::DOMElement *> identifiers = XhtmlDoc::GetTagMatchingDescendants(*document, "identifier", DUBLIN_CORE_NS);
+
+    foreach(xc::DOMElement *identifier, identifiers) {
         QString value = XtoQ(identifier->getTextContent()).remove("urn:uuid:");
 
         if (!QUuid(value).isNull()) {
@@ -1261,70 +1261,138 @@ bool OPFResource::BasicStructurePresent(const xc::DOMDocument &document)
         return false;
     }
 
-    xc::DOMElement *identifier = GetMainIdentifierUnsafe(document);
-
-    if (!identifier) {
+    if (!GetMainIdentifierUnsafe(document)) {
         return false;
     }
 
     return true;
 }
 
-
+#include <QtDebug>
 shared_ptr< xc::DOMDocument > OPFResource::CreateOPFFromScratch(const xc::DOMDocument *d) const
 {
     xc::DOMElement *elem;
+    QList<xc::DOMElement *> children;
     QString xml_source;
     QString manifest;
     QString spine;
     QString metadata_content;
+    QList<std::pair<QString, QString> > manifest_file;
+    QList<std::pair<QString, QString> > manifest_recovered;
     QString manifest_content;
-    QString manifest_holder;
+    QList<QString> ids_in_manifest;
+    QList<QString> spine_file;
+    QList<QString> spine_recovered;
     QString spine_content;
     QString guide_content;
+    QString item_id;
+    QString path;
     QStringList relative_oebps_paths;
-    bool have_manifest;
-    bool have_spine;
+    QString id;
+    QString href;
+    QString mime;
+    bool exists;
 
+    // Try to pull as much as we can out of the originial OPF is present.
     if (d) {
         metadata_content = XhtmlDoc::GetNodeChildrenAsString(GetMetadataElement(*d));
-        manifest_content = XhtmlDoc::GetNodeChildrenAsString(GetManifestElement(*d));
-        spine_content = XhtmlDoc::GetNodeChildrenAsString(GetSpineElement(*d));
         guide_content = XhtmlDoc::GetNodeChildrenAsString(GetGuideElement(*d));
+
+        children = XhtmlDoc::GetTagMatchingDescendants(*GetManifestElement(*d), "item");;
+        for (int i=0; i<children.length(); ++i) {
+            if (XtoQ(children.at(i)->getAttribute(QtoX("media-type"))).toLower() == NCX_MIMETYPE) {
+                continue;
+            }
+            id = XtoQ(children.at(i)->getAttribute(QtoX("id")));
+            href = XtoQ(children.at(i)->getAttribute(QtoX("href")));
+            if (!id.isEmpty() && !href.isEmpty()) {
+                manifest_recovered.append(std::pair<QString, QString>(id, href));
+            }
+        }
+
+        children = XhtmlDoc::GetTagMatchingDescendants(*GetSpineElement(*d), "itemref");;
+        for (int i=0; i<children.length(); ++i) {
+            id = XtoQ(children.at(i)->getAttribute(QtoX("idref")));
+            if (!id.isEmpty()) {
+                spine_recovered.append(id);
+            }
+        }
     }
 
-    have_manifest = !manifest_content.isEmpty();
-    have_spine    = !spine_content.isEmpty();
-
+    // Get a list of all items on disk.
     relative_oebps_paths = GetRelativePathsToAllFilesInOEPBS();
-    foreach(QString path, relative_oebps_paths) {
+    foreach(path, relative_oebps_paths) {
         // The OPF is not allowed to be in the manifest and the NCX
         // is already in the template.
         if (path.contains(OPF_FILE_NAME) || path.contains(NCX_FILE_NAME)) {
             continue;
         }
 
-        QString item_id = GetValidID(QFileInfo(path).fileName());
-        QString item = ITEM_ELEMENT_TEMPLATE
-            .arg(item_id)
-            .arg(path)
-            .arg(GetFileMimetype(path));
-        if (!have_manifest) {
-            manifest_content.append(item);
-        }
-        /* We're going to put a list of all items in the archive in a comment
-         * in case the manifest was recoverable but damaged. This should make it
-         * easier to manually add the entires. */
-        manifest_holder.append(item);
-        manifest_holder.append("\n");
+        item_id = GetValidID(QFileInfo(path).fileName());
+        manifest_file.append(std::pair<QString, QString>(item_id, path));
 
-        if (!have_spine && TEXT_EXTENSIONS.contains(QFileInfo(path).suffix().toLower())) {
-            spine_content.append(ITEMREF_ELEMENT_TEMPLATE.arg(item_id));
+        if (TEXT_EXTENSIONS.contains(QFileInfo(path).suffix().toLower())) {
+            spine_file.append(item_id);
         }
     }
 
+    // Compare the recovered with on disk content to ensure we aren't missing anything.
+    // Put anything recovered that exists on disk into content.
+    for (int i=0; i<manifest_recovered.count(); ++i) {
+        std::pair<QString, QString> rec = manifest_recovered.at(i);
+        item_id = rec.first;
+        path = rec.second;
+        for (int j=0; j<manifest_file.count(); ++j) {
+            std::pair<QString, QString> frec = manifest_file.at(j);
+            if (frec.second == path) {
+                mime = GetFileMimetype(path);
+                manifest_content.append(QString(ITEM_ELEMENT_TEMPLATE).arg(item_id).arg(path).arg(mime));
+                if (mime == "application/xhtml+xml") {
+                    ids_in_manifest.append(item_id);
+                }
+                break;
+            }
+        }
+    }
+    // Put anything that exists on disk that isn't in recovered into content.
+    for (int i=0; i<manifest_file.count(); ++i) {
+        std::pair<QString, QString> frec = manifest_file.at(i);
+        exists = false;
+        item_id = frec.first;
+        path = frec.second;
+        for (int j=0; i<manifest_recovered.count(); ++j) {
+            std::pair<QString, QString> rec = manifest_recovered.at(j);
+            if (rec.second == path) {
+                exists = true;
+                break;
+            }
+        }
+        if (!exists) {
+            mime = GetFileMimetype(path);
+            manifest_content.append(QString(ITEM_ELEMENT_TEMPLATE).arg(item_id).arg(path).arg(mime));
+            if (mime == "application/xhtml+xml") {
+                ids_in_manifest.append(item_id);
+            }
+        }
+    }
+
+    // Compare the recovered sine with the items that are in the manifest. We only
+    // use a recovered spine item if the id exists in the manfiest.
+    foreach (id, spine_recovered) {
+        if (ids_in_manifest.contains(id)) {
+            spine_content.append(ITEMREF_ELEMENT_TEMPLATE.arg(id));
+        }
+    }
+    // Add any spine items that are on disk that are not in the recovered spine to the spine.
+    foreach (id, spine_file) {
+        if (!spine_recovered.contains(id) && ids_in_manifest.contains(id)) {
+            spine_content.append(ITEMREF_ELEMENT_TEMPLATE.arg(id));
+        }
+    }
+
+    // Build the OPF.
     xml_source = GetOPFDefaultText();
-    xml_source.replace("</manifest>", "<!-- All detected files in the archive:\n\n" + manifest_holder + "-->" + manifest_content + "</manifest>")
+    xml_source.replace("</manifest>", manifest_content + "</manifest>")
         .replace("</spine>", spine_content + "</spine>")
         .replace("<metadata", OPF_REWRITTEN_COMMENT + "<metadata")
         .replace("</metadata>", metadata_content + "</metadata>")
