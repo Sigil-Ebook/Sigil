@@ -80,13 +80,14 @@ public:
                   Searchable::Direction search_direction,
                   bool check_spelling = false,
                   bool ignore_selection_offset = false,
-                  bool wrap = true);
+                  bool wrap = true,
+                  bool selected_text = false);
 
-    int Count(const QString &search_regex, Searchable::Direction direction, bool wrap);
+    int Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text = false);
 
     bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction = Searchable::Direction_Down, bool keep_selection = false);
 
-    int ReplaceAll(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool wrap);
+    int ReplaceAll(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool wrap, bool selected_text);
 
     QString GetSelectedText();
 
@@ -285,8 +286,8 @@ private:
                   Searchable::Direction search_direction,
                   bool check_spelling = false,
                   bool ignore_selection_offset = false,
-                  bool wrap = true
-                 );
+                  bool wrap = true,
+                  bool selected_text = false);
 
     /**
      * The inputs for a new JavaScript \c range object.

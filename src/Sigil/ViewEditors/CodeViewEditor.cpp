@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012, 2013 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>, Nokia Corporation
 **
@@ -25,6 +25,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/tuple/tuple.hpp>
 
+#include <QtCore/QFileInfo>
 #include <QtGui/QContextMenuEvent>
 #include <QtCore/QSignalMapper>
 #include <QtWidgets/QAction>
@@ -598,14 +599,20 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
                               Searchable::Direction search_direction,
                               bool misspelled_words,
                               bool ignore_selection_offset,
-                              bool wrap)
+                              bool wrap,
+                              bool selected_text)
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     int selection_offset = GetSelectionOffset(search_direction, ignore_selection_offset);
     SPCRE::MatchInfo match_info;
     int start_offset = 0;
 
-    if (search_direction == Searchable::Direction_Up) {
+    if (selected_text) {
+        wrap = false;
+        start_offset = textCursor().selectionStart();
+        match_info = spcre->getFirstMatchInfo(Utility::Substring(start_offset, textCursor().selectionEnd(), toPlainText()));
+    } 
+    else if (search_direction == Searchable::Direction_Up) {
         if (misspelled_words) {
             match_info = GetMisspelledWord(toPlainText(), 0, selection_offset, search_regex, search_direction);
         } else {
@@ -643,12 +650,15 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
 }
 
 
-int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction direction, bool wrap)
+int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text)
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     QString text;
     text = toPlainText();
-    if (!wrap) {
+    if (selected_text) {
+        text = Utility::Substring(textCursor().selectionStart(), textCursor().selectionEnd(), text);
+    }
+    else if (!wrap) {
         if (direction == Searchable::Direction_Up) {
             text = Utility::Substring(0, textCursor().position(), text);
         } else {
@@ -721,21 +731,44 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
 int CodeViewEditor::ReplaceAll(const QString &search_regex,
                                const QString &replacement,
                                Searchable::Direction direction,
-                               bool wrap)
+                               bool wrap,
+                               bool selected_text)
 {
     int count = 0;
     QString text = toPlainText();
+    int selection_start = 0;
+    int selection_end = 0;
+    int new_selection_end = 0;
+    if (selected_text) {
+        selection_start = textCursor().selectionStart();
+        selection_end = textCursor().selectionEnd();
+        new_selection_end = selection_end;
+        textCursor().setPosition(selection_start);
+        wrap = false;
+        direction = Searchable::Direction_Down;
+    } 
     int original_position = textCursor().position();
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
     // Run though all match offsets making the replacment in reverse order.
-    // This way changes in text lengh won't change the offsets as we make
+    // This way changes in text length won't change the offsets as we make
     // our changes.
     for (int i = match_info.count() - 1; i >= 0; i--) {
         QString replaced_text;
 
-        if (!wrap) {
+        if (selected_text) {
+            // If not yet in selection then continue.
+            if (match_info.at(i).offset.second > selection_end) {
+                continue;
+            }
+            // If past start of selection then stop.
+            if (match_info.at(i).offset.first < selection_start) {
+                break;
+            }
+        }
+
+        else if (!wrap) {
             if (direction == Searchable::Direction_Up) {
                 if (match_info.at(i).offset.first > original_position) {
                     break;
@@ -751,8 +784,10 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
 
         if (replacement_made) {
             // Replace the text.
+            int original_text_length = text.length();
             text = text.replace(match_info.at(i).offset.first, match_info.at(i).offset.second - match_info.at(i).offset.first, replaced_text);
             count++;
+            new_selection_end += text.length() - original_text_length;
         }
     }
 
@@ -765,9 +800,19 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
     cursor.select(QTextCursor::Document);
     cursor.insertText(text);
     cursor.endEditBlock();
-    // Restore the cursor position
-    cursor.setPosition(cursor_position);
-    setTextCursor(cursor);
+
+    if (selected_text) {
+        // Restore the selection.
+        cursor.setPosition(selection_start);
+        cursor.setPosition(new_selection_end, QTextCursor::KeepAnchor);
+        setTextCursor(cursor);
+    }
+    else {
+        // Restore the cursor position
+        cursor.setPosition(cursor_position);
+        setTextCursor(cursor);
+        setTextCursor(cursor);
+    }
 
     if (!hasFocus()) {
         // The replace operation is being performed where focus is elsewhere (like in the F&R combos)
@@ -1314,7 +1359,15 @@ void CodeViewEditor::GoToLinkOrStyle()
     }
 
     if (!url_name.isEmpty()) {
-        emit ViewImage(QUrl(url_name));
+        QUrl url = QUrl(url_name);
+        QString extension = url_name.right(url_name.length() - url_name.lastIndexOf('.') - 1).toLower();
+        
+        if (IMAGE_EXTENSIONS.contains(extension)) {
+            emit ViewImage(QUrl(url_name));
+        }
+        else {
+            emit LinkClicked(QUrl(url_name));
+        }
     } else if (IsPositionInOpeningTag()) {
         GoToStyleDefinition();
     } else {

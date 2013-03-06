@@ -112,20 +112,21 @@ public:
                   Searchable::Direction search_direction,
                   bool check_spelling = false,
                   bool ignore_selection_offset = false,
-                  bool wrap = true) {
-        return BookViewPreview::FindNext(search_regex, search_direction, check_spelling, ignore_selection_offset, wrap);
+                  bool wrap = true,
+                  bool selected_text = false) {
+        return BookViewPreview::FindNext(search_regex, search_direction, check_spelling, ignore_selection_offset, wrap, selected_text);
     }
 
-    int Count(const QString &search_regex, Searchable::Direction direction, bool wrap) {
-        return BookViewPreview::Count(search_regex, direction, wrap);
+    int Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text = false) {
+        return BookViewPreview::Count(search_regex, direction, wrap, selected_text);
     }
 
     bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction = Searchable::Direction_Down, bool keep_selection = false) {
         return BookViewPreview::ReplaceSelected(search_regex, replacement, direction, keep_selection);
     }
 
-    int ReplaceAll(const QString &search_regex, const QString &replacement,                                Searchable::Direction direction, bool wrap) {
-        return BookViewPreview::ReplaceAll(search_regex, replacement, direction, wrap);
+    int ReplaceAll(const QString &search_regex, const QString &replacement,                                Searchable::Direction direction, bool wrap, bool selected_text) {
+        return BookViewPreview::ReplaceAll(search_regex, replacement, direction, wrap, selected_text);
     }
 
     QString GetSelectedText();

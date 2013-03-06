@@ -220,9 +220,10 @@ public:
                   Searchable::Direction search_direction,
                   bool misspelled_words = false,
                   bool ignore_selection_offset = false,
-                  bool wrap = true);
+                  bool wrap = true,
+                  bool selected_text = false);
 
-    int Count(const QString &search_regex, Searchable::Direction direction, bool wrap);
+    int Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text = false);
 
     bool ReplaceSelected(const QString &search_regex,
                          const QString &replacement,
@@ -232,7 +233,8 @@ public:
     int ReplaceAll(const QString &search_regex,
                    const QString &replacement,
                    Searchable::Direction direction,
-                   bool wrap);
+                   bool wrap,
+                   bool selected_text = false);
 
     QString GetSelectedText();
 
