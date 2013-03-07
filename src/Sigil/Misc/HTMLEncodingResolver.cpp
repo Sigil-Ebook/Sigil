@@ -96,11 +96,6 @@ const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
         return QTextCodec::codecForName("UTF-16LE");
     }
 
-    // See if all characters within this document are utf-8.
-    if (IsValidUtf8(raw_text)) {
-        return QTextCodec::codecForName("UTF-8");
-    }
-
     // Try to find an ecoding specified in the file itself.
     text = Utility::Substring(0, 1024, raw_text);
 
@@ -122,6 +117,11 @@ const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
         if (codec) {
             return codec;
         }
+    }
+
+    // See if all characters within this document are utf-8.
+    if (IsValidUtf8(raw_text)) {
+        return QTextCodec::codecForName("UTF-8");
     }
 
     // Finally, let Qt guess and if it doesn't know it will return the codec
