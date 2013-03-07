@@ -127,10 +127,6 @@ const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
     // Finally, let Qt guess and if it doesn't know it will return the codec
     // for the current locale.
     text = raw_text;
-    // This is a workaround for a bug in QTextCodec which
-    // expects the 'charset' attribute to always come after
-    // the 'http-equiv' attribute.
-    text.replace(QRegularExpression("<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>"), "<meta http-equiv=\"Content-Type\" \\1 \\2>");
     return QTextCodec::codecForHtml(raw_text, QTextCodec::codecForLocale());
 }
 
