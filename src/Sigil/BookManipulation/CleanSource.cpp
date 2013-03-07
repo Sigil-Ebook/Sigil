@@ -42,6 +42,8 @@ using boost::make_tuple;
 using boost::tie;
 using boost::tuple;
 
+static const QString HEAD_END = "</\\s*head\\s*>";
+
 static const QString SIGIL_CLASS_NAME     = "sgc";
 static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";
 

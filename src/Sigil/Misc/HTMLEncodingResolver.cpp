@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2013              John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -29,8 +30,9 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
-const QString HEAD_END = "</\\s*head\\s*>";
+
 const QString ENCODING_ATTRIBUTE   = "encoding\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
+const QString CHARSET_ATTRIBUTE    = "charset\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
 const QString STANDALONE_ATTRIBUTE = "standalone\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
 const QString VERSION_ATTRIBUTE    = "version\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
 
@@ -51,7 +53,7 @@ QString HTMLEncodingResolver::ReadHTMLFile(const QString &fullfilepath)
     }
 
     QByteArray data = file.readAll();
-    return Utility::ConvertLineEndings(GetCodecForHTML(data).toUnicode(data));
+    return Utility::ConvertLineEndings(GetCodecForHTML(data)->toUnicode(data));
 }
 
 
@@ -59,58 +61,77 @@ QString HTMLEncodingResolver::ReadHTMLFile(const QString &fullfilepath)
 // if no encoding is detected, the default codec for this locale is returned.
 // We use this function because Qt's QTextCodec::codecForHtml() function
 // leaves a *lot* to be desired.
-const QTextCodec &HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_text)
+const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_text)
 {
-    // Qt docs say Qt will take care of deleting
-    // any QTextCodec objects on application exit
-    QString ascii_data = raw_text;
-    int head_end = ascii_data.indexOf(QRegularExpression(HEAD_END));
+    unsigned char c1;
+    unsigned char c2;
+    unsigned char c3;
+    unsigned char c4;
+    QString text;
+    QTextCodec *codec;
 
-    if (head_end != -1) {
-        QString head = Utility::Substring(0, head_end, ascii_data);
+    if (raw_text.count() < 4) {
+        return QTextCodec::codecForName("UTF-8");
+    }
 
-        QTextCodec *encoding_codec = 0;
-        QRegularExpression encoding(ENCODING_ATTRIBUTE);
-        QRegularExpressionMatch enc_mo = encoding.match(head);
-        if (enc_mo.hasMatch()) {
-            encoding_codec = QTextCodec::codecForName(enc_mo.captured(1).toLatin1());
-        }
-        if (encoding_codec != 0) {
-            return *encoding_codec;
-        }
+    // Check the BOM if present.
+    c1 = raw_text.at(0);
+    c2 = raw_text.at(1);
+    c3 = raw_text.at(2);
+    c4 = raw_text.at(3);
+    if (c1 == 0xEF && c2 == 0xBB && c3 == 0xBF) {
+        return QTextCodec::codecForName("UTF-8");
+    } else if (c1 == 0xFF && c2 == 0xFE && c3 == 0 && c4 == 0) {
+        return QTextCodec::codecForName("UTF-32LE");
+    } else if (c1 == 0 && c2 == 0 && c3 == 0xFE && c4 == 0xFF) {
+        return QTextCodec::codecForName("UTF-32BE");
+    } else if (c1 == 0xFE && c2 == 0xFF) {
+        return QTextCodec::codecForName("UTF-16BE");
+    } else if (c1 == 0xFF && c2 == 0xFE) {
+        return QTextCodec::codecForName("UTF-16LE");
+    }
 
-        QTextCodec *charset_codec = 0;
-        QRegularExpression charset("charset=([^\"]+)\"");
-        QRegularExpressionMatch char_mo = charset.match(head);
-        if (char_mo.hasMatch()) {
-            charset_codec  = QTextCodec::codecForName(char_mo.captured(1).toLatin1());
+    // Alternating char followed by 0 is typical of utf 16 le without BOM.
+    if (c1 != 0 && c2 == 0 && c3 != 0 && c4 == 0) {
+        return QTextCodec::codecForName("UTF-16LE");
+    }
+
+    // See if all characters within this document are utf-8.
+    if (IsValidUtf8(raw_text)) {
+        return QTextCodec::codecForName("UTF-8");
+    }
+
+    // Try to find an ecoding specified in the file itself.
+    text = Utility::Substring(0, 1024, raw_text);
+
+    // Check if the xml encoding attribute is set.
+    QRegularExpression enc_re(ENCODING_ATTRIBUTE);
+    QRegularExpressionMatch enc_mo = enc_re.match(text);
+    if (enc_mo.hasMatch()) {
+        codec = QTextCodec::codecForName(enc_mo.captured(1).toLatin1().toUpper());
+        if (codec) {
+            return codec;
         }
-        if (charset_codec != 0) {
-            return *charset_codec;
+    }
+    
+    // Check if the charset is set in the head.
+    QRegularExpression char_re(CHARSET_ATTRIBUTE);
+    QRegularExpressionMatch char_mo = char_re.match(text);
+    if (char_mo.hasMatch()) {
+        codec = QTextCodec::codecForName(char_mo.captured(1).toLatin1().toUpper());
+        if (codec) {
+            return codec;
         }
     }
 
+    // Finally, let Qt guess and if it doesn't know it will return the codec
+    // for the current locale.
+    text = raw_text;
     // This is a workaround for a bug in QTextCodec which
     // expects the 'charset' attribute to always come after
-    // the 'http-equiv' attribute
-    ascii_data.replace(QRegularExpression("<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>"),
-                       "<meta http-equiv=\"Content-Type\" \\1 \\2>");
-    // If we couldn't find a codec ourselves,
-    // we use Qt's function.
-    QTextCodec &locale_codec   = *QTextCodec::codecForLocale();
-    QTextCodec &detected_codec = *QTextCodec::codecForHtml(ascii_data.toLatin1(), QTextCodec::codecForLocale());
-
-    if (detected_codec.name() != locale_codec.name()) {
-        return detected_codec;
-    }
-
-    // If that couldn't find anything, then let's test for UTF-8
-    if (IsValidUtf8(raw_text)) {
-        return *QTextCodec::codecForName("UTF-8");
-    }
-
-    // If everything fails, we fall back to the locale default
-    return locale_codec;
+    // the 'http-equiv' attribute.
+    text.replace(QRegularExpression("<\\s*meta([^>]*)http-equiv=\"Content-Type\"([^>]*)>"), "<meta http-equiv=\"Content-Type\" \\1 \\2>");
+    return QTextCodec::codecForHtml(raw_text, QTextCodec::codecForLocale());
 }
 
 
