@@ -2229,6 +2229,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCopy               ->setEnabled(tab.CopyEnabled());
     ui.actionPaste              ->setEnabled(tab.PasteEnabled());
     ui.actionDeleteLine         ->setEnabled(tab.DeleteLineEnabled());
+    ui.actionMarkSelection      ->setEnabled(tab.MarkSelectionEnabled());
     ui.actionAddToIndex         ->setEnabled(tab.AddToIndexEnabled());
     ui.actionMarkForIndex       ->setEnabled(tab.MarkForIndexEnabled());
     ui.actionRemoveFormatting   ->setEnabled(tab.RemoveFormattingEnabled());
@@ -2333,6 +2334,7 @@ void MainWindow::SetStateActionsBookView()
     ui.actionReplacePrevious->setEnabled(true);
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
+    ui.actionMarkSelection->setEnabled(false);
     ui.menuSearchCurrentFile->setEnabled(true);
     ui.actionFindNextInFile->setEnabled(true);
     ui.actionReplaceNextInFile->setEnabled(true);
@@ -2404,6 +2406,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionReplacePrevious->setEnabled(true);
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
+    ui.actionMarkSelection->setEnabled(true);
     ui.menuSearchCurrentFile->setEnabled(true);
     ui.actionFindNextInFile->setEnabled(true);
     ui.actionReplaceNextInFile->setEnabled(true);
@@ -2492,6 +2495,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionReplacePrevious->setEnabled(true);
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
+    ui.actionMarkSelection->setEnabled(true);
     ui.menuSearchCurrentFile->setEnabled(true);
     ui.actionFindNextInFile->setEnabled(true);
     ui.actionReplaceNextInFile->setEnabled(true);
@@ -2563,6 +2567,7 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionReplacePrevious->setEnabled(false);
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
+    ui.actionMarkSelection->setEnabled(false);
     ui.menuSearchCurrentFile->setEnabled(false);
     ui.actionFindNextInFile->setEnabled(false);
     ui.actionReplaceNextInFile->setEnabled(false);
@@ -3594,6 +3599,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionReplacePrevious, "MainWindow.ReplacePrevious");
     sm->registerAction(ui.actionReplaceAll, "MainWindow.ReplaceAll");
     sm->registerAction(ui.actionCount, "MainWindow.Count");
+    sm->registerAction(ui.actionMarkSelection, "MainWindow.MarkSelection");
     sm->registerAction(ui.actionFindNextInFile, "MainWindow.FindNextInFile");
     sm->registerAction(ui.actionReplaceNextInFile, "MainWindow.ReplaceNextInFile");
     sm->registerAction(ui.actionReplaceAllInFile, "MainWindow.ReplaceAllInFile");
@@ -4158,6 +4164,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(ui.actionCopy,                     SIGNAL(triggered()),  tab,   SLOT(Copy()));
         connect(ui.actionPaste,                    SIGNAL(triggered()),  tab,   SLOT(Paste()));
         connect(ui.actionDeleteLine,               SIGNAL(triggered()),  tab,   SLOT(DeleteLine()));
+        connect(ui.actionMarkSelection,            SIGNAL(triggered()),  tab,   SLOT(MarkSelection()));
         connect(tab,   SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)),
                 this,  SLOT(ClipEditorDialog(ClipEditorModel::clipEntry *)));
     }
@@ -4265,12 +4272,13 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
     disconnect(ui.actionTextDirectionLTR,          0, tab, 0);
     disconnect(ui.actionTextDirectionRTL,          0, tab, 0);
     disconnect(ui.actionTextDirectionDefault,      0, tab, 0);
-    disconnect(ui.actionShowTag,               0, tab, 0);
+    disconnect(ui.actionShowTag,                   0, tab, 0);
     disconnect(ui.actionRemoveFormatting,          0, tab, 0);
     disconnect(ui.actionSplitSection,              0, tab, 0);
     disconnect(ui.actionInsertSGFSectionMarker,    0, tab, 0);
     disconnect(ui.actionInsertClosingTag,          0, tab, 0);
     disconnect(ui.actionGoToLinkOrStyle,           0, tab, 0);
+    disconnect(ui.actionMarkSelection,             0, tab, 0);
     disconnect(ui.actionAddMisspelledWord,         0, tab, 0);
     disconnect(ui.actionIgnoreMisspelledWord,      0, tab, 0);
     disconnect(ui.actionPrintPreview,              0, tab, 0);

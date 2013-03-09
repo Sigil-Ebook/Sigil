@@ -89,6 +89,11 @@ public:
 
     void DeleteLine();
 
+    void HighlightMarkedText();
+
+    bool IsMarkedText();
+    bool MoveToMarkedText(Searchable::Direction direction, bool wrap);
+
     /**
      * Routines to handle cutting code tags from selected text
      */
@@ -400,6 +405,8 @@ public slots:
 
     void GoToLinkOrStyle();
 
+    void MarkSelection();
+
 protected:
 
     /**
@@ -555,7 +562,7 @@ private:
      * @param search_direction Depending on this, the anchor or the focus position is returned.
      * @param ignore_selection_offset Should the selection offset be ignored.
      */
-    int GetSelectionOffset(Searchable::Direction search_direction, bool ignore_selection_offset) const;
+    int GetSelectionOffset(Searchable::Direction search_direction, bool ignore_selection_offset, bool marked_text) const;
 
     /**
      * Scrolls the whole screen by one line.
@@ -579,6 +586,8 @@ private:
     void AddGoToLinkOrStyleContextMenu(QMenu *menu);
 
     void AddClipContextMenu(QMenu *menu);
+
+    void AddMarkSelectionMenu(QMenu *menu);
 
     bool AddSpellCheckContextMenu(QMenu *menu);
 
@@ -794,6 +803,9 @@ private:
     QSignalMapper *m_addDictMapper;
     QSignalMapper *m_ignoreSpellingMapper;
     QSignalMapper *m_clipMapper;
+
+    int m_MarkedTextStart;
+    int m_MarkedTextEnd;
 
     /**
      * The fonts and colors for appearance of xhtml and text.

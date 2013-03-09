@@ -53,7 +53,7 @@ public:
         LookWhere_CurrentFile = 0,
         LookWhere_AllHTMLFiles = 10,
         LookWhere_SelectedHTMLFiles = 20,
-        LookWhere_SelectedText = 30
+        LookWhere_MarkedText = 30
     };
 
     enum SearchMode {

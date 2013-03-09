@@ -263,6 +263,7 @@
     <addaction name="actionGoToLinkOrStyle"/>
     <addaction name="actionGoBackFromLinkOrStyle"/>
     <addaction name="separator"/>
+    <addaction name="actionMarkSelection"/>
     <addaction name="actionGoToLine"/>
    </widget>
    <widget class="QMenu" name="menuWindow">
@@ -1696,6 +1697,14 @@
    </property>
    <property name="shortcut">
     <string>Alt+C</string>
+   </property>
+  </action>
+  <action name="actionMarkSelection">
+   <property name="text">
+    <string>Mar&amp;k Selected Text</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+M</string>
    </property>
   </action>
   <action name="actionFindNextInFile">

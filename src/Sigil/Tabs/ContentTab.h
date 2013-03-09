@@ -118,6 +118,10 @@ public:
         return false;
     }
 
+    virtual bool MarkSelectionEnabled()         {
+        return false;
+    }
+
     /*
      * Can the user perform the Cut Code Tags operation.
      *

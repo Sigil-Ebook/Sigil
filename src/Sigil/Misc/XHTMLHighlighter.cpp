@@ -430,4 +430,3 @@ void XHTMLHighlighter::CheckSpelling(const QString &text)
         setFormat(misspelled_word.offset, misspelled_word.length, format);
     }
 }
-

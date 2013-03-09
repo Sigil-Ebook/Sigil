@@ -84,6 +84,11 @@ bool TextTab::DeleteLineEnabled()
     return !m_wCodeView.document()->isEmpty();
 }
 
+bool TextTab::MarkSelectionEnabled()
+{
+    return m_wCodeView.textCursor().hasSelection();
+}
+
 bool TextTab::CutCodeTagsEnabled()
 {
     return false;

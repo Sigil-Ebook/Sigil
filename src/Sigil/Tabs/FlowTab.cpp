@@ -555,6 +555,15 @@ bool FlowTab::DeleteLineEnabled()
     return false;
 }
 
+bool FlowTab::MarkSelectionEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return true;
+    }
+
+    return false;
+}
+
 bool FlowTab::RemoveFormattingEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -931,6 +940,13 @@ void FlowTab::DeleteLine()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->DeleteLine();
+    }
+}
+
+void FlowTab::MarkSelection()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->MarkSelection();
     }
 }
 

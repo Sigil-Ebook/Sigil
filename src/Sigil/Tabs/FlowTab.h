@@ -88,6 +88,8 @@ public:
 
     bool DeleteLineEnabled();
 
+    bool MarkSelectionEnabled();
+
     bool RemoveFormattingEnabled();
 
     bool InsertClosingTagEnabled();
@@ -191,6 +193,8 @@ public slots:
     void Paste();
 
     void DeleteLine();
+
+    void MarkSelection();
 
     void SplitSection();
 

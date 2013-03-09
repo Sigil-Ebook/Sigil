@@ -56,6 +56,8 @@ public:
 
     bool DeleteLineEnabled();
 
+    bool MarkSelectionEnabled();
+
     bool CutCodeTagsEnabled();
 
     int GetCursorLine() const;

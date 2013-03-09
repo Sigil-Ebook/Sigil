@@ -1269,7 +1269,6 @@ bool OPFResource::BasicStructurePresent(const xc::DOMDocument &document)
     return true;
 }
 
-#include <QtDebug>
 shared_ptr< xc::DOMDocument > OPFResource::CreateOPFFromScratch(const xc::DOMDocument *d) const
 {
     xc::DOMElement *elem;

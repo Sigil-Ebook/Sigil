@@ -94,7 +94,9 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_addSpellingMapper(new QSignalMapper(this)),
     m_addDictMapper(new QSignalMapper(this)),
     m_ignoreSpellingMapper(new QSignalMapper(this)),
-    m_clipMapper(new QSignalMapper(this))
+    m_clipMapper(new QSignalMapper(this)),
+    m_MarkedTextStart(-1),
+    m_MarkedTextEnd(-1)
 {
     if (high_type == CodeViewEditor::Highlight_XHTML) {
         m_Highlighter = new XHTMLHighlighter(check_spelling, this);
@@ -158,6 +160,87 @@ void CodeViewEditor::DeleteLine()
     cursor.removeSelectedText();
     cursor.endEditBlock();
     emit selectionChanged();
+}
+
+void CodeViewEditor::MarkSelection()
+{
+    if (textCursor().hasSelection()) {
+        m_MarkedTextStart = textCursor().selectionStart();
+        m_MarkedTextEnd = textCursor().selectionEnd();
+        emit ShowStatusMessageRequest(tr("Selection marked."));
+    }
+    else {
+        m_MarkedTextStart = -1;
+        m_MarkedTextEnd = -1;
+        emit ShowStatusMessageRequest(tr("Text unmarked."));
+    }
+    HighlightCurrentLine();
+}
+
+void CodeViewEditor::HighlightMarkedText()
+{
+    QTextCharFormat format;
+
+    QList< QTextEdit::ExtraSelection > extraSelections;
+    QTextEdit::ExtraSelection selection;
+    selection.cursor = textCursor();
+
+    selection.format.setFontUnderline(QTextCharFormat::DotLine);
+    selection.cursor.clearSelection();
+    selection.cursor.setPosition(0);
+    selection.cursor.setPosition(toPlainText().length());
+    extraSelections.append(selection);
+    setExtraSelections(extraSelections);
+    extraSelections.clear();
+
+    if (m_MarkedTextStart < 0 || m_MarkedTextEnd > toPlainText().length()) {
+        return;
+    }
+    selection.format.setFontUnderline(QTextCharFormat::DotLine);
+    selection.cursor = textCursor();
+    selection.cursor.clearSelection();
+    selection.cursor.setPosition(m_MarkedTextStart);
+    selection.cursor.setPosition(m_MarkedTextEnd, QTextCursor::KeepAnchor);
+    extraSelections.append(selection);
+    setExtraSelections(extraSelections);
+}
+
+bool CodeViewEditor::IsMarkedText()
+{
+    return m_MarkedTextStart >= 0 && m_MarkedTextEnd > 0;
+}
+
+bool CodeViewEditor::MoveToMarkedText(Searchable::Direction direction, bool wrap)
+{
+    if (!IsMarkedText()) {
+        return false;
+    }
+    int pos = textCursor().position();
+    if (pos >= m_MarkedTextStart && pos <= m_MarkedTextEnd) {
+        return true;
+    }
+
+    bool moved = false;
+
+    if (direction == Searchable::Direction_Up) {
+        if (wrap || pos > m_MarkedTextEnd) {
+            pos = m_MarkedTextEnd;
+            moved = true;
+        }
+    }
+    else {
+        if (wrap || pos < m_MarkedTextStart) {
+            pos = m_MarkedTextStart;
+            moved = true;
+        }
+    }
+
+    if (moved) {
+        QTextCursor cursor = textCursor();
+        cursor.setPosition(pos);
+        setTextCursor(cursor);
+    }
+    return moved;
 }
 
 void CodeViewEditor::CutCodeTags()
@@ -600,32 +683,45 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
                               bool misspelled_words,
                               bool ignore_selection_offset,
                               bool wrap,
-                              bool selected_text)
+                              bool marked_text)
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
-    int selection_offset = GetSelectionOffset(search_direction, ignore_selection_offset);
     SPCRE::MatchInfo match_info;
     int start_offset = 0;
-
-    if (selected_text) {
-        wrap = false;
-        start_offset = textCursor().selectionStart();
-        match_info = spcre->getFirstMatchInfo(Utility::Substring(start_offset, textCursor().selectionEnd(), toPlainText()));
+    int start = 0;
+    int end = toPlainText().length();
+    if (marked_text) {
+        if (!MoveToMarkedText(search_direction, wrap)) {
+            return false;
+        }
+        start = m_MarkedTextStart;
+        end = m_MarkedTextEnd;
+        start_offset = m_MarkedTextStart;
     } 
-    else if (search_direction == Searchable::Direction_Up) {
+    int selection_offset = GetSelectionOffset(search_direction, ignore_selection_offset, marked_text);
+
+    if (search_direction == Searchable::Direction_Up) {
         if (misspelled_words) {
             match_info = GetMisspelledWord(toPlainText(), 0, selection_offset, search_regex, search_direction);
         } else {
-            match_info = spcre->getLastMatchInfo(Utility::Substring(0, selection_offset, toPlainText()));
+            match_info = spcre->getLastMatchInfo(Utility::Substring(start, selection_offset, toPlainText()));
         }
     } else {
         if (misspelled_words) {
             match_info = GetMisspelledWord(toPlainText(), selection_offset, toPlainText().count(), search_regex, search_direction);
         } else {
-            match_info = spcre->getFirstMatchInfo(Utility::Substring(selection_offset, toPlainText().count(), toPlainText()));
+            match_info = spcre->getFirstMatchInfo(Utility::Substring(selection_offset, end, toPlainText()));
         }
 
         start_offset = selection_offset;
+    }
+
+    if (marked_text) {
+        // If not in marked text it's not a real match.
+        if (match_info.offset.second + start_offset > m_MarkedTextEnd ||
+                match_info.offset.first + start_offset < m_MarkedTextStart) {
+            match_info.offset.first = -1;
+        }
     }
 
     if (match_info.offset.first != -1) {
@@ -640,7 +736,7 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
         m_lastMatch.offset.second += start_offset;
         return true;
     } else if (wrap) {
-        if (FindNext(search_regex, search_direction, misspelled_words, true, false)) {
+        if (FindNext(search_regex, search_direction, misspelled_words, true, false, marked_text)) {
             ShowWrapIndicator(this);
             return true;
         }
@@ -650,20 +746,30 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
 }
 
 
-int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text)
+int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool marked_text)
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     QString text;
     text = toPlainText();
-    if (selected_text) {
-        text = Utility::Substring(textCursor().selectionStart(), textCursor().selectionEnd(), text);
-    }
-    else if (!wrap) {
-        if (direction == Searchable::Direction_Up) {
-            text = Utility::Substring(0, textCursor().position(), text);
-        } else {
-            text = Utility::Substring(textCursor().position(), text.length(), text);
+    int start = 0;
+    int end = text.length();
+
+    if (marked_text) {
+        if (!MoveToMarkedText(direction, wrap)) {
+            return 0;
         }
+        start = m_MarkedTextStart;
+        end = m_MarkedTextEnd;
+    }
+    if (!wrap) {
+        if (direction == Searchable::Direction_Up) {
+            text = Utility::Substring(start, textCursor().position(), text);
+        } else {
+            text = Utility::Substring(textCursor().position(), end, text);
+        }
+    }
+    else if (marked_text) {
+        text = Utility::Substring(start, end, text);
     }
     return spcre->getEveryMatchInfo(text).count();
 }
@@ -686,9 +792,16 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
     QString selected_text = Utility::Substring(selection_start, selection_end, document_text);
     QString replaced_text;
     bool replacement_made = false;
+    bool in_marked_text = selection_start >= m_MarkedTextStart && selection_end <= m_MarkedTextEnd;
+    int text_length = toPlainText().length();
     replacement_made = spcre->replaceText(selected_text, m_lastMatch.capture_groups_offsets, replacement, replaced_text);
 
     if (replacement_made) {
+        // Adjust size of marked text.
+        if (in_marked_text) {
+            m_MarkedTextEnd += text_length - toPlainText().length();
+        }
+
         QTextCursor cursor = textCursor();
         int start = cursor.position();
         // Replace the selected text with our replacement text.
@@ -724,6 +837,7 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
         }
     }
 
+    HighlightCurrentLine();
     return replacement_made;
 }
 
@@ -732,49 +846,37 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
                                const QString &replacement,
                                Searchable::Direction direction,
                                bool wrap,
-                               bool selected_text)
+                               bool marked_text)
 {
     int count = 0;
     QString text = toPlainText();
-    int selection_start = 0;
-    int selection_end = 0;
-    int new_selection_end = 0;
-    if (selected_text) {
-        selection_start = textCursor().selectionStart();
-        selection_end = textCursor().selectionEnd();
-        new_selection_end = selection_end;
-        textCursor().setPosition(selection_start);
-        wrap = false;
-        direction = Searchable::Direction_Down;
-    } 
     int original_position = textCursor().position();
+    int position = original_position;
+    if (marked_text) {
+        if (!MoveToMarkedText(direction, wrap)) {
+            return 0;
+        }
+        // Restrict replace to the marked area.
+        text = Utility::Substring(m_MarkedTextStart, m_MarkedTextEnd, text);
+        position = original_position - m_MarkedTextStart;
+    } 
+    int text_length = text.length();
+
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
-    // Run though all match offsets making the replacment in reverse order.
+    // Run though all match offsets making the replacement in reverse order.
     // This way changes in text length won't change the offsets as we make
     // our changes.
     for (int i = match_info.count() - 1; i >= 0; i--) {
         QString replaced_text;
-
-        if (selected_text) {
-            // If not yet in selection then continue.
-            if (match_info.at(i).offset.second > selection_end) {
-                continue;
-            }
-            // If past start of selection then stop.
-            if (match_info.at(i).offset.first < selection_start) {
-                break;
-            }
-        }
-
-        else if (!wrap) {
+        if (!wrap) {
             if (direction == Searchable::Direction_Up) {
-                if (match_info.at(i).offset.first > original_position) {
+                if (match_info.at(i).offset.first > position) {
                     break;
                 }
             } else if (!wrap){
-                if (match_info.at(i).offset.second < original_position) {
+                if (match_info.at(i).offset.second < position) {
                     break;
                 }
             }
@@ -784,12 +886,19 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
 
         if (replacement_made) {
             // Replace the text.
-            int original_text_length = text.length();
             text = text.replace(match_info.at(i).offset.first, match_info.at(i).offset.second - match_info.at(i).offset.first, replaced_text);
             count++;
-            new_selection_end += text.length() - original_text_length;
         }
     }
+    if (marked_text) {
+        // Merge the replaced marked text into the original text.
+        QString original_text = toPlainText();
+        original_text.replace(m_MarkedTextStart, m_MarkedTextEnd - m_MarkedTextStart, text);
+        m_MarkedTextEnd += text.length() - text_length;
+        text = original_text;
+    }
+
+    HighlightCurrentLine();
 
     QTextCursor cursor = textCursor();
     // Store the cursor position
@@ -801,18 +910,10 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
     cursor.insertText(text);
     cursor.endEditBlock();
 
-    if (selected_text) {
-        // Restore the selection.
-        cursor.setPosition(selection_start);
-        cursor.setPosition(new_selection_end, QTextCursor::KeepAnchor);
-        setTextCursor(cursor);
-    }
-    else {
-        // Restore the cursor position
-        cursor.setPosition(cursor_position);
-        setTextCursor(cursor);
-        setTextCursor(cursor);
-    }
+    // Restore the cursor position
+    cursor.setPosition(cursor_position);
+    setTextCursor(cursor);
+    setTextCursor(cursor);
 
     if (!hasFocus()) {
         // The replace operation is being performed where focus is elsewhere (like in the F&R combos)
@@ -952,6 +1053,7 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
         AddReformatHTMLContextMenu(menu);
     }
 
+    AddMarkSelectionMenu(menu);
     AddGoToLinkOrStyleContextMenu(menu);
     AddClipContextMenu(menu);
 
@@ -1219,6 +1321,33 @@ void CodeViewEditor::AddViewImageContextMenu(QMenu *menu)
 
     connect(viewImageAction, SIGNAL(triggered()), this, SLOT(GoToLinkOrStyle()));
     connect(openImageAction, SIGNAL(triggered()), this, SLOT(OpenImageAction()));
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
+}
+
+void CodeViewEditor::AddMarkSelectionMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QString text = tr("Mark Selected Text");
+    if (!textCursor().hasSelection() && IsMarkedText()) {
+        text = tr("Unmark Marked Text");
+    }
+    QAction *markSelectionAction = new QAction(text, menu);
+
+    if (!topAction) {
+        menu->addAction(markSelectionAction);
+    } else {
+        menu->insertAction(topAction, markSelectionAction);
+    }
+
+    connect(markSelectionAction, SIGNAL(triggered()), this, SLOT(MarkSelection()));
 
     if (topAction) {
         menu->insertSeparator(topAction);
@@ -1717,15 +1846,30 @@ void CodeViewEditor::UpdateLineNumberArea(const QRect &area_to_update, int verti
 void CodeViewEditor::HighlightCurrentLine()
 {
     QList< QTextEdit::ExtraSelection > extraSelections;
-    QTextEdit::ExtraSelection selection;
-    selection.format.setBackground(m_codeViewAppearance.line_highlight_color);
-    // Specifies that we want the whole line to be selected
-    selection.format.setProperty(QTextFormat::FullWidthSelection, true);
-    // We reset the selection of the cursor
-    // so that only one line is highlighted
-    selection.cursor = textCursor();
-    selection.cursor.clearSelection();
-    extraSelections.append(selection);
+
+    // Draw the full width line color.
+    QTextEdit::ExtraSelection selection_line;
+    selection_line.format.setBackground(m_codeViewAppearance.line_highlight_color);
+    selection_line.format.setProperty(QTextFormat::FullWidthSelection, true);
+    selection_line.cursor = textCursor();
+    selection_line.cursor.clearSelection();
+    extraSelections.append(selection_line);
+
+    // Add highlighting of the marked text
+    if (IsMarkedText()) {
+        if (m_MarkedTextEnd > toPlainText().length()) {
+            m_MarkedTextEnd = toPlainText().length();
+        }
+
+        QTextEdit::ExtraSelection selection;
+        selection.format.setBackground(m_codeViewAppearance.line_number_background_color);
+        selection.cursor = textCursor();
+        selection.cursor.clearSelection();
+        selection.cursor.setPosition(m_MarkedTextStart);
+        selection.cursor.setPosition(m_MarkedTextEnd, QTextCursor::KeepAnchor);
+        extraSelections.append(selection);
+    }
+
     setExtraSelections(extraSelections);
 }
 
@@ -1924,13 +2068,36 @@ void CodeViewEditor::SetDelayedCursorScreenCenteringRequired()
     m_DelayedCursorScreenCenteringRequired = true;
 }
 
-int CodeViewEditor::GetSelectionOffset(Searchable::Direction search_direction, bool ignore_selection_offset) const
+int CodeViewEditor::GetSelectionOffset(Searchable::Direction search_direction, bool ignore_selection_offset, bool marked_text) const
 {
-    if (search_direction == Searchable::Direction_Down) {
-        return !ignore_selection_offset ? textCursor().selectionEnd() : 0;
+    int offset = 0;
+    if (search_direction == Searchable::Direction_Up) {
+        if (ignore_selection_offset) {
+            if (marked_text) {
+                offset = m_MarkedTextEnd;
+            }
+            else {
+                offset = toPlainText().length();
+            }
+        }
+        else {
+            offset = textCursor().selectionStart();
+        }
     } else {
-        return !ignore_selection_offset ? textCursor().selectionStart() : toPlainText().count() - 1;
+        if (ignore_selection_offset) {
+            if (marked_text) {
+                offset = m_MarkedTextStart;
+            }
+            else {
+                offset = 0;
+            }
+        }
+        else {
+            offset = textCursor().selectionEnd();
+        }
     }
+
+    return offset;
 }
 
 

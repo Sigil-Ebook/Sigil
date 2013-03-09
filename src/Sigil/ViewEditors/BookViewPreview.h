@@ -83,6 +83,8 @@ public:
                   bool wrap = true,
                   bool selected_text = false);
 
+    bool IsMarkedText();
+
     int Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text = false);
 
     bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction = Searchable::Direction_Down, bool keep_selection = false);
