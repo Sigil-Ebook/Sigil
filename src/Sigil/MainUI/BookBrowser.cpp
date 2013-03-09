@@ -506,7 +506,7 @@ void BookBrowser::CreateIndexCSSFile()
     Refresh();
 }
 
-QStringList BookBrowser::AddExisting(bool only_multimedia)
+QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 {
     QStringList added_files;
 
@@ -547,7 +547,14 @@ QStringList BookBrowser::AddExisting(bool only_multimedia)
 
         // Check if the file matches the type requested for adding
         // Only used for inserting images from disk
-        if (only_multimedia) {
+        if (only_images) {
+            if (!IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
+                Utility::DisplayStdErrorDialog(
+                    tr("File is not an image and cannot be used:\n\n\"%1\".").arg(filepath));
+                continue;
+            }
+        }
+        else if (only_multimedia) {
             if (!IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&
                 !SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&
                 !VIDEO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&

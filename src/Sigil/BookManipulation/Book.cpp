@@ -119,6 +119,24 @@ static const QString SGC_INDEX_CSS_FILE =
                                         "    width: 50%;\n"
                                         "}\n";
 
+const QString HTML_COVER_SOURCE = 
+"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n"
+"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
+"\"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
+"<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+"<head>\n"
+"  <title>Cover</title>\n"
+"</head>\n"
+""
+"<body>\n"
+"  <div style=\"text-align: center; padding: 0pt; margin: 0pt;\">\n"
+"    <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"100%\" preserveAspectRatio=\"xMidYMid meet\" version=\"1.1\" viewBox=\"0 0 SGC_IMAGE_WIDTH SGC_IMAGE_HEIGHT\" width=\"100%\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
+"      <image width=\"SGC_IMAGE_WIDTH\" height=\"SGC_IMAGE_HEIGHT\" xlink:href=\"SGC_IMAGE_FILENAME\"/>\n"
+"    </svg>\n"
+"  </div>\n"
+"</body>\n"
+"</html>\n";
+
 Book::Book()
     :
     m_Mainfolder(*new FolderKeeper(this)),
@@ -277,6 +295,27 @@ void Book::MoveResourceAfter(HTMLResource &from_resource, HTMLResource &to_resou
 
     SetModified(true);
 }
+
+HTMLResource &Book::CreateHTMLCoverFile(QString text)
+{
+    HTMLResource &html_resource = CreateNewHTMLFile();
+    html_resource.RenameTo(HTML_COVER_FILENAME);
+    if (text.isEmpty()) {
+        text = HTML_COVER_SOURCE;
+    }
+    html_resource.SetText(text);
+    html_resource.SaveToDisk();
+
+    // Move file to start of book.
+    QList< HTMLResource * > html_resources = m_Mainfolder.GetResourceTypeList< HTMLResource >(true);
+    html_resources.removeOne(&html_resource);
+    html_resources.prepend(&html_resource);
+    GetOPF().UpdateSpineOrder(html_resources);
+
+    SetModified(true);
+    return html_resource;
+}
+
 
 CSSResource &Book::CreateHTMLTOCCSSFile()
 {

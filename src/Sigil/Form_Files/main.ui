@@ -315,6 +315,7 @@
      <addaction name="separator"/>
      <addaction name="actionCreateIndex"/>
     </widget>
+    <addaction name="actionAddCover"/>
     <addaction name="actionMetaEditor"/>
     <addaction name="menuTOC"/>
     <addaction name="menuIndex"/>
@@ -898,6 +899,16 @@
    </property>
    <property name="toolTip">
     <string>Show information about Sigil.</string>
+   </property>
+  </action>
+  <action name="actionAddCover">
+   <property name="text">
+    <string>Add &amp;Cover...</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionMetaEditor">

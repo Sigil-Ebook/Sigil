@@ -122,6 +122,8 @@ public:
      */
     QList< Resource * > GetResourceList() const;
 
+    QList< Resource * > GetResourceListByType(Resource::ResourceType type) const;
+
     /**
      * Returns a list of all resources of type T in a list
      * of pointers to type T. The list can be sorted.

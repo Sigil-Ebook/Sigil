@@ -26,6 +26,7 @@
 #include <QtCore/QThread>
 #include <QtCore/QTimer>
 #include <QtGui/QDesktopServices>
+#include <QtGui/QImage>
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QInputDialog>
 #include <QtWidgets/QMessageBox>
@@ -115,6 +116,7 @@ static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 
         "border-bottom: 1px solid grey;} ";
 static const QString HTML_TOC_FILE = "TOC.xhtml";
 static const QString HTML_INDEX_FILE = "Index.xhtml";
+const QString HTML_COVER_FILENAME = "cover.xhtml";
 
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub";
 
@@ -860,6 +862,114 @@ void MainWindow::SpellcheckEditorDialog()
     m_SpellcheckEditor->activateWindow();
 }
 
+
+void MainWindow::AddCover()
+{
+    // Get the image to use.
+    QStringList selected_files;
+    // Get just images, not svg files.
+    QList<Resource *> image_resources = m_Book->GetFolderKeeper().GetResourceListByType(Resource::ImageResourceType);
+    SelectFiles select_files(image_resources, m_LastInsertedFile, this);
+
+    if (select_files.exec() == QDialog::Accepted) {
+        if (select_files.IsInsertFromDisk()) {
+            QStringList filenames = m_BookBrowser->AddExisting(false, true);
+            // Convert full path to filename.
+            foreach(QString filename, filenames) {
+                QString internal_filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
+                selected_files.append(internal_filename);
+            }
+        } else {
+            selected_files = select_files.SelectedImages();
+        }
+    }
+    if (selected_files.count() == 0) {
+        return;
+    }
+    QString image_filename = selected_files.first();
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // Find existing cover HTML file if there is one.
+    HTMLResource *html_cover_resource = NULL;
+    QList<HTMLResource *> html_resources;
+    QList<Resource *> resources = GetAllHTMLResources();
+    foreach(Resource * resource, resources) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+
+        if (html_resource) {
+            html_resources.append(html_resource);
+
+            // Check if this is an existing cover file.
+            if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*html_resource) == GuideSemantics::Cover) {
+                html_cover_resource = html_resource;
+            } else if (resource->Filename().toLower() == HTML_COVER_FILENAME && html_cover_resource == NULL) {
+                html_cover_resource = html_resource;
+            }
+        }
+    }
+
+    // Populate the HTML cover file with the necessary text.
+    // If a template file exists, use its text for the cover source.
+    QString text = HTML_COVER_SOURCE; 
+    QString cover_path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/" + HTML_COVER_FILENAME;
+    if (QFile::exists(cover_path)) {
+        text = Utility::ReadUnicodeTextFile(cover_path);
+    }
+
+    // Create an HTMLResource for the cover if it doesn't exist.
+    if (html_cover_resource == NULL) {
+        html_cover_resource = &m_Book->CreateHTMLCoverFile(text);
+    }
+    else {
+        html_cover_resource->SetText(text);
+    }
+
+    try {
+        Resource &image_resource = m_Book->GetFolderKeeper().GetResourceByFilename(image_filename);
+
+        // Set cover semantics on both files.
+        if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*html_cover_resource) != GuideSemantics::Cover) {
+            m_Book->GetOPF().AddGuideSemanticType(*html_cover_resource, GuideSemantics::Cover);
+        }
+        ImageResource *image_type_resource = qobject_cast<ImageResource *>(&image_resource);
+        if (image_type_resource) {
+            if (!m_Book->GetOPF().IsCoverImage(*image_type_resource)) {
+                m_Book->GetOPF().SetResourceAsCoverImage(*image_type_resource);
+            }
+
+            // Add the filename and dimensions of the image to the HTML source.
+            QString image_relative_path = "../" + image_resource.GetRelativePathToOEBPS();
+            QImage img(image_resource.GetFullPath());
+            QString text = html_cover_resource->GetText();
+            QString width = QString::number(img.width());
+            QString height = QString::number(img.height());
+            text.replace("SGC_IMAGE_FILENAME", image_relative_path);
+            text.replace("SGC_IMAGE_WIDTH", width);
+            text.replace("SGC_IMAGE_HEIGHT", height);
+            html_cover_resource->SetText(text);
+        }
+        else {
+            Utility::DisplayStdErrorDialog(tr("Unexpected error. Only image files can be used for the cover."));
+        }
+    } catch (const ResourceDoesNotExist &) {
+        //
+    }
+
+    m_BookBrowser->Refresh();
+    m_Book->SetModified();
+    QWebSettings::clearMemoryCaches();
+    OpenResourceAndWaitUntilLoaded(*html_cover_resource);
+    // Reload the tab to ensure it reflects updated image.
+    FlowTab *flow_tab = GetCurrentFlowTab();
+    if (flow_tab) {
+        flow_tab->LoadTabContent();
+        flow_tab->ScrollToTop();
+    }
+
+    ShowMessageOnStatusBar(tr("Cover added."));
+    QApplication::restoreOverrideCursor();
+}
 
 void MainWindow::CreateIndex()
 {
@@ -3641,6 +3751,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionCasingTitlecase, "MainWindow.CasingTitlecase");
     sm->registerAction(ui.actionCasingCapitalize, "MainWindow.CasingCapitalize");
     // Tools
+    sm->registerAction(ui.actionAddCover, "MainWindow.AddCover");
     sm->registerAction(ui.actionMetaEditor, "MainWindow.MetaEditor");
     sm->registerAction(ui.actionEditTOC, "MainWindow.EditTOC");
     sm->registerAction(ui.actionGenerateTOC, "MainWindow.GenerateTOC");
@@ -3990,6 +4101,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionSigilDevBlog,  SIGNAL(triggered()), this, SLOT(SigilDevBlog()));
     connect(ui.actionAbout,         SIGNAL(triggered()), this, SLOT(AboutDialog()));
     // Tools
+    connect(ui.actionAddCover,      SIGNAL(triggered()), this, SLOT(AddCover()));
     connect(ui.actionMetaEditor,    SIGNAL(triggered()), this, SLOT(MetaEditorDialog()));
     connect(ui.actionValidateEpubWithFlightCrew,  SIGNAL(triggered()), this, SLOT(ValidateEpubWithFlightCrew()));
     connect(ui.actionValidateStylesheetsWithW3C,  SIGNAL(triggered()), this, SLOT(ValidateStylesheetsWithW3C()));

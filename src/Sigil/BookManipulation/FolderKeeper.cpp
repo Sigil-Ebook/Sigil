@@ -283,6 +283,16 @@ QList< Resource * > FolderKeeper::GetResourceList() const
     return m_Resources.values();
 }
 
+QList< Resource * > FolderKeeper::GetResourceListByType(Resource::ResourceType type) const
+{
+    QList <Resource *> resources;
+    foreach (Resource *resource, m_Resources.values()) {
+        if (resource->Type() == type) {
+            resources.append(resource);
+        }
+    }
+    return resources;
+}
 
 Resource &FolderKeeper::GetResourceByIdentifier(const QString &identifier) const
 {

@@ -167,6 +167,8 @@ public:
 
     SVGResource &CreateEmptySVGFile();
 
+    HTMLResource &CreateHTMLCoverFile(QString text);
+
     CSSResource &CreateHTMLTOCCSSFile();
     CSSResource &CreateIndexCSSFile();
 

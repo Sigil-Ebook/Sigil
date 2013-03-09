@@ -161,7 +161,7 @@ public slots:
     /**
      * Implements the Add Existing context menu action functionality.
      */
-    QStringList AddExisting(bool only_multimedia = false);
+    QStringList AddExisting(bool only_multimedia = false, bool only_images = false);
 
     /*
      * Sorts the HTML book entries alphanumerically
