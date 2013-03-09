@@ -1298,23 +1298,29 @@ shared_ptr< xc::DOMDocument > OPFResource::CreateOPFFromScratch(const xc::DOMDoc
         metadata_content = XhtmlDoc::GetNodeChildrenAsString(GetMetadataElement(*d));
         guide_content = XhtmlDoc::GetNodeChildrenAsString(GetGuideElement(*d));
 
-        children = XhtmlDoc::GetTagMatchingDescendants(*GetManifestElement(*d), "item");;
-        for (int i=0; i<children.length(); ++i) {
-            if (XtoQ(children.at(i)->getAttribute(QtoX("media-type"))).toLower() == NCX_MIMETYPE) {
-                continue;
-            }
-            id = XtoQ(children.at(i)->getAttribute(QtoX("id")));
-            href = XtoQ(children.at(i)->getAttribute(QtoX("href")));
-            if (!id.isEmpty() && !href.isEmpty()) {
-                manifest_recovered.append(std::pair<QString, QString>(id, href));
+        elem = GetManifestElement(*d);
+        if (elem) {
+            children = XhtmlDoc::GetTagMatchingDescendants(*elem, "item");;
+            for (int i=0; i<children.length(); ++i) {
+                if (XtoQ(children.at(i)->getAttribute(QtoX("media-type"))).toLower() == NCX_MIMETYPE) {
+                    continue;
+                }
+                id = XtoQ(children.at(i)->getAttribute(QtoX("id")));
+                href = XtoQ(children.at(i)->getAttribute(QtoX("href")));
+                if (!id.isEmpty() && !href.isEmpty()) {
+                    manifest_recovered.append(std::pair<QString, QString>(id, href));
+                }
             }
         }
 
-        children = XhtmlDoc::GetTagMatchingDescendants(*GetSpineElement(*d), "itemref");;
-        for (int i=0; i<children.length(); ++i) {
-            id = XtoQ(children.at(i)->getAttribute(QtoX("idref")));
-            if (!id.isEmpty()) {
-                spine_recovered.append(id);
+        elem = GetSpineElement(*d);
+        if (elem) {
+            children = XhtmlDoc::GetTagMatchingDescendants(*elem, "itemref");;
+            for (int i=0; i<children.length(); ++i) {
+                id = XtoQ(children.at(i)->getAttribute(QtoX("idref")));
+                if (!id.isEmpty()) {
+                    spine_recovered.append(id);
+                }
             }
         }
     }
