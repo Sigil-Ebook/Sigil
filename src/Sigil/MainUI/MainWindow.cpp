@@ -869,7 +869,8 @@ void MainWindow::AddCover()
     QStringList selected_files;
     // Get just images, not svg files.
     QList<Resource *> image_resources = m_Book->GetFolderKeeper().GetResourceListByType(Resource::ImageResourceType);
-    SelectFiles select_files(image_resources, m_LastInsertedFile, this);
+    QString title = tr("Add Cover");
+    SelectFiles select_files(title, image_resources, m_LastInsertedFile, this);
 
     if (select_files.exec() == QDialog::Accepted) {
         if (select_files.IsInsertFromDisk()) {
@@ -1280,7 +1281,8 @@ void MainWindow::InsertFileDialog()
     QStringList selected_files;
     QList<Resource *> media_resources = m_BookBrowser->AllMediaResources();
 
-    SelectFiles select_files(media_resources, m_LastInsertedFile, this);
+    QString title = tr("Insert File");
+    SelectFiles select_files(title, media_resources, m_LastInsertedFile, this);
 
     if (select_files.exec() == QDialog::Accepted) {
         if (select_files.IsInsertFromDisk()) {

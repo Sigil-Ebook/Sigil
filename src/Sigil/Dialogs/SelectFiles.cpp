@@ -49,7 +49,7 @@ const QString IMAGE_HTML_BASE_PREVIEW =
     "</body>"
     "</html>";
 
-SelectFiles::SelectFiles(QList<Resource *> media_resources, QString default_selected_image, QWidget *parent) :
+SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QString default_selected_image, QWidget *parent) :
     QDialog(parent),
     m_MediaResources(media_resources),
     m_SelectFilesModel(new QStandardItemModel),
@@ -60,6 +60,8 @@ SelectFiles::SelectFiles(QList<Resource *> media_resources, QString default_sele
     m_WebView(new QWebView(this))
 {
     ui.setupUi(this);
+    setWindowTitle(title);
+
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);

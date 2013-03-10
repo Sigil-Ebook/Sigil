@@ -41,7 +41,7 @@ class SelectFiles : public QDialog
     Q_OBJECT
 
 public:
-    SelectFiles(QList<Resource *> image_resources, QString default_selected_image, QWidget *parent = 0);
+    SelectFiles(QString title, QList<Resource *> image_resources, QString default_selected_image, QWidget *parent = 0);
     ~SelectFiles();
 
     /**
