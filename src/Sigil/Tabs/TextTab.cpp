@@ -86,7 +86,7 @@ bool TextTab::DeleteLineEnabled()
 
 bool TextTab::MarkSelectionEnabled()
 {
-    return m_wCodeView.textCursor().hasSelection();
+    return true;
 }
 
 bool TextTab::CutCodeTagsEnabled()
@@ -173,6 +173,13 @@ void TextTab::DeleteLine()
 {
     if (m_wCodeView.hasFocus()) {
         m_wCodeView.DeleteLine();
+    }
+}
+
+void TextTab::MarkSelection()
+{
+    if (m_wCodeView.hasFocus()) {
+        m_wCodeView.MarkSelection();
     }
 }
 

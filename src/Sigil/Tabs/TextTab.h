@@ -100,6 +100,8 @@ public slots:
 
     void DeleteLine();
 
+    void MarkSelection();
+
     void CutCodeTags();
 
     /**
