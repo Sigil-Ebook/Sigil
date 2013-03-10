@@ -1148,7 +1148,10 @@ void BookBrowser::SetCoverImage()
     int scrollY = m_TreeView.verticalScrollBar()->value();
 
     ImageResource *image_resource = qobject_cast< ImageResource * >(GetCurrentResource());
-    Q_ASSERT(image_resource);
+    if (image_resource == NULL) {
+        emit ShowStatusMessageRequest(tr("Unable to set file as cover image."));
+        return;
+    }
     m_Book->GetOPF().SetResourceAsCoverImage(*image_resource);
     m_OPFModel.Refresh();
     emit BookContentModified();
