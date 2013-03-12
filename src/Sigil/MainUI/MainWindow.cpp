@@ -1437,16 +1437,15 @@ void MainWindow::InsertHyperlink()
 void MainWindow::MarkForIndex()
 {
     SaveTabData();
-    // Get current id attribute value if any
-    ContentTab &tab = GetCurrentContentTab();
     ShowMessageOnStatusBar();
 
-    FlowTab *flow_tab = qobject_cast<FlowTab *>(&tab);
+    FlowTab *flow_tab = GetCurrentFlowTab();
     if (!flow_tab || !flow_tab->MarkForIndexEnabled()) {
         QMessageBox::warning(this, tr("Sigil"), tr("You cannot mark an index at this position or without selecting text."));
         return;
     }
 
+    // Get current id attribute value if any
     QString title = flow_tab->GetAttributeIndexTitle();
     SelectIndexTitle select_index_title(title, this);
     if (select_index_title.exec() == QDialog::Accepted) {
