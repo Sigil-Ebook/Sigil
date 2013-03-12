@@ -376,6 +376,23 @@ QString CodeViewEditor::SplitSection()
     }
 
     cursor.endEditBlock();
+
+    cursor.beginEditBlock();
+
+    // Prevent current file from having an empty body which 
+    // causes Book View to insert text outside the body.
+    text = toPlainText();
+    QRegularExpression empty_body_search("<body>\\s</body>");
+    QRegularExpressionMatch empty_body_search_mo = empty_body_search.match(text);
+    int empty_body_tag_start = empty_body_search_mo.capturedStart();
+    if (empty_body_tag_start != - 1) {
+        int empty_body_tag_end = empty_body_tag_start + QString("<body>").length();
+        cursor.setPosition(empty_body_tag_end);
+        cursor.insertText("\n  <p>&nbsp;</p>");
+    };
+
+    cursor.endEditBlock();
+
     return QString()
            .append(head)
            .append(text_segment)

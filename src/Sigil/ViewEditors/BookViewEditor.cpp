@@ -186,6 +186,15 @@ QString BookViewEditor::GetHtml()
     // Convert nbsp to entity because it cannot be seen and there are issues
     // where CV will remove them if they are a single character.
     html_from_Qt = CleanSource::NbspToEntity(html_from_Qt);
+    // Make sure body always has text - primarily from Split Section.
+    QRegularExpression empty_body_search("<body>\\s</body>");
+    QRegularExpressionMatch empty_body_search_mo = empty_body_search.match(html_from_Qt);
+    int empty_body_tag_start = empty_body_search_mo.capturedStart();
+    if (empty_body_tag_start != -1) {
+        int empty_body_tag_end = empty_body_tag_start + QString("<body>").length();
+        html_from_Qt.insert(empty_body_tag_end, "\n  <p>&nbsp;</p>");
+    };
+
     return html_from_Qt;
 }
 
@@ -224,6 +233,7 @@ QString BookViewEditor::SplitSection()
                        .append(body_tag.remove(XML_NAMESPACE_CRUFT))
                        .append(segment.remove(XML_NAMESPACE_CRUFT))
                        .append("</body></html>");
+
     return new_html;
 }
 
@@ -379,6 +389,7 @@ void BookViewEditor::RemoveWebkitCruft()
     foreach(QWebElement element, collection) {
         element.toggleClass("webkit-indent-blockquote");
     }
+//meme
     QWebElement body_tag =  page()->mainFrame()->findFirstElement("body");
     // Removing junk webkit styles
     body_tag.setStyleProperty("word-wrap", "");
