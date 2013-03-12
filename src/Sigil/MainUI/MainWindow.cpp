@@ -160,7 +160,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_LinkOrStyleBookmark(new LocationBookmark()),
     m_ClipboardHistorySelector(new ClipboardHistorySelector(this)),
     m_LastPasteTarget(NULL),
-    m_PreviousLastPasteTarget(NULL),
+    m_ZoomPreview(false),
     m_LastWindowSize(QByteArray()),
     m_PreviewTimer(*new QTimer(this)),
     m_PreviousHTMLResource(NULL),
@@ -1471,9 +1471,26 @@ void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
     }
 
     // We are only interested in focus events that take place in this MainWindow
-    if (window == this) {
-        m_PreviousLastPasteTarget = m_LastPasteTarget;
-        m_LastPasteTarget = dynamic_cast<PasteTarget *>(now);
+    if (window != this) {
+        return;
+    }
+
+    m_LastPasteTarget = dynamic_cast<PasteTarget *>(now);
+
+    // Update the zoom target based on current window.
+    if (m_PreviewWindow->HasFocus()) {
+        m_ZoomPreview = true;
+        float zoom_factor = GetZoomFactor();
+        UpdateZoomLabel(zoom_factor);
+        UpdateZoomSlider(zoom_factor);
+    } else {
+        ContentTab &tab = m_TabManager.GetCurrentContentTab();
+        if (&tab != NULL && tab.hasFocus()) {
+            m_ZoomPreview = false;
+            float zoom_factor = GetZoomFactor();
+            UpdateZoomLabel(zoom_factor);
+            UpdateZoomSlider(zoom_factor);
+        }
     }
 }
 
@@ -2358,7 +2375,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionInsertBulletedList ->setChecked(tab.BulletListChecked());
     ui.actionInsertNumberedList ->setChecked(tab.NumberListChecked());
     // State of zoom controls depends on current tab/view
-    float zoom_factor = tab.GetZoomFactor();
+    float zoom_factor = GetZoomFactor();
     UpdateZoomLabel(zoom_factor);
     UpdateZoomSlider(zoom_factor);
     UpdateCursorPositionLabel(tab.GetCursorLine(), tab.GetCursorColumn());
@@ -2800,7 +2817,7 @@ void MainWindow::SliderZoom(int slider_value)
     }
 
     float new_zoom_factor     = SliderRangeToZoomFactor(slider_value);
-    float current_zoom_factor = tab.GetZoomFactor();
+    float current_zoom_factor = GetZoomFactor();
 
     // We try to prevent infinite loops...
     if (!qFuzzyCompare(new_zoom_factor, current_zoom_factor)) {
@@ -3307,7 +3324,7 @@ void MainWindow::ZoomByStep(bool zoom_in)
     // If we are zooming in, we round UP;
     // on zoom out, we round DOWN.
     float rounding_helper     = zoom_in ? 0.05f : - 0.05f;
-    float current_zoom_factor = tab.GetZoomFactor();
+    float current_zoom_factor = GetZoomFactor();
     float rounded_zoom_factor = Utility::RoundToOneDecimal(current_zoom_factor + rounding_helper);
 
     // If the rounded value is nearly the same as the original value,
@@ -3335,10 +3352,28 @@ void MainWindow::ZoomByFactor(float new_zoom_factor)
         return;
     }
 
-    tab.SetZoomFactor(new_zoom_factor);
-    if (m_ViewState == MainWindow::ViewState_BookView) {
+    if (m_ZoomPreview && m_PreviewWindow->IsVisible()) {
         m_PreviewWindow->SetZoomFactor(new_zoom_factor);
     }
+    else {
+        tab.SetZoomFactor(new_zoom_factor);
+    }
+}
+
+float MainWindow::GetZoomFactor()
+{
+    if (m_ZoomPreview && m_PreviewWindow->IsVisible()) {
+        return m_PreviewWindow->GetZoomFactor();
+    }
+    else {
+        ContentTab &tab = m_TabManager.GetCurrentContentTab();
+
+        if (&tab != NULL) {
+            return tab.GetZoomFactor();
+        }
+    }
+
+    return 1;
 }
 
 
@@ -4045,6 +4080,8 @@ void MainWindow::ConnectSignalsToSlots()
 {
     connect(m_PreviewWindow, SIGNAL(Shown()), this, SLOT(UpdatePreview()));
     connect(m_PreviewWindow, SIGNAL(GoToPreviewLocationRequest()), this, SLOT(GoToPreviewLocation()));
+    connect(m_PreviewWindow, SIGNAL(ZoomFactorChanged(float)),     this, SLOT(UpdateZoomLabel(float)));
+    connect(m_PreviewWindow, SIGNAL(ZoomFactorChanged(float)),     this, SLOT(UpdateZoomSlider(float)));
     connect(qApp, SIGNAL(focusChanged(QWidget *, QWidget *)), this, SLOT(ApplicationFocusChanged(QWidget *, QWidget *)));
     // Setup signal mapping for heading actions.
     connect(ui.actionHeading1, SIGNAL(triggered()), m_headingMapper, SLOT(map()));

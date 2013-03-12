@@ -1,4 +1,5 @@
 Sigil 0.7.2 TBD
+    - Implement issue 2113: Preview should zoom separately from other views.
     - Implement issue 1997: Tool to Add Cover image and file automatically.
     - Implement issue 1993: Find & Replace should have a Marked Text option.
     - Implement issue 2083: Enhance invalid OPF recovery.

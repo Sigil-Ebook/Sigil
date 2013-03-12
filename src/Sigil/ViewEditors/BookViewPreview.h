@@ -57,6 +57,8 @@ public:
 
     void SetZoomFactor(float factor);
 
+    void SetCurrentZoomFactor(float factor);
+
     float GetZoomFactor() const;
 
     void Zoom();

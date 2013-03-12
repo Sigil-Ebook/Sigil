@@ -75,6 +75,24 @@ PreviewWindow::~PreviewWindow()
     }
 }
 
+bool PreviewWindow::IsVisible()
+{
+    return m_Preview->isVisible();
+}
+
+bool PreviewWindow::HasFocus()
+{
+    if (!m_Preview->isVisible()) {
+        return false;
+    }
+    return m_Preview->hasFocus();
+}
+
+float PreviewWindow::GetZoomFactor()
+{
+    return m_Preview->GetZoomFactor();
+}
+
 void PreviewWindow::SetupView()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -157,5 +175,6 @@ void PreviewWindow::ConnectSignalsToSlots()
 {
     connect(m_Splitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(SplitterMoved(int, int)));
     connect(m_Preview,   SIGNAL(GoToPreviewLocationRequest()), this, SIGNAL(GoToPreviewLocationRequest()));
+    connect(m_Preview,   SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
 }
 

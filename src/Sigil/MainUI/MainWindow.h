@@ -691,6 +691,8 @@ private:
      */
     static float SliderRangeToZoomFactor(int slider_range_value);
 
+    float GetZoomFactor();
+
     /**
      * Returns a map with keys being extensions of file types
      * we can load, and the values being filters for use in file dialogs.
@@ -945,7 +947,8 @@ private:
      * The last widget in this window that had focus that inherited PasteTarget.
      */
     PasteTarget *m_LastPasteTarget;
-    PasteTarget *m_PreviousLastPasteTarget;
+
+    bool m_ZoomPreview;
 
     /**
      * Workaround for Qt 4.8 bug, to track the last known window size when not maximized.

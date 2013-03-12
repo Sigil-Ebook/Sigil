@@ -96,14 +96,17 @@ public:
     bool IsModified();
     void ResetModified();
 
+    void SetZoomFactor(float factor);
+
     // Even though the BookViewPreview implements these they are pure virtual
     // in ViewEditor so they have to be implemented here.
+    void SetCurrentZoomFactor(float factor) {
+        BookViewPreview::SetCurrentZoomFactor(factor);
+    }
     float GetZoomFactor() const {
         return BookViewPreview::GetZoomFactor();
     }
-    void SetZoomFactor(float factor) {
-        BookViewPreview::SetZoomFactor(factor);
-    }
+
     bool IsLoadingFinished() {
         return BookViewPreview::IsLoadingFinished();
     }

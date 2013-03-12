@@ -97,6 +97,8 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     page()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
     page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, false);
     page()->settings()->setAttribute(QWebSettings::ZoomTextOnly, true);
+    SettingsStore settings;
+    SetCurrentZoomFactor(settings.zoomWeb());
     installEventFilter(this);
     CreateContextMenuActions();
     ConnectSignalsToSlots();
@@ -214,6 +216,16 @@ bool BookViewEditor::InsertHtml(const QString &html)
 {
     return ExecCommand("insertHTML", html);
 }
+
+void BookViewEditor::SetZoomFactor(float factor)
+{
+    SettingsStore settings;
+    settings.setZoomWeb(factor);
+    SetCurrentZoomFactor(factor);
+    Zoom();
+    emit ZoomFactorChanged(factor);
+}
+
 
 QString BookViewEditor::SplitSection()
 {

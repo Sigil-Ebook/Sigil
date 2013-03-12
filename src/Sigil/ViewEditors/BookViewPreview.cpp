@@ -66,7 +66,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
-    m_CurrentZoomFactor = settings.zoomWeb();
+    SetCurrentZoomFactor(settings.zoomPreview());
     // use our web page that can be used for debugging javascript
     setPage(m_ViewWebPage);
     // Enable our link filter.
@@ -159,10 +159,15 @@ bool BookViewPreview::IsLoadingFinished()
 void BookViewPreview::SetZoomFactor(float factor)
 {
     SettingsStore settings;
-    settings.setZoomWeb(factor);
-    m_CurrentZoomFactor = factor;
+    settings.setZoomPreview(factor);
+    SetCurrentZoomFactor(factor);
     Zoom();
     emit ZoomFactorChanged(factor);
+}
+
+void BookViewPreview::SetCurrentZoomFactor(float factor)
+{
+    m_CurrentZoomFactor = factor;
 }
 
 float BookViewPreview::GetZoomFactor() const

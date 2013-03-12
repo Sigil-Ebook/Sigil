@@ -44,6 +44,9 @@ public:
     PreviewWindow(QWidget *parent = 0);
     ~PreviewWindow();
     QList<ViewEditor::ElementIndex> GetCaretLocation();
+    bool IsVisible();
+    bool HasFocus();
+    float GetZoomFactor();
 
 public slots:
     void UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location);
@@ -53,6 +56,7 @@ public slots:
 signals:
     void Shown();
     void GoToPreviewLocationRequest();
+    void ZoomFactorChanged(float factor);
 
 protected:
     virtual void showEvent(QShowEvent *event);
