@@ -116,6 +116,8 @@ QSharedPointer<Book> ImportEPUB::GetBook()
         boost_throw(FileEncryptedWithDrm());
     }
 
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     // These mutate the m_Book object
     LocateOPF();
     // These mutate the m_Book object
@@ -155,6 +157,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
         }
     }
     if (!non_well_formed.isEmpty()) {
+        QApplication::restoreOverrideCursor();
         if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
                 tr("Sigil"),
                 tr("This EPUB has HTML files that are not well formed. "
@@ -165,6 +168,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
         ) {
             non_well_formed.clear();
         }
+        QApplication::setOverrideCursor(Qt::WaitCursor);
     }
 
     const QStringList load_errors = UniversalUpdates::PerformUniversalUpdates(false, resources, updates, non_well_formed);
@@ -198,6 +202,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
 
     // If we have modified the book to add spine attribute, manifest item or NCX mark as changed.
     m_Book->SetModified(GetLoadWarnings().count() > 0);
+    QApplication::restoreOverrideCursor();
     return m_Book;
 }
 

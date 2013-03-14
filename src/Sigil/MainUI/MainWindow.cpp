@@ -3165,7 +3165,6 @@ void MainWindow::LoadFile(const QString &fullfilepath)
                                            .arg(error.line)
                                            .arg(error.message));
         } else {
-            QApplication::setOverrideCursor(Qt::WaitCursor);
             ShowMessageOnStatusBar(tr("Loading file..."), 0);
             m_Book->SetModified(false);
             SetNewBook(importer->GetBook());
@@ -3179,7 +3178,6 @@ void MainWindow::LoadFile(const QString &fullfilepath)
                 m_Book->SetModified(true);
             }
 
-            QApplication::restoreOverrideCursor();
             m_SaveACopyFilename = "";
             UpdateUiWithCurrentFile(fullfilepath);
             ShowMessageOnStatusBar(tr("File loaded."));
@@ -3262,15 +3260,17 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
         }
         if (ss.cleanOn() & CLEANON_SAVE) {
             if (not_well_formed) {
-                if (QMessageBox::Yes == QMessageBox::warning(this,
+                QApplication::restoreOverrideCursor();
+                bool auto_fix = QMessageBox::Yes == QMessageBox::warning(this,
                             tr("Sigil"),
                             tr("This EPUB has HTML files that are not well formed and "
                                 "your current Clean Source preferences are set to automatically clean on Save. "
                                 "Saving a file that is not well formed will cause it to be automatically "
                                 "fixed, which can result in data loss.\n\n"
                                 "Do you want to automatically fix the files before saving?"),
-                            QMessageBox::Yes|QMessageBox::No)
-                ) {
+                            QMessageBox::Yes|QMessageBox::No);
+                QApplication::setOverrideCursor(Qt::WaitCursor);
+                if (auto_fix) {
                     CleanSource::ReformatAll(resources, CleanSource::Clean);
                     not_well_formed = false;
                 }
@@ -3281,7 +3281,6 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
         
         ExporterFactory().GetExporter(fullfilepath, m_Book).WriteBook();
 
-        QApplication::restoreOverrideCursor();
         // Return the focus back to the current tab
         ContentTab &tab = GetCurrentContentTab();
 
@@ -3300,6 +3299,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
         else {
             ShowMessageOnStatusBar(tr("EPUB saved."));
         }
+        QApplication::restoreOverrideCursor();
     } catch (const ExceptionBase &exception) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
