@@ -68,6 +68,7 @@ FindReplace::FindReplace(MainWindow &main_window)
     ExtendUI();
     ConnectSignalsToSlots();
     ShowHideAdvancedOptions();
+    ShowHideMarkedText(false);
     ReadSettings();
 }
 
@@ -128,6 +129,24 @@ void FindReplace::show()
     WriteSettingsVisible(true);
     clearMessage();
     QWidget::show();
+}
+
+
+void FindReplace::ShowHideMarkedText(bool marked)
+{
+    if (marked) {
+        ui.cbLookWhere->hide();
+        ui.MarkedTextIndicator->show();
+    }
+    else {
+        ui.cbLookWhere->show();
+        ui.MarkedTextIndicator->hide();
+    }
+}
+
+bool FindReplace::IsMarkedText()
+{
+    return !ui.MarkedTextIndicator->isHidden();
 }
 
 
@@ -290,18 +309,14 @@ int FindReplace::Count()
     SetCodeViewIfNeeded(true);
     int count = 0;
 
-    if (GetLookWhere() == FindReplace::LookWhere_CurrentFile || m_LookWhereCurrentFile || GetLookWhere() == FindReplace::LookWhere_MarkedText) {
+    if (GetLookWhere() == FindReplace::LookWhere_CurrentFile || m_LookWhereCurrentFile || IsMarkedText()) {
         Searchable *searchable = GetAvailableSearchable();
 
         if (!searchable) {
             return 0;
         }
-        if (GetLookWhere() == FindReplace::LookWhere_MarkedText && !searchable->IsMarkedText()) {
-            ShowMessage(tr("No marked text"));
-            return 0;
-        }
 
-        count = searchable->Count(GetSearchRegex(), GetSearchableDirection(), m_OptionWrap, GetLookWhere() == FindReplace::LookWhere_MarkedText);
+        count = searchable->Count(GetSearchRegex(), GetSearchableDirection(), m_OptionWrap, IsMarkedText());
     } else {
         // If wrap, all files are counted, otherwise only files before/after
         // the current file are counted, and then added to the count of current file.
@@ -380,18 +395,14 @@ int FindReplace::ReplaceAll()
     SetCodeViewIfNeeded(true);
     int count = 0;
 
-    if (GetLookWhere() == FindReplace::LookWhere_CurrentFile || m_LookWhereCurrentFile || GetLookWhere() == FindReplace::LookWhere_MarkedText) {
+    if (GetLookWhere() == FindReplace::LookWhere_CurrentFile || m_LookWhereCurrentFile || IsMarkedText()) {
         Searchable *searchable = GetAvailableSearchable();
 
         if (!searchable) {
             return 0;
         }
-        if (GetLookWhere() == FindReplace::LookWhere_MarkedText && !searchable->IsMarkedText()) {
-            ShowMessage(tr("No marked text"));
-            return 0;
-        }
 
-        count = searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchableDirection(), m_OptionWrap, GetLookWhere() == FindReplace::LookWhere_MarkedText);
+        count = searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchableDirection(), m_OptionWrap, IsMarkedText());
     } else {
         // If wrap, all files are replaced, otherwise only files before/after
         // the current file are updated, and then the current file is done.
@@ -514,19 +525,14 @@ bool FindReplace::FindText(Searchable::Direction direction)
 
     SetCodeViewIfNeeded();
 
-    if (GetLookWhere() == FindReplace::LookWhere_CurrentFile || m_LookWhereCurrentFile || GetLookWhere() == FindReplace::LookWhere_MarkedText) {
+    if (GetLookWhere() == FindReplace::LookWhere_CurrentFile || m_LookWhereCurrentFile || IsMarkedText()) {
         Searchable *searchable = GetAvailableSearchable();
 
         if (!searchable) {
             return found;
         }
-        if (GetLookWhere() == FindReplace::LookWhere_MarkedText && !searchable->IsMarkedText()) {
-            ShowMessage(tr("No marked text"));
-            return 0;
-        }
 
-
-        found = searchable->FindNext(GetSearchRegex(), direction, false, false, m_OptionWrap, GetLookWhere() == FindReplace::LookWhere_MarkedText);
+        found = searchable->FindNext(GetSearchRegex(), direction, false, false, m_OptionWrap, IsMarkedText());
     } else {
         found = FindInAllFiles(direction);
     }
@@ -586,7 +592,7 @@ bool FindReplace::ReplaceText(Searchable::Direction direction, bool replace_curr
 void FindReplace::SetCodeViewIfNeeded(bool force)
 {
     // We never need to switch to CodeView if only working within scope of a non-html file.
-    if (m_LookWhereCurrentFile || GetLookWhere() == FindReplace::LookWhere_CurrentFile || GetLookWhere() == FindReplace::LookWhere_MarkedText) {
+    if (m_LookWhereCurrentFile || GetLookWhere() == FindReplace::LookWhere_CurrentFile || IsMarkedText()) {
         if (GetCurrentResource()->Type() != Resource::HTMLResourceType) {
             return;
         }
@@ -597,8 +603,7 @@ void FindReplace::SetCodeViewIfNeeded(bool force)
     if (force ||
         (!m_LookWhereCurrentFile &&
          (GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles ||
-          GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles || 
-          GetLookWhere() == FindReplace::LookWhere_MarkedText) &&
+          GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles) &&
          (m_MainWindow.GetViewState() == MainWindow::ViewState_BookView))) {
         // Force change to Code View
         m_MainWindow.AnyCodeView();
@@ -998,10 +1003,6 @@ FindReplace::LookWhere FindReplace::GetLookWhere()
             break;
 
         case FindReplace::LookWhere_SelectedHTMLFiles:
-            return static_cast<FindReplace::LookWhere>(look);
-            break;
-
-        case FindReplace::LookWhere_MarkedText:
             return static_cast<FindReplace::LookWhere>(look);
             break;
 
@@ -1427,6 +1428,7 @@ void FindReplace::ExtendUI()
     ui.cbSearchMode->addItem(tr("Regex"), FindReplace::SearchMode_Regex);
     mode_tooltip += "<dt><b>Regex</b><dd>" + tr("Search for a pattern using Regular Expression syntax.") + "</dd>";
     ui.cbSearchMode->setToolTip(mode_tooltip);
+
     QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
     ui.cbLookWhere->addItem(tr("Current File"), FindReplace::LookWhere_CurrentFile);
     look_tooltip += "<dt><b>Current File</b><dd>" + tr("Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.") + "</dd>";
@@ -1434,10 +1436,17 @@ void FindReplace::ExtendUI()
     look_tooltip += "<dt><b>All HTML Files</b><dd>" + tr("Find or replace in all HTML files in Code View.") + "</dd>";
     ui.cbLookWhere->addItem(tr("Selected Files"), FindReplace::LookWhere_SelectedHTMLFiles);
     look_tooltip += "<dt><b>Selected Files</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
-    ui.cbLookWhere->addItem(tr("Marked Text"), FindReplace::LookWhere_MarkedText);
-    look_tooltip += "<dt><b>Marked Text</b><dd>" + tr("Restrict the find or replace to the text marked by Search&rarr;Mark Selected Text.") + "</dd>";
     look_tooltip += "</dl>";
+    look_tooltip += "<p>To restrict search to selected text, use Search&rarr;Mark Selected Text.</p>";
     ui.cbLookWhere->setToolTip(look_tooltip);
+
+    // Special Marked Text indicator.
+    QString mark_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
+    ui.MarkedTextIndicator->addItem(tr("Marked Text"));
+    mark_tooltip += "<dt><b>Marked Text</b><dd>" + tr("Restrict the find or replace to the text marked by Search&rarr;Mark Selected Text.  Cleared if you change views or tabs.") + "</dd>";
+    mark_tooltip += "</dl>";
+    ui.MarkedTextIndicator->setToolTip(mark_tooltip);
+
     ui.cbSearchDirection->addItem(tr("Up"), FindReplace::SearchDirection_Up);
     ui.cbSearchDirection->addItem(tr("Down"), FindReplace::SearchDirection_Down);
     ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"

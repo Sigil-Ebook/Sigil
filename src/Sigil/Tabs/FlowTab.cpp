@@ -555,15 +555,6 @@ bool FlowTab::DeleteLineEnabled()
     return false;
 }
 
-bool FlowTab::MarkSelectionEnabled()
-{
-    if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return true;
-    }
-
-    return false;
-}
-
 bool FlowTab::RemoveFormattingEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -943,11 +934,12 @@ void FlowTab::DeleteLine()
     }
 }
 
-void FlowTab::MarkSelection()
+bool FlowTab::MarkSelection(bool mark_text)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->MarkSelection();
+        return m_wCodeView->MarkSelection(mark_text);
     }
+    return false;
 }
 
 void FlowTab::SplitSection()
@@ -1540,4 +1532,5 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
     connect(m_wCodeView, SIGNAL(PageClicked()), this, SLOT(EmitUpdatePreviewImmediately()));
     connect(m_wCodeView, SIGNAL(DocumentSet()), this, SLOT(EmitUpdatePreviewImmediately()));
+    connect(m_wCodeView, SIGNAL(MarkSelectionRequest()), this, SIGNAL(MarkSelectionRequest()));
 }

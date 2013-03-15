@@ -53,7 +53,6 @@ public:
         LookWhere_CurrentFile = 0,
         LookWhere_AllHTMLFiles = 10,
         LookWhere_SelectedHTMLFiles = 20,
-        LookWhere_MarkedText = 30
     };
 
     enum SearchMode {
@@ -98,6 +97,8 @@ public slots:
     bool FindAnyText(QString text, bool escape = true);
     void FindAnyTextInTags(QString text);
 
+    void ShowHideMarkedText(bool marked);
+
 signals:
 
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);
@@ -119,6 +120,8 @@ private slots:
 
     // Shows a message in the main window.
     void ShowMessage(const QString &message);
+
+    bool IsMarkedText();
 
     void FindClicked();
     void CountClicked();

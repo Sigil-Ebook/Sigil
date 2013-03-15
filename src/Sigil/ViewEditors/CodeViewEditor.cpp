@@ -162,19 +162,21 @@ void CodeViewEditor::DeleteLine()
     emit selectionChanged();
 }
 
-void CodeViewEditor::MarkSelection()
+bool CodeViewEditor::MarkSelection(bool mark_text)
 {
-    if (textCursor().hasSelection()) {
+    if (mark_text && textCursor().hasSelection()) {
         m_MarkedTextStart = textCursor().selectionStart();
         m_MarkedTextEnd = textCursor().selectionEnd();
         emit ShowStatusMessageRequest(tr("Selection marked."));
+        HighlightCurrentLine();
+        return true;
     }
-    else {
-        m_MarkedTextStart = -1;
-        m_MarkedTextEnd = -1;
-        emit ShowStatusMessageRequest(tr("Text unmarked."));
-    }
+
+    m_MarkedTextStart = -1;
+    m_MarkedTextEnd = -1;
     HighlightCurrentLine();
+    emit ShowStatusMessageRequest(tr("Text unmarked."));
+    return false;
 }
 
 void CodeViewEditor::HighlightMarkedText()
@@ -810,15 +812,10 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
     QString replaced_text;
     bool replacement_made = false;
     bool in_marked_text = selection_start >= m_MarkedTextStart && selection_end <= m_MarkedTextEnd;
-    int text_length = toPlainText().length();
+    int original_text_length = toPlainText().length();
     replacement_made = spcre->replaceText(selected_text, m_lastMatch.capture_groups_offsets, replacement, replaced_text);
 
     if (replacement_made) {
-        // Adjust size of marked text.
-        if (in_marked_text) {
-            m_MarkedTextEnd += text_length - toPlainText().length();
-        }
-
         QTextCursor cursor = textCursor();
         int start = cursor.position();
         // Replace the selected text with our replacement text.
@@ -843,6 +840,11 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
         }
 
         setTextCursor(cursor);
+
+        // Adjust size of marked text.
+        if (in_marked_text) {
+            m_MarkedTextEnd += toPlainText().length() - original_text_length;
+        }
 
         if (!hasFocus()) {
             // The replace operation is being performed where focus is elsewhere (like in the F&R combos)
@@ -877,7 +879,7 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
         text = Utility::Substring(m_MarkedTextStart, m_MarkedTextEnd, text);
         position = original_position - m_MarkedTextStart;
     } 
-    int text_length = text.length();
+    int marked_text_length = text.length();
 
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
@@ -908,14 +910,12 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
         }
     }
     if (marked_text) {
-        // Merge the replaced marked text into the original text.
-        QString original_text = toPlainText();
-        original_text.replace(m_MarkedTextStart, m_MarkedTextEnd - m_MarkedTextStart, text);
-        m_MarkedTextEnd += text.length() - text_length;
-        text = original_text;
+        // Merge the replaced marked text into the original text and adjust the marker.
+        QString replaced_text = toPlainText();
+        replaced_text.replace(m_MarkedTextStart, m_MarkedTextEnd - m_MarkedTextStart, text);
+        m_MarkedTextEnd += text.length() - marked_text_length;
+        text = replaced_text;
     }
-
-    HighlightCurrentLine();
 
     QTextCursor cursor = textCursor();
     // Store the cursor position
@@ -930,7 +930,8 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
     // Restore the cursor position
     cursor.setPosition(cursor_position);
     setTextCursor(cursor);
-    setTextCursor(cursor);
+
+    HighlightCurrentLine();
 
     if (!hasFocus()) {
         // The replace operation is being performed where focus is elsewhere (like in the F&R combos)
@@ -1364,7 +1365,7 @@ void CodeViewEditor::AddMarkSelectionMenu(QMenu *menu)
         menu->insertAction(topAction, markSelectionAction);
     }
 
-    connect(markSelectionAction, SIGNAL(triggered()), this, SLOT(MarkSelection()));
+    connect(markSelectionAction, SIGNAL(triggered()), this, SIGNAL(MarkSelectionRequest()));
 
     if (topAction) {
         menu->insertSeparator(topAction);

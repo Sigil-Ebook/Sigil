@@ -84,11 +84,6 @@ bool TextTab::DeleteLineEnabled()
     return !m_wCodeView.document()->isEmpty();
 }
 
-bool TextTab::MarkSelectionEnabled()
-{
-    return true;
-}
-
 bool TextTab::CutCodeTagsEnabled()
 {
     return false;
@@ -176,13 +171,10 @@ void TextTab::DeleteLine()
     }
 }
 
-void TextTab::MarkSelection()
+bool TextTab::MarkSelection(bool mark_text)
 {
-    if (m_wCodeView.hasFocus()) {
-        m_wCodeView.MarkSelection();
-    }
+    return m_wCodeView.MarkSelection(mark_text);
 }
-
 
 void TextTab::CutCodeTags()
 {
@@ -255,6 +247,7 @@ void TextTab::ConnectSignalsToSlots()
     connect(&m_wCodeView, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
     connect(&m_wCodeView, SIGNAL(selectionChanged()),         this, SIGNAL(SelectionChanged()));
     connect(&m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
+    connect(&m_wCodeView, SIGNAL(MarkSelectionRequest()),         this, SIGNAL(MarkSelectionRequest()));
 }
 
 

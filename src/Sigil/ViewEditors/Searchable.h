@@ -68,8 +68,6 @@ public:
                           bool wrap = true,
                           bool selected_text = false) = 0;
 
-    virtual bool IsMarkedText() = 0;
-
     /**
      * Returns the number of matching occurrences.
      *

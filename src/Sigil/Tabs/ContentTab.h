@@ -118,10 +118,6 @@ public:
         return false;
     }
 
-    virtual bool MarkSelectionEnabled()         {
-        return false;
-    }
-
     /*
      * Can the user perform the Cut Code Tags operation.
      *
@@ -318,6 +314,10 @@ public:
         return "";
     }
 
+    virtual bool MarkSelection(bool mark_text) { 
+        return false;
+    }
+
 public slots:
 
     /**
@@ -414,6 +414,8 @@ signals:
     void InsertedFileSaveAs(const QUrl &url);
 
     void ShowStatusMessageRequest(const QString &message);
+
+    void MarkSelectionRequest();
 
 protected slots:
 

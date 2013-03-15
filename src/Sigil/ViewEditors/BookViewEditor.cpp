@@ -401,7 +401,6 @@ void BookViewEditor::RemoveWebkitCruft()
     foreach(QWebElement element, collection) {
         element.toggleClass("webkit-indent-blockquote");
     }
-//meme
     QWebElement body_tag =  page()->mainFrame()->findFirstElement("body");
     // Removing junk webkit styles
     body_tag.setStyleProperty("word-wrap", "");

@@ -91,7 +91,6 @@ public:
 
     void HighlightMarkedText();
 
-    bool IsMarkedText();
     bool MoveToMarkedText(Searchable::Direction direction, bool wrap);
 
     /**
@@ -386,6 +385,8 @@ signals:
 
     void DocumentSet();
 
+    void MarkSelectionRequest();
+
 public slots:
 
     /**
@@ -405,7 +406,7 @@ public slots:
 
     void GoToLinkOrStyle();
 
-    void MarkSelection();
+    bool MarkSelection(bool mark_text);
 
 protected:
 
@@ -524,6 +525,7 @@ private slots:
     void ReformatHTMLToValidAllAction();
 
 private:
+    bool IsMarkedText();
 
     QString GetCurrentWordAtCaret(bool select_word);
 

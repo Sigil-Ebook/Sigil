@@ -88,8 +88,6 @@ public:
 
     bool DeleteLineEnabled();
 
-    bool MarkSelectionEnabled();
-
     bool RemoveFormattingEnabled();
 
     bool InsertClosingTagEnabled();
@@ -194,7 +192,7 @@ public slots:
 
     void DeleteLine();
 
-    void MarkSelection();
+    bool MarkSelection(bool mark_text);
 
     void SplitSection();
 
@@ -302,6 +300,8 @@ signals:
     void UpdatePreviewImmediately();
 
     void InspectElement();
+
+    void MarkSelectionRequest();
 
 private slots:
 

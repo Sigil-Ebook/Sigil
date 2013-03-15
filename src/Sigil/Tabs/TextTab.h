@@ -56,8 +56,6 @@ public:
 
     bool DeleteLineEnabled();
 
-    bool MarkSelectionEnabled();
-
     bool CutCodeTagsEnabled();
 
     int GetCursorLine() const;
@@ -100,7 +98,7 @@ public slots:
 
     void DeleteLine();
 
-    void MarkSelection();
+    bool MarkSelection(bool mark_text);
 
     void CutCodeTags();
 

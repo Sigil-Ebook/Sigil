@@ -567,6 +567,8 @@ private slots:
 
     void ChangeCasing(int casing_mode);
 
+    void MarkSelection(bool mark_text = true, ContentTab *old_tab = NULL);
+
     void ToggleViewState();
 
     void ApplyHeadingStyleToTab(const QString &heading_type);

@@ -397,6 +397,9 @@ other end to continue searching.</string>
            <widget class="QComboBox" name="cbLookWhere"/>
           </item>
           <item>
+           <widget class="QComboBox" name="MarkedTextIndicator"/>
+          </item>
+          <item>
            <widget class="QComboBox" name="cbSearchDirection"/>
           </item>
           <item>

@@ -2093,6 +2093,23 @@ void MainWindow::ChangeCasing(int casing_mode)
     tab.ChangeCasing(casing);
 }
 
+void MainWindow::MarkSelection(bool mark_text, ContentTab *old_tab)
+{
+    bool marked = false;
+
+    if (old_tab) {
+        marked = old_tab->MarkSelection(mark_text);
+    }
+    else {
+        ContentTab &tab = GetCurrentContentTab();
+        if (&tab == NULL) {
+            return;
+        }
+        marked = tab.MarkSelection(mark_text);
+    }
+    m_FindReplace->ShowHideMarkedText(marked);
+}
+
 void MainWindow::ToggleViewState()
 {
     ContentTab &tab = GetCurrentContentTab();
@@ -2275,6 +2292,8 @@ void MainWindow::ChangeSignalsWhenTabChanges(ContentTab *old_tab, ContentTab *ne
 {
     BreakTabConnections(old_tab);
     MakeTabConnections(new_tab);
+    // Clear selection if the tab changed.
+    MarkSelection(false, old_tab);
 }
 
 
@@ -2321,6 +2340,8 @@ void MainWindow::UpdateViewState(bool set_tab_state)
                     m_ViewState = ftab->GetViewState();
                 }
             }
+            // Clear selection if the view changed.
+            MarkSelection(false);
         }
 
         if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -2357,7 +2378,6 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionCopy               ->setEnabled(tab.CopyEnabled());
     ui.actionPaste              ->setEnabled(tab.PasteEnabled());
     ui.actionDeleteLine         ->setEnabled(tab.DeleteLineEnabled());
-    ui.actionMarkSelection      ->setEnabled(tab.MarkSelectionEnabled());
     ui.actionAddToIndex         ->setEnabled(tab.AddToIndexEnabled());
     ui.actionMarkForIndex       ->setEnabled(tab.MarkForIndexEnabled());
     ui.actionRemoveFormatting   ->setEnabled(tab.RemoveFormattingEnabled());
@@ -2393,6 +2413,7 @@ void MainWindow::UpdateUIWhenTabsSwitch()
 
     tab.UpdateDisplay();
     UpdateViewState();
+    MarkSelection(false);
 }
 
 
@@ -4128,6 +4149,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionFindNextInFile,   SIGNAL(triggered()), m_FindReplace, SLOT(FindNextInFile()));
     connect(ui.actionReplaceNextInFile, SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceNextInFile()));
     connect(ui.actionReplaceAllInFile, SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceAllInFile()));
+    connect(ui.actionMarkSelection,    SIGNAL(triggered()), this, SLOT(MarkSelection()));
     connect(ui.actionCountInFile,      SIGNAL(triggered()), m_FindReplace, SLOT(CountInFile()));
     connect(ui.actionGoToLine,         SIGNAL(triggered()), this, SLOT(GoToLine()));
     // About
@@ -4314,7 +4336,6 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(ui.actionCopy,                     SIGNAL(triggered()),  tab,   SLOT(Copy()));
         connect(ui.actionPaste,                    SIGNAL(triggered()),  tab,   SLOT(Paste()));
         connect(ui.actionDeleteLine,               SIGNAL(triggered()),  tab,   SLOT(DeleteLine()));
-        connect(ui.actionMarkSelection,            SIGNAL(triggered()),  tab,   SLOT(MarkSelection()));
         connect(tab,   SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)),
                 this,  SLOT(ClipEditorDialog(ClipEditorModel::clipEntry *)));
     }
@@ -4389,6 +4410,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(ZoomFactorChanged(float)),   this,          SLOT(UpdateZoomLabel(float)));
         connect(tab,   SIGNAL(ZoomFactorChanged(float)),   this,          SLOT(UpdateZoomSlider(float)));
         connect(tab,   SIGNAL(ShowStatusMessageRequest(const QString &)), this, SLOT(ShowMessageOnStatusBar(const QString &)));
+        connect(tab,   SIGNAL(MarkSelectionRequest()),             this, SLOT(MarkSelection()));
     }
 }
 
@@ -4428,7 +4450,6 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
     disconnect(ui.actionInsertSGFSectionMarker,    0, tab, 0);
     disconnect(ui.actionInsertClosingTag,          0, tab, 0);
     disconnect(ui.actionGoToLinkOrStyle,           0, tab, 0);
-    disconnect(ui.actionMarkSelection,             0, tab, 0);
     disconnect(ui.actionAddMisspelledWord,         0, tab, 0);
     disconnect(ui.actionIgnoreMisspelledWord,      0, tab, 0);
     disconnect(ui.actionPrintPreview,              0, tab, 0);

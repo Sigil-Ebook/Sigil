@@ -120,10 +120,6 @@ public:
         return BookViewPreview::FindNext(search_regex, search_direction, check_spelling, ignore_selection_offset, wrap, selected_text);
     }
 
-    bool IsMarkedText() {
-        return BookViewPreview::IsMarkedText();
-    }
-
     int Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text = false) {
         return BookViewPreview::Count(search_regex, direction, wrap, selected_text);
     }

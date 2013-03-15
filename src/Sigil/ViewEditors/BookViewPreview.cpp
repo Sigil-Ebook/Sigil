@@ -307,11 +307,6 @@ bool BookViewPreview::FindNext(SearchTools &search_tools,
     return false;
 }
 
-bool BookViewPreview::IsMarkedText()
-{
-    return false;
-}
-
 int BookViewPreview::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text)
 {
     // Spell check not actually used
