@@ -1443,7 +1443,7 @@ void FindReplace::ExtendUI()
     // Special Marked Text indicator.
     QString mark_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
     ui.MarkedTextIndicator->addItem(tr("Marked Text"));
-    mark_tooltip += "<dt><b>Marked Text</b><dd>" + tr("Restrict the find or replace to the text marked by Search&rarr;Mark Selected Text.  Cleared if you change views or tabs.") + "</dd>";
+    mark_tooltip += "<dt><b>Marked Text</b><dd>" + tr("Restrict the find or replace to the text marked by Search&rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.") + "</dd>";
     mark_tooltip += "</dl>";
     ui.MarkedTextIndicator->setToolTip(mark_tooltip);
 

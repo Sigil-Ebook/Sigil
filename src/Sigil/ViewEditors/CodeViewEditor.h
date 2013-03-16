@@ -386,6 +386,7 @@ signals:
     void DocumentSet();
 
     void MarkSelectionRequest();
+    void ClearMarkedTextRequest();
 
 public slots:
 
@@ -406,7 +407,8 @@ public slots:
 
     void GoToLinkOrStyle();
 
-    bool MarkSelection(bool mark_text);
+    bool MarkSelection();
+    bool ClearMarkedText();
 
 protected:
 
@@ -808,6 +810,7 @@ private:
 
     int m_MarkedTextStart;
     int m_MarkedTextEnd;
+    bool m_ReplacingInMarkedText;
 
     /**
      * The fonts and colors for appearance of xhtml and text.

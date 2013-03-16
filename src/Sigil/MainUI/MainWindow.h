@@ -567,7 +567,8 @@ private slots:
 
     void ChangeCasing(int casing_mode);
 
-    void MarkSelection(bool mark_text = true, ContentTab *old_tab = NULL);
+    void MarkSelection();
+    void ClearMarkedText(ContentTab *old_tab = NULL);
 
     void ToggleViewState();
 

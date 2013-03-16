@@ -171,9 +171,14 @@ void TextTab::DeleteLine()
     }
 }
 
-bool TextTab::MarkSelection(bool mark_text)
+bool TextTab::MarkSelection()
 {
-    return m_wCodeView.MarkSelection(mark_text);
+    return m_wCodeView.MarkSelection();
+}
+
+bool TextTab::ClearMarkedText()
+{
+    return m_wCodeView.ClearMarkedText();
 }
 
 void TextTab::CutCodeTags()
@@ -248,6 +253,7 @@ void TextTab::ConnectSignalsToSlots()
     connect(&m_wCodeView, SIGNAL(selectionChanged()),         this, SIGNAL(SelectionChanged()));
     connect(&m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(&m_wCodeView, SIGNAL(MarkSelectionRequest()),         this, SIGNAL(MarkSelectionRequest()));
+    connect(&m_wCodeView, SIGNAL(ClearMarkedTextRequest()),              this, SIGNAL(ClearMarkedTextRequest()));
 }
 
 

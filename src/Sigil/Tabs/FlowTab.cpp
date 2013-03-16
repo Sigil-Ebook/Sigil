@@ -934,10 +934,18 @@ void FlowTab::DeleteLine()
     }
 }
 
-bool FlowTab::MarkSelection(bool mark_text)
+bool FlowTab::MarkSelection()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        return m_wCodeView->MarkSelection(mark_text);
+        return m_wCodeView->MarkSelection();
+    }
+    return false;
+}
+
+bool FlowTab::ClearMarkedText()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->ClearMarkedText();
     }
     return false;
 }
@@ -1533,4 +1541,5 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(PageClicked()), this, SLOT(EmitUpdatePreviewImmediately()));
     connect(m_wCodeView, SIGNAL(DocumentSet()), this, SLOT(EmitUpdatePreviewImmediately()));
     connect(m_wCodeView, SIGNAL(MarkSelectionRequest()), this, SIGNAL(MarkSelectionRequest()));
+    connect(m_wCodeView, SIGNAL(ClearMarkedTextRequest()), this, SIGNAL(ClearMarkedTextRequest()));
 }

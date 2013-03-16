@@ -98,7 +98,8 @@ public slots:
 
     void DeleteLine();
 
-    bool MarkSelection(bool mark_text);
+    bool MarkSelection();
+    bool ClearMarkedText();
 
     void CutCodeTags();
 

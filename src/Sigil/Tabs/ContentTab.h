@@ -314,7 +314,11 @@ public:
         return "";
     }
 
-    virtual bool MarkSelection(bool mark_text) { 
+    virtual bool MarkSelection() { 
+        return false;
+    }
+
+    virtual bool ClearMarkedText() {
         return false;
     }
 
@@ -416,6 +420,7 @@ signals:
     void ShowStatusMessageRequest(const QString &message);
 
     void MarkSelectionRequest();
+    void ClearMarkedTextRequest();
 
 protected slots:
 

@@ -96,7 +96,8 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_ignoreSpellingMapper(new QSignalMapper(this)),
     m_clipMapper(new QSignalMapper(this)),
     m_MarkedTextStart(-1),
-    m_MarkedTextEnd(-1)
+    m_MarkedTextEnd(-1),
+    m_ReplacingInMarkedText(false)
 {
     if (high_type == CodeViewEditor::Highlight_XHTML) {
         m_Highlighter = new XHTMLHighlighter(check_spelling, this);
@@ -162,21 +163,25 @@ void CodeViewEditor::DeleteLine()
     emit selectionChanged();
 }
 
-bool CodeViewEditor::MarkSelection(bool mark_text)
+bool CodeViewEditor::MarkSelection()
 {
-    if (mark_text && textCursor().hasSelection()) {
+    if (textCursor().hasSelection()) {
         m_MarkedTextStart = textCursor().selectionStart();
         m_MarkedTextEnd = textCursor().selectionEnd();
-        emit ShowStatusMessageRequest(tr("Selection marked."));
         HighlightCurrentLine();
         return true;
     }
+    ClearMarkedText();
+    return false;
+}
 
+bool CodeViewEditor::ClearMarkedText()
+{
+    bool marked = IsMarkedText();
     m_MarkedTextStart = -1;
     m_MarkedTextEnd = -1;
     HighlightCurrentLine();
-    emit ShowStatusMessageRequest(tr("Text unmarked."));
-    return false;
+    return marked;
 }
 
 void CodeViewEditor::HighlightMarkedText()
@@ -812,6 +817,9 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
     QString replaced_text;
     bool replacement_made = false;
     bool in_marked_text = selection_start >= m_MarkedTextStart && selection_end <= m_MarkedTextEnd;
+    if (in_marked_text) {
+        m_ReplacingInMarkedText = true;
+    }
     int original_text_length = toPlainText().length();
     replacement_made = spcre->replaceText(selected_text, m_lastMatch.capture_groups_offsets, replacement, replaced_text);
 
@@ -843,6 +851,7 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
 
         // Adjust size of marked text.
         if (in_marked_text) {
+            m_ReplacingInMarkedText = false;
             m_MarkedTextEnd += toPlainText().length() - original_text_length;
         }
 
@@ -872,6 +881,7 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
     int original_position = textCursor().position();
     int position = original_position;
     if (marked_text) {
+        m_ReplacingInMarkedText = true;
         if (!MoveToMarkedText(direction, wrap)) {
             return 0;
         }
@@ -932,6 +942,10 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
     setTextCursor(cursor);
 
     HighlightCurrentLine();
+
+    if (marked_text) {
+        m_ReplacingInMarkedText = false;
+    }
 
     if (!hasFocus()) {
         // The replace operation is being performed where focus is elsewhere (like in the F&R combos)
@@ -1809,6 +1823,12 @@ void CodeViewEditor::EmitFilteredCursorMoved()
 
 void CodeViewEditor::TextChangedFilter()
 {
+    // Clear marked text to prevent marked area not matching entered text
+    // if user types text, uses Undo, etc.
+    if (!m_ReplacingInMarkedText && IsMarkedText()) {
+        emit ClearMarkedTextRequest();
+    }
+
     ResetLastFindMatch();
 
     if (m_isUndoAvailable) {

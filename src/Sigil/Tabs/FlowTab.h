@@ -192,7 +192,8 @@ public slots:
 
     void DeleteLine();
 
-    bool MarkSelection(bool mark_text);
+    bool MarkSelection();
+    bool ClearMarkedText();
 
     void SplitSection();
 
@@ -302,6 +303,7 @@ signals:
     void InspectElement();
 
     void MarkSelectionRequest();
+    void ClearMarkedTextRequest();
 
 private slots:
 

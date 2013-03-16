@@ -2093,21 +2093,41 @@ void MainWindow::ChangeCasing(int casing_mode)
     tab.ChangeCasing(casing);
 }
 
-void MainWindow::MarkSelection(bool mark_text, ContentTab *old_tab)
+void MainWindow::MarkSelection()
 {
-    bool marked = false;
+    ContentTab &tab = GetCurrentContentTab();
+    if (&tab == NULL) {
+        return;
+    }
+    bool marked = tab.MarkSelection();
+    m_FindReplace->ShowHideMarkedText(marked);
+    if (marked) {
+        ShowMessageOnStatusBar(tr("Text selection marked."));
+    }
+    else {
+        ShowMessageOnStatusBar(tr("Text selection unmarked."));
+    }
+}
 
+void MainWindow::ClearMarkedText(ContentTab *old_tab)
+{
+    bool cleared = false;
     if (old_tab) {
-        marked = old_tab->MarkSelection(mark_text);
+        cleared = old_tab->ClearMarkedText();
     }
     else {
         ContentTab &tab = GetCurrentContentTab();
         if (&tab == NULL) {
             return;
         }
-        marked = tab.MarkSelection(mark_text);
+        cleared = tab.ClearMarkedText();
     }
-    m_FindReplace->ShowHideMarkedText(marked);
+    if (cleared) {
+        // Only show message if there was a selection to clear.
+        ShowMessageOnStatusBar(tr("Text selection unmarked."));
+    }
+
+    m_FindReplace->ShowHideMarkedText(false);
 }
 
 void MainWindow::ToggleViewState()
@@ -2293,7 +2313,7 @@ void MainWindow::ChangeSignalsWhenTabChanges(ContentTab *old_tab, ContentTab *ne
     BreakTabConnections(old_tab);
     MakeTabConnections(new_tab);
     // Clear selection if the tab changed.
-    MarkSelection(false, old_tab);
+    ClearMarkedText(old_tab);
 }
 
 
@@ -2340,8 +2360,7 @@ void MainWindow::UpdateViewState(bool set_tab_state)
                     m_ViewState = ftab->GetViewState();
                 }
             }
-            // Clear selection if the view changed.
-            MarkSelection(false);
+            ClearMarkedText();
         }
 
         if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -2413,7 +2432,7 @@ void MainWindow::UpdateUIWhenTabsSwitch()
 
     tab.UpdateDisplay();
     UpdateViewState();
-    MarkSelection(false);
+    ClearMarkedText();
 }
 
 
@@ -4411,6 +4430,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(ZoomFactorChanged(float)),   this,          SLOT(UpdateZoomSlider(float)));
         connect(tab,   SIGNAL(ShowStatusMessageRequest(const QString &)), this, SLOT(ShowMessageOnStatusBar(const QString &)));
         connect(tab,   SIGNAL(MarkSelectionRequest()),             this, SLOT(MarkSelection()));
+        connect(tab,   SIGNAL(ClearMarkedTextRequest()),           this, SLOT(ClearMarkedText()));
     }
 }
 
