@@ -115,6 +115,8 @@ void PreviewWindow::SetupView()
     m_MainWidget.setLayout(&m_Layout);
     setWidget(&m_MainWidget);
 
+    m_Preview->Zoom();
+
     QApplication::restoreOverrideCursor();
 }
 
