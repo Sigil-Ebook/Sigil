@@ -127,6 +127,7 @@ void SelectFiles::SetImages()
     ui.imageTree->setModel(m_SelectFilesModel);
     QSize icon_size(m_ThumbnailSize, m_ThumbnailSize);
     ui.imageTree->setIconSize(icon_size);
+    ui.imageTree->setSortingEnabled(true);
     int row = 0;
 
     foreach(Resource *resource, m_MediaResources) {
@@ -170,6 +171,9 @@ void SelectFiles::SetImages()
     for (int i = 0; i < ui.imageTree->header()->count(); i++) {
         ui.imageTree->resizeColumnToContents(i);
     }
+
+    // Sort by filename by default.
+    ui.imageTree->header()->setSortIndicator(0, Qt::AscendingOrder);
 
     FilterEditTextChangedSlot(ui.Filter->text());
     SelectDefaultImage();
