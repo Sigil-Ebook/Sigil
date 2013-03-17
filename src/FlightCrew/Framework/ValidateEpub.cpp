@@ -234,6 +234,21 @@ std::vector< Result > DescendToContentXml( const fs::path &path_to_content_xml )
     return results;
 }
 
+std::vector<Result> CheckPathForNonAscii(const fs::path &root_folder_path)
+{
+    std::vector< Result > results;
+    boost::regex pattern("[^\\x00-\\x7F]");
+
+    for (fs::recursive_directory_iterator iter(root_folder_path), end; iter != end; ++iter) {
+        std::string name = Util::BoostPathToUtf8Path(iter->path().leaf());
+        if (regex_search(name, pattern)) {
+            results.push_back(Result(WARNING_NON_ASCII_FILENAME).SetFilepath(name));
+        }
+    } 
+
+    return results;
+}
+
 void RemoveBasePathFromResultPaths( std::vector< Result > &results, const fs::path &basepath )
 {
     std::string path_prefix = Util::BoostPathToUtf8Path( basepath );
@@ -294,11 +309,11 @@ std::vector< Result > ValidateEpubRootFolder( const fs::path &root_folder_path )
     }
     
     Util::Extend( results, DescendToContentXml( path_to_content_xml ) );
+    Util::Extend(results, CheckPathForNonAscii( root_folder_path));
 
     RemoveBasePathFromResultPaths( results, root_folder_path );
     return results;
 }
-
 
 std::vector< Result > ValidateEpub( const fs::path &filepath )
 {

@@ -189,6 +189,9 @@ void ErrorMessages::LoadMessages()
         "Warning."; 
     m_Messages[ WARNING_OPF_RESOURCE_IN_MANIFEST_NOT_REACHABLE ] =
         "This resource is present in the OPF <manifest>, but it's not reachable (it's unused).";
+    m_Messages[WARNING_NON_ASCII_FILENAME] =
+        "Non-ASCII characters were detected in this filename. While valid, it not recommened "
+        "to use non-ASCII characteres in filenames.";
 }
 
 } // namespace FlightCrew
