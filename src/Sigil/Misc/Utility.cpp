@@ -36,6 +36,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMessageBox>
 #include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "sigil_exception.h"
 #include "Misc/Utility.h"
@@ -491,6 +492,29 @@ QString Utility::getSpellingSafeText(const QString &raw_text)
     // get the job done until someone can implement something better.
     QString text(raw_text);
     return text.replace(QString::fromUtf8("\u2019"), "'");
+}
+
+
+bool Utility::has_non_ascii_chars(const QString &str)
+{
+    QRegularExpression not_ascii("[^\\x00-\\x7F]");
+    QRegularExpressionMatch mo = not_ascii.match(str);
+    return mo.hasMatch();
+}
+
+bool Utility::use_filename_warning(const QString &filename)
+{
+    if (has_non_ascii_chars(filename)) {
+        return QMessageBox::Apply == QMessageBox::warning(QApplication::activeWindow(),
+            tr("Sigil"),
+            tr("The requested file name contains non-ASCII characters. It is "
+                "NOT recommened to use non-ASCII characters in filenames. "
+                "Using non-ASCII characters can prevent the EPUB from working "
+                "with some readers.\n\n"
+                "Continue using the requested filename?"),
+            QMessageBox::Cancel|QMessageBox::Apply);
+    }
+    return true;
 }
 
 #if defined(Q_OS_WIN32)

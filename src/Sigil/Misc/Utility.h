@@ -23,6 +23,7 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
+#include <QCoreApplication>
 #include <QtCore/QString>
 
 class QStringList;
@@ -33,6 +34,7 @@ struct ExceptionBase;
 
 class Utility
 {
+    Q_DECLARE_TR_FUNCTIONS(Utility)
 
 public:
 
@@ -143,6 +145,9 @@ public:
     static QWidget *GetMainWindow();
 
     static QString getSpellingSafeText(const QString &raw_text);
+
+    static bool has_non_ascii_chars(const QString &str);
+    static bool use_filename_warning(const QString &filename);
 
 #if defined(Q_OS_WIN32)
     static std::wstring QStringToStdWString(const QString &str);

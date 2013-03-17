@@ -48,6 +48,12 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
+const QString NON_ASCII_WARNING_TEXT = "The requested file name contains non-ASCII characters. It is "
+    "NOT recommened to use non-ASCII characters in filenames. "
+    "Using non-ASCII characters can prevent the EPUB from working "
+    "with some readers.\n\n"
+    "Continue using the requested filename?";
+
 static const QString SETTINGS_GROUP = "bookbrowser";
 static const QString OPF_NCX_EDIT_WARNING_KEY = SETTINGS_GROUP + "-opfncx-warning";
 static const int COLUMN_INDENTATION = 10;
@@ -949,6 +955,12 @@ void BookBrowser::RenameSelected()
         new_filenames.append(name);
 
         template_number++;
+    }
+
+    foreach (QString s, new_filenames) {
+        if (!Utility::use_filename_warning(s)) {
+            return;
+        }
     }
 
     // Save the next name in the sequence for later

@@ -23,6 +23,7 @@
 
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFileIconProvider>
+#include <QMessageBox>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -303,6 +304,10 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByIdentifier(identifier);
 
         if (new_filename != resource.Filename()) {
+            if (!Utility::use_filename_warning(new_filename)) {
+                item->setText(resource.Filename());
+                return;
+            } 
             RenameResource(resource, new_filename);
         }
     }
