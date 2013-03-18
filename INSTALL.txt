@@ -112,28 +112,50 @@ invoke the `makedmg` build target.
 
 == Compiling on Linux ==
 
-You will need to install Qt5 including, any dependencies and development
-packages if your distro provides separate *dev* packages. Also, many distros
-split the Qt packages into multiple subpackages so ensure you have all necessary
-parts installed.
+Here is an example of installing Sigil 0.7.2 on a 32-bit Ubuntu 12.10 system in your Home directory.  12.04 does not have the required version of cmake to build Sigil.
 
-It is assumed you want to generate Makefiles. You can do this by creating a new
-folder *outside* of the source distribution.
-
-Now navigate to that folder with a terminal. Then type in and run the following:
+Get then install Qt5.0.1 as root. Choose /opt/Qt5.0.1 as the installation directory. You can also download the 64 bit version if required.
 {{{
-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release /path/to/extracted/folder
-make
-sudo make install
+cd
+wget http://releases.qt-project.org/qt5/5.0.1/qt-linux-opensource-5.0.1-x86-offline.run
+chmod +x qt-linux-opensource-5.0.1-x86-offline.run
+sudo ./qt-linux-opensource-5.0.1-x86-offline.run
 }}}
-That builds and installs Sigil on Linux. By default, Sigil is installed in
-`${CMAKE_INSTALL_PREFIX}/bin`, with `CMAKE_INSTALL_PREFIX` defaulting to
-`usr/local`.
 
-You can change the install location by running cmake like this:
+
+Install the required developer tools as root.
 {{{
-cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/new/install/prefix -DCMAKE_BUILD_TYPE=Release /path/to/extracted/folder
+sudo apt-get install build-essential cmake
 }}}
+
+Create the build directories and get the Sigil source code.
+{{{
+mkdir -p ~/sigil-0.7.2/src ~/sigil-0.7.2/build ~/sigil-0.7.2/run
+cd ~/sigil-0.7.2/src
+wget https://sigil.googlecode.com/files/Sigil-0.7.2-Code.zip
+unzip Sigil-0.7.2-Code.zip
+}}}
+
+Build and install Sigil.  For 64 bit compiles, change the gcc to gcc_64.  You can change MAKE_INSTALL_PREFIX to install in a different location.
+{{{
+cd ~/sigil-0.7.2/build
+cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.0.1/5.0.1/gcc/lib/cmake -DCMAKE_INSTALL_PREFIX=~/sigil-0.7.2/run -DCMAKE_BUILD_TYPE=Release -DFORCE_BUNDLED_COPIES=1 ~/sigil-0.7.2/src
+make install
+}}}
+
+Create a script to run Sigil:
+{{{
+echo "
+export LD_LIBRARY_PATH=/opt/Qt5.0.1/5.0.1/gcc/lib
+~/sigil-0.7.2/run/bin/sigil" > ~/sigil.sh
+chmod +x ~/sigil.sh
+}}}
+
+# Run Sigil:
+{{{
+~/sigil.sh
+}}}
+
 
 Building from source in the git repository is *NOT* recommended, since code in
 the git repository is not stable. Do not open a bug report against a non release
