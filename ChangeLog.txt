@@ -1,4 +1,6 @@
 Sigil 0.7.2 TBD
+    - Implement issue 2129: Enchance archive filename encoding handling.
+    - Implement issue 2128: Warnings for non-ASCII characters in filenames.
     - Implement issue 2113: Preview should zoom separately from other views.
     - Implement issue 1997: Tool to Add Cover image and file automatically.
     - Implement issue 1993: Find & Replace should have a Marked Text option.

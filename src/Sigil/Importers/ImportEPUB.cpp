@@ -379,12 +379,12 @@ void ImportEPUB::ExtractContainer()
             unz_file_info64 file_info;
             unzGetCurrentFileInfo64(zfile, &file_info, file_name, MAX_PATH, NULL, 0, NULL, 0);
             QString qfile_name;
-            // General purpose bit 11 says the filename is utf-8 encoded. If not set then
-            // IBM 437 encoding is used.
-            if (file_info.flag & (1<<11)) {
-                qfile_name = QString::fromUtf8(file_name);
-            } else {
-                qfile_name = cp437->toUnicode(file_name);
+            QString cp437_file_name;
+            qfile_name = QString::fromUtf8(file_name);
+            if (!(file_info.flag & (1<<11))) {
+                // General purpose bit 11 says the filename is utf-8 encoded. If not set then
+                // IBM 437 encoding might be used.
+                cp437_file_name = cp437->toUnicode(file_name);
             }
 
             // If there is no file name then we can't do anything with it.
@@ -442,6 +442,11 @@ void ImportEPUB::ExtractContainer()
                 if (unzCloseCurrentFile(zfile) == UNZ_CRCERROR) {
                     unzClose(zfile);
                     boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
+                }
+
+                if (!cp437_file_name.isEmpty() && cp437_file_name != qfile_name) {
+                    QString cp437_file_path = m_ExtractedFolderPath + "/" + cp437_file_name;
+                    QFile::copy(file_path, cp437_file_path);
                 }
             }
         } while ((res = unzGoToNextFile(zfile)) == UNZ_OK);
