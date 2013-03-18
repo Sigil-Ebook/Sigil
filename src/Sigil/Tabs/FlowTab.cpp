@@ -109,10 +109,10 @@ FlowTab::FlowTab(HTMLResource &resource,
 
 FlowTab::~FlowTab()
 {
-    // Explicitly disconnect this signal because it's causing the ResourceModified
+    // Explicitly disconnect signals because Modified is causing the ResourceModified
     // function to be called after we delete BV and PV later in this destructor.
     // No idea how that's possible but this prevents a segfault...
-    disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+    disconnect();
     m_WellFormedCheckComponent.deleteLater();
 
     if (m_wBookView) {
