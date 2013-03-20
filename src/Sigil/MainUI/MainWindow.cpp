@@ -1384,6 +1384,13 @@ void MainWindow::InsertId()
     }
 
     QString id = flow_tab->GetAttributeId();
+
+    // Prevent adding a hidden anchor id in Book View.
+    if (m_ViewState == MainWindow::ViewState_BookView && id.isEmpty() && flow_tab->GetSelectedText().isEmpty()) {
+        QMessageBox::warning(this, tr("Sigil"), tr("You must select text before inserting a new id."));
+        return;
+    }
+
     HTMLResource *html_resource = qobject_cast< HTMLResource * >(&flow_tab->GetLoadedResource());
 
     SelectId select_id(id, html_resource, m_Book, this);
@@ -1417,6 +1424,13 @@ void MainWindow::InsertHyperlink()
     }
 
     QString href = flow_tab->GetAttributeHref();
+
+    // Prevent adding a hidden anchor link in Book View.
+    if (m_ViewState == MainWindow::ViewState_BookView && href.isEmpty() && flow_tab->GetSelectedText().isEmpty()) {
+        QMessageBox::warning(this, tr("Sigil"), tr("You must select text before inserting a new link."));
+        return;
+    }
+
     HTMLResource *html_resource = qobject_cast< HTMLResource * >(&flow_tab->GetLoadedResource());
     QList<Resource *> resources = GetAllHTMLResources() + m_BookBrowser->AllMediaResources();
     SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);

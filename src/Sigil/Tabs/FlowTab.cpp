@@ -1054,6 +1054,17 @@ QString FlowTab::GetAttributeIndexTitle()
     return attribute_value;
 }
 
+QString FlowTab::GetSelectedText()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->GetSelectedText();
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return m_wBookView->GetSelectedText();
+    }
+
+    return "";
+}
+
 bool FlowTab::InsertId(const QString &id)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {

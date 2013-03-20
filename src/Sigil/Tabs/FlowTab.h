@@ -253,6 +253,7 @@ public slots:
     QString GetAttributeHref();
     QString GetAttributeIndexTitle();
 
+    QString GetSelectedText();
     bool InsertId(const QString &id);
     bool InsertHyperlink(const QString &url);
 
