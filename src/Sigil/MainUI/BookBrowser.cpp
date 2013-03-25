@@ -901,7 +901,7 @@ void BookBrowser::RenameSelected()
 
     if (!template_name.isEmpty()) {
         int pos = template_name.length() - 1;
-        while (pos > 0 && template_name[pos].isDigit()) {
+        while (pos >= 0 && template_name[pos].isDigit()) {
             template_number_string.prepend(QString("%1").arg(template_name[pos]));
             pos--;
         }
