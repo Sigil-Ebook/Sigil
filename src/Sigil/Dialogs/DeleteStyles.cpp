@@ -139,16 +139,15 @@ void DeleteStyles::WriteSettings()
     settings.endGroup();
 }
 
-void DeleteStyles::DoubleClick()
+void DeleteStyles::DoubleClick(const QModelIndex index)
 {
-    int row = ui.Table->selectionModel()->selectedIndexes().first().row();
-    QString filename = m_Model.item(row, 1)->text();
-    int line = m_Model.item(row, 1)->data().toInt();
+    QString filename = m_Model.item(index.row(), 1)->text();
+    int line = m_Model.item(index.row(), 1)->data().toInt();
     emit OpenFileRequest(filename, line);
 }
 
 void DeleteStyles::ConnectSignals()
 {
     connect(this, SIGNAL(accepted()), this, SLOT(SaveStylesToDelete()));
-    connect(ui.Table, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick()));
+    connect(ui.Table, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick(const QModelIndex &)));
 }

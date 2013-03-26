@@ -118,15 +118,14 @@ void DeleteFiles::WriteSettings()
     settings.endGroup();
 }
 
-void DeleteFiles::DoubleClick()
+void DeleteFiles::DoubleClick(const QModelIndex index)
 {
-    int row = ui.Table->selectionModel()->selectedIndexes().first().row();
-    QString filename = m_Model.item(row, 1)->text();
+    QString filename = m_Model.item(index.row(), 1)->text();
     emit OpenFileRequest(filename, 1);
 }
 
 void DeleteFiles::ConnectSignals()
 {
     connect(this, SIGNAL(accepted()), this, SLOT(SaveFilesToDelete()));
-    connect(ui.Table, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick()));
+    connect(ui.Table, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick(const QModelIndex &)));
 }

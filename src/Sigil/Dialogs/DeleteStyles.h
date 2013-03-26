@@ -52,7 +52,7 @@ signals:
 private slots:
     void SaveStylesToDelete();
     void WriteSettings();
-    void DoubleClick();
+    void DoubleClick(const QModelIndex index);
 
 private:
     void SetUpTable();

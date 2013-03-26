@@ -6,13 +6,14 @@ Sigil 0.7.2 TBD
     - Implement issue 1993: Find & Replace should have a Marked Text option.
     - Implement issue 2083: Enhance invalid OPF recovery.
     - Implement issue 2082: Improve performance of Book Browser refresh.
+    - Fix issue 2147: Doubleclick in Delete Files dialog can cause crash.
     - Fix issue 2143: Bulk rename with just a number for filename does not use correct number of 0s.
     - Fix issue 2121: Wait cursor shows when dialog is open while saving or opening.
     - Fix issue 2107: Heading not accepted due to split at end of file.
     - Fix issue 2110: Insert Special Character inserts wrong code for nnbsp.
     - Fix issue 2021: Importing UTF-16 encoded files results in empty file.
     - Fix issue 2088: Ctrl-click on text files does not work in Code View.
-    - Fix Issue 2071: Anchor dialog has disabled textfield.
+    - Fix Issue 2071: Anchor dialog has disabled text field.
     - Fix Issue 2077: Rename dialog incorrectly sized.
     - Fix issue 2081: Book Browser tooltips are not updated when semantics change or for cover images.
     - Fix issue 2080: OPF meta title not updated correctly for Add Semantic.
