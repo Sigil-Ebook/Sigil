@@ -1231,7 +1231,11 @@ void MainWindow::DeleteUnusedMedia()
 
         // Include the file in the list to delete if it was not referenced
         if (html_files_hash[filepath].count() == 0 && !style_url_files.contains(filepath)) {
-            resources.append(resource);
+            // If used as cover image, consider it referenced.
+            ImageResource *image_resource = qobject_cast<ImageResource *>(resource);
+            if (!image_resource || !m_Book->GetOPF().IsCoverImage(*image_resource)) {
+                resources.append(resource);
+            }
         }
     }
 
