@@ -91,8 +91,11 @@ private:
     void SetupSpellcheckEditorTree();
     void MarkSpelledOkay(int row);
     QString GetSelectedWord();
+    int GetSelectedRow();
 
     int SelectedRowsCount();
+
+    void SelectRow(int row);
 
     QList<QStandardItem *> GetSelectedItems();
 
@@ -116,6 +119,8 @@ private:
     QMenu *m_ContextMenu;
 
     bool m_MultipleSelection;
+
+    int m_SelectRow;
 
     Ui::SpellcheckEditor ui;
 };

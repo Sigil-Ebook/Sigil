@@ -48,7 +48,8 @@ SpellcheckEditor::SpellcheckEditor(QWidget *parent)
     m_Book(NULL),
     m_SpellcheckEditorModel(new QStandardItemModel(this)),
     m_ContextMenu(new QMenu(this)),
-    m_MultipleSelection(false)
+    m_MultipleSelection(false),
+    m_SelectRow(-1)
 {
     ui.setupUi(this);
     ui.FilterText->installEventFilter(this);
@@ -207,6 +208,8 @@ void SpellcheckEditor::ChangeAll()
         return;
     }
 
+    m_SelectRow = GetSelectedRow();
+
     emit UpdateWordRequest(old_word, new_word);
 }
 
@@ -311,6 +314,9 @@ void SpellcheckEditor::Refresh(int sort_column, Qt::SortOrder sort_order)
     ui.FilterText->setFocus();
     FilterEditTextChangedSlot(ui.FilterText->text());
 
+    SelectRow(m_SelectRow);
+    UpdateSuggestions();
+
     QApplication::restoreOverrideCursor();
 }
 
@@ -350,6 +356,38 @@ QString SpellcheckEditor::GetSelectedWord()
     QModelIndex index = ui.SpellcheckEditorTree->selectionModel()->selectedRows(0).first();
     word = m_SpellcheckEditorModel->itemFromIndex(index)->text();
     return word;
+}
+
+int SpellcheckEditor::GetSelectedRow()
+{
+    int row = -1;
+
+    if (SelectedRowsCount() != 1 || m_MultipleSelection) {
+        return row;
+    }
+
+    return ui.SpellcheckEditorTree->selectionModel()->selectedRows(0).first().row();
+}
+
+void SpellcheckEditor::SelectRow(int row)
+{
+    QStandardItem *root_item = m_SpellcheckEditorModel->invisibleRootItem();
+
+    if (root_item->rowCount() > 0 && row >= 0) {
+        if (row >= root_item->rowCount()) {
+            row = root_item->rowCount() - 1;
+        }
+
+        QStandardItem *child = root_item->child(row, 0);
+        if (child) {
+            QModelIndex index = child->index();
+            ui.SpellcheckEditorTree->setFocus();
+            ui.SpellcheckEditorTree->selectionModel()->select(index, QItemSelectionModel::Select | QItemSelectionModel::Rows);
+            ui.SpellcheckEditorTree->setCurrentIndex(child->index());
+        }
+    }
+
+    m_SelectRow = -1;
 }
 
 void SpellcheckEditor::UpdateSuggestions()

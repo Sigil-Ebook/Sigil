@@ -6,6 +6,7 @@ Sigil 0.7.2 TBD
     - Implement issue 1993: Find & Replace should have a Marked Text option.
     - Implement issue 2083: Enhance invalid OPF recovery.
     - Implement issue 2082: Improve performance of Book Browser refresh.
+    - Fix issue 2170: Spellcheck should remember position after changing word.
     - Fix issue 2148: Don't delete cover image in "Delete unused media files".
     - Fix issue 2147: Doubleclick in Delete Files dialog can cause crash.
     - Fix issue 2143: Bulk rename with just a number for filename does not use correct number of 0s.
