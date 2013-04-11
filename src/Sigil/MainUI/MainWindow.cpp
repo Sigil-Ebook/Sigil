@@ -1878,6 +1878,7 @@ void MainWindow::UpdateWord(QString old_word, QString new_word)
     }
 
     WordUpdates::UpdateWordInAllFiles(html_resources, old_word, new_word);
+    m_Book->SetModified();
     m_SpellcheckEditor->Refresh();
     ShowMessageOnStatusBar(tr("Word updated."));
 
