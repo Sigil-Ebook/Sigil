@@ -1,4 +1,4 @@
-Sigil 0.7.2 TBD
+Sigil 0.7.2 2013.04.14
     - Implement issue 2129: Enhance archive filename encoding handling.
     - Implement issue 2128: Warnings for non-ASCII characters in filenames.
     - Implement issue 2113: Preview should zoom separately from other views.

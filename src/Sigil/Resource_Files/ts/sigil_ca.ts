@@ -115,7 +115,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="64"/>
         <source>Directory</source>
-        <translation type="unfinished"/>
+        <translation>Carpeta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
@@ -135,7 +135,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="68"/>
         <source>Semantics</source>
-        <translation type="unfinished"/>
+        <translation>Semàntica</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="126"/>
@@ -437,11 +437,11 @@ si al CSS s&apos;especifica un tipus de lletra de pal sec</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="571"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="590"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="637"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="738"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="938"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="578"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="597"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="745"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -457,8 +457,8 @@ si al CSS s&apos;especifica un tipus de lletra de pal sec</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1300"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1472"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1501"/>
         <source>Open With</source>
         <translation>Obre amb</translation>
     </message>
@@ -473,12 +473,12 @@ si al CSS s&apos;especifica un tipus de lletra de pal sec</translation>
         <translation>fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="583"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="590"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>No s&apos;ha pogut esborrar ni reemplaçar el fitxer «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="591"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="598"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -487,115 +487,115 @@ A file with this name already exists in the book.</source>
 Al llibre, ja hi ha un fitxer amb el mateix nom.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="688"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="695"/>
         <source>Save As File</source>
         <translation>Desa com a fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="710"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="717"/>
         <source>Unable to save the file.</source>
         <translation>No s&apos;ha pogut desar el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="718"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="725"/>
         <source>Choose the directory to save the files to</source>
         <translation>Escolliu el directori on voleu desar els fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="738"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="745"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Un o més fitxers ja existeixen.  Voleu sobreescriure&apos;ls?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="755"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="762"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>No s&apos;ha pogut desar els fitxers. La destinació ha de ser un directori.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="763"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="770"/>
         <source>Unable to save files.</source>
         <translation>No s&apos;ha pogut desar els fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="938"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>No s&apos;ha pogut canviar el nom dels fitxers ja que es repetirien noms.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1009"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>No es poden eliminar els fitxers NCX i OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1003"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1016"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>No podeu esborrar tots els fitxers HTML.
 Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1284"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1313"/>
         <source>Add Blank Stylesheet</source>
         <translation>Afegeix un full d&apos;estils en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1285"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1314"/>
         <source>Add Blank SVG Image</source>
         <translation>Afegeix una imatge SVG en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1286"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1315"/>
         <source>Add Existing Files...</source>
         <translation>Afegeix fitxers...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1287"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1316"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
         <source>Add Copy</source>
         <translation>Afegeix una còpia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1289"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1318"/>
         <source>Rename</source>
         <translation>Canvia el nom</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1298"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Link Stylesheets...</source>
         <translation>Enllaça-hi fulls d&apos;estils...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1301"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
         <source>Save As</source>
         <translation>Anomena i desa</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1478"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
         <source>Other Application</source>
         <translation>Una altra aplicació</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1291"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
         <source>Cover Image</source>
         <translation>Imatge de la coberta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1292"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1321"/>
         <source>Merge</source>
         <translation>Combina</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1294"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1323"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Utilitza el mètode d&apos;Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1295"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Utilitza el mètode de l&apos;IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1282"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1311"/>
         <source>Select All</source>
         <translation>Selecciona-ho tot</translation>
     </message>
@@ -605,7 +605,16 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
         <translation>Afegeix fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="556"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="553"/>
+        <source>File is not an image and cannot be used:
+
+&quot;%1&quot;.</source>
+        <translation>El fitxer no es pot utilitzar ja que no és una imatge:
+
+«%1».</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="563"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -614,7 +623,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="571"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="578"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -623,7 +632,7 @@ OK to replace?</source>
 Voleu reemplaçar-lo?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="638"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="645"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -632,122 +641,127 @@ Voleu reemplaçar-lo?</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="653"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="660"/>
         <source>File(s) added.</source>
         <translation>Fitxers afegits.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1158"/>
+        <source>Unable to set file as cover image.</source>
+        <translation>No s&apos;ha pogut establir el fitxer com a imatge de la coberta.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
         <source>Add Blank HTML File</source>
         <translation>Afegeix un fitxer HTML en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1290"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1319"/>
         <source>Delete</source>
         <translation>Esborrar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1293"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>None</source>
         <translation>Cap</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1296"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
         <source>Sort</source>
         <translation>Ordena</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1297"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1326"/>
         <source>Renumber TOC Entries</source>
         <translation>Torna a numerar les entrades de la taula de continguts</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1299"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
         <source>Validate with W3C</source>
         <translation>Valida amb el W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
         <source>Cover</source>
         <translation>Coberta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1336"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
         <source>Title Page</source>
         <translation>Portada</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
         <source>Table Of Contents</source>
         <translation>Taula de continguts</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1344"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
         <source>Index</source>
         <translation>Índex</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1348"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Glossary</source>
         <translation>Glossari</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1352"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1381"/>
         <source>Acknowledgements</source>
         <translation>Agraïments</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1356"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1385"/>
         <source>Bibliography</source>
         <translation>Bibliografia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1360"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1389"/>
         <source>Colophon</source>
         <translation>Colofó</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1364"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
         <source>CopyrightPage</source>
         <translation>Pàgina de crèdits</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1368"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
         <source>Dedication</source>
         <translation>Dedicatòria</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Epigraph</source>
         <translation>Epígraf</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1376"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
         <source>Foreword</source>
         <translation>Prefaci de l&apos;autor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1380"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>List Of Illustrations</source>
         <translation>Llista d&apos;il·lustracions</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
         <source>List Of Tables</source>
         <translation>Llista de taules</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1388"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>Notes</source>
         <translation>Notes</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1392"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1421"/>
         <source>Preface</source>
         <translation>Prefaci</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1396"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1425"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
@@ -755,84 +769,84 @@ Voleu reemplaçar-lo?</translation>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="952"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="974"/>
         <source>Open</source>
         <translation>Obre</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="794"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="954"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="956"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="816"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="976"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="978"/>
         <source>Open With</source>
         <translation>Obre amb</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="780"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="802"/>
         <source>Open Tab For</source>
         <translation>Obre una pestanya per</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="801"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="823"/>
         <source>Other Application</source>
         <translation>Una altra aplicació</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="871"/>
         <source>Clips</source>
         <translation>Retalls</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="859"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="881"/>
         <source>Add To Clips</source>
         <translation>Afegeix als retalls</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="944"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
         <source>Insert File</source>
         <translation>Inserireix un fitxer</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="945"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="967"/>
         <source>Undo</source>
         <translation>Desfés</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="946"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="968"/>
         <source>Redo</source>
         <translation>Refés</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="947"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="969"/>
         <source>Cut</source>
         <translation>Talla</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="948"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="970"/>
         <source>Copy</source>
         <translation>Copia</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="949"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="971"/>
         <source>Copy Image</source>
         <translation>Copia la imatge</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="950"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="972"/>
         <source>Paste</source>
         <translation>Enganxa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="951"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="973"/>
         <source>Select All</source>
         <translation>Selecciona-ho tot</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="955"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="977"/>
         <source>Save As</source>
         <translation>Anomena i desa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="959"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="981"/>
         <source>Inspect Element</source>
         <translation>Inspecciona l&apos;element</translation>
     </message>
@@ -840,29 +854,29 @@ Voleu reemplaçar-lo?</translation>
 <context>
     <name>BookViewPreview</name>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="248"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="313"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
         <source>Unsupported</source>
         <translation>No admès</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="248"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
         <translation>El mode de correcció ortogràfica no s&apos;admet, de moment, en la vista de llibre. Canvieu a vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="313"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
         <translation>L&apos;opció de reemplaçar no s&apos;admet en aquesta vista. Canvieu a vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
         <translation>L&apos;opció de reemplaçar-ho tot no s&apos;admet en aquesta vista. Canvieu a vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="709"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="715"/>
         <source>Inspect Element</source>
         <translation>Inspecciona l&apos;element</translation>
     </message>
@@ -1127,18 +1141,20 @@ Pot ser que canvïi el formatat i s&apos;utilitzin seccions d&apos;estil inserid
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="32"/>
         <source>Choose when your HTML code is automatically 
 formatted and cleaned using your selected option.</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu quan voleu que es formati i netegi automàticament
+el codi HTML amb l&apos;opció seleccionada.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="36"/>
         <source>Automatically Clean and Format HTML Source Code:</source>
-        <translation type="unfinished"/>
+        <translation>Neteja i formata automàticament el codi font HTML:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="42"/>
         <source>Clean when opening an EPUB or HTML file, 
 and when switching from Book View to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Neteja en obrir un EPUB o un fitxer HTML i
+en canviar de vista de llibre a vista de codi.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="46"/>
@@ -1150,12 +1166,13 @@ and when switching from Book View to Code View.</source>
         <source>Choose what type of cleaning and formatting
 should be done when automatic cleaning is enabled,
 or when cleaning manually.</source>
-        <translation type="unfinished"/>
+        <translation>Escolliu quin tipus de neteja i formatat automàtic es farà
+amb la neteja automàtica activada o en netejar manualment</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="71"/>
         <source>When Cleaning, Use This Type:</source>
-        <translation type="unfinished"/>
+        <translation>Utilitza aquest tipus en netejar:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="94"/>
@@ -1462,102 +1479,112 @@ Voleu desar-ne els canvis?</translation>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="311"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="419"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>No es pot inserir una etiqueta de tancament en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="320"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="428"/>
         <source>No open tags found at this position.</source>
         <translation>No s&apos;han trobat etiquetes obertes en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="988"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1167"/>
         <source>Add To Default Dictionary</source>
         <translation>Afegeix al diccionari predeterminat</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1001"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1180"/>
         <source>Add To Dictionary</source>
         <translation>Afegeix al diccionari</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1018"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1197"/>
         <source>Ignore</source>
         <translation>Ignora-ho</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1080"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1259"/>
         <source>Reformat CSS</source>
         <translation>Tornar a formatar el CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1081"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1260"/>
         <source>Multiple Lines Per Style</source>
         <translation>Estil en diverses línies</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1082"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1261"/>
         <source>Single Line Per Style</source>
         <translation>Estil en una sola línia</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1107"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1286"/>
         <source>Reformat HTML</source>
         <translation>Reformata l&apos;HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1108"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1287"/>
         <source>Clean Source</source>
         <translation>Codi net</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1109"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1288"/>
         <source>Clean Source - All HTML Files</source>
         <translation>Neteja el codi - Tots els fitxers HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1110"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1289"/>
         <source>To Valid HTML</source>
         <translation>A HTML vàlid</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1111"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1290"/>
         <source>To Valid HTML - All HTML Files</source>
         <translation>A HTML vàlid - Tots els fitxers HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1141"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1320"/>
         <source>Go To Link Or Style</source>
         <translation>Vés a l&apos;enllaç o a l&apos;estil</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1164"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1343"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Visualitza la imatge</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1165"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1344"/>
         <source>Open Tab For Image</source>
-        <translation type="unfinished"/>
+        <translation>Obre una pestanya amb la imatge</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1192"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1370"/>
+        <source>Mark Selected Text</source>
+        <translation>Marca el text seleccionat</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1372"/>
+        <source>Unmark Marked Text</source>
+        <translation>Desmarca el text marcat</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1398"/>
         <source>Clips</source>
         <translation>Retalls</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1202"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1408"/>
         <source>Add To Clips</source>
         <translation>Afegeix als retalls</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1321"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1535"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Aquesta característica només es pot utilitzar en una etiqueta HTML d&apos;obertura.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1331"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1545"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Aquesta característica només es pot utilitzar dins d&apos;una etiqueta HTML d&apos;obertura.</translation>
     </message>
@@ -1870,7 +1897,7 @@ principi fins al punt d&apos;inserció.</translation>
         <translation>Mode:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="603"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="622"/>
         <source>No matches found</source>
         <translation>No s&apos;ha trobat cap coincidència</translation>
     </message>
@@ -1881,8 +1908,8 @@ principi fins al punt d&apos;inserció.</translation>
         </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="400"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1261"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="419"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1280"/>
         <source>No replacements made</source>
         <translation>No s&apos;ha fet cap reemplaçament</translation>
     </message>
@@ -1893,134 +1920,145 @@ principi fins al punt d&apos;inserció.</translation>
         </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1119"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1138"/>
         <source>This tab cannot be searched</source>
         <translation>No es pot cercar en aquesta pestanya</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1405"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1414"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Limita la cerca o el reemplaçament al fitxer obert. Premeu la tecla de control en clicar sobre qualsevol botó de cerca per limitar temporalment la cerca al fitxer actual.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1416"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Cerca o reemplaça a tots els fitxers HTML, a la vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1417"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1437"/>
         <source>Selected Files</source>
         <translation>Fitxers seleccionats</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1418"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1438"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Limita la cerca o el reemplaçament als fitxers seleccionats del navegador del llibre, a la vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1445"/>
+        <source>Marked Text</source>
+        <translation>Text marcat</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="1446"/>
+        <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
+        <translation>Restringeix la cerca o el reemplaçament al text marcat per Cerca&amp;rarr;Marca el text seleccionat. S&apos;anul·la en desfer, introduir text o canviar de vista o de pestanya.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="1454"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Cerca la coincidència anterior des de la posició actual.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1455"/>
         <source>Search for the next match from your current position.</source>
         <translation>Cerca la coincidència següent des de la posició actual.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1170"/>
         <source>Unnamed search loaded</source>
         <translation>S&apos;ha carregat una selecció sense nom</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="316"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1237"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="335"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1256"/>
         <source>Matches found: %n</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="402"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1263"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="421"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1282"/>
         <source>Replacements made: %n</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1154"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1173"/>
         <source>Loaded</source>
         <translation>Carregat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1163"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1183"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1201"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1221"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1247"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1182"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1202"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1220"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1240"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1266"/>
         <source>No searches selected</source>
         <translation>No s&apos;ha seleccionat cap cerca</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1407"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <source>Case Sensitive</source>
         <translation>Distingeix entre majúscules i minúscules</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1409"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1428"/>
         <source>Regex</source>
         <translation>Expressió regular</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1404"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>What to search for</source>
         <translation>Cadena de cerca</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1406"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>La majúscula i la minúscula del mateix caràcter es consideren caràcters iguals.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1408"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>La majúscula i la minúscula del mateix caràcter es consideren caràcters diferents.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1410"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Cerca un patró usant la sintaxi de les expressions regulars.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1412"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1444"/>
         <source>Where to search</source>
         <translation>Àmbit de la cerca</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="160"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1413"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="179"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1433"/>
         <source>Current File</source>
         <translation>Fitxer actual</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1415"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <source>All HTML Files</source>
         <translation>Tots els fitxers HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>Up</source>
         <translation>Amunt</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1451"/>
         <source>Down</source>
         <translation>Avall</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Direction to search</source>
         <translation>Sentit de la cerca</translation>
     </message>
@@ -2041,7 +2079,7 @@ principi fins al punt d&apos;inserció.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1092"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1119"/>
         <source>Print %1</source>
         <translation>Imprimeix %1</translation>
     </message>
@@ -2396,16 +2434,18 @@ podeu activar-les o desactivar-les individualment a la llista de dalt.</translat
 <context>
     <name>ImportEPUB</name>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="161"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="162"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="162"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;EPUB conté fitxers HTML mal formats. El Sigil pot provar de corregir automàticament aquests fitxers però pot ser que en el procés es perdin dades.
+
+Voleu fer la correcció automàtica dels fitxers?</translation>
     </message>
 </context>
 <context>
@@ -2489,12 +2529,12 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation type="unfinished"/>
+        <translation>El patró per cercar coincidències al document; per exemple, «Gutenberg». Tractant-se d&apos;una expressió regular, el patró «(?¡)Gutemberg» no té en compte la concordança de majúscules i minúscules.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;entrada que s&apos;ha de crear a l&apos;índex. Deixeu-ho en blanc si voleu utilitzar el text tal com és o introduïu el text que vulgueu mostrar. Podeu crear entrades de nivells múltiples posant una «/» després d&apos;un nom de nivell; exemple: «Llibres/Fantasia/Alícia en terra de meravelles» o «Llibres/Fantasia/».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
@@ -5809,53 +5849,53 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <translation>Fitx&amp;er actual</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="270"/>
+        <location filename="../../Form_Files/main.ui" line="271"/>
         <source>&amp;Window</source>
         <translation>&amp;Finestra</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="345"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
+        <location filename="../../Form_Files/main.ui" line="347"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="381"/>
         <source>File</source>
         <translation>Fitxer</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="360"/>
+        <location filename="../../Form_Files/main.ui" line="362"/>
         <source>Edit</source>
         <translation>Edita</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="379"/>
+        <location filename="../../Form_Files/main.ui" line="381"/>
         <source>View</source>
         <translation>Visualitza</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="392"/>
+        <location filename="../../Form_Files/main.ui" line="394"/>
         <source>Insert</source>
         <translation>Insereix</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="421"/>
+        <location filename="../../Form_Files/main.ui" line="423"/>
         <source>Donate</source>
         <translation>Feu una donació</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="553"/>
+        <location filename="../../Form_Files/main.ui" line="555"/>
         <source>Clip Bar</source>
         <translation>Barra de retalls</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="596"/>
+        <location filename="../../Form_Files/main.ui" line="598"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="605"/>
+        <location filename="../../Form_Files/main.ui" line="607"/>
         <source>&amp;Save</source>
         <translation>&amp;Desa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="608"/>
+        <location filename="../../Form_Files/main.ui" line="610"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -5864,17 +5904,17 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Desa el llibre actual.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="613"/>
+        <location filename="../../Form_Files/main.ui" line="615"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="618"/>
+        <location filename="../../Form_Files/main.ui" line="620"/>
         <source>Save &amp;As...</source>
         <translation>&amp;Anomena i desa...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="621"/>
+        <location filename="../../Form_Files/main.ui" line="623"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -5883,22 +5923,22 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Desar el llibre actual amb un altre nom.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="626"/>
+        <location filename="../../Form_Files/main.ui" line="628"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Maj+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="643"/>
+        <location filename="../../Form_Files/main.ui" line="645"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Talla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="657"/>
+        <location filename="../../Form_Files/main.ui" line="659"/>
         <source>&amp;Paste</source>
         <translation>&amp;Enganxa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="660"/>
+        <location filename="../../Form_Files/main.ui" line="662"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -5907,12 +5947,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Enganxa el contingut del porta-retalls al llibre.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="682"/>
+        <location filename="../../Form_Files/main.ui" line="684"/>
         <source>&amp;Undo</source>
         <translation>&amp;Desfés</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="685"/>
+        <location filename="../../Form_Files/main.ui" line="687"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -5921,17 +5961,17 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Desfà els canvis de l&apos;operació anterior.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="690"/>
+        <location filename="../../Form_Files/main.ui" line="692"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="699"/>
+        <location filename="../../Form_Files/main.ui" line="701"/>
         <source>&amp;Redo</source>
         <translation>&amp;Refés</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="702"/>
+        <location filename="../../Form_Files/main.ui" line="704"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -5940,12 +5980,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restaura els canvis desfets per l&apos;acció de desfer anterior.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="716"/>
+        <location filename="../../Form_Files/main.ui" line="718"/>
         <source>&amp;Copy</source>
         <translation>&amp;Copia</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="736"/>
+        <location filename="../../Form_Files/main.ui" line="738"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -5954,7 +5994,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea el paràgraf a l&apos;esquerra.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="753"/>
+        <location filename="../../Form_Files/main.ui" line="755"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -5963,12 +6003,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea el paràgraf a la dreta.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="844"/>
+        <location filename="../../Form_Files/main.ui" line="846"/>
         <source>&amp;Open...</source>
         <translation>&amp;Obre...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="847"/>
+        <location filename="../../Form_Files/main.ui" line="849"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -5977,37 +6017,37 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Obre un llibre.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="852"/>
+        <location filename="../../Form_Files/main.ui" line="854"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="884"/>
+        <location filename="../../Form_Files/main.ui" line="886"/>
         <source>Exit</source>
         <translation>Surt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="887"/>
+        <location filename="../../Form_Files/main.ui" line="889"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="896"/>
+        <location filename="../../Form_Files/main.ui" line="898"/>
         <source>&amp;About...</source>
         <translation>&amp;Quant al Sigil...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="916"/>
+        <location filename="../../Form_Files/main.ui" line="928"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="938"/>
+        <location filename="../../Form_Files/main.ui" line="950"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>&amp;Edita la taula de continguts...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="941"/>
+        <location filename="../../Form_Files/main.ui" line="953"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -6016,27 +6056,27 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edita directament la taula de continguts actual.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="955"/>
+        <location filename="../../Form_Files/main.ui" line="967"/>
         <source>&amp;Book View</source>
         <translation>Vista de &amp;llibre</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="972"/>
+        <location filename="../../Form_Files/main.ui" line="984"/>
         <source>&amp;Code View</source>
         <translation>Vista de &amp;codi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="985"/>
+        <location filename="../../Form_Files/main.ui" line="997"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
         <translation>Commuta entre la vista de llibre i la vista de codi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1005"/>
+        <location filename="../../Form_Files/main.ui" line="1017"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Retorn</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="958"/>
+        <location filename="../../Form_Files/main.ui" line="970"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
@@ -6065,32 +6105,32 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <translation>&amp;Barres d&apos;eines</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="286"/>
+        <location filename="../../Form_Files/main.ui" line="287"/>
         <source>&amp;Table Of Contents</source>
         <translation>&amp;Taula de continguts</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="294"/>
+        <location filename="../../Form_Files/main.ui" line="295"/>
         <source>Spe&amp;llcheck</source>
         <translation>Corrector &amp;ortogràfic</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="308"/>
+        <location filename="../../Form_Files/main.ui" line="309"/>
         <source>&amp;Index</source>
         <translation>Índe&amp;x</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="409"/>
+        <location filename="../../Form_Files/main.ui" line="411"/>
         <source>Back</source>
         <translation>Vés enrere</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="433"/>
+        <location filename="../../Form_Files/main.ui" line="435"/>
         <source>Tools</source>
         <translation>Eines</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="591"/>
+        <location filename="../../Form_Files/main.ui" line="593"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
@@ -6099,7 +6139,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Crea un llibre nou.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="975"/>
+        <location filename="../../Form_Files/main.ui" line="987"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
@@ -6108,12 +6148,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edita i mostra el contingut real dels fitxers del llibre, incloent els codis de format que controlen com es veurà el llibre en els aparells lectors.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="997"/>
+        <location filename="../../Form_Files/main.ui" line="1009"/>
         <source>&amp;Split At Cursor</source>
         <translation>&amp;Divideix al cursor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1000"/>
+        <location filename="../../Form_Files/main.ui" line="1012"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -6122,22 +6162,22 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Divideix el fitxer actual en dos fitxers. La posició del cursor és el punt de divisió.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1024"/>
+        <location filename="../../Form_Files/main.ui" line="1036"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Maj+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1033"/>
+        <location filename="../../Form_Files/main.ui" line="1045"/>
         <source>&amp;Special Character...</source>
         <translation>Caràcter &amp;especial...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1047"/>
+        <location filename="../../Form_Files/main.ui" line="1059"/>
         <source>I&amp;D...</source>
         <translation>I&amp;dentificador...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1050"/>
+        <location filename="../../Form_Files/main.ui" line="1062"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -6146,42 +6186,42 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insereix o edita una àncora amb un nom identificador per a utilitzar-la com a objectiu d&apos;un enllaç.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1115"/>
+        <location filename="../../Form_Files/main.ui" line="1127"/>
         <source>Stri&amp;kethrough</source>
         <translation>Barra&amp;t</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1132"/>
+        <location filename="../../Form_Files/main.ui" line="1144"/>
         <source>&amp;Subscript</source>
         <translation>&amp;Subíndex</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1163"/>
+        <location filename="../../Form_Files/main.ui" line="1175"/>
         <source>&amp;Print...</source>
         <translation>Im&amp;primeix...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1166"/>
+        <location filename="../../Form_Files/main.ui" line="1178"/>
         <source>Print</source>
         <translation>Imprimeix</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1169"/>
+        <location filename="../../Form_Files/main.ui" line="1181"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1178"/>
+        <location filename="../../Form_Files/main.ui" line="1190"/>
         <source>Print Pre&amp;view...</source>
         <translation>Pre&amp;visualització de la impressió...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1181"/>
+        <location filename="../../Form_Files/main.ui" line="1193"/>
         <source>Print Preview</source>
         <translation>Previsualització de la impressió</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="524"/>
+        <location filename="../../Form_Files/main.ui" line="526"/>
         <source>Change Case</source>
         <translation>Majúscules i minúscules</translation>
     </message>
@@ -6196,57 +6236,57 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <translation>For&amp;mata</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="448"/>
+        <location filename="../../Form_Files/main.ui" line="450"/>
         <source>Heading</source>
         <translation>Encapçalament</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="282"/>
+        <location filename="../../Form_Files/main.ui" line="283"/>
         <source>&amp;Tools</source>
         <translation>&amp;Eines</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="466"/>
+        <location filename="../../Form_Files/main.ui" line="468"/>
         <source>Format</source>
         <translation>Formata</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="483"/>
+        <location filename="../../Form_Files/main.ui" line="485"/>
         <source>Align</source>
         <translation>Alinea</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="498"/>
+        <location filename="../../Form_Files/main.ui" line="500"/>
         <source>List</source>
         <translation>Llista</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="511"/>
+        <location filename="../../Form_Files/main.ui" line="513"/>
         <source>Indent</source>
         <translation>Sagna</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="539"/>
+        <location filename="../../Form_Files/main.ui" line="541"/>
         <source>Text Direction</source>
         <translation>Sentit del text</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="588"/>
+        <location filename="../../Form_Files/main.ui" line="590"/>
         <source>&amp;New</source>
         <translation>&amp;Nou</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="631"/>
+        <location filename="../../Form_Files/main.ui" line="633"/>
         <source>Save A &amp;Copy...</source>
         <translation>Desa una &amp;copia...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="634"/>
+        <location filename="../../Form_Files/main.ui" line="636"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>Desa una còpia del llibre amb un altre nom.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="646"/>
+        <location filename="../../Form_Files/main.ui" line="648"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6255,27 +6295,27 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Talla el text seleccionat al document i el desa al porta-retalls.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="673"/>
+        <location filename="../../Form_Files/main.ui" line="675"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="667"/>
+        <location filename="../../Form_Files/main.ui" line="669"/>
         <source>&amp;Closing Tag</source>
         <translation>Etiqueta de &amp;tancament</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="670"/>
+        <location filename="../../Form_Files/main.ui" line="672"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>Insereix una etiqueta de tancament en la vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="707"/>
+        <location filename="../../Form_Files/main.ui" line="709"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="719"/>
+        <location filename="../../Form_Files/main.ui" line="721"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6284,27 +6324,27 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copia el text seleccionat i el desa al porta-retalls.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="733"/>
+        <location filename="../../Form_Files/main.ui" line="735"/>
         <source>Align &amp;Left</source>
         <translation>Alinea a l&apos;es&amp;querra</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="750"/>
+        <location filename="../../Form_Files/main.ui" line="752"/>
         <source>Align &amp;Right</source>
         <translation>Alinea a la &amp;dreta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1666"/>
+        <location filename="../../Form_Files/main.ui" line="1678"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="767"/>
+        <location filename="../../Form_Files/main.ui" line="769"/>
         <source>&amp;Center</source>
         <translation>&amp;Centra</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="770"/>
+        <location filename="../../Form_Files/main.ui" line="772"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -6313,17 +6353,17 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Centra el paràgraf.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="775"/>
+        <location filename="../../Form_Files/main.ui" line="777"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="787"/>
+        <location filename="../../Form_Files/main.ui" line="789"/>
         <source>&amp;Justify</source>
         <translation>&amp;Justifica</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="790"/>
+        <location filename="../../Form_Files/main.ui" line="792"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -6332,17 +6372,17 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea el paragraf a la dreta i a lèsquerra.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="795"/>
+        <location filename="../../Form_Files/main.ui" line="797"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="807"/>
+        <location filename="../../Form_Files/main.ui" line="809"/>
         <source>&amp;Bold</source>
         <translation>&amp;Negreta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="810"/>
+        <location filename="../../Form_Files/main.ui" line="812"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -6351,17 +6391,17 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Posa en negreta el text seleccionat.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="815"/>
+        <location filename="../../Form_Files/main.ui" line="817"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="827"/>
+        <location filename="../../Form_Files/main.ui" line="829"/>
         <source>&amp;Italic</source>
         <translation>&amp;Cursiva</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="830"/>
+        <location filename="../../Form_Files/main.ui" line="832"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -6370,17 +6410,17 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Posa en cursiva el text seleccionat.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="835"/>
+        <location filename="../../Form_Files/main.ui" line="837"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="864"/>
+        <location filename="../../Form_Files/main.ui" line="866"/>
         <source>&amp;Underline</source>
         <translation>&amp;Subratlla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="867"/>
+        <location filename="../../Form_Files/main.ui" line="869"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -6389,22 +6429,22 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Subratlla el text seleccionat.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="872"/>
+        <location filename="../../Form_Files/main.ui" line="874"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="881"/>
+        <location filename="../../Form_Files/main.ui" line="883"/>
         <source>&amp;Quit</source>
         <translation>&amp;Surt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="899"/>
+        <location filename="../../Form_Files/main.ui" line="901"/>
         <source>Show information about Sigil.</source>
         <translation>Mostra informació quant al Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="911"/>
+        <location filename="../../Form_Files/main.ui" line="923"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -6413,17 +6453,17 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Mostra i permet editar la informació del llibre, incloent-ne l&apos;autor i el títol.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="982"/>
+        <location filename="../../Form_Files/main.ui" line="994"/>
         <source>&amp;Toggle View State</source>
         <translation>Commu&amp;ta el tipus de vista</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="988"/>
+        <location filename="../../Form_Files/main.ui" line="1000"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1036"/>
+        <location filename="../../Form_Files/main.ui" line="1048"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -6432,12 +6472,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Selecciona un caràcter per inserir-lo al text.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1078"/>
+        <location filename="../../Form_Files/main.ui" line="1090"/>
         <source>&amp;Numbered List</source>
         <translation>&amp;Llista numerada</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1081"/>
+        <location filename="../../Form_Files/main.ui" line="1093"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -6446,12 +6486,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Crea una llista numerada.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1095"/>
+        <location filename="../../Form_Files/main.ui" line="1107"/>
         <source>Bulle&amp;ted List</source>
         <translation>Llis&amp;ta de pics</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1098"/>
+        <location filename="../../Form_Files/main.ui" line="1110"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -6460,12 +6500,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Crea una llista de pics.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1103"/>
+        <location filename="../../Form_Files/main.ui" line="1115"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Maj+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1118"/>
+        <location filename="../../Form_Files/main.ui" line="1130"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -6474,7 +6514,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Barra el text seleccionat.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1135"/>
+        <location filename="../../Form_Files/main.ui" line="1147"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -6483,12 +6523,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Estableix el text seleccionat com a subíndex.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1149"/>
+        <location filename="../../Form_Files/main.ui" line="1161"/>
         <source>Su&amp;perscript</source>
         <translation>Su&amp;períndex</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1152"/>
+        <location filename="../../Form_Files/main.ui" line="1164"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -6497,53 +6537,67 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Estableix el text seleccionat com a superíndex.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1186"/>
-        <location filename="../../Form_Files/main.ui" line="1189"/>
+        <location filename="../../Form_Files/main.ui" line="1198"/>
+        <location filename="../../Form_Files/main.ui" line="1201"/>
         <source>Close</source>
         <translation>Tanca</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1192"/>
+        <location filename="../../Form_Files/main.ui" line="1204"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Maj+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1201"/>
+        <location filename="../../Form_Files/main.ui" line="1213"/>
         <source>Zoom &amp;In</source>
         <translation>&amp;Amplia</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1204"/>
+        <location filename="../../Form_Files/main.ui" line="1216"/>
         <source>Zoom In</source>
         <translation>Apropa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1216"/>
+        <location filename="../../Form_Files/main.ui" line="1228"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Redueix</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1219"/>
+        <location filename="../../Form_Files/main.ui" line="1231"/>
         <source>Zoom Out</source>
         <translation>Redueix</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1222"/>
+        <location filename="../../Form_Files/main.ui" line="1234"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1227"/>
+        <location filename="../../Form_Files/main.ui" line="1239"/>
         <source>Sho&amp;w Tag</source>
         <translation>&amp;Mostra l&apos;etiqueta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="933"/>
+        <location filename="../../Form_Files/main.ui" line="945"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="928"/>
+        <location filename="../../Form_Files/main.ui" line="906"/>
+        <source>Add &amp;Cover...</source>
+        <translation>Afegeix una &amp;coberta...</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="909"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Afegeix una coberta&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Afegeix una coberta.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="940"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -6552,12 +6606,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Genera una taula de continguts nova a partir dels encapçalaments del llibre.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1014"/>
+        <location filename="../../Form_Files/main.ui" line="1026"/>
         <source>&amp;File...</source>
         <translation>&amp;Fitxer...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1017"/>
+        <location filename="../../Form_Files/main.ui" line="1029"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -6570,34 +6624,34 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Podeu afegir fitxers al llibre amb l&apos;ordre «Afegeix» i «fitxers» del menú «Fitxer».&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1061"/>
+        <location filename="../../Form_Files/main.ui" line="1073"/>
         <source>&amp;Link...</source>
         <translation>&amp;Enllaç...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1064"/>
+        <location filename="../../Form_Files/main.ui" line="1076"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insereix enllaç&lt;/b&gt;&lt;/p&gt;⏎ ⏎ &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insereix o edita un text com a hipervincle.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1207"/>
+        <location filename="../../Form_Files/main.ui" line="1219"/>
         <source>Ctrl+=</source>
         <translation>Ctrl+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1230"/>
+        <location filename="../../Form_Files/main.ui" line="1242"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
         <translation>Mostra l&apos;etiqueta HTML on es troba inclòs el cursor, a la vista de llibre.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1233"/>
+        <location filename="../../Form_Files/main.ui" line="1245"/>
         <source>Ctrl+Alt+T</source>
         <translation>Ctrl+Alt+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1245"/>
+        <location filename="../../Form_Files/main.ui" line="1257"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -6606,12 +6660,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cerca i reemplaça text dins del document.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1250"/>
+        <location filename="../../Form_Files/main.ui" line="1262"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1262"/>
+        <location filename="../../Form_Files/main.ui" line="1274"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6620,12 +6674,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Augmenta el nivell de sagnat del paràgraf.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1267"/>
+        <location filename="../../Form_Files/main.ui" line="1279"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1279"/>
+        <location filename="../../Form_Files/main.ui" line="1291"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6634,12 +6688,13 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Redueix el nivell de sagnat del paràgraf.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1284"/>
+        <location filename="../../Form_Files/main.ui" line="1296"/>
+        <location filename="../../Form_Files/main.ui" line="1718"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Maj+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1296"/>
+        <location filename="../../Form_Files/main.ui" line="1308"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -6652,7 +6707,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1312"/>
+        <location filename="../../Form_Files/main.ui" line="1324"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -6665,7 +6720,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1328"/>
+        <location filename="../../Form_Files/main.ui" line="1340"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -6678,12 +6733,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1340"/>
+        <location filename="../../Form_Files/main.ui" line="1352"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+Espai</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1352"/>
+        <location filename="../../Form_Files/main.ui" line="1364"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6696,12 +6751,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1359"/>
+        <location filename="../../Form_Files/main.ui" line="1371"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1371"/>
+        <location filename="../../Form_Files/main.ui" line="1383"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6714,12 +6769,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1378"/>
+        <location filename="../../Form_Files/main.ui" line="1390"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1390"/>
+        <location filename="../../Form_Files/main.ui" line="1402"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -6732,7 +6787,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1406"/>
+        <location filename="../../Form_Files/main.ui" line="1418"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -6745,72 +6800,72 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1415"/>
+        <location filename="../../Form_Files/main.ui" line="1427"/>
         <source>&amp;Report An Issue...</source>
         <translation>&amp;Informa d&apos;un problema...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1420"/>
+        <location filename="../../Form_Files/main.ui" line="1432"/>
         <source>Sigil Dev &amp;Blog...</source>
         <translation>&amp;Bloc de desenvolupament del Sigil...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1425"/>
+        <location filename="../../Form_Files/main.ui" line="1437"/>
         <source>&amp;Next Tab</source>
         <translation>Pestanya &amp;següent</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1428"/>
+        <location filename="../../Form_Files/main.ui" line="1440"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+Re Pàg</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1433"/>
+        <location filename="../../Form_Files/main.ui" line="1445"/>
         <source>&amp;Previous Tab</source>
         <translation>Pestanya &amp;anterior</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1436"/>
+        <location filename="../../Form_Files/main.ui" line="1448"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+Av Pàg</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1441"/>
+        <location filename="../../Form_Files/main.ui" line="1453"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;Tanca la pestanya</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1444"/>
+        <location filename="../../Form_Files/main.ui" line="1456"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1455"/>
+        <location filename="../../Form_Files/main.ui" line="1467"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1502"/>
+        <location filename="../../Form_Files/main.ui" line="1514"/>
         <source>&amp;Validate EPUB With FlightCrew</source>
         <translation>&amp;Valida l&apos;EPUB amb el FlightCrew</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1510"/>
+        <location filename="../../Form_Files/main.ui" line="1522"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1515"/>
+        <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>Valida els fulls d&apos;estil amb el &amp;W3C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1531"/>
+        <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>&amp;Spellcheck...</source>
         <translation>Corrector &amp;ortogràfic...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1534"/>
+        <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -6819,52 +6874,52 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cerca les paraules que no són al diccionari ortogràfic i permet d&apos;afegir-les-hi o ignorar-les.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1539"/>
+        <location filename="../../Form_Files/main.ui" line="1551"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1550"/>
+        <location filename="../../Form_Files/main.ui" line="1562"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>Activa/desactiva el realçat d&apos;errors ortogràfics a la vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1555"/>
+        <location filename="../../Form_Files/main.ui" line="1567"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>Paraula incorrecta &amp;següent</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1577"/>
+        <location filename="../../Form_Files/main.ui" line="1589"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>Ignora la paraula incorrecta actual del punt d&apos;inserció fins que el Sigil es reinicïi.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1585"/>
+        <location filename="../../Form_Files/main.ui" line="1597"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>Neteja les paraules ignorades actualment per la correcció ortogràfica sense haver de reiniciar el Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1593"/>
+        <location filename="../../Form_Files/main.ui" line="1605"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1598"/>
+        <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>&amp;Esborra els fitxers multimèdia no usats...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1603"/>
+        <location filename="../../Form_Files/main.ui" line="1615"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation>&amp;Esborra les classes no usades dels fulls d&apos;estils...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1611"/>
+        <location filename="../../Form_Files/main.ui" line="1623"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Maj+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1623"/>
+        <location filename="../../Form_Files/main.ui" line="1635"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -6875,302 +6930,307 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1663"/>
+        <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Replace</source>
         <translation>Reemplaça</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1671"/>
+        <location filename="../../Form_Files/main.ui" line="1683"/>
         <source>&amp;Replace/Find Next</source>
         <translation>&amp;Reemplaça i cerca el següent</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1679"/>
+        <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>R&amp;eemplaça i cerca l&apos;anterior</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1703"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
+        <source>Mar&amp;k Selected Text</source>
+        <translation>Mar&amp;ca el text seleccionat</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1723"/>
         <source>Find &amp;Next In File</source>
         <translation>Cerca el &amp;següent del fitxer</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1708"/>
+        <location filename="../../Form_Files/main.ui" line="1728"/>
         <source>&amp;Replace Next In File</source>
         <translation>&amp;Reemplaça el següent del fitxer</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1713"/>
+        <location filename="../../Form_Files/main.ui" line="1733"/>
         <source>Replace &amp;All In File</source>
         <translation>Reemplaça-ho &amp;tot al fitxer</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1718"/>
+        <location filename="../../Form_Files/main.ui" line="1738"/>
         <source>&amp;Count All In File</source>
         <translation>&amp;Compta-ho tot al fitxer</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1726"/>
+        <location filename="../../Form_Files/main.ui" line="1746"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1737"/>
+        <location filename="../../Form_Files/main.ui" line="1757"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1742"/>
+        <location filename="../../Form_Files/main.ui" line="1762"/>
         <source>Clip &amp;1</source>
         <translation>Retall &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1745"/>
+        <location filename="../../Form_Files/main.ui" line="1765"/>
         <source>Insert Clip 1</source>
         <translation>Insereix el retall 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1748"/>
+        <location filename="../../Form_Files/main.ui" line="1768"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1753"/>
+        <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>Clip 2&amp;</source>
         <translation>Retall &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1756"/>
+        <location filename="../../Form_Files/main.ui" line="1776"/>
         <source>Insert Clip 2</source>
         <translation>Insereix el retall 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1759"/>
+        <location filename="../../Form_Files/main.ui" line="1779"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1764"/>
+        <location filename="../../Form_Files/main.ui" line="1784"/>
         <source>Clip &amp;3</source>
         <translation>Retall &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1767"/>
+        <location filename="../../Form_Files/main.ui" line="1787"/>
         <source>Insert Clip 3</source>
         <translation>Insereix el retall 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1770"/>
+        <location filename="../../Form_Files/main.ui" line="1790"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1775"/>
+        <location filename="../../Form_Files/main.ui" line="1795"/>
         <source>Clip &amp;4</source>
         <translation>Retall &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1778"/>
+        <location filename="../../Form_Files/main.ui" line="1798"/>
         <source>Insert Clip 4</source>
         <translation>Insereix el retall 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1781"/>
+        <location filename="../../Form_Files/main.ui" line="1801"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1786"/>
+        <location filename="../../Form_Files/main.ui" line="1806"/>
         <source>Clip &amp;5</source>
         <translation>Retall &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1789"/>
+        <location filename="../../Form_Files/main.ui" line="1809"/>
         <source>Insert Clip 5</source>
         <translation>Insereix el retall 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1792"/>
+        <location filename="../../Form_Files/main.ui" line="1812"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1797"/>
+        <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Clip &amp;6</source>
         <translation>Retall &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1800"/>
+        <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>Insert Clip 6</source>
         <translation>Insereix el retall 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1803"/>
+        <location filename="../../Form_Files/main.ui" line="1823"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1808"/>
+        <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Clip &amp;7</source>
         <translation>Retall &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1811"/>
+        <location filename="../../Form_Files/main.ui" line="1831"/>
         <source>Insert Clip 7</source>
         <translation>Insereix el retall 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1814"/>
+        <location filename="../../Form_Files/main.ui" line="1834"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1819"/>
+        <location filename="../../Form_Files/main.ui" line="1839"/>
         <source>Clip &amp;8</source>
         <translation>Retall &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1822"/>
+        <location filename="../../Form_Files/main.ui" line="1842"/>
         <source>Insert Clip 8</source>
         <translation>Insereix el retall 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1825"/>
+        <location filename="../../Form_Files/main.ui" line="1845"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1830"/>
+        <location filename="../../Form_Files/main.ui" line="1850"/>
         <source>Clip &amp;9</source>
         <translation>Retall &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1833"/>
+        <location filename="../../Form_Files/main.ui" line="1853"/>
         <source>Insert Clip 9</source>
         <translation>Insereix el retall 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1836"/>
+        <location filename="../../Form_Files/main.ui" line="1856"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1841"/>
+        <location filename="../../Form_Files/main.ui" line="1861"/>
         <source>Clip 1&amp;0</source>
         <translation>Retall 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1844"/>
+        <location filename="../../Form_Files/main.ui" line="1864"/>
         <source>Insert Clip 10</source>
         <translation>Insereix el retall 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1847"/>
+        <location filename="../../Form_Files/main.ui" line="1867"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1852"/>
+        <location filename="../../Form_Files/main.ui" line="1872"/>
         <source>Clip 11</source>
         <translation>Retall 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1855"/>
+        <location filename="../../Form_Files/main.ui" line="1875"/>
         <source>Insert Clip 11</source>
         <translation>Insereix el retall 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1860"/>
+        <location filename="../../Form_Files/main.ui" line="1880"/>
         <source>Clip 12</source>
         <translation>Retall 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1863"/>
+        <location filename="../../Form_Files/main.ui" line="1883"/>
         <source>Insert Clip 12</source>
         <translation>Insereix el retall 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1868"/>
+        <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>Clip 13</source>
         <translation>Retall 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1871"/>
+        <location filename="../../Form_Files/main.ui" line="1891"/>
         <source>Insert Clip 13</source>
         <translation>Insereix el retall 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1876"/>
+        <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Clip 14</source>
         <translation>Retall 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1879"/>
+        <location filename="../../Form_Files/main.ui" line="1899"/>
         <source>Insert Clip 14</source>
         <translation>Insereix el retall 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1884"/>
+        <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>Clip 15</source>
         <translation>Retall 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1887"/>
+        <location filename="../../Form_Files/main.ui" line="1907"/>
         <source>Insert Clip 15</source>
         <translation>Insereix el retall 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1892"/>
+        <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>Clip 16</source>
         <translation>Retall 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1895"/>
+        <location filename="../../Form_Files/main.ui" line="1915"/>
         <source>Insert Clip 16</source>
         <translation>Insereix el retall 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1900"/>
+        <location filename="../../Form_Files/main.ui" line="1920"/>
         <source>Clip 17</source>
         <translation>Retall 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1903"/>
+        <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Insert Clip 17</source>
         <translation>Insereix el retall 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1908"/>
+        <location filename="../../Form_Files/main.ui" line="1928"/>
         <source>Clip 18</source>
         <translation>Retall 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1911"/>
+        <location filename="../../Form_Files/main.ui" line="1931"/>
         <source>Insert Clip 18</source>
         <translation>Insereix el retall 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1916"/>
+        <location filename="../../Form_Files/main.ui" line="1936"/>
         <source>Clip 19</source>
         <translation>Retall 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1919"/>
+        <location filename="../../Form_Files/main.ui" line="1939"/>
         <source>Insert Clip 19</source>
         <translation>Insereix el retall 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1924"/>
+        <location filename="../../Form_Files/main.ui" line="1944"/>
         <source>Clip 20</source>
         <translation>Retall 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1927"/>
+        <location filename="../../Form_Files/main.ui" line="1947"/>
         <source>Insert Clip 20</source>
         <translation>Insereix el retall 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1961"/>
+        <location filename="../../Form_Files/main.ui" line="1981"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -7179,12 +7239,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formata el paràgraf com a encapçalament de nivell 1.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1966"/>
+        <location filename="../../Form_Files/main.ui" line="1986"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1981"/>
+        <location filename="../../Form_Files/main.ui" line="2001"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -7193,12 +7253,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formata el paràgraf com a encapçalament de nivell 2.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1986"/>
+        <location filename="../../Form_Files/main.ui" line="2006"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2001"/>
+        <location filename="../../Form_Files/main.ui" line="2021"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -7207,12 +7267,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formata el paràgraf com a encapçalament de nivell 3.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2006"/>
+        <location filename="../../Form_Files/main.ui" line="2026"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2021"/>
+        <location filename="../../Form_Files/main.ui" line="2041"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -7221,12 +7281,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formata el paràgraf com a encapçalament de nivell 4.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2026"/>
+        <location filename="../../Form_Files/main.ui" line="2046"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2041"/>
+        <location filename="../../Form_Files/main.ui" line="2061"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -7235,12 +7295,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formata el paràgraf com a encapçalament de nivell 5.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2046"/>
+        <location filename="../../Form_Files/main.ui" line="2066"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2061"/>
+        <location filename="../../Form_Files/main.ui" line="2081"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -7249,12 +7309,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formata el paràgraf com a encapçalament de nivell 6.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2066"/>
+        <location filename="../../Form_Files/main.ui" line="2086"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2081"/>
+        <location filename="../../Form_Files/main.ui" line="2101"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -7263,32 +7323,32 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formata el paràgraf com a paràgraf normal.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2086"/>
+        <location filename="../../Form_Files/main.ui" line="2106"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2097"/>
+        <location filename="../../Form_Files/main.ui" line="2117"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>Conserva els atributs de l&apos;etiqueta en aplicar aquest estil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2102"/>
+        <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Blank HTML File</source>
         <translation>Fitxer HTML en blanc</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2105"/>
+        <location filename="../../Form_Files/main.ui" line="2125"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>Afegeix un fitxer HTML en blanc al llibre.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2114"/>
+        <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>Existing Files...</source>
         <translation>Fitxers...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2117"/>
+        <location filename="../../Form_Files/main.ui" line="2137"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -7297,72 +7357,72 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Afegeix altres fitxers de l&apos;ordinador al llibre.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2127"/>
+        <location filename="../../Form_Files/main.ui" line="2147"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>Afegeix un full d&apos;estil en blanc nou al llibre.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2135"/>
+        <location filename="../../Form_Files/main.ui" line="2155"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>Afegir un fitxer nou d&apos;imatge SVG en blanc al llibre.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2143"/>
+        <location filename="../../Form_Files/main.ui" line="2163"/>
         <source>Open previous file of the same type.</source>
         <translation>Obre el fitxer anterior del mateix tipus.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2154"/>
+        <location filename="../../Form_Files/main.ui" line="2174"/>
         <source>Open next file of the same type.</source>
         <translation>Obre el fitxer següent del mateix tipus.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2165"/>
+        <location filename="../../Form_Files/main.ui" line="2185"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>Afegeix el text seleccionat a l&apos;editor de l&apos;índex.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2176"/>
+        <location filename="../../Form_Files/main.ui" line="2196"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Maj+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2173"/>
+        <location filename="../../Form_Files/main.ui" line="2193"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>Marca el text seleccionat per incloure&apos;l a l&apos;índex.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2184"/>
+        <location filename="../../Form_Files/main.ui" line="2204"/>
         <source>Generate a new Index HTML file.</source>
         <translation>Genera un fitxer HTML d&apos;índex nou.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2192"/>
+        <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>Crea un fitxer HTML nou a partir de la taula de continguts actual.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2197"/>
+        <location filename="../../Form_Files/main.ui" line="2217"/>
         <source>Book&amp;mark Location</source>
         <translation>&amp;Ubicació de les adreces d&apos;interès</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2200"/>
+        <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2208"/>
+        <location filename="../../Form_Files/main.ui" line="2228"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2217"/>
+        <location filename="../../Form_Files/main.ui" line="2237"/>
         <source>&amp;Back</source>
         <translation>&amp;Enrere</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2220"/>
+        <location filename="../../Form_Files/main.ui" line="2240"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -7373,107 +7433,107 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2226"/>
+        <location filename="../../Form_Files/main.ui" line="2246"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2234"/>
+        <location filename="../../Form_Files/main.ui" line="2254"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1466"/>
+        <location filename="../../Form_Files/main.ui" line="1478"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Maj+Retorn</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1242"/>
+        <location filename="../../Form_Files/main.ui" line="1254"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;Cerca i reemplaça...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1259"/>
+        <location filename="../../Form_Files/main.ui" line="1271"/>
         <source>Incre&amp;ase Indent</source>
         <translation>Au&amp;gmenta el sagnat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1276"/>
+        <location filename="../../Form_Files/main.ui" line="1288"/>
         <source>&amp;Decrease Indent</source>
         <translation>Re&amp;dueix el sagnat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1293"/>
+        <location filename="../../Form_Files/main.ui" line="1305"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>Te&amp;xt d&apos;esquerra a dreta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1309"/>
+        <location filename="../../Form_Files/main.ui" line="1321"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>T&amp;ext de dreta a esquerra</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1325"/>
+        <location filename="../../Form_Files/main.ui" line="1337"/>
         <source>Text Directi&amp;on Default</source>
         <translation>Sentit del text &amp;predeterminat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1337"/>
+        <location filename="../../Form_Files/main.ui" line="1349"/>
         <source>Remove &amp;Formatting</source>
         <translation>Elimina el &amp;formatat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1349"/>
+        <location filename="../../Form_Files/main.ui" line="1361"/>
         <source>&amp;Lowercase</source>
         <translation>Caixa &amp;baixa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1368"/>
+        <location filename="../../Form_Files/main.ui" line="1380"/>
         <source>&amp;Uppercase</source>
         <translation>Caixa &amp;alta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1387"/>
+        <location filename="../../Form_Files/main.ui" line="1399"/>
         <source>&amp;Titlecase</source>
         <translation>Majúscules &amp;posicionals</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1403"/>
+        <location filename="../../Form_Files/main.ui" line="1415"/>
         <source>&amp;Capitalize</source>
         <translation>Majúscula &amp;inicial</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1449"/>
+        <location filename="../../Form_Files/main.ui" line="1461"/>
         <source>Split At &amp;Markers</source>
         <translation>Divideix als &amp;marcadors</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1452"/>
+        <location filename="../../Form_Files/main.ui" line="1464"/>
         <source>Split At Sigil split file markers</source>
         <translation>Divideix als marcadors de divisió de fitxers del Sigil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1460"/>
+        <location filename="../../Form_Files/main.ui" line="1472"/>
         <source>Split &amp;Marker</source>
         <translation>&amp;Marcador de divisió</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1463"/>
+        <location filename="../../Form_Files/main.ui" line="1475"/>
         <source>Insert Sigil split file marker</source>
         <translation>Insereix un marcador de divisió de fitxer del Sigil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1482"/>
+        <location filename="../../Form_Files/main.ui" line="1494"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>&amp;Preguntes més freqüents...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1485"/>
+        <location filename="../../Form_Files/main.ui" line="1497"/>
         <source>Frequently Asked Questions</source>
         <translation>Preguntes més freqüents</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1505"/>
+        <location filename="../../Form_Files/main.ui" line="1517"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB with FlightCrew&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</source>
@@ -7482,7 +7542,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verifica si el document compleix els estàndards de l&apos;EPUB usant el FlightCrew.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1518"/>
+        <location filename="../../Form_Files/main.ui" line="1530"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -7495,372 +7555,374 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1547"/>
+        <location filename="../../Form_Files/main.ui" line="1559"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>&amp;Ressalta les paraules incorrectes</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1558"/>
+        <location filename="../../Form_Files/main.ui" line="1570"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>Cerca la paraula incorrecta següent del llibre.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1561"/>
+        <location filename="../../Form_Files/main.ui" line="1573"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1566"/>
+        <location filename="../../Form_Files/main.ui" line="1578"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>&amp;Afegeix al diccionari</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1569"/>
+        <location filename="../../Form_Files/main.ui" line="1581"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>Afegeix la paraula incorrecta en curs al diccionari predeterminat de l&apos;usuari.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1574"/>
+        <location filename="../../Form_Files/main.ui" line="1586"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>&amp;Ignora la paraula incorrecta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1582"/>
+        <location filename="../../Form_Files/main.ui" line="1594"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>&amp;Elimina les paraules ignorades</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1590"/>
+        <location filename="../../Form_Files/main.ui" line="1602"/>
         <source>&amp;Index Editor...</source>
         <translation>Editor d&amp;índexs...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1608"/>
+        <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>&amp;Reports...</source>
         <translation>In&amp;formes...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1620"/>
+        <location filename="../../Form_Files/main.ui" line="1632"/>
         <source>&amp;Donate...</source>
         <translation>Feu una &amp;donació...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1631"/>
+        <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Close &amp;Other Tabs</source>
         <translation>&amp;Tanca les altres pestanyes</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1639"/>
+        <location filename="../../Form_Files/main.ui" line="1651"/>
         <source>Go To &amp;Line...</source>
         <translation>Vés a la &amp;línia...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1647"/>
+        <location filename="../../Form_Files/main.ui" line="1659"/>
         <source>Find &amp;Next</source>
         <translation>Cerca el &amp;següent</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1655"/>
+        <location filename="../../Form_Files/main.ui" line="1667"/>
         <source>Find &amp;Previous</source>
         <translation>Cerca l&apos;&amp;anterior</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1687"/>
+        <location filename="../../Form_Files/main.ui" line="1699"/>
         <source>Replace &amp;All</source>
         <translation>Reemplaça-ho &amp;tot</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1695"/>
+        <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>&amp;Count All</source>
         <translation>&amp;Compta-ho tot</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1731"/>
+        <location filename="../../Form_Files/main.ui" line="1751"/>
         <source>&amp;Clip Editor...</source>
         <translation>Editor de &amp;retalls...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1734"/>
+        <location filename="../../Form_Files/main.ui" line="1754"/>
         <source>Open the Clip Editor.</source>
         <translation>Obre l&apos;editor de retalls.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1958"/>
+        <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>Heading &amp;1</source>
         <translation>Encapçalament &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1978"/>
+        <location filename="../../Form_Files/main.ui" line="1998"/>
         <source>Heading &amp;2</source>
         <translation>Encapçalament &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1998"/>
+        <location filename="../../Form_Files/main.ui" line="2018"/>
         <source>Heading &amp;3</source>
         <translation>Encapçalament &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2018"/>
+        <location filename="../../Form_Files/main.ui" line="2038"/>
         <source>Heading &amp;4</source>
         <translation>Encapçalament &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2038"/>
+        <location filename="../../Form_Files/main.ui" line="2058"/>
         <source>Heading &amp;5</source>
         <translation>Encapçalament &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2058"/>
+        <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>Heading &amp;6</source>
         <translation>Encapçalament &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2078"/>
+        <location filename="../../Form_Files/main.ui" line="2098"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normal</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2094"/>
+        <location filename="../../Form_Files/main.ui" line="2114"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>&amp;Conserva els atributs que tingui</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2151"/>
+        <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Next &amp;File</source>
         <translation>&amp;Fitxer següent</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2162"/>
+        <location filename="../../Form_Files/main.ui" line="2182"/>
         <source>&amp;Add To Index Editor</source>
         <translation>&amp;Afegeix a l&apos;editor de l&apos;índex</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2170"/>
+        <location filename="../../Form_Files/main.ui" line="2190"/>
         <source>&amp;Mark For Index</source>
         <translation>&amp;Marca per a incloure a l&apos;índex</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2181"/>
+        <location filename="../../Form_Files/main.ui" line="2201"/>
         <source>&amp;Create Index</source>
         <translation>&amp;Crea l&apos;índex</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="925"/>
+        <location filename="../../Form_Files/main.ui" line="937"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>&amp;Genera la taula de continguts...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2189"/>
+        <location filename="../../Form_Files/main.ui" line="2209"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation>&amp;Crea la taula de continguts HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2205"/>
+        <location filename="../../Form_Files/main.ui" line="2225"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>&amp;Vés a l&apos;enllaç o a l&apos;estil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2231"/>
+        <location filename="../../Form_Files/main.ui" line="2251"/>
         <source>Paste From Clipboard &amp;History...</source>
         <translation>Enganxa de l&apos;&amp;historial del porta-retalls...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2239"/>
+        <location filename="../../Form_Files/main.ui" line="2259"/>
         <source>&amp;Delete Line</source>
         <translation>&amp;Esborra la línia</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2242"/>
+        <location filename="../../Form_Files/main.ui" line="2262"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1634"/>
+        <location filename="../../Form_Files/main.ui" line="1646"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1642"/>
+        <location filename="../../Form_Files/main.ui" line="1654"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1650"/>
+        <location filename="../../Form_Files/main.ui" line="1662"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1658"/>
+        <location filename="../../Form_Files/main.ui" line="1670"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1674"/>
+        <location filename="../../Form_Files/main.ui" line="1686"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1682"/>
+        <location filename="../../Form_Files/main.ui" line="1694"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1690"/>
+        <location filename="../../Form_Files/main.ui" line="1702"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1698"/>
+        <location filename="../../Form_Files/main.ui" line="1710"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1723"/>
+        <location filename="../../Form_Files/main.ui" line="1743"/>
         <source>&amp;Saved Searches...</source>
         <translation>&amp;Cerques desades...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1932"/>
+        <location filename="../../Form_Files/main.ui" line="1952"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Preferències...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1935"/>
+        <location filename="../../Form_Files/main.ui" line="1955"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1940"/>
+        <location filename="../../Form_Files/main.ui" line="1960"/>
         <source>&amp;Zoom Reset</source>
         <translation>Reinicia el &amp;zoom</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1943"/>
+        <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>Zoom Reset</source>
         <translation>Reinicia el zoom</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1946"/>
+        <location filename="../../Form_Files/main.ui" line="1966"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2124"/>
+        <location filename="../../Form_Files/main.ui" line="2144"/>
         <source>Blank Stylesheet</source>
         <translation>Full d&apos;estil en blanc</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2132"/>
+        <location filename="../../Form_Files/main.ui" line="2152"/>
         <source>Blank SVG Image</source>
         <translation>Imatge SVG en blanc</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2140"/>
+        <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Pre&amp;vious File</source>
         <translation>Fitxer &amp;anterior</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2146"/>
+        <location filename="../../Form_Files/main.ui" line="2166"/>
         <source>Alt+PgUp</source>
         <translation>Alt+Re Pàg</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="908"/>
+        <location filename="../../Form_Files/main.ui" line="920"/>
         <source>&amp;Metadata Editor...</source>
         <translation>Editor de &amp;metadades...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1471"/>
+        <location filename="../../Form_Files/main.ui" line="1483"/>
         <source>User &amp;Guide...</source>
         <translation>&amp;Manual d&apos;usuari...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1474"/>
+        <location filename="../../Form_Files/main.ui" line="1486"/>
         <source>User Guide</source>
         <translation>Manual d&apos;usuari</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1477"/>
+        <location filename="../../Form_Files/main.ui" line="1489"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1490"/>
+        <location filename="../../Form_Files/main.ui" line="1502"/>
         <source>&amp;Tutorials...</source>
         <translation>&amp;Programes d&apos;aprenentatge...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1493"/>
+        <location filename="../../Form_Files/main.ui" line="1505"/>
         <source>Tutorials</source>
         <translation>Programes d&apos;aprenentatge</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2157"/>
+        <location filename="../../Form_Files/main.ui" line="2177"/>
         <source>Alt+PgDown</source>
         <translation>Alt+Av Pàg</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="530"/>
         <source>Open File</source>
         <translation>Obre el fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="633"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="635"/>
         <source>Save File</source>
         <translation>Desa el fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="725"/>
         <source>Go To Line</source>
         <translation>Vés a la línia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="725"/>
         <source>Line #</source>
         <translation>Linia número</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="333"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="568"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="746"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="993"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1080"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1131"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1139"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1155"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1166"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="570"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="748"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1246"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1254"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1285"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1290"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1303"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1315"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1320"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1334"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1343"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1348"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1537"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1544"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1558"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1563"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1578"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1606"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2759"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2801"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2807"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2943"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1386"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1426"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1445"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1450"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1472"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1690"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1752"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2950"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3323"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3524"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="288"/>
         <source>Location bookmarked.</source>
         <translation>S&apos;ha desat l&apos;adreça d&apos;interès.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="333"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="335"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -7869,310 +7931,351 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="506"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
         <source>New file created.</source>
         <translation>S&apos;ha creat un fitxer nou.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="681"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="683"/>
         <source>Save a Copy</source>
         <translation>Desa una còpia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="816"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="818"/>
         <source>No CSS styles named</source>
         <translation>No hi ha cap estil CSS anomenat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="983"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1094"/>
         <source>Styles deleted.</source>
         <translation>S&apos;han esborrat els estils.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1219"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1335"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>El fitxer «%1» no existeix.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1290"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1386"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
         <source>You cannot insert an id at this position.</source>
         <translation>No es pot inserir un identificador en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1372"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1383"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1498"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1644"/>
         <source>Select the destination to paste into first.</source>
         <translation>Seleccioneu una destinació per enganxar-hi a dins.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1537"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1683"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Hi ha un recurs seleccionat i cap recurs previ per combinar-lo dins seu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1544"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1690"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Esteu segur que voleu combinar els fitxers seleccionats?
 Aquesta acció no es pot desfer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1606"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1752"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>S&apos;ha cancel·lat l&apos;enllaç amb el full d&apos;estil %1 ja que l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1563"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>S&apos;ha cancel·lat la combinació ja que l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1588"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1734"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>S&apos;ha completat la combinació. Si cal, editeu o tornau a generar la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1736"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1882"/>
         <source>Word updated.</source>
         <translation>S&apos;ha actualitzat la paraula.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1801"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1947"/>
         <source>File(s) deleted.</source>
         <translation>S&apos;han esborrat els fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1849"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1995"/>
         <source>Table Of Contents generated.</source>
         <translation>S&apos;ha generat la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2135"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2318"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Aquest EPUB no conté cap full d&apos;estil CSS per validar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2950"/>
         <source>File cannot be split at this position.</source>
         <translation>El fitxer no es pot dividir en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2967"/>
         <source>Split completed.</source>
         <translation>S&apos;ha completat la divisió.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3017"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>S&apos;ha completat la divisió. Si cal, actualitzau la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3026"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>No s&apos;ha trobat cap marcador de divisió de fitxer.
 Utilizeu l&apos;ordre «Marcador de divisió» del menú «Insereix».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
         <source>File loaded.</source>
         <translation>S&apos;ha carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3290"/>
         <source>Saving EPUB...</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;està desant l&apos;EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3114"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3299"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>El Sigil no pot desar fitxers del tipus «%1».
 Trieu un altre format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="272"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>S&apos;ha cancel·lat la navegació ja que el lloc ja no existeix.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="381"/>
         <source>was updated</source>
         <translation>s&apos;ha actualitzat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="386"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="388"/>
         <source>Warning</source>
         <translation>Avís</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="416"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="418"/>
         <source>Select Show Details for more information.</source>
         <translation>Seleccioneu «Mostra&apos;n els detalls» per obtenir-ne més informació.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="461"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="463"/>
         <source>Sigil is closing...</source>
         <translation>El Sigil s&apos;està tancant...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="569"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>El fitxer ja no existeix. Feu clic a «D&apos;acord» per esborrar-lo del menú.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1254"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Esborra els fulls d&apos;estil sense utilitzar cancel·lats per tenir l&apos;XML mal format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1155"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Als fulls d&apos;estil, no hi ha cap classe sense utilitzar per esborrar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1285"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>L&apos;identificador no és vàlid; ha de començar amb una lletra seguida de lletre, números _ : o .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1334"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1462"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>No es pot marcar un índex en aquesta posició o sense seleccionar text.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1477"/>
         <source>You cannot mark an index at this position.</source>
         <translation>No es pot marcar un índex en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1578"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
         <source>Cannot merge file %1</source>
         <translation>No es pot combinar el fitxer %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1980"/>
         <source>Generate TOC cancelled.</source>
         <translation>S&apos;ha cancel·lat la generació de la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1851"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1997"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>No cal fer canvis a la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2670"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2861"/>
         <source>Line: %1, Col: %2</source>
         <translation>Línia %1 - Columna %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2944"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3135"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>El document s&apos;ha modificat.
 Voleu desar-ne els canvis?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3027"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3214"/>
         <source>No importer for file type: %1</source>
         <translation>No es poden importar els fitxers de tipus %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>No es po dividir ja que un dels fitxers, com a mínim, no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="386"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="388"/>
         <source>The file was NOT well formed and may be corrupted.</source>
-        <translation type="unfinished"/>
+        <translation>El fitxer no és ben format i pot ser corrupte.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="416"/>
         <source>This EPUB contains errors.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;EPUB conté errors.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="746"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="748"/>
         <source>Image does not exist: </source>
-        <translation type="unfinished"/>
+        <translation>La imatge no existeix:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="993"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="872"/>
+        <source>Add Cover</source>
+        <translation>Afegeix una coberta</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="954"/>
+        <source>Unexpected error. Only image files can be used for the cover.</source>
+        <translation>Hi ha hagut un error. Per a la coberta, només es poden fer servir fitxers d&apos;imatge.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="971"/>
+        <source>Cover added.</source>
+        <translation>S&apos;ha afegit la coberta.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>S&apos;han cancel·lat els informes ja que l&apos;XML és mal format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1080"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1191"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>S&apos;ha cancel·lat la supressió de fitxers multimèdia sense utilitzar ja que l&apos;XML és mal format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1129"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
         <source>Unused media files deleted.</source>
         <translation>S&apos;han suprimit els fitxers multimèdia no utilitzats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1131"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1246"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>No hi ha cap imatge, vídeo o fitxer d&apos;àudio sense utilitzar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1166"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
         <source>You cannot insert a file at this position.</source>
         <translation>No es pot inserir un fitxer en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1303"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1320"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1288"/>
+        <source>Insert File</source>
+        <translation>Insereix un fitxer</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
+        <source>You must select text before inserting a new id.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1426"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1450"/>
         <source>You cannot insert a link at this position.</source>
         <translation>No es pot inserir un enllaç en aquesta posició</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1315"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
+        <source>You must select text before inserting a new link.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1445"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;enllaç no és correcte; no ha de tenir «&lt;» ni «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1343"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1472"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;entrada no és correcta; no ha de tenir «&lt;» ni «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1537"/>
         <source>Pasted clip entry %1.</source>
         <translation>S&apos;ha enganxat l&apos;entrada de retall %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1558"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha cancel·lat la combinació %1 ja que l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1812"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1958"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>S&apos;ha cancel·lat l&apos;edició de la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1817"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1963"/>
         <source>Table Of Contents edited.</source>
         <translation>S&apos;ha editat la taula de contonguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2801"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2123"/>
+        <source>Text selection marked.</source>
+        <translation>S&apos;ha marcat el text seleccionat.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2126"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2145"/>
+        <source>Text selection unmarked.</source>
+        <translation>S&apos;ha desmarcat el text seleccionat.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2992"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>No es pot dividir %1 ja que l&apos;XML no és ben format</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>No es pot dividir ja que un dels fitxers, com a mínim, potser no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3034"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3221"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8185,96 +8288,98 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
 Proveu de canviar les preferències de netedat del codi a «Endreçat per impressió polida» o a «HTML endreçat» i torneu a carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3040"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3226"/>
         <source>Loading file...</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;està carregant el fitxer...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3256"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>El creador d&apos;aquest fitxer l&apos;ha encriptat amb DRM. El Sigil no pot obrir aquests fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3078"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3263"/>
         <source>Cannot load EPUB: %1</source>
         <translation>No es pot carregar l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3082"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
         <source>Cannot load file %1: %2</source>
         <translation>No es pot carregar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3138"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3324"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;EPUB conté fitxers HTML mal formats i a les preferències de netedat del codi està activada l&apos;opció de neteja automàtica en desar. Per tant, el fitxer es corregirà automàticament abans de desar-lo, però pot ser que en el procés es perdin dades.
+
+Voleu fer la correcció automàtica del fitxer abans de desar-lo?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3355"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha desat l&apos;EPUB, però no tots els fitxers HTML són ben formats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3172"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3358"/>
         <source>EPUB saved.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha desat l&apos;EPUB.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3364"/>
         <source>Cannot save file %1: %2</source>
         <translation>No es pot desar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3296"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3501"/>
         <source>EPUB files (*.epub)</source>
         <translation>Fitxers EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3297"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3298"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3299"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3502"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3503"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3504"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Fitxers HTML  (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3505"/>
         <source>Text files (*.txt)</source>
         <translation>Fitxers de text (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3301"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3506"/>
         <source>All files (*.*)</source>
         <translation>Tots els fitxers (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3309"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
         <source>EPUB file (*.epub)</source>
         <translation>Fitxer EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3524"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3595"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Conservació d&apos;atributs d&apos;encapçalament:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3596"/>
         <source>ON</source>
         <translation>Actiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3596"/>
         <source>OFF</source>
         <translation>Inactiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3416"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3621"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -10776,17 +10881,17 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="580"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="589"/>
         <source>The filename cannot be empty.</source>
         <translation>Heu d&apos;indicar un nom de fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="569"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="578"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>El caràcter «%1» no és permès als noms de fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="587"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="596"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>Ja hi ha un fitxer amb el nom «%1».</translation>
@@ -10874,19 +10979,19 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
         <translation>&lt;p&gt;Hi ha una versió nova del Sigil disponible: versió &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;Podeu consultar el registre dels canvis &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;aquí&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Voleu anar a la pàgina de descàrregues?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="294"/>
+        <location filename="../../Misc/Utility.cpp" line="295"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>No es pot llegir el fitxer %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="387"/>
+        <location filename="../../Misc/Utility.cpp" line="388"/>
         <source>Sigil has encountered a problem.</source>
         <translation>El Sigil ha tingut un problema.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="388"/>
+        <location filename="../../Misc/Utility.cpp" line="389"/>
         <source>Please &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;report it&lt;/a&gt; on the issue tracker, including the details from this dialog.</source>
         <translation>&lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;Informeu-ne&lt;/a&gt; al seguiment d&apos;incidències, incloent&apos;hi els detalls d&apos;aquest quadre de diàleg.</translation>
     </message>
@@ -10911,7 +11016,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
         <translation>S&apos;estan afegint els fitxers...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="826"/>
+        <location filename="../../BookManipulation/Book.cpp" line="865"/>
         <source>Merging Files..</source>
         <translation>S&apos;estan combinant els fitxers...</translation>
     </message>
@@ -11012,93 +11117,93 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="110"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="108"/>
         <source>Cannot read EPUB: %1</source>
         <translation>No es pot llegir l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="197"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>El fitxer OPF no conté cap &lt;i&gt;spine&lt;/i&gt; vàlid.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="198"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="670"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="673"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="200"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="678"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="681"/>
         <source>Sigil has created a new one for you.</source>
         <translation>El Sigil n&apos;ha creat un de nou.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="235"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="238"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Hi ha hagut un error analitzant l&apos;encriptat xml.
 Línia %1 - Columna %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="449"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="457"/>
         <source>Cannot open EPUB: %1</source>
         <translation>No es pot obrir l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="407"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="416"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="433"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="441"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="410"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="419"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="436"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="444"/>
         <source>Cannot extract file: %1</source>
         <translation>No es pot extreure el fitxer %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="367"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="370"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>No es por descomprimir l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="503"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="511"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>No s&apos;ha pogut analitzar el fitxer contenidor.xml.
 Línia %1 - Columna %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="512"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="520"/>
         <source>No appropriate OPF file found</source>
         <translation>No s&apos;ha trobat el fitxer OPF adient</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="549"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="557"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>No s&apos;ha pogut llegir el fitxer OPF.
 Línia %1 - Columna %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="601"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
         <source>The OPF manifest contains duplicate ids for: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>El manifest OPF conté identificadors duplicats per a: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="602"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="610"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>S&apos;ha assignat un identificador provisional per poder carregar l&apos;EPUB. Haurieu d&apos;editar el vostre fitxer OPF per tal d&apos;eliminar-ne els duplicats.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="640"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="648"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>El fitxer OPF no ha identificat correctament el fitxer NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="641"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="649"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>El Sigil ha utilitzat el fitxer següent com a NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="669"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>El fitxer OPF no conté cap fitxer NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="672"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="680"/>
         <source>The NCX file is not present in this EPUB.</source>
         <translation>No hi ha cap fitxer NCX en aquest EPUB.</translation>
     </message>
@@ -11119,7 +11224,7 @@ Línia %1 - Columna %2 - %3</translation>
         <translation>El fitxer NCX no és correcte: %1</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="608"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="610"/>
         <source>Cleaning...</source>
         <translation>S&apos;està netejant...</translation>
     </message>
@@ -11142,7 +11247,7 @@ Línia %1 - Columna %2 - %3</translation>
         <translation>Canvia el nom dels fitxers</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/RenameTemplate.ui" line="31"/>
+        <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
         <source>Enter the starting name to use for renaming all selected files, e.g.:
 
     filename001
@@ -11175,12 +11280,12 @@ es conservarà la que tinguin els fitxers originals. Si només poseu una extensi
 poseu siguin vàlides per a tots els fitxers seleccionats.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/RenameTemplate.ui" line="48"/>
+        <location filename="../../Form_Files/RenameTemplate.ui" line="45"/>
         <source>Rename Files Starting At: </source>
         <translation>Canvia el nom dels fitxer; comença per: </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/RenameTemplate.ui" line="55"/>
+        <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
         <source>Section0001</source>
         <translation>Seccio0001</translation>
     </message>
@@ -11590,52 +11695,52 @@ des del vostre ordinador i s&apos;inserirà automàticament al document.</transl
         <translation>Mida de la miniatura:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="72"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="74"/>
         <source>All</source>
         <translation>Tot</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="73"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
         <source>Images</source>
         <translation>Imatges</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="74"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
         <source>Video</source>
         <translation>Vídeo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Audio</source>
         <translation>Àudio</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="117"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="119"/>
         <source>Files In the Book</source>
         <translation>Fitxers del llibre</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="122"/>
         <source>Thumbnails</source>
         <translation>Miniatures</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="270"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
         <source>shades</source>
         <translation>nivells</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="270"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
         <source>colors</source>
         <translation>colors</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="271"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>Grayscale</source>
         <translation>Escala de grisos</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="271"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>
@@ -11953,12 +12058,12 @@ No es verifica l&apos;ortografia de la paraula seleccionada.</translation>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
         <source>Sort words as AaBbCc instead of ABCabc.</source>
-        <translation type="unfinished"/>
+        <translation>Ordena les paraules com a AaBbCc en lloc de ABCabc.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Case-Insensitive Sort</source>
-        <translation type="unfinished"/>
+        <translation>Ordenació natural de caixa alta i baixa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>
@@ -12167,9 +12272,26 @@ ortogràfica és oberta.</translation>
 <context>
     <name>TextTab</name>
     <message>
-        <location filename="../../Tabs/TextTab.cpp" line="261"/>
+        <location filename="../../Tabs/TextTab.cpp" line="272"/>
         <source>Print %1</source>
         <translation>Imprimeix %1</translation>
+    </message>
+</context>
+<context>
+    <name>Utility</name>
+    <message>
+        <location filename="../../Misc/Utility.cpp" line="509"/>
+        <source>Sigil</source>
+        <translation>Sigil</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Utility.cpp" line="510"/>
+        <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
+
+Continue using the requested filename?</source>
+        <translation>El nom de fitxer que heu indicat conté caràcters no ASCII. Es recomana que els noms de fitxer només tinguin caràcters ASCII ja que, altrament, l&apos;EPUB podria donar problemes en alguns dispositius de lectura.
+
+Encara voleu fer servir aquest nom de fitxer?</translation>
     </message>
 </context>
 <context>
@@ -12216,12 +12338,12 @@ ortogràfica és oberta.</translation>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Visualitza la imatge</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
