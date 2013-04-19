@@ -1,3 +1,6 @@
+Sigil 0.7.3 TBA
+    - Fix issue 2193: Incorrect country code used for Serbia.
+
 Sigil 0.7.2 2013.04.14
     - Implement issue 2129: Enhance archive filename encoding handling.
     - Implement issue 2128: Warnings for non-ASCII characters in filenames.
@@ -20,6 +23,7 @@ Sigil 0.7.2 2013.04.14
     - Fix issue 2081: Book Browser tooltips are not updated when semantics change or for cover images.
     - Fix issue 2080: OPF meta title not updated correctly for Add Semantic.
     - Fix issue 2079: UI Language dropdown does not show language names for entries containing _.
+
 Sigil 0.7.1 2013.03.03
     - Implement issue 2058: Code View should be able to show resizable image.
     - Implement issue 2038: Spellcheck "change selected word to" should remember sorting order.
