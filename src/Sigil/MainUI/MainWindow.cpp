@@ -524,8 +524,7 @@ void MainWindow::Open()
         foreach(QString filter, filters) {
             filter_string += filter + ";;";
         }
-        // "All Files (*.*)" is the default
-        QString default_filter = c_LoadFilters.value("*");
+        QString default_filter = c_LoadFilters.value("epub");
         QString filename = QFileDialog::getOpenFileName(this,
                            tr("Open File"),
                            m_LastFolderOpen,
@@ -706,6 +705,20 @@ bool MainWindow::SaveACopy()
     return SaveFile(filename, false);
 }
 
+void MainWindow::Exit()
+{
+    qApp->closeAllWindows();
+#ifdef Q_OS_MAC
+    MainWindow *mw;
+    foreach (QWidget *w, qApp->topLevelWidgets()) {
+        mw = qobject_cast<MainWindow *>(w);
+        if (mw && !mw->isHidden()) {
+            return;
+        }
+    }
+    qApp->quit();
+#endif
+}
 
 void MainWindow::Find()
 {
@@ -4168,7 +4181,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionSaveAs,        SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(ui.actionSaveACopy,     SIGNAL(triggered()), this, SLOT(SaveACopy()));
     connect(ui.actionClose,         SIGNAL(triggered()), this, SLOT(close()));
-    connect(ui.actionExit,          SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
+    connect(ui.actionExit,          SIGNAL(triggered()), this, SLOT(Exit()));
     // Edit
     connect(ui.actionInsertFile,     SIGNAL(triggered()), this, SLOT(InsertFileDialog()));
     connect(ui.actionInsertSpecialCharacter, SIGNAL(triggered()), this, SLOT(InsertSpecialCharacter()));

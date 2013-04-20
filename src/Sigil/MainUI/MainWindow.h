@@ -172,6 +172,14 @@ public:
 
     SearchEditorModel *GetSearchEditorModel();
 
+    /**
+     * Returns a map with keys being extensions of file types
+     * we can load, and the values being filters for use in file dialogs.
+     *
+     * @return The load dialog filters.
+     */
+    static const QMap< QString, QString > GetLoadFiltersMap();
+
 public slots:
     void AnyCodeView();
 
@@ -251,6 +259,8 @@ private slots:
      * Implements Save A Copy action functionality.
      */
     bool SaveACopy();
+
+    void Exit();
 
     void ShowMessageOnStatusBar(const QString &message = "", int millisecond_duration = STATUSBAR_MSG_DISPLAY_TIME);
 
@@ -698,14 +708,6 @@ private:
 
     /**
      * Returns a map with keys being extensions of file types
-     * we can load, and the values being filters for use in file dialogs.
-     *
-     * @return The load dialog filters.
-     */
-    static const QMap< QString, QString > GetLoadFiltersMap();
-
-    /**
-     * Returns a map with keys being extensions of file types
      * we can save, and the values being filters for use in file dialogs.
      *
      * @return The save dialog filters.
@@ -906,7 +908,7 @@ private:
      * A map with keys being extensions of file types
      * we can save, and the values being filters for use in file dialogs.
      */
-    const QMap< QString, QString > c_LoadFilters;
+    const QMap<QString, QString> c_LoadFilters;
 
     /**
      * Holds the view state for new/switched tabs

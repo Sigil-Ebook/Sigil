@@ -48,6 +48,12 @@ static const QString WIN_CLIPBOARD_ERROR = "QClipboard::setMimeData: Failed to s
 static const int RETRY_DELAY_MS = 5;
 #endif
 
+#ifdef Q_OS_MAC
+# include <QFileDialog>
+# include <QKeySequence>
+# include <QAction>
+#endif
+
 // Creates a MainWindow instance depending
 // on command line arguments
 static MainWindow *GetMainWindow(const QStringList &arguments)
@@ -55,14 +61,43 @@ static MainWindow *GetMainWindow(const QStringList &arguments)
     // We use the first argument
     // as the file to load after starting
     if (arguments.size() > 1 &&
-        Utility::IsFileReadable(arguments.at(1))
-       ) {
+        Utility::IsFileReadable(arguments.at(1)))
+    {
         return new MainWindow(arguments.at(1));
     } else {
         return new MainWindow();
     }
 }
 
+static void file_new()
+{
+    MainWindow *w = GetMainWindow(QStringList());
+    w->show();
+}
+
+static void file_open()
+{
+    const QMap<QString, QString> load_filters = MainWindow::GetLoadFiltersMap();
+    QStringList filters(load_filters.values());
+    filters.removeDuplicates();
+    QString filter_string = "";
+    foreach(QString filter, filters) {
+        filter_string += filter + ";;";
+    }
+    // "All Files (*.*)" is the default
+    QString default_filter = load_filters.value("epub");
+    QString filename = QFileDialog::getOpenFileName(0,
+            "Open File",
+            "~",
+            filter_string,
+            &default_filter
+            );
+
+    if (!filename.isEmpty()) {
+        MainWindow *w = GetMainWindow(QStringList() << "" << filename);
+        w->show();
+    }
+}
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 // Returns a QIcon with the Sigil "S" logo in various sizes
@@ -232,6 +267,28 @@ int main(int argc, char *argv[])
             return 1;
         } else {
             // Normal startup
+#ifdef Q_OS_MAC
+            app.setQuitOnLastWindowClosed(false);
+
+            QMenuBar *mac_menu = new QMenuBar();
+            QMenu *file_menu = new QMenu("File");
+            QAction *action;
+            // New
+            action = file_menu->addAction("New");
+            action->setShortcut(QKeySequence("Ctrl+N"));
+            QObject::connect(action, &QAction::triggered, file_new);
+            // Open
+            action = file_menu->addAction("Open");
+            action->setShortcut(QKeySequence("Ctrl+O"));
+            QObject::connect(action, &QAction::triggered, file_open);
+            // Quit
+            action = file_menu->addAction("Quit");
+            action->setShortcut(QKeySequence("Ctrl+Q"));
+            QObject::connect(action, &QAction::triggered, qApp->quit);
+
+            mac_menu->addMenu(file_menu);
+            mac_menu->show();
+#endif
             MainWindow *widget = GetMainWindow(arguments);
             widget->show();
             return app.exec();
