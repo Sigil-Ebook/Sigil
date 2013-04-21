@@ -1,4 +1,6 @@
 Sigil 0.7.3 TBA
+    - Fix issue 2201: Save does not prompt for filename if filename not set
+      after canceling save operation.
     - Fix issue 2193: Incorrect country code used for Serbia.
     - Implement issue 2199: Mac, Don't open empty book by default.
 

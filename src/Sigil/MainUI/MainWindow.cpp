@@ -643,6 +643,7 @@ bool MainWindow::SaveAs()
                                                    );
 
     if (filename.isEmpty()) {
+        m_CurrentFilePath.clear();
         return false;
     }
 
@@ -657,7 +658,7 @@ bool MainWindow::SaveAs()
     bool save_result = SaveFile(filename);
 
     if (!save_result) {
-        m_CurrentFilePath = "";
+        m_CurrentFilePath.clear();
     }
 
     return save_result;
