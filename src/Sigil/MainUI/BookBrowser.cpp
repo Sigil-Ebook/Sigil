@@ -511,6 +511,10 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     QStringList added_files;
 
     QString filter_string = "";
+    if (!QFileInfo(m_lastFolderOpen).exists()) {
+        m_lastFolderOpen = "";
+    }
+
     QStringList filepaths = QFileDialog::getOpenFileNames(this,
                           tr("Add Existing Files"),
                           m_LastFolderOpen,
