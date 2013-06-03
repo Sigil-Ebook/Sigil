@@ -69,6 +69,7 @@ static MainWindow *GetMainWindow(const QStringList &arguments)
     }
 }
 
+#ifdef Q_OS_MAC
 static void file_new()
 {
     MainWindow *w = GetMainWindow(QStringList());
@@ -98,6 +99,7 @@ static void file_open()
         w->show();
     }
 }
+#endif
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 // Returns a QIcon with the Sigil "S" logo in various sizes
