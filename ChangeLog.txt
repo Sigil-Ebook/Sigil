@@ -1,4 +1,6 @@
 Sigil 0.7.3 TBA
+    - Fix issue 2309: Compile failure due to case issue on m_lastFolderOpen.
+    - Fix issue 2269: "Conflicts with:" always in English.
     - Fix issue 2186: Sigil 0.7.2 crashes on "Add existing files".
     - Fix issue 2232: The nbsp characters in UTF-8 files are converted to normal spaces.
     - Fix issue 2201: Save does not prompt for filename if filename not set
