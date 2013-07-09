@@ -340,7 +340,7 @@ void KeyboardShortcutsWidget::showDuplicatesTextIfNeeded()
         }
 
         if (conflicts->count() > 0) {
-            ui.infoLabel->setText("Conflicts with: <b>" + conflicts->join("</b>, <b>") + "</b>");
+            ui.infoLabel->setText(tr("Conflicts with: <b>") + conflicts->join("</b>, <b>") + "</b>");
         }
     }
 }
