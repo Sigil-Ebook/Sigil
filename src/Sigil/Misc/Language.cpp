@@ -277,7 +277,7 @@ void Language::SetLanguageMap()
          "sa"    << tr("Sanskrit") <<
          "sc"    << tr("Sardinian") <<
          "sr"    << tr("Serbian") <<
-         "sr-RS" << tr("Serbian") % " - " % tr("RS") <<
+         "sr-RS" << tr("Serbian") % " - " % tr("Serbia") <<
          "sn"    << tr("Shona") <<
          "ii"    << tr("Sichuan Yi") <<
          "sd"    << tr("Sindhi") <<
