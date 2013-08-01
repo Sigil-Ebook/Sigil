@@ -3739,6 +3739,11 @@ Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="280"/>
+        <source>Serbia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Shona</source>
         <translation type="unfinished"></translation>
@@ -3891,11 +3896,6 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hungary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="280"/>
-        <source>RS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
