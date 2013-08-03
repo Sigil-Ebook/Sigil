@@ -1,4 +1,4 @@
-########################################################
+	########################################################
 #  
 #  This is a CMake configuration file.
 #  To use it you need CMake which can be 
@@ -23,6 +23,7 @@ cmake_minimum_required( VERSION 2.8 )
 project( BoostParts )
 
 set( SOURCES  
+     libs/atomic/src/lockpool.cpp
      libs/date_time/src/gregorian/date_generators.cpp
      libs/date_time/src/gregorian/greg_month.cpp
      libs/date_time/src/gregorian/greg_weekday.cpp
@@ -81,6 +82,7 @@ set( WINSOURCES
     
 set( UNIXSOURCES
      libs/thread/src/pthread/once.cpp
+     libs/thread/src/pthread/once_atomic.cpp
      libs/thread/src/pthread/thread.cpp
      libs/thread/src/pthread/timeconv.inl
     )
