@@ -118,10 +118,11 @@ while (iptr < end)
 if (host_byte_order != NULL)
   *host_byte_order = host_bo;
 
-#else /* SUPPORT_UTF */
+#else /* Not SUPPORT_UTF */
 (void)(output);  /* Keep picky compilers happy */
 (void)(input);
 (void)(keep_boms);
+(void)(host_byte_order);
 #endif /* SUPPORT_UTF */
 return length;
 }

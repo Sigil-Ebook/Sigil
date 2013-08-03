@@ -52,7 +52,7 @@
    The unused blocks are stored in a chain list pointed by free_blocks. This
    list is useful if we need to find a suitable memory area when the allocator
    is called.
- 
+
    When a block is freed, the new free block is connected to its adjacent free
    blocks if possible.
 
@@ -83,7 +83,7 @@
 
 static SLJIT_INLINE void* alloc_chunk(sljit_uw size)
 {
-	return VirtualAlloc(0, size, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+	return VirtualAlloc(NULL, size, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 }
 
 static SLJIT_INLINE void free_chunk(void* chunk, sljit_uw size)
@@ -94,11 +94,20 @@ static SLJIT_INLINE void free_chunk(void* chunk, sljit_uw size)
 
 #else
 
-#include <sys/mman.h>
-
 static SLJIT_INLINE void* alloc_chunk(sljit_uw size)
 {
-	void* retval = mmap(0, size, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE | MAP_ANON, -1, 0);
+	void* retval;
+
+#ifdef MAP_ANON
+	retval = mmap(NULL, size, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE | MAP_ANON, -1, 0);
+#else
+	if (dev_zero < 0) {
+		if (open_dev_zero())
+			return NULL;
+	}
+	retval = mmap(NULL, size, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE, dev_zero, 0);
+#endif
+
 	return (retval != MAP_FAILED) ? retval : NULL;
 }
 
@@ -202,7 +211,10 @@ SLJIT_API_FUNC_ATTRIBUTE void* sljit_malloc_exec(sljit_uw size)
 
 	chunk_size = (size + sizeof(struct block_header) + CHUNK_SIZE - 1) & CHUNK_MASK;
 	header = (struct block_header*)alloc_chunk(chunk_size);
-	PTR_FAIL_IF(!header);
+	if (!header) {
+		allocator_release_lock();
+		return NULL;
+	}
 
 	chunk_size -= sizeof(struct block_header);
 	total_size += chunk_size;
@@ -237,14 +249,14 @@ SLJIT_API_FUNC_ATTRIBUTE void sljit_free_exec(void* ptr)
 	struct free_block* free_block;
 
 	allocator_grab_lock();
-	header = AS_BLOCK_HEADER(ptr, -(sljit_w)sizeof(struct block_header));
+	header = AS_BLOCK_HEADER(ptr, -(sljit_sw)sizeof(struct block_header));
 	allocated_size -= header->size;
 
 	/* Connecting free blocks together if possible. */
 
 	/* If header->prev_size == 0, free_block will equal to header.
 	   In this case, free_block->header.size will be > 0. */
-	free_block = AS_FREE_BLOCK(header, -(sljit_w)header->prev_size);
+	free_block = AS_FREE_BLOCK(header, -(sljit_sw)header->prev_size);
 	if (SLJIT_UNLIKELY(!free_block->header.size)) {
 		free_block->size += header->size;
 		header = AS_BLOCK_HEADER(free_block, free_block->size);

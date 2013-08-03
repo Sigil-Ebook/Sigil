@@ -20,11 +20,13 @@
 
 #cmakedefine SUPPORT_PCRE8 1
 #cmakedefine SUPPORT_PCRE16 1
+#cmakedefine SUPPORT_PCRE32 1
 #cmakedefine SUPPORT_JIT 1
 #cmakedefine SUPPORT_PCREGREP_JIT 1
 #cmakedefine SUPPORT_UTF 1
 #cmakedefine SUPPORT_UCP 1
 #cmakedefine EBCDIC 1
+#cmakedefine EBCDIC_NL25 1
 #cmakedefine BSR_ANYCRLF 1
 #cmakedefine NO_RECURSE 1
 
@@ -35,6 +37,9 @@
 #cmakedefine SUPPORT_LIBZ 1
 #cmakedefine SUPPORT_LIBEDIT 1
 #cmakedefine SUPPORT_LIBREADLINE 1
+
+#cmakedefine SUPPORT_VALGRIND 1
+#cmakedefine SUPPORT_GCOV 1
 
 #define NEWLINE			@NEWLINE@
 #define POSIX_MALLOC_THRESHOLD	@PCRE_POSIX_MALLOC_THRESHOLD@

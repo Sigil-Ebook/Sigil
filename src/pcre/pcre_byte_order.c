@@ -6,7 +6,7 @@
 and semantics are as close as possible to those of the Perl 5 language.
 
                        Written by Philip Hazel
-           Copyright (c) 1997-2012 University of Cambridge
+           Copyright (c) 1997-2013 University of Cambridge
 
 -----------------------------------------------------------------------------
 Redistribution and use in source and binary forms, with or without
@@ -95,12 +95,15 @@ Arguments:
 Returns:          0 if the swap is successful, negative on error
 */
 
-#ifdef COMPILE_PCRE8
+#if defined COMPILE_PCRE8
 PCRE_EXP_DECL int pcre_pattern_to_host_byte_order(pcre *argument_re,
   pcre_extra *extra_data, const unsigned char *tables)
-#else
+#elif defined COMPILE_PCRE16
 PCRE_EXP_DECL int pcre16_pattern_to_host_byte_order(pcre16 *argument_re,
   pcre16_extra *extra_data, const unsigned char *tables)
+#elif defined COMPILE_PCRE32
+PCRE_EXP_DECL int pcre32_pattern_to_host_byte_order(pcre32 *argument_re,
+  pcre32_extra *extra_data, const unsigned char *tables)
 #endif
 {
 REAL_PCRE *re = (REAL_PCRE *)argument_re;
@@ -108,10 +111,10 @@ pcre_study_data *study;
 #ifndef COMPILE_PCRE8
 pcre_uchar *ptr;
 int length;
-#ifdef SUPPORT_UTF
+#if defined SUPPORT_UTF && defined COMPILE_PCRE16
 BOOL utf;
 BOOL utf16_char;
-#endif /* SUPPORT_UTF */
+#endif /* SUPPORT_UTF && COMPILE_PCRE16 */
 #endif /* !COMPILE_PCRE8 */
 
 if (re == NULL) return PCRE_ERROR_NULL;
@@ -123,16 +126,26 @@ if (re->magic_number == MAGIC_NUMBER)
   }
 
 if (re->magic_number != REVERSED_MAGIC_NUMBER) return PCRE_ERROR_BADMAGIC;
-if ((swap_uint16(re->flags) & PCRE_MODE) == 0) return PCRE_ERROR_BADMODE;
+if ((swap_uint32(re->flags) & PCRE_MODE) == 0) return PCRE_ERROR_BADMODE;
 
 re->magic_number = MAGIC_NUMBER;
 re->size = swap_uint32(re->size);
 re->options = swap_uint32(re->options);
-re->flags = swap_uint16(re->flags);
-re->top_bracket = swap_uint16(re->top_bracket);
-re->top_backref = swap_uint16(re->top_backref);
+re->flags = swap_uint32(re->flags);
+re->limit_match = swap_uint32(re->limit_match);
+re->limit_recursion = swap_uint32(re->limit_recursion);
+
+#if defined COMPILE_PCRE8 || defined COMPILE_PCRE16
 re->first_char = swap_uint16(re->first_char);
 re->req_char = swap_uint16(re->req_char);
+#elif defined COMPILE_PCRE32
+re->first_char = swap_uint32(re->first_char);
+re->req_char = swap_uint32(re->req_char);
+#endif
+
+re->max_lookbehind = swap_uint16(re->max_lookbehind);
+re->top_bracket = swap_uint16(re->top_bracket);
+re->top_backref = swap_uint16(re->top_backref);
 re->name_table_offset = swap_uint16(re->name_table_offset);
 re->name_entry_size = swap_uint16(re->name_entry_size);
 re->name_count = swap_uint16(re->name_count);
@@ -150,20 +163,24 @@ if (extra_data != NULL && (extra_data->flags & PCRE_EXTRA_STUDY_DATA) != 0)
 #ifndef COMPILE_PCRE8
 ptr = (pcre_uchar *)re + re->name_table_offset;
 length = re->name_count * re->name_entry_size;
-#ifdef SUPPORT_UTF
+#if defined SUPPORT_UTF && defined COMPILE_PCRE16
 utf = (re->options & PCRE_UTF16) != 0;
 utf16_char = FALSE;
-#endif
+#endif /* SUPPORT_UTF && COMPILE_PCRE16 */
 
 while(TRUE)
   {
   /* Swap previous characters. */
   while (length-- > 0)
     {
+#if defined COMPILE_PCRE16
     *ptr = swap_uint16(*ptr);
+#elif defined COMPILE_PCRE32
+    *ptr = swap_uint32(*ptr);
+#endif
     ptr++;
     }
-#ifdef SUPPORT_UTF
+#if defined SUPPORT_UTF && defined COMPILE_PCRE16
   if (utf16_char)
     {
     if (HAS_EXTRALEN(ptr[-1]))
@@ -178,13 +195,17 @@ while(TRUE)
 
   /* Get next opcode. */
   length = 0;
+#if defined COMPILE_PCRE16
   *ptr = swap_uint16(*ptr);
+#elif defined COMPILE_PCRE32
+  *ptr = swap_uint32(*ptr);
+#endif
   switch (*ptr)
     {
     case OP_END:
     return 0;
 
-#ifdef SUPPORT_UTF
+#if defined SUPPORT_UTF && defined COMPILE_PCRE16
     case OP_CHAR:
     case OP_CHARI:
     case OP_NOT:
@@ -259,16 +280,26 @@ while(TRUE)
     case OP_XCLASS:
     /* Reverse the size of the XCLASS instance. */
     ptr++;
+#if defined COMPILE_PCRE16
     *ptr = swap_uint16(*ptr);
+#elif defined COMPILE_PCRE32
+    *ptr = swap_uint32(*ptr);
+#endif
+#ifndef COMPILE_PCRE32
     if (LINK_SIZE > 1)
       {
       /* LINK_SIZE can be 1 or 2 in 16 bit mode. */
       ptr++;
       *ptr = swap_uint16(*ptr);
       }
+#endif
     ptr++;
     length = (GET(ptr, -LINK_SIZE)) - (1 + LINK_SIZE + 1);
+#if defined COMPILE_PCRE16
     *ptr = swap_uint16(*ptr);
+#elif defined COMPILE_PCRE32
+    *ptr = swap_uint32(*ptr);
+#endif
     if ((*ptr & XCL_MAP) != 0)
       {
       /* Skip the character bit map. */
@@ -279,7 +310,7 @@ while(TRUE)
     }
   ptr++;
   }
-/* Control should never reach here in 16 bit mode. */
+/* Control should never reach here in 16/32 bit mode. */
 #endif /* !COMPILE_PCRE8 */
 
 return 0;

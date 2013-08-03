@@ -6,7 +6,7 @@
 and semantics are as close as possible to those of the Perl 5 language.
 
                        Written by Philip Hazel
-           Copyright (c) 1997-2012 University of Cambridge
+           Copyright (c) 1997-2013 University of Cambridge
 
 -----------------------------------------------------------------------------
 Redistribution and use in source and binary forms, with or without
@@ -64,9 +64,9 @@ Returns:      TRUE if character matches, else FALSE
 */
 
 BOOL
-PRIV(xclass)(int c, const pcre_uchar *data, BOOL utf)
+PRIV(xclass)(pcre_uint32 c, const pcre_uchar *data, BOOL utf)
 {
-int t;
+pcre_uchar t;
 BOOL negated = (*data & XCL_NOT) != 0;
 
 (void)utf;
@@ -94,7 +94,7 @@ if ((*data++ & XCL_MAP) != 0) data += 32 / sizeof(pcre_uchar);
 
 while ((t = *data++) != XCL_END)
   {
-  int x, y;
+  pcre_uint32 x, y;
   if (t == XCL_SINGLE)
     {
 #ifdef SUPPORT_UTF
@@ -178,6 +178,20 @@ while ((t = *data++) != XCL_END)
            PRIV(ucp_gentype)[prop->chartype] == ucp_N || c == CHAR_UNDERSCORE)
              == (t == XCL_PROP))
         return !negated;
+      break;
+
+      case PT_UCNC:
+      if (c < 0xa0)
+        {
+        if ((c == CHAR_DOLLAR_SIGN || c == CHAR_COMMERCIAL_AT ||
+             c == CHAR_GRAVE_ACCENT) == (t == XCL_PROP))
+          return !negated;
+        }
+      else
+        {
+        if ((c < 0xd800 || c > 0xdfff) == (t == XCL_PROP))
+          return !negated;
+        }
       break;
 
       /* This should never occur, but compilers may mutter if there is no

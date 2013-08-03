@@ -78,10 +78,13 @@ having a separate .h file just for this. */
 #ifdef PCRE_INCLUDED
 static /* Keep the following function as private. */
 #endif
-#ifdef COMPILE_PCRE8
+
+#if defined COMPILE_PCRE8
 void pcre_printint(pcre *external_re, FILE *f, BOOL print_lengths);
-#else
+#elif defined COMPILE_PCRE16
 void pcre16_printint(pcre *external_re, FILE *f, BOOL print_lengths);
+#elif defined COMPILE_PCRE32
+void pcre32_printint(pcre *external_re, FILE *f, BOOL print_lengths);
 #endif
 
 /* Macro that decides whether a character should be output as a literal or in
@@ -111,26 +114,28 @@ static const pcre_uint8 priv_OP_lengths[] = { OP_LENGTHS };
 *       Print single- or multi-byte character    *
 *************************************************/
 
-static int
+static unsigned int
 print_char(FILE *f, pcre_uchar *ptr, BOOL utf)
 {
-int c = *ptr;
+pcre_uint32 c = *ptr;
 
 #ifndef SUPPORT_UTF
 
 (void)utf;  /* Avoid compiler warning */
-if (PRINTABLE(c)) fprintf(f, "%c", c);
-else if (c <= 0xff) fprintf(f, "\\x%02x", c);
+if (PRINTABLE(c)) fprintf(f, "%c", (char)c);
+else if (c <= 0x80) fprintf(f, "\\x%02x", c);
 else fprintf(f, "\\x{%x}", c);
 return 0;
 
 #else
 
-#ifdef COMPILE_PCRE8
+#if defined COMPILE_PCRE8
 
 if (!utf || (c & 0xc0) != 0xc0)
   {
-  if (PRINTABLE(c)) fprintf(f, "%c", c); else fprintf(f, "\\x%02x", c);
+  if (PRINTABLE(c)) fprintf(f, "%c", (char)c);
+  else if (c < 0x80) fprintf(f, "\\x%02x", c);
+  else fprintf(f, "\\x{%02x}", c);
   return 0;
   }
 else
@@ -160,15 +165,13 @@ else
   return a;
   }
 
-#else
-
-#ifdef COMPILE_PCRE16
+#elif defined COMPILE_PCRE16
 
 if (!utf || (c & 0xfc00) != 0xd800)
   {
-  if (PRINTABLE(c)) fprintf(f, "%c", c);
-  else if (c <= 0xff) fprintf(f, "\\x%02x", c);
-  else fprintf(f, "\\x{%x}", c);
+  if (PRINTABLE(c)) fprintf(f, "%c", (char)c);
+  else if (c <= 0x80) fprintf(f, "\\x%02x", c);
+  else fprintf(f, "\\x{%02x}", c);
   return 0;
   }
 else
@@ -188,9 +191,25 @@ else
   return 1;
   }
 
-#endif /* COMPILE_PCRE16 */
+#elif defined COMPILE_PCRE32
 
-#endif /* COMPILE_PCRE8 */
+if (!utf || (c & 0xfffff800u) != 0xd800u)
+  {
+  if (PRINTABLE(c)) fprintf(f, "%c", (char)c);
+  else if (c <= 0x80) fprintf(f, "\\x%02x", c);
+  else fprintf(f, "\\x{%x}", c);
+  return 0;
+  }
+else
+  {
+  /* This is a check for malformed UTF-32; it should only occur if the sanity
+  check has been turned off. Rather than swallow a surrogate, just stop if
+  we hit one. Print it with \X instead of \x as an indication. */
+  fprintf(f, "\\X{%x}", c);
+  return 0;
+  }
+
+#endif /* COMPILE_PCRE[8|16|32] */
 
 #endif /* SUPPORT_UTF */
 }
@@ -204,7 +223,7 @@ print_puchar(FILE *f, PCRE_PUCHAR ptr)
 {
 while (*ptr != '\0')
   {
-  register int c = *ptr++;
+  register pcre_uint32 c = *ptr++;
   if (PRINTABLE(c)) fprintf(f, "%c", c); else fprintf(f, "\\x{%x}", c);
   }
 }
@@ -214,7 +233,7 @@ while (*ptr != '\0')
 *************************************************/
 
 static const char *
-get_ucpname(int ptype, int pvalue)
+get_ucpname(unsigned int ptype, unsigned int pvalue)
 {
 #ifdef SUPPORT_UCP
 int i;
@@ -231,6 +250,40 @@ return (ptype == pvalue)? "??" : "??";
 }
 
 
+/*************************************************
+*       Print Unicode property value             *
+*************************************************/
+
+/* "Normal" properties can be printed from tables. The PT_CLIST property is a
+pseudo-property that contains a pointer to a list of case-equivalent
+characters. This is used only when UCP support is available and UTF mode is
+selected. It should never occur otherwise, but just in case it does, have
+something ready to print. */
+
+static void
+print_prop(FILE *f, pcre_uchar *code, const char *before, const char *after)
+{
+if (code[1] != PT_CLIST)
+  {
+  fprintf(f, "%s%s %s%s", before, priv_OP_names[*code], get_ucpname(code[1],
+    code[2]), after);
+  }
+else
+  {
+  const char *not = (*code == OP_PROP)? "" : "not ";
+#ifndef SUPPORT_UCP
+  fprintf(f, "%s%sclist %d%s", before, not, code[2], after);
+#else
+  const pcre_uint32 *p = PRIV(ucd_caseless_sets) + code[2];
+  fprintf (f, "%s%sclist", before, not);
+  while (*p < NOTACHAR) fprintf(f, " %04x", *p++);
+  fprintf(f, "%s", after);
+#endif
+  }
+}
+
+
+
 
 /*************************************************
 *         Print compiled regex                   *
@@ -245,12 +298,15 @@ written that do not depend on the value of LINK_SIZE. */
 #ifdef PCRE_INCLUDED
 static /* Keep the following function as private. */
 #endif
-#ifdef COMPILE_PCRE8
+#if defined COMPILE_PCRE8
 void
 pcre_printint(pcre *external_re, FILE *f, BOOL print_lengths)
-#else
+#elif defined COMPILE_PCRE16
 void
 pcre16_printint(pcre *external_re, FILE *f, BOOL print_lengths)
+#elif defined COMPILE_PCRE32
+void
+pcre32_printint(pcre *external_re, FILE *f, BOOL print_lengths)
 #endif
 {
 REAL_PCRE *re = (REAL_PCRE *)external_re;
@@ -274,15 +330,15 @@ if (re->magic_number != MAGIC_NUMBER)
   }
 
 code = codestart = (pcre_uchar *)re + offset + count * size;
-/* PCRE_UTF16 has the same value as PCRE_UTF8. */
+/* PCRE_UTF(16|32) have the same value as PCRE_UTF8. */
 utf = (options & PCRE_UTF8) != 0;
 
 for(;;)
   {
   pcre_uchar *ccode;
   const char *flag = "  ";
-  int c;
-  int extra = 0;
+  pcre_uint32 c;
+  unsigned int extra = 0;
 
   if (print_lengths)
     fprintf(f, "%3d ", (int)(code - codestart));
@@ -425,12 +481,12 @@ for(;;)
     fprintf(f, " %s ", flag);
     if (*code >= OP_TYPESTAR)
       {
-      fprintf(f, "%s", priv_OP_names[code[1]]);
       if (code[1] == OP_PROP || code[1] == OP_NOTPROP)
         {
-        fprintf(f, " %s ", get_ucpname(code[2], code[3]));
+        print_prop(f, code + 1, "", " ");
         extra = 2;
         }
+      else fprintf(f, "%s", priv_OP_names[code[1]]);
       }
     else extra = print_char(f, code+1, utf);
     fprintf(f, "%s", priv_OP_names[*code]);
@@ -459,13 +515,12 @@ for(;;)
     case OP_TYPEUPTO:
     case OP_TYPEMINUPTO:
     case OP_TYPEPOSUPTO:
-    fprintf(f, "    %s", priv_OP_names[code[1 + IMM2_SIZE]]);
     if (code[1 + IMM2_SIZE] == OP_PROP || code[1 + IMM2_SIZE] == OP_NOTPROP)
       {
-      fprintf(f, " %s ", get_ucpname(code[1 + IMM2_SIZE + 1],
-        code[1 + IMM2_SIZE + 2]));
+      print_prop(f, code + IMM2_SIZE + 1, "    ", " ");
       extra = 2;
       }
+    else fprintf(f, "    %s", priv_OP_names[code[1 + IMM2_SIZE]]);
     fprintf(f, "{");
     if (*code != OP_TYPEEXACT) fprintf(f, "0,");
     fprintf(f, "%d}", GET2(code,1));
@@ -550,7 +605,7 @@ for(;;)
 
     case OP_PROP:
     case OP_NOTPROP:
-    fprintf(f, "    %s %s", priv_OP_names[*code], get_ucpname(code[1], code[2]));
+    print_prop(f, code, "    ", "");
     break;
 
     /* OP_XCLASS can only occur in UTF or PCRE16 modes. However, there's no
@@ -561,7 +616,8 @@ for(;;)
     case OP_NCLASS:
     case OP_XCLASS:
       {
-      int i, min, max;
+      int i;
+      unsigned int min, max;
       BOOL printmap;
       pcre_uint8 *map;
 
@@ -612,19 +668,19 @@ for(;;)
 
       if (*code == OP_XCLASS)
         {
-        int ch;
+        pcre_uchar ch;
         while ((ch = *ccode++) != XCL_END)
           {
           if (ch == XCL_PROP)
             {
-            int ptype = *ccode++;
-            int pvalue = *ccode++;
+            unsigned int ptype = *ccode++;
+            unsigned int pvalue = *ccode++;
             fprintf(f, "\\p{%s}", get_ucpname(ptype, pvalue));
             }
           else if (ch == XCL_NOTPROP)
             {
-            int ptype = *ccode++;
-            int pvalue = *ccode++;
+            unsigned int ptype = *ccode++;
+            unsigned int pvalue = *ccode++;
             fprintf(f, "\\P{%s}", get_ucpname(ptype, pvalue));
             }
           else
@@ -662,8 +718,8 @@ for(;;)
         case OP_CRMINRANGE:
         min = GET2(ccode,1);
         max = GET2(ccode,1 + IMM2_SIZE);
-        if (max == 0) fprintf(f, "{%d,}", min);
-        else fprintf(f, "{%d,%d}", min, max);
+        if (max == 0) fprintf(f, "{%u,}", min);
+        else fprintf(f, "{%u,%u}", min, max);
         if (*ccode == OP_CRMINRANGE) fprintf(f, "?");
         extra += priv_OP_lengths[*ccode];
         break;
