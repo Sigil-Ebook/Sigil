@@ -54,32 +54,32 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation type="unfinished"/>
+        <translation>GNU General Public License, versio 3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer / Lead Developer</source>
-        <translation type="unfinished"/>
+        <translation>Ylläpitäjä / Johtava kehittäjä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="53"/>
         <source>Code Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Koodia luovuttaneet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="61"/>
         <source>Translators</source>
-        <translation type="unfinished"/>
+        <translation>Kääntäjät</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="63"/>
         <source>Original Creator</source>
-        <translation type="unfinished"/>
+        <translation>Alkuperäinen tekijä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="64"/>
         <source>retired</source>
-        <translation type="unfinished"/>
+        <translation>eläkkeellä</translation>
     </message>
 </context>
 <context>
@@ -100,7 +100,7 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation type="unfinished"/>
+        <translation>Kaikki tiedostot</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
@@ -115,7 +115,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="64"/>
         <source>Directory</source>
-        <translation type="unfinished"/>
+        <translation>Kansio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
@@ -130,12 +130,12 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="67"/>
         <source>Type</source>
-        <translation>Tyypp</translation>
+        <translation>Tyyppi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="68"/>
         <source>Semantics</source>
-        <translation type="unfinished"/>
+        <translation>Semantiikka</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="126"/>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="239"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="252"/>
@@ -155,7 +155,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="252"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="282"/>
         <source>Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="287"/>
@@ -175,12 +175,12 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="292"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Fontti</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="319"/>
         <source>Unknown</source>
-        <translation type="unfinished"/>
+        <translation>Tuntematon</translation>
     </message>
 </context>
 <context>
@@ -199,13 +199,15 @@
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="61"/>
         <source>Default font size to be used for Book View and Preview
 if no font-size specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Oletusfonttikoko kirjatilassa ja esikatselussa silloin,
+kun CSS:llä ei aseteta fonttikokoa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="95"/>
         <source>Default font family to be used for Book View and Preview
 if no font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Oletusfonttiperhe kirjatilassa ja esikatselussa silloin,
+kun CSS:llä ei aseteta fonttiperhettä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="99"/>
@@ -218,7 +220,8 @@ if no font-family specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="109"/>
         <source>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Oletusfonttiperhe kirjatilassa ja esikatselussa silloin,
+kun CSS:llä on asetettu fonttiperheeksi serif.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="113"/>
@@ -229,7 +232,8 @@ if a serif font-family specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="123"/>
         <source>Default font family to be used for Book View and Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Oletusfonttiperhe kirjatilassa ja esikatselussa silloin,
+kun CSS:llä on asetettu fonttiperheeksi sans-serif.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="127"/>
@@ -246,7 +250,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="32"/>
         <source>Book View / Preview:</source>
-        <translation type="unfinished"/>
+        <translation>Kirjatila / esikatselu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="173"/>
@@ -266,7 +270,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Kooditilassa käytettävä fonttikoko.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="265"/>
@@ -281,17 +285,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="298"/>
         <source>Insert Special Characters:</source>
-        <translation type="unfinished"/>
+        <translation>Erikoismerkkien lisääminen:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="312"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>Lisää erikoismerkki -ikkunassa käytettävä fonttikoko</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="345"/>
         <source>Font family to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>Lisää erikoismerkki -ikkunassa käytettävä fonttiperhe</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="384"/>
@@ -386,7 +390,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
         <source>XHTML CSS Comment</source>
-        <translation type="unfinished"/>
+        <translation>XHTML-CSS−kommentti</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
@@ -433,11 +437,11 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="578"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="597"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="745"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="601"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="648"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="749"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="949"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -453,303 +457,312 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1501"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1333"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1505"/>
         <source>Open With</source>
         <translation>Avaa ohjelmalla</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="122"/>
         <source>file</source>
-        <translation type="unfinished"/>
+        <translation>tiedosto</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
         <source>files</source>
-        <translation type="unfinished"/>
+        <translation> tiedostoa
+</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="590"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="594"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Ei voi poistaa tai korvata tiedostoa ”%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="598"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="602"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>Ei voi ladata tiedostoa ”%1”⏎
-⏎
+        <translation>Ei voi ladata tiedostoa ”%1”
+
 Kirjassa on jo tämänniminen tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="695"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="699"/>
         <source>Save As File</source>
         <translation>Tallenna tiedostona</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="717"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="721"/>
         <source>Unable to save the file.</source>
         <translation>Tiedostoa ei voi tallentaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="725"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="729"/>
         <source>Choose the directory to save the files to</source>
         <translation>Valitse hakemisto, johon tiedostot tallennetaan</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="745"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="749"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Yksi tai useampia tiedostoja on jo olemassa. Kirjoitetaanko päälle?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="762"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="766"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Tiedostoja ei voi tallentaa. Kohde ei ehkä ole hakemisto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="770"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="774"/>
         <source>Unable to save files.</source>
         <translation>Tiedostoja ei voi tallentaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="949"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostoja ei voi nimetä uudelleen, koska se aiheuttaisi, että sama nimi on usealla tiedostolla.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1009"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1013"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>Ei NCX:ää eikä OPF:ää voi poistaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1016"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1020"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Et voi poistaa kaikkia HTML-tiedostoja.
 Niitä on oltava ainakin yksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1313"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
         <source>Add Blank Stylesheet</source>
         <translation>Lisää tyhjä tyyliohje</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1314"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1318"/>
         <source>Add Blank SVG Image</source>
         <translation>Lisää tyhjä SVG-kuva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1315"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1319"/>
         <source>Add Existing Files...</source>
         <translation>Lisää valmiita tiedostoja...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1316"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1321"/>
         <source>Add Copy</source>
         <translation>Lisää kopio</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1318"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Rename</source>
         <translation>Nimeä uudelleen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1331"/>
         <source>Link Stylesheets...</source>
-        <translation>Linkitä tyyliohjeet...</translation>
+        <translation>Linkitä tyyliohjeita...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1334"/>
         <source>Save As</source>
         <translation>Tallenna nimellä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1511"/>
         <source>Other Application</source>
         <translation>Muu sovellus</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
         <source>Cover Image</source>
         <translation>Kansikuva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1321"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
         <source>Merge</source>
         <translation>Yhdistä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1323"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Käytä Adoben menetelmä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Käytä IDPF:n menetelmää</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1311"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1315"/>
         <source>Select All</source>
         <translation>Valitse kaikki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="515"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="519"/>
         <source>Add Existing Files</source>
-        <translation type="unfinished"/>
+        <translation>Lisää valmiita tiedostoja</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="553"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="557"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedosto ei ole kuva eikä sitä voi käyttää:
+
+”%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="563"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedosto ei ole multimediaa (kuva, video tai audio) eikä sitä voi liittää:
+
+”%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="578"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation type="unfinished"/>
+        <translation>Kirjassa on jo multimediatiedosto ”%1”.
+
+Haluatko korvata sen?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="645"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="649"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Seuraavia tiedostoja ei ladattu, koska niiden sisältö ei ole validia tai ei ole oikein muodostettua XML:ää:
+
+%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="660"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="664"/>
         <source>File(s) added.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedosto(t) lisätty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1158"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1162"/>
         <source>Unable to set file as cover image.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostoa ei voi asettaa kansikuvaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1316"/>
         <source>Add Blank HTML File</source>
-        <translation type="unfinished"/>
+        <translation>Lisää tyhjä HTML-tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1319"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1323"/>
         <source>Delete</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1326"/>
         <source>None</source>
         <translation>Ei mitää</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
         <source>Sort</source>
         <translation>Lajittele</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1326"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
         <source>Renumber TOC Entries</source>
         <translation>Numeroi sisällysluettelon kohdat uudestaan</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
         <source>Validate with W3C</source>
-        <translation type="unfinished"/>
+        <translation>Tarkasta W3C:n validaattorilla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
         <source>Cover</source>
         <translation>Kansi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
         <source>Title Page</source>
         <translation>Nimiösivu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
         <source>Table Of Contents</source>
         <translation>Sisällysluettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Index</source>
         <translation>Hakemisto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1381"/>
         <source>Glossary</source>
         <translation>Sanasto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1381"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1385"/>
         <source>Acknowledgements</source>
         <translation>Kiitokset</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1385"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1389"/>
         <source>Bibliography</source>
         <translation>Kirjallisuusluettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1389"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
         <source>Colophon</source>
         <translation>Kolofoni</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
         <source>CopyrightPage</source>
         <translation>Tekijänoikeussivu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Dedication</source>
-        <translation>Omistuskirjoitus</translation>
+        <translation>Omistussanat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
         <source>Epigraph</source>
         <translation>Motto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>Foreword</source>
         <translation>Esipuhe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
         <source>List Of Illustrations</source>
         <translation>Kuvaluettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>List Of Tables</source>
         <translation>Taulukoiden luettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1421"/>
         <source>Notes</source>
         <translation>Huomautuksia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1421"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1425"/>
         <source>Preface</source>
         <translation>Esipuhe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1425"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1429"/>
         <source>Text</source>
         <translation>Teksti</translation>
     </message>
@@ -771,7 +784,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="802"/>
         <source>Open Tab For</source>
-        <translation type="unfinished"/>
+        <translation>Avaa välilehti</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="823"/>
@@ -781,27 +794,27 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="871"/>
         <source>Clips</source>
-        <translation type="unfinished"/>
+        <translation>Leikkeet</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="881"/>
         <source>Add To Clips</source>
-        <translation type="unfinished"/>
+        <translation>Lisää leikkeisiin</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
         <source>Insert File</source>
-        <translation>Lisää tiedoston sisältö</translation>
+        <translation>Lisää tiedosto</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="967"/>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Kumoa</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="968"/>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Tee uudestaan</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="969"/>
@@ -816,7 +829,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="971"/>
         <source>Copy Image</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi kuva</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="972"/>
@@ -836,7 +849,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="981"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>Tutki elementtiä</translation>
     </message>
 </context>
 <context>
@@ -866,7 +879,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="715"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>Tutki elementtiä</translation>
     </message>
 </context>
 <context>
@@ -899,22 +912,22 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="70"/>
         <source>Times Used</source>
-        <translation>Kuluneet ajat</translation>
+        <translation>Käyttökerrat</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="135"/>
         <source> files</source>
-        <translation>tiedostot</translation>
+        <translation> tiedostoa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="139"/>
         <source>KB</source>
-        <translation>kB</translation>
+        <translation> kB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
@@ -924,12 +937,12 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="289"/>
         <source>Delete From Book</source>
-        <translation type="unfinished"/>
+        <translation>Poista kirjasta</translation>
     </message>
 </context>
 <context>
@@ -937,17 +950,17 @@ OK to replace?</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="87"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil lähettää tyyliohjeesi &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C:n CSS-tarkistimelle&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="88"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>Tämän sivun pitäisi hävitä lataamisen jälkeen kolmessa sekunnissa.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="89"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
-        <translation type="unfinished"/>
+        <translation>Jos JavaScript-koodin suoritus ei ole sallittuna selaimessasi, napsauta alla olevaa painiketta.</translation>
     </message>
 </context>
 <context>
@@ -955,7 +968,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters in HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Merkit HTML-tiedostoissa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
@@ -970,42 +983,42 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation type="unfinished"/>
+        <translation>Merkit:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="74"/>
         <source>Character</source>
-        <translation type="unfinished"/>
+        <translation>Merkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="75"/>
         <source>Decimal</source>
-        <translation type="unfinished"/>
+        <translation>Desimaalisena</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="76"/>
         <source>Hexadecimal</source>
-        <translation type="unfinished"/>
+        <translation>Heksadesimaalisena</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="77"/>
         <source>Entity Name</source>
-        <translation type="unfinished"/>
+        <translation>Entiteetin nimi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="78"/>
         <source>Entity Description</source>
-        <translation type="unfinished"/>
+        <translation>Entiteetin kuvaus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="84"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Tämä on luettelo HTML-tiedostoissa esiintyvistä merkeistä.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
@@ -1015,7 +1028,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
 </context>
 <context>
@@ -1078,7 +1091,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="222"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
@@ -1088,7 +1101,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
 </context>
 <context>
@@ -1101,45 +1114,48 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="80"/>
         <source>Pretty Print Tidy</source>
-        <translation type="unfinished"/>
+        <translation>Pretty Print Tidy</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="77"/>
         <source>Perform formatting and cleaning of your code to make it valid XHTML.</source>
-        <translation type="unfinished"/>
+        <translation>Muotoile ja siisti koodia niin, että siitä tulee validia XHTML:ää.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="90"/>
         <source>Fully clean and format your code.
 This may change your formatting to use inline style sections.</source>
-        <translation type="unfinished"/>
+        <translation>Siisti ja muotoile koodi kokonaan.
+Tämä voi muuttaa muotoiluasi niin, että siinä käytetään style-elementeissä olevia tyylejä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="56"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="53"/>
         <source>Clean when saving an EPUB.</source>
-        <translation type="unfinished"/>
+        <translation>Suorita siistiminen, kun kirja tallennetaan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="32"/>
         <source>Choose when your HTML code is automatically 
 formatted and cleaned using your selected option.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse, milloin Sigil automaattisesti muotoilee ja
+siistii HTML-koodin valitun vaihtoehdon mukaan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="36"/>
         <source>Automatically Clean and Format HTML Source Code:</source>
-        <translation type="unfinished"/>
+        <translation>HTML-koodi siistitään ja muotoillaan automaattisesti seuraavissa tilanteissa:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="42"/>
         <source>Clean when opening an EPUB or HTML file, 
 and when switching from Book View to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Siisti, kun epub-tiedosto tai HTML-tiedosto avataan
+ja kun vaihdetaan kirjatilasta kooditilaan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="46"/>
@@ -1151,12 +1167,14 @@ and when switching from Book View to Code View.</source>
         <source>Choose what type of cleaning and formatting
 should be done when automatic cleaning is enabled,
 or when cleaning manually.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse, millainen siistiminen ja muotoilu tulee tehdä
+silloin, kun automaattinen siistiminen on käytösä
+tai kun siistiminen tehdään manuaalisesti.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="71"/>
         <source>When Cleaning, Use This Type:</source>
-        <translation type="unfinished"/>
+        <translation>Käytä siistimisessä tätä menetelmää:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="94"/>
@@ -1170,7 +1188,7 @@ or when cleaning manually.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="504"/>
         <source>Clip Editor</source>
-        <translation type="unfinished"/>
+        <translation>Leike-editori</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
@@ -1190,12 +1208,12 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
         <source>Paste Clip</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä kohta yksi kohta ylemmäs samassa ryhmässä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
@@ -1208,17 +1226,17 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä kohta sen isäkohdan tasolle.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation type="unfinished"/>
+        <translation>Sinun on valittava kohta, joka on välittömästi jonkin ryhmän alla, siirtääksesi kohdan ryhmään.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="212"/>
         <source>Move an entry down one in the group.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä kohta yksi kohta alemmas ryhmässä.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="620"/>
@@ -1238,7 +1256,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name of your entry or group.</source>
-        <translation type="unfinished"/>
+        <translation>Kohdan tai ryhmän nimi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
@@ -1248,32 +1266,32 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
-        <translation type="unfinished"/>
+        <translation>Lisättävä teksti. Tekstiä käsitellään korvaavana säännöllisenä lausekkeena, joten merkintää \1 voidaan käyttää lisäämään se teksti, joka on valittuna kooditilassa, kun leike liitetään kirjaan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
         <source>Paste the selected entry into the active window.</source>
-        <translation type="unfinished"/>
+        <translation>Liitä valittu kohta aktiiviseen ikkunaan.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation type="unfinished"/>
+        <translation>Voit myös napsauttaa kirjaasi hiiren kakkospainikkeella valitaksesi kohdan.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna muutokset</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Jos Sigil-ohjelman muita ilmentymiä on käynnissä koneessa, muutoksesi päivittyvät automaattisesti niihinkin.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="90"/>
@@ -1283,17 +1301,17 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="132"/>
         <source>Clip entries loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostosta ladatut leikkeet.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="188"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation type="unfinished"/>
+        <translation>Et voi valita kohtaa ja ryhmää, joka sisältää sen.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="270"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation type="unfinished"/>
+        <translation>Et voi kopioida etkä leikata ryhmiä – käytä hiirellä vetämistä ja pudottamista.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
@@ -1303,17 +1321,17 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>Oletko varma, että haluat ladata kaikki kohteet uudestaan? Tämä kirjoittaa tallentamattomien muutosten päälle.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="352"/>
         <source>Import Entries</source>
-        <translation type="unfinished"/>
+        <translation>Tuo kohtia</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="425"/>
         <source>Export Selected Entries</source>
-        <translation type="unfinished"/>
+        <translation>Vie valitut kohdat</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="504"/>
@@ -1330,7 +1348,7 @@ or when cleaning manually.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="616"/>
         <source>Add Group</source>
-        <translation type="unfinished"/>
+        <translation>Lisää ryhmä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="617"/>
@@ -1360,7 +1378,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="623"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Lataa uudestaan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="624"/>
@@ -1385,23 +1403,24 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="628"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen täyttö</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="708"/>
         <source>Clip entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>Leikkeet tallennettu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="737"/>
         <source>Sigil: Clip Editor</source>
-        <translation type="unfinished"/>
+        <translation>Sigilin leike-editori</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="738"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>Leikkeitä on voitu muuttaa.
+Haluatko tallentaa muutokset?</translation>
     </message>
 </context>
 <context>
@@ -1445,7 +1464,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="43"/>
         <source>Clips</source>
-        <translation type="unfinished"/>
+        <translation>Leikkeet</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="118"/>
@@ -1463,22 +1482,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="419"/>
         <source>Cannot insert closing tag at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Lopputagia ei voi lisätä tähän kohtaan.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="428"/>
         <source>No open tags found at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Tässä kohdassa ei ole mitään sulkematonta elementtiä.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1167"/>
         <source>Add To Default Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Lisää oletussanakirjaan</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1180"/>
         <source>Add To Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Lisää sanakirjaan</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1197"/>
@@ -1503,72 +1522,72 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1286"/>
         <source>Reformat HTML</source>
-        <translation type="unfinished"/>
+        <translation>Muotoile HTML uudelleen</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1287"/>
         <source>Clean Source</source>
-        <translation>Siisti lähdekoodi</translation>
+        <translation>Lähdekoodin siistiminen</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1288"/>
         <source>Clean Source - All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Siisti lähdekoodi – kaikki HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1289"/>
         <source>To Valid HTML</source>
-        <translation type="unfinished"/>
+        <translation>Validiksi HTML:ksi</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1290"/>
         <source>To Valid HTML - All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Validiksi HTML:ksi – kaikki HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1320"/>
         <source>Go To Link Or Style</source>
-        <translation>Siirry kuvaan tai tyyliin</translation>
+        <translation>Siirry linkkiin tai tyyliin</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1343"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Näytä kuva</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1344"/>
         <source>Open Tab For Image</source>
-        <translation type="unfinished"/>
+        <translation>Avaa välilehti kuvaa varten</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1370"/>
         <source>Mark Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Merkitse valittu teksti</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1372"/>
         <source>Unmark Marked Text</source>
-        <translation type="unfinished"/>
+        <translation>Poista merkityn tekstin merkintä</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1398"/>
         <source>Clips</source>
-        <translation type="unfinished"/>
+        <translation>Leikkeet</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1408"/>
         <source>Add To Clips</source>
-        <translation type="unfinished"/>
+        <translation>Lisää leikkeisiin</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1535"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
-        <translation type="unfinished"/>
+        <translation>Sinun on oltava HTML-alkutagissa voidaksesi käyttää tätä piirrettä.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1545"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
-        <translation type="unfinished"/>
+        <translation>Sinun on oltava HTML-alkutagin sisällä voidaksesi käyttää tätä piirrettä.</translation>
     </message>
 </context>
 <context>
@@ -1599,12 +1618,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation type="unfinished"/>
+        <translation>Poista tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="66"/>
         <source>Delete Marked Files</source>
-        <translation type="unfinished"/>
+        <translation>Poista merkityt tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="67"/>
@@ -1622,12 +1641,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="14"/>
         <source>Delete Styles</source>
-        <translation type="unfinished"/>
+        <translation>Poista tyylit</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="79"/>
         <source>Delete Marked Styles</source>
-        <translation type="unfinished"/>
+        <translation>Poista merkityt tyylit</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
@@ -1642,7 +1661,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="82"/>
         <source>Style</source>
-        <translation type="unfinished"/>
+        <translation>Tyyli</translation>
     </message>
 </context>
 <context>
@@ -1650,37 +1669,37 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa sisällysluetteloa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Add a new TOC entry.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää uusi kohta sisällysluetteloon</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
-        <translation type="unfinished"/>
+        <translation>Lisää yläpuolelle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="58"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää tyhjä kohta valittuna olevan kohdan edelle.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
         <source>Add Below</source>
-        <translation type="unfinished"/>
+        <translation>Lisää alapuolelle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="68"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää tyhjä kohta valittuna olevan kohdan jälkeen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <source>Delete the selected TOC entry</source>
-        <translation type="unfinished"/>
+        <translation>Poista valittu sisällysluettelon kohta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="78"/>
@@ -1691,34 +1710,36 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kohde</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="88"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
-        <translation type="unfinished"/>
+        <translation>Aseta sisällysluettelon kohdan kohteeksi jokin listassa olevista kohteista kirjassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="113"/>
         <source>Decrease the heading level of the selected entry.
 You can also use the left arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Pienennä valitun kohdan otsikkotasoa.
+Voit käyttää myös vasemmalle osoittavaa nuolinäppäintä (←).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="127"/>
         <source>Increase the heading level of the selected entry.
 You can also use the right arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Suurenna valitun kohdan otsikkotasoa.
+Voit käyttää myös oikealle osoittavaa nuolinäppäintä (→).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="76"/>
         <source>TOC Entry</source>
-        <translation type="unfinished"/>
+        <translation>Sisällysluettelon kohta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="77"/>
         <source>Target</source>
-        <translation type="unfinished"/>
+        <translation>Kohde</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
@@ -1741,12 +1762,12 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>Etsi &amp; korvaa</translation>
+        <translation>Etsi ja korvaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="103"/>
         <source>Show/Hide Advanced Options</source>
-        <translation type="unfinished"/>
+        <translation>Näytä tai piilota lisävalinnat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="152"/>
@@ -1773,69 +1794,72 @@ You can also use the right arrow key.</source>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
         <source>Replace highlighted match (if any),
 then find the Next match in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Korvaa korostettu osuma (jos sellainenon)
+ja etsi sitten seuraava osuma kooditilassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Replace/Find</source>
-        <translation type="unfinished"/>
+        <translation>Etsi/korvaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="249"/>
         <source>Replace highlighted match (if any) in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Korvaa korostettu osuma (jos sellainen on) kooditilassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="281"/>
         <source>Options:</source>
-        <translation type="unfinished"/>
+        <translation>Asetukset:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation type="unfinished"/>
+        <translation>Säännöllisiä lausekkeita käytettäessä tämä aiheuttaa lyhimmän (eikä pisimmän) osuman etsimisen. Vastaa prefiksiä (?U).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="299"/>
         <source>DotAll</source>
-        <translation type="unfinished"/>
+        <translation>“.” vastaa myös rivinvaihtoa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation type="unfinished"/>
+        <translation>Säännöllisiä lausekkeita käytettäessä tämä valinta merkitsee, että piste vastaa mitä tahansa merkkiä, rivinvaihdot mukaan lukien. Vastaa prefiksiä (?s).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="312"/>
         <source>Minimal Match</source>
-        <translation type="unfinished"/>
+        <translation>Lyhin osuma</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation type="unfinished"/>
+        <translation>Säännöllisiä lausekkeita käytettäessä tämä aiheuttaa valinnan jäsentämisen alkioiksi, kun Etsi-toiminto avataan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="325"/>
         <source>Auto-Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen jäsennys</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="332"/>
         <source>Search from current position to end of the 
 current file or book, and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Etsi nykyisestä paikasta nykyisen tiedoston tai kirjan
+loppuun tai alkuun asti ja siirry sitten toiseen päähän
+jatkamaan etsintää.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
         <source>Wrap</source>
-        <translation type="unfinished"/>
+        <translation>Kierrä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation>Laske</translation>
+        <translation>Laske osumat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
@@ -1914,7 +1938,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Find or replace in all HTML files in Code View.</source>
-        <translation>Etsi ja korvaa kaikissa HTML-tiedostoissa kooditilassa.</translation>
+        <translation>Etsi tai korvaa kaikissa HTML-tiedostoissa kooditilassa.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1437"/>
@@ -1929,12 +1953,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1445"/>
         <source>Marked Text</source>
-        <translation type="unfinished"/>
+        <translation>Merkitty teksti</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1446"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
-        <translation type="unfinished"/>
+        <translation>Rajoita Etsi ja korvaa -toiminto siihen tekstiin, joka on merkitty komennolla Etsi &amp;rarr; Merkitse valittu teksti. Valinta poistuu, kun tehdään Kumoa-toiminto, kirjoitetaan tekstiä, vaihdetaan kooditilasta kirjatilaan tai päinvastoin taikka vaihdetaan välilehteä.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1454"/>
@@ -1980,7 +2004,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <source>Case Sensitive</source>
-        <translation>Kirjainlajiriippuva</translation>
+        <translation>Kirjaintasoriippuva</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1428"/>
@@ -1995,12 +2019,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case in-sensitive search of exactly what you type.</source>
-        <translation>Kirjainlajiriippumaton haku (isoilla ja pienillä kirjaimilla ei eroa)</translation>
+        <translation>Kirjaintasoriippumaton haku (isoilla ja pienillä kirjaimilla ei eroa)</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Case sensitive search of exactly what you type.</source>
-        <translation>Kirjainlajiriippuva haku (isot ja pienet kirjaimet eri kirjaimia)</translation>
+        <translation>Kirjaintasoriippuva haku (isot ja pienet kirjaimet eri kirjaimia)</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
@@ -2027,12 +2051,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>Up</source>
-        <translation>Eteenpäin</translation>
+        <translation>Taaksepäin</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1451"/>
         <source>Down</source>
-        <translation>Taaksepäin</translation>
+        <translation>Eteenpäin</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
@@ -2050,7 +2074,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="71"/>
         <source>Save Search</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna haku</translation>
     </message>
 </context>
 <context>
@@ -2111,7 +2135,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="73"/>
         <source>Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="74"/>
@@ -2121,27 +2145,27 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="75"/>
         <source>Well Formed</source>
-        <translation type="unfinished"/>
+        <translation>Oikeamuotoinen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Kyllä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Ei</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="183"/>
         <source> files</source>
-        <translation>tiedostot</translation>
+        <translation>tiedostoa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="324"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
@@ -2151,12 +2175,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="360"/>
         <source>Delete From Book</source>
-        <translation type="unfinished"/>
+        <translation>Poista kirjasta</translation>
     </message>
 </context>
 <context>
@@ -2164,13 +2188,14 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Generate Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Luo sisällysluettelo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
         <source>Change the name of the entry in the TOC.
 The heading&apos;s title attribute will be updated in the document.</source>
-        <translation type="unfinished"/>
+        <translation>Muuta kohdan nimeä sisällysluettelossa.
+Tämä päivittää otsikon title-määritteen kirjassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
@@ -2183,20 +2208,25 @@ The heading&apos;s title attribute will be updated in the document.</source>
         <source>Decrease the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the left arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Pienennä valitun kohdan otsikkotasoa yhdellä.
+Otsikon tagi päivittyy vastaavasti.
+Voit myös käyttää vasemmalle osoittavaa nuolinäppäintä (←).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="96"/>
         <source>Increase the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the right arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Suurenna valitun kohdan otsikkotasoa yhdellä.
+Otsikon tagi päivittyy vastaavasti.
+Voit myös käyttää oikealle osoittavaa nuolinäppäintä (→).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="130"/>
         <source>Only display the items that will be added to the Table Of Contents.
 Check or uncheck an entry to determine if it will be added to the TOC.</source>
-        <translation type="unfinished"/>
+        <translation>Näytä vain ne kohdat, jotka lisätään sisällysluetteloon.
+Valitse kohta tai poista sen valinta määrätäksesi, lisätäänkö se sisällysluetteloon.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
@@ -2207,7 +2237,8 @@ Check or uncheck an entry to determine if it will be added to the TOC.</source>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
         <source>Quickly mark which headings are included in the TOC.
 You can then check or uncheck individual headings in the list above.</source>
-        <translation type="unfinished"/>
+        <translation>Merkitse yleisesti, mitkä otsikot otetaan sisällysluetteloon.
+Voit sitten valita tai poistaa yksittäisiä otsikoita yllä olevasta listasta.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="536"/>
@@ -2222,34 +2253,34 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="755"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;Valitse sisällysluetteloon otettavat otsikot&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="758"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="819"/>
         <source>None</source>
-        <translation>Ei mitää</translation>
+        <translation>Ei mitään</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="534"/>
         <source>TOC Entry / Heading Title</source>
-        <translation type="unfinished"/>
+        <translation>Sisällysluettelon kohta / otsikko</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="535"/>
         <source>Level</source>
-        <translation type="unfinished"/>
+        <translation>Taso</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
         <source>Included</source>
-        <translation type="unfinished"/>
+        <translation>Mukana</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
         <source>Hidden</source>
-        <translation type="unfinished"/>
+        <translation>Piilossa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="764"/>
@@ -2293,7 +2324,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="81"/>
         <source>Times Used</source>
-        <translation>Kuluneet ajat</translation>
+        <translation>Käyttökerrat</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="82"/>
@@ -2323,17 +2354,17 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="175"/>
         <source> files</source>
-        <translation>tiedostot</translation>
+        <translation> tiedostoa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="179"/>
         <source>KB</source>
-        <translation>kB</translation>
+        <translation> kB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="323"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
@@ -2343,12 +2374,12 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Raporttitiedostoa ei voi tallentaa,</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="408"/>
         <source>Delete From Book</source>
-        <translation type="unfinished"/>
+        <translation>Poista kirjasta</translation>
     </message>
 </context>
 <context>
@@ -2393,7 +2424,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="257"/>
         <source>Copy Image</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi kuvaa</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="291"/>
@@ -2413,7 +2444,9 @@ You can then check or uncheck individual headings in the list above.</source>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
-        <translation type="unfinished"/>
+        <translation>Kirja sisältää HTML-tiedostoja, jotka eivät ole oikeamuotoisia. Sigil voi yrittää korjata nämä tiedostot automaattisesti, mutta tämä voi aiheuttaa tiedon katoamista.
+
+Haluatko korjata tiedostot automaattisesti?</translation>
     </message>
 </context>
 <context>
@@ -2442,7 +2475,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation type="unfinished"/>
+        <translation>Voit myös napsauttaa kirjan kohtaa hiiren kakkospainikkeella lisätäksesi valitun kohdan hakemistoon.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
@@ -2457,17 +2490,17 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna muutokset.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Jos Sigil-ohjelman muita ilmentymiä on käynnissä koneessa, muutoksesi päivittyvät automaattisesti niihinkin.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
@@ -2477,7 +2510,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="126"/>
         <source>Index entries loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>Hakemiston kohdat ladattu tiedostosta.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
@@ -2487,7 +2520,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen täyttö</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
@@ -2497,17 +2530,17 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation type="unfinished"/>
+        <translation>Hahmo, jota etsitään kirjasta, esim. ”Ruotsi”. Hahmo on säännöllinen lauseke, joten ”(?i)Ruotsi” jättää kirjaintason huomiotta vertailussa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Kohta, joka lisätään hakemistoon. Jätä tyhjäksi käyttääksesi tekstiä sellaisenaan tai kirjoita näytettävä teksti. Monitasoisia kohtia voi luoda käyttämällä vinoviivaa ”/” tason nimen jäljessä, esim. ”Kirjat/Fantasia/Liisa ihmemaassa” tai ”Kirjat/Fantasia/”.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
-        <translation type="unfinished"/>
+        <translation>Hakemistotiedostot: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="295"/>
@@ -2517,7 +2550,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>Oletko varma, että haluat ladata uudestaan kaikki kohdat. Tämä kirjoittaa tallentamattomien muutosten päälle.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="329"/>
@@ -2563,7 +2596,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Lataa uudestaan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
@@ -2578,18 +2611,19 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="506"/>
         <source>Index entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>Hakemiston kohdat tallennettu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="535"/>
         <source>Sigil: Index Editor</source>
-        <translation type="unfinished"/>
+        <translation>Sigilin hakemistoeditori</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="536"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>Hakemiston kohtia on voitu muuttaa.
+Haluatko tallentaa muutokset?</translation>
     </message>
 </context>
 <context>
@@ -2615,7 +2649,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Pikänäppäilyt</translation>
+        <translation>Pikanäppäilyt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
@@ -2641,12 +2675,12 @@ Do you want to save your changes?</source>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Press the key combination you want to use.</source>
-        <translation type="unfinished"/>
+        <translation>Näppäile näppäinyhdistelmä, jotka haluat käyttää.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation>Määrittele tämä pikänäppäily, poistaen sen aiempi määrittely</translation>
+        <translation>Määrittele tämä pikanäppäily, poistaen sen aiempi määrittely.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
@@ -2682,6 +2716,11 @@ Do you want to save your changes?</source>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
         <source>Shortcut:</source>
         <translation>Pikanäppäily:</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
+        <source>Conflicts with: &lt;b&gt;</source>
+        <translation>Olemassaoleva määrittely: &lt;b&gt;</translation>
     </message>
 </context>
 <context>
@@ -2921,12 +2960,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Chamorro</source>
-        <translation>tšamorro</translation>
+        <translation>tshamorro, tšamorro</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Chechen</source>
-        <translation>tšetšeeni</translation>
+        <translation>tshetsheeni, tšetšeeni</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
@@ -2971,7 +3010,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Chuvash</source>
-        <translation>tšuvassi</translation>
+        <translation>tshuvassi, tšuvassi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
@@ -2996,7 +3035,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Czech</source>
-        <translation>tšekki</translation>
+        <translation>tshekki, tšekki</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
@@ -3238,7 +3277,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>kreikka</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
@@ -3309,7 +3348,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Indonesian - Indonesia</source>
-        <translation type="unfinished"/>
+        <translation>indonesia - Indonesia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
@@ -3376,7 +3415,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Kashmiri</source>
-        <translation>kašmiri</translation>
+        <translation>kashmiri, kašmiri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
@@ -3406,7 +3445,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kongo</source>
-        <translation>Kongo</translation>
+        <translation>kongo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
@@ -3442,7 +3481,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvia</source>
-        <translation type="unfinished"/>
+        <translation>Latvia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
@@ -3682,7 +3721,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romania</source>
-        <translation type="unfinished"/>
+        <translation>Romania</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
@@ -3728,13 +3767,13 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
-        <source>SP</source>
+        <source>Serbia</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Shona</source>
-        <translation>šona</translation>
+        <translation>shona, šona</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
@@ -3884,7 +3923,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hungary</source>
-        <translation type="unfinished"/>
+        <translation>Unkari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
@@ -4023,7 +4062,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukraine</source>
-        <translation type="unfinished"/>
+        <translation>Ukraina</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
@@ -4069,7 +4108,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Western Frisian</source>
-        <translation>länsifriisi</translation>
+        <translation>friisi, länsi-</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
@@ -4334,12 +4373,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Chagatai</source>
-        <translation>tšagatai</translation>
+        <translation>tshagatai, tšagatai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Chamic languages</source>
-        <translation>tšamkieli</translation>
+        <translation>tshamkieli, tšamkieli</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="397"/>
@@ -4354,7 +4393,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Chibcha</source>
-        <translation>tšibtša</translation>
+        <translation>tshibtsha, tšibtša</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="400"/>
@@ -4379,7 +4418,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
-        <translation>newari</translation>
+        <translation>klassinen newari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="405"/>
@@ -4404,17 +4443,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Creoles and pidgins- English based</source>
-        <translation>kreoli- tai pidgin-kieli, englantiin perustuva</translation>
+        <translation>kreoli tai pidgin, englantiin perustuva</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Creoles and pidgins- French-based</source>
-        <translation>kreoli- tai pidgin-kieli, ranskaan perustuva</translation>
+        <translation>kreoli tai pidgin, ranskaan perustuva</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Creoles and pidgins- Portuguese-based</source>
-        <translation>kreoli- tai pidgin-kieli, portugaliin perustuva</translation>
+        <translation>kreoli tai pidgin, portugaliin perustuva</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="412"/>
@@ -4484,7 +4523,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Eastern Frisian</source>
-        <translation>itäfriisi</translation>
+        <translation>friisi, itä-</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="426"/>
@@ -4794,7 +4833,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Kashubian</source>
-        <translation>kašubi</translation>
+        <translation>kashubi, kašubi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="488"/>
@@ -5079,7 +5118,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Nepal Bhasa/Newari</source>
-        <translation type="unfinished"/>
+        <translation>newari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="545"/>
@@ -5124,7 +5163,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Northern Frisian</source>
-        <translation>pohjoisfriisi</translation>
+        <translation>friisi, pohjois</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="554"/>
@@ -5159,7 +5198,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation type="unfinished"/>
+        <translation>muinaisprovensaali (vuoteen 1500 asti)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
@@ -5349,7 +5388,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Slave (Athapascan)</source>
-        <translation>athabascakieli</translation>
+        <translation>slevi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
@@ -5524,7 +5563,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Uncoded languages</source>
-        <translation>Kielet, joille ei ole koodia</translation>
+        <translation>kieli, jolle ei ole koodia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
@@ -5621,11 +5660,11 @@ Do you want to save your changes?</source>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation>Sigil on käynnistettävä uudestaan, kun käyttöliittymän kieli on vaihdettu.⏎
-⏎
-Jos jollekin sanalle tai fraasille ei ole käännöstä, se näkyy englanniksi..⏎
-⏎
-Käytä komentoa Asetukset → Oikoluvun sanakirjat asettaakseni oikoluvussa käytettävän sanakirjan.</translation>
+        <translation>Sigil on käynnistettävä uudestaan, kun käyttöliittymän kieli on vaihdettu.
+
+Jos jollekin sanalle tai fraasille ei ole käännöstä, se näkyy englanniksi..
+
+Käytä komentoa Asetukset → Oikeinkirjoituksen tarkistus asettaakseni oikeinkirjoituksen tarkistuksessa käytettävän sanakirjan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
@@ -5648,15 +5687,15 @@ Käytä komentoa Asetukset → Oikoluvun sanakirjat asettaakseni oikoluvussa kä
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation>Linkitä tyyliohjeet</translation>
+        <translation>Linkitä tyyliohjeita</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="43"/>
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation>Siirrä valitut tyyliohjeet ylemmäksi prioriteetissa.⏎
-⏎
+        <translation>Siirrä valitut tyyliohjeet ylemmäksi prioriteetissa.
+
 Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmillä.</translation>
     </message>
     <message>
@@ -5672,7 +5711,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation>Alas</translation>
+        <translation>Eteenpäin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="60"/>
@@ -5690,7 +5729,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links</source>
-        <translation type="unfinished"/>
+        <translation>Linkit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
@@ -5710,7 +5749,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="66"/>
         <source>ID</source>
-        <translation type="unfinished"/>
+        <translation>Tunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="67"/>
@@ -5720,47 +5759,47 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="68"/>
         <source>Target File</source>
-        <translation type="unfinished"/>
+        <translation>Kohdetiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="69"/>
         <source>Target ID</source>
-        <translation type="unfinished"/>
+        <translation>Kohteen tunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="70"/>
         <source>Target Exists?</source>
-        <translation type="unfinished"/>
+        <translation>Kohde olemassa?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>Target Text</source>
-        <translation type="unfinished"/>
+        <translation>Kohteen teksti</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Target&apos;s Target File</source>
-        <translation type="unfinished"/>
+        <translation>Kohteen kohdetiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
         <source>Target&apos;s Target ID</source>
-        <translation type="unfinished"/>
+        <translation>Kohteen kohteen tunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Match?</source>
-        <translation type="unfinished"/>
+        <translation>Osuma?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Raportti näyttää kaikki a-elementillä määritellyt linkit ja linkkien kohteet.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="329"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="342"/>
@@ -5770,7 +5809,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="342"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
 </context>
 <context>
@@ -5778,7 +5817,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation type="unfinished"/>
+        <translation>untitled.epub[*] - Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
@@ -5793,7 +5832,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
         <source>Cli&amp;p</source>
-        <translation type="unfinished"/>
+        <translation>Leike</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="158"/>
@@ -5813,7 +5852,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="239"/>
         <source>Current Fil&amp;e</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen tiedosto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="271"/>
@@ -5849,7 +5888,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="555"/>
         <source>Clip Bar</source>
-        <translation type="unfinished"/>
+        <translation>Leikepalkki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="598"/>
@@ -5956,14 +5995,18 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Tasaa vasemmalle&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tasaa kappale vasempaan reunaan.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="755"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Tasaa oikealle&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tasaa kappale oikeaan reunaan.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="846"/>
@@ -6007,14 +6050,16 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="950"/>
         <source>&amp;Edit Table Of Contents...</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa sisällysluetteloa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="953"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Muokkaa sisällysluetteloa&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muokkaa suoraan olemassaolevaa sisällysluetteloa.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="967"/>
@@ -6029,7 +6074,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="997"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda kirjatilasta kooditilaan tai toisinpäin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1017"/>
@@ -6048,54 +6093,56 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation type="unfinished"/>
+        <translation>Lisää</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="92"/>
         <source>C&amp;hange Case</source>
-        <translation type="unfinished"/>
+        <translation>Muuta kirjaintaso</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="175"/>
         <source>&amp;Heading</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="220"/>
         <source>&amp;Toolbars</source>
-        <translation type="unfinished"/>
+        <translation>Työkalupalkit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="287"/>
         <source>&amp;Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Sisällysluettelo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="295"/>
         <source>Spe&amp;llcheck</source>
-        <translation type="unfinished"/>
+        <translation>Oikeinkirjoituksen tarkistus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="309"/>
         <source>&amp;Index</source>
-        <translation type="unfinished"/>
+        <translation>Hakemisto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="411"/>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation>Takaisin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="435"/>
         <source>Tools</source>
-        <translation type="unfinished"/>
+        <translation>Työkalut</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="593"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uusi&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Luo uusi kirja.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="987"/>
@@ -6109,14 +6156,16 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1009"/>
         <source>&amp;Split At Cursor</source>
-        <translation type="unfinished"/>
+        <translation>Jaa kohdistimen kohdalta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1012"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Jaa kohdistimen kohdalta&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Jaa nykyinen tiedosto kahdeksi tiedostoksi käyttäen kohdistimen eli kursorin paikkaa jakokohtana.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1036"/>
@@ -6126,29 +6175,31 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1045"/>
         <source>&amp;Special Character...</source>
-        <translation type="unfinished"/>
+        <translation>Erikoismerkki...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1059"/>
         <source>I&amp;D...</source>
-        <translation type="unfinished"/>
+        <translation>Tunniste</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1062"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lisää tunniste&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lisää ankkuri, jossa on tunniste eli id-määrite, tai muokkaa sellaista ankkuria. Ankkuria voidaan käyttää linkin kohteena.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1127"/>
         <source>Stri&amp;kethrough</source>
-        <translation type="unfinished"/>
+        <translation>Yliviivaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1144"/>
         <source>&amp;Subscript</source>
-        <translation type="unfinished"/>
+        <translation>Alaindeksi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1175"/>
@@ -6178,7 +6229,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="526"/>
         <source>Change Case</source>
-        <translation>Muuta kirjainlaji</translation>
+        <translation>Vaihda kirjaintaso</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="117"/>
@@ -6188,7 +6239,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="171"/>
         <source>For&amp;mat</source>
-        <translation>Muoto</translation>
+        <translation>Muotoile</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="450"/>
@@ -6203,7 +6254,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="468"/>
         <source>Format</source>
-        <translation>Muoto</translation>
+        <translation>Muotoile</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="485"/>
@@ -6245,9 +6296,9 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Leikkaa&lt;/b&gt;&lt;/p&gt;⏎
-⏎
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Poistaa valitun tekstin kirjasta ja liittää sen leikepöydälle.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Leikkaa&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Poista valittu teksti kirjasta ja liitä se leikepöydälle.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="675"/>
@@ -6274,17 +6325,19 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kopioi&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kopioi valitun tekstin leikepöydälle.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="735"/>
         <source>Align &amp;Left</source>
-        <translation type="unfinished"/>
+        <translation>Tasaa vasemmalle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="752"/>
         <source>Align &amp;Right</source>
-        <translation type="unfinished"/>
+        <translation>Tasaa oikealle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1678"/>
@@ -6301,7 +6354,9 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Keskitä&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Keskitä kappale.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="777"/>
@@ -6337,8 +6392,8 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lihavoi&lt;/b&gt;&lt;/p&gt;⏎
-⏎
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lihavoi&lt;/b&gt;&lt;/p&gt;
+
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lihavoi valittu teksti.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -6387,7 +6442,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="883"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"/>
+        <translation>Lopeta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="901"/>
@@ -6425,7 +6480,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1090"/>
         <source>&amp;Numbered List</source>
-        <translation>Numeroitu luettelo</translation>
+        <translation>Numerointi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1093"/>
@@ -6501,22 +6556,22 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1213"/>
         <source>Zoom &amp;In</source>
-        <translation>Lähennä</translation>
+        <translation>Suurenna fonttikokoa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1216"/>
         <source>Zoom In</source>
-        <translation>Lähennä</translation>
+        <translation>Suurenna fonttikokoa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1228"/>
         <source>Zoom &amp;Out</source>
-        <translation>Loitonna</translation>
+        <translation>Pienennä fonttikokoa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1231"/>
         <source>Zoom Out</source>
-        <translation>Loitonna</translation>
+        <translation>Pienennä fonttikokoa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1234"/>
@@ -6526,36 +6581,40 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1239"/>
         <source>Sho&amp;w Tag</source>
-        <translation type="unfinished"/>
+        <translation>Näytä tagi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="945"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="906"/>
         <source>Add &amp;Cover...</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kansi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="909"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lisää kansi&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lisää kirjaan kansisivu.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="940"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Luo sisällysluettelo&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muodosta sisällysluettelo kirjassa olevista otsikoista.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1026"/>
         <source>&amp;File...</source>
-        <translation type="unfinished"/>
+        <translation>Tiedosto...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1029"/>
@@ -6564,41 +6623,47 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add files to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Liitä tiedosto&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Valitse kuva-, video- tai audiotiedostoja kirjasta liitettäväksi tekstiin.&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kirjaan voi lisätä tiedostoja käyttämällä valikon kohtaa Tiedosto → Lisää → Valmiita tiedostoja.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1073"/>
         <source>&amp;Link...</source>
-        <translation type="unfinished"/>
+        <translation>Linkki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1076"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Liitä linkki&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Liitä linkki tai muokkaa linkkiä.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1219"/>
         <source>Ctrl+=</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+=</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1242"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
-        <translation type="unfinished"/>
+        <translation>Näytä kirjatilassa se HTML-tagi, jonka vaikutusalueessa kohdistin on.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1245"/>
         <source>Ctrl+Alt+T</source>
-        <translation type="unfinished"/>
+        <translation>AltGr+T</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1257"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Etsi&amp;amp; korvaa&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Etsi &amp;amp; korvaa&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Etsi ja korvaa kirjassa oleva teksti.&lt;/p&gt;</translation>
     </message>
@@ -6723,7 +6788,11 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Isot alkukirjaimet&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta jokaisen valitun sanan ensimmäinen kirjain isoksi (versaaliksi).&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1418"/>
@@ -6786,7 +6855,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1514"/>
         <source>&amp;Validate EPUB With FlightCrew</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista epub-tiedosto FlightCrew’lla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1522"/>
@@ -6796,29 +6865,31 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista tyyliohjeet W3C:n CSS-tarkistimella</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>&amp;Spellcheck...</source>
-        <translation type="unfinished"/>
+        <translation>Oikeinkirjoituksen tarkistus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Oikeinkirjoituksen tarkistus&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Etsii kaikki väärin kirjoitetut sanat ja antaa sinun lisätä ne sanakirjaan tai ohittaa ne.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1551"/>
         <source>Alt+Q</source>
-        <translation type="unfinished"/>
+        <translation>Alt+Q</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1562"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Ota käyttöön tai poista käytöstä väärin kirjoitettujen sanojen korostus kooditilassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1567"/>
@@ -6828,12 +6899,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1589"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
-        <translation type="unfinished"/>
+        <translation>Jätä nykyinen väärin kirjoitettu sana huomiotta, kunnes Sigil käynnistetään uudestaan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1597"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä niiden sanojen lista, jotka oikeinkirjoituksen tarkastus jättää huomiotta, tarvitsematta käynnistää Sigiliä uudestaan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1605"/>
@@ -6843,12 +6914,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation type="unfinished"/>
+        <translation>Poista käyttämättömät mediatiedostot...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1615"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
-        <translation type="unfinished"/>
+        <translation>Poista CSS-säännöt, jotka perustuvat olemattomiin luokkiin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1623"/>
@@ -6874,37 +6945,37 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1683"/>
         <source>&amp;Replace/Find Next</source>
-        <translation type="unfinished"/>
+        <translation>Korvaa ja etsi seuraava</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation type="unfinished"/>
+        <translation>Korvaa ja etsi edellinen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>Mar&amp;k Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Merkitse valittu teksti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1723"/>
         <source>Find &amp;Next In File</source>
-        <translation type="unfinished"/>
+        <translation>Etsi seuraava tiedostosta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1728"/>
         <source>&amp;Replace Next In File</source>
-        <translation type="unfinished"/>
+        <translation>Korvaa ja etsi seuraava tiedostossa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1733"/>
         <source>Replace &amp;All In File</source>
-        <translation type="unfinished"/>
+        <translation>Korvaa kaikki tiedostossa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1738"/>
         <source>&amp;Count All In File</source>
-        <translation type="unfinished"/>
+        <translation>Laske osumat tiedostossa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1746"/>
@@ -6919,102 +6990,102 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1762"/>
         <source>Clip &amp;1</source>
-        <translation type="unfinished"/>
+        <translation>Leike 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1765"/>
         <source>Insert Clip 1</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1768"/>
         <source>Ctrl+Alt+1</source>
-        <translation type="unfinished"/>
+        <translation>AltGr+1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>Clip 2&amp;</source>
-        <translation type="unfinished"/>
+        <translation>Leike 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1776"/>
         <source>Insert Clip 2</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1779"/>
         <source>Ctrl+Alt+2</source>
-        <translation type="unfinished"/>
+        <translation>AltGr+2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1784"/>
         <source>Clip &amp;3</source>
-        <translation type="unfinished"/>
+        <translation>Leike 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1787"/>
         <source>Insert Clip 3</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1790"/>
         <source>Ctrl+Alt+3</source>
-        <translation type="unfinished"/>
+        <translation>AltGr+3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1795"/>
         <source>Clip &amp;4</source>
-        <translation type="unfinished"/>
+        <translation>Leike 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1798"/>
         <source>Insert Clip 4</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1801"/>
         <source>Ctrl+Alt+4</source>
-        <translation type="unfinished"/>
+        <translation>AltGr+4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1806"/>
         <source>Clip &amp;5</source>
-        <translation type="unfinished"/>
+        <translation>Leike 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1809"/>
         <source>Insert Clip 5</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1812"/>
         <source>Ctrl+Alt+5</source>
-        <translation type="unfinished"/>
+        <translation>AltGr+5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Clip &amp;6</source>
-        <translation type="unfinished"/>
+        <translation>Leike 6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>Insert Clip 6</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1823"/>
         <source>Ctrl+Alt+6</source>
-        <translation type="unfinished"/>
+        <translation>AltGr+6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Clip &amp;7</source>
-        <translation type="unfinished"/>
+        <translation>Leike 7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1831"/>
         <source>Insert Clip 7</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1834"/>
@@ -7282,7 +7353,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>Existing Files...</source>
-        <translation>Valmiit tiedostot...</translation>
+        <translation>Valmiita tiedostoja...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2137"/>
@@ -7321,7 +7392,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2196"/>
         <source>Ctrl+Shift+X</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Vaihto+X</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2193"/>
@@ -7341,12 +7412,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2217"/>
         <source>Book&amp;mark Location</source>
-        <translation type="unfinished"/>
+        <translation>Tee kirjanmerkki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Ctrl+Alt+B</source>
-        <translation type="unfinished"/>
+        <translation>AltGr+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2228"/>
@@ -7356,7 +7427,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2237"/>
         <source>&amp;Back</source>
-        <translation type="unfinished"/>
+        <translation>Takaisin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2240"/>
@@ -7364,12 +7435,15 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Takaisin&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Mene takaisin kohtaan, johon viimeksi asetettiin kirjanmerkki komennolla ”Tee kirjanmerkki” tai komennolla ”Siirry linkkiin tai tyyliin”.&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2246"/>
         <source>Ctrl+\</source>
-        <translation type="unfinished"/>
+        <translation>  ‌</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2254"/>
@@ -7384,94 +7458,96 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1254"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
-        <translation type="unfinished"/>
+        <translation>Etsi ja korvaa...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1271"/>
         <source>Incre&amp;ase Indent</source>
-        <translation type="unfinished"/>
+        <translation>Suurenna sisennystä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1288"/>
         <source>&amp;Decrease Indent</source>
-        <translation type="unfinished"/>
+        <translation>Pienennä sisennystä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1305"/>
         <source>Te&amp;xt Direction LTR</source>
-        <translation type="unfinished"/>
+        <translation>Tekstin suunta vasemmalta oikealle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1321"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation type="unfinished"/>
+        <translation>Tekstin suunta oikealta vasemmalle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1337"/>
         <source>Text Directi&amp;on Default</source>
-        <translation type="unfinished"/>
+        <translation>Tekstin suunta periytyvä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1349"/>
         <source>Remove &amp;Formatting</source>
-        <translation type="unfinished"/>
+        <translation>Poista muotoilu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1361"/>
         <source>&amp;Lowercase</source>
-        <translation type="unfinished"/>
+        <translation>Gemena</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1380"/>
         <source>&amp;Uppercase</source>
-        <translation type="unfinished"/>
+        <translation>Versaali</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1399"/>
         <source>&amp;Titlecase</source>
-        <translation type="unfinished"/>
+        <translation>Isot alkukirjaimet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1415"/>
         <source>&amp;Capitalize</source>
-        <translation type="unfinished"/>
+        <translation>Iso alkukirjain</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1461"/>
         <source>Split At &amp;Markers</source>
-        <translation type="unfinished"/>
+        <translation>Jaa jakomerkkien kohdalta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1464"/>
         <source>Split At Sigil split file markers</source>
-        <translation type="unfinished"/>
+        <translation>Jaa tiedosto osiin merkityistä jakokohdista.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1472"/>
         <source>Split &amp;Marker</source>
-        <translation type="unfinished"/>
+        <translation>Jakomerkki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1475"/>
         <source>Insert Sigil split file marker</source>
-        <translation type="unfinished"/>
+        <translation>Lisää jakokohtamerkki tiedostoiksi jakamista varten</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1494"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>Usein kysyttyä...</translation>
+        <translation>Usein kysyttyä (engl.)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1497"/>
         <source>Frequently Asked Questions</source>
-        <translation>Usein kysyttyä</translation>
+        <translation>Usein kysyttyä (engl.)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1517"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB with FlightCrew&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Tarkista epub FlightCrew’lla&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tarkista FlightCrew’lla, noudattaako kirja epub-määrittelyjä.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1530"/>
@@ -7480,12 +7556,16 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Tarkista tyyliohjeet W3C:n tarkistimella&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tarkista W3C:n CSS-tarkistimella, noudattavatko CSS-tyyliohjeet W3C:n määrittelyjä.&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1559"/>
         <source>&amp;Highlight Misspelled Words</source>
-        <translation type="unfinished"/>
+        <translation>Korosta väärin kirjoitetut sanat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1570"/>
@@ -7495,12 +7575,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1573"/>
         <source>F4</source>
-        <translation type="unfinished"/>
+        <translation>F4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1578"/>
         <source>&amp;Add Misspelled Word</source>
-        <translation type="unfinished"/>
+        <translation>Lisää väärin kirjoitettu sana</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1581"/>
@@ -7510,22 +7590,22 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1586"/>
         <source>&amp;Ignore Misspelled Word</source>
-        <translation type="unfinished"/>
+        <translation>Jätä väärin kirjoitettu sana huomiotta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1594"/>
         <source>&amp;Clear Ignored Words</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä huomiotta jätettävien sanojen lista</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1602"/>
         <source>&amp;Index Editor...</source>
-        <translation type="unfinished"/>
+        <translation>Hakemistoeditori</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>&amp;Reports...</source>
-        <translation type="unfinished"/>
+        <translation>Raportit...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1632"/>
@@ -7560,57 +7640,57 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>&amp;Count All</source>
-        <translation>Laske</translation>
+        <translation>Laske osumat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1751"/>
         <source>&amp;Clip Editor...</source>
-        <translation type="unfinished"/>
+        <translation>Leike-editori</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1754"/>
         <source>Open the Clip Editor.</source>
-        <translation type="unfinished"/>
+        <translation>Avaa leike-editori</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>Heading &amp;1</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1998"/>
         <source>Heading &amp;2</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2018"/>
         <source>Heading &amp;3</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2038"/>
         <source>Heading &amp;4</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2058"/>
         <source>Heading &amp;5</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>Heading &amp;6</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko 6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2098"/>
         <source>&amp;Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normaali</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2114"/>
         <source>&amp;Preserve Existing Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Säilytä olemassaolevat määritteet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2171"/>
@@ -7645,7 +7725,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2225"/>
         <source>&amp;Go To Link Or Style</source>
-        <translation>Avaa kuva tai siirry tyyliin</translation>
+        <translation>Siirry linkkiin tai tyyliin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2251"/>
@@ -7720,12 +7800,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1960"/>
         <source>&amp;Zoom Reset</source>
-        <translation>Poista zoomaus</translation>
+        <translation>Palauta fonttikoko</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>Zoom Reset</source>
-        <translation>Zoomauksen poisto</translation>
+        <translation>Palauta fonttikoko</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1966"/>
@@ -7745,7 +7825,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Pre&amp;vious File</source>
-        <translation type="unfinished"/>
+        <translation>Edellinen tiedosto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2166"/>
@@ -7775,12 +7855,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1502"/>
         <source>&amp;Tutorials...</source>
-        <translation>Oppaat...</translation>
+        <translation>Oppaita (engl.)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1505"/>
         <source>Tutorials</source>
-        <translation>Oppaat</translation>
+        <translation>Oppaita (engl.)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2177"/>
@@ -7788,66 +7868,66 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation>Alt+PageDown</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="529"/>
         <source>Open File</source>
         <translation>Avaa tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="635"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="634"/>
         <source>Save File</source>
         <translation>Tallenna tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="739"/>
         <source>Go To Line</source>
         <translation>Siirry riville</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="739"/>
         <source>Line #</source>
         <translation>Rivi nro</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="335"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="570"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="748"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1191"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1246"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1254"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1386"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1205"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1260"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1268"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1284"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1400"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1426"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1445"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1450"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1462"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1472"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1477"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1683"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1690"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1448"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1464"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1697"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1752"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2950"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2992"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3323"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3524"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1766"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3338"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3539"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="288"/>
         <source>Location bookmarked.</source>
-        <translation type="unfinished"/>
+        <translation>Kohde lisätty kirjanmerkkeihin.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="335"/>
@@ -7861,7 +7941,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="508"/>
         <source>New file created.</source>
-        <translation type="unfinished"/>
+        <translation>Uusi tiedosto luotu</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="683"/>
@@ -7869,436 +7949,444 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation>Tallenna kopio</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="832"/>
         <source>No CSS styles named</source>
         <translation>Ei nimettyjä CSS-tyylejä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1094"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
         <source>Styles deleted.</source>
         <translation>Tyylit poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1349"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Tiedostoa &quot;%1&quot; ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1386"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1400"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Et voi lisätä tähän paikkaan tunnistetta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1529"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1644"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1658"/>
         <source>Select the destination to paste into first.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse ensin kohde, johon liitetään.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1697"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Yksi resurssi on valittuna eikä sitä ennen ole resurssia, johon sen voisi yhdistää.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1690"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
-        <translation>Oletko varma, että haluat yhdistää valitut tiedostot?⏎
+        <translation>Oletko varma, että haluat yhdistää valitut tiedostot?
 Tätä toimenpidettä ei voi peruuttaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1752"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1766"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Tyyliohjeiden linkitys peruutettiin: %1, XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
         <source>Merge cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistäminen peruutettu, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1734"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1748"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistäminen tehty. Sisällysluettelon uudelleen luominen tai muokkaaminen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1897"/>
         <source>Word updated.</source>
-        <translation type="unfinished"/>
+        <translation>Sana päivitetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1947"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1962"/>
         <source>File(s) deleted.</source>
         <translation>Tiedosto(ja) poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1995"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2010"/>
         <source>Table Of Contents generated.</source>
         <translation>Sisällysluettelo luotu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2333"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä kirja ei sisällä CSS-tyyliohjeita tarkistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2950"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
         <source>File cannot be split at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostoa ei voida jakaa tästä kohdasta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2967"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2982"/>
         <source>Split completed.</source>
-        <translation type="unfinished"/>
+        <translation>Jako suoritettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3017"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3032"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
-        <translation type="unfinished"/>
+        <translation>Jako tehty. Sisällysluettelon uudelleen luominen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3026"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3041"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation type="unfinished"/>
+        <translation>Jakokohtamerkintöjä ei löytynyt. Käytä komentoa Lisää → Jakokohta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3256"/>
         <source>File loaded.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedosto ladattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3290"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
         <source>Saving EPUB...</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaa tallennetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3299"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3314"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil ei voi tallentaa tyyppiä ”%1” olevia tiedostoja.
+Valitse toinen muoto.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="272"/>
         <source>Navigation cancelled as location no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Navigointi peruutettu, koska kohdetta ei enää ole.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="381"/>
         <source>was updated</source>
-        <translation type="unfinished"/>
+        <translation>päivitettiin</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="388"/>
         <source>Warning</source>
-        <translation type="unfinished"/>
+        <translation>Varoitus</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="418"/>
         <source>Select Show Details for more information.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse ”Näytä yksityiskohdat” saadaksesi lisää tietoa.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="463"/>
         <source>Sigil is closing...</source>
-        <translation type="unfinished"/>
+        <translation>Sigil suljetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="568"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Tätä tiedostoa ei enää ole. Napsauta OK-painiketta poistaaksesi sen valikosta.
+%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1254"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1268"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Käyttämättömien tyylien poisto peruuntui, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1284"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation type="unfinished"/>
+        <translation>Tyyliohjeissa ei ole käyttämättömiä luokkia poistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1422"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
-        <translation type="unfinished"/>
+        <translation>Tunniste on virheellinen. Tunnisteen pitää alkaa kirjaimella, ja siinä saa olla kirjaimia, numeroita ja merkkejä ”_:-.”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1476"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation type="unfinished"/>
+        <translation>Et voi tehdä hakemistomerkintää tähän kohtaan tai valitsematta tekstiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
         <source>You cannot mark an index at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Et voi tehdä hakemistomerkintää tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
         <source>Cannot merge file %1</source>
         <translation>Ei voi yhdistää tiedostoa %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1980"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1995"/>
         <source>Generate TOC cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Sisällysluettelon luonti peruutettiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1997"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2012"/>
         <source>No Table Of Contents changes were necessary.</source>
-        <translation type="unfinished"/>
+        <translation>Sisällysluetteloon ei tarvittu muutoksia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2861"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
         <source>Line: %1, Col: %2</source>
         <translation>Rivi: %1, sarake: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3135"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3150"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokumenttia on muutettu.
 Haluatko tallentaa muutoksesi?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3214"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3229"/>
         <source>No importer for file type: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ei tuontiohjelmaa tyyppiä ”%1” olevalle tiedostolle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3001"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ole HTML-tiedosto.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="388"/>
         <source>The file was NOT well formed and may be corrupted.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedosto ei ollut oikeamuotoinen ja voi olla vahingoittunut.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="416"/>
         <source>This EPUB contains errors.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä kirja sisältää virheitä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="748"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="762"/>
         <source>Image does not exist: </source>
-        <translation type="unfinished"/>
+        <translation>Kuvaa ei ole:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="886"/>
         <source>Add Cover</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kansi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="954"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="968"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation type="unfinished"/>
+        <translation>Odottamaton virhe. Kantta varten voidaan käyttää vain kuvatiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="971"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="985"/>
         <source>Cover added.</source>
-        <translation type="unfinished"/>
+        <translation>Kansi lisätty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1118"/>
         <source>Reports cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Raporttien tuottaminen peruutettiin, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1205"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Käyttämättömien mediatiedostojen poisto peruuntui, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
         <source>Unused media files deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Käyttämättömät mediatiedostot poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1246"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1260"/>
         <source>There are no unused image, video or audio files to delete.</source>
-        <translation type="unfinished"/>
+        <translation>Ei ole käyttämättömiä kuva-, video- tai audiotiedostoja poistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
         <source>You cannot insert a file at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Et voi liittää tiedostoa tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1302"/>
         <source>Insert File</source>
-        <translation>Lisää tiedoston sisältö</translation>
+        <translation>Lisää tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
         <source>You must select text before inserting a new id.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse teksti ennen uuden tunnisteen määrittelemistä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1426"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1450"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1464"/>
         <source>You cannot insert a link at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Tähän kohtaan ei voi lisätä linkkiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1448"/>
         <source>You must select text before inserting a new link.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse teksti ennen uuden linkin luomista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1445"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1459"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Linkki on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1472"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1486"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Kohta on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1537"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1551"/>
         <source>Pasted clip entry %1.</source>
-        <translation type="unfinished"/>
+        <translation>Liitettiin leike %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistäminen peruutettu: %1, XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1958"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1973"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Sisällysluettelon muokkaus peruutettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1978"/>
         <source>Table Of Contents edited.</source>
         <translation>Sisällysluetteloa muokattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2123"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2138"/>
         <source>Text selection marked.</source>
-        <translation type="unfinished"/>
+        <translation>Valittu teksti merkitty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2126"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2145"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2141"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2160"/>
         <source>Text selection unmarked.</source>
-        <translation type="unfinished"/>
+        <translation>Valitun tekstin merkitseminen poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
         <source>Cannot split: %1 XML is not well formed</source>
-        <translation type="unfinished"/>
+        <translation>Ei voi jakaa: %1 XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ehkä ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3221"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
 
 Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and reloading the file.</source>
-        <translation type="unfinished"/>
+        <translation>Seuraavaa tiedostoa ei ladattu, koska sisältö ei ole kelvollista tai ei ole oikeamuotoista XML:ää:
+
+%1 (rivi %2: %3)
+
+Muuta asetuksia niin, että tiedosto siistitään lataamisen yhteydessä, ja lataa se uudestaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3226"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
         <source>Loading file...</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan tiedostoa...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3256"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tämän tiedoston tuottaja on salannut sen DRM:llä. Sigil ei voi avata sellaisia tiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3278"/>
         <source>Cannot load EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaa ei voi ladaya: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3282"/>
         <source>Cannot load file %1: %2</source>
         <translation>Ei voi ladata tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3324"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3339"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
-        <translation type="unfinished"/>
+        <translation>Kirja sisältää HTML-tiedostoja, jotka eivät ole oikeamuotoisia, ja nykyiset Sigilin asetuksesi koodin siistimiselle sisältävät automaattisen siistimisen tallennuksen yhteydessä. Tiedoston tallentaminen aiheuttaa sen automaattisen siistimisen, jos tiedosto ei ole oikeamuotoinen. Tämä voi aiheuttaa tiedon katoamista.
+
+Haluatko korjata nämä tiedostot automaattisesti ennen tallentamista?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3355"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3370"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Kirja on tallennettu, mutta kaikki HTML-tiedostot eivät ole oikeamuotoisia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3358"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3373"/>
         <source>EPUB saved.</source>
-        <translation type="unfinished"/>
+        <translation>Kirja tallennettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3364"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
         <source>Cannot save file %1: %2</source>
         <translation>Ei voi tallentaa tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3501"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3516"/>
         <source>EPUB files (*.epub)</source>
         <translation>Epub-tiedostot (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3502"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3503"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3517"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3519"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML-tiedostot (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3520"/>
         <source>Text files (*.txt)</source>
         <translation>Tekstitiedostot (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3506"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3521"/>
         <source>All files (*.*)</source>
         <translation>Kaikki tiedostot (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3529"/>
         <source>EPUB file (*.epub)</source>
         <translation>Epub-tiedosto (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3524"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3539"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3595"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3610"/>
         <source>Preserve existing heading attributes is now:</source>
-        <translation type="unfinished"/>
+        <translation>Säilytä olemassaolevat otsikoiden määritteet on nyt:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3596"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3611"/>
         <source>ON</source>
-        <translation type="unfinished"/>
+        <translation>käytössä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3596"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3611"/>
         <source>OFF</source>
-        <translation type="unfinished"/>
+        <translation>ei käytössä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3636"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -8373,7 +8461,7 @@ Lukuohjelmat saattavat näyttää kohdat siinä järjestyksessä, missä ne esii
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="48"/>
         <source>The primary language of the book.  Required.&lt;p&gt;Use Add Basic to add additional optional languages.&lt;p&gt;Change the default language for new books in Preferences-&gt;Language.&lt;/P&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Kirjan ensisijainen kieli. Paikollinen&lt;p&gt;Käytä painiketta ”Lisää perustieto” lisätäksesi muita kieliä.&lt;p&gt;Muuta uusien kirjojen oletuskieli kohdassa Muokkaa → Asetukset → Kieli.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="51"/>
@@ -8383,12 +8471,12 @@ Lukuohjelmat saattavat näyttää kohdat siinä järjestyksessä, missä ne esii
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="68"/>
         <source>See Author.</source>
-        <translation type="unfinished"/>
+        <translation>Katso kohtaa Tekijä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="71"/>
         <source>File-As:</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna nimellä </translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="88"/>
@@ -8401,7 +8489,14 @@ Author is typically: Firstname Lastname
 File-As is typically: Lastname, Firstname
 
 Click &apos;Add Role&apos; to add more authors, creators, or contributors.</source>
-        <translation type="unfinished"/>
+        <translation>Kirjan ensisijainen tekijä. Ainakin yksi tekijä on ilmoitettava.
+
+Lukuohjelmat esittävät tekijän nimen tyypillisesti Tekijä-kohdassa,
+mutta lajittelutarkoituksiin ne tallentavat nimen muodossa, joka
+ilmoitetaan Tallenna nimellä -kohdassa, jos sitä käytetään.
+
+Napsauta Lisää rooli -painiketta lisätäksesi muita tekijöitä
+tai avustajia.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="128"/>
@@ -8414,7 +8509,10 @@ Click &apos;Add Role&apos; to add more authors, creators, or contributors.</sour
 
 You can also use a ';' between values to quickly create multiple
 entries of the same type.</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi ensimmäinen valittu rivi uudeksi kohdaksi.
+
+Voit myös käyttää puolipistettä ”;” arvojen välissä luodaksesi
+useita samantyyppisiä kohtia.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="177"/>
@@ -8510,7 +8608,7 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
         <source>Type</source>
-        <translation>Tyypp</translation>
+        <translation>Tyyppi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
@@ -8520,7 +8618,7 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
         <source>Format</source>
-        <translation>Muoto</translation>
+        <translation>Muotoile</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
@@ -8545,7 +8643,7 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
         <source>An optional extra language of the publication.  Use a value from the Language drop down menu.  For example use &apos;English&apos; instead of the language code &apos;en&apos;.</source>
-        <translation>Julkaisun lisäkieli. Valitse se Kieli-pudotusvalikosta. Käytä esimerkiksi nimeä ”suomi”, ei kielitunnusta ”fi”.</translation>
+        <translation>Julkaisun lisäkieli. Kirjoita kielen nimi sellaisena, kuin se esiintyy Kieli-pudotusvalikosta. Kirjoita esimerkiksi ”ruotsi”, älä kielitunnusta ”sv”.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="228"/>
@@ -8605,7 +8703,7 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
         <source>Actor</source>
-        <translation>Esiintyjä</translation>
+        <translation>Näyttelijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
@@ -8615,12 +8713,12 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Adapter</source>
-        <translation>Sovittaja</translation>
+        <translation>Muokkaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka 1) muokkaa musiikkiteosta, tavallisesti eri välinettä varten tai 2) muokkaa kirjallisia teoksia elokuvaa tai muuta audiovisuaalista välinettä varten.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
@@ -8645,7 +8743,7 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
         <source>Annotator</source>
-        <translation>Kommentaattori</translation>
+        <translation>Muistiinpanojen tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
@@ -8665,42 +8763,42 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
         <source>Architect</source>
-        <translation type="unfinished"/>
+        <translation>Arkkitehti</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee rakenteita tai valvoo niiden toteuttamista.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
         <source>Arranger</source>
-        <translation type="unfinished"/>
+        <translation>Sovittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka muuntaa musiikkiteoksen toiseen muotoon, tavallisesti alkuperäisestä poikkeavaan välineeseen. Sovituksessa musiikillinen sisältö pysyy olennaisesti muuttumattomana.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
         <source>Art copyist</source>
-        <translation type="unfinished"/>
+        <translation>Taiteen kopioija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle (esimerkiksi taidemaalarille tai kuvanveistäjälle), joka tekee kopioita visuaalisen taiteen teoksista.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
         <source>Artist</source>
-        <translation>Taiteellinen suunnittelija</translation>
+        <translation>Kuvataiteilija, graafikko</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle (esimerkiksi maalarille) tai organisaatiolle, joka suunnittelee ja mahdollisesti myös toteuttaa alkuperäisen graafisen asun tai taideteoksen, ellei haluta käyttää tarkempaa roolia (kuten kaivertaja [egr] tai etsaaja [etr]). Kirjan kuvittajille suositellaan mieluummin roolia kuvittaja [ill].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
@@ -8710,544 +8808,544 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka on vastuussa koko tuotantoprosessin taiteellisen tyylin kehittämisen valvonnasta, mukaan lukien esitettävien teosten valinta ja kokeneen tuotantohenkilöstön valinnasta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
         <source>Assignee</source>
-        <translation type="unfinished"/>
+        <translation>Lisenssinhoitaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organaatiolle, jolle  julkaisemislisenssi on siirretty.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
         <source>Associated name</source>
-        <translation type="unfinished"/>
+        <translation>Kohteeseen liittyvä nimi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka liittyy tai sisältyy kohteeseen tai kokoelmaan ja jonka ei voida määrittää olevan aiempi omistaja [fmo] eikä muussa roolissa, joka osoittaa alkuperää.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
         <source>Attributed name</source>
-        <translation type="unfinished"/>
+        <translation>Oletettu/väitetty tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä kirjoittajalle, taiteilijalle tms. yhdistäen hänet teokseen, jos on olemassa tai on ollut olemassa merkittävä peruste ilmoittaa hänet teoksen tekijäksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
         <source>Auctioneer</source>
-        <translation type="unfinished"/>
+        <translation>Huutokaupanpitäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka vastaa tavaroiden, etenkin kirjojen, taideteosten yms., arvioinnista ja myynnistä julkisissa huutokaupoissa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on pääasiassa vastuussa teoksen, yleensä painetun tekstin, henkisestä tai taiteellisesta sisällöstä. Tätä termiä voidaan käyttää silloinkin, kun useammalle kuin yhdellä on sellainen vastuu.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
         <source>Author in quotations or text extracts</source>
-        <translation type="unfinished"/>
+        <translation>Lainausten tai otteiden tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka teoksista on laajasti lainauksia tai otteita teoksissa, joihin hän ei antanut suoraa panosta. Sellaisia lainauksia on erityisesti näyttelyluetteloissa, valokuvakuvakokoelmissa yms.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Jälkisanojen, kolofonin jne. tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa jälkisanoista, kolofonista tms., mutta ei ole teoksen päätekijä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>Author of dialog</source>
-        <translation type="unfinished"/>
+        <translation>Dialogin tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa näytelmän tai äänitteen dialogista tai puhutusta selostuksesta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Author of introduction, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Esipuheen tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa johdannosta, esipuheesta, alkusanoista tai muusta arvioivasta johdattavasta aineistosta, mutta ei ole päätekijä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>Author of screenplay, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käsikirjoittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa elokuvan käsikirjoituksesta, vuorosanoista, puhutusta selostuksesta tms.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Bibliographic antecedent</source>
-        <translation type="unfinished"/>
+        <translation>Bibliografinen edeltäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa työstä, johon tämä työ perustuu. Tämä voi soveltua sovituksiin, jatko-osiin, jatkosarjoihin, hakemistoihin yms.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>Binder</source>
-        <translation type="unfinished"/>
+        <translation>Sitoja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa painetun aineiston tai käsikirjoituksen sidonnasta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Binding designer</source>
-        <translation type="unfinished"/>
+        <translation>Sidonnan suunnittelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirja sidonnan suunnittelusta, mukaan lukien sidonnan tyyppi, käytetyt materiaalit ja sidonnan koristelu.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Book designer</source>
-        <translation type="unfinished"/>
+        <translation>Kirjan suunnittelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirjan koko graafisesta suunnittelusta, mukaan lukien taiton ja kuvituksen järjestäminen, materiaalien valinta ja käytetyt menetelmät.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Book producer</source>
-        <translation type="unfinished"/>
+        <translation>Kirjan tuottaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirjojen ja muiden painotuotteiden tuottamisesta, ellei haluta käyttää tarkempia koodeja (esimerkiksi [bkd], [egr], [tyd] tai [prt]).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Bookjacket designer</source>
-        <translation type="unfinished"/>
+        <translation>Irtopäällyksen suunnittelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa niiden taipuisien päällysten suunnittelusta, jotka tehdään kirjaa varten tai julkaistaan sen kanssa, mukaan lukien käytettyjen materiaalien laji ja irtopäällyksen koristelu.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Bookplate designer</source>
-        <translation type="unfinished"/>
+        <translation>Exlibriksen suunnittelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirjan oman tunnistelapun suunnittelusta. Tällainen lappu on tavallisimmin kiinnitetty kirjan etukannen sisäpuolelle.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Bookseller</source>
-        <translation type="unfinished"/>
+        <translation>Kirjakauppaus</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka myy kirjoja ja muuta bibliografista aineistoa. Kiinnostus aineistoon on ensi sijassa liiketoiminnallinen.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Calligrapher</source>
-        <translation type="unfinished"/>
+        <translation>Kalligrafi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka kirjoittaa taiteellisella käsialalla, tavallisesti kopioijana tai tekstaajana.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Cartographer</source>
-        <translation type="unfinished"/>
+        <translation>Kartoittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on karttojen ja muun kartografisen aineiston tekeminen.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Censor</source>
-        <translation type="unfinished"/>
+        <translation>Sensori</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä sensorille, sopimattoman sisällön poistavalle tarkastajalle tms., joka voi olla virallinen tai yksityinen.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Choreographer</source>
-        <translation type="unfinished"/>
+        <translation>Koreografi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee tai järjestelee tanssiesityksiä tai muita liikkeitä (esim. miekkailuesityksiä) musiikki- tai näytelmäesitystä varten tai viihteeksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Cinematographer</source>
-        <translation type="unfinished"/>
+        <translation>Kuvaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on kuvaaminen elokuvaa varten. Kuvaaja toimii ohjaajan valvonnassa, ja häneen voidaan viitata myös pääkuvaajana. Ei pidä sekoittaa videokuvaajaan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Client</source>
-        <translation type="unfinished"/>
+        <translation>Asiakas</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka hyväksi toinen henkilö tai organisaatio toimii.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Collaborator</source>
-        <translation type="unfinished"/>
+        <translation>Avustaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Use for a person or organization that takes a limited part in the elaboration of a work of another person or organization that brings complements (e.g., appendices, notes) to the work.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka osallistuu rajoitetusti toisen henkilön tai organisaation teoksen tekemiseen tavalla, joka täydentää työtä (esim. liitteillä tai huomautuksilla).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Collector</source>
-        <translation type="unfinished"/>
+        <translation>Kokoaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on koonnut eri lähteistä aineistoa, joka on järjestetty, kuvattu ja luetteloitu kokoelmaksi. Kokoaja ei ole aineiston tekijä eikä henkilö, jolle kokoelman käsikirjoitukset on osoitettu.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>Collotyper</source>
-        <translation type="unfinished"/>
+        <translation>Valopainon hoitaja </translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on tulosteiden tekeminen filmistä tai muusta kolloidisesta aineistosta, jossa on mustetta imeviä ja mustetta torjuvia pintoja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Commentator</source>
-        <translation type="unfinished"/>
+        <translation>Selostaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka harjoittaa tulkintaa, analyysia tai keskustelua aiheesta äänitteessä, elokuvassa tai muussa audiovisuaalisessa välineessä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
         <source>Commentator for written text</source>
-        <translation type="unfinished"/>
+        <translation>Tekstin kommentaattori</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla ovat tekstiä koskevat kommentoivat tai selittävät huomautukset. Henkilölle, joka kirjoittaa käsikirjoitusta koskevia huomautuksia painettuun kirjaan, käytetään roolia annotoija [ann].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
         <source>Compiler</source>
-        <translation type="unfinished"/>
+        <translation>Kokoaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tuottaa teoksen tai julkaisun valitsemalla ja yhdistämällä aineistoa eri henkilöiden tai tahojen teoksista.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Complainant</source>
-        <translation type="unfinished"/>
+        <translation>Oikeusvaatimuksen tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä taholle, joka vetoaa tuomioistuimiin korvausten saamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
         <source>Complainant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Oikeusvalituksen tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
         <source>Complainant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Oikeusvalitukseen vastaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä oikeusvaatimuksen tekijälle, jota vastaan on esitetty valitus yhden tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
         <source>Composer</source>
-        <translation type="unfinished"/>
+        <translation>Säveltäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka luo musiikkiteoksen, tavallisesti musiikin käsikirjoituksena tai painettuna.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
         <source>Compositor</source>
-        <translation type="unfinished"/>
+        <translation>Latoja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle joka tekee metallisia kirjakerivejä tai muista materiaaleista tehtyjä ladelmia, joita käytetään tekstin ja kuvien tuottamiseen painetussa muodossa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
         <source>Conceptor</source>
-        <translation type="unfinished"/>
+        <translation>Idean esittäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa siitä alkuperäisestä ideasta, johon työ perustuu. Tämä sisältää audiovisuaalisen teoksen tieteellisen tekijän ja mainoksen idean keksijän.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Conductor</source>
-        <translation type="unfinished"/>
+        <translation>Johtaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka johtaa esiintyvää ryhmää (orkesteria, kuoroa, oopperaa tms.) musiikki- tai näytelmäesityksessä tai viihteessä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
         <source>Consultant</source>
-        <translation type="unfinished"/>
+        <translation>Konsultti</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolta pyydetään ammattiapua tai palveluja tiedon erikoisalalla tai koulutuksessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
         <source>Consultant to a project</source>
-        <translation type="unfinished"/>
+        <translation>Projektikonsultti</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on otettu mukaan erityisesti tarjoamaan strategisen tai operatiivisen tehtävän intellektuaalista valvontaa ja analyysilla, määrittelyllä tai ohjeilla luomaan tai ehdottamaan kustannustehokkaan menettelytavan tai ratkaisun.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Contestant</source>
-        <translation type="unfinished"/>
+        <translation>Vastapuoli</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä osapuolelle, joka tuomioistuimessa vastustaa väitettä, päätöstä, tulosta tms.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Contestant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Valituksen tehnyt vastapuoli</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vastapuolelle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Contestant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Vastapuoli, jota vastaan valitus on tehty</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vastapuolelle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
         <source>Contestee</source>
-        <translation type="unfinished"/>
+        <translation>Kantaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä osapuolelle, joka puolustaa väitettä, päätöstä, tulosta tms., jota vastustetaan tai joka kiistetään tuomioistuimessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
         <source>Contestee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Valituksen tehnyt kantaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä kantajalle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
         <source>Contestee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Kantaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä kantajalle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
         <source>Contractor</source>
-        <translation type="unfinished"/>
+        <translation>Sopimusosapuoli</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on merkityksellinen teoksen kannalta ja joka tekee sopimuksen toisen henkilön tai organisaation kanssa tietyn tehtävän tekemiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="197"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
         <source>Contributor</source>
-        <translation type="unfinished"/>
+        <translation>Avustaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka työ on annettu käytettäväksi osana laajempaa työtä, kuten lukemistoa, sarjajulkaisua tai muuta teosten yhdistelmää. Älä käytä, jos ainoa tehtävä suhteessa työhön on toimia tekijänä, editorina, kokoajana tai kääntäjänä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
         <source>Copyright claimant</source>
-        <translation type="unfinished"/>
+        <translation>Tekijänoikeuden haltijaksi ilmoitettu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on ilmoitettu tekijänoikeuden haltijaksi rekisteröintihetkellä. Tekijänoikeus voidaan myöntää tai myöhemmin siirtää toiselle henkilölle tai organisaatiolle, jolloin tekijänoikeuden vaatijasta tulee tekijänoikeuden haltija.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
         <source>Copyright holder</source>
-        <translation type="unfinished"/>
+        <translation>Tekijänoikeuden haltija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolle on myönnetty tai siirretty tekijänoikeus teokseen. Tekijänoikeuden haltijalla, joka ei välttämättä ole teoksen tekijä, on tavallisesti yksinoikeus hyötyä taloudellisesti sen teoksen myynnistä ja käytöstä, jota tekijänoikeuden suoja koskee.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
         <source>Corrector</source>
-        <translation type="unfinished"/>
+        <translation>Korjaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka korjaa käsikirjoituksia, kuten luostarin kirjoitushuoneen työntekijälle, joka on korjannut käsikirjoituksen jäljentäjän työtä. Painotuotteen osalta käytä roolia oikolukija.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
         <source>Correspondent</source>
-        <translation type="unfinished"/>
+        <translation>Viestinnän osapuoli</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on kirjeen tai muun viestinnän kirjoittaja tai vastaaja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
         <source>Costume designer</source>
-        <translation type="unfinished"/>
+        <translation>Puvustaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee tai tekee pukuja, laittaa tukkaa tms. musiikki- tai näytelmäesitystä tai viihdettä varten</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
         <source>Cover designer</source>
-        <translation type="unfinished"/>
+        <translation>Kannen suunnittelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirjan kannen, albumin kannen, suojakotelon, laatikon, säiliön etc. suunnittelijasta. Jos vastuu koskee koko kirjan graafista suunnittelua, käytä roolia kirjan suunnittelija, ja jos se se koskee kirjan irtopäällystä, käytä roolia irtopäällyksen suunnittelija,</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="196"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Creator</source>
-        <translation type="unfinished"/>
+        <translation>Luoja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="198"/>
@@ -9260,7 +9358,7 @@ Haluatko tallentaa muutoksesi?</translation>
         <location filename="../../BookManipulation/Metadata.cpp" line="233"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="234"/>
         <source>Identifier</source>
-        <translation>Tunnus</translation>
+        <translation>Tunniste</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
@@ -9285,352 +9383,352 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="223"/>
         <source>Enter your own event name in the File As column, e.g. updated.</source>
-        <translation type="unfinished"/>
+        <translation>Kirjoita oma tapahtuman nimesi sarakkeeseen ”Tallenna nimellä”, esim. ”päivitetty”.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="235"/>
         <source>Identifier (custom)</source>
-        <translation type="unfinished"/>
+        <translation>Tunniste (oma)</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="235"/>
         <source>Enter your own custom identifier name in the File As column, e.g. stocknumber</source>
-        <translation type="unfinished"/>
+        <translation>Kirjoita haluamasi oman tunnisteen nimi sarakkeeseen ”Tallenna nimellä”, esim. ”versio”.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa teoksen henkisestä tai taiteellisesta sisällöstä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Curator of an exhibition</source>
-        <translation type="unfinished"/>
+        <translation>Näyttelyn järjestäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa näyttelyn perustamisesta ja järjestämisestä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Dancer</source>
-        <translation type="unfinished"/>
+        <translation>Tanssija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka pääasiassa esittää tanssisuorituksia musiikki- tai näytelmäesityksessä tai viihteessä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Data contributor</source>
-        <translation type="unfinished"/>
+        <translation>Tiedon tuottaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka toimittaa tietoa sisällytettäväksi tietokantaan tai muuhun tiedon kokoelmaan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Data manager</source>
-        <translation type="unfinished"/>
+        <translation>Tietokantavastaava</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa tietokantojen tai muiden tietoaineistojen hallinnasta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Dedicatee</source>
-        <translation type="unfinished"/>
+        <translation>Omistussanojen kohde</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolle kirja, käsikirjoitus tms. on omistettu (ei lahjan saajalle).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Dedicator</source>
-        <translation type="unfinished"/>
+        <translation>Omistussanojen kirjoittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä omistussanojen kirjoittajalle. Omistussanat voivat olla muodollinen toteamus tai kirje- tai runomuodossa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Defendant</source>
-        <translation type="unfinished"/>
+        <translation>Vastaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä osapuolelle, joka puolustaa itseään tai kiistää syytökset, joita on tehty oikeusjutussa tuomioistuimessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Defendant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Valituksen tehnyt vastaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vastaajalle, joka vetoaa tuomioistuimesta toiseen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Defendant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Valitukseen vastaava vastaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vastaajalle, jota vastaan on tehty valitus tuomioistuimesta toiseen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Degree grantor</source>
-        <translation type="unfinished"/>
+        <translation>Oppiarvon myöntäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä organisaatiolle, joka myöntää sen oppiarvon, jota varten kuvattava opinnäytetyö tai väitöskirja esitettiin.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Delineator</source>
-        <translation type="unfinished"/>
+        <translation>Tekninen piirtäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tekee teknisiä piirustuksia muiden laatimien suunnitelmien mukaan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Depicted</source>
-        <translation type="unfinished"/>
+        <translation>Kuvauksen kohde</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä kohteelle, joka kuvataan sanoin tai kuvin teoksessa, erityisesti taideteoksessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Depositor</source>
-        <translation type="unfinished"/>
+        <translation>Tallettaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation type="unfinished"/>
+        <translation> Käytä henkilölle tai organisaatiolle, joka toimittaa aineiston fyysisesti kirjaston tai varaston haltuun siirtämättä sen oikeudellista hallintaa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Designer</source>
-        <translation type="unfinished"/>
+        <translation>Suunnittelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on suunnittelu, ellei haluta käyttää tarkempia koodeja (esim. [bkd] tai [tyd]).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Director</source>
-        <translation type="unfinished"/>
+        <translation>Ohjaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on työn yleinen hallinta tai joka valvoo näyttämölle tai elokuvaan tehtävää esitystä tai äänen tallentamista.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Dissertant</source>
-        <translation type="unfinished"/>
+        <translation>Tutkielman esittäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka esittää tutkielman yliopistollista tai ylemmän asteen oppiarvoa varten.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Distributor</source>
-        <translation type="unfinished"/>
+        <translation>Jakaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolla on kohteen markkinointioikeudet yksin tai yhdessä toisen kanssa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Donor</source>
-        <translation type="unfinished"/>
+        <translation>Lahjoittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on lahjoittanut kirjan, käsikirjoituksen  tms. sen nykyiselle omistajalle. Ne, jotka ovat lahjoittaneet sen aiemmille omistajille, ilmoitetaan rooleilla aiempi omistaja [fmo] tai omistuskirjoituksen kirjoittaja [ins].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Draftsman</source>
-        <translation type="unfinished"/>
+        <translation>Piirtäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tekee taiteellisia tai teknisiä piirustuksia.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Dubious author</source>
-        <translation type="unfinished"/>
+        <translation>Kyseenalainen tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on ilmoitettu tekijäksi epäilyttävästi tai virheellisesti.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Editor</source>
-        <translation type="unfinished"/>
+        <translation>Toimittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka muokkaa julkaistavaksi teoksen, joka ei ole ensisijaisesti hänen omansa, esimerkiksi selventämällä tekstiä, lisäämällä johdattavaa tai muuta kriittistä aineistoa tai ohjaamalla teknisesti muokkaustyötä tekevää henkilöstöä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Electrician</source>
-        <translation type="unfinished"/>
+        <translation>Sähköasennuksista vastaava</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, jonka vastuulla on valaistuslaitteiston asentaminen ja kohdentaminen esityksen valaistusta varten ja valaistuksen hoitaminen esityksen aikana.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Electrotyper</source>
-        <translation type="unfinished"/>
+        <translation>Galvanoplastinen jäljentäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka muottiin puristamalla ja varaamalla metallin sähköisesti  luo painopinnan, joka tuetaan lyijyllä painamista varten.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Engineer</source>
-        <translation type="unfinished"/>
+        <translation>Tekninen asiantuntija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on tekninen suunnittelu, erityisesti rakennustöissä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Engraver</source>
-        <translation type="unfinished"/>
+        <translation>Kaivertaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka leikkaa kirjaimia, kuvioita ym. pintaan, kuten puu- tai metallilaattaan, painamista varten.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Etcher</source>
-        <translation type="unfinished"/>
+        <translation>Etsaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tuottaa tekstiä tai kuvia painamista varten käsittelemällä metallia, lasia tai muuta pintaa hapolla tai muulla syövyttävällä aineella.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Expert</source>
-        <translation type="unfinished"/>
+        <translation>Asiantuntija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on tavaroiden, erityisesti harvinaisten esineiden, taideteosten yms., kuvaileminen ja arviointi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Facsimilist</source>
-        <translation type="unfinished"/>
+        <translation>Jäljenteen toteuttaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Use for a person or organization that executed the facsimile. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka toteutti näköisjäljennöksen.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Field director</source>
-        <translation type="unfinished"/>
+        <translation>Kenttätyön johtaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka hallinnoi tai valvoo työtä, jota tehdään perustietoaineiston kokoamiseksi tai tutkimuksen tekemiseksi konkreettisessa tutkimusasetelmassa tai ympäristössä (soveltuu pääosin luonnon- ja yhteiskuntatieteisiin).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Film editor</source>
-        <translation type="unfinished"/>
+        <translation>Leikkaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on elokuvan leikkaaja. Tätä termiä käytetään riippumatta siitä, millaiselle välineelle elokuva tehdään (esim. asetaattifilmi tai videonauha).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>First party</source>
-        <translation type="unfinished"/>
+        <translation>Ensimmäinen osapuoli</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on määritetty ainoaksi osapuoleksi tai ensimmäisen osan osapuoleksi. Kun kyse on oikeuden siirrosta, tämä on se taho, joka myöntää, siirtää, lisensoi tms. oikeuden. Useita osapuolia yhdessä voidaan nimetä ensimmäiseksi osapuoleksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Forger</source>
-        <translation type="unfinished"/>
+        <translation>Väärentäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tekee tai jäljittelee jotain arvokasta tai tärkeää, erityisesti petoksellisessa tarkoituksessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Former owner</source>
-        <translation type="unfinished"/>
+        <translation>Aiempi omistaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr]</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka omisti kohteen joskus menneisyydessä. Sisältää ne, joille aineisto joskus esitettiin. Henkilö tai organisaatio, joka on antanut kohteen nykyiselle omistajalle, merkitään rooliin lahjoittaja [dnr].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
@@ -9640,1042 +9738,1042 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka antoi rahallista tukea teoksen tuottamiselle.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Geographic information specialist</source>
-        <translation type="unfinished"/>
+        <translation>Maantieteellisen tiedon asiantuntija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, jonka vastuulla on maantieteellisen tiedon järjestelmän (GIS) kehittäminen ja integrointi GPS-tiedon kanssa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Honoree</source>
-        <translation type="unfinished"/>
+        <translation>Juhlajulkaisun kohde</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka muistoksi tai kunniaksi kirja, käsikirjoitus tms. on lahjoitettu.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Isäntä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka on kutsuttu juontamaan tai säännöllisesti juontaa ohjelmaa (usein lähetystä), joka sisältää muita vieraita, esiintyjiä ym. (esim. keskusteluohjelman isäntä).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Illuminator</source>
-        <translation type="unfinished"/>
+        <translation>Illuminaattori</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on taideteoksen (etenkin käsikirjoitusaineiston) koristelu arvometalleilla tai väreillä, tavallisesti käyttäen paljon yksityiskohtia ja motiiveja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Illustrator</source>
-        <translation type="unfinished"/>
+        <translation>Kuvittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee ja ehkä myös toteuttaa ulkoasun tai kuvituksen, yleensä kirjoitetulle tekstille.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Inscriber</source>
-        <translation type="unfinished"/>
+        <translation>Omistuskirjoituksen kirjoittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Use for a person who signs a presentation statement.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka allekirjoittaa esitystä koskevan asiakirjan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Instrumentalist</source>
-        <translation type="unfinished"/>
+        <translation>Soittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka pääasiallisesti soittaa soitinta musiikki- tai näytelmäesityksessä tai viihteessä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Interviewee</source>
-        <translation type="unfinished"/>
+        <translation>Haastateltava</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jota haastatellaan konsultoinnissa tai tapaamisessa. Haastattelijana on tavallisesti reportteri, kyselytutkimuksen haastattelija tai muu tiedonkeruun hoitaja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Interviewer</source>
-        <translation type="unfinished"/>
+        <translation>Haastattelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka toimii reportterina, kyselytutkimuksen haastattelijana tai muuna tiedonkeruun hoitajana konsultoinnissa tai kokouksessa, jossa on mukana yksi tai useita ihmisiä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Inventor</source>
-        <translation type="unfinished"/>
+        <translation>Keksijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka ensimmäisenä tuottaa tietyn hyödyllisen kohteen tai kehittää uuden prosessin tietyn kohteen tai tuloksen tuottamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Laboratory</source>
-        <translation type="unfinished"/>
+        <translation>Laboratorio</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä laitokselle, joka tekee tieteellisiä analyyseja aineellisista näytteistä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Laboratory director</source>
-        <translation type="unfinished"/>
+        <translation>Laboratorionjohtaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka hallinnoi tai valvoo työtä, jota tehdään kontrolloidussa tilanteessa tai ympäristössä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Landscape architect</source>
-        <translation type="unfinished"/>
+        <translation>Maisema-arkkitehti</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka koordinoi olemassaolevien ja suunniteltujen maankäytön piirteiden ja rakenteiden järjestämistä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Lead</source>
-        <translation type="unfinished"/>
+        <translation>Päällikkö</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolla on ensisijainen vastuu tietystä toiminnasta tai hankkeesta. Käytä yhdessä toisen roolitermin tai -koodin kanssa osoittamaan suurempaa merkitystä, joka tällä henkilöllä tai organisaatiolla on kyseisen roolin suhteen. Jos on käytetty useampaa kuin yhtä muuta roolia, käytä tätä roolia vain, jos se koskee kaikkia muita rooleja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Lender</source>
-        <translation type="unfinished"/>
+        <translation>Lainaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka sallii kirjan, käsikirjan tms. tilapäisen käytön esimerkiksi valokopiointia tai mikrofilmausta varten.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Libelant</source>
-        <translation type="unfinished"/>
+        <translation>Haastaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä osapuolelle, joka on haastajana kirkko-oikeudellisessa tai merioikeudellisessa jutussa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Libelant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Valituksen tehnyt haastaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä haastajalle, joka vetoaa kirkollisen tai merioikeudellisen tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Libelant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Haastaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä haastajalle, jota vastaan on vedottu kirkollisen tai merioikeudellisen tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Libelee</source>
-        <translation type="unfinished"/>
+        <translation>Haasteen vastaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä osapuolelle, jota vastaan on esitetty haaste kirkollisessa tai merioikeudellisessa tuomioistuimessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Libelee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Valituksen tehnyt haasteeseen vastaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä haasteen vastaajalle, joka vetoaa kirkollisen tai merioikeudellisen tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Libelee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Haasteen vastaaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä haasteen vastaajalle, jota vastaan on vedottu kirkollisen tai merioikeudellisen tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Librettist</source>
-        <translation type="unfinished"/>
+        <translation>Libretisti</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on kirjoittanut tekstin oopperaan, oratorioon tms.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Licensee</source>
-        <translation type="unfinished"/>
+        <translation>Lisenssinsaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on paino- tai julkaisuluvan alkuperäinen saaja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Licensor</source>
-        <translation type="unfinished"/>
+        <translation>Lisenssinantaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka lisenssin, painoluvan tms. allekirjoittaja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Lighting designer</source>
-        <translation type="unfinished"/>
+        <translation>Valaistussuunnittelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee valaistuskaavion teatteriesitykseen, viihteeseen, elokuvaan tms.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Lithographer</source>
-        <translation type="unfinished"/>
+        <translation>Litografi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa kiven tai laatan litografista painamista varten. Tämä voi olla kuvataiteilija, joka luo teoksen suoraan painopinnalle.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Lyricist</source>
-        <translation type="unfinished"/>
+        <translation>Sanoittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on laulun tekstin kirjoittaja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Manufacturer</source>
-        <translation type="unfinished"/>
+        <translation>Valmistaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa artifaktin (esineen, jonka on tehnyt tai jota on muokannut yksi tai useampia henkilöitä). Esimerkkejä artifakteista ovat maljakot, tykit ja huonekalut.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Markup editor</source>
-        <translation type="unfinished"/>
+        <translation>Merkkauksen tuottaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka hoitaa metatiedon, tekstin ym. SGML-, HTML- tai XML-merkkauksen koodaamista.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Metadata contact</source>
-        <translation type="unfinished"/>
+        <translation>Metatietokontakti</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on päävastuussa metatiedon (esim. geospatiaalisen metatiedon joukon) alkuperäisen kuvauksen kokoamisesta ja ylläpidosta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Metal-engraver</source>
-        <translation type="unfinished"/>
+        <translation>Metallinkaivertaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla ovat koristelut, kuvitukset, kirjaimet yms., jotka kaiverretaan metallipintaan tulostusta tai koristamista varten.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Moderator</source>
-        <translation type="unfinished"/>
+        <translation>Keskustelun vetäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka johtaa ohjelmaa (usein lähetystä), jossa keskustellaan joistakin aiheista, tavallisesti niin, että siihen osallistuu kyseisten alojen asiantuntijoita.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Monitor</source>
-        <translation type="unfinished"/>
+        <translation>Valvoja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka valvoo sopimuksen noudattamista ja on vastuussa raportista ja valvoo sen jakelua.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Music copyist</source>
-        <translation type="unfinished"/>
+        <translation>Musiikin kopioija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Use for a person who transcribes or copies musical notation</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka sovittaa tai kopioi musiikkimerkintöjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Musical director</source>
-        <translation type="unfinished"/>
+        <translation>Musiikillinen johtaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka on vastuussa musikaalisista perusratkaisuista, jotka koskevat tuotantoa, mukaan lukien säveltäjän, äänittäjän ja miksaajien työn koordinoinnista, muusikkojen valinnasta sekä harjoitusten ja esitysten äänen järjestämisestä tai johtamisesta</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Musician</source>
-        <translation type="unfinished"/>
+        <translation>Muusikko</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka esittää musiikkia tai antaa panoksen työn musiikilliseen sisältöön, kun ei ole mahdollista tai toivottavaa kuvata roolia tarkemmin.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Narrator</source>
-        <translation type="unfinished"/>
+        <translation>Kertoja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka selostaa toimintaa, tapahtumaa tai tapahtumakulkua.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Opponent</source>
-        <translation type="unfinished"/>
+        <translation>Vastaväittäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on esittää vastahuomautuksia väitöskirjasta tai vastaavasta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Organizer of meeting</source>
-        <translation type="unfinished"/>
+        <translation>Kokouksen järjestäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on sen kokouksen järjestäminen, jonka raportista, pöytäkirjasta tai julkaisusta on kyse.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Originator</source>
-        <translation type="unfinished"/>
+        <translation>Suorittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka suorittaa työn, so. sen henkilön tai organisaation nimelle, joka liittyy teoksen sisältöön. Tämä ei sisällä julkaisijaa eikä henkilökohtaista sidettä eikä tukijaa, ellei kyseessä ole myös tekijä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Other</source>
-        <translation type="unfinished"/>
+        <translation>Muu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä roolikoodeille, jotka on otettu muista listoista ja joilla ei ole vastinetta MARCin listassa, ja rooleille, joille ei ole koodia.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Omistaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka nyt omistaa kohteen tai kokoelman.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Papermaker</source>
-        <translation type="unfinished"/>
+        <translation>Paperinvalmistaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on  paperin tuottaminen, tavallisesti puusta, tekstiileistä tai muusta kuitua sisältävästä materiaalista.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Patent applicant</source>
-        <translation type="unfinished"/>
+        <translation>Patentinhakija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Use for a person or organization that applied for a patent.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on hakenut patenttia.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Patent holder</source>
-        <translation type="unfinished"/>
+        <translation>Patentinhaltija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolle myönnettiin patentti, johon kohteessa viitataan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Patron</source>
-        <translation type="unfinished"/>
+        <translation>Suojelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on työn toimeksianto. Tavallisesti suojelija käyttää varojaan tai vaikutusvaltaansa tukeakseen taiteilijoiden, kirjailijoiden tms. työtä. Tämä sisältää tahot, jotka antavat yksittäisiä toimeksiantoja ja maksavat niistä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Performer</source>
-        <translation type="unfinished"/>
+        <translation>Esittäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka osoittaa musikaalista tai näyttämöllistä taitoa musiikki- tai näytelmäesityksessä tai viihteessä, ellei käytetä näitä rooleja vastaavia tarkempia koodeja (näyttelijä [act], tanssija [dnc], soittaja [itr], laulusolisti [voc] jne.). Jos käytetään tarkempia koodeja, koodia esittäjä [prf] käytetään henkilölle, jonka pääasiallista taitoa ei tiedetä tai ei ilmoiteta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Permitting agency</source>
-        <translation type="unfinished"/>
+        <translation>Hyväksyjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä taholle (tavallisesti valtion viranomaiselle), joka antaa lupia, jollaisen perusteella työ on tehty.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Photographer</source>
-        <translation type="unfinished"/>
+        <translation>Valokuvaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on valokuvien ottaminen, käytettiinpä niitä alkuperäisessä muodossaan tai reproduktioina.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Plaintiff</source>
-        <translation type="unfinished"/>
+        <translation>Kantaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä osapuolelle, joka esittää vaatimuksen tai syytteen oikeudessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Plaintiff-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Valituksen tehnyt kantaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä kantajalle, joka on tehnyt valituksen tuomioistuimesta toiseen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Plaintiff-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Kantaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä kantajalle, jota vastaan on tehty valitus tuomioistuimesta toiseen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Platemaker</source>
-        <translation type="unfinished"/>
+        <translation>Laattojen tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on laattojen tuottaminen, tavallisesti painettujen kuvien tai tekstien tuottamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Printer</source>
-        <translation type="unfinished"/>
+        <translation>Painaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tulostaa tekstejä, käytettiinpä siinä ladelmia tai painolaattoja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Printer of plates</source>
-        <translation type="unfinished"/>
+        <translation>Laattojen tulostaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tulostaa kuvituksia painolaatoista. </translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Printmaker</source>
-        <translation type="unfinished"/>
+        <translation>Pinnan tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa korkokuvan, kaiverretun korostekuvan tai laakapainon painopinnan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Process contact</source>
-        <translation type="unfinished"/>
+        <translation>Prosessista vastaava</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on ensisijaisessa vastuussa prosessin suorittamisesta tai käynnistämisestä, esimerkiksi metatietojen joukon keräämisessä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Producer</source>
-        <translation type="unfinished"/>
+        <translation>Tuottaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on elokuvan valmistaminen, mukaan lukien liiketoiminnalliset näkökohdat, tuottamisen hallinta ja työn kaupallinen menestys.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Production manager</source>
-        <translation type="unfinished"/>
+        <translation>Tuotantopäällikkö</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla ovat kaikki tuotannon tekniset ja liiketoiminnalliset asiat.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Production personnel</source>
-        <translation type="unfinished"/>
+        <translation>Tuotantohenkilökunta</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka liittyy musiikillisen tai draamallisen esityksen tai viihteen tuotantoon (lavastus, valaistus, tehosteet ym.).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Programmer</source>
-        <translation type="unfinished"/>
+        <translation>Ohjelmoija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on tietokoneohjelman suunnitelmien, lähdekoodin ja koneluettavien digitaalisten tiedostojen ja niitä tukevan dokumentaation luominen tai ylläpito.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Project director</source>
-        <translation type="unfinished"/>
+        <translation>Projektijohtaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka ensisijaisesti vastaa kaikista projektin olennaisista puolista tai joka hallinnoi hyvin suurta projektia, joka vaatii kokenutta vastuuhenkilöä, tai jolla on yleisvastuu projektien hallinnasta tai joka tarjoaa yleistä ohjausta projektipäällilölle.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Proofreader</source>
-        <translation type="unfinished"/>
+        <translation>Oikolukija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka tekee korjauksia painotuotteeseen. Käsikirjoitusten osalta käytä roolia korjaaja [crr].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa painotuotteita, usein tekstiä, mutta myös painettua musiikkia, taideteoksia jne., jotka tulevat yleisön saataville.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Publishing director</source>
-        <translation type="unfinished"/>
+        <translation>Päätoimittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka ohjaa yhteistyönä tehtävän teoksen kehittämistä sen yhtenäisyyden tai jatkuvuuden takaamiseksi. Tämä sisältää julkaisujen päätoimittajat, kirjojen toimittajat, sarjajulkaisujen toimittajat ym.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Puppeteer</source>
-        <translation type="unfinished"/>
+        <translation>Nukketeatterin hoitaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka käsittelee, valvoo tai ohjaa nukkeja tai marionetteja musiikki- tai draamaesityksessä tai viihteessä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Recipient</source>
-        <translation type="unfinished"/>
+        <translation>Vastaanottaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolle kirjeenvaihto on osoitettu.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Recording engineer</source>
-        <translation type="unfinished"/>
+        <translation>Äänittäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka valvoo äänen tai videon tallentamista teknisesti.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Redactor</source>
-        <translation type="unfinished"/>
+        <translation>Toimittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka kirjoittaa tai kehittää kohteelle kehikon olematta vastuussa sisällöstä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Renderer</source>
-        <translation type="unfinished"/>
+        <translation>Luonnostelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa arkkitehtuurisuunnitelmien luonnoksia tarkassa, esityksellisessä perspektiivissä sen esittämiseksi, miltä hanke näyttää valmiina.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Reporter</source>
-        <translation type="unfinished"/>
+        <translation>Reportteri</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka kirjoittaa tai esittää raportteja uutisista tai ajankohtaisista tapahtumista televisiossa tai painotuotteessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Repository</source>
-        <translation type="unfinished"/>
+        <translation>Varasto</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä taholle, joka säilyttää dataa tai aineellisia kulttuuriesineitä ja tarjoaa palveluja, jotka antavat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Research team head</source>
-        <translation type="unfinished"/>
+        <translation>Tutkimusryhmän johtaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Use for a person who directed or managed a research project.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka johti tai hallinnoi tutkimusprojektia.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Research team member</source>
-        <translation type="unfinished"/>
+        <translation>Tutkimusryhmän jäsen</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka osallistui tutkimusprojektiin mutta jonka rooliin ei kuulunut sen johtaminen tai hallinnointi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Researcher</source>
-        <translation type="unfinished"/>
+        <translation>Tutkija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Use for a person or organization responsible for performing research. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa tutkimuksen tekemisestä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Respondent</source>
-        <translation type="unfinished"/>
+        <translation>Vastaaja riita-asiassa</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä osapuolelle, joka esittää vastauksen tuomioistuimelle asiassa, joka koskee korvausvaatimusta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Respondent-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Valituksen tehnyt riita-asian vastaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä riita-asian vastaajalle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Respondent-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Riita-asian vastaaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä riita-asian vastaajalle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Responsible party</source>
-        <translation type="unfinished"/>
+        <translation>Vastaava toimittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on oikeudellisesti vastuullinen julkaistun aineiston sisällöstä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Restager</source>
-        <translation type="unfinished"/>
+        <translation>Uudelleen näyttämölle tuova</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka ei ole alkuperäinen koreografi tai johtaja ja joka vastaa koreografisen tai draamallisen teoksen tuomisesta uudelleen näyttämölle ja joka antaa panoksenaan vähäisen uuden sisällön.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Reviewer</source>
-        <translation type="unfinished"/>
+        <translation>Kriitikko</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on kirjan, elokuvan, esityksen tms. arviointi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Rubricator</source>
-        <translation type="unfinished"/>
+        <translation>Värittäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla ovat teoksen osat, usein otsikot tai käsikirjoituksen aloitussanat, jotka esitetään poikkeavalla värillä, usein punaisella.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Scenarist</source>
-        <translation type="unfinished"/>
+        <translation>Elokuvan käsikirjoittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on elokuvan käsikirjoituksen tekijä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Scientific advisor</source>
-        <translation type="unfinished"/>
+        <translation>Tieteellinen neuvonantaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tuo tieteellistä, pedagogista tai historian alaan kuuluvaa pätevyyttä teoksen kehittelyyn ja toteuttamiseen, erityisesti audiovisuaalisten kohteiden tapauksessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Scribe</source>
-        <translation type="unfinished"/>
+        <translation>Kirjuri</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka on kirjuri tai käsikirjoitusten kirjoittaja. Jos henkilö tekee näköisjäljennöksiä kynällä, käytä roolia jäljenteen toteuttaja [fac].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Sculptor</source>
-        <translation type="unfinished"/>
+        <translation>Kuvanveistäjä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka mallintaa tai veistää hahmoja, jotka ovat kolmiulotteisia esityksiä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Second party</source>
-        <translation type="unfinished"/>
+        <translation>Toinen osapuoli</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on määritetty toiseksi osapuoleksi. Kun kyse on oikeuden siirrosta, tämä on se taho, joka saa lisenssin tai muun oikeuden. Useita osapuolia yhdessä voidaan nimetä toiseksi osapuoleksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Secretary</source>
-        <translation type="unfinished"/>
+        <translation>Sihteeri</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on tallentaja, toimittaja tai muu henkilö, joka vastuussa organisaation kannan ilmaisemisesta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Set designer</source>
-        <translation type="unfinished"/>
+        <translation>Lavastaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka muuttaa taiteellisen johtajan karkeat luonnokset todellisiksi arkkitehtonisiksi rakenteiksi teatteriesitystä, viihdettä, elokuvaa tms. varten.  Lavastajat laativat yksityiskohtaisia ohjeita ja määrittelyjä lavastuksen rakentamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Signer</source>
-        <translation type="unfinished"/>
+        <translation>Signeeraaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, jonka allekirjoitus esiintyy ilman lausumaa tai muuta esitystä alkuperästä. Jos lausuma on esitetty, käytä roolia omistuskirjoituksen kirjoittaja [ins].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Singer</source>
-        <translation type="unfinished"/>
+        <translation>Laulaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka käyttää ääntään säestyksen kanssa tai ilman säestystä tuottaakseen musiikkia. Esitys voi sisältää tai olla sisältämättä sanoja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Sound designer</source>
-        <translation type="unfinished"/>
+        <translation>Äänisuunnittelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka tuottaa ja toistaa tms. musiikkia (sekä elävää että tallennettua) ja suunnittelee mikrofonien asettelun, äänen tasojen asetukset ja äänilähteiden koordinoinnin.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Speaker</source>
-        <translation type="unfinished"/>
+        <translation>Puhuja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka osallistuu ohjelmaan (usein lähetykseen) ja antaa täsmälliseen muotoon saatetun panoksen tai esittää esityksen, joka on yleensä valmistettu etukäteen.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Sponsor</source>
-        <translation type="unfinished"/>
+        <translation>Tukija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka on tehnyt sopimuksen tai sitoumuksen, jonka turvin teos on kirjoitettu, painettu, julkaistu tms.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Stage manager</source>
-        <translation type="unfinished"/>
+        <translation>Näyttämömestari</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolla on vastuu kaikesta, mitä tapahtuu näyttämöllä, ja joka toimii teknisen henkilökunnan päällikkönä ja ohjaajan apulaisena harjoituksissa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Standards body</source>
-        <translation type="unfinished"/>
+        <translation>Standardointielin</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä organisaatiolle, joka on vastuussa standardin kehittämisestä tai täytäntöönpanosta.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Stereotyper</source>
-        <translation type="unfinished"/>
+        <translation>Painolaatan valmistaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka luo uuden painolaatan muottiin valamalla tai kopioimalla toisen painopinnan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Storyteller</source>
-        <translation type="unfinished"/>
+        <translation>Tarinankertoja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka kertoo tarinan luovassa tai näytelmällisessä tulkinnassa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Supporting host</source>
-        <translation type="unfinished"/>
+        <translation>Tukiresurssien tarjoaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tukee (antamalla tiloja, henkilökuntaa tai muita resursseja) hanketta, ohjelmaa, tapaamista, tapahtumaa, tieto-olioita, aineellisen kulttuurin esiteitä tai muita kohteita, joita voi tukea.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Surveyor</source>
-        <translation type="unfinished"/>
+        <translation>Maanmittari</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tekee mittauksia maa-alueista paikkojen, muotojen ja rajojen määrittämiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Teacher</source>
-        <translation type="unfinished"/>
+        <translation>Opettaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka – kohteen kontekstissa – antaa opetusta tiedollisista asioista tai antaa havaintoesityksiä fyysisten taitojen opettamisessa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Technical director</source>
-        <translation type="unfinished"/>
+        <translation>Tekninen johtaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka on viime kädessä vastuussa lavastuksesta, näyttämötarpeistosta, valoista ja äänistä tietyssä tuotannossa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Thesis advisor</source>
-        <translation type="unfinished"/>
+        <translation>Opinnäytteen ohjaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
-        <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mÃ©moire, or text of a dissertation. </source>
-        <translation type="unfinished"/>
+        <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
+        <translation>Käytä henkilölle, jonka valvonnan alaisena oppiarvoa tavoitteleva kehittää ja esittää lopputyön, tutkielman tai väitöskirjan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Transcriber</source>
-        <translation type="unfinished"/>
+        <translation>Puhtaaksikirjoittaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka valmistaa käsin tai koneella kirjoitetun kopion alkuperäisestä aineistosta, mukaan lukien saneltu tai suullisesti tallennettu aineisto. Käytä näköisjäljenteen valmistajalle roolia jäljenteen toteuttaja [fac].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
@@ -10685,47 +10783,47 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka kääntää tekstin kielestä toiseen tai kielen vanhemmasta muodosta nykyiseen muotoon.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Type designer</source>
-        <translation type="unfinished"/>
+        <translation>Fontin suunnittelija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka suunnitteli kohteessa käytetyn fontin.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Typographer</source>
-        <translation type="unfinished"/>
+        <translation>Typografi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolla on ensisijainen vastuu kohteen typografisen asun valinnasta ja järjestämisestä. Jos typografi on vastuussa myös kirjan graafisen suunnittelun muista puolista (esim. kirjan suunnittelija [bkd]), voi molempien roolien merkitseminen olla tarpeen.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Videographer</source>
-        <translation type="unfinished"/>
+        <translation>Videokuvaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, jolla on vastuu videotuotannosta, esim. näyttämöesityksen videotallennuksesta, vastakohtana kaupalliselle elokuvalle. Videokuvaaja voi olla kameran käyttäjä tai hän voi valvoa yhtä tai useampaa kameran käyttäjää. Ei pidä sekoittaa rooliin kuvaaja.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Vocalist</source>
-        <translation type="unfinished"/>
+        <translation>Laulusolisti</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Use for a person or organization who principally exhibits singing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka ilmaisee pääasiassa laulutaitoa musiikki- tai näytelmäesityksessä tai viihteessä.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
@@ -10735,37 +10833,37 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle, joka todentaa tapahtuman tai toimenpiteen totuudenmukaisuuden.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Wood-engraver</source>
-        <translation type="unfinished"/>
+        <translation>Puunkaivertaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tekee painomuotteja kaivertamalla kohokuvion puupintaan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Woodcutter</source>
-        <translation type="unfinished"/>
+        <translation>Puunleikkaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka tekee painotuotteita leikkaamalla kohokuvan puulaatan tasaiselle puolelle.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Writer of accompanying material</source>
-        <translation>Oheismateriaalin kirjoittava</translation>
+        <translation>Liiteaineiston tekijä</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
-        <translation type="unfinished"/>
+        <translation>Käytä henkilölle tai organisaatiolle, joka kirjoittaa merkittävää aineistoa, joka liittyy äänitteeseen tai muuhun audiovisuaaliseen aineistoon.</translation>
     </message>
 </context>
 <context>
@@ -10801,27 +10899,27 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="14"/>
         <source>Open With Application Name</source>
-        <translation type="unfinished"/>
+        <translation>Avaa sovelluksella</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="20"/>
         <source>Enter the name to display in the Open With menu for this application:</source>
-        <translation type="unfinished"/>
+        <translation>Anna se nimi, jota tälle sovellukselle käytetään Avaa ohjelmalla -valikossa:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="48"/>
         <source>Filename:</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostonimi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="55"/>
         <source>Menu Name:</source>
-        <translation type="unfinished"/>
+        <translation>Valikon nimi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="62"/>
         <source>No File</source>
-        <translation type="unfinished"/>
+        <translation>Ei tiedostoa</translation>
     </message>
 </context>
 <context>
@@ -10839,12 +10937,12 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="95"/>
         <source>Changes will take effect when you restart Sigil.</source>
-        <translation type="unfinished"/>
+        <translation>Muutokset tulevat voimaan, kun Sigil käynnistetään uudestaan.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="153"/>
         <source>Open Preferences Location</source>
-        <translation type="unfinished"/>
+        <translation>Avaa asetusten kansio</translation>
     </message>
 </context>
 <context>
@@ -10852,7 +10950,7 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="35"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>Esikatselu</translation>
     </message>
 </context>
 <context>
@@ -10887,7 +10985,7 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../Misc/Utility.cpp" line="388"/>
         <source>Sigil has encountered a problem.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil on kohdannut ongelman.</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="389"/>
@@ -10897,32 +10995,32 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="49"/>
         <source>Creating Index...</source>
-        <translation type="unfinished"/>
+        <translation>Luodaan hakemistoa...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="49"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="114"/>
         <source>Creating reports...</source>
-        <translation type="unfinished"/>
+        <translation>Luodaan raportteja...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="535"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="539"/>
         <source>Adding Existing Files..</source>
-        <translation type="unfinished"/>
+        <translation>Lisätään valmiita tiedostoja...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="865"/>
         <source>Merging Files..</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistetään tiedostoja...</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="179"/>
         <source>Applications</source>
-        <translation type="unfinished"/>
+        <translation>Sovellukset</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="189"/>
@@ -10973,12 +11071,12 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="99"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Tekijänoikeusilmoituksen sivu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="101"/>
         <source>Dedication</source>
-        <translation>Omistuskirjoitus</translation>
+        <translation>Omistussanat</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="103"/>
@@ -11018,30 +11116,31 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="108"/>
         <source>Cannot read EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaa ei voi lukea: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
         <source>The OPF file does not contain a valid spine.</source>
-        <translation type="unfinished"/>
+        <translation>OPF-tiedosto ei sisällä kelvollista spine-elementtiä.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="200"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="678"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="681"/>
         <source>Sigil has created a new one for you.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil on luonut sinulle uuden.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="238"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
-        <translation type="unfinished"/>
+        <translation>Virhe tiedoston encryption.xml jäsentämisessä.
+Rivi: %1 Sarake %2–%3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="457"/>
         <source>Cannot open EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ei voi avata epub-tiedostoa: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="410"/>
@@ -11049,90 +11148,92 @@ Line: %1 Column %2 - %3</source>
         <location filename="../../Importers/ImportEPUB.cpp" line="436"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="444"/>
         <source>Cannot extract file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostoa ei voi erottaa: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="370"/>
         <source>Cannot unzip EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Epub-tiedostoa ei voi purkaa: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="511"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostoa container.xml ei voi jäsentää.
+Rivi: %1 Sarake %2–%3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="520"/>
         <source>No appropriate OPF file found</source>
-        <translation type="unfinished"/>
+        <translation>Sopivaa OPF-tiedostoa ei löytynyt</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="557"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
-        <translation type="unfinished"/>
+        <translation>OPF-tiedostoa ei voi lukea.
+Rivi: %1 Sarake %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
         <source>The OPF manifest contains duplicate ids for: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>OPF-ilmoitus sisältää useamman kuin yhden tunnisteen seuraavalle: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="610"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
-        <translation type="unfinished"/>
+        <translation>Väliaikainen tunniste on otettu käyttöön tämän kirjan lataamiseksi. OPF-tiedostoa tulisi muokata päällekkäisyyden poistamiseksi.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="648"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
-        <translation type="unfinished"/>
+        <translation>OPF-tiedosto ei ilmoittanut NCX-tiedostoa oikein.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="649"/>
         <source>Sigil has used the following file as the NCX:</source>
-        <translation type="unfinished"/>
+        <translation>Sigil on käyttänyt seuraavaa tiedostoa NCX:nä:</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
         <source>The OPF file does not contain an NCX file.</source>
-        <translation type="unfinished"/>
+        <translation>OPF-tiedosto ei sisällä NCX-tiedostoa.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="680"/>
         <source>The NCX file is not present in this EPUB.</source>
-        <translation type="unfinished"/>
+        <translation>NCX-tiedosto ei sisälly tähän epub-tiedostoon.</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="182"/>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="242"/>
         <source>Invalid HTML file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Virheellinen HTML-tiedosto: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="281"/>
         <source>Invalid OPF file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Virheellinen OPF-tiedosto: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="304"/>
         <source>Invalid NCX file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Virheellinen OPF-tiedosto: %1</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/CleanSource.cpp" line="610"/>
         <source>Cleaning...</source>
-        <translation type="unfinished"/>
+        <translation>Siistitään...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/BookReports.cpp" line="53"/>
         <source>Collecting classes...</source>
-        <translation type="unfinished"/>
+        <translation>Kerätään luokkia...</translation>
     </message>
     <message>
         <location filename="../../Misc/TOCHTMLWriter.cpp" line="96"/>
         <source>Table of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Sisällysluettelo</translation>
     </message>
 </context>
 <context>
@@ -11159,12 +11260,26 @@ current extensions will be kept.  If you just provide a file extension (e.g. .xh
 then only file extensions will be updated.  Be careful that any extension you use is 
 valid for all selected files.
 </source>
-        <translation type="unfinished"/>
+        <translation>Anna aloitusnimi, jota käytetään kaikkien valittujen tiedostojen uudelleennimeämisesssä, esimerkiksi:
+
+    nimi001
+    nimi08.xhtml
+    .html
+
+Kaikki numerot annetun nimen LOPUSSA korvataan peräkkäisillä numeroilla
+alkaen annetusta numerosta (oletus on 1, jos numeroa ei ole) käyttäen
+alkunollia niin, että numeroiden määrä on sama kuin annetussa aloitusnimessä.
+
+Jos annetaan tiedoston tyyppimerkintä, joka alkaa pisteellä, sitä käytetään
+kaikille tiedostoilla. Muuten vanhan tyyppimerkinnät säilyvät. Jos annetaan
+pelkkä tyyppimerkintä (esimerkiksi .xhmtl), vain tyyppimerkinnät muutetaan.
+Huolehdi siitä, että käytetty tyyppimerkintä on kelvollinen kaikille valituille tiedostoille.
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="45"/>
         <source>Rename Files Starting At: </source>
-        <translation type="unfinished"/>
+        <translation>Nimeä tiedostot uudelleen käyttäen seuraavaa perusnimeä:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
@@ -11177,12 +11292,12 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/Reports.ui" line="14"/>
         <source>Reports</source>
-        <translation type="unfinished"/>
+        <translation>Raportit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Reports.ui" line="51"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä</translation>
     </message>
 </context>
 <context>
@@ -11190,7 +11305,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation type="unfinished"/>
+        <translation>Tallennetut haut.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
@@ -11210,14 +11325,16 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Load Search</source>
-        <translation type="unfinished"/>
+        <translation>Lataa haku</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
         <source>Run Find using the selected entry.
 If a group is selected, find the first entry in the list, 
 then if not found look for the second entry in the list, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Suorita Etsi-toiminto käyttäen valittua hakua.
+Jos valittuna on ryhmä, etsi ensimmäisen kohdan mukaan,
+ja jos mitään ei löydy, etsi toisen kohdan mukaan jne.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
@@ -11230,36 +11347,43 @@ then if not found look for the second entry in the list, etc.</source>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
-        <translation type="unfinished"/>
+        <translation>Tee korvaustoiminto käyttäen valittua kohtaa.
+Jos valittuna on ryhmä, käy läpi sen kaikki kohdat
+ja pysähdy ensimmäisen menestyksellinen korvauksen jälkeen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="131"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
-        <translation type="unfinished"/>
+        <translation>Tee Etsi ja korvaa -toiminto käyttäen valittua kohtaa.
+Jos valittuna on ryhmä, käy läpi sen kaikki kohdat
+ja pysähdy ensimmäisen menestyksellinen korvauksen jälkeen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
         <source>Replace/Find</source>
-        <translation type="unfinished"/>
+        <translation>Etsi/korvaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
-        <translation type="unfinished"/>
+        <translation>Tee Korvaa kaikki -toiminto käyttäen valittuja kohtia siinä
+järjestyksessä, jossa ne on valittu. Valitse ryhmä korvataksesi
+ryhmän kaikki kohdat järjestyksessä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation type="unfinished"/>
+        <translation>Suorita Laske osumat -toiminto valituille kohdille valitussa järjestyksessä,
+mukaan lukien valittujen ryhmien kohdat.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation>Laske</translation>
+        <translation>Laske osumat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
@@ -11283,37 +11407,38 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>
         <source>Move an entry up one level in the same group.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä kohtaa yksi taso ylemmäs samassa ryhmässä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="229"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä kohta sen isäkohdan tasolle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="258"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation type="unfinished"/>
+        <translation>Sinun on valittava kohta, joka on välittömästi jonkin kohdan alla, siirtääksesi sen ryhmään.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="288"/>
         <source>Move an entry down one level in the same group.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä kohta yksi taso alemmas samassa ryhmässä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="354"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
-        <translation type="unfinished"/>
+        <translation>Napsauta Sovella-painiketta ladataksesi valitun haun Etsi ja korvaa -ikkunaan.
+Napsauta OK-painiketta ladataksesi haun, tallentaaksesi tiedot ja sulkeaksesi ikkunan.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="61"/>
         <source>All searches default to Regex, All HTML Files, Down.</source>
-        <translation type="unfinished"/>
+        <translation>Kaikissa hauissa oletuksena ovat Säännöllinen lauseke, Kaikki HTML-tiedostot ja Eteenpäin.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="62"/>
         <source>Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.</source>
-        <translation type="unfinished"/>
+        <translation>Pidä Ctrl-näppäintä alhaalla, kun napsautat painiketta Etsi, Korvaa jne. hakeaksesi tilapäisesti vain nykyisestä tiedostosta.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="63"/>
@@ -11323,7 +11448,9 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
-        <translation type="unfinished"/>
+        <translation>Voit myös napsauttaa Etsi ja korvaa -alueessa olevaa Etsi-tekstilaatikkoa
+hiiren kakkospainikkeella valitaksesi kohdan.
+</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
@@ -11333,37 +11460,37 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>Name of your entry or group.</source>
-        <translation type="unfinished"/>
+        <translation>Kohdan tai ryhmän nimi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>The text to put into the Find box.</source>
-        <translation type="unfinished"/>
+        <translation>Hakuruutuun tuleva teksti.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>The text to put into the Replace box.</source>
-        <translation type="unfinished"/>
+        <translation>Korvaa-ruutuun tuleva teksti.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
         <source>Load the selected entry into the Find &amp; Replace window.</source>
-        <translation type="unfinished"/>
+        <translation>Lataa valittu kohta Etsi ja korvaa -ikkunaan.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna muutokset.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Jos Sigil-ohjelman muita ilmentymiä on käynnissä koneessa, muutoksesi päivittyvät automaattisesti niihinkin.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="89"/>
@@ -11373,27 +11500,27 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="163"/>
         <source>Saved Searches loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>Tallennetut haut ladattu tiedostosta.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="195"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation type="unfinished"/>
+        <translation>Ei voi valita kuin yhden kohdan tässä toiminnossa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="203"/>
         <source>You cannot select a group for this action.</source>
-        <translation type="unfinished"/>
+        <translation>Et voi valita ryhmää tähän toimintoon.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="245"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation type="unfinished"/>
+        <translation>Et voi valita kohtaa ja ryhmää, joka sisältää sen.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="328"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation type="unfinished"/>
+        <translation>Et voi kopioida etkä leikata ryhmiä – käytä hiirellä vetämistä ja pudottamista.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
@@ -11403,17 +11530,17 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>Oletko varma, että haluat ladata uudestaan kaikki kohdat. Tämä kirjoittaa tallentamattomien muutosten päälle.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="411"/>
         <source>Import Search Entries</source>
-        <translation type="unfinished"/>
+        <translation>Tuo haut</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="484"/>
         <source>Export Selected Searches</source>
-        <translation type="unfinished"/>
+        <translation>Vie valitut haut</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="649"/>
@@ -11423,7 +11550,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="650"/>
         <source>Add Group</source>
-        <translation type="unfinished"/>
+        <translation>Lisää ryhmä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="651"/>
@@ -11458,7 +11585,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="657"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Lataa uudestaan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="658"/>
@@ -11483,18 +11610,19 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="738"/>
         <source>Search entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>Haut tallennettu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="767"/>
         <source>Sigil: Saved Searches</source>
-        <translation type="unfinished"/>
+        <translation>Sigil: Tallennetut haut</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="768"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>Hakuja on saatettu muuttaa.
+Haluatko tallentaa muutokset?</translation>
     </message>
 </context>
 <context>
@@ -11525,7 +11653,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectCharacter.ui" line="14"/>
         <source>Insert Special Character</source>
-        <translation type="unfinished"/>
+        <translation>Lisää erikoismerkki</translation>
     </message>
 </context>
 <context>
@@ -11533,7 +11661,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation>Lisää tiedoston sisältö</translation>
+        <translation>Lisää tiedosto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
@@ -11549,12 +11677,13 @@ Do you want to save your changes?</source>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
         <source>Choose which image, video, or audio files from your computer to add to
 your book and automatically insert into your document.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse, mitkä koneessasi olevat kuva-, video- tai audiotiedostot lisätään
+kirjaan ja liitetään automaattisesti siihen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation type="unfinished"/>
+        <translation>Muut tiedostot...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
@@ -11579,17 +11708,17 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="119"/>
         <source>Files In the Book</source>
-        <translation type="unfinished"/>
+        <translation>Kirjan tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="122"/>
         <source>Thumbnails</source>
-        <translation type="unfinished"/>
+        <translation>Pienoiskuvat</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
@@ -11617,12 +11746,12 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kohde</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
         <source>List only the entries that match the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Listaa vain kohdat, jotka sisältävät annetun tekstin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="25"/>
@@ -11633,17 +11762,18 @@ your book and automatically insert into your document.</source>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
         <source>Enter the target URL for this hyperlink.  You can select or 
 double click on existing destinations in your book from the list above.</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoita tämän linkin kohde. Voit valita kirjassa olevan kohteen
+napsauttamalla sitä yllä olevassa listassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
         <source>Target:</source>
-        <translation type="unfinished"/>
+        <translation>Kohde:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="61"/>
         <source>Targets in the Book</source>
-        <translation type="unfinished"/>
+        <translation>Kirjassa olevat kohteet:</translation>
     </message>
 </context>
 <context>
@@ -11651,7 +11781,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation type="unfinished"/>
+        <translation>Liitä tunniste</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -11660,12 +11790,16 @@ double click on existing destinations in your book from the list above.</source>
 The dropdown box shows existing ID names in the current file.
 
 ID names must be unique and start with a letter.</source>
-        <translation type="unfinished"/>
+        <translation>Kirjoita tunnisteen nimi, jota käytetään kohteena linkeissä ja sisällysluettelossa.
+
+Pudotusvalikossa näkyvät ne tunnisteiden nimet, jotka jo ovat käytössä nykyisessä tiedostossa.
+
+Tunnisteiden nimien tulee olla yksikäsitteisiä, ja niiden pitää alkaa kirjaimella.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
         <source>ID:</source>
-        <translation type="unfinished"/>
+        <translation>Tunnus:</translation>
     </message>
 </context>
 <context>
@@ -11673,17 +11807,17 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="14"/>
         <source>Mark For Index</source>
-        <translation type="unfinished"/>
+        <translation>Merkitse hakemistoon</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="22"/>
         <source>Enter the index entry to create for the selected text.</source>
-        <translation type="unfinished"/>
+        <translation>Anna hakemistoon tuleva hakusana, joka vastaa valittua tekstiä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
-        <translation type="unfinished"/>
+        <translation>Hakemiston hakusana:</translation>
     </message>
 </context>
 <context>
@@ -11713,22 +11847,22 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spellcheck Dictionaries</source>
-        <translation type="unfinished"/>
+        <translation>Oikeinkirjoituksen tarkistus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="64"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Korosta väärin kirjoitetut sanat kooditilassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="67"/>
         <source>Highlight Misspelled Words</source>
-        <translation type="unfinished"/>
+        <translation>Korosta väärin kirjoitetut sanat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="120"/>
         <source>User Dictionaries</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjän sanakirjat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
@@ -11740,7 +11874,9 @@ ID names must be unique and start with a letter.</source>
         <source>Remove the selected dictionary.
 
 You cannot remove the last dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Poista valittu sanakirja.
+
+Viimeistä sanakirjaa ei voi poistaa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="179"/>
@@ -11749,13 +11885,19 @@ spell checking.
 
 Select a dictionary to display its words,
 and to make it the default dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Merkitse, mitkä sanakirjat ovat käytössä
+oikeinkirjoituksen tarkistuksessa.
+
+Valitse sanakirja nähdäksesi sen sanat
+ja tehdäksesi siitä oletussanakirjan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="208"/>
         <source>Enter or paste words to add to the dictionary.
 Words can be separated by lines, commas, or spaces.</source>
-        <translation type="unfinished"/>
+        <translation>Kirjoita tai liitä sanoja lisättäväksi sanakirjaan.
+Sanat voidaan erottaa rivinvaihdoilla, pilkuilla
+tai välilyönneillä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="219"/>
@@ -11766,17 +11908,18 @@ Words can be separated by lines, commas, or spaces.</source>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="262"/>
         <source>The default dictionary is used when you add words to the
 default dictionary or use the shortcuts for Add Misspelled Words.</source>
-        <translation type="unfinished"/>
+        <translation>Oletussanakirjaa käytetään, kun lisäät sanoja oletussanakirjaan
+tai käytät pikanäppäilyjä väärin kirjoitettujen sanojen lisäämiseksi.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="266"/>
         <source>Default Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Oletussanakirja:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="273"/>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>ei mitään</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
@@ -11792,12 +11935,12 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="52"/>
         <source>Enable</source>
-        <translation type="unfinished"/>
+        <translation>Ota käyttöön</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Sanakirja</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
@@ -11808,7 +11951,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Add Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Lisää sanakirja</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
@@ -11828,12 +11971,12 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Add Words</source>
-        <translation type="unfinished"/>
+        <translation>Lisää sanoja</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Words:</source>
-        <translation type="unfinished"/>
+        <translation>Sanat:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="162"/>
@@ -11848,7 +11991,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Viimeistä sanakirjaa ei voi poistaa.</translation>
     </message>
 </context>
 <context>
@@ -11856,7 +11999,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation type="unfinished"/>
+        <translation>Oikeinkirjoituksen tarkistus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
@@ -11870,7 +12013,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="481"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="519"/>
         <source>Ignore</source>
         <translation>Jätä huomiotta</translation>
     </message>
@@ -11878,132 +12021,137 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
         <source>Ignore the selected words until Sigil
 is restarted or a new book is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Jätä huomiotta valitut sanat, kunnes Sigil
+käynnistetään uudestaan tai avataan uusi kirja.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="91"/>
         <source>Add the selected words to the
 dictionary selected below.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää valitut sanat alla valittuun sanakirjaan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Lisää sanakirjaan;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
         <source>Change all occurrences of the selected word  in
 HTML files to the word you select or type below.
 The selected word does not have to be misspelled.</source>
-        <translation type="unfinished"/>
+        <translation>Muuta kaikki valitun sanan esiintymät HTML-tiedostostoissa
+sanaksi, joka valitaan tai kirjoitetaan alla. Valitun sanan ei
+tarvitse olla väärin kirjoitettu.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="139"/>
         <source>Change Selected Word To:</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda valittu sana sanaksi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
         <source>Sort words as AaBbCc instead of ABCabc.</source>
-        <translation type="unfinished"/>
+        <translation>Lajittelee sanat käyttäen järjestystä A, a, B, b, C, c, ... eikä A, B, C, ..., a, b, c, ...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Case-Insensitive Sort</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaintasoriippumaton lajittelu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="215"/>
         <source>Re-check the HTML files for misspelled words.
 Use if you edit any HTML files while Spellcheck is open.</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista, onko HTML-tiedostoissa väärin kirjoitettuja sanoja.
+Käytettäväksi, jos muokataan jotain HTML-tiedostoa sillä
+aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Show All Words</source>
-        <translation type="unfinished"/>
+        <translation>Näytä kaikki sanat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="137"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="160"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="200"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="138"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="161"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="201"/>
         <source>No words selected.</source>
-        <translation type="unfinished"/>
+        <translation>Sanoja ei ole valittu.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="215"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="285"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="218"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="288"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Ei</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="153"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="154"/>
         <source>Ignored word(s).</source>
-        <translation type="unfinished"/>
+        <translation>Ohitetut sanat.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="188"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="189"/>
         <source>Added word(s) to dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Lisättiin sana tai sanoja sanakirjaan.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="191"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="192"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää sana tai sanoja sanakirjaan. Sanakirjaa ei ole otettu käyttöön asetuksissa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="206"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="207"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Uusi sana ei voi sisältää merkkiä ”&lt;”, ”&gt;” tai ”&amp;”.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="234"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="237"/>
         <source>Word</source>
-        <translation type="unfinished"/>
+        <translation>Sana</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="235"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="238"/>
         <source>Count</source>
-        <translation type="unfinished"/>
+        <translation>Laske osumat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="236"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="239"/>
         <source>Misspelled?</source>
-        <translation type="unfinished"/>
+        <translation>Väärin?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="298"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
         <source>Misspelled Words</source>
         <translation>Väärin kirjoitetut sanat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="282"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="285"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Kyllä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="298"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
         <source>Total Unique Words</source>
-        <translation type="unfinished"/>
+        <translation>Yksikäsitteisiä sanoja yhteensä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="482"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="520"/>
         <source>Add to Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Lisää sanakirjaan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="483"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="521"/>
         <source>Find in Text</source>
-        <translation type="unfinished"/>
+        <translation>Etsi tekstistä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="484"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="522"/>
         <source>Select All</source>
         <translation>Valitse kaikki</translation>
     </message>
@@ -12013,7 +12161,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="14"/>
         <source>Style Classes in CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>CSS-tiedostoissa käytetyt luokat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
@@ -12028,22 +12176,22 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="78"/>
         <source>CSS File</source>
-        <translation type="unfinished"/>
+        <translation>CSS-tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="79"/>
         <source>Class Selector</source>
-        <translation type="unfinished"/>
+        <translation>Luokkaselektori</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="80"/>
         <source>Used In HTML File</source>
-        <translation type="unfinished"/>
+        <translation>Käytössä HTML-tiedostossa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="86"/>
         <source>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Tämä on lista luokkiin perustuvista selektoreista kaikissa CSS-tiedostoissa ja siitä, vastasiko selektori HTML-tiedostossa olevaa tyyliä.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="87"/>
@@ -12058,12 +12206,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="244"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="257"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="257"/>
@@ -12073,7 +12221,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="268"/>
         <source>Delete From Stylesheet</source>
-        <translation type="unfinished"/>
+        <translation>Poista tyyliohjeesta</translation>
     </message>
 </context>
 <context>
@@ -12081,7 +12229,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TabBar.cpp" line="67"/>
         <source>Close Other Tabs</source>
-        <translation type="unfinished"/>
+        <translation>Sulje muut välilehdet</translation>
     </message>
 </context>
 <context>
@@ -12089,7 +12237,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TabManager.cpp" line="215"/>
         <source>Cannot edit file</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostoa ei voi muokata</translation>
     </message>
 </context>
 <context>
@@ -12135,7 +12283,9 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
-        <translation type="unfinished"/>
+        <translation>Annettu tiedostonimi sisältää muita kuin Ascii-merkkejä. Tiedostonimissä tulisi käyttää vain Ascii-merkkejä. Muiden merkkien käyttö voi estää e-kirjan toiminnan joissakin lukuohjelmissa.
+
+Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
     </message>
 </context>
 <context>
@@ -12143,7 +12293,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="44"/>
         <source>Validation Results</source>
-        <translation>Tarkastuksen tulokset</translation>
+        <translation>Tarkistuksen tulokset</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="73"/>
@@ -12153,7 +12303,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="162"/>
         <source>N/A</source>
-        <translation>–</translation>
+        <translation>.</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="183"/>
@@ -12182,12 +12332,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Näytä kuva</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -12195,12 +12345,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="43"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found &lt;b&gt;at or above line %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Pyydettyä toimenpidettä ei voi suorittaa, koska &lt;b&gt;%1&lt;/b&gt; ei ole oikeamuotoinen XML-dokumentti.&lt;/p&gt;&lt;p&gt;Virhe löytyi &lt;b&gt;riviltä %2 tai sen yläpuolelta: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Valinta &lt;i&gt;korjaa manuaalisesti&lt;/i&gt; mahdollistaa ongelman korjaamisen käsin.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="48"/>
         <source>&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Valinta &lt;i&gt;Korjaa automaattisesti&lt;/i&gt; aiheuttaa, että Sigil yrittää automaattisesti korjata kirjan. &lt;b&gt;Tämä valinta voi aiheuttaa tietojen katoamista!&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
@@ -12218,67 +12368,67 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="69"/>
         <source>quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>lainausmerkk</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="70"/>
         <source>ampersand</source>
-        <translation type="unfinished"/>
+        <translation>et-merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="71"/>
         <source>apostrophe</source>
-        <translation type="unfinished"/>
+        <translation>heittomerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="72"/>
         <source>less-than sign</source>
-        <translation type="unfinished"/>
+        <translation>pienempi kuin -merkk</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="73"/>
         <source>greater-than sign</source>
-        <translation type="unfinished"/>
+        <translation>suurempi kuin -merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="74"/>
         <source>no-break space</source>
-        <translation type="unfinished"/>
+        <translation>sitova välilyönti</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="75"/>
         <source>inverted exclamation mark</source>
-        <translation type="unfinished"/>
+        <translation>käänteinen huutomerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="76"/>
         <source>cent sign</source>
-        <translation type="unfinished"/>
+        <translation>sentin merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="77"/>
         <source>pound sign</source>
-        <translation type="unfinished"/>
+        <translation>punnan merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="78"/>
         <source>currency sign</source>
-        <translation type="unfinished"/>
+        <translation>valuuttamerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="79"/>
         <source>yen sign</source>
-        <translation type="unfinished"/>
+        <translation>jenin merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="80"/>
         <source>broken bar</source>
-        <translation type="unfinished"/>
+        <translation>katkopystyviiva</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="81"/>
         <source>section sign</source>
-        <translation type="unfinished"/>
+        <translation>pykälämerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="82"/>
@@ -12289,11 +12439,6 @@ Continue using the requested filename?</source>
         <location filename="../../Misc/XMLEntities.cpp" line="83"/>
         <source>copyright symbol</source>
         <translation>tekijänoikeusmerkki</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="84"/>
-        <source>feminineÂ ordinal indicator</source>
-        <translation>feminiinisen järjestysluvun merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="85"/>
@@ -12351,11 +12496,6 @@ Continue using the requested filename?</source>
         <translation>mikro-merkki</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="96"/>
-        <source>pilcrowÂ sign</source>
-        <translation>kappaleen merkki</translation>
-    </message>
-    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>middle dot</source>
         <translation>rivinkeskinen piste</translation>
@@ -12371,11 +12511,6 @@ Continue using the requested filename?</source>
         <translation>yläindeksi yksi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
-        <source>masculineÂ ordinal indicator</source>
-        <translation>maskuliinisen järjestysluvun merkki</translation>
-    </message>
-    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>right-pointing double angle quotation mark</source>
         <translation>oikealle osoittava kulmalainausmerkki</translation>
@@ -12383,1102 +12518,1117 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>vulgar fraction one quarter</source>
-        <translation type="unfinished"/>
+        <translation>yhden neljäsosan merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>vulgar fraction one half</source>
-        <translation type="unfinished"/>
+        <translation>puolikkaan merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>vulgar fraction three quarters</source>
-        <translation type="unfinished"/>
+        <translation>kolmen neljäsosan merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>inverted question mark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
-        <source>Latin capital letter A withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
-        <source>Latin capital letter A withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
-        <source>Latin capital letter A withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
-        <source>Latin capital letter A withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
-        <source>Latin capital letter A withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>käänteinen huutomerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>Latin capital letter A with ring above</source>
-        <translation type="unfinished"/>
+        <translation>versaali ruotsalainen o</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>Latin capital letter AE</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
-        <source>Latin capital letter C withÂ cedilla</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
-        <source>Latin capital letter E withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
-        <source>Latin capital letter E withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
-        <source>Latin capital letter E withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
-        <source>Latin capital letter E withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
-        <source>Latin capital letter I withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
-        <source>Latin capital letter I withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
-        <source>Latin capital letter I withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
-        <source>Latin capital letter I withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
-        <source>Latin capital letterÂ Eth</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
-        <source>Latin capital letter N withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
-        <source>Latin capital letter O withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
-        <source>Latin capital letter O withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
-        <source>Latin capital letter O withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
-        <source>Latin capital letter O withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
-        <source>Latin capital letter O withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>versaali ae-kirjain</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>multiplication sign</source>
-        <translation type="unfinished"/>
+        <translation>kertomerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>Latin capital letter O with stroke</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
-        <source>Latin capital letter U withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
-        <source>Latin capital letter U withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
-        <source>Latin capital letter U withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
-        <source>Latin capital letter U withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
-        <source>Latin capital letter Y withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
-        <source>Latin capital letterÂ THORN</source>
-        <translation type="unfinished"/>
+        <translation>versaali tanskalainen ö</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin small letter sharp s</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
-        <source>Latin small letter a withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
-        <source>Latin small letter a withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
-        <source>Latin small letter a withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
-        <source>Latin small letter a withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
-        <source>Latin small letter a withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>gemena saksalainen kaksois-s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin small letter a with ring above</source>
-        <translation type="unfinished"/>
+        <translation>gemena ruotsalainen o</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin small letter ae</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
-        <source>Latin small letter c withÂ cedilla</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
-        <source>Latin small letter e withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
-        <source>Latin small letter e withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
-        <source>Latin small letter e withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
-        <source>Latin small letter e withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
-        <source>Latin small letter i withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
-        <source>Latin small letter i withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
-        <source>Latin small letter i withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
-        <source>Latin small letter i withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
-        <source>Latin small letterÂ eth</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
-        <source>Latin small letter n withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
-        <source>Latin small letter o withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
-        <source>Latin small letter o withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
-        <source>Latin small letter o withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
-        <source>Latin small letter o withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
-        <source>Latin small letter o withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>gemena ae</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>division sign</source>
-        <translation type="unfinished"/>
+        <translation>jakomerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin small letter o with stroke</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
-        <source>Latin small letter u withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
-        <source>Latin small letter u withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
-        <source>Latin small letter u withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
-        <source>Latin small letter u withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
-        <source>Latin small letter y withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
-        <source>Latin small letterÂ thorn</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
-        <source>Latin small letter y withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>gemena tanskalainen ö</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin capital ligature oe</source>
-        <translation type="unfinished"/>
+        <translation>versaali oe</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small ligature oe</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
-        <source>Latin capital letter s withÂ caron</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
-        <source>Latin small letter s withÂ caron</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
-        <source>Latin capital letter y withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>gemena oe</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter f with hook</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
-        <source>modifier letterÂ circumflexÂ accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
-        <source>smallÂ tilde</source>
-        <translation type="unfinished"/>
+        <translation>koukullinen gemena-s. guldenin merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Greek capital letter Alpha</source>
-        <translation type="unfinished"/>
+        <translation>versaali alfa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Greek capital letter Beta</source>
-        <translation type="unfinished"/>
+        <translation>versaali beeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Greek capital letter Gamma</source>
-        <translation type="unfinished"/>
+        <translation>versaali gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Greek capital letter Delta</source>
-        <translation type="unfinished"/>
+        <translation>versaali delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Greek capital letter Epsilon</source>
-        <translation type="unfinished"/>
+        <translation>versaali epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Greek capital letter Zeta</source>
-        <translation type="unfinished"/>
+        <translation>versaali zeeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Greek capital letter Eta</source>
-        <translation type="unfinished"/>
+        <translation>versaali eeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Greek capital letter Theta</source>
-        <translation type="unfinished"/>
+        <translation>versaali theeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Greek capital letter Iota</source>
-        <translation type="unfinished"/>
+        <translation>versaali ioota</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Greek capital letter Kappa</source>
-        <translation type="unfinished"/>
+        <translation>versaali kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Greek capital letter Lambda</source>
-        <translation type="unfinished"/>
+        <translation>versaali lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>Greek capital letter Mu</source>
-        <translation type="unfinished"/>
+        <translation>versaali myy</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Greek capital letter Nu</source>
-        <translation type="unfinished"/>
+        <translation>versaali nyy</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Greek capital letter Xi</source>
-        <translation type="unfinished"/>
+        <translation>versaali ksii</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Greek capital letter Omicron</source>
-        <translation type="unfinished"/>
+        <translation>versaali omikron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Greek capital letter Pi</source>
-        <translation type="unfinished"/>
+        <translation>versaali pii</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Greek capital letter Rho</source>
-        <translation type="unfinished"/>
+        <translation>versaali roo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Greek capital letter Sigma</source>
-        <translation type="unfinished"/>
+        <translation>versaali sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Greek capital letter Tau</source>
-        <translation type="unfinished"/>
+        <translation>versaali tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Greek capital letter Upsilon</source>
-        <translation type="unfinished"/>
+        <translation>versaali ypsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Greek capital letter Phi</source>
-        <translation type="unfinished"/>
+        <translation>versaali fi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Greek capital letter Chi</source>
-        <translation type="unfinished"/>
+        <translation>versaali khii</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Greek capital letter Psi</source>
-        <translation type="unfinished"/>
+        <translation>versaali psii</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Greek capital letter Omega</source>
-        <translation type="unfinished"/>
+        <translation>kreikkalainen versaalikirjain oomega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Greek small letter alpha</source>
-        <translation type="unfinished"/>
+        <translation>gemena alfa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Greek small letter beta</source>
-        <translation type="unfinished"/>
+        <translation>gemena beeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>Greek small letter gamma</source>
-        <translation type="unfinished"/>
+        <translation>gemena gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>Greek small letter delta</source>
-        <translation type="unfinished"/>
+        <translation>gemena delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek small letter epsilon</source>
-        <translation type="unfinished"/>
+        <translation>gemena epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek small letter zeta</source>
-        <translation type="unfinished"/>
+        <translation>gemena zeeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek small letter eta</source>
-        <translation type="unfinished"/>
+        <translation>gemena eeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek small letter theta</source>
-        <translation type="unfinished"/>
+        <translation>gemena theeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek small letter iota</source>
-        <translation type="unfinished"/>
+        <translation>gemena ioota</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek small letter kappa</source>
-        <translation type="unfinished"/>
+        <translation>gemena kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek small letter lambda</source>
-        <translation type="unfinished"/>
+        <translation>gemena lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek small letter mu</source>
-        <translation type="unfinished"/>
+        <translation>gemena myy</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek small letter nu</source>
-        <translation type="unfinished"/>
+        <translation>gemena nyy</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek small letter xi</source>
-        <translation type="unfinished"/>
+        <translation>gemena ksii</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek small letter omicron</source>
-        <translation type="unfinished"/>
+        <translation>gemena omikron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek small letter pi</source>
-        <translation type="unfinished"/>
+        <translation>gemena pii</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek small letter rho</source>
-        <translation type="unfinished"/>
+        <translation>gemena roo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek small letter final sigma</source>
-        <translation type="unfinished"/>
+        <translation>gemena sananloppuinen sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek small letter sigma</source>
-        <translation type="unfinished"/>
+        <translation>gemena sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek small letter tau</source>
-        <translation type="unfinished"/>
+        <translation>gemena tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek small letter upsilon</source>
-        <translation type="unfinished"/>
+        <translation>gemena ypsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek small letter phi</source>
-        <translation type="unfinished"/>
+        <translation>gemena fii</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek small letter chi</source>
-        <translation type="unfinished"/>
+        <translation>gemena khii</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek small letter psi</source>
-        <translation type="unfinished"/>
+        <translation>gemena psii</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek small letter omega</source>
-        <translation type="unfinished"/>
+        <translation>kreikkalainen gemenakirjain oomega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek theta symbol</source>
-        <translation type="unfinished"/>
+        <translation>theeta-symboli</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek Upsilon with hook symbol</source>
-        <translation type="unfinished"/>
+        <translation>koukullinen ypsilon-symboli</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek pi symbol</source>
-        <translation type="unfinished"/>
+        <translation>pii-symboli</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>en space</source>
-        <translation type="unfinished"/>
+        <translation>n-väli</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>em space</source>
-        <translation type="unfinished"/>
+        <translation>m-väli</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>thin space</source>
-        <translation type="unfinished"/>
+        <translation>ohuke</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>zero-width non-joiner</source>
-        <translation type="unfinished"/>
+        <translation>leveydetön erottava merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>zero-width joiner</source>
-        <translation type="unfinished"/>
+        <translation>leveydetön yhdistävä merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>left-to-right mark</source>
-        <translation type="unfinished"/>
+        <translation>vasemmalta oikealle -merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>right-to-left mark</source>
-        <translation type="unfinished"/>
+        <translation>oikealta vasemmalle -merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>en dash</source>
-        <translation type="unfinished"/>
+        <translation>ajatusviiva</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>em dash</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
-        <source>left singleÂ quotation mark</source>
-        <translation>vasemmalle osoittava yksinkertainen kulmalainausmerkki</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
-        <source>right singleÂ quotation mark</source>
-        <translation>oikealle osoittava yksinkertainen kulmalainausmerkki</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
-        <source>single low-9Â quotation mark</source>
-        <translation>rivinalinen puolilainausmerkki</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
-        <source>left doubleÂ quotation mark</source>
-        <translation>ylösalainen kokolainausmerkki</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
-        <source>right doubleÂ quotation mark</source>
-        <translation>kokolainausmerkki</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
-        <source>double low-9Â quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>pitkä ajatusviiva</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>dagger, obelisk</source>
-        <translation type="unfinished"/>
+        <translation>risti</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>double dagger, double obelisk</source>
-        <translation type="unfinished"/>
+        <translation>kaksoisristi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>bullet</source>
-        <translation type="unfinished"/>
+        <translation>luetelmapallo</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="84"/>
+        <source>feminine ordinal indicator</source>
+        <translation>feminiinisen järjestysluvun merkki</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="96"/>
+        <source>pilcrow sign</source>
+        <translation>kappaleen merkki</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
+        <source>masculine ordinal indicator</source>
+        <translation>maskuliinisen järjestysluvun merkki</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
+        <source>Latin capital letter A with grave accent</source>
+        <translation>versaali A ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
+        <source>Latin capital letter A with acute accent</source>
+        <translation>versaali A ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
+        <source>Latin capital letter A with circumflex</source>
+        <translation>versaali A ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
+        <source>Latin capital letter A with tilde</source>
+        <translation>versaali A ja tilde</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
+        <source>Latin capital letter A with diaeresis</source>
+        <translation>versaali Ä</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
+        <source>Latin capital letter C with cedilla</source>
+        <translation>versaali C ja sedilji</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
+        <source>Latin capital letter E with grave accent</source>
+        <translation>versaali E ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
+        <source>Latin capital letter E with acute accent</source>
+        <translation>versaali E ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
+        <source>Latin capital letter E with circumflex</source>
+        <translation>versaali E ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
+        <source>Latin capital letter E with diaeresis</source>
+        <translation>versaali E ja treema</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
+        <source>Latin capital letter I with grave accent</source>
+        <translation>versaali i ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
+        <source>Latin capital letter I with acute accent</source>
+        <translation>versaali i ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
+        <source>Latin capital letter I with circumflex</source>
+        <translation>versaali i ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
+        <source>Latin capital letter I with diaeresis</source>
+        <translation>versaali i ja treema</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
+        <source>Latin capital letter Eth</source>
+        <translation>versaali eth</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
+        <source>Latin capital letter N with tilde</source>
+        <translation>versaali n ja tilde</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
+        <source>Latin capital letter O with grave accent</source>
+        <translation>versaali O ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
+        <source>Latin capital letter O with acute accent</source>
+        <translation>versaali O ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
+        <source>Latin capital letter O with circumflex</source>
+        <translation>versaali O ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
+        <source>Latin capital letter O with tilde</source>
+        <translation>versaali O ja tilde</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
+        <source>Latin capital letter O with diaeresis</source>
+        <translation>versaali Ö</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
+        <source>Latin capital letter U with grave accent</source>
+        <translation>versaali U ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
+        <source>Latin capital letter U with acute accent</source>
+        <translation>versaali U ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
+        <source>Latin capital letter U with circumflex</source>
+        <translation>versaali U ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
+        <source>Latin capital letter U with diaeresis</source>
+        <translation>versaali saksalainen y</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
+        <source>Latin capital letter Y with acute accent</source>
+        <translation>versaali Y ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
+        <source>Latin capital letter THORN</source>
+        <translation>versaali thorn</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
+        <source>Latin small letter a with grave accent</source>
+        <translation>gemena a ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
+        <source>Latin small letter a with acute accent</source>
+        <translation>gemena a ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
+        <source>Latin small letter a with circumflex</source>
+        <translation>gemena a ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
+        <source>Latin small letter a with tilde</source>
+        <translation>gemena a ja tilde</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
+        <source>Latin small letter a with diaeresis</source>
+        <translation>gemena ä</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
+        <source>Latin small letter c with cedilla</source>
+        <translation>gemena c ja sedilji</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
+        <source>Latin small letter e with grave accent</source>
+        <translation>gemena a ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
+        <source>Latin small letter e with acute accent</source>
+        <translation>gemena e ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
+        <source>Latin small letter e with circumflex</source>
+        <translation>gemena e ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
+        <source>Latin small letter e with diaeresis</source>
+        <translation>gemena e ja treema</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
+        <source>Latin small letter i with grave accent</source>
+        <translation>gemena i ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
+        <source>Latin small letter i with acute accent</source>
+        <translation>gemena i ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
+        <source>Latin small letter i with circumflex</source>
+        <translation>gemena i ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
+        <source>Latin small letter i with diaeresis</source>
+        <translation>gemena i ja treema</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
+        <source>Latin small letter eth</source>
+        <translation>gemena eth</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
+        <source>Latin small letter n with tilde</source>
+        <translation>gemena n ja tilde</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
+        <source>Latin small letter o with grave accent</source>
+        <translation>gemena o ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
+        <source>Latin small letter o with acute accent</source>
+        <translation>gemena o ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
+        <source>Latin small letter o with circumflex</source>
+        <translation>gemena o ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
+        <source>Latin small letter o with tilde</source>
+        <translation>gemena o ja tilde</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
+        <source>Latin small letter o with diaeresis</source>
+        <translation>gemena ö</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
+        <source>Latin small letter u with grave accent</source>
+        <translation>gemena u ja gravis</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
+        <source>Latin small letter u with acute accent</source>
+        <translation>gemena u ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
+        <source>Latin small letter u with circumflex</source>
+        <translation>gemena u ja sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
+        <source>Latin small letter u with diaeresis</source>
+        <translation>gemena saksalainen y</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
+        <source>Latin small letter y with acute accent</source>
+        <translation>gemena y ja akuutti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
+        <source>Latin small letter thorn</source>
+        <translation>gemena thorn</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
+        <source>Latin small letter y with diaeresis</source>
+        <translation>gemena y ja treema</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
+        <source>Latin capital letter s with caron</source>
+        <translation>versaali hattu-s</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
+        <source>Latin small letter s with caron</source>
+        <translation>gemena hattu-s</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
+        <source>Latin capital letter y with diaeresis</source>
+        <translation>versaali y ja treema</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
+        <source>modifier letter circumflex accent</source>
+        <translation>tarkkeenomainen sirkumfleksi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
+        <source>small tilde</source>
+        <translation>pieni tilde</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
+        <source>left single quotation mark</source>
+        <translation>vasemmalle osoittava yksinkertainen kulmalainausmerkki</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
+        <source>right single quotation mark</source>
+        <translation>oikealle osoittava yksinkertainen kulmalainausmerkki</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
+        <source>single low-9 quotation mark</source>
+        <translation>rivinalinen puolilainausmerkki</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
+        <source>left double quotation mark</source>
+        <translation>ylösalainen kokolainausmerkki</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
+        <source>right double quotation mark</source>
+        <translation>kokolainausmerkki</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
+        <source>double low-9 quotation mark</source>
+        <translation>rivinalinen kokolainausmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="248"/>
-        <source>horizontalÂ ellipsis</source>
-        <translation type="unfinished"/>
+        <source>horizontal ellipsis</source>
+        <translation>ellipsi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="249"/>
-        <source>per milleÂ sign</source>
-        <translation type="unfinished"/>
+        <source>per mille sign</source>
+        <translation>promillemerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>prime</source>
-        <translation type="unfinished"/>
+        <translation>indeksointipilkku</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>double prime</source>
-        <translation type="unfinished"/>
+        <translation>kaksinkertainen indeksointipilkku</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>single left-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>vasemmalle osoittava kulmapuolilainausmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>single right-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>oikealle osoittava kulmapuolilainausmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>overline</source>
-        <translation type="unfinished"/>
+        <translation>yläviiva</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>fraction slash</source>
-        <translation type="unfinished"/>
+        <translation>murtoluvun vinoviiva</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>euro sign</source>
-        <translation type="unfinished"/>
+        <translation>euron merkk</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>black-letter capital I</source>
-        <translation type="unfinished"/>
+        <translation>fraktuuran versaali-i</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>script capital P</source>
-        <translation type="unfinished"/>
+        <translation>Weierstraßin p-kirjain</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>black-letter capital R</source>
-        <translation type="unfinished"/>
+        <translation>fraktuuran versaali-r</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>trademark symbol</source>
-        <translation type="unfinished"/>
+        <translation>tavaramerkin symboli</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>alef symbol</source>
-        <translation type="unfinished"/>
+        <translation>alef-symboli</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>leftwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>nuoli vasemmalle</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>upwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>nuoli ylös</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>rightwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>nuoli oikealle</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>downwards arrow</source>
-        <translation type="unfinished"/>
+        <translation>nuoli alas</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>left right arrow</source>
-        <translation type="unfinished"/>
+        <translation>nuoli vasemmalle ja oikealle</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>downwards arrow with corner leftwards</source>
-        <translation type="unfinished"/>
+        <translation>nuoli alas ja vasemmalle</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>leftwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>kaksoisnuoli vasemmalle</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>upwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>kaksoisnuoli ylös</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>rightwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>kaksoisnuoli oikealle</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>downwards double arrow</source>
-        <translation type="unfinished"/>
+        <translation>kaksoisnuoli alas</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>left right double arrow</source>
-        <translation type="unfinished"/>
+        <translation>kaksoisnuoli vasemmalle ja oikealle</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>for all</source>
-        <translation type="unfinished"/>
+        <translation>kaikkikvanttori</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>partial differential</source>
-        <translation type="unfinished"/>
+        <translation>osittaisderivaatta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>there exists</source>
-        <translation type="unfinished"/>
+        <translation>olemassaolokvanttori</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>empty set</source>
-        <translation type="unfinished"/>
+        <translation>tyhjä joukko</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>nabla</source>
-        <translation type="unfinished"/>
+        <translation>nabla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>element of</source>
-        <translation type="unfinished"/>
+        <translation>joukkoon kuulumisen merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>not an element of</source>
-        <translation type="unfinished"/>
+        <translation>joukkoon kuulumattomuuden merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>contains as member</source>
-        <translation type="unfinished"/>
+        <translation>sisältää alkion -merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>n-ary product</source>
-        <translation type="unfinished"/>
+        <translation>tulo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>n-ary summation</source>
-        <translation type="unfinished"/>
+        <translation>summa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>minus sign</source>
-        <translation type="unfinished"/>
+        <translation>miinusmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>asterisk operator</source>
-        <translation type="unfinished"/>
+        <translation>asteriskioperaattori</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>square root</source>
-        <translation type="unfinished"/>
+        <translation>neliöjuuri</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>proportional to</source>
-        <translation type="unfinished"/>
+        <translation>verrannollisuusmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>infinity</source>
-        <translation type="unfinished"/>
+        <translation>äärettömän merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>angle</source>
-        <translation type="unfinished"/>
+        <translation>kulma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>logical and</source>
-        <translation type="unfinished"/>
+        <translation>looginen ja-merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>logical or</source>
-        <translation type="unfinished"/>
+        <translation>looginen tai-merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>intersection</source>
-        <translation type="unfinished"/>
+        <translation>leikkaus</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>union</source>
-        <translation type="unfinished"/>
+        <translation>yhdisteen merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>integral</source>
-        <translation type="unfinished"/>
+        <translation>integraalimerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>therefore sign</source>
-        <translation type="unfinished"/>
+        <translation>siis-merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>tilde operator</source>
-        <translation type="unfinished"/>
+        <translation>tildeoperaattori</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>congruent to</source>
-        <translation type="unfinished"/>
+        <translation>isomorfiamerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>almost equal to</source>
-        <translation type="unfinished"/>
+        <translation>noin-merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>not equal to</source>
-        <translation type="unfinished"/>
+        <translation>erisuuruusmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>identical to</source>
-        <translation type="unfinished"/>
+        <translation>identtisyysmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>less-than or equal to</source>
-        <translation type="unfinished"/>
+        <translation>pienempi tai yhtä suuri kuin -merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>greater-than or equal to</source>
-        <translation type="unfinished"/>
+        <translation>suurempi kuin tai yhtä suuri kuin -merkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>subset of</source>
-        <translation type="unfinished"/>
+        <translation>osajoukkomerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>superset of</source>
-        <translation type="unfinished"/>
+        <translation>sisältyvyysmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>not a subset of</source>
-        <translation type="unfinished"/>
+        <translation>osajoukkosuhteen negaati</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>subset of or equal to</source>
-        <translation type="unfinished"/>
+        <translation>samuuden salliva osajoukkomerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>superset of or equal to</source>
-        <translation type="unfinished"/>
+        <translation>samuuden salliva sisältyvyysmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>circled plus</source>
-        <translation type="unfinished"/>
+        <translation>ympyrässä oleva plus</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>circled times</source>
-        <translation type="unfinished"/>
+        <translation>ympyrässä oleva kertomerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>up tack</source>
-        <translation type="unfinished"/>
+        <translation>ylös osoittava rasti</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>dot operator</source>
-        <translation type="unfinished"/>
+        <translation>kertopiste</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>left ceiling</source>
-        <translation type="unfinished"/>
+        <translation>vasen katto</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>right ceiling</source>
-        <translation type="unfinished"/>
+        <translation>oikea katto</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>left floor</source>
-        <translation type="unfinished"/>
+        <translation>vasen lattia</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>right floor</source>
-        <translation type="unfinished"/>
+        <translation>oikea lattia</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>left-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>vasemmalle osoittava kulmasulje</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>right-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>oikealle osoittava kulmasulje</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>lozenge</source>
-        <translation type="unfinished"/>
+        <translation>vinoneliö</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>black spade suit</source>
-        <translation type="unfinished"/>
+        <translation>musta korttipelin pata</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>black club suit</source>
-        <translation type="unfinished"/>
+        <translation>musta korttipelin risti</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>black heart suit</source>
-        <translation type="unfinished"/>
+        <translation>musta korttipelin hertta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>black diamond suit</source>
-        <translation type="unfinished"/>
+        <translation>musta korttipelin ruutu</translation>
     </message>
 </context>
 </TS>

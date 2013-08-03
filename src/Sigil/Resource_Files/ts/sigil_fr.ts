@@ -79,7 +79,7 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="64"/>
         <source>retired</source>
-        <translation type="unfinished"/>
+        <translation>inactif</translation>
     </message>
 </context>
 <context>
@@ -437,11 +437,11 @@ si une famille de police sans sérif est précisée dans votre CSS</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="578"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="597"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="745"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="601"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="648"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="749"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="949"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -457,8 +457,8 @@ si une famille de police sans sérif est précisée dans votre CSS</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1501"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1333"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1505"/>
         <source>Open With</source>
         <translation>Ouvrir avec</translation>
     </message>
@@ -473,12 +473,12 @@ si une famille de police sans sérif est précisée dans votre CSS</translation>
         <translation>fichiers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="590"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="594"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Impossible d&apos;effacer ou de remplacer le fichier &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="598"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="602"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -487,125 +487,125 @@ A file with this name already exists in the book.</source>
 Un fichier du même nom existe déjà dans le livre.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="695"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="699"/>
         <source>Save As File</source>
         <translation>Enregistrer ce fichier sous</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="717"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="721"/>
         <source>Unable to save the file.</source>
         <translation>Impossible d&apos;enregistrer le fichier.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="725"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="729"/>
         <source>Choose the directory to save the files to</source>
         <translation>Choisissez le répertoire dans lequel enregistrer les fichiers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="745"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="749"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Un ou plusieurs des fichiers existent déjà. Voulez-vous les écraser ?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="762"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="766"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Impossible d&apos;enregistrer les fichiers. La cible peut être un répertoire.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="770"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="774"/>
         <source>Unable to save files.</source>
         <translation>Impossible d&apos;enregistrer  les fichiers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="949"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Impossible de renommer les fichiers car le nom des fichiers serait en double.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1009"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1013"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>Le NCX et l&apos;OPF ne peuvent pas être supprimés.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1016"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1020"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Vous ne pouvez pas supprimer tous les fichiers HTML.
 Il faut toujours au minimum un fichier HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1313"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
         <source>Add Blank Stylesheet</source>
         <translation>Ajouter une feuille de style vierge</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1314"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1318"/>
         <source>Add Blank SVG Image</source>
         <translation>Ajouter image vierge SVG</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1315"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1319"/>
         <source>Add Existing Files...</source>
         <translation>Ajouter fichier(s) existant(s)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1316"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1321"/>
         <source>Add Copy</source>
         <translation>Ajouter une copie</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1318"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Rename</source>
         <translation>Renommer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1331"/>
         <source>Link Stylesheets...</source>
-        <translation>Associer les feuilles de style avec le(s) fichiers(s) (X)HTML...</translation>
+        <translation>Associer la ou les feuilles de style avec le(s) fichiers(s) (X)HTML...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1334"/>
         <source>Save As</source>
         <translation>Enregistrer sous</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1511"/>
         <source>Other Application</source>
         <translation>Autre application</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
         <source>Cover Image</source>
         <translation>Image de couverture</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1321"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
         <source>Merge</source>
         <translation>Fusionner</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1323"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Utilisez la méthode Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Utilisez la méthode de l&apos;IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1311"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1315"/>
         <source>Select All</source>
         <translation>Sélectionnez tout</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="515"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="519"/>
         <source>Add Existing Files</source>
         <translation>Ajouter les fichiers existants</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="553"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="557"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -614,7 +614,7 @@ Il faut toujours au minimum un fichier HTML.</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="563"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -623,7 +623,7 @@ Il faut toujours au minimum un fichier HTML.</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="578"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -632,134 +632,134 @@ OK to replace?</source>
 Le remplacer?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="645"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="649"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
         <translation>Le(s) fichier(s) suivant(s) n&apos;ont pas été chargé(s) en raison d&apos;un contenu invalide ou d&apos;une erreur dans la syntaxe XML:⏎ ⏎ %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="660"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="664"/>
         <source>File(s) added.</source>
         <translation>Fichier(s) ajouté(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1158"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1162"/>
         <source>Unable to set file as cover image.</source>
         <translation>Impossible d&apos;utiliser le fichier comme image de couverture.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1316"/>
         <source>Add Blank HTML File</source>
         <translation>Ajouter une page HTML vierge</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1319"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1323"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1326"/>
         <source>None</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
         <source>Sort</source>
         <translation>Trier</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1326"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
         <source>Renumber TOC Entries</source>
         <translation>Renuméroter les entrées de la TDM</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
         <source>Validate with W3C</source>
         <translation>Valider avec W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
         <source>Cover</source>
         <translation>Couverture</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
         <source>Title Page</source>
         <translation>Page de titre</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
         <source>Table Of Contents</source>
         <translation>Table des matières</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Index</source>
         <translation>Index</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1381"/>
         <source>Glossary</source>
         <translation>Glossaire</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1381"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1385"/>
         <source>Acknowledgements</source>
         <translation>Remerciements</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1385"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1389"/>
         <source>Bibliography</source>
         <translation>Bibliographie</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1389"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
         <source>Colophon</source>
         <translation>Colophon</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
         <source>CopyrightPage</source>
         <translation>Crédits</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Dedication</source>
         <translation>Dédicace</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
         <source>Epigraph</source>
         <translation>Épigraphe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>Foreword</source>
         <translation>Avant-propos</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
         <source>List Of Illustrations</source>
         <translation>Liste des illustrations</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>List Of Tables</source>
         <translation>Liste des tableaux</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1421"/>
         <source>Notes</source>
         <translation>Notes</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1421"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1425"/>
         <source>Preface</source>
         <translation>Préface</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1425"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1429"/>
         <source>Text</source>
         <translation>Texte</translation>
     </message>
@@ -1853,7 +1853,7 @@ sens pour continuer la recherche.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
         <source>Wrap</source>
-        <translation type="unfinished"/>
+        <translation>Enclore</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
@@ -2714,6 +2714,11 @@ Voulez-vous enregistrer les changements?</translation>
         <source>Shortcut:</source>
         <translation>Raccourci:</translation>
     </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
+        <source>Conflicts with: &lt;b&gt;</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Language</name>
@@ -3340,7 +3345,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Indonesian - Indonesia</source>
-        <translation type="unfinished"/>
+        <translation>Indonésien - Indonésie</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
@@ -3759,8 +3764,8 @@ Voulez-vous enregistrer les changements?</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
-        <source>SP</source>
-        <translation>SP</translation>
+        <source>Serbia</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
@@ -4525,7 +4530,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Egyptian (Ancient)</source>
-        <translation type="unfinished"/>
+        <translation>Egyptien (Ancien)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="428"/>
@@ -4540,12 +4545,12 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="430"/>
         <source>English- Middle (1100-1500)</source>
-        <translation type="unfinished"/>
+        <translation>moyen anglais (1100-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="431"/>
         <source>English- Old (ca.450-1100)</source>
-        <translation type="unfinished"/>
+        <translation> anglais médiéval  (ca.450-1100)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="432"/>
@@ -4585,7 +4590,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="439"/>
         <source>French- Middle (ca.1400-1600)</source>
-        <translation type="unfinished"/>
+        <translation>moyen français (ca.1400-1600)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="440"/>
@@ -4635,7 +4640,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Germanic languages</source>
-        <translation type="unfinished"/>
+        <translation>Langues germaniques</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="450"/>
@@ -4655,7 +4660,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="453"/>
         <source>Gothic</source>
-        <translation type="unfinished"/>
+        <translation>Gothique</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="454"/>
@@ -4665,7 +4670,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Greek- Ancient (to 1453)</source>
-        <translation type="unfinished"/>
+        <translation>grec ancien (to 1453)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="456"/>
@@ -6264,7 +6269,7 @@ Insère ou édite une ancre, dont le nom (ID) peut être utilisé comme cible de
     <message>
         <location filename="../../Form_Files/main.ui" line="541"/>
         <source>Text Direction</source>
-        <translation>Sens du texte</translation>
+        <translation>Direction du texte</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="590"/>
@@ -6315,7 +6320,8 @@ Coupe le texte sélectionné dans le document et le met dans le presse-papier.</
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Copier&lt;/b&gt; &lt;/p&gt;⏎ ⏎ 
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Copier&lt;/b&gt; &lt;/p&gt;
+
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Copie la sélection pour la mettre dans le presse-papiers.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -6360,7 +6366,9 @@ Coupe le texte sélectionné dans le document et le met dans le presse-papier.</
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Justifié&lt;/b&gt; &lt;/p&gt;&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Aligne le texte à droite et à gauche. &lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Justifié&lt;/b&gt; &lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Aligne le texte à droite et à gauche. &lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="797"/>
@@ -6377,7 +6385,7 @@ Coupe le texte sélectionné dans le document et le met dans le presse-papier.</
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Gras&lt;/b&gt; &lt;/p&gt;&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Graisse le texte sélectionné. &lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="817"/>
@@ -6394,7 +6402,9 @@ Coupe le texte sélectionné dans le document et le met dans le presse-papier.</
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italique&lt;/b&gt; &lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Met le texte sélectionné en italique. &lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="837"/>
@@ -6411,7 +6421,9 @@ Coupe le texte sélectionné dans le document et le met dans le presse-papier.</
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Soulignez&lt;/b&gt;&lt;/p&gt;⏎
+⏎
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Soulignez la sélection.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="874"/>
@@ -6433,7 +6445,9 @@ Coupe le texte sélectionné dans le document et le met dans le presse-papier.</
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Éditeur de métadonnées&lt;/b&gt;&lt;/p&gt;⏎ ⏎ &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Édite et affiche les informations concernant votre livre, incluant le nom de l&apos;auteur et le titre.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Éditeur de métadonnées&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Édite et affiche les informations concernant votre livre, incluant le nom de l&apos;auteur et le titre.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="994"/>
@@ -6450,9 +6464,9 @@ Coupe le texte sélectionné dans le document et le met dans le presse-papier.</
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
-        <translation>Insérer un caractère spécial
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insérer un caractère spécial&lt;/b&gt;&lt;/p&gt;
 
-Sélectionnez le caractère à insérer dans votre texte.</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sélectionnez le caractère à insérer dans votre texte.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1090"/>
@@ -6492,14 +6506,18 @@ Sélectionnez le caractère à insérer dans votre texte.</translation>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Barré&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Le texte sélectionné sera barré par une ligne.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1147"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Exposant&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Rend le texte sélectionné plus petit et au-dessus de la ligne normale.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1161"/>
@@ -6511,8 +6529,8 @@ Sélectionnez le caractère à insérer dans votre texte.</translation>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Exposant&lt;/b&gt;&lt;/p&gt;⏎
-⏎
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Exposant&lt;/b&gt;&lt;/p&gt;
+
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Rend le texte sélectionné plus petit et au-dessus de la ligne normale.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -6652,7 +6670,7 @@ Génère une nouvelle Table des Matières à partir des titres (headings) de vot
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Augmenter Retrait&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Augmenter le retrait&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Augmente le retrait du paragraphe. &lt;/p&gt;</translation>
     </message>
@@ -6666,7 +6684,9 @@ Génère une nouvelle Table des Matières à partir des titres (headings) de vot
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Diminuer Retrait&lt;/b&gt; &lt;/p&gt;&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Diminue le retrait du paragraphe. &lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Diminuer le retrait&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Diminue le retrait du paragraphe.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1296"/>
@@ -6681,8 +6701,11 @@ Génère une nouvelle Table des Matières à partir des titres (headings) de vot
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction left to right.&lt;/p&gt;
     </source>
-        <translation>⏎ &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;De gauche à droite&lt;/b&gt;&lt;/p&gt;⏎ ⏎
- &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Définir la direction du paragraphe de gauche à droite.&lt;/p&gt;⏎</translation>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;De gauche à droite&lt;/b&gt;&lt;/p&gt;
+
+ &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Définir la direction du paragraphe de gauche à droite.&lt;/p&gt;
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1324"/>
@@ -6691,8 +6714,11 @@ Génère une nouvelle Table des Matières à partir des titres (headings) de vot
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction right to left.&lt;/p&gt;
     </source>
-        <translation>⏎ &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;De droite à gauche&lt;/b&gt;&lt;/p&gt;⏎ ⏎ 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Définir la direction du paragraphe de droite à gauche.&lt;/p&gt;⏎ </translation>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;De droite à gauche&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Définir la direction du paragraphe de droite à gauche.&lt;/p&gt;
+ </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1340"/>
@@ -6701,10 +6727,11 @@ Génère une nouvelle Table des Matières à partir des titres (headings) de vot
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction to inherit from default.&lt;/p&gt;
     </source>
-        <translation>⏎
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Défaut&lt;/b&gt;&lt;/p&gt;⏎
-⏎
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Règle la direction du paragraphe selon la valeur par défaut.&lt;/p&gt;⏎</translation>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Défaut&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Règle la direction du paragraphe selon la valeur par défaut.&lt;/p&gt;
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1352"/>
@@ -6718,9 +6745,10 @@ Génère une nouvelle Table des Matières à partir des titres (headings) de vot
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to lowercase.&lt;/p&gt;
     </source>
-        <translation>Minuscules
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Minuscules&lt;/b&gt;&lt;/p&gt;
 
-Passe le texte sélectionné en minuscules.</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Passe le texte sélectionné en minuscules.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1371"/>
@@ -6734,9 +6762,10 @@ Passe le texte sélectionné en minuscules.</translation>
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to uppercase.&lt;/p&gt;
     </source>
-        <translation>Majuscules
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Majuscules&lt;/b&gt;&lt;/p&gt;
 
-Passe le texte sélectionné en majuscules.</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Passe le texte sélectionné en majuscules.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1390"/>
@@ -6840,7 +6869,9 @@ Applique une majuscule initiale au premier mot dans le texte sélectionné</tran
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vérifier l&apos;orthographe&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cherche tous les mots mal orthographiés, et vous permet de les ajouter à un dictionnaire, ou de les ignorer.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1551"/>
@@ -7396,7 +7427,9 @@ Ajoute des fichiers de votre ordinateur à votre livre.</translation>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Arrière&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Retourner où vous étiez lorsque vous avez cliquez sur un lien, fait un clic droit sur un style, ou mis en signet votre position.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2246"/>
@@ -7611,7 +7644,7 @@ Vérifie que vos feuilles de styles CSS correspondent aux standards W3C en utili
     <message>
         <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>Heading &amp;1</source>
-        <translation>Rubrique &amp;1</translation>
+        <translation>Titre &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1998"/>
@@ -7824,59 +7857,59 @@ Vérifie que vos feuilles de styles CSS correspondent aux standards W3C en utili
         <translation>Alt+PgSuiv</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="529"/>
         <source>Open File</source>
         <translation>Ouvrir un fichier</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="635"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="634"/>
         <source>Save File</source>
         <translation>Enregistrer le fichier</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="739"/>
         <source>Go To Line</source>
         <translation>Aller à la ligne</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="739"/>
         <source>Line #</source>
         <translation>Ligne #</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="335"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="570"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="748"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1191"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1246"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1254"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1386"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1205"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1260"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1268"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1284"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1400"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1426"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1445"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1450"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1462"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1472"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1477"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1683"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1690"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1448"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1464"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1697"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1752"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2950"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2992"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3323"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3524"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1766"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3338"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3539"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -7905,111 +7938,111 @@ Vérifie que vos feuilles de styles CSS correspondent aux standards W3C en utili
         <translation>Enregistrer une Copie...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="832"/>
         <source>No CSS styles named</source>
         <translation>Aucun styles CSS nommés</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1094"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
         <source>Styles deleted.</source>
         <translation>Styles effacés.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1349"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Le fichier &quot;%1&quot; n&apos;existe pas.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1386"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1400"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Impossible d&apos;insérer un id à cet endroit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1529"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1644"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1658"/>
         <source>Select the destination to paste into first.</source>
         <translation>Avant de coller, choisir la destination.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1697"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Une ressource a été choisie, mais il n&apos;y a pas d&apos;autre(s) ressource(s) pour la fusion.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1690"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Voulez-vous vraiment fusionner les fichiers sélectionnés ? Cette action est  irréversible.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1752"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1766"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Association des feuilles de style annulée: %1, fichier XML incorrect.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Fusion annulée en raison d&apos;une erreur dans la syntaxe XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1734"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1748"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Fusion effectuée. Il faudra peut-être actualiser ou éditer la Table des matières.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1897"/>
         <source>Word updated.</source>
         <translation>Mot actualisé.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1947"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1962"/>
         <source>File(s) deleted.</source>
         <translation>Fichier(s) effacé(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1995"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2010"/>
         <source>Table Of Contents generated.</source>
         <translation>Table des matières générée.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2333"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Cet EPUB ne contient aucune feuille de styles CSS à valider.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2950"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
         <source>File cannot be split at this position.</source>
         <translation>Impossible de subdiviser le fichier à cet endroit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2967"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2982"/>
         <source>Split completed.</source>
         <translation>Subdivision effectuée.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3017"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3032"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Subdivision effectuée. Il faudra actualiser la Table des matières.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3026"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3041"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Aucun marqueur de séparation trouvé. Utilisez Insérer → Marqueur de séparation</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3256"/>
         <source>File loaded.</source>
         <translation>Fichier chargé.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3290"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
         <source>Saving EPUB...</source>
         <translation>Enregistrement du EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3299"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3314"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Impossible d&apos;enregistrer les fichiers de ce type &quot;%1&quot;.
@@ -8041,71 +8074,71 @@ Choisissez un format différent svp.</translation>
         <translation>Sigil se ferme...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="568"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Ce fichier n&apos;existe plus. Cliquer sur OK  pour l&apos;enlever du menu.⏎
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1254"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1268"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Annulation de l&apos;effacement des styles inutilisés en raison d&apos;une erreur dans la syntaxe XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1284"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Il n&apos;y a aucune classes inutilisées à effacer dans la feuille de style.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1422"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>L&apos;ID n&apos;est pas valide - doit commencer par une lettre, suivie suivi du numéro de la lettre _ : - ou .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1476"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Impossible de définir un index à cet endroit ou sans avoir sélectionné du texte au préalable.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Impossible de définir un index à cet endroit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
         <source>Cannot merge file %1</source>
         <translation>Impossible de fusionner le fichier %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1980"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1995"/>
         <source>Generate TOC cancelled.</source>
         <translation>Création de la Table des matières annulée.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1997"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2012"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Pas de changements nécessaires à la Table des matières.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2861"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
         <source>Line: %1, Col: %2</source>
         <translation>Ligne : %1, Col : %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3135"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3150"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Le document a été modifié. 
 Voulez-vous enregistrer vos modifications?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3214"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3229"/>
         <source>No importer for file type: %1</source>
         <translation>Pas de module d&apos;importation pour ce type de fichier: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3001"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Impossible de subdiviser puisqu&apos;au moins un fichier n&apos;est pas au format HTML.</translation>
     </message>
@@ -8120,153 +8153,157 @@ Voulez-vous enregistrer vos modifications?</translation>
         <translation>Ce EPUB comporte des erreurs.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="748"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="762"/>
         <source>Image does not exist: </source>
         <translation>L&apos;image n&apos;existe pas:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="886"/>
         <source>Add Cover</source>
         <translation>Ajouter une page couverture</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="954"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="968"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Erreur imprévue. Seuls les fichiers image peuvent être utilisés pour la page couverture.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="971"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="985"/>
         <source>Cover added.</source>
         <translation>Page couverture ajoutée.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1118"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Rapports annulés en raison d&apos;une erreur dans la syntaxe XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1205"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Annulation de la suppression des fichiers médias inutilisés en raison d&apos;une erreur dans la syntaxe XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
         <source>Unused media files deleted.</source>
         <translation>Fichiers médias inutilisés supprimés.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1246"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1260"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Il n&apos;y a aucune image, vidéo ou fichiers audio à supprimer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Impossible d&apos;insérer un fichier à cet endroit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1302"/>
         <source>Insert File</source>
         <translation>Insérer le fichier</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
         <source>You must select text before inserting a new id.</source>
         <translation>Vous devez sélectionner le texte avant d&apos;insérer un nouvel id.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1426"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1450"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1464"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Impossible d&apos;insérer un lien à cet endroit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1448"/>
         <source>You must select text before inserting a new link.</source>
         <translation>Vous devez sélectionner le texte avant d&apos;insérer un nouveau lien.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1445"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1459"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Le lien est non valide - il ne peut contenir &apos;&lt;&apos; ou &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1472"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1486"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>L&apos;entrée est non valide - elle ne peut contenir &apos;&lt;&apos; ou &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1537"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1551"/>
         <source>Pasted clip entry %1.</source>
         <translation>L&apos;entrée clip %1 collée.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation>Fusion annulée: %1, XML incorrect.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1958"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1973"/>
         <source>Edit Table of Contents cancelled.</source>
-        <translation>Édition de la Table des matière annulée.</translation>
+        <translation>Édition de la Table des matières annulée.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1978"/>
         <source>Table Of Contents edited.</source>
         <translation>Table des matières éditée.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2123"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2138"/>
         <source>Text selection marked.</source>
         <translation>Texte sélectionné marqué.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2126"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2145"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2141"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2160"/>
         <source>Text selection unmarked.</source>
         <translation>Texte sélectionné non marqué.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Impossible de subdiviser: %1 XML est incorrect</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Impossible de subdiviser puisqu&apos;au moins un fichier n&apos;est probablement pas au format HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3221"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
 
 Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and reloading the file.</source>
-        <translation type="unfinished"/>
+        <translation>Les fichiers suivants n&apos;ont pas été chargés en raison d&apos;un contenu incorrect ou d&apos;un défaut de structure XML:
+
+%1 (line %2: %3)
+
+Essayez, dans le menu Préférences, Nettoyer la source, Print Tidy ou HTML Tidy et rechargez le fichier.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3226"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
         <source>Loading file...</source>
         <translation>Chargement du fichier...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3256"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Le créateur de ce fichier l&apos;a chiffré avec des DRM. Sigil ne peut pas l&apos;ouvrir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3278"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Impossible de charger le fichier EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3282"/>
         <source>Cannot load file %1: %2</source>
         <translation>Impossible de charger le fichier %1 : %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3324"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3339"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
@@ -8275,69 +8312,69 @@ Do you want to automatically fix the files before saving?</source>
 Voulez-vous corriger automatiquement les fichiers avant d&apos;enregistrer?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3355"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3370"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB enregistré, mais certains fichiers HTML sont incorrects. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3358"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3373"/>
         <source>EPUB saved.</source>
         <translation>EPUB enregistré.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3364"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
         <source>Cannot save file %1: %2</source>
         <translation>Impossible d&apos;enregistrer le fichier %1 : %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3501"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3516"/>
         <source>EPUB files (*.epub)</source>
         <translation>Fichiers EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3502"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3503"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3517"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3519"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Fichiers HTML (*. htm *. html *. xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3520"/>
         <source>Text files (*.txt)</source>
         <translation>Fichiers texte (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3506"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3521"/>
         <source>All files (*.*)</source>
         <translation>Tous les fichiers (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3529"/>
         <source>EPUB file (*.epub)</source>
         <translation>Fichier EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3524"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3539"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3595"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3610"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3596"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3611"/>
         <source>ON</source>
         <translation>Actif</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3596"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3611"/>
         <source>OFF</source>
         <translation>Inactif</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3636"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -8372,7 +8409,7 @@ Voulez-vous corriger automatiquement les fichiers avant d&apos;enregistrer?</tra
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="138"/>
         <source>Add Role</source>
-        <translation>Ajoutez Personne</translation>
+        <translation>Ajoutez une fonction</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="202"/>
@@ -8490,7 +8527,7 @@ Vous pouvez également utiliser un &apos;;&apos; entre les valeurs pour créer r
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="416"/>
         <source>Role Type</source>
-        <translation>Type de personne</translation>
+        <translation>Type de fonction</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
@@ -8796,7 +8833,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation chargée d&apos;enchères publiques et de l&apos;estimation de biens, en particulier de livres, d&apos;oeuvres artistiques, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
@@ -8856,7 +8893,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable du dialogue ou des commentaires parlés pour un scénario ou un enregistrement sonore.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
@@ -8876,7 +8913,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable de la reliure de documents imprimés ou manuscrits.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
@@ -8886,7 +8923,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable du design de la reliure d&apos;un livre, incluant le type de reliure, le type de matériel utilisé et toute caractéristique décorative de la reliure.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
@@ -8896,7 +8933,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable du design graphique complet d&apos;un livre, incluant la disposition du modèle et l&apos;llustration, le choix des matériaux et le procédé utilisé. </translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
@@ -8906,7 +8943,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable de la production de livres et autres médias imprimés, si les codes spécifiques (par ex. [bkd], [egr], [tyd], [prt]) ne sont pas souhaitables.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
@@ -8916,7 +8953,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable du design des couvertures flexibles conçues pour ou publiées avec un livre, incluant le type de matériaux utilisés et tout aspect décoratif de la jaquette du livre.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
@@ -8926,7 +8963,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable du design de l&apos;étiquette identifiant les propriétaires d&apos;un livre, qui est le plus souvent collée à l&apos;intérieur de la couvercle d&apos;un livre.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
@@ -8936,7 +8973,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable de fabriquer pour les vendre des livres et d&apos;autres documents bibliographiques. L&apos;intérêt pour ces supports est premièrement lucratif.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
@@ -8946,7 +8983,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation qui écrit de manière esthétique, habituellement un copiste ou un calligraphe.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
@@ -8956,7 +8993,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable de la création de cartes et autres documents cartographiques.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
@@ -8966,7 +9003,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour un censeur ou quelqu&apos;un qui fait du caviardage, etc., que sa fonction soit officielle ou privée.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
@@ -8976,7 +9013,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation qui compose ou arrange des danses ou d&apos;autres chorégraphies (par ex., &quot;maître d&apos;armes&quot;) pour des représentations musicales, artistiques ou de divertissement.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
@@ -8986,7 +9023,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable des images capturées pour une réalisation cinématographique. Cette personne travaille sous la supervision d&apos;un directeur et peut être également présenté comme directeur de la photographie. À ne pas confondre avec vidéaste.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
@@ -8996,7 +9033,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation pour qui une autre personne ou organisation agit.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
@@ -9006,7 +9043,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Use for a person or organization that takes a limited part in the elaboration of a work of another person or organization that brings complements (e.g., appendices, notes) to the work.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation qui participe de façon limitée à l&apos;élaboration du travail d&apos;une autre personne ou organisation et apporte des compléments ( par ex., des appendices, des notes) à ce travail.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
@@ -9016,7 +9053,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation qui a réunit des matériaux de diverses sources et qui ont été arrangés, décrits et catalogués en tant que collection. Un collectionneur n&apos;est ni le créateur de ces matériaux ni une personne à qui les manuscrits de la collection aurait pu être adressés. </translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
@@ -9026,7 +9063,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable de la production d&apos;épreuves photographiques à partir de films ou d&apos;autre colloïde qui ont des surfaces sensibles à l&apos;encre et qui la repoussent.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
@@ -9036,7 +9073,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation qui fournit des interprétations, des analyses ou une discussion sur le sujet relié à un enregistrement, un film ou un autre support audiovisuel.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
@@ -9046,7 +9083,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable du commentaire ou des notes explicatives concernant un texte. Pour l&apos;auteur des notes d&apos;un manuscrit dans un livre imprimé, utilisez annotateur [ann].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
@@ -9056,7 +9093,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation qui produit un travail ou une publication en sélectionnant et en colligeant le matériel provenant du travail de diverses personnes ou organismes.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
@@ -9066,7 +9103,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour la partie qui s&apos;adresse aux tribunaux afin d&apos;obtenir réparation, généralement dans une demande d&apos;équité. </translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
@@ -9076,7 +9113,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour un plaignant qui fait appel d&apos;un tribunal ou d&apos;une juridiction à un autre pour faire infirmer le jugement, habituellement dans une demande d&apos;équité.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
@@ -9086,7 +9123,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour un plaignant qui fait appel d&apos;un tribunal ou d&apos;une juridiction à un autre pour faire infirmer le jugement, habituellement dans une demande d&apos;équité.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
@@ -9096,7 +9133,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation qui crée une composition musicale, habituellement un morceau de musique sous forme manuscrite ou imprimée.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
@@ -9106,7 +9143,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation responsable de la création de matrices métalliques ou de moules en d&apos;autres matériaux, utilisés pour créer du texte et des images pour fins d&apos;impression.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
@@ -9116,7 +9153,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation à l&apos;origine de l&apos;idée originale sur laquelle un travail est basé, ce qui inclut l&apos;auteur scientifique d&apos;un élément audio-visuel et le concepteur d&apos;une publicité. </translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
@@ -9126,7 +9163,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne qui dirige un groupe d&apos;interprètes (orchestre, coeur, opéra, etc.) pour une repésentation musicale, dramatique ou de divertissement.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
@@ -9136,7 +9173,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation spécialisée dans  une ressource, qui est sollicitée pour ses conseils ou services professionnels dans un domaine spécifique de connaissances ou de formation.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
@@ -9146,7 +9183,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation spécialisée qui est engagé spécifiquement pour fournir un aperçu intellectuel d&apos;une tâche stratégique ou opérationnelle et qui par analyse, spécification, ou instruction, crée ou de propose un plan coût-efficacité de l&apos;action ou de la solution.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
@@ -9156,17 +9193,17 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour le parti qui oppose, refuse ou conteste en cour de justice, une réclamation, une décision, un résultat, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Contestant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Intimé-appellant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour un appelant qui fait appel auprès d&apos;une autre instance judiciaire pour renverser un jugement.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
@@ -9216,7 +9253,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser pour une personne ou une organisation experte dans une ressource, qui établit un contat avec une autre personne ou organisation afin de réaliser une tâche spécifique.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="197"/>
@@ -10710,7 +10747,7 @@ Voulez-vous enregistrer les changements?</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
-        <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mÃ©moire, or text of a dissertation. </source>
+        <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -10955,7 +10992,7 @@ Voulez-vous enregistrer les changements?</translation>
         <translation>Création des rapports...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="535"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="539"/>
         <source>Adding Existing Files..</source>
         <translation>Ajout des fichiers existants...</translation>
     </message>
@@ -11207,7 +11244,21 @@ current extensions will be kept.  If you just provide a file extension (e.g. .xh
 then only file extensions will be updated.  Be careful that any extension you use is 
 valid for all selected files.
 </source>
-        <translation type="unfinished"/>
+        <translation>Entrer le nom qui sera utilisé pour renommer tous les fichiers sélectionnnés, par ex.:
+
+nomdefichier001
+nomdefichier08.xhtml
+.html
+
+Tous les nombres à la fin des noms de fichiers que vous avez entrés seront remplacés séquentiellement
+commençant par le nombre inscrit (1 par défaut si rien n&apos;est spécifié) avec
+des 0 en ajout pour correspondre au nombre de chiffres utilisés. 
+
+Si vous avez précisé une extension de fichier, elle sera utilisée pour tous les fichiers sinon les
+extensions courantes seront conservées.  Si vous avez simplement inscrit une extension (par ex. .xhtml)
+alors seule l&apos;extension de fichier sera modifiée. Assurez-vous que l&apos;extension utilisée est
+valable pour tous les fichiers sélectionnés.
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="45"/>
@@ -11760,7 +11811,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="193"/>
         <source>User Dictionary Word List</source>
-        <translation>Mots du Dictionnaire personnel</translation>
+        <translation>Liste des mots du Dictionnaire utilisateur</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="128"/>
@@ -11936,7 +11987,7 @@ ou lorsque vous utilisez les raccourcis Ajouter les mots mal orthographiés.</tr
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="481"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="519"/>
         <source>Ignore</source>
         <translation>Ignorer</translation>
     </message>
@@ -12001,80 +12052,80 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation>Afficher tous les mots</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="137"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="160"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="200"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="138"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="161"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="201"/>
         <source>No words selected.</source>
         <translation>Aucun mots sélectionnés.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="215"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="285"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="218"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="288"/>
         <source>No</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="153"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="154"/>
         <source>Ignored word(s).</source>
         <translation>Mot(s) ignoré(s).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="188"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="189"/>
         <source>Added word(s) to dictionary.</source>
         <translation>Mot(s) ajouté(s) au dictionnaire.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="191"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="192"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
         <translation>Mot ajouté(s) au dictionnaire. Le dictionnaire n&apos;est pas activé dans les Préférences.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="206"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="207"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
         <translation>Le nouveau mot ne peut contenir &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="234"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="237"/>
         <source>Word</source>
         <translation>Mot</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="235"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="238"/>
         <source>Count</source>
         <translation>Compter</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="236"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="239"/>
         <source>Misspelled?</source>
         <translation>Mal orthographié?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="298"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
         <source>Misspelled Words</source>
         <translation>Mots mal orthographiés</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="282"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="285"/>
         <source>Yes</source>
         <translation>Oui</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="298"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
         <source>Total Unique Words</source>
         <translation>Somme des mots uniques</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="482"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="520"/>
         <source>Add to Dictionary</source>
         <translation>Ajouter au dictionnaire</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="483"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="521"/>
         <source>Find in Text</source>
         <translation>Chercher dans le texte</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="484"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="522"/>
         <source>Select All</source>
         <translation>Sélectionner tout</translation>
     </message>
@@ -12296,7 +12347,7 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="70"/>
         <source>ampersand</source>
-        <translation type="unfinished"/>
+        <translation>esperluette</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="71"/>
@@ -12306,12 +12357,12 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="72"/>
         <source>less-than sign</source>
-        <translation type="unfinished"/>
+        <translation>signe moins que</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="73"/>
         <source>greater-than sign</source>
-        <translation type="unfinished"/>
+        <translation>signe plus gand que</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="74"/>
@@ -12321,7 +12372,7 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="75"/>
         <source>inverted exclamation mark</source>
-        <translation type="unfinished"/>
+        <translation>point d&apos;exclamation inversé</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="76"/>
@@ -12331,17 +12382,17 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="77"/>
         <source>pound sign</source>
-        <translation type="unfinished"/>
+        <translation>signe de la livre sterling</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="78"/>
         <source>currency sign</source>
-        <translation type="unfinished"/>
+        <translation>Symbole de la monnaie</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="79"/>
         <source>yen sign</source>
-        <translation type="unfinished"/>
+        <translation>signe du yen</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="80"/>
@@ -12361,12 +12412,7 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="83"/>
         <source>copyright symbol</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="84"/>
-        <source>feminineÂ ordinal indicator</source>
-        <translation type="unfinished"/>
+        <translation>symbole du copyright</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="85"/>
@@ -12424,11 +12470,6 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="96"/>
-        <source>pilcrowÂ sign</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>middle dot</source>
         <translation type="unfinished"/>
@@ -12441,11 +12482,6 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>superscript one</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
-        <source>masculineÂ ordinal indicator</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -12474,31 +12510,6 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
         <translation>point d&apos;interrogation inversé</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
-        <source>Latin capital letter A withÂ grave accent</source>
-        <translation>Lettre majuscule latine A avec Â accent circonflexe</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
-        <source>Latin capital letter A withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
-        <source>Latin capital letter A withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
-        <source>Latin capital letter A withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
-        <source>Latin capital letter A withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>Latin capital letter A with ring above</source>
         <translation type="unfinished"/>
@@ -12506,87 +12517,7 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>Latin capital letter AE</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
-        <source>Latin capital letter C withÂ cedilla</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
-        <source>Latin capital letter E withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
-        <source>Latin capital letter E withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
-        <source>Latin capital letter E withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
-        <source>Latin capital letter E withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
-        <source>Latin capital letter I withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
-        <source>Latin capital letter I withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
-        <source>Latin capital letter I withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
-        <source>Latin capital letter I withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
-        <source>Latin capital letterÂ Eth</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
-        <source>Latin capital letter N withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
-        <source>Latin capital letter O withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
-        <source>Latin capital letter O withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
-        <source>Latin capital letter O withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
-        <source>Latin capital letter O withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
-        <source>Latin capital letter O withÂ diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Lettre majuscule latine AE</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
@@ -12599,63 +12530,8 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
-        <source>Latin capital letter U withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
-        <source>Latin capital letter U withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
-        <source>Latin capital letter U withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
-        <source>Latin capital letter U withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
-        <source>Latin capital letter Y withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
-        <source>Latin capital letterÂ THORN</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin small letter sharp s</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
-        <source>Latin small letter a withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
-        <source>Latin small letter a withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
-        <source>Latin small letter a withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
-        <source>Latin small letter a withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
-        <source>Latin small letter a withÂ diaeresis</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -12669,128 +12545,13 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
-        <source>Latin small letter c withÂ cedilla</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
-        <source>Latin small letter e withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
-        <source>Latin small letter e withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
-        <source>Latin small letter e withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
-        <source>Latin small letter e withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
-        <source>Latin small letter i withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
-        <source>Latin small letter i withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
-        <source>Latin small letter i withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
-        <source>Latin small letter i withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
-        <source>Latin small letterÂ eth</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
-        <source>Latin small letter n withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
-        <source>Latin small letter o withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
-        <source>Latin small letter o withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
-        <source>Latin small letter o withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
-        <source>Latin small letter o withÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
-        <source>Latin small letter o withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>division sign</source>
-        <translation type="unfinished"/>
+        <translation>signe de la division</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin small letter o with stroke</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
-        <source>Latin small letter u withÂ grave accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
-        <source>Latin small letter u withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
-        <source>Latin small letter u withÂ circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
-        <source>Latin small letter u withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
-        <source>Latin small letter y withÂ acute accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
-        <source>Latin small letterÂ thorn</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
-        <source>Latin small letter y withÂ diaeresis</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -12804,284 +12565,259 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
-        <source>Latin capital letter s withÂ caron</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
-        <source>Latin small letter s withÂ caron</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
-        <source>Latin capital letter y withÂ diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter f with hook</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
-        <source>modifier letterÂ circumflexÂ accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
-        <source>smallÂ tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Greek capital letter Alpha</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Alpha</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Greek capital letter Beta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Beta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Greek capital letter Gamma</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Greek capital letter Delta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Greek capital letter Epsilon</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Greek capital letter Zeta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Zeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Greek capital letter Eta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Eta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Greek capital letter Theta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Theta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Greek capital letter Iota</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Iota</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Greek capital letter Kappa</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Greek capital letter Lambda</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>Greek capital letter Mu</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Mu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Greek capital letter Nu</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Nu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Greek capital letter Xi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Xi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Greek capital letter Omicron</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Omicron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Greek capital letter Pi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Pi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Greek capital letter Rho</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Rho</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Greek capital letter Sigma</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Greek capital letter Tau</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Greek capital letter Upsilon</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Upsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Greek capital letter Phi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Phi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Greek capital letter Chi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Chi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Greek capital letter Psi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Psi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Greek capital letter Omega</source>
-        <translation type="unfinished"/>
+        <translation>Lettre capitale grecque Omega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Greek small letter alpha</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque alpha</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Greek small letter beta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque beta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>Greek small letter gamma</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>Greek small letter delta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek small letter epsilon</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek small letter zeta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque zeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek small letter eta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque eta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek small letter theta</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque theta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek small letter iota</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque iota</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek small letter kappa</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek small letter lambda</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek small letter mu</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque mu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek small letter nu</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque nu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek small letter xi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque xi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek small letter omicron</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque omicron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek small letter pi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque pi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek small letter rho</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque rho</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek small letter final sigma</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek small letter sigma</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek small letter tau</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek small letter upsilon</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque upsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek small letter phi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque phi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek small letter chi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque chi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek small letter psi</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque psi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek small letter omega</source>
-        <translation type="unfinished"/>
+        <translation>Lettre minuscule grecque omega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek theta symbol</source>
-        <translation type="unfinished"/>
+        <translation>Symbole grec theta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
@@ -13091,7 +12827,7 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek pi symbol</source>
-        <translation>Signe pi grec</translation>
+        <translation>Symbole grec pour pi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
@@ -13106,7 +12842,7 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>thin space</source>
-        <translation type="unfinished"/>
+        <translation>espace fin</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="233"/>
@@ -13139,36 +12875,6 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
-        <source>left singleÂ quotation mark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
-        <source>right singleÂ quotation mark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
-        <source>single low-9Â quotation mark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
-        <source>left doubleÂ quotation mark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
-        <source>right doubleÂ quotation mark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
-        <source>double low-9Â quotation mark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>dagger, obelisk</source>
         <translation type="unfinished"/>
@@ -13184,13 +12890,358 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
         <translation>puce</translation>
     </message>
     <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="84"/>
+        <source>feminine ordinal indicator</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="96"/>
+        <source>pilcrow sign</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
+        <source>masculine ordinal indicator</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
+        <source>Latin capital letter A with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
+        <source>Latin capital letter A with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
+        <source>Latin capital letter A with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
+        <source>Latin capital letter A with tilde</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
+        <source>Latin capital letter A with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
+        <source>Latin capital letter C with cedilla</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
+        <source>Latin capital letter E with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
+        <source>Latin capital letter E with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
+        <source>Latin capital letter E with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
+        <source>Latin capital letter E with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
+        <source>Latin capital letter I with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
+        <source>Latin capital letter I with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
+        <source>Latin capital letter I with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
+        <source>Latin capital letter I with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
+        <source>Latin capital letter Eth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
+        <source>Latin capital letter N with tilde</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
+        <source>Latin capital letter O with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
+        <source>Latin capital letter O with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
+        <source>Latin capital letter O with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
+        <source>Latin capital letter O with tilde</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
+        <source>Latin capital letter O with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
+        <source>Latin capital letter U with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
+        <source>Latin capital letter U with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
+        <source>Latin capital letter U with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
+        <source>Latin capital letter U with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
+        <source>Latin capital letter Y with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
+        <source>Latin capital letter THORN</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
+        <source>Latin small letter a with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
+        <source>Latin small letter a with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
+        <source>Latin small letter a with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
+        <source>Latin small letter a with tilde</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
+        <source>Latin small letter a with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
+        <source>Latin small letter c with cedilla</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
+        <source>Latin small letter e with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
+        <source>Latin small letter e with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
+        <source>Latin small letter e with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
+        <source>Latin small letter e with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
+        <source>Latin small letter i with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
+        <source>Latin small letter i with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
+        <source>Latin small letter i with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
+        <source>Latin small letter i with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
+        <source>Latin small letter eth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
+        <source>Latin small letter n with tilde</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
+        <source>Latin small letter o with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
+        <source>Latin small letter o with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
+        <source>Latin small letter o with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
+        <source>Latin small letter o with tilde</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
+        <source>Latin small letter o with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
+        <source>Latin small letter u with grave accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
+        <source>Latin small letter u with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
+        <source>Latin small letter u with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
+        <source>Latin small letter u with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
+        <source>Latin small letter y with acute accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
+        <source>Latin small letter thorn</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
+        <source>Latin small letter y with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
+        <source>Latin capital letter s with caron</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
+        <source>Latin small letter s with caron</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
+        <source>Latin capital letter y with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
+        <source>modifier letter circumflex accent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
+        <source>small tilde</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
+        <source>left single quotation mark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
+        <source>right single quotation mark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
+        <source>single low-9 quotation mark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
+        <source>left double quotation mark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
+        <source>right double quotation mark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
+        <source>double low-9 quotation mark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Misc/XMLEntities.cpp" line="248"/>
-        <source>horizontalÂ ellipsis</source>
+        <source>horizontal ellipsis</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="249"/>
-        <source>per milleÂ sign</source>
+        <source>per mille sign</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -13336,7 +13387,7 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>element of</source>
-        <translation type="unfinished"/>
+        <translation>élément de</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="279"/>
@@ -13381,7 +13432,7 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>infinity</source>
-        <translation>infini</translation>
+        <translation>infinité</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
@@ -13531,7 +13582,7 @@ Voulez-vous toujours utiliser ce nom de fichier?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>lozenge</source>
-        <translation type="unfinished"/>
+        <translation>losange</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
