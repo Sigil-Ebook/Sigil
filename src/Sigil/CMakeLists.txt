@@ -34,18 +34,8 @@ endif()
 
 #############################################################################
 
-# Qt5 packages
-find_package(Qt5Core REQUIRED)
-find_package(Qt5Network)
-find_package(Qt5Svg)
-find_package(Qt5WebKit)
-find_package(Qt5WebKitWidgets)
-find_package(Qt5Widgets)
-find_package(Qt5Xml)
-find_package(Qt5XmlPatterns)
-find_package(Qt5Concurrent)
-find_package(Qt5PrintSupport)
-find_package(Qt5LinguistTools)
+# Qt5 packages minimum version 5.1
+find_package(Qt5 COMPONENTS Core Network Svg WebKit WebKitWidgets Widgets Xml XmlPatterns Concurrent PrintSupport LinguistTools)
 set(CMAKE_AUTOMOC ON)
 
 set( MAIN_FILES
