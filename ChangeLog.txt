@@ -1,4 +1,4 @@
-Sigil 0.7.3 TBA
+Sigil 0.7.3 2013.08.03
     - Fix issue 2309: Compile failure due to case issue on m_lastFolderOpen.
     - Fix issue 2269: "Conflicts with:" always in English.
     - Fix issue 2186: Sigil 0.7.2 crashes on "Add existing files".
