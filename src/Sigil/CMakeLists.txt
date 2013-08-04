@@ -694,7 +694,7 @@ elseif (MSVC)
                         COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
     
     # Copy Qt runtime libs
-    set( QT_LIBS libEGL libGLESv2 Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5OpenGL Qt5Multimedia Qt5MultimediaWidgets Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sql Qt5V8 Qt5WebKit Qt5WebkitWidgets Qt5Widgets Qt5Xml Qt5XmlPatterns )
+    set( QT_LIBS libEGL libGLESv2 Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5OpenGL Qt5Multimedia Qt5MultimediaWidgets Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sensors Qt5Sql Qt5V8 Qt5WebKit Qt5WebkitWidgets Qt5Widgets Qt5Xml Qt5XmlPatterns )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_LIBS} )
         set( location location-NOTFOUND )
@@ -703,7 +703,7 @@ elseif (MSVC)
     endforeach( lib )
 
     # Copy bin libs
-    set( QT_BIN_LIBS D3DCompiler_43 icudt49 icuin49 icuuc49 )
+    set( QT_BIN_LIBS D3DCompiler_43 icudt51 icuin51 icuuc51 )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_BIN_LIBS} )
         set( location location-NOTFOUND )
