@@ -355,7 +355,7 @@ QString CodeViewEditor::SplitSection()
 
     const QString &text_segment = split_position != body_tag_end
                                   ? Utility::Substring(body_tag_start, split_position, text)
-                                  : QString("<p>&nbsp;</p>");
+                                  : QString("<p>&#160;</p>");
     // Remove the text that will be in the new section from the View.
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
@@ -395,7 +395,7 @@ QString CodeViewEditor::SplitSection()
     if (empty_body_tag_start != - 1) {
         int empty_body_tag_end = empty_body_tag_start + QString("<body>").length();
         cursor.setPosition(empty_body_tag_end);
-        cursor.insertText("\n  <p>&nbsp;</p>");
+        cursor.insertText("\n  <p>&#160;</p>");
     };
 
     cursor.endEditBlock();

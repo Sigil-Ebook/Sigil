@@ -194,7 +194,7 @@ QString BookViewEditor::GetHtml()
     int empty_body_tag_start = empty_body_search_mo.capturedStart();
     if (empty_body_tag_start != -1) {
         int empty_body_tag_end = empty_body_tag_start + QString("<body>").length();
-        html_from_Qt.insert(empty_body_tag_end, "\n  <p>&nbsp;</p>");
+        html_from_Qt.insert(empty_body_tag_end, "\n  <p>&#160;</p>");
     };
 
     return html_from_Qt;

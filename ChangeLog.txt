@@ -1,3 +1,7 @@
+Sigil 0.7.4 TBA
+    - Use numeric entity for non-breaking spaces (nbsp) instead of named
+      entity. Fixes issues where files without a doctype won't opern properly.
+
 Sigil 0.7.3 2013.08.03
     - Fix issue 2309: Compile failure due to case issue on m_lastFolderOpen.
     - Fix issue 2269: "Conflicts with:" always in English.

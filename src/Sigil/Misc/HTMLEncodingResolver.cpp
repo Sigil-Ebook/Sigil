@@ -55,7 +55,7 @@ QString HTMLEncodingResolver::ReadHTMLFile(const QString &fullfilepath)
     QByteArray data = file.readAll();
 
     if (IsValidUtf8(data)) {
-        data.replace("\xC2\xA0", "&nbsp;");
+        data.replace("\xC2\xA0", "&#160;");
     }
 
     return Utility::ConvertLineEndings(GetCodecForHTML(data)->toUnicode(data));
