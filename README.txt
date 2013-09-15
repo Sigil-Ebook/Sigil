@@ -2,7 +2,8 @@ Sigil is a free, open source, multi-platform WYSIWYG ebook editor.
 It is designed to edit books in ePub format. The version of the package
 can be found in the ChangeLog.txt file.
 
-It's website is located here: http://code.google.com/p/sigil/
+It's current code repository is located here: https://github.com/user-none/Sigil
+It's old website is located here: http://code.google.com/p/sigil/
 
 The src directory contains all of the source code. It has
 a few subdirectories:
