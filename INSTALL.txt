@@ -126,16 +126,16 @@ sudo apt-get install build-essential cmake
 
 Create the build directories and get the Sigil source code.
 {{{
-mkdir -p ~/sigil-0.7.2/src ~/sigil-0.7.2/build ~/sigil-0.7.2/run
-cd ~/sigil-0.7.2/src
-wget https://sigil.googlecode.com/files/Sigil-0.7.2-Code.zip
-unzip Sigil-0.7.2-Code.zip
+mkdir -p ~/sigil-0.7.3/src ~/sigil-0.7.3/build ~/sigil-0.7.3/run
+cd ~/sigil-0.7.3/src
+wget https://sigil.googlecode.com/files/Sigil-0.7.3-Code.zip
+unzip Sigil-0.7.3-Code.zip
 }}}
 
-Build and install Sigil.  For 64 bit compiles, change the gcc to gcc_64.  You can change MAKE_INSTALL_PREFIX to install in a different location.
+Build and install Sigil.  **For 64 bit compiles, change the gcc to gcc_64**.  You can change MAKE_INSTALL_PREFIX to install in a different location.
 {{{
-cd ~/sigil-0.7.2/build
-cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.0.1/5.0.1/gcc/lib/cmake -DCMAKE_INSTALL_PREFIX=~/sigil-0.7.2/run -DCMAKE_BUILD_TYPE=Release -DFORCE_BUNDLED_COPIES=1 ~/sigil-0.7.2/src
+cd ~/sigil-0.7.3/build
+cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.0.1/5.0.1/gcc/lib/cmake -DCMAKE_INSTALL_PREFIX=~/sigil-0.7.3/run -DCMAKE_BUILD_TYPE=Release -DFORCE_BUNDLED_COPIES=1 ~/sigil-0.7.3/src
 make install
 }}}
 
@@ -143,7 +143,7 @@ Create a script to run Sigil:
 {{{
 echo "
 export LD_LIBRARY_PATH=/opt/Qt5.0.1/5.0.1/gcc/lib
-~/sigil-0.7.2/run/bin/sigil" > ~/sigil.sh
+~/sigil-0.7.3/run/bin/sigil" > ~/sigil.sh
 chmod +x ~/sigil.sh
 }}}
 
