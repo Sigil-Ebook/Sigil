@@ -61,9 +61,9 @@ of the source distribution.
 
 Now navigate to that folder with a terminal like cmd.exe or PowerShell.  Then
 type in and run the following:
-{{{
+```
 cmake -G "Visual Studio 10" /path/to/extracted/folder
-}}}
+```
 This should create SLN and vcproj files for Visual Studio in that directory.
 You can also generate project files for some other VS version. You can get a
 list of all supported generators by typing in and running `cmake`.
@@ -84,13 +84,13 @@ dependencies to the .app for distribution. The `makedmg` will invoke
 
 ### Method 1 (make)
 
-{{{
+```
 $ mkdir build
 $ cd build
 $ cmake -DFORCE_BUNDLED_COPIES=1 -DCMAKE_BUILD_TYPE=Release ..
 $ make
 $ make makedmg
-}}}
+```
 
 ### Method 2 (XCode)
 
@@ -99,58 +99,58 @@ source distribution.
 
 Now navigate to that folder with the Terminal. Then type in and run the
 following:
-{{{
+```
 cmake -G Xcode /path/to/extracted/folder
-}}}
+```
 This should create Xcode project files in that directory. The default build
 procedure will build "Sigil.app"; if you want to package that into a DMG file,
 invoke the `makedmg` build target.
 
 ## Compiling on Linux
 
-Here is an example of installing Sigil 0.7.2 on a 32-bit Ubuntu 12.10 system in your Home directory.  12.04 does not have the required version of cmake to build Sigil.
+Here is an example of installing Sigil 0.7.3 on a 32-bit Ubuntu 12.10 system in your Home directory.  12.04 does not have the required version of cmake to build Sigil.
 
-Get then install Qt5.0.1 as root. Choose /opt/Qt5.0.1 as the installation directory. You can also download the 64 bit version if required.
-{{{
+Get then install Qt5.1.0 as root. Choose /opt/Qt5.1.0 as the installation directory. You can also download the 64 bit version if required - **change the `x86-offline` to `x86_64-offline`**.
+```
 cd
-wget http://releases.qt-project.org/qt5/5.0.1/qt-linux-opensource-5.0.1-x86-offline.run
-chmod +x qt-linux-opensource-5.0.1-x86-offline.run
-sudo ./qt-linux-opensource-5.0.1-x86-offline.run
-}}}
+wget http://releases.qt-project.org/qt5/5.0.1/qt-linux-opensource-5.1.0-x86-offline.run
+chmod +x qt-linux-opensource-5.1.0-x86-offline.run
+sudo ./qt-linux-opensource-5.1.0-x86-offline.run
+```
 
 
 Install the required developer tools as root.
-{{{
+```
 sudo apt-get install build-essential cmake
-}}}
+```
 
 Create the build directories and get the Sigil source code.
-{{{
-mkdir -p ~/sigil-0.7.2/src ~/sigil-0.7.2/build ~/sigil-0.7.2/run
-cd ~/sigil-0.7.2/src
-wget https://sigil.googlecode.com/files/Sigil-0.7.2-Code.zip
-unzip Sigil-0.7.2-Code.zip
-}}}
+```
+mkdir -p ~/sigil-0.7.3/src ~/sigil-0.7.3/build ~/sigil-0.7.3/run
+cd ~/sigil-0.7.3/src
+wget https://sigil.googlecode.com/files/Sigil-0.7.3-Code.zip
+unzip Sigil-0.7.3-Code.zip
+```
 
-Build and install Sigil.  For 64 bit compiles, change the gcc to gcc_64.  You can change MAKE_INSTALL_PREFIX to install in a different location.
-{{{
-cd ~/sigil-0.7.2/build
-cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.0.1/5.0.1/gcc/lib/cmake -DCMAKE_INSTALL_PREFIX=~/sigil-0.7.2/run -DCMAKE_BUILD_TYPE=Release -DFORCE_BUNDLED_COPIES=1 ~/sigil-0.7.2/src
+Build and install Sigil.  **For 64 bit compiles, change the `gcc` to `gcc_64`**.  You can change MAKE_INSTALL_PREFIX to install in a different location.
+```
+cd ~/sigil-0.7.3/build
+cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.1.0/5.1.0/gcc/lib/cmake -DCMAKE_INSTALL_PREFIX=~/sigil-0.7.3/run -DCMAKE_BUILD_TYPE=Release -DFORCE_BUNDLED_COPIES=1 ~/sigil-0.7.3/src
 make install
-}}}
+```
 
 Create a script to run Sigil:
-{{{
+```
 echo "
-export LD_LIBRARY_PATH=/opt/Qt5.0.1/5.0.1/gcc/lib
-~/sigil-0.7.2/run/bin/sigil" > ~/sigil.sh
+export LD_LIBRARY_PATH=/opt/Qt5.1.0/5.1.0/gcc/lib
+~/sigil-0.7.3/run/bin/sigil" > ~/sigil.sh
 chmod +x ~/sigil.sh
-}}}
+```
 
 # Run Sigil:
-{{{
+```
 ~/sigil.sh
-}}}
+```
 
 
 Building from source in the git repository is *NOT* recommended, since code in
