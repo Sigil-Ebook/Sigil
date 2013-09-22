@@ -108,14 +108,14 @@ invoke the `makedmg` build target.
 
 ## Compiling on Linux
 
-Here is an example of installing Sigil 0.7.2 on a 32-bit Ubuntu 12.10 system in your Home directory.  12.04 does not have the required version of cmake to build Sigil.
+Here is an example of installing Sigil 0.7.3 on a 32-bit Ubuntu 12.10 system in your Home directory.  12.04 does not have the required version of cmake to build Sigil.
 
-Get then install Qt5.0.1 as root. Choose /opt/Qt5.0.1 as the installation directory. You can also download the 64 bit version if required.
+Get then install Qt5.1.0 as root. Choose /opt/Qt5.1.0 as the installation directory. You can also download the 64 bit version if required - **change the `x86-offline` to `x86_64-offline`**.
 {{{
 cd
-wget http://releases.qt-project.org/qt5/5.0.1/qt-linux-opensource-5.0.1-x86-offline.run
-chmod +x qt-linux-opensource-5.0.1-x86-offline.run
-sudo ./qt-linux-opensource-5.0.1-x86-offline.run
+wget http://releases.qt-project.org/qt5/5.0.1/qt-linux-opensource-5.1.0-x86-offline.run
+chmod +x qt-linux-opensource-5.1.0-x86-offline.run
+sudo ./qt-linux-opensource-5.1.0-x86-offline.run
 }}}
 
 
@@ -132,17 +132,17 @@ wget https://sigil.googlecode.com/files/Sigil-0.7.3-Code.zip
 unzip Sigil-0.7.3-Code.zip
 }}}
 
-Build and install Sigil.  **For 64 bit compiles, change the gcc to gcc_64**.  You can change MAKE_INSTALL_PREFIX to install in a different location.
+Build and install Sigil.  **For 64 bit compiles, change the `gcc` to `gcc_64`**.  You can change MAKE_INSTALL_PREFIX to install in a different location.
 {{{
 cd ~/sigil-0.7.3/build
-cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.0.1/5.0.1/gcc/lib/cmake -DCMAKE_INSTALL_PREFIX=~/sigil-0.7.3/run -DCMAKE_BUILD_TYPE=Release -DFORCE_BUNDLED_COPIES=1 ~/sigil-0.7.3/src
+cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.1.0/5.1.0/gcc/lib/cmake -DCMAKE_INSTALL_PREFIX=~/sigil-0.7.3/run -DCMAKE_BUILD_TYPE=Release -DFORCE_BUNDLED_COPIES=1 ~/sigil-0.7.3/src
 make install
 }}}
 
 Create a script to run Sigil:
 {{{
 echo "
-export LD_LIBRARY_PATH=/opt/Qt5.0.1/5.0.1/gcc/lib
+export LD_LIBRARY_PATH=/opt/Qt5.1.0/5.1.0/gcc/lib
 ~/sigil-0.7.3/run/bin/sigil" > ~/sigil.sh
 chmod +x ~/sigil.sh
 }}}
