@@ -31,12 +31,16 @@ Qt 5.1.0 is also required on all platforms. It can be downloaded
 
 Only Microsoft's Visual C++ compiler is supported.
 
+The installer directory contains the files needed to produce a binary installer
+for Windows. You need to provide the vcredist for your compiler. You need to
+put it in the installer directory and name it vcredist_x86.exe or
+vcredist_x64.exe.
+
+
 On Windows a `makeinstaller` target is provided which will build a binary
 installer. For that to work, you need to have
 [http://www.jrsoftware.org/isinfo.php Inno Setup] on Windows. The installer
-builder needs to be installed and on the system PATH. You also need the vcredist
-for your compiler. You need to put it in the installer directory and name it
-vcredist_x86.exe or vcredist_x64.exe.
+builder needs to be installed and on the system PATH.
 
 ### Method 1 (nmake)
 
