@@ -9,7 +9,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>EPUB Düzenleyici</translation>
+        <translation>EPUB Düzenleyiciniz</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>Web Sayfası:</translation>
+        <translation>Web Sitesi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
@@ -87,7 +87,7 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Meta veri özellik ekle</translation>
+        <translation>Meta veri özelliği ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
@@ -130,7 +130,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="67"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Tür</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="68"/>
@@ -414,17 +414,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="57"/>
         <source>Book Browser</source>
-        <translation>Kitap gezgini</translation>
+        <translation>Kitap Gezgini</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="69"/>
         <source>Add Semantics</source>
-        <translation type="unfinished"/>
+        <translation>Anlamlı veri ekle</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
         <source>Font Obfuscation</source>
-        <translation type="unfinished"/>
+        <translation>Yazı Tipi Perdelemesi</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="242"/>
@@ -444,12 +444,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation type="unfinished"/>
+        <translation>Seçili dosyaları alfabetik şekilde sıralamak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
         <source>This action cannot be reversed.</source>
-        <translation type="unfinished"/>
+        <translation>Bu işlem geri alınamaz.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
@@ -518,14 +518,14 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1013"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
-        <translation type="unfinished"/>
+        <translation>Ne NCX ne de OPF silinebildi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1020"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation>Bütün html dosyalarını kaldırmayınız.
-Her zaman 1 tane olması gerekir.</translation>
+        <translation>Bütün html dosyalarını kaldıramazsınız.
+Her zaman en az bir tane olması gerekir.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
@@ -576,22 +576,22 @@ Her zaman 1 tane olması gerekir.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
         <source>Merge</source>
-        <translation>Birleşmek</translation>
+        <translation>Birleştir</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>Adobe yöntemini kullan</translation>
+        <translation>Adobe&apos;nin yöntemini kullan</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>IDPF yöntemini kullan</translation>
+        <translation>IDPF&apos;nin yöntemini kullan</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1315"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Seç</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="519"/>
@@ -654,12 +654,12 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
         <source>Sort</source>
-        <translation>Tür</translation>
+        <translation>Sırala</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
         <source>Renumber TOC Entries</source>
-        <translation type="unfinished"/>
+        <translation>İçindekileri yeniden numaralandır</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
@@ -674,7 +674,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
         <source>Title Page</source>
-        <translation>Baş sayfa</translation>
+        <translation>Baş Sayfa</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
@@ -704,7 +704,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
         <source>Colophon</source>
-        <translation>Yayın bilgisi</translation>
+        <translation>Baskı Bilgisi</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
@@ -714,7 +714,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Dedication</source>
-        <translation>Ithaf</translation>
+        <translation>İthaf</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
@@ -824,7 +824,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="973"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Seç</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="977"/>
@@ -1765,7 +1765,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation type="unfinished"/>
+        <translation>Ara ve Değiştir&apos;i Sakla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
@@ -1873,7 +1873,8 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="622"/>
         <source>No matches found</source>
-        <translation>Enter</translation>
+        <translation>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%1 matches found</source>
@@ -1896,7 +1897,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1138"/>
         <source>This tab cannot be searched</source>
-        <translation type="unfinished"/>
+        <translation>Bu sekmede arama yapılamaz</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
@@ -2024,12 +2025,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>Up</source>
-        <translation>Aşağı</translation>
+        <translation>Yukarı</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1451"/>
         <source>Down</source>
-        <translation>Yukarı</translation>
+        <translation>Aşağı</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
@@ -2209,7 +2210,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="536"/>
         <source>Include</source>
-        <translation>Dahil Et.</translation>
+        <translation>Dahil Et</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="753"/>
@@ -2570,7 +2571,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Seç</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="506"/>
@@ -2663,7 +2664,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>Kısa Yol</translation>
+        <translation>Kısayol</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
@@ -2781,7 +2782,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Morocco</source>
-        <translation>Cezayir</translation>
+        <translation>Fas</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
@@ -2806,7 +2807,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>United Arab Emirates</source>
-        <translation>Birleşik Arap Emiriliği</translation>
+        <translation>Birleşik Arap Emirilikleri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
@@ -2816,7 +2817,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Aragonese</source>
-        <translation type="unfinished"/>
+        <translation>Aragonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
@@ -2877,7 +2878,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <source>Bengali</source>
-        <translation>Bengal</translation>
+        <translation>Bengalce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
@@ -2913,22 +2914,22 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="120"/>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Catalan</source>
-        <translation>Katalonca</translation>
+        <translation>Katalanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Central Khmer</source>
-        <translation type="unfinished"/>
+        <translation>Orta Kmer</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Chamorro</source>
-        <translation type="unfinished"/>
+        <translation>Chamorro</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Chechen</source>
-        <translation type="unfinished"/>
+        <translation>Çeçence</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
@@ -2938,7 +2939,7 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chinese</source>
-        <translation>Çin</translation>
+        <translation>Çince</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
@@ -2948,7 +2949,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Hong Kong</source>
-        <translation>Hong Kong (Çince)</translation>
+        <translation>Hong Kong</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
@@ -2968,43 +2969,43 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Church Slavic</source>
-        <translation type="unfinished"/>
+        <translation>Kilise Slavcası</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Chuvash</source>
-        <translation type="unfinished"/>
+        <translation>Çuvaşça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Cornish</source>
-        <translation type="unfinished"/>
+        <translation>Kernevekçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Corsican</source>
-        <translation>Korsika</translation>
+        <translation>Korsikaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Cree</source>
-        <translation type="unfinished"/>
+        <translation>Krice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Croatian</source>
-        <translation>Hırvatistan</translation>
+        <translation>Hırvatça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Czech</source>
-        <translation>Çek</translation>
+        <translation>Çekçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Danish</source>
-        <translation>Danimarka</translation>
+        <translation>Danca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
@@ -3014,14 +3015,14 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Dhivehi</source>
-        <translation type="unfinished"/>
+        <translation>Maldivce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Dutch</source>
-        <translation>Alman</translation>
+        <translation>Flemenkçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
@@ -3037,7 +3038,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
         <source>Dzongkha</source>
-        <translation type="unfinished"/>
+        <translation>Dzongka</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="145"/>
@@ -3080,7 +3081,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Great Britain</source>
-        <translation>Büyük Britanya / İngiltere</translation>
+        <translation>Büyük Britanya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
@@ -3106,7 +3107,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Trinidad</source>
-        <translation>Trinidat ve Tabaco</translation>
+        <translation>Trinidad</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
@@ -3116,37 +3117,37 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>United States</source>
-        <translation>Amerika</translation>
+        <translation>Amerika Birleşik Devletleri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <source>Esperanto</source>
-        <translation type="unfinished"/>
+        <translation>Esperanto</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Estonian</source>
-        <translation>Estonya</translation>
+        <translation>Estonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Ewe</source>
-        <translation type="unfinished"/>
+        <translation>Ewe Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Faroese</source>
-        <translation>Fareo Adaları</translation>
+        <translation>Faroece</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Fijian</source>
-        <translation type="unfinished"/>
+        <translation>Fiji Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Finnish</source>
-        <translation>Finlandiya</translation>
+        <translation>Fince</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
@@ -3156,7 +3157,7 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>French</source>
-        <translation>Fransız</translation>
+        <translation>Fransızca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
@@ -3167,7 +3168,7 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Luxembourg</source>
-        <translation>Luksemburg</translation>
+        <translation>Lüksemburg</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
@@ -3179,13 +3180,13 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Fulah</source>
-        <translation type="unfinished"/>
+        <translation>Pöller</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Gaelic</source>
-        <translation type="unfinished"/>
+        <translation>İskoçça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
@@ -3195,17 +3196,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>Galician</source>
-        <translation>Galler</translation>
+        <translation>Galiçyaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <source>Ganda</source>
-        <translation type="unfinished"/>
+        <translation>Ganda Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Georgian</source>
-        <translation>Gürcistan</translation>
+        <translation>Gürcüce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
@@ -3215,7 +3216,7 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>German</source>
-        <translation>Alman</translation>
+        <translation>Almanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
@@ -3230,12 +3231,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Liechtenstein</source>
-        <translation type="unfinished"/>
+        <translation>Lihtenştayn</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
         <source>Greek, Modern</source>
-        <translation>Yunan</translation>
+        <translation>Yunan, Güncel</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
@@ -3245,68 +3246,68 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Guarani</source>
-        <translation type="unfinished"/>
+        <translation>Guarani Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Gujarati</source>
-        <translation type="unfinished"/>
+        <translation>Gucaratça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Haitian</source>
-        <translation>Haiti</translation>
+        <translation>Haiti Kreyolu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <source>Hausa</source>
-        <translation type="unfinished"/>
+        <translation>Hausa Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Hebrew</source>
-        <translation type="unfinished"/>
+        <translation>İbranice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Herero</source>
-        <translation type="unfinished"/>
+        <translation>Hereroca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Hindi</source>
-        <translation>Hindistan</translation>
+        <translation>Hintçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Hiri Motu</source>
-        <translation type="unfinished"/>
+        <translation>Hiri Motu Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hungarian</source>
-        <translation>Macaristan</translation>
+        <translation>Macarca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Icelandic</source>
-        <translation>İzlanda</translation>
+        <translation>İzlandaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Ido</source>
-        <translation type="unfinished"/>
+        <translation>İdo Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Igbo</source>
-        <translation type="unfinished"/>
+        <translation>İgbo Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Indonesian</source>
-        <translation>Endonezya</translation>
+        <translation>Endonezce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
@@ -3316,34 +3317,34 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Interlingua</source>
-        <translation type="unfinished"/>
+        <translation>İnterlingua</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Interlingue</source>
-        <translation type="unfinished"/>
+        <translation>Batı Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Inuktitut</source>
-        <translation type="unfinished"/>
+        <translation>İnuitçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Inupiaq</source>
-        <translation type="unfinished"/>
+        <translation>İnyupikçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Irish</source>
-        <translation type="unfinished"/>
+        <translation>İrlandaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Italian</source>
-        <translation>İtalyan</translation>
+        <translation>İtalyanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
@@ -3353,57 +3354,57 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Japanese</source>
-        <translation>Japonya</translation>
+        <translation>Japonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Javanese</source>
-        <translation type="unfinished"/>
+        <translation>Cava Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Kalaallisut</source>
-        <translation type="unfinished"/>
+        <translation>Grönlandca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
         <source>Kannada</source>
-        <translation>Kanada</translation>
+        <translation>Kannada Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Kanuri</source>
-        <translation type="unfinished"/>
+        <translation>Kanuri Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Kashmiri</source>
-        <translation>Keşmir</translation>
+        <translation>Keşmirce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Kazakh</source>
-        <translation>Kazak</translation>
+        <translation>Kazakça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Kikuyu</source>
-        <translation type="unfinished"/>
+        <translation>Kikuyu Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kinyarwanda</source>
-        <translation type="unfinished"/>
+        <translation>Ruandaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Kirghiz</source>
-        <translation>Kırgız</translation>
+        <translation>Kırgızca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Komi</source>
-        <translation type="unfinished"/>
+        <translation>Komi Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
@@ -3413,12 +3414,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Korean</source>
-        <translation>Kore</translation>
+        <translation>Korece</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Kuanyama</source>
-        <translation type="unfinished"/>
+        <translation>Kuanyama Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
@@ -3428,18 +3429,18 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Lao</source>
-        <translation type="unfinished"/>
+        <translation>Laoca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Latin</source>
-        <translation>Latin</translation>
+        <translation>Latince</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvian</source>
-        <translation>Litvanya</translation>
+        <translation>Letonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
@@ -3449,42 +3450,42 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Limburgan</source>
-        <translation type="unfinished"/>
+        <translation>Limburgan Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Lingala</source>
-        <translation>Latin</translation>
+        <translation>Lingala Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lithuanian</source>
-        <translation>Litvan</translation>
+        <translation>Litvanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Luba-Katanga</source>
-        <translation type="unfinished"/>
+        <translation>Luba-Katanga Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <source>Luxembourgish</source>
-        <translation>Lüksemburg</translation>
+        <translation>Lüksemburgca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Macedonian</source>
-        <translation>Makedonya</translation>
+        <translation>Makedonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Malagasy</source>
-        <translation type="unfinished"/>
+        <translation>Malagaşça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Malayalam</source>
-        <translation type="unfinished"/>
+        <translation>Malayalam Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="234"/>
@@ -3506,48 +3507,48 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Maltese</source>
-        <translation type="unfinished"/>
+        <translation>Maltaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Manx</source>
-        <translation type="unfinished"/>
+        <translation>Man Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Maori</source>
-        <translation type="unfinished"/>
+        <translation>Maorice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="240"/>
         <source>Marathi</source>
-        <translation type="unfinished"/>
+        <translation>Marathi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Marshallese</source>
-        <translation type="unfinished"/>
+        <translation>Marşalca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Mongolian</source>
-        <translation type="unfinished"/>
+        <translation>Moğolca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Nauru</source>
-        <translation type="unfinished"/>
+        <translation>Nauruca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Navajo</source>
-        <translation type="unfinished"/>
+        <translation>Navahoca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Ndebele</source>
-        <translation type="unfinished"/>
+        <translation>Ndebele Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
@@ -3562,12 +3563,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Ndonga</source>
-        <translation type="unfinished"/>
+        <translation>Ndonga Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Nepali</source>
-        <translation>Nepal</translation>
+        <translation>Nepalce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
@@ -3579,67 +3580,67 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Norwegian</source>
-        <translation>Norveç</translation>
+        <translation>Norveççe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Bokmal</source>
-        <translation type="unfinished"/>
+        <translation>Bokmal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Nynorsk</source>
-        <translation type="unfinished"/>
+        <translation>Nynorsk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Nyanja</source>
-        <translation type="unfinished"/>
+        <translation>Çevaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Occitan</source>
-        <translation type="unfinished"/>
+        <translation>Oksitanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Ojibwa</source>
-        <translation type="unfinished"/>
+        <translation>Ojibwe Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="256"/>
         <source>Oriya</source>
-        <translation type="unfinished"/>
+        <translation>Oriya Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Oromo</source>
-        <translation type="unfinished"/>
+        <translation>Oromo Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Ossetian</source>
-        <translation>Osetyalı</translation>
+        <translation>Osetçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Pali</source>
-        <translation type="unfinished"/>
+        <translation>Pali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Panjabi</source>
-        <translation type="unfinished"/>
+        <translation>Pencapça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Persian</source>
-        <translation>İranlı</translation>
+        <translation>Farsça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Polish</source>
-        <translation>Polonyalı</translation>
+        <translation>Lehçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
@@ -3661,19 +3662,19 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Pushto</source>
-        <translation type="unfinished"/>
+        <translation>Peştuca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Quechua</source>
-        <translation type="unfinished"/>
+        <translation>Keçuva</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="268"/>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romanian</source>
-        <translation>Romen</translation>
+        <translation>Romence</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
@@ -3689,44 +3690,44 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Romansh</source>
-        <translation>Roman</translation>
+        <translation>Romanşça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Rundi</source>
-        <translation type="unfinished"/>
+        <translation>Rundice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Russian</source>
-        <translation>Rus</translation>
+        <translation>Rusça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Samoan</source>
-        <translation type="unfinished"/>
+        <translation>Samoan Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Sango</source>
-        <translation type="unfinished"/>
+        <translation>Sango</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Sanskrit</source>
-        <translation type="unfinished"/>
+        <translation>Sanskrit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Sardinian</source>
-        <translation type="unfinished"/>
+        <translation>Sarduca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbian</source>
-        <translation>Sırp</translation>
+        <translation>Sırpça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
@@ -3736,42 +3737,42 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Shona</source>
-        <translation type="unfinished"/>
+        <translation>Şona Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sichuan Yi</source>
-        <translation type="unfinished"/>
+        <translation>Nuosu Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sindhi</source>
-        <translation type="unfinished"/>
+        <translation>Sindhî</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sinhala</source>
-        <translation type="unfinished"/>
+        <translation>Seylanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <source>Slovak</source>
-        <translation>Slovak</translation>
+        <translation>Slovakça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Slovenian</source>
-        <translation>Sloven</translation>
+        <translation>Slovence</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Somali</source>
-        <translation>Somali</translation>
+        <translation>Somalice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sotho, Southern</source>
-        <translation type="unfinished"/>
+        <translation>Güney Sotho Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
@@ -3795,7 +3796,7 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Spanish</source>
-        <translation>İspanyol</translation>
+        <translation>İspanyolca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="290"/>
@@ -3830,7 +3831,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Ecuador</source>
-        <translation>Ekvator</translation>
+        <translation>Ekvador</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
@@ -3875,7 +3876,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Puerto Rico</source>
-        <translation type="unfinished"/>
+        <translation>Porto Riko</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="121"/>
@@ -3901,94 +3902,94 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Sundanese</source>
-        <translation type="unfinished"/>
+        <translation>Sundaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Swahili</source>
-        <translation type="unfinished"/>
+        <translation>Svahili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Swati</source>
-        <translation type="unfinished"/>
+        <translation>Swati Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="312"/>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Swedish</source>
-        <translation type="unfinished"/>
+        <translation>İsveççe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Finland</source>
-        <translation type="unfinished"/>
+        <translation>Finlandiya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Sweden</source>
-        <translation type="unfinished"/>
+        <translation>İsveç</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Tagalog</source>
-        <translation type="unfinished"/>
+        <translation>Tagalogca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Tahitian</source>
-        <translation type="unfinished"/>
+        <translation>Tahitice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Tajik</source>
-        <translation type="unfinished"/>
+        <translation>Tacikçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Tamil</source>
-        <translation type="unfinished"/>
+        <translation>Tamilce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Tatar</source>
-        <translation type="unfinished"/>
+        <translation>Tatarca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Telugu</source>
-        <translation type="unfinished"/>
+        <translation>Telugu Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Thai</source>
-        <translation type="unfinished"/>
+        <translation>Tayca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tibetan</source>
-        <translation type="unfinished"/>
+        <translation>Tibetçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tigrinya</source>
-        <translation type="unfinished"/>
+        <translation>Tigrinya Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tonga</source>
-        <translation type="unfinished"/>
+        <translation>Tonga Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tsonga</source>
-        <translation type="unfinished"/>
+        <translation>Tsongaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Tswana</source>
-        <translation type="unfinished"/>
+        <translation>Tsvana Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
@@ -4004,23 +4005,23 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Turkmen</source>
-        <translation>Türkmen</translation>
+        <translation>Türkmence</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Twi</source>
-        <translation type="unfinished"/>
+        <translation>Akan Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Uighur</source>
-        <translation type="unfinished"/>
+        <translation>Uygurca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"/>
+        <translation>Ukraynaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
@@ -4030,13 +4031,13 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Urdu</source>
-        <translation type="unfinished"/>
+        <translation>Urduca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbek</source>
-        <translation>Özbek</translation>
+        <translation>Özbekçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
@@ -4046,62 +4047,62 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Venda</source>
-        <translation type="unfinished"/>
+        <translation>Venda Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Vietnamese</source>
-        <translation type="unfinished"/>
+        <translation>Vietnamca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Volapuk</source>
-        <translation type="unfinished"/>
+        <translation>Volapük</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Walloon</source>
-        <translation type="unfinished"/>
+        <translation>Valonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Welsh</source>
-        <translation type="unfinished"/>
+        <translation>Galce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Western Frisian</source>
-        <translation type="unfinished"/>
+        <translation>Batı Frizcesi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Wolof</source>
-        <translation type="unfinished"/>
+        <translation>Wolof Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Xhosa</source>
-        <translation type="unfinished"/>
+        <translation>Xhosa Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Yiddish</source>
-        <translation type="unfinished"/>
+        <translation>Yidiş</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Yoruba</source>
-        <translation type="unfinished"/>
+        <translation>Yoruba Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Zhuang</source>
-        <translation type="unfinished"/>
+        <translation>Zhuang Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Zulu</source>
-        <translation type="unfinished"/>
+        <translation>Zuluca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
@@ -5784,7 +5785,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="88"/>
         <source>&amp;Edit</source>
-        <translation>D&amp;üzenle</translation>
+        <translation>Düz&amp;enle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
@@ -5898,7 +5899,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="659"/>
         <source>&amp;Paste</source>
-        <translation>Ya&amp;pıştır</translation>
+        <translation>Y&amp;apıştır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="662"/>
@@ -5907,7 +5908,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Yapıştır&lt;/b&gt; &lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Bellekteki içeriği kitaba yapıştırır.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Bellekteki içeriği kitaba yapıştırır.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="684"/>
@@ -5931,7 +5932,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="701"/>
         <source>&amp;Redo</source>
-        <translation>Y&amp;enile</translation>
+        <translation>Ye&amp;nile</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="704"/>
@@ -6037,7 +6038,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kitap Görünümü&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kitabınızdaki dosyaları okuyucularınıza görüneceği halleriyle düzenleyip görüntüleyin.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
@@ -6098,7 +6101,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kod Görünümü&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kitabınızın okuyuculara nasıl görüneceğini denetleyen denetim kodları da dahil olmak üzere kitabınızın esas içeriğini düzenleyip görüntüleyin.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1009"/>
@@ -6691,7 +6696,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1427"/>
         <source>&amp;Report An Issue...</source>
-        <translation>&amp;Sorun Bildir...</translation>
+        <translation>&amp;Hata Bildir...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1432"/>
@@ -7656,7 +7661,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>Zoom Reset</source>
-        <translation>Varsayılan Yakınlaştırma</translation>
+        <translation>Yakınlaştırmayı Sıfırla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1966"/>
@@ -8144,7 +8149,7 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>Dosyanın yaratıcısı DRM koruması kullanmış. Sigil bu tür dosyaları açamaz.</translation>
+        <translation>Dosyanın yaratıcısı DRM koruması kullanmış. Sigil böyle dosyaları açamaz.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3278"/>
@@ -8332,7 +8337,7 @@ Click &apos;Add Role&apos; to add more authors, creators, or contributors.</sour
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="128"/>
         <source>Add Basic</source>
-        <translation type="unfinished"/>
+        <translation>Temel Veri Ekleme</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="161"/>
@@ -8389,12 +8394,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
         <source>Subject</source>
-        <translation type="unfinished"/>
+        <translation>Konu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
-        <translation type="unfinished"/>
+        <translation>Konuyu tanımlayan keyfi bir ifade ya da anahtar sözcük. Gerekiyorsa birden çok &quot;konu&quot; kullanabilirsiniz.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
@@ -8404,7 +8409,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation>Yayın içeriği açıklaması</translation>
+        <translation>Yayın içeriğinin açıklaması.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
@@ -8415,7 +8420,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation type="unfinished"/>
+        <translation>Yayını hazırlamaktan sorumlu bir tüzellik.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
@@ -8435,22 +8440,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Tür</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation>İçeriğin kaynağı veya türü</translation>
+        <translation>Kaynağın içeriğinin mahiyeti ya da türü.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
         <source>Format</source>
-        <translation>Biçimlendirme</translation>
+        <translation>Biçim</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
-        <translation type="unfinished"/>
+        <translation>Yayın ortamı ya da boyutları. Doğrusu, denetimli bir sözlükçe (örneğin MIME ortam türleri) kullanmaktır.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
@@ -8460,7 +8465,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
         <source>A reference to a resource from which the present publication is derived.</source>
-        <translation>Referans Başvuru Kaynağı</translation>
+        <translation>Bu yayının türetildiği kaynağa referans.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
@@ -8470,17 +8475,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
         <source>An optional extra language of the publication.  Use a value from the Language drop down menu.  For example use &apos;English&apos; instead of the language code &apos;en&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Yayının isteğe bağlı ek dili. Dil menüsünden bir değer seçin. Söz gelimi, dil kodu olan &apos;tr&apos; yerine &apos;Türkçe&apos;yi kullanın.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="228"/>
         <source>Relation</source>
-        <translation>İlişki</translation>
+        <translation>İlinti</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="228"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
-        <translation type="unfinished"/>
+        <translation>İlintili bir kaynağa referans. Tavsiye edilen yöntem, referans verilen kaynağın formel bir kimliklendirme sistemindeki kimlik numarasını ya da kodunu kullanmaktır.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
@@ -8490,7 +8495,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
-        <translation>Yayım içeriğinin kapsamı</translation>
+        <translation>Yayın içeriğinin kapsamı.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
@@ -8500,7 +8505,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation type="unfinished"/>
+        <translation>Yayın üzerindeki haklar hakkında bilgilendirme. Bu bilgi genellikle Fikri Mülkiyet Hakları (FMH), Telif Hakkı ve çeşitli Mülkiyet Haklarını kapsar. Eğer Haklar unsuru eksikse yayının hakları hakkında herhangi bir varsayımda bulunulamaz.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
@@ -8510,12 +8515,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
         <source>An optional extra title of the publication in addition to the main title already entered.</source>
-        <translation type="unfinished"/>
+        <translation>Yayının halihazırda girilmiş olan ana başlığına ek olarak isteğe bağlı olarak girilebilecek bir ek başlık.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="232"/>
         <source>Digital Object Identifier</source>
-        <translation>Sayısal Nesne Tanımlayıcı</translation>
+        <translation>Sayısal Nesne Tanımlayıcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="233"/>
@@ -8525,12 +8530,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="234"/>
         <source>International Standard Serial Number</source>
-        <translation>Uluslararası Seri Numarası</translation>
+        <translation>Uluslararası Seri Numarası (ISSN)</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
         <source>Actor</source>
-        <translation>Rol</translation>
+        <translation>Aktör</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
@@ -8540,7 +8545,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Uyarlayan</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
@@ -8550,7 +8555,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
         <source>Analyst</source>
-        <translation type="unfinished"/>
+        <translation>Anilist</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
@@ -8560,7 +8565,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
         <source>Animator</source>
-        <translation>Animatör</translation>
+        <translation>Animatör Ressam</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
@@ -8570,7 +8575,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
         <source>Annotator</source>
-        <translation type="unfinished"/>
+        <translation>Yorumcu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
@@ -8580,7 +8585,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
         <source>Applicant</source>
-        <translation type="unfinished"/>
+        <translation>Başvuruda Bulunan</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
@@ -8590,7 +8595,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
         <source>Architect</source>
-        <translation type="unfinished"/>
+        <translation>Mimar</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
@@ -8610,7 +8615,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
         <source>Art copyist</source>
-        <translation type="unfinished"/>
+        <translation>Kopyalayıcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
@@ -8620,7 +8625,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
         <source>Artist</source>
-        <translation type="unfinished"/>
+        <translation>Sanatçı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
@@ -8630,7 +8635,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
         <source>Artistic director</source>
-        <translation type="unfinished"/>
+        <translation>Sanat Yönetmeni</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
@@ -8640,7 +8645,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
         <source>Assignee</source>
-        <translation type="unfinished"/>
+        <translation>Vekil</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
@@ -8650,7 +8655,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
         <source>Associated name</source>
-        <translation type="unfinished"/>
+        <translation>İlintilendirilen kişi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
@@ -8660,7 +8665,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
         <source>Attributed name</source>
-        <translation type="unfinished"/>
+        <translation>Atfedilen kişi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
@@ -8670,7 +8675,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
         <source>Auctioneer</source>
-        <translation type="unfinished"/>
+        <translation>Müzayedeci</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
@@ -8690,7 +8695,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
         <source>Author in quotations or text extracts</source>
-        <translation type="unfinished"/>
+        <translation>Alıntılanan yazar</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
@@ -8700,7 +8705,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Sonsöz, baskı bilgisi, vs. yazarı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
@@ -8710,7 +8715,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>Author of dialog</source>
-        <translation type="unfinished"/>
+        <translation>Diyalog yazarı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
@@ -8720,7 +8725,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Author of introduction, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Giriş, vs. yazarı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
@@ -8730,7 +8735,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>Author of screenplay, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Senaryo, vs. yazarı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
@@ -8740,7 +8745,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Bibliographic antecedent</source>
-        <translation type="unfinished"/>
+        <translation>Bibliyografik öncülü</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
@@ -8750,7 +8755,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>Binder</source>
-        <translation type="unfinished"/>
+        <translation>Ciltçi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
@@ -8760,7 +8765,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Binding designer</source>
-        <translation type="unfinished"/>
+        <translation>Cilt tasarımcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
@@ -8770,7 +8775,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Book designer</source>
-        <translation type="unfinished"/>
+        <translation>Kitap tasarımcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
@@ -8780,7 +8785,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Book producer</source>
-        <translation type="unfinished"/>
+        <translation>Matbaacı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
@@ -8790,7 +8795,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Bookjacket designer</source>
-        <translation type="unfinished"/>
+        <translation>Kitap kabı tasarımcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
@@ -8800,7 +8805,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Bookplate designer</source>
-        <translation type="unfinished"/>
+        <translation>Kitap isimliği tasarımcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
@@ -8810,7 +8815,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Bookseller</source>
-        <translation type="unfinished"/>
+        <translation>Kitapçı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
@@ -8820,7 +8825,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Calligrapher</source>
-        <translation type="unfinished"/>
+        <translation>Kaligraf</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
@@ -8840,7 +8845,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Censor</source>
-        <translation type="unfinished"/>
+        <translation>Denetçi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
@@ -8850,7 +8855,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Choreographer</source>
-        <translation type="unfinished"/>
+        <translation>Koreograf</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
@@ -8860,7 +8865,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Cinematographer</source>
-        <translation type="unfinished"/>
+        <translation>Sinematograf</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
@@ -8870,7 +8875,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Client</source>
-        <translation type="unfinished"/>
+        <translation>Müşteri</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
@@ -8880,7 +8885,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Collaborator</source>
-        <translation type="unfinished"/>
+        <translation>Katkıda Bulunan</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
@@ -8890,7 +8895,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Collector</source>
-        <translation type="unfinished"/>
+        <translation>Koleksiyoncu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
@@ -8910,7 +8915,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Commentator</source>
-        <translation type="unfinished"/>
+        <translation>Yorumcu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
@@ -8920,7 +8925,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
         <source>Commentator for written text</source>
-        <translation type="unfinished"/>
+        <translation>Metin yorumcusu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
@@ -8930,7 +8935,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
         <source>Compiler</source>
-        <translation type="unfinished"/>
+        <translation>Derleyici</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
@@ -8940,7 +8945,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Complainant</source>
-        <translation type="unfinished"/>
+        <translation>Davacı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
@@ -8950,7 +8955,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
         <source>Complainant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Temyiz davacısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
@@ -8960,7 +8965,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
         <source>Complainant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Temyiz davalısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
@@ -8970,7 +8975,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
         <source>Composer</source>
-        <translation type="unfinished"/>
+        <translation>Besteci</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
@@ -8980,7 +8985,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
         <source>Compositor</source>
-        <translation type="unfinished"/>
+        <translation>Dizgici</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
@@ -8990,7 +8995,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
         <source>Conceptor</source>
-        <translation type="unfinished"/>
+        <translation>Fikir sahibi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
@@ -9000,7 +9005,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
         <source>Conductor</source>
-        <translation type="unfinished"/>
+        <translation>Orkestra Şefi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
@@ -9010,7 +9015,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
         <source>Consultant</source>
-        <translation type="unfinished"/>
+        <translation>Danışman</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
@@ -9020,7 +9025,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
         <source>Consultant to a project</source>
-        <translation type="unfinished"/>
+        <translation>Proje danışmanı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
@@ -9030,7 +9035,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
         <source>Contestant</source>
-        <translation type="unfinished"/>
+        <translation>İtirazcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
@@ -9040,7 +9045,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Contestant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Temyiz itirazcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
@@ -9090,7 +9095,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
         <source>Contractor</source>
-        <translation type="unfinished"/>
+        <translation>Üstlenici</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
@@ -9101,7 +9106,7 @@ Do you want to save your changes?</source>
         <location filename="../../BookManipulation/Metadata.cpp" line="197"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
         <source>Contributor</source>
-        <translation type="unfinished"/>
+        <translation>Katılımcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
@@ -9111,7 +9116,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
         <source>Copyright claimant</source>
-        <translation type="unfinished"/>
+        <translation>Telif hakkı davacısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
@@ -9121,7 +9126,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
         <source>Copyright holder</source>
-        <translation type="unfinished"/>
+        <translation>Telif hakkı sahibi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
@@ -9131,7 +9136,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
         <source>Corrector</source>
-        <translation type="unfinished"/>
+        <translation>Düzeltmen</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
@@ -9151,7 +9156,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
         <source>Costume designer</source>
-        <translation type="unfinished"/>
+        <translation>Kostüm tasarımcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
@@ -9161,7 +9166,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
         <source>Cover designer</source>
-        <translation type="unfinished"/>
+        <translation>Kapak tasarımcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
@@ -9172,7 +9177,7 @@ Do you want to save your changes?</source>
         <location filename="../../BookManipulation/Metadata.cpp" line="196"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Creator</source>
-        <translation type="unfinished"/>
+        <translation>Yaratıcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="198"/>
@@ -9230,7 +9235,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Curator of an exhibition</source>
-        <translation type="unfinished"/>
+        <translation>Sergi küratörü</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
@@ -9240,7 +9245,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Dancer</source>
-        <translation type="unfinished"/>
+        <translation>Dansçı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
@@ -9250,7 +9255,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Data contributor</source>
-        <translation type="unfinished"/>
+        <translation>Veri sağlayıcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
@@ -9260,7 +9265,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Data manager</source>
-        <translation type="unfinished"/>
+        <translation>Veri yöneticisi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
@@ -9270,7 +9275,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Dedicatee</source>
-        <translation type="unfinished"/>
+        <translation>İthaf edilen</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
@@ -9280,7 +9285,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Dedicator</source>
-        <translation type="unfinished"/>
+        <translation>İthaf eden</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
@@ -9290,7 +9295,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Defendant</source>
-        <translation type="unfinished"/>
+        <translation>Davalı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
@@ -9300,7 +9305,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Defendant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Temyiz davalısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
@@ -9320,7 +9325,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Degree grantor</source>
-        <translation type="unfinished"/>
+        <translation>Derecelendirme kuruluşu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
@@ -9330,7 +9335,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Delineator</source>
-        <translation type="unfinished"/>
+        <translation>Teknik çizimci</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
@@ -9340,7 +9345,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Depicted</source>
-        <translation type="unfinished"/>
+        <translation>Eser konusu</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
@@ -9350,7 +9355,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Depositor</source>
-        <translation type="unfinished"/>
+        <translation>Emanetçi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
@@ -9360,7 +9365,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Designer</source>
-        <translation type="unfinished"/>
+        <translation>Tasarımcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
@@ -9370,7 +9375,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Director</source>
-        <translation type="unfinished"/>
+        <translation>Yönetmen</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
@@ -9390,7 +9395,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Distributor</source>
-        <translation type="unfinished"/>
+        <translation>Dağıtımcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
@@ -9400,7 +9405,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Donor</source>
-        <translation type="unfinished"/>
+        <translation>Bağışçı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
@@ -9410,7 +9415,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Draftsman</source>
-        <translation type="unfinished"/>
+        <translation>Teknik ressam</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
@@ -9430,7 +9435,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Editor</source>
-        <translation type="unfinished"/>
+        <translation>Editör</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
@@ -9440,7 +9445,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Electrician</source>
-        <translation type="unfinished"/>
+        <translation>Elektrikçi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
@@ -9460,7 +9465,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Engineer</source>
-        <translation type="unfinished"/>
+        <translation>Mühendis</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
@@ -9470,7 +9475,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Engraver</source>
-        <translation type="unfinished"/>
+        <translation>Gravürcü</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
@@ -9490,7 +9495,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Expert</source>
-        <translation type="unfinished"/>
+        <translation>Uzman</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
@@ -9520,7 +9525,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Film editor</source>
-        <translation type="unfinished"/>
+        <translation>Film editörü</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
@@ -9550,7 +9555,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Former owner</source>
-        <translation type="unfinished"/>
+        <translation>Önceki sahip</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
@@ -9560,7 +9565,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Funder</source>
-        <translation type="unfinished"/>
+        <translation>Fonlayan</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
@@ -9570,7 +9575,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Geographic information specialist</source>
-        <translation type="unfinished"/>
+        <translation>Coğrafi bilgi uzmanı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
@@ -9590,7 +9595,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Ev sahibi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
@@ -9650,7 +9655,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Interviewer</source>
-        <translation type="unfinished"/>
+        <translation>Röportajcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
@@ -9660,7 +9665,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Inventor</source>
-        <translation type="unfinished"/>
+        <translation>Mucit</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
@@ -9670,7 +9675,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Laboratory</source>
-        <translation type="unfinished"/>
+        <translation>Laboratuvar</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
@@ -9680,7 +9685,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Laboratory director</source>
-        <translation type="unfinished"/>
+        <translation>Laboratuvar direktörü</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
@@ -9690,7 +9695,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Landscape architect</source>
-        <translation type="unfinished"/>
+        <translation>Peyzaj mimarı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
@@ -9810,7 +9815,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Lighting designer</source>
-        <translation type="unfinished"/>
+        <translation>Işık tasarımcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
@@ -9850,7 +9855,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Markup editor</source>
-        <translation type="unfinished"/>
+        <translation>Biçimleme editörü</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
@@ -9880,7 +9885,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Moderator</source>
-        <translation type="unfinished"/>
+        <translation>Moderatör</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
@@ -9890,7 +9895,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Monitor</source>
-        <translation type="unfinished"/>
+        <translation>Gözlemci</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
@@ -9910,7 +9915,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Musical director</source>
-        <translation type="unfinished"/>
+        <translation>Müzik direktörü</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
@@ -9920,7 +9925,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Musician</source>
-        <translation type="unfinished"/>
+        <translation>Müzisyen</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
@@ -9930,7 +9935,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Narrator</source>
-        <translation type="unfinished"/>
+        <translation>Anlatıcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
@@ -9970,7 +9975,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Other</source>
-        <translation type="unfinished"/>
+        <translation>Diğer</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
@@ -10010,7 +10015,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Patent holder</source>
-        <translation type="unfinished"/>
+        <translation>Patent sahibi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
@@ -10050,7 +10055,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Photographer</source>
-        <translation type="unfinished"/>
+        <translation>Fotoğrafçı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
@@ -10140,7 +10145,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Producer</source>
-        <translation type="unfinished"/>
+        <translation>Yapımcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
@@ -10170,7 +10175,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Programmer</source>
-        <translation type="unfinished"/>
+        <translation>Programcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
@@ -10190,7 +10195,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Proofreader</source>
-        <translation type="unfinished"/>
+        <translation>Düzeltmen</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
@@ -10205,7 +10210,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Publishing director</source>
-        <translation type="unfinished"/>
+        <translation>Yayın direktörü</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
@@ -10215,7 +10220,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Puppeteer</source>
-        <translation type="unfinished"/>
+        <translation>Kuklacı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
@@ -10225,7 +10230,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Recipient</source>
-        <translation type="unfinished"/>
+        <translation>Alıcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
@@ -10235,7 +10240,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Recording engineer</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt mühendisi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
@@ -10245,7 +10250,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Redactor</source>
-        <translation type="unfinished"/>
+        <translation>Redaktör</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
@@ -10285,7 +10290,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Research team head</source>
-        <translation type="unfinished"/>
+        <translation>Araştırma takımı lideri</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
@@ -10295,7 +10300,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Research team member</source>
-        <translation type="unfinished"/>
+        <translation>Araştırma takımı üyesi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
@@ -10305,7 +10310,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Researcher</source>
-        <translation type="unfinished"/>
+        <translation>Araştırmacı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
@@ -10385,7 +10390,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Scenarist</source>
-        <translation type="unfinished"/>
+        <translation>Senarist</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
@@ -10395,7 +10400,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Scientific advisor</source>
-        <translation type="unfinished"/>
+        <translation>Bilimsel danışman</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
@@ -10415,7 +10420,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Sculptor</source>
-        <translation type="unfinished"/>
+        <translation>Heykeltraş</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
@@ -10435,7 +10440,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Secretary</source>
-        <translation type="unfinished"/>
+        <translation>Sekreter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
@@ -10445,7 +10450,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Set designer</source>
-        <translation type="unfinished"/>
+        <translation>Set tasarımcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
@@ -10455,7 +10460,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Signer</source>
-        <translation type="unfinished"/>
+        <translation>İmzacı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
@@ -10465,7 +10470,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Singer</source>
-        <translation type="unfinished"/>
+        <translation>Şarkıcı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
@@ -10475,7 +10480,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Sound designer</source>
-        <translation type="unfinished"/>
+        <translation>Ses tasarımcısı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
@@ -10485,7 +10490,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Speaker</source>
-        <translation type="unfinished"/>
+        <translation>Konuşmacı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
@@ -10495,7 +10500,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Sponsor</source>
-        <translation type="unfinished"/>
+        <translation>Sponsor</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
@@ -10505,7 +10510,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Stage manager</source>
-        <translation type="unfinished"/>
+        <translation>Sahne yöneticisi</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
@@ -10565,7 +10570,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Teacher</source>
-        <translation type="unfinished"/>
+        <translation>Öğretmen</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
@@ -10575,7 +10580,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Technical director</source>
-        <translation type="unfinished"/>
+        <translation>Teknik direktör</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
@@ -10585,7 +10590,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Thesis advisor</source>
-        <translation type="unfinished"/>
+        <translation>Tez danışmanı</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
@@ -10605,7 +10610,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Translator</source>
-        <translation type="unfinished"/>
+        <translation>Çevirmen</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
@@ -10655,7 +10660,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Witness</source>
-        <translation type="unfinished"/>
+        <translation>Tanık</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
@@ -10698,7 +10703,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="141"/>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation>Başlat</translation>
     </message>
 </context>
 <context>
@@ -10785,7 +10790,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="52"/>
         <source>Counting occurrences..</source>
-        <translation type="unfinished"/>
+        <translation>Kerteleri sayıyor...</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="72"/>
@@ -11065,7 +11070,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation type="unfinished"/>
+        <translation>Dosyaları Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
@@ -11094,7 +11099,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
         <source>Section0001</source>
-        <translation type="unfinished"/>
+        <translation>Section0001</translation>
     </message>
 </context>
 <context>
@@ -11930,7 +11935,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="522"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Seç</translation>
     </message>
 </context>
 <context>
@@ -12089,7 +12094,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="184"/>
         <source>No problems found!</source>
-        <translation>Sorun yok!</translation>
+        <translation>Sorun bulunmadı!</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>

@@ -419,7 +419,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="69"/>
         <source>Add Semantics</source>
-        <translation type="unfinished"/>
+        <translation>Jelentés hozzáadása</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
@@ -524,7 +524,8 @@ A file with this name already exists in the book.</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="1020"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation type="unfinished"/>
+        <translation>Az összes HTML fájlt nem lehet eltávolítani.
+Legalább egynek maradnia kell.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
@@ -575,7 +576,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
         <source>Merge</source>
-        <translation type="unfinished"/>
+        <translation>Egyesítés</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
@@ -688,7 +689,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1381"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Szójegyzék</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1385"/>
@@ -743,7 +744,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1425"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>Előszó</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1429"/>
@@ -1884,7 +1885,7 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="419"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1280"/>
         <source>No replacements made</source>
-        <translation type="unfinished"/>
+        <translation>Nem történt csere</translation>
     </message>
     <message numerus="yes">
         <source>%1 replacements made</source>
@@ -1895,7 +1896,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1138"/>
         <source>This tab cannot be searched</source>
-        <translation type="unfinished"/>
+        <translation>Ezen a fülön nem lehet keresni</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
@@ -2825,7 +2826,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Assamese</source>
-        <translation type="unfinished"/>
+        <translation>Asszámi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
@@ -2871,7 +2872,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Belarusian</source>
-        <translation type="unfinished"/>
+        <translation>Fehérorosz</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
@@ -3074,7 +3075,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Caribbean</source>
-        <translation type="unfinished"/>
+        <translation>Karibi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
@@ -3184,7 +3185,7 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Gaelic</source>
-        <translation type="unfinished"/>
+        <translation>Kelta</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
@@ -3427,7 +3428,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Lao</source>
-        <translation type="unfinished"/>
+        <translation>Laoszi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
@@ -3551,12 +3552,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <source>North</source>
-        <translation type="unfinished"/>
+        <translation>Észak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>South</source>
-        <translation type="unfinished"/>
+        <translation>Dél</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
@@ -3571,7 +3572,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Northern, Sami</source>
-        <translation type="unfinished"/>
+        <translation>Északi, Lapp</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
@@ -3678,7 +3679,7 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Moldova</source>
-        <translation type="unfinished"/>
+        <translation>Moldvai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
@@ -3714,18 +3715,18 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Sanskrit</source>
-        <translation type="unfinished"/>
+        <translation>Szanszkrit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Sardinian</source>
-        <translation type="unfinished"/>
+        <translation>Szardíniai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbian</source>
-        <translation type="unfinished"/>
+        <translation>Szerb</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
@@ -3765,7 +3766,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Somali</source>
-        <translation type="unfinished"/>
+        <translation>Szomáli</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
@@ -3809,7 +3810,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Chile</source>
-        <translation type="unfinished"/>
+        <translation>Chile</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
@@ -3824,17 +3825,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
         <source>Dominican Republic</source>
-        <translation type="unfinished"/>
+        <translation>Dominikai Köztársaság</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Ecuador</source>
-        <translation type="unfinished"/>
+        <translation>Ecuador</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
         <source>El Salvador</source>
-        <translation type="unfinished"/>
+        <translation>El Salvador</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
@@ -3854,7 +3855,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Nicaragua</source>
-        <translation type="unfinished"/>
+        <translation>Nicaragua</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
@@ -3874,13 +3875,13 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Puerto Rico</source>
-        <translation type="unfinished"/>
+        <translation>Puerto Rico</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Spain</source>
-        <translation type="unfinished"/>
+        <translation>Spanyolország</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
@@ -3890,22 +3891,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Uruguay</source>
-        <translation type="unfinished"/>
+        <translation>Uruguay</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Venezuela</source>
-        <translation type="unfinished"/>
+        <translation>Venezuela</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Sundanese</source>
-        <translation type="unfinished"/>
+        <translation>Szudáni</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Swahili</source>
-        <translation type="unfinished"/>
+        <translation>Szuahéli</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
@@ -3917,7 +3918,7 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Swedish</source>
-        <translation type="unfinished"/>
+        <translation>Svéd</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
@@ -3952,7 +3953,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Tatar</source>
-        <translation type="unfinished"/>
+        <translation>Tatár</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
@@ -3967,7 +3968,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tibetan</source>
-        <translation type="unfinished"/>
+        <translation>Tibeti</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
@@ -4013,7 +4014,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Uighur</source>
-        <translation type="unfinished"/>
+        <translation>Ujgur</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
@@ -4029,7 +4030,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Urdu</source>
-        <translation type="unfinished"/>
+        <translation>Urdu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
@@ -4040,7 +4041,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbekistan</source>
-        <translation type="unfinished"/>
+        <translation>Üzbegisztán</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
@@ -4065,12 +4066,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Welsh</source>
-        <translation type="unfinished"/>
+        <translation>Velszi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Western Frisian</source>
-        <translation type="unfinished"/>
+        <translation>Nyugat-Friz</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
@@ -4085,7 +4086,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Yiddish</source>
-        <translation type="unfinished"/>
+        <translation>Jiddis</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
@@ -8220,7 +8221,7 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation type="unfinished"/>
+        <translation>Ezt a fájlt a szerző DRM védelemmel látta el. A Sigil az ilyen fájlokat nem tudja megnyitni.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3278"/>
@@ -8230,7 +8231,7 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3282"/>
         <source>Cannot load file %1: %2</source>
-        <translation type="unfinished"/>
+        <translation>A %1: %2 fájl nem tölthető be</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3339"/>
@@ -8252,7 +8253,7 @@ Do you want to automatically fix the files before saving?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
         <source>Cannot save file %1: %2</source>
-        <translation type="unfinished"/>
+        <translation>A %1: %2 fájl nem menthető</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3516"/>
@@ -8465,7 +8466,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
         <source>Subject</source>
-        <translation type="unfinished"/>
+        <translation>Tárgy</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
@@ -8475,12 +8476,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Leírás</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation type="unfinished"/>
+        <translation>A kiadvány tartalmának leírása.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
@@ -10782,18 +10783,18 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="589"/>
         <source>The filename cannot be empty.</source>
-        <translation type="unfinished"/>
+        <translation>A fájlnév nem lehet üres.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="578"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>A fájlnév nem tartalmazhatja a &quot;%1&quot; írásjelet.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="596"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
-        <translation type="unfinished"/>
+        <translation>A &quot;%1&quot; fájlnév már foglalt.\n</translation>
     </message>
 </context>
 <context>
@@ -10860,12 +10861,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="52"/>
         <source>Counting occurrences..</source>
-        <translation type="unfinished"/>
+        <translation>Az előfordulások számlálása folyamatban...</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="72"/>
         <source>Replacing search term...</source>
-        <translation type="unfinished"/>
+        <translation>Keresőszó helyettesítése...</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="93"/>
@@ -10952,7 +10953,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="91"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Szójegyzék</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="93"/>
@@ -11007,7 +11008,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="113"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>Előszó</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="115"/>
@@ -12152,7 +12153,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="162"/>
         <source>N/A</source>
-        <translation type="unfinished"/>
+        <translation>Nem létezik</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="183"/>

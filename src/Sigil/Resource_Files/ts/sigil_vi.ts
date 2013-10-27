@@ -449,7 +449,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
         <source>This action cannot be reversed.</source>
-        <translation type="unfinished"/>
+        <translation>Thao tác này không thể được thực hiện lại.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
@@ -524,7 +524,8 @@ A file with this name already exists in the book.</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="1020"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation type="unfinished"/>
+        <translation>Bạn không thể loại bỏ toàn bộ các tập tin html.
+Phải có ít nhất một đối tượng còn lại.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
@@ -575,7 +576,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
         <source>Merge</source>
-        <translation type="unfinished"/>
+        <translation>Trộn</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
@@ -653,12 +654,12 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
         <source>Sort</source>
-        <translation type="unfinished"/>
+        <translation>Sắp xếp</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
         <source>Renumber TOC Entries</source>
-        <translation type="unfinished"/>
+        <translation>Đánh số lại các khung TOC</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
@@ -1480,7 +1481,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1197"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>Bỏ qua</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1259"/>
@@ -1753,7 +1754,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
@@ -1764,7 +1765,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation type="unfinished"/>
+        <translation>Ẩn phần tìm kiếm và thay thế</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
@@ -1832,17 +1833,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation type="unfinished"/>
+        <translation>Đếm tất cả</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Thay thế</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation type="unfinished"/>
+        <translation>Thay thế tất cả</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
@@ -1872,7 +1873,8 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="622"/>
         <source>No matches found</source>
-        <translation type="unfinished"/>
+        <translation>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%1 matches found</source>
@@ -1884,7 +1886,7 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="419"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1280"/>
         <source>No replacements made</source>
-        <translation type="unfinished"/>
+        <translation>Chưa thực hiện việc thay thế nào</translation>
     </message>
     <message numerus="yes">
         <source>%1 replacements made</source>
@@ -1895,7 +1897,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1138"/>
         <source>This tab cannot be searched</source>
-        <translation type="unfinished"/>
+        <translation>Không tìm được tab này</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
@@ -1976,7 +1978,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <source>Case Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Phân biệt ký tự in hoa</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1428"/>
@@ -2018,17 +2020,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <source>All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Tất cả tập tin HTML</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>Lên</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1451"/>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>Xuống</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
@@ -2213,7 +2215,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="753"/>
         <source>Up to level</source>
-        <translation type="unfinished"/>
+        <translation>Lên cấp độ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="755"/>
@@ -2690,32 +2692,32 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="79"/>
         <source>Abkhazian</source>
-        <translation type="unfinished"/>
+        <translation>Abkhazian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="80"/>
         <source>Afar</source>
-        <translation type="unfinished"/>
+        <translation>Afar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="81"/>
         <source>Afrikaans</source>
-        <translation type="unfinished"/>
+        <translation>Afrikaans</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="82"/>
         <source>Akan</source>
-        <translation type="unfinished"/>
+        <translation>Akan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="83"/>
         <source>Albanian</source>
-        <translation type="unfinished"/>
+        <translation>Albanian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="84"/>
         <source>Amharic</source>
-        <translation type="unfinished"/>
+        <translation>Amharic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="85"/>
@@ -2735,199 +2737,199 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Arabic</source>
-        <translation type="unfinished"/>
+        <translation>Arabic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="86"/>
         <source>Algeria</source>
-        <translation type="unfinished"/>
+        <translation>Algeria</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="87"/>
         <source>Bahrain</source>
-        <translation type="unfinished"/>
+        <translation>Bahrain</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="88"/>
         <source>Egypt</source>
-        <translation type="unfinished"/>
+        <translation>Egypt</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="89"/>
         <source>Iraq</source>
-        <translation type="unfinished"/>
+        <translation>Iraq</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="90"/>
         <source>Jordan</source>
-        <translation type="unfinished"/>
+        <translation>Jordan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="91"/>
         <source>Kuwait</source>
-        <translation type="unfinished"/>
+        <translation>Kuwait</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="92"/>
         <source>Lebanon</source>
-        <translation type="unfinished"/>
+        <translation>Lebanon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="93"/>
         <source>Libya</source>
-        <translation type="unfinished"/>
+        <translation>Libya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Morocco</source>
-        <translation type="unfinished"/>
+        <translation>Morocco</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Oman</source>
-        <translation type="unfinished"/>
+        <translation>Oman</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Qatar</source>
-        <translation type="unfinished"/>
+        <translation>Qatar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Syria</source>
-        <translation type="unfinished"/>
+        <translation>Syria</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Tunisia</source>
-        <translation type="unfinished"/>
+        <translation>Tunisia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>United Arab Emirates</source>
-        <translation type="unfinished"/>
+        <translation>United Arab Emirates</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Yemen</source>
-        <translation type="unfinished"/>
+        <translation>Yemen</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Aragonese</source>
-        <translation type="unfinished"/>
+        <translation>Aragonese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Armenian</source>
-        <translation type="unfinished"/>
+        <translation>Armenian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Assamese</source>
-        <translation type="unfinished"/>
+        <translation>Assamese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Avaric</source>
-        <translation type="unfinished"/>
+        <translation>Avaric</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <source>Avestan</source>
-        <translation type="unfinished"/>
+        <translation>Avestan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Aymara</source>
-        <translation type="unfinished"/>
+        <translation>Aymara</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Azerbaijani</source>
-        <translation type="unfinished"/>
+        <translation>Azerbaijani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Azerbaijan</source>
-        <translation type="unfinished"/>
+        <translation>Azerbaijan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Bambara</source>
-        <translation type="unfinished"/>
+        <translation>Bambara</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Bashkir</source>
-        <translation type="unfinished"/>
+        <translation>Bashkir</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Basque</source>
-        <translation type="unfinished"/>
+        <translation>Basque</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Belarusian</source>
-        <translation type="unfinished"/>
+        <translation>Belarusian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <source>Bengali</source>
-        <translation type="unfinished"/>
+        <translation>Bengali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Bihari</source>
-        <translation type="unfinished"/>
+        <translation>Bihari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="115"/>
         <source>Bislama</source>
-        <translation type="unfinished"/>
+        <translation>Bislama</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bosnian</source>
-        <translation type="unfinished"/>
+        <translation>Bosnian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Breton</source>
-        <translation type="unfinished"/>
+        <translation>Breton</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"/>
+        <translation>Bulgarian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Burmese</source>
-        <translation type="unfinished"/>
+        <translation>Burmese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Catalan</source>
-        <translation type="unfinished"/>
+        <translation>Catalan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Central Khmer</source>
-        <translation type="unfinished"/>
+        <translation>Central Khmer</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Chamorro</source>
-        <translation type="unfinished"/>
+        <translation>Chamorro</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Chechen</source>
-        <translation type="unfinished"/>
+        <translation>Chechen</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
@@ -2937,106 +2939,106 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Tung Cẩu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <source>China</source>
-        <translation type="unfinished"/>
+        <translation>Ba Tàu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Hong Kong</source>
-        <translation type="unfinished"/>
+        <translation>Hong Kong</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Macau</source>
-        <translation type="unfinished"/>
+        <translation>Macau</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Singapore</source>
-        <translation type="unfinished"/>
+        <translation>Singapore</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Taiwan</source>
-        <translation type="unfinished"/>
+        <translation>Taiwan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Church Slavic</source>
-        <translation type="unfinished"/>
+        <translation>Church Slavic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Chuvash</source>
-        <translation type="unfinished"/>
+        <translation>Chuvash</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Cornish</source>
-        <translation type="unfinished"/>
+        <translation>Cornish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Corsican</source>
-        <translation type="unfinished"/>
+        <translation>Corsican</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Cree</source>
-        <translation type="unfinished"/>
+        <translation>Cree</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Croatian</source>
-        <translation type="unfinished"/>
+        <translation>Croatian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Czech</source>
-        <translation type="unfinished"/>
+        <translation>Czech</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>Danish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Denmark</source>
-        <translation type="unfinished"/>
+        <translation>Denmark</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Dhivehi</source>
-        <translation type="unfinished"/>
+        <translation>Dhivehi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Dutch</source>
-        <translation type="unfinished"/>
+        <translation>Dutch</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Belgium</source>
-        <translation type="unfinished"/>
+        <translation>Belgium</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Netherlands</source>
-        <translation type="unfinished"/>
+        <translation>Netherlands</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
         <source>Dzongkha</source>
-        <translation type="unfinished"/>
+        <translation>Dzongkha</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="145"/>
@@ -3053,99 +3055,99 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>English</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Australia</source>
-        <translation type="unfinished"/>
+        <translation>Australia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="147"/>
         <source>Belize</source>
-        <translation type="unfinished"/>
+        <translation>Belize</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Canada</source>
-        <translation type="unfinished"/>
+        <translation>Canada</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Caribbean</source>
-        <translation type="unfinished"/>
+        <translation>Caribbean</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Great Britain</source>
-        <translation type="unfinished"/>
+        <translation>Great Britain</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
         <source>India</source>
-        <translation type="unfinished"/>
+        <translation>India</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="152"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Ireland</source>
-        <translation type="unfinished"/>
+        <translation>Ireland</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Jamaica</source>
-        <translation type="unfinished"/>
+        <translation>Jamaica</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <source>Phillippines</source>
-        <translation type="unfinished"/>
+        <translation>Phillippines</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Trinidad</source>
-        <translation type="unfinished"/>
+        <translation>Trinidad</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <source>South Africa</source>
-        <translation type="unfinished"/>
+        <translation>South Africa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>United States</source>
-        <translation type="unfinished"/>
+        <translation>United States</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <source>Esperanto</source>
-        <translation type="unfinished"/>
+        <translation>Esperanto</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Estonian</source>
-        <translation type="unfinished"/>
+        <translation>Estonian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Ewe</source>
-        <translation type="unfinished"/>
+        <translation>Ewe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Faroese</source>
-        <translation type="unfinished"/>
+        <translation>Faroese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Fijian</source>
-        <translation type="unfinished"/>
+        <translation>Fijian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Finnish</source>
-        <translation type="unfinished"/>
+        <translation>Finnish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
@@ -3155,56 +3157,56 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>French</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <source>France</source>
-        <translation type="unfinished"/>
+        <translation>France</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Luxembourg</source>
-        <translation type="unfinished"/>
+        <translation>Luxembourg</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Switzerland</source>
-        <translation type="unfinished"/>
+        <translation>Switzerland</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Fulah</source>
-        <translation type="unfinished"/>
+        <translation>Fulah</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Gaelic</source>
-        <translation type="unfinished"/>
+        <translation>Gaelic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Scotland</source>
-        <translation type="unfinished"/>
+        <translation>Scotland</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>Galician</source>
-        <translation type="unfinished"/>
+        <translation>Galician</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <source>Ganda</source>
-        <translation type="unfinished"/>
+        <translation>Ganda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Georgian</source>
-        <translation type="unfinished"/>
+        <translation>Georgian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
@@ -3214,27 +3216,27 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>German</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Austria</source>
-        <translation type="unfinished"/>
+        <translation>Austria</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Germany</source>
-        <translation type="unfinished"/>
+        <translation>Germany</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Liechtenstein</source>
-        <translation type="unfinished"/>
+        <translation>Liechtenstein</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
         <source>Greek, Modern</source>
-        <translation type="unfinished"/>
+        <translation>Greek, Modern</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
@@ -3244,68 +3246,68 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Guarani</source>
-        <translation type="unfinished"/>
+        <translation>Guarani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Gujarati</source>
-        <translation type="unfinished"/>
+        <translation>Gujarati</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Haitian</source>
-        <translation type="unfinished"/>
+        <translation>Haitian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <source>Hausa</source>
-        <translation type="unfinished"/>
+        <translation>Hausa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Hebrew</source>
-        <translation type="unfinished"/>
+        <translation>Hebrew</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Herero</source>
-        <translation type="unfinished"/>
+        <translation>Herero</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Hindi</source>
-        <translation type="unfinished"/>
+        <translation>Hindi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Hiri Motu</source>
-        <translation type="unfinished"/>
+        <translation>Hiri Motu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hungarian</source>
-        <translation type="unfinished"/>
+        <translation>Hungarian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Icelandic</source>
-        <translation type="unfinished"/>
+        <translation>Icelandic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Ido</source>
-        <translation type="unfinished"/>
+        <translation>Ido</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Igbo</source>
-        <translation type="unfinished"/>
+        <translation>Igbo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Indonesian</source>
-        <translation type="unfinished"/>
+        <translation>Indonesian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
@@ -3315,104 +3317,104 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Interlingua</source>
-        <translation type="unfinished"/>
+        <translation>Interlingua</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Interlingue</source>
-        <translation type="unfinished"/>
+        <translation>Interlingue</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Inuktitut</source>
-        <translation type="unfinished"/>
+        <translation>Inuktitut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Inupiaq</source>
-        <translation type="unfinished"/>
+        <translation>Inupiaq</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Irish</source>
-        <translation type="unfinished"/>
+        <translation>Irish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Italy</source>
-        <translation type="unfinished"/>
+        <translation>Italy</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Japanese</source>
-        <translation type="unfinished"/>
+        <translation>Japanese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Javanese</source>
-        <translation type="unfinished"/>
+        <translation>Javanese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Kalaallisut</source>
-        <translation type="unfinished"/>
+        <translation>Kalaallisut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
         <source>Kannada</source>
-        <translation type="unfinished"/>
+        <translation>Kannada</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Kanuri</source>
-        <translation type="unfinished"/>
+        <translation>Kanuri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Kashmiri</source>
-        <translation type="unfinished"/>
+        <translation>Kashmiri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Kazakh</source>
-        <translation type="unfinished"/>
+        <translation>Kazakh</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Kikuyu</source>
-        <translation type="unfinished"/>
+        <translation>Kikuyu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kinyarwanda</source>
-        <translation type="unfinished"/>
+        <translation>Kinyarwanda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Kirghiz</source>
-        <translation type="unfinished"/>
+        <translation>Kirghiz</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Komi</source>
-        <translation type="unfinished"/>
+        <translation>Komi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kongo</source>
-        <translation type="unfinished"/>
+        <translation>Kongo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Korean</source>
-        <translation type="unfinished"/>
+        <translation>Korean</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
@@ -3422,23 +3424,23 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kurdish</source>
-        <translation type="unfinished"/>
+        <translation>Kurdish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Lao</source>
-        <translation type="unfinished"/>
+        <translation>Lao</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Latin</source>
-        <translation type="unfinished"/>
+        <translation>Latin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvian</source>
-        <translation type="unfinished"/>
+        <translation>Latvian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
@@ -3448,237 +3450,237 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Limburgan</source>
-        <translation type="unfinished"/>
+        <translation>Limburgan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Lingala</source>
-        <translation type="unfinished"/>
+        <translation>Lingala</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lithuanian</source>
-        <translation type="unfinished"/>
+        <translation>Lithuanian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Luba-Katanga</source>
-        <translation type="unfinished"/>
+        <translation>Luba-Katanga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <source>Luxembourgish</source>
-        <translation type="unfinished"/>
+        <translation>Luxembourgish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Macedonian</source>
-        <translation type="unfinished"/>
+        <translation>Macedonian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Malagasy</source>
-        <translation type="unfinished"/>
+        <translation>Malagasy</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Malayalam</source>
-        <translation type="unfinished"/>
+        <translation>Malayalam</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="234"/>
         <location filename="../../Misc/Language.cpp" line="235"/>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Malay</source>
-        <translation type="unfinished"/>
+        <translation>Malay</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Brunei</source>
-        <translation type="unfinished"/>
+        <translation>Brunei</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Malaysia</source>
-        <translation type="unfinished"/>
+        <translation>Malaysia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Maltese</source>
-        <translation type="unfinished"/>
+        <translation>Maltese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Manx</source>
-        <translation type="unfinished"/>
+        <translation>Manx</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Maori</source>
-        <translation type="unfinished"/>
+        <translation>Maori</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="240"/>
         <source>Marathi</source>
-        <translation type="unfinished"/>
+        <translation>Marathi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Marshallese</source>
-        <translation type="unfinished"/>
+        <translation>Marshallese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Mongolian</source>
-        <translation type="unfinished"/>
+        <translation>Mongolian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Nauru</source>
-        <translation type="unfinished"/>
+        <translation>Nauru</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Navajo</source>
-        <translation type="unfinished"/>
+        <translation>Navajo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Ndebele</source>
-        <translation type="unfinished"/>
+        <translation>Ndebele</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <source>North</source>
-        <translation type="unfinished"/>
+        <translation>North</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>South</source>
-        <translation type="unfinished"/>
+        <translation>South</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Ndonga</source>
-        <translation type="unfinished"/>
+        <translation>Ndonga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Nepali</source>
-        <translation type="unfinished"/>
+        <translation>Nepali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Northern, Sami</source>
-        <translation type="unfinished"/>
+        <translation>Northern, Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Norwegian</source>
-        <translation type="unfinished"/>
+        <translation>Norwegian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Bokmal</source>
-        <translation type="unfinished"/>
+        <translation>Bokmal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Nynorsk</source>
-        <translation type="unfinished"/>
+        <translation>Nynorsk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Nyanja</source>
-        <translation type="unfinished"/>
+        <translation>Nyanja</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Occitan</source>
-        <translation type="unfinished"/>
+        <translation>Occitan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Ojibwa</source>
-        <translation type="unfinished"/>
+        <translation>Ojibwa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="256"/>
         <source>Oriya</source>
-        <translation type="unfinished"/>
+        <translation>Oriya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Oromo</source>
-        <translation type="unfinished"/>
+        <translation>Oromo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Ossetian</source>
-        <translation type="unfinished"/>
+        <translation>Ossetian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Pali</source>
-        <translation type="unfinished"/>
+        <translation>Pali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Panjabi</source>
-        <translation type="unfinished"/>
+        <translation>Panjabi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Persian</source>
-        <translation type="unfinished"/>
+        <translation>Persian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Polish</source>
-        <translation type="unfinished"/>
+        <translation>Polish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>Portuguese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Brazil</source>
-        <translation type="unfinished"/>
+        <translation>Brazil</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Portugal</source>
-        <translation type="unfinished"/>
+        <translation>Portugal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Pushto</source>
-        <translation type="unfinished"/>
+        <translation>Pushto</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Quechua</source>
-        <translation type="unfinished"/>
+        <translation>Quechua</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="268"/>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romanian</source>
-        <translation type="unfinished"/>
+        <translation>Romanian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Moldova</source>
-        <translation type="unfinished"/>
+        <translation>Moldova</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
@@ -3688,44 +3690,44 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Romansh</source>
-        <translation type="unfinished"/>
+        <translation>Romansh</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Rundi</source>
-        <translation type="unfinished"/>
+        <translation>Rundi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Russian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Samoan</source>
-        <translation type="unfinished"/>
+        <translation>Samoan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Sango</source>
-        <translation type="unfinished"/>
+        <translation>Sango</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Sanskrit</source>
-        <translation type="unfinished"/>
+        <translation>Sanskrit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Sardinian</source>
-        <translation type="unfinished"/>
+        <translation>Sardinian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbian</source>
-        <translation type="unfinished"/>
+        <translation>Serbian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
@@ -3735,42 +3737,42 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Shona</source>
-        <translation type="unfinished"/>
+        <translation>Shona</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sichuan Yi</source>
-        <translation type="unfinished"/>
+        <translation>Sichuan Yi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sindhi</source>
-        <translation type="unfinished"/>
+        <translation>Sindhi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sinhala</source>
-        <translation type="unfinished"/>
+        <translation>Sinhala</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <source>Slovak</source>
-        <translation type="unfinished"/>
+        <translation>Slovak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Slovenian</source>
-        <translation type="unfinished"/>
+        <translation>Slovenian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Somali</source>
-        <translation type="unfinished"/>
+        <translation>Somali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sotho, Southern</source>
-        <translation type="unfinished"/>
+        <translation>Sotho, Southern</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
@@ -3794,93 +3796,93 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Spanish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Argentina</source>
-        <translation type="unfinished"/>
+        <translation>Argentina</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Bolivia</source>
-        <translation type="unfinished"/>
+        <translation>Bolivia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Chile</source>
-        <translation type="unfinished"/>
+        <translation>Chile</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Columbia</source>
-        <translation type="unfinished"/>
+        <translation>Columbia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Costa Rica</source>
-        <translation type="unfinished"/>
+        <translation>Costa Rica</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
         <source>Dominican Republic</source>
-        <translation type="unfinished"/>
+        <translation>Dominican Republic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Ecuador</source>
-        <translation type="unfinished"/>
+        <translation>Ecuador</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
         <source>El Salvador</source>
-        <translation type="unfinished"/>
+        <translation>El Salvador</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Guatemala</source>
-        <translation type="unfinished"/>
+        <translation>Guatemala</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Honduras</source>
-        <translation type="unfinished"/>
+        <translation>Honduras</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Mexico</source>
-        <translation type="unfinished"/>
+        <translation>Mexico</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Nicaragua</source>
-        <translation type="unfinished"/>
+        <translation>Nicaragua</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Panama</source>
-        <translation type="unfinished"/>
+        <translation>Panama</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Paraguay</source>
-        <translation type="unfinished"/>
+        <translation>Paraguay</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Peru</source>
-        <translation type="unfinished"/>
+        <translation>Peru</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Puerto Rico</source>
-        <translation type="unfinished"/>
+        <translation>Puerto Rico</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Spain</source>
-        <translation type="unfinished"/>
+        <translation>Spain</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
@@ -3890,136 +3892,136 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Uruguay</source>
-        <translation type="unfinished"/>
+        <translation>Uruguay</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Venezuela</source>
-        <translation type="unfinished"/>
+        <translation>Venezuela</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Sundanese</source>
-        <translation type="unfinished"/>
+        <translation>Sundanese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Swahili</source>
-        <translation type="unfinished"/>
+        <translation>Swahili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Swati</source>
-        <translation type="unfinished"/>
+        <translation>Swati</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="312"/>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Swedish</source>
-        <translation type="unfinished"/>
+        <translation>Swedish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Finland</source>
-        <translation type="unfinished"/>
+        <translation>Finland</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Sweden</source>
-        <translation type="unfinished"/>
+        <translation>Sweden</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Tagalog</source>
-        <translation type="unfinished"/>
+        <translation>Tagalog</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Tahitian</source>
-        <translation type="unfinished"/>
+        <translation>Tahitian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Tajik</source>
-        <translation type="unfinished"/>
+        <translation>Tajik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Tamil</source>
-        <translation type="unfinished"/>
+        <translation>Tamil</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Tatar</source>
-        <translation type="unfinished"/>
+        <translation>Tatar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Telugu</source>
-        <translation type="unfinished"/>
+        <translation>Telugu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Thai</source>
-        <translation type="unfinished"/>
+        <translation>Thai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tibetan</source>
-        <translation type="unfinished"/>
+        <translation>Tibetan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tigrinya</source>
-        <translation type="unfinished"/>
+        <translation>Tigrinya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tonga</source>
-        <translation type="unfinished"/>
+        <translation>Tonga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tsonga</source>
-        <translation type="unfinished"/>
+        <translation>Tsonga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Tswana</source>
-        <translation type="unfinished"/>
+        <translation>Tswana</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkish</source>
-        <translation type="unfinished"/>
+        <translation>Turkish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkey</source>
-        <translation type="unfinished"/>
+        <translation>Turkey</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Turkmen</source>
-        <translation type="unfinished"/>
+        <translation>Turkmen</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Twi</source>
-        <translation type="unfinished"/>
+        <translation>Twi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Uighur</source>
-        <translation type="unfinished"/>
+        <translation>Uighur</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"/>
+        <translation>Ukrainian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
@@ -4029,78 +4031,78 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Urdu</source>
-        <translation type="unfinished"/>
+        <translation>Urdu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbek</source>
-        <translation type="unfinished"/>
+        <translation>Uzbek</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbekistan</source>
-        <translation type="unfinished"/>
+        <translation>Uzbekistan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Venda</source>
-        <translation type="unfinished"/>
+        <translation>Venda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Vietnamese</source>
-        <translation type="unfinished"/>
+        <translation>Việt Nam Quê Hương Tôi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Volapuk</source>
-        <translation type="unfinished"/>
+        <translation>Volapuk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Walloon</source>
-        <translation type="unfinished"/>
+        <translation>Walloon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Welsh</source>
-        <translation type="unfinished"/>
+        <translation>Welsh</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Western Frisian</source>
-        <translation type="unfinished"/>
+        <translation>Western Frisian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Wolof</source>
-        <translation type="unfinished"/>
+        <translation>Wolof</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Xhosa</source>
-        <translation type="unfinished"/>
+        <translation>Xhosa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Yiddish</source>
-        <translation type="unfinished"/>
+        <translation>Yiddish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Yoruba</source>
-        <translation type="unfinished"/>
+        <translation>Yoruba</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Zhuang</source>
-        <translation type="unfinished"/>
+        <translation>Zhuang</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Zulu</source>
-        <translation type="unfinished"/>
+        <translation>Zulu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
@@ -5657,7 +5659,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>Lên</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
@@ -5667,7 +5669,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>Xuống</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="60"/>
@@ -6036,7 +6038,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Chế độ xem dạng sách&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Chỉnh sửa và hiển thị các tập tin trong phần sách của bạn dưới dạng hiển thị với các người đọc khác.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
@@ -6095,7 +6099,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Chế độ xem dạng mã dữ liệu&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Chỉnh sửa và hiển thị nội dung thực tế của các tập tin trong quyển sách của bạn, bao gồm cả các đoạn mã chỉnh sửa định dạng điều khiển việc hiển thị của quyển sách đến các người đọc khác.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1009"/>
@@ -6805,7 +6811,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Thay thế</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1683"/>
@@ -7615,12 +7621,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1702"/>
         <source>Alt+A</source>
-        <translation type="unfinished"/>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1710"/>
         <source>Alt+C</source>
-        <translation type="unfinished"/>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1743"/>
@@ -7670,7 +7676,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2166"/>
         <source>Alt+PgUp</source>
-        <translation type="unfinished"/>
+        <translation>Alt+PgUp</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="920"/>
@@ -7705,7 +7711,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2177"/>
         <source>Alt+PgDown</source>
-        <translation type="unfinished"/>
+        <translation>Alt+PgDown</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="529"/>
@@ -8378,7 +8384,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
         <source>Subject</source>
-        <translation type="unfinished"/>
+        <translation>Chủ đề</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
@@ -10774,12 +10780,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="52"/>
         <source>Counting occurrences..</source>
-        <translation type="unfinished"/>
+        <translation>Đang đếm các sự kiện...</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="72"/>
         <source>Replacing search term...</source>
-        <translation type="unfinished"/>
+        <translation>Đang thay thế cụm từ tìm kiếm...</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="93"/>
@@ -10789,13 +10795,14 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="94"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;The ChangeLog can be seen &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Hiện một phiên bản mới của Sigil đã vừa mới được phát hành &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;Các phần thay đổi cải tiến có thể được xem ở &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;đây&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Bạn có muốn tải về phiên bản mới này không?&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="295"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished"/>
+        <translation>Không thể đọc tập tin %1:
+%2.</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="388"/>
@@ -10805,7 +10812,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Utility.cpp" line="389"/>
         <source>Please &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;report it&lt;/a&gt; on the issue tracker, including the details from this dialog.</source>
-        <translation type="unfinished"/>
+        <translation>Xin vui lòng &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;báo cáo về điều này&lt;/a&gt; tại phần theo dõi báo cáo lỗi của chương trình, bao gồm các thông tin chi tiết trong hộp thoại này.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="49"/>
@@ -11053,7 +11060,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation type="unfinished"/>
+        <translation>Đổi tên các tập tin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
@@ -11082,7 +11089,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
         <source>Section0001</source>
-        <translation type="unfinished"/>
+        <translation>Phần0001</translation>
     </message>
 </context>
 <context>
@@ -11136,7 +11143,7 @@ then if not found look for the second entry in the list, etc.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
@@ -11172,18 +11179,18 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation type="unfinished"/>
+        <translation>Đếm tất cả</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Thay thế</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation type="unfinished"/>
+        <translation>Thay thế tất cả</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="202"/>
@@ -11420,12 +11427,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Thay thế</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="597"/>
@@ -11604,7 +11611,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Từ điển:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
@@ -11621,7 +11628,7 @@ ID names must be unique and start with a letter.</source>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="128"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="212"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Thêm vào</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
@@ -11700,7 +11707,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="233"/>
         <source>Remove All</source>
-        <translation type="unfinished"/>
+        <translation>Loại bỏ tất cả</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="52"/>
@@ -11785,7 +11792,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="519"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>Bỏ qua</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
@@ -12056,28 +12063,28 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="44"/>
         <source>Validation Results</source>
-        <translation type="unfinished"/>
+        <translation>Xác minh các kết quả</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="73"/>
         <source>An exception occurred during validation: %1.</source>
-        <translation type="unfinished"/>
+        <translation>Xảy ra lỗi ngoại lệ khi tiến hành xác minh: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="162"/>
         <source>N/A</source>
-        <translation type="unfinished"/>
+        <translation>N/A</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="183"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
         <source>Message</source>
-        <translation type="unfinished"/>
+        <translation>Thông điệp</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="184"/>
         <source>No problems found!</source>
-        <translation type="unfinished"/>
+        <translation>Không tìm thấy vấn đề nào!</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
@@ -12087,7 +12094,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
         <source>Line</source>
-        <translation type="unfinished"/>
+        <translation>Dòng</translation>
     </message>
 </context>
 <context>
@@ -12118,12 +12125,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
         <source>Fix &amp;Automatically</source>
-        <translation type="unfinished"/>
+        <translation>Tự độ&amp;ng chỉnh</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="57"/>
         <source>Fix &amp;Manually</source>
-        <translation type="unfinished"/>
+        <translation>D&amp;o người dùng chỉnh</translation>
     </message>
 </context>
 <context>

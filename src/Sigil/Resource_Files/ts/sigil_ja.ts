@@ -603,7 +603,7 @@ There always has to be at least one.</source>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation>ファイルが画像でないので使用されません:
+        <translation>ファイルが画像でないので使用できません:
 
 &quot;%1&quot;</translation>
     </message>
@@ -856,7 +856,7 @@ OKを押して置換しますか?</translation>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>現時点では、ブックビューでのスペルチェックモードはサポートされていません。コードビューに切り替えてください。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
@@ -947,7 +947,7 @@ OKを押して置換しますか?</translation>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="88"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>このページは読み込まれて3秒後に表示されなくなります。</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="89"/>
@@ -1058,7 +1058,7 @@ OKを押して置換しますか?</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="79"/>
         <source>Matched Selector</source>
-        <translation type="unfinished"/>
+        <translation>マッチセレクター</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="80"/>
@@ -1133,18 +1133,20 @@ This may change your formatting to use inline style sections.</source>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="32"/>
         <source>Choose when your HTML code is automatically 
 formatted and cleaned using your selected option.</source>
-        <translation type="unfinished"/>
+        <translation>HTMLコードを選択したオプションで自動的に整形
+ならびにクリーン化を行う場合は選択してください。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="36"/>
         <source>Automatically Clean and Format HTML Source Code:</source>
-        <translation>HTMLソースコードを自動的に掃除&amp;整形:</translation>
+        <translation>HTMLソースコードを自動的にクリーン化ならびに整形:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="42"/>
         <source>Clean when opening an EPUB or HTML file, 
 and when switching from Book View to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>EPUBまたはHTMLファイルを開いたり、ブックビューから
+コードビューに切り替える際にクリーン化を行います。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="46"/>
@@ -2111,7 +2113,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="71"/>
         <source>Images</source>
-        <translation>イメージ</translation>
+        <translation>画像</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="72"/>
@@ -2211,7 +2213,7 @@ Check or uncheck an entry to determine if it will be added to the TOC.</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
         <source>Show TOC items only</source>
-        <translation type="unfinished"/>
+        <translation>目次のアイテムのみ表示</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
@@ -5638,7 +5640,11 @@ Do you want to save your changes?</source>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>ユーザーインターフェース言語を切り替えた後にSigilを再起動する必要があります。
+
+特定の単語またはフレーズが翻訳されていない場合は、英語で表示されます。
+
+設定-&gt;スペルチェック辞書でスペルチェック辞書を設定してください。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
@@ -6261,7 +6267,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="636"/>
         <source>Save a copy of your book to another file name.</source>
-        <translation type="unfinished"/>
+        <translation>ブックのコピーを他のファイル名で保存します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="648"/>
@@ -6528,22 +6534,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1213"/>
         <source>Zoom &amp;In</source>
-        <translation>ズームイン(&amp;I)</translation>
+        <translation>拡大(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1216"/>
         <source>Zoom In</source>
-        <translation>ズームイン</translation>
+        <translation>拡大</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1228"/>
         <source>Zoom &amp;Out</source>
-        <translation>ズームアウト(&amp;O)</translation>
+        <translation>縮小(&amp;O)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1231"/>
         <source>Zoom Out</source>
-        <translation>ズームアウト</translation>
+        <translation>縮小</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1234"/>
@@ -6886,12 +6892,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation>使用していないメディアファイルを削除(&amp;D)...</translation>
+        <translation>未使用のメディアファイルを削除(&amp;D)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1615"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
-        <translation>使用していないスタイルシートクラスを削除(&amp;U)...</translation>
+        <translation>未使用のスタイルシートクラスを削除(&amp;U)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1623"/>
@@ -7379,7 +7385,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>Create a new HTML file using the current TOC.</source>
-        <translation type="unfinished"/>
+        <translation>現在の目次を利用して新しいHTMLファイルを作成します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2217"/>
@@ -8062,12 +8068,12 @@ Please choose a different format.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1268"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>XMLがwell formedでないため、未使用のスタイルの削除をキャンセルしました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1284"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation>削除すべき使用していないスタイルシートクラスがありません。</translation>
+        <translation>削除すべき未使用のスタイルシートクラスがありません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1422"/>
@@ -8129,12 +8135,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="416"/>
         <source>This EPUB contains errors.</source>
-        <translation type="unfinished"/>
+        <translation>このEPUBにはエラーが含まれています。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="762"/>
         <source>Image does not exist: </source>
-        <translation type="unfinished"/>
+        <translation>画像がありません:</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="886"/>
@@ -8144,7 +8150,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="968"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation type="unfinished"/>
+        <translation>予期せぬエラーです。表紙には画像ファイルのみ使用できます。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="985"/>
@@ -8159,17 +8165,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1205"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>XMLがwell formedでないため、未使用のメディアファイルの削除をキャンセルしました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
         <source>Unused media files deleted.</source>
-        <translation type="unfinished"/>
+        <translation>未使用のメディアファイルを削除しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1260"/>
         <source>There are no unused image, video or audio files to delete.</source>
-        <translation type="unfinished"/>
+        <translation>削除すべき未使用の画像、動画、オーディオファイルがありません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
@@ -8205,7 +8211,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1486"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>エントリが無効です - &apos;&lt;&apos; または &apos;&gt;&apos; を含むことはできません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1551"/>
@@ -8230,13 +8236,13 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2138"/>
         <source>Text selection marked.</source>
-        <translation type="unfinished"/>
+        <translation>テキスト選択をマークしました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2141"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2160"/>
         <source>Text selection unmarked.</source>
-        <translation type="unfinished"/>
+        <translation>テキスト選択をマーク解除しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
@@ -8461,7 +8467,9 @@ Click &apos;Add Role&apos; to add more authors, creators, or contributors.</sour
 
 You can also use a ';' between values to quickly create multiple
 entries of the same type.</source>
-        <translation type="unfinished"/>
+        <translation>最初に選択した行をコピーして新しい重複エントリーを作成します。
+
+同一タイプの複数のエントリを素早く作成する場合は、値の間に &apos;;&apos; も利用できます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="177"/>
@@ -8502,7 +8510,8 @@ entries of the same type.</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
         <source>The metadata may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>メタデータが変更されているようです。
+変更点を保存しますか？</translation>
     </message>
 </context>
 <context>
@@ -8576,7 +8585,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
         <source>Source</source>
-        <translation type="unfinished"/>
+        <translation>ソース</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
@@ -11616,7 +11625,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
         <source>Images</source>
-        <translation>イメージ</translation>
+        <translation>画像</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
@@ -11954,12 +11963,12 @@ The selected word does not have to be misspelled.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
         <source>Sort words as AaBbCc instead of ABCabc.</source>
-        <translation type="unfinished"/>
+        <translation>単語をABCabcではなくAaBbCcのようにソートします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Case-Insensitive Sort</source>
-        <translation type="unfinished"/>
+        <translation>大文字小文字を区別せずソート</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>

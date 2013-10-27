@@ -3767,7 +3767,7 @@ Vuoi salvare le modifiche?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbia</source>
-        <translation type="unfinished"/>
+        <translation>Serbia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>

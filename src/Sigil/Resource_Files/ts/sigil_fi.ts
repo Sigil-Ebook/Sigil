@@ -1109,7 +1109,7 @@ Haluatko korvata sen?</translation>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="14"/>
         <source>Clean Source</source>
-        <translation>Siisti lähdekoodi</translation>
+        <translation>Lähdekoodin siistiminen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="80"/>
@@ -1532,7 +1532,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1288"/>
         <source>Clean Source - All HTML Files</source>
-        <translation>Siisti lähdekoodi – kaikki HTML-tiedostot</translation>
+        <translation>Lähdekoodin siistiminen – kaikki HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1289"/>
@@ -1800,7 +1800,7 @@ ja etsi sitten seuraava osuma kooditilassa.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Replace/Find</source>
-        <translation>Etsi/korvaa</translation>
+        <translation>Korvaa ja etsi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="249"/>
@@ -3768,7 +3768,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbia</source>
-        <translation type="unfinished"/>
+        <translation>Serbia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
@@ -6663,7 +6663,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Etsi &amp;amp; korvaa&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Etsi ja korvaa&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Etsi ja korvaa kirjassa oleva teksti.&lt;/p&gt;</translation>
     </message>
@@ -6755,7 +6755,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Pieniksi&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin kirjaimet pieniksi (gemenaksi).&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin kirjaimet pieniksi eli gemenaksi.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -6773,7 +6773,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Isoiksi&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin kirjaimet isoiksi (versaaliksi).&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin kirjaimet isoiksi eli versaaliksi.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -8618,7 +8618,7 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
         <source>Format</source>
-        <translation>Muotoile</translation>
+        <translation>Muoto</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
@@ -9218,22 +9218,22 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>Käytä vastapuolelle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
+        <translation>Käytä vaatimuksen esittäjälle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Contestant-appellee</source>
-        <translation>Vastapuoli, jota vastaan valitus on tehty</translation>
+        <translation>Vaatimuksen esittäjä, jota vastaan valitus on tehty</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>Käytä vastapuolelle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
+        <translation>Käytä vaatimuksen esittäjälle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
         <source>Contestee</source>
-        <translation>Kantaja</translation>
+        <translation>Vaatimukseen vastaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
@@ -9243,22 +9243,22 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
         <source>Contestee-appellant</source>
-        <translation>Valituksen tehnyt kantaja</translation>
+        <translation>Valituksen tehnyt vaatimukseen vastaaja</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>Käytä kantajalle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
+        <translation>Käytä vaatimukseen vastaajalle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
         <source>Contestee-appellee</source>
-        <translation>Kantaja, jota vastaan on tehty valitus</translation>
+        <translation>Vaatimukseen vastaaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>Käytä kantajalle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
+        <translation>Käytä vaatimukseen vastaajalle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
@@ -11363,7 +11363,7 @@ ja pysähdy ensimmäisen menestyksellinen korvauksen jälkeen.</translation>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
         <source>Replace/Find</source>
-        <translation>Etsi/korvaa</translation>
+        <translation>Korvaa ja etsi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
@@ -12345,7 +12345,7 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="43"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found &lt;b&gt;at or above line %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Pyydettyä toimenpidettä ei voi suorittaa, koska &lt;b&gt;%1&lt;/b&gt; ei ole oikeamuotoinen XML-dokumentti.&lt;/p&gt;&lt;p&gt;Virhe löytyi &lt;b&gt;riviltä %2 tai sen yläpuolelta: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Valinta &lt;i&gt;korjaa manuaalisesti&lt;/i&gt; mahdollistaa ongelman korjaamisen käsin.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pyydettyä toimenpidettä ei voi suorittaa, koska &lt;b&gt;%1&lt;/b&gt; ei ole oikeamuotoinen XML-dokumentti.&lt;/p&gt;&lt;p&gt;Virhe löytyi &lt;b&gt;riviltä %2 tai sen yläpuolelta: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Valinta &lt;i&gt;Korjaa manuaalisesti&lt;/i&gt; mahdollistaa ongelman korjaamisen käsin.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="48"/>

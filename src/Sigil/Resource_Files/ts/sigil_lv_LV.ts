@@ -130,7 +130,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="67"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Veids</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="68"/>
@@ -414,7 +414,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="57"/>
         <source>Book Browser</source>
-        <translation type="unfinished"/>
+        <translation>Grāmatu pārlūks</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="69"/>
@@ -575,17 +575,17 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
         <source>Merge</source>
-        <translation type="unfinished"/>
+        <translation>Sapludināt</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation type="unfinished"/>
+        <translation>Izmantot Adobe metodi</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation type="unfinished"/>
+        <translation>Izmantot IDPF metodi</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1315"/>
@@ -648,12 +648,12 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1326"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Neviems</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
         <source>Sort</source>
-        <translation type="unfinished"/>
+        <translation>Kārtot</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
@@ -688,7 +688,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1381"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Skaidrojošā vārdnīca</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1385"/>
@@ -698,7 +698,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1389"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>Bibliogrāfija</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
@@ -1480,7 +1480,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1197"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>Ignorēt</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1259"/>
@@ -1753,7 +1753,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>Meklēt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
@@ -1764,7 +1764,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation type="unfinished"/>
+        <translation>Paslēpt Meklēt un Aizstāt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
@@ -1832,17 +1832,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation type="unfinished"/>
+        <translation>Skaitīt visu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Aizstāt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation type="unfinished"/>
+        <translation>Aizstāt visu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
@@ -1872,7 +1872,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="622"/>
         <source>No matches found</source>
-        <translation type="unfinished"/>
+        <translation>⏎ </translation>
     </message>
     <message numerus="yes">
         <source>%1 matches found</source>
@@ -1981,7 +1981,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1428"/>
         <source>Regex</source>
-        <translation type="unfinished"/>
+        <translation>Regulāra izteiksme</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
@@ -2018,17 +2018,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <source>All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Visos HTML failos</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>Uz augšu</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1451"/>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>Uz leju</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
@@ -2213,7 +2213,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="753"/>
         <source>Up to level</source>
-        <translation type="unfinished"/>
+        <translation>Uz augšu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="755"/>
@@ -2224,7 +2224,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="758"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="819"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Neviems</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="534"/>
@@ -2251,7 +2251,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="764"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="817"/>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Viss</translation>
     </message>
 </context>
 <context>
@@ -5657,7 +5657,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>Uz augšu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
@@ -5667,7 +5667,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>Uz leju</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="60"/>
@@ -5861,7 +5861,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Saglabāt&lt;/b&gt;&lt;/p&gt;⏎ ⏎ &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Saglabāt pašreizējo grāmatu.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="615"/>
@@ -6791,7 +6791,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Aizstāt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1683"/>
@@ -7601,12 +7601,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1702"/>
         <source>Alt+A</source>
-        <translation type="unfinished"/>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1710"/>
         <source>Alt+C</source>
-        <translation type="unfinished"/>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1743"/>
@@ -7656,7 +7656,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2166"/>
         <source>Alt+PgUp</source>
-        <translation type="unfinished"/>
+        <translation>Alt+PgUp</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="920"/>
@@ -7691,7 +7691,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2177"/>
         <source>Alt+PgDown</source>
-        <translation type="unfinished"/>
+        <translation>Alt+PgDown</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="529"/>
@@ -7956,7 +7956,7 @@ Please choose a different format.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
         <source>Line: %1, Col: %2</source>
-        <translation type="unfinished"/>
+        <translation>Līnija: %1, Kolonna: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3150"/>
@@ -8128,7 +8128,7 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3282"/>
         <source>Cannot load file %1: %2</source>
-        <translation type="unfinished"/>
+        <translation>Nevar ielādēt failu %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3339"/>
@@ -8150,7 +8150,7 @@ Do you want to automatically fix the files before saving?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
         <source>Cannot save file %1: %2</source>
-        <translation type="unfinished"/>
+        <translation>Nevar saglabāt failu %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3516"/>
@@ -8363,7 +8363,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
         <source>Subject</source>
-        <translation type="unfinished"/>
+        <translation>Temats</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
@@ -8384,7 +8384,7 @@ Do you want to save your changes?</source>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Publisher</source>
-        <translation type="unfinished"/>
+        <translation>Izdevējs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
@@ -8394,22 +8394,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
         <source>The date of publication.</source>
-        <translation type="unfinished"/>
+        <translation>Publicēšanas datums</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="221"/>
         <source>The date of creation.</source>
-        <translation type="unfinished"/>
+        <translation>Izstrādes datums.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="222"/>
         <source>The date of modification.</source>
-        <translation type="unfinished"/>
+        <translation>Izmaiņu datums.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Veids</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
@@ -8479,7 +8479,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Nosaukums</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
@@ -8504,7 +8504,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
         <source>Actor</source>
-        <translation type="unfinished"/>
+        <translation>Aktieris</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
@@ -8514,7 +8514,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Adapteris</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
@@ -8524,7 +8524,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
         <source>Analyst</source>
-        <translation type="unfinished"/>
+        <translation>Analītiķis</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
@@ -8534,7 +8534,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
         <source>Animator</source>
-        <translation type="unfinished"/>
+        <translation>Animātors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
@@ -8544,7 +8544,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
         <source>Annotator</source>
-        <translation type="unfinished"/>
+        <translation>Anotātors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
@@ -8554,7 +8554,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
         <source>Applicant</source>
-        <translation type="unfinished"/>
+        <translation>Pretendents</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
@@ -8564,7 +8564,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
         <source>Architect</source>
-        <translation type="unfinished"/>
+        <translation>Arhitekts</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
@@ -8574,7 +8574,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
         <source>Arranger</source>
-        <translation type="unfinished"/>
+        <translation>Aranžētājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
@@ -8614,7 +8614,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
         <source>Assignee</source>
-        <translation type="unfinished"/>
+        <translation>Pilnvarotais</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
@@ -8644,7 +8644,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
         <source>Auctioneer</source>
-        <translation type="unfinished"/>
+        <translation>Ūtrupnieks</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
@@ -8654,7 +8654,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Autors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
@@ -8684,7 +8684,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>Author of dialog</source>
-        <translation type="unfinished"/>
+        <translation>Dialoga autors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
@@ -8744,7 +8744,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Book designer</source>
-        <translation type="unfinished"/>
+        <translation>Grāmatas dizaineris</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
@@ -8754,7 +8754,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Book producer</source>
-        <translation type="unfinished"/>
+        <translation>Grāmatas producents</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
@@ -8814,7 +8814,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Censor</source>
-        <translation type="unfinished"/>
+        <translation>Cenzors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
@@ -8844,7 +8844,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Client</source>
-        <translation type="unfinished"/>
+        <translation>Klients</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
@@ -8854,7 +8854,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Collaborator</source>
-        <translation type="unfinished"/>
+        <translation>Līdzstrādnieks</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
@@ -8864,7 +8864,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Collector</source>
-        <translation type="unfinished"/>
+        <translation>Kolektors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
@@ -8884,7 +8884,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Commentator</source>
-        <translation type="unfinished"/>
+        <translation>Komentētājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
@@ -8904,7 +8904,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
         <source>Compiler</source>
-        <translation type="unfinished"/>
+        <translation>Sastādītājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
@@ -8914,7 +8914,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
         <source>Complainant</source>
-        <translation type="unfinished"/>
+        <translation>Sūdzētājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
@@ -8944,7 +8944,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
         <source>Composer</source>
-        <translation type="unfinished"/>
+        <translation>Komponists</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
@@ -9075,7 +9075,7 @@ Do you want to save your changes?</source>
         <location filename="../../BookManipulation/Metadata.cpp" line="197"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
         <source>Contributor</source>
-        <translation type="unfinished"/>
+        <translation>Ziedotājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
@@ -9085,7 +9085,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
         <source>Copyright claimant</source>
-        <translation type="unfinished"/>
+        <translation>Autortiesības prasītājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
@@ -9095,7 +9095,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
         <source>Copyright holder</source>
-        <translation type="unfinished"/>
+        <translation>Autortiesību īpašnieks</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
@@ -9115,7 +9115,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
         <source>Correspondent</source>
-        <translation type="unfinished"/>
+        <translation>Korespondents</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
@@ -9135,7 +9135,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
         <source>Cover designer</source>
-        <translation type="unfinished"/>
+        <translation>Vāka dizains</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
@@ -9146,7 +9146,7 @@ Do you want to save your changes?</source>
         <location filename="../../BookManipulation/Metadata.cpp" line="196"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Creator</source>
-        <translation type="unfinished"/>
+        <translation>Izstrādātājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="198"/>
@@ -9214,7 +9214,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Dancer</source>
-        <translation type="unfinished"/>
+        <translation>Dejotājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
@@ -9224,7 +9224,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Data contributor</source>
-        <translation type="unfinished"/>
+        <translation>Datu ziedotājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
@@ -9234,7 +9234,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Data manager</source>
-        <translation type="unfinished"/>
+        <translation>Datu vadītājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
@@ -9244,7 +9244,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Dedicatee</source>
-        <translation type="unfinished"/>
+        <translation>Veltīts</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
@@ -9254,7 +9254,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Dedicator</source>
-        <translation type="unfinished"/>
+        <translation>Veltītājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
@@ -9334,7 +9334,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Designer</source>
-        <translation type="unfinished"/>
+        <translation>Dizainers</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
@@ -9344,7 +9344,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Director</source>
-        <translation type="unfinished"/>
+        <translation>Direktors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
@@ -9364,7 +9364,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Distributor</source>
-        <translation type="unfinished"/>
+        <translation>Izplatītājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
@@ -9374,7 +9374,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Donor</source>
-        <translation type="unfinished"/>
+        <translation>Donors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
@@ -9384,7 +9384,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Draftsman</source>
-        <translation type="unfinished"/>
+        <translation>Zīmētājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
@@ -9404,7 +9404,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Editor</source>
-        <translation type="unfinished"/>
+        <translation>Redaktors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
@@ -9414,7 +9414,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Electrician</source>
-        <translation type="unfinished"/>
+        <translation>Elektriķis</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
@@ -9434,7 +9434,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Engineer</source>
-        <translation type="unfinished"/>
+        <translation>Inženieris</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
@@ -9444,7 +9444,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Engraver</source>
-        <translation type="unfinished"/>
+        <translation>Gravieris</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
@@ -9464,7 +9464,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Expert</source>
-        <translation type="unfinished"/>
+        <translation>Eksperts</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
@@ -9484,7 +9484,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Field director</source>
-        <translation type="unfinished"/>
+        <translation>Lauka direktors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
@@ -9494,7 +9494,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Film editor</source>
-        <translation type="unfinished"/>
+        <translation>Filmas redaktors</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
@@ -9534,7 +9534,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Funder</source>
-        <translation type="unfinished"/>
+        <translation>Finansētājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
@@ -9554,7 +9554,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Honoree</source>
-        <translation type="unfinished"/>
+        <translation>Godalgots</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
@@ -9584,7 +9584,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Illustrator</source>
-        <translation type="unfinished"/>
+        <translation>Ilustrators</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
@@ -9604,7 +9604,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Instrumentalist</source>
-        <translation type="unfinished"/>
+        <translation>Instrumentālists</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
@@ -9764,7 +9764,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Licensee</source>
-        <translation type="unfinished"/>
+        <translation>Licences īpašnieks</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
@@ -9774,7 +9774,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Licensor</source>
-        <translation type="unfinished"/>
+        <translation>Licencētājs</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
@@ -10779,7 +10779,7 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Utility.cpp" line="295"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished"/>
+        <translation>Nevar nolasīt failu %1:⏎ %2.</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="388"/>
@@ -10850,7 +10850,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="91"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Skaidrojošā vārdnīca</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="93"/>
@@ -10860,7 +10860,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="95"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>Bibliogrāfija</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="97"/>
@@ -11037,7 +11037,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation type="unfinished"/>
+        <translation>Pārsaukt failus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
@@ -11066,7 +11066,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
         <source>Section0001</source>
-        <translation type="unfinished"/>
+        <translation>Sekcija0001</translation>
     </message>
 </context>
 <context>
@@ -11120,7 +11120,7 @@ then if not found look for the second entry in the list, etc.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>Meklēt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
@@ -11156,18 +11156,18 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation type="unfinished"/>
+        <translation>Skaitīt visu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Aizstāt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation type="unfinished"/>
+        <translation>Aizstāt visu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="202"/>
@@ -11404,12 +11404,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>Meklēt</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Aizstāt</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="597"/>
@@ -11461,7 +11461,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="74"/>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Viss</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
@@ -11769,7 +11769,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="519"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>Ignorēt</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
@@ -12040,7 +12040,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="44"/>
         <source>Validation Results</source>
-        <translation type="unfinished"/>
+        <translation>Validācijas rezultāti</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="73"/>
@@ -12071,7 +12071,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
         <source>Line</source>
-        <translation type="unfinished"/>
+        <translation>Līnija</translation>
     </message>
 </context>
 <context>
@@ -12102,12 +12102,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
         <source>Fix &amp;Automatically</source>
-        <translation type="unfinished"/>
+        <translation>Salabot &amp;automātiski</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="57"/>
         <source>Fix &amp;Manually</source>
-        <translation type="unfinished"/>
+        <translation>Salabot &amp;manuāli</translation>
     </message>
 </context>
 <context>

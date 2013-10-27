@@ -92,7 +92,7 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>Metadata omschrijving</translation>
+        <translation>Metagegevens omschrijving</translation>
     </message>
 </context>
 <context>

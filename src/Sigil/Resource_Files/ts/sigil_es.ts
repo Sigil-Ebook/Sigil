@@ -448,7 +448,7 @@ y vista previa si se especifica un tipo de letra «sans-serif» en el CSS</trans
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>¿Está seguro de que quiere ordenar alfabéticamente los ficheros seleccionados?</translation>
+        <translation>¿Está seguro de querer ordenar alfabéticamente los ficheros seleccionados?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
@@ -531,7 +531,7 @@ Ya hay un fichero con este nombre en el libro.</translation>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>No se pueden eliminar todos los ficheros HTML.
-Debe haber al menos uno.</translation>
+Siempre debe haber al menos uno.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
@@ -868,12 +868,12 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
-        <translation>No puede usar Sustituir en esta vista. Cambie a vista de código.</translation>
+        <translation>No puede usar «Sustituir» en esta vista. Cambie a vista de código.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
-        <translation>No puede usar Sustituir todo para el fichero actual en esta vista. Cambie a vista de código.</translation>
+        <translation>No puede usar «Sustituir todo» para el fichero actual en esta vista. Cambie a vista de código.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="715"/>
@@ -1898,7 +1898,8 @@ opuesto y continuar la búsqueda.</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="622"/>
         <source>No matches found</source>
-        <translation>No se encontraron coincidencias</translation>
+        <translation>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%1 matches found</source>
@@ -2678,7 +2679,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation>Asignar este atajo de teclado, ignorando posibles conflictos.</translation>
+        <translation>Asignar este acceso rápido de teclado, con prioridad sobre posibles conflictos.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
@@ -2688,7 +2689,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="160"/>
         <source>Remove this keyboard shortcut.</source>
-        <translation>Eliminar este atajo de teclado.</translation>
+        <translation>Eliminar este acceso rápido de teclado.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="163"/>
@@ -2713,7 +2714,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
         <source>Shortcut:</source>
-        <translation>Atajo:</translation>
+        <translation>Acceso rápido:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
@@ -2826,7 +2827,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Qatar</source>
-        <translation>Qatar</translation>
+        <translation>Catar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
@@ -3110,7 +3111,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Caribbean</source>
-        <translation>Caribeño</translation>
+        <translation>caribeño</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
@@ -3141,7 +3142,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Trinidad</source>
-        <translation>Trinidad</translation>
+        <translation>Trinidad y Tobago</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
@@ -3356,7 +3357,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Interlingue</source>
-        <translation>Interlingue</translation>
+        <translation>Interlingüe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
@@ -3458,7 +3459,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kurdish</source>
-        <translation>Kurdo</translation>
+        <translation>Curdo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
@@ -3619,12 +3620,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Bokmal</source>
-        <translation>Bokmål</translation>
+        <translation>bokmål</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Nynorsk</source>
-        <translation>Nynorsk</translation>
+        <translation>nynorsk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
@@ -5830,7 +5831,7 @@ Las hojas de estilo que aparecen primero tienen prioridad sobre las posteriores.
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
         <source>Cli&amp;p</source>
-        <translation>Fra&amp;mento</translation>
+        <translation>Fra&amp;gmento</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="158"/>
@@ -6589,7 +6590,7 @@ Las hojas de estilo que aparecen primero tienen prioridad sobre las posteriores.
     <message>
         <location filename="../../Form_Files/main.ui" line="906"/>
         <source>Add &amp;Cover...</source>
-        <translation>Añadir &amp;Portada...</translation>
+        <translation>Añadir una &amp;portada…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="909"/>
@@ -8485,15 +8486,15 @@ Author is typically: Firstname Lastname
 File-As is typically: Lastname, Firstname
 
 Click &apos;Add Role&apos; to add more authors, creators, or contributors.</source>
-        <translation>The primary author and creator of the book.  At least one author is required. 
+        <translation>El principal autor y creador del libro. Al menos un autor es obligatorio.
 
-Readers will typically show the author&apos;s name entered in the Author field, 
-but file the name using the File-As field for sorting purposes if it is used.
+Normalmente los lectores muestran el nombre del autor introducido en el campo «Autor»,
+pero pueden usar el campo «Ordenar como» con fines de ordenación.
 
-Author is typically: Firstname Lastname
-File-As is typically: Lastname, Firstname
+«Autor» es normalmente: Nombre Apellido
+«Ordenar como» es normalmente: Apellido, nombre
 
-Click &apos;Add Role&apos; to add more authors, creators, or contributors.</translation>
+Pulse en «Añadir participación» para añadir más autores, creadors o colaboradores.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="128"/>
@@ -8670,7 +8671,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation>Información sobre los derechos legales que afectan al uso del recurso. La información sobre los derechos normalmente abarca los derechos de propiedad intelectual (IPR), copyright y varios derechos relacionados con la propiedad.Si no consta el elemento «Derechos» no se deben hacer asunciones sobre ningún tipo de derecho relativo a la publicación.</translation>
+        <translation>Información sobre los derechos legales que afectan al uso del recurso. La información sobre los derechos normalmente abarca los derechos de propiedad intelectual (IPR), copyright y varios derechos relacionados con la propiedad. Si no consta el elemento «Derechos» no se deben hacer asunciones sobre ningún tipo de derecho relativo a la publicación.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
@@ -11901,7 +11902,7 @@ Las palabras pueden estar separadas por líneas, comas o espacios.</translation>
         <source>The default dictionary is used when you add words to the
 default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <translation>El diccionario predeterminado se usa al añadir palabras
-al diccionario predeterminado o al usar los atajos para
+al diccionario predeterminado o al usar los accesos rápidos para
 «Añadir palabra con problemas».</translation>
     </message>
     <message>
@@ -12297,7 +12298,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="162"/>
         <source>N/A</source>
-        <translation>n/a</translation>
+        <translation>N/D</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="183"/>
