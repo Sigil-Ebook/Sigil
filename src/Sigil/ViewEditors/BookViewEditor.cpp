@@ -26,6 +26,9 @@
 #include <QtCore/QTimer>
 #include <QtCore/QSignalMapper>
 #include <QtGui/QClipboard>
+#include <QtCore/QMimeData>
+#include <QtWidgets/QSizePolicy>
+#include <QtWidgets/QTextEdit>
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
@@ -82,6 +85,8 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     m_WebPageModified(false),
     m_clipMapper(new QSignalMapper(this)),
     m_OpenWithContextMenu(*new QMenu(this)),
+    m_Paste1(*(new QShortcut(QKeySequence(QKeySequence::Paste), this, 0, 0, Qt::WidgetShortcut))),
+	m_Paste2(*(new QShortcut(QKeySequence(Qt::ShiftModifier + Qt::Key_Insert), this, 0, 0, Qt::WidgetShortcut))),
     m_PageUp(*(new QShortcut(QKeySequence(QKeySequence::MoveToPreviousPage), this, 0, 0, Qt::WidgetShortcut))),
     m_PageDown(*(new QShortcut(QKeySequence(QKeySequence::MoveToNextPage), this, 0, 0, Qt::WidgetShortcut))),
     m_ScrollOneLineUp(*(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up), this, 0, 0, Qt::WidgetShortcut))),
@@ -623,9 +628,84 @@ void BookViewEditor::cut()
     page()->triggerAction(QWebPage::Cut);
 }
 
+
+class QMessageBoxResize: public QMessageBox
+{
+	public:
+		QMessageBoxResize() {
+			setMouseTracking(true);
+			setSizeGripEnabled(true);
+		}
+
+	private:
+		virtual bool event(QEvent *e) {
+			bool res = QMessageBox::event(e);
+			switch (e->type()) {
+				case QEvent::MouseMove:
+				case QEvent::MouseButtonPress:
+				setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
+				if (QWidget *textEdit =  findChild<QTextEdit *>()) {
+					textEdit->setMaximumHeight(QWIDGETSIZE_MAX);
+				}
+			}
+			return res;
+		}
+};
+
 void BookViewEditor::paste()
 {
-    page()->triggerAction(QWebPage::Paste);
+	// original clipboard format including foreign formatting info:
+	// page()->triggerAction(QWebPage::Paste);
+
+	// text only (ignore foreign formatting info) -> better formatting for eBook editing
+	// page()->triggerAction(QWebPage::PasteAndMatchStyle);
+
+	QClipboard *clipboard = QApplication::clipboard();
+    
+	if ( clipboard->mimeData()->hasHtml() )
+	{ 
+
+		// allow resize function to see whole HTML in the Detailed text window
+		// doesn't work:
+		// QMessageBox msgBox;
+		// msgBox.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+		// msgBox.setSizeGripEnabled(true);
+		// so using QMessageBoxResize override:
+
+		QMessageBoxResize msgBox;
+		msgBox.setIcon(QMessageBox::Question);
+		msgBox.setText("Clipboard contains HTML formatting.");
+		msgBox.setInformativeText("Do you want to paste clipboard data as plain text instead?");
+		msgBox.setStandardButtons(QMessageBox::Yes| QMessageBox::No| QMessageBox::Cancel);
+		msgBox.setDefaultButton(QMessageBox::Yes);
+
+		// populate the detailed text window - by HTML not by the text
+		msgBox.setDetailedText(clipboard->mimeData()->html());
+		
+		// show message box
+		int ret = msgBox.exec();
+
+		switch (ret) {
+		  case QMessageBox::Yes:
+			  // Yes was clicked
+			  page()->triggerAction(QWebPage::PasteAndMatchStyle);
+			  break;
+		  case QMessageBox::No:
+			  // No was clicked
+			  page()->triggerAction(QWebPage::Paste);
+			  break;
+		  case QMessageBox::Cancel:
+			  // Cancel was clicked - do nothing
+			  break;
+		  default:
+			  // should never be reached
+			  break;
+		}
+		
+	} else {
+		page()->triggerAction(QWebPage::Paste);
+	}
+
 }
 
 void BookViewEditor::copyImage()
@@ -983,6 +1063,8 @@ void BookViewEditor::CreateContextMenuActions()
 
 void BookViewEditor::ConnectSignalsToSlots()
 {
+    connect(&m_Paste1,            SIGNAL(activated()), this, SLOT(paste()));
+    connect(&m_Paste2,            SIGNAL(activated()), this, SLOT(paste()));
     connect(&m_PageUp,            SIGNAL(activated()), this, SLOT(PageUp()));
     connect(&m_PageDown,          SIGNAL(activated()), this, SLOT(PageDown()));
     connect(&m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
