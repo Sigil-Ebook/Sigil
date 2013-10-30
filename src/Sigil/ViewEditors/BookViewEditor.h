@@ -442,6 +442,12 @@ private:
     QAction *m_InspectElement;
 
     /**
+     * Paste keyboard shortcuts - CTRL+V (Command-V - MacOS) and SHIFT-Insert (Old - Windows).
+     */
+    QShortcut &m_Paste1;
+    QShortcut &m_Paste2;
+
+    /**
      * PageUp keyboard shortcut.
      */
     QShortcut &m_PageUp;

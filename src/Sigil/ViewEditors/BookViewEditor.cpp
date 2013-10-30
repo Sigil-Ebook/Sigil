@@ -26,6 +26,9 @@
 #include <QtCore/QTimer>
 #include <QtCore/QSignalMapper>
 #include <QtGui/QClipboard>
+#include <QtCore/QMimeData>
+#include <QtWidgets/QSizePolicy>
+#include <QtWidgets/QTextEdit>
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
@@ -82,6 +85,9 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     m_WebPageModified(false),
     m_clipMapper(new QSignalMapper(this)),
     m_OpenWithContextMenu(*new QMenu(this)),
+    m_Paste1(*(new QShortcut(QKeySequence(QKeySequence::Paste), this, 0, 0, Qt::WidgetShortcut))),
+    // Old style windows paste.
+    m_Paste2(*(new QShortcut(QKeySequence(Qt::ShiftModifier + Qt::Key_Insert), this, 0, 0, Qt::WidgetShortcut))),
     m_PageUp(*(new QShortcut(QKeySequence(QKeySequence::MoveToPreviousPage), this, 0, 0, Qt::WidgetShortcut))),
     m_PageDown(*(new QShortcut(QKeySequence(QKeySequence::MoveToNextPage), this, 0, 0, Qt::WidgetShortcut))),
     m_ScrollOneLineUp(*(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up), this, 0, 0, Qt::WidgetShortcut))),
@@ -623,9 +629,36 @@ void BookViewEditor::cut()
     page()->triggerAction(QWebPage::Cut);
 }
 
+
 void BookViewEditor::paste()
 {
-    page()->triggerAction(QWebPage::Paste);
+    QClipboard *clipboard = QApplication::clipboard();
+
+    if (clipboard->mimeData()->hasHtml()) { 
+        QMessageBox msgBox(QMessageBox::Question,
+            tr("Clipboard contains HTML formatting"),
+            tr("Do you want to paste clipboard data as plain text?"),
+            QMessageBox::Yes|QMessageBox::No|QMessageBox::Cancel);
+        msgBox.setDefaultButton(QMessageBox::Yes);
+
+        // populate the detailed text window - by HTML not by the text
+        msgBox.setDetailedText(clipboard->mimeData()->html());
+
+        // show message box
+        switch (msgBox.exec()) {
+          case QMessageBox::Yes:
+              page()->triggerAction(QWebPage::PasteAndMatchStyle);
+              break;
+          case QMessageBox::No:
+              page()->triggerAction(QWebPage::Paste);
+              break;
+          default:
+              // Cancel was clicked - do nothing
+              break;
+        }
+    } else {
+        page()->triggerAction(QWebPage::Paste);
+    }
 }
 
 void BookViewEditor::copyImage()
@@ -983,6 +1016,8 @@ void BookViewEditor::CreateContextMenuActions()
 
 void BookViewEditor::ConnectSignalsToSlots()
 {
+    connect(&m_Paste1,            SIGNAL(activated()), this, SLOT(paste()));
+    connect(&m_Paste2,            SIGNAL(activated()), this, SLOT(paste()));
     connect(&m_PageUp,            SIGNAL(activated()), this, SLOT(PageUp()));
     connect(&m_PageDown,          SIGNAL(activated()), this, SLOT(PageDown()));
     connect(&m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
