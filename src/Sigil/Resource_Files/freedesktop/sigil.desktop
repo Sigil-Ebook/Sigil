@@ -5,4 +5,5 @@ Comment=ePUB file editor
 Exec=sigil
 Icon=sigil
 Categories=Office;FileTools;Qt;Viewer;TextTools;TextEditor;Utility;
+Keywords=epub;Book;
 MimeType=application/epub+zip;
