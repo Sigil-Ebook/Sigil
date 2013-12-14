@@ -38,7 +38,7 @@
          <string/>
         </property>
         <property name="text">
-         <string>If no font is specifed in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</string>
+         <string>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
