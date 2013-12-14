@@ -192,7 +192,7 @@
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
-        <source>If no font is specifed in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
+        <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
         <translation>Si no se especifica ningún tipo de letra en el código CSS de la página, se usará el siguiente tipo de letra en Sigil. Estos tipos de letra no se emplearán en el libro electrónico generado.</translation>
     </message>
     <message>
