@@ -64,12 +64,15 @@ private slots:
     void DeleteEntry();
     void MoveLeft();
     void MoveRight();
+    void MoveUp();
+    void MoveDown();
     void SelectTarget();
 
     void OpenContextMenu(const QPoint &point);
 
 private:
     void AddEntry(bool above);
+    QModelIndex CheckSelection();
 
     NCXModel::NCXEntry ConvertTableToEntries();
     NCXModel::NCXEntry ConvertItemToEntry(QStandardItem *item);
@@ -107,6 +110,8 @@ private:
     QAction *m_Delete;
     QAction *m_CollapseAll;
     QAction *m_ExpandAll;
+    QAction *m_MoveDown;
+    QAction *m_MoveUp;
 
     NCXModel *m_NCXModel;
 
