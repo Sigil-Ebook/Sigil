@@ -49,23 +49,20 @@
        <item>
         <widget class="QPushButton" name="AddEntryAbove">
          <property name="toolTip">
-          <string>Add a new TOC entry.</string>
+          <string>Insert a blank entry above the currently selected entry.</string>
          </property>
          <property name="text">
           <string>Add Above</string>
-         </property>
-         <property name="toolTip">
-          <string>Insert a blank entry above the currently selected entry.</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="AddEntryBelow">
-         <property name="text">
-          <string>Add Below</string>
-         </property>
          <property name="toolTip">
           <string>Add a blank entry below the currently selected entry.</string>
+         </property>
+         <property name="text">
+          <string>Add Below</string>
          </property>
         </widget>
        </item>
@@ -81,11 +78,11 @@
        </item>
        <item>
         <widget class="QPushButton" name="SelectTarget">
-         <property name="text">
-          <string>Select Target</string>
-         </property>
          <property name="toolTip">
           <string>Set the destination of the TOC entry from a list of valid targets in the book.</string>
+         </property>
+         <property name="text">
+          <string>Select Target</string>
          </property>
         </widget>
        </item>
@@ -120,6 +117,30 @@ You can also use the left arrow key.</string>
             <enum>Qt::LeftArrow</enum>
            </property>
           </widget>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QToolButton" name="MoveUp">
+             <property name="text">
+              <string>...</string>
+             </property>
+             <property name="arrowType">
+              <enum>Qt::UpArrow</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="MoveDown">
+             <property name="text">
+              <string>...</string>
+             </property>
+             <property name="arrowType">
+              <enum>Qt::DownArrow</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
           <widget class="QToolButton" name="MoveRight">

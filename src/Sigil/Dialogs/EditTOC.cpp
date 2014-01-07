@@ -131,17 +131,11 @@ void EditTOC::ExpandChildren(QStandardItem *item)
 
 void EditTOC::MoveLeft()
 {
-    if (!ui.TOCTree->selectionModel()->hasSelection()) {
+    QModelIndex index = CheckSelection();
+    if (!index.isValid()) {
         return;
     }
 
-    QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(0);
-
-    if (selected_indexes.count() != 1) {
-        return;
-    }
-
-    QModelIndex index = selected_indexes.first();
     QStandardItem *item = m_TableOfContents->itemFromIndex(index);
 
     QStandardItem *parent_item = item->parent();
@@ -179,34 +173,27 @@ void EditTOC::MoveLeft()
 
 void EditTOC::MoveRight()
 {
-    if (!ui.TOCTree->selectionModel()->hasSelection()) {
+    QModelIndex index = CheckSelection();
+    if (!index.isValid()) {
         return;
     }
 
-    QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(0);
-
-    if (selected_indexes.count() != 1) {
-        return;
-    }
-
-    QModelIndex index = selected_indexes.first();
     QStandardItem *item = m_TableOfContents->itemFromIndex(index);
     int item_row = item->row();
-
-    QStandardItem *parent_item = item->parent();
-    if (!parent_item) {
-       parent_item = m_TableOfContents->invisibleRootItem();
-    }
 
     // Can't indent if row above is already parent
     if (item_row == 0) {
         return;
     }
 
+    QStandardItem *parent_item = item->parent();
+    if (!parent_item) {
+       parent_item = m_TableOfContents->invisibleRootItem();
+    }
+
     // Make the item above the parent of this item
-    int row = item->row() ;
-    QList<QStandardItem *> row_items = parent_item->takeRow(row);
-    QStandardItem *new_parent = parent_item->child(row - 1, 0);
+    QList<QStandardItem *> row_items = parent_item->takeRow(item_row);
+    QStandardItem *new_parent = parent_item->child(item_row - 1, 0);
     new_parent->insertRow(new_parent->rowCount(), row_items);
     QStandardItem *new_item = new_parent->child(new_parent->rowCount() - 1, 0);
 
@@ -215,6 +202,66 @@ void EditTOC::MoveRight()
     ui.TOCTree->setCurrentIndex(item->index());
     ui.TOCTree->selectionModel()->select(item->index(), QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
     ExpandChildren(new_item);
+}
+
+void EditTOC::MoveUp()
+{
+    QModelIndex index = CheckSelection();
+    if (!index.isValid()) {
+        return;
+    }
+    QStandardItem *item = m_TableOfContents->itemFromIndex(index);
+
+    int item_row = item->row();
+
+    // Can't move up if this row is already the top most one of its parent
+    if (item_row == 0) {
+        return;
+    }
+
+    QStandardItem *parent_item = item->parent();
+    if (!parent_item) {
+       parent_item = m_TableOfContents->invisibleRootItem();
+    }
+
+    QList<QStandardItem *> row_items = parent_item->takeRow(item_row);
+    parent_item->insertRow(item_row - 1, row_items);
+
+    // Reselect the item
+    ui.TOCTree->selectionModel()->clear();
+    ui.TOCTree->setCurrentIndex(item->index());
+    ui.TOCTree->selectionModel()->select(item->index(), QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+    ExpandChildren(item);
+}
+
+void EditTOC::MoveDown()
+{
+    QModelIndex index = CheckSelection();
+    if (!index.isValid()) {
+        return;
+    }
+    QStandardItem *item = m_TableOfContents->itemFromIndex(index);
+
+    QStandardItem *parent_item = item->parent();
+    if (!parent_item) {
+       parent_item = m_TableOfContents->invisibleRootItem();
+    }
+
+    int item_row = item->row();
+
+    // Can't move down if this row is already the last one of its parent
+    if (item_row == parent_item->rowCount() - 1) {
+        return;
+    }
+
+    QList<QStandardItem *> row_items = parent_item->takeRow(item_row);
+    parent_item->insertRow(item_row + 1, row_items);
+
+    // Reselect the item
+    ui.TOCTree->selectionModel()->clear();
+    ui.TOCTree->setCurrentIndex(item->index());
+    ui.TOCTree->selectionModel()->select(item->index(), QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+    ExpandChildren(item);
 }
 
 void EditTOC::AddEntryAbove()
@@ -229,17 +276,11 @@ void EditTOC::AddEntryBelow()
 
 void EditTOC::AddEntry(bool above)
 {
-    if (!ui.TOCTree->selectionModel()->hasSelection()) {
+    QModelIndex index = CheckSelection();
+    if (!index.isValid()) {
         return;
     }
 
-    QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(0);
-
-    if (selected_indexes.count() != 1) {
-        return;
-    }
-
-    QModelIndex index = selected_indexes.first();
     QStandardItem *item = m_TableOfContents->itemFromIndex(index);
 
     QStandardItem *parent_item = item->parent();
@@ -264,19 +305,28 @@ void EditTOC::AddEntry(bool above)
     ui.TOCTree->selectionModel()->select(entry_item->index(), QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
 }
 
-void EditTOC::DeleteEntry()
+QModelIndex EditTOC::CheckSelection()
 {
     if (!ui.TOCTree->selectionModel()->hasSelection()) {
-        return;
+        return QModelIndex();
     }
 
     QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(0);
 
     if (selected_indexes.count() != 1) {
+        return QModelIndex();
+    }
+
+    return selected_indexes.first();
+}
+
+void EditTOC::DeleteEntry()
+{
+    QModelIndex index = CheckSelection();
+    if (!index.isValid()) {
         return;
     }
 
-    QModelIndex index = selected_indexes.first();
     QStandardItem *item = m_TableOfContents->itemFromIndex(index);
 
     QStandardItem *parent_item = item->parent();
@@ -289,17 +339,11 @@ void EditTOC::DeleteEntry()
 
 void EditTOC::SelectTarget()
 {
-    if (!ui.TOCTree->selectionModel()->hasSelection()) {
+    QModelIndex index = CheckSelection();
+    if (!index.isValid()) {
         return;
     }
 
-    QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(1);
-
-    if (selected_indexes.count() != 1) {
-        return;
-    }
-
-    QModelIndex index = selected_indexes.first();
     QStandardItem *item = m_TableOfContents->itemFromIndex(index);
 
     SelectHyperlink select_target(item->text(), NULL, m_Resources, m_Book, this);
@@ -389,6 +433,13 @@ void EditTOC::CreateContextMenuActions()
     addAction(m_Rename);
     addAction(m_Delete);
 
+    m_MoveUp = new QAction(tr("Move Up"),       this);
+    m_MoveDown = new QAction(tr("Move Down"),   this);
+    m_MoveUp->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up));
+    m_MoveDown->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Down));
+    addAction(m_MoveUp);
+    addAction(m_MoveDown);
+
     m_ExpandAll= new QAction(tr("Expand All"),     this);
     m_CollapseAll = new QAction(tr("Collapse All"),  this);
 }
@@ -460,6 +511,10 @@ void EditTOC::ConnectSignalsToSlots()
     connect(ui.DeleteEntry,     SIGNAL(clicked()),            this, SLOT(DeleteEntry()));
     connect(ui.MoveLeft,        SIGNAL(clicked()),            this, SLOT(MoveLeft()));
     connect(ui.MoveRight,       SIGNAL(clicked()),            this, SLOT(MoveRight()));
+    connect(ui.MoveUp,          SIGNAL(clicked()),            this, SLOT(MoveUp()));
+    connect(ui.MoveDown,        SIGNAL(clicked()),            this, SLOT(MoveDown()));
+    connect(m_MoveUp,           SIGNAL(triggered()),          this, SLOT(MoveUp()));
+    connect(m_MoveDown,         SIGNAL(triggered()),          this, SLOT(MoveDown()));
     connect(ui.SelectTarget,    SIGNAL(clicked()),            this, SLOT(SelectTarget()));
     connect(ui.TOCTree,         SIGNAL(customContextMenuRequested(const QPoint &)),
             this,               SLOT(OpenContextMenu(const QPoint &)));
