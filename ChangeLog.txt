@@ -1,4 +1,5 @@
 Sigil 0.7.5 TBA
+    - Pull request #10: Add ability to move entries in TOC up and down.
     - Pull request #8: Allow pasting HTML as HTML or plain text in BookView.
 
 Sigil 0.7.4 2013.10.27
