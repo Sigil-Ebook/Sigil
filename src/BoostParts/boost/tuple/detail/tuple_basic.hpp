@@ -225,7 +225,6 @@ inline typename access_traits<
 get(const cons<HT, TT>& c BOOST_APPEND_EXPLICIT_TEMPLATE_NON_TYPE(int, N)) {
   typedef BOOST_DEDUCED_TYPENAME detail::drop_front<N>::BOOST_NESTED_TEMPLATE
       apply<cons<HT, TT> > impl;
-  typedef BOOST_DEDUCED_TYPENAME impl::type cons_element;
   return impl::call(c).head;
 }
 

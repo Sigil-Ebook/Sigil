@@ -22,6 +22,11 @@
 #include <boost/config.hpp>
 #include <boost/is_placeholder.hpp>
 
+#if BOOST_GCC >= 40700
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-local-typedefs"
+#endif
+
 namespace boost
 {
 
@@ -58,5 +63,9 @@ template< int I > struct is_placeholder< arg<I> (*) () >
 #endif
 
 } // namespace boost
+
+#if BOOST_GCC >= 40700
+#pragma GCC diagnostic pop
+#endif
 
 #endif // #ifndef BOOST_BIND_ARG_HPP_INCLUDED
