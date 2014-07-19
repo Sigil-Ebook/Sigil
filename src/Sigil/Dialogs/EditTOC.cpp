@@ -131,7 +131,7 @@ void EditTOC::ExpandChildren(QStandardItem *item)
 
 void EditTOC::MoveLeft()
 {
-    QModelIndex index = CheckSelection();
+    QModelIndex index = CheckSelection(0);
     if (!index.isValid()) {
         return;
     }
@@ -173,7 +173,7 @@ void EditTOC::MoveLeft()
 
 void EditTOC::MoveRight()
 {
-    QModelIndex index = CheckSelection();
+    QModelIndex index = CheckSelection(0);
     if (!index.isValid()) {
         return;
     }
@@ -206,7 +206,7 @@ void EditTOC::MoveRight()
 
 void EditTOC::MoveUp()
 {
-    QModelIndex index = CheckSelection();
+    QModelIndex index = CheckSelection(0);
     if (!index.isValid()) {
         return;
     }
@@ -236,7 +236,7 @@ void EditTOC::MoveUp()
 
 void EditTOC::MoveDown()
 {
-    QModelIndex index = CheckSelection();
+    QModelIndex index = CheckSelection(0);
     if (!index.isValid()) {
         return;
     }
@@ -276,7 +276,7 @@ void EditTOC::AddEntryBelow()
 
 void EditTOC::AddEntry(bool above)
 {
-    QModelIndex index = CheckSelection();
+    QModelIndex index = CheckSelection(0);
     if (!index.isValid()) {
         return;
     }
@@ -305,13 +305,13 @@ void EditTOC::AddEntry(bool above)
     ui.TOCTree->selectionModel()->select(entry_item->index(), QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
 }
 
-QModelIndex EditTOC::CheckSelection()
+QModelIndex EditTOC::CheckSelection(int row)
 {
     if (!ui.TOCTree->selectionModel()->hasSelection()) {
         return QModelIndex();
     }
 
-    QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(0);
+    QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows(row);
 
     if (selected_indexes.count() != 1) {
         return QModelIndex();
@@ -322,7 +322,7 @@ QModelIndex EditTOC::CheckSelection()
 
 void EditTOC::DeleteEntry()
 {
-    QModelIndex index = CheckSelection();
+    QModelIndex index = CheckSelection(0);
     if (!index.isValid()) {
         return;
     }
@@ -339,7 +339,7 @@ void EditTOC::DeleteEntry()
 
 void EditTOC::SelectTarget()
 {
-    QModelIndex index = CheckSelection();
+    QModelIndex index = CheckSelection(1);
     if (!index.isValid()) {
         return;
     }

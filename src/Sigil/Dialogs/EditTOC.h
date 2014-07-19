@@ -72,7 +72,7 @@ private slots:
 
 private:
     void AddEntry(bool above);
-    QModelIndex CheckSelection();
+    QModelIndex CheckSelection(int row);
 
     NCXModel::NCXEntry ConvertTableToEntries();
     NCXModel::NCXEntry ConvertItemToEntry(QStandardItem *item);
