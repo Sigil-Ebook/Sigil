@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PreserveEntitiesWidget</class>
+ <widget class="QWidget" name="PreserveEntitiesWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>574</width>
+    <height>367</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Preserve Entities</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="leftMargin">
+    <number>6</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Entities to Preserve</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QListWidget" name="entityList">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QPushButton" name="addEntities">
+            <property name="toolTip">
+             <string>Enter or paste entities to add to the list.
+Entities can be separated by lines, commas, or spaces.</string>
+            </property>
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="removeEntity">
+            <property name="text">
+             <string>Remove</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="removeAll">
+            <property name="text">
+             <string>Remove All</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>50</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+ </widget>
+ <resources/>
+<connections/>
+</ui>

@@ -37,6 +37,7 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 #include "Misc/Utility.h"
+#include <utility>
 
 using boost::make_tuple;
 using boost::tie;
@@ -593,10 +594,15 @@ QString CleanSource::PrettifyDOCTYPEHeader(const QString &source)
 }
 
 
-QString CleanSource::NbspToEntity(const QString &source)
+QString CleanSource::CharToEntity(const QString &source)
 {
+    SettingsStore settings;
     QString new_source = source;
-    new_source.replace(QChar(160), "&#160;");
+    QList< std::pair < ushort, QString > > codenames = settings.preserveEntityCodeNames();
+    std::pair < ushort, QString > epair;
+    foreach(epair, codenames) {
+        new_source.replace(QChar(epair.first), epair.second);
+    }
     return new_source;
 }
 

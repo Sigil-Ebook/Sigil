@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2013  Dave Heiland
+**  Copyright (C) 2014 Kevin Hendricks
 **
 **  This file is part of Sigil.
 **
@@ -20,41 +20,37 @@
 *************************************************************************/
 
 #pragma once
-#ifndef XMLENTITIES_H
-#define XMLENTITIES_H
+#ifndef PRESERVEENTITIESWIDGET_H
+#define PRESERVEENTITIESWIDGET_H
 
-#include <QtCore/QCoreApplication>
-#include <QtCore/QHash>
+#include "PreferencesWidget.h"
+#include <QtGui/QStandardItemModel>
 
-class QString;
-class QStringList;
+#include "ui_PPreserveEntitiesWidget.h"
 
-/**
- * Singleton.
- *
- * XMLEntities routines
- */
-class XMLEntities
+class PreserveEntitiesWidget : public PreferencesWidget
 {
-    Q_DECLARE_TR_FUNCTIONS(XMLEntities)
+    Q_OBJECT
 
 public:
-    static XMLEntities *instance();
+    PreserveEntitiesWidget();
+    PreferencesWidget::ResultAction saveSettings();
 
-    QString GetEntityName(ushort code);
-    QString GetEntityDescription(ushort code);
-    ushort GetEntityCode(const QString name);
+private slots:
+    void addEntities();
+    void removeEntity();
+    void removeAll();
+    void ItemChanged(QStandardItem *item);
 
 private:
-    XMLEntities();
 
-    void SetXMLEntities();
+    void readSettings();
+    void connectSignalsToSlots();
 
-    QHash<ushort, QString> m_EntityName;
-    QHash<ushort, QString> m_EntityDescription;
-    QHash<QString, ushort> m_EntityCode;
+    Ui::PreserveEntitiesWidget ui;
+    bool m_isDirty;
 
-    static XMLEntities *m_instance;
+    QStandardItemModel m_Model;
 };
 
-#endif // XMLENTITIES_H
+#endif // PRESERVEENTITIESWIDGET_H

@@ -27,6 +27,7 @@
 #include <QColor>
 #include <QtCore/QSettings>
 #include <QtCore/QString>
+#include <utility>
 
 #define CLEANON_OPEN         (1 << 0)
 #define CLEANON_SAVE         (1 << 1)
@@ -87,6 +88,12 @@ public:
     QString dictionary();
 
     QStringList enabledUserDictionaries();
+
+    /**
+     * Get the list of entities/code pairs to preserve
+     */
+
+    QList< std::pair < ushort, QString > >  preserveEntityCodeNames();
 
     /**
      * Whether automatic Spellcheck is enabled or not
@@ -222,6 +229,12 @@ public slots:
     void setDictionary(const QString &name);
 
     void setEnabledUserDictionaries(const QStringList name);
+
+    /**
+     * Set the list of paired code, entity strings to preserve.
+     */
+    
+    void setPreserveEntityCodeNames(const QList< std::pair < ushort, QString > >  codenames);
 
     /**
      * Set whether automatic Spellcheck is enabled

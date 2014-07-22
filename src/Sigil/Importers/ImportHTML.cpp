@@ -95,7 +95,7 @@ QString ImportHTML::LoadSource()
         }
 
         m_CachedSource = HTMLEncodingResolver::ReadHTMLFile(m_FullFilePath);
-        m_CachedSource = CleanSource::NbspToEntity(m_CachedSource);
+        m_CachedSource = CleanSource::CharToEntity(m_CachedSource);
 
         if (ss.cleanOn() & CLEANON_OPEN) {
             m_CachedSource = CleanSource::Clean(XhtmlDoc::ResolveCustomEntities(m_CachedSource));

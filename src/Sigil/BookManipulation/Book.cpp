@@ -63,7 +63,7 @@ static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\
                                         // The "nbsp" is here so that the user starts writing
                                         // inside the <p> element; if it's not here, webkit
                                         // inserts text _outside_ the <p> element
-                                        "<p>&#160;</p>\n"
+                                        "<p>&nbsp;</p>\n"
                                         "</body>\n"
                                         "</html>";
 

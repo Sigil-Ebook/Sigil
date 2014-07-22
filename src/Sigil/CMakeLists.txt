@@ -140,6 +140,8 @@ set( DIALOG_FILES
     Dialogs/PreferenceWidgets/PreferencesWidget.h
     Dialogs/PreferenceWidgets/SpellCheckWidget.cpp
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
+    Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp
+    Dialogs/PreferenceWidgets/PreserveEntitiesWidget.h
     Dialogs/RenameTemplate.cpp
     Dialogs/RenameTemplate.h
     Dialogs/Reports.cpp
@@ -386,6 +388,7 @@ set( UI_FILES
     Form_Files/PCleanSourceWidget.ui
     Form_Files/PLanguageWidget.ui
     Form_Files/PSpellCheckWidget.ui
+    Form_Files/PPreserveEntitiesWidget.ui
     Form_Files/RenameTemplate.ui 
     Form_Files/Reports.ui
     Form_Files/ReportsAllFilesWidget.ui

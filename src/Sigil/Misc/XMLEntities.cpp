@@ -53,6 +53,32 @@ QString XMLEntities::GetEntityDescription(ushort code)
     return name;
 }
 
+ushort XMLEntities::GetEntityCode(const QString name)
+{
+    ushort code = 0;
+    if (name.startsWith("&") && name.endsWith(";")) {
+        QString root;
+        int n = name.length();
+        root = name.mid(1,n-2);
+        if (root.startsWith("#")) {
+            bool ok;
+            int base = 10;
+            root = root.mid(1);
+            if (root.startsWith('x', Qt::CaseInsensitive)) {
+                base = 16;
+                root = root.mid(1);
+            }
+            int rcode = root.toUShort(&ok, base);
+            if (ok) code = rcode;
+        } else {
+            if (m_EntityCode.contains(root)) {
+                code = m_EntityCode.value(root, 0);
+            }
+        }
+    }
+    return code;
+}
+
 XMLEntities::XMLEntities()
 {
     SetXMLEntities();
@@ -326,5 +352,6 @@ void XMLEntities::SetXMLEntities()
         QString description = data.at(i);
         m_EntityName.insert(code, name);
         m_EntityDescription.insert(code, description);
+        m_EntityCode.insert(name, code);
     }
 }

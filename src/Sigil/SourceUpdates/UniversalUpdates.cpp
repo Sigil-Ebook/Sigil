@@ -216,7 +216,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
 
     try {
         source = XhtmlDoc::ResolveCustomEntities(html_resource->GetText());
-        source = CleanSource::NbspToEntity(source);
+        source = CleanSource::CharToEntity(source);
 
         if (ss.cleanOn() & CLEANON_OPEN) {
             source = CleanSource::Clean(source);

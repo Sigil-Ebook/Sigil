@@ -42,6 +42,8 @@ static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictio
 static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_user_dictionaries";
 static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
+static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
+static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
 
 static QString KEY_BOOK_VIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "book_view_font_family_standard";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_serif";
@@ -181,6 +183,22 @@ int SettingsStore::cleanOn()
     return value(KEY_CLEAN_ON, (CLEANON_OPEN | CLEANON_SAVE)).toInt();
 }
 
+QList < std::pair < ushort, QString > >  SettingsStore::preserveEntityCodeNames()
+{
+    clearSettingsGroup();
+    QList < std::pair < ushort, QString > > codenames;
+    QStringList names = value(KEY_PRESERVE_ENTITY_NAMES, "&nbsp;").toStringList();
+    QString codes = value(KEY_PRESERVE_ENTITY_CODES, QChar(160)).toString();
+    int i = 0;
+    foreach(QString name, names) {
+        std::pair < ushort, QString > epair;
+        epair.first = (ushort) codes.at(i++).unicode();
+        epair.second = name;
+        codenames.append(epair);
+    }
+    return codenames;
+}
+
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
 {
     clearSettingsGroup();
@@ -315,6 +333,21 @@ void SettingsStore::setCleanOn(int on)
     clearSettingsGroup();
     setValue(KEY_CLEAN_ON, on);
 }
+
+void SettingsStore::setPreserveEntityCodeNames(const QList< std::pair < ushort, QString > > codenames)
+{
+    clearSettingsGroup();
+    QStringList names;
+    QString codes;
+    std::pair < ushort, QString > epair;
+    foreach (epair, codenames) {
+        names.append(epair.second);
+        codes.append(QChar(epair.first));
+    }
+    setValue(KEY_PRESERVE_ENTITY_NAMES, names);
+    setValue(KEY_PRESERVE_ENTITY_CODES, codes);
+}
+
 
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)
 {

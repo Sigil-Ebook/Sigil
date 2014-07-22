@@ -193,7 +193,7 @@ QString BookViewEditor::GetHtml()
     html_from_Qt = RemoveBookViewReplaceSpans(html_from_Qt);
     // Convert nbsp to entity because it cannot be seen and there are issues
     // where CV will remove them if they are a single character.
-    html_from_Qt = CleanSource::NbspToEntity(html_from_Qt);
+    html_from_Qt = CleanSource::CharToEntity(html_from_Qt);
     // Make sure body always has text - primarily from Split Section.
     QRegularExpression empty_body_search("<body>\\s</body>");
     QRegularExpressionMatch empty_body_search_mo = empty_body_search.match(html_from_Qt);

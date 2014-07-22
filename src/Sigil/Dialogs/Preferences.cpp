@@ -33,6 +33,7 @@
 #include "PreferenceWidgets/KeyboardShortcutsWidget.h"
 #include "PreferenceWidgets/LanguageWidget.h"
 #include "PreferenceWidgets/SpellCheckWidget.h"
+#include "PreferenceWidgets/PreserveEntitiesWidget.h"
 
 static const QString SETTINGS_GROUP = "preferences_dialog";
 
@@ -50,6 +51,7 @@ Preferences::Preferences(QWidget *parent) :
     appendPreferenceWidget(new KeyboardShortcutsWidget);
     appendPreferenceWidget(new LanguageWidget);
     appendPreferenceWidget(new SpellCheckWidget);
+    appendPreferenceWidget(new PreserveEntitiesWidget);
     connectSignalsSlots();
     QApplication::setOverrideCursor(Qt::WaitCursor);
     readSettings();
