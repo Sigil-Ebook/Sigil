@@ -1,7 +1,9 @@
 Sigil 0.7.5 TBA
+    - Add the svg image tag as an svg inline element (not a block element) and
+      add it as an empty element (TidyEmptyTags).
+    - Allow user defined list of entities to preserve.
     - Pull request #10: Add ability to move entries in TOC up and down.
     - Pull request #8: Allow pasting HTML as HTML or plain text in BookView.
-    - Allow user defined list of entities to preserve.
 
 Sigil 0.7.4 2013.10.27
     - Use numeric entity for non-breaking spaces (nbsp) instead of named

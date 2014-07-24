@@ -62,25 +62,31 @@ static const QString TIDY_NEW_STYLE       = "(\\w+)\\.[\\w-]+\\s*(\\{.*\\})";
 // The value was picked arbitrarily
 static const int TAG_SIZE_THRESHOLD       = 1000;
 
-static const QString SVG_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem,animate,animateColor,animateMotion"
+static const QString SVG_BLOCK_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem,animate,animateColor,animateMotion"
         ",animateTransform,circle,clipPath,color-profile,cursor,definition-src,defs,desc"
         ",ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix"
         ",feDiffuseLighting,feDisplacementMap,feDistantLight,feFlood,feFuncA,feFuncB"
         ",feFuncG,feFuncR,feGaussianBlur,feImage,feMerg,feMergeNode,feMorphology,feOffset"
         ",fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter"
         ",font,font-face,font-face-format,font-face-name,font-face-src,font-face-uri"
-        ",foreignObject,g,glyph,glyphRef,hkern,image,line,linearGradient,marker,mask"
+        ",foreignObject,g,glyph,glyphRef,hkern,line,linearGradient,marker,mask"
         ",metadata,missing-glyph,mpath,path,pattern,polygon,polyline,radialGradient"
         ",rect,script,set,stop,style,svg,switch,symbol,text,textPath,title,tref,tspan"
         ",use,view,vkern";
 
+static const QString SVG_INLINE_ELEMENTS = "image";
+static const QString SVG_EMPTY_ELEMENTS = "image";
+
 static QString HTML5_BLOCK_ELEMENTS       = "article,aside,audio,canvas,datagrid,details,dialog"
         ",figcaption,figure,footer,header,hgroup,menu,nav,section,source,summary,video";
+
 static QString HTML5_INLINE_ELEMENTS      = "command,mark,meter,progress,rp,rt,ruby,time";
+static QString HTML5_EMPTY_ELEMENTS       = "";
 
-static QString BLOCK_ELEMENTS             = SVG_ELEMENTS + "," + HTML5_BLOCK_ELEMENTS;
-static QString INLINE_ELEMENTS            = HTML5_INLINE_ELEMENTS;
-
+// Don't mix inline with block but inline can be duplicated with empty according to tidy docs
+static QString BLOCK_ELEMENTS             = HTML5_BLOCK_ELEMENTS  + "," + SVG_BLOCK_ELEMENTS;
+static QString INLINE_ELEMENTS            = HTML5_INLINE_ELEMENTS + "," + SVG_INLINE_ELEMENTS;;
+static QString EMPTY_ELEMENTS             = HTML5_EMPTY_ELEMENTS  + "," + SVG_EMPTY_ELEMENTS;
 
 // Performs general cleaning (and improving)
 // of provided book XHTML source code
@@ -343,6 +349,9 @@ TidyDoc CleanSource::TidyOptions(TidyDoc tidy_document, TidyType type, int max_c
     tidyOptSetValue(tidy_document, TidyBlockTags, BLOCK_ELEMENTS.toUtf8().data());
     // "new-inline-tags"
     tidyOptSetValue(tidy_document, TidyInlineTags, INLINE_ELEMENTS.toUtf8().data());
+    // "new-empty-tags"
+    tidyOptSetValue(tidy_document, TidyEmptyTags, EMPTY_ELEMENTS.toUtf8().data());
+
 
     if (type != Tidy_Fast)
         // "indent"
