@@ -55,6 +55,8 @@ public:
     void GenerateNCXFromTOCContents(const Book &book, NCXModel &ncx_model);
     void GenerateNCXFromTOCEntries(const Book &book, NCXModel::NCXEntry ncx_root_entry);
 
+    QString GetRelativePathToRoot() const;
+
 private:
 
     void FillWithDefaultText();

@@ -22,6 +22,7 @@
 #include <boost/tuple/tuple.hpp>
 
 #include <QtCore/QBuffer>
+#include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 #include <QtCore/QObject>
 
@@ -139,4 +140,13 @@ void NCXResource::GenerateNCXFromTOCEntries(const Book &book, NCXModel::NCXEntry
 void NCXResource::FillWithDefaultText()
 {
     SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(FIRST_SECTION_NAME));
+}
+
+
+QString NCXResource::GetRelativePathToRoot() const
+{
+    QFileInfo info(GetFullPath());
+    QDir parent_dir = info.dir();
+    QString parent_name = parent_dir.dirName();
+    return parent_name + "/" + Filename();
 }

@@ -115,7 +115,7 @@ public:
      *
      * @return The root-relative path.
      */
-    QString GetRelativePathToRoot() const;
+    virtual QString GetRelativePathToRoot() const;
 
     /**
      * Returns the resource's full file path.

@@ -124,6 +124,8 @@ public:
      */
     QList< QVariant > GetDCMetadataValues(QString text) const;
 
+    QString GetRelativePathToRoot() const;
+
 public slots:
 
     /**

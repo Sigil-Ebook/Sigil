@@ -26,6 +26,7 @@
 
 #include <QtCore/QBuffer>
 #include <QtCore/QDate>
+#include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 #include <QtCore/QUuid>
 #include <QRegularExpression>
@@ -1486,4 +1487,13 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "otf"   ] = "application/vnd.ms-opentype";
     m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
     m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
+}
+
+
+QString OPFResource::GetRelativePathToRoot() const
+{
+    QFileInfo info(GetFullPath());
+    QDir parent_dir = info.dir();
+    QString parent_name = parent_dir.dirName();
+    return parent_name + "/" + Filename();
 }
