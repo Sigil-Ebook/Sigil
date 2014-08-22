@@ -89,7 +89,7 @@ private slots:
 private:
 
     bool processResultXML();
-
+    bool checkIsWellFormed();
     bool deleteFiles(const QStringList &);
     bool addFiles(const QStringList &);
     bool modifyFiles(const QStringList &);

@@ -6,12 +6,14 @@
 #include <QStandardPaths>
 #include <QXmlStreamReader>
 #include <QXmlStreamAttributes>
+#include <QMessageBox>
 #include "MainUI/MainWindow.h"
 #include "MainUI/BookBrowser.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Misc/TempFolder.h"
 #include "Tabs/TabManager.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "PluginRunner.h"
 
 const QString ADOBE_FONT_ALGO_ID         = "http://ns.adobe.com/pdf/enc#RC";
@@ -29,6 +31,7 @@ PluginRunner::PluginRunner(QString name, QWidget * parent)
     m_outputDir(m_folder.GetPath()),
     m_pluginOutput(""),
     m_algorithm(""),
+    m_result(""),
     m_mainWindow(qobject_cast<MainWindow *>(parent)),
     m_ready(false)
 
@@ -199,6 +202,16 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     if (!processResultXML()) {
         return;
     }
+    if (m_result != "success") {
+      return;
+    }
+
+    // before modifying xhtmnl files make sure they are well formed
+    if (! checkIsWellFormed() ) {
+        ui.statusLbl->setText("Status: No Changes Made");
+        return;
+    }
+
     // everthing looks good so now make any necessary changes
     bool book_modified = false;
     m_book->GetFolderKeeper().SuspendWatchingResources();
@@ -295,6 +308,72 @@ bool PluginRunner::processResultXML(){
     return true;
 }
 
+
+
+bool PluginRunner::checkIsWellFormed()
+{
+    bool well_formed = true;
+    bool proceed = true;
+    QStringList errors;
+    // Build of list of xhtml, html, and xml files that were modifed or added
+    QStringList filesToCheck;
+    if (!m_filesToAdd.isEmpty()) {
+        foreach (QString fileinfo, m_filesToAdd) {
+            QStringList fdata = fileinfo.split(SEP);
+            QString href = fdata[ hrefField ];
+            QString id   = fdata[ idField   ];
+            QString mime = fdata[ mimeField ];
+            if (mime == "application/oebps-package+xml") filesToCheck.append(href);
+            if (mime == "application/x-dtbncx+xml")      filesToCheck.append(href);
+            if (mime == "application/oebs-page-map+xml") filesToCheck.append(href);
+            if (mime == "application/xhtml+xml")         filesToCheck.append(href);
+        }
+    }
+    if (!m_filesToModify.isEmpty()) {
+        foreach (QString fileinfo, m_filesToModify) {
+            QStringList fdata = fileinfo.split(SEP);
+            QString href = fdata[ hrefField ];
+            QString id   = fdata[ idField   ];
+            QString mime = fdata[ mimeField ];
+            if (mime == "application/oebps-package+xml") filesToCheck.append(href);
+            if (mime == "application/x-dtbncx+xml")      filesToCheck.append(href);
+            if (mime == "application/oebs-page-map+xml") filesToCheck.append(href);
+            if (mime == "application/xhtml+xml")         filesToCheck.append(href);
+        }
+    }
+    if (!filesToCheck.isEmpty()) {
+        foreach (QString href, filesToCheck) {
+            QString filePath = m_outputDir + "/" + href;
+            ui.statusLbl->setText("Status: checking " + href);
+            QString data = Utility::ReadUnicodeTextFile(filePath);
+            XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
+            if (error.line != -1) {
+                errors.append("Incorrect XHTML/XML: " + href + " Line/Col " + QString::number(error.line) + 
+                              "," + QString::number(error.column) + " " + error.message);
+                well_formed = false;
+            }
+        }
+    }
+    if ((!well_formed) && (!errors.isEmpty())) {
+        // Throw Up a Dialog to See if they want to proceed
+        proceed = false;
+        QMessageBox msgBox;
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
+        msgBox.setWindowTitle("Check Report");
+        msgBox.setText("Incorrect XHTML/XML Detected\nAre you Sure You Want to Continue?");
+        msgBox.setDetailedText(errors.join("\n"));
+        QPushButton * yesButton = msgBox.addButton(QMessageBox::Yes);
+        QPushButton * noButton =  msgBox.addButton(QMessageBox::No);
+        msgBox.setDefaultButton(noButton);
+        msgBox.exec();
+        if (msgBox.clickedButton() == yesButton) {
+            proceed = true;
+        }
+    }
+    return proceed;
+}
+    
 
 bool PluginRunner::deleteFiles(const QStringList & files)
 {
