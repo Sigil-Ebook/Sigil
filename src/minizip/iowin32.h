@@ -11,12 +11,14 @@
 
 */
 
-#include <windows.h>
-
+#ifndef _iowin32_H
+#define _iowin32_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include <windows.h>
 
 void fill_win32_filefunc OF((zlib_filefunc_def* pzlib_filefunc_def));
 void fill_win32_filefunc64 OF((zlib_filefunc64_def* pzlib_filefunc_def));
