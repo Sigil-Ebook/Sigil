@@ -80,7 +80,7 @@ public:
     static bool removeDir(const QString & dirName);
 
     // Deletes the specified file if it exists
-    static bool DeleteFile(const QString &fullfilepath);
+    static bool SDeleteFile(const QString &fullfilepath);
 
     static bool ForceCopyFile(const QString &fullinpath, const QString& fulloutpath);
 

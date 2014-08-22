@@ -56,7 +56,7 @@ CSSResource::CSSResource(const QString &mainfolder, const QString &fullfilepath,
 CSSResource::~CSSResource()
 {
     foreach(QString filepath, m_TemporaryValidationFiles) {
-        Utility::DeleteFile(filepath);
+        Utility::SDeleteFile(filepath);
     }
 }
 

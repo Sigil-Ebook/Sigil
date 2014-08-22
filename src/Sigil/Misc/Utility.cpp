@@ -264,7 +264,7 @@ bool Utility::removeDir(const QString &dirName)
 
 
 // Deletes the specified file if it exists
-bool Utility::DeleteFile(const QString &fullfilepath)
+bool Utility::SDeleteFile(const QString &fullfilepath)
 {
     // Make sure the path exists, otherwise very
     // bad things could happen
@@ -284,7 +284,7 @@ bool Utility::ForceCopyFile(const QString &fullinpath, const QString& fulloutpat
         return false;
     }
     if (QFileInfo::exists(fulloutpath)) {
-        DeleteFile(fulloutpath);
+        Utility::SDeleteFile(fulloutpath);
     }
     return QFile::copy(fullinpath, fulloutpath);
 }

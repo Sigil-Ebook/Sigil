@@ -260,7 +260,7 @@ void SpellCheckWidget::removeUserDict()
         // Delete the dictionary and remove it from the list.
         QString dict_name = item->text();
         m_Model.removeRow(row);
-        Utility::DeleteFile(SpellCheck::userDictionaryDirectory() + "/" + dict_name);
+        Utility::SDeleteFile(SpellCheck::userDictionaryDirectory() + "/" + dict_name);
     }
 
     m_isDirty = true;

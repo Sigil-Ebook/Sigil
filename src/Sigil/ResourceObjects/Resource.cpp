@@ -140,7 +140,7 @@ bool Resource::Delete()
     bool successful = false;
     {
         QWriteLocker locker(&m_ReadWriteLock);
-        successful = Utility::DeleteFile(m_FullFilePath);
+        successful = Utility::SDeleteFile(m_FullFilePath);
     }
 
     if (successful) {
