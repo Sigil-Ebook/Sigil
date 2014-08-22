@@ -127,6 +127,9 @@ void PluginWidget::pluginSelected(int row, int col)
 void PluginWidget::addPlugin()
 {
     QString zippath = QFileDialog::getOpenFileName(this, "Select Plugin Zip Archive", "./", "Plugin Files (*.zip)");
+    if (zippath.isEmpty()) {
+        return;
+    }
     QFileInfo zipinfo(zippath);
     QStringList names;
     QString pluginname = zipinfo.baseName();
@@ -246,11 +249,14 @@ void PluginWidget::engine1PathChanged()
     // add additional interpreter support by adding their own find buttons and line edit paths
     // make sure typed in path actually exists
     QString enginepath = ui.editPath1->text();
-    QFileInfo enginfo(enginepath);
-    if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
-        Utility::DisplayStdWarningDialog("Incorrect Interpreter Path selected");
-        ui.editPath1->setText("");
-        return;
+    if (!enginepath.isEmpty()) {
+        QFileInfo enginfo(enginepath);
+        if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
+            disconnect(ui.editPath1,SIGNAL(editingFinished()), this, SLOT(engine1PathChanged()));
+            Utility::DisplayStdWarningDialog("Incorrect Interpreter Path selected");
+            ui.editPath1->setText("");
+            connect(ui.editPath1,SIGNAL(editingFinished()), this, SLOT(engine1PathChanged()));
+        }
     }
     m_isDirty = true;
 }
