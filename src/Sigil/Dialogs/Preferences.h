@@ -39,6 +39,19 @@ class Preferences : public QDialog
     Q_OBJECT
 
 public:
+
+    enum AvailablePreferences {
+        AppearancePrefs        = 0,
+        CleanSourcePrefs       = 1,
+        KeyboardShortcutsPrefs = 2,
+        LanguagePrefs          = 3,
+        SpellCheckPrefs        = 4,
+        PreserveEntitiesPrefs  = 5,
+        PluginsPrefs           = 6
+    };
+
+
+
     Preferences(QWidget *parent = 0);
     /**
      * Check this after dialog closes to determine if spelling highlighting needs reapplying.
@@ -52,6 +65,8 @@ public:
      * Check this after dialog closes to determine if Sigil needs restarting.
      */
     bool isRestartRequired();
+
+    void makeActive(int);
 
 private slots:
     /**

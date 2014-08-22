@@ -24,9 +24,9 @@
 #define NOMINMAX
 #endif
 
-#include <unzip.h>
+#include "unzip.h"
 #ifdef _WIN32
-#include <iowin32.h>
+#include "iowin32.h"
 #endif
 
 #include <QApplication>

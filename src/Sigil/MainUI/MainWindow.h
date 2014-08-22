@@ -89,6 +89,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+friend class PluginRunner;
 public:
 
     /**
@@ -108,6 +109,15 @@ public:
      * @return A shared pointer to the book.
      */
     QSharedPointer< Book > GetCurrentBook();
+
+
+    /**
+     * get BookBrowser for this book
+     *
+     * @return A pointer to the BookBrowser
+     */
+    BookBrowser * GetBookBrowser();
+
 
     /**
      * Returns a reference to the current content tab.
@@ -180,6 +190,12 @@ public:
      */
     static const QMap< QString, QString > GetLoadFiltersMap();
 
+    /** 
+     * support for plugins
+     */
+    void loadPluginsMenu();
+    void unloadPluginsMenu();
+
 public slots:
     void AnyCodeView();
 
@@ -205,6 +221,8 @@ public slots:
                       bool precede_current_tab = false);
 
     void CreateIndex();
+
+    void runPlugin(QAction *action);
 
 signals:
     void SettingsChanged();
@@ -409,6 +427,12 @@ private slots:
      * Implements Preferences action functionality.
      */
     void PreferencesDialog();
+
+
+    /**
+     * Implements Preferences action functionality.
+     */
+    void ManagePluginsDialog();
 
     /**
      * Implements Validate Epub with FlightCrew action functionality.
@@ -966,6 +990,14 @@ private:
     QString m_PreviousHTMLText;
     QList<ViewEditor::ElementIndex> m_PreviousHTMLLocation;
 
+    /**
+     * dynamically updated plugin menus and actions
+     */
+    QMenu * m_menuPlugins;
+    QMenu * m_menuPluginsInput;
+    QMenu * m_menuPluginsOutput;
+    QMenu * m_menuPluginsEdit;
+    QAction * m_actionManagePlugins;
     bool m_SaveCSS;
 
     /**

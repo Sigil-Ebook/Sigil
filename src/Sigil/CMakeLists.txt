@@ -127,6 +127,8 @@ set( DIALOG_FILES
     Dialogs/MetaEditorItemDelegate.h
     Dialogs/HeadingSelector.cpp
     Dialogs/HeadingSelector.h
+    Dialogs/PluginRunner.cpp
+    Dialogs/PluginRunner.h
     Dialogs/Preferences.cpp
     Dialogs/Preferences.h
     Dialogs/PreferenceWidgets/AppearanceWidget.cpp
@@ -142,6 +144,8 @@ set( DIALOG_FILES
     Dialogs/PreferenceWidgets/SpellCheckWidget.h
     Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp
     Dialogs/PreferenceWidgets/PreserveEntitiesWidget.h
+    Dialogs/PreferenceWidgets/PluginWidget.cpp
+    Dialogs/PreferenceWidgets/PluginWidget.h
     Dialogs/RenameTemplate.cpp
     Dialogs/RenameTemplate.h
     Dialogs/Reports.cpp
@@ -389,6 +393,7 @@ set( UI_FILES
     Form_Files/PLanguageWidget.ui
     Form_Files/PSpellCheckWidget.ui
     Form_Files/PPreserveEntitiesWidget.ui
+    Form_Files/PPluginWidget.ui
     Form_Files/RenameTemplate.ui 
     Form_Files/Reports.ui
     Form_Files/ReportsAllFilesWidget.ui
@@ -404,6 +409,7 @@ set( UI_FILES
     Form_Files/ClipEditor.ui
     Form_Files/IndexEditor.ui 
     Form_Files/SpellcheckEditor.ui 
+    Form_Files/PluginRunner.ui 
     Form_Files/ViewImage.ui
     )
     
@@ -438,6 +444,8 @@ set( QRC_FILES
 file( GLOB TS_FILES Resource_Files/ts/sigil_*.ts )
 
 file( GLOB DIC_FILES Resource_Files/dictionaries/* )
+
+file( GLOB PLUGIN_FILES Resource_Files/python2_7/* )
 
 file( GLOB EXAMPLE_FILES Resource_Files/examples/* )
 
@@ -514,6 +522,7 @@ if( APPLE )
         # Create translation directory.
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/translations")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/hunspell_dictionaries")
+        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/python2_7")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/examples")
     else()
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
@@ -523,6 +532,7 @@ if( APPLE )
         # Create translation directory.
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/translations")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/hunspell_dictionaries")
+        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/python2_7")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/examples")
     endif()
 
@@ -625,6 +635,7 @@ if( APPLE )
 
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/python2_7/* ${WORK_DIR}/Sigil.app/Contents/python2_7 )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
  
 # For Linux and Windows, provide binary installers.
@@ -780,6 +791,12 @@ elseif (MSVC)
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${DIC} ${MAIN_PACKAGE_DIR}/hunspell_dictionaries/ )
     endforeach( DIC )
 
+    # Copy the plugin launcher files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/python2_7/ )
+    foreach( PLUGFILE ${PLUGIN_FILES} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${PLUGFILE} ${MAIN_PACKAGE_DIR}/python2_7/ )
+    endforeach( PLUGFILE )
+
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
     foreach( EXAMPLE ${EXAMPLE_FILES} )
@@ -853,6 +870,7 @@ if( UNIX AND NOT APPLE )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations )
     install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/hunspell_dictionaries )
+    install( FILES ${PLUGIN_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/python2_7 )
     install( FILES ${EXAMPLE_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/examples )
 endif()
 

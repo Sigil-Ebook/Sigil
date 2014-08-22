@@ -37,7 +37,8 @@
 #include <QRegularExpressionMatch>
 #include <QWebView>
 #include <QWebPage>
-
+#include <QString>
+#include <QStringList>
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -49,6 +50,7 @@
 #include "Dialogs/HeadingSelector.h"
 #include "Dialogs/LinkStylesheets.h"
 #include "Dialogs/MetaEditor.h"
+#include "Dialogs/PluginRunner.h"
 #include "Dialogs/Preferences.h"
 #include "Dialogs/SearchEditor.h"
 #include "Dialogs/SelectCharacter.h"
@@ -166,7 +168,12 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_PreviousHTMLResource(NULL),
     m_PreviousHTMLText(QString()),
     m_PreviousHTMLLocation(QList<ViewEditor::ElementIndex>()),
-    m_SaveCSS(false)
+    m_SaveCSS(false),
+    m_menuPlugins(NULL),
+    m_actionManagePlugins(NULL),
+    m_menuPluginsInput(NULL),
+    m_menuPluginsOutput(NULL),
+    m_menuPluginsEdit(NULL)
 {
     ui.setupUi(this);
 
@@ -186,6 +193,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     UpdateRecentFileActions();
     ChangeSignalsWhenTabChanges(NULL, &m_TabManager.GetCurrentContentTab());
     LoadInitialFile(openfilepath);
+    loadPluginsMenu();
 }
 
 MainWindow::~MainWindow()
@@ -201,6 +209,87 @@ MainWindow::~MainWindow()
         m_ViewImage = NULL;
     }
 }
+
+
+// Note on Mac OS X you may only add a QMenu or SubMenu to the MenuBar Once!
+// Actions can be removed
+void MainWindow::loadPluginsMenu()
+{
+  unloadPluginsMenu();
+  SettingsStore settings;
+  if (m_menuPlugins == NULL) {
+      m_menuPlugins = ui.menubar->addMenu("Plugins");
+      m_actionManagePlugins = m_menuPlugins->addAction("Manage Plugins");
+      connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
+  }
+  QHash < QString, QStringList > plugininfo = settings.pluginInfo();
+  QStringList keys = plugininfo.keys();
+  keys.sort();
+  foreach( QString key, keys ) {
+      QStringList pfields = plugininfo[key];
+      QString pname = pfields.at(PluginRunner::NameField);
+      QString ptype = pfields.at(PluginRunner::TypeField);
+
+      if (ptype == "input") {
+          if (m_menuPluginsInput == NULL) {
+              m_menuPluginsInput  = m_menuPlugins->addMenu("Input");
+              connect(m_menuPluginsInput,  SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+          }
+          m_menuPluginsInput->addAction(pname);
+
+      } else if (ptype == "output") {
+          if (m_menuPluginsOutput == NULL) {
+              m_menuPluginsOutput = m_menuPlugins->addMenu("Output");
+              connect(m_menuPluginsOutput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+          }
+          m_menuPluginsOutput->addAction(pname);
+
+      } else {
+          if (m_menuPluginsEdit == NULL) {
+              m_menuPluginsEdit = m_menuPlugins->addMenu("Edit");
+              connect(m_menuPluginsEdit,   SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+          }
+          m_menuPluginsEdit->addAction(pname);
+      }
+  }
+}
+
+
+// Keeps the Plugins menu and ManagePlugins submenu arround even if no plugins added yet
+void MainWindow::unloadPluginsMenu()
+{
+    if (m_menuPlugins != NULL) {
+        if (m_menuPluginsEdit != NULL) {
+            disconnect(m_menuPluginsEdit, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            m_menuPluginsEdit->clear();
+            m_menuPlugins->removeAction(m_menuPluginsEdit->menuAction());
+            m_menuPluginsEdit = NULL;
+        }
+        if (m_menuPluginsOutput != NULL) {
+            disconnect(m_menuPluginsOutput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            m_menuPluginsOutput->clear();
+            m_menuPlugins->removeAction(m_menuPluginsOutput->menuAction());
+            m_menuPluginsOutput = NULL;
+        }
+        if (m_menuPluginsInput != NULL) {
+            disconnect(m_menuPluginsInput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            m_menuPluginsInput->clear();
+            m_menuPlugins->removeAction(m_menuPluginsInput->menuAction());
+            m_menuPluginsInput = NULL;
+        }
+    }
+}
+
+void MainWindow::runPlugin(QAction *action)
+{
+    QString pname = action->text();
+    PluginRunner prunner(pname, this);
+    if (prunner.exec() != QDialog::Accepted) {
+        Utility::DisplayStdWarningDialog("Warning: Plugin was cancelled");
+        return;
+    }
+}
+
 
 void MainWindow::SelectResources(QList<Resource *> resources)
 {
@@ -223,6 +312,12 @@ QList <Resource *> MainWindow::GetAllHTMLResources()
 QSharedPointer< Book > MainWindow::GetCurrentBook()
 {
     return m_Book;
+}
+
+
+BookBrowser *  MainWindow::GetBookBrowser()
+{
+    return m_BookBrowser;
 }
 
 
@@ -2297,6 +2392,29 @@ void MainWindow::PreferencesDialog()
     Preferences preferences(this);
     preferences.exec();
 
+    if (preferences.isReloadTabsRequired()) {
+        m_TabManager.ReopenTabs(m_ViewState);
+    } else if (preferences.isRefreshSpellingHighlightingRequired()) {
+        RefreshSpellingHighlighting();
+        // Make sure menu state is set
+        SettingsStore settings;
+        ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
+    }
+
+    if (m_SelectCharacter->isVisible()) {
+        // To ensure any font size changes are immediately applied.
+        m_SelectCharacter->show();
+    }
+}
+
+
+void MainWindow::ManagePluginsDialog()
+{
+    Preferences preferences(this);
+    preferences.makeActive(Preferences::PluginsPrefs);
+    preferences.exec();
+
+    // other preferences may have been changed as well
     if (preferences.isReloadTabsRequired()) {
         m_TabManager.ReopenTabs(m_ViewState);
     } else if (preferences.isRefreshSpellingHighlightingRequired()) {

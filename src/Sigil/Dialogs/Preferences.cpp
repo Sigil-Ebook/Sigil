@@ -34,6 +34,7 @@
 #include "PreferenceWidgets/LanguageWidget.h"
 #include "PreferenceWidgets/SpellCheckWidget.h"
 #include "PreferenceWidgets/PreserveEntitiesWidget.h"
+#include "PreferenceWidgets/PluginWidget.h"
 
 static const QString SETTINGS_GROUP = "preferences_dialog";
 
@@ -52,6 +53,7 @@ Preferences::Preferences(QWidget *parent) :
     appendPreferenceWidget(new LanguageWidget);
     appendPreferenceWidget(new SpellCheckWidget);
     appendPreferenceWidget(new PreserveEntitiesWidget);
+    appendPreferenceWidget(new PluginWidget);
     connectSignalsSlots();
     QApplication::setOverrideCursor(Qt::WaitCursor);
     readSettings();
@@ -98,6 +100,15 @@ void Preferences::saveSettings()
     }
 }
 
+
+void Preferences::makeActive(int index)
+{
+    if ((index > -1) || (index <  ui.availableWidgets->count())) {
+        ui.availableWidgets->setCurrentRow(index);
+    }
+}
+
+
 void Preferences::readSettings()
 {
     SettingsStore settings;
@@ -113,9 +124,9 @@ void Preferences::readSettings()
     int last_preference_index = settings.value("lastpreference", 0).toInt();
 
     if (last_preference_index > ui.availableWidgets->count() - 1) {
-        last_preference_index = 0;
+       last_preference_index = 0;
     }
-
+    
     ui.availableWidgets->setCurrentRow(last_preference_index);
     settings.endGroup();
 }

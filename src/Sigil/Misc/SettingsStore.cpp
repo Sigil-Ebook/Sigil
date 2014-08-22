@@ -25,6 +25,7 @@
 #include <QtCore/QStandardPaths>
 
 #include "Misc/SettingsStore.h"
+#include "Dialogs/PluginRunner.h"
 #include "sigil_constants.h"
 
 static QString SETTINGS_GROUP = "user_preferences";
@@ -44,6 +45,9 @@ static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
 static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
+
+static QString KEY_PLUGIN_INFO = SETTINGS_GROUP + "/" + "plugin_info";
+static QString KEY_PLUGIN_ENGINE_PATHS = SETTINGS_GROUP + "/" + "plugin_engine_paths";
 
 static QString KEY_BOOK_VIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "book_view_font_family_standard";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_serif";
@@ -199,6 +203,48 @@ QList < std::pair < ushort, QString > >  SettingsStore::preserveEntityCodeNames(
     return codenames;
 }
 
+
+QHash < QString, QStringList >  SettingsStore::pluginInfo()
+{
+    clearSettingsGroup();
+    // QChar(31) ascii unit separator
+    // See PluginRunner.h enum PluginFields
+    QHash < QString, QStringList > plugininfo;
+    QStringList pluginlist = value(KEY_PLUGIN_INFO, "").toStringList();
+    foreach ( QString pdata, pluginlist) {
+       if (pdata != "") {
+           QStringList fields = pdata.split(QChar(31));
+           if (fields.size() == 5) {
+             QString name = fields.at(PluginRunner::NameField);
+               plugininfo[name] = fields;
+           }
+       }
+    }
+    return plugininfo;
+}
+
+
+QHash < QString, QString>  SettingsStore::pluginEnginePaths()
+{
+    clearSettingsGroup();
+    // QChar(31) ascii unit separator
+    // fields = engine, path to executable
+    QHash < QString, QString> enginepath;
+    QStringList enginelist = value(KEY_PLUGIN_ENGINE_PATHS, "").toStringList();
+    int i = 0;
+    foreach(QString enginedata, enginelist) {
+       if (enginedata != "") {
+           QStringList fields = enginedata.split(QChar(31));
+           if (fields.size() == 2) {
+               QString engine(fields.at(0));
+               enginepath[engine] = fields.at(1);
+           }
+       }
+    }
+    return enginepath;
+}
+
+
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
 {
     clearSettingsGroup();
@@ -347,6 +393,35 @@ void SettingsStore::setPreserveEntityCodeNames(const QList< std::pair < ushort, 
     setValue(KEY_PRESERVE_ENTITY_NAMES, names);
     setValue(KEY_PRESERVE_ENTITY_CODES, codes);
 }
+
+void SettingsStore::setPluginInfo(const QHash< QString, QStringList > & plugininfo)
+{
+    clearSettingsGroup();
+    //See PluginRunner.h enum PluginFields for Field Sequence
+    QString s(QChar(31)); // ascii unit separator
+    QStringList plugins;
+    QStringList names = plugininfo.keys();
+    foreach(QString name , names) {
+         QStringList pdata = plugininfo[name];
+         plugins << pdata.join(s);
+    }
+    setValue(KEY_PLUGIN_INFO, plugins);
+}
+
+void SettingsStore::setPluginEnginePaths(const QHash< QString, QString> & enginepath)
+{
+    clearSettingsGroup();
+    // fields = engine name, path to executable
+    QString s(QChar(31)); // ascii unit separator
+    QStringList engines;
+    QStringList names = enginepath.keys();
+    foreach(QString name , names) {
+       QString edata = name + s + enginepath.value(name, "");
+       engines << edata;
+    }
+    setValue(KEY_PLUGIN_ENGINE_PATHS, engines);
+}
+
 
 
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)

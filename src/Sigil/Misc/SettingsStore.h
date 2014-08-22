@@ -96,6 +96,13 @@ public:
     QList< std::pair < ushort, QString > >  preserveEntityCodeNames();
 
     /**
+     * Support for Plugins
+     */
+    QHash< QString, QStringList> pluginInfo();
+    QHash< QString, QString > pluginEnginePaths();
+
+
+    /**
      * Whether automatic Spellcheck is enabled or not
      *
      * @return if spell check is enabled
@@ -175,6 +182,7 @@ public:
         int font_size;
     };
 
+
     /**
      * The default font to use for rendering Book View/Preview.
      */
@@ -235,6 +243,14 @@ public slots:
      */
     
     void setPreserveEntityCodeNames(const QList< std::pair < ushort, QString > >  codenames);
+
+
+    /**
+     * Support for Plugins
+     */
+    
+    void setPluginInfo(const QHash< QString, QStringList> & plugininfo);
+    void setPluginEnginePaths(const QHash< QString, QString> & enginepath);
 
     /**
      * Set whether automatic Spellcheck is enabled

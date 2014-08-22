@@ -245,7 +245,7 @@ signals:
      */
     void ResourceRemoved(const Resource &resource);
 
-private slots:
+public slots:
 
     /**
      * Removes the provided resource from the m_Resources hash.
@@ -254,6 +254,8 @@ private slots:
      * @param resource The resource to remove.
      */
     void RemoveResource(const Resource &resource);
+
+private slots:
 
     /**
      * Tell the OPF object to updated itself,
