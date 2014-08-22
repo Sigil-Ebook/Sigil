@@ -1154,12 +1154,13 @@ void FlowTab::Underline()
     }
 }
 
+// the strike tag has been deprecated, the del tag is still okay
 void FlowTab::Strikethrough()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand("strikeThrough");
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->ToggleFormatSelection("strike", "text-decoration", "line-through");
+        m_wCodeView->ToggleFormatSelection("del", "text-decoration", "line-through");
     }
 }
 
