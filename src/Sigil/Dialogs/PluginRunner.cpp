@@ -32,6 +32,7 @@ PluginRunner::PluginRunner(QString name, QWidget * parent)
     m_pluginOutput(""),
     m_algorithm(""),
     m_result(""),
+    m_xhtml_net_change(0),
     m_mainWindow(qobject_cast<MainWindow *>(parent)),
     m_ready(false)
 
@@ -45,7 +46,7 @@ PluginRunner::PluginRunner(QString name, QWidget * parent)
     m_bookBrowser = m_mainWindow->GetBookBrowser();
     m_bookRoot = m_book->GetFolderKeeper().GetFullPathToMainFolder();
     
-    // set font obfuscation algorithm to use
+    // set default font obfuscation algorithm to use
     // ADOBE_FONT_ALGO_ID or IDPF_FONT_ALGO_ID ??
     QList< Resource * > fonts = m_book->GetFolderKeeper().GetResourceListByType(Resource::FontResourceType);
     foreach (Resource * resource, fonts) {
@@ -57,14 +58,12 @@ PluginRunner::PluginRunner(QString name, QWidget * parent)
         }
     }
 
-    // build hash of href relative path from root to resources
+    // build hashes of href (book root relative path) to resources
     QList< Resource * > resources = m_book->GetFolderKeeper().GetResourceList();
     foreach (Resource * resource, resources) {
         QString href = resource->GetRelativePathToRoot();
-        if (href.endsWith("OEBPS/content.opf")) {
-            href = "OEBPS/content.opf";
-        } else if (href.endsWith("OEBPS/toc.ncx")) {
-            href = "OEBPS/toc.ncx";
+        if (resource->Type() == Resource::HTMLResourceType) {
+            m_xhtmlFiles[href] = resource;
         }
         m_hrefToRes[href] = resource;
     }
@@ -136,7 +135,6 @@ PluginRunner::~PluginRunner()
 void PluginRunner::startPlugin() 
 {
     QStringList args;
-    // Utility::DisplayStdWarningDialog("Plugin Has Started");
     if (!m_ready) {
        Utility::DisplayStdErrorDialog("Error: plugin can not start");
        return;
@@ -144,17 +142,8 @@ void PluginRunner::startPlugin()
     ui.textEdit->clear();
     ui.textEdit->setOverwriteMode(true);
     ui.textEdit->setPlainText("");
-
-    // uncomment these if debugging plugin errors
-
-    // ui.textEdit->setPlainText("Launcher: " + m_launcherPath + "\n");
-    // ui.textEdit->append("Book: " + m_bookRoot + "\n");
-    // ui.textEdit->append("OutputDir: " + m_outputDir + "\n");
-    // ui.textEdit->append("Type: " + m_pluginType + "\n");
-    // ui.textEdit->append("Plugin Path: " + m_pluginPath + "\n");
-    // ui.textEdit->append("Engine Path: " + m_enginePath + "\n");
   
-    // prepare for the plugin by flushing all current changes to disk
+    // prepare for the plugin by flushing all current book changes to disk
     m_mainWindow->SaveTabData();
     m_book->GetFolderKeeper().SuspendWatchingResources();
     m_book->SaveAllResourcesToDisk();
@@ -165,6 +154,7 @@ void PluginRunner::startPlugin()
     args << m_launcherPath << m_bookRoot << m_outputDir << m_pluginType << m_pluginPath;
     m_process.start(m_enginePath, args);
     ui.statusLbl->setText("Status: running");
+
     // this starts the infinite progress bar
     ui.progressBar->setRange(0,0);
 }
@@ -174,8 +164,6 @@ void PluginRunner::processOutput()
 {
     QByteArray newbytedata = m_process.readAllStandardOutput();
     m_pluginOutput = m_pluginOutput + newbytedata ;
-    // QString data = QString::fromUtf8(newbytedata);
-    // ui.textEdit->append(data);
 }
 
 
@@ -184,21 +172,17 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     if (exitstatus == QProcess::CrashExit) {
         ui.textEdit->append("Launcher process crashed");
     } 
-
     // launcher exiting properly does not mean target plugin succeeded or failed
     // we need to parse the response xml to find the true result of target plugin
-    // if (exitcode != 0) {
-    //    ui.textEdit->append("failed");
-    // } else {
-    //    ui.textEdit->append("success");
-    // }
-
     ui.okButton->setEnabled(true);
     ui.cancelButton->setEnabled(false);
+
     // this stops the progress bar at full
     ui.progressBar->setRange(0,100);
     ui.progressBar->setValue(100);
+
     ui.statusLbl->setText("Status: finished");
+
     if (!processResultXML()) {
         return;
     }
@@ -212,10 +196,38 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         return;
     }
 
+    // don't allow changes to proceed if they will remove the very last xhtml/html file
+    if (m_xhtml_net_change < 0) {
+        QList< Resource * > htmlresources = m_book->GetFolderKeeper().GetResourceListByType(Resource::HTMLResourceType);
+        if (htmlresources.count() + m_xhtml_net_change < 0) {
+            Utility::DisplayStdErrorDialog("Error: Plugin Tried to Remove the Last XHTML file .. aborting changes");
+            ui.statusLbl->setText("Status: No Changes Made");
+            return;
+        }
+    }
+
     // everthing looks good so now make any necessary changes
     bool book_modified = false;
+
     m_book->GetFolderKeeper().SuspendWatchingResources();
+
     if (!m_filesToDelete.isEmpty()) {
+
+        // before deleting make sure a tab of at least one of the remaining html files will be open
+        // to prevent deleting the last tab when deleting resources
+        QList < Resource * > remainingResources = m_xhtmlFiles.values();
+        QList <Resource *> tabResources = m_mainWindow->m_TabManager.GetTabResources();
+        bool tabs_will_remain = false;
+        foreach (Resource * tab_resource, tabResources) {
+            if (remainingResources.contains(tab_resource)) {
+                tabs_will_remain = true;
+                break;
+            }
+        }
+        if (! tabs_will_remain) {
+            Resource * xhtmlresource = remainingResources.at(0);
+            m_mainWindow->OpenResource(*xhtmlresource);
+        }
         if (deleteFiles(m_filesToDelete)) {
             book_modified = true;
         }
@@ -230,6 +242,8 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
             book_modified = true;
         }
     }
+
+    // now make these changes known to Sigil
     m_book->GetFolderKeeper().ResumeWatchingResources();
     if (book_modified) {
         m_bookBrowser->BookContentModified();
@@ -249,9 +263,10 @@ void PluginRunner::processError(QProcess::ProcessError error)
     }
     ui.okButton->setEnabled(true);
     ui.cancelButton->setEnabled(false);
-    // this resets the progress bar
+
     ui.progressBar->setRange(0,100);
     ui.progressBar->reset();
+
     ui.statusLbl->setText("Status: error");
 }
 
@@ -262,9 +277,10 @@ void PluginRunner::cancelPlugin()
         m_process.kill();
     }
     ui.okButton->setEnabled(true);
-    // this resets the progress bar
+
     ui.progressBar->setRange(0,100);
     ui.progressBar->reset();
+
     ui.textEdit->append("Plugin cancelled");
     ui.statusLbl->setText("Status: cancelled");
     ui.cancelButton->setEnabled(false);
@@ -286,15 +302,26 @@ bool PluginRunner::processResultXML(){
                 ui.textEdit->append(msg);
             } else if (CHANGESTAGS.contains(name)) {
                 QStringList info;
+                QString href;
+                QString id;
+                QString mime;
                 QXmlStreamAttributes attr = reader.attributes();
-                info << attr.value("href").toString();
-                info << attr.value("id").toString();
-                info << attr.value("media-type").toString();
+                href = attr.value("href").toString();
+                id = attr.value("id").toString();
+                mime =  attr.value("media-type").toString();
+                info << href << id << mime;
                 QString fileinfo = info.join(SEP);
                 if (reader.name() == "deleted") {
                     m_filesToDelete.append(fileinfo);
+                    if (mime == "application/xhtml+xml") {
+                        m_xhtml_net_change--;
+                        if (m_xhtmlFiles.contains(href)) {
+                            m_xhtmlFiles.remove(href);
+                        }
+                    }
                 } else if (reader.name() == "added") {
                     m_filesToAdd.append(fileinfo);
+                    if (mime == "application/xhtml+xml") m_xhtml_net_change++;
                 } else {
                     m_filesToModify.append(fileinfo);
                 }
@@ -323,10 +350,10 @@ bool PluginRunner::checkIsWellFormed()
             QString href = fdata[ hrefField ];
             QString id   = fdata[ idField   ];
             QString mime = fdata[ mimeField ];
-            if (mime == "application/oebps-package+xml") filesToCheck.append(href);
-            if (mime == "application/x-dtbncx+xml")      filesToCheck.append(href);
-            if (mime == "application/oebs-page-map+xml") filesToCheck.append(href);
-            if (mime == "application/xhtml+xml")         filesToCheck.append(href);
+            if (mime == "application/oebps-package+xml")      filesToCheck.append(href);
+            else if (mime == "application/x-dtbncx+xml")      filesToCheck.append(href);
+            else if (mime == "application/oebs-page-map+xml") filesToCheck.append(href);
+            else if (mime == "application/xhtml+xml")         filesToCheck.append(href);
         }
     }
     if (!m_filesToModify.isEmpty()) {
@@ -335,10 +362,10 @@ bool PluginRunner::checkIsWellFormed()
             QString href = fdata[ hrefField ];
             QString id   = fdata[ idField   ];
             QString mime = fdata[ mimeField ];
-            if (mime == "application/oebps-package+xml") filesToCheck.append(href);
-            if (mime == "application/x-dtbncx+xml")      filesToCheck.append(href);
-            if (mime == "application/oebs-page-map+xml") filesToCheck.append(href);
-            if (mime == "application/xhtml+xml")         filesToCheck.append(href);
+            if (mime == "application/oebps-package+xml")     filesToCheck.append(href);
+            else if (mime == "application/x-dtbncx+xml")      filesToCheck.append(href);
+            else if (mime == "application/oebs-page-map+xml") filesToCheck.append(href);
+            else if (mime == "application/xhtml+xml")         filesToCheck.append(href);
         }
     }
     if (!filesToCheck.isEmpty()) {
@@ -374,6 +401,27 @@ bool PluginRunner::checkIsWellFormed()
     return proceed;
 }
     
+
+void PluginRunner::ensureTabsWillRemain()
+{
+    // before we can delete file make sure a tab of at least one 
+    // of the remaining html files will be open to prevent deleting 
+    // the last tab when deleting resources                                                             
+    QList < Resource * > remainingResources = m_xhtmlFiles.values();
+    QList < Resource * > tabResources = m_mainWindow->m_TabManager.GetTabResources();
+    bool tabs_will_remain = false;
+    foreach (Resource * tab_resource, tabResources) {
+        if (remainingResources.contains(tab_resource)) {
+            tabs_will_remain = true;
+            break;
+        }
+    }
+    if (! tabs_will_remain) {
+        Resource * xhtmlresource = remainingResources.at(0);
+        m_mainWindow->OpenResource(*xhtmlresource);
+    }
+}
+
 
 bool PluginRunner::deleteFiles(const QStringList & files)
 {
@@ -420,7 +468,7 @@ bool PluginRunner::addFiles(const QStringList & files)
             QString epubPath = m_outputDir + "/" + href;
             QFileInfo fi(epubPath);
             ui.statusLbl->setText("Status: Loading " + fi.fileName());
-            // Should copy this epub someplace easy to access by user first
+            // FIXME:  We should copy this epub someplace easy to access by user first
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(epubPath);
             new_window->show();

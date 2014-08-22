@@ -93,7 +93,7 @@ private:
     bool deleteFiles(const QStringList &);
     bool addFiles(const QStringList &);
     bool modifyFiles(const QStringList &);
-
+    void ensureTabsWillRemain();
     void connectSignalsToSlots();
 
     QProcess m_process;
@@ -121,7 +121,10 @@ private:
     QStringList m_filesToModify;
     QString m_result;
 
+    int m_xhtml_net_change;
+
     QHash < QString, Resource * > m_hrefToRes; 
+    QHash < QString, Resource * > m_xhtmlFiles; 
 
     bool m_ready;
 
