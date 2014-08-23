@@ -308,7 +308,7 @@ bool Utility::RenameFile(const QString &oldfilepath, const QString &newfilepath)
     // same (case insensitive) to the old one. This is workaround for that issue.
     int ret = -1;
 #if defined(Q_OS_WIN32)
-    ret = _wrename(QStringToStdWString(oldfilepath).data(), QStringToStdWString(newfilepath).data());
+    ret = _wrename(Utility::QStringToStdWString(oldfilepath).data(), Utility::QStringToStdWString(newfilepath).data());
 #else
     ret = rename(oldfilepath.toUtf8().data(), newfilepath.toUtf8().data());
 #endif
@@ -607,7 +607,7 @@ bool Utility::UnZip(const QString & zippath, const QString & destpath)
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
     fill_win32_filefunc64W(&ffunc);
-    unzFile zfile = unzOpen2_64(QStringToStdWString(QDir::toNativeSeparators(zippath)).c_str(), &ffunc);
+    unzFile zfile = unzOpen2_64(Utility::QStringToStdWString(QDir::toNativeSeparators(zippath)).c_str(), &ffunc);
 #else
     unzFile zfile = unzOpen64(QDir::toNativeSeparators(zippath).toUtf8().constData());
 #endif
