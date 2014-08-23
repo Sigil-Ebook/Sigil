@@ -25,7 +25,7 @@ const QString PluginRunner::NCXFILEINFO = "OEBPS/toc.ncx" + SEP + SEP + "applica
 const QStringList PluginRunner::CHANGESTAGS = QStringList() << "deleted" << "added" << "modified";
 
  
-PluginRunner::PluginRunner(QString name, QWidget * parent)
+PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
   : QDialog(parent),
     m_pluginName(name), 
     m_outputDir(m_folder.GetPath()),
@@ -34,6 +34,7 @@ PluginRunner::PluginRunner(QString name, QWidget * parent)
     m_result(""),
     m_xhtml_net_change(0),
     m_mainWindow(qobject_cast<MainWindow *>(parent)),
+    m_tabManager(tabMgr),
     m_ready(false)
 
 {
@@ -216,7 +217,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         // before deleting make sure a tab of at least one of the remaining html files will be open
         // to prevent deleting the last tab when deleting resources
         QList < Resource * > remainingResources = m_xhtmlFiles.values();
-        QList <Resource *> tabResources = m_mainWindow->m_TabManager.GetTabResources();
+        QList <Resource *> tabResources = m_tabManager->GetTabResources();
         bool tabs_will_remain = false;
         foreach (Resource * tab_resource, tabResources) {
             if (remainingResources.contains(tab_resource)) {
@@ -408,7 +409,7 @@ void PluginRunner::ensureTabsWillRemain()
     // of the remaining html files will be open to prevent deleting 
     // the last tab when deleting resources                                                             
     QList < Resource * > remainingResources = m_xhtmlFiles.values();
-    QList < Resource * > tabResources = m_mainWindow->m_TabManager.GetTabResources();
+    QList < Resource * > tabResources = m_tabManager->GetTabResources();
     bool tabs_will_remain = false;
     foreach (Resource * tab_resource, tabResources) {
         if (remainingResources.contains(tab_resource)) {
@@ -425,7 +426,7 @@ void PluginRunner::ensureTabsWillRemain()
 
 bool PluginRunner::deleteFiles(const QStringList & files)
 {
-    QList <Resource *> tabResources=m_mainWindow->m_TabManager.GetTabResources();
+    QList <Resource *> tabResources=m_tabManager->GetTabResources();
     bool changes_made = false;
     ui.statusLbl->setText("Status: cleaning up - deleting files");
     foreach (QString fileinfo, files) {
@@ -441,7 +442,7 @@ bool PluginRunner::deleteFiles(const QStringList & files)
           ui.statusLbl->setText("Status: deleting " + resource->Filename());
     
             if(tabResources.contains(resource)) {
-                m_mainWindow->m_TabManager.CloseTabForResource(*resource);
+                m_tabManager->CloseTabForResource(*resource);
             }
             m_book->GetFolderKeeper().RemoveResource(*resource);
             changes_made = true;

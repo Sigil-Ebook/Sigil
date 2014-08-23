@@ -89,7 +89,6 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-friend class PluginRunner;
 public:
 
     /**
@@ -243,6 +242,9 @@ protected:
      * @param event The close event.
      */
     void closeEvent(QCloseEvent *event);
+
+public slots:
+    void ResourcesAddedOrDeleted();
 
 private slots:
 
@@ -622,8 +624,6 @@ private slots:
     void GoToPreviewLocation();
 
     void ShowPasteClipboardHistoryDialog();
-
-    void ResourcesAddedOrDeleted();
 
     void SetInsertedFileWatchResourceFile(const QString &pathname);
 

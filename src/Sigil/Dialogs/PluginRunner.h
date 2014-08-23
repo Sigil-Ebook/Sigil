@@ -45,6 +45,7 @@
 #include "ui_PluginRunner.h"
 
 class MainWindow;
+class TabManager;
 class Book;
 class BookBrowser;
 class FolderKeeper;
@@ -74,7 +75,7 @@ public:
         mimeField = 2
     };
 
-    PluginRunner(QString name, QWidget * parent);
+    PluginRunner(QString name, TabManager * tabMgr, QWidget * parent);
     ~PluginRunner();
 
 public slots:
@@ -99,6 +100,7 @@ private:
     QProcess m_process;
 
     MainWindow * m_mainWindow;
+    TabManager * m_tabManager;
     QSharedPointer<Book> m_book;
     BookBrowser * m_bookBrowser;
 

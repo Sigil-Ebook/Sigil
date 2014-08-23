@@ -283,7 +283,7 @@ void MainWindow::unloadPluginsMenu()
 void MainWindow::runPlugin(QAction *action)
 {
     QString pname = action->text();
-    PluginRunner prunner(pname, this);
+    PluginRunner prunner(pname, &m_TabManager, this);
     if (prunner.exec() != QDialog::Accepted) {
         Utility::DisplayStdWarningDialog("Warning: Plugin was cancelled");
         return;
