@@ -1,5 +1,6 @@
 #include <Qt>
 #include <QString>
+#include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QByteArray>
@@ -152,8 +153,17 @@ void PluginRunner::startPlugin()
     ui.startButton->setEnabled(false);
     ui.okButton->setEnabled(false);
     ui.cancelButton->setEnabled(true);
-    args << m_launcherPath << m_bookRoot << m_outputDir << m_pluginType << m_pluginPath;
-    m_process.start(m_enginePath, args);
+
+
+    // Old way args << m_launcherPath << m_bookRoot << m_outputDir << m_pluginType << m_pluginPath;
+    args.append(QDir::toNativeSeparators(m_launcherPath));
+    args.append(QDir::toNativeSeparators(m_bookRoot));
+    args.append(QDir::toNativeSeparators(m_outputDir));
+    args.append(m_pluginType);
+    args.append(QDir::toNativeSeparators(m_pluginPath));
+    QString executable = QDir::toNativeSeparators(m_enginePath);
+    
+    m_process.start(executable, args);
     ui.statusLbl->setText("Status: running");
 
     // this starts the infinite progress bar
