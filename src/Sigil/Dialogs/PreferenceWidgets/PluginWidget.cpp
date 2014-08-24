@@ -54,10 +54,9 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
         pdata << name << author << description << plugintype << engine;
         plugininfo[name] = pdata;
     }
-    QString engine = ui.engine1->text();
-    QString path = ui.editPath1->text();
     // add support for additional interpreter as above
-    enginepath[engine] = path;
+    enginepath["python2.7"] = ui.editPathPy27->text();
+    enginepath["lua5.2"] = ui.editPathLua52->text();
     settings.setPluginInfo(plugininfo);
     settings.setPluginEnginePaths(enginepath);
 
@@ -82,11 +81,11 @@ void PluginWidget::readSettings()
     SettingsStore settings;
     QHash < QString, QString > enginepath = settings.pluginEnginePaths();
     QHash < QString, QStringList > plugininfo = settings.pluginInfo();
-    QString engine = "python2.7";
     QStringList names = plugininfo.keys();
     int nrows = 0;
     // add support for additional interpreters below
-    ui.editPath1->setText(enginepath.value(engine,""));
+    ui.editPathPy27->setText(enginepath.value("python2.7",""));
+    ui.editPathLua52->setText(enginepath.value("lua5.2",""));
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
         ui.pluginTable->removeRow(0);
@@ -230,32 +229,67 @@ void PluginWidget::removeAllPlugins()
 }
 
 
-void PluginWidget::findEngine1()
+void PluginWidget::AutoFindPy27()
 {
-    // add additional interpreter support by adding their own find buttons
-    QString engine = ui.engine1->text();
-    // Mac OS X Finder by default will not show unix directories from root
-    // So no way to use QFileDialog to allow user to browse for the exectuable
-    if (engine == "python2.7") {
-        QString engPath = QStandardPaths::findExecutable("python");
-        ui.editPath1->setText(engPath);
+    ui.editPathPy27->setText(QStandardPaths::findExecutable("python"));
+    m_isDirty = true;
+}
+
+void PluginWidget::AutoFindLua52()
+{
+    ui.editPathLua52->setText(QStandardPaths::findExecutable("lua"));
+    m_isDirty = true;
+}
+
+void PluginWidget::SetPy27()
+{
+    QString name = QFileDialog::getOpenFileName(this, "Select Interpreter");
+    if (name.isEmpty()) {
+        return;
+    }
+    ui.editPathPy27->setText(name);
+    m_isDirty = true;
+}
+
+void PluginWidget::SetLua52()
+{
+    QString name = QFileDialog::getOpenFileName(this, "Select Interpreter");
+    if (name.isEmpty()) {
+        return;
+    }
+    ui.editPathLua52->setText(name);
+    m_isDirty = true;
+}
+
+void PluginWidget::enginePy27PathChanged()
+{
+    // add additional interpreter support by adding their own find buttons and line edit paths
+    // make sure typed in path actually exists
+    QString enginepath = ui.editPathPy27->text();
+    if (!enginepath.isEmpty()) {
+        QFileInfo enginfo(enginepath);
+        if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
+            disconnect(ui.editPathPy27, SIGNAL(editingFinished()), this, SLOT(enginePy27PathChanged()));
+            Utility::DisplayStdWarningDialog("Incorrect Interpreter Path selected");
+            ui.editPathPy27->setText("");
+            connect(ui.editPathPy27, SIGNAL(editingFinished()), this, SLOT(enginePy27PathChanged()));
+        }
     }
     m_isDirty = true;
 }
 
-
-void PluginWidget::engine1PathChanged()
+void PluginWidget::engineLua52PathChanged()
 {
     // add additional interpreter support by adding their own find buttons and line edit paths
     // make sure typed in path actually exists
-    QString enginepath = ui.editPath1->text();
+    QString enginepath = ui.editPathLua52->text();
     if (!enginepath.isEmpty()) {
         QFileInfo enginfo(enginepath);
         if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
-            disconnect(ui.editPath1,SIGNAL(editingFinished()), this, SLOT(engine1PathChanged()));
+            disconnect(ui.editPathLua52, SIGNAL(editingFinished()), this, SLOT(engineLua52PathChanged()));
             Utility::DisplayStdWarningDialog("Incorrect Interpreter Path selected");
-            ui.editPath1->setText("");
-            connect(ui.editPath1,SIGNAL(editingFinished()), this, SLOT(engine1PathChanged()));
+            ui.editPathLua52->setText("");
+            connect(ui.editPathLua52, SIGNAL(editingFinished()), this, SLOT(engineLua52PathChanged()));
         }
     }
     m_isDirty = true;
@@ -264,10 +298,14 @@ void PluginWidget::engine1PathChanged()
 
 void PluginWidget::connectSignalsToSlots()
 {
-    connect(ui.findButton, SIGNAL(clicked()), this, SLOT(findEngine1()));
+    connect(ui.Py27Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy27()));
+    connect(ui.Lua52Auto, SIGNAL(clicked()), this, SLOT(AutoFindLua52()));
+    connect(ui.Py27Set, SIGNAL(clicked()), this, SLOT(SetPy27()));
+    connect(ui.Lua52Set, SIGNAL(clicked()), this, SLOT(SetLua52()));
     connect(ui.addButton, SIGNAL(clicked()), this, SLOT(addPlugin()));
     connect(ui.removeButton, SIGNAL(clicked()), this, SLOT(removePlugin()));
     connect(ui.removeAllButton, SIGNAL(clicked()), this, SLOT(removeAllPlugins()));
-    connect(ui.pluginTable,SIGNAL(cellDoubleClicked(int,int)), this, SLOT(pluginSelected(int,int)));
-    connect(ui.editPath1,SIGNAL(editingFinished()), this, SLOT(engine1PathChanged()));
+    connect(ui.pluginTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(pluginSelected(int,int)));
+    connect(ui.editPathPy27, SIGNAL(editingFinished()), this, SLOT(enginePy27PathChanged()));
+    connect(ui.editPathLua52, SIGNAL(editingFinished()), this, SLOT(engineLua52PathChanged()));
 }
