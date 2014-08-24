@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include <QApplication>
 
+#include "Dialogs/PluginRunner.h"
 #include "MainUI/MainWindow.h"
 #include "PluginWidget.h"
 #include "Misc/SettingsStore.h"
@@ -26,7 +27,7 @@ PluginWidget::PluginWidget()
     ui.setupUi(this);
     readSettings();
     connectSignalsToSlots();
-    m_PluginsPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/plugins";
+    m_PluginsPath = PluginRunner::pluginsPath();
     QDir pluginDir(m_PluginsPath);
     if (!pluginDir.exists() ) {
       pluginDir.mkpath(m_PluginsPath);
@@ -146,12 +147,12 @@ void PluginWidget::addPlugin()
         return;
     }
     QString xmlpath = m_PluginsPath + "/" + pluginname + "/plugin.xml";
-    QFile* file = new QFile(xmlpath);
-    if (!file->open(QIODevice::ReadOnly | QIODevice::Text)) {
+    QFile file(xmlpath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
          Utility::DisplayStdWarningDialog("Error: Plugin plugin.xml file can not be read.");
          return;
     }
-    QXmlStreamReader reader(file);
+    QXmlStreamReader reader(&file);
     QString name;
     QString author;
     QString description;

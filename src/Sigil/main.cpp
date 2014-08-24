@@ -30,11 +30,14 @@
 #include <QtCore/QTranslator>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMessageBox>
+#include <QXmlStreamReader>
 
+#include "Dialogs/PluginRunner.h"
 #include "Misc/UILanguage.h"
 #include "MainUI/MainApplication.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/AppEventFilter.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/TempFolder.h"
 #include "Misc/UpdateChecker.h"
 #include "Misc/Utility.h"
@@ -200,6 +203,63 @@ void CreateTempFolderWithCorrectPermissions()
                           QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
 }
 
+void VerifyPlugins()
+{
+    QString                      pluginsPath    = PluginRunner::pluginsPath();
+    QDir                         d(pluginsPath);
+    QStringList                  dplugins;
+    QHash <QString, QStringList> plugininfo;
+    QHash <QString, QStringList> newplugininfo;
+    SettingsStore                ss;
+
+    if (!d.exists())
+        return;
+
+    dplugins   = d.entryList(QStringList("*"), QDir::Dirs|QDir::NoDotAndDotDot);
+    plugininfo = ss.pluginInfo();
+
+    Q_FOREACH(QString p, dplugins) {
+        if (plugininfo.contains(p)) {
+            newplugininfo[p] = plugininfo[p];
+            continue;
+        }
+
+        QString xmlpath = pluginsPath + "/" + p + "/plugin.xml";
+        QFile file(xmlpath);
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            continue;
+        }
+        QXmlStreamReader reader(&file);
+        QString          name;
+        QString          author;
+        QString          description;
+        QString          plugintype;
+        QString          engine;
+        while (!reader.atEnd()) {
+            reader.readNext();
+            if (reader.isStartElement()) {
+                if (reader.name() == "name") {
+                    name = reader.readElementText();
+                } else if (reader.name() == "author") {
+                    author = reader.readElementText();
+                } else if (reader.name() == "description") {
+                    description = reader.readElementText();
+                } else if (reader.name() == "type") {
+                    plugintype = reader.readElementText();
+                } else if (reader.name() == "engine") {
+                    engine = reader.readElementText();
+                }
+            }
+        }
+
+        QStringList pdata;
+        pdata << name << author << description << plugintype << engine;
+        newplugininfo[p] = pdata;
+    }
+
+    ss.setPluginInfo(newplugininfo);
+}
+
 
 // Application entry point
 int main(int argc, char *argv[])
@@ -291,6 +351,7 @@ int main(int argc, char *argv[])
             mac_menu->addMenu(file_menu);
             mac_menu->show();
 #endif
+            VerifyPlugins();
             MainWindow *widget = GetMainWindow(arguments);
             widget->show();
             return app.exec();
