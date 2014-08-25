@@ -113,7 +113,7 @@ class Wrapper(object):
         # walk the ebook directory tree building up initial list of
         # all unmanifested (other) files
         for filepath in path.walk(ebook_root):
-            book_href = filepath.replace("os.sep", "/")
+            book_href = filepath.replace(os.sep, "/")
             # OS X file names and paths use NFD form. The EPUB
             # spec requires all text including filenames to be in NFC form.
             ubook_href = book_href.decode('utf-8')
@@ -197,6 +197,9 @@ class Wrapper(object):
     def write_opf(self):
         if self.op is not None:
             filepath = utf8_str(os.path.join(self.outdir, 'OEBPS', self.opfname))
+            base = os.path.dirname(filepath)
+            if not path.exists(base):
+                os.makedirs(pathof(base))
             with open(pathof(filepath),'wb') as fp:
                 fp.write(self.build_opf())
 
@@ -363,11 +366,11 @@ class Wrapper(object):
         if href in self.href_to_id.keys():
             raise WrapperException('Basename is not unique')
         # now actually write out the new file
-        href = href.replace("/",os.sep)
-        filepath = os.path.join('OEBPS', href)
+        filepath = href.replace("/",os.sep)
+        filepath = os.path.join('OEBPS', filepath)
         self.id_to_filepath[uniqueid] = filepath
-        filepath = os.path.join(pathof(self.outdir),filepath)
-        base = os.path.dirname(pathof(filepath))
+        filepath = os.path.join(self.outdir,filepath)
+        base = os.path.dirname(filepath)
         if not path.exists(base):
             os.makedirs(pathof(base))
         with open(pathof(filepath),'wb') as fp:
