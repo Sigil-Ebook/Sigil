@@ -215,8 +215,7 @@ QHash < QString, QStringList >  SettingsStore::pluginInfo()
        if (pdata != "") {
            QStringList fields = pdata.split(QChar(31));
            if (fields.size() == 5) {
-             QString name = fields.at(PluginRunner::NameField);
-               plugininfo[name] = fields;
+               plugininfo[fields.at(PluginRunner::NameField)] = fields;
            }
        }
     }

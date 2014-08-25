@@ -80,7 +80,7 @@ PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
     }
 
     // set up paths and things for the plugin and interpreter
-    m_pluginsFolder = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/plugins";
+    m_pluginsFolder = pluginsPath();
     fields = plugininfo[m_pluginName];
     m_engine = fields.at(EngineField);
     m_pluginType = fields.at(TypeField);
@@ -132,6 +132,11 @@ PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
 
 PluginRunner::~PluginRunner()
 {
+}
+
+QString PluginRunner::pluginsPath()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/plugins";
 }
 
 void PluginRunner::startPlugin() 

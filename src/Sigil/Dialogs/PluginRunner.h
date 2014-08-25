@@ -78,6 +78,8 @@ public:
     PluginRunner(QString name, TabManager * tabMgr, QWidget * parent);
     ~PluginRunner();
 
+    static QString pluginsPath();
+
 public slots:
 
 private slots:
