@@ -160,7 +160,6 @@ void PluginRunner::startPlugin()
     ui.cancelButton->setEnabled(true);
 
 
-    // Old way args << m_launcherPath << m_bookRoot << m_outputDir << m_pluginType << m_pluginPath;
     args.append(QDir::toNativeSeparators(m_launcherPath));
     args.append(QDir::toNativeSeparators(m_bookRoot));
     args.append(QDir::toNativeSeparators(m_outputDir));
