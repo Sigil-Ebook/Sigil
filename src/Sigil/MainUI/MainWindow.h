@@ -194,6 +194,15 @@ public:
      */
     void loadPluginsMenu();
     void unloadPluginsMenu();
+    
+    /**
+     * Loads a book from the file specified.
+     *
+     * @param fullfilepath The path to the file to load.
+     */
+    void LoadFile(const QString &fullfilepath);
+
+
 
 public slots:
     void AnyCodeView();
@@ -222,6 +231,9 @@ public slots:
     void CreateIndex();
 
     void runPlugin(QAction *action);
+    
+    void ResourcesAddedOrDeleted();
+
 
 signals:
     void SettingsChanged();
@@ -242,9 +254,6 @@ protected:
      * @param event The close event.
      */
     void closeEvent(QCloseEvent *event);
-
-public slots:
-    void ResourcesAddedOrDeleted();
 
 private slots:
 
@@ -679,13 +688,6 @@ private:
      * the current one with it.
      */
     void CreateNewBook();
-
-    /**
-     * Loads a book from the file specified.
-     *
-     * @param fullfilepath The path to the file to load.
-     */
-    void LoadFile(const QString &fullfilepath);
 
     /**
      * Saves the current book to the file specified.
