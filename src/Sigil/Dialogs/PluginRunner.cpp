@@ -113,14 +113,14 @@ int PluginRunner::exec(const QString &name)
 #ifdef Q_OS_MAC
     launcher_root += "/../plugin_launchers/";
 #elif defined(Q_OS_WIN32)
-    launcher_root += "/plugin_launchers";
+    launcher_root += "/plugin_launchers/";
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // all flavours of linux / unix
     launcher_root += "/../share/" + QCoreApplication::applicationName().toLower() + "/plugin_launchers/";
     // user supplied environment variable to plugin launcher directory will overrides everything
     const QString env_launcher_location = QString(getenv("SIGIL_PLUGIN_LAUNCHERS"));
     if (!env_launcher_location.isEmpty()) {
-        launcher_root = env_launcher_location;
+        launcher_root = env_launcher_location + "/";
     }
 #endif
 
