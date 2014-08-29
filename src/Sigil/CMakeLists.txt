@@ -445,9 +445,8 @@ file( GLOB TS_FILES Resource_Files/ts/sigil_*.ts )
 
 file( GLOB DIC_FILES Resource_Files/dictionaries/* )
 
-file( GLOB PLUGIN_FILES Resource_Files/python2_7/* )
-
-file( GLOB PLUGIN_FILES Resource_Files/lua5_2/* )
+file( GLOB PLUGIN_FILES_PYTHON2_7 Resource_Files/plugin_launchers/python2_7/* )
+file( GLOB PLUGIN_FILES_LUA5_2 Resource_Files/plugin_launchers/lua5_2/* )
 
 file( GLOB EXAMPLE_FILES Resource_Files/examples/* )
 
@@ -524,8 +523,9 @@ if( APPLE )
         # Create translation directory.
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/translations")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/hunspell_dictionaries")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/python2_7")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/lua5_2")
+        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/plugin_launchers")
+        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/plugin_launchers/python2_7")
+        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/plugin_launchers/lua5_2")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/examples")
     else()
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
@@ -535,8 +535,9 @@ if( APPLE )
         # Create translation directory.
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/translations")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/hunspell_dictionaries")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/python2_7")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/lua5_2")
+        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers")
+        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers/python2_7")
+        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers/lua5_2")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/examples")
     endif()
 
@@ -639,8 +640,8 @@ if( APPLE )
 
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
-    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/python2_7/* ${WORK_DIR}/Sigil.app/Contents/python2_7 )
-    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/lua5_2/* ${WORK_DIR}/Sigil.app/Contents/lua5_2 )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/plugin_launchers/python2_7/* ${WORK_DIR}/Sigil.app/Contents/plugin_launchers/python2_7 )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/plugin_launchers/lua5_2/* ${WORK_DIR}/Sigil.app/Contents/plugin_launchers/lua5_2 )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
  
 # For Linux and Windows, provide binary installers.
@@ -797,14 +798,14 @@ elseif (MSVC)
     endforeach( DIC )
 
     # Copy the plugin launcher files
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/python2_7/ )
-    foreach( PLUGFILE ${PLUGIN_FILES} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${PLUGFILE} ${MAIN_PACKAGE_DIR}/python2_7/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/plugin_launchers/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/plugin_launchers/python2_7/ )
+    foreach( PLUGFILE ${PLUGIN_FILES_PYTHON2_7} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${PLUGFILE} ${MAIN_PACKAGE_DIR}/plugin_launchers/python2_7/ )
     endforeach( PLUGFILE )
-
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/lua5_2/ )
-    foreach( PLUGFILE ${PLUGIN_FILES} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${PLUGFILE} ${MAIN_PACKAGE_DIR}/lua5_2/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/plugin_launchers/lua5_2/ )
+    foreach( PLUGFILE ${PLUGIN_FILES_LUA5_2} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${PLUGFILE} ${MAIN_PACKAGE_DIR}/plugin_launchers/lua5_2/ )
     endforeach( PLUGFILE )
 
     # Copy the example files
@@ -880,8 +881,8 @@ if( UNIX AND NOT APPLE )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations )
     install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/hunspell_dictionaries )
-    install( FILES ${PLUGIN_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/python2_7 )
-    install( FILES ${PLUGIN_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/lua5_2 )
+    install( FILES ${PLUGIN_FILES_PYTHON2_7} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/plugin_launchers/python2_7 )
+    install( FILES ${PLUGIN_FILES_LUA5_2} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/plugin_launchers/lua5_2 )
     install( FILES ${EXAMPLE_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/examples )
 endif()
 

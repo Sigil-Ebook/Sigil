@@ -111,17 +111,17 @@ int PluginRunner::exec(const QString &name)
     launcher_root = QCoreApplication::applicationDirPath(); 
 
 #ifdef Q_OS_MAC
-    launcher_root = launcher_root + "/..";
-#endif
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    launcher_root += "/../plugin_launchers/";
+#elif defined(Q_OS_WIN32)
+    launcher_root += "/plugin_launchers";
+#elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // all flavours of linux / unix
-    launcher_root = launcher_root + "/../share/" + QCoreApplication::applicationName().toLower();
+    launcher_root += "/../share/" + QCoreApplication::applicationName().toLower() + "/plugin_launchers/";
     // user supplied environment variable to plugin launcher directory will overrides everything
     const QString env_launcher_location = QString(getenv("SIGIL_PLUGIN_LAUNCHERS"));
     if (!env_launcher_location.isEmpty()) {
         launcher_root = env_launcher_location;
     }
-
 #endif
 
     if (m_engine == "python2.7") {
