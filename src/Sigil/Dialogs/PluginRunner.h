@@ -75,12 +75,13 @@ public:
         mimeField = 2
     };
 
-    PluginRunner(QString name, TabManager * tabMgr, QWidget * parent);
+    PluginRunner(TabManager *tabMgr, QWidget *parent);
     ~PluginRunner();
-
+    
     static QString pluginsPath();
 
 public slots:
+    int exec(const QString &name);
 
 private slots:
     void startPlugin();

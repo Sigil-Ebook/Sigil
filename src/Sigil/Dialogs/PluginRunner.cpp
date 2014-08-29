@@ -26,9 +26,9 @@ const QString PluginRunner::NCXFILEINFO = "OEBPS/toc.ncx" + SEP + SEP + "applica
 const QStringList PluginRunner::CHANGESTAGS = QStringList() << "deleted" << "added" << "modified";
 
 
-PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
+PluginRunner::PluginRunner(TabManager* tabMgr, QWidget * parent)
     : QDialog(parent),
-    m_pluginName(name), 
+    m_pluginName(""), 
     m_outputDir(m_folder.GetPath()),
     m_pluginOutput(""),
     m_algorithm(""),
@@ -39,10 +39,6 @@ PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
     m_ready(false)
 
 {
-    QHash < QString, QStringList > plugininfo;
-    QHash < QString, QString > enginepath;
-    QStringList fields;
-
     // get book manipulation objects
     m_book = m_mainWindow->GetCurrentBook();
     m_bookBrowser = m_mainWindow->GetBookBrowser();
@@ -70,13 +66,33 @@ PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
         m_hrefToRes[href] = resource;
     }
 
-    // get plugin settings from SettingsStore
+    ui.setupUi(this);
+    connectSignalsToSlots();
+}
+
+
+PluginRunner::~PluginRunner()
+{
+}
+
+int PluginRunner::exec(const QString &name)
+{
+    QHash <QString, QStringList> plugininfo;
+    QHash <QString, QString> enginepath;
+    QStringList fields;
     SettingsStore settings;
+    QString launcher_root;
+
+    m_ready = false;
+    m_pluginName = name;
+
+    // get plugin settings from SettingsStore
     enginepath = settings.pluginEnginePaths();
     plugininfo = settings.pluginInfo();
     if (! plugininfo.keys().contains(m_pluginName)) {
         Utility::DisplayStdErrorDialog("Error: A plugin by that name does not exist");
-        return;
+        reject();
+        return QDialog::Rejected;
     }
 
     // set up paths and things for the plugin and interpreter
@@ -87,11 +103,12 @@ PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
     m_enginePath = enginepath[m_engine];
     if (m_enginePath.isEmpty()) {
         Utility::DisplayStdErrorDialog("Error: Interpreter " + m_engine + " has no path set");
-        return;
+        reject();
+        return QDialog::Rejected;
     }
 
     // The launcher and plugin path are both platform specific and engine/interpreter specific 
-    QString launcher_root = QCoreApplication::applicationDirPath(); 
+    launcher_root = QCoreApplication::applicationDirPath(); 
 
 #ifdef Q_OS_MAC
     launcher_root = launcher_root + "/..";
@@ -112,33 +129,31 @@ PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".py";
         if (!QFileInfo(m_launcherPath).exists()) {
             Utility::DisplayStdErrorDialog("Installation Error: plugin launcher " + m_launcherPath + " does not exist");
-            return;
+            reject();
+            return QDialog::Rejected;
         }
     } else if (m_engine == "lua5.2") {
         m_launcherPath = launcher_root + "/lua5_2/launcher.lua";
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".lua";
         if (!QFileInfo(m_launcherPath).exists()) {
             Utility::DisplayStdErrorDialog("Installation Error: plugin launcher " + m_launcherPath + " does not exist");
-            return;
+            reject();
+            return QDialog::Rejected;
         }
     } else {
         Utility::DisplayStdErrorDialog("Error: plugin engine " + m_engine + " is not supported (yet!)");
-        return;
+        reject();
+        return QDialog::Rejected;
     }
 
-    ui.setupUi(this);
-    connectSignalsToSlots();
     ui.nameLbl->setText(m_pluginName);
     ui.statusLbl->setText("Status: ready");
     ui.progressBar->setRange(0,100);
     ui.progressBar->reset();
     ui.cancelButton->setEnabled(true);
     m_ready = true;
-}
 
-
-PluginRunner::~PluginRunner()
-{
+    return QDialog::exec();
 }
 
 QString PluginRunner::pluginsPath()
