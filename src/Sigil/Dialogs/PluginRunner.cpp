@@ -25,9 +25,9 @@ const QString PluginRunner::OPFFILEINFO = "OEBPS/content.opf" + SEP + SEP + "app
 const QString PluginRunner::NCXFILEINFO = "OEBPS/toc.ncx" + SEP + SEP + "application/x-dtbncx+xml";
 const QStringList PluginRunner::CHANGESTAGS = QStringList() << "deleted" << "added" << "modified";
 
- 
+
 PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
-  : QDialog(parent),
+    : QDialog(parent),
     m_pluginName(name), 
     m_outputDir(m_folder.GetPath()),
     m_pluginOutput(""),
@@ -47,7 +47,7 @@ PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
     m_book = m_mainWindow->GetCurrentBook();
     m_bookBrowser = m_mainWindow->GetBookBrowser();
     m_bookRoot = m_book->GetFolderKeeper().GetFullPathToMainFolder();
-    
+
     // set default font obfuscation algorithm to use
     // ADOBE_FONT_ALGO_ID or IDPF_FONT_ALGO_ID ??
     QList< Resource * > fonts = m_book->GetFolderKeeper().GetResourceListByType(Resource::FontResourceType);
@@ -55,8 +55,8 @@ PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
         FontResource * font_resource = qobject_cast< FontResource * > (resource);
         QString algorithm = font_resource->GetObfuscationAlgorithm();
         if (!algorithm.isEmpty()) {
-           m_algorithm = algorithm;
-           break;
+            m_algorithm = algorithm;
+            break;
         }
     }
 
@@ -101,23 +101,30 @@ PluginRunner::PluginRunner(QString name, TabManager* tabMgr, QWidget * parent)
     launcher_root = launcher_root + "/../share/" + QCoreApplication::applicationName().toLower();
     // user supplied environment variable to plugin launcher directory will overrides everything
     const QString env_launcher_location = QString(getenv("SIGIL_PLUGIN_LAUNCHERS"));
-     if (!env_launcher_location.isEmpty()) {
-         launcher_root = env_launcher_location;
-     }
+    if (!env_launcher_location.isEmpty()) {
+        launcher_root = env_launcher_location;
+    }
 
 #endif
 
     if (m_engine == "python2.7") {
         m_launcherPath = launcher_root + "/python2_7/launcher.py";
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".py";
-        if (! QFileInfo(m_launcherPath).exists()) {
+        if (!QFileInfo(m_launcherPath).exists()) {
             Utility::DisplayStdErrorDialog("Installation Error: plugin launcher " + m_launcherPath + " does not exist");
             return;
         }
-     } else {
+    } else if (m_engine == "lua5.2") {
+        m_launcherPath = launcher_root + "/lua5_2/launcher.lua";
+        m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".lua";
+        if (!QFileInfo(m_launcherPath).exists()) {
+            Utility::DisplayStdErrorDialog("Installation Error: plugin launcher " + m_launcherPath + " does not exist");
+            return;
+        }
+    } else {
         Utility::DisplayStdErrorDialog("Error: plugin engine " + m_engine + " is not supported (yet!)");
         return;
-     }
+    }
 
     ui.setupUi(this);
     connectSignalsToSlots();
@@ -143,13 +150,13 @@ void PluginRunner::startPlugin()
 {
     QStringList args;
     if (!m_ready) {
-       Utility::DisplayStdErrorDialog("Error: plugin can not start");
-       return;
+        Utility::DisplayStdErrorDialog("Error: plugin can not start");
+        return;
     }
     ui.textEdit->clear();
     ui.textEdit->setOverwriteMode(true);
     ui.textEdit->setPlainText("");
-  
+
     // prepare for the plugin by flushing all current book changes to disk
     m_mainWindow->SaveTabData();
     m_book->GetFolderKeeper().SuspendWatchingResources();
@@ -166,7 +173,7 @@ void PluginRunner::startPlugin()
     args.append(m_pluginType);
     args.append(QDir::toNativeSeparators(m_pluginPath));
     QString executable = QDir::toNativeSeparators(m_enginePath);
-    
+
     m_process.start(executable, args);
     ui.statusLbl->setText("Status: running");
 
@@ -178,6 +185,13 @@ void PluginRunner::startPlugin()
 void PluginRunner::processOutput() 
 {
     QByteArray newbytedata = m_process.readAllStandardOutput();
+    m_pluginOutput = m_pluginOutput + newbytedata ;
+}
+
+
+void PluginRunner::processError() 
+{
+    QByteArray newbytedata = m_process.readAllStandardError();
     m_pluginOutput = m_pluginOutput + newbytedata ;
 }
 
@@ -202,7 +216,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         return;
     }
     if (m_result != "success") {
-      return;
+        return;
     }
 
     // before modifying xhtmnl files make sure they are well formed
@@ -301,10 +315,11 @@ void PluginRunner::cancelPlugin()
     ui.cancelButton->setEnabled(false);
 }
 
-bool PluginRunner::processResultXML(){
+bool PluginRunner::processResultXML()
+{
     QXmlStreamReader reader(m_pluginOutput);
     reader.setNamespaceProcessing(false);
-    while (! reader.atEnd()) {
+    while (!reader.atEnd()) {
         reader.readNext();
         if (reader.isStartElement()) {
             QString name = reader.name().toString(); 
@@ -391,7 +406,7 @@ bool PluginRunner::checkIsWellFormed()
             XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
             if (error.line != -1) {
                 errors.append("Incorrect XHTML/XML: " + href + " Line/Col " + QString::number(error.line) + 
-                              "," + QString::number(error.column) + " " + error.message);
+                        "," + QString::number(error.column) + " " + error.message);
                 well_formed = false;
             }
         }
@@ -415,7 +430,7 @@ bool PluginRunner::checkIsWellFormed()
     }
     return proceed;
 }
-    
+
 
 void PluginRunner::ensureTabsWillRemain()
 {
@@ -453,8 +468,8 @@ bool PluginRunner::deleteFiles(const QStringList & files)
         if (mime == "application/x-dtbncx+xml") continue;
         Resource * resource = m_hrefToRes.value(href, NULL);
         if (resource) {
-          ui.statusLbl->setText("Status: deleting " + resource->Filename());
-    
+            ui.statusLbl->setText("Status: deleting " + resource->Filename());
+
             if(tabResources.contains(resource)) {
                 m_tabManager->CloseTabForResource(*resource);
             }
@@ -501,7 +516,7 @@ bool PluginRunner::addFiles(const QStringList & files)
         QString inpath = m_outputDir + "/" + href;
         QFileInfo fi(inpath);
         ui.statusLbl->setText("Status: adding " + fi.fileName());
-        
+
         Resource & resource = m_book->GetFolderKeeper().AddContentFileToFolder(inpath,false);
 
         // AudioResource, VideoResource, FontResource, ImageResource do not appear to be cached
@@ -554,13 +569,13 @@ bool PluginRunner::modifyFiles(const QStringList & files)
     QString modifyopf;
     QString modifyncx;
     foreach (QString fileinfo, files) {
-      if (fileinfo == OPFFILEINFO) {
-          modifyopf = fileinfo;
-      } else if (fileinfo == NCXFILEINFO) {
-          modifyncx = fileinfo;
-      } else {
-          newfiles.append(fileinfo);
-      }
+        if (fileinfo == OPFFILEINFO) {
+            modifyopf = fileinfo;
+        } else if (fileinfo == NCXFILEINFO) {
+            modifyncx = fileinfo;
+        } else {
+            newfiles.append(fileinfo);
+        }
     }
     if  (!modifyopf.isEmpty()) newfiles.append(modifyopf);
     if  (!modifyncx.isEmpty()) newfiles.append(modifyncx);
@@ -628,6 +643,7 @@ void PluginRunner::connectSignalsToSlots()
     connect(ui.startButton, SIGNAL(clicked()), this, SLOT(startPlugin()));
     connect(ui.cancelButton, SIGNAL(clicked()), this, SLOT(cancelPlugin()));
     connect(&m_process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
+    connect(&m_process, SIGNAL(readyReadStandardError()), this, SLOT(processError()));
     connect(&m_process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(pluginFinished(int, QProcess::ExitStatus)));
     connect(&m_process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
     connect(ui.okButton, SIGNAL(clicked()), this, SLOT(accept()));

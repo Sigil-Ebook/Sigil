@@ -87,6 +87,7 @@ private slots:
     void cancelPlugin();
     void processError(QProcess::ProcessError error);
     void processOutput();
+    void processError();
     void pluginFinished(int exitcode, QProcess::ExitStatus exitstatus );
 
 private:
