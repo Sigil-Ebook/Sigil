@@ -204,13 +204,6 @@ void PluginRunner::processOutput()
 }
 
 
-void PluginRunner::processError() 
-{
-    QByteArray newbytedata = m_process.readAllStandardError();
-    m_pluginOutput = m_pluginOutput + newbytedata ;
-}
-
-
 void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus) 
 {
     if (exitstatus == QProcess::CrashExit) {
@@ -658,7 +651,6 @@ void PluginRunner::connectSignalsToSlots()
     connect(ui.startButton, SIGNAL(clicked()), this, SLOT(startPlugin()));
     connect(ui.cancelButton, SIGNAL(clicked()), this, SLOT(cancelPlugin()));
     connect(&m_process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
-    connect(&m_process, SIGNAL(readyReadStandardError()), this, SLOT(processError()));
     connect(&m_process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(pluginFinished(int, QProcess::ExitStatus)));
     connect(&m_process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
     connect(ui.okButton, SIGNAL(clicked()), this, SLOT(accept()));
