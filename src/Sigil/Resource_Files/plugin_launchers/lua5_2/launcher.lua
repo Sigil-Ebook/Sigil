@@ -27,11 +27,7 @@ local function xml_out(script_type, msg, data, fail)
     end
     wrapper[#wrapper+1] = "</wrapper>"
 
-    if fail then
-        io.stderr:write(table.concat(wrapper, "").."\n")
-    else
-        io.stdout:write(table.concat(wrapper, "").."\n")
-    end
+    io.stdout:write(table.concat(wrapper, "").."\n")
 end
 
 local function main(args)
