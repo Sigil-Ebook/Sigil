@@ -6,20 +6,39 @@ local SUPPORTED_SCRIPT_TYPES = {
 
 local SEP = _G.package.config:sub(1,1)
 
-local function enhance_package_path()
-    local ldir
+local function string_endswith(s, e)
+    return #s >= #e and s:find(e, #s-#e+1, true) and true or false
+end
 
-    ldir = arg[0]
-    if not ldir:find(SEP) then
-    	p = "." .. SEP
+local function insert_package_path(path, isdir)
+    local p
+
+    -- Figure out if we have a full path or just name.
+    p = path
+    if not path:find(SEP) then
+    	if not isdir then
+            p = "." .. SEP
+        end
     else
-    	p = ldir:gsub(SEP .. "[^" .. SEP .. "]-%.lua$", "") .. SEP
+    	if not isdir then
+            p, _ = path:match("(.*" .. SEP .. ")(.*)")
+        end
     end
 
-    package.path  = package.path .. ";" .. p .. "?.lua"
-    package.cpath = package.cpath .. ";" .. p .. "?.so"
-    package.cpath = package.cpath .. ";" .. p .. "?.dylib"
-    package.cpath = package.cpath .. ";" .. p .. "?.dll"
+    if not string_endswith(p, SEP) then
+    	p = p .. SEP
+    end
+
+    -- Add the dir to the package paths.
+    package.path  = p .. "?.lua"   .. ";" .. package.path 
+    package.cpath = p .. "?.so"    .. ";" .. package.cpath
+    package.cpath = p .. "?.dylib" .. ";" .. package.cpath
+    package.cpath = p .. "?.dll"   .. ";" .. package.cpath
+end
+
+local function enhance_package_path(arg0, target_file)
+    insert_package_path(target_file, false)
+    insert_package_path(arg0, false)
 end
 
 local function xml_out(script_type, msg, data, fail)
@@ -64,7 +83,7 @@ local function main()
     script_type = arg[3]
     target_file = arg[4]
 
-    enhance_package_path()
+    enhance_package_path(arg[0], target_file)
 
     if not SUPPORTED_SCRIPT_TYPES[script_type] then
         xml_out(nil, "Launcher: script type " .. (script_type and script_type or "?") .. " is not supported")

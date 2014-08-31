@@ -34,9 +34,6 @@ target_link_libraries( ${PROJECT_NAME} ${PROJECT_NAME} ${RL} )
 
 add_executable( lua-bin src/lua.c) 
 target_link_libraries( lua-bin ${PROJECT_NAME} lua)
-if(WIN32)
-    set_target_properties( lua-bin PROPERTIES OUTPUT_NAME lua)
-endif()
 add_dependencies (lua-bin lua)
 
 if(APPLE)

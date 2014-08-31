@@ -170,6 +170,26 @@ QString PluginRunner::launcherRoot()
     return launcher_root;
 }
 
+QString PluginRunner::internalLuaPath()
+{
+    QString internal_lua;
+
+    internal_lua  = PluginRunner::launcherRoot();
+    if (internal_lua.isEmpty())
+        return "";
+
+    internal_lua += "/lua5_2/lua";
+#ifdef _WIN32
+    internal_lua += "-bin.exe";
+#endif
+
+    internal_lua = QDir::cleanPath(internal_lua);
+    QFile ilf(internal_lua);
+    if (!ilf.exists())
+        return "";
+    return QDir::toNativeSeparators(internal_lua);
+}
+
 void PluginRunner::startPlugin() 
 {
     QStringList args;

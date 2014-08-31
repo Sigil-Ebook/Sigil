@@ -80,6 +80,7 @@ public:
     
     static QString pluginsPath();
     static QString launcherRoot();
+    static QString internalLuaPath();
 
 public slots:
     int exec(const QString &name);

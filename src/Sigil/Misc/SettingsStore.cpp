@@ -250,19 +250,9 @@ QHash < QString, QString>  SettingsStore::pluginEnginePaths()
 
     // Set the bundled Lua interpreter path if it exists."
     if (!enginepath.contains("lua5.2")) {
-        internal_lua = PluginRunner::launcherRoot();
-#ifdef _WIN32
-        internal_lua += ".exe";
-        QDir d(internal_lua);
-        internal_lua = d.toNativeSeparators();
-#endif
+        internal_lua = PluginRunner::internalLuaPath();
         if (!internal_lua.isEmpty()) {
-            internal_lua += "/lua5_2/lua";
-
-            QFile ilf(internal_lua);
-            if (ilf.exists()) {
-                enginepath["lua5.2"] = internal_lua;
-            }
+            enginepath["lua5.2"] = internal_lua;
         }
     }
 
