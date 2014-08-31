@@ -1,8 +1,0 @@
-#!/bin/sh
-
-d=`dirname $0`
-
-export LD_LIBRARY_PATH="$d:$LD_LIBRARY_PATH"
-export DYLIB_LIBRARY_PATH="$d:$DYLIB_LIBRARY_PATH"
-
-exec "$0-bin" "$@"

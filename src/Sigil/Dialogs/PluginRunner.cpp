@@ -180,7 +180,7 @@ QString PluginRunner::internalLuaPath()
 
     internal_lua += "/lua5_2/lua";
 #ifdef _WIN32
-    internal_lua += "-bin.exe";
+    internal_lua += ".exe";
 #endif
 
     internal_lua = QDir::cleanPath(internal_lua);

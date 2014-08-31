@@ -31,6 +31,7 @@ set_target_properties( lua PROPERTIES DEBUG_POSTFIX "" )
 # Lua intepter program.
 add_executable( lua-bin src/lua.c) 
 target_link_libraries( lua-bin lua)
+set_target_properties( lua-bin PROPERTIES OUTPUT_NAME lua )
 add_dependencies (lua-bin lua)
 
 # Special compiler and linker flags for MSVC
