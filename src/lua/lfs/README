@@ -1,0 +1,78 @@
+LuaFileSystem - File System Library for Lua
+Copyright 2003 Kepler Project
+http://www.keplerproject.org/luafilesystem
+
+Description
+-----------
+LuaFileSystem is a Lua library developed to complement the set of functions
+related to file systems offered by the standard Lua distribution.
+
+LuaFileSystem offers a portable way to access the underlying directory structure and file attributes.
+LuaFileSystem is free software and uses the same license as Lua 5.1
+
+LuaRocks Installation
+---------------------
+luarocks install luafilesystem
+
+
+Documentation
+-------------
+Please check the documentation at doc/us/ for more information.
+
+History
+-------
+
+Version 1.6.2 [??/Oct/2012]
+	* Full Lua 5.2 compatibility (with Lua 5.1 fallbacks)
+
+Version 1.6.1 [01/Oct/2012]
+	* fix build for Lua 5.2
+
+Version 1.6.0 [26/Sep/2012]
+        * getcwd fix for Android
+        * support for Lua 5.2
+        * add lfs.link
+        * other bug fixes
+
+Version 1.5.0 [20/Oct/2009]
+	* added explicit next and close methods to second return value of lfs.dir (the directory object), for explicit iteration or explicit closing.
+	* added directory locking via lfs.lock_dir function (see the manual).
+
+Version 1.4.2 [03/Feb/2009]
+
+        * fixed bug [#13198] lfs.attributes(filename, 'size') overflow on files > 2 Gb again (bug report and patch by KUBO Takehiro).
+        * fixed bug [#39794] Compile error on Solaris 10 (bug report and patch by Aaron B).
+        * fixed compilation problems with Borland C.
+
+Version 1.4.1 [07/May/2008]
+
+        * documentation review
+        * fixed Windows compilation issues
+        * fixed bug in the Windows tests (patch by Shmuel Zeigerman)
+        * fixed bug [#2185] lfs.attributes(filename, 'size') overflow on files > 2 Gb
+
+Version 1.4.0 [13/Feb/2008]
+
+        * added function lfs.setmode (works only in Windows systems).
+        * lfs.attributes raises an error if attribute does not exist
+
+Version 1.3.0 [26/Oct/2007]
+
+        * added function lfs.symlinkattributes (works only in non Windows systems).
+
+Version 1.2.1 [08/May/2007]
+
+        * compatible only with Lua 5.1 (Lua 5.0 support was dropped)
+
+Version 1.2 [15/Mar/2006]
+
+        * added optional argument to lfs.attributes
+        * added function lfs.rmdir
+        * bug correction on lfs.dir
+
+Version 1.1 [30/May/2005]
+
+        * added function lfs.touch.
+
+Version 1.0 [21/Jan/2005]
+Version 1.0 Beta [10/Nov/2004]

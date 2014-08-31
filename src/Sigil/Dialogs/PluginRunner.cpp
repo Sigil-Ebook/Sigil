@@ -108,21 +108,7 @@ int PluginRunner::exec(const QString &name)
     }
 
     // The launcher and plugin path are both platform specific and engine/interpreter specific 
-    launcher_root = QCoreApplication::applicationDirPath(); 
-
-#ifdef Q_OS_MAC
-    launcher_root += "/../plugin_launchers/";
-#elif defined(Q_OS_WIN32)
-    launcher_root += "/plugin_launchers/";
-#elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    // all flavours of linux / unix
-    launcher_root += "/../share/" + QCoreApplication::applicationName().toLower() + "/plugin_launchers/";
-    // user supplied environment variable to plugin launcher directory will overrides everything
-    const QString env_launcher_location = QString(getenv("SIGIL_PLUGIN_LAUNCHERS"));
-    if (!env_launcher_location.isEmpty()) {
-        launcher_root = env_launcher_location + "/";
-    }
-#endif
+    launcher_root = launcherRoot();
 
     if (m_engine == "python2.7") {
         m_launcherPath = launcher_root + "/python2_7/launcher.py";
@@ -159,6 +145,29 @@ int PluginRunner::exec(const QString &name)
 QString PluginRunner::pluginsPath()
 {
     return QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/plugins";
+}
+
+QString PluginRunner::launcherRoot()
+{
+    QString launcher_root;
+
+    launcher_root = QCoreApplication::applicationDirPath(); 
+
+#ifdef Q_OS_MAC
+    launcher_root += "/../plugin_launchers/";
+#elif defined(Q_OS_WIN32)
+    launcher_root += "/plugin_launchers/";
+#elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    // all flavours of linux / unix
+    launcher_root += "/../share/" + QCoreApplication::applicationName().toLower() + "/plugin_launchers/";
+    // user supplied environment variable to plugin launcher directory will overrides everything
+    const QString env_launcher_location = QString(getenv("SIGIL_PLUGIN_LAUNCHERS"));
+    if (!env_launcher_location.isEmpty()) {
+        launcher_root = env_launcher_location + "/";
+    }
+#endif
+
+    return launcher_root;
 }
 
 void PluginRunner::startPlugin() 
@@ -221,6 +230,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     ui.statusLbl->setText("Status: finished");
 
     if (!processResultXML()) {
+        ui.textEdit->append(m_pluginOutput);
         return;
     }
     if (m_result != "success") {
@@ -290,6 +300,13 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         m_mainWindow->ResourcesAddedOrDeleted();
     }
     ui.statusLbl->setText("Status: " + m_result);
+}
+
+
+void PluginRunner::processError()
+{
+    QByteArray newbytedata = m_process.readAllStandardError();
+    ui.textEdit->append(newbytedata);
 }
 
 
@@ -650,8 +667,9 @@ void PluginRunner::connectSignalsToSlots()
 {
     connect(ui.startButton, SIGNAL(clicked()), this, SLOT(startPlugin()));
     connect(ui.cancelButton, SIGNAL(clicked()), this, SLOT(cancelPlugin()));
-    connect(&m_process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
     connect(&m_process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(pluginFinished(int, QProcess::ExitStatus)));
     connect(&m_process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
+    connect(&m_process, SIGNAL(readyReadStandardError()), this, SLOT(processError()));
+    connect(&m_process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
     connect(ui.okButton, SIGNAL(clicked()), this, SLOT(accept()));
 }

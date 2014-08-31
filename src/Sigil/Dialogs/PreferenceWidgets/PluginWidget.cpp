@@ -85,8 +85,8 @@ void PluginWidget::readSettings()
     QStringList names = plugininfo.keys();
     int nrows = 0;
     // add support for additional interpreters below
-    ui.editPathPy27->setText(enginepath.value("python2.7",""));
-    ui.editPathLua52->setText(enginepath.value("lua5.2",""));
+    ui.editPathPy27->setText(enginepath.value("python2.7", ""));
+    ui.editPathLua52->setText(enginepath.value("lua5.2", ""));
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
         ui.pluginTable->removeRow(0);

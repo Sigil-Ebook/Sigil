@@ -79,6 +79,7 @@ public:
     ~PluginRunner();
     
     static QString pluginsPath();
+    static QString launcherRoot();
 
 public slots:
     int exec(const QString &name);
@@ -86,6 +87,7 @@ public slots:
 private slots:
     void startPlugin();
     void cancelPlugin();
+    void processError();
     void processError(QProcess::ProcessError error);
     void processOutput();
     void pluginFinished(int exitcode, QProcess::ExitStatus exitstatus );

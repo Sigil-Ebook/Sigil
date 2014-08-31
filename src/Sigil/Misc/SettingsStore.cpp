@@ -23,6 +23,7 @@
 #include <QtCore/QLocale>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QStandardPaths>
+#include <QFile>
 
 #include "Misc/SettingsStore.h"
 #include "Dialogs/PluginRunner.h"
@@ -225,12 +226,18 @@ QHash < QString, QStringList >  SettingsStore::pluginInfo()
 
 QHash < QString, QString>  SettingsStore::pluginEnginePaths()
 {
+    QString internal_lua;
+    QHash < QString, QString> enginepath;
+    QStringList enginelist;
+    int i;
+
     clearSettingsGroup();
+
     // QChar(31) ascii unit separator
     // fields = engine, path to executable
-    QHash < QString, QString> enginepath;
-    QStringList enginelist = value(KEY_PLUGIN_ENGINE_PATHS, "").toStringList();
-    int i = 0;
+    enginelist = value(KEY_PLUGIN_ENGINE_PATHS, "").toStringList();
+
+    i = 0;
     foreach(QString enginedata, enginelist) {
        if (enginedata != "") {
            QStringList fields = enginedata.split(QChar(31));
@@ -240,6 +247,25 @@ QHash < QString, QString>  SettingsStore::pluginEnginePaths()
            }
        }
     }
+
+    // Set the bundled Lua interpreter path if it exists."
+    if (!enginepath.contains("lua5.2")) {
+        internal_lua = PluginRunner::launcherRoot();
+#ifdef _WIN32
+        internal_lua += ".exe";
+        QDir d(internal_lua);
+        internal_lua = d.toNativeSeparators();
+#endif
+        if (!internal_lua.isEmpty()) {
+            internal_lua += "/lua5_2/lua";
+
+            QFile ilf(internal_lua);
+            if (ilf.exists()) {
+                enginepath["lua5.2"] = internal_lua;
+            }
+        }
+    }
+
     return enginepath;
 }
 

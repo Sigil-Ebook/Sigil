@@ -4,6 +4,24 @@ local SUPPORTED_SCRIPT_TYPES = {
 	edit=true
 }
 
+local SEP = _G.package.config:sub(1,1)
+
+local function enhance_package_path()
+    local ldir
+
+    ldir = arg[0]
+    if not ldir:find(SEP) then
+    	p = "." .. SEP
+    else
+    	p = ldir:gsub(SEP .. "[^" .. SEP .. "]-%.lua$", "") .. SEP
+    end
+
+    package.path  = package.path .. ";" .. p .. "?.lua"
+    package.cpath = package.cpath .. ";" .. p .. "?.so"
+    package.cpath = package.cpath .. ";" .. p .. "?.dylib"
+    package.cpath = package.cpath .. ";" .. p .. "?.dll"
+end
+
 local function xml_out(script_type, msg, data, fail)
     local wrapper = { '<?xml version="1.0" encoding="UTF-8"?>' }
 
@@ -30,21 +48,23 @@ local function xml_out(script_type, msg, data, fail)
     io.stdout:write(table.concat(wrapper, "").."\n")
 end
 
-local function main(args)
+local function main()
     local ebook_root
     local outdir
     local script_type
     local target_file
 
-    if #args ~= 4 then
+    if #arg ~= 4 then
         xml_out(nil, "Launcher: improper number of arguments passed to launcher.lua", nil, true)
         return 1
     end
 
-    ebook_root  = args[1]
-    outdir      = args[2]
-    script_type = args[3]
-    target_file = args[4]
+    ebook_root  = arg[1]
+    outdir      = arg[2]
+    script_type = arg[3]
+    target_file = arg[4]
+
+    enhance_package_path()
 
     if not SUPPORTED_SCRIPT_TYPES[script_type] then
         xml_out(nil, "Launcher: script type " .. (script_type and script_type or "?") .. " is not supported")
@@ -55,5 +75,4 @@ local function main(args)
     return 1
 end
 
-local args = {...}
-return main(args)
+return main()
