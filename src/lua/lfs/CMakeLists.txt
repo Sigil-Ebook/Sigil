@@ -13,7 +13,6 @@ endif()
 file( GLOB SOURCES src/*.c )
 
 add_library( ${PROJECT_NAME} MODULE ${SOURCES}) 
-add_dependencies (${PROJECT_NAME} lua lua-bin)
 set_target_properties( ${PROJECT_NAME} PROPERTIES LINK_FLAGS ${LINK_FLAGS} PREFIX "" DEBUG_POSTFIX "" SUFFIX ".so" )
 
 # Special compiler and linker flags for MSVC

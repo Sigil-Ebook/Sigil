@@ -1,15 +1,10 @@
-project( lua C ) 
-
-cmake_policy( SET CMP0022 OLD)
-cmake_policy( SET CMP0038 OLD)
-cmake_policy( SET CMP0042 OLD)
+project( C ) 
 
 SET( LUA_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src CACHE STRING "" )
 
 include_directories (
-    ${CMAKE_CURRENT_BINARY_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/src
-    )
+)
 
 SET(RL "")
 if( APPLE )
@@ -23,27 +18,25 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "SunOS")
 endif()
 
 file( GLOB SOURCES src/*.c )
+# Can't build the lib with the files that programs that use the lb.
 list( REMOVE_ITEM SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/lua.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/luac.c
 )
 
-set( CMAKE_DEBUG_POSTFIX "" )
-add_library( ${PROJECT_NAME} SHARED ${SOURCES}) 
-target_link_libraries( ${PROJECT_NAME} ${PROJECT_NAME} ${RL} )
+add_library( lua ${SOURCES}) 
+target_link_libraries( lua ${RL} )
+set_target_properties( lua PROPERTIES DEBUG_POSTFIX "" )
 
+# Lua intepter program.
 add_executable( lua-bin src/lua.c) 
-target_link_libraries( lua-bin ${PROJECT_NAME} lua)
+target_link_libraries( lua-bin lua)
 add_dependencies (lua-bin lua)
-
-if(APPLE)
-    add_custom_command (TARGET lua-bin POST_BUILD COMMAND ${CMAKE_INSTALL_NAME_TOOL} -change "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/liblua.dylib" "./liblua.dylib" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/lua-bin")
-endif()
 
 # Special compiler and linker flags for MSVC
 if( MSVC )
 	add_definitions( /DUNICODE /D_UNICODE /Zc:wchar_t-  )
 	set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
 	set( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /Oi /GL" ) 
-    set_target_properties( ${PROJECT_NAME} PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
+    set_target_properties( lua PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
 endif()
