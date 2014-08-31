@@ -30,10 +30,11 @@ local function insert_package_path(path, isdir)
     end
 
     -- Add the dir to the package paths.
-    package.path  = p .. "?.lua"   .. ";" .. package.path 
-    package.cpath = p .. "?.so"    .. ";" .. package.cpath
-    package.cpath = p .. "?.dylib" .. ";" .. package.cpath
-    package.cpath = p .. "?.dll"   .. ";" .. package.cpath
+    package.path  = p .. "?.lua"      .. ";" .. package.path 
+    package.path  = p .. "?/init.lua" .. ";" .. package.path 
+    package.cpath = p .. "?.so"       .. ";" .. package.cpath
+    package.cpath = p .. "?.dylib"    .. ";" .. package.cpath
+    package.cpath = p .. "?.dll"      .. ";" .. package.cpath
 end
 
 local function enhance_package_path(arg0, target_file)
