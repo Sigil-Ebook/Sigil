@@ -548,7 +548,24 @@ bool PluginRunner::addFiles(const QStringList & files)
             MainWindow *new_window = new MainWindow(epubPath);
             new_window->show();
 #else
-            m_mainWindow->LoadFile(epubPath);
+            // For Linux and Windows will replace current book
+            // So Throw Up a Dialog to See if they want to proceed
+            proceed = false;
+            QMessageBox msgBox;
+            msgBox.setIcon(QMessageBox::Warning);
+            msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
+            msgBox.setWindowTitle("Input Plugin");
+            msgBox.setText("Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed");
+            QPushButton * yesButton = msgBox.addButton(QMessageBox::Yes);
+            QPushButton * noButton =  msgBox.addButton(QMessageBox::No);
+            msgBox.setDefaultButton(noButton);
+            msgBox.exec();
+            if (msgBox.clickedButton() == yesButton) {
+                proceed = true;
+            }
+            if (proceed) {
+                m_mainWindow->LoadFile(epubPath);
+            }
 #endif
             return true;
         }
