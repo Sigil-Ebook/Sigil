@@ -11,6 +11,7 @@ if( APPLE )
     set( CMAKE_C_FLAGS "-DLUA_USE_MACOSX" )
     SET(RL "readline")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+    FIND_PACKAGE( Readline )
     set( CMAKE_C_FLAGS "-DLUA_USE_LINUX" )
     SET(RL "readline")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "SunOS")
@@ -26,6 +27,9 @@ list( REMOVE_ITEM SOURCES
 
 add_library( lua ${SOURCES}) 
 target_link_libraries( lua ${RL} )
+if( UNIX AND NOT APPLE )
+    target_link_libraries (lua m dl )
+endif()
 set_target_properties( lua PROPERTIES DEBUG_POSTFIX "" )
 
 # Lua intepter program.
