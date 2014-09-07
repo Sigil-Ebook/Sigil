@@ -25,7 +25,11 @@ list( REMOVE_ITEM SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/luac.c
 )
 
-add_library( lua ${SOURCES}) 
+if(WIN)
+    add_library( lua SHARED ${SOURCES}) 
+else()
+    add_library( lua ${SOURCES}) 
+endif()
 target_link_libraries( lua ${RL} )
 if( UNIX AND NOT APPLE )
     target_link_libraries (lua m dl )
