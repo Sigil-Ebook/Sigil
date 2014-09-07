@@ -27,6 +27,10 @@
 #include <boost/scoped_array.hpp>
 #include <boost/system/error_code.hpp>
 #include <boost/assert.hpp>
+//#include <boost/detail/lightweight_mutex.hpp>
+//  fails on VC++ static builds because the runtime does not permit use of locks in
+//  staticly initialized code, and VC++ 2010 (and probably other versions) statically
+//  initializes some instances of class path.
 #include <algorithm>
 #include <cstddef>
 #include <cstring>
@@ -35,7 +39,7 @@
 #ifdef BOOST_WINDOWS_API
 # include "windows_file_codecvt.hpp"
 # include <windows.h>
-#elif defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__)
+#elif defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__) || defined(__FreeBSD__)
 # include <boost/filesystem/detail/utf8_codecvt_facet.hpp>
 #endif
 
@@ -98,7 +102,6 @@ namespace
   const char* const separators = "/";
   const char* separator_string = "/";
   const char* preferred_separator_string = "/";
-  const char colon = ':';
   const char dot = '.';
   const fs::path dot_path(".");
   const fs::path dot_dot_path("..");
@@ -510,7 +513,7 @@ namespace
     size_type pos(str.find_last_of(separators, end_pos-1));
 
 #   ifdef BOOST_WINDOWS_API
-    if (pos == string_type::npos)
+    if (pos == string_type::npos && end_pos > 1)
       pos = str.find_last_of(colon, end_pos-2);
 #   endif
 
@@ -783,147 +786,103 @@ namespace filesystem
 }  // namespace filesystem
 }  // namespace boost
 
-//--------------------------------------------------------------------------------------//
-//                                                                                      //
-//                                 detail helpers                                       //
-//                                                                                      //
-//--------------------------------------------------------------------------------------//
-
 namespace
 {
 
   //------------------------------------------------------------------------------------//
-  //                              locale helpers                                        //
+  //                                locale helpers                                      //
   //------------------------------------------------------------------------------------//
 
-#if defined(BOOST_WINDOWS_API) && defined(BOOST_FILESYSTEM_STATIC_LINK)
+  //  Prior versions of these locale and codecvt implementations tried to take advantage
+  //  of static initialization where possible, kept a local copy of the current codecvt
+  //  facet (to avoid codecvt() having to call use_facet()), and was not multi-threading
+  //  safe (again for efficiency).
+  //
+  //  This was error prone, and required different implementation techniques depending
+  //  on the compiler and also whether static or dynamic linking was used. Furthermore,
+  //  users could not easily provide their multi-threading safe wrappers because the
+  //  path interface requires the implementation itself to call codecvt() to obtain the
+  //  default facet, and the initialization of the static within path_locale() could race.
+  //
+  //  The code below is portable to all platforms, is much simpler, and hopefully will be 
+  //  much more robust. Timing tests (on Windows, using a Visual C++ release build)
+  //  indicated the current code is roughly 9% slower than the previous code, and that
+  //  seems a small price to pay for better code that is easier to use. 
+
+  //boost::detail::lightweight_mutex locale_mutex;
 
   inline std::locale default_locale()
   {
+# if defined(BOOST_WINDOWS_API)
     std::locale global_loc = std::locale();
-    std::locale loc(global_loc, new windows_file_codecvt);
-    return loc;
+    return std::locale(global_loc, new windows_file_codecvt);
+# elif defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__) || defined(__FreeBSD__)
+    // "All BSD system functions expect their string parameters to be in UTF-8 encoding
+    // and nothing else." See
+    // http://developer.apple.com/mac/library/documentation/MacOSX/Conceptual/BPInternational/Articles/FileEncodings.html
+    //
+    // "The kernel will reject any filename that is not a valid UTF-8 string, and it will
+    // even be normalized (to Unicode NFD) before stored on disk, at least when using HFS.
+    // The right way to deal with it would be to always convert the filename to UTF-8
+    // before trying to open/create a file." See
+    // http://lists.apple.com/archives/unix-porting/2007/Sep/msg00023.html
+    //
+    // "How a file name looks at the API level depends on the API. Current Carbon APIs
+    // handle file names as an array of UTF-16 characters; POSIX ones handle them as an
+    // array of UTF-8, which is why UTF-8 works well in Terminal. How it's stored on disk
+    // depends on the disk format; HFS+ uses UTF-16, but that's not important in most
+    // cases." See
+    // http://lists.apple.com/archives/applescript-users/2002/Sep/msg00319.html
+    //
+    // Many thanks to Peter Dimov for digging out the above references!
+
+    std::locale global_loc = std::locale();
+    return std::locale(global_loc, new boost::filesystem::detail::utf8_codecvt_facet);
+# else  // Other POSIX
+    // ISO C calls std::locale("") "the locale-specific native environment", and this
+    // locale is the default for many POSIX-based operating systems such as Linux.
+    return std::locale("");
+# endif
   }
 
   inline std::locale& path_locale()
+  // std::locale("") construction, needed on non-Apple POSIX systems, can throw
+  // (if environmental variables LC_MESSAGES or LANG are wrong, for example), so
+  // path_locale() provides lazy initialization via a local static to ensure that any 
+  // exceptions occur after main() starts and so can be caught. Furthermore,
+  // path_locale() is only called if path::codecvt() or path::imbue() are themselves
+  // actually called, ensuring that an exception will only be thrown if std::locale("")
+  // is really needed.
   {
     static std::locale loc(default_locale());
     return loc;
   }
-
-  inline const path::codecvt_type*& codecvt_facet_ptr()
-  {
-    static const std::codecvt<wchar_t, char, std::mbstate_t>*
-     facet(
-       &std::use_facet<std::codecvt<wchar_t, char, std::mbstate_t> >
-        (path_locale()));
-    return facet;
-  }
-
-#elif defined(BOOST_WINDOWS_API) && !defined(BOOST_FILESYSTEM_STATIC_LINK)
-
-  std::locale path_locale(std::locale(), new windows_file_codecvt); 
-
-  const std::codecvt<wchar_t, char, std::mbstate_t>*
-    codecvt_facet_ptr(&std::use_facet<std::codecvt<wchar_t, char, std::mbstate_t> >
-      (path_locale));
-
-#elif defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__)
-
-  // "All BSD system functions expect their string parameters to be in UTF-8 encoding
-  // and nothing else." See
-  // http://developer.apple.com/mac/library/documentation/MacOSX/Conceptual/BPInternational/Articles/FileEncodings.html
-  //
-  // "The kernel will reject any filename that is not a valid UTF-8 string, and it will
-  // even be normalized (to Unicode NFD) before stored on disk, at least when using HFS.
-  // The right way to deal with it would be to always convert the filename to UTF-8
-  // before trying to open/create a file." See
-  // http://lists.apple.com/archives/unix-porting/2007/Sep/msg00023.html
-  //
-  // "How a file name looks at the API level depends on the API. Current Carbon APIs
-  // handle file names as an array of UTF-16 characters; POSIX ones handle them as an
-  // array of UTF-8, which is why UTF-8 works well in Terminal. How it's stored on disk
-  // depends on the disk format; HFS+ uses UTF-16, but that's not important in most
-  // cases." See
-  // http://lists.apple.com/archives/applescript-users/2002/Sep/msg00319.html
-  //
-  // Many thanks to Peter Dimov for digging out the above references!
-
-  std::locale path_locale(std::locale(),
-                          new boost::filesystem::detail::utf8_codecvt_facet);
-
-  const std::codecvt<wchar_t, char, std::mbstate_t>*
-    codecvt_facet_ptr(&std::use_facet<std::codecvt<wchar_t, char, std::mbstate_t> >
-      (path_locale));
-
-#else  // Other POSIX
-
-  // ISO C calls std::locale("") "the locale-specific native environment", and this
-  // locale is the default for many POSIX-based operating systems such as Linux.
-
-  // std::locale("") construction can throw (if environmental variables LC_MESSAGES or
-  // or LANG are wrong, for example), so lazy initialization is used to ensure
-  // that exceptions occur after main() starts and so can be caught.
-
-  std::locale path_locale;  // initialized by path::codecvt() below
-  const std::codecvt<wchar_t, char, std::mbstate_t>* codecvt_facet_ptr;  // ditto
-
-# endif
-
 }  // unnamed namespace
 
 //--------------------------------------------------------------------------------------//
-//                           path::imbue implementation                                 //
+//              path::codecvt() and path::imbue() implementation                        //
 //--------------------------------------------------------------------------------------//
 
 namespace boost
 {
 namespace filesystem
 {
-
-#if defined(BOOST_WINDOWS_API) && defined(BOOST_FILESYSTEM_STATIC_LINK)
-
-  const path::codecvt_type& path::codecvt()
-  {
-    BOOST_ASSERT_MSG(codecvt_facet_ptr(), "codecvt_facet_ptr() facet hasn't been properly initialized");
-    return *codecvt_facet_ptr();
-  }
-
-  std::locale path::imbue(const std::locale & loc)
-  {
-    std::locale temp(path_locale());
-    path_locale() = loc;
-    codecvt_facet_ptr() =
-      &std::use_facet<std::codecvt<wchar_t, char, std::mbstate_t> >(path_locale());
-    return temp;
-  }
-
-#else
+  // See comments above
 
   const path::codecvt_type& path::codecvt()
   {
-#   if defined(BOOST_POSIX_API) && \
-      !(defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__))
-      // A local static initialized by calling path::imbue ensures that std::locale(""),
-      // which may throw, is called only if path_locale and condecvt_facet will actually
-      // be used. Thus misconfigured environmental variables will only cause an
-      // exception if a valid std::locale("") is actually needed.
-      static std::locale posix_lazy_initialization(path::imbue(std::locale("")));
-#   endif
-    return *codecvt_facet_ptr;
+    BOOST_ASSERT_MSG(&path_locale(), "boost::filesystem::path locale initialization error");
+//    boost::detail::lightweight_mutex::scoped_lock lock(locale_mutex);
+    return std::use_facet<std::codecvt<wchar_t, char, std::mbstate_t> >(path_locale());
   }
 
   std::locale path::imbue(const std::locale& loc)
   {
-    std::locale temp(path_locale);
-    path_locale = loc;
-    codecvt_facet_ptr =
-      &std::use_facet<std::codecvt<wchar_t, char, std::mbstate_t> >(path_locale);
+//    boost::detail::lightweight_mutex::scoped_lock lock(locale_mutex);
+    std::locale temp(path_locale());
+    path_locale() = loc;
     return temp;
   }
-
-
-#endif
 
 }  // namespace filesystem
 }  // namespace boost

@@ -604,12 +604,9 @@ namespace boost { namespace program_options {
         }
     }
 
-    void 
-    options_description::print(std::ostream& os) const
+    unsigned                                                                    
+    options_description::get_option_column_width() const                                
     {
-        if (!m_caption.empty())
-            os << m_caption << ":\n";
-
         /* Find the maximum width of the option column */
         unsigned width(23);
         unsigned i; // vc6 has broken for loop scoping
@@ -620,6 +617,11 @@ namespace boost { namespace program_options {
             ss << "  " << opt.format_name() << ' ' << opt.format_parameter();
             width = (max)(width, static_cast<unsigned>(ss.str().size()));            
         }
+
+        /* Get width of groups as well*/
+        for (unsigned j = 0; j < groups.size(); ++j)                            
+            width = max(width, groups[j]->get_option_column_width());
+
         /* this is the column were description should start, if first
            column is longer, we go to a new line */
         const unsigned start_of_description_column = m_line_length - m_min_description_length;
@@ -628,9 +630,20 @@ namespace boost { namespace program_options {
         
         /* add an additional space to improve readability */
         ++width;
-            
+        return width;                                                       
+    }
+
+    void 
+    options_description::print(std::ostream& os, unsigned width) const
+    {
+        if (!m_caption.empty())
+            os << m_caption << ":\n";
+
+        if (!width)
+            width = get_option_column_width();
+
         /* The options formatting style is stolen from Subversion. */
-        for (i = 0; i < m_options.size(); ++i)
+        for (unsigned i = 0; i < m_options.size(); ++i)
         {
             if (belong_to_group[i])
                 continue;
@@ -643,7 +656,8 @@ namespace boost { namespace program_options {
         }
 
         for (unsigned j = 0; j < groups.size(); ++j) {            
-            os << "\n" << *groups[j];
+            os << "\n";
+            groups[j]->print(os, width);
         }
     }
 

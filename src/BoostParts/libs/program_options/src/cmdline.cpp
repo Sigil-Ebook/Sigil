@@ -455,7 +455,7 @@ namespace boost { namespace program_options { namespace detail {
                 // if they look like options
                 if (opt.value.size() <= min_tokens) 
                 {
-		    min_tokens -= static_cast<unsigned>(opt.value.size());
+                    min_tokens -= static_cast<unsigned>(opt.value.size());
                 }
                 else
                 {

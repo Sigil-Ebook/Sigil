@@ -125,7 +125,7 @@ BOOST_REGEX_DECL int BOOST_REGEX_CCALL regcompA(regex_tA* expression, const char
 #endif
       expression->re_magic = magic_value;
       static_cast<c_regex_type*>(expression->guts)->set_expression(ptr, p2, flags);
-      expression->re_nsub = static_cast<c_regex_type*>(expression->guts)->mark_count() - 1;
+      expression->re_nsub = static_cast<c_regex_type*>(expression->guts)->mark_count();
       result = static_cast<c_regex_type*>(expression->guts)->error_code();
 #ifndef BOOST_NO_EXCEPTIONS
    } 

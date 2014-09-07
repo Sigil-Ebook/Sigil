@@ -94,6 +94,19 @@ c_regex_traits<wchar_t>::string_type BOOST_REGEX_CALL c_regex_traits<wchar_t>::t
    std::wstring result(s, L' ');
    while(s < (r = std::wcsxfrm(&*result.begin(), src.c_str(), s)))
    {
+#if defined(_CPPLIB_VER)
+      //
+      // A bug in VC11 and 12 causes the program to hang if we pass a null-string
+      // to std::strxfrm, but only for certain locales :-(
+      // Probably effects Intel and Clang or any compiler using the VC std library (Dinkumware).
+      //
+      if(r == INT_MAX)
+      {
+         result.erase();
+         result.insert(result.begin(), static_cast<wchar_t>(0));
+         return result;
+      }
+#endif
       result.append(r - s + 3, L' ');
       s = result.size();
    }

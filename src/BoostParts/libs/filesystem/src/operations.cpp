@@ -73,13 +73,15 @@ using std::wstring;
     const fs::path dot_dot_path("..");
 #   include <sys/types.h>
 #   include <sys/stat.h>
-#   if !defined(__APPLE__) && !defined(__OpenBSD__)
+#   if !defined(__APPLE__) && !defined(__OpenBSD__) && !defined(__ANDROID__)
 #     include <sys/statvfs.h>
 #     define BOOST_STATVFS statvfs
 #     define BOOST_STATVFS_F_FRSIZE vfs.f_frsize
 #   else
 #     ifdef __OpenBSD__
 #     include <sys/param.h>
+#     elif defined(__ANDROID__)
+#     include <sys/vfs.h>
 #     endif
 #     include <sys/mount.h>
 #     define BOOST_STATVFS statfs
@@ -773,6 +775,7 @@ namespace detail
   path canonical(const path& p, const path& base, system::error_code* ec)
   {
     path source (p.is_absolute() ? p : absolute(p, base));
+    path root(source.root_path());
     path result;
 
     system::error_code local_ec;
@@ -807,7 +810,8 @@ namespace detail
           continue;
         if (*itr == dot_dot_path)
         {
-          result.remove_filename();
+          if (result != root)
+            result.remove_filename();
           continue;
         }
 
@@ -927,6 +931,7 @@ namespace detail
     }
 
     path parent = p.parent_path();
+    BOOST_ASSERT_MSG(parent != p, "internal error: p == p.parent_path()");
     if (!parent.empty())
     {
       // determine if the parent exists
@@ -1407,7 +1412,7 @@ namespace detail
     //  - See the fchmodat() Linux man page:
     //   "http://man7.org/linux/man-pages/man2/fchmodat.2.html"
 #   if defined(AT_FDCWD) && defined(AT_SYMLINK_NOFOLLOW) \
-      && !(defined(__SUNPRO_CC) || defined(sun)) \
+      && !(defined(__SUNPRO_CC) || defined(__sun) || defined(sun)) \
       && !(defined(linux) || defined(__linux) || defined(__linux__))
       if (::fchmodat(AT_FDCWD, p.c_str(), mode_cast(prms),
            !(prms & symlink_perms) ? 0 : AT_SYMLINK_NOFOLLOW))

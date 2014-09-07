@@ -135,7 +135,7 @@ BOOST_REGEX_DECL int BOOST_REGEX_CCALL regcompW(regex_tW* expression, const wcha
 #endif
       expression->re_magic = wmagic_value;
       static_cast<wc_regex_type*>(expression->guts)->set_expression(ptr, p2, flags);
-      expression->re_nsub = static_cast<wc_regex_type*>(expression->guts)->mark_count() - 1;
+      expression->re_nsub = static_cast<wc_regex_type*>(expression->guts)->mark_count();
       result = static_cast<wc_regex_type*>(expression->guts)->error_code();
 #ifndef BOOST_NO_EXCEPTIONS
    } 

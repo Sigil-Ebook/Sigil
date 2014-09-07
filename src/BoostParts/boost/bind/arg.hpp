@@ -21,11 +21,7 @@
 
 #include <boost/config.hpp>
 #include <boost/is_placeholder.hpp>
-
-#if BOOST_GCC >= 40700
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wunused-local-typedefs"
-#endif
+#include <boost/static_assert.hpp>
 
 namespace boost
 {
@@ -38,8 +34,7 @@ template< int I > struct arg
 
     template< class T > arg( T const & /* t */ )
     {
-        // static assert I == is_placeholder<T>::value
-        typedef char T_must_be_placeholder[ I == is_placeholder<T>::value? 1: -1 ];
+        BOOST_STATIC_ASSERT( I == is_placeholder<T>::value );
     }
 };
 
@@ -63,9 +58,5 @@ template< int I > struct is_placeholder< arg<I> (*) () >
 #endif
 
 } // namespace boost
-
-#if BOOST_GCC >= 40700
-#pragma GCC diagnostic pop
-#endif
 
 #endif // #ifndef BOOST_BIND_ARG_HPP_INCLUDED

@@ -27,6 +27,15 @@
 #include <unistd.h>
 #endif
 
+#include <boost/algorithm/string/split.hpp>
+#include <boost/algorithm/string/trim.hpp>
+#include <boost/lexical_cast.hpp>
+
+#include <fstream>
+#include <string>
+#include <set>
+#include <vector>
+
 #include "./timeconv.inl"
 
 namespace boost
@@ -187,7 +196,9 @@ namespace boost
                 return 0;
             }
         }
-
+    }
+    namespace detail
+    {
         struct externally_launched_thread:
             detail::thread_data_base
         {
@@ -197,7 +208,12 @@ namespace boost
                 interrupt_enabled=false;
 #endif
             }
-
+            ~externally_launched_thread() {
+              BOOST_ASSERT(notify.empty());
+              notify.clear();
+              BOOST_ASSERT(async_states_.empty());
+              async_states_.clear();
+            }
             void run()
             {}
             void notify_all_at_thread_exit(condition_variable*, mutex*)
@@ -208,18 +224,18 @@ namespace boost
             void operator=(externally_launched_thread&);
         };
 
-        detail::thread_data_base* make_external_thread_data()
+        thread_data_base* make_external_thread_data()
         {
-            detail::thread_data_base* const me(new externally_launched_thread());
+            thread_data_base* const me(detail::heap_new<externally_launched_thread>());
             me->self.reset(me);
             set_current_thread_data(me);
             return me;
         }
 
 
-        detail::thread_data_base* get_or_make_current_thread_data()
+        thread_data_base* get_or_make_current_thread_data()
         {
-            detail::thread_data_base* current_thread_data(detail::get_current_thread_data());
+            thread_data_base* current_thread_data(get_current_thread_data());
             if(!current_thread_data)
             {
                 current_thread_data=make_external_thread_data();
@@ -417,6 +433,68 @@ namespace boost
 
     namespace this_thread
     {
+      namespace no_interruption_point
+      {
+        namespace hiden
+        {
+          void BOOST_THREAD_DECL sleep_for(const timespec& ts)
+          {
+
+                if (boost::detail::timespec_ge(ts, boost::detail::timespec_zero()))
+                {
+
+    #   if defined(BOOST_HAS_PTHREAD_DELAY_NP)
+    #     if defined(__IBMCPP__) ||  defined(_AIX)
+                  BOOST_VERIFY(!pthread_delay_np(const_cast<timespec*>(&ts)));
+    #     else
+                  BOOST_VERIFY(!pthread_delay_np(&ts));
+    #     endif
+    #   elif defined(BOOST_HAS_NANOSLEEP)
+                  //  nanosleep takes a timespec that is an offset, not
+                  //  an absolute time.
+                  nanosleep(&ts, 0);
+    #   else
+                  mutex mx;
+                  unique_lock<mutex> lock(mx);
+                  condition_variable cond;
+                  cond.do_wait_for(lock, ts);
+    #   endif
+                }
+          }
+
+          void BOOST_THREAD_DECL sleep_until(const timespec& ts)
+          {
+                timespec now = boost::detail::timespec_now();
+                if (boost::detail::timespec_gt(ts, now))
+                {
+                  for (int foo=0; foo < 5; ++foo)
+                  {
+
+    #   if defined(BOOST_HAS_PTHREAD_DELAY_NP)
+                    timespec d = boost::detail::timespec_minus(ts, now);
+                    BOOST_VERIFY(!pthread_delay_np(&d));
+    #   elif defined(BOOST_HAS_NANOSLEEP)
+                    //  nanosleep takes a timespec that is an offset, not
+                    //  an absolute time.
+                    timespec d = boost::detail::timespec_minus(ts, now);
+                    nanosleep(&d, 0);
+    #   else
+                    mutex mx;
+                    unique_lock<mutex> lock(mx);
+                    condition_variable cond;
+                    cond.do_wait_until(lock, ts);
+    #   endif
+                    timespec now2 = boost::detail::timespec_now();
+                    if (boost::detail::timespec_ge(now2, ts))
+                    {
+                      return;
+                    }
+                  }
+                }
+          }
+
+        }
+      }
       namespace hiden
       {
         void BOOST_THREAD_DECL sleep_for(const timespec& ts)
@@ -430,27 +508,7 @@ namespace boost
             }
             else
             {
-
-              if (boost::detail::timespec_ge(ts, boost::detail::timespec_zero()))
-              {
-
-  #   if defined(BOOST_HAS_PTHREAD_DELAY_NP)
-  #     if defined(__IBMCPP__)
-                BOOST_VERIFY(!pthread_delay_np(const_cast<timespec*>(&ts)));
-  #     else
-                BOOST_VERIFY(!pthread_delay_np(&ts));
-  #     endif
-  #   elif defined(BOOST_HAS_NANOSLEEP)
-                //  nanosleep takes a timespec that is an offset, not
-                //  an absolute time.
-                nanosleep(&ts, 0);
-  #   else
-                mutex mx;
-                unique_lock<mutex> lock(mx);
-                condition_variable cond;
-                cond.do_wait_for(lock, ts);
-  #   endif
-              }
+              boost::this_thread::no_interruption_point::hiden::sleep_for(ts);
             }
         }
 
@@ -465,37 +523,12 @@ namespace boost
             }
             else
             {
-              timespec now = boost::detail::timespec_now();
-              if (boost::detail::timespec_gt(ts, now))
-              {
-                for (int foo=0; foo < 5; ++foo)
-                {
-
-  #   if defined(BOOST_HAS_PTHREAD_DELAY_NP)
-                  timespec d = boost::detail::timespec_minus(ts, now);
-                  BOOST_VERIFY(!pthread_delay_np(&d));
-  #   elif defined(BOOST_HAS_NANOSLEEP)
-                  //  nanosleep takes a timespec that is an offset, not
-                  //  an absolute time.
-                  timespec d = boost::detail::timespec_minus(ts, now);
-                  nanosleep(&d, 0);
-  #   else
-                  mutex mx;
-                  unique_lock<mutex> lock(mx);
-                  condition_variable cond;
-                  cond.do_wait_until(lock, ts);
-  #   endif
-                  timespec now2 = boost::detail::timespec_now();
-                  if (boost::detail::timespec_ge(now2, ts))
-                  {
-                    return;
-                  }
-                }
-              }
+              boost::this_thread::no_interruption_point::hiden::sleep_until(ts);
             }
         }
       } // hiden
     } // this_thread
+
     namespace this_thread
     {
         void yield() BOOST_NOEXCEPT
@@ -533,6 +566,64 @@ namespace boost
         return get_nprocs();
 #else
         return 0;
+#endif
+    }
+
+    unsigned thread::physical_concurrency() BOOST_NOEXCEPT
+    {
+#ifdef __linux__
+        try {
+            using namespace std;
+
+            ifstream proc_cpuinfo ("/proc/cpuinfo");
+
+            const string physical_id("physical id"), core_id("core id");
+
+            typedef std::pair<unsigned, unsigned> core_entry; // [physical ID, core id]
+
+            std::set<core_entry> cores;
+
+            core_entry current_core_entry;
+
+            string line;
+            while ( getline(proc_cpuinfo, line) ) {
+                if (line.empty())
+                    continue;
+
+                vector<string> key_val(2);
+                boost::split(key_val, line, boost::is_any_of(":"));
+
+                if (key_val.size() != 2)
+                  return hardware_concurrency();
+
+                string key   = key_val[0];
+                string value = key_val[1];
+                boost::trim(key);
+                boost::trim(value);
+
+                if (key == physical_id) {
+                    current_core_entry.first = boost::lexical_cast<unsigned>(value);
+                    continue;
+                }
+
+                if (key == core_id) {
+                    current_core_entry.second = boost::lexical_cast<unsigned>(value);
+                    cores.insert(current_core_entry);
+                    continue;
+                }
+            }
+            // Fall back to hardware_concurrency() in case
+            // /proc/cpuinfo is formatted differently than we expect.
+            return cores.size() != 0 ? cores.size() : hardware_concurrency();
+        } catch(...) {
+          return hardware_concurrency();
+        }
+#elif defined(__APPLE__)
+        int count;
+        size_t size=sizeof(count);
+        return sysctlbyname("hw.physicalcpu",&count,&size,NULL,0)?0:count;
+#else
+        return hardware_concurrency();
 #endif
     }
 
@@ -663,7 +754,7 @@ namespace boost
         {
             detail::thread_data_base* const current_thread_data(get_or_make_current_thread_data());
             thread_exit_callback_node* const new_node=
-                new thread_exit_callback_node(func,current_thread_data->thread_exit_callbacks);
+                heap_new<thread_exit_callback_node>(func,current_thread_data->thread_exit_callbacks);
             current_thread_data->thread_exit_callbacks=new_node;
         }
 
@@ -701,8 +792,11 @@ namespace boost
 
         void erase_tss_node(void const* key)
         {
-            detail::thread_data_base* const current_thread_data(get_or_make_current_thread_data());
-            current_thread_data->tss_data.erase(key);
+            detail::thread_data_base* const current_thread_data(get_current_thread_data());
+            if(current_thread_data)
+            {
+                current_thread_data->tss_data.erase(key);
+            }
         }
 
         void set_tss_data(void const* key,
@@ -740,6 +834,17 @@ namespace boost
         current_thread_data->notify_all_at_thread_exit(&cond, lk.release());
       }
     }
+namespace detail {
+
+    void BOOST_THREAD_DECL make_ready_at_thread_exit(shared_ptr<shared_state_base> as)
+    {
+      detail::thread_data_base* const current_thread_data(detail::get_current_thread_data());
+      if(current_thread_data)
+      {
+        current_thread_data->make_ready_at_thread_exit(as);
+      }
+    }
+}
 
 
 

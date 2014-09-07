@@ -1,4 +1,4 @@
-	########################################################
+########################################################
 #  
 #  This is a CMake configuration file.
 #  To use it you need CMake which can be 
@@ -11,7 +11,16 @@
 # the BCP tool:
 #   http://www.boost.org/doc/libs/1_45_0/tools/bcp/doc/html/index.html
 #    
-# bcp call: bcp boost/bind.hpp boost/lambda/lambda.hpp boost/exception/all.hpp boost/tuple/tuple_io.hpp boost/tuple/tuple_comparison.hpp boost/filesystem.hpp boost/filesystem/fstream.hpp boost/regex.hpp boost/foreach.hpp boost/program_options.hpp boost/smart_ptr.hpp boost/algorithm/string_regex.hpp boost/thread.hpp boost/unordered_map.hpp boost/unordered_set.hpp boost/format.hpp boost/ptr_container/ptr_container.hpp ../BoostParts
+# tar xf boost_...tar.gz
+# ./bootstrap.sh
+# ./b2 tools/bcp
+# bcp call: ./dist/bin/bcp boost/bind.hpp boost/lambda/lambda.hpp boost/exception/all.hpp boost/tuple/tuple_io.hpp boost/tuple/tuple_comparison.hpp boost/filesystem.hpp boost/filesystem/fstream.hpp boost/regex.hpp boost/foreach.hpp boost/program_options.hpp boost/smart_ptr.hpp boost/algorithm/string_regex.hpp boost/thread.hpp boost/unordered_map.hpp boost/unordered_set.hpp boost/format.hpp boost/ptr_container/ptr_container.hpp ../BoostParts
+#
+# Note as of Boost 1.56 not all files are pulled in properly via bcp.
+# The following need to be manually copied:
+# boost/atomic/detail/caps_*
+# boost/atomic/detail/ops_*
+
 
 # WARNING: When doing this from fresh boost sources, note that
 # in the file /boost/config/user.hpp the BOOST_ALL_NO_LIB
@@ -68,7 +77,6 @@ set( SOURCES
      libs/regex/src/winstances.cpp
      libs/smart_ptr/src/sp_collector.cpp
      libs/smart_ptr/src/sp_debug_hooks.cpp
-     libs/system/src/error_code.cpp
      libs/thread/src/future.cpp
      libs/thread/src/tss_null.cpp
     )

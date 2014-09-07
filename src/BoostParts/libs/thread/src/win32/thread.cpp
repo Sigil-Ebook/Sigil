@@ -22,6 +22,7 @@
 #include <boost/thread/future.hpp>
 
 #include <boost/assert.hpp>
+#include <boost/cstdint.hpp>
 #if defined BOOST_THREAD_USES_DATETIME
 #include <boost/date_time/posix_time/conversion.hpp>
 #endif
@@ -128,7 +129,7 @@ namespace boost
             return ret;
         }
 
-        typedef void* uintptr_t;
+        //typedef void* uintptr_t;
 
         inline uintptr_t _beginthreadex(void* security, unsigned stack_size, unsigned (__stdcall* start_address)(void*),
                                               void* arglist, unsigned initflag, unsigned* thrdaddr)
@@ -278,6 +279,12 @@ namespace boost
                 interruption_enabled=false;
 #endif
             }
+            ~externally_launched_thread() {
+              BOOST_ASSERT(notify.empty());
+              notify.clear();
+              BOOST_ASSERT(async_states_.empty());
+              async_states_.clear();
+            }
 
             void run()
             {}
@@ -400,6 +407,8 @@ namespace boost
         return local_thread_info.get() && (detail::win32::WaitForSingleObject(local_thread_info->interruption_handle,0)==0);
     }
 
+#endif
+
     unsigned thread::hardware_concurrency() BOOST_NOEXCEPT
     {
         //SYSTEM_INFO info={{0}};
@@ -407,7 +416,30 @@ namespace boost
         GetSystemInfo(&info);
         return info.dwNumberOfProcessors;
     }
+
+    unsigned thread::physical_concurrency() BOOST_NOEXCEPT
+    {
+        unsigned cores = 0;
+#if !(defined(__MINGW32__) || defined (__MINGW64__))
+        DWORD size = 0;
+
+        GetLogicalProcessorInformation(NULL, &size);
+        if (ERROR_INSUFFICIENT_BUFFER != GetLastError())
+            return 0;
+
+        std::vector<SYSTEM_LOGICAL_PROCESSOR_INFORMATION> buffer(size);
+        if (GetLogicalProcessorInformation(&buffer.front(), &size) == FALSE)
+            return 0;
+
+        const size_t Elements = size / sizeof(SYSTEM_LOGICAL_PROCESSOR_INFORMATION);
+
+        for (size_t i = 0; i < Elements; ++i) {
+            if (buffer[i].Relationship == RelationProcessorCore)
+                ++cores;
+        }
 #endif
+        return cores;
+    }
 
     thread::native_handle_type thread::native_handle()
     {
@@ -429,7 +461,7 @@ namespace boost
                 LARGE_INTEGER due_time={{0,0}};
                 if(target_time.relative)
                 {
-                    unsigned long const elapsed_milliseconds=GetTickCount()-target_time.start;
+                    detail::win32::ticks_type const elapsed_milliseconds=detail::win32::GetTickCount64()()-target_time.start;
                     LONGLONG const remaining_milliseconds=(target_time.milliseconds-elapsed_milliseconds);
                     LONGLONG const hundred_nanoseconds_in_one_millisecond=10000;
 
@@ -575,6 +607,90 @@ namespace boost
             }
             while(time_left.more);
             return false;
+        }
+
+        namespace no_interruption_point
+        {
+        bool non_interruptible_wait(detail::win32::handle handle_to_wait_for,detail::timeout target_time)
+        {
+            detail::win32::handle handles[3]={0};
+            unsigned handle_count=0;
+            unsigned wait_handle_index=~0U;
+            unsigned timeout_index=~0U;
+            if(handle_to_wait_for!=detail::win32::invalid_handle_value)
+            {
+                wait_handle_index=handle_count;
+                handles[handle_count++]=handle_to_wait_for;
+            }
+            detail::win32::handle_manager timer_handle;
+
+#ifndef UNDER_CE
+            unsigned const min_timer_wait_period=20;
+
+            if(!target_time.is_sentinel())
+            {
+                detail::timeout::remaining_time const time_left=target_time.remaining_milliseconds();
+                if(time_left.milliseconds > min_timer_wait_period)
+                {
+                    // for a long-enough timeout, use a waitable timer (which tracks clock changes)
+                    timer_handle=CreateWaitableTimer(NULL,false,NULL);
+                    if(timer_handle!=0)
+                    {
+                        LARGE_INTEGER due_time=get_due_time(target_time);
+
+                        bool const set_time_succeeded=SetWaitableTimer(timer_handle,&due_time,0,0,0,false)!=0;
+                        if(set_time_succeeded)
+                        {
+                            timeout_index=handle_count;
+                            handles[handle_count++]=timer_handle;
+                        }
+                    }
+                }
+                else if(!target_time.relative)
+                {
+                    // convert short absolute-time timeouts into relative ones, so we don't race against clock changes
+                    target_time=detail::timeout(time_left.milliseconds);
+                }
+            }
+#endif
+
+            bool const using_timer=timeout_index!=~0u;
+            detail::timeout::remaining_time time_left(0);
+
+            do
+            {
+                if(!using_timer)
+                {
+                    time_left=target_time.remaining_milliseconds();
+                }
+
+                if(handle_count)
+                {
+                    unsigned long const notified_index=detail::win32::WaitForMultipleObjects(handle_count,handles,false,using_timer?INFINITE:time_left.milliseconds);
+                    if(notified_index<handle_count)
+                    {
+                        if(notified_index==wait_handle_index)
+                        {
+                            return true;
+                        }
+                        else if(notified_index==timeout_index)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    detail::win32::Sleep(time_left.milliseconds);
+                }
+                if(target_time.relative)
+                {
+                    target_time.milliseconds-=detail::timeout::max_non_infinite_wait;
+                }
+            }
+            while(time_left.more);
+            return false;
+        }
         }
 
         thread::id get_id() BOOST_NOEXCEPT
@@ -747,5 +863,16 @@ namespace boost
         current_thread_data->notify_all_at_thread_exit(&cond, lk.release());
       }
     }
+//namespace detail {
+//
+//    void BOOST_THREAD_DECL make_ready_at_thread_exit(shared_ptr<shared_state_base> as)
+//    {
+//      detail::thread_data_base* const current_thread_data(detail::get_current_thread_data());
+//      if(current_thread_data)
+//      {
+//        current_thread_data->make_ready_at_thread_exit(as);
+//      }
+//    }
+//}
 }
 

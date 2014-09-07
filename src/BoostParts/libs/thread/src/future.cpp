@@ -8,6 +8,7 @@
 
 
 #include <boost/thread/future_error_code.hpp>
+#include <string>
 
 namespace boost
 {

@@ -1,4 +1,4 @@
-// $Id: tss_pe.cpp 84717 2013-06-09 17:18:15Z viboes $
+// $Id$
 // (C) Copyright Aaron W. LaFramboise, Roland Schwarz, Michael Glassford 2004.
 // (C) Copyright 2007 Roland Schwarz
 // (C) Copyright 2007 Anthony Williams
@@ -287,10 +287,10 @@ extern BOOL (WINAPI * const _pDefaultRawDllMainOrig)(HANDLE, DWORD, LPVOID) = NU
             }
 
 #if (_MSC_VER >= 1500)
-			if( _pRawDllMainOrig )
-			{
-				return _pRawDllMainOrig(hInstance, dwReason, lpReserved);
-			}
+            if( _pRawDllMainOrig )
+            {
+                return _pRawDllMainOrig(hInstance, dwReason, lpReserved);
+            }
 #endif
             return true;
         }
