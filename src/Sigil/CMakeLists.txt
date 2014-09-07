@@ -749,7 +749,7 @@ elseif (MSVC)
     endforeach( lib )
 
     # Copy bin libs
-    set( QT_BIN_LIBS D3DCompiler_43 icudt51 icuin51 icuuc51 )
+    set( QT_BIN_LIBS D3DCompiler_47 icudt52 icuin52 icuuc52 )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_BIN_LIBS} )
         set( location location-NOTFOUND )
