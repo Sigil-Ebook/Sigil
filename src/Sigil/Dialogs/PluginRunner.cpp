@@ -28,14 +28,14 @@ const QStringList PluginRunner::CHANGESTAGS = QStringList() << "deleted" << "add
 
 PluginRunner::PluginRunner(TabManager* tabMgr, QWidget * parent)
     : QDialog(parent),
-    m_pluginName(""), 
+    m_mainWindow(qobject_cast<MainWindow *>(parent)),
+    m_tabManager(tabMgr),
     m_outputDir(m_folder.GetPath()),
+    m_pluginName(""), 
     m_pluginOutput(""),
     m_algorithm(""),
     m_result(""),
     m_xhtml_net_change(0),
-    m_mainWindow(qobject_cast<MainWindow *>(parent)),
-    m_tabManager(tabMgr),
     m_ready(false)
 
 {
@@ -550,7 +550,7 @@ bool PluginRunner::addFiles(const QStringList & files)
 #else
             // For Linux and Windows will replace current book
             // So Throw Up a Dialog to See if they want to proceed
-            proceed = false;
+            bool proceed = false;
             QMessageBox msgBox;
             msgBox.setIcon(QMessageBox::Warning);
             msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
