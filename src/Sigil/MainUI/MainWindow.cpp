@@ -168,12 +168,12 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_PreviousHTMLResource(NULL),
     m_PreviousHTMLText(QString()),
     m_PreviousHTMLLocation(QList<ViewEditor::ElementIndex>()),
-    m_SaveCSS(false),
     m_menuPlugins(NULL),
-    m_actionManagePlugins(NULL),
     m_menuPluginsInput(NULL),
     m_menuPluginsOutput(NULL),
     m_menuPluginsEdit(NULL)
+    m_actionManagePlugins(NULL),
+    m_SaveCSS(false),
 {
     ui.setupUi(this);
 

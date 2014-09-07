@@ -229,7 +229,6 @@ QHash < QString, QString>  SettingsStore::pluginEnginePaths()
     QString internal_lua;
     QHash < QString, QString> enginepath;
     QStringList enginelist;
-    int i;
 
     clearSettingsGroup();
 
@@ -237,7 +236,6 @@ QHash < QString, QString>  SettingsStore::pluginEnginePaths()
     // fields = engine, path to executable
     enginelist = value(KEY_PLUGIN_ENGINE_PATHS, "").toStringList();
 
-    i = 0;
     foreach(QString enginedata, enginelist) {
        if (enginedata != "") {
            QStringList fields = enginedata.split(QChar(31));
