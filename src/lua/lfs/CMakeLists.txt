@@ -6,14 +6,14 @@ include_directories (
     ${LUA_INCLUDE_DIR}
 )
 
-if(APPLE)
-    set(LINK_FLAGS "-undefined dynamic_lookup -all_load")
-endif()
-
 file( GLOB SOURCES src/*.c )
 
 add_library( ${PROJECT_NAME} MODULE ${SOURCES}) 
-set_target_properties( ${PROJECT_NAME} PROPERTIES LINK_FLAGS ${LINK_FLAGS} PREFIX "" DEBUG_POSTFIX "" SUFFIX ".so" )
+if(APPLE)
+    set_target_properties( ${PROJECT_NAME} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup -all_load" PREFIX "" DEBUG_POSTFIX "" SUFFIX ".so" )
+else()
+    set_target_properties( ${PROJECT_NAME} PROPERTIES PREFIX "" DEBUG_POSTFIX "" SUFFIX ".so" )
+endif()
 
 # Special compiler and linker flags for MSVC
 if( MSVC )
