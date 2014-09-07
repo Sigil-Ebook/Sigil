@@ -534,7 +534,7 @@ SearchEditorModel::searchEntry *SearchEditorModel::GetEntry(QStandardItem *item)
     return entry;
 }
 
-QStandardItem *SearchEditorModel::GetItemFromId(qint64 id, int row, QStandardItem *item) const
+QStandardItem *SearchEditorModel::GetItemFromId(quintptr id, int row, QStandardItem *item) const
 {
     QStandardItem *found_item = NULL;
 
@@ -553,7 +553,7 @@ QStandardItem *SearchEditorModel::GetItemFromId(qint64 id, int row, QStandardIte
     }
 
     for (int r = 0; r < item->rowCount(); r++) {
-        found_item = GetItemFromId(id, row, item->child(r, 0));
+        found_item = GetItemFromId((quintptr)id, row, item->child(r, 0));
 
         // Return with first found entry
         if (found_item) {

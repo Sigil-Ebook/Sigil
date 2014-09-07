@@ -98,7 +98,7 @@ private:
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
     Qt::DropActions supportedDropActions() const;
 
-    QStandardItem *GetItemFromId(qint64 id, int row, QStandardItem *item = NULL) const;
+    QStandardItem *GetItemFromId(quintptr id, int row, QStandardItem *item = NULL) const;
 
     QString CheckEntries(QList<SearchEditorModel::searchEntry *> entries);
 
