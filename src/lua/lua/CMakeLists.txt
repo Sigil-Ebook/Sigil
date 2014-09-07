@@ -8,14 +8,16 @@ include_directories (
 
 SET(RL "")
 if( APPLE )
-    set( CMAKE_C_FLAGS "-DLUA_USE_MACOSX" )
+    set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLUA_USE_MACOSX" )
     SET(RL "readline")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
     FIND_PACKAGE( Readline )
-    set( CMAKE_C_FLAGS "-DLUA_USE_LINUX" )
+    set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLUA_USE_LINUX" )
     SET(RL "readline")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "SunOS")
-    set( CMAKE_C_FLAGS "-DLUA_USE_POSIX -DLUA_USE_DLOPEN" )
+    set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLUA_USE_POSIX -DLUA_USE_DLOPEN" )
+elseif(WIN32)
+    set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_CRT_SECURE_NO_WARNINGS" )
 endif()
 
 file( GLOB SOURCES src/*.c )
@@ -25,7 +27,7 @@ list( REMOVE_ITEM SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/luac.c
 )
 
-if(WIN)
+if(WIN32)
     add_library( lua SHARED ${SOURCES}) 
 else()
     add_library( lua ${SOURCES}) 
