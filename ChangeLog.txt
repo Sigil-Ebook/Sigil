@@ -1,4 +1,4 @@
-Sigil 0.7.5 TBA
+Sigil 0.8.0 TBA
     - Plugin framework.
     - Add the svg image tag as an svg inline element (not a block element) and
       add it as an empty element (TidyEmptyTags).
