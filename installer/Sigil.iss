@@ -67,5 +67,5 @@ Components: dicon\common; Name: "{commondesktop}\Sigil"; Filename: "{app}\Sigil.
 Components: dicon\user; Name: "{userdesktop}\Sigil"; Filename: "{app}\Sigil.exe"
 
 [Run]
-Filename: {tmp}\vcredist.exe; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist.msi"" "; StatusMsg: Installing 2010 RunTime...
+Filename: {tmp}\vcredist.exe; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist.msi"" "; StatusMsg: Installing 2013 RunTime...
 
