@@ -84,7 +84,8 @@ class Opf_Parser(object):
                 id = tattr.pop("id",'')
                 href = tattr.pop("href",'')
                 mtype = tattr.pop("media-type",'')
-                self.manifest_id_to_href[id] = unquoteurl(href)
+                href = unquoteurl(href)
+                self.manifest_id_to_href[id] = href
                 self.manifest_id_to_mime[id] = mtype
                 self.href_to_manifest_id[href] = id
             # spine
