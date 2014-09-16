@@ -118,6 +118,14 @@ int PluginRunner::exec(const QString &name)
             reject();
             return QDialog::Rejected;
         }
+    } else if (m_engine == "python3.4") {
+        m_launcherPath = launcher_root + "/python2_7/launcher.py";
+        m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".py";
+        if (!QFileInfo(m_launcherPath).exists()) {
+            Utility::DisplayStdErrorDialog("Installation Error: plugin launcher " + m_launcherPath + " does not exist");
+            reject();
+            return QDialog::Rejected;
+        }
     } else if (m_engine == "lua5.2") {
         m_launcherPath = launcher_root + "/lua5_2/launcher.lua";
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".lua";
