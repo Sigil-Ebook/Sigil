@@ -18,10 +18,13 @@ public:
 private slots:
     void addPlugin();
     void AutoFindPy27();
+    void AutoFindPy34();
     void AutoFindLua52();
     void SetPy27();
+    void SetPy34();
     void SetLua52();
     void enginePy27PathChanged();
+    void enginePy34PathChanged();
     void engineLua52PathChanged();
     void removePlugin();
     void removeAllPlugins();

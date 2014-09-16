@@ -57,6 +57,7 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     }
     // add support for additional interpreter as above
     enginepath["python2.7"] = ui.editPathPy27->text();
+    enginepath["python3.4"] = ui.editPathPy34->text();
     enginepath["lua5.2"] = ui.editPathLua52->text();
     settings.setPluginInfo(plugininfo);
     settings.setPluginEnginePaths(enginepath);
@@ -64,7 +65,6 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     // we need to alert all of the MainWindows out there as to the change in Plugins
     // So that they can update their Plugin menu appropriately
     // This should work for all platforms even ones with only one main window
-    // Argh!  This causes crashes on Mac OS X!
     foreach (QWidget *mw, QApplication::topLevelWidgets()) {
        MainWindow * mwptr = qobject_cast<MainWindow *>(mw);
        if (mwptr && !mwptr->isHidden()) {
@@ -86,6 +86,7 @@ void PluginWidget::readSettings()
     int nrows = 0;
     // add support for additional interpreters below
     ui.editPathPy27->setText(enginepath.value("python2.7", ""));
+    ui.editPathPy34->setText(enginepath.value("python3.4", ""));
     ui.editPathLua52->setText(enginepath.value("lua5.2", ""));
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
@@ -236,6 +237,12 @@ void PluginWidget::AutoFindPy27()
     m_isDirty = true;
 }
 
+void PluginWidget::AutoFindPy34()
+{
+    ui.editPathPy34->setText(QStandardPaths::findExecutable("python3"));
+    m_isDirty = true;
+}
+
 void PluginWidget::AutoFindLua52()
 {
     ui.editPathLua52->setText(QStandardPaths::findExecutable("lua"));
@@ -252,6 +259,16 @@ void PluginWidget::SetPy27()
     m_isDirty = true;
 }
 
+void PluginWidget::SetPy34()
+{
+    QString name = QFileDialog::getOpenFileName(this, "Select Interpreter");
+    if (name.isEmpty()) {
+        return;
+    }
+    ui.editPathPy34->setText(name);
+    m_isDirty = true;
+}
+
 void PluginWidget::SetLua52()
 {
     QString name = QFileDialog::getOpenFileName(this, "Select Interpreter");
@@ -264,7 +281,6 @@ void PluginWidget::SetLua52()
 
 void PluginWidget::enginePy27PathChanged()
 {
-    // add additional interpreter support by adding their own find buttons and line edit paths
     // make sure typed in path actually exists
     QString enginepath = ui.editPathPy27->text();
     if (!enginepath.isEmpty()) {
@@ -279,9 +295,24 @@ void PluginWidget::enginePy27PathChanged()
     m_isDirty = true;
 }
 
+void PluginWidget::enginePy34PathChanged()
+{
+    // make sure typed in path actually exists
+    QString enginepath = ui.editPathPy34->text();
+    if (!enginepath.isEmpty()) {
+        QFileInfo enginfo(enginepath);
+        if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
+            disconnect(ui.editPathPy34, SIGNAL(editingFinished()), this, SLOT(enginePy34PathChanged()));
+            Utility::DisplayStdWarningDialog("Incorrect Interpreter Path selected");
+            ui.editPathPy34->setText("");
+            connect(ui.editPathPy34, SIGNAL(editingFinished()), this, SLOT(enginePy34PathChanged()));
+        }
+    }
+    m_isDirty = true;
+}
+
 void PluginWidget::engineLua52PathChanged()
 {
-    // add additional interpreter support by adding their own find buttons and line edit paths
     // make sure typed in path actually exists
     QString enginepath = ui.editPathLua52->text();
     if (!enginepath.isEmpty()) {
@@ -300,13 +331,16 @@ void PluginWidget::engineLua52PathChanged()
 void PluginWidget::connectSignalsToSlots()
 {
     connect(ui.Py27Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy27()));
+    connect(ui.Py34Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy34()));
     connect(ui.Lua52Auto, SIGNAL(clicked()), this, SLOT(AutoFindLua52()));
     connect(ui.Py27Set, SIGNAL(clicked()), this, SLOT(SetPy27()));
+    connect(ui.Py34Set, SIGNAL(clicked()), this, SLOT(SetPy34()));
     connect(ui.Lua52Set, SIGNAL(clicked()), this, SLOT(SetLua52()));
     connect(ui.addButton, SIGNAL(clicked()), this, SLOT(addPlugin()));
     connect(ui.removeButton, SIGNAL(clicked()), this, SLOT(removePlugin()));
     connect(ui.removeAllButton, SIGNAL(clicked()), this, SLOT(removeAllPlugins()));
     connect(ui.pluginTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(pluginSelected(int,int)));
     connect(ui.editPathPy27, SIGNAL(editingFinished()), this, SLOT(enginePy27PathChanged()));
+    connect(ui.editPathPy34, SIGNAL(editingFinished()), this, SLOT(enginePy34PathChanged()));
     connect(ui.editPathLua52, SIGNAL(editingFinished()), this, SLOT(engineLua52PathChanged()));
 }
