@@ -1,5 +1,9 @@
-#! /usr/bin/python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
+
+from __future__ import unicode_literals, division, absolute_import, print_function
+from compatibility_utils import text_type, binary_type
 
 import sys
 import os
@@ -23,14 +27,10 @@ class QuickXHTMLParser(object):
     def setContent(self, data, codec = 'utf-8' ):
         if data is None:
             data = ''
-        if isinstance(data, unicode):
-            self.content = data.encode('utf-8')
+        if isinstance(data, binary_type):
+            self.content = data.decode(codec)
         else:
-            if codec in  ['utf-8', 'UTF-8','cp65001','CP65001', 'utf8', 'UTF8']: 
-                self.content = data
-            else:
-                udata = data.decode(codec)
-                self.content = udata.encode('utf-8')
+            self.content = data
         self.pos = 0
         self.clen = len(self.content)
         self.tagpath = ['']
@@ -56,7 +56,7 @@ class QuickXHTMLParser(object):
         if tname == '!doctype':
             tname = '!DOCTYPE'
         # special cases
-        if tname in SPECIAL_HANDLING_TAGS.keys():
+        if tname in SPECIAL_HANDLING_TAGS:
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
         if ttype is None:
@@ -135,7 +135,7 @@ class QuickXHTMLParser(object):
                 if ttype == 'end':
                     last_begin = self.tagpath[-1]
                     if last_begin != tname:
-                        print 'Warning: Improperly Nested Tags: %s %s' % (last_begin, tname)
+                        print ('Warning: Improperly Nested Tags, nesting: ', self.tagpath, ' but parsing end tag: ', tname)
             yield text, tp, tname, ttype, tattr
             if ttype is not None:
                 if ttype == 'begin':
@@ -150,7 +150,7 @@ class QuickXHTMLParser(object):
             return ''
         if ttype == 'end':
             return '</%s>' % tname
-        if ttype in SPECIAL_HANDLING_TYPES and tattr is not None and 'special' in tattr.keys():
+        if ttype in SPECIAL_HANDLING_TYPES and tattr is not None and 'special' in tattr:
             info = tattr['special']
             if ttype == 'comment':
                 return '<%s %s-->' % tname, info
@@ -159,7 +159,7 @@ class QuickXHTMLParser(object):
         res = []
         res.append('<%s' % tname)
         if tattr is not None:
-            for key in tattr.keys():
+            for key in tattr:
                 res.append(' %s="%s"' % (key, tattr[key]))
         if ttype == 'single':
             res.append('/>')

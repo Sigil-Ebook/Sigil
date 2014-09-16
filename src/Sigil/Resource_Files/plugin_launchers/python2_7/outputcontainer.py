@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-# vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
+# -*- coding: utf-8 -*-
+# vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab                                                                               
+
+from __future__ import unicode_literals, division, absolute_import, print_function
 
 import sys
 import os
@@ -68,7 +71,7 @@ class OutputContainer(object):
 
     def text_iter(self):
         # yields manifest id, href
-        for id in sorted(self._w.id_to_mime.keys()):
+        for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
             if mime == 'application/xhtml+xml':
                 href = self._w.id_to_href[id]
@@ -76,7 +79,7 @@ class OutputContainer(object):
 
     def css_iter(self):
         # yields manifest id, href
-        for id in sorted(self._w.id_to_mime.keys()):
+        for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
             if mime == 'text/css':
                 href = self._w.id_to_href[id]
@@ -84,7 +87,7 @@ class OutputContainer(object):
 
     def image_iter(self):
         # yields manifest id, href, and mimetype
-        for id in sorted(self._w.id_to_mime.keys()):
+        for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
             if mime.startswith('image'):
                 href = self._w.id_to_href[id]
@@ -92,7 +95,7 @@ class OutputContainer(object):
 
     def font_iter(self):
         # yields manifest id, href, and mimetype
-        for id in sorted(self._w.id_to_mime.keys()):
+        for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
             if mime.find('font-') > -1 or mime.endswith('-ttf') or mime.endswith('truetype') or mime.endswith('opentype'):
                 href = self._w.id_to_href[id]
@@ -100,7 +103,7 @@ class OutputContainer(object):
 
     def manifest_iter(self):
         # yields manifest id, href, and mimetype
-        for id in sorted(self._w.id_to_mime.keys()):
+        for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
             href = self._w.id_to_href[id]
             yield id, href, mime
@@ -120,7 +123,7 @@ class OutputContainer(object):
 
     def media_iter(self):
         # yields manifest, title, href, and manifest id of href  
-        for id in sorted(self._w.id_to_mime.keys()):
+        for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
             if mime.startswith('audio') or mime.startswith('video'):
                 href = self._w.id_to_href[id]

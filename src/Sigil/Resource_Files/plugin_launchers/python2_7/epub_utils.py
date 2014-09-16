@@ -1,5 +1,9 @@
 #!/usr/bin/env python
-# vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
+# -*- coding: utf-8 -*-
+# vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab                                                                               
+
+from __future__ import unicode_literals, division, absolute_import, print_function
+from compatibility_utils import text_type, binary_type, utf8_str, unicode_str
 
 import sys, os
 import struct, array, binascii, re
@@ -10,8 +14,8 @@ import zlib
 import zipfile
 from zipfile import ZipFile
 
-import path
-from path import pathof
+import unipath
+from unipath import pathof
 
 import hashlib
 
@@ -20,7 +24,7 @@ def SHA1(message):
     ctx.update(message)
     return ctx.digest()
 
-epub_mimetype = 'application/epub+zip'
+epub_mimetype = b'application/epub+zip'
 
 
 def unzip_epub_to_dir(path_to_epub, destdir):
@@ -41,7 +45,7 @@ def unzip_epub_to_dir(path_to_epub, destdir):
 
 def epub_zip_up_book_contents(ebook_path, epub_filepath):
         outzip = zipfile.ZipFile(pathof(epub_filepath), 'w')
-        files = path.walk(ebook_path)
+        files = unipath.walk(ebook_path)
         if 'mimetype' in files:
             outzip.write(pathof(os.path.join(ebook_path, 'mimetype')), pathof('mimetype'), zipfile.ZIP_STORED)
         else:
@@ -55,7 +59,7 @@ def epub_zip_up_book_contents(ebook_path, epub_filepath):
 
 
 def build_container_xml(relative_path_to_opf):
-    opf_path = utf8_str(relative_path_to_opf)
+    opf_path = unicode_str(relative_path_to_opf)
     container = '<?xml version="1.0" encoding="UTF-8"?>\n'
     container += '<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">\n'
     container += '    <rootfiles>\n'
@@ -86,10 +90,10 @@ def Adobe_encryption_key(uid):
     # strip it down to simple valid hex characters
     # being careful to generate a string of 16 bytes in length
     key = utf8_str(uid)
-    if key.startswith("urn:uuid:"):
+    if key.startswith(b"urn:uuid:"):
         key = key[9:]
-    key = key.replace('-','')
-    key = re.sub(r'[^a-fA-F0-9]', '', key)
+    key = key.replace(b'-',b'')
+    key = re.sub(r'[^a-fA-F0-9]', b'', key)
     key = binascii.unhexlify((key + key)[:32])
     return key
     
@@ -98,35 +102,30 @@ def Adobe_encryption_key(uid):
 def Idpf_encryption_key(uid):
     # remove whitespace changing nothing else
     key = utf8_str(uid)
-    key = key.replace(chr(x20),'')
-    key = key.replace(chr(x09),'')
-    key = key.replace(chr(x0d),'')
-    key = key.replace(chr(x0a),'')
+    key = key.replace(chr(x20),b'')
+    key = key.replace(chr(x09),b'')
+    key = key.replace(chr(x0d),b'')
+    key = key.replace(chr(x0a),b'')
     key = SHA1(key)
     return key
 
 
 
 def Adobe_mangle_fonts(encryption_key, data):
-    """
-    encryption_key = tuple(map(ord, encryption_key))
-    encrypted_data_list = []
-    for i in range(1024):
-        encrypted_data_list.append(\
-        chr(ord(data[i]) ^ encryption_key[i%16]))
-    encrypted_data_list.append(data[1024:])
-    return "".join(encrypted_data_list)
-    """
+    if isinstance(data, text_type):
+        print('Error: font data must be a byte string')
     crypt = data[:1024]
     key = cycle(iter(map(ord, encryption_key)))
-    encrypt = ''.join([chr(ord(x)^key.next()) for x in crypt])
+    encrypt = b''.join([chr(ord(x)^next(key)) for x in crypt])
     return encrypt + data[1024:]
 
 
 
 def Idpf_mangle_fonts(encryption_key, data):
+    if isinstance(data, text_type):
+        print('Error: font data must be a byte string')
     crypt = data[:1040]
     key = cycle(iter(map(ord, encryption_key)))
-    encrypt = ''.join([chr(ord(x)^key.next()) for x in crypt])
+    encrypt = b''.join([chr(ord(x)^next(key)) for x in crypt])
     return encrypt + data[1040:]
 
