@@ -1,8 +1,8 @@
 Sigil is a free, open source, multi-platform ebook editor.
 It is designed to edit books in ePub format.
 
-* It's website is located here: http://code.google.com/p/sigil/
-* It's current code repository is located here: https://github.com/user-none/Sigil
+* Its website is located here: http://code.google.com/p/sigil/
+* Its current code repository is located here: https://github.com/user-none/Sigil
 * Translations are located here: https://www.transifex.com/projects/p/sigil/
 * Support forums are located here: http://www.mobileread.com/
 
