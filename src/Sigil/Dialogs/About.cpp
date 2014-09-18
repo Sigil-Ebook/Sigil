@@ -52,6 +52,7 @@ About::About(QWidget *parent)
         "<ul><li>John Schember</li></ul>" +
         "<h4>" + tr("Code Contributors") + "</h4>" +
         "<ul>" + 
+        "<li>Kevin Hendricks</li>" +
         "<li>Grant Drake</li>" + 
         "<li>Dave Heiland</li>" + 
         "<li>Charles King</li>" + 
