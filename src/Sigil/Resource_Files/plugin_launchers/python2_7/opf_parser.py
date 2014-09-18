@@ -1,10 +1,12 @@
 #!/usr/bin/env python
-# vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
+# -*- coding: utf-8 -*-
+# vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab                                                                               
+
+from __future__ import unicode_literals, division, absolute_import, print_function
+from compatibility_utils import unquoteurl
+from unipath import pathof
 
 import sys, os
-from utf8_utils import utf8_str
-from path import pathof
-from path import unquoteurl
 
 _OPF_PARENT_TAGS = ['xml', 'package', 'metadata', 'dc-metadata', 'x-metadata', 'manifest', 'spine', 'tours', 'guide']
 
@@ -12,10 +14,11 @@ class Opf_Parser(object):
 
     def __init__(self, opf_path, debug = False):
         self._debug = debug
-        self.opfname = utf8_str(os.path.basename(opf_path))
+        opf_path = pathof(opf_path)
+        self.opfname = os.path.basename(opf_path)
         self.opf = None
-        with open(pathof(opf_path),'rb') as fp:
-            self.opf = fp.read()
+        with open(opf_path,'rb') as fp:
+            self.opf = fp.read().decode('utf-8')
         self.opos = 0
         self.package_tag = [None, None]
         # self.package_version = None
@@ -68,7 +71,7 @@ class Opf_Parser(object):
     def _parseData(self):
         for prefix, tname, tattr, tcontent in self._opf_tag_iter():
             if self._debug:
-                print "   Parsing OPF: ", prefix, tname, tattr, tcontent
+                print ("   Parsing OPF: ", prefix, tname, tattr, tcontent)
             # package
             if tname == "package":
                 self.package_tag = [tname, tattr]
@@ -98,9 +101,9 @@ class Opf_Parser(object):
                 self.spine.append((idref,linear))
                 # ver 3 allows page properites per page
                 # remove id since may be confusing
-                # if "id" in tattr.keys():
+                # if "id" in tattr:
                 #     del tattr["id"]
-                # if "properties in tattr.keys():
+                # if "properties in tattr:
                 #     self.spine_pageattributes[idref] = tattr
 
             # guide
@@ -190,7 +193,7 @@ class Opf_Parser(object):
         tname, tattr, tcontent = taginfo
         res.append('<' + tname)
         if tattr is not None:
-            for key in tattr.keys():
+            for key in tattr:
                 res.append(' ' + key + '="'+tattr[key]+'"' )
         if tcontent is not None:
             res.append('>' + tcontent + '</' + tname + '>\n')
@@ -204,7 +207,7 @@ class Opf_Parser(object):
             return ''
         tag = "<" + tname
         if tattr is not None:
-            for key in tattr.keys():
+            for key in tattr:
                 tag += ' ' + key + '="'+tattr[key]+'"'
         tag += '>\n'
         return tag
@@ -216,7 +219,7 @@ class Opf_Parser(object):
             return ''
         tag = "<" + tname
         if tattr is not None:
-            for key in tattr.keys():
+            for key in tattr:
                 tag += ' ' + key + '="'+tattr[key]+'"'
         tag += '>\n'
         data.append(tag)

@@ -2,10 +2,14 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
+from __future__ import unicode_literals, division, absolute_import, print_function
+from compatibility_utils import PY3, text_type, utf8_str, unicode_str
+from compatibility_utils import unicode_argv, add_cp65001_codec
+
 # Sigil Python Script Launcher
 #
 # This launcher script is aways invoked by the script manager 
-# for python 2 scripts.  It is passed in:
+# for python scripts (both Python 2.7 and 3.4 and later).  It is passed in:
 # ebook_root, output directory, script type, and path to target script location
 #
 # This launcher script will parse the opf and make available 
@@ -21,11 +25,10 @@
 # to Sigil before the launcher script exits
 
 import sys
-import os, os.path, urllib
+import os, os.path
 import codecs
-
-import path
-from path import pathof
+import unipath
+from unipath import pathof
 
 from opf_parser import Opf_Parser
 from wrapper import Wrapper
@@ -34,10 +37,14 @@ from inputcontainer import InputContainer
 from outputcontainer import OutputContainer
 
 from xml.sax.saxutils import escape as xmlescape
-from HTMLParser import HTMLParser
+
+try:
+    from html.parser import HTMLParser
+except ImportError:
+    from HTMLParser import HTMLParser
+
 import traceback
 
-from utf8_utils import add_cp65001_codec, utf8_argv, utf8_str
 add_cp65001_codec()
 
 _DEBUG=False
@@ -51,15 +58,9 @@ _h = HTMLParser()
 
 def escapeit(sval, EXTRAS=None):
     global _h
-    _h = HTMLParser()
-    # note, xmlescape and unescape do not work with utf-8 bytestrings
-    # so pre-convert to full unicode and then convert back since our result xml is utf-8 encoded
-    uval = sval.decode('utf-8')
     if EXTRAS:
-        ures = xmlescape(_h.unescape(uval), EXTRAS)
-    else:
-        ures = xmlescape(_h.unescape(uval))
-    return ures.encode('utf-8')
+        return xmlescape(_h.unescape(sval), EXTRAS)
+    return xmlescape(_h.unescape(sval))
 
 
 # Wrap a stream so that output gets saved
@@ -73,7 +74,7 @@ class SavedStream:
         if self.encoding == None:
             self.encoding = 'utf-8'
     def write(self, data):
-        if isinstance(data,unicode):
+        if isinstance(data, text_type):
             data = data.encode('utf-8')
         elif self.encoding not in ['utf-8','UTF-8','cp65001','CP65001']:
             udata = data.decode(self.encoding)
@@ -113,7 +114,7 @@ class ProcessScript(object):
             self.exitcode = target_script.run(container)
             sys.stdout = sys.stdout.stream
             sys.stderr = sys.stderr.stream
-        except Exception, e:
+        except Exception as e:
             sys.stderr.write(traceback.format_exc())
             sys.stderr.write("Error: %s\n" % e)
             sys.stdout = sys.stdout.stream
@@ -132,7 +133,7 @@ class ProcessScript(object):
         self.wrapout.append('<changes>\n')
         if script_type == "edit":
             for id in container._w.deleted:
-                if id in container._w.id_to_href.keys():
+                if id in container._w.id_to_href:
                     href = container._w.id_to_href[id]
                     mime = container._w.id_to_mime[id]
                     bookhref = 'OEBPS/' + href
@@ -143,7 +144,7 @@ class ProcessScript(object):
                 self.wrapout.append('<deleted href="%s" id="%s" media-type="%s" />\n' % (bookhref, id, mime))
         if script_type in ['input', 'edit']:
             for id in container._w.added:
-                if id in container._w.id_to_href.keys():
+                if id in container._w.id_to_href:
                     href = container._w.id_to_href[id]
                     bookhref = 'OEBPS/' + href
                     mime = container._w.id_to_mime[id]
@@ -153,8 +154,8 @@ class ProcessScript(object):
                     mime = container._w.getmime(bookhref)
                 self.wrapout.append('<added href="%s" id="%s" media-type="%s" />\n' % (bookhref, id, mime))
         if script_type == 'edit':
-            for id in container._w.modified.keys():
-                if id in container._w.id_to_href.keys():
+            for id in container._w.modified:
+                if id in container._w.id_to_href:
                     href = container._w.id_to_href[id]
                     bookhref = 'OEBPS/' + href
                     mime = container._w.id_to_mime[id]
@@ -175,17 +176,21 @@ def failed(script_type, msg):
     else:
         wrapper += '<wrapper type="%s">\n<result>failed</result>\n<changes/>\n' % script_type
     wrapper += '<msg>%s</msg>\n</wrapper>\n' % msg
-    sys.stdout.write(wrapper)
+    # write it to stdout and exit
+    if PY3:
+        sys.stdout.buffer.write(utf8_str(wrapper))
+    else:
+        sys.stdout.write(utf8_str(wrapper))
 
 
-# uses the utf8_arv call to properly handle full unicode paths on Windows
+# uses the unicode_arv call to convert all command line paths to full unicode
 # arguments:
 #      path to Sigil's ebook_root
 #      path to Sigil's output (temp) directory
 #      script type ("input", "output", "edit")
 #      path to script target file
 
-def main(argv=utf8_argv()):
+def main(argv=unicode_argv()):
 
     if len(argv) != 5:
         failed(None, msg="Launcher: improper number of arguments passed to launcher.py")
@@ -203,22 +208,22 @@ def main(argv=utf8_argv()):
         failed(None, msg="Launcher: script type %s is not supported" % script_type)
         return -1
 
-    ok = path.exists(ebook_root) and path.isdir(ebook_root)
-    ok = ok and path.exists(outdir) and path.isdir(outdir)
-    ok = ok and path.exists(script_home) and path.isdir(script_home)
-    ok = ok and path.exists(target_file) and path.isfile(target_file)
+    ok = unipath.exists(ebook_root) and unipath.isdir(ebook_root)
+    ok = ok and unipath.exists(outdir) and unipath.isdir(outdir)
+    ok = ok and unipath.exists(script_home) and unipath.isdir(script_home)
+    ok = ok and unipath.exists(target_file) and unipath.isfile(target_file)
     if not ok:
         failed(None, msg="Launcher: missing or incorrect paths passed in")
         return -1
 
     # update sys with path to target module home directory
-    if pathof(script_home) not in sys.path:
-        sys.path.append(pathof(script_home))
+    if script_home not in sys.path:
+        sys.path.append(script_home)
 
     # load and parse opf if present
     op = None
     opf_path = os.path.join(ebook_root,'OEBPS','content.opf')
-    if path.exists(opf_path) and path.isfile(opf_path):
+    if unipath.exists(opf_path) and unipath.isfile(opf_path):
         op = Opf_Parser(opf_path)
 
     # create a wrapper for record keeping and safety
@@ -237,8 +242,14 @@ def main(argv=utf8_argv()):
     ps.launch()
 
     # get standard error and standard out from the target script
-    successmsg =  escapeit("".join(ps.stdouttext))
-    errorlog =  escapeit("".join(ps.stderrtext))
+    successmsg = ''
+    for data in ps.stdouttext:
+        successmsg += unicode_str(data)
+    successmsg =  escapeit(successmsg)
+    errorlog = ''
+    for data in ps.stderrtext:
+        errorlog += unicode_str(data)
+    errorlog = escapeit(errorlog)
 
     # get the target's script wrapper xml
     resultxml = "".join(ps.wrapout)
@@ -254,7 +265,10 @@ def main(argv=utf8_argv()):
     resultxml +='</msg>\n</wrapper>\n'
 
     # write it to stdout and exit
-    sys.stdout.write(resultxml)
+    if PY3:
+        sys.stdout.buffer.write(utf8_str(resultxml))
+    else:
+        sys.stdout.write(utf8_str(resultxml))
     return 0
     
 if __name__ == "__main__":
