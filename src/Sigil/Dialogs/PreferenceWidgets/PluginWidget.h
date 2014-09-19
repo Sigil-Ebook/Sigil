@@ -17,15 +17,15 @@ public:
 
 private slots:
     void addPlugin();
-    void AutoFindPy27();
-    void AutoFindPy34();
-    void AutoFindLua52();
-    void SetPy27();
-    void SetPy34();
-    void SetLua52();
-    void enginePy27PathChanged();
-    void enginePy34PathChanged();
-    void engineLua52PathChanged();
+    void AutoFindPy2();
+    void AutoFindPy3();
+    void AutoFindLua();
+    void SetPy2();
+    void SetPy3();
+    void SetLua();
+    void enginePy2PathChanged();
+    void enginePy3PathChanged();
+    void engineLuaPathChanged();
     void removePlugin();
     void removeAllPlugins();
     void pluginSelected(int row, int col);

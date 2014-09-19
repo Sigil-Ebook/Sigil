@@ -55,10 +55,9 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
         pdata << name << author << description << plugintype << engine;
         plugininfo[name] = pdata;
     }
-    // add support for additional interpreter as above
-    enginepath["python2.7"] = ui.editPathPy27->text();
-    enginepath["python3.4"] = ui.editPathPy34->text();
-    enginepath["lua5.2"] = ui.editPathLua52->text();
+    enginepath["python2.7"] = ui.editPathPy2->text();
+    enginepath["python3.4"] = ui.editPathPy3->text();
+    enginepath["lua5.2"] = ui.editPathLua->text();
     settings.setPluginInfo(plugininfo);
     settings.setPluginEnginePaths(enginepath);
 
@@ -84,10 +83,9 @@ void PluginWidget::readSettings()
     QHash < QString, QStringList > plugininfo = settings.pluginInfo();
     QStringList names = plugininfo.keys();
     int nrows = 0;
-    // add support for additional interpreters below
-    ui.editPathPy27->setText(enginepath.value("python2.7", ""));
-    ui.editPathPy34->setText(enginepath.value("python3.4", ""));
-    ui.editPathLua52->setText(enginepath.value("lua5.2", ""));
+    ui.editPathPy2->setText(enginepath.value("python2.7", ""));
+    ui.editPathPy3->setText(enginepath.value("python3.4", ""));
+    ui.editPathLua->setText(enginepath.value("lua5.2", ""));
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
         ui.pluginTable->removeRow(0);
@@ -127,7 +125,7 @@ void PluginWidget::pluginSelected(int row, int col)
 
 void PluginWidget::addPlugin()
 {
-    QString zippath = QFileDialog::getOpenFileName(this, "Select Plugin Zip Archive", "./", "Plugin Files (*.zip)");
+    QString zippath = QFileDialog::getOpenFileName(this, tr("Select Plugin Zip Archive"), "./", tr("Plugin Files (*.zip)"));
     if (zippath.isEmpty()) {
         return;
     }
@@ -139,19 +137,19 @@ void PluginWidget::addPlugin()
         names.append(ui.pluginTable->item(i, PluginRunner::NameField)->text());
     }
     if (names.contains(pluginname, Qt::CaseInsensitive)) {
-        Utility::DisplayStdWarningDialog("Warning: A plugin by that name already exists");
+        Utility::DisplayStdWarningDialog(tr("Warning: A plugin by that name already exists"));
         return;
     }
 
     if (!Utility::UnZip(zippath,m_PluginsPath)) {
-        Utility::DisplayStdWarningDialog("Error: Plugin Could Not be Unzipped.");
+        Utility::DisplayStdWarningDialog(tr("Error: Plugin Could Not be Unzipped."));
         return;
     }
     QString xmlpath = m_PluginsPath + "/" + pluginname + "/plugin.xml";
     QFile file(xmlpath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-         Utility::DisplayStdWarningDialog("Error: Plugin plugin.xml file can not be read.");
-         return;
+        Utility::DisplayStdWarningDialog(tr("Error: Plugin plugin.xml file can not be read."));
+        return;
     }
     QXmlStreamReader reader(&file);
     QString name;
@@ -190,8 +188,8 @@ void PluginWidget::removePlugin()
   // limited to work with one selection at a time to prevent row mixup upon removal
     QList<QTableWidgetItem*> itemlist = ui.pluginTable->selectedItems();
     if (itemlist.isEmpty()) {
-         Utility::DisplayStdWarningDialog("Nothing is Selected.");
-         return;
+        Utility::DisplayStdWarningDialog(tr("Nothing is Selected."));
+        return;
     }
     int row = ui.pluginTable->row(itemlist.at(0));
     QString pluginname = ui.pluginTable->item(row, PluginRunner::NameField)->text();
@@ -210,8 +208,8 @@ void PluginWidget::removeAllPlugins()
     QMessageBox msgBox;
     msgBox.setIcon(QMessageBox::Warning);
     msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
-    msgBox.setWindowTitle("Remove All Plugins");
-    msgBox.setText("Are you sure sure you want to remove all of your plugins?");
+    msgBox.setWindowTitle(tr("Remove All Plugins"));
+    msgBox.setText(tr("Are you sure sure you want to remove all of your plugins?"));
     QPushButton * yesButton = msgBox.addButton(QMessageBox::Yes);
     QPushButton * noButton =  msgBox.addButton(QMessageBox::No);
     msgBox.setDefaultButton(noButton);
@@ -231,97 +229,101 @@ void PluginWidget::removeAllPlugins()
 }
 
 
-void PluginWidget::AutoFindPy27()
+void PluginWidget::AutoFindPy2()
 {
-    ui.editPathPy27->setText(QStandardPaths::findExecutable("python"));
+    QString p2path = QStandardPaths::findExecutable("python2");
+    if (p2path.isEmpty()) p2path = QStandardPaths::findExecutable("python");
+    ui.editPathPy2->setText(p2path);
     m_isDirty = true;
 }
 
-void PluginWidget::AutoFindPy34()
+void PluginWidget::AutoFindPy3()
 {
-    ui.editPathPy34->setText(QStandardPaths::findExecutable("python3"));
+    QString p3path = QStandardPaths::findExecutable("python3");
+    if (p3path.isEmpty()) p3path = QStandardPaths::findExecutable("python");
+    ui.editPathPy3->setText(p3path);
     m_isDirty = true;
 }
 
-void PluginWidget::AutoFindLua52()
+void PluginWidget::AutoFindLua()
 {
-    ui.editPathLua52->setText(QStandardPaths::findExecutable("lua"));
+    ui.editPathLua->setText(QStandardPaths::findExecutable("lua"));
     m_isDirty = true;
 }
 
-void PluginWidget::SetPy27()
+void PluginWidget::SetPy2()
 {
-    QString name = QFileDialog::getOpenFileName(this, "Select Interpreter");
+    QString name = QFileDialog::getOpenFileName(this, tr("Select Interpreter"));
     if (name.isEmpty()) {
         return;
     }
-    ui.editPathPy27->setText(name);
+    ui.editPathPy2->setText(name);
     m_isDirty = true;
 }
 
-void PluginWidget::SetPy34()
+void PluginWidget::SetPy3()
 {
-    QString name = QFileDialog::getOpenFileName(this, "Select Interpreter");
+    QString name = QFileDialog::getOpenFileName(this, tr("Select Interpreter"));
     if (name.isEmpty()) {
         return;
     }
-    ui.editPathPy34->setText(name);
+    ui.editPathPy3->setText(name);
     m_isDirty = true;
 }
 
-void PluginWidget::SetLua52()
+void PluginWidget::SetLua()
 {
-    QString name = QFileDialog::getOpenFileName(this, "Select Interpreter");
+    QString name = QFileDialog::getOpenFileName(this, tr("Select Interpreter"));
     if (name.isEmpty()) {
         return;
     }
-    ui.editPathLua52->setText(name);
+    ui.editPathLua->setText(name);
     m_isDirty = true;
 }
 
-void PluginWidget::enginePy27PathChanged()
+void PluginWidget::enginePy2PathChanged()
 {
     // make sure typed in path actually exists
-    QString enginepath = ui.editPathPy27->text();
+    QString enginepath = ui.editPathPy2->text();
     if (!enginepath.isEmpty()) {
         QFileInfo enginfo(enginepath);
         if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
-            disconnect(ui.editPathPy27, SIGNAL(editingFinished()), this, SLOT(enginePy27PathChanged()));
-            Utility::DisplayStdWarningDialog("Incorrect Interpreter Path selected");
-            ui.editPathPy27->setText("");
-            connect(ui.editPathPy27, SIGNAL(editingFinished()), this, SLOT(enginePy27PathChanged()));
+            disconnect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
+            Utility::DisplayStdWarningDialog(tr("Incorrect Interpreter Path selected"));
+            ui.editPathPy2->setText("");
+            connect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
         }
     }
     m_isDirty = true;
 }
 
-void PluginWidget::enginePy34PathChanged()
+void PluginWidget::enginePy3PathChanged()
 {
     // make sure typed in path actually exists
-    QString enginepath = ui.editPathPy34->text();
+    QString enginepath = ui.editPathPy3->text();
     if (!enginepath.isEmpty()) {
         QFileInfo enginfo(enginepath);
         if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
-            disconnect(ui.editPathPy34, SIGNAL(editingFinished()), this, SLOT(enginePy34PathChanged()));
-            Utility::DisplayStdWarningDialog("Incorrect Interpreter Path selected");
-            ui.editPathPy34->setText("");
-            connect(ui.editPathPy34, SIGNAL(editingFinished()), this, SLOT(enginePy34PathChanged()));
+            disconnect(ui.editPathPy3, SIGNAL(editingFinished()), this, SLOT(enginePy3PathChanged()));
+            Utility::DisplayStdWarningDialog(tr("Incorrect Interpreter Path selected"));
+            ui.editPathPy3->setText("");
+            connect(ui.editPathPy3, SIGNAL(editingFinished()), this, SLOT(enginePy3PathChanged()));
         }
     }
     m_isDirty = true;
 }
 
-void PluginWidget::engineLua52PathChanged()
+void PluginWidget::engineLuaPathChanged()
 {
     // make sure typed in path actually exists
-    QString enginepath = ui.editPathLua52->text();
+    QString enginepath = ui.editPathLua->text();
     if (!enginepath.isEmpty()) {
         QFileInfo enginfo(enginepath);
         if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
-            disconnect(ui.editPathLua52, SIGNAL(editingFinished()), this, SLOT(engineLua52PathChanged()));
-            Utility::DisplayStdWarningDialog("Incorrect Interpreter Path selected");
-            ui.editPathLua52->setText("");
-            connect(ui.editPathLua52, SIGNAL(editingFinished()), this, SLOT(engineLua52PathChanged()));
+            disconnect(ui.editPathLua, SIGNAL(editingFinished()), this, SLOT(engineLuaPathChanged()));
+            Utility::DisplayStdWarningDialog(tr("Incorrect Interpreter Path selected"));
+            ui.editPathLua->setText("");
+            connect(ui.editPathLua, SIGNAL(editingFinished()), this, SLOT(engineLuaPathChanged()));
         }
     }
     m_isDirty = true;
@@ -330,17 +332,17 @@ void PluginWidget::engineLua52PathChanged()
 
 void PluginWidget::connectSignalsToSlots()
 {
-    connect(ui.Py27Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy27()));
-    connect(ui.Py34Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy34()));
-    connect(ui.Lua52Auto, SIGNAL(clicked()), this, SLOT(AutoFindLua52()));
-    connect(ui.Py27Set, SIGNAL(clicked()), this, SLOT(SetPy27()));
-    connect(ui.Py34Set, SIGNAL(clicked()), this, SLOT(SetPy34()));
-    connect(ui.Lua52Set, SIGNAL(clicked()), this, SLOT(SetLua52()));
+    connect(ui.Py2Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy2()));
+    connect(ui.Py3Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy3()));
+    connect(ui.LuaAuto, SIGNAL(clicked()), this, SLOT(AutoFindLua()));
+    connect(ui.Py2Set, SIGNAL(clicked()), this, SLOT(SetPy2()));
+    connect(ui.Py3Set, SIGNAL(clicked()), this, SLOT(SetPy3()));
+    connect(ui.LuaSet, SIGNAL(clicked()), this, SLOT(SetLua()));
     connect(ui.addButton, SIGNAL(clicked()), this, SLOT(addPlugin()));
     connect(ui.removeButton, SIGNAL(clicked()), this, SLOT(removePlugin()));
     connect(ui.removeAllButton, SIGNAL(clicked()), this, SLOT(removeAllPlugins()));
     connect(ui.pluginTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(pluginSelected(int,int)));
-    connect(ui.editPathPy27, SIGNAL(editingFinished()), this, SLOT(enginePy27PathChanged()));
-    connect(ui.editPathPy34, SIGNAL(editingFinished()), this, SLOT(enginePy34PathChanged()));
-    connect(ui.editPathLua52, SIGNAL(editingFinished()), this, SLOT(engineLua52PathChanged()));
+    connect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
+    connect(ui.editPathPy3, SIGNAL(editingFinished()), this, SLOT(enginePy3PathChanged()));
+    connect(ui.editPathLua, SIGNAL(editingFinished()), this, SLOT(engineLuaPathChanged()));
 }

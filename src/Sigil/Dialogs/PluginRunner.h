@@ -100,7 +100,6 @@ private:
     bool deleteFiles(const QStringList &);
     bool addFiles(const QStringList &);
     bool modifyFiles(const QStringList &);
-    void ensureTabsWillRemain();
     void connectSignalsToSlots();
 
     QProcess m_process;

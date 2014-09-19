@@ -127,7 +127,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="enginePy27">
+      <widget class="QLabel" name="enginePy2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
          <horstretch>0</horstretch>
@@ -143,14 +143,14 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="editPathPy27">
+      <widget class="QLineEdit" name="editPathPy2">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="enginePy34">
+      <widget class="QLabel" name="enginePy3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
          <horstretch>0</horstretch>
@@ -166,14 +166,14 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="editPathPy34">
+      <widget class="QLineEdit" name="editPathPy3">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="engineLua52">
+      <widget class="QLabel" name="engineLua">
        <property name="text">
         <string>Lua 5.2:</string>
        </property>
@@ -185,14 +185,14 @@
      <item row="1" column="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="Py27Auto">
+        <widget class="QPushButton" name="Py2Auto">
          <property name="text">
           <string>Auto</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="Py27Set">
+        <widget class="QPushButton" name="Py2Set">
          <property name="text">
           <string>Set</string>
          </property>
@@ -203,14 +203,14 @@
      <item row="2" column="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="Py34Auto">
+        <widget class="QPushButton" name="Py3Auto">
          <property name="text">
           <string>Auto</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="Py34Set">
+        <widget class="QPushButton" name="Py3Set">
          <property name="text">
           <string>Set</string>
          </property>
@@ -219,19 +219,19 @@
       </layout>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="editPathLua52"/>
+      <widget class="QLineEdit" name="editPathLua"/>
      </item>
      <item row="3" column="2">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QPushButton" name="Lua52Auto">
+        <widget class="QPushButton" name="LuaAuto">
          <property name="text">
           <string>Auto</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="Lua52Set">
+        <widget class="QPushButton" name="LuaSet">
          <property name="text">
           <string>Set</string>
          </property>

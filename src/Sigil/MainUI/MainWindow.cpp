@@ -218,8 +218,8 @@ void MainWindow::loadPluginsMenu()
   unloadPluginsMenu();
   SettingsStore settings;
   if (m_menuPlugins == NULL) {
-      m_menuPlugins = ui.menubar->addMenu("Plugins");
-      m_actionManagePlugins = m_menuPlugins->addAction("Manage Plugins");
+      m_menuPlugins = ui.menubar->addMenu(tr("Plugins"));
+      m_actionManagePlugins = m_menuPlugins->addAction(tr("Manage Plugins"));
       connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
   }
   QHash < QString, QStringList > plugininfo = settings.pluginInfo();
@@ -232,21 +232,21 @@ void MainWindow::loadPluginsMenu()
 
       if (ptype == "input") {
           if (m_menuPluginsInput == NULL) {
-              m_menuPluginsInput  = m_menuPlugins->addMenu("Input");
+              m_menuPluginsInput  = m_menuPlugins->addMenu(tr("Input"));
               connect(m_menuPluginsInput,  SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
           }
           m_menuPluginsInput->addAction(pname);
 
       } else if (ptype == "output") {
           if (m_menuPluginsOutput == NULL) {
-              m_menuPluginsOutput = m_menuPlugins->addMenu("Output");
+              m_menuPluginsOutput = m_menuPlugins->addMenu(tr("Output"));
               connect(m_menuPluginsOutput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
           }
           m_menuPluginsOutput->addAction(pname);
 
       } else {
           if (m_menuPluginsEdit == NULL) {
-              m_menuPluginsEdit = m_menuPlugins->addMenu("Edit");
+              m_menuPluginsEdit = m_menuPlugins->addMenu(tr("Edit"));
               connect(m_menuPluginsEdit,   SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
           }
           m_menuPluginsEdit->addAction(pname);

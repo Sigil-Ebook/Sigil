@@ -90,7 +90,7 @@ int PluginRunner::exec(const QString &name)
     enginepath = settings.pluginEnginePaths();
     plugininfo = settings.pluginInfo();
     if (! plugininfo.keys().contains(m_pluginName)) {
-        Utility::DisplayStdErrorDialog("Error: A plugin by that name does not exist");
+        Utility::DisplayStdErrorDialog(tr("Error: A plugin by that name does not exist"));
         reject();
         return QDialog::Rejected;
     }
@@ -102,7 +102,7 @@ int PluginRunner::exec(const QString &name)
     m_pluginType = fields.at(TypeField);
     m_enginePath = enginepath[m_engine];
     if (m_enginePath.isEmpty()) {
-        Utility::DisplayStdErrorDialog("Error: Interpreter " + m_engine + " has no path set");
+        Utility::DisplayStdErrorDialog(tr("Error: Interpreter ") + m_engine + tr(" has no path set"));
         reject();
         return QDialog::Rejected;
     }
@@ -110,38 +110,33 @@ int PluginRunner::exec(const QString &name)
     // The launcher and plugin path are both platform specific and engine/interpreter specific 
     launcher_root = launcherRoot();
 
-    if (m_engine == "python2.7") {
-        m_launcherPath = launcher_root + "/python2_7/launcher.py";
+    if ((m_engine == "python2.7") || (m_engine == "python3.4")) {
+        m_launcherPath = launcher_root + "/python/launcher.py";
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".py";
         if (!QFileInfo(m_launcherPath).exists()) {
-            Utility::DisplayStdErrorDialog("Installation Error: plugin launcher " + m_launcherPath + " does not exist");
-            reject();
-            return QDialog::Rejected;
-        }
-    } else if (m_engine == "python3.4") {
-        m_launcherPath = launcher_root + "/python2_7/launcher.py";
-        m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".py";
-        if (!QFileInfo(m_launcherPath).exists()) {
-            Utility::DisplayStdErrorDialog("Installation Error: plugin launcher " + m_launcherPath + " does not exist");
+            Utility::DisplayStdErrorDialog(tr("Installation Error: plugin launcher ") + 
+                                           m_launcherPath + tr(" does not exist"));
             reject();
             return QDialog::Rejected;
         }
     } else if (m_engine == "lua5.2") {
-        m_launcherPath = launcher_root + "/lua5_2/launcher.lua";
+        m_launcherPath = launcher_root + "/lua/launcher.lua";
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".lua";
         if (!QFileInfo(m_launcherPath).exists()) {
-            Utility::DisplayStdErrorDialog("Installation Error: plugin launcher " + m_launcherPath + " does not exist");
+            Utility::DisplayStdErrorDialog(tr("Installation Error: plugin launcher ") + 
+                                           m_launcherPath + tr(" does not exist"));
             reject();
             return QDialog::Rejected;
         }
     } else {
-        Utility::DisplayStdErrorDialog("Error: plugin engine " + m_engine + " is not supported (yet!)");
+        Utility::DisplayStdErrorDialog(tr("Error: plugin engine ") + 
+                                       m_engine + tr(" is not supported (yet!)"));
         reject();
         return QDialog::Rejected;
     }
 
     ui.nameLbl->setText(m_pluginName);
-    ui.statusLbl->setText("Status: ready");
+    ui.statusLbl->setText(tr("Status: ready"));
     ui.progressBar->setRange(0,100);
     ui.progressBar->reset();
     ui.cancelButton->setEnabled(true);
@@ -186,7 +181,7 @@ QString PluginRunner::internalLuaPath()
     if (internal_lua.isEmpty())
         return "";
 
-    internal_lua += "/lua5_2/lua";
+    internal_lua += "/lua";
 #ifdef _WIN32
     internal_lua += ".exe";
 #endif
@@ -202,7 +197,7 @@ void PluginRunner::startPlugin()
 {
     QStringList args;
     if (!m_ready) {
-        Utility::DisplayStdErrorDialog("Error: plugin can not start");
+        Utility::DisplayStdErrorDialog(tr("Error: plugin can not start"));
         return;
     }
     ui.textEdit->clear();
@@ -244,7 +239,7 @@ void PluginRunner::processOutput()
 void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus) 
 {
     if (exitstatus == QProcess::CrashExit) {
-        ui.textEdit->append("Launcher process crashed");
+        ui.textEdit->append(tr("Launcher process crashed"));
     } 
     // launcher exiting properly does not mean target plugin succeeded or failed
     // we need to parse the response xml to find the true result of target plugin
@@ -255,7 +250,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     ui.progressBar->setRange(0,100);
     ui.progressBar->setValue(100);
 
-    ui.statusLbl->setText("Status: finished");
+    ui.statusLbl->setText(tr("Status: finished"));
 
     if (!processResultXML()) {
         ui.textEdit->append(m_pluginOutput);
@@ -267,7 +262,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
 
     // before modifying xhtmnl files make sure they are well formed
     if (! checkIsWellFormed() ) {
-        ui.statusLbl->setText("Status: No Changes Made");
+        ui.statusLbl->setText(tr("Status: No Changes Made"));
         return;
     }
 
@@ -275,8 +270,8 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     if (m_xhtml_net_change < 0) {
         QList< Resource * > htmlresources = m_book->GetFolderKeeper().GetResourceListByType(Resource::HTMLResourceType);
         if (htmlresources.count() + m_xhtml_net_change < 0) {
-            Utility::DisplayStdErrorDialog("Error: Plugin Tried to Remove the Last XHTML file .. aborting changes");
-            ui.statusLbl->setText("Status: No Changes Made");
+            Utility::DisplayStdErrorDialog(tr("Error: Plugin Tried to Remove the Last XHTML file .. aborting changes"));
+            ui.statusLbl->setText(tr("Status: No Changes Made"));
             return;
         }
     }
@@ -303,6 +298,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
             Resource * xhtmlresource = remainingResources.at(0);
             m_mainWindow->OpenResource(*xhtmlresource);
         }
+
         if (deleteFiles(m_filesToDelete)) {
             book_modified = true;
         }
@@ -341,7 +337,7 @@ void PluginRunner::processError()
 void PluginRunner::processError(QProcess::ProcessError error)
 {
     if (error == QProcess::FailedToStart) {
-        ui.textEdit->append("Plugin failed to start");
+        ui.textEdit->append(tr("Plugin failed to start"));
     }
     ui.okButton->setEnabled(true);
     ui.cancelButton->setEnabled(false);
@@ -349,7 +345,7 @@ void PluginRunner::processError(QProcess::ProcessError error)
     ui.progressBar->setRange(0,100);
     ui.progressBar->reset();
 
-    ui.statusLbl->setText("Status: error");
+    ui.statusLbl->setText(tr("Status: error"));
 }
 
 
@@ -363,8 +359,8 @@ void PluginRunner::cancelPlugin()
     ui.progressBar->setRange(0,100);
     ui.progressBar->reset();
 
-    ui.textEdit->append("Plugin cancelled");
-    ui.statusLbl->setText("Status: cancelled");
+    ui.textEdit->append(tr("Plugin cancelled"));
+    ui.statusLbl->setText(tr("Status: cancelled"));
     ui.cancelButton->setEnabled(false);
 }
 
@@ -379,7 +375,7 @@ bool PluginRunner::processResultXML()
             if (name == "result") {
                 QString result = reader.readElementText();
                 m_result = result;
-                ui.textEdit->setPlainText("Status: " + result);
+                ui.textEdit->setPlainText(tr("Status: ") + result);
             } else if (name == "msg") {
                 QString msg = reader.readElementText();
                 ui.textEdit->append(msg);
@@ -412,7 +408,7 @@ bool PluginRunner::processResultXML()
         }
     }
     if (reader.hasError()) {
-        Utility::DisplayStdErrorDialog("Error Parsing Result XML:  " + reader.errorString());
+        Utility::DisplayStdErrorDialog(tr("Error Parsing Result XML:  ") + reader.errorString());
         return false;
     }
     return true;
@@ -458,7 +454,7 @@ bool PluginRunner::checkIsWellFormed()
             QString data = Utility::ReadUnicodeTextFile(filePath);
             XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
             if (error.line != -1) {
-                errors.append("Incorrect XHTML/XML: " + href + " Line/Col " + QString::number(error.line) + 
+                errors.append(tr("Incorrect XHTML/XML: ") + href + tr(" Line/Col ") + QString::number(error.line) + 
                         "," + QString::number(error.column) + " " + error.message);
                 well_formed = false;
             }
@@ -470,8 +466,8 @@ bool PluginRunner::checkIsWellFormed()
         QMessageBox msgBox;
         msgBox.setIcon(QMessageBox::Warning);
         msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
-        msgBox.setWindowTitle("Check Report");
-        msgBox.setText("Incorrect XHTML/XML Detected\nAre you Sure You Want to Continue?");
+        msgBox.setWindowTitle(tr("Check Report"));
+        msgBox.setText(tr("Incorrect XHTML/XML Detected\nAre you Sure You Want to Continue?"));
         msgBox.setDetailedText(errors.join("\n"));
         QPushButton * yesButton = msgBox.addButton(QMessageBox::Yes);
         QPushButton * noButton =  msgBox.addButton(QMessageBox::No);
@@ -485,32 +481,11 @@ bool PluginRunner::checkIsWellFormed()
 }
 
 
-void PluginRunner::ensureTabsWillRemain()
-{
-    // before we can delete file make sure a tab of at least one 
-    // of the remaining html files will be open to prevent deleting 
-    // the last tab when deleting resources                                                             
-    QList < Resource * > remainingResources = m_xhtmlFiles.values();
-    QList < Resource * > tabResources = m_tabManager->GetTabResources();
-    bool tabs_will_remain = false;
-    foreach (Resource * tab_resource, tabResources) {
-        if (remainingResources.contains(tab_resource)) {
-            tabs_will_remain = true;
-            break;
-        }
-    }
-    if (! tabs_will_remain) {
-        Resource * xhtmlresource = remainingResources.at(0);
-        m_mainWindow->OpenResource(*xhtmlresource);
-    }
-}
-
-
 bool PluginRunner::deleteFiles(const QStringList & files)
 {
     QList <Resource *> tabResources=m_tabManager->GetTabResources();
     bool changes_made = false;
-    ui.statusLbl->setText("Status: cleaning up - deleting files");
+    ui.statusLbl->setText(tr("Status: cleaning up - deleting files"));
     foreach (QString fileinfo, files) {
         QStringList fdata = fileinfo.split(SEP);
         QString href = fdata[ hrefField ];
@@ -521,7 +496,7 @@ bool PluginRunner::deleteFiles(const QStringList & files)
         if (mime == "application/x-dtbncx+xml") continue;
         Resource * resource = m_hrefToRes.value(href, NULL);
         if (resource) {
-            ui.statusLbl->setText("Status: deleting " + resource->Filename());
+            ui.statusLbl->setText(tr("Status: deleting ") + resource->Filename());
 
             if(tabResources.contains(resource)) {
                 m_tabManager->CloseTabForResource(*resource);
@@ -550,7 +525,7 @@ bool PluginRunner::addFiles(const QStringList & files)
         if (m_pluginType == "input" && mime == "application/epub+zip") {
             QString epubPath = m_outputDir + "/" + href;
             QFileInfo fi(epubPath);
-            ui.statusLbl->setText("Status: Loading " + fi.fileName());
+            ui.statusLbl->setText(tr("Status: Loading ") + fi.fileName());
             // FIXME:  We should copy this epub someplace easy to access by user first
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(epubPath);
@@ -562,8 +537,8 @@ bool PluginRunner::addFiles(const QStringList & files)
             QMessageBox msgBox;
             msgBox.setIcon(QMessageBox::Warning);
             msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
-            msgBox.setWindowTitle("Input Plugin");
-            msgBox.setText("Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed");
+            msgBox.setWindowTitle(tr("Input Plugin"));
+            msgBox.setText(tr("Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed"));
             QPushButton * yesButton = msgBox.addButton(QMessageBox::Yes);
             QPushButton * noButton =  msgBox.addButton(QMessageBox::No);
             msgBox.setDefaultButton(noButton);
@@ -585,7 +560,7 @@ bool PluginRunner::addFiles(const QStringList & files)
         // No need to copy to ebook root as AddContentToFolder does that for us
         QString inpath = m_outputDir + "/" + href;
         QFileInfo fi(inpath);
-        ui.statusLbl->setText("Status: adding " + fi.fileName());
+        ui.statusLbl->setText(tr("Status: adding ") + fi.fileName());
 
         Resource & resource = m_book->GetFolderKeeper().AddContentFileToFolder(inpath,false);
 
@@ -633,7 +608,7 @@ bool PluginRunner::addFiles(const QStringList & files)
 
 bool PluginRunner::modifyFiles(const QStringList & files)
 {
-    ui.statusLbl->setText("Status: cleaning up - modifying files");
+    ui.statusLbl->setText(tr("Status: cleaning up - modifying files"));
     // rearrange list to force content.opf and toc.ncx modifications to be done last
     QStringList newfiles;
     QString modifyopf;
@@ -658,7 +633,7 @@ bool PluginRunner::modifyFiles(const QStringList & files)
         QString inpath = m_outputDir + "/" + href;
         QString outpath = m_bookRoot + "/" + href;
         QFileInfo fi(outpath);
-        ui.statusLbl->setText("Status: modifying " + fi.fileName());
+        ui.statusLbl->setText(tr("Status: modifying ") + fi.fileName());
         Utility::ForceCopyFile(inpath, outpath);
         Resource * resource = m_hrefToRes.value(href);
         if (resource) {
