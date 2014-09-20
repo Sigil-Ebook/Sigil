@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.1">
 <context>
     <name>About</name>
     <message>
@@ -69,17 +69,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="61"/>
+        <location filename="../../Dialogs/About.cpp" line="62"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="63"/>
+        <location filename="../../Dialogs/About.cpp" line="64"/>
         <source>Original Creator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="64"/>
+        <location filename="../../Dialogs/About.cpp" line="65"/>
         <source>retired</source>
         <translation type="unfinished"></translation>
     </message>
@@ -193,11 +193,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
-        <source>If no font is specifed in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="61"/>
         <source>Default font size to be used for Book View and Preview
 if no font-size specified in your CSS</source>
@@ -263,6 +258,11 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="183"/>
         <source>Item Colors:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
+        <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -756,84 +756,94 @@ OK to replace?</source>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="974"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1007"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="816"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="976"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="978"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1009"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
         <source>Open With</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="802"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="639"/>
+        <source>Clipboard contains HTML formatting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
+        <source>Do you want to paste clipboard data as plain text?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="835"/>
         <source>Open Tab For</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="823"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="856"/>
         <source>Other Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="871"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="904"/>
         <source>Clips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="881"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
         <source>Add To Clips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="999"/>
         <source>Insert File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="967"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1000"/>
         <source>Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="968"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1001"/>
         <source>Redo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="969"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1002"/>
         <source>Cut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="970"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1003"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="971"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1004"/>
         <source>Copy Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="972"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1005"/>
         <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="973"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1006"/>
         <source>Select All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="977"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="981"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1014"/>
         <source>Inspect Element</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1654,17 +1664,12 @@ Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/EditTOC.ui" line="52"/>
-        <source>Add a new TOC entry.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/EditTOC.ui" line="58"/>
+        <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Insert a blank entry above the currently selected entry.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1674,18 +1679,18 @@ Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/EditTOC.ui" line="68"/>
+        <location filename="../../Form_Files/EditTOC.ui" line="62"/>
         <source>Add a blank entry below the currently selected entry.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/EditTOC.ui" line="75"/>
+        <location filename="../../Form_Files/EditTOC.ui" line="72"/>
         <source>Delete the selected TOC entry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/EditTOC.ui" line="78"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="385"/>
+        <location filename="../../Form_Files/EditTOC.ui" line="75"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="429"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1695,18 +1700,24 @@ Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/EditTOC.ui" line="88"/>
+        <location filename="../../Form_Files/EditTOC.ui" line="82"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/EditTOC.ui" line="113"/>
+        <location filename="../../Form_Files/EditTOC.ui" line="110"/>
         <source>Decrease the heading level of the selected entry.
 You can also use the left arrow key.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/EditTOC.ui" line="127"/>
+        <location filename="../../Form_Files/EditTOC.ui" line="126"/>
+        <location filename="../../Form_Files/EditTOC.ui" line="136"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditTOC.ui" line="148"/>
         <source>Increase the heading level of the selected entry.
 You can also use the right arrow key.</source>
         <translation type="unfinished"></translation>
@@ -1722,17 +1733,27 @@ You can also use the right arrow key.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="428"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="392"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="436"/>
+        <source>Move Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EditTOC.cpp" line="437"/>
+        <source>Move Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EditTOC.cpp" line="443"/>
         <source>Expand All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="393"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="444"/>
         <source>Collapse All</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5828,12 +5849,13 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="347"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="381"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="473"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="362"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="249"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7705,415 +7727,435 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="621"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="634"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="726"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="739"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="831"/>
         <source>Go To Line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="739"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="831"/>
         <source>Line #</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="335"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="569"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="762"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1118"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1205"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1260"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1268"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1284"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1400"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1422"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1448"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1459"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1464"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1476"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1486"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1697"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1766"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3001"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3338"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3539"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="854"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1297"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1360"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1387"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1551"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1556"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1568"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1578"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1583"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1789"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1815"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1830"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1858"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3080"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3116"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3122"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3128"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3264"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3453"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3654"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="380"/>
         <source>Location bookmarked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="427"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="600"/>
         <source>New file created.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="775"/>
         <source>Save a Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="832"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="924"/>
         <source>No CSS styles named</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1200"/>
         <source>Styles deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1441"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1400"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1519"/>
         <source>You cannot insert an id at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1532"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1624"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1635"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
         <source>Select the destination to paste into first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1697"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1789"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1796"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1766"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1858"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1815"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1748"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1840"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1897"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1989"/>
         <source>Word updated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1962"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2054"/>
         <source>File(s) deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2010"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2102"/>
         <source>Table Of Contents generated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2333"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2448"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3080"/>
         <source>File cannot be split at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3097"/>
         <source>Split completed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3032"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3147"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3041"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3156"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3256"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3371"/>
         <source>File loaded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3420"/>
         <source>Saving EPUB...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3429"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="272"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="364"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="381"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="473"/>
         <source>was updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="480"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="418"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="510"/>
         <source>Select Show Details for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="463"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="555"/>
         <source>Sigil is closing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="568"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="660"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1268"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1360"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1284"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1514"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1568"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1583"/>
         <source>You cannot mark an index at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1830"/>
         <source>Cannot merge file %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1995"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2087"/>
         <source>Generate TOC cancelled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2104"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2991"/>
         <source>Line: %1, Col: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3150"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3265"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3229"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3344"/>
         <source>No importer for file type: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3116"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="221"/>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="222"/>
+        <source>Manage Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="235"/>
+        <source>Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="242"/>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="480"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="416"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
         <source>This EPUB contains errors.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="854"/>
         <source>Image does not exist: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="886"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="978"/>
         <source>Add Cover</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="968"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1060"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="985"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1077"/>
         <source>Cover added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1210"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1205"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1297"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1258"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1350"/>
         <source>Unused media files deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1260"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1352"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1387"/>
         <source>You cannot insert a file at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1302"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
         <source>Insert File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1500"/>
         <source>You must select text before inserting a new id.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1464"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1556"/>
         <source>You cannot insert a link at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1448"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1540"/>
         <source>You must select text before inserting a new link.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1551"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1578"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1551"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1643"/>
         <source>Pasted clip entry %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1973"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2065"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1978"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2070"/>
         <source>Table Of Contents edited.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2138"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2230"/>
         <source>Text selection marked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2141"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2160"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2233"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2252"/>
         <source>Text selection unmarked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3122"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3128"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3351"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8122,96 +8164,96 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
         <source>Loading file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3386"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3278"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
         <source>Cannot load EPUB: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3282"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3397"/>
         <source>Cannot load file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3454"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3370"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3373"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3488"/>
         <source>EPUB saved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3494"/>
         <source>Cannot save file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3631"/>
         <source>EPUB files (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3517"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3518"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3632"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3633"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3634"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3520"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3635"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3636"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3644"/>
         <source>EPUB file (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3539"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3654"/>
         <source>%1[*] - %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3610"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3725"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3611"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3726"/>
         <source>ON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3611"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3726"/>
         <source>OFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3636"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3751"/>
         <source>&amp;%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10681,7 +10723,7 @@ Do you want to save your changes?</source>
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="141"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="142"/>
         <source>Start</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10734,6 +10776,341 @@ Do you want to save your changes?</source>
     </message>
 </context>
 <context>
+    <name>PluginRunner</name>
+    <message>
+        <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
+        <source>Plugin Runner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
+        <source>Plugin:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PluginRunner.ui" line="61"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PluginRunner.ui" line="90"/>
+        <source>Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PluginRunner.ui" line="97"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="378"/>
+        <source>Status: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="93"/>
+        <source>Error: A plugin by that name does not exist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="105"/>
+        <source>Error: Interpreter </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="105"/>
+        <source> has no path set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="117"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="126"/>
+        <source>Installation Error: plugin launcher </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="118"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="127"/>
+        <source> does not exist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="132"/>
+        <source>Error: plugin engine </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="133"/>
+        <source> is not supported (yet!)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="139"/>
+        <source>Status: ready</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="200"/>
+        <source>Error: plugin can not start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="242"/>
+        <source>Launcher process crashed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="253"/>
+        <source>Status: finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="265"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
+        <source>Status: No Changes Made</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="273"/>
+        <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="340"/>
+        <source>Plugin failed to start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="348"/>
+        <source>Status: error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="362"/>
+        <source>Plugin cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="363"/>
+        <source>Status: cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="411"/>
+        <source>Error Parsing Result XML:  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="457"/>
+        <source>Incorrect XHTML/XML: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="457"/>
+        <source> Line/Col </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="469"/>
+        <source>Check Report</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="470"/>
+        <source>Incorrect XHTML/XML Detected
+Are you Sure You Want to Continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="488"/>
+        <source>Status: cleaning up - deleting files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="499"/>
+        <source>Status: deleting </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="528"/>
+        <source>Status: Loading </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="540"/>
+        <source>Input Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="541"/>
+        <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="563"/>
+        <source>Status: adding </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="611"/>
+        <source>Status: cleaning up - modifying files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="636"/>
+        <source>Status: modifying </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PluginWidget</name>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="97"/>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="62"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="67"/>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="72"/>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="77"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="82"/>
+        <source>Interpreter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="90"/>
+        <source>Remove All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="104"/>
+        <source>Remove Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="111"/>
+        <source>Interpreters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="118"/>
+        <source>Add Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="125"/>
+        <source>Path to Interpreter Executable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="138"/>
+        <source>Python2.7:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="161"/>
+        <source>Python3.4:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="178"/>
+        <source>Lua 5.2:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="190"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="208"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="229"/>
+        <source>Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="197"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="215"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="236"/>
+        <source>Set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="128"/>
+        <source>Select Plugin Zip Archive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="128"/>
+        <source>Plugin Files (*.zip)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="140"/>
+        <source>Warning: A plugin by that name already exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="145"/>
+        <source>Error: Plugin Could Not be Unzipped.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="151"/>
+        <source>Error: Plugin plugin.xml file can not be read.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="191"/>
+        <source>Nothing is Selected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="211"/>
+        <source>Remove All Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="212"/>
+        <source>Are you sure sure you want to remove all of your plugins?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="256"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="266"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="276"/>
+        <source>Select Interpreter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="292"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="308"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="324"/>
+        <source>Incorrect Interpreter Path selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Preferences</name>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
@@ -10741,18 +11118,62 @@ Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Preferences.cpp" line="95"/>
+        <location filename="../../Dialogs/Preferences.cpp" line="99"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Preferences.cpp" line="95"/>
+        <location filename="../../Dialogs/Preferences.cpp" line="99"/>
         <source>Changes will take effect when you restart Sigil.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Preferences.cpp" line="153"/>
+        <location filename="../../Dialogs/Preferences.cpp" line="166"/>
         <source>Open Preferences Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PreserveEntitiesWidget</name>
+    <message>
+        <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
+        <source>Preserve Entities</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
+        <source>Entities to Preserve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
+        <source>Enter or paste entities to add to the list.
+Entities can be separated by lines, commas, or spaces.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="58"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="65"/>
+        <source>Remove All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
+        <source>Add Entities</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
+        <source>Entities:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -10787,18 +11208,18 @@ Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="295"/>
+        <location filename="../../Misc/Utility.cpp" line="362"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="388"/>
+        <location filename="../../Misc/Utility.cpp" line="455"/>
         <source>Sigil has encountered a problem.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="389"/>
+        <location filename="../../Misc/Utility.cpp" line="456"/>
         <source>Please &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;report it&lt;/a&gt; on the issue tracker, including the details from this dialog.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11028,7 +11449,7 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="610"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="622"/>
         <source>Cleaning...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12034,12 +12455,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="509"/>
+        <location filename="../../Misc/Utility.cpp" line="576"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="510"/>
+        <location filename="../../Misc/Utility.cpp" line="577"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -12124,1267 +12545,1267 @@ Continue using the requested filename?</source>
 <context>
     <name>XMLEntities</name>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="69"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="95"/>
         <source>quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="70"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="96"/>
         <source>ampersand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="71"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>apostrophe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="72"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>less-than sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="73"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>greater-than sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="74"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>no-break space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="75"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>inverted exclamation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="76"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>cent sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="77"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>pound sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="78"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>currency sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="79"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>yen sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="80"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>broken bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="81"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>section sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="82"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="83"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>copyright symbol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="85"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>left-pointing double angle quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="86"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>not sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="87"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>soft hyphen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="88"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>registered sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="89"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>macron</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="90"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>degree symbol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="91"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>plus-minus sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="92"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>superscript two</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="93"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>superscript three</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="94"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="95"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>micro sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="97"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>middle dot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="98"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>cedilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="99"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>superscript one</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="101"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>right-pointing double angle quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="102"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>vulgar fraction one quarter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="103"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>vulgar fraction one half</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="104"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>vulgar fraction three quarters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="105"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>inverted question mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="111"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin capital letter A with ring above</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="112"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin capital letter AE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="129"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>multiplication sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="130"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin capital letter O with stroke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="137"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin small letter sharp s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="143"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter a with ring above</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="144"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin small letter ae</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="161"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>division sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="162"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Latin small letter o with stroke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="170"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Latin capital ligature oe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="171"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Latin small ligature oe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="175"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Latin small letter f with hook</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="178"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>Greek capital letter Alpha</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="179"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>Greek capital letter Beta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="180"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek capital letter Gamma</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="181"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek capital letter Delta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="182"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek capital letter Epsilon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="183"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek capital letter Zeta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="184"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek capital letter Eta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="185"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek capital letter Theta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="186"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek capital letter Iota</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="187"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek capital letter Kappa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="188"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek capital letter Lambda</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="189"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek capital letter Mu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="190"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek capital letter Nu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="191"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek capital letter Xi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="192"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek capital letter Omicron</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="193"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek capital letter Pi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="194"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek capital letter Rho</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="195"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek capital letter Sigma</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="196"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek capital letter Tau</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="197"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek capital letter Upsilon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="198"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek capital letter Phi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="199"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek capital letter Chi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="200"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek capital letter Psi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="201"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek capital letter Omega</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="202"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek small letter alpha</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="203"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek small letter beta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="204"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>Greek small letter gamma</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="205"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>Greek small letter delta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="206"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>Greek small letter epsilon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="207"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>Greek small letter zeta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="208"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>Greek small letter eta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="209"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>Greek small letter theta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="210"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>Greek small letter iota</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="211"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>Greek small letter kappa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="212"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>Greek small letter lambda</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="213"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>Greek small letter mu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="214"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>Greek small letter nu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="215"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>Greek small letter xi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="216"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>Greek small letter omicron</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="217"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>Greek small letter pi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="218"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>Greek small letter rho</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="219"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>Greek small letter final sigma</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="220"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>Greek small letter sigma</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="221"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>Greek small letter tau</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="222"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>Greek small letter upsilon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="223"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>Greek small letter phi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="224"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>Greek small letter chi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="225"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>Greek small letter psi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="226"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>Greek small letter omega</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="227"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>Greek theta symbol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="228"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="229"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>Greek pi symbol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="230"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>en space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="231"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>em space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="232"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>thin space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="233"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>zero-width non-joiner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="234"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>zero-width joiner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="235"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>left-to-right mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="236"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>right-to-left mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="237"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>en dash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="238"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>em dash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="245"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>dagger, obelisk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="246"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>double dagger, double obelisk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="247"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>bullet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="84"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>feminine ordinal indicator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="96"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>pilcrow sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>masculine ordinal indicator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>Latin capital letter A with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>Latin capital letter A with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter A with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter A with tilde</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter A with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin capital letter C with cedilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin capital letter E with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin capital letter E with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin capital letter E with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin capital letter E with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin capital letter I with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin capital letter I with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin capital letter I with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>Latin capital letter I with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin capital letter Eth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin capital letter N with tilde</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin capital letter O with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin capital letter O with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin capital letter O with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin capital letter O with tilde</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin capital letter O with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>Latin capital letter U with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin capital letter U with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin capital letter U with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin capital letter U with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>Latin capital letter Y with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin capital letter THORN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin small letter a with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter a with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter a with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter a with tilde</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter a with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small letter c with cedilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin small letter e with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter e with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin small letter e with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter e with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>Latin small letter i with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>Latin small letter i with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Latin small letter i with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Latin small letter i with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Latin small letter eth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Latin small letter n with tilde</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Latin small letter o with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Latin small letter o with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Latin small letter o with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Latin small letter o with tilde</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Latin small letter o with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>Latin small letter u with grave accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Latin small letter u with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Latin small letter u with circumflex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Latin small letter u with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Latin small letter y with acute accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Latin small letter thorn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Latin small letter y with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Latin capital letter s with caron</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Latin small letter s with caron</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Latin capital letter y with diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>modifier letter circumflex accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>small tilde</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>left single quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>right single quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>single low-9 quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>left double quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>right double quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>double low-9 quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="248"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>horizontal ellipsis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="249"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>per mille sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="250"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>prime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="251"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>double prime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="252"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>single left-pointing angle quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="253"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>single right-pointing angle quotation mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="254"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>overline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="255"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>fraction slash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="256"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>euro sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="257"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>black-letter capital I</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="258"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>script capital P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="259"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>black-letter capital R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="260"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>trademark symbol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="261"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>alef symbol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="262"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>leftwards arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="263"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>upwards arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="264"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>rightwards arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="265"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>downwards arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="266"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>left right arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="267"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>downwards arrow with corner leftwards</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="268"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>leftwards double arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="269"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>upwards double arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="270"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>rightwards double arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="271"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>downwards double arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="272"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>left right double arrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="273"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>for all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="274"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>partial differential</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="275"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>there exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="276"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>empty set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="277"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>nabla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="278"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>element of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="279"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>not an element of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="280"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>contains as member</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="281"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>n-ary product</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="282"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>n-ary summation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="283"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>minus sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="284"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>asterisk operator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="285"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>square root</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="286"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>proportional to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="287"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>infinity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="288"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="289"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>logical and</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="290"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>logical or</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="291"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>intersection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="292"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>union</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="293"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>integral</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="294"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>therefore sign</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="295"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>tilde operator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="296"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="322"/>
         <source>congruent to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="297"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="323"/>
         <source>almost equal to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="298"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="324"/>
         <source>not equal to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="299"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="325"/>
         <source>identical to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="300"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>less-than or equal to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="301"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="327"/>
         <source>greater-than or equal to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="302"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>subset of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="303"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>superset of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="304"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="330"/>
         <source>not a subset of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="305"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>subset of or equal to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="306"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="332"/>
         <source>superset of or equal to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="307"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="333"/>
         <source>circled plus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="308"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>circled times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="309"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="335"/>
         <source>up tack</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="310"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="336"/>
         <source>dot operator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="311"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="337"/>
         <source>left ceiling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="312"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="338"/>
         <source>right ceiling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="313"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="339"/>
         <source>left floor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="314"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="340"/>
         <source>right floor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="315"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="341"/>
         <source>left-pointing angle bracket</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="316"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="342"/>
         <source>right-pointing angle bracket</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="317"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="343"/>
         <source>lozenge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="318"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="344"/>
         <source>black spade suit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="319"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="345"/>
         <source>black club suit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="320"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="346"/>
         <source>black heart suit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="321"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="347"/>
         <source>black diamond suit</source>
         <translation type="unfinished"></translation>
     </message>
