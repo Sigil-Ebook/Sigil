@@ -31,6 +31,9 @@ a few subdirectories:
     src/hunspell - spell checking library.
     src/pcre - regular epression library.
     src/utf8-cpp - UTF8 manipulation and validation library.
+    src/lua/lua - Lua interpreter.
+    src/lua/lfs - Lua filesystem module for directory listing.
+    src/lua/Penlight - General purpose Lua library.
 
 The INSTALL.txt file contains information on building Sigil from
 source code (and installing it on Linux machines).
