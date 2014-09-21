@@ -20,8 +20,17 @@
 *************************************************************************/
 
 #include <QString>
+#include <QStringList>
 
 #include "Misc/Plugin.h"
+
+#if defined(__APPLE__)
+static const QString POS = "osx";
+#elif deifned(_WIN32)
+static const QString POS = "win";
+#else
+static const QString POS = "unx";
+#endif
 
 Plugin::Plugin()
 {
@@ -66,9 +75,10 @@ QHash<QString, QString> Plugin::serialize()
 
 bool Plugin::isvalid()
 {
-    return (!m_name.isEmpty() &&
-            !m_type.isEmpty() &&
-            !m_engine.isEmpty());
+    return (!m_name.isEmpty()   &&
+            !m_type.isEmpty()   &&
+            !m_engine.isEmpty() &&
+            (m_oslist.isEmpty() || m_oslist.split(',', QString::SkipEmptyParts).contains(POS)));
 }
 
 QString Plugin::get_name()
