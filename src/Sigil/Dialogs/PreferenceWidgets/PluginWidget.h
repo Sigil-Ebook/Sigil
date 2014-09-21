@@ -33,10 +33,12 @@ private slots:
 private:
     enum PluginFields {
         NameField        = 0,
-        AuthorField      = 1,
-        DescriptionField = 2,
+        VersionField     = 1,
+        AuthorField      = 2,
         TypeField        = 3,
-        EngineField      = 4
+        DescriptionField = 4,
+        EngineField      = 5,
+        OSListField      = 6
     };
 
     void readSettings();

@@ -139,6 +139,10 @@ PluginDB::AddResult PluginDB::add_plugin(const QString &path, bool force)
     QFileInfo zipinfo(path);
     QString name = zipinfo.baseName();
 
+    // strip off any versioning present in zip name after first "_" to get internal folder name    
+    int version_index = name.indexOf("_");
+    if (version_index > -1) name.truncate(version_index);
+
     if (!Utility::UnZip(path, pluginsPath()))
         return PluginDB::AR_UNZIP;
 
@@ -251,6 +255,10 @@ Plugin *PluginDB::load_plugin(const QString &name)
                 plugin->set_type(reader.readElementText());
             } else if (reader.name() == "engine") {
                 plugin->set_engine(reader.readElementText());
+            } else if (reader.name() == "version") {
+                plugin->set_version(reader.readElementText());
+            } else if (reader.name() == "oslist") {
+                plugin->set_oslist(reader.readElementText());
             }
         }
     }

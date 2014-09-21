@@ -41,6 +41,8 @@ Plugin::Plugin(const QHash<QString, QString> &info)
         set_version(info.value("version"));
     if (info.contains("engine"))
         set_engine(info.value("engine"));
+    if (info.contains("oslist"))
+        set_engine(info.value("oslist"));
 }
 
 Plugin::~Plugin()
@@ -57,6 +59,7 @@ QHash<QString, QString> Plugin::serialize()
     info.insert("type", get_type());
     info.insert("version", get_version());
     info.insert("engine", get_engine());
+    info.insert("oslist", get_oslist());
 
     return info;
 }
@@ -98,6 +101,11 @@ QString Plugin::get_engine()
     return m_engine;
 }
 
+QString Plugin::get_oslist()
+{
+    return m_oslist;
+}
+
 void Plugin::set_name(const QString &val)
 {
     m_name = val;
@@ -126,4 +134,9 @@ void Plugin::set_version(const QString &val)
 void Plugin::set_engine(const QString &val)
 {
     m_engine = val;
+}
+
+void Plugin::set_oslist(const QString &val)
+{
+    m_oslist = val;
 }

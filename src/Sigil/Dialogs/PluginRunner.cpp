@@ -111,7 +111,7 @@ int PluginRunner::exec(const QString &name)
 
     if ((m_engine == "python2.7") || (m_engine == "python3.4")) {
         m_launcherPath = launcher_root + "/python/launcher.py";
-        m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".py";
+        m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + "plugin.py";
         if (!QFileInfo(m_launcherPath).exists()) {
             Utility::DisplayStdErrorDialog(tr("Installation Error: plugin launcher ") + 
                                            m_launcherPath + tr(" does not exist"));
@@ -120,7 +120,7 @@ int PluginRunner::exec(const QString &name)
         }
     } else if (m_engine == "lua5.2") {
         m_launcherPath = launcher_root + "/lua/launcher.lua";
-        m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + m_pluginName + ".lua";
+        m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + "plugin.lua";
         if (!QFileInfo(m_launcherPath).exists()) {
             Utility::DisplayStdErrorDialog(tr("Installation Error: plugin launcher ") + 
                                            m_launcherPath + tr(" does not exist"));

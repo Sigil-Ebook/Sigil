@@ -64,17 +64,22 @@
        </column>
        <column>
         <property name="text">
+         <string>Version</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
          <string>Author</string>
         </property>
        </column>
        <column>
         <property name="text">
-         <string>Description</string>
+         <string>Type</string>
         </property>
        </column>
        <column>
         <property name="text">
-         <string>Type</string>
+         <string>Description</string>
         </property>
        </column>
        <column>
@@ -201,7 +206,7 @@
       </layout>
      </item>
      <item row="2" column="2">
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout1">
        <item>
         <widget class="QPushButton" name="Py3Auto">
          <property name="text">

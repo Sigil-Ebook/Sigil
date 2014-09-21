@@ -65,13 +65,15 @@ void PluginWidget::readSettings()
         ui.pluginTable->insertRow(nrows);
 
         ui.pluginTable->setItem(nrows, PluginWidget::NameField,        new QTableWidgetItem(p->get_name()));
+        ui.pluginTable->setItem(nrows, PluginWidget::VersionField,     new QTableWidgetItem(p->get_version()));
         ui.pluginTable->setItem(nrows, PluginWidget::AuthorField,      new QTableWidgetItem(p->get_author()));
-        ui.pluginTable->setItem(nrows, PluginWidget::DescriptionField, new QTableWidgetItem(p->get_description()));
         ui.pluginTable->setItem(nrows, PluginWidget::TypeField,        new QTableWidgetItem(p->get_type()));
+        ui.pluginTable->setItem(nrows, PluginWidget::DescriptionField, new QTableWidgetItem(p->get_description()));
         ui.pluginTable->setItem(nrows, PluginWidget::EngineField,      new QTableWidgetItem(p->get_engine()));
         nrows++;
     }
 
+    ui.pluginTable->resizeColumnsToContents();
     m_isDirty = false;
 }
 
@@ -106,6 +108,10 @@ void PluginWidget::addPlugin()
 
     QFileInfo zipinfo(zippath);
     QString pluginname = zipinfo.baseName();
+    // strip off any versioning present in zip name after first "_" to get internal folder name
+    int version_index = pluginname.indexOf("_");
+    if (version_index > -1) pluginname.truncate(version_index);
+
     Plugin *p = pdb->get_plugin(pluginname);
 
     if (p == NULL)
@@ -114,11 +120,15 @@ void PluginWidget::addPlugin()
     int rows = ui.pluginTable->rowCount();
     ui.pluginTable->insertRow(rows);
     ui.pluginTable->setItem(rows, PluginWidget::NameField,        new QTableWidgetItem(p->get_name()));
+    ui.pluginTable->setItem(rows, PluginWidget::VersionField,     new QTableWidgetItem(p->get_version()));
     ui.pluginTable->setItem(rows, PluginWidget::AuthorField,      new QTableWidgetItem(p->get_author()));
-    ui.pluginTable->setItem(rows, PluginWidget::DescriptionField, new QTableWidgetItem(p->get_description()));
     ui.pluginTable->setItem(rows, PluginWidget::TypeField,        new QTableWidgetItem(p->get_type()));
+    ui.pluginTable->setItem(rows, PluginWidget::DescriptionField, new QTableWidgetItem(p->get_description()));
     ui.pluginTable->setItem(rows, PluginWidget::EngineField,      new QTableWidgetItem(p->get_engine()));
+    ui.pluginTable->resizeColumnsToContents();
 }
+
+
 
 void PluginWidget::removePlugin()
 {
@@ -134,6 +144,7 @@ void PluginWidget::removePlugin()
     QString pluginname = ui.pluginTable->item(row, PluginWidget::NameField)->text();
     ui.pluginTable->removeRow(row);
     pdb->remove_plugin(pluginname);
+    ui.pluginTable->resizeColumnsToContents();
 }
 
 void PluginWidget::removeAllPlugins()
@@ -156,6 +167,7 @@ void PluginWidget::removeAllPlugins()
     }
 
     pdb->remove_all_plugins();
+    ui.pluginTable->resizeColumnsToContents();
 }
 
 void PluginWidget::AutoFindPy2()
