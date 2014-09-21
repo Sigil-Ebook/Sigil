@@ -242,6 +242,10 @@ set( MISC_FILES
     Misc/PasteTargetComboBox.cpp
     Misc/PasteTargetComboBox.h
     Misc/PasteTarget.h
+    Misc/Plugin.cpp
+    Misc/Plugin.h
+    Misc/PluginDB.cpp
+    Misc/PluginDB.h
     Misc/QCodePage437Codec.cpp
     Misc/QCodePage437Codec.h
     Misc/RasterizeImageResource.cpp

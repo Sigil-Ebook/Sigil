@@ -26,7 +26,7 @@
 #include <QFile>
 
 #include "Misc/SettingsStore.h"
-#include "Dialogs/PluginRunner.h"
+#include "Misc/PluginDB.h"
 #include "sigil_constants.h"
 
 static QString SETTINGS_GROUP = "user_preferences";
@@ -205,50 +205,29 @@ QList < std::pair < ushort, QString > >  SettingsStore::preserveEntityCodeNames(
 }
 
 
-QHash < QString, QStringList >  SettingsStore::pluginInfo()
+QHash <QString, QStringList> SettingsStore::pluginInfo()
 {
-    clearSettingsGroup();
-    // QChar(31) ascii unit separator
-    // See PluginRunner.h enum PluginFields
-    QHash < QString, QStringList > plugininfo;
-    QStringList pluginlist = value(KEY_PLUGIN_INFO, "").toStringList();
-    foreach ( QString pdata, pluginlist) {
-       if (pdata != "") {
-           QStringList fields = pdata.split(QChar(31));
-           if (fields.size() == 5) {
-               plugininfo[fields.at(PluginRunner::NameField)] = fields;
-           }
-       }
-    }
-    return plugininfo;
+    //KEY_PLUGIN_INFO
+    return QHash <QString, QStringList>();
 }
 
 
-QHash < QString, QString>  SettingsStore::pluginEnginePaths()
+QHash <QString, QString> SettingsStore::pluginEnginePaths()
 {
-    QString internal_lua;
-    QHash < QString, QString> enginepath;
-    QStringList enginelist;
+    QString                   internal_lua;
+    QHash <QString, QVariant> ep;
+    QHash <QString, QString>  enginepath;
 
     clearSettingsGroup();
 
-    // QChar(31) ascii unit separator
-    // fields = engine, path to executable
-    enginelist = value(KEY_PLUGIN_ENGINE_PATHS, "").toStringList();
-
-    foreach(QString enginedata, enginelist) {
-       if (enginedata != "") {
-           QStringList fields = enginedata.split(QChar(31));
-           if (fields.size() == 2) {
-               QString engine(fields.at(0));
-               enginepath[engine] = fields.at(1);
-           }
-       }
+    ep = value(KEY_PLUGIN_ENGINE_PATHS).toHash();
+    foreach (QString k, ep.keys()) {
+        enginepath.insert(k, ep.value(k).toString());
     }
 
     // Set the bundled Lua interpreter path if it exists."
     if (!enginepath.contains("lua5.2")) {
-        internal_lua = PluginRunner::internalLuaPath();
+        internal_lua = PluginDB::internalLuaPath();
         if (!internal_lua.isEmpty()) {
             enginepath["lua5.2"] = internal_lua;
         }
@@ -407,34 +386,21 @@ void SettingsStore::setPreserveEntityCodeNames(const QList< std::pair < ushort, 
     setValue(KEY_PRESERVE_ENTITY_CODES, codes);
 }
 
-void SettingsStore::setPluginInfo(const QHash< QString, QStringList > & plugininfo)
+void SettingsStore::setPluginInfo(const QHash <QString, QStringList> &plugininfo)
 {
-    clearSettingsGroup();
-    //See PluginRunner.h enum PluginFields for Field Sequence
-    QString s(QChar(31)); // ascii unit separator
-    QStringList plugins;
-    QStringList names = plugininfo.keys();
-    foreach(QString name , names) {
-         QStringList pdata = plugininfo[name];
-         plugins << pdata.join(s);
-    }
-    setValue(KEY_PLUGIN_INFO, plugins);
+    //KEY_PLUGIN_INFO
 }
 
-void SettingsStore::setPluginEnginePaths(const QHash< QString, QString> & enginepath)
+void SettingsStore::setPluginEnginePaths(const QHash <QString, QString> &enginepaths)
 {
     clearSettingsGroup();
-    // fields = engine name, path to executable
-    QString s(QChar(31)); // ascii unit separator
-    QStringList engines;
-    QStringList names = enginepath.keys();
-    foreach(QString name , names) {
-       QString edata = name + s + enginepath.value(name, "");
-       engines << edata;
-    }
-    setValue(KEY_PLUGIN_ENGINE_PATHS, engines);
-}
+    QHash<QString, QVariant> ep;
 
+    foreach (QString k, enginepaths.keys()) {
+        ep.insert(k, enginepaths.value(k));
+    }
+    setValue(KEY_PLUGIN_ENGINE_PATHS, ep);
+}
 
 
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)

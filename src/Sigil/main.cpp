@@ -32,7 +32,7 @@
 #include <QtWidgets/QMessageBox>
 #include <QXmlStreamReader>
 
-#include "Dialogs/PluginRunner.h"
+#include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
 #include "MainUI/MainApplication.h"
 #include "MainUI/MainWindow.h"
@@ -205,59 +205,8 @@ void CreateTempFolderWithCorrectPermissions()
 
 void VerifyPlugins()
 {
-    QString                      pluginsPath    = PluginRunner::pluginsPath();
-    QDir                         d(pluginsPath);
-    QStringList                  dplugins;
-    QHash <QString, QStringList> plugininfo;
-    QHash <QString, QStringList> newplugininfo;
-    SettingsStore                ss;
-
-    if (!d.exists())
-        return;
-
-    dplugins   = d.entryList(QStringList("*"), QDir::Dirs|QDir::NoDotAndDotDot);
-    plugininfo = ss.pluginInfo();
-
-    Q_FOREACH(QString p, dplugins) {
-        if (plugininfo.contains(p)) {
-            newplugininfo[p] = plugininfo[p];
-            continue;
-        }
-
-        QString xmlpath = pluginsPath + "/" + p + "/plugin.xml";
-        QFile file(xmlpath);
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            continue;
-        }
-        QXmlStreamReader reader(&file);
-        QString          name;
-        QString          author;
-        QString          description;
-        QString          plugintype;
-        QString          engine;
-        while (!reader.atEnd()) {
-            reader.readNext();
-            if (reader.isStartElement()) {
-                if (reader.name() == "name") {
-                    name = reader.readElementText();
-                } else if (reader.name() == "author") {
-                    author = reader.readElementText();
-                } else if (reader.name() == "description") {
-                    description = reader.readElementText();
-                } else if (reader.name() == "type") {
-                    plugintype = reader.readElementText();
-                } else if (reader.name() == "engine") {
-                    engine = reader.readElementText();
-                }
-            }
-        }
-
-        QStringList pdata;
-        pdata << name << author << description << plugintype << engine;
-        newplugininfo[p] = pdata;
-    }
-
-    ss.setPluginInfo(newplugininfo);
+    PluginDB *pdb = PluginDB::instance();
+    pdb->load_plugins_from_disk();
 }
 
 

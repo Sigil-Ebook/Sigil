@@ -7,17 +7,14 @@
 #include <QFileDialog>
 #include <QStandardPaths>
 #include <QTableWidgetItem>
-#include <QXmlStreamReader>
 #include <QMessageBox>
 #include <QApplication>
 
-#include "Dialogs/PluginRunner.h"
 #include "MainUI/MainWindow.h"
 #include "PluginWidget.h"
-#include "Misc/SettingsStore.h"
+#include "Misc/Plugin.h"
+#include "Misc/PluginDB.h"
 #include "Misc/Utility.h"
-
-#include "Dialogs/PluginRunner.h"
 
 
 PluginWidget::PluginWidget() 
@@ -27,11 +24,6 @@ PluginWidget::PluginWidget()
     ui.setupUi(this);
     readSettings();
     connectSignalsToSlots();
-    m_PluginsPath = PluginRunner::pluginsPath();
-    QDir pluginDir(m_PluginsPath);
-    if (!pluginDir.exists() ) {
-      pluginDir.mkpath(m_PluginsPath);
-    }
 }
 
 
@@ -40,36 +32,13 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     if (!m_isDirty) {
       return PreferencesWidget::ResultAction_None;
     }
-    // Save plugin information
-    SettingsStore settings;
-    QHash < QString, QStringList > plugininfo;
-    QHash < QString, QString> enginepath;
-    int nrows = ui.pluginTable->rowCount();
-    for (int i = 0; i < nrows; i++) {
-        QString name        = ui.pluginTable->item(i, PluginRunner::NameField       )->text();
-        QString author      = ui.pluginTable->item(i, PluginRunner::AuthorField     )->text();
-        QString description = ui.pluginTable->item(i, PluginRunner::DescriptionField)->text();
-        QString plugintype  = ui.pluginTable->item(i, PluginRunner::TypeField       )->text();
-        QString engine      = ui.pluginTable->item(i, PluginRunner::EngineField     )->text();
-        QStringList pdata;
-        pdata << name << author << description << plugintype << engine;
-        plugininfo[name] = pdata;
-    }
-    enginepath["python2.7"] = ui.editPathPy2->text();
-    enginepath["python3.4"] = ui.editPathPy3->text();
-    enginepath["lua5.2"] = ui.editPathLua->text();
-    settings.setPluginInfo(plugininfo);
-    settings.setPluginEnginePaths(enginepath);
 
-    // we need to alert all of the MainWindows out there as to the change in Plugins
-    // So that they can update their Plugin menu appropriately
-    // This should work for all platforms even ones with only one main window
-    foreach (QWidget *mw, QApplication::topLevelWidgets()) {
-       MainWindow * mwptr = qobject_cast<MainWindow *>(mw);
-       if (mwptr && !mwptr->isHidden()) {
-           mwptr->loadPluginsMenu();
-       }
-    }
+    PluginDB *pdb = PluginDB::instance();
+
+    pdb->set_engine_path("python2.7", ui.editPathPy2->text());
+    pdb->set_engine_path("python3.4", ui.editPathPy3->text());
+    pdb->set_engine_path("lua5.2", ui.editPathLua->text());
+
     m_isDirty = false;
     return PreferencesWidget::ResultAction_None;
 }
@@ -78,50 +47,38 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
 void PluginWidget::readSettings()
 {
     // Load the available plugin information
-    SettingsStore settings;
-    QHash < QString, QString > enginepath = settings.pluginEnginePaths();
-    QHash < QString, QStringList > plugininfo = settings.pluginInfo();
-    QStringList names = plugininfo.keys();
+    PluginDB *pdb = PluginDB::instance();
+    QHash<QString, Plugin *> plugins;
     int nrows = 0;
-    ui.editPathPy2->setText(enginepath.value("python2.7", ""));
-    ui.editPathPy3->setText(enginepath.value("python3.4", ""));
-    ui.editPathLua->setText(enginepath.value("lua5.2", ""));
+
+    ui.editPathPy2->setText(pdb->get_engine_path("python2.7"));
+    ui.editPathPy3->setText(pdb->get_engine_path("python3.4"));
+    ui.editPathLua->setText(pdb->get_engine_path("lua5.2"));
+
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
         ui.pluginTable->removeRow(0);
     }
-    foreach (QString name, names) {
-        QStringList fields = plugininfo[name];
-        if (fields.size() == 5) {
-            ui.pluginTable->insertRow(nrows);
 
-            ui.pluginTable->setItem(nrows, PluginRunner::NameField, 
-                                    new QTableWidgetItem(fields.at(PluginRunner::NameField)));
+    plugins = pdb->all_plugins();
+    foreach(Plugin *p, plugins) {
+        ui.pluginTable->insertRow(nrows);
 
-            ui.pluginTable->setItem(nrows, PluginRunner::AuthorField, 
-                                    new QTableWidgetItem(fields.at(PluginRunner::AuthorField)));
-
-            ui.pluginTable->setItem(nrows, PluginRunner::DescriptionField, 
-                                    new QTableWidgetItem(fields.at(PluginRunner::DescriptionField)));
-
-            ui.pluginTable->setItem(nrows, PluginRunner::TypeField, 
-                                    new QTableWidgetItem(fields.at(PluginRunner::TypeField)));
-
-            ui.pluginTable->setItem(nrows, PluginRunner::EngineField, 
-                                    new QTableWidgetItem(fields.at(PluginRunner::EngineField)));
-            nrows++;
-        }
+        ui.pluginTable->setItem(nrows, PluginWidget::NameField,        new QTableWidgetItem(p->get_name()));
+        ui.pluginTable->setItem(nrows, PluginWidget::AuthorField,      new QTableWidgetItem(p->get_author()));
+        ui.pluginTable->setItem(nrows, PluginWidget::DescriptionField, new QTableWidgetItem(p->get_description()));
+        ui.pluginTable->setItem(nrows, PluginWidget::TypeField,        new QTableWidgetItem(p->get_type()));
+        ui.pluginTable->setItem(nrows, PluginWidget::EngineField,      new QTableWidgetItem(p->get_engine()));
+        nrows++;
     }
+
     m_isDirty = false;
 }
-
-
 
 void PluginWidget::pluginSelected(int row, int col)
 {
     ui.pluginTable->setCurrentCell(row, col);
 }
-
 
 void PluginWidget::addPlugin()
 {
@@ -129,105 +86,77 @@ void PluginWidget::addPlugin()
     if (zippath.isEmpty()) {
         return;
     }
-    QFileInfo zipinfo(zippath);
-    QStringList names;
-    QString pluginname = zipinfo.baseName();
-    int nrows = ui.pluginTable->rowCount();
-    for (int i = 0; i < nrows; i++) {
-        names.append(ui.pluginTable->item(i, PluginRunner::NameField)->text());
-    }
-    if (names.contains(pluginname, Qt::CaseInsensitive)) {
-        Utility::DisplayStdWarningDialog(tr("Warning: A plugin by that name already exists"));
-        return;
+
+    PluginDB *pdb = PluginDB::instance();
+
+    PluginDB::AddResult ar = pdb->add_plugin(zippath);
+    switch (ar) {
+        case PluginDB::AR_XML:
+            Utility::DisplayStdWarningDialog(tr("Error: Plugin plugin.xml file can not be read."));
+            return;
+        case PluginDB::AR_EXISTS:
+            Utility::DisplayStdWarningDialog(tr("Warning: A plugin by that name already exists"));
+            return;
+        case PluginDB::AR_UNZIP:
+            Utility::DisplayStdWarningDialog(tr("Error: Plugin Could Not be Unzipped."));
+            return;
+        case PluginDB::AR_SUCCESS:
+            break;
     }
 
-    if (!Utility::UnZip(zippath,m_PluginsPath)) {
-        Utility::DisplayStdWarningDialog(tr("Error: Plugin Could Not be Unzipped."));
+    QFileInfo zipinfo(zippath);
+    QString pluginname = zipinfo.baseName();
+    Plugin *p = pdb->get_plugin(pluginname);
+
+    if (p == NULL)
         return;
-    }
-    QString xmlpath = m_PluginsPath + "/" + pluginname + "/plugin.xml";
-    QFile file(xmlpath);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        Utility::DisplayStdWarningDialog(tr("Error: Plugin plugin.xml file can not be read."));
-        return;
-    }
-    QXmlStreamReader reader(&file);
-    QString name;
-    QString author;
-    QString description;
-    QString plugintype;
-    QString engine;
-    while (! reader.atEnd()) {
-        reader.readNext();
-        if (reader.isStartElement()) {
-            if (reader.name() == "name") {
-                    name = reader.readElementText();
-            } else if (reader.name() == "author") {
-                    author = reader.readElementText();
-            } else if (reader.name() == "description") {
-                    description = reader.readElementText();
-            } else if (reader.name() == "type") {
-                    plugintype = reader.readElementText();
-            } else if (reader.name() == "engine") {
-                    engine = reader.readElementText();
-            }
-        }
-    }
+
     int rows = ui.pluginTable->rowCount();
     ui.pluginTable->insertRow(rows);
-    ui.pluginTable->setItem(rows, PluginRunner::NameField,        new QTableWidgetItem(name));
-    ui.pluginTable->setItem(rows, PluginRunner::AuthorField,      new QTableWidgetItem(author));
-    ui.pluginTable->setItem(rows, PluginRunner::DescriptionField, new QTableWidgetItem(description));
-    ui.pluginTable->setItem(rows, PluginRunner::TypeField,        new QTableWidgetItem(plugintype));
-    ui.pluginTable->setItem(rows, PluginRunner::EngineField,      new QTableWidgetItem(engine));
-    m_isDirty = true;
+    ui.pluginTable->setItem(rows, PluginWidget::NameField,        new QTableWidgetItem(p->get_name()));
+    ui.pluginTable->setItem(rows, PluginWidget::AuthorField,      new QTableWidgetItem(p->get_author()));
+    ui.pluginTable->setItem(rows, PluginWidget::DescriptionField, new QTableWidgetItem(p->get_description()));
+    ui.pluginTable->setItem(rows, PluginWidget::TypeField,        new QTableWidgetItem(p->get_type()));
+    ui.pluginTable->setItem(rows, PluginWidget::EngineField,      new QTableWidgetItem(p->get_engine()));
 }
 
 void PluginWidget::removePlugin()
 {
-  // limited to work with one selection at a time to prevent row mixup upon removal
+    // limited to work with one selection at a time to prevent row mixup upon removal
     QList<QTableWidgetItem*> itemlist = ui.pluginTable->selectedItems();
     if (itemlist.isEmpty()) {
         Utility::DisplayStdWarningDialog(tr("Nothing is Selected."));
         return;
     }
-    int row = ui.pluginTable->row(itemlist.at(0));
-    QString pluginname = ui.pluginTable->item(row, PluginRunner::NameField)->text();
-    QString plugin = m_PluginsPath + "/" + pluginname;
-    if (QDir(plugin).exists()) {
-        Utility::removeDir(plugin);
-    } 
-    ui.pluginTable->removeRow(row);
-    m_isDirty = true;
-}
 
+    PluginDB *pdb = PluginDB::instance();
+    int row = ui.pluginTable->row(itemlist.at(0));
+    QString pluginname = ui.pluginTable->item(row, PluginWidget::NameField)->text();
+    ui.pluginTable->removeRow(row);
+    pdb->remove_plugin(pluginname);
+}
 
 void PluginWidget::removeAllPlugins()
 {
-
+    PluginDB *pdb = PluginDB::instance();
     QMessageBox msgBox;
+
     msgBox.setIcon(QMessageBox::Warning);
     msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
     msgBox.setWindowTitle(tr("Remove All Plugins"));
     msgBox.setText(tr("Are you sure sure you want to remove all of your plugins?"));
-    QPushButton * yesButton = msgBox.addButton(QMessageBox::Yes);
-    QPushButton * noButton =  msgBox.addButton(QMessageBox::No);
+    QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
+    QPushButton *noButton  = msgBox.addButton(QMessageBox::No);
     msgBox.setDefaultButton(noButton);
     msgBox.exec();
     if (msgBox.clickedButton() == yesButton) {
         while (ui.pluginTable->rowCount() > 0) {
-            int row = 0;
-            QString pluginname = ui.pluginTable->item(row, PluginRunner::NameField)->text();
-            QString plugin = m_PluginsPath + "/" + pluginname;
-            if (QDir(plugin).exists()) {
-                Utility::removeDir(plugin);
-            } 
             ui.pluginTable->removeRow(0);
         }
     }
 
+    pdb->remove_all_plugins();
 }
-
 
 void PluginWidget::AutoFindPy2()
 {

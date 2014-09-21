@@ -31,14 +31,19 @@ private slots:
     void pluginSelected(int row, int col);
 
 private:
+    enum PluginFields {
+        NameField        = 0,
+        AuthorField      = 1,
+        DescriptionField = 2,
+        TypeField        = 3,
+        EngineField      = 4
+    };
+
     void readSettings();
     void connectSignalsToSlots();
 
     Ui::PluginWidget ui;
     bool m_isDirty;
-
-    QString m_PluginsPath;
-    
 };
 
 #endif // PLUGINWIDGET_H

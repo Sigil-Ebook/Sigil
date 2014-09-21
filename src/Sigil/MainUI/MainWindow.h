@@ -188,12 +188,6 @@ public:
      * @return The load dialog filters.
      */
     static const QMap< QString, QString > GetLoadFiltersMap();
-
-    /** 
-     * support for plugins
-     */
-    void loadPluginsMenu();
-    void unloadPluginsMenu();
     
     /**
      * Loads a book from the file specified.
@@ -642,6 +636,12 @@ private slots:
     void OpenFile(QString filename, int line = -1);
 
     void UpdateClipsUI();
+
+    /** 
+     * support for plugins
+     */
+    void loadPluginsMenu();
+    void unloadPluginsMenu();
 
 private:
     void UpdateClipButton(int clip_number, QAction *ui_action);

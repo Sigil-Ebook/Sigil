@@ -4,12 +4,13 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QByteArray>
-#include <QStandardPaths>
 #include <QXmlStreamReader>
 #include <QXmlStreamAttributes>
 #include <QMessageBox>
 #include "MainUI/MainWindow.h"
 #include "MainUI/BookBrowser.h"
+#include "Misc/Plugin.h"
+#include "Misc/PluginDB.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Misc/TempFolder.h"
@@ -78,29 +79,27 @@ PluginRunner::~PluginRunner()
 int PluginRunner::exec(const QString &name)
 {
     QHash <QString, QStringList> plugininfo;
-    QHash <QString, QString> enginepath;
-    QStringList fields;
+    PluginDB *pdb = PluginDB::instance();
+    Plugin *plugin;
     SettingsStore settings;
     QString launcher_root;
 
     m_ready = false;
-    m_pluginName = name;
 
-    // get plugin settings from SettingsStore
-    enginepath = settings.pluginEnginePaths();
-    plugininfo = settings.pluginInfo();
-    if (! plugininfo.keys().contains(m_pluginName)) {
+    plugin = pdb->get_plugin(name);
+    if (plugin == NULL) {
         Utility::DisplayStdErrorDialog(tr("Error: A plugin by that name does not exist"));
         reject();
         return QDialog::Rejected;
     }
 
+    m_pluginName = name;
+
     // set up paths and things for the plugin and interpreter
-    m_pluginsFolder = pluginsPath();
-    fields = plugininfo[m_pluginName];
-    m_engine = fields.at(EngineField);
-    m_pluginType = fields.at(TypeField);
-    m_enginePath = enginepath[m_engine];
+    m_pluginsFolder = PluginDB::pluginsPath();
+    m_engine = plugin->get_engine();
+    m_pluginType = plugin->get_type();
+    m_enginePath = pdb->get_engine_path(m_engine);
     if (m_enginePath.isEmpty()) {
         Utility::DisplayStdErrorDialog(tr("Error: Interpreter ") + m_engine + tr(" has no path set"));
         reject();
@@ -108,7 +107,7 @@ int PluginRunner::exec(const QString &name)
     }
 
     // The launcher and plugin path are both platform specific and engine/interpreter specific 
-    launcher_root = launcherRoot();
+    launcher_root = PluginDB::launcherRoot();
 
     if ((m_engine == "python2.7") || (m_engine == "python3.4")) {
         m_launcherPath = launcher_root + "/python/launcher.py";
@@ -143,54 +142,6 @@ int PluginRunner::exec(const QString &name)
     m_ready = true;
 
     return QDialog::exec();
-}
-
-QString PluginRunner::pluginsPath()
-{
-    return QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/plugins";
-}
-
-QString PluginRunner::launcherRoot()
-{
-    QString launcher_root;
-
-    launcher_root = QCoreApplication::applicationDirPath(); 
-
-#ifdef Q_OS_MAC
-    launcher_root += "/../plugin_launchers/";
-#elif defined(Q_OS_WIN32)
-    launcher_root += "/plugin_launchers/";
-#elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    // all flavours of linux / unix
-    launcher_root += "/../share/" + QCoreApplication::applicationName().toLower() + "/plugin_launchers/";
-    // user supplied environment variable to plugin launcher directory will overrides everything
-    const QString env_launcher_location = QString(getenv("SIGIL_PLUGIN_LAUNCHERS"));
-    if (!env_launcher_location.isEmpty()) {
-        launcher_root = env_launcher_location + "/";
-    }
-#endif
-
-    return launcher_root;
-}
-
-QString PluginRunner::internalLuaPath()
-{
-    QString internal_lua;
-
-    internal_lua  = PluginRunner::launcherRoot();
-    if (internal_lua.isEmpty())
-        return "";
-
-    internal_lua += "/lua";
-#ifdef _WIN32
-    internal_lua += ".exe";
-#endif
-
-    internal_lua = QDir::cleanPath(internal_lua);
-    QFile ilf(internal_lua);
-    if (!ilf.exists())
-        return "";
-    return QDir::toNativeSeparators(internal_lua);
 }
 
 void PluginRunner::startPlugin() 

@@ -60,15 +60,6 @@ class PluginRunner : public QDialog
     Q_OBJECT
 
 public:
-
-    enum PluginFields {
-        NameField        = 0,
-        AuthorField      = 1,
-        DescriptionField = 2,
-        TypeField        = 3,
-        EngineField      = 4
-    };
-
     enum FileInfoFields {
         hrefField = 0,
         idField   = 1,
@@ -77,10 +68,6 @@ public:
 
     PluginRunner(TabManager *tabMgr, QWidget *parent);
     ~PluginRunner();
-    
-    static QString pluginsPath();
-    static QString launcherRoot();
-    static QString internalLuaPath();
 
 public slots:
     int exec(const QString &name);

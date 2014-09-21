@@ -71,6 +71,8 @@
 #include "MainUI/ValidationResultsView.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/KeyboardShortcutManager.h"
+#include "Misc/Plugin.h"
+#include "Misc/PluginDB.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
 #include "Misc/SpellCheck.h"
@@ -215,45 +217,50 @@ MainWindow::~MainWindow()
 // Actions can be removed
 void MainWindow::loadPluginsMenu()
 {
-  unloadPluginsMenu();
-  SettingsStore settings;
-  if (m_menuPlugins == NULL) {
-      m_menuPlugins = ui.menubar->addMenu(tr("Plugins"));
-      m_actionManagePlugins = m_menuPlugins->addAction(tr("Manage Plugins"));
-      connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
-  }
-  QHash < QString, QStringList > plugininfo = settings.pluginInfo();
-  QStringList keys = plugininfo.keys();
-  keys.sort();
-  foreach( QString key, keys ) {
-      QStringList pfields = plugininfo[key];
-      QString pname = pfields.at(PluginRunner::NameField);
-      QString ptype = pfields.at(PluginRunner::TypeField);
+    unloadPluginsMenu();
 
-      if (ptype == "input") {
-          if (m_menuPluginsInput == NULL) {
-              m_menuPluginsInput  = m_menuPlugins->addMenu(tr("Input"));
-              connect(m_menuPluginsInput,  SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
-          }
-          m_menuPluginsInput->addAction(pname);
+    PluginDB *pdb = PluginDB::instance();
 
-      } else if (ptype == "output") {
-          if (m_menuPluginsOutput == NULL) {
-              m_menuPluginsOutput = m_menuPlugins->addMenu(tr("Output"));
-              connect(m_menuPluginsOutput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
-          }
-          m_menuPluginsOutput->addAction(pname);
+    if (m_menuPlugins == NULL) {
+        m_menuPlugins = ui.menubar->addMenu(tr("Plugins"));
+        m_actionManagePlugins = m_menuPlugins->addAction(tr("Manage Plugins"));
+        connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
+    }
 
-      } else {
-          if (m_menuPluginsEdit == NULL) {
-              m_menuPluginsEdit = m_menuPlugins->addMenu(tr("Edit"));
-              connect(m_menuPluginsEdit,   SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
-          }
-          m_menuPluginsEdit->addAction(pname);
-      }
-  }
+    QHash<QString, Plugin *> plugins = pdb->all_plugins();
+    QStringList keys = plugins.keys();
+    keys.sort();
+
+    foreach(QString key, keys) {
+        Plugin *p = plugins.value(key);
+        if (p == NULL)
+            continue;
+        QString pname = p->get_name();
+        QString ptype = p->get_type();
+
+        if (ptype == "input") {
+            if (m_menuPluginsInput == NULL) {
+                m_menuPluginsInput  = m_menuPlugins->addMenu(tr("Input"));
+                connect(m_menuPluginsInput,  SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            }
+            m_menuPluginsInput->addAction(pname);
+
+        } else if (ptype == "output") {
+            if (m_menuPluginsOutput == NULL) {
+                m_menuPluginsOutput = m_menuPlugins->addMenu(tr("Output"));
+                connect(m_menuPluginsOutput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            }
+            m_menuPluginsOutput->addAction(pname);
+
+        } else {
+            if (m_menuPluginsEdit == NULL) {
+                m_menuPluginsEdit = m_menuPlugins->addMenu(tr("Edit"));
+                connect(m_menuPluginsEdit,   SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            }
+            m_menuPluginsEdit->addAction(pname);
+        }
+    }
 }
-
 
 // Keeps the Plugins menu and ManagePlugins submenu arround even if no plugins added yet
 void MainWindow::unloadPluginsMenu()
@@ -4486,6 +4493,10 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_Reports,       SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SLOT(DeleteReportsStyles(QList<BookReports::StyleData *>)));
     connect(m_Reports,       SIGNAL(FindText(QString)), m_FindReplace, SLOT(FindAnyText(QString)));
     connect(m_Reports,       SIGNAL(FindTextInTags(QString)), m_FindReplace, SLOT(FindAnyTextInTags(QString)));
+
+    // Plugins
+    PluginDB *pdb = PluginDB::instance();
+    connect(pdb, SIGNAL(plugins_changed()), this, SLOT(loadPluginsMenu()));
 }
 
 void MainWindow::MakeTabConnections(ContentTab *tab)
