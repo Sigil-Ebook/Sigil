@@ -26,7 +26,7 @@
 
 #if defined(__APPLE__)
 static const QString POS = "osx";
-#elif deifned(_WIN32)
+#elif defined(_WIN32)
 static const QString POS = "win";
 #else
 static const QString POS = "unx";
