@@ -43,6 +43,7 @@ public:
         AR_SUCCESS = 0,
         AR_EXISTS,
         AR_UNZIP,
+        AR_INVALID,
         AR_XML
     };
 
