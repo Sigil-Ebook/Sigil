@@ -143,6 +143,10 @@ PluginDB::AddResult PluginDB::add_plugin(const QString &path, bool force)
     int version_index = name.indexOf("_");
     if (version_index > -1) name.truncate(version_index);
 
+    if (!verify_plugin_zip(path, name)) {
+        return PluginDB::AR_INVALID;
+    }
+
     if (!Utility::UnZip(path, pluginsPath()))
         return PluginDB::AR_UNZIP;
 
@@ -174,6 +178,21 @@ PluginDB::AddResult PluginDB::add_plugin_int(const QString &name, bool force)
     m_plugins.insert(plugin->get_name(), plugin);
     return PluginDB::AR_SUCCESS;
 }
+
+
+bool PluginDB::verify_plugin_zip(const QString &path, const QString &name)
+{
+    QStringList filelist = Utility::ZipInspect(zippath);
+    bool res = (!filelist.isEmpty());
+    foreach (QString filepath, filelist) {
+        QStringList pieces = filepath.split("/");
+        QString toplevel = pieces.at(0);
+        res = res && (toplevel == name);
+    }
+    res = res && filelist.contains(name + "/" + "plugin.xml");
+    return res;
+}
+
 
 void PluginDB::remove_plugin(const QString &name)
 {

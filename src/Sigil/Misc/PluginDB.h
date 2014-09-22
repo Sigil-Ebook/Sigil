@@ -43,7 +43,8 @@ public:
         AR_SUCCESS = 0,
         AR_EXISTS,
         AR_UNZIP,
-        AR_XML
+        AR_XML,
+        AR_INVALID
     };
 
     void load_plugins_from_disk(bool force=false);
@@ -70,6 +71,7 @@ private:
 
     PluginDB::AddResult add_plugin_int(const QString &path, bool force=false);
     Plugin *load_plugin(const QString &name);
+    bool verify_plugin_zip(const QString &path, const QString &name);
 
     QHash<QString, Plugin *> m_plugins;
     QHash<QString, QString> m_engine_paths;
