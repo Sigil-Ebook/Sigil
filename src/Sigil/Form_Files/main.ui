@@ -50,7 +50,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -331,6 +331,12 @@
     <addaction name="actionDeleteUnusedMedia"/>
     <addaction name="actionDeleteUnusedStyles"/>
    </widget>
+   <widget class="QMenu" name="menuPlugins">
+    <property name="title">
+     <string>Plugins</string>
+    </property>
+    <addaction name="actionManage_Plugins"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuInsert"/>
@@ -339,6 +345,7 @@
    <addaction name="menuTools"/>
    <addaction name="menuView"/>
    <addaction name="menuWindow"/>
+   <addaction name="menuPlugins"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -2260,6 +2267,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionManage_Plugins">
+   <property name="text">
+    <string>Manage Plugins</string>
    </property>
   </action>
  </widget>
