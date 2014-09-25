@@ -23,6 +23,7 @@
 #include <QStringList>
 
 #include "Misc/Plugin.h"
+#include "Dialogs/PluginRunner.h"
 
 #if defined(__APPLE__)
 static const QString POS = "osx";
@@ -77,7 +78,7 @@ bool Plugin::isvalid()
 {
     return (!m_name.isEmpty()   &&
             !m_type.isEmpty()   &&
-            !m_engine.isEmpty() &&
+            (!m_engine.isEmpty() && PluginRunner::SupportedEngines().contains(m_engine)) &&
             (m_oslist.isEmpty() || m_oslist.split(',', QString::SkipEmptyParts).contains(POS)));
 }
 

@@ -76,6 +76,13 @@ PluginRunner::~PluginRunner()
 {
 }
 
+QStringList PluginRunner::SupportedEngines()
+{
+    QStringList engines;
+    engines << "python2.7" << "python3.4";
+    return engines;
+}
+
 int PluginRunner::exec(const QString &name)
 {
     QHash <QString, QStringList> plugininfo;
@@ -109,6 +116,7 @@ int PluginRunner::exec(const QString &name)
     // The launcher and plugin path are both platform specific and engine/interpreter specific 
     launcher_root = PluginDB::launcherRoot();
 
+    // Note: Keep SupportedEngines() in sync with the engine calling code here.
     if ((m_engine == "python2.7") || (m_engine == "python3.4")) {
         m_launcherPath = launcher_root + "/python/launcher.py";
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + "plugin.py";
