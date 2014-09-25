@@ -61,7 +61,6 @@ public:
 
     static QString pluginsPath();
     static QString launcherRoot();
-    static QString internalLuaPath();
 
 signals:
     void plugins_changed();

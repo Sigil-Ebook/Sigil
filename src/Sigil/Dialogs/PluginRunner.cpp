@@ -118,15 +118,6 @@ int PluginRunner::exec(const QString &name)
             reject();
             return QDialog::Rejected;
         }
-    } else if (m_engine == "lua5.2") {
-        m_launcherPath = launcher_root + "/lua/launcher.lua";
-        m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + "plugin.lua";
-        if (!QFileInfo(m_launcherPath).exists()) {
-            Utility::DisplayStdErrorDialog(tr("Installation Error: plugin launcher ") + 
-                                           m_launcherPath + tr(" does not exist"));
-            reject();
-            return QDialog::Rejected;
-        }
     } else {
         Utility::DisplayStdErrorDialog(tr("Error: plugin engine ") + 
                                        m_engine + tr(" is not supported (yet!)"));
