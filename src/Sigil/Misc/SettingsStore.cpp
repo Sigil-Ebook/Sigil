@@ -204,17 +204,8 @@ QList < std::pair < ushort, QString > >  SettingsStore::preserveEntityCodeNames(
     return codenames;
 }
 
-
-QHash <QString, QStringList> SettingsStore::pluginInfo()
-{
-    //KEY_PLUGIN_INFO
-    return QHash <QString, QStringList>();
-}
-
-
 QHash <QString, QString> SettingsStore::pluginEnginePaths()
 {
-    QString                   internal_lua;
     QHash <QString, QVariant> ep;
     QHash <QString, QString>  enginepath;
 
@@ -225,17 +216,8 @@ QHash <QString, QString> SettingsStore::pluginEnginePaths()
         enginepath.insert(k, ep.value(k).toString());
     }
 
-    // Set the bundled Lua interpreter path if it exists."
-    if (!enginepath.contains("lua5.2")) {
-        internal_lua = PluginDB::internalLuaPath();
-        if (!internal_lua.isEmpty()) {
-            enginepath["lua5.2"] = internal_lua;
-        }
-    }
-
     return enginepath;
 }
-
 
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
 {
@@ -384,11 +366,6 @@ void SettingsStore::setPreserveEntityCodeNames(const QList< std::pair < ushort, 
     }
     setValue(KEY_PRESERVE_ENTITY_NAMES, names);
     setValue(KEY_PRESERVE_ENTITY_CODES, codes);
-}
-
-void SettingsStore::setPluginInfo(const QHash <QString, QStringList> &plugininfo)
-{
-    //KEY_PLUGIN_INFO
 }
 
 void SettingsStore::setPluginEnginePaths(const QHash <QString, QString> &enginepaths)

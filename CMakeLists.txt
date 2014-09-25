@@ -131,5 +131,4 @@ if( NOT FLIGHTCREW_FOUND )
     set( FLIGHTCREW_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/FlightCrew )
 endif()
 
-add_subdirectory( src/lua )
 add_subdirectory( src/Sigil )

@@ -37,7 +37,6 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
 
     pdb->set_engine_path("python2.7", ui.editPathPy2->text());
     pdb->set_engine_path("python3.4", ui.editPathPy3->text());
-    pdb->set_engine_path("lua5.2", ui.editPathLua->text());
 
     m_isDirty = false;
     return PreferencesWidget::ResultAction_None;
@@ -53,7 +52,6 @@ void PluginWidget::readSettings()
 
     ui.editPathPy2->setText(pdb->get_engine_path("python2.7"));
     ui.editPathPy3->setText(pdb->get_engine_path("python3.4"));
-    ui.editPathLua->setText(pdb->get_engine_path("lua5.2"));
 
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
@@ -189,12 +187,6 @@ void PluginWidget::AutoFindPy3()
     m_isDirty = true;
 }
 
-void PluginWidget::AutoFindLua()
-{
-    ui.editPathLua->setText(QStandardPaths::findExecutable("lua"));
-    m_isDirty = true;
-}
-
 void PluginWidget::SetPy2()
 {
     QString name = QFileDialog::getOpenFileName(this, tr("Select Interpreter"));
@@ -212,16 +204,6 @@ void PluginWidget::SetPy3()
         return;
     }
     ui.editPathPy3->setText(name);
-    m_isDirty = true;
-}
-
-void PluginWidget::SetLua()
-{
-    QString name = QFileDialog::getOpenFileName(this, tr("Select Interpreter"));
-    if (name.isEmpty()) {
-        return;
-    }
-    ui.editPathLua->setText(name);
     m_isDirty = true;
 }
 
@@ -257,36 +239,16 @@ void PluginWidget::enginePy3PathChanged()
     m_isDirty = true;
 }
 
-void PluginWidget::engineLuaPathChanged()
-{
-    // make sure typed in path actually exists
-    QString enginepath = ui.editPathLua->text();
-    if (!enginepath.isEmpty()) {
-        QFileInfo enginfo(enginepath);
-        if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
-            disconnect(ui.editPathLua, SIGNAL(editingFinished()), this, SLOT(engineLuaPathChanged()));
-            Utility::DisplayStdWarningDialog(tr("Incorrect Interpreter Path selected"));
-            ui.editPathLua->setText("");
-            connect(ui.editPathLua, SIGNAL(editingFinished()), this, SLOT(engineLuaPathChanged()));
-        }
-    }
-    m_isDirty = true;
-}
-
-
 void PluginWidget::connectSignalsToSlots()
 {
     connect(ui.Py2Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy2()));
     connect(ui.Py3Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy3()));
-    connect(ui.LuaAuto, SIGNAL(clicked()), this, SLOT(AutoFindLua()));
     connect(ui.Py2Set, SIGNAL(clicked()), this, SLOT(SetPy2()));
     connect(ui.Py3Set, SIGNAL(clicked()), this, SLOT(SetPy3()));
-    connect(ui.LuaSet, SIGNAL(clicked()), this, SLOT(SetLua()));
     connect(ui.addButton, SIGNAL(clicked()), this, SLOT(addPlugin()));
     connect(ui.removeButton, SIGNAL(clicked()), this, SLOT(removePlugin()));
     connect(ui.removeAllButton, SIGNAL(clicked()), this, SLOT(removeAllPlugins()));
     connect(ui.pluginTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(pluginSelected(int,int)));
     connect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
     connect(ui.editPathPy3, SIGNAL(editingFinished()), this, SLOT(enginePy3PathChanged()));
-    connect(ui.editPathLua, SIGNAL(editingFinished()), this, SLOT(engineLuaPathChanged()));
 }

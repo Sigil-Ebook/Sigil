@@ -31,8 +31,6 @@ Qt 5.3.0 is also required on all platforms. It can be downloaded
 
 * FORCE_BUNDLED_COPIES=1
   * Only use bundled copies and don't use system versions of dependencies.
-* NO_BUNDLED_LUA=1
-  * Don't bundle Lua
 * WIN_INSTALLER_USE_64BIT_CRT=1
   * Windows only.
   * Must be specified if building a 64 bit installable package.

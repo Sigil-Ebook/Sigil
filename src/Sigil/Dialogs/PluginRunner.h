@@ -69,6 +69,8 @@ public:
     PluginRunner(TabManager *tabMgr, QWidget *parent);
     ~PluginRunner();
 
+    static QStringList SupportedEngines();
+
 public slots:
     int exec(const QString &name);
 

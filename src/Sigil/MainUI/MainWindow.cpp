@@ -170,11 +170,9 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_PreviousHTMLResource(NULL),
     m_PreviousHTMLText(QString()),
     m_PreviousHTMLLocation(QList<ViewEditor::ElementIndex>()),
-    m_menuPlugins(NULL),
     m_menuPluginsInput(NULL),
     m_menuPluginsOutput(NULL),
     m_menuPluginsEdit(NULL),
-    m_actionManagePlugins(NULL),
     m_SaveCSS(false)
 {
     ui.setupUi(this);
@@ -217,15 +215,14 @@ MainWindow::~MainWindow()
 // Actions can be removed
 void MainWindow::loadPluginsMenu()
 {
+    m_menuPlugins=ui.menuPlugins;
+    m_actionManagePlugins=ui.actionManage_Plugins;
+
     unloadPluginsMenu();
 
     PluginDB *pdb = PluginDB::instance();
 
-    if (m_menuPlugins == NULL) {
-        m_menuPlugins = ui.menubar->addMenu(tr("Plugins"));
-        m_actionManagePlugins = m_menuPlugins->addAction(tr("Manage Plugins"));
-        connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
-    }
+    connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
 
     QHash<QString, Plugin *> plugins = pdb->all_plugins();
     QStringList keys = plugins.keys();

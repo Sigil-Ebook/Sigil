@@ -94,27 +94,6 @@ QString PluginDB::launcherRoot()
     return launcher_root;
 }
 
-QString PluginDB::internalLuaPath()
-{
-    QString internal_lua;
-
-    internal_lua  = PluginDB::launcherRoot();
-    if (internal_lua.isEmpty())
-        return "";
-
-    internal_lua += "/lua/lua";
-#ifdef _WIN32
-    internal_lua += ".exe";
-#endif
-
-    internal_lua = QDir::cleanPath(internal_lua);
-    QFile ilf(internal_lua);
-    if (!ilf.exists())
-        return "";
-    return QDir::toNativeSeparators(internal_lua);
-}
-
-
 void PluginDB::load_plugins_from_disk(bool force)
 {
     QDir         d(pluginsPath());

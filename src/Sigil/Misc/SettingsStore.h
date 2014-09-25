@@ -98,7 +98,6 @@ public:
     /**
      * Support for Plugins
      */
-    QHash <QString, QStringList> pluginInfo();
     QHash <QString, QString> pluginEnginePaths();
 
 
@@ -249,7 +248,6 @@ public slots:
      * Support for Plugins
      */
     
-    void setPluginInfo(const QHash< QString, QStringList> &plugininfo);
     void setPluginEnginePaths(const QHash <QString, QString> &enginepaths);
 
     /**
