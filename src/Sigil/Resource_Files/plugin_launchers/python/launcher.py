@@ -230,13 +230,23 @@ def main(argv=unicode_argv()):
     if script_type not in SUPPORTED_SCRIPT_TYPES:
         failed(None, msg="Launcher: script type %s is not supported" % script_type)
         return -1
-
-    ok = unipath.exists(ebook_root) and unipath.isdir(ebook_root)
-    ok = ok and unipath.exists(outdir) and unipath.isdir(outdir)
-    ok = ok and unipath.exists(script_home) and unipath.isdir(script_home)
-    ok = ok and unipath.exists(target_file) and unipath.isfile(target_file)
+    error_msg="Launcher: missing or incorrect paths passed in:"
+    ok1 = unipath.exists(ebook_root) and unipath.isdir(ebook_root)
+    if not ok1:
+        error_msg=error_msg+"\n - no ebok_root"
+    ok2 = unipath.exists(outdir) and unipath.isdir(outdir)
+    if not ok2:
+        error_msg=error_msg+"\n - no outdir"
+    ok3 = unipath.exists(script_home) and unipath.isdir(script_home)
+    if not ok3:
+        error_msg=error_msg+"\n - no script_home"
+    ok4 = unipath.exists(target_file) and unipath.isfile(target_file)
+    if not ok4:
+        error_msg=error_msg+"\n - no target_file"
+    ok=ok1 and ok2 and ok3 and ok4
+    
     if not ok:
-        failed(None, msg="Launcher: missing or incorrect paths passed in")
+        failed(None, msg=error_msg)
         return -1
 
     # update sys with path to target module home directory
