@@ -1079,7 +1079,7 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Dit is een lijst met de stijlklassen die gebruikt worden door alle HTML-bestanden in een gekoppeld CSS-stijlblad.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;Dit is een lijst met de stijlklassen die gebruikt worden in alle HTML-bestanden en of de stijl al dan niet een bijbehorende selector heeft in een gekoppeld stijlblad.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
@@ -12230,7 +12230,7 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingscontrole open staat
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="86"/>
         <source>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Dit is een lijst met de op klassen gebaseerde selectors in alle CSS-stijlbladen, ongeacht of naar de selector wordt verwezen vanuit een stijl in een HTML-bestand.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;Dit is een lijst met de op klassen gebaseerde selectors in alle CSS-stijlbladen en of naar de selector wordt verwezen vanuit een stijl in een HTML-bestand.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="87"/>

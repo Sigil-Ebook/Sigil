@@ -120,7 +120,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="66"/>
@@ -130,7 +130,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="67"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>형식</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="68"/>
@@ -3745,7 +3745,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sichuan Yi</source>
-        <translation type="unfinished"/>
+        <translation>사천어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
@@ -3947,84 +3947,84 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Tajik</source>
-        <translation type="unfinished"/>
+        <translation>타지키스탄어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Tamil</source>
-        <translation type="unfinished"/>
+        <translation>타밀어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Tatar</source>
-        <translation type="unfinished"/>
+        <translation>타타르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Telugu</source>
-        <translation type="unfinished"/>
+        <translation>텔루구어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Thai</source>
-        <translation type="unfinished"/>
+        <translation>태국어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tibetan</source>
-        <translation type="unfinished"/>
+        <translation>티베트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tigrinya</source>
-        <translation type="unfinished"/>
+        <translation>티그리냐어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tonga</source>
-        <translation type="unfinished"/>
+        <translation>통가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tsonga</source>
-        <translation type="unfinished"/>
+        <translation>총가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Tswana</source>
-        <translation type="unfinished"/>
+        <translation>츠와나어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkish</source>
-        <translation type="unfinished"/>
+        <translation>터키어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkey</source>
-        <translation type="unfinished"/>
+        <translation>터키</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Turkmen</source>
-        <translation type="unfinished"/>
+        <translation>투르크멘어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Twi</source>
-        <translation type="unfinished"/>
+        <translation>트위어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Uighur</source>
-        <translation type="unfinished"/>
+        <translation>위구르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"/>
+        <translation>우크라이나어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
@@ -4034,78 +4034,78 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Urdu</source>
-        <translation type="unfinished"/>
+        <translation>우르두어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbek</source>
-        <translation type="unfinished"/>
+        <translation>우즈벡어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbekistan</source>
-        <translation type="unfinished"/>
+        <translation>우즈베키스탄</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Venda</source>
-        <translation type="unfinished"/>
+        <translation>벤다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Vietnamese</source>
-        <translation type="unfinished"/>
+        <translation>베트남어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Volapuk</source>
-        <translation type="unfinished"/>
+        <translation>볼라퓌크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Walloon</source>
-        <translation type="unfinished"/>
+        <translation>왈론어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Welsh</source>
-        <translation type="unfinished"/>
+        <translation>웨일즈어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Western Frisian</source>
-        <translation type="unfinished"/>
+        <translation>서부 프리지아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Wolof</source>
-        <translation type="unfinished"/>
+        <translation>월로프어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Xhosa</source>
-        <translation type="unfinished"/>
+        <translation>호사어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Yiddish</source>
-        <translation type="unfinished"/>
+        <translation>이디시어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Yoruba</source>
-        <translation type="unfinished"/>
+        <translation>요루바어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Zhuang</source>
-        <translation type="unfinished"/>
+        <translation>장족어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Zulu</source>
-        <translation type="unfinished"/>
+        <translation>줄루어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
@@ -8485,7 +8485,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation type="unfinished"/>
+        <translation>출판물 발행 책임자</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
@@ -8510,7 +8510,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation type="unfinished"/>
+        <translation>리소스의 내용의 특성 또는 장르</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
@@ -8520,7 +8520,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
-        <translation type="unfinished"/>
+        <translation>출판물의 매체 유형이나 크기. 모범사례는 제한된 용어를 사용하는 것입니다. (예시. MIME 미디어 유형)</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
@@ -8530,7 +8530,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
         <source>A reference to a resource from which the present publication is derived.</source>
-        <translation type="unfinished"/>
+        <translation>현재 발행물이 참조한 리소스의 출처</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
@@ -8560,7 +8560,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
-        <translation type="unfinished"/>
+        <translation>발행물의 내용의 적용범위</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
@@ -8570,7 +8570,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation type="unfinished"/>
+        <translation>발행물이 가지는 권리에 대한 정보. 권리 정보는 보통 지적 재산권 (IPR), 저작권, 및 각종 소유권을 포함합니다.  권리 요소가 없는 경우 발행물이 가지는 어떤 권리에 대해서 어떠한 가정도 성립될 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
@@ -8605,17 +8605,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>뮤지컬이나 드라마 상형 또는 오락 등에서 주로 연기 기술을 보여주는 사람 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Adapter</source>
-        <translation type="unfinished"/>
+        <translation>번안자</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>1) 뮤지컬 요소를, 보통 다른 매체로 개작하거나, 2) 소설을 영화 또는 다른 시청각 매체로 재구성한 사람이나 조직.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="265"/>

@@ -1202,7 +1202,7 @@ or when cleaning manually.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="185"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="215"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
@@ -11208,7 +11208,7 @@ including entries in selected groups.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="261"/>
         <location filename="../../Form_Files/SearchEditor.ui" line="291"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>

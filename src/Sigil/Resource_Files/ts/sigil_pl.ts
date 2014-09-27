@@ -9,7 +9,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>Edytor Książek EPUB</translation>
+        <translation>Edytor EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>

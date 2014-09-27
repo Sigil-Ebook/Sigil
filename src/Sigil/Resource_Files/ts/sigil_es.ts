@@ -54,7 +54,7 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation>Licencia genaral GNU v3</translation>
+        <translation>Licencia general GNU V3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
@@ -100,7 +100,7 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation>Todos los ficheros</translation>
+        <translation>Todos los archivos</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>

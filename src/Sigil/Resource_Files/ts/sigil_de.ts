@@ -2442,9 +2442,9 @@ Sie können in obiger Liste einzelne Überschriften aus- oder abwählen.</transl
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
-        <translation>Dieses EPUB hat nicht korrekt aufgebaute HTML-Dateien. Siegel kann versuchen, diese Dateien automatisch zu reparieren obwohl dies zu Datenverlust führen kann.
+        <translation>Dieses EPUB enthält nicht korrekt aufgebaute HTML-Dateien. Sigil kann versuchen, diese Dateien automatisch zu reparieren, obwohl dies zu Datenverlust führen kann.
 
-Möchten Sie die Dateien automatisch zu reparieren?</translation>
+Möchten Sie die Dateien automatisch reparieren?</translation>
     </message>
 </context>
 <context>

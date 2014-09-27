@@ -87,7 +87,7 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Afegir propietat de metadades</translation>
+        <translation>Afegeix una propietat a les metadades</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>

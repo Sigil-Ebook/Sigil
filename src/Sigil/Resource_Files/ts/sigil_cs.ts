@@ -5936,7 +5936,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="645"/>
         <source>Cu&amp;t</source>
-        <translation>Vyj&amp;mout</translation>
+        <translation>V&amp;yjmout</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="659"/>
@@ -5974,7 +5974,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="701"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Znovu</translation>
+        <translation>Z&amp;novu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="704"/>
@@ -6071,7 +6071,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="984"/>
         <source>&amp;Code View</source>
-        <translation>Pohled na &amp;kód</translation>
+        <translation>Pohled na kó&amp;d</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="997"/>
@@ -6157,7 +6157,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1009"/>
         <source>&amp;Split At Cursor</source>
-        <translation>Roz&amp;dělit na ukazovátku</translation>
+        <translation>Rozdělit na &amp;ukazovátku</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1012"/>
@@ -6197,12 +6197,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1127"/>
         <source>Stri&amp;kethrough</source>
-        <translation>Přeš&amp;krtnutí</translation>
+        <translation>Př&amp;eškrtnutí</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1144"/>
         <source>&amp;Subscript</source>
-        <translation>Do&amp;lní index</translation>
+        <translation>&amp;Dolní index</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1175"/>
@@ -6340,7 +6340,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="752"/>
         <source>Align &amp;Right</source>
-        <translation>Zarovnat &amp;vpravo</translation>
+        <translation>Zarovnat v&amp;pravo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1678"/>
@@ -6350,7 +6350,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="769"/>
         <source>&amp;Center</source>
-        <translation>Zarovnat &amp;na střed</translation>
+        <translation>Zarovnat na &amp;střed</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="772"/>
@@ -6369,7 +6369,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="789"/>
         <source>&amp;Justify</source>
-        <translation>&amp;Zarovnat do bloku</translation>
+        <translation>Zarovnat do &amp;bloku</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="792"/>
@@ -6464,7 +6464,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="994"/>
         <source>&amp;Toggle View State</source>
-        <translation>&amp;Přepnout stav pohledu</translation>
+        <translation>Př&amp;epnout stav pohledu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1000"/>
@@ -6497,7 +6497,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1107"/>
         <source>Bulle&amp;ted List</source>
-        <translation>S&amp;eznam s odrážkami</translation>
+        <translation>Seznam s &amp;odrážkami</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1110"/>
@@ -6559,7 +6559,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1213"/>
         <source>Zoom &amp;In</source>
-        <translation>&amp;Přiblížit</translation>
+        <translation>Při&amp;blížit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1216"/>
@@ -6594,7 +6594,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="906"/>
         <source>Add &amp;Cover...</source>
-        <translation>Přidat &amp;obal...</translation>
+        <translation>Přidat o&amp;bal...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="909"/>
@@ -6813,7 +6813,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1427"/>
         <source>&amp;Report An Issue...</source>
-        <translation>&amp;Nahlásit chybu nebo požadavek...</translation>
+        <translation>Na&amp;hlásit chybu nebo požadavek...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1432"/>
@@ -6917,12 +6917,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation>Smazat &amp;nepoužívané multimediální soubory...</translation>
+        <translation>Smazat nepoužívané &amp;multimediální soubory...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1615"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
-        <translation>Smazat &amp;nepoužívané třídy stylových listů...</translation>
+        <translation>Smazat nepoužívané &amp;třídy stylových listů...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1623"/>
@@ -6952,7 +6952,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation>Na&amp;hradit/Najít předchozí</translation>
+        <translation>Nah&amp;radit/Najít předchozí</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1715"/>
@@ -7414,7 +7414,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="2217"/>
         <source>Book&amp;mark Location</source>
-        <translation>Poloha &amp;záložky</translation>
+        <translation>Poloha záložk&amp;y</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2220"/>
@@ -7480,12 +7480,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1321"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation>Směr t&amp;extu zprava doleva</translation>
+        <translation>Směr text&amp;u zprava doleva</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1337"/>
         <source>Text Directi&amp;on Default</source>
-        <translation>Výchozí &amp;směr textu</translation>
+        <translation>Vý&amp;chozí směr textu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1349"/>
@@ -7515,7 +7515,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1461"/>
         <source>Split At &amp;Markers</source>
-        <translation>Rozdělit na &amp;značkách</translation>
+        <translation>Rozdělit na zn&amp;ačkách</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1464"/>
@@ -7606,7 +7606,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>&amp;Reports...</source>
-        <translation>Zp&amp;rávy...</translation>
+        <translation>&amp;Zprávy...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1632"/>
@@ -7616,12 +7616,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Close &amp;Other Tabs</source>
-        <translation>Zavřít da&amp;lší karty</translation>
+        <translation>Zavřít d&amp;alší karty</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1651"/>
         <source>Go To &amp;Line...</source>
-        <translation>Jít na řád&amp;ek...</translation>
+        <translation>Jít na řáde&amp;k...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1659"/>
@@ -7646,7 +7646,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1751"/>
         <source>&amp;Clip Editor...</source>
-        <translation>&amp;Editor úryvků...</translation>
+        <translation>E&amp;ditor úryvků...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1754"/>
@@ -7696,7 +7696,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Next &amp;File</source>
-        <translation>Další s&amp;oubor</translation>
+        <translation>Da&amp;lší soubor</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2182"/>
@@ -7791,7 +7791,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1952"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Nastavení...</translation>
+        <translation>Nas&amp;tavení...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1955"/>
@@ -7826,7 +7826,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Pre&amp;vious File</source>
-        <translation>&amp;Předchozí soubor</translation>
+        <translation>Př&amp;edchozí soubor</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2166"/>
@@ -7856,7 +7856,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1502"/>
         <source>&amp;Tutorials...</source>
-        <translation>&amp;Návody...</translation>
+        <translation>Ná&amp;vody...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1505"/>

@@ -1200,7 +1200,7 @@ or when cleaning manually.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="185"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="215"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
@@ -1759,7 +1759,7 @@ You can also use the right arrow key.</source>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
         <location filename="../../Form_Files/FindReplace.ui" line="109"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
@@ -8264,7 +8264,7 @@ Readers may display entries in the order they are listed.</source>
         <location filename="../../Form_Files/MetaEditor.ui" line="206"/>
         <location filename="../../Form_Files/MetaEditor.ui" line="220"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="99"/>
@@ -11176,7 +11176,7 @@ including entries in selected groups.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="261"/>
         <location filename="../../Form_Files/SearchEditor.ui" line="291"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>

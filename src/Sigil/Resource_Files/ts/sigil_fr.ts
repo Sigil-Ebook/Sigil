@@ -2717,7 +2717,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
         <source>Conflicts with: &lt;b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Conflits avec: &lt;b&gt;</translation>
     </message>
 </context>
 <context>
@@ -3765,7 +3765,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbia</source>
-        <translation type="unfinished"/>
+        <translation>Serbie</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
@@ -4670,7 +4670,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Greek- Ancient (to 1453)</source>
-        <translation>grec ancien (to 1453)</translation>
+        <translation>grec ancien (jusqu&apos;en 1453)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="456"/>

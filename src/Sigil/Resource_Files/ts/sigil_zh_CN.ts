@@ -8744,7 +8744,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
         <source>Applicant</source>
-        <translation type="unfinished"/>
+        <translation>应用</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>

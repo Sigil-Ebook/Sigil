@@ -120,7 +120,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="66"/>

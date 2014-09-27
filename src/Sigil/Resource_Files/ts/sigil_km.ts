@@ -9,7 +9,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation type="unfinished"/>
+        <translation>កម្មវិធី​កែ​សម្រួល EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation type="unfinished"/>
+        <translation>ពេល​បង្កើត:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
@@ -120,7 +120,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>ឈ្មោះ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="66"/>
@@ -414,7 +414,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="57"/>
         <source>Book Browser</source>
-        <translation type="unfinished"/>
+        <translation>កម្មវិធី​រុករក​សៀវភៅ</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="69"/>
@@ -788,7 +788,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>បញ្ចូល​ឯកសារ</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="967"/>
@@ -1200,7 +1200,7 @@ or when cleaning manually.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="185"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="215"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
@@ -1530,7 +1530,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1343"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>មើល​រូប​ភាព</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1344"/>
@@ -1753,7 +1753,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>ស្វែងរក</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
@@ -1837,7 +1837,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>ជំនួស</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
@@ -1872,7 +1872,8 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="622"/>
         <source>No matches found</source>
-        <translation type="unfinished"/>
+        <translation>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%1 matches found</source>
@@ -6505,7 +6506,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="906"/>
         <source>Add &amp;Cover...</source>
-        <translation type="unfinished"/>
+        <translation>បន្ថែម​&amp;ក្រប...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="909"/>
@@ -6807,7 +6808,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>ជំនួស</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1683"/>
@@ -8009,7 +8010,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="886"/>
         <source>Add Cover</source>
-        <translation type="unfinished"/>
+        <translation>បន្ថែម​ក្រប</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="968"/>
@@ -8019,7 +8020,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="985"/>
         <source>Cover added.</source>
-        <translation type="unfinished"/>
+        <translation>បាន​បន្ថែម​ក្រប។</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1118"/>
@@ -8049,7 +8050,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1302"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>បញ្ចូល​ឯកសារ</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
@@ -8130,7 +8131,7 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
         <source>Loading file...</source>
-        <translation type="unfinished"/>
+        <translation>កំពុង​ផ្ទុក​ឯកសារ...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
@@ -8162,7 +8163,7 @@ Do you want to automatically fix the files before saving?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3373"/>
         <source>EPUB saved.</source>
-        <translation type="unfinished"/>
+        <translation>បាន​រក្សា​ទុក EPUB ។</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
@@ -8280,7 +8281,7 @@ Readers may display entries in the order they are listed.</source>
         <location filename="../../Form_Files/MetaEditor.ui" line="206"/>
         <location filename="../../Form_Files/MetaEditor.ui" line="220"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="99"/>
@@ -11138,7 +11139,7 @@ then if not found look for the second entry in the list, etc.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>ស្វែងរក</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
@@ -11180,7 +11181,7 @@ including entries in selected groups.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>ជំនួស</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
@@ -11193,7 +11194,7 @@ including entries in selected groups.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="261"/>
         <location filename="../../Form_Files/SearchEditor.ui" line="291"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>
@@ -11422,12 +11423,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Find</source>
-        <translation type="unfinished"/>
+        <translation>ស្វែងរក</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>ជំនួស</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="597"/>
@@ -11448,7 +11449,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>បញ្ចូល​ឯកសារ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
@@ -12097,12 +12098,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>មើល​រូប​ភាព</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>

@@ -69,12 +69,12 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="61"/>
         <source>Translators</source>
-        <translation type="unfinished"/>
+        <translation>Tradutores</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="63"/>
         <source>Original Creator</source>
-        <translation type="unfinished"/>
+        <translation>Criador Original</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="64"/>
@@ -100,7 +100,7 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation type="unfinished"/>
+        <translation>Todos os arquivos</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="292"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Fonte</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="319"/>
@@ -793,7 +793,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Inserir arquivo:</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="967"/>
@@ -972,22 +972,22 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation type="unfinished"/>
+        <translation>Caracteres:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="74"/>
         <source>Character</source>
-        <translation type="unfinished"/>
+        <translation>Caracter</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="75"/>
         <source>Decimal</source>
-        <translation type="unfinished"/>
+        <translation>Decimal</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="76"/>
         <source>Hexadecimal</source>
-        <translation type="unfinished"/>
+        <translation>Hexadecimal</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="77"/>
@@ -1388,7 +1388,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="628"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>Autocompletar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="708"/>
@@ -1537,7 +1537,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1343"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Ver imagem</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1344"/>
@@ -1690,7 +1690,7 @@ Deseja salvar as alterações?</translation>
         <location filename="../../Form_Files/EditTOC.ui" line="78"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="385"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Deletar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
@@ -1727,7 +1727,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renomear</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="392"/>
@@ -2131,12 +2131,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Sim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Não</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="183"/>
@@ -2498,7 +2498,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>Autocompletar</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
@@ -3587,7 +3587,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Northern, Sami</source>
-        <translation type="unfinished"/>
+        <translation>Sami Setentrional</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
@@ -3599,17 +3599,17 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Bokmal</source>
-        <translation type="unfinished"/>
+        <translation>Dano-norueguês (Bokmal)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Nynorsk</source>
-        <translation type="unfinished"/>
+        <translation>Novo Norueguês</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Nyanja</source>
-        <translation type="unfinished"/>
+        <translation>Nianja</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
@@ -3676,7 +3676,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Pushto</source>
-        <translation type="unfinished"/>
+        <translation>Pachto</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
@@ -3694,7 +3694,7 @@ Deseja salvar as alterações?</translation>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Moldova</source>
-        <translation type="unfinished"/>
+        <translation>Língua Moldávia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
@@ -3704,12 +3704,12 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Romansh</source>
-        <translation type="unfinished"/>
+        <translation>Romanche</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Rundi</source>
-        <translation type="unfinished"/>
+        <translation>Kirundi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
@@ -3786,7 +3786,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sotho, Southern</source>
-        <translation type="unfinished"/>
+        <translation>SeSotho do Sul</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
@@ -5705,7 +5705,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links</source>
-        <translation type="unfinished"/>
+        <translation>Links</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
@@ -8010,7 +8010,7 @@ Esta ação não pode ser desfeita.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
         <source>Saving EPUB...</source>
-        <translation type="unfinished"/>
+        <translation>Salvando EPUB...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3314"/>
@@ -8125,7 +8125,7 @@ Você quer salvar as alterações?</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="762"/>
         <source>Image does not exist: </source>
-        <translation type="unfinished"/>
+        <translation>Imagem não existe:</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="886"/>
@@ -8170,7 +8170,7 @@ Você quer salvar as alterações?</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1302"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Inserir arquivo</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
@@ -8251,7 +8251,7 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
         <source>Loading file...</source>
-        <translation type="unfinished"/>
+        <translation>Carregando arquivo...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
@@ -8283,7 +8283,7 @@ Do you want to automatically fix the files before saving?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3373"/>
         <source>EPUB saved.</source>
-        <translation type="unfinished"/>
+        <translation>EPUB salvo.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
@@ -8620,7 +8620,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
         <source>Rights</source>
-        <translation type="unfinished"/>
+        <translation>Direitos</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
@@ -8665,12 +8665,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Adaptador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>Utilize para pessoas ou organizações que 1) retrabalham uma composição musical, normalmente para um meio diferente, ou 2) reescreve romances ou estórias para cinema ou outros meios audiovisuais.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
@@ -8695,7 +8695,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
         <source>Annotator</source>
-        <translation type="unfinished"/>
+        <translation>Autor de notas</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
@@ -8705,7 +8705,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
         <source>Applicant</source>
-        <translation type="unfinished"/>
+        <translation>Requerente</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
@@ -8725,22 +8725,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
         <source>Arranger</source>
-        <translation type="unfinished"/>
+        <translation>Arranjador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>Utilize para uma pessoa ou organização que transcreve uma composição musical, normalmente para um meio diferente do original; em um arranjo, a substância musical permanece essencialmente inalterada</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
         <source>Art copyist</source>
-        <translation type="unfinished"/>
+        <translation>Arte-copista</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation type="unfinished"/>
+        <translation>Utilize para uma pessoa (por exemplo, pintor ou escultor) que faz cópias de trabalhos artísticos visuais</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
@@ -8750,32 +8750,32 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation type="unfinished"/>
+        <translation>Utilize para uma pessoa (por exemplo, um pintor) ou organização que concebe e, talvez, também implementa um design gráfico original ou trabalho artístico, se códigos específicos (como [egr] ou [etr]) não forem desejados. Para ilustradores de livros, utilize Ilustrador [ill].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
         <source>Artistic director</source>
-        <translation type="unfinished"/>
+        <translation>Diretor de Arte</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation type="unfinished"/>
+        <translation>Utilize para uma pessoa responsável por controlar o desenvolvimento do estilo artístico de uma produção inteira, incluindo a escolha de trabalhos a serem apresentados, e seleção de equipe de produção senior.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
         <source>Assignee</source>
-        <translation type="unfinished"/>
+        <translation>Procurador</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation type="unfinished"/>
+        <translation>Use para uma pessoa ou organização para quem a licença de impressão ou publicação foi transferida.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
         <source>Associated name</source>
-        <translation type="unfinished"/>
+        <translation>Nome associado</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
@@ -10175,7 +10175,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Photographer</source>
-        <translation type="unfinished"/>
+        <translation>Fotógrafo</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
@@ -11609,7 +11609,7 @@ Deseja salvar as alterações?</translation>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Inserir arquivo:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
@@ -11809,7 +11809,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Copiar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
@@ -11909,7 +11909,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Words:</source>
-        <translation type="unfinished"/>
+        <translation>Palavras:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="162"/>
@@ -11924,7 +11924,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Você não pode excluir o último dicionário.</translation>
     </message>
 </context>
 <context>
@@ -11948,7 +11948,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="519"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>Ignorar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
@@ -11965,7 +11965,7 @@ dictionary selected below.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar ao Dicionário</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
@@ -12003,7 +12003,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Show All Words</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar Todas as Palavras</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="138"/>
@@ -12016,7 +12016,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="218"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="288"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Não</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="154"/>
@@ -12041,7 +12041,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="237"/>
         <source>Word</source>
-        <translation type="unfinished"/>
+        <translation>Palavra</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="238"/>
@@ -12061,7 +12061,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="285"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Sim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
@@ -12081,7 +12081,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="522"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar Tudo</translation>
     </message>
 </context>
 <context>
@@ -12258,7 +12258,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Ver imagem</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
@@ -12359,7 +12359,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="82"/>
         <source>diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="83"/>
@@ -12394,7 +12394,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="90"/>
         <source>degree symbol</source>
-        <translation type="unfinished"/>
+        <translation>símbolo de grau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="91"/>
@@ -12429,7 +12429,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>cedilla</source>
-        <translation type="unfinished"/>
+        <translation>cedilha</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
@@ -12459,22 +12459,22 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>inverted question mark</source>
-        <translation type="unfinished"/>
+        <translation>interrogação invertido</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>Latin capital letter A with ring above</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina A maiúscula com anel acima</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>Latin capital letter AE</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina AE maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>multiplication sign</source>
-        <translation type="unfinished"/>
+        <translation>sinal de multiplicação</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
@@ -12489,17 +12489,17 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin small letter a with ring above</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina A minúscula com anel acima</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin small letter ae</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina AE minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>division sign</source>
-        <translation type="unfinished"/>
+        <translation>sinal de divisão</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
@@ -12524,252 +12524,252 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Greek capital letter Alpha</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Alpha maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Greek capital letter Beta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Beta maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Greek capital letter Gamma</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Gamma maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Greek capital letter Delta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Delta maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Greek capital letter Epsilon</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Epsilon maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Greek capital letter Zeta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Zeta maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Greek capital letter Eta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Eta maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Greek capital letter Theta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Theta maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Greek capital letter Iota</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Iota maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Greek capital letter Kappa</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Kappa maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Greek capital letter Lambda</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Lambda maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>Greek capital letter Mu</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Mu maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Greek capital letter Nu</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Nu maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Greek capital letter Xi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Xi maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Greek capital letter Omicron</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Omicron maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Greek capital letter Pi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Pi maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Greek capital letter Rho</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Rho maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Greek capital letter Sigma</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Sigma maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Greek capital letter Tau</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Tau maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Greek capital letter Upsilon</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Upsilon maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Greek capital letter Phi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Phi maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Greek capital letter Chi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Chi maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Greek capital letter Psi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Psi maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Greek capital letter Omega</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega Omega maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Greek small letter alpha</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega alpha minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Greek small letter beta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega beta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>Greek small letter gamma</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega gamma minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>Greek small letter delta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega delta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek small letter epsilon</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega epsilon minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek small letter zeta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega zeta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek small letter eta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega eta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek small letter theta</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega theta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek small letter iota</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega iota minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek small letter kappa</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega kappa minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek small letter lambda</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega lambda minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek small letter mu</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega mu minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek small letter nu</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega nu minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek small letter xi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega xi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek small letter omicron</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega omicron minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek small letter pi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega pi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek small letter rho</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega rho minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek small letter final sigma</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega sigma final minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek small letter sigma</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega sigma minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek small letter tau</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega tau minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek small letter upsilon</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega upsilon minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek small letter phi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega phi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek small letter chi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega chi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek small letter psi</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega psi minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek small letter omega</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega omega minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek theta symbol</source>
-        <translation type="unfinished"/>
+        <translation>Letra grega theta minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
@@ -12779,7 +12779,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek pi symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo grego pi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
@@ -12859,292 +12859,292 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>Latin capital letter A with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina A maiúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>Latin capital letter A with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina A maiúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>Latin capital letter A with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina A maiúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>Latin capital letter A with tilde</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina A maiúscula com til</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>Latin capital letter A with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina A maiúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>Latin capital letter C with cedilla</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina C maiúscula com cedilha</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>Latin capital letter E with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina E maiúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>Latin capital letter E with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina E maiúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>Latin capital letter E with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina E maiúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>Latin capital letter E with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina A maiúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>Latin capital letter I with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina I maiúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>Latin capital letter I with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina I maiúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>Latin capital letter I with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina I maiúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>Latin capital letter I with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina I maiúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>Latin capital letter Eth</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina Eth maiúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>Latin capital letter N with tilde</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina N maiúscula com til</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>Latin capital letter O with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina O maiúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>Latin capital letter O with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina O maiúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>Latin capital letter O with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina O maiúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>Latin capital letter O with tilde</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina O maiúscula com til</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>Latin capital letter O with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina O maiúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>Latin capital letter U with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina U maiúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>Latin capital letter U with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina U maiúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>Latin capital letter U with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina U maiúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter U with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina U maiúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter Y with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina Y maiúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter THORN</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina THORN maiúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin small letter a with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina a minúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin small letter a with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina a minúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin small letter a with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina a minúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin small letter a with tilde</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina a minúscula com til</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin small letter a with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina a minúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin small letter c with cedilla</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina c minúscula com cedilha</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin small letter e with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina e minúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>Latin small letter e with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina e minúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin small letter e with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina e minúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin small letter e with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina e minúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin small letter i with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina i minúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin small letter i with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina i minúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin small letter i with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina i minúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin small letter i with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina i minúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin small letter eth</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina eth minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin small letter n with tilde</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina n minúscula com til</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin small letter o with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina o minúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>Latin small letter o with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina o minúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin small letter o with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina o minúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin small letter o with tilde</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina o minúscula com til</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin small letter o with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina o minúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin small letter u with grave accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina u minúscula com acento grave</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin small letter u with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina u minúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter u with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina u minúscula com circunflexo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter u with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina u minúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter y with acute accent</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina y minúscula com acento agudo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter thorn</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina thorn minúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter y with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina y minúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin capital letter s with caron</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina S maiúscula com caron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter s with caron</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina S minúscula com caron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin capital letter y with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Letra latina Y maiúscula com trema</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="176"/>

@@ -19,7 +19,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>Web Sitesi:</translation>
+        <translation>Anasayfa:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="61"/>
         <source>Translators</source>
-        <translation type="unfinished"/>
+        <translation>Çevirmenler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="63"/>
@@ -110,22 +110,22 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="64"/>
         <source>Directory</source>
-        <translation type="unfinished"/>
+        <translation>Dizin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="66"/>
         <source>File Size (KB)</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Boyutu (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="67"/>
@@ -160,27 +160,27 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Resim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="282"/>
         <source>Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="287"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="292"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Yazı Tipi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="319"/>
         <source>Unknown</source>
-        <translation type="unfinished"/>
+        <translation>Bilinmeyen</translation>
     </message>
 </context>
 <context>
@@ -456,7 +456,7 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="1333"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1505"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>Birlikte Aç</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="122"/>
@@ -561,7 +561,7 @@ Her zaman en az bir tane olması gerekir.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1334"/>
         <source>Save As</source>
-        <translation type="unfinished"/>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1511"/>
@@ -664,7 +664,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1332"/>
         <source>Validate with W3C</source>
-        <translation type="unfinished"/>
+        <translation>W3C ile Doğrula</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
@@ -757,14 +757,14 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="974"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Aç</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="816"/>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="976"/>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="978"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>Birlikte Aç</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="802"/>
@@ -789,17 +789,17 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Ekle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="967"/>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Geri Al</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="968"/>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>İleri Al</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="969"/>
@@ -829,7 +829,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="977"/>
         <source>Save As</source>
-        <translation type="unfinished"/>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="981"/>
@@ -907,7 +907,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="139"/>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="265"/>
@@ -963,17 +963,17 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation type="unfinished"/>
+        <translation>Karakterler:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="74"/>
         <source>Character</source>
-        <translation type="unfinished"/>
+        <translation>Karakter</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="75"/>
@@ -1115,7 +1115,7 @@ This may change your formatting to use inline style sections.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="56"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="53"/>
@@ -1142,7 +1142,7 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="46"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Aç</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="66"/>
@@ -1201,7 +1201,7 @@ or when cleaning manually.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="185"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="215"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
@@ -1261,12 +1261,12 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Değişiklikleri kaydet.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
@@ -1358,7 +1358,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="623"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Yeniden Yükle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="624"/>
@@ -1476,7 +1476,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1180"/>
         <source>Add To Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Sözlüğe Ekle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1197"/>
@@ -1531,7 +1531,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1343"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Resim Görüntüle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1344"/>
@@ -1684,12 +1684,12 @@ Do you want to save your changes?</source>
         <location filename="../../Form_Files/EditTOC.ui" line="78"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="385"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation type="unfinished"/>
+        <translation>Görev Seç</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="88"/>
@@ -1716,12 +1716,12 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="77"/>
         <source>Target</source>
-        <translation type="unfinished"/>
+        <translation>Hedef</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Yeniden adlandır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="392"/>
@@ -1786,7 +1786,7 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="281"/>
         <source>Options:</source>
-        <translation type="unfinished"/>
+        <translation>Ayarlar:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="306"/>
@@ -2084,7 +2084,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="68"/>
         <source>File Size (KB)</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Boyutu (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="69"/>
@@ -2099,17 +2099,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="71"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Resimler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="72"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="73"/>
         <source>Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="74"/>
@@ -2124,7 +2124,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Evet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
@@ -2237,7 +2237,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="535"/>
         <source>Level</source>
-        <translation type="unfinished"/>
+        <translation>Seviye</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
@@ -2276,7 +2276,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="76"/>
         <source>Thumbnail size:</source>
-        <translation type="unfinished"/>
+        <translation>Önizleme Boyutu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="79"/>
@@ -2286,7 +2286,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="80"/>
         <source>File Size (KB)</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Boyutu (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="81"/>
@@ -2296,12 +2296,12 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="82"/>
         <source>Width</source>
-        <translation type="unfinished"/>
+        <translation>Genişlik</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="83"/>
         <source>Height</source>
-        <translation type="unfinished"/>
+        <translation>Yükseklik</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="84"/>
@@ -2316,7 +2316,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Resim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="175"/>
@@ -2326,7 +2326,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="179"/>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="323"/>
@@ -2376,7 +2376,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Tabs/ImageTab.cpp" line="255"/>
         <location filename="../../Tabs/ImageTab.cpp" line="258"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>Birlikte Aç</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="237"/>
@@ -2386,7 +2386,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="256"/>
         <source>Save As</source>
-        <translation type="unfinished"/>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="257"/>
@@ -2455,12 +2455,12 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Değişiklikleri kaydet.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
@@ -2556,17 +2556,17 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Aç</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Yeniden Yükle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Save As</source>
-        <translation type="unfinished"/>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
@@ -2623,7 +2623,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
         <source>Filter: </source>
-        <translation type="unfinished"/>
+        <translation>Süzgeç:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="62"/>
@@ -3732,7 +3732,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbia</source>
-        <translation type="unfinished"/>
+        <translation>Sırbistan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
@@ -3887,7 +3887,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hungary</source>
-        <translation type="unfinished"/>
+        <translation>Macaristan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
@@ -4026,7 +4026,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukraine</source>
-        <translation type="unfinished"/>
+        <translation>Ukrayna</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
@@ -5497,7 +5497,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Turkish- Ottoman (1500-1928)</source>
-        <translation type="unfinished"/>
+        <translation>Osmanlı Türkçesi (1500-1928)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
@@ -5687,7 +5687,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantılar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
@@ -5697,12 +5697,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="65"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="66"/>
@@ -6182,7 +6182,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="117"/>
         <source>&amp;Insert</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="171"/>
@@ -6227,7 +6227,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="590"/>
         <source>&amp;New</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Yeni</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="633"/>
@@ -6249,7 +6249,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="675"/>
         <source>Ctrl+.</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="669"/>
@@ -6264,7 +6264,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="709"/>
         <source>Ctrl+Y</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Y</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="721"/>
@@ -6286,7 +6286,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1678"/>
         <source>Ctrl+R</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="769"/>
@@ -6303,7 +6303,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="777"/>
         <source>Ctrl+E</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+E</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="789"/>
@@ -6320,7 +6320,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="797"/>
         <source>Ctrl+J</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+J</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="809"/>
@@ -6337,7 +6337,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="817"/>
         <source>Ctrl+B</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="829"/>
@@ -6354,7 +6354,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="837"/>
         <source>Ctrl+I</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="866"/>
@@ -6371,7 +6371,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="874"/>
         <source>Ctrl+U</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+U</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="883"/>
@@ -6398,7 +6398,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1000"/>
         <source>F2</source>
-        <translation type="unfinished"/>
+        <translation>F2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1048"/>
@@ -6438,7 +6438,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1115"/>
         <source>Ctrl+Shift+L</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1130"/>
@@ -6534,7 +6534,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1026"/>
         <source>&amp;File...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Dosya</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1029"/>
@@ -6548,7 +6548,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1073"/>
         <source>&amp;Link...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Bağlantı</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1076"/>
@@ -6560,7 +6560,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1219"/>
         <source>Ctrl+=</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+=</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1242"/>
@@ -6598,7 +6598,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1279"/>
         <source>Ctrl+Alt+M</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1291"/>
@@ -6613,7 +6613,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../Form_Files/main.ui" line="1296"/>
         <location filename="../../Form_Files/main.ui" line="1718"/>
         <source>Ctrl+Shift+M</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1308"/>
@@ -6645,7 +6645,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1352"/>
         <source>Ctrl+Space</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Boşluk</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1364"/>
@@ -6659,7 +6659,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1371"/>
         <source>Alt+L</source>
-        <translation type="unfinished"/>
+        <translation>Alt+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1383"/>
@@ -6673,7 +6673,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1390"/>
         <source>Alt+U</source>
-        <translation type="unfinished"/>
+        <translation>Alt+U</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1402"/>
@@ -6746,7 +6746,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1522"/>
         <source>F7</source>
-        <translation type="unfinished"/>
+        <translation>F7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1527"/>
@@ -6793,7 +6793,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1605"/>
         <source>Ctrl+Alt+I</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1610"/>
@@ -6808,7 +6808,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1623"/>
         <source>Ctrl+Shift+R</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1635"/>
@@ -6861,12 +6861,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1746"/>
         <source>Ctrl+Alt+F</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1757"/>
         <source>Ctrl+Alt+C</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1762"/>
@@ -7128,7 +7128,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1986"/>
         <source>Ctrl+1</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2001"/>
@@ -7140,7 +7140,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2006"/>
         <source>Ctrl+2</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2021"/>
@@ -7152,7 +7152,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2026"/>
         <source>Ctrl+3</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2041"/>
@@ -7164,7 +7164,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2046"/>
         <source>Ctrl+4</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2061"/>
@@ -7176,7 +7176,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2066"/>
         <source>Ctrl+5</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2081"/>
@@ -7188,7 +7188,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2086"/>
         <source>Ctrl+6</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2101"/>
@@ -7200,7 +7200,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2106"/>
         <source>Ctrl+7</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2117"/>
@@ -7257,7 +7257,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2196"/>
         <source>Ctrl+Shift+X</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2193"/>
@@ -7282,17 +7282,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Ctrl+Alt+B</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2228"/>
         <source>F3</source>
-        <translation type="unfinished"/>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2237"/>
         <source>&amp;Back</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Geri</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2240"/>
@@ -7305,12 +7305,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2246"/>
         <source>Ctrl+\</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+\</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2254"/>
         <source>Ctrl+Alt+V</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1478"/>
@@ -7651,7 +7651,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1955"/>
         <source>F5</source>
-        <translation type="unfinished"/>
+        <translation>F5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1960"/>
@@ -7706,7 +7706,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1489"/>
         <source>F1</source>
-        <translation type="unfinished"/>
+        <translation>F1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1502"/>
@@ -7859,7 +7859,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1897"/>
         <source>Word updated.</source>
-        <translation type="unfinished"/>
+        <translation>Kelime güncellendi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1962"/>
@@ -7899,12 +7899,12 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3256"/>
         <source>File loaded.</source>
-        <translation type="unfinished"/>
+        <translation>Dosya yüklendi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
         <source>Saving EPUB...</source>
-        <translation type="unfinished"/>
+        <translation>EPUB kaydediliyor...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3314"/>
@@ -7925,7 +7925,7 @@ Please choose a different format.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="388"/>
         <source>Warning</source>
-        <translation type="unfinished"/>
+        <translation>Uyarı</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="418"/>
@@ -8023,7 +8023,7 @@ Değişiklikleri kaydetmek ister misiniz?</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="886"/>
         <source>Add Cover</source>
-        <translation type="unfinished"/>
+        <translation>Kapak Ekle</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="968"/>
@@ -8033,7 +8033,7 @@ Değişiklikleri kaydetmek ister misiniz?</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="985"/>
         <source>Cover added.</source>
-        <translation type="unfinished"/>
+        <translation>Kapak eklendi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1118"/>
@@ -8063,7 +8063,7 @@ Değişiklikleri kaydetmek ister misiniz?</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1302"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Ekle</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1408"/>
@@ -8144,7 +8144,7 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3241"/>
         <source>Loading file...</source>
-        <translation type="unfinished"/>
+        <translation>Dosya yükleniyor...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
@@ -8176,7 +8176,7 @@ Do you want to automatically fix the files before saving?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3373"/>
         <source>EPUB saved.</source>
-        <translation type="unfinished"/>
+        <translation>EPUB kaydedildi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
@@ -8223,12 +8223,12 @@ Do you want to automatically fix the files before saving?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3611"/>
         <source>ON</source>
-        <translation type="unfinished"/>
+        <translation>AÇIK</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3611"/>
         <source>OFF</source>
-        <translation type="unfinished"/>
+        <translation>KAPALI</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3636"/>
@@ -8294,7 +8294,7 @@ Readers may display entries in the order they are listed.</source>
         <location filename="../../Form_Files/MetaEditor.ui" line="206"/>
         <location filename="../../Form_Files/MetaEditor.ui" line="220"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="99"/>
@@ -10782,7 +10782,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="35"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>Önizleme</translation>
     </message>
 </context>
 <context>
@@ -10847,7 +10847,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="865"/>
         <source>Merging Files..</source>
-        <translation type="unfinished"/>
+        <translation>Dosyalar Birleştiriliyor..</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="179"/>
@@ -10857,7 +10857,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="189"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>Birlikte Aç</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="83"/>
@@ -10903,7 +10903,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="99"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Telif hakkı Sayfası</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="101"/>
@@ -11208,7 +11208,7 @@ including entries in selected groups.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="261"/>
         <location filename="../../Form_Files/SearchEditor.ui" line="291"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>
@@ -11283,12 +11283,12 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Değişiklikleri kaydet.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
@@ -11388,7 +11388,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="657"/>
         <source>Reload</source>
-        <translation type="unfinished"/>
+        <translation>Yeniden Yükle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="658"/>
@@ -11463,7 +11463,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
@@ -11473,7 +11473,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
@@ -11484,32 +11484,32 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation type="unfinished"/>
+        <translation>Diğer Dosyalar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
         <source>Thumbnail size:</source>
-        <translation type="unfinished"/>
+        <translation>Önizleme Boyutu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="74"/>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Tüm</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Resimler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="119"/>
@@ -11519,7 +11519,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="122"/>
         <source>Thumbnails</source>
-        <translation type="unfinished"/>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
@@ -11529,7 +11529,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
         <source>colors</source>
-        <translation type="unfinished"/>
+        <translation>Renkler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
@@ -11539,7 +11539,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Renk</translation>
     </message>
 </context>
 <context>
@@ -11547,7 +11547,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation type="unfinished"/>
+        <translation>Görev Seç</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
@@ -11568,7 +11568,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
         <source>Target:</source>
-        <translation type="unfinished"/>
+        <translation>Hedef:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="61"/>
@@ -11581,7 +11581,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation type="unfinished"/>
+        <translation>ID Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -11595,7 +11595,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
         <source>ID:</source>
-        <translation type="unfinished"/>
+        <translation>ID:</translation>
     </message>
 </context>
 <context>
@@ -11663,7 +11663,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Kopya</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
@@ -11701,7 +11701,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="266"/>
         <source>Default Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan Sözlük:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="273"/>
@@ -11727,18 +11727,18 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Sözlük</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="212"/>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>İsim:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Add Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Sözlük Ekle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
@@ -11758,12 +11758,12 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Add Words</source>
-        <translation type="unfinished"/>
+        <translation>Kelime Ekle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Words:</source>
-        <translation type="unfinished"/>
+        <translation>Kelimeler:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="162"/>
@@ -11778,7 +11778,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Son sözlüğü silemezsiniz.</translation>
     </message>
 </context>
 <context>
@@ -11791,7 +11791,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
@@ -11819,7 +11819,7 @@ dictionary selected below.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Sözlüğe Ekle:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
@@ -11905,7 +11905,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="239"/>
         <source>Misspelled?</source>
-        <translation type="unfinished"/>
+        <translation>Yanlış Yazılmış</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
@@ -11915,7 +11915,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="285"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Evet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
@@ -11925,12 +11925,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="520"/>
         <source>Add to Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Sözlüğe Ekle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="521"/>
         <source>Find in Text</source>
-        <translation type="unfinished"/>
+        <translation>Yazı içinde bul</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="522"/>
@@ -12112,12 +12112,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Resim Görüntüle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
         <source>about:blank</source>
-        <translation type="unfinished"/>
+        <translation>about:blank</translation>
     </message>
 </context>
 <context>
@@ -12228,7 +12228,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="86"/>
         <source>not sign</source>
-        <translation type="unfinished"/>
+        <translation>İmzasız</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="87"/>
