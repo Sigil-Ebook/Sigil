@@ -273,6 +273,8 @@ private:
 
     void FillWithDefaultText();
 
+    QString GetEpubVersion(const xc::DOMDocument &document) const;
+
     QString GetUniqueID(const QString &preferred_id, const xc::DOMDocument &document) const;
 
     QString GetResourceMimetype(const Resource &resource) const;

@@ -1197,8 +1197,9 @@ void OPFResource::AddModificationDateMeta()
         XhtmlDoc::GetTagMatchingDescendants(*document, "date", DUBLIN_CORE_NS);
     foreach(xc::DOMElement * meta, metas) {
         QString name = XtoQ(meta->getAttribute(QtoX("opf:event")));
+        QString epub_version = GetEpubVersion(*document);
 
-        if (name == "modification") {
+        if (name == "modification" || epub_version == "3.0") {
             meta->setTextContent(QtoX(date));
             UpdateTextFromDom(*document);
             return;
@@ -1436,6 +1437,17 @@ QString OPFResource::GetOPFDefaultText()
 void OPFResource::FillWithDefaultText()
 {
     SetText(GetOPFDefaultText());
+}
+
+
+QString OPFResource::GetEpubVersion(const xc::DOMDocument &document) const
+{
+    xc::DOMElement *package = GetPackageElement(document);
+    if (!package) {
+        return NULL;
+    }
+    QString epub_version = XtoQ(package->getAttribute(QtoX("version")));
+    return epub_version;
 }
 
 
