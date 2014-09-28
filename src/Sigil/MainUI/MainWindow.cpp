@@ -686,6 +686,12 @@ void MainWindow::OpenRecentFile()
 
 bool MainWindow::Save()
 {
+    QString sMF=m_Book->GetFolderKeeper().GetFullPathToMainFolder();
+    sMF=sMF.left(sMF.lastIndexOf("scratchpad"));
+    QString cFP=m_CurrentFilePath.left(m_CurrentFilePath.lastIndexOf("scratchpad"));
+    if(sMF==cFP)
+        m_CurrentFilePath.clear(); //saving to temporary not allowed
+
     if (m_CurrentFilePath.isEmpty()) {
         return SaveAs();
     } else {
