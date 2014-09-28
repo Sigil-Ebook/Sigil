@@ -13,11 +13,11 @@ AppPublisherURL=http://code.google.com/p/sigil/
 WizardImageFile=compiler:wizmodernimage-IS.bmp
 WizardSmallImageFile=compiler:wizmodernsmallimage-IS.bmp
 Compression=lzma2
-SolidCompression=yes  
+SolidCompression=yes
 OutputDir=..\installer
 LicenseFile=${LICENSE_LOCATION}
 ; WinXP is the lowest supported version
-MinVersion=0,5.1
+MinVersion=0,6.0
 PrivilegesRequired=admin
 OutputBaseFilename=Sigil-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup
 ChangesAssociations=yes
