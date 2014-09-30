@@ -42,6 +42,17 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     return PreferencesWidget::ResultAction_None;
 }
 
+void PluginWidget::setPluginTableRow(Plugin *p, int row)
+{
+    QString pname(p->get_name());
+    ui.pluginTable->setItem(row, PluginWidget::NameField,        new QTableWidgetItem(pname));
+    ui.pluginTable->item(row,0)->setToolTip(p->get_description());
+    ui.pluginTable->setItem(row, PluginWidget::VersionField,     new QTableWidgetItem(p->get_version()));
+    ui.pluginTable->setItem(row, PluginWidget::AuthorField,      new QTableWidgetItem(p->get_author()));
+    ui.pluginTable->setItem(row, PluginWidget::TypeField,        new QTableWidgetItem(p->get_type()));
+    ui.pluginTable->setItem(row, PluginWidget::EngineField,      new QTableWidgetItem(p->get_engine()));
+}
+
 
 void PluginWidget::readSettings()
 {
@@ -61,13 +72,7 @@ void PluginWidget::readSettings()
     plugins = pdb->all_plugins();
     foreach(Plugin *p, plugins) {
         ui.pluginTable->insertRow(nrows);
-
-        ui.pluginTable->setItem(nrows, PluginWidget::NameField,        new QTableWidgetItem(p->get_name()));
-        ui.pluginTable->setItem(nrows, PluginWidget::VersionField,     new QTableWidgetItem(p->get_version()));
-        ui.pluginTable->setItem(nrows, PluginWidget::AuthorField,      new QTableWidgetItem(p->get_author()));
-        ui.pluginTable->setItem(nrows, PluginWidget::TypeField,        new QTableWidgetItem(p->get_type()));
-        ui.pluginTable->setItem(nrows, PluginWidget::DescriptionField, new QTableWidgetItem(p->get_description()));
-        ui.pluginTable->setItem(nrows, PluginWidget::EngineField,      new QTableWidgetItem(p->get_engine()));
+        setPluginTableRow(p,nrows);
         nrows++;
     }
 
@@ -120,12 +125,7 @@ void PluginWidget::addPlugin()
 
     int rows = ui.pluginTable->rowCount();
     ui.pluginTable->insertRow(rows);
-    ui.pluginTable->setItem(rows, PluginWidget::NameField,        new QTableWidgetItem(p->get_name()));
-    ui.pluginTable->setItem(rows, PluginWidget::VersionField,     new QTableWidgetItem(p->get_version()));
-    ui.pluginTable->setItem(rows, PluginWidget::AuthorField,      new QTableWidgetItem(p->get_author()));
-    ui.pluginTable->setItem(rows, PluginWidget::TypeField,        new QTableWidgetItem(p->get_type()));
-    ui.pluginTable->setItem(rows, PluginWidget::DescriptionField, new QTableWidgetItem(p->get_description()));
-    ui.pluginTable->setItem(rows, PluginWidget::EngineField,      new QTableWidgetItem(p->get_engine()));
+    setPluginTableRow(p,rows);
     ui.pluginTable->resizeColumnsToContents();
 }
 
