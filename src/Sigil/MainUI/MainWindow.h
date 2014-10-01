@@ -196,6 +196,10 @@ public:
      */
     void LoadFile(const QString &fullfilepath);
 
+    /**
+     * clear stored filepaths for epub files loaded from temp directories
+     */
+    void ClearSaveFilePath();
 
 
 public slots:

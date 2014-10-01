@@ -476,10 +476,10 @@ bool PluginRunner::addFiles(const QStringList & files)
             QString epubPath = m_outputDir + "/" + href;
             QFileInfo fi(epubPath);
             ui.statusLbl->setText(tr("Status: Loading ") + fi.fileName());
-            // FIXME:  We should copy this epub someplace easy to access by user first
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(epubPath);
             new_window->show();
+            new_window->ClearSaveFilePath();
 #else
             // For Linux and Windows will replace current book
             // So Throw Up a Dialog to See if they want to proceed
@@ -498,6 +498,7 @@ bool PluginRunner::addFiles(const QStringList & files)
             }
             if (proceed) {
                 m_mainWindow->LoadFile(epubPath);
+                m_mainWindow->ClearSaveFilePath();
             }
 #endif
             return true;

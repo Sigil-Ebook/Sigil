@@ -3328,6 +3328,13 @@ void MainWindow::CreateNewBook()
 }
 
 
+void MainWindow::ClearSaveFilePath()
+{
+    m_CurrentFilePath.clear();
+    m_LastFolderOpen.clear();
+}
+
+
 void MainWindow::LoadFile(const QString &fullfilepath)
 {
     if (!Utility::IsFileReadable(fullfilepath)) {
