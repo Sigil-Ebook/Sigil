@@ -1,3 +1,6 @@
+Sigil 0.8.1 TBA
+    - Fix bug where save after using input plugin would fail.
+
 Sigil 0.8.0 2014.09.27
     - Plugin framework.
     - Add the svg image tag as an svg inline element (not a block element) and
