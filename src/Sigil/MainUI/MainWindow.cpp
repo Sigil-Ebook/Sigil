@@ -134,6 +134,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_LastOpenFileWarnings(QStringList()),
     m_IsInitialLoad(true),
     m_CurrentFilePath(QString()),
+    m_CurrentFileName(QString()),
     m_Book(new Book()),
     m_LastFolderOpen(QString()),
     m_SaveACopyFilename(QString()),
@@ -712,7 +713,7 @@ bool MainWindow::SaveAs()
     QString default_filter  = "";
 
     if (m_CurrentFilePath.isEmpty()) {
-        m_CurrentFilePath = DEFAULT_FILENAME;
+        m_CurrentFilePath = (m_CurrentFileName.isEmpty())?DEFAULT_FILENAME:m_CurrentFileName;
     }
 
     // If we can save this file type, then we use the current filename
@@ -3660,9 +3661,9 @@ const QMap< QString, QString > MainWindow::GetSaveFiltersMap()
 void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath)
 {
     m_CurrentFilePath = fullfilepath;
-    QString shownName = m_CurrentFilePath.isEmpty() ? DEFAULT_FILENAME : QFileInfo(m_CurrentFilePath).fileName();
+    m_CurrentFileName = m_CurrentFilePath.isEmpty() ? DEFAULT_FILENAME : QFileInfo(m_CurrentFilePath).fileName();
     // Update the titlebar
-    setWindowTitle(tr("%1[*] - %2").arg(shownName).arg(tr("Sigil")));
+    setWindowTitle(tr("%1[*] - %2").arg(m_CurrentFileName).arg(tr("Sigil")));
 
     if (m_CurrentFilePath.isEmpty()) {
         return;
