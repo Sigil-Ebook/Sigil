@@ -765,7 +765,7 @@ bool MainWindow::SaveAs()
 bool MainWindow::SaveACopy()
 {
     if (m_CurrentFilePath.isEmpty()) {
-        m_CurrentFilePath = DEFAULT_FILENAME;
+        m_CurrentFilePath = (m_CurrentFileName.isEmpty())?DEFAULT_FILENAME:m_CurrentFileName;
     }
 
     if (m_SaveACopyFilename.isEmpty()) {
