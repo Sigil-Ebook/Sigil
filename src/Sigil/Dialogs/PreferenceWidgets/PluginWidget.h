@@ -7,6 +7,8 @@
 
 #include "ui_PPluginWidget.h"
 
+class Plugin;
+
 class PluginWidget : public PreferencesWidget
 {
     Q_OBJECT
@@ -33,13 +35,13 @@ private:
         VersionField     = 1,
         AuthorField      = 2,
         TypeField        = 3,
-        DescriptionField = 4,
-        EngineField      = 5,
-        OSListField      = 6
+        EngineField      = 4,
+        OSListField      = 5
     };
 
     void readSettings();
     void connectSignalsToSlots();
+    void setPluginTableRow(Plugin *p, int row);
 
     Ui::PluginWidget ui;
     bool m_isDirty;
