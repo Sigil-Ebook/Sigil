@@ -849,6 +849,11 @@ private:
     QString m_CurrentFilePath;
 
     /**
+     * The name of the current file loaded.
+     */
+    QString m_CurrentFileName;
+
+    /**
      * The book currently being worked on.
      */
     QSharedPointer< Book > m_Book;
