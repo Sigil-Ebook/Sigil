@@ -1,4 +1,7 @@
 Sigil 0.8.1 TBA
+    - Pull request #19: Moving plugin description to ToolTips.
+    - Pull request #20: Preserve current file name for future save as actions
+      if appropriate.
     - Fix bug where save after using input plugin would fail.
 
 Sigil 0.8.0 2014.09.27
