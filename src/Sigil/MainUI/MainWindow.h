@@ -99,7 +99,7 @@ public:
      * @param parent The window's parent object.
      * @param flags The flags used to modify window behavior.
      */
-    MainWindow(const QString &openfilepath = QString(), QWidget *parent = 0, Qt::WindowFlags flags = 0);
+    MainWindow(const QString &openfilepath = QString(), bool is_internal = false, QWidget *parent = 0, Qt::WindowFlags flags = 0);
     ~MainWindow();
 
     /**
@@ -194,12 +194,7 @@ public:
      *
      * @param fullfilepath The path to the file to load.
      */
-    void LoadFile(const QString &fullfilepath);
-
-    /**
-     * clear stored filepaths for epub files loaded from temp directories
-     */
-    void ClearSaveFilePath();
+    bool LoadFile(const QString &fullfilepath, bool is_internal = false);
 
 
 public slots:
@@ -800,7 +795,7 @@ private:
      *
      * @param openfilepath The path to the file to load. Can be empty.
      */
-    void LoadInitialFile(const QString &openfilepath);
+    void LoadInitialFile(const QString &openfilepath, bool is_internal = false);
 
     /**
      * Connects all the required signals to their slots.

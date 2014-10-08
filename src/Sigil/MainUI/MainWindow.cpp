@@ -128,7 +128,7 @@ static const QString DEFAULT_FILENAME = "untitled.epub";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
-MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowFlags flags)
+MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *parent, Qt::WindowFlags flags)
     :
     QMainWindow(parent, flags),
     m_LastOpenFileWarnings(QStringList()),
@@ -193,7 +193,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     CreateRecentFilesActions();
     UpdateRecentFileActions();
     ChangeSignalsWhenTabChanges(NULL, &m_TabManager.GetCurrentContentTab());
-    LoadInitialFile(openfilepath);
+    LoadInitialFile(openfilepath, is_internal);
     loadPluginsMenu();
 }
 
@@ -630,8 +630,6 @@ void MainWindow::Open()
                                                        );
 
         if (!filename.isEmpty()) {
-            // Store the folder the user opened from
-            m_LastFolderOpen = QFileInfo(filename).absolutePath();
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
@@ -3213,7 +3211,7 @@ void MainWindow::ReadSettings()
     }
 
     // The last folder used for saving and opening files
-    m_LastFolderOpen  = settings.value("lastfolderopen").toString();
+    m_LastFolderOpen  = settings.value("lastfolderopen", QDir::homePath()).toString();
     // The list of recent files
     s_RecentFiles    = settings.value("recentfiles").toStringList();
     m_preserveHeadingAttributes = settings.value("preserveheadingattributes", true).toBool();
@@ -3328,24 +3326,11 @@ void MainWindow::CreateNewBook()
     UpdateUiWithCurrentFile("");
 }
 
-
-void MainWindow::ClearSaveFilePath()
-{
-    m_CurrentFilePath.clear();
-    m_LastFolderOpen.clear();
-}
-
-
-void MainWindow::LoadFile(const QString &fullfilepath)
+bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
 {
     if (!Utility::IsFileReadable(fullfilepath)) {
-        return;
+        return false;
     }
-
-    // Store the folder the user opened from
-    m_LastFolderOpen = QFileInfo(fullfilepath).absolutePath();
-    // Clear the last inserted file
-    m_LastInsertedFile = "";
 
     try {
         ImporterFactory importerFactory;
@@ -3379,8 +3364,8 @@ void MainWindow::LoadFile(const QString &fullfilepath)
             }
 
             m_SaveACopyFilename = "";
-            UpdateUiWithCurrentFile(fullfilepath);
             ShowMessageOnStatusBar(tr("File loaded."));
+
             // Get any warnings - if our main window is not currently visible they will be
             // shown when the window is displayed.
             m_LastOpenFileWarnings.append(importer->GetLoadWarnings());
@@ -3389,7 +3374,15 @@ void MainWindow::LoadFile(const QString &fullfilepath)
                 ShowLastOpenFileWarnings();
             }
 
-            return;
+            if (!is_internal) {
+                // Store the folder the user opened from
+                m_LastFolderOpen = QFileInfo(fullfilepath).absolutePath();
+                // Clear the last inserted file
+                m_LastInsertedFile = "";
+                UpdateUiWithCurrentFile(fullfilepath);
+            }
+
+            return true;
         }
     } catch (const FileEncryptedWithDrm &) {
         ShowMessageOnStatusBar();
@@ -3419,7 +3412,7 @@ void MainWindow::LoadFile(const QString &fullfilepath)
     // and potentially has left the GUI in a nasty state (like on initial startup)
     // Fallback to displaying a new book instead so GUI integrity is maintained.
     CreateNewBook();
-    return;
+    return false;
 }
 
 
@@ -4269,10 +4262,10 @@ void MainWindow::ExtendIconSizes()
 }
 
 
-void MainWindow::LoadInitialFile(const QString &openfilepath)
+void MainWindow::LoadInitialFile(const QString &openfilepath, bool is_internal)
 {
     if (!openfilepath.isEmpty()) {
-        LoadFile(openfilepath);
+        LoadFile(openfilepath, is_internal);
     } else {
         CreateNewBook();
     }
