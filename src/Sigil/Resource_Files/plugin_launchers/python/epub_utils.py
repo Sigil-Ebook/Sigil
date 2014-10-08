@@ -26,7 +26,7 @@
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from __future__ import unicode_literals, division, absolute_import, print_function
-from compatibility_utils import text_type, binary_type, utf8_str, unicode_str
+from compatibility_utils import text_type, binary_type, utf8_str, unicode_str, bord, bchr
 
 import sys, os
 import struct, array, binascii, re
@@ -125,10 +125,10 @@ def Adobe_encryption_key(uid):
 def Idpf_encryption_key(uid):
     # remove whitespace changing nothing else
     key = utf8_str(uid)
-    key = key.replace(chr(x20),b'')
-    key = key.replace(chr(x09),b'')
-    key = key.replace(chr(x0d),b'')
-    key = key.replace(chr(x0a),b'')
+    key = key.replace(bchr(x20),b'')
+    key = key.replace(bchr(x09),b'')
+    key = key.replace(bchr(x0d),b'')
+    key = key.replace(bchr(x0a),b'')
     key = SHA1(key)
     return key
 
@@ -138,8 +138,8 @@ def Adobe_mangle_fonts(encryption_key, data):
     if isinstance(data, text_type):
         print('Error: font data must be a byte string')
     crypt = data[:1024]
-    key = cycle(iter(map(ord, encryption_key)))
-    encrypt = b''.join([chr(ord(x)^next(key)) for x in crypt])
+    key = cycle(iter(map(bord, encryption_key)))
+    encrypt = b''.join([bchr(bord(x)^next(key)) for x in crypt])
     return encrypt + data[1024:]
 
 
@@ -148,7 +148,7 @@ def Idpf_mangle_fonts(encryption_key, data):
     if isinstance(data, text_type):
         print('Error: font data must be a byte string')
     crypt = data[:1040]
-    key = cycle(iter(map(ord, encryption_key)))
-    encrypt = b''.join([chr(ord(x)^next(key)) for x in crypt])
+    key = cycle(iter(map(bord, encryption_key)))
+    encrypt = b''.join([bchr(bord(x)^next(key)) for x in crypt])
     return encrypt + data[1040:]
 

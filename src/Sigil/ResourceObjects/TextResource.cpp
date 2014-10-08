@@ -91,7 +91,7 @@ QTextDocument &TextResource::GetTextDocumentForWriting()
 
 void TextResource::SaveToDisk(bool book_wide_save)
 {
-    if (!m_IsLoaded) {
+    if (!m_CacheInUse && !m_IsLoaded) {
         return;
     }
 

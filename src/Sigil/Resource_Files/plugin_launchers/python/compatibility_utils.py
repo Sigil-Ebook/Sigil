@@ -39,11 +39,19 @@ PY2 = sys.version_info[0] == 2
 PY3 = sys.version_info[0] == 3
 
 if PY2:
-   text_type = unicode
-   binary_type = str
+    text_type = unicode
+    binary_type = str
+    def bchr(s):
+        return chr(s)
+    def bord(s):
+       return ord(s)
 else:
-   text_type = str
-   binary_type = bytes
+    text_type = str
+    binary_type = bytes
+    def bchr(s):
+        return bytes([s])
+    def bord(s):
+        return s
 
 iswindows = sys.platform.startswith('win')
 
@@ -91,7 +99,7 @@ def unquoteurl(href):
 
 # get sys.argv arguments and properly encode them as unicode
 def unicode_argv():
-    global _iswindows
+    global iswindows
     global PY3
     if PY3:
         return sys.argv

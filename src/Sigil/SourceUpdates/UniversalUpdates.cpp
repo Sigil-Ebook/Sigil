@@ -257,6 +257,7 @@ void UniversalUpdates::LoadAndUpdateOneCSSFile(CSSResource *css_resource,
 
     const QString &source = Utility::ReadUnicodeTextFile(css_resource->GetFullPath());
     css_resource->SetText(PerformCSSUpdates(source, css_updates)());
+    css_resource->SaveToDisk();
 }
 
 
