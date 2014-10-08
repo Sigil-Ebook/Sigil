@@ -864,6 +864,11 @@ private:
     QString m_LastFolderOpen;
 
     /**
+     * The last valid folder from which the user opened or saved a file.
+     */
+    QString m_LastValidFolderOpen;
+
+    /**
      * The last filename used for Save As Copy
      */
     QString m_SaveACopyFilename;
