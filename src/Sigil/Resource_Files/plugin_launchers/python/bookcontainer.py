@@ -1,28 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab                                                                               
+# vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
 # Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
 # All rights reserved.
-# 
-# Redistribution and use in source and binary forms, with or without modification, 
+#
+# Redistribution and use in source and binary forms, with or without modification,
 # are permitted provided that the following conditions are met:
 #
 # 1. Redistributions of source code must retain the above copyright notice, this list of
 # conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright notice, this list
-# of conditions and the following disclaimer in the documentation and/or other materials 
+# of conditions and the following disclaimer in the documentation and/or other materials
 # provided with the distribution.
 #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
-# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
-# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
-# SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+# SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
 # INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
-# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
-# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY 
+# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from __future__ import unicode_literals, division, absolute_import, print_function
@@ -54,7 +54,7 @@ class BookContainer(object):
 # spine get/set and access routines
 
     def getspine(self):
-        # spine is an ordered list of tuples (id, linear) 
+        # spine is an ordered list of tuples (id, linear)
         return self._w.getspine()
 
     def setspine(self, new_spine):
@@ -117,8 +117,8 @@ class BookContainer(object):
     def addfile(self, uniqueid, basename, data, mime=None):
         # creates a new file in the manifest with unique manifest id, basename, data, and mimetype
         self._w.addfile(uniqueid, basename, data, mime)
-        
-        
+
+
     def deletefile(self, id):
         # removes the file associated with that manifest id, removes any existing spine entries as well
         self._w.deletefile(id)
@@ -137,7 +137,7 @@ class BookContainer(object):
     def addotherfile(self, book_href, data):
         # creates a new file with desired ebook href
         self._w.addotherfile(book_href, data)
-        
+
     def deleteotherfile(self, book_href):
         # removes file pointed to by the ebook href
         self._w.deleteotherfile(book_href)
@@ -185,26 +185,26 @@ class BookContainer(object):
             yield id, href, mime
 
     def spine_iter(self):
-        # yields spine idref, linear(yes,no,None), href in spine order 
+        # yields spine idref, linear(yes,no,None), href in spine order
         for (id , linear) in self._w.spine:
             href = self._w.id_to_href[id]
             yield id, linear, href
 
     def guide_iter(self):
-        # yields guide reference type, title, href, and manifest id of href  
+        # yields guide reference type, title, href, and manifest id of href
         for (type, title, href) in self._w.guide:
             thref = href.split('#')[0]
             id = self._w.href_to_id.get(thref, None)
             yield type, title, href, id
 
     def media_iter(self):
-        # yields manifest, title, href, and manifest id of href  
+        # yields manifest, title, href, and manifest id of href
         for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
             if mime.startswith('audio') or mime.startswith('video'):
                 href = self._w.id_to_href[id]
                 yield id, href, mime
-        
+
     def other_iter(self):
         # yields otherid for each file not in the manifest
         for book_href in self._w.other:
@@ -231,7 +231,7 @@ class BookContainer(object):
 
     def basename_to_id(self, basename, ow=None):
         return self._w.map_basename_to_id(basename, ow)
-        
+
     def id_to_href(self, id, ow=None):
         return self._w.map_id_to_href(id, ow)
 
@@ -239,4 +239,3 @@ class BookContainer(object):
         if basename is not None:
             return href.split('/')[-1]
         return ow
-
