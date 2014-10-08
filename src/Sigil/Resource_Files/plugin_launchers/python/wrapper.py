@@ -1,28 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab                                                                               
+# vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
 # Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
 # All rights reserved.
-# 
-# Redistribution and use in source and binary forms, with or without modification, 
+#
+# Redistribution and use in source and binary forms, with or without modification,
 # are permitted provided that the following conditions are met:
 #
 # 1. Redistributions of source code must retain the above copyright notice, this list of
 # conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright notice, this list
-# of conditions and the following disclaimer in the documentation and/or other materials 
+# of conditions and the following disclaimer in the documentation and/or other materials
 # provided with the distribution.
 #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
-# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
-# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
-# SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+# SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
 # INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
-# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
-# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY 
+# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from __future__ import unicode_literals, division, absolute_import, print_function
@@ -66,7 +66,7 @@ ext_mime_map = {
                 '.js'   : 'text/javascript',
                 '.epub' : 'application/epub+zip',
                 #'.js'   : 'application/javascript',
-                #'.otf'  : 'application/vnd.ms-opentype', 
+                #'.otf'  : 'application/vnd.ms-opentype',
                 }
 
 mime_base_map = {
@@ -77,7 +77,7 @@ mime_base_map = {
                 'application/xhtml+xml'         : 'Text',
                 'application/x-font-ttf'        : 'Fonts',
                 'application/x-font-opentype'   : 'Fonts',
-                'application/vnd.ms-opentype'   : 'Fonts', 
+                'application/vnd.ms-opentype'   : 'Fonts',
                 'application/font-woff'         : 'Fonts',
                 'audio/mpeg'                    : 'Audio',
                 'audio/mp3'                     : 'Audio',
@@ -93,8 +93,8 @@ mime_base_map = {
 
 
 PROTECTED_FILES = [
-    'mimetype', 
-    'META-INF/container.xml', 
+    'mimetype',
+    'META-INF/container.xml',
     'OEBPS/content.opf'
 ]
 
@@ -264,7 +264,7 @@ class Wrapper(object):
             spine.append((sid, linear))
         self.spine = spine
         self.modified['OEBPS/content.opf'] = 'file'
-        
+
     def spine_insert_before(self, pos, sid, linear):
         sid = unicode_str(sid)
         linear = unicode_str(linear)
@@ -276,7 +276,7 @@ class Wrapper(object):
         elif pos == -1 or pos >= n:
             self.spine = self.spine.append((sid, linear))
         else:
-            self.spine = self.spine[0:pos] + [(sid, linear)] + self.spine[pos:] 
+            self.spine = self.spine[0:pos] + [(sid, linear)] + self.spine[pos:]
         self.modified['OEBPS/content.opf'] = 'file'
 
     def getspine_ppd(self):
@@ -586,5 +586,4 @@ class Wrapper(object):
             if isinstance(data,text_type):
                 data = utf8_str(data)
             with open(pathof(filepath),'wb') as fp:
-                fp.write(data) 
-            
+                fp.write(data)

@@ -4,25 +4,25 @@
 
 # Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
 # All rights reserved.
-# 
-# Redistribution and use in source and binary forms, with or without modification, 
+#
+# Redistribution and use in source and binary forms, with or without modification,
 # are permitted provided that the following conditions are met:
 #
 # 1. Redistributions of source code must retain the above copyright notice, this list of
 # conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright notice, this list
-# of conditions and the following disclaimer in the documentation and/or other materials 
+# of conditions and the following disclaimer in the documentation and/or other materials
 # provided with the distribution.
 #
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
-# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
-# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
-# SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+# SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
 # INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
-# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
-# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY 
+# TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from __future__ import unicode_literals, division, absolute_import, print_function
@@ -31,20 +31,20 @@ from compatibility_utils import unicode_argv, add_cp65001_codec
 
 # Sigil Python Script Launcher
 #
-# This launcher script is aways invoked by the script manager 
+# This launcher script is aways invoked by the script manager
 # for python scripts (both Python 2.7 and 3.4 and later).  It is passed in:
 # ebook_root, output directory, script type, and path to target script location
 #
-# This launcher script will parse the opf and make available 
-# a wrapper and a type specific container object that acts as an 
+# This launcher script will parse the opf and make available
+# a wrapper and a type specific container object that acts as an
 # interface to be used by target scripts to safely access the ebook files.
 #
-# The Wrapper acts as a record keeper of changed files while acting to 
+# The Wrapper acts as a record keeper of changed files while acting to
 # shield the original files
 #
 # The Launcher script will then invoke the target's run() routine
 # All target output to stdout and stderr is captured
-# Upon completion simple xml formatted information is passed back 
+# Upon completion simple xml formatted information is passed back
 # to Sigil before the launcher script exits
 
 import sys
@@ -72,7 +72,7 @@ add_cp65001_codec()
 
 _DEBUG=False
 
-SUPPORTED_SCRIPT_TYPES = ['input', 'output', 'edit'] 
+SUPPORTED_SCRIPT_TYPES = ['input', 'output', 'edit']
 
 _XML_HEADER = '<?xml version="1.0" encoding="UTF-8"?>\n'
 
@@ -218,7 +218,7 @@ def main(argv=unicode_argv()):
     if len(argv) != 5:
         failed(None, msg="Launcher: improper number of arguments passed to launcher.py")
         return -1
-    
+
     ebook_root = argv[1]
     outdir = argv[2]
     script_type = argv[3]
@@ -259,7 +259,7 @@ def main(argv=unicode_argv()):
         bc = InputContainer(rk)
     else:
         bc = OutputContainer(rk)
-    
+
     # start the target script
     ps = ProcessScript(script_type, script_module, bc)
     ps.launch()
@@ -293,7 +293,6 @@ def main(argv=unicode_argv()):
     else:
         sys.stdout.write(utf8_str(resultxml))
     return 0
-    
+
 if __name__ == "__main__":
     sys.exit(main())
-
