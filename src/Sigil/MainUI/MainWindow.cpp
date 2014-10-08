@@ -137,6 +137,7 @@ MainWindow::MainWindow(const QString &openfilepath, QWidget *parent, Qt::WindowF
     m_CurrentFileName(QString()),
     m_Book(new Book()),
     m_LastFolderOpen(QString()),
+    m_LastValidFolderOpen(QString()),
     m_SaveACopyFilename(QString()),
     m_LastInsertedFile(QString()),
     m_TabManager(*new TabManager(this)),
@@ -630,8 +631,7 @@ void MainWindow::Open()
                                                        );
 
         if (!filename.isEmpty()) {
-            // Store the folder the user opened from
-            m_LastFolderOpen = QFileInfo(filename).absolutePath();
+
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
@@ -756,6 +756,9 @@ bool MainWindow::SaveAs()
 
     if (!save_result) {
         m_CurrentFilePath.clear();
+    }
+    else{
+        m_LastValidFolderOpen=m_LastFolderOpen;
     }
 
     return save_result;
@@ -3332,7 +3335,8 @@ void MainWindow::CreateNewBook()
 void MainWindow::ClearSaveFilePath()
 {
     m_CurrentFilePath.clear();
-    m_LastFolderOpen.clear();
+    m_LastFolderOpen=(m_LastValidFolderOpen.isEmpty())?
+                          QDir::homePath():m_LastValidFolderOpen;
 }
 
 
@@ -3342,7 +3346,11 @@ void MainWindow::LoadFile(const QString &fullfilepath)
         return;
     }
 
-    // Store the folder the user opened from
+    //store previous folder the user opened from
+    if(!m_LastFolderOpen.isEmpty()){
+        m_LastValidFolderOpen=m_LastFolderOpen;
+    }
+    // Store the folder the user opened from   
     m_LastFolderOpen = QFileInfo(fullfilepath).absolutePath();
     // Clear the last inserted file
     m_LastInsertedFile = "";
