@@ -49,6 +49,8 @@ public:
     void ignoreWord(const QString &word);
     void ignoreWordInDictionary(const QString &word);
 
+    QString getWordChars();
+
     void setDictionary(const QString &name, bool forceReplace = false);
     void reloadDictionary();
 
@@ -71,6 +73,7 @@ private:
 
     Hunspell *m_hunspell;
     QTextCodec *m_codec;
+    QString m_wordchars;
     QString m_dictionaryName;
     //
     QHash<QString, QString> m_dictionaries;

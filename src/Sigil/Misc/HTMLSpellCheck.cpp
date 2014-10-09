@@ -40,6 +40,7 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
         bool include_all_words)
 {
     SpellCheck *sc = SpellCheck::instance();
+    QString wordChars = sc->getWordChars();
     bool in_tag = false;
     bool in_invalid_word = false;
     bool in_entity = false;
@@ -66,7 +67,7 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
             QChar prev_c = i > 0 ? text.at(i - 1) : QChar(' ');
             QChar next_c = i < text.count() - 1 ? text.at(i + 1) : QChar(' ');
 
-            if (IsBoundary(prev_c, c, next_c)) {
+            if (IsBoundary(prev_c, c, next_c, wordChars)) {
                 // If we're in an entity and we hit a boundary and it isn't
                 // part of an entity then this is an invalid entity.
                 if (in_entity && c != QChar(';')) {
@@ -137,7 +138,7 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
     return misspellings;
 }
 
-bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c)
+bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c, const QString & wordChars)
 {
     if (c.isLetter()) {
         return false;
@@ -146,7 +147,11 @@ bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c)
     // Single quotes of ' and curly version and hyphen/emdash are sometimes a boundary
     // and sometimes not, depending on whether they are surrounded by letters or not.
     // A sentence which 'has some text' should treat the ' as a boundary but didn't should not.
-    bool is_potential_boundary = (c == '-' || c == QChar(0x2012) || c == '\'' || c == QChar(0x2019));
+    bool is_potential_boundary = (c == '-' || 
+                                  c == QChar(0x2012) || 
+                                  c == '\'' || 
+                                  c == QChar(0x2019) ||
+                                  (!wordChars.isEmpty() && wordChars.contains(c)));
 
     if (is_potential_boundary && (!prev_c.isLetter() || !next_c.isLetter())) {
         return true;

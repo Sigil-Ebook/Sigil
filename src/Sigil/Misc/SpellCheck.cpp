@@ -53,7 +53,8 @@ SpellCheck *SpellCheck::instance()
 
 SpellCheck::SpellCheck() :
     m_hunspell(0),
-    m_codec(0)
+    m_codec(0),
+    m_wordchars("")
 {
     // There is a considerable lag involved in loading the Spellcheck dictionaries
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -206,6 +207,9 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
         m_codec = QTextCodec::codecForName("UTF-8");
     }
 
+    // Get the extra wordchars used for tokenization
+    m_wordchars = m_codec->toUnicode(m_hunspell->get_wordchars());
+
     // Load in the words from the user dictionaries.
     foreach(QString word, allUserDictionaryWords()) {
         ignoreWordInDictionary(word);
@@ -216,6 +220,14 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
         ignoreWordInDictionary(word);
     }
 }
+
+
+QString SpellCheck::getWordChars()
+{
+    return m_wordchars;
+}
+
+
 
 void SpellCheck::reloadDictionary()
 {
