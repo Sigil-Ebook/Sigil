@@ -77,7 +77,7 @@ public:
      *
      * @return The reference.
      */
-    const QHash< int, tuple< QString, QString > > &GetGuideTypeMapping();
+    const QHash<int, tuple<QString, QString>> &GetGuideTypeMapping();
 
     /**
      * Maps a reference type string ("loi", "cover" etc.)
@@ -126,13 +126,13 @@ private:
      * A mapping between GuideSemanticType
      * and the reference type and default title.
      */
-    QHash< int, tuple< QString, QString > > m_GuideTypeMapping;
+    QHash<int, tuple<QString, QString>> m_GuideTypeMapping;
 
     /**
      * A mapping of a reference type string ("loi", "cover" etc.)
      * to a value in the GuideSemanticType enum.
      */
-    QHash< QString, int > m_ReferenceTypeToGuideEnum;
+    QHash<QString, int> m_ReferenceTypeToGuideEnum;
 };
 
 

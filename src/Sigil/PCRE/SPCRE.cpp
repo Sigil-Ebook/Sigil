@@ -205,7 +205,7 @@ SPCRE::MatchInfo SPCRE::getLastMatchInfo(const QString &text)
     }
 }
 
-bool SPCRE::replaceText(const QString &text, const QList<std::pair<int, int> > &capture_groups_offsets, const QString &replacement_pattern, QString &out)
+bool SPCRE::replaceText(const QString &text, const QList<std::pair<int, int>> &capture_groups_offsets, const QString &replacement_pattern, QString &out)
 {
     PCREReplaceTextBuilder builder;
     return builder.BuildReplacementText(*this, text, capture_groups_offsets, replacement_pattern, out);

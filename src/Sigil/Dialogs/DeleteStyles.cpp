@@ -25,7 +25,7 @@
 
 static const QString SETTINGS_GROUP      = "delete_styles";
 
-DeleteStyles::DeleteStyles(QHash< QString, QList<CSSInfo::CSSSelector *> > css_styles_to_delete, QWidget *parent)
+DeleteStyles::DeleteStyles(QHash<QString, QList<CSSInfo::CSSSelector *>> css_styles_to_delete, QWidget *parent)
     :
     QDialog(parent),
     m_CSSStylesToDelete(css_styles_to_delete)
@@ -35,7 +35,7 @@ DeleteStyles::DeleteStyles(QHash< QString, QList<CSSInfo::CSSSelector *> > css_s
     SetUpTable();
     ReadSettings();
     // Get list of styles
-    QHashIterator< QString, QList<CSSInfo::CSSSelector *> > stylesheets(m_CSSStylesToDelete);
+    QHashIterator<QString, QList<CSSInfo::CSSSelector *>> stylesheets(m_CSSStylesToDelete);
 
     while (stylesheets.hasNext()) {
         stylesheets.next();
@@ -110,7 +110,7 @@ void DeleteStyles::SaveStylesToDelete()
     }
 }
 
-QHash< QString, QList<CSSInfo::CSSSelector *> > DeleteStyles::GetStylesToDelete()
+QHash<QString, QList<CSSInfo::CSSSelector *>> DeleteStyles::GetStylesToDelete()
 {
     return m_CSSStylesToDelete;
 }

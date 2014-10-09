@@ -115,13 +115,13 @@ bool NCXResource::GenerateNCXFromBookContents(const Book &book)
 
 void NCXResource::GenerateNCXFromTOCContents(const Book &book, NCXModel &ncx_model)
 {
-//    QByteArray raw_ncx;
-//    QBuffer buffer(&raw_ncx);
-//    buffer.open(QIODevice::WriteOnly);
-//    NCXWriter ncx(book, buffer, ncx_model.GetRootNCXEntry());
-//    ncx.WriteXML();
-//    buffer.close();
-//    SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size())));
+    //    QByteArray raw_ncx;
+    //    QBuffer buffer(&raw_ncx);
+    //    buffer.open(QIODevice::WriteOnly);
+    //    NCXWriter ncx(book, buffer, ncx_model.GetRootNCXEntry());
+    //    ncx.WriteXML();
+    //    buffer.close();
+    //    SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size())));
     GenerateNCXFromTOCEntries(book, ncx_model.GetRootNCXEntry());
 }
 

@@ -60,7 +60,7 @@ void ValidationResultsView::showEvent(QShowEvent *event)
 void ValidationResultsView::ValidateCurrentBook()
 {
     ClearResults();
-    std::vector< fc::Result > results;
+    std::vector<fc::Result> results;
     QApplication::setOverrideCursor(Qt::WaitCursor);
     m_Book->SaveAllResourcesToDisk();
 
@@ -90,7 +90,7 @@ void ValidationResultsView::ClearResults()
 }
 
 
-void ValidationResultsView::SetBook(QSharedPointer< Book > book)
+void ValidationResultsView::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
     ClearResults();
@@ -135,7 +135,7 @@ void ValidationResultsView::SetUpTable()
 }
 
 
-void ValidationResultsView::DisplayResults(const std::vector< fc::Result > &results)
+void ValidationResultsView::DisplayResults(const std::vector<fc::Result> &results)
 {
     m_ResultTable.clear();
 

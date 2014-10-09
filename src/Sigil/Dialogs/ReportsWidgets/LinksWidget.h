@@ -48,7 +48,7 @@ class LinksWidget : public ReportsWidget
 public:
     LinksWidget();
 
-    void CreateReport(QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer<Book> book);
 
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
@@ -73,7 +73,7 @@ private:
 
     QList<HTMLResource *> m_HTMLResources;
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QStandardItemModel *m_ItemModel;
 

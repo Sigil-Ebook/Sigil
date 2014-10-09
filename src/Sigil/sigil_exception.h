@@ -40,13 +40,13 @@ struct ExceptionBase: virtual std::exception, virtual boost::exception {};
 * Thrown when a file does not exist.
 */
 struct FileDoesNotExist : virtual ExceptionBase {};
-typedef boost::error_info< struct file_name, std::string > errinfo_file_name;
+typedef boost::error_info<struct file_name, std::string> errinfo_file_name;
 
 /**
  * Thrown when a resource object does not exist.
  */
 struct ResourceDoesNotExist : virtual ExceptionBase {};
-typedef boost::error_info< struct resource_name, std::string > errinfo_resource_name;
+typedef boost::error_info<struct resource_name, std::string> errinfo_resource_name;
 
 /**
  * Thrown when the book has no HTML files.
@@ -57,28 +57,28 @@ struct NoHTMLFiles : virtual ExceptionBase {};
  * Thrown for XML parsing errors.
  */
 struct ErrorParsingXml : virtual ExceptionBase {};
-typedef boost::error_info< struct error_string, std::string > errinfo_XML_parsing_error_string;
-typedef boost::error_info< struct line_number, qint64 > errinfo_XML_parsing_line_number;
-typedef boost::error_info< struct column_number, qint64 > errinfo_XML_parsing_column_number;
+typedef boost::error_info<struct error_string, std::string> errinfo_XML_parsing_error_string;
+typedef boost::error_info<struct line_number, qint64> errinfo_XML_parsing_line_number;
+typedef boost::error_info<struct column_number, qint64> errinfo_XML_parsing_column_number;
 
 /**
  * Wrapper for CZipExceptions.
  */
 struct CZipExceptionWrapper : virtual ExceptionBase {};
-typedef boost::error_info< struct zip_info, std::string > errinfo_zip_info_msg;
-typedef boost::error_info< struct zip_iCause, int > errinfo_zip_error_id;
+typedef boost::error_info<struct zip_info, std::string> errinfo_zip_info_msg;
+typedef boost::error_info<struct zip_iCause, int> errinfo_zip_error_id;
 
 /**
  * Thrown when a file cannot be read.
  */
 struct CannotReadFile : virtual ExceptionBase {};
-typedef boost::error_info< struct file_fullpath, std::string > errinfo_file_fullpath;
+typedef boost::error_info<struct file_fullpath, std::string> errinfo_file_fullpath;
 
 /**
  * Thrown when a file cannot be opened.
  */
 struct CannotOpenFile : virtual ExceptionBase {};
-typedef boost::error_info< struct file_errorstring, std::string > errinfo_file_errorstring;
+typedef boost::error_info<struct file_errorstring, std::string> errinfo_file_errorstring;
 
 /**
  * Thrown when a file cannot be put into an archive.
@@ -89,13 +89,13 @@ struct CannotStoreFile : virtual ExceptionBase {};
  * Thrown when a file cannot be copied.
  */
 struct CannotCopyFile : virtual ExceptionBase {};
-typedef boost::error_info< struct file_copypath, std::string > errinfo_file_copypath;
+typedef boost::error_info<struct file_copypath, std::string> errinfo_file_copypath;
 
 /**
  * Thrown when a file cannot be written.
  */
 struct CannotWriteFile : virtual ExceptionBase {};
-typedef boost::error_info< struct file_errorstring, std::string > errinfo_file_errorstring;
+typedef boost::error_info<struct file_errorstring, std::string> errinfo_file_errorstring;
 
 /**
  * Thrown when a file cannot be removed.
@@ -111,9 +111,9 @@ struct FileEncryptedWithDrm : virtual ExceptionBase {};
  * Thrown for XML parsing errors.
  */
 struct FontObfuscationError : virtual ExceptionBase {};
-typedef boost::error_info< struct font_filepath, std::string > errinfo_font_filepath;
-typedef boost::error_info< struct algorithm, std::string > errinfo_font_obfuscation_algorithm;
-typedef boost::error_info< struct key, std::string > errinfo_font_obfuscation_key;
+typedef boost::error_info<struct font_filepath, std::string> errinfo_font_filepath;
+typedef boost::error_info<struct algorithm, std::string> errinfo_font_obfuscation_algorithm;
+typedef boost::error_info<struct key, std::string> errinfo_font_obfuscation_key;
 
 /**
  * Thrown when the document has no root document element.
@@ -124,7 +124,7 @@ struct ErrorBuildingDOM : virtual ExceptionBase {};
  * Thrown for Invalid EPUB errors while loading and parsing content files.
  */
 struct EPUBLoadParseError : virtual ExceptionBase {};
-typedef boost::error_info< struct parse_errors, std::string > errinfo_epub_load_parse_errors;
+typedef boost::error_info<struct parse_errors, std::string> errinfo_epub_load_parse_errors;
 
 #endif // SG_EXCEPTION_H
 

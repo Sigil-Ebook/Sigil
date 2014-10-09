@@ -108,21 +108,21 @@ private:
 
     // Removes redundant CSS classes from the style tags and source code;
     // Calls more specific version.
-    static tuple< QString, QStringList > RemoveRedundantClasses(const QString &source,
+    static tuple<QString, QStringList> RemoveRedundantClasses(const QString &source,
             const QStringList &css_style_tags);
 
     // Removes redundant CSS classes from the provided CSS style tags
     static QStringList RemoveRedundantClassesTags(const QStringList &css_style_tags,
-            const QHash< QString, QString > redundant_classes);
+            const QHash<QString, QString> redundant_classes);
 
     // Removes redundant CSS classes from the provided XHTML source code;
     // Updates references to older classes that do the same thing
     static QString RemoveRedundantClassesSource(const QString &source,
-            const QHash< QString, QString > redundant_classes);
+            const QHash<QString, QString> redundant_classes);
 
     // Returns a QHash with keys being the new redundant CSS classes,
     // and the values the old classes that already do the job of the new ones.
-    static QHash< QString, QString > GetRedundantClasses(const QStringList &css_style_tags);
+    static QHash<QString, QString> GetRedundantClasses(const QStringList &css_style_tags);
 
     /**
      * Removes HTML meta tags with charset declarations.

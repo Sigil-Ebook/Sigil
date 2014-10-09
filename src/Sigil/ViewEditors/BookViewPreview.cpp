@@ -346,7 +346,7 @@ void BookViewPreview::UpdateFinishedState(int progress)
     } else {
         m_isLoadFinished = false;
     }
-}    
+}
 
 void BookViewPreview::HighlightPosition()
 {
@@ -436,10 +436,10 @@ int BookViewPreview::GetLocalSelectionOffset(bool start_of_selection)
 }
 
 int BookViewPreview::GetSelectionOffset(const xc::DOMDocument &document,
-                                        const QMap< int, xc::DOMNode * > &node_offsets,
+                                        const QMap<int, xc::DOMNode *> &node_offsets,
                                         Searchable::Direction search_direction)
 {
-    QList< ViewEditor::ElementIndex > cl = GetCaretLocation();
+    QList<ViewEditor::ElementIndex> cl = GetCaretLocation();
     xc::DOMNode *caret_node = XhtmlDoc::GetNodeFromHierarchy(document, cl);
     bool searching_down = search_direction == Searchable::Direction_Down ? true : false;
     int local_offset    = GetLocalSelectionOffset(!searching_down);
@@ -453,8 +453,8 @@ BookViewPreview::SearchTools BookViewPreview::GetSearchTools() const
     SearchTools search_tools;
     search_tools.fulltext = "";
     search_tools.document = XhtmlDoc::LoadTextIntoDocument(page()->mainFrame()->toHtml());
-    QList< xc::DOMNode * > text_nodes = XhtmlDoc::GetVisibleTextNodes(
-                                            *(search_tools.document->getElementsByTagName(QtoX("body"))->item(0)));
+    QList<xc::DOMNode *> text_nodes = XhtmlDoc::GetVisibleTextNodes(
+                                          *(search_tools.document->getElementsByTagName(QtoX("body"))->item(0)));
     xc::DOMNode *current_block_ancestor = NULL;
 
     // We concatenate all text nodes that have the same
@@ -479,7 +479,7 @@ BookViewPreview::SearchTools BookViewPreview::GetSearchTools() const
 }
 
 
-QString BookViewPreview::GetElementSelectingJS_NoTextNodes(const QList< ViewEditor::ElementIndex > &hierarchy) const
+QString BookViewPreview::GetElementSelectingJS_NoTextNodes(const QList<ViewEditor::ElementIndex> &hierarchy) const
 {
     // TODO: see if replacing jQuery with pure JS will speed up
     // caret location scrolling... note the children()/contents() difference:
@@ -509,12 +509,12 @@ QString BookViewPreview::GetElementSelectingJS_NoTextNodes(const QList< ViewEdit
     return element_selector;
 }
 
-QList< ViewEditor::ElementIndex > BookViewPreview::GetCaretLocation()
+QList<ViewEditor::ElementIndex> BookViewPreview::GetCaretLocation()
 {
     // The location element hierarchy encoded in a string
     QString location_string = EvaluateJavascript(c_GetCaretLocation).toString();
     QStringList elements    = location_string.split(",", QString::SkipEmptyParts);
-    QList< ElementIndex > caret_location;
+    QList<ElementIndex> caret_location;
     foreach(QString element, elements) {
         ElementIndex new_element;
         new_element.name  = element.split(" ")[ 0 ];
@@ -533,7 +533,7 @@ void BookViewPreview::StoreCurrentCaretLocation()
     }
 }
 
-void BookViewPreview::StoreCaretLocationUpdate(const QList< ViewEditor::ElementIndex > &hierarchy)
+void BookViewPreview::StoreCaretLocationUpdate(const QList<ViewEditor::ElementIndex> &hierarchy)
 {
     QString caret_location = "var element = " + GetElementSelectingJS_NoTextNodes(hierarchy) + ";";
     // We scroll to the element and center the screen on it
@@ -542,7 +542,7 @@ void BookViewPreview::StoreCaretLocationUpdate(const QList< ViewEditor::ElementI
     m_CaretLocationUpdate = caret_location + scroll + SET_CURSOR_JS;
 }
 
-QString BookViewPreview::GetElementSelectingJS_WithTextNode(const QList< ViewEditor::ElementIndex > &hierarchy) const
+QString BookViewPreview::GetElementSelectingJS_WithTextNode(const QList<ViewEditor::ElementIndex> &hierarchy) const
 {
     QString element_selector = "$('html')";
 
@@ -557,7 +557,7 @@ QString BookViewPreview::GetElementSelectingJS_WithTextNode(const QList< ViewEdi
 
 QWebElement BookViewPreview::DomNodeToQWebElement(const xc::DOMNode &node)
 {
-    const QList< ViewEditor::ElementIndex > &hierarchy = XhtmlDoc::GetHierarchyFromNode(node);
+    const QList<ViewEditor::ElementIndex> &hierarchy = XhtmlDoc::GetHierarchyFromNode(node);
     QWebElement element = page()->mainFrame()->documentElement();
     element.findFirst("html");
 
@@ -600,12 +600,12 @@ bool BookViewPreview::ExecuteCaretUpdate(const QString &caret_update)
     return false;
 }
 
-BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs(const QMap< int, xc::DOMNode * > &node_offsets,
+BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs(const QMap<int, xc::DOMNode *> &node_offsets,
         int string_start,
         int string_length) const
 {
     SelectRangeInputs input;
-    QList< int > offsets = node_offsets.keys();
+    QList<int> offsets = node_offsets.keys();
     int last_offset      = offsets.first();
 
     for (int i = 0; i < offsets.length(); ++i) {

@@ -112,14 +112,14 @@ public:
      *
      * @return A list of the book's metadata.
      */
-    QList< Metadata::MetaElement > GetMetadata() const;
+    QList<Metadata::MetaElement> GetMetadata() const;
 
     /**
      * Returns the values for a specific metadata name.
      *
      * @return A list of values
      */
-    QList< QVariant > GetMetadataValues(QString text) const;
+    QList<QVariant> GetMetadataValues(QString text) const;
 
     /**
      * Replaces the book's current meta information with the received metadata.
@@ -128,7 +128,7 @@ public:
      *                 are the metadata names, and the values are the lists of
      *                 metadata values for that metadata name.
      */
-    void SetMetadata(const QList< Metadata::MetaElement > metadata);
+    void SetMetadata(const QList<Metadata::MetaElement> metadata);
 
     QString GetFirstUniqueSectionName(QString extension = QString());
 
@@ -206,8 +206,8 @@ public:
      */
     Resource *PreviousResource(Resource *resource);
 
-    QHash < QString, QList< XhtmlDoc::XMLElement > > GetLinkElements();
-    static boost::tuple<QString, QList< XhtmlDoc::XMLElement > > GetLinkElementsInHTMLFileMapped(HTMLResource *html_resource);
+    QHash <QString, QList<XhtmlDoc::XMLElement>> GetLinkElements();
+    static boost::tuple<QString, QList<XhtmlDoc::XMLElement>> GetLinkElementsInHTMLFileMapped(HTMLResource *html_resource);
 
     QStringList GetStyleUrlsInHTMLFiles();
     static boost::tuple<QString, QStringList> GetStyleUrlsInHTMLFileMapped(HTMLResource *html_resource);
@@ -253,7 +253,7 @@ public:
      */
     Resource *MergeResources(QList<Resource *> resources);
 
-    QList <Resource * > GetAllResources();
+    QList <Resource *> GetAllResources();
 
     /**
      * Makes sure that all the resources have saved the state of
@@ -379,7 +379,7 @@ private:
      * @param html_updates Any reference updates that need to be performed.
      */
     NewSectionResult CreateOneNewSection(NewSection section_info,
-                                         const QHash< QString, QString > &html_updates);
+                                         const QHash<QString, QString> &html_updates);
 
 
     ////////////////////////////
@@ -397,7 +397,7 @@ private:
      * are the metadata names, and the values are the lists of
      * metadata values for that metadata name.
      */
-    QHash< QString, QList< QVariant > > m_Metadata;
+    QHash<QString, QList<QVariant>> m_Metadata;
 
     /**
      * Stores the modified state of the book.

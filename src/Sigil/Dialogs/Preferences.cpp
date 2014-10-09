@@ -124,9 +124,9 @@ void Preferences::readSettings()
     int last_preference_index = settings.value("lastpreference", 0).toInt();
 
     if (last_preference_index > ui.availableWidgets->count() - 1) {
-       last_preference_index = 0;
+        last_preference_index = 0;
     }
-    
+
     ui.availableWidgets->setCurrentRow(last_preference_index);
     settings.endGroup();
 }

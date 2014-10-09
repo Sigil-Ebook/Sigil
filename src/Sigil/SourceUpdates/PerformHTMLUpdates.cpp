@@ -26,8 +26,8 @@
 
 
 PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
-                                       const QHash< QString, QString > &html_updates,
-                                       const QHash< QString, QString > &css_updates)
+                                       const QHash<QString, QString> &html_updates,
+                                       const QHash<QString, QString> &css_updates)
     :
     PerformXMLUpdates(source, html_updates),
     m_CSSUpdates(css_updates)
@@ -37,8 +37,8 @@ PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
 
 
 PerformHTMLUpdates::PerformHTMLUpdates(const xc::DOMDocument &document,
-                                       const QHash< QString, QString > &html_updates,
-                                       const QHash< QString, QString > &css_updates)
+                                       const QHash<QString, QString> &html_updates,
+                                       const QHash<QString, QString> &css_updates)
     :
     PerformXMLUpdates(document, html_updates),
     m_CSSUpdates(css_updates)
@@ -47,7 +47,7 @@ PerformHTMLUpdates::PerformHTMLUpdates(const xc::DOMDocument &document,
 }
 
 
-shared_ptr< xc::DOMDocument > PerformHTMLUpdates::operator()()
+shared_ptr<xc::DOMDocument> PerformHTMLUpdates::operator()()
 {
     UpdateXMLReferences();
 

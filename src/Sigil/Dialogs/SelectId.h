@@ -55,7 +55,7 @@ private:
 
     HTMLResource *m_HTMLResource;
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     Ui::SelectId ui;
 };

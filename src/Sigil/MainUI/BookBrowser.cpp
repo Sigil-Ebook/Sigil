@@ -91,7 +91,7 @@ void BookBrowser::showEvent(QShowEvent *event)
     raise();
 }
 
-void BookBrowser::SetBook(QSharedPointer< Book > book)
+void BookBrowser::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
     m_OPFModel.SetBook(book);
@@ -423,7 +423,7 @@ void BookBrowser::CopyHTML()
         return;
     }
 
-    HTMLResource &current_html_resource = *qobject_cast< HTMLResource * >(current_resource);
+    HTMLResource &current_html_resource = *qobject_cast<HTMLResource *>(current_resource);
     // Create an empty file
     HTMLResource &new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource);
     m_Book->MoveResourceAfter(new_html_resource, current_html_resource);
@@ -440,7 +440,7 @@ void BookBrowser::CopyHTML()
 void BookBrowser::AddNewHTML()
 {
     Resource *current_resource = GetCurrentResource();
-    HTMLResource &current_html_resource = *qobject_cast< HTMLResource * >(current_resource);
+    HTMLResource &current_html_resource = *qobject_cast<HTMLResource *>(current_resource);
     HTMLResource &new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource);
 
     if (current_resource != NULL) {
@@ -461,7 +461,7 @@ void BookBrowser::CopyCSS()
         return;
     }
 
-    CSSResource &current_css_resource = *qobject_cast< CSSResource * >(current_resource);
+    CSSResource &current_css_resource = *qobject_cast<CSSResource *>(current_resource);
     // Create an empty file
     CSSResource &new_resource = m_Book->CreateEmptyCSSFile();
     // Copy the text from the current file
@@ -516,9 +516,9 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     }
 
     QStringList filepaths = QFileDialog::getOpenFileNames(this,
-                          tr("Add Existing Files"),
-                          m_LastFolderOpen,
-                          filter_string);
+                            tr("Add Existing Files"),
+                            m_LastFolderOpen,
+                            filter_string);
 
     if (filepaths.isEmpty()) {
         return added_files;
@@ -527,10 +527,10 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     m_LastFolderOpen = QFileInfo(filepaths.first()).absolutePath();
     // We need to store the current metadata since the
     // GetBook call will clear it.
-    QList< Metadata::MetaElement > old_metadata = m_Book->GetMetadata();
+    QList<Metadata::MetaElement> old_metadata = m_Book->GetMetadata();
     QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
     QStringList invalid_filenames;
-    HTMLResource *current_html_resource = qobject_cast< HTMLResource * >(GetCurrentResource());
+    HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(GetCurrentResource());
     Resource *open_resource = NULL;
     // Display progress dialog if adding several items
     // Avoid dialog popping up over Insert File from disk for duplicate file all the time
@@ -557,8 +557,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                     tr("File is not an image and cannot be used:\n\n\"%1\".").arg(filepath));
                 continue;
             }
-        }
-        else if (only_multimedia) {
+        } else if (only_multimedia) {
             if (!IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&
                 !SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&
                 !VIDEO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) &&
@@ -622,7 +621,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
             // this call merely mutates our Book.
             html_import.GetBook();
             Resource &added_resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
-            HTMLResource *added_html_resource = qobject_cast< HTMLResource * >(&added_resource);
+            HTMLResource *added_html_resource = qobject_cast<HTMLResource *>(&added_resource);
 
             if (current_html_resource && added_html_resource) {
                 m_Book->MoveResourceAfter(*added_html_resource, *current_html_resource);
@@ -934,7 +933,7 @@ void BookBrowser::RenameSelected()
             file_extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
         }
 
-        // Save the name 
+        // Save the name
         QString name;
         if (template_number_string.isEmpty()) {
             // If no name or number given for template, then use old name but with new extension
@@ -1014,7 +1013,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
         );
         return;
     } else if (resource_type == Resource::HTMLResourceType &&
-               resources.count() == m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >().count()) {
+               resources.count() == m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>().count()) {
         {
             Utility::DisplayStdErrorDialog(
                 tr("You cannot remove all html files.\n"
@@ -1051,7 +1050,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     }
 
     // Find next resource to select
-    QList< Resource *> selected_resources = ValidSelectedResources();
+    QList<Resource *> selected_resources = ValidSelectedResources();
     bool keep_selection = true;
     foreach (Resource *resource, selected_resources) {
         if (resources.contains(resource)) {
@@ -1061,8 +1060,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     }
     if (keep_selection) {
         next_resource = selected_resources.first();
-    }
-    else {
+    } else {
         next_resource = ResourceToSelectAfterRemove(resources);
     }
 
@@ -1093,8 +1091,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
 
     if (keep_selection) {
         SelectResources(selected_resources);
-    }
-    else {
+    } else {
         if (next_resource) {
             UpdateSelection(*next_resource);
         }
@@ -1157,7 +1154,7 @@ void BookBrowser::SetCoverImage()
     QList <Resource *> resources = ValidSelectedResources();
     int scrollY = m_TreeView.verticalScrollBar()->value();
 
-    ImageResource *image_resource = qobject_cast< ImageResource * >(GetCurrentResource());
+    ImageResource *image_resource = qobject_cast<ImageResource *>(GetCurrentResource());
     if (image_resource == NULL) {
         emit ShowStatusMessageRequest(tr("Unable to set file as cover image."));
         return;
@@ -1181,7 +1178,7 @@ void BookBrowser::AddGuideSemanticType(int type)
     }
 
     foreach(Resource * resource, resources) {
-        HTMLResource *html_resource = qobject_cast< HTMLResource * >(resource);
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         m_Book->GetOPF().AddGuideSemanticType(*html_resource, (GuideSemantics::GuideSemanticType) type);
 
     }
@@ -1221,7 +1218,7 @@ void BookBrowser::LinkStylesheets()
 void BookBrowser::NoObfuscationMethod()
 {
     foreach(Resource * resource, ValidSelectedResources()) {
-        FontResource *font_resource = qobject_cast< FontResource * >(resource);
+        FontResource *font_resource = qobject_cast<FontResource *>(resource);
         Q_ASSERT(font_resource);
         font_resource->SetObfuscationAlgorithm("");
     }
@@ -1231,7 +1228,7 @@ void BookBrowser::NoObfuscationMethod()
 void BookBrowser::AdobesObfuscationMethod()
 {
     foreach(Resource * resource, ValidSelectedResources()) {
-        FontResource *font_resource = qobject_cast< FontResource * >(resource);
+        FontResource *font_resource = qobject_cast<FontResource *>(resource);
         Q_ASSERT(font_resource);
         font_resource->SetObfuscationAlgorithm(ADOBE_FONT_ALGO_ID);
     }
@@ -1241,7 +1238,7 @@ void BookBrowser::AdobesObfuscationMethod()
 void BookBrowser::IdpfsObfuscationMethod()
 {
     foreach(Resource * resource, ValidSelectedResources()) {
-        FontResource *font_resource = qobject_cast< FontResource * >(resource);
+        FontResource *font_resource = qobject_cast<FontResource *>(resource);
         Q_ASSERT(font_resource);
         font_resource->SetObfuscationAlgorithm(IDPF_FONT_ALGO_ID);
     }
@@ -1252,7 +1249,7 @@ void BookBrowser::ValidateStylesheetWithW3C()
 {
     QList <Resource *> resources = ValidSelectedResources(Resource::CSSResourceType);
     foreach(Resource * resource, resources) {
-        CSSResource *css_resource = qobject_cast< CSSResource * >(resource);
+        CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
         Q_ASSERT(css_resource);
         css_resource->ValidateStylesheetWithW3C();
     }
@@ -1576,7 +1573,7 @@ void BookBrowser::SetupHTMLSemanticContextMenu(Resource *resource)
 void BookBrowser::SetupImageSemanticContextMenu(Resource *resource)
 {
     m_SemanticsContextMenu.addAction(m_CoverImage);
-    ImageResource *image_resource = qobject_cast< ImageResource * >(GetCurrentResource());
+    ImageResource *image_resource = qobject_cast<ImageResource *>(GetCurrentResource());
     Q_ASSERT(image_resource);
     m_CoverImage->setChecked(false);
 
@@ -1592,7 +1589,7 @@ void BookBrowser::SetHTMLSemanticActionCheckState(Resource *resource)
         return;
     }
 
-    HTMLResource *html_resource = qobject_cast< HTMLResource * >(resource);
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
     Q_ASSERT(html_resource);
     foreach(QAction * action, m_GuideSemanticActions) {
         action->setChecked(false);
@@ -1605,7 +1602,7 @@ void BookBrowser::SetHTMLSemanticActionCheckState(Resource *resource)
     }
 
     foreach(Resource * valid_resource, ValidSelectedResources()) {
-        HTMLResource *valid_html_resource = qobject_cast< HTMLResource * >(valid_resource);
+        HTMLResource *valid_html_resource = qobject_cast<HTMLResource *>(valid_resource);
         Q_ASSERT(html_resource);
         GuideSemantics::GuideSemanticType valid_semantic_type =
             m_Book->GetOPF().GetGuideSemanticTypeForResource(*valid_html_resource);
@@ -1642,13 +1639,13 @@ void BookBrowser::SetFontObfuscationActionCheckState()
     }
 
     // Get the algorithm used by the first font
-    FontResource *font_resource = qobject_cast< FontResource * >(resource);
+    FontResource *font_resource = qobject_cast<FontResource *>(resource);
     Q_ASSERT(font_resource);
     QString algorithm = font_resource->GetObfuscationAlgorithm();
     // Now compare against all the other fonts and if the same set a checkmark
     bool same_algorithm = true;
     foreach(Resource * resource, ValidSelectedResources()) {
-        FontResource *font_resource2 = qobject_cast< FontResource * >(resource);
+        FontResource *font_resource2 = qobject_cast<FontResource *>(resource);
         Q_ASSERT(font_resource);
         QString algorithm2 = font_resource2->GetObfuscationAlgorithm();
 

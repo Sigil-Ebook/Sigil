@@ -47,7 +47,7 @@ GuideSemantics &GuideSemantics::Instance()
 }
 
 
-const QHash< int, tuple< QString, QString > > &GuideSemantics::GetGuideTypeMapping()
+const QHash<int, tuple<QString, QString>> &GuideSemantics::GetGuideTypeMapping()
 {
     return m_GuideTypeMapping;
 }

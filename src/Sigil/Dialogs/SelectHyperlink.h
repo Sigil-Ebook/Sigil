@@ -73,7 +73,7 @@ private:
 
     QList<Resource *> m_Resources;
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QStandardItemModel *m_SelectHyperlinkModel;
 

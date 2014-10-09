@@ -187,8 +187,7 @@ void SpellcheckEditor::Add()
     }
     if (enabled) {
         emit ShowStatusMessageRequest(tr("Added word(s) to dictionary."));
-    }
-    else {
+    } else {
         emit ShowStatusMessageRequest(tr("Added word(s) to dictionary. The dictionary is not enabled in Preferences."));
     }
     emit SpellingHighlightRefreshRequest();
@@ -252,7 +251,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
         i.next();
         QString word = i.key();
         int count = unique_words.value(word);
-        
+
         bool misspelled = !sc->spell(word);
         if (misspelled) {
             total_misspelled_words++;
@@ -268,8 +267,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
             QStandardItem *word_item = new QStandardItem(word);
             word_item->setEditable(false);
             row_items << word_item;
-        }
-        else {
+        } else {
             CaseInsensitiveItem *word_item = new CaseInsensitiveItem();
             word_item->setText(word);
             word_item->setEditable(false);
@@ -283,8 +281,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
         misspelled_item->setEditable(false);
         if (misspelled) {
             misspelled_item->setText(tr("Yes"));
-        }
-        else {
+        } else {
             misspelled_item->setText(tr("No"));
         }
         row_items << misspelled_item ;
@@ -463,7 +460,7 @@ void SpellcheckEditor::ReadSettings()
     if (settings.contains(SHOW_ALL_WORDS)) {
         if (settings.value(SHOW_ALL_WORDS).toBool()) {
             disconnect(ui.ShowAllWords, SIGNAL(stateChanged(int)),
-                    this, SLOT(ChangeState(int)));
+                       this, SLOT(ChangeState(int)));
             ui.ShowAllWords->setCheckState(Qt::Checked);
             connect(ui.ShowAllWords, SIGNAL(stateChanged(int)),
                     this, SLOT(ChangeState(int)));
@@ -472,7 +469,7 @@ void SpellcheckEditor::ReadSettings()
     if (settings.contains(CASE_INSENSITIVE_SORT)) {
         if (settings.value(CASE_INSENSITIVE_SORT).toBool()) {
             disconnect(ui.CaseInsensitiveSort, SIGNAL(stateChanged(int)),
-                    this, SLOT(ChangeState(int)));
+                       this, SLOT(ChangeState(int)));
             ui.CaseInsensitiveSort->setCheckState(Qt::Checked);
             connect(ui.CaseInsensitiveSort, SIGNAL(stateChanged(int)),
                     this, SLOT(ChangeState(int)));
@@ -572,7 +569,7 @@ void SpellcheckEditor::ConnectSignalsSlots()
     connect(ui.ChangeAll, SIGNAL(clicked()), this, SLOT(ChangeAll()));
     connect(ui.SpellcheckEditorTree, SIGNAL(customContextMenuRequested(const QPoint &)),
             this,        SLOT(OpenContextMenu(const QPoint &)));
-    connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), 
+    connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)),
             this, SLOT(Sort(int, Qt::SortOrder)));
     connect(m_Ignore,       SIGNAL(triggered()), this, SLOT(Ignore()));
     connect(m_Add,      SIGNAL(triggered()), this, SLOT(Add()));

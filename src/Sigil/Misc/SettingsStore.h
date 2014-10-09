@@ -93,7 +93,7 @@ public:
      * Get the list of entities/code pairs to preserve
      */
 
-    QList< std::pair < ushort, QString > >  preserveEntityCodeNames();
+    QList<std::pair <ushort, QString>>  preserveEntityCodeNames();
 
     /**
      * Support for Plugins
@@ -240,14 +240,14 @@ public slots:
     /**
      * Set the list of paired code, entity strings to preserve.
      */
-    
-    void setPreserveEntityCodeNames(const QList< std::pair < ushort, QString > >  codenames);
+
+    void setPreserveEntityCodeNames(const QList<std::pair <ushort, QString>>  codenames);
 
 
     /**
      * Support for Plugins
      */
-    
+
     void setPluginEnginePaths(const QHash <QString, QString> &enginepaths);
 
     /**

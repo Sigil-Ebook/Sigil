@@ -32,7 +32,7 @@
 
 const int MAX_WORD_LENGTH  = 90;
 
-QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const QString &orig_text,
+QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const QString &orig_text,
         int start_offset,
         int end_offset,
         const QString &search_regex,
@@ -45,7 +45,7 @@ QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const
     bool in_entity = false;
     int word_start = 0;
     QRegularExpression search(search_regex);
-    QList< HTMLSpellCheck::MisspelledWord > misspellings;
+    QList<HTMLSpellCheck::MisspelledWord> misspellings;
     // Make sure text has beginning/end boundary markers for easier parsing
     QString text = QChar(' ') + orig_text + QChar(' ');
     // Ignore <style...</style> wherever it appears - change to spaces to keep text positions
@@ -156,12 +156,12 @@ bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c)
 }
 
 
-QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetMisspelledWords(const QString &text)
+QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const QString &text)
 {
     return GetMisspelledWords(text, 0, text.count(), "");
 }
 
-QList< HTMLSpellCheck::MisspelledWord > HTMLSpellCheck::GetWords(const QString &text)
+QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetWords(const QString &text)
 {
     return GetMisspelledWords(text, 0, text.count(), "", false, true);
 }
@@ -171,7 +171,7 @@ HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetFirstMisspelledWord(const QStr
         int end_offset,
         const QString &search_regex)
 {
-    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = GetMisspelledWords(text, start_offset, end_offset, search_regex, true);
+    QList<HTMLSpellCheck::MisspelledWord> misspelled_words = GetMisspelledWords(text, start_offset, end_offset, search_regex, true);
     HTMLSpellCheck::MisspelledWord misspelled_word;
 
     if (!misspelled_words.isEmpty()) {
@@ -187,7 +187,7 @@ HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetLastMisspelledWord(const QStri
         int end_offset,
         const QString &search_regex)
 {
-    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = GetMisspelledWords(text, start_offset, end_offset, search_regex);
+    QList<HTMLSpellCheck::MisspelledWord> misspelled_words = GetMisspelledWords(text, start_offset, end_offset, search_regex);
     HTMLSpellCheck::MisspelledWord misspelled_word;
 
     if (!misspelled_words.isEmpty()) {
@@ -222,7 +222,7 @@ int HTMLSpellCheck::CountAllWords(const QString &text)
 
 QStringList HTMLSpellCheck::GetAllWords(const QString &text)
 {
-    QList< HTMLSpellCheck::MisspelledWord > words = GetMisspelledWords(text, 0, text.count(), "", false, true);
+    QList<HTMLSpellCheck::MisspelledWord> words = GetMisspelledWords(text, 0, text.count(), "", false, true);
     QStringList all_words_text;
     foreach(HTMLSpellCheck::MisspelledWord word, words) {
         all_words_text.append(word.text);
@@ -232,7 +232,7 @@ QStringList HTMLSpellCheck::GetAllWords(const QString &text)
 
 int HTMLSpellCheck::WordPosition(QString text, QString word, int start_pos)
 {
-    QList< HTMLSpellCheck::MisspelledWord > words = GetWords(text);
+    QList<HTMLSpellCheck::MisspelledWord> words = GetWords(text);
 
     foreach (HTMLSpellCheck::MisspelledWord w, words) {
         if (w.offset < start_pos) {

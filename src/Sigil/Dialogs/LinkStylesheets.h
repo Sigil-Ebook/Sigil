@@ -39,7 +39,7 @@ public:
 
     // Constructor;
     // The first parameter is the list of included/excluded stylesheets
-    LinkStylesheets(QList<std::pair<QString, bool> > stylesheet_map, QWidget *parent = 0);
+    LinkStylesheets(QList<std::pair<QString, bool>> stylesheet_map, QWidget *parent = 0);
 
     QStringList GetStylesheets();
 
@@ -77,7 +77,7 @@ private:
     QStandardItemModel m_StylesheetsModel;
 
     // The list of stylesheets to include/exclude
-    QList< std::pair<QString, bool> > m_StylesheetsMap;
+    QList<std::pair<QString, bool>> m_StylesheetsMap;
 
     // The new list of stylesheets to include
     QStringList m_Stylesheets;

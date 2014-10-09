@@ -119,7 +119,7 @@ public slots:
      *
      * @param book The book to be displayed.
      */
-    void SetBook(QSharedPointer< Book > book);
+    void SetBook(QSharedPointer<Book> book);
 
     /**
      * Refreshes the display of the book.
@@ -451,7 +451,7 @@ private:
     /**
      * The book currently being displayed.
      */
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     /**
      * The tree view used to represent the book's files.
@@ -511,7 +511,7 @@ private:
      * All the semantic actions for the <guide>
      * element. Only present on HTMLResources.
      */
-    QList< QAction * > m_GuideSemanticActions;
+    QList<QAction *> m_GuideSemanticActions;
 
     /**
      * Used to translate all the triggered() signals from the

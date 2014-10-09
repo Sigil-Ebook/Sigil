@@ -41,10 +41,10 @@ public:
      * @param opf The OPF whose metadata we want to edit.
      * @param parent The object's parent.
      */
-    DeleteStyles(QHash< QString, QList<CSSInfo::CSSSelector *> > css_styles_to_delete, QWidget *parent = 0);
+    DeleteStyles(QHash<QString, QList<CSSInfo::CSSSelector *>> css_styles_to_delete, QWidget *parent = 0);
     ~DeleteStyles();
 
-    QHash< QString, QList<CSSInfo::CSSSelector *> > GetStylesToDelete();
+    QHash<QString, QList<CSSInfo::CSSSelector *>> GetStylesToDelete();
 
 signals:
     void OpenFileRequest(QString, int);
@@ -63,7 +63,7 @@ private:
 
     QStandardItemModel m_Model;
 
-    QHash< QString, QList<CSSInfo::CSSSelector *> > m_CSSStylesToDelete;
+    QHash<QString, QList<CSSInfo::CSSSelector *>> m_CSSStylesToDelete;
 
     Ui::DeleteStyles ui;
 };

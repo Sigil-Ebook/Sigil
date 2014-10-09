@@ -63,7 +63,7 @@ public:
      *
      * @param book The book whose model we will be building.
      */
-    void SetBook(QSharedPointer< Book > book);
+    void SetBook(QSharedPointer<Book> book);
 
     /**
      * Forces the recreation of the model
@@ -113,7 +113,7 @@ public:
      * @param item The resource in the folder whose list we want
      * @return The list of resources in the same folder as the given resource
      */
-    QList <Resource * > GetResourceListInFolder(Resource *resource);
+    QList <Resource *> GetResourceListInFolder(Resource *resource);
 
     /**
      * Gets a sorted list of the resources in the folder containing the given resource type
@@ -121,7 +121,7 @@ public:
      * @param item The resource type in the folder whose list we want
      * @return The list of resources in the same folder as the given resource
      */
-    QList <Resource * > GetResourceListInFolder(Resource::ResourceType resource_type);
+    QList <Resource *> GetResourceListInFolder(Resource::ResourceType resource_type);
 
     /**
      * Gets an item's resource type.
@@ -251,7 +251,7 @@ private:
     /**
      * The book whose model we are representing.
      */
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QStandardItem &m_TextFolderItem;   /**< The Text folder item. */
     QStandardItem &m_StylesFolderItem; /**< The Styles folder item. */

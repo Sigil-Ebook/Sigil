@@ -30,7 +30,7 @@ class WordUpdates
 
 public:
 
-    static void UpdateWordInAllFiles(const QList< HTMLResource * > &html_resources, const QString old_word, QString new_word);
+    static void UpdateWordInAllFiles(const QList<HTMLResource *> &html_resources, const QString old_word, QString new_word);
 
 private:
     static void UpdateWordsInOneFile(HTMLResource *html_resource, QString old_word, QString new_word);

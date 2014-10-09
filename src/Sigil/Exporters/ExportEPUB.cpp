@@ -68,7 +68,7 @@ static const QString EPUB_MIME_TYPE = "application/epub+zip";
 // Constructor;
 // the first parameter is the location where the book
 // should be save to, and the second is the book to be saved
-ExportEPUB::ExportEPUB(const QString &fullfilepath, QSharedPointer< Book > book)
+ExportEPUB::ExportEPUB(const QString &fullfilepath, QSharedPointer<Book> book)
     :
     m_FullFilePath(fullfilepath),
     m_Book(book)
@@ -288,7 +288,7 @@ void ExportEPUB::ObfuscateFonts(const QString &fullfolderpath)
 {
     QString uuid_id = m_Book->GetOPF().GetUUIDIdentifierValue();
     QString main_id = m_Book->GetPublicationIdentifier();
-    QList< FontResource * > font_resources = m_Book->GetFolderKeeper().GetResourceTypeList< FontResource >();
+    QList<FontResource *> font_resources = m_Book->GetFolderKeeper().GetResourceTypeList<FontResource>();
     foreach(FontResource * font_resource, font_resources) {
         QString algorithm = font_resource->GetObfuscationAlgorithm();
 

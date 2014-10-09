@@ -66,7 +66,7 @@ void ClipsWindow::showEvent(QShowEvent *event)
 }
 
 void ClipsWindow::SetupTreeView()
-{   
+{
     m_ClipsModel = ClipEditorModel::instance();
     m_TreeView.setModel(m_ClipsModel);
     m_TreeView.setSortingEnabled(false);

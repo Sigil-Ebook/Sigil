@@ -29,7 +29,7 @@
 
 static QString SETTINGS_GROUP = "select_id";
 
-SelectId::SelectId(QString id, HTMLResource *html_resource, QSharedPointer< Book > book, QWidget *parent)
+SelectId::SelectId(QString id, HTMLResource *html_resource, QSharedPointer<Book> book, QWidget *parent)
     :
     QDialog(parent),
     m_SelectedText(id),

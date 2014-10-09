@@ -33,7 +33,7 @@
 static const QString SETTINGS_GROUP   = "edit_toc";
 static const int COLUMN_INDENTATION = 20;
 
-EditTOC::EditTOC(QSharedPointer< Book > book, QList<Resource *> resources, QWidget *parent)
+EditTOC::EditTOC(QSharedPointer<Book> book, QList<Resource *> resources, QWidget *parent)
     :
     QDialog(parent),
     m_Book(book),
@@ -101,8 +101,7 @@ NCXModel::NCXEntry EditTOC::ConvertItemToEntry(QStandardItem *item)
             parent_item = m_TableOfContents->invisibleRootItem();
         }
         entry.target = parent_item->child(item->row(), 1)->text();
-    }
-    else {
+    } else {
         entry.is_root = true;
     }
 
@@ -188,7 +187,7 @@ void EditTOC::MoveRight()
 
     QStandardItem *parent_item = item->parent();
     if (!parent_item) {
-       parent_item = m_TableOfContents->invisibleRootItem();
+        parent_item = m_TableOfContents->invisibleRootItem();
     }
 
     // Make the item above the parent of this item
@@ -221,7 +220,7 @@ void EditTOC::MoveUp()
 
     QStandardItem *parent_item = item->parent();
     if (!parent_item) {
-       parent_item = m_TableOfContents->invisibleRootItem();
+        parent_item = m_TableOfContents->invisibleRootItem();
     }
 
     QList<QStandardItem *> row_items = parent_item->takeRow(item_row);
@@ -244,7 +243,7 @@ void EditTOC::MoveDown()
 
     QStandardItem *parent_item = item->parent();
     if (!parent_item) {
-       parent_item = m_TableOfContents->invisibleRootItem();
+        parent_item = m_TableOfContents->invisibleRootItem();
     }
 
     int item_row = item->row();
@@ -285,7 +284,7 @@ void EditTOC::AddEntry(bool above)
 
     QStandardItem *parent_item = item->parent();
     if (!parent_item) {
-       parent_item = m_TableOfContents->invisibleRootItem();
+        parent_item = m_TableOfContents->invisibleRootItem();
     }
 
     // Add a new empty row of items
@@ -331,7 +330,7 @@ void EditTOC::DeleteEntry()
 
     QStandardItem *parent_item = item->parent();
     if (!parent_item) {
-       parent_item = m_TableOfContents->invisibleRootItem();
+        parent_item = m_TableOfContents->invisibleRootItem();
     }
 
     parent_item->takeRow(item->row());

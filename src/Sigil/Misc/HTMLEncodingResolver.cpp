@@ -113,7 +113,7 @@ const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
             return codec;
         }
     }
-    
+
     // Check if the charset is set in the head.
     QRegularExpression char_re(CHARSET_ATTRIBUTE);
     QRegularExpressionMatch char_mo = char_re.match(text);

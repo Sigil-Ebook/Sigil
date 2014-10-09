@@ -75,7 +75,7 @@ QString PluginDB::launcherRoot()
 {
     QString launcher_root;
 
-    launcher_root = QCoreApplication::applicationDirPath(); 
+    launcher_root = QCoreApplication::applicationDirPath();
 
 #ifdef Q_OS_MAC
     launcher_root += "/../plugin_launchers/";
@@ -100,8 +100,9 @@ void PluginDB::load_plugins_from_disk(bool force)
     QStringList  dplugins;
     Plugin      *plugin;
 
-    if (!d.exists())
+    if (!d.exists()) {
         return;
+    }
 
     dplugins = d.entryList(QStringList("*"), QDir::Dirs|QDir::NoDotAndDotDot);
 
@@ -118,16 +119,19 @@ PluginDB::AddResult PluginDB::add_plugin(const QString &path, bool force)
     QFileInfo zipinfo(path);
     QString name = zipinfo.baseName();
 
-    // strip off any versioning present in zip name after first "_" to get internal folder name    
+    // strip off any versioning present in zip name after first "_" to get internal folder name
     int version_index = name.indexOf("_");
-    if (version_index > -1) name.truncate(version_index);
+    if (version_index > -1) {
+        name.truncate(version_index);
+    }
 
     if (!verify_plugin_zip(path, name)) {
         return PluginDB::AR_INVALID;
     }
 
-    if (!Utility::UnZip(path, pluginsPath()))
+    if (!Utility::UnZip(path, pluginsPath())) {
         return PluginDB::AR_UNZIP;
+    }
 
     ret = add_plugin_int(name, force);
     if (ret != PluginDB::AR_SUCCESS) {
@@ -144,15 +148,18 @@ PluginDB::AddResult PluginDB::add_plugin_int(const QString &name, bool force)
 {
     Plugin *plugin;
 
-    if (!force && m_plugins.contains(name))
+    if (!force && m_plugins.contains(name)) {
         return PluginDB::AR_EXISTS;
+    }
 
     plugin = load_plugin(name);
-    if (plugin == NULL)
+    if (plugin == NULL) {
         return PluginDB::AR_XML;
+    }
 
-    if (force && m_plugins.contains(name))
+    if (force && m_plugins.contains(name)) {
         delete m_plugins.take(plugin->get_name());
+    }
 
     m_plugins.insert(plugin->get_name(), plugin);
     return PluginDB::AR_SUCCESS;
@@ -162,27 +169,31 @@ PluginDB::AddResult PluginDB::add_plugin_int(const QString &name, bool force)
 bool PluginDB::verify_plugin_zip(const QString &path, const QString &name)
 {
     QStringList filelist = Utility::ZipInspect(path);
-    if (filelist.isEmpty())
+    if (filelist.isEmpty()) {
         return false;
+    }
     foreach (QString filepath, filelist) {
         if (name != filepath.split("/").at(0)) {
             return false;
         }
     }
-    if (!filelist.contains(name + "/" + "plugin.xml"))
+    if (!filelist.contains(name + "/" + "plugin.xml")) {
         return false;
+    }
     return true;
 }
 
 
 void PluginDB::remove_plugin(const QString &name)
 {
-    if (!m_plugins.contains(name))
+    if (!m_plugins.contains(name)) {
         return;
+    }
 
     Plugin *p = m_plugins.take(name);
-    if (p != NULL)
+    if (p != NULL) {
         delete p;
+    }
     Utility::removeDir(pluginsPath() + "/" + name);
     emit plugins_changed();
 }
@@ -237,8 +248,9 @@ Plugin *PluginDB::load_plugin(const QString &name)
     QString xmlpath = pluginsPath() + "/" + name + "/plugin.xml";
     QFile file(xmlpath);
 
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         return NULL;
+    }
 
     Plugin           *plugin = new Plugin();
     QXmlStreamReader  reader(&file);

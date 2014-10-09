@@ -54,7 +54,7 @@ CharactersInHTMLFilesWidget::CharactersInHTMLFilesWidget()
     connectSignalsSlots();
 }
 
-void CharactersInHTMLFilesWidget::CreateReport(QSharedPointer< Book > book)
+void CharactersInHTMLFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
     SetupTable();
@@ -88,7 +88,7 @@ void CharactersInHTMLFilesWidget::SetupTable()
 void CharactersInHTMLFilesWidget::AddTableData()
 {
     const QList<HTMLResource *> html_resources = m_Book->GetHTMLResources();
-    QList < QChar > characters = GetDisplayedCharacters(html_resources);
+    QList <QChar> characters = GetDisplayedCharacters(html_resources);
     QString all_characters;
     foreach (QChar c, characters) {
         all_characters.append(c);
@@ -135,7 +135,7 @@ void CharactersInHTMLFilesWidget::PageLoaded()
     m_PageLoaded = true;
 }
 
-QList < QChar > CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList< HTMLResource * > resources)
+QList <QChar> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLResource *> resources)
 {
     QWebView *view = new QWebView();
     view->setGeometry(0,0,200,200);
@@ -162,13 +162,13 @@ QList < QChar > CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList< HTMLR
         all_characters.append(text);
     }
 
-    QMap < QChar, QChar> character_map;
+    QMap <QChar, QChar> character_map;
     foreach (const QChar c, all_characters) {
         if (c != '\n') {
             character_map.insert(c, c);
         }
     }
-    QList < QChar > character_list;
+    QList <QChar> character_list;
     character_list = character_map.values();
 
     return character_list;
@@ -231,7 +231,7 @@ void CharactersInHTMLFilesWidget::Save()
             row_text.append(text);
         } else {
             row_text.append("," % text);
-        }   
+        }
     }
 
     report_info.append(row_text % "\n");

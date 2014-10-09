@@ -34,10 +34,10 @@
 #include "Misc/CSSInfo.h"
 #include "Misc/SettingsStore.h"
 
-QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer< Book > book, bool show_progress)
+QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer<Book> book, bool show_progress)
 {
-    QList<HTMLResource *> html_resources = book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(false);
-    QList<CSSResource *> css_resources = book->GetFolderKeeper().GetResourceTypeList< CSSResource >(false);
+    QList<HTMLResource *> html_resources = book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(false);
+    QList<CSSResource *> css_resources = book->GetFolderKeeper().GetResourceTypeList<CSSResource>(false);
     QList<BookReports::StyleData *> html_classes_usage;
     // Save each CSS file's text so we don't have to reload it when checking each HTML file
     QHash<QString, QString> css_text;
@@ -104,9 +104,9 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer< B
     return html_classes_usage;
 }
 
-QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QSharedPointer< Book > book, QList<BookReports::StyleData *> html_classes_usage)
+QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QSharedPointer<Book> book, QList<BookReports::StyleData *> html_classes_usage)
 {
-    QList<CSSResource *> css_resources = book->GetFolderKeeper().GetResourceTypeList< CSSResource >(false);
+    QList<CSSResource *> css_resources = book->GetFolderKeeper().GetResourceTypeList<CSSResource>(false);
     QList<BookReports::StyleData *> css_selectors_usage;
     // Now check the CSS files to see if their classes appear in an HTML file
     foreach(CSSResource * css_resource, css_resources) {

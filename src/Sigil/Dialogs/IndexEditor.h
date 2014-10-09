@@ -118,7 +118,7 @@ private:
 
     IndexEditorModel *m_IndexEditorModel;
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QString m_LastFolderOpen;
 

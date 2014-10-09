@@ -178,8 +178,7 @@ void SpellCheckWidget::addNewItem(bool enabled, QString dict_name)
     checkbox_item->setCheckState(Qt::Checked);
     if (enabled) {
         checkbox_item->setCheckState(Qt::Checked);
-    }
-    else {
+    } else {
         checkbox_item->setCheckState(Qt::Unchecked);
     }
     rowItems << checkbox_item;
@@ -278,7 +277,7 @@ void SpellCheckWidget::copyUserDict()
 
     if (!item) {
         return;
-    }        
+    }
 
     // Get the current words, before creating so list doesn't change
     QStringList words;

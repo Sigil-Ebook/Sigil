@@ -137,8 +137,7 @@ void FindReplace::ShowHideMarkedText(bool marked)
     if (marked) {
         ui.cbLookWhere->hide();
         ui.MarkedTextIndicator->show();
-    }
-    else {
+    } else {
         ui.cbLookWhere->show();
         ui.MarkedTextIndicator->hide();
     }
@@ -238,8 +237,7 @@ bool FindReplace::FindAnyText(QString text, bool escape)
     QString search_text;
     if (escape) {
         search_text = QRegularExpression::escape(text);
-    }
-    else {
+    } else {
         search_text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
     }
     ui.cbFind->setEditText(search_text);
@@ -672,7 +670,7 @@ bool FindReplace::IsCurrentFileInHTMLSelection()
     bool found = false;
     QList <Resource *> resources = GetHTMLFiles();
     Resource *current_resource = GetCurrentResource();
-    HTMLResource *current_html_resource = qobject_cast< HTMLResource *>(current_resource);
+    HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(current_resource);
 
     if (current_html_resource) {
         foreach(Resource * resource, resources) {
@@ -715,8 +713,7 @@ QList <Resource *> FindReplace::GetHTMLFiles()
                 break;
             }
         }
-    } 
-    else {
+    } else {
         bool keep = false;
         foreach (Resource *resource, all_resources) {
             if (resource == current_resource) {
@@ -821,7 +818,7 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
 HTMLResource *FindReplace::GetNextContainingHTMLResource(Searchable::Direction direction)
 {
     Resource *current_resource = GetCurrentResource();
-    HTMLResource *starting_html_resource = qobject_cast< HTMLResource *> (current_resource);
+    HTMLResource *starting_html_resource = qobject_cast<HTMLResource *> (current_resource);
 
     QList<Resource *> resources = GetHTMLFiles();
 
@@ -831,9 +828,9 @@ HTMLResource *FindReplace::GetNextContainingHTMLResource(Searchable::Direction d
 
     if (!starting_html_resource || (GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles && !IsCurrentFileInHTMLSelection())) {
         if (direction == Searchable::Direction_Up) {
-            starting_html_resource = qobject_cast< HTMLResource *>(resources.first());
+            starting_html_resource = qobject_cast<HTMLResource *>(resources.first());
         } else {
-            starting_html_resource = qobject_cast< HTMLResource *>(resources.last());
+            starting_html_resource = qobject_cast<HTMLResource *>(resources.last());
         }
     }
 
@@ -892,7 +889,7 @@ HTMLResource *FindReplace::GetNextHTMLResource(HTMLResource *current_resource, S
     if (next_reading_order > max_reading_order || next_reading_order < 0) {
         return NULL;
     } else {
-        HTMLResource &html_resource = *qobject_cast< HTMLResource *>(resources[ next_reading_order ]);
+        HTMLResource &html_resource = *qobject_cast<HTMLResource *>(resources[ next_reading_order ]);
         return &html_resource;
     }
 }

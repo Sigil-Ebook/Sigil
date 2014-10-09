@@ -64,7 +64,7 @@ public:
         // Each offset representes the porition of text that the capture
         // represents inside of the matched string. This is normalized so that
         // 0 represents the start of the string represented by offset.
-        QList<std::pair<int, int> > capture_groups_offsets;
+        QList<std::pair<int, int>> capture_groups_offsets;
 
         MatchInfo() {
             offset.first = -1;
@@ -140,7 +140,7 @@ public:
      *
      * @return true if the replacement string was created successfully.
      */
-    bool replaceText(const QString &text, const QList<std::pair<int, int> > &capture_groups_offsets, const QString &replacement_pattern, QString &out);
+    bool replaceText(const QString &text, const QList<std::pair<int, int>> &capture_groups_offsets, const QString &replacement_pattern, QString &out);
 
 private:
     MatchInfo generateMatchInfo(int ovector[], int ovector_count);

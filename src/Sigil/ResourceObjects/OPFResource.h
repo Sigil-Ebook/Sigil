@@ -63,7 +63,7 @@ public:
     QHash <QString, QString> GetGuideSemanticNameForPaths();
 
     int GetReadingOrder(const ::HTMLResource &html_resource) const;
-    QHash <Resource *, int> GetReadingOrderAll( const QList < Resource *> resources);
+    QHash <Resource *, int> GetReadingOrderAll( const QList <Resource *> resources);
 
     QString GetMainIdentifierValue() const;
 
@@ -115,14 +115,14 @@ public:
      *
      * @return The DC metadata, in the same format as the SetDCMetadata metadata parameter.
      */
-    QList< Metadata::MetaElement > GetDCMetadata() const;
+    QList<Metadata::MetaElement> GetDCMetadata() const;
 
     /**
      * Returns the values for a specific metadata name.
      *
      * @return A list of values
      */
-    QList< QVariant > GetDCMetadataValues(QString text) const;
+    QList<QVariant> GetDCMetadataValues(QString text) const;
 
     QString GetRelativePathToRoot() const;
 
@@ -133,7 +133,7 @@ public slots:
      *
      * @param metadata A list with meta information about the book.
      */
-    void SetDCMetadata(const QList< Metadata::MetaElement >  &metadata);
+    void SetDCMetadata(const QList<Metadata::MetaElement>  &metadata);
 
     void AddResource(const Resource &resource);
 
@@ -147,7 +147,7 @@ public slots:
 
     void SetResourceAsCoverImage(const ImageResource &image_resource);
 
-    void UpdateSpineOrder(const QList< HTMLResource * > html_files);
+    void UpdateSpineOrder(const QList<HTMLResource *> html_files);
 
     void ResourceRenamed(const Resource &resource, QString old_full_path);
 
@@ -159,7 +159,7 @@ private:
 
     static void UpdateItemrefID(const QString &old_id, const QString &new_id, xc::DOMDocument &document);
 
-    boost::shared_ptr< xc::DOMDocument > GetDocument() const;
+    boost::shared_ptr<xc::DOMDocument> GetDocument() const;
 
     static xc::DOMElement *GetPackageElement(const xc::DOMDocument &document);
 
@@ -194,8 +194,8 @@ private:
         GuideSemantics::GuideSemanticType new_type,
         xc::DOMDocument &document);
 
-    static QHash< ::HTMLResource *, xc::DOMElement * > GetItemrefsForHTMLResources(
-        const QList< ::HTMLResource * > html_files,
+    static QHash<::HTMLResource *, xc::DOMElement *> GetItemrefsForHTMLResources(
+        const QList<::HTMLResource *> html_files,
         xc::DOMDocument &document);
 
     // CAN BE NULL! NULL means no cover meta element
@@ -207,8 +207,8 @@ private:
 
     static QString GetResourceManifestID(const Resource &resource, const xc::DOMDocument &document);
 
-    static QHash< Resource *, QString > GetResourceManifestIDMapping(
-        const QList< Resource * > resources,
+    static QHash<Resource *, QString> GetResourceManifestIDMapping(
+        const QList<Resource *> resources,
         const xc::DOMDocument &document);
 
     static void SetMetaElementsLast(xc::DOMDocument &document);
@@ -265,7 +265,7 @@ private:
 
     static bool BasicStructurePresent(const xc::DOMDocument &document);
 
-    boost::shared_ptr< xc::DOMDocument > CreateOPFFromScratch(const xc::DOMDocument *document=NULL) const;
+    boost::shared_ptr<xc::DOMDocument> CreateOPFFromScratch(const xc::DOMDocument *document=NULL) const;
 
     QStringList GetRelativePathsToAllFilesInOEPBS() const;
 
@@ -292,7 +292,7 @@ private:
      * A mapping between file extensions
      * and appropriate MIME types.
      */
-    QHash< QString, QString > m_Mimetypes;
+    QHash<QString, QString> m_Mimetypes;
 
 };
 

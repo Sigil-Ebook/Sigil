@@ -85,7 +85,7 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_ScrollOneLineDown(*(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Down), this, 0, 0, Qt::WidgetShortcut))),
     m_isLoadFinished(false),
     m_DelayedCursorScreenCenteringRequired(false),
-    m_CaretUpdate(QList< ViewEditor::ElementIndex >()),
+    m_CaretUpdate(QList<ViewEditor::ElementIndex>()),
     m_checkSpelling(check_spelling),
     m_reformatCSSEnabled(false),
     m_reformatHTMLEnabled(false),
@@ -188,7 +188,7 @@ void CodeViewEditor::HighlightMarkedText()
 {
     QTextCharFormat format;
 
-    QList< QTextEdit::ExtraSelection > extraSelections;
+    QList<QTextEdit::ExtraSelection> extraSelections;
     QTextEdit::ExtraSelection selection;
     selection.cursor = textCursor();
 
@@ -234,8 +234,7 @@ bool CodeViewEditor::MoveToMarkedText(Searchable::Direction direction, bool wrap
             pos = m_MarkedTextEnd;
             moved = true;
         }
-    }
-    else {
+    } else {
         if (wrap || pos < m_MarkedTextStart) {
             pos = m_MarkedTextStart;
             moved = true;
@@ -386,7 +385,7 @@ QString CodeViewEditor::SplitSection()
 
     cursor.beginEditBlock();
 
-    // Prevent current file from having an empty body which 
+    // Prevent current file from having an empty body which
     // causes Book View to insert text outside the body.
     text = toPlainText();
     QRegularExpression empty_body_search("<body>\\s</body>");
@@ -721,7 +720,7 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
         start = m_MarkedTextStart;
         end = m_MarkedTextEnd;
         start_offset = m_MarkedTextStart;
-    } 
+    }
     int selection_offset = GetSelectionOffset(search_direction, ignore_selection_offset, marked_text);
 
     if (search_direction == Searchable::Direction_Up) {
@@ -743,7 +742,7 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
     if (marked_text) {
         // If not in marked text it's not a real match.
         if (match_info.offset.second + start_offset > m_MarkedTextEnd ||
-                match_info.offset.first + start_offset < m_MarkedTextStart) {
+            match_info.offset.first + start_offset < m_MarkedTextStart) {
             match_info.offset.first = -1;
         }
     }
@@ -791,8 +790,7 @@ int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction dir
         } else {
             text = Utility::Substring(textCursor().position(), end, text);
         }
-    }
-    else if (marked_text) {
+    } else if (marked_text) {
         text = Utility::Substring(start, end, text);
     }
     return spcre->getEveryMatchInfo(text).count();
@@ -888,7 +886,7 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
         // Restrict replace to the marked area.
         text = Utility::Substring(m_MarkedTextStart, m_MarkedTextEnd, text);
         position = original_position - m_MarkedTextStart;
-    } 
+    }
     int marked_text_length = text.length();
 
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
@@ -904,7 +902,7 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
                 if (match_info.at(i).offset.first > position) {
                     break;
                 }
-            } else if (!wrap){
+            } else if (!wrap) {
                 if (match_info.at(i).offset.second < position) {
                     break;
                 }
@@ -1522,11 +1520,10 @@ void CodeViewEditor::GoToLinkOrStyle()
     if (!url_name.isEmpty()) {
         QUrl url = QUrl(url_name);
         QString extension = url_name.right(url_name.length() - url_name.lastIndexOf('.') - 1).toLower();
-        
+
         if (IMAGE_EXTENSIONS.contains(extension)) {
             emit ViewImage(QUrl(url_name));
-        }
-        else {
+        } else {
             emit LinkClicked(QUrl(url_name));
         }
     } else if (IsPositionInOpeningTag()) {
@@ -1883,7 +1880,7 @@ void CodeViewEditor::UpdateLineNumberArea(const QRect &area_to_update, int verti
 
 void CodeViewEditor::HighlightCurrentLine()
 {
-    QList< QTextEdit::ExtraSelection > extraSelections;
+    QList<QTextEdit::ExtraSelection> extraSelections;
 
     // Draw the full width line color.
     QTextEdit::ExtraSelection selection_line;
@@ -2113,24 +2110,20 @@ int CodeViewEditor::GetSelectionOffset(Searchable::Direction search_direction, b
         if (ignore_selection_offset) {
             if (marked_text) {
                 offset = m_MarkedTextEnd;
-            }
-            else {
+            } else {
                 offset = toPlainText().length();
             }
-        }
-        else {
+        } else {
             offset = textCursor().selectionStart();
         }
     } else {
         if (ignore_selection_offset) {
             if (marked_text) {
                 offset = m_MarkedTextStart;
-            }
-            else {
+            } else {
                 offset = 0;
             }
-        }
-        else {
+        } else {
             offset = textCursor().selectionEnd();
         }
     }
@@ -2155,7 +2148,7 @@ void CodeViewEditor::ScrollByLine(bool down)
 }
 
 
-QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
+QList<ViewEditor::ElementIndex> CodeViewEditor::GetCaretLocation()
 {
     // We search for the first opening tag *behind* the caret.
     // This specifies the element the caret is located in.
@@ -2180,17 +2173,17 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::GetCaretLocation()
 }
 
 
-void CodeViewEditor::StoreCaretLocationUpdate(const QList< ViewEditor::ElementIndex > &hierarchy)
+void CodeViewEditor::StoreCaretLocationUpdate(const QList<ViewEditor::ElementIndex> &hierarchy)
 {
     m_CaretUpdate = hierarchy;
 }
 
 
-QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack(int offset) const
+QStack<CodeViewEditor::StackElement> CodeViewEditor::GetCaretLocationStack(int offset) const
 {
     QString source = toPlainText();
     QXmlStreamReader reader(source);
-    QStack< StackElement > stack;
+    QStack<StackElement> stack;
 
     while (!reader.atEnd()) {
         reader.readNext();
@@ -2224,16 +2217,16 @@ QStack< CodeViewEditor::StackElement > CodeViewEditor::GetCaretLocationStack(int
     if (reader.hasError()) {
         // Just return an empty location.
         // Maybe we could return the stack we currently have?
-        return QStack< StackElement >();
+        return QStack<StackElement>();
     }
 
     return stack;
 }
 
 
-QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy(const QStack< StackElement > stack) const
+QList<ViewEditor::ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QStack<StackElement> stack) const
 {
-    QList< ViewEditor::ElementIndex > hierarchy;
+    QList<ViewEditor::ElementIndex> hierarchy;
     foreach(StackElement stack_element, stack) {
         ViewEditor::ElementIndex new_element;
         new_element.name  = stack_element.name;
@@ -2244,9 +2237,9 @@ QList< ViewEditor::ElementIndex > CodeViewEditor::ConvertStackToHierarchy(const 
 }
 
 
-tuple< int, int > CodeViewEditor::ConvertHierarchyToCaretMove(const QList< ViewEditor::ElementIndex > &hierarchy) const
+tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const
 {
-    shared_ptr< xc::DOMDocument > dom = XhtmlDoc::LoadTextIntoDocument(toPlainText());
+    shared_ptr<xc::DOMDocument> dom = XhtmlDoc::LoadTextIntoDocument(toPlainText());
     xc::DOMNode *end_node = XhtmlDoc::GetNodeFromHierarchy(*dom, hierarchy);
     QTextCursor cursor(document());
 
@@ -3140,7 +3133,7 @@ void CodeViewEditor::FormatStyle(const QString &property_name, const QString &pr
     } else {
         // We have an existing style attribute on this tag, need to parse it to rewrite it.
         // Apply the name=value replacement getting a list of our new property pairs
-        QList< CSSInfo::CSSProperty * > css_properties = CSSInfo::getCSSProperties(style_attribute_value, 0, style_attribute_value.length());
+        QList<CSSInfo::CSSProperty *> css_properties = CSSInfo::getCSSProperties(style_attribute_value, 0, style_attribute_value.length());
         // Apply our property value, adding if not present currently, toggling if it is.
         ApplyChangeToProperties(css_properties, property_name, property_value);
 
@@ -3215,7 +3208,7 @@ void CodeViewEditor::FormatCSSStyle(const QString &property_name, const QString 
     }
 
     // Now parse the CSS style content
-    QList< CSSInfo::CSSProperty * > css_properties = CSSInfo::getCSSProperties(text, bracket_start + 1, bracket_end);
+    QList<CSSInfo::CSSProperty *> css_properties = CSSInfo::getCSSProperties(text, bracket_start + 1, bracket_end);
     // Apply our property value, adding if not present currently, toggling if it is.
     ApplyChangeToProperties(css_properties, property_name, property_value);
     // Figure out the formatting to be applied to these style properties to write prettily
@@ -3235,7 +3228,7 @@ void CodeViewEditor::FormatCSSStyle(const QString &property_name, const QString 
     setTextCursor(cursor);
 }
 
-void CodeViewEditor::ApplyChangeToProperties(QList< CSSInfo::CSSProperty * > &css_properties, const QString &property_name, const QString &property_value)
+void CodeViewEditor::ApplyChangeToProperties(QList<CSSInfo::CSSProperty *> &css_properties, const QString &property_name, const QString &property_value)
 {
     // Apply our property value, adding if not present currently, toggling if it is.
     bool has_property = false;

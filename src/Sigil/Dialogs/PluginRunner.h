@@ -93,10 +93,10 @@ private:
 
     QProcess m_process;
 
-    MainWindow * m_mainWindow;
-    TabManager * m_tabManager;
+    MainWindow *m_mainWindow;
+    TabManager *m_tabManager;
     QSharedPointer<Book> m_book;
-    BookBrowser * m_bookBrowser;
+    BookBrowser *m_bookBrowser;
 
     TempFolder m_folder;
     QString m_outputDir;
@@ -119,8 +119,8 @@ private:
 
     int m_xhtml_net_change;
 
-    QHash < QString, Resource * > m_hrefToRes; 
-    QHash < QString, Resource * > m_xhtmlFiles; 
+    QHash <QString, Resource *> m_hrefToRes;
+    QHash <QString, Resource *> m_xhtmlFiles;
 
     bool m_ready;
 

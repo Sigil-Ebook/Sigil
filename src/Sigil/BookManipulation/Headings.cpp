@@ -51,13 +51,13 @@ const QString OLD_SIGIL_NOT_IN_TOC_CLASS = "sigilNotInTOC";
 
 // Returns a list of headings from the provided XHTML source;
 // the list is flat, the headings are *not* in a hierarchy tree
-QList< Headings::Heading > Headings::GetHeadingList(QList< HTMLResource * > html_resources,
+QList<Headings::Heading> Headings::GetHeadingList(QList<HTMLResource *> html_resources,
         bool include_unwanted_headings)
 {
-    QList< Headings::Heading > heading_list;
-    QList< QList< Headings::Heading > > per_file_headings =
-        QtConcurrent::blockingMapped(html_resources,
-                                     boost::bind(GetHeadingListForOneFile, _1, include_unwanted_headings));
+    QList<Headings::Heading> heading_list;
+    QList<QList<Headings::Heading>> per_file_headings =
+                                     QtConcurrent::blockingMapped(html_resources,
+                                             boost::bind(GetHeadingListForOneFile, _1, include_unwanted_headings));
 
     for (int i = 0; i < per_file_headings.count(); ++i) {
         heading_list.append(per_file_headings.at(i));
@@ -67,7 +67,7 @@ QList< Headings::Heading > Headings::GetHeadingList(QList< HTMLResource * > html
 }
 
 
-QList< Headings::Heading > Headings::GetHeadingListForOneFile(HTMLResource *html_resource,
+QList<Headings::Heading> Headings::GetHeadingListForOneFile(HTMLResource *html_resource,
         bool include_unwanted_headings)
 {
     Q_ASSERT(html_resource);
@@ -75,7 +75,7 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile(HTMLResource *html
     // not a have reference and the DOMDocument will be destroyed.
     shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
     const xc::DOMDocument &document = *d.get();
-    QList< xc::DOMElement *> dom_elements = XhtmlDoc::GetTagMatchingDescendants(document, "body");
+    QList<xc::DOMElement *> dom_elements = XhtmlDoc::GetTagMatchingDescendants(document, "body");
 
     // We want to ensure we don't try to get an element out of an empty list.
     // This could happen if there is no body but there should never be an HTMLResource
@@ -87,7 +87,7 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile(HTMLResource *html
     xc::DOMElement &body_element = *dom_elements.at(0);
     QList<xc::DOMElement *> heading_nodes = XhtmlDoc::GetTagMatchingDescendants(document, HEADING_TAGS);
     int num_heading_nodes = heading_nodes.count();
-    QList< Headings::Heading > headings;
+    QList<Headings::Heading> headings;
 
     for (int i = 0; i < num_heading_nodes; ++i) {
         xc::DOMElement &element = *heading_nodes.at(i);
@@ -125,9 +125,9 @@ QList< Headings::Heading > Headings::GetHeadingListForOneFile(HTMLResource *html
 
 // Takes a flat list of headings and returns a list with those
 // headings sorted into a hierarchy
-QList< Headings::Heading > Headings::MakeHeadingHeirarchy(const QList< Heading > &headings)
+QList<Headings::Heading> Headings::MakeHeadingHeirarchy(const QList<Heading> &headings)
 {
-    QList< Heading > ordered_headings = headings;
+    QList<Heading> ordered_headings = headings;
 
     for (int i = 0; i < ordered_headings.size(); ++i) {
         // As long as the headings after this one are
@@ -152,9 +152,9 @@ QList< Headings::Heading > Headings::MakeHeadingHeirarchy(const QList< Heading >
 }
 
 
-QList< Headings::Heading > Headings::GetFlattenedHeadings(const QList< Heading > &headings)
+QList<Headings::Heading> Headings::GetFlattenedHeadings(const QList<Heading> &headings)
 {
-    QList< Heading > flat_headings;
+    QList<Heading> flat_headings;
     foreach(Heading heading, headings) {
         flat_headings.append(FlattenHeadingNode(heading));
     }
@@ -164,9 +164,9 @@ QList< Headings::Heading > Headings::GetFlattenedHeadings(const QList< Heading >
 
 // Flattens the provided heading node and its children
 // into a list and returns it
-QList< Headings::Heading > Headings::FlattenHeadingNode(Heading heading)
+QList<Headings::Heading> Headings::FlattenHeadingNode(Heading heading)
 {
-    QList< Heading > my_headings;
+    QList<Heading> my_headings;
     my_headings.append(heading);
     foreach(Heading child_heading, heading.children) {
         my_headings.append(FlattenHeadingNode(child_heading));

@@ -46,7 +46,7 @@ public:
     Reports(QWidget *parent = 0);
     ~Reports();
 
-    void CreateReports(QSharedPointer< Book > book);
+    void CreateReports(QSharedPointer<Book> book);
 
 signals:
     void Refresh();

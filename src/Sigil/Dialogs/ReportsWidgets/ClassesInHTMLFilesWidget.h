@@ -45,7 +45,7 @@ class ClassesInHTMLFilesWidget : public ReportsWidget
 public:
     ClassesInHTMLFilesWidget();
 
-    void CreateReport(QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer<Book> book);
 
 signals:
     void CloseDialog();
@@ -66,7 +66,7 @@ private:
     void SetupTable();
     void AddTableData(QList<BookReports::StyleData *> html_classes_usage);
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QStandardItemModel *m_ItemModel;
 

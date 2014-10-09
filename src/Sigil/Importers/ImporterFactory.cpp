@@ -77,7 +77,7 @@ Importer *ImporterFactory::GetImporter(const QString &filename)
         if (!m_importer_epub) {
             m_importer_epub = new ImportEPUB(filename);
         }
-        return m_importer_epub; 
+        return m_importer_epub;
     }
 
     return NULL;

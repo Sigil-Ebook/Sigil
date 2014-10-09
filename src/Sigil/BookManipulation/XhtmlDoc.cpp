@@ -105,7 +105,7 @@ QString XhtmlDoc::ResolveCustomEntities(const QString &source)
 
     QString new_source = source;
     QRegularExpression entity_search(ENTITY_SEARCH);
-    QHash< QString, QString > entities;
+    QHash<QString, QString> entities;
     int main_index = 0;
 
     // Catch all custom entity declarations...
@@ -138,13 +138,13 @@ QString XhtmlDoc::ResolveCustomEntities(const QString &source)
 // Returns a list of XMLElements representing all
 // the elements of the specified tag name
 // in the head section of the provided XHTML source code
-QList< XhtmlDoc::XMLElement > XhtmlDoc::GetTagsInHead(const QString &source, const QString &tag_name)
+QList<XhtmlDoc::XMLElement> XhtmlDoc::GetTagsInHead(const QString &source, const QString &tag_name)
 {
     // TODO: how about replacing uses of this function
     // with XPath expressions? Profile for speed.
     QXmlStreamReader reader(source);
     bool in_head = false;
-    QList< XMLElement > matching_elements;
+    QList<XMLElement> matching_elements;
 
     while (!reader.atEnd()) {
         reader.readNext();
@@ -177,12 +177,12 @@ QList< XhtmlDoc::XMLElement > XhtmlDoc::GetTagsInHead(const QString &source, con
 // Returns a list of XMLElements representing all
 // the elements of the specified tag name
 // in the entire document of the provided XHTML source code
-QList< XhtmlDoc::XMLElement > XhtmlDoc::GetTagsInDocument(const QString &source, const QString &tag_name)
+QList<XhtmlDoc::XMLElement> XhtmlDoc::GetTagsInDocument(const QString &source, const QString &tag_name)
 {
     // TODO: how about replacing uses of this function
     // with XPath expressions? Profile for speed.
     QXmlStreamReader reader(source);
-    QList< XMLElement > matching_elements;
+    QList<XMLElement> matching_elements;
 
     while (!reader.atEnd()) {
         reader.readNext();
@@ -205,11 +205,11 @@ QList< XhtmlDoc::XMLElement > XhtmlDoc::GetTagsInDocument(const QString &source,
 }
 
 
-QList< xc::DOMNode * > XhtmlDoc::GetNodeChildren(const xc::DOMNode &node)
+QList<xc::DOMNode *> XhtmlDoc::GetNodeChildren(const xc::DOMNode &node)
 {
     xc::DOMNodeList *children = node.getChildNodes();
     int num_children = children->getLength();
-    QList< xc::DOMNode * > qtchildren;
+    QList<xc::DOMNode *> qtchildren;
 
     for (int i = 0; i < num_children; ++i) {
         qtchildren.append(children->item(i));
@@ -219,9 +219,9 @@ QList< xc::DOMNode * > XhtmlDoc::GetNodeChildren(const xc::DOMNode &node)
 }
 
 
-QHash< QString, QString > XhtmlDoc::GetNodeAttributes(const xc::DOMNode &node)
+QHash<QString, QString> XhtmlDoc::GetNodeAttributes(const xc::DOMNode &node)
 {
-    QHash< QString, QString > attributes_hash;
+    QHash<QString, QString> attributes_hash;
     xc::DOMNamedNodeMap *attributes = node.getAttributes();
 
     if (!attributes) {
@@ -229,7 +229,7 @@ QHash< QString, QString > XhtmlDoc::GetNodeAttributes(const xc::DOMNode &node)
     }
 
     for (uint i = 0; i < attributes->getLength(); ++i) {
-        xc::DOMAttr &attribute = *static_cast< xc::DOMAttr * >(attributes->item(i));
+        xc::DOMAttr &attribute = *static_cast<xc::DOMAttr *>(attributes->item(i));
         attributes_hash[ GetAttributeName(attribute) ] = XtoQ(attribute.getValue());
     }
 
@@ -237,16 +237,16 @@ QHash< QString, QString > XhtmlDoc::GetNodeAttributes(const xc::DOMNode &node)
 }
 
 
-QList< xc::DOMElement * > XhtmlDoc::GetTagMatchingDescendants(const xc::DOMNode &node, const QStringList &tag_names)
+QList<xc::DOMElement *> XhtmlDoc::GetTagMatchingDescendants(const xc::DOMNode &node, const QStringList &tag_names)
 {
-    QList< xc::DOMElement * > matching_nodes;
+    QList<xc::DOMElement *> matching_nodes;
 
     if (tag_names.contains(GetNodeName(node), Qt::CaseInsensitive)) {
         matching_nodes.append((xc::DOMElement *) &node);
     }
 
     if (node.hasChildNodes()) {
-        QList< xc::DOMNode * > children = GetNodeChildren(node);
+        QList<xc::DOMNode *> children = GetNodeChildren(node);
 
         for (int i = 0; i < children.count(); ++i) {
             matching_nodes.append(GetTagMatchingDescendants(*children.at(i), tag_names));
@@ -258,37 +258,37 @@ QList< xc::DOMElement * > XhtmlDoc::GetTagMatchingDescendants(const xc::DOMNode 
 
 
 // TODO: turn the overloads into a template
-QList< xc::DOMElement * > XhtmlDoc::GetTagMatchingDescendants(const xc::DOMElement &node, const QString &tag_name)
+QList<xc::DOMElement *> XhtmlDoc::GetTagMatchingDescendants(const xc::DOMElement &node, const QString &tag_name)
 {
     xc::DOMNodeList *children = node.getElementsByTagName(QtoX(tag_name));
     int num_children = children->getLength();
-    QList< xc::DOMElement * > qtchildren;
+    QList<xc::DOMElement *> qtchildren;
 
     for (int i = 0; i < num_children; ++i) {
-        qtchildren.append(static_cast< xc::DOMElement * >(children->item(i)));
+        qtchildren.append(static_cast<xc::DOMElement *>(children->item(i)));
     }
 
     return qtchildren;
 }
 
 
-QList< xc::DOMElement * > XhtmlDoc::GetTagMatchingDescendants(const xc::DOMDocument &node, const QString &tag_name)
+QList<xc::DOMElement *> XhtmlDoc::GetTagMatchingDescendants(const xc::DOMDocument &node, const QString &tag_name)
 {
     return GetTagMatchingDescendants(node, tag_name, "*");
 }
 
 
-QList< xc::DOMElement * > XhtmlDoc::GetTagMatchingDescendants(
+QList<xc::DOMElement *> XhtmlDoc::GetTagMatchingDescendants(
     const xc::DOMDocument &node,
     const QString &tag_name,
     const QString &namespace_name)
 {
     xc::DOMNodeList *children = node.getElementsByTagNameNS(QtoX(namespace_name), QtoX(tag_name));
     int num_children = children->getLength();
-    QList< xc::DOMElement * > qtchildren;
+    QList<xc::DOMElement *> qtchildren;
 
     for (int i = 0; i < num_children; ++i) {
-        qtchildren.append(static_cast< xc::DOMElement * >(children->item(i)));
+        qtchildren.append(static_cast<xc::DOMElement *>(children->item(i)));
     }
 
     return qtchildren;
@@ -297,11 +297,11 @@ QList< xc::DOMElement * > XhtmlDoc::GetTagMatchingDescendants(
 QList<QString> XhtmlDoc::GetAllDescendantClasses(const xc::DOMNode &node)
 {
     if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
-        return QList< QString >();
+        return QList<QString>();
     }
 
-    const xc::DOMElement *element = static_cast< const xc::DOMElement * >(&node);
-    QList< QString > classes;
+    const xc::DOMElement *element = static_cast<const xc::DOMElement *>(&node);
+    QList<QString> classes;
     QString element_name = GetNodeName(*element);
 
     if (element->hasAttribute(QtoX("class"))) {
@@ -312,7 +312,7 @@ QList<QString> XhtmlDoc::GetAllDescendantClasses(const xc::DOMNode &node)
     }
 
     if (node.hasChildNodes()) {
-        QList< xc::DOMNode * > children = GetNodeChildren(node);
+        QList<xc::DOMNode *> children = GetNodeChildren(node);
 
         for (int i = 0; i < children.count(); ++i) {
             classes.append(GetAllDescendantClasses(*children.at(i)));
@@ -322,14 +322,14 @@ QList<QString> XhtmlDoc::GetAllDescendantClasses(const xc::DOMNode &node)
     return classes;
 }
 
-QList< QString > XhtmlDoc::GetAllDescendantStyleUrls(const xc::DOMNode &node)
+QList<QString> XhtmlDoc::GetAllDescendantStyleUrls(const xc::DOMNode &node)
 {
     if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
-        return QList< QString >();
+        return QList<QString>();
     }
 
-    const xc::DOMElement *element = static_cast< const xc::DOMElement * >(&node);
-    QList< QString > styles;
+    const xc::DOMElement *element = static_cast<const xc::DOMElement *>(&node);
+    QList<QString> styles;
 
     if (element->hasAttribute(QtoX("style"))) {
         QString attribute = XtoQ(element->getAttribute(QtoX("style")));
@@ -341,7 +341,7 @@ QList< QString > XhtmlDoc::GetAllDescendantStyleUrls(const xc::DOMNode &node)
     }
 
     if (node.hasChildNodes()) {
-        QList< xc::DOMNode * > children = GetNodeChildren(node);
+        QList<xc::DOMNode *> children = GetNodeChildren(node);
 
         for (int i = 0; i < children.count(); ++i) {
             styles.append(GetAllDescendantStyleUrls(*children.at(i)));
@@ -351,14 +351,14 @@ QList< QString > XhtmlDoc::GetAllDescendantStyleUrls(const xc::DOMNode &node)
     return styles;
 }
 
-QList< QString > XhtmlDoc::GetAllDescendantIDs(const xc::DOMNode &node)
+QList<QString> XhtmlDoc::GetAllDescendantIDs(const xc::DOMNode &node)
 {
     if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
-        return QList< QString >();
+        return QList<QString>();
     }
 
-    const xc::DOMElement *element = static_cast< const xc::DOMElement * >(&node);
-    QList< QString > IDs;
+    const xc::DOMElement *element = static_cast<const xc::DOMElement *>(&node);
+    QList<QString> IDs;
 
     if (element->hasAttribute(QtoX("id"))) {
         IDs.append(XtoQ(element->getAttribute(QtoX("id"))));
@@ -371,7 +371,7 @@ QList< QString > XhtmlDoc::GetAllDescendantIDs(const xc::DOMNode &node)
     }
 
     if (node.hasChildNodes()) {
-        QList< xc::DOMNode * > children = GetNodeChildren(node);
+        QList<xc::DOMNode *> children = GetNodeChildren(node);
 
         for (int i = 0; i < children.count(); ++i) {
             IDs.append(GetAllDescendantIDs(*children.at(i)));
@@ -381,21 +381,21 @@ QList< QString > XhtmlDoc::GetAllDescendantIDs(const xc::DOMNode &node)
     return IDs;
 }
 
-QList< QString > XhtmlDoc::GetAllDescendantHrefs(const xc::DOMNode &node)
+QList<QString> XhtmlDoc::GetAllDescendantHrefs(const xc::DOMNode &node)
 {
     if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
-        return QList< QString >();
+        return QList<QString>();
     }
 
-    const xc::DOMElement *element = static_cast< const xc::DOMElement * >(&node);
-    QList< QString > hrefs;
+    const xc::DOMElement *element = static_cast<const xc::DOMElement *>(&node);
+    QList<QString> hrefs;
 
     if (element->hasAttribute(QtoX("href"))) {
         hrefs.append(XtoQ(element->getAttribute(QtoX("href"))));
     }
 
     if (node.hasChildNodes()) {
-        QList< xc::DOMNode * > children = GetNodeChildren(node);
+        QList<xc::DOMNode *> children = GetNodeChildren(node);
 
         for (int i = 0; i < children.count(); ++i) {
             hrefs.append(GetAllDescendantHrefs(*children.at(i)));
@@ -411,12 +411,12 @@ QString XhtmlDoc::GetDomNodeAsString(const xc::DOMNode &node)
 {
     XMLCh LS[] = { xc::chLatin_L, xc::chLatin_S, xc::chNull };
     xc::DOMImplementation *impl = xc::DOMImplementationRegistry::getDOMImplementation(LS);
-    shared_ptr< xc::DOMLSSerializer > serializer(
+    shared_ptr<xc::DOMLSSerializer> serializer(
         ((xc::DOMImplementationLS *) impl)->createLSSerializer(),
-        XercesExt::XercesDeallocator< xc::DOMLSSerializer >);
+        XercesExt::XercesDeallocator<xc::DOMLSSerializer>);
     serializer->getDomConfig()->setParameter(xc::XMLUni::fgDOMWRTDiscardDefaultContent, false);
     serializer->getDomConfig()->setParameter(xc::XMLUni::fgDOMWRTBOM, true);
-    shared_ptr< XMLCh > xwritten(serializer->writeToString(&node), XercesExt::XercesStringDeallocator);
+    shared_ptr<XMLCh> xwritten(serializer->writeToString(&node), XercesExt::XercesStringDeallocator);
     return XtoQ(xwritten.get());
 }
 
@@ -432,13 +432,13 @@ QString XhtmlDoc::GetDomDocumentAsString(const xc::DOMDocument &document)
 }
 
 
-shared_ptr< xc::DOMDocument > XhtmlDoc::CopyDomDocument(const xc::DOMDocument &document)
+shared_ptr<xc::DOMDocument> XhtmlDoc::CopyDomDocument(const xc::DOMDocument &document)
 {
-    return RaiiWrapDocument(static_cast< xc::DOMDocument * >(document.cloneNode(true)));
+    return RaiiWrapDocument(static_cast<xc::DOMDocument *>(document.cloneNode(true)));
 }
 
 
-shared_ptr< xc::DOMDocument > XhtmlDoc::LoadTextIntoDocument(const QString &source)
+shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source)
 {
     XercesExt::LocationAwareDOMParser parser;
     // This scanner ignores schemas
@@ -455,7 +455,7 @@ shared_ptr< xc::DOMDocument > XhtmlDoc::LoadTextIntoDocument(const QString &sour
     // We use source.count() * 2 because count returns
     // the number of QChars, which are 2 bytes long
     xc::MemBufInputSource input(
-        reinterpret_cast< const XMLByte * >(prepared_source.utf16()),
+        reinterpret_cast<const XMLByte *>(prepared_source.utf16()),
         prepared_source.count() * 2,
         "empty");
     XMLCh UTF16[] = { xc::chLatin_U, xc::chLatin_T, xc::chLatin_F, xc::chDigit_1, xc::chDigit_6, xc::chNull };
@@ -465,9 +465,9 @@ shared_ptr< xc::DOMDocument > XhtmlDoc::LoadTextIntoDocument(const QString &sour
 }
 
 
-shared_ptr< xc::DOMDocument > XhtmlDoc::RaiiWrapDocument(xc::DOMDocument *document)
+shared_ptr<xc::DOMDocument> XhtmlDoc::RaiiWrapDocument(xc::DOMDocument *document)
 {
-    return shared_ptr< xc::DOMDocument >(document, XercesExt::XercesDeallocator< xc::DOMDocument >);
+    return shared_ptr<xc::DOMDocument>(document, XercesExt::XercesDeallocator<xc::DOMDocument>);
 }
 
 
@@ -485,7 +485,7 @@ int XhtmlDoc::NodeColumnNumber(const xc::DOMNode &node)
 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
 {
-    boost::scoped_ptr< xc::SAX2XMLReader > parser(xc::XMLReaderFactory::createXMLReader());
+    boost::scoped_ptr<xc::SAX2XMLReader> parser(xc::XMLReaderFactory::createXMLReader());
     parser->setFeature(xc::XMLUni::fgSAX2CoreValidation,            false);
     parser->setFeature(xc::XMLUni::fgXercesSchema,                  false);
     parser->setFeature(xc::XMLUni::fgXercesLoadSchema,              false);
@@ -504,7 +504,7 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
     // We use source.count() * 2 because count returns
     // the number of QChars, which are 2 bytes long
     xc::MemBufInputSource input(
-        reinterpret_cast< const XMLByte * >(prepared_source.utf16()),
+        reinterpret_cast<const XMLByte *>(prepared_source.utf16()),
         prepared_source.count() * 2,
         "empty");
     XMLCh UTF16[] = { xc::chLatin_U, xc::chLatin_T, xc::chLatin_F, xc::chDigit_1, xc::chDigit_6, xc::chNull };
@@ -518,7 +518,7 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
         collector.AddNewExceptionAsResult(exception);
     }
 
-    std::vector< fc::Result > results = collector.GetResults();
+    std::vector<fc::Result> results = collector.GetResults();
 
     if (!results.empty()) {
         XhtmlDoc::WellFormedError error;
@@ -545,7 +545,7 @@ xc::DOMElement *XhtmlDoc::CreateElementInDocument(
     const QString &namespace_name,
     xc::DOMDocument &document)
 {
-    return CreateElementInDocument(tag_name, namespace_name, document, QHash< QString, QString >());
+    return CreateElementInDocument(tag_name, namespace_name, document, QHash<QString, QString>());
 }
 
 
@@ -553,7 +553,7 @@ xc::DOMElement *XhtmlDoc::CreateElementInDocument(
     const QString &tag_name,
     const QString &namespace_name,
     xc::DOMDocument &document,
-    QHash< QString, QString > attributes)
+    QHash<QString, QString> attributes)
 {
     xc::DOMElement *element = document.createElementNS(QtoX(namespace_name), QtoX(tag_name));
     foreach(QString attribute_name, attributes.keys()) {
@@ -565,7 +565,7 @@ xc::DOMElement *XhtmlDoc::CreateElementInDocument(
 
 xc::DOMElement *XhtmlDoc::RenameElementInDocument(xc::DOMDocument &document, xc::DOMNode &node, QString tag_name)
 {
-    xc::DOMElement *element = static_cast< xc::DOMElement * >(&node);
+    xc::DOMElement *element = static_cast<xc::DOMElement *>(&node);
     xc::DOMElement *new_element = CreateElementInDocument(tag_name, XtoQ(element->getNamespaceURI()), document, GetNodeAttributes(node));
 
     // Move all the children
@@ -607,9 +607,9 @@ QString XhtmlDoc::ResolveHTMLEntities(const QString &text)
 
 // A tree node class without a children() function...
 // appallingly stupid, isn't it?
-QList< QWebElement > XhtmlDoc::QWebElementChildren(const QWebElement &element)
+QList<QWebElement> XhtmlDoc::QWebElementChildren(const QWebElement &element)
 {
-    QList< QWebElement > children;
+    QList<QWebElement> children;
     const QWebElement &first_child = element.firstChild();
 
     if (!first_child.isNull()) {
@@ -666,7 +666,7 @@ QStringList XhtmlDoc::GetSGFSectionSplits(const QString &source,
 
 QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
 {
-    QList< XhtmlDoc::XMLElement > link_tag_nodes;
+    QList<XhtmlDoc::XMLElement> link_tag_nodes;
 
     try {
         link_tag_nodes = XhtmlDoc::GetTagsInHead(source, "link");
@@ -679,8 +679,8 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
     foreach(XhtmlDoc::XMLElement element, link_tag_nodes) {
         if (element.attributes.contains("type") &&
             (
-            (element.attributes.value("type").toLower() == "text/css") ||
-            (element.attributes.value("type").toLower() == "text/x-oeb1-css") 
+                (element.attributes.value("type").toLower() == "text/css") ||
+                (element.attributes.value("type").toLower() == "text/x-oeb1-css")
             ) &&
             element.attributes.contains("rel") &&
             (element.attributes.value("rel").toLower() == "stylesheet") &&
@@ -756,12 +756,12 @@ xc::DOMDocumentFragment *XhtmlDoc::ConvertToDocumentFragment(const xc::DOMNodeLi
 
 
 // Converts a DomNodeList to a regular QList
-QList< xc::DOMNode * > XhtmlDoc::ConvertToRegularList(const xc::DOMNodeList &list)
+QList<xc::DOMNode *> XhtmlDoc::ConvertToRegularList(const xc::DOMNodeList &list)
 {
     // Since a DomNodeList is "live", we store the count
     // so we don't have to recalculate it every loop iteration
     int count = list.getLength();
-    QList< xc::DOMNode * > nodes;
+    QList<xc::DOMNode *> nodes;
 
     for (int i = 0; i < count; ++i) {
         nodes.append(list.item(i));
@@ -772,12 +772,12 @@ QList< xc::DOMNode * > XhtmlDoc::ConvertToRegularList(const xc::DOMNodeList &lis
 
 
 // Returns a list with only the element nodes
-QList< xc::DOMNode * > XhtmlDoc::ExtractElements(const xc::DOMNodeList &list)
+QList<xc::DOMNode *> XhtmlDoc::ExtractElements(const xc::DOMNodeList &list)
 {
     // Since a DomNodeList is "live", we store the count
     // so we don't have to recalculate it every loop iteration
     int count = list.getLength();
-    QList< xc::DOMNode * > element_nodes;
+    QList<xc::DOMNode *> element_nodes;
 
     for (int i = 0; i < count; ++i) {
         xc::DOMNode *node = list.item(i);
@@ -845,12 +845,12 @@ int XhtmlDoc::GetCustomIndexInList(const xc::DOMNode &node, const xc::DOMNodeLis
 
 // Returns a list of all the "visible" text nodes that are descendants
 // of the specified node. "Visible" means we ignore style tags, script tags etc...
-QList< xc::DOMNode * > XhtmlDoc::GetVisibleTextNodes(const xc::DOMNode &node)
+QList<xc::DOMNode *> XhtmlDoc::GetVisibleTextNodes(const xc::DOMNode &node)
 {
     // TODO: investigate possible parallelization
     // opportunities for this function (profile before and after!)
     if (node.getNodeType() == xc::DOMNode::TEXT_NODE) {
-        return QList< xc::DOMNode * >() << const_cast< xc::DOMNode * >(&node);
+        return QList<xc::DOMNode *>() << const_cast<xc::DOMNode *>(&node);
     } else {
         QString node_name = GetNodeName(node);
 
@@ -858,8 +858,8 @@ QList< xc::DOMNode * > XhtmlDoc::GetVisibleTextNodes(const xc::DOMNode &node)
             node_name != "script" &&
             node_name != "style"
            ) {
-            QList< xc::DOMNode * > children = GetNodeChildren(node);
-            QList< xc::DOMNode * > text_nodes;
+            QList<xc::DOMNode *> children = GetNodeChildren(node);
+            QList<xc::DOMNode *> text_nodes;
 
             for (int i = 0; i < children.count(); ++i) {
                 text_nodes.append(GetVisibleTextNodes(*children.at(i)));
@@ -869,7 +869,7 @@ QList< xc::DOMNode * > XhtmlDoc::GetVisibleTextNodes(const xc::DOMNode &node)
         }
     }
 
-    return QList< xc::DOMNode * >();
+    return QList<xc::DOMNode *>();
 }
 
 
@@ -911,7 +911,7 @@ QList<xc::DOMNode *> XhtmlDoc::GetIDNodes(const xc::DOMNode &node)
 QString XhtmlDoc::GetIDElementText(const xc::DOMNode &node)
 {
     QString text;
-    QList< xc::DOMNode * > children = GetNodeChildren(node);
+    QList<xc::DOMNode *> children = GetNodeChildren(node);
 
     // Combine all text nodes for this node plus all text for non-ID element children
     for (int i = 0; i < children.count(); ++i) {
@@ -933,16 +933,16 @@ QString XhtmlDoc::GetIDElementText(const xc::DOMNode &node)
 
 // Returns a list of ALL text nodes that are descendants
 // of the specified node.
-QList< xc::DOMNode * > XhtmlDoc::GetAllTextNodes(const xc::DOMNode &node)
+QList<xc::DOMNode *> XhtmlDoc::GetAllTextNodes(const xc::DOMNode &node)
 {
     // TODO: investigate possible parallelization
     // opportunities for this function (profile before and after!)
     if (node.getNodeType() == xc::DOMNode::TEXT_NODE) {
-        return QList< xc::DOMNode * >() << const_cast< xc::DOMNode * >(&node);
+        return QList<xc::DOMNode *>() << const_cast<xc::DOMNode *>(&node);
     } else {
         if (node.hasChildNodes()) {
-            QList< xc::DOMNode * > children = GetNodeChildren(node);
-            QList< xc::DOMNode * > text_nodes;
+            QList<xc::DOMNode *> children = GetNodeChildren(node);
+            QList<xc::DOMNode *> text_nodes;
 
             for (int i = 0; i < children.count(); ++i) {
                 text_nodes.append(GetAllTextNodes(*children.at(i)));
@@ -952,7 +952,7 @@ QList< xc::DOMNode * > XhtmlDoc::GetAllTextNodes(const xc::DOMNode &node)
         }
     }
 
-    return QList< xc::DOMNode * >();
+    return QList<xc::DOMNode *>();
 }
 
 
@@ -970,7 +970,7 @@ xc::DOMNode &XhtmlDoc::GetAncestorBlockElement(const xc::DOMNode &node)
     }
 
     if (parent_node) {
-        return const_cast< xc::DOMNode & >(*parent_node);
+        return const_cast<xc::DOMNode &>(*parent_node);
     } else {
         return *(node.getOwnerDocument()->getElementsByTagName(QtoX("body"))->item(0));
     }
@@ -1006,7 +1006,7 @@ QStringList XhtmlDoc::GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QS
 QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags)
 {
     // "Normal" HTML media file elements
-    QList< xc::DOMElement * > nodes = GetTagMatchingDescendants(node, tags);
+    QList<xc::DOMElement *> nodes = GetTagMatchingDescendants(node, tags);
     QStringList links;
     // Get a list of all media files referenced
     foreach(xc::DOMElement * node, nodes) {
@@ -1028,7 +1028,7 @@ QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node,
 QStringList XhtmlDoc::GetAllHrefPaths(const xc::DOMNode &node)
 {
     // Anchor tags
-    QList< xc::DOMElement * > nodes = GetTagMatchingDescendants(node, ANCHOR_TAGS);
+    QList<xc::DOMElement *> nodes = GetTagMatchingDescendants(node, ANCHOR_TAGS);
     QStringList hrefs;
     // Get a list of all defined hrefs
     foreach(xc::DOMElement * node, nodes) {
@@ -1075,7 +1075,7 @@ QString XhtmlDoc::PrepareSourceForXerces(const QString &source)
 
 // Returns the node identified by the specified ViewEditor element hierarchy
 xc::DOMNode *XhtmlDoc::GetNodeFromHierarchy(const xc::DOMDocument &document,
-        const QList< ViewEditor::ElementIndex > &hierarchy)
+        const QList<ViewEditor::ElementIndex> &hierarchy)
 {
     xc::DOMNode *node = document.getElementsByTagName(QtoX("html"))->item(0);
     if (node == NULL) {
@@ -1085,7 +1085,7 @@ xc::DOMNode *XhtmlDoc::GetNodeFromHierarchy(const xc::DOMDocument &document,
     xc::DOMNodeList *tmp_node = NULL;
 
     for (int i = 0; i < hierarchy.count() - 1; ++i) {
-        QList< xc::DOMNode * > children;
+        QList<xc::DOMNode *> children;
 
         tmp_node = node->getChildNodes();
         if (tmp_node != NULL) {
@@ -1118,11 +1118,11 @@ xc::DOMNode *XhtmlDoc::GetNodeFromHierarchy(const xc::DOMDocument &document,
 }
 
 // Creates a ViewEditor element hierarchy from the specified node
-QList< ViewEditor::ElementIndex > XhtmlDoc::GetHierarchyFromNode(const xc::DOMNode &node)
+QList<ViewEditor::ElementIndex> XhtmlDoc::GetHierarchyFromNode(const xc::DOMNode &node)
 {
     xc::DOMNode *html_node = node.getOwnerDocument()->getElementsByTagName(QtoX("html"))->item(0);
     const xc::DOMNode *current_node = &node;
-    QList< ViewEditor::ElementIndex > element_list;
+    QList<ViewEditor::ElementIndex> element_list;
 
     while (current_node != html_node) {
         xc::DOMNode *parent = current_node->getParentNode();
@@ -1149,7 +1149,7 @@ QString XhtmlDoc::GetNodeChildrenAsString(const xc::DOMNode *node)
     for (int i=0; i<children.count(); ++i) {
         builder.append(GetDomNodeAsString(*children.at(i)));
     }
-    
+
     return builder.join("");
 }
 

@@ -53,11 +53,11 @@ CSSFilesWidget::CSSFilesWidget()
     connectSignalsSlots();
 }
 
-void CSSFilesWidget::CreateReport(QSharedPointer< Book > book)
+void CSSFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_HTMLResources = m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(false);
-    m_CSSResources = m_Book->GetFolderKeeper().GetResourceTypeList< CSSResource >(false);
+    m_HTMLResources = m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(false);
+    m_CSSResources = m_Book->GetFolderKeeper().GetResourceTypeList<CSSResource>(false);
     SetupTable();
 }
 
@@ -226,12 +226,12 @@ void CSSFilesWidget::Save()
         QString text = "";
         if (item) {
             text = item->text();
-        }   
+        }
         if (col == 0) {
             row_text.append(text);
         } else {
             row_text.append("," % text);
-        }   
+        }
     }
 
     report_info.append(row_text % "\n");

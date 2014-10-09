@@ -53,10 +53,10 @@ HTMLFilesWidget::HTMLFilesWidget()
     connectSignalsSlots();
 }
 
-void HTMLFilesWidget::CreateReport(QSharedPointer< Book > book)
+void HTMLFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_HTMLResources = m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(false);
+    m_HTMLResources = m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(false);
     SetupTable();
 }
 
@@ -285,12 +285,12 @@ void HTMLFilesWidget::Save()
         QString text = "";
         if (item) {
             text = item->text();
-        }   
+        }
         if (col == 0) {
             row_text.append(text);
         } else {
             row_text.append("," % text);
-        }   
+        }
     }
 
     report_info.append(row_text % "\n");

@@ -188,15 +188,15 @@ int SettingsStore::cleanOn()
     return value(KEY_CLEAN_ON, (CLEANON_OPEN | CLEANON_SAVE)).toInt();
 }
 
-QList < std::pair < ushort, QString > >  SettingsStore::preserveEntityCodeNames()
+QList <std::pair <ushort, QString>>  SettingsStore::preserveEntityCodeNames()
 {
     clearSettingsGroup();
-    QList < std::pair < ushort, QString > > codenames;
+    QList <std::pair <ushort, QString>> codenames;
     QStringList names = value(KEY_PRESERVE_ENTITY_NAMES, "&nbsp;").toStringList();
     QString codes = value(KEY_PRESERVE_ENTITY_CODES, QChar(160)).toString();
     int i = 0;
     foreach(QString name, names) {
-        std::pair < ushort, QString > epair;
+        std::pair <ushort, QString> epair;
         epair.first = (ushort) codes.at(i++).unicode();
         epair.second = name;
         codenames.append(epair);
@@ -354,12 +354,12 @@ void SettingsStore::setCleanOn(int on)
     setValue(KEY_CLEAN_ON, on);
 }
 
-void SettingsStore::setPreserveEntityCodeNames(const QList< std::pair < ushort, QString > > codenames)
+void SettingsStore::setPreserveEntityCodeNames(const QList<std::pair <ushort, QString>> codenames)
 {
     clearSettingsGroup();
     QStringList names;
     QString codes;
-    std::pair < ushort, QString > epair;
+    std::pair <ushort, QString> epair;
     foreach (epair, codenames) {
         names.append(epair.second);
         codes.append(QChar(epair.first));

@@ -59,7 +59,7 @@ public:
      *
      * @param book The book whose model we will be building.
      */
-    void SetBook(QSharedPointer< Book > book);
+    void SetBook(QSharedPointer<Book> book);
 
     /**
      * Translates a model index of an item into an URL
@@ -99,7 +99,7 @@ public:
         /**
          * This entry's sub-entries (its children).
          */
-        QList< NCXEntry > children;
+        QList<NCXEntry> children;
 
         /**
          * If \c true, then this is an "invisible" root NCXEntry;
@@ -180,7 +180,7 @@ private:
     /**
      * The book whose model we are representing.
      */
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     /**
      * If \c true, then a refresh operation is in progress.
@@ -196,7 +196,7 @@ private:
      * Watches the completion of the GetRootNCXEntry func
      * and signals the RefreshEnd func when the root NCX entry is ready.
      */
-    QFutureWatcher< NCXEntry > &m_NcxRootWatcher;
+    QFutureWatcher<NCXEntry> &m_NcxRootWatcher;
 };
 
 

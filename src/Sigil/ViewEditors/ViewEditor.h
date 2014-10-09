@@ -102,8 +102,8 @@ public:
      *
      * @return The element selecting list.
      */
-    virtual QList< ElementIndex > GetCaretLocation() {
-        return QList< ViewEditor::ElementIndex >();
+    virtual QList<ElementIndex> GetCaretLocation() {
+        return QList<ViewEditor::ElementIndex>();
     }
 
     /**
@@ -113,7 +113,7 @@ public:
      *
      * @param hierarchy The element selecting list.
      */
-    virtual void StoreCaretLocationUpdate(const QList< ElementIndex > &hierarchy) {}
+    virtual void StoreCaretLocationUpdate(const QList<ElementIndex> &hierarchy) {}
 
     virtual QString GetCaretLocationUpdate() {
         return QString();

@@ -127,7 +127,7 @@ void PreviewWindow::showEvent(QShowEvent *event)
     emit Shown();
 }
 
-void PreviewWindow::UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location)
+void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor::ElementIndex> location)
 {
     if (!m_Preview->isVisible()) {
         return;
@@ -151,7 +151,8 @@ QList<ViewEditor::ElementIndex> PreviewWindow::GetCaretLocation()
     return m_Preview->GetCaretLocation();
 }
 
-void PreviewWindow::SetZoomFactor(float factor) {
+void PreviewWindow::SetZoomFactor(float factor)
+{
     m_Preview->SetZoomFactor(factor);
 }
 

@@ -26,7 +26,7 @@
 
 #include "SourceUpdates/PerformCSSUpdates.h"
 
-PerformCSSUpdates::PerformCSSUpdates(const QString &source, const QHash< QString, QString > &css_updates)
+PerformCSSUpdates::PerformCSSUpdates(const QString &source, const QHash<QString, QString> &css_updates)
     :
     m_Source(source),
     m_CSSUpdates(css_updates)
@@ -36,7 +36,7 @@ PerformCSSUpdates::PerformCSSUpdates(const QString &source, const QHash< QString
 
 QString PerformCSSUpdates::operator()()
 {
-    const QList< QString > &keys = m_CSSUpdates.keys();
+    const QList<QString> &keys = m_CSSUpdates.keys();
     int num_keys = keys.count();
 
     for (int i = 0; i < num_keys; ++i) {
@@ -47,15 +47,15 @@ QString PerformCSSUpdates::operator()()
             + QRegularExpression::escape(filename) + "|"
             + QRegularExpression::escape(filename);
         QRegularExpression reference(
-                                "(?:(?:src|background|background-image)\\s*:|@import)\\s*"
-                                "[^;\\}\\(\"']*"
-                                "(?:"
-                                "url\\([\"']?(" + filename_regex_part + ")[\"']?\\)"
-                                "|"
-                                "[\"'](" + filename_regex_part + ")[\"']"
-                                ")"
-                                "[^;\\}]*"
-                                "(?:;|\\})");
+            "(?:(?:src|background|background-image)\\s*:|@import)\\s*"
+            "[^;\\}\\(\"']*"
+            "(?:"
+            "url\\([\"']?(" + filename_regex_part + ")[\"']?\\)"
+            "|"
+            "[\"'](" + filename_regex_part + ")[\"']"
+            ")"
+            "[^;\\}]*"
+            "(?:;|\\})");
         int start_index = 0;
         QRegularExpressionMatch mo = reference.match(m_Source, start_index);
         do {

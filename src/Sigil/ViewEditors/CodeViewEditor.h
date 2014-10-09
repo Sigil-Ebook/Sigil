@@ -251,10 +251,10 @@ public:
     void SetDelayedCursorScreenCenteringRequired();
 
     // inherited
-    QList< ViewEditor::ElementIndex > GetCaretLocation();
+    QList<ViewEditor::ElementIndex> GetCaretLocation();
 
     // inherited
-    void StoreCaretLocationUpdate(const QList< ViewEditor::ElementIndex > &hierarchy);
+    void StoreCaretLocationUpdate(const QList<ViewEditor::ElementIndex> &hierarchy);
 
     // inherited
     bool ExecuteCaretUpdate(bool default_to_top = false);
@@ -626,7 +626,7 @@ private:
      *               the start tag of the element the caret is residing in.
      * @return The element location stack.
      */
-    QStack< StackElement > GetCaretLocationStack(int offset) const;
+    QStack<StackElement> GetCaretLocationStack(int offset) const;
 
     /**
      * Takes the stack provided by GetCaretLocationStack()
@@ -636,7 +636,7 @@ private:
      * @param stack The StackElement stack.
      * @return The converted ElementIndex hierarchy.
      */
-    QList< ElementIndex > ConvertStackToHierarchy(const QStack< StackElement > stack) const;
+    QList<ElementIndex> ConvertStackToHierarchy(const QStack<StackElement> stack) const;
 
     /**
      * Converts a ViewEditor element hierarchy to a tuple describing necessary caret moves.
@@ -645,7 +645,7 @@ private:
      * @param hierarchy The caret location as ElementIndex hierarchy.
      * @return The info needed to move the caret to the new location.
      */
-    boost::tuple< int, int > ConvertHierarchyToCaretMove(const QList< ViewEditor::ElementIndex > &hierarchy) const;
+    boost::tuple<int, int> ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const;
 
     /**
      * Insert HTML tags around the current selection.
@@ -696,7 +696,7 @@ private:
      * Given a list of CSS properties perform any pruning/replacing/adding as necessary to
      * ensure that property_name:property_value is added (or removed if it already exists).
      */
-    void ApplyChangeToProperties(QList< CSSInfo::CSSProperty * > &css_properties, const QString &property_name, const QString &property_value);
+    void ApplyChangeToProperties(QList<CSSInfo::CSSProperty *> &css_properties, const QString &property_name, const QString &property_value);
 
     void ReformatCSS(bool multiple_line_format);
 
@@ -770,7 +770,7 @@ private:
      * Stores the update for the caret location
      * when switching from BookView to CodeView.
      */
-    QList< ViewEditor::ElementIndex > m_CaretUpdate;
+    QList<ViewEditor::ElementIndex> m_CaretUpdate;
 
     /**
      * Whether spell checking is enabled on this view.

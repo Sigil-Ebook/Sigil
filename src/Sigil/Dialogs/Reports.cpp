@@ -107,7 +107,7 @@ Reports::~Reports()
     }
 }
 
-void Reports::CreateReports(QSharedPointer< Book > book)
+void Reports::CreateReports(QSharedPointer<Book> book)
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
     // Display progress dialog

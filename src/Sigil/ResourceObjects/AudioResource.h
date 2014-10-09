@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com> 
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **

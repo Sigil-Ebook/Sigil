@@ -42,13 +42,13 @@ public:
 
     // Needed so that we can use an existing Book
     // in which to load HTML files (and their dependencies).
-    void SetBook(QSharedPointer< Book > book, bool ignore_duplicates);
+    void SetBook(QSharedPointer<Book> book, bool ignore_duplicates);
 
     virtual XhtmlDoc::WellFormedError CheckValidToLoad();
 
     // Reads and parses the file
     // and returns the created Book.
-    virtual QSharedPointer< Book > GetBook();
+    virtual QSharedPointer<Book> GetBook();
 
 private:
 
@@ -63,17 +63,17 @@ private:
 
     void UpdateFiles(HTMLResource &html_resource,
                      xc::DOMDocument &document,
-                     const QHash< QString, QString > &updates);
+                     const QHash<QString, QString> &updates);
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated
-    QHash< QString, QString > LoadFolderStructure(const xc::DOMDocument &document);
+    QHash<QString, QString> LoadFolderStructure(const xc::DOMDocument &document);
 
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
-    QHash< QString, QString > LoadMediaFiles(const xc::DOMDocument *document);
+    QHash<QString, QString> LoadMediaFiles(const xc::DOMDocument *document);
 
-    QHash< QString, QString > LoadStyleFiles(const xc::DOMDocument *document);
+    QHash<QString, QString> LoadStyleFiles(const xc::DOMDocument *document);
 
 
     ///////////////////////////////

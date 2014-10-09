@@ -285,7 +285,7 @@ private:
      * Stores a reference to the tab used before the current one.
      * Needed for the TabChanged signal.
      */
-    QPointer< ContentTab > m_LastContentTab;
+    QPointer<ContentTab> m_LastContentTab;
 
     bool m_CheckWellFormedErrors;
 

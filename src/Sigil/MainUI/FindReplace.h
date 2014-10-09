@@ -217,7 +217,7 @@ private:
     void SetLookWhere(int look_where);
     void SetSearchDirection(int search_direction);
 
-    template< class T >
+    template<class T>
     bool ResourceContainsCurrentRegex(T *resource);
 
     /**
@@ -309,7 +309,7 @@ private:
 };
 
 
-template< class T >
+template<class T>
 bool FindReplace::ResourceContainsCurrentRegex(T *resource)
 {
     // For now, this must hold
@@ -317,7 +317,7 @@ bool FindReplace::ResourceContainsCurrentRegex(T *resource)
     Resource *generic_resource = resource;
     return SearchOperations::CountInFiles(
                GetSearchRegex(),
-               QList< Resource * >() << generic_resource,
+               QList<Resource *>() << generic_resource,
                SearchOperations::CodeViewSearch,
                m_SpellCheck) > 0;
 }

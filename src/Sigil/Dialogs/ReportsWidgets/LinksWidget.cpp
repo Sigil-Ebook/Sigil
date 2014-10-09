@@ -50,10 +50,10 @@ LinksWidget::LinksWidget()
     connectSignalsSlots();
 }
 
-void LinksWidget::CreateReport(QSharedPointer< Book > book)
+void LinksWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_HTMLResources = m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(false);
+    m_HTMLResources = m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(false);
 
     SetupTable();
 }
@@ -78,9 +78,9 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     ui.fileTree->header()->setSortIndicatorShown(true);
     ui.fileTree->header()->setToolTip(
         tr("Report shows all source and target links using the anchor tag \"a\".")
-        );
+    );
 
-    QHash< QString, QList< XhtmlDoc::XMLElement > > links = m_Book->GetLinkElements();
+    QHash<QString, QList<XhtmlDoc::XMLElement>> links = m_Book->GetLinkElements();
     QHash<QString, QStringList> all_ids = m_Book->GetIdsInHTMLFiles();
     QStringList html_filenames;
     foreach(Resource *resource, m_HTMLResources) {
@@ -108,7 +108,7 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             item->setText(source_id);
             rowItems << item;
 
-            // Source text 
+            // Source text
             item = new QStandardItem();
             item->setText(element.text);
             rowItems << item;
@@ -126,8 +126,7 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
                 }
                 href_id = url.fragment();
                 is_target_file = true;
-            }
-            else {
+            } else {
                 // Just show url
                 href_file = href;
             }
@@ -164,7 +163,7 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
                 // As long as an anchor tag was used!
                 XhtmlDoc::XMLElement target;
                 bool found = false;
-                
+
                 QString target_file = href_file;
                 if (target_file.isEmpty()) {
                     target_file = filename;
@@ -177,12 +176,12 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
                     }
                 }
                 if (found) {
-    
+
                     // Target Text
                     item = new QStandardItem();
                     item->setText(target.text);
                     rowItems << item;
-    
+
                     // Target's Target file and id
                     QString target_href = target.attributes["href"];
                     QUrl target_url(target_href);
@@ -194,20 +193,19 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
                             target_href_file.replace("../Text/", "");
                         }
                         target_href_id = target_url.fragment();
-                    }
-                    else {
+                    } else {
                         // Just show url
                         target_href_file = target_href;
                     }
-    
+
                     item = new QStandardItem();
                     item->setText(target_href_file);
                     rowItems << item;
-    
+
                     item = new QStandardItem();
                     item->setText(target_href_id);
                     rowItems << item;
-    
+
                     // Match - destination link points to source
                     if (target_href_file.isEmpty()) {
                         target_href_file = target_file;
@@ -245,11 +243,11 @@ void LinksWidget::FilterEditTextChangedSlot(const QString &text)
 
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText) ||
-                root_item->child(row, 1)->text().toLower().contains(lowercaseText) ||
-                root_item->child(row, 2)->text().toLower().contains(lowercaseText) ||
-                root_item->child(row, 3)->text().toLower().contains(lowercaseText) ||
-                root_item->child(row, 4)->text().toLower().contains(lowercaseText) ||
-                root_item->child(row, 5)->text().toLower().contains(lowercaseText)) {
+            root_item->child(row, 1)->text().toLower().contains(lowercaseText) ||
+            root_item->child(row, 2)->text().toLower().contains(lowercaseText) ||
+            root_item->child(row, 3)->text().toLower().contains(lowercaseText) ||
+            root_item->child(row, 4)->text().toLower().contains(lowercaseText) ||
+            root_item->child(row, 5)->text().toLower().contains(lowercaseText)) {
             ui.fileTree->setRowHidden(row, parent_index, false);
 
             if (first_visible_row == -1) {
@@ -290,12 +288,12 @@ void LinksWidget::Save()
         QString text = "";
         if (item) {
             text = item->text();
-        }   
+        }
         if (col == 0) {
             row_text.append(text);
         } else {
             row_text.append("," % text);
-        }   
+        }
     }
 
     report_info.append(row_text % "\n");

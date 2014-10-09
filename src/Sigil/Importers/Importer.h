@@ -60,7 +60,7 @@ public:
      *
      * @return The file as a Book object, RAII wrapped.
      */
-    virtual QSharedPointer< Book > GetBook() = 0;
+    virtual QSharedPointer<Book> GetBook() = 0;
 
     /**
      * Call this after calling GetBook() to get any warning messages that
@@ -85,7 +85,7 @@ protected:
      * The Book that will be created
      * by the importing process.
      */
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QStringList m_LoadWarnings;
 };

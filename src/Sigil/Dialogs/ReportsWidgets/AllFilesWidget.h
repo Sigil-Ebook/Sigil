@@ -48,7 +48,7 @@ class AllFilesWidget : public ReportsWidget
 public:
     AllFilesWidget();
 
-    void CreateReport(QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer<Book> book);
 
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
@@ -75,7 +75,7 @@ private:
 
     QList<Resource *> m_AllResources;
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QStandardItemModel *m_ItemModel;
 

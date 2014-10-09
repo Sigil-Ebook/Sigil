@@ -62,13 +62,13 @@ public:
         // The attributes of the element;
         // the keys are the attribute names,
         // the values are the attribute values
-        QHash< QString, QString > attributes;
+        QHash<QString, QString> attributes;
     };
 
     static Metadata &Instance();
 
-    const QHash< QString, MetaInfo > &GetRelatorMap();
-    const QHash< QString, MetaInfo > &GetBasicMetaMap();
+    const QHash<QString, MetaInfo> &GetRelatorMap();
+    const QHash<QString, MetaInfo> &GetBasicMetaMap();
 
     bool IsRelator(QString code);
 
@@ -132,26 +132,26 @@ private:
     // The keys are the untranslated Dublin Core element types
     // and the values are the MetaInfo structures
     // (see http://www.idpf.org/2007/opf/OPF_2.0_final_spec.html#Section2.2 );
-    QHash< QString, MetaInfo > m_Basic;
+    QHash<QString, MetaInfo> m_Basic;
 
     // The keys are the Dublin Core element user-friendly names
     // the values are the element types for those names
-    QHash< QString, QString > m_BasicFullNames;
+    QHash<QString, QString> m_BasicFullNames;
 
     // The keys are the MARC relator codes
     // and the values are the MetaInfo structures
     // (see http://www.loc.gov/marc/relators/relaterm.html );
-    QHash< QString, MetaInfo > m_Relators;
+    QHash<QString, MetaInfo> m_Relators;
 
     // The keys are the full relator names
     // the values are the MARC relator codes
     // (e.g. aut -> Author )
-    QHash< QString, QString > m_RelatorFullNames;
+    QHash<QString, QString> m_RelatorFullNames;
 
     // The keys are special field names
     // the values are the text to display
     // (e.g. date -> Date )
-    QHash< QString, QString > m_Text;
+    QHash<QString, QString> m_Text;
 
 };
 

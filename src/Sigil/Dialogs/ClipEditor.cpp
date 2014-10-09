@@ -463,7 +463,7 @@ void ClipEditor::AutoFill()
 
     QStringList css_list;
 
-    QList<CSSResource *> css_resources = m_Book->GetFolderKeeper().GetResourceTypeList< CSSResource >(false);
+    QList<CSSResource *> css_resources = m_Book->GetFolderKeeper().GetResourceTypeList<CSSResource>(false);
 
     foreach(CSSResource * css_resource, css_resources) {
         CSSInfo css_info(css_resource->GetText(), true);
@@ -477,8 +477,7 @@ void ClipEditor::AutoFill()
                 css_list.append("p" % group);
                 css_list.append("span" % group);
                 css_list.append("div" % group);
-            }
-            else {
+            } else {
                 css_list.append(group);
             }
         }
@@ -501,7 +500,7 @@ void ClipEditor::AutoFill()
         m_ClipEditorModel->AddEntryToModel(entry, false, group_item);
     }
 
-    QMessageBox::information(this, tr("Clip Editor"), tr("CSS entries added: %n", "",css_list.count())); 
+    QMessageBox::information(this, tr("Clip Editor"), tr("CSS entries added: %n", "",css_list.count()));
 }
 
 

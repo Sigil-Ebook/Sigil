@@ -53,7 +53,7 @@ MetaEditor::~MetaEditor()
     }
 }
 
-void MetaEditor::SetBook(QSharedPointer< Book > book)
+void MetaEditor::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
     m_OPF = &(m_Book->GetOPF());
@@ -273,9 +273,9 @@ void MetaEditor::AddMetaElement(QString name, QVariant value, QString role_type,
 void MetaEditor::SetDataModifiedIfNeeded()
 {
     if (m_OriginalData.title != ui.leTitle->text() ||
-            m_OriginalData.author != ui.leAuthor->text() ||
-            m_OriginalData.file_as != ui.leAuthorFileAs->text() ||
-            m_OriginalData.language != ui.cbLanguages->currentText()) {
+        m_OriginalData.author != ui.leAuthor->text() ||
+        m_OriginalData.file_as != ui.leAuthorFileAs->text() ||
+        m_OriginalData.language != ui.cbLanguages->currentText()) {
         m_IsDataModified = true;
     }
 }
@@ -385,9 +385,9 @@ bool MetaEditor::OkToSplitInput(const QString &metaname)
 }
 
 
-QList< QVariant > MetaEditor::InputsInField(const QString &field_value)
+QList<QVariant> MetaEditor::InputsInField(const QString &field_value)
 {
-    QList< QVariant > inputs;
+    QList<QVariant> inputs;
     foreach(QString input, field_value.split(";", QString::SkipEmptyParts)) {
         inputs.append(input.simplified());
     }
@@ -503,7 +503,7 @@ void MetaEditor::MoveUp()
     qSort(rows);
     // Move the rows as a block starting from the top
     foreach(int row, rows) {
-        QList< QStandardItem * > items =  m_MetaModel.invisibleRootItem()->takeRow(row - 1);
+        QList<QStandardItem *> items =  m_MetaModel.invisibleRootItem()->takeRow(row - 1);
         m_MetaModel.invisibleRootItem()->insertRow(row, items);
     }
 }
@@ -534,7 +534,7 @@ void MetaEditor::MoveDown()
     // Move the rows as a block starting from the bottom
     for (int i = rows.count() - 1; i >= 0; i--) {
         int row = rows.at(i);
-        QList< QStandardItem * > items =  m_MetaModel.invisibleRootItem()->takeRow(row + 1);
+        QList<QStandardItem *> items =  m_MetaModel.invisibleRootItem()->takeRow(row + 1);
         m_MetaModel.invisibleRootItem()->insertRow(row, items);
     }
 }

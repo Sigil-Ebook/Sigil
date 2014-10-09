@@ -36,7 +36,7 @@ void EncryptionXmlWriter::WriteXML()
     m_Writer->writeStartElement("encryption");
     m_Writer->writeAttribute("xmlns", "urn:oasis:names:tc:opendocument:xmlns:container");
     m_Writer->writeAttribute("xmlns:enc", "http://www.w3.org/2001/04/xmlenc#");
-    QList< FontResource * > font_resources = m_Book.GetFolderKeeper().GetResourceTypeList< FontResource >();
+    QList<FontResource *> font_resources = m_Book.GetFolderKeeper().GetResourceTypeList<FontResource>();
     foreach(FontResource * font_resource, font_resources) {
         WriteEncryptedData(*font_resource);
     }

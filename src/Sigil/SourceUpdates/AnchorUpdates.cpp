@@ -41,26 +41,26 @@ using boost::shared_ptr;
 using boost::tie;
 using boost::tuple;
 
-void AnchorUpdates::UpdateAllAnchorsWithIDs(const QList< HTMLResource * > &html_resources)
+void AnchorUpdates::UpdateAllAnchorsWithIDs(const QList<HTMLResource *> &html_resources)
 {
-    const QHash< QString, QString > &ID_locations = GetIDLocations(html_resources);
+    const QHash<QString, QString> &ID_locations = GetIDLocations(html_resources);
     QtConcurrent::blockingMap(html_resources, boost::bind(UpdateAnchorsInOneFile, _1, ID_locations));
 }
 
 
-void AnchorUpdates::UpdateExternalAnchors(const QList< HTMLResource * > &html_resources, const QString &originating_filename, const QList< HTMLResource * > new_files)
+void AnchorUpdates::UpdateExternalAnchors(const QList<HTMLResource *> &html_resources, const QString &originating_filename, const QList<HTMLResource *> new_files)
 {
-    const QHash< QString, QString > &ID_locations = GetIDLocations(new_files);
+    const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
     QtConcurrent::blockingMap(html_resources, boost::bind(UpdateExternalAnchorsInOneFile, _1, originating_filename, ID_locations));
 }
 
 
-void AnchorUpdates::UpdateAllAnchors(const QList< HTMLResource * > &html_resources, const QStringList &originating_filenames, HTMLResource *new_file)
+void AnchorUpdates::UpdateAllAnchors(const QList<HTMLResource *> &html_resources, const QStringList &originating_filenames, HTMLResource *new_file)
 {
-    QList< HTMLResource * > new_files;
+    QList<HTMLResource *> new_files;
     new_files.append(new_file);
-    const QHash< QString, QString > &ID_locations = GetIDLocations(new_files);
-    QList< QString > originating_filename_links;
+    const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
+    QList<QString> originating_filename_links;
     foreach(QString originating_filename, originating_filenames) {
         originating_filename_links.append("../" % TEXT_FOLDER_NAME % "/" % originating_filename);
     }
@@ -69,13 +69,13 @@ void AnchorUpdates::UpdateAllAnchors(const QList< HTMLResource * > &html_resourc
 }
 
 
-QHash< QString, QString > AnchorUpdates::GetIDLocations(const QList< HTMLResource * > &html_resources)
+QHash<QString, QString> AnchorUpdates::GetIDLocations(const QList<HTMLResource *> &html_resources)
 {
-    const QList< tuple< QString, QList< QString > > > &IDs_in_files = QtConcurrent::blockingMapped(html_resources, GetOneFileIDs);
-    QHash< QString, QString > ID_locations;
+    const QList<tuple<QString, QList<QString>>> &IDs_in_files = QtConcurrent::blockingMapped(html_resources, GetOneFileIDs);
+    QHash<QString, QString> ID_locations;
 
     for (int i = 0; i < IDs_in_files.count(); ++i) {
-        QList< QString > file_element_IDs;
+        QList<QString> file_element_IDs;
         QString resource_filename;
         tie(resource_filename, file_element_IDs) = IDs_in_files.at(i);
 
@@ -88,7 +88,7 @@ QHash< QString, QString > AnchorUpdates::GetIDLocations(const QList< HTMLResourc
 }
 
 
-tuple< QString, QList< QString > > AnchorUpdates::GetOneFileIDs(HTMLResource *html_resource)
+tuple<QString, QList<QString>> AnchorUpdates::GetOneFileIDs(HTMLResource *html_resource)
 {
     Q_ASSERT(html_resource);
     QReadLocker locker(&html_resource->GetLock());
@@ -99,7 +99,7 @@ tuple< QString, QList< QString > > AnchorUpdates::GetOneFileIDs(HTMLResource *ht
 
 
 void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
-        const QHash< QString, QString > ID_locations)
+        const QHash<QString, QString> ID_locations)
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
@@ -110,7 +110,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
     bool is_changed = false;
 
     for (uint i = 0; i < anchors->getLength(); ++i) {
-        xc::DOMElement &element = *static_cast< xc::DOMElement * >(anchors->item(i));
+        xc::DOMElement &element = *static_cast<xc::DOMElement *>(anchors->item(i));
         Q_ASSERT(&element);
 
         if (element.hasAttribute(QtoX("href")) &&
@@ -143,7 +143,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
 }
 
 
-void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, const QString &originating_filename, const QHash< QString, QString > ID_locations)
+void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, const QString &originating_filename, const QHash<QString, QString> ID_locations)
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
@@ -154,7 +154,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
     bool is_changed = false;
 
     for (uint i = 0; i < anchors->getLength(); ++i) {
-        xc::DOMElement &element = *static_cast< xc::DOMElement * >(anchors->item(i));
+        xc::DOMElement &element = *static_cast<xc::DOMElement *>(anchors->item(i));
         Q_ASSERT(&element);
 
         // We're only interested in hrefs of the form "originating_filename#fragment_id".
@@ -187,8 +187,8 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
 
 
 void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
-        const QList< QString > &originating_filename_links,
-        const QHash< QString, QString > ID_locations,
+        const QList<QString> &originating_filename_links,
+        const QHash<QString, QString> ID_locations,
         const QString &new_filename)
 {
     Q_ASSERT(html_resource);
@@ -199,7 +199,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
     bool is_changed = false;
 
     for (uint i = 0; i < anchors->getLength(); ++i) {
-        xc::DOMElement &element = *static_cast< xc::DOMElement * >(anchors->item(i));
+        xc::DOMElement &element = *static_cast<xc::DOMElement *>(anchors->item(i));
         Q_ASSERT(&element);
 
         // We find the hrefs that are relative and contain an href.
@@ -237,10 +237,10 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
 }
 
 
-void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &originating_filename, const QList< HTMLResource * > new_files)
+void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &originating_filename, const QList<HTMLResource *> new_files)
 {
     Q_ASSERT(ncx_resource);
-    const QHash< QString, QString > &ID_locations = GetIDLocations(new_files);
+    const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
     QWriteLocker locker(&ncx_resource->GetLock());
     shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(ncx_resource->GetText());
     xc::DOMDocument &document = *d.get();
@@ -248,7 +248,7 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
     QString original_filename_with_relative_path = TEXT_FOLDER_NAME % "/" % originating_filename;
 
     for (uint i = 0; i < anchors->getLength(); ++i) {
-        xc::DOMElement &element = *static_cast< xc::DOMElement * >(anchors->item(i));
+        xc::DOMElement &element = *static_cast<xc::DOMElement *>(anchors->item(i));
         Q_ASSERT(&element);
 
         // We're only interested in src links of the form "originating_filename#fragment_id".

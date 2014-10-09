@@ -64,8 +64,7 @@ static MainWindow *GetMainWindow(const QStringList &arguments)
     // We use the first argument
     // as the file to load after starting
     if (arguments.size() > 1 &&
-        Utility::IsFileReadable(arguments.at(1)))
-    {
+        Utility::IsFileReadable(arguments.at(1))) {
         return new MainWindow(arguments.at(1));
     } else {
         return new MainWindow();
@@ -91,11 +90,11 @@ static void file_open()
     // "All Files (*.*)" is the default
     QString default_filter = load_filters.value("epub");
     QString filename = QFileDialog::getOpenFileName(0,
-            "Open File",
-            "~",
-            filter_string,
-            &default_filter
-            );
+                       "Open File",
+                       "~",
+                       filter_string,
+                       &default_filter
+                                                   );
 
     if (!filename.isEmpty()) {
         MainWindow *w = GetMainWindow(QStringList() << "" << filename);
@@ -127,11 +126,11 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     QString error_message;
 
     switch (type) {
-            // TODO: should go to a log
+        // TODO: should go to a log
         case QtDebugMsg:
             fprintf(stderr, "Debug: %s\n", message.toLatin1().constData());
             break;
-            // TODO: should go to a log
+        // TODO: should go to a log
         case QtWarningMsg:
             fprintf(stderr, "Warning: %s\n", message.toLatin1().constData());
             break;

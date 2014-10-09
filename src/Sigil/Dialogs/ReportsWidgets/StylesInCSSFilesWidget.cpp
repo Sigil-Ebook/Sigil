@@ -52,7 +52,7 @@ StylesInCSSFilesWidget::StylesInCSSFilesWidget()
     connectSignalsSlots();
 }
 
-void StylesInCSSFilesWidget::CreateReport(QSharedPointer< Book > book)
+void StylesInCSSFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
     SetupTable();
@@ -164,14 +164,14 @@ void StylesInCSSFilesWidget::DoubleClick()
 void StylesInCSSFilesWidget::Delete()
 {
     QString style_names;
-    QHash< QString, QStringList> stylesheet_styles;
+    QHash<QString, QStringList> stylesheet_styles;
     foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
         QString filename = m_ItemModel->itemFromIndex(index)->text();
         QString name = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
         stylesheet_styles[filename].append(name);
     }
     int count = 0;
-    QHashIterator< QString, QStringList> it_stylesheet_styles(stylesheet_styles);
+    QHashIterator<QString, QStringList> it_stylesheet_styles(stylesheet_styles);
 
     while (it_stylesheet_styles.hasNext()) {
         it_stylesheet_styles.next();

@@ -29,7 +29,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "SourceUpdates/WordUpdates.h"
 
-void WordUpdates::UpdateWordInAllFiles(const QList< HTMLResource * > &html_resources, const QString old_word, QString new_word)
+void WordUpdates::UpdateWordInAllFiles(const QList<HTMLResource *> &html_resources, const QString old_word, QString new_word)
 {
     QtConcurrent::blockingMap(html_resources, boost::bind(UpdateWordsInOneFile, _1, old_word, new_word));
 }
@@ -39,8 +39,8 @@ void WordUpdates::UpdateWordsInOneFile(HTMLResource *html_resource, QString old_
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     QString text = html_resource->GetText();
-    QList< HTMLSpellCheck::MisspelledWord > words = HTMLSpellCheck::GetWords(text);
-    
+    QList<HTMLSpellCheck::MisspelledWord> words = HTMLSpellCheck::GetWords(text);
+
     // Change in reverse to preserve location information
     for (int i = words.count() - 1; i >= 0; i--) {
         HTMLSpellCheck::MisspelledWord word = words[i];

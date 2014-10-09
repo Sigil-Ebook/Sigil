@@ -33,13 +33,13 @@ NCXModel::NCXModel(QObject *parent)
     QStandardItemModel(parent),
     m_Book(NULL),
     m_RefreshInProgress(false),
-    m_NcxRootWatcher(*new QFutureWatcher< NCXModel::NCXEntry >(this))
+    m_NcxRootWatcher(*new QFutureWatcher<NCXModel::NCXEntry>(this))
 {
     connect(&m_NcxRootWatcher, SIGNAL(finished()), this, SLOT(RefreshEnd()));
 }
 
 
-void NCXModel::SetBook(QSharedPointer< Book > book)
+void NCXModel::SetBook(QSharedPointer<Book> book)
 {
     {
         // We need to make sure we don't step on the toes of GetNCXText

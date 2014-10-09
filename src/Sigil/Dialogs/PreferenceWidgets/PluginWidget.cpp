@@ -17,9 +17,9 @@
 #include "Misc/Utility.h"
 
 
-PluginWidget::PluginWidget() 
+PluginWidget::PluginWidget()
     :
-  m_isDirty(false)
+    m_isDirty(false)
 {
     ui.setupUi(this);
     readSettings();
@@ -30,7 +30,7 @@ PluginWidget::PluginWidget()
 PluginWidget::ResultAction PluginWidget::saveSettings()
 {
     if (!m_isDirty) {
-      return PreferencesWidget::ResultAction_None;
+        return PreferencesWidget::ResultAction_None;
     }
 
     PluginDB *pdb = PluginDB::instance();
@@ -116,12 +116,15 @@ void PluginWidget::addPlugin()
     QString pluginname = zipinfo.baseName();
     // strip off any versioning present in zip name after first "_" to get internal folder name
     int version_index = pluginname.indexOf("_");
-    if (version_index > -1) pluginname.truncate(version_index);
+    if (version_index > -1) {
+        pluginname.truncate(version_index);
+    }
 
     Plugin *p = pdb->get_plugin(pluginname);
 
-    if (p == NULL)
+    if (p == NULL) {
         return;
+    }
 
     int rows = ui.pluginTable->rowCount();
     ui.pluginTable->insertRow(rows);
@@ -134,7 +137,7 @@ void PluginWidget::addPlugin()
 void PluginWidget::removePlugin()
 {
     // limited to work with one selection at a time to prevent row mixup upon removal
-    QList<QTableWidgetItem*> itemlist = ui.pluginTable->selectedItems();
+    QList<QTableWidgetItem *> itemlist = ui.pluginTable->selectedItems();
     if (itemlist.isEmpty()) {
         Utility::DisplayStdWarningDialog(tr("Nothing is Selected."));
         return;
@@ -174,7 +177,9 @@ void PluginWidget::removeAllPlugins()
 void PluginWidget::AutoFindPy2()
 {
     QString p2path = QStandardPaths::findExecutable("python2");
-    if (p2path.isEmpty()) p2path = QStandardPaths::findExecutable("python");
+    if (p2path.isEmpty()) {
+        p2path = QStandardPaths::findExecutable("python");
+    }
     ui.editPathPy2->setText(p2path);
     m_isDirty = true;
 }
@@ -182,7 +187,9 @@ void PluginWidget::AutoFindPy2()
 void PluginWidget::AutoFindPy3()
 {
     QString p3path = QStandardPaths::findExecutable("python3");
-    if (p3path.isEmpty()) p3path = QStandardPaths::findExecutable("python");
+    if (p3path.isEmpty()) {
+        p3path = QStandardPaths::findExecutable("python");
+    }
     ui.editPathPy3->setText(p3path);
     m_isDirty = true;
 }
@@ -213,7 +220,7 @@ void PluginWidget::enginePy2PathChanged()
     QString enginepath = ui.editPathPy2->text();
     if (!enginepath.isEmpty()) {
         QFileInfo enginfo(enginepath);
-        if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
+        if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ) {
             disconnect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
             Utility::DisplayStdWarningDialog(tr("Incorrect Interpreter Path selected"));
             ui.editPathPy2->setText("");
@@ -229,7 +236,7 @@ void PluginWidget::enginePy3PathChanged()
     QString enginepath = ui.editPathPy3->text();
     if (!enginepath.isEmpty()) {
         QFileInfo enginfo(enginepath);
-        if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ){
+        if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ) {
             disconnect(ui.editPathPy3, SIGNAL(editingFinished()), this, SLOT(enginePy3PathChanged()));
             Utility::DisplayStdWarningDialog(tr("Incorrect Interpreter Path selected"));
             ui.editPathPy3->setText("");

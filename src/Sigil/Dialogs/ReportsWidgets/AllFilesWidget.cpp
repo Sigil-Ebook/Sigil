@@ -50,7 +50,7 @@ AllFilesWidget::AllFilesWidget()
     connectSignalsSlots();
 }
 
-void AllFilesWidget::CreateReport(QSharedPointer< Book > book)
+void AllFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
     m_AllResources = m_Book->GetAllResources();
@@ -205,7 +205,7 @@ void AllFilesWidget::Save()
             row_text.append(text);
         } else {
             row_text.append("," % text);
-        }   
+        }
     }
 
     report_info.append(row_text % "\n");
@@ -309,7 +309,7 @@ QString AllFilesWidget::GetType(Resource *resource)
             break;
         }
 
-        case Resource::MiscTextResourceType: 
+        case Resource::MiscTextResourceType:
         case Resource::TextResourceType: {
             type = "Text";
             break;

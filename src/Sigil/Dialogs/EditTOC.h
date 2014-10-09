@@ -45,7 +45,7 @@ class EditTOC : public QDialog
 
 public:
 
-    EditTOC(QSharedPointer< Book > book, QList<Resource *> resources, QWidget *parent = 0);
+    EditTOC(QSharedPointer<Book> book, QList<Resource *> resources, QWidget *parent = 0);
 
     ~EditTOC();
 
@@ -98,7 +98,7 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QList<Resource *> m_Resources;
 

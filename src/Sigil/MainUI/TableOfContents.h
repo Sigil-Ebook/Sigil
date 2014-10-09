@@ -61,7 +61,7 @@ public slots:
      *
      * @param book The book to be displayed.
      */
-    void SetBook(QSharedPointer< Book > book);
+    void SetBook(QSharedPointer<Book> book);
 
     /**
      * Refreshes the display of the book's TOC.
@@ -137,7 +137,7 @@ private:
     /**
      * The book currently being displayed.
      */
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     /**
      * A container widget for the TOC UI widgets.

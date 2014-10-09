@@ -35,7 +35,7 @@ static const QString TEMPLATE_BEGIN_TEXT =
     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
     "<head>\n"
     "<title>Index</title>\n"
-    "<link href=\"../Styles/" % SGC_INDEX_CSS_FILENAME % "\" rel=\"stylesheet\" type=\"text/css\" />\n" 
+    "<link href=\"../Styles/" % SGC_INDEX_CSS_FILENAME % "\" rel=\"stylesheet\" type=\"text/css\" />\n"
     "</head>\n"
     "<body>\n";
 
@@ -88,7 +88,7 @@ void IndexHTMLWriter::WriteEntries(QStandardItem *parent_item)
         // entry then insert a special separator.
         QChar new_letter = item->text()[0].toLower();
         if (new_letter != letter && parent_item == root_item) {
-            letter = new_letter;  
+            letter = new_letter;
             m_IndexHTMLFile += "<div class=\"sgc-index-new-letter\">";
             m_IndexHTMLFile += QString(letter.toUpper());
             m_IndexHTMLFile += "</div>";
@@ -109,7 +109,7 @@ void IndexHTMLWriter::WriteEntries(QStandardItem *parent_item)
                 }
                 m_IndexHTMLFile += "<a href=\"" % target % "\">" % QString::number(ref_count) % "</a>";
                 ref_count++;
-    
+
             }
         }
 

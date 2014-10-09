@@ -186,8 +186,7 @@ void IndexEditorModel::LoadData(const QString &filename, QStandardItem *item)
                 int tab_position = line.indexOf("\t");
                 entry->pattern = line.left(tab_position);
                 entry->index_entry = line.right(line.length() - tab_position - 1);
-            }
-            else {
+            } else {
                 entry->pattern = line;
             }
             AddFullNameEntry(entry, item);

@@ -45,7 +45,7 @@ class CharactersInHTMLFilesWidget : public ReportsWidget
 public:
     CharactersInHTMLFilesWidget();
 
-    void CreateReport(QSharedPointer< Book > m_Book);
+    void CreateReport(QSharedPointer<Book> m_Book);
 
 signals:
     void CloseDialog();
@@ -69,9 +69,9 @@ private:
     void SetupTable();
     void AddTableData();
 
-    QList < QChar > GetDisplayedCharacters(QList< HTMLResource * > resources);
+    QList <QChar> GetDisplayedCharacters(QList<HTMLResource *> resources);
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QStandardItemModel *m_ItemModel;
 

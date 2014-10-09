@@ -101,10 +101,10 @@ public:
     void GrabFocus();
 
     // inherited
-    QList< ViewEditor::ElementIndex > GetCaretLocation();
+    QList<ViewEditor::ElementIndex> GetCaretLocation();
 
     // inherited
-    void StoreCaretLocationUpdate(const QList< ViewEditor::ElementIndex > &hierarchy);
+    void StoreCaretLocationUpdate(const QList<ViewEditor::ElementIndex> &hierarchy);
 
     // inherited
     bool ExecuteCaretUpdate();
@@ -215,7 +215,7 @@ private:
      *
      * @return The element-selecting JavaScript code.
      */
-    QString GetElementSelectingJS_NoTextNodes(const QList< ViewEditor::ElementIndex > &hierarchy) const;
+    QString GetElementSelectingJS_NoTextNodes(const QList<ViewEditor::ElementIndex> &hierarchy) const;
 
     /**
      * Builds the element-selecting JavaScript code, ignoring all the
@@ -225,7 +225,7 @@ private:
      *
      * @return The element-selecting JavaScript code.
      */
-    QString GetElementSelectingJS_WithTextNode(const QList< ViewEditor::ElementIndex > &hierarchy) const;
+    QString GetElementSelectingJS_WithTextNode(const QList<ViewEditor::ElementIndex> &hierarchy) const;
 
     /**
      * Converts a DomNode from a Dom of the current page
@@ -254,7 +254,7 @@ private:
      * @return The offset.
      */
     int GetSelectionOffset(const xc::DOMDocument &document,
-                           const QMap< int, xc::DOMNode * > &node_offsets,
+                           const QMap<int, xc::DOMNode *> &node_offsets,
                            Searchable::Direction search_direction);
 
     /**
@@ -270,12 +270,12 @@ private:
          * A map with text node starting offsets as keys,
          * and those text nodes as values.
          */
-        QMap< int, xc::DOMNode * > node_offsets;
+        QMap<int, xc::DOMNode *> node_offsets;
 
         /**
          *  A DOM document with the loaded text.
          */
-        shared_ptr< xc::DOMDocument > document;
+        shared_ptr<xc::DOMDocument> document;
     };
 
     /**
@@ -333,7 +333,7 @@ private:
      * @return The inputs for a \c range object.
      * @see SearchTools
      */
-    SelectRangeInputs GetRangeInputs(const QMap< int, xc::DOMNode * > &node_offsets,
+    SelectRangeInputs GetRangeInputs(const QMap<int, xc::DOMNode *> &node_offsets,
                                      int string_start,
                                      int string_length) const;
 

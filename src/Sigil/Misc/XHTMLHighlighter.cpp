@@ -425,7 +425,7 @@ void XHTMLHighlighter::CheckSpelling(const QString &text)
     // at some zoom levels and often doesn't display at all. So we're using wave
     // underline since it's good enough for most people.
     format.setUnderlineStyle(QTextCharFormat::WaveUnderline);
-    QList< HTMLSpellCheck::MisspelledWord > misspelled_words = HTMLSpellCheck::GetMisspelledWords(text);
+    QList<HTMLSpellCheck::MisspelledWord> misspelled_words = HTMLSpellCheck::GetMisspelledWords(text);
     foreach(HTMLSpellCheck::MisspelledWord misspelled_word, misspelled_words) {
         setFormat(misspelled_word.offset, misspelled_word.length, format);
     }

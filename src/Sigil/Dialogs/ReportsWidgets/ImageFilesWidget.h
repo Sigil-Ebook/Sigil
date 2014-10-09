@@ -47,7 +47,7 @@ class ImageFilesWidget : public ReportsWidget
 public:
     ImageFilesWidget();
 
-    void CreateReport(QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer<Book> book);
 
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 

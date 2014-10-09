@@ -48,14 +48,14 @@ public:
      * @return The number of matching occurrences.
      */
     static int CountInFiles(const QString &search_regex,
-                            QList< Resource * > resources,
+                            QList<Resource *> resources,
                             SearchType search_type,
                             bool check_spelling = false);
 
 
     static int ReplaceInAllFIles(const QString &search_regex,
                                  const QString &replacement,
-                                 QList< Resource * > resources,
+                                 QList<Resource *> resources,
                                  SearchType search_type);
 
 private:
@@ -89,11 +89,11 @@ private:
                                  const QString &replacement,
                                  TextResource *text_resource);
 
-    static tuple< QString, int > PerformGlobalReplace(const QString &text,
+    static tuple<QString, int> PerformGlobalReplace(const QString &text,
             const QString &search_regex,
             const QString &replacement);
 
-    static tuple< QString, int > PerformHTMLSpellCheckReplace(const QString &text,
+    static tuple<QString, int> PerformHTMLSpellCheckReplace(const QString &text,
             const QString &search_regex,
             const QString &replacement);
 

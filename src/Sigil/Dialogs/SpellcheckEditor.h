@@ -112,7 +112,7 @@ private:
     QAction *m_Find;
     QAction *m_SelectAll;
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QStandardItemModel *m_SpellcheckEditorModel;
 

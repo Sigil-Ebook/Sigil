@@ -51,7 +51,7 @@ ClassesInHTMLFilesWidget::ClassesInHTMLFilesWidget()
     connectSignalsSlots();
 }
 
-void ClassesInHTMLFilesWidget::CreateReport(QSharedPointer< Book > book)
+void ClassesInHTMLFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
     SetupTable();
@@ -183,12 +183,12 @@ void ClassesInHTMLFilesWidget::Save()
         QString text = "";
         if (item) {
             text = item->text();
-        }   
+        }
         if (col == 0) {
             row_text.append(text);
         } else {
             row_text.append("," % text);
-        }   
+        }
     }
 
     report_info.append(row_text % "\n");

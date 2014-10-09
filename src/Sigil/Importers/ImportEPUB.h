@@ -50,7 +50,7 @@ public:
 
     // Reads and parses the file
     // and returns the created Book
-    virtual QSharedPointer< Book > GetBook();
+    virtual QSharedPointer<Book> GetBook();
 
 private:
     /**
@@ -107,7 +107,7 @@ private:
      * @return A hash with keys being old references (URLs) to resources,
      *         and values being the new references to those resources.
      */
-    QHash< QString, QString > LoadFolderStructure();
+    QHash<QString, QString> LoadFolderStructure();
 
     /**
      * Loads a single file.
@@ -117,8 +117,8 @@ private:
      * @return A tuple where the first member is the old path to the file,
      *         and the new member is the new, OEBPS-relative path to it.
      */
-    tuple< QString, QString > LoadOneFile(const QString &path,
-                                          const QString &mimetype = QString());
+    tuple<QString, QString> LoadOneFile(const QString &path,
+                                        const QString &mimetype = QString());
 
     /**
      * Performs the necessary modifications to the OPF
@@ -138,11 +138,11 @@ private:
      *         absolute paths to the files and the values are the
      *         encryption algorithm IDs.
      */
-    QHash< QString, QString > ParseEncryptionXml();
+    QHash<QString, QString> ParseEncryptionXml();
 
-    bool BookContentEncrypted(const QHash< QString, QString > &encrypted_files);
+    bool BookContentEncrypted(const QHash<QString, QString> &encrypted_files);
 
-    void AddObfuscatedButUndeclaredFonts(const QHash< QString, QString > &encrypted_files);
+    void AddObfuscatedButUndeclaredFonts(const QHash<QString, QString> &encrypted_files);
 
     /**
      * Another workaround function to handle com.apple.ibooks.display-options.xml
@@ -155,9 +155,9 @@ private:
      */
     void AddNonStandardAppleXML();
 
-    void ProcessFontFiles(const QList< Resource * > &resources,
-                          const QHash< QString, QString > &updates,
-                          const QHash< QString, QString > &encrypted_files);
+    void ProcessFontFiles(const QList<Resource *> &resources,
+                          const QHash<QString, QString> &updates,
+                          const QHash<QString, QString> &encrypted_files);
 
     /**
      * The main temp folder where files are stored.
@@ -187,21 +187,21 @@ private:
      * manifest; The keys are the element ID's,
      * the values are stored paths to the files.
      */
-    QMap< QString, QString > m_Files;
+    QMap<QString, QString> m_Files;
 
     /**
      * The map of all files in the publication's manifest;
      * The keys are the element ID's, the vaules are the
      * mimetype of the file.
      */
-    QMap< QString, QString > m_FileMimetypes;
+    QMap<QString, QString> m_FileMimetypes;
 
     /**
      * InDesign likes listing several files multiple times in the manifest,
      * even though that's explicitly forbidden by the spec. So we use this
      * to make sure we don't load such files multiple times.
      */
-    QSet< QString > m_MainfestFilePaths;
+    QSet<QString> m_MainfestFilePaths;
 
     /**
      * The identifier of the book's unique identifier.
@@ -224,7 +224,7 @@ private:
      * an NCX mimetype. Only one of them will be the actual NCX though.
      * This hash stores all the candidates, as an ID-to-href mapping.
      */
-    QHash< QString, QString > m_NcxCandidates;
+    QHash<QString, QString> m_NcxCandidates;
 
     bool m_HasSpineItems;
     bool m_NCXNotInManifest;

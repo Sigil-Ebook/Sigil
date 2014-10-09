@@ -45,7 +45,7 @@ using boost::tie;
 using boost::tuple;
 
 int SearchOperations::CountInFiles(const QString &search_regex,
-                                   QList< Resource * > resources,
+                                   QList<Resource *> resources,
                                    SearchType search_type,
                                    bool check_spelling)
 {
@@ -66,7 +66,7 @@ int SearchOperations::CountInFiles(const QString &search_regex,
 
 int SearchOperations::ReplaceInAllFIles(const QString &search_regex,
                                         const QString &replacement,
-                                        QList< Resource * > resources,
+                                        QList<Resource *> resources,
                                         SearchType search_type)
 {
     QProgressDialog progress(QObject::tr("Replacing search term..."), 0, 0, resources.count(), Utility::GetMainWindow());
@@ -90,13 +90,13 @@ int SearchOperations::CountInFile(const QString &search_regex,
                                   bool check_spelling)
 {
     QReadLocker locker(&resource->GetLock());
-    HTMLResource *html_resource = qobject_cast< HTMLResource * >(resource);
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
     if (html_resource) {
         return CountInHTMLFile(search_regex, html_resource, search_type, check_spelling);
     }
 
-    TextResource *text_resource = qobject_cast< TextResource * >(resource);
+    TextResource *text_resource = qobject_cast<TextResource *>(resource);
 
     if (text_resource) {
         return CountInTextFile(search_regex, text_resource);
@@ -140,13 +140,13 @@ int SearchOperations::ReplaceInFile(const QString &search_regex,
                                     SearchType search_type)
 {
     QWriteLocker locker(&resource->GetLock());
-    HTMLResource *html_resource = qobject_cast< HTMLResource * >(resource);
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
     if (html_resource) {
         return ReplaceHTMLInFile(search_regex, replacement, html_resource, search_type);
     }
 
-    TextResource *text_resource = qobject_cast< TextResource * >(resource);
+    TextResource *text_resource = qobject_cast<TextResource *>(resource);
 
     if (text_resource) {
         return ReplaceTextInFile(search_regex, replacement, text_resource);
@@ -187,7 +187,7 @@ int SearchOperations::ReplaceTextInFile(const QString &search_regex,
 }
 
 
-tuple< QString, int > SearchOperations::PerformGlobalReplace(const QString &text,
+tuple<QString, int> SearchOperations::PerformGlobalReplace(const QString &text,
         const QString &search_regex,
         const QString &replacement)
 {
@@ -210,7 +210,7 @@ tuple< QString, int > SearchOperations::PerformGlobalReplace(const QString &text
 }
 
 
-tuple< QString, int > SearchOperations::PerformHTMLSpellCheckReplace(const QString &text,
+tuple<QString, int> SearchOperations::PerformHTMLSpellCheckReplace(const QString &text,
         const QString &search_regex,
         const QString &replacement)
 {
@@ -218,7 +218,7 @@ tuple< QString, int > SearchOperations::PerformHTMLSpellCheckReplace(const QStri
     int count = 0;
     int offset = 0;
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
-    QList< HTMLSpellCheck::MisspelledWord > check_spelling = HTMLSpellCheck::GetMisspelledWords(text, 0, text.count(), search_regex);
+    QList<HTMLSpellCheck::MisspelledWord> check_spelling = HTMLSpellCheck::GetMisspelledWords(text, 0, text.count(), search_regex);
     foreach(HTMLSpellCheck::MisspelledWord misspelled_word, check_spelling) {
         SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo(misspelled_word.text);
 

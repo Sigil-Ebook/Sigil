@@ -64,7 +64,7 @@ ContentTab &TabManager::GetCurrentContentTab()
     // TODO: turn on this assert after you make sure a tab
     // is created before this is called in MainWindow constructor
     //Q_ASSERT( widget != NULL );
-    return *qobject_cast< ContentTab * >(widget);
+    return *qobject_cast<ContentTab *>(widget);
 }
 
 QList<ContentTab *> TabManager::GetContentTabs()
@@ -163,7 +163,7 @@ void TabManager::ReopenTabs(MainWindow::ViewState view_state)
 void TabManager::SaveTabData()
 {
     for (int i = 0; i < count(); ++i) {
-        ContentTab *tab = qobject_cast< ContentTab * >(widget(i));
+        ContentTab *tab = qobject_cast<ContentTab *>(widget(i));
 
         if (tab) {
             tab->SaveTabContent();
@@ -301,11 +301,11 @@ void TabManager::MakeCentralTab(ContentTab *tab)
 
 void TabManager::EmitTabChanged()
 {
-    ContentTab *current_tab = qobject_cast< ContentTab * >(currentWidget());
+    ContentTab *current_tab = qobject_cast<ContentTab *>(currentWidget());
 
     if (m_LastContentTab.data() != current_tab) {
         emit TabChanged(m_LastContentTab.data(), current_tab);
-        m_LastContentTab = QPointer< ContentTab >(current_tab);
+        m_LastContentTab = QPointer<ContentTab>(current_tab);
     }
 }
 
@@ -351,7 +351,7 @@ void TabManager::SetFocusInTab()
 
 WellFormedContent *TabManager::GetWellFormedContent(int index)
 {
-    return dynamic_cast< WellFormedContent * >(widget(index));
+    return dynamic_cast<WellFormedContent *>(widget(index));
 }
 
 
@@ -363,7 +363,7 @@ int TabManager::ResourceTabIndex(const Resource &resource) const
     int index = -1;
 
     for (int i = 0; i < count(); ++i) {
-        ContentTab *tab = qobject_cast< ContentTab * >(widget(i));
+        ContentTab *tab = qobject_cast<ContentTab *>(widget(i));
 
         if (tab && tab->GetLoadedResource().GetIdentifier() == identifier) {
             index = i;
@@ -390,7 +390,7 @@ bool TabManager::SwitchedToExistingTab(Resource &resource,
         QWidget *tab = widget(resource_index);
         Q_ASSERT(tab);
         tab->setFocus();
-        FlowTab *flow_tab = qobject_cast< FlowTab * >(tab);
+        FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
 
         if (flow_tab != NULL) {
             if (!caret_location_to_scroll_to.isEmpty()) {
@@ -406,14 +406,14 @@ bool TabManager::SwitchedToExistingTab(Resource &resource,
             return true;
         }
 
-        TextTab *text_tab = qobject_cast< TextTab * >(tab);
+        TextTab *text_tab = qobject_cast<TextTab *>(tab);
 
         if (text_tab != NULL) {
             text_tab->ScrollToLine(line_to_scroll_to);
             return true;
         }
 
-        ImageTab *image_tab = qobject_cast< ImageTab * >(tab);
+        ImageTab *image_tab = qobject_cast<ImageTab *>(tab);
 
         if (image_tab != NULL) {
             return true;
@@ -455,42 +455,42 @@ ContentTab *TabManager::CreateTabForResource(Resource &resource,
         }
 
         case Resource::CSSResourceType: {
-            tab = new CSSTab(*(qobject_cast< CSSResource * >(&resource)), line_to_scroll_to, this);
+            tab = new CSSTab(*(qobject_cast<CSSResource *>(&resource)), line_to_scroll_to, this);
             break;
         }
 
         case Resource::ImageResourceType: {
-            tab = new ImageTab(*(qobject_cast< ImageResource * >(&resource)), this);
+            tab = new ImageTab(*(qobject_cast<ImageResource *>(&resource)), this);
             break;
         }
 
         case Resource::MiscTextResourceType: {
-            tab = new MiscTextTab(*(qobject_cast< MiscTextResource * >(&resource)), line_to_scroll_to, this);
+            tab = new MiscTextTab(*(qobject_cast<MiscTextResource *>(&resource)), line_to_scroll_to, this);
             break;
         }
 
         case Resource::SVGResourceType: {
-            tab = new SVGTab(*(qobject_cast< SVGResource * >(&resource)), line_to_scroll_to, this);
+            tab = new SVGTab(*(qobject_cast<SVGResource *>(&resource)), line_to_scroll_to, this);
             break;
         }
 
         case Resource::OPFResourceType: {
-            tab = new OPFTab(*(qobject_cast< OPFResource * >(&resource)), line_to_scroll_to, this);
+            tab = new OPFTab(*(qobject_cast<OPFResource *>(&resource)), line_to_scroll_to, this);
             break;
         }
 
         case Resource::NCXResourceType: {
-            tab = new NCXTab(*(qobject_cast< NCXResource * >(&resource)), line_to_scroll_to, this);
+            tab = new NCXTab(*(qobject_cast<NCXResource *>(&resource)), line_to_scroll_to, this);
             break;
         }
 
         case Resource::XMLResourceType: {
-            tab = new XMLTab(*(qobject_cast< XMLResource * >(&resource)), line_to_scroll_to, this);
+            tab = new XMLTab(*(qobject_cast<XMLResource *>(&resource)), line_to_scroll_to, this);
             break;
         }
 
         case Resource::TextResourceType: {
-            tab = new TextTab(*(qobject_cast< TextResource * >(&resource)), CodeViewEditor::Highlight_NONE, line_to_scroll_to, this);
+            tab = new TextTab(*(qobject_cast<TextResource *>(&resource)), CodeViewEditor::Highlight_NONE, line_to_scroll_to, this);
             break;
         }
 
@@ -505,7 +505,7 @@ ContentTab *TabManager::CreateTabForResource(Resource &resource,
     }
 
     // Set whether to inform or auto correct well-formed errors.
-    WellFormedContent *wtab = dynamic_cast< WellFormedContent * >(tab);
+    WellFormedContent *wtab = dynamic_cast<WellFormedContent *>(tab);
 
     if (wtab) {
         // In case of well-formed errors we want the tab to be focused.

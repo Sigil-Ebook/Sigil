@@ -50,7 +50,7 @@ public:
      * @param xml_updates The path updates.
      */
     PerformXMLUpdates(const QString &source,
-                      const QHash< QString, QString > &xml_updates);
+                      const QHash<QString, QString> &xml_updates);
 
     /**
      * Constructor.
@@ -59,14 +59,14 @@ public:
      * @param xml_updates The path updates.
      */
     PerformXMLUpdates(const xc::DOMDocument &document,
-                      const QHash< QString, QString > &xml_updates);
+                      const QHash<QString, QString> &xml_updates);
 
     /**
      * Performs the updates.
      *
      * @return The updated DOM of the provided XML file.
      */
-    virtual shared_ptr< xc::DOMDocument > operator()();
+    virtual shared_ptr<xc::DOMDocument> operator()();
 
 protected:
 
@@ -93,7 +93,7 @@ protected:
     /**
      * The parsed DOM document
      */
-    shared_ptr< xc::DOMDocument > m_Document;
+    shared_ptr<xc::DOMDocument> m_Document;
 
 private:
 
@@ -117,7 +117,7 @@ private:
      * The updates that need to be performed. Keys are old paths,
      * values are new paths.
      */
-    const QHash< QString, QString > &m_XMLUpdates;
+    const QHash<QString, QString> &m_XMLUpdates;
 };
 
 #endif // PERFORMXMLUPDATES_H

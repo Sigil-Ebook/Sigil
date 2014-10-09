@@ -75,7 +75,7 @@ public:
         // The headings 'below' this one
         // (those that appear after it in the source and
         // are of higher level/smaller size)
-        QList< Heading > children;
+        QList<Heading> children;
 
         // Have we made a change to the document using the TOC dialog
         bool is_changed;
@@ -93,23 +93,23 @@ public:
     // the list is flat, the headings are *not* in a hierarchy tree.
     // Set include_unwanted_headings to true to get headings that the
     // user has marked as unwanted.
-    static QList< Heading > GetHeadingList(QList< HTMLResource * > html_resources,
-                                           bool include_unwanted_headings = false);
+    static QList<Heading> GetHeadingList(QList<HTMLResource *> html_resources,
+                                         bool include_unwanted_headings = false);
 
-    static QList< Heading > GetHeadingListForOneFile(HTMLResource *html_resource,
+    static QList<Heading> GetHeadingListForOneFile(HTMLResource *html_resource,
             bool include_unwanted_headings = false);
 
     // Takes a flat list of headings and returns a list with those
     // headings sorted into a hierarchy
-    static QList< Heading > MakeHeadingHeirarchy(const QList< Heading > &headings);
+    static QList<Heading> MakeHeadingHeirarchy(const QList<Heading> &headings);
 
     // Takes a hierarchical list of headings and converts it into a flat list
-    static QList< Heading > GetFlattenedHeadings(const QList< Heading > &headings);
+    static QList<Heading> GetFlattenedHeadings(const QList<Heading> &headings);
 
 private:
     // Flattens the provided heading node and its children
     // into a list and returns it
-    static QList< Heading > FlattenHeadingNode(Heading heading);
+    static QList<Heading> FlattenHeadingNode(Heading heading);
 
     // Adds the new_child heading to the parent heading;
     // the new_child is propagated down the tree if necessary

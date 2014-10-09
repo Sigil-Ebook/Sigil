@@ -54,7 +54,7 @@ public:
      * @param parent The object's parent.
      */
     HTMLResource(const QString &mainfolder, const QString &fullfilepath,
-                 const QHash< QString, Resource * > &resources,
+                 const QHash<QString, Resource *> &resources,
                  QObject *parent = NULL);
 
     /**
@@ -121,7 +121,7 @@ private:
      * The resource list from FolderKeeper.
      * @todo This is ugly as hell. Find a way to remove this.
      */
-    const QHash< QString, Resource * > &m_Resources;
+    const QHash<QString, Resource *> &m_Resources;
 };
 
 #endif // HTMLRESOURCE_H

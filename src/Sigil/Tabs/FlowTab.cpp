@@ -662,7 +662,7 @@ bool FlowTab::ViewStatesEnabled()
     return false;
 }
 
-void FlowTab::GoToCaretLocation(QList< ViewEditor::ElementIndex > location)
+void FlowTab::GoToCaretLocation(QList<ViewEditor::ElementIndex> location)
 {
     if (location.isEmpty()) {
         return;
@@ -670,19 +670,17 @@ void FlowTab::GoToCaretLocation(QList< ViewEditor::ElementIndex > location)
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->StoreCaretLocationUpdate(location);
         m_wBookView->ExecuteCaretUpdate();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->StoreCaretLocationUpdate(location);
         m_wCodeView->ExecuteCaretUpdate();
     }
 }
 
-QList< ViewEditor::ElementIndex > FlowTab::GetCaretLocation()
+QList<ViewEditor::ElementIndex> FlowTab::GetCaretLocation()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->GetCaretLocation();
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->GetCaretLocation();
     }
 
@@ -711,8 +709,7 @@ QString FlowTab::GetText()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->toPlainText();
-    }
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->GetHtml();
     }
 
@@ -1454,8 +1451,7 @@ bool FlowTab::PasteClipNumber(int clip_number)
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->PasteClipNumber(clip_number);
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->PasteClipNumber(clip_number);
     }
     return false;
@@ -1465,8 +1461,7 @@ bool FlowTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips)
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->PasteClipEntries(clips);
-    }
-    else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->PasteClipEntries(clips);
     }
     return false;

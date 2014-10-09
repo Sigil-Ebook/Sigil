@@ -51,7 +51,7 @@ public:
      */
     MetaEditor(QWidget *parent = 0);
     ~MetaEditor();
-    void SetBook(QSharedPointer< Book > book);
+    void SetBook(QSharedPointer<Book> book);
     void ForceClose();
 
 signals:
@@ -180,7 +180,7 @@ private:
      * @param field_value The raw string value of the field.
      * @return The list of actual metadata values.
      */
-    static QList< QVariant > InputsInField(const QString &field_value);
+    static QList<QVariant> InputsInField(const QString &field_value);
 
     /**
      * Fills the language combobox with all the supported languages.
@@ -233,9 +233,9 @@ private:
      *
      * @see Book::m_Metadata
      */
-    QList< Metadata::MetaElement > m_Metadata;
+    QList<Metadata::MetaElement> m_Metadata;
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     MetaEditorItemDelegate *m_cbDelegate;
 

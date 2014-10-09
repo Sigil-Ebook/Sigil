@@ -28,7 +28,7 @@
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
-AddMetadata::AddMetadata(const QHash< QString, Metadata::MetaInfo > &metadata, QWidget *parent)
+AddMetadata::AddMetadata(const QHash<QString, Metadata::MetaInfo> &metadata, QWidget *parent)
     :
     QDialog(parent),
     m_Metadata(metadata)

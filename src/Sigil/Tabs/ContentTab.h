@@ -314,7 +314,7 @@ public:
         return "";
     }
 
-    virtual bool MarkSelection() { 
+    virtual bool MarkSelection() {
         return false;
     }
 

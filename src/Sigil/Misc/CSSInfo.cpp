@@ -48,7 +48,7 @@ CSSInfo::CSSInfo(const QString &text, bool isCSSFile)
     }
 }
 
-QList< CSSInfo::CSSSelector * > CSSInfo::getClassSelectors(const QString filterClassName)
+QList<CSSInfo::CSSSelector *> CSSInfo::getClassSelectors(const QString filterClassName)
 {
     QList<CSSInfo::CSSSelector *> selectors;
     foreach(CSSInfo::CSSSelector * cssSelector, m_CSSSelectors) {
@@ -65,7 +65,7 @@ CSSInfo::CSSSelector *CSSInfo::getCSSSelectorForElementClass(const QString &elem
 {
     if (!className.isEmpty()) {
         // Find the selector(s) if any with this class name
-        QList< CSSInfo::CSSSelector * > class_selectors = getClassSelectors(className);
+        QList<CSSInfo::CSSSelector *> class_selectors = getClassSelectors(className);
 
         if (class_selectors.count() > 0) {
             // First look for match on element and class
@@ -83,8 +83,7 @@ CSSInfo::CSSSelector *CSSInfo::getCSSSelectorForElementClass(const QString &elem
                 }
             }
         }
-    }
-    else {
+    } else {
 
         // try match on element name alone
         foreach(CSSInfo::CSSSelector * cssSelector, m_CSSSelectors) {
@@ -112,7 +111,7 @@ QStringList CSSInfo::getAllPropertyValues(QString property)
 
         last_selector_line = cssSelector->line;
 
-        QList< CSSInfo::CSSProperty * > properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
+        QList<CSSInfo::CSSProperty *> properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
         foreach (CSSInfo::CSSProperty *p, properties) {
             // If property is empty return properties of everything
             if (property.isEmpty() || p->name == property) {
@@ -149,7 +148,7 @@ QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
         }
 
         // Now replace the contents inside the braces
-        QList< CSSInfo::CSSProperty * > new_properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
+        QList<CSSInfo::CSSProperty *> new_properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
         const QString &new_properties_text = formatCSSProperties(new_properties, multipleLineFormat, selector_indent);
         new_text.replace(cssSelector->openingBracePos + 1, cssSelector->closingBracePos - cssSelector->openingBracePos - 1, new_properties_text);
         // Reformat the selector text itself - whitespace only since incomplete parsing.
@@ -269,7 +268,7 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
     return new_text;
 }
 
-QList< CSSInfo::CSSProperty * > CSSInfo::getCSSProperties(const QString &text, const int &styleTextStartPos, const int &styleTextEndPos)
+QList<CSSInfo::CSSProperty *> CSSInfo::getCSSProperties(const QString &text, const int &styleTextStartPos, const int &styleTextEndPos)
 {
     QList<CSSProperty *> new_properties;
 
@@ -301,7 +300,7 @@ QList< CSSInfo::CSSProperty * > CSSInfo::getCSSProperties(const QString &text, c
     return new_properties;
 }
 
-QString CSSInfo::formatCSSProperties(QList< CSSInfo::CSSProperty * > new_properties, bool multipleLineFormat, const int &selectorIndent)
+QString CSSInfo::formatCSSProperties(QList<CSSInfo::CSSProperty *> new_properties, bool multipleLineFormat, const int &selectorIndent)
 {
     QString tab_spaces = QString(" ").repeated(TAB_SPACES_WIDTH + selectorIndent);
 

@@ -44,25 +44,25 @@ About::About(QWidget *parent)
     QRegularExpression version_number(VERSION_NUMBERS);
     QRegularExpressionMatch mo = version_number.match(SIGIL_VERSION);
     QString version_text = QString("%1.%2.%3")
-                               .arg(mo.captured(1).toInt())
-                               .arg(mo.captured(2).toInt())
-                               .arg(mo.captured(3).toInt());
+                           .arg(mo.captured(1).toInt())
+                           .arg(mo.captured(2).toInt())
+                           .arg(mo.captured(3).toInt());
     ui.lbVersionDisplay->setText(version_text);
     QString credits = "<h4>" + tr("Maintainer / Lead Developer") + "</h4>" +
-        "<ul><li>John Schember</li></ul>" +
-        "<h4>" + tr("Code Contributors") + "</h4>" +
-        "<ul>" + 
-        "<li>Kevin Hendricks</li>" +
-        "<li>Grant Drake</li>" + 
-        "<li>Dave Heiland</li>" + 
-        "<li>Charles King</li>" + 
-        "<li>Daniel Pavel</li>" + 
-        "<li>Grzegorz Wolszczak</li>" + 
-        "</ul>" + 
-        "<h4>" + tr("Translators") + "</h4>" +
-        "<ul><li><a href=\"https://www.transifex.net/projects/p/sigil/\">https://www.transifex.net/projects/p/sigil/teams/</a></li></ul>" +
-        "<h4>" + tr("Original Creator") + "</h4>" +
-        "<ul><li>Strahinja Marković  (" + tr("retired") + ")</li></ul>";
+                      "<ul><li>John Schember</li></ul>" +
+                      "<h4>" + tr("Code Contributors") + "</h4>" +
+                      "<ul>" +
+                      "<li>Kevin Hendricks</li>" +
+                      "<li>Grant Drake</li>" +
+                      "<li>Dave Heiland</li>" +
+                      "<li>Charles King</li>" +
+                      "<li>Daniel Pavel</li>" +
+                      "<li>Grzegorz Wolszczak</li>" +
+                      "</ul>" +
+                      "<h4>" + tr("Translators") + "</h4>" +
+                      "<ul><li><a href=\"https://www.transifex.net/projects/p/sigil/\">https://www.transifex.net/projects/p/sigil/teams/</a></li></ul>" +
+                      "<h4>" + tr("Original Creator") + "</h4>" +
+                      "<ul><li>Strahinja Marković  (" + tr("retired") + ")</li></ul>";
     ui.creditsDisplay->setText(credits);
 }
 

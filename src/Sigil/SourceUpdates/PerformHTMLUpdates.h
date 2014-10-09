@@ -31,14 +31,14 @@ class PerformHTMLUpdates : public PerformXMLUpdates
 public:
 
     PerformHTMLUpdates(const QString &source,
-                       const QHash< QString, QString > &html_updates,
-                       const QHash< QString, QString > &css_updates);
+                       const QHash<QString, QString> &html_updates,
+                       const QHash<QString, QString> &css_updates);
 
     PerformHTMLUpdates(const xc::DOMDocument &document,
-                       const QHash< QString, QString > &html_updates,
-                       const QHash< QString, QString > &css_updates);
+                       const QHash<QString, QString> &html_updates,
+                       const QHash<QString, QString> &css_updates);
 
-    shared_ptr< xc::DOMDocument > operator()();
+    shared_ptr<xc::DOMDocument> operator()();
 
 private:
 
@@ -49,7 +49,7 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    const QHash< QString, QString > &m_CSSUpdates;
+    const QHash<QString, QString> &m_CSSUpdates;
 };
 
 #endif // PERFORMHTMLUPDATES_H

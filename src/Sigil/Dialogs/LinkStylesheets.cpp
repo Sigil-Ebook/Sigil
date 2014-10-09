@@ -29,7 +29,7 @@
 static const QString SETTINGS_GROUP   = "link_stylesheets";
 
 // Constructor;
-LinkStylesheets::LinkStylesheets(QList<std::pair<QString, bool> > stylesheets_map, QWidget *parent)
+LinkStylesheets::LinkStylesheets(QList<std::pair<QString, bool>> stylesheets_map, QWidget *parent)
     :
     QDialog(parent),
     m_StylesheetsMap(stylesheets_map)
@@ -85,7 +85,7 @@ void LinkStylesheets::InsertStylesheetIntoModel(std::pair<QString, bool> stylesh
         item_included_check->setCheckState(Qt::Unchecked);
     }
 
-    QList< QStandardItem * > items;
+    QList<QStandardItem *> items;
     items << item_included_check << item_filename;
     m_StylesheetsModel.invisibleRootItem()->appendRow(items);
 }
@@ -132,7 +132,7 @@ void LinkStylesheets::MoveUp()
         return;
     }
 
-    QList< QStandardItem * > items =  m_StylesheetsModel.invisibleRootItem()->takeRow(row - 1);
+    QList<QStandardItem *> items =  m_StylesheetsModel.invisibleRootItem()->takeRow(row - 1);
     m_StylesheetsModel.invisibleRootItem()->insertRow(row, items);
 }
 
@@ -151,7 +151,7 @@ void LinkStylesheets::MoveDown()
         return;
     }
 
-    QList< QStandardItem * > items =  m_StylesheetsModel.invisibleRootItem()->takeRow(row + 1);
+    QList<QStandardItem *> items =  m_StylesheetsModel.invisibleRootItem()->takeRow(row + 1);
     m_StylesheetsModel.invisibleRootItem()->insertRow(row, items);
 }
 
@@ -162,7 +162,7 @@ void LinkStylesheets::UpdateStylesheets()
     int rows = m_StylesheetsModel.invisibleRootItem()->rowCount();
 
     for (int row = 0; row < rows; row++) {
-        QList< QStandardItem * > items =  m_StylesheetsModel.invisibleRootItem()->takeRow(0);
+        QList<QStandardItem *> items =  m_StylesheetsModel.invisibleRootItem()->takeRow(0);
 
         if (items.at(0)->checkState() == Qt::Checked) {
             m_Stylesheets << items.at(1)->data(Qt::DisplayRole).toString();

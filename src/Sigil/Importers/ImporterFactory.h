@@ -36,7 +36,7 @@ public:
     // Destructor
     ~ImporterFactory();
 
-    // Returns the appropriate importer 
+    // Returns the appropriate importer
     // for the given filename
     Importer *GetImporter(const QString &filename);
 

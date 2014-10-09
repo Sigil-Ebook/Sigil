@@ -54,16 +54,16 @@ using boost::tuple;
 #define NON_WELL_FORMED_MESSAGE "Cannot perform HTML updates since the file is not well formed"
 
 QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loaded,
-        const QList< Resource * > &resources,
-        const QHash< QString, QString > &updates,
+        const QList<Resource *> &resources,
+        const QHash<QString, QString> &updates,
         const QList<XMLResource *> &non_well_formed)
 {
-    QHash< QString, QString > html_updates;
-    QHash< QString, QString > css_updates;
-    QHash< QString, QString > xml_updates;
+    QHash<QString, QString> html_updates;
+    QHash<QString, QString> css_updates;
+    QHash<QString, QString> xml_updates;
     tie(html_updates, css_updates, xml_updates) = SeparateHtmlCssXmlUpdates(updates);
-    QList< HTMLResource * > html_resources;
-    QList< CSSResource * > css_resources;
+    QList<HTMLResource *> html_resources;
+    QList<CSSResource *> css_resources;
     OPFResource *opf_resource = NULL;
     NCXResource *ncx_resource = NULL;
     int num_files = resources.count();
@@ -72,19 +72,19 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
         Resource *resource = resources.at(i);
 
         if (resource->Type() == Resource::HTMLResourceType) {
-            html_resources.append(qobject_cast< HTMLResource * >(resource));
+            html_resources.append(qobject_cast<HTMLResource *>(resource));
         } else if (resource->Type() == Resource::CSSResourceType) {
-            css_resources.append(qobject_cast< CSSResource * >(resource));
+            css_resources.append(qobject_cast<CSSResource *>(resource));
         } else if (resource->Type() == Resource::OPFResourceType) {
-            opf_resource = qobject_cast< OPFResource * >(resource);
+            opf_resource = qobject_cast<OPFResource *>(resource);
         } else if (resource->Type() == Resource::NCXResourceType) {
-            ncx_resource = qobject_cast< NCXResource * >(resource);
+            ncx_resource = qobject_cast<NCXResource *>(resource);
         }
     }
 
     QFutureSynchronizer<void> sync;
-    QFuture< QString > html_future;
-    QFuture< void > css_future;
+    QFuture<QString> html_future;
+    QFuture<void> css_future;
 
     if (resources_already_loaded) {
         html_future = QtConcurrent::mapped(html_resources, boost::bind(UpdateOneHTMLFile, _1, html_updates, css_updates));
@@ -126,15 +126,15 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
 }
 
 
-tuple < QHash< QString, QString >,
-      QHash< QString, QString >,
-      QHash< QString, QString > >
-      UniversalUpdates::SeparateHtmlCssXmlUpdates(const QHash< QString, QString > &updates)
+tuple <QHash<QString, QString>,
+      QHash<QString, QString>,
+      QHash<QString, QString>>
+      UniversalUpdates::SeparateHtmlCssXmlUpdates(const QHash<QString, QString> &updates)
 {
-    QHash< QString, QString > html_updates = updates;
-    QHash< QString, QString > css_updates;
-    QHash< QString, QString > xml_updates;
-    QList< QString > keys = updates.keys();
+    QHash<QString, QString> html_updates = updates;
+    QHash<QString, QString> css_updates;
+    QHash<QString, QString> xml_updates;
+    QList<QString> keys = updates.keys();
     int num_keys = keys.count();
 
     for (int i = 0; i < num_keys; ++i) {
@@ -162,8 +162,8 @@ tuple < QHash< QString, QString >,
 
 
 QString UniversalUpdates::UpdateOneHTMLFile(HTMLResource *html_resource,
-        const QHash< QString, QString > &html_updates,
-        const QHash< QString, QString > &css_updates)
+        const QHash<QString, QString> &html_updates,
+        const QHash<QString, QString> &css_updates)
 {
     if (!html_resource) {
         return QString();
@@ -185,7 +185,7 @@ QString UniversalUpdates::UpdateOneHTMLFile(HTMLResource *html_resource,
 
 
 void UniversalUpdates::UpdateOneCSSFile(CSSResource *css_resource,
-                                        const QHash< QString, QString > &css_updates)
+                                        const QHash<QString, QString> &css_updates)
 {
     if (!css_resource) {
         return;
@@ -197,8 +197,8 @@ void UniversalUpdates::UpdateOneCSSFile(CSSResource *css_resource,
 }
 
 QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
-        const QHash< QString, QString > &html_updates,
-        const QHash< QString, QString > &css_updates,
+        const QHash<QString, QString> &html_updates,
+        const QHash<QString, QString> &css_updates,
         const QList<XMLResource *> &non_well_formed)
 {
     SettingsStore ss;
@@ -249,7 +249,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
 
 
 void UniversalUpdates::LoadAndUpdateOneCSSFile(CSSResource *css_resource,
-        const QHash< QString, QString > &css_updates)
+        const QHash<QString, QString> &css_updates)
 {
     if (!css_resource) {
         return;
@@ -262,7 +262,7 @@ void UniversalUpdates::LoadAndUpdateOneCSSFile(CSSResource *css_resource,
 
 
 QString UniversalUpdates::UpdateOPFFile(OPFResource *opf_resource,
-                                        const QHash< QString, QString > &xml_updates)
+                                        const QHash<QString, QString> &xml_updates)
 {
     if (!opf_resource) {
         return QString();
@@ -272,7 +272,7 @@ QString UniversalUpdates::UpdateOPFFile(OPFResource *opf_resource,
     const QString &source = opf_resource->GetText();
 
     try {
-        shared_ptr< xc::DOMDocument > document = PerformOPFUpdates(source, xml_updates)();
+        shared_ptr<xc::DOMDocument> document = PerformOPFUpdates(source, xml_updates)();
         opf_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*document.get()));
         return QString();
     } catch (const ErrorBuildingDOM &) {
@@ -285,7 +285,7 @@ QString UniversalUpdates::UpdateOPFFile(OPFResource *opf_resource,
 
 
 QString UniversalUpdates::UpdateNCXFile(NCXResource *ncx_resource,
-                                        const QHash< QString, QString > &xml_updates)
+                                        const QHash<QString, QString> &xml_updates)
 {
     if (!ncx_resource) {
         return QString();
@@ -295,7 +295,7 @@ QString UniversalUpdates::UpdateNCXFile(NCXResource *ncx_resource,
     const QString &source = ncx_resource->GetText();
 
     try {
-        shared_ptr< xc::DOMDocument > document = PerformNCXUpdates(source, xml_updates)();
+        shared_ptr<xc::DOMDocument> document = PerformNCXUpdates(source, xml_updates)();
         ncx_resource->SetText(CleanSource::PrettifyDOCTYPEHeader(XhtmlDoc::GetDomDocumentAsString(*document.get())));
         return QString();
     } catch (const ErrorBuildingDOM &) {

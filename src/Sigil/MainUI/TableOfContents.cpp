@@ -72,7 +72,7 @@ void TableOfContents::showEvent(QShowEvent *event)
     raise();
 }
 
-void TableOfContents::SetBook(QSharedPointer< Book > book)
+void TableOfContents::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
     m_NCXModel.SetBook(book);

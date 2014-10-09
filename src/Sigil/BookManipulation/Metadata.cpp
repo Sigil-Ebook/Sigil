@@ -97,13 +97,13 @@ bool Metadata::IsRelator(QString code)
     return m_Relators.contains(code);
 }
 
-const QHash< QString, Metadata::MetaInfo > &Metadata::GetRelatorMap()
+const QHash<QString, Metadata::MetaInfo> &Metadata::GetRelatorMap()
 {
     return m_Relators;
 }
 
 
-const QHash< QString, Metadata::MetaInfo > &Metadata::GetBasicMetaMap()
+const QHash<QString, Metadata::MetaInfo> &Metadata::GetBasicMetaMap()
 {
     return m_Basic;
 }

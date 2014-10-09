@@ -38,7 +38,7 @@
 #include "sigil_exception.h"
 #include "SourceUpdates/UniversalUpdates.h"
 
-static const QList< QChar > FORBIDDEN_FILENAME_CHARS = QList< QChar >() << '<' << '>' << ':'
+static const QList<QChar> FORBIDDEN_FILENAME_CHARS = QList<QChar>() << '<' << '>' << ':'
         << '"' << '/' << '\\'
         << '|' << '?' << '*';
 
@@ -59,7 +59,7 @@ OPFModel::OPFModel(QObject *parent)
             this, SLOT(RowsRemovedHandler(const QModelIndex &, int, int)));
     connect(this, SIGNAL(itemChanged(QStandardItem *)),
             this, SLOT(ItemChangedHandler(QStandardItem *)));
-    QList< QStandardItem * > items;
+    QList<QStandardItem *> items;
     items.append(&m_TextFolderItem);
     items.append(&m_StylesFolderItem);
     items.append(&m_ImagesFolderItem);
@@ -81,7 +81,7 @@ OPFModel::OPFModel(QObject *parent)
 }
 
 
-void OPFModel::SetBook(QSharedPointer< Book > book)
+void OPFModel::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
     connect(this, SIGNAL(BookContentModified()), m_Book.data(), SLOT(SetModified()));
@@ -124,13 +124,13 @@ QModelIndex OPFModel::GetTextFolderModelIndex()
 }
 
 
-QList <Resource * > OPFModel::GetResourceListInFolder(Resource *resource)
+QList <Resource *> OPFModel::GetResourceListInFolder(Resource *resource)
 {
     return GetResourceListInFolder(resource->Type());
 }
 
 
-QList <Resource * > OPFModel::GetResourceListInFolder(Resource::ResourceType resource_type)
+QList <Resource *> OPFModel::GetResourceListInFolder(Resource::ResourceType resource_type)
 {
     QList <Resource *> resources;
     QStandardItem *folder = NULL;
@@ -187,7 +187,7 @@ QModelIndex OPFModel::GetModelItemIndex(Resource &resource, IndexChoice indexCho
                 (child == &m_MiscFolderItem && resourceType == Resource::GenericResourceType) ||
                 (child == &m_AudioFolderItem && resourceType == Resource::AudioResourceType) ||
                 (child == &m_VideoFolderItem && resourceType == Resource::VideoResourceType)
-            ) {
+               ) {
                 folder = child;
             }
         }
@@ -307,7 +307,7 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
             if (!Utility::use_filename_warning(new_filename)) {
                 item->setText(resource.Filename());
                 return;
-            } 
+            }
             RenameResource(resource, new_filename);
         }
     }
@@ -329,7 +329,7 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QStringList not_renamed;
-    QHash< QString, QString > update;
+    QHash<QString, QString> update;
     foreach(Resource * resource, resources) {
         const QString &old_fullpath = resource->GetFullPath();
         QString old_filename = resource->Filename();
@@ -381,7 +381,7 @@ void OPFModel::InitializeModel()
 {
     Q_ASSERT(m_Book);
     ClearModel();
-    QList< Resource * > resources = m_Book->GetFolderKeeper().GetResourceList();
+    QList<Resource *> resources = m_Book->GetFolderKeeper().GetResourceList();
     QHash <Resource *, int> reading_order_all = m_Book->GetOPF().GetReadingOrderAll(resources);
     QHash <QString, QString> semantic_type_all = m_Book->GetOPF().GetGuideSemanticNameForPaths();
 
@@ -401,8 +401,7 @@ void OPFModel::InitializeModel()
             int reading_order = -1;
             if (reading_order_all.contains(resource)) {
                 reading_order = reading_order_all[resource];
-            }
-            else {
+            } else {
                 reading_order = NO_READING_ORDER;
             }
 
@@ -441,13 +440,13 @@ void OPFModel::InitializeModel()
 
 void OPFModel::UpdateHTMLReadingOrders()
 {
-    QList< HTMLResource * > reading_order_htmls;
+    QList<HTMLResource *> reading_order_htmls;
 
     for (int i = 0; i < m_TextFolderItem.rowCount(); ++i) {
         QStandardItem *html_item = m_TextFolderItem.child(i);
         Q_ASSERT(html_item);
         html_item->setData(i, READING_ORDER_ROLE);
-        HTMLResource *html_resource =  qobject_cast< HTMLResource * >(
+        HTMLResource *html_resource =  qobject_cast<HTMLResource *>(
                                            &m_Book->GetFolderKeeper().GetResourceByIdentifier(html_item->data().toString()));
 
         if (html_resource != NULL) {

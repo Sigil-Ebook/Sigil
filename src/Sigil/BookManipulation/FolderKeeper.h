@@ -120,9 +120,9 @@ public:
      *
      * @return The resource list.
      */
-    QList< Resource * > GetResourceList() const;
+    QList<Resource *> GetResourceList() const;
 
-    QList< Resource * > GetResourceListByType(Resource::ResourceType type) const;
+    QList<Resource *> GetResourceListByType(Resource::ResourceType type) const;
 
     /**
      * Returns a list of all resources of type T in a list
@@ -131,8 +131,8 @@ public:
      * @param should_be_sorted If \c true, the list is sorted.
      * @return The resource list.
      */
-    template< class T >
-    QList< T * > GetResourceTypeList(bool should_be_sorted = false) const;
+    template<class T>
+    QList<T *> GetResourceTypeList(bool should_be_sorted = false) const;
 
     /**
      * Returns a list of all resources of type T in a list
@@ -141,8 +141,8 @@ public:
      * @param should_be_sorted If \c true, the list is sorted.
      * @return The resource list.
      */
-    template< class T >
-    QList< Resource * > GetResourceTypeAsGenericList(bool should_be_sorted = false) const;
+    template<class T>
+    QList<Resource *> GetResourceTypeAsGenericList(bool should_be_sorted = false) const;
 
     /**
      * Returns a resource with the given identifier.
@@ -288,11 +288,11 @@ private:
      * @param second_item The second item in the comparison.
      * @return The less-than comparison result.
      */
-    template< typename T >
+    template<typename T>
     static bool PointerLessThan(T *first_item, T *second_item);
 
-    template< typename T >
-    QList< T * > ListResourceSort(const QList< T * > &resource_list) const;
+    template<typename T>
+    QList<T *> ListResourceSort(const QList<T *> &resource_list) const;
 
 
     ///////////////////////////////
@@ -316,7 +316,7 @@ private:
      * The keys are the UUID identifiers, the values
      * are the pointers to the actual resources.
      */
-    QHash< QString, Resource * > m_Resources;
+    QHash<QString, Resource *> m_Resources;
 
     /**
      * Ensures thread-safe access to the m_Resources hash.
@@ -349,12 +349,12 @@ private:
 };
 
 
-template< class T >
-QList< T * > FolderKeeper::GetResourceTypeList(bool should_be_sorted) const
+template<class T>
+QList<T *> FolderKeeper::GetResourceTypeList(bool should_be_sorted) const
 {
-    QList< T * > onetype_resources;
+    QList<T *> onetype_resources;
     foreach(Resource * resource, m_Resources.values()) {
-        T *type_resource = qobject_cast< T * >(resource);
+        T *type_resource = qobject_cast<T *>(resource);
 
         if (type_resource) {
             onetype_resources.append(type_resource);
@@ -368,12 +368,12 @@ QList< T * > FolderKeeper::GetResourceTypeList(bool should_be_sorted) const
     return onetype_resources;
 }
 
-template< class T >
-QList< Resource * > FolderKeeper::GetResourceTypeAsGenericList(bool should_be_sorted) const
+template<class T>
+QList<Resource *> FolderKeeper::GetResourceTypeAsGenericList(bool should_be_sorted) const
 {
-    QList< Resource * > resources;
+    QList<Resource *> resources;
     foreach(Resource * resource, m_Resources.values()) {
-        T *type_resource = qobject_cast< T * >(resource);
+        T *type_resource = qobject_cast<T *>(resource);
 
         if (type_resource) {
             resources.append(resource);
@@ -388,11 +388,11 @@ QList< Resource * > FolderKeeper::GetResourceTypeAsGenericList(bool should_be_so
 }
 
 
-template< typename T > inline
-QList< T * > FolderKeeper::ListResourceSort(const QList< T * > &resource_list)  const
+template<typename T> inline
+QList<T *> FolderKeeper::ListResourceSort(const QList<T *> &resource_list)  const
 {
-    QList< T * > sorted_list = resource_list;
-    qSort(sorted_list.begin(), sorted_list.end(), FolderKeeper::PointerLessThan< T >);
+    QList<T *> sorted_list = resource_list;
+    qSort(sorted_list.begin(), sorted_list.end(), FolderKeeper::PointerLessThan<T>);
     return sorted_list;
 }
 
@@ -400,11 +400,11 @@ QList< T * > FolderKeeper::ListResourceSort(const QList< T * > &resource_list)  
 // This has to be inline, otherwise we get linker errors about this
 // specialization already being defined.
 template<> inline
-QList< HTMLResource * > FolderKeeper::ListResourceSort< HTMLResource >(const QList< HTMLResource * > &resource_list) const
+QList<HTMLResource *> FolderKeeper::ListResourceSort<HTMLResource>(const QList<HTMLResource *> &resource_list) const
 {
     QStringList spine_order_filenames = GetOPF().GetSpineOrderFilenames();
-    QList< HTMLResource * > htmls = resource_list;
-    QList< HTMLResource * > sorted_htmls;
+    QList<HTMLResource *> htmls = resource_list;
+    QList<HTMLResource *> sorted_htmls;
     foreach(const QString & spine_filename, spine_order_filenames) {
         for (int i = 0; i < htmls.count(); ++i) {
             if (spine_filename == htmls[ i ]->Filename()) {
@@ -422,7 +422,7 @@ QList< HTMLResource * > FolderKeeper::ListResourceSort< HTMLResource >(const QLi
 }
 
 
-template< typename T > inline
+template<typename T> inline
 bool FolderKeeper::PointerLessThan(T *first_item, T *second_item)
 {
     Q_ASSERT(first_item);

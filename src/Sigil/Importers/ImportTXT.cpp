@@ -45,7 +45,7 @@ ImportTXT::ImportTXT(const QString &fullfilepath)
 
 // Reads and parses the file
 // and returns the created Book
-QSharedPointer< Book > ImportTXT::GetBook()
+QSharedPointer<Book> ImportTXT::GetBook()
 {
     if (!Utility::IsFileReadable(m_FullFilePath)) {
         boost_throw(CannotReadFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
@@ -77,7 +77,7 @@ HTMLResource *ImportTXT::CreateHTMLResource(const QString &source)
     QString fullfilepath = tempfolder.GetPath() + "/" + FIRST_SECTION_NAME;
     Utility::WriteUnicodeTextFile(source, fullfilepath);
     m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath);
-    return m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >()[ 0 ];
+    return m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>()[ 0 ];
 }
 
 

@@ -74,7 +74,7 @@ public slots:
      *
      * @param book The book to be validated.
      */
-    void SetBook(QSharedPointer< Book > book);
+    void SetBook(QSharedPointer<Book> book);
 
 signals:
 
@@ -116,7 +116,7 @@ private:
      *
      * @param results A list of FlightCrew validation results.
      */
-    void DisplayResults(const std::vector< fc::Result > &results);
+    void DisplayResults(const std::vector<fc::Result> &results);
 
     /**
      * Informs the user that no problems were found.
@@ -149,7 +149,7 @@ private:
     /**
      * The book being validated.
      */
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 };
 
 #endif // VALIDATIONRESULTSVIEW_H

@@ -69,15 +69,15 @@ void Index::AddIndexIDsOneFile(HTMLResource *html_resource)
 {
     QWriteLocker locker(&html_resource->GetLock());
     shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    QList< xc::DOMNode * > nodes = XhtmlDoc::GetIDNodes(*d.get());
+    QList<xc::DOMNode *> nodes = XhtmlDoc::GetIDNodes(*d.get());
     bool resource_updated = false;
     int index_id_number = 1;
     foreach(xc::DOMNode * node, nodes) {
         QString index_id_value;
-        xc::DOMElement &element = static_cast< xc::DOMElement &>(*node);
+        xc::DOMElement &element = static_cast<xc::DOMElement &>(*node);
 
         // Get the text of all sub-nodes.
-         QString text_node_text = XhtmlDoc::GetIDElementText(*node);
+        QString text_node_text = XhtmlDoc::GetIDElementText(*node);
         // Convert &nbsp; to space since Index Editor unfortunately does the same.
         text_node_text.replace(QChar(160), " ");
 

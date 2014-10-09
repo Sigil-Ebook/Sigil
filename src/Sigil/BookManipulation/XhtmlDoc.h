@@ -51,7 +51,7 @@ public:
         // The attributes of the element;
         // the keys are the attribute names,
         // the values are the attribute values
-        QHash< QString, QString > attributes;
+        QHash<QString, QString> attributes;
     };
 
     // Resolves custom ENTITY declarations
@@ -60,39 +60,39 @@ public:
     // Returns a list of XMLElements representing all
     // the elements of the specified tag name
     // in the head section of the provided XHTML source code
-    static QList< XMLElement > GetTagsInHead(const QString &source, const QString &tag_name);
+    static QList<XMLElement> GetTagsInHead(const QString &source, const QString &tag_name);
 
     // Returns a list of XMLElements representing all
     // the elements of the specified tag name
     // in the entire document of the provided XHTML source code
-    static QList< XMLElement > GetTagsInDocument(const QString &source, const QString &tag_name);
+    static QList<XMLElement> GetTagsInDocument(const QString &source, const QString &tag_name);
 
-    static QList< xc::DOMNode * > GetNodeChildren(const xc::DOMNode &node);
+    static QList<xc::DOMNode *> GetNodeChildren(const xc::DOMNode &node);
 
-    static QHash< QString, QString > GetNodeAttributes(const xc::DOMNode &node);
+    static QHash<QString, QString> GetNodeAttributes(const xc::DOMNode &node);
 
-    static QList< xc::DOMElement * > GetTagMatchingDescendants(
+    static QList<xc::DOMElement *> GetTagMatchingDescendants(
         const xc::DOMNode &node,
         const QStringList &tag_names);
 
-    static QList< xc::DOMElement * > GetTagMatchingDescendants(
+    static QList<xc::DOMElement *> GetTagMatchingDescendants(
         const xc::DOMElement &node,
         const QString &tag_name);
 
-    static QList< xc::DOMElement * > GetTagMatchingDescendants(
+    static QList<xc::DOMElement *> GetTagMatchingDescendants(
         const xc::DOMDocument &node,
         const QString &tag_name);
 
-    static QList< xc::DOMElement * > GetTagMatchingDescendants(
+    static QList<xc::DOMElement *> GetTagMatchingDescendants(
         const xc::DOMDocument &node,
         const QString &tag_name,
         const QString &namespace_name);
 
-    static QList< QString > GetAllDescendantStyleUrls(const xc::DOMNode &node);
+    static QList<QString> GetAllDescendantStyleUrls(const xc::DOMNode &node);
 
-    static QList< QString > GetAllDescendantHrefs(const xc::DOMNode &node);
+    static QList<QString> GetAllDescendantHrefs(const xc::DOMNode &node);
 
-    static QList< QString > GetAllDescendantIDs(const xc::DOMNode &node);
+    static QList<QString> GetAllDescendantIDs(const xc::DOMNode &node);
     static QList<QString> GetAllDescendantClasses(const xc::DOMNode &node);
 
     static QString GetDomNodeAsString(const xc::DOMNode &node);
@@ -103,11 +103,11 @@ public:
      * Parses the source text into a DOM and returns a shared pointer
      * to the heap-created document.
      */
-    static boost::shared_ptr< xc::DOMDocument > LoadTextIntoDocument(const QString &source);
+    static boost::shared_ptr<xc::DOMDocument> LoadTextIntoDocument(const QString &source);
 
-    static boost::shared_ptr< xc::DOMDocument > CopyDomDocument(const xc::DOMDocument &document);
+    static boost::shared_ptr<xc::DOMDocument> CopyDomDocument(const xc::DOMDocument &document);
 
-    static boost::shared_ptr< xc::DOMDocument > RaiiWrapDocument(xc::DOMDocument *document);
+    static boost::shared_ptr<xc::DOMDocument> RaiiWrapDocument(xc::DOMDocument *document);
 
     static int NodeLineNumber(const xc::DOMNode &node);
 
@@ -133,7 +133,7 @@ public:
         const QString &tag_name,
         const QString &namespace_name,
         xc::DOMDocument &document,
-        QHash< QString, QString > attributes);
+        QHash<QString, QString> attributes);
 
     static xc::DOMElement *RenameElementInDocument(xc::DOMDocument &document, xc::DOMNode &node, QString tag_name);
 
@@ -151,7 +151,7 @@ public:
     //    Bonnie & Clyde
     static QString ResolveHTMLEntities(const QString &text);
 
-    static QList< QWebElement > QWebElementChildren(const QWebElement &element);
+    static QList<QWebElement> QWebElementChildren(const QWebElement &element);
 
     /**
      * Splits the provided source on SGF section breaks.
@@ -189,10 +189,10 @@ public:
     static xc::DOMDocumentFragment *ConvertToDocumentFragment(const xc::DOMNodeList &list);
 
     // Converts a DomNodeList to a regular QList
-    static QList< xc::DOMNode * > ConvertToRegularList(const xc::DOMNodeList &list);
+    static QList<xc::DOMNode *> ConvertToRegularList(const xc::DOMNodeList &list);
 
     // Returns a list with only the element nodes
-    static QList< xc::DOMNode * > ExtractElements(const xc::DOMNodeList &list);
+    static QList<xc::DOMNode *> ExtractElements(const xc::DOMNodeList &list);
 
     // Returns the node's real index in the list
     static int GetRealIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list);
@@ -209,7 +209,7 @@ public:
 
     // Returns a list of all the "visible" text nodes that are descendants
     // of the specified node. "Visible" means we ignore style tags, script tags etc...
-    static QList< xc::DOMNode * > GetVisibleTextNodes(const xc::DOMNode &node);
+    static QList<xc::DOMNode *> GetVisibleTextNodes(const xc::DOMNode &node);
 
     // Returns a list of all the nodes that are suitable for use with "id" attributes
     static QList<xc::DOMNode *> GetIDNodes(const xc::DOMNode &node);
@@ -219,7 +219,7 @@ public:
 
     // Returns a list of ALL text nodes that are descendants
     // of the specified node.
-    static QList< xc::DOMNode * > GetAllTextNodes(const xc::DOMNode &node);
+    static QList<xc::DOMNode *> GetAllTextNodes(const xc::DOMNode &node);
 
     // Returns the first block element ancestor of the specified node
     static xc::DOMNode &GetAncestorBlockElement(const xc::DOMNode &node);
@@ -228,16 +228,16 @@ public:
 
     static QStringList GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags);
 
-    static QStringList GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags); 
+    static QStringList GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags);
 
     static QStringList GetAllHrefPaths(const xc::DOMNode &node);
 
     // Returns the node identified by the specified ViewEditor element hierarchy
     static xc::DOMNode *GetNodeFromHierarchy(const xc::DOMDocument &document,
-            const QList< ViewEditor::ElementIndex > &hierarchy);
+            const QList<ViewEditor::ElementIndex> &hierarchy);
 
     // Creates a ViewEditor element hierarchy from the specified node
-    static QList< ViewEditor::ElementIndex > GetHierarchyFromNode(const xc::DOMNode &node);
+    static QList<ViewEditor::ElementIndex> GetHierarchyFromNode(const xc::DOMNode &node);
 
     // Gets all children of a node as a string.
     static QString GetNodeChildrenAsString(const xc::DOMNode *node);

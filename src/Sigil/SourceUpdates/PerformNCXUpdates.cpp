@@ -22,7 +22,7 @@
 #include "SourceUpdates/PerformNCXUpdates.h"
 
 PerformNCXUpdates::PerformNCXUpdates(const QString &source,
-                                     const QHash< QString, QString > &xml_updates)
+                                     const QHash<QString, QString> &xml_updates)
     : PerformXMLUpdates(source, xml_updates)
 {
     InitPathTags();
@@ -30,7 +30,7 @@ PerformNCXUpdates::PerformNCXUpdates(const QString &source,
 
 
 PerformNCXUpdates::PerformNCXUpdates(const xc::DOMDocument &document,
-                                     const QHash< QString, QString > &xml_updates)
+                                     const QHash<QString, QString> &xml_updates)
     : PerformXMLUpdates(document, xml_updates)
 {
     InitPathTags();

@@ -39,7 +39,7 @@ ExporterFactory::~ExporterFactory()
 
 // Returns a reference to the exporter
 // appropriate for the given filename
-Exporter &ExporterFactory::GetExporter(const QString &filename, QSharedPointer< Book > book)
+Exporter &ExporterFactory::GetExporter(const QString &filename, QSharedPointer<Book> book)
 {
     QString extension = QFileInfo(filename).suffix().toLower();
 

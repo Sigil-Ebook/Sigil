@@ -162,7 +162,7 @@ void SpellCheck::ignoreWordInDictionary(const QString &word)
     if (!m_hunspell) {
         return;
     }
-    
+
     m_hunspell->add(m_codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
 }
 

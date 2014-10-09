@@ -59,7 +59,7 @@
 // This is the same read buffer size used by Java and Perl.
 #define BUFF_SIZE 8192
 
-static QCodePage437Codec *cp437 = 0; 
+static QCodePage437Codec *cp437 = 0;
 
 #include "Misc/Utility.h"
 
@@ -233,32 +233,31 @@ void Utility::CopyFiles(const QString &fullfolderpath_source, const QString &ful
 
 //
 //   Delete a directory along with all of its contents.
-// 
+//
 //   \param dirName Path of directory to remove.
 //   \return true on success; false on error.
 //
 bool Utility::removeDir(const QString &dirName)
 {
-  bool result = true;
-  QDir dir(dirName);
- 
-  if (dir.exists(dirName)) {
-    Q_FOREACH(QFileInfo info, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::System | QDir::Hidden  | QDir::AllDirs | QDir::Files, QDir::DirsFirst)) {
-      if (info.isDir()) {
-        result = removeDir(info.absoluteFilePath());
-      }
-      else {
-        result = QFile::remove(info.absoluteFilePath());
-      }
- 
-      if (!result) {
-        return result;
-      }
+    bool result = true;
+    QDir dir(dirName);
+
+    if (dir.exists(dirName)) {
+        Q_FOREACH(QFileInfo info, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::System | QDir::Hidden  | QDir::AllDirs | QDir::Files, QDir::DirsFirst)) {
+            if (info.isDir()) {
+                result = removeDir(info.absoluteFilePath());
+            } else {
+                result = QFile::remove(info.absoluteFilePath());
+            }
+
+            if (!result) {
+                return result;
+            }
+        }
+        result = dir.rmdir(dirName);
     }
-    result = dir.rmdir(dirName);
-  }
- 
-  return result;
+
+    return result;
 }
 
 
@@ -278,8 +277,8 @@ bool Utility::SDeleteFile(const QString &fullfilepath)
 
 
 // Copies File from full Inpath to full OutPath with overwrite if needed
-bool Utility::ForceCopyFile(const QString &fullinpath, const QString& fulloutpath)
-{    
+bool Utility::ForceCopyFile(const QString &fullinpath, const QString &fulloutpath)
+{
     if (!QFileInfo(fullinpath).exists()) {
         return false;
     }
@@ -573,13 +572,13 @@ bool Utility::use_filename_warning(const QString &filename)
 {
     if (has_non_ascii_chars(filename)) {
         return QMessageBox::Apply == QMessageBox::warning(QApplication::activeWindow(),
-            tr("Sigil"),
-            tr("The requested file name contains non-ASCII characters. "
-                "You should only use ASCII characters in filenames. "
-                "Using non-ASCII characters can prevent the EPUB from working "
-                "with some readers.\n\n"
-                "Continue using the requested filename?"),
-            QMessageBox::Cancel|QMessageBox::Apply);
+                tr("Sigil"),
+                tr("The requested file name contains non-ASCII characters. "
+                   "You should only use ASCII characters in filenames. "
+                   "Using non-ASCII characters can prevent the EPUB from working "
+                   "with some readers.\n\n"
+                   "Continue using the requested filename?"),
+                QMessageBox::Cancel|QMessageBox::Apply);
     }
     return true;
 }
@@ -597,7 +596,7 @@ QString Utility::stdWStringToQString(const std::wstring &str)
 #endif
 
 
-bool Utility::UnZip(const QString & zippath, const QString & destpath)
+bool Utility::UnZip(const QString &zippath, const QString &destpath)
 {
     int res = 0;
     QDir dir(destpath);
@@ -706,7 +705,7 @@ bool Utility::UnZip(const QString & zippath, const QString & destpath)
     return true;
 }
 
-QStringList Utility::ZipInspect(const QString & zippath)
+QStringList Utility::ZipInspect(const QString &zippath)
 {
     QStringList filelist;
     int res = 0;

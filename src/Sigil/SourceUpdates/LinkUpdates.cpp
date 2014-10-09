@@ -38,7 +38,7 @@ using boost::shared_ptr;
 static QString HTML_XML_NAMESPACE = "http://www.w3.org/1999/xhtml";
 
 
-void LinkUpdates::UpdateLinksInAllFiles(const QList< HTMLResource * > &html_resources, const QList<QString> new_stylesheets)
+void LinkUpdates::UpdateLinksInAllFiles(const QList<HTMLResource *> &html_resources, const QList<QString> new_stylesheets)
 {
     QtConcurrent::blockingMap(html_resources, boost::bind(UpdateLinksInOneFile, _1, new_stylesheets));
 }
@@ -51,7 +51,7 @@ void LinkUpdates::UpdateLinksInOneFile(HTMLResource *html_resource, QList<QStrin
     xc::DOMDocument &document = *d.get();
     // head should only appear once
     xc::DOMNodeList *heads = document.getElementsByTagName(QtoX("head"));
-    xc::DOMElement &head_element = *static_cast< xc::DOMElement * >(heads->item(0));
+    xc::DOMElement &head_element = *static_cast<xc::DOMElement *>(heads->item(0));
     // We only want links in the head
     xc::DOMNodeList *links = head_element.getElementsByTagName(QtoX("link"));
     // Remove the old stylesheet links
@@ -60,7 +60,7 @@ void LinkUpdates::UpdateLinksInOneFile(HTMLResource *html_resource, QList<QStrin
 
     for (uint i = 0; i < links_count; i++) {
         // Always delete the top element since list is dynamic
-        xc::DOMElement &element = *static_cast< xc::DOMElement * >(links->item(0));
+        xc::DOMElement &element = *static_cast<xc::DOMElement *>(links->item(0));
         Q_ASSERT(&element);
 
         if (element.hasAttribute(QtoX("type")) &&

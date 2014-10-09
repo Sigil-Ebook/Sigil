@@ -49,7 +49,7 @@ static const QString W3C_HTML_FORM = "<html>"
 
 CSSResource::CSSResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
     : TextResource(mainfolder, fullfilepath, parent),
-      m_TemporaryValidationFiles(QList< QString >())
+      m_TemporaryValidationFiles(QList<QString>())
 {
 }
 

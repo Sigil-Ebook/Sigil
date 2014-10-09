@@ -107,9 +107,9 @@ public:
 
     bool ViewStatesEnabled();
 
-    QList< ViewEditor::ElementIndex > GetCaretLocation();
+    QList<ViewEditor::ElementIndex> GetCaretLocation();
     QString GetCaretLocationUpdate() const;
-    void GoToCaretLocation(QList< ViewEditor::ElementIndex > location);
+    void GoToCaretLocation(QList<ViewEditor::ElementIndex> location);
 
     QString GetDisplayedCharacters();
     QString GetText();

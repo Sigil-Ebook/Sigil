@@ -207,7 +207,7 @@ QString CleanSource::CleanCSS(const QString &source, int old_num_styles)
 // of a single CSS style tag
 QStringList CleanSource::CSSStyleTags(const QString &source)
 {
-    QList< XhtmlDoc::XMLElement > style_tag_nodes;
+    QList<XhtmlDoc::XMLElement> style_tag_nodes;
 
     try {
         style_tag_nodes = XhtmlDoc::GetTagsInHead(source, "style");
@@ -427,15 +427,15 @@ QString CleanSource::WriteNewCSSStyleTags(const QString &source, const QStringLi
 }
 
 
-tuple< QString, QStringList > CleanSource::RemoveRedundantClasses(const QString &source, const QStringList &css_style_tags)
+tuple<QString, QStringList> CleanSource::RemoveRedundantClasses(const QString &source, const QStringList &css_style_tags)
 {
-    QHash< QString, QString > redundant_classes = GetRedundantClasses(css_style_tags);
+    QHash<QString, QString> redundant_classes = GetRedundantClasses(css_style_tags);
     return make_tuple(RemoveRedundantClassesSource(source, redundant_classes),
                       RemoveRedundantClassesTags(css_style_tags, redundant_classes));
 }
 
 // Removes redundant CSS classes from the provided CSS style tags
-QStringList CleanSource::RemoveRedundantClassesTags(const QStringList &css_style_tags, const QHash< QString, QString > redundant_classes)
+QStringList CleanSource::RemoveRedundantClassesTags(const QStringList &css_style_tags, const QHash<QString, QString> redundant_classes)
 {
     QStringList new_css_style_tags  = css_style_tags;
     QStringList last_tag_styles     = new_css_style_tags.last().split(QChar('\n'));
@@ -451,7 +451,7 @@ QStringList CleanSource::RemoveRedundantClassesTags(const QStringList &css_style
 
 // Removes redundant CSS classes from the provided XHTML source code;
 // Updates references to older classes that do the same thing
-QString CleanSource::RemoveRedundantClassesSource(const QString &source, const QHash< QString, QString > redundant_classes)
+QString CleanSource::RemoveRedundantClassesSource(const QString &source, const QHash<QString, QString> redundant_classes)
 {
     QString newsource = source;
     foreach(QString key, redundant_classes.keys()) {
@@ -471,9 +471,9 @@ QString CleanSource::RemoveRedundantClassesSource(const QString &source, const Q
 
 // Returns a QHash with keys being the new redundant CSS classes,
 // and the values being the old classes that already do the job of the new ones.
-QHash< QString, QString > CleanSource::GetRedundantClasses(const QStringList &css_style_tags)
+QHash<QString, QString> CleanSource::GetRedundantClasses(const QStringList &css_style_tags)
 {
-    QHash< QString, QString > redundant_classes;
+    QHash<QString, QString> redundant_classes;
     // HACK: This whole concept is really ugly.
     // a) We need to fix Tidy so it doesn't create useless new classes.
     // b) We need a real CSS parser. One that knows which HTML element
@@ -607,8 +607,8 @@ QString CleanSource::CharToEntity(const QString &source)
 {
     SettingsStore settings;
     QString new_source = source;
-    QList< std::pair < ushort, QString > > codenames = settings.preserveEntityCodeNames();
-    std::pair < ushort, QString > epair;
+    QList<std::pair <ushort, QString>> codenames = settings.preserveEntityCodeNames();
+    std::pair <ushort, QString> epair;
     foreach(epair, codenames) {
         new_source.replace(QChar(epair.first), epair.second);
     }

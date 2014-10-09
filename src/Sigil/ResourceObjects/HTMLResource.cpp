@@ -43,7 +43,7 @@ const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilRepl
 const QString XML_TAG = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>";
 
 HTMLResource::HTMLResource(const QString &mainfolder, const QString &fullfilepath,
-                           const QHash< QString, Resource * > &resources,
+                           const QHash<QString, Resource *> &resources,
                            QObject *parent)
     :
     XMLResource(mainfolder, fullfilepath, parent),
@@ -114,7 +114,7 @@ QStringList HTMLResource::GetPathsToLinkedResources()
         xc::DOMNodeList *elems = document.getElementsByTagName(QtoX(tag));
 
         for (uint i = 0; i < elems->getLength(); ++i) {
-            xc::DOMElement &element = *static_cast< xc::DOMElement *>(elems->item(i));
+            xc::DOMElement &element = *static_cast<xc::DOMElement *>(elems->item(i));
             Q_ASSERT(&element);
 
             // We skip the link elements that are not stylesheets

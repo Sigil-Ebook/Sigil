@@ -36,16 +36,16 @@ public:
         int length;
     };
 
-    static QList< MisspelledWord > GetMisspelledWords(const QString &text,
+    static QList<MisspelledWord> GetMisspelledWords(const QString &text,
             int start_offset,
             int end_offset,
             const QString &search_regex,
             bool first_only = false,
             bool include_all_words = false);
 
-    static QList< MisspelledWord > GetMisspelledWords(const QString &text);
+    static QList<MisspelledWord> GetMisspelledWords(const QString &text);
 
-    static QList< HTMLSpellCheck::MisspelledWord > GetWords(const QString &text);
+    static QList<HTMLSpellCheck::MisspelledWord> GetWords(const QString &text);
 
     static int CountMisspelledWords(const QString &text,
                                     int start_offset,

@@ -56,7 +56,7 @@ public:
      */
     bool BuildReplacementText(SPCRE &sre,
                               const QString &text,
-                              const QList<std::pair<int, int> > &capture_groups_offsets,
+                              const QList<std::pair<int, int>> &capture_groups_offsets,
                               const QString &replacement_pattern,
                               QString &out);
 

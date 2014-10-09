@@ -45,7 +45,7 @@ public:
     // Constructor;
     // the first parameter is the book whose TOC
     // is being edited, the second is the dialog's parent
-    HeadingSelector(QSharedPointer< Book > book, QWidget *parent = 0);
+    HeadingSelector(QSharedPointer<Book> book, QWidget *parent = 0);
 
     // Destructor
     ~HeadingSelector();
@@ -131,7 +131,7 @@ private:
     // of those items rise to their parent's hierarchy level
     void RemoveExcludedItems(QStandardItem *item);
 
-    bool AddRowToVisiblePredecessorSucceeded(const QList< QStandardItem * > &child_row,
+    bool AddRowToVisiblePredecessorSucceeded(const QList<QStandardItem *> &child_row,
             QStandardItem *row_parent);
 
     /**
@@ -147,7 +147,7 @@ private:
      *                          a lower index than this.
      */
     bool AddRowToCorrectItem(QStandardItem *item,
-                             const QList< QStandardItem * > &child_row,
+                             const QList<QStandardItem *> &child_row,
                              int child_index_limit = -1);
 
     QStandardItem *GetActualItemParent(const QStandardItem *item);
@@ -156,7 +156,7 @@ private:
 
 
     // Get the maximum heading level for all headings
-    int GetMaxHeadingLevel(QList< Headings::Heading > flat_headings);
+    int GetMaxHeadingLevel(QList<Headings::Heading> flat_headings);
 
     // Add the selectable entries to the Select Heading combo box
     void PopulateSelectHeadingCombo(int max_heading_level);
@@ -191,13 +191,13 @@ private:
     ///////////////////////////////
 
     // The book whose TOC is being edited
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     // The model displayed and edited in the tree view
     QStandardItemModel m_TableOfContents;
 
     // The tree of all the headings in the book
-    QList< Headings::Heading > m_Headings;
+    QList<Headings::Heading> m_Headings;
 
     QMenu *m_ContextMenu;
 

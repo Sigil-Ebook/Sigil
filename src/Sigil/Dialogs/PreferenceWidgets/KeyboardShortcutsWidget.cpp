@@ -287,7 +287,7 @@ void KeyboardShortcutsWidget::markSequencesAsDuplicatedIfNeeded()
 {
     // This is not optized , but since this will be called rather seldom
     // effort for optimization may not be worth it
-    QMap<QKeySequence, QSet<QTreeWidgetItem *> > seqMap;
+    QMap<QKeySequence, QSet<QTreeWidgetItem *>> seqMap;
 
     // Go through all items
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {

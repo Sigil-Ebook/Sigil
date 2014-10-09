@@ -39,20 +39,27 @@ Plugin::Plugin()
 
 Plugin::Plugin(const QHash<QString, QString> &info)
 {
-    if (info.contains("name"))
+    if (info.contains("name")) {
         set_name(info.value("name"));
-    if (info.contains("author"))
+    }
+    if (info.contains("author")) {
         set_author(info.value("author"));
-    if (info.contains("description"))
+    }
+    if (info.contains("description")) {
         set_description(info.value("description"));
-    if (info.contains("type"))
+    }
+    if (info.contains("type")) {
         set_type(info.value("type"));
-    if (info.contains("version"))
+    }
+    if (info.contains("version")) {
         set_version(info.value("version"));
-    if (info.contains("engine"))
+    }
+    if (info.contains("engine")) {
         set_engine(info.value("engine"));
-    if (info.contains("oslist"))
+    }
+    if (info.contains("oslist")) {
         set_engine(info.value("oslist"));
+    }
 }
 
 Plugin::~Plugin()

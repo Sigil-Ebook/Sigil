@@ -42,7 +42,7 @@ const QString OLD_SIGIL_TOC_ID_PREFIX = "heading_id_";
 // Constructor;
 // the first parameter is the book whose TOC
 // is being edited, the second is the dialog's parent
-HeadingSelector::HeadingSelector(QSharedPointer< Book > book, QWidget *parent)
+HeadingSelector::HeadingSelector(QSharedPointer<Book> book, QWidget *parent)
     :
     QDialog(parent),
     m_Book(book),
@@ -56,8 +56,8 @@ HeadingSelector::HeadingSelector(QSharedPointer< Book > book, QWidget *parent)
     ConnectSignalsToSlots();
     ui.tvTOCDisplay->setModel(&m_TableOfContents);
     LockHTMLResources();
-    QList< Headings::Heading > flat_headings = Headings::GetHeadingList(
-                m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(true), true);
+    QList<Headings::Heading> flat_headings = Headings::GetHeadingList(
+                m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(true), true);
     m_Headings = Headings::MakeHeadingHeirarchy(flat_headings);
     PopulateSelectHeadingCombo(GetMaxHeadingLevel(flat_headings));
     RefreshTOCModelDisplay();
@@ -294,7 +294,7 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         QString new_id_attribute(existing_id_attribute);
 
         if (!heading->include_in_toc || heading->at_file_start) {
-            // Since this heading is not being put in the toc or does not need an id 
+            // Since this heading is not being put in the toc or does not need an id
             // because it is at the top of the file, we will remove any existing id from it
             // provided it is Sigil generated and not in use already.
             if (!used_ids.contains(existing_id_attribute) &&
@@ -421,7 +421,7 @@ void HeadingSelector::ChangeHeadingLevel(int change_amount)
     // Rename in document
     heading->element = XhtmlDoc::RenameElementInDocument(*heading->document, *heading->element, new_tag_name);
     // Clear all children information then rebuild hierarchy
-    QList< Headings::Heading > flat_headings = Headings::GetFlattenedHeadings(m_Headings);
+    QList<Headings::Heading> flat_headings = Headings::GetFlattenedHeadings(m_Headings);
 
     for (int i = 0; i < flat_headings.count(); i++) {
         flat_headings[i].children.clear();
@@ -577,7 +577,7 @@ void HeadingSelector::InsertHeadingIntoModel(Headings::Heading &heading, QStanda
     // Apparently using \n in the string means you don't have to replace < with &lt; or > with &gt;
     QString html = XhtmlDoc::GetDomNodeAsString(*heading.element).remove("xmlns=\"http://www.w3.org/1999/xhtml\"");
     item_heading->setToolTip(heading.resource_file->Filename() + ":\n\n" + html);
-    QList< QStandardItem * > items;
+    QList<QStandardItem *> items;
     items << item_heading << heading_level << heading_included_check;
     parent_item->appendRow(items);
 
@@ -630,7 +630,7 @@ void HeadingSelector::RemoveExcludedItems(QStandardItem *item)
     if (check_state == Qt::Unchecked) {
         if (item->hasChildren()) {
             while (item->rowCount() > 0) {
-                QList< QStandardItem * > child_row = item->takeRow(0);
+                QList<QStandardItem *> child_row = item->takeRow(0);
 
                 if (!AddRowToVisiblePredecessorSucceeded(child_row, item)) {
                     item_parent->insertRow(item->row(), child_row);
@@ -644,7 +644,7 @@ void HeadingSelector::RemoveExcludedItems(QStandardItem *item)
 }
 
 
-bool HeadingSelector::AddRowToVisiblePredecessorSucceeded(const QList< QStandardItem * > &child_row,
+bool HeadingSelector::AddRowToVisiblePredecessorSucceeded(const QList<QStandardItem *> &child_row,
         QStandardItem *row_parent)
 {
     Q_ASSERT(row_parent);
@@ -662,7 +662,7 @@ bool HeadingSelector::AddRowToVisiblePredecessorSucceeded(const QList< QStandard
 // before the child_row heading whose parent heading is disappearing. The new parent
 // needs to also be marked as "include_in_toc".
 bool HeadingSelector::AddRowToCorrectItem(QStandardItem *item,
-        const QList< QStandardItem * > &child_row,
+        const QList<QStandardItem *> &child_row,
         int child_index_limit)
 {
     int child_start_index = child_index_limit != -1 ? child_index_limit - 1 : item->rowCount() - 1;
@@ -729,13 +729,13 @@ Headings::Heading *HeadingSelector::GetItemHeading(const QStandardItem *item)
         return NULL;
     }
 
-    Headings::Heading *heading = item->data().value< Headings::HeadingPointer >().heading;
+    Headings::Heading *heading = item->data().value<Headings::HeadingPointer>().heading;
     return heading;
 }
 
 
 // Get the maximum heading level for all headings
-int HeadingSelector::GetMaxHeadingLevel(QList< Headings::Heading > flat_headings)
+int HeadingSelector::GetMaxHeadingLevel(QList<Headings::Heading> flat_headings)
 {
     int maxLevel = 0;
     foreach(Headings::Heading heading, flat_headings) {
@@ -857,7 +857,7 @@ void HeadingSelector::WriteSettings()
 
 void HeadingSelector::LockHTMLResources()
 {
-    foreach(HTMLResource * resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(true)) {
+    foreach(HTMLResource * resource, m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(true)) {
         resource->GetLock().lockForWrite();
     }
 }
@@ -865,7 +865,7 @@ void HeadingSelector::LockHTMLResources()
 
 void HeadingSelector::UnlockHTMLResources()
 {
-    foreach(HTMLResource * resource, m_Book->GetFolderKeeper().GetResourceTypeList< HTMLResource >(true)) {
+    foreach(HTMLResource * resource, m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(true)) {
         resource->GetLock().unlock();
     }
 }

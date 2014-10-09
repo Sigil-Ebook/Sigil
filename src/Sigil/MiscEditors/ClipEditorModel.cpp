@@ -209,8 +209,7 @@ void ClipEditorModel::UpdateFullName(QStandardItem *item)
     tooltip = fullname;
     if (item->data(IS_GROUP_ROLE).toBool()) {
         fullname.append("/");
-    }
-    else {
+    } else {
         QStandardItem *text_item = parent_item->child(item->row(), 1);
         if (text_item) {
             tooltip += "\n\n" % text_item->text();
@@ -480,8 +479,7 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
     QString tooltip;
     if (entry->is_group) {
         tooltip = entry->fullname;
-    }
-    else {
+    } else {
         tooltip = entry->fullname % "\n\n" % entry->text;
     }
     rowItems[0]->setToolTip(tooltip);
@@ -594,8 +592,7 @@ ClipEditorModel::clipEntry *ClipEditorModel::GetEntry(QStandardItem *item)
         QStandardItem *text_item = parent_item->child(item->row(), 1);
         if (text_item) {
             entry->text = text_item->text();
-        }
-        else {
+        } else {
             entry->text = "";
         }
     }

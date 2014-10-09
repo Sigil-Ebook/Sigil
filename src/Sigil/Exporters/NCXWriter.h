@@ -109,7 +109,7 @@ private:
     /**
      * A hierarchical tree of all the headings in the book.
      */
-    const QList< Headings::Heading > m_Headings;
+    const QList<Headings::Heading> m_Headings;
 
     NCXModel::NCXEntry m_NCXRootEntry;
 };

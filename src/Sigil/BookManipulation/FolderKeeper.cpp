@@ -278,12 +278,12 @@ QStringList FolderKeeper::GetSortedContentFilesList() const
 }
 
 
-QList< Resource * > FolderKeeper::GetResourceList() const
+QList<Resource *> FolderKeeper::GetResourceList() const
 {
     return m_Resources.values();
 }
 
-QList< Resource * > FolderKeeper::GetResourceListByType(Resource::ResourceType type) const
+QList<Resource *> FolderKeeper::GetResourceListByType(Resource::ResourceType type) const
 {
     QList <Resource *> resources;
     foreach (Resource *resource, m_Resources.values()) {

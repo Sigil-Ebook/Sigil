@@ -35,7 +35,7 @@ static const QString DOT         = ".";
 static const QString DOT_DOT     = "..";
 
 PerformXMLUpdates::PerformXMLUpdates(const QString &source,
-                                     const QHash< QString, QString > &xml_updates)
+                                     const QHash<QString, QString> &xml_updates)
     :
     m_XMLUpdates(xml_updates)
 {
@@ -45,7 +45,7 @@ PerformXMLUpdates::PerformXMLUpdates(const QString &source,
 
 
 PerformXMLUpdates::PerformXMLUpdates(const xc::DOMDocument &document,
-                                     const QHash< QString, QString > &xml_updates)
+                                     const QHash<QString, QString> &xml_updates)
     :
     m_XMLUpdates(xml_updates)
 {
@@ -54,7 +54,7 @@ PerformXMLUpdates::PerformXMLUpdates(const xc::DOMDocument &document,
 }
 
 
-shared_ptr< xc::DOMDocument > PerformXMLUpdates::operator()()
+shared_ptr<xc::DOMDocument> PerformXMLUpdates::operator()()
 {
     UpdateXMLReferences();
     return m_Document;
@@ -69,7 +69,7 @@ void PerformXMLUpdates::UpdateXMLReferences()
         boost_throw(ErrorBuildingDOM());
     }
 
-    QList< xc::DOMElement * > nodes = XhtmlDoc::GetTagMatchingDescendants(*document_element, m_PathTags);
+    QList<xc::DOMElement *> nodes = XhtmlDoc::GetTagMatchingDescendants(*document_element, m_PathTags);
     int node_count = nodes.count();
 
     for (int i = 0; i < node_count; ++i) {
@@ -85,11 +85,11 @@ void PerformXMLUpdates::UpdateReferenceInNode(xc::DOMElement *node)
 {
     xc::DOMNamedNodeMap &attributes = *node->getAttributes();
     int num_attributes = attributes.getLength();
-    const QList< QString > &keys = m_XMLUpdates.keys();
+    const QList<QString> &keys = m_XMLUpdates.keys();
     int num_keys = keys.count();
 
     for (int i = 0; i < num_attributes; ++i) {
-        xc::DOMAttr &attribute = *static_cast< xc::DOMAttr * >(attributes.item(i));
+        xc::DOMAttr &attribute = *static_cast<xc::DOMAttr *>(attributes.item(i));
         Q_ASSERT(&attribute);
 
         if (!m_PathAttributes.contains(XhtmlDoc::GetAttributeName(attribute), Qt::CaseInsensitive)) {

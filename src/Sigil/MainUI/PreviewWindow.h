@@ -49,7 +49,7 @@ public:
     float GetZoomFactor();
 
 public slots:
-    void UpdatePage(QString filename, QString text, QList< ViewEditor::ElementIndex > location);
+    void UpdatePage(QString filename, QString text, QList<ViewEditor::ElementIndex> location);
     void SetZoomFactor(float factor);
     void SplitterMoved(int pos, int index);
 

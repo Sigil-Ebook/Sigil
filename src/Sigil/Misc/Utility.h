@@ -77,12 +77,12 @@ public:
     static void CopyFiles(const QString &fullfolderpath_source, const QString &fullfolderpath_destination);
 
     // Johns own recursive directory removal code
-    static bool removeDir(const QString & dirName);
+    static bool removeDir(const QString &dirName);
 
     // Deletes the specified file if it exists
     static bool SDeleteFile(const QString &fullfilepath);
 
-    static bool ForceCopyFile(const QString &fullinpath, const QString& fulloutpath);
+    static bool ForceCopyFile(const QString &fullinpath, const QString &fulloutpath);
 
     static bool RenameFile(const QString &oldfilepath, const QString &newfilepath);
 
@@ -159,8 +159,8 @@ public:
     static QString stdWStringToQString(const std::wstring &str);
 #endif
 
-    static bool UnZip(const QString & zippath, const QString & destdir);
-    static QStringList ZipInspect(const QString & zippath);
+    static bool UnZip(const QString &zippath, const QString &destdir);
+    static QStringList ZipInspect(const QString &zippath);
 };
 
 #endif // UTILITY_H

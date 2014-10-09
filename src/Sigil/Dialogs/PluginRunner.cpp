@@ -27,17 +27,17 @@ const QString PluginRunner::NCXFILEINFO = "OEBPS/toc.ncx" + SEP + SEP + "applica
 const QStringList PluginRunner::CHANGESTAGS = QStringList() << "deleted" << "added" << "modified";
 
 
-PluginRunner::PluginRunner(TabManager* tabMgr, QWidget * parent)
+PluginRunner::PluginRunner(TabManager *tabMgr, QWidget *parent)
     : QDialog(parent),
-    m_mainWindow(qobject_cast<MainWindow *>(parent)),
-    m_tabManager(tabMgr),
-    m_outputDir(m_folder.GetPath()),
-    m_pluginName(""), 
-    m_pluginOutput(""),
-    m_algorithm(""),
-    m_result(""),
-    m_xhtml_net_change(0),
-    m_ready(false)
+      m_mainWindow(qobject_cast<MainWindow *>(parent)),
+      m_tabManager(tabMgr),
+      m_outputDir(m_folder.GetPath()),
+      m_pluginName(""),
+      m_pluginOutput(""),
+      m_algorithm(""),
+      m_result(""),
+      m_xhtml_net_change(0),
+      m_ready(false)
 
 {
     // get book manipulation objects
@@ -47,9 +47,9 @@ PluginRunner::PluginRunner(TabManager* tabMgr, QWidget * parent)
 
     // set default font obfuscation algorithm to use
     // ADOBE_FONT_ALGO_ID or IDPF_FONT_ALGO_ID ??
-    QList< Resource * > fonts = m_book->GetFolderKeeper().GetResourceListByType(Resource::FontResourceType);
+    QList<Resource *> fonts = m_book->GetFolderKeeper().GetResourceListByType(Resource::FontResourceType);
     foreach (Resource * resource, fonts) {
-        FontResource * font_resource = qobject_cast< FontResource * > (resource);
+        FontResource *font_resource = qobject_cast<FontResource *> (resource);
         QString algorithm = font_resource->GetObfuscationAlgorithm();
         if (!algorithm.isEmpty()) {
             m_algorithm = algorithm;
@@ -58,7 +58,7 @@ PluginRunner::PluginRunner(TabManager* tabMgr, QWidget * parent)
     }
 
     // build hashes of href (book root relative path) to resources
-    QList< Resource * > resources = m_book->GetFolderKeeper().GetResourceList();
+    QList<Resource *> resources = m_book->GetFolderKeeper().GetResourceList();
     foreach (Resource * resource, resources) {
         QString href = resource->GetRelativePathToRoot();
         if (resource->Type() == Resource::HTMLResourceType) {
@@ -113,7 +113,7 @@ int PluginRunner::exec(const QString &name)
         return QDialog::Rejected;
     }
 
-    // The launcher and plugin path are both platform specific and engine/interpreter specific 
+    // The launcher and plugin path are both platform specific and engine/interpreter specific
     launcher_root = PluginDB::launcherRoot();
 
     // Note: Keep SupportedEngines() in sync with the engine calling code here.
@@ -121,13 +121,13 @@ int PluginRunner::exec(const QString &name)
         m_launcherPath = launcher_root + "/python/launcher.py";
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + "plugin.py";
         if (!QFileInfo(m_launcherPath).exists()) {
-            Utility::DisplayStdErrorDialog(tr("Installation Error: plugin launcher ") + 
+            Utility::DisplayStdErrorDialog(tr("Installation Error: plugin launcher ") +
                                            m_launcherPath + tr(" does not exist"));
             reject();
             return QDialog::Rejected;
         }
     } else {
-        Utility::DisplayStdErrorDialog(tr("Error: plugin engine ") + 
+        Utility::DisplayStdErrorDialog(tr("Error: plugin engine ") +
                                        m_engine + tr(" is not supported (yet!)"));
         reject();
         return QDialog::Rejected;
@@ -143,7 +143,7 @@ int PluginRunner::exec(const QString &name)
     return QDialog::exec();
 }
 
-void PluginRunner::startPlugin() 
+void PluginRunner::startPlugin()
 {
     QStringList args;
     if (!m_ready) {
@@ -179,18 +179,18 @@ void PluginRunner::startPlugin()
 }
 
 
-void PluginRunner::processOutput() 
+void PluginRunner::processOutput()
 {
     QByteArray newbytedata = m_process.readAllStandardOutput();
     m_pluginOutput = m_pluginOutput + newbytedata ;
 }
 
 
-void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus) 
+void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
 {
     if (exitstatus == QProcess::CrashExit) {
         ui.textEdit->append(tr("Launcher process crashed"));
-    } 
+    }
     // launcher exiting properly does not mean target plugin succeeded or failed
     // we need to parse the response xml to find the true result of target plugin
     ui.okButton->setEnabled(true);
@@ -218,7 +218,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
 
     // don't allow changes to proceed if they will remove the very last xhtml/html file
     if (m_xhtml_net_change < 0) {
-        QList< Resource * > htmlresources = m_book->GetFolderKeeper().GetResourceListByType(Resource::HTMLResourceType);
+        QList<Resource *> htmlresources = m_book->GetFolderKeeper().GetResourceListByType(Resource::HTMLResourceType);
         if (htmlresources.count() + m_xhtml_net_change < 0) {
             Utility::DisplayStdErrorDialog(tr("Error: Plugin Tried to Remove the Last XHTML file .. aborting changes"));
             ui.statusLbl->setText(tr("Status: No Changes Made"));
@@ -235,7 +235,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
 
         // before deleting make sure a tab of at least one of the remaining html files will be open
         // to prevent deleting the last tab when deleting resources
-        QList < Resource * > remainingResources = m_xhtmlFiles.values();
+        QList <Resource *> remainingResources = m_xhtmlFiles.values();
         QList <Resource *> tabResources = m_tabManager->GetTabResources();
         bool tabs_will_remain = false;
         foreach (Resource * tab_resource, tabResources) {
@@ -245,7 +245,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
             }
         }
         if (! tabs_will_remain) {
-            Resource * xhtmlresource = remainingResources.at(0);
+            Resource *xhtmlresource = remainingResources.at(0);
             m_mainWindow->OpenResource(*xhtmlresource);
         }
 
@@ -321,7 +321,7 @@ bool PluginRunner::processResultXML()
     while (!reader.atEnd()) {
         reader.readNext();
         if (reader.isStartElement()) {
-            QString name = reader.name().toString(); 
+            QString name = reader.name().toString();
             if (name == "result") {
                 QString result = reader.readElementText();
                 m_result = result;
@@ -350,7 +350,9 @@ bool PluginRunner::processResultXML()
                     }
                 } else if (reader.name() == "added") {
                     m_filesToAdd.append(fileinfo);
-                    if (mime == "application/xhtml+xml") m_xhtml_net_change++;
+                    if (mime == "application/xhtml+xml") {
+                        m_xhtml_net_change++;
+                    }
                 } else {
                     m_filesToModify.append(fileinfo);
                 }
@@ -379,10 +381,15 @@ bool PluginRunner::checkIsWellFormed()
             QString href = fdata[ hrefField ];
             QString id   = fdata[ idField   ];
             QString mime = fdata[ mimeField ];
-            if (mime == "application/oebps-package+xml")      filesToCheck.append(href);
-            else if (mime == "application/x-dtbncx+xml")      filesToCheck.append(href);
-            else if (mime == "application/oebs-page-map+xml") filesToCheck.append(href);
-            else if (mime == "application/xhtml+xml")         filesToCheck.append(href);
+            if (mime == "application/oebps-package+xml") {
+                filesToCheck.append(href);
+            } else if (mime == "application/x-dtbncx+xml") {
+                filesToCheck.append(href);
+            } else if (mime == "application/oebs-page-map+xml") {
+                filesToCheck.append(href);
+            } else if (mime == "application/xhtml+xml") {
+                filesToCheck.append(href);
+            }
         }
     }
     if (!m_filesToModify.isEmpty()) {
@@ -391,10 +398,15 @@ bool PluginRunner::checkIsWellFormed()
             QString href = fdata[ hrefField ];
             QString id   = fdata[ idField   ];
             QString mime = fdata[ mimeField ];
-            if (mime == "application/oebps-package+xml")     filesToCheck.append(href);
-            else if (mime == "application/x-dtbncx+xml")      filesToCheck.append(href);
-            else if (mime == "application/oebs-page-map+xml") filesToCheck.append(href);
-            else if (mime == "application/xhtml+xml")         filesToCheck.append(href);
+            if (mime == "application/oebps-package+xml") {
+                filesToCheck.append(href);
+            } else if (mime == "application/x-dtbncx+xml") {
+                filesToCheck.append(href);
+            } else if (mime == "application/oebs-page-map+xml") {
+                filesToCheck.append(href);
+            } else if (mime == "application/xhtml+xml") {
+                filesToCheck.append(href);
+            }
         }
     }
     if (!filesToCheck.isEmpty()) {
@@ -404,8 +416,8 @@ bool PluginRunner::checkIsWellFormed()
             QString data = Utility::ReadUnicodeTextFile(filePath);
             XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
             if (error.line != -1) {
-                errors.append(tr("Incorrect XHTML/XML: ") + href + tr(" Line/Col ") + QString::number(error.line) + 
-                        "," + QString::number(error.column) + " " + error.message);
+                errors.append(tr("Incorrect XHTML/XML: ") + href + tr(" Line/Col ") + QString::number(error.line) +
+                              "," + QString::number(error.column) + " " + error.message);
                 well_formed = false;
             }
         }
@@ -419,8 +431,8 @@ bool PluginRunner::checkIsWellFormed()
         msgBox.setWindowTitle(tr("Check Report"));
         msgBox.setText(tr("Incorrect XHTML/XML Detected\nAre you Sure You Want to Continue?"));
         msgBox.setDetailedText(errors.join("\n"));
-        QPushButton * yesButton = msgBox.addButton(QMessageBox::Yes);
-        QPushButton * noButton =  msgBox.addButton(QMessageBox::No);
+        QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
+        QPushButton *noButton =  msgBox.addButton(QMessageBox::No);
         msgBox.setDefaultButton(noButton);
         msgBox.exec();
         if (msgBox.clickedButton() == yesButton) {
@@ -431,7 +443,7 @@ bool PluginRunner::checkIsWellFormed()
 }
 
 
-bool PluginRunner::deleteFiles(const QStringList & files)
+bool PluginRunner::deleteFiles(const QStringList &files)
 {
     QList <Resource *> tabResources=m_tabManager->GetTabResources();
     bool changes_made = false;
@@ -442,13 +454,17 @@ bool PluginRunner::deleteFiles(const QStringList & files)
         QString id   = fdata[ idField   ];
         QString mime = fdata[ mimeField ];
         // content.opf and toc.ncx can not be added or deleted
-        if (mime == "application/oebps-package+xml") continue;
-        if (mime == "application/x-dtbncx+xml") continue;
-        Resource * resource = m_hrefToRes.value(href, NULL);
+        if (mime == "application/oebps-package+xml") {
+            continue;
+        }
+        if (mime == "application/x-dtbncx+xml") {
+            continue;
+        }
+        Resource *resource = m_hrefToRes.value(href, NULL);
         if (resource) {
             ui.statusLbl->setText(tr("Status: deleting ") + resource->Filename());
 
-            if(tabResources.contains(resource)) {
+            if (tabResources.contains(resource)) {
                 m_tabManager->CloseTabForResource(*resource);
             }
             m_book->GetFolderKeeper().RemoveResource(*resource);
@@ -462,7 +478,7 @@ bool PluginRunner::deleteFiles(const QStringList & files)
 }
 
 
-bool PluginRunner::addFiles(const QStringList & files)
+bool PluginRunner::addFiles(const QStringList &files)
 {
     ui.statusLbl->setText("Status: adding files");
     foreach (QString fileinfo, files) {
@@ -488,8 +504,8 @@ bool PluginRunner::addFiles(const QStringList & files)
             msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
             msgBox.setWindowTitle(tr("Input Plugin"));
             msgBox.setText(tr("Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed"));
-            QPushButton * yesButton = msgBox.addButton(QMessageBox::Yes);
-            QPushButton * noButton =  msgBox.addButton(QMessageBox::No);
+            QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
+            QPushButton *noButton =  msgBox.addButton(QMessageBox::No);
             msgBox.setDefaultButton(noButton);
             msgBox.exec();
             if (msgBox.clickedButton() == yesButton) {
@@ -503,15 +519,19 @@ bool PluginRunner::addFiles(const QStringList & files)
         }
 
         // content.opf and toc.ncx can not be added or deleted
-        if (mime == "application/oebps-package+xml") continue;
-        if (mime == "application/x-dtbncx+xml") continue;
+        if (mime == "application/oebps-package+xml") {
+            continue;
+        }
+        if (mime == "application/x-dtbncx+xml") {
+            continue;
+        }
 
         // No need to copy to ebook root as AddContentToFolder does that for us
         QString inpath = m_outputDir + "/" + href;
         QFileInfo fi(inpath);
         ui.statusLbl->setText(tr("Status: adding ") + fi.fileName());
 
-        Resource & resource = m_book->GetFolderKeeper().AddContentFileToFolder(inpath,false);
+        Resource &resource = m_book->GetFolderKeeper().AddContentFileToFolder(inpath,false);
 
         // AudioResource, VideoResource, FontResource, ImageResource do not appear to be cached
 
@@ -522,32 +542,32 @@ bool PluginRunner::addFiles(const QStringList & files)
 
         if (resource.Type() == Resource::FontResourceType && !m_algorithm.isEmpty()) {
 
-            FontResource * font_resource = qobject_cast< FontResource * > (&resource);
+            FontResource *font_resource = qobject_cast<FontResource *> (&resource);
             font_resource->SetObfuscationAlgorithm(m_algorithm);
 
         } else  if (resource.Type() == Resource::HTMLResourceType) {
 
-            HTMLResource * html_resource = qobject_cast< HTMLResource * > (&resource);
+            HTMLResource *html_resource = qobject_cast<HTMLResource *> (&resource);
             html_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
 
         } else if (resource.Type() == Resource::CSSResourceType) {
 
-            CSSResource * css_resource = qobject_cast< CSSResource * > (&resource);
+            CSSResource *css_resource = qobject_cast<CSSResource *> (&resource);
             css_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
 
         } else if (resource.Type() == Resource::SVGResourceType) {
 
-            SVGResource * svg_resource = qobject_cast< SVGResource * > (&resource);
+            SVGResource *svg_resource = qobject_cast<SVGResource *> (&resource);
             svg_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
 
         } else if (resource.Type() == Resource::MiscTextResourceType) {
 
-            MiscTextResource * misctext_resource = qobject_cast< MiscTextResource * > (&resource);
+            MiscTextResource *misctext_resource = qobject_cast<MiscTextResource *> (&resource);
             misctext_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
 
         } else if (resource.Type() == Resource::XMLResourceType) {
 
-            XMLResource * xml_resource = qobject_cast< XMLResource * > (&resource);
+            XMLResource *xml_resource = qobject_cast<XMLResource *> (&resource);
             xml_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
         }
     }
@@ -555,7 +575,7 @@ bool PluginRunner::addFiles(const QStringList & files)
 }
 
 
-bool PluginRunner::modifyFiles(const QStringList & files)
+bool PluginRunner::modifyFiles(const QStringList &files)
 {
     ui.statusLbl->setText(tr("Status: cleaning up - modifying files"));
     // rearrange list to force content.opf and toc.ncx modifications to be done last
@@ -571,8 +591,12 @@ bool PluginRunner::modifyFiles(const QStringList & files)
             newfiles.append(fileinfo);
         }
     }
-    if  (!modifyopf.isEmpty()) newfiles.append(modifyopf);
-    if  (!modifyncx.isEmpty()) newfiles.append(modifyncx);
+    if  (!modifyopf.isEmpty()) {
+        newfiles.append(modifyopf);
+    }
+    if  (!modifyncx.isEmpty()) {
+        newfiles.append(modifyncx);
+    }
 
     foreach (QString fileinfo, newfiles) {
         QStringList fdata = fileinfo.split(SEP);
@@ -584,7 +608,7 @@ bool PluginRunner::modifyFiles(const QStringList & files)
         QFileInfo fi(outpath);
         ui.statusLbl->setText(tr("Status: modifying ") + fi.fileName());
         Utility::ForceCopyFile(inpath, outpath);
-        Resource * resource = m_hrefToRes.value(href);
+        Resource *resource = m_hrefToRes.value(href);
         if (resource) {
 
             // AudioResource, VideoResource, FontResource, ImageResource do not appear to be editable
@@ -594,40 +618,40 @@ bool PluginRunner::modifyFiles(const QStringList & files)
 
             if (resource->Type() == Resource::HTMLResourceType) {
 
-                HTMLResource * html_resource = qobject_cast< HTMLResource * > (resource);
+                HTMLResource *html_resource = qobject_cast<HTMLResource *> (resource);
                 html_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
 
             } else if (resource->Type() == Resource::CSSResourceType) {
 
-                CSSResource * css_resource = qobject_cast< CSSResource * > (resource);
+                CSSResource *css_resource = qobject_cast<CSSResource *> (resource);
                 css_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
 
             } else if (resource->Type() == Resource::SVGResourceType) {
 
-                SVGResource * svg_resource = qobject_cast< SVGResource * > (resource);
+                SVGResource *svg_resource = qobject_cast<SVGResource *> (resource);
                 svg_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
 
             } else if (resource->Type() == Resource::MiscTextResourceType) {
 
-                MiscTextResource * misctext_resource = qobject_cast< MiscTextResource * > (resource);
+                MiscTextResource *misctext_resource = qobject_cast<MiscTextResource *> (resource);
                 misctext_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
 
-            } else if (resource->Type() == Resource::OPFResourceType) { 
+            } else if (resource->Type() == Resource::OPFResourceType) {
 
-                OPFResource * opf_resource = qobject_cast< OPFResource * > (resource);
+                OPFResource *opf_resource = qobject_cast<OPFResource *> (resource);
                 opf_resource->SetText(Utility::ReadUnicodeTextFile(outpath));
 
-            } else if (resource->Type() == Resource::NCXResourceType) { 
+            } else if (resource->Type() == Resource::NCXResourceType) {
 
-                NCXResource * ncx_resource = qobject_cast< NCXResource * > (resource);
+                NCXResource *ncx_resource = qobject_cast<NCXResource *> (resource);
                 ncx_resource->SetText(Utility::ReadUnicodeTextFile(outpath));
 
             } else if (resource->Type() == Resource::XMLResourceType) {
 
-                XMLResource * xml_resource = qobject_cast< XMLResource * > (resource);
+                XMLResource *xml_resource = qobject_cast<XMLResource *> (resource);
                 xml_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
             }
-        }            
+        }
     }
     return true;
 }

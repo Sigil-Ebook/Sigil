@@ -27,7 +27,7 @@
 
 static QString SETTINGS_GROUP = "select_hyperlink";
 
-SelectHyperlink::SelectHyperlink(QString default_href, HTMLResource *html_resource, QList<Resource *> resources, QSharedPointer< Book > book, QWidget *parent)
+SelectHyperlink::SelectHyperlink(QString default_href, HTMLResource *html_resource, QList<Resource *> resources, QSharedPointer<Book> book, QWidget *parent)
     :
     QDialog(parent),
     m_CurrentHTMLResource(html_resource),

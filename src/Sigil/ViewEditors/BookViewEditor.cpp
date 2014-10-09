@@ -634,11 +634,11 @@ void BookViewEditor::paste()
 {
     QClipboard *clipboard = QApplication::clipboard();
 
-    if (clipboard->mimeData()->hasHtml()) { 
+    if (clipboard->mimeData()->hasHtml()) {
         QMessageBox msgBox(QMessageBox::Question,
-            tr("Clipboard contains HTML formatting"),
-            tr("Do you want to paste clipboard data as plain text?"),
-            QMessageBox::Yes|QMessageBox::No|QMessageBox::Cancel);
+                           tr("Clipboard contains HTML formatting"),
+                           tr("Do you want to paste clipboard data as plain text?"),
+                           QMessageBox::Yes|QMessageBox::No|QMessageBox::Cancel);
         msgBox.setDefaultButton(QMessageBox::Yes);
 
         // populate the detailed text window - by HTML not by the text
@@ -646,15 +646,15 @@ void BookViewEditor::paste()
 
         // show message box
         switch (msgBox.exec()) {
-          case QMessageBox::Yes:
-              page()->triggerAction(QWebPage::PasteAndMatchStyle);
-              break;
-          case QMessageBox::No:
-              page()->triggerAction(QWebPage::Paste);
-              break;
-          default:
-              // Cancel was clicked - do nothing
-              break;
+            case QMessageBox::Yes:
+                page()->triggerAction(QWebPage::PasteAndMatchStyle);
+                break;
+            case QMessageBox::No:
+                page()->triggerAction(QWebPage::Paste);
+                break;
+            default:
+                // Cancel was clicked - do nothing
+                break;
         }
     } else {
         page()->triggerAction(QWebPage::Paste);
@@ -907,7 +907,7 @@ void BookViewEditor::AddClipContextMenu(QMenu *menu)
         menu->insertMenu(topAction, clips_menu);
     } else {
         menu->addMenu(clips_menu);
-    }       
+    }
 
     CreateMenuEntries(clips_menu, 0, ClipEditorModel::instance()->invisibleRootItem());
 

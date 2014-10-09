@@ -79,13 +79,13 @@ static const QString NCX_EXTENSION       = "ncx";
 const QString ADOBE_FONT_ALGO_ID         = "http://ns.adobe.com/pdf/enc#RC";
 const QString IDPF_FONT_ALGO_ID          = "http://www.idpf.org/2008/embedding";
 static const QString CONTAINER_XML       = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-                                           "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
-                                           "    <rootfiles>\n"
-                                           "        <rootfile full-path=\"%1\" media-type=\"application/oebps-package+xml\"/>\n"
-                                           "   </rootfiles>\n"
-                                           "</container>\n";
+        "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
+        "    <rootfiles>\n"
+        "        <rootfile full-path=\"%1\" media-type=\"application/oebps-package+xml\"/>\n"
+        "   </rootfiles>\n"
+        "</container>\n";
 
-static QCodePage437Codec *cp437 = 0; 
+static QCodePage437Codec *cp437 = 0;
 
 // Constructor;
 // The parameter is the file to be imported
@@ -143,7 +143,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
             // Load the content into the HTMLResource so we can perform a well formed check.
             try {
                 hresource->SetText(HTMLEncodingResolver::ReadHTMLFile(hresource->GetFullPath()));
-            } catch(...) {
+            } catch (...) {
                 if (ss.cleanOn() & CLEANON_OPEN) {
                     non_well_formed << hresource;
                     continue;
@@ -161,11 +161,11 @@ QSharedPointer<Book> ImportEPUB::GetBook()
         if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
                 tr("Sigil"),
                 tr("This EPUB has HTML files that are not well formed. "
-                    "Sigil can attempt to automatically fix these files, although this "
-                    "can result in data loss.\n\n"
-                    "Do you want to automatically fix the files?"),
+                   "Sigil can attempt to automatically fix these files, although this "
+                   "can result in data loss.\n\n"
+                   "Do you want to automatically fix the files?"),
                 QMessageBox::Yes|QMessageBox::No)
-        ) {
+           ) {
             non_well_formed.clear();
         }
         QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -466,8 +466,7 @@ void ImportEPUB::LocateOPF()
     QXmlStreamReader container;
     try {
         container.addData(Utility::ReadUnicodeTextFile(fullpath));
-    }
-    catch (CannotOpenFile) {
+    } catch (CannotOpenFile) {
         // Find the first OPF file.
         QString OPFfile;
         QDirIterator files(m_ExtractedFolderPath, QStringList() << "*.opf", QDir::NoFilter, QDirIterator::Subdirectories);
@@ -478,8 +477,8 @@ void ImportEPUB::LocateOPF()
 
         if (OPFfile.isEmpty()) {
             boost_throw(CannotOpenFile()
-                    << errinfo_file_fullpath(fullpath.toStdString())
-                    << errinfo_file_errorstring("Missing and no OPF in archive."));
+                        << errinfo_file_fullpath(fullpath.toStdString())
+                        << errinfo_file_errorstring("Missing and no OPF in archive."));
         }
 
         // Create a default container.xml.
@@ -699,7 +698,7 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 {
     QList<QString> keys = m_Files.keys();
     int num_files = keys.count();
-    QFutureSynchronizer<tuple<QString, QString> > sync;
+    QFutureSynchronizer<tuple<QString, QString>> sync;
 
     for (int i = 0; i < num_files; ++i) {
         QString id = keys.at(i);
@@ -711,13 +710,13 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
     }
 
     sync.waitForFinished();
-    QList<QFuture<tuple<QString, QString> > > futures = sync.futures();
+    QList<QFuture<tuple<QString, QString>>> futures = sync.futures();
     int num_futures = futures.count();
     QHash<QString, QString> updates;
 
     for (int i = 0; i < num_futures; ++i) {
-        tuple< QString, QString > result = futures.at(i).result();
-        updates[result.get<0>()] = result.get< 1 >();
+        tuple<QString, QString> result = futures.at(i).result();
+        updates[result.get<0>()] = result.get<1>();
     }
 
     updates.remove(UPDATE_ERROR_STRING);
@@ -728,7 +727,7 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QString &mimetype)
 {
     QString fullfilepath = QFileInfo(m_OPFFilePath).absolutePath() + "/" + path;
-    
+
     try {
         Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath, false, mimetype);
         QString newpath = "../" + resource.GetRelativePathToOEBPS();

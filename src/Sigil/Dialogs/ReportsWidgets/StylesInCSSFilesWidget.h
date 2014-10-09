@@ -48,7 +48,7 @@ class StylesInCSSFilesWidget : public ReportsWidget
 public:
     StylesInCSSFilesWidget();
 
-    void CreateReport(QSharedPointer< Book > book);
+    void CreateReport(QSharedPointer<Book> book);
 
 signals:
     void CloseDialog();
@@ -77,7 +77,7 @@ private:
 
     void AddTableData(QList<BookReports::StyleData *> css_selectors_usage);
 
-    QSharedPointer< Book > m_Book;
+    QSharedPointer<Book> m_Book;
 
     QStandardItemModel *m_ItemModel;
 
