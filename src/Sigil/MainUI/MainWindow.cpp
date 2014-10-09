@@ -3371,7 +3371,8 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
                 m_LastInsertedFile = "";
                 UpdateUiWithCurrentFile(fullfilepath);
             } else {
-                m_CurrentFilePath.clear();
+                UpdateUiWithCurrentFile("");
+                m_Book->SetModified();
             }
 
             return true;

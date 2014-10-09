@@ -266,13 +266,22 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
 
     // now make these changes known to Sigil
     m_book->GetFolderKeeper().ResumeWatchingResources();
-    if (book_modified) {
-        m_bookBrowser->BookContentModified();
-        m_bookBrowser->Refresh();
-        m_book->SetModified();
-        // QWebSettings::clearMemoryCaches() and updates current tab
-        m_mainWindow->ResourcesAddedOrDeleted();
+
+#ifdef Q_OS_MAC
+    // On OS X a new window with the book is opened. The current one's content is not
+    // replaced so we don't want to set it as modified if it's an input plugin.
+    if (m_pluginType != "input") {
+#endif
+        if (book_modified) {
+            m_bookBrowser->BookContentModified();
+            m_bookBrowser->Refresh();
+            m_book->SetModified();
+            // QWebSettings::clearMemoryCaches() and updates current tab
+            m_mainWindow->ResourcesAddedOrDeleted();
+        }
+#ifdef Q_OS_MAC
     }
+#endif
     ui.statusLbl->setText("Status: " + m_result);
 }
 
