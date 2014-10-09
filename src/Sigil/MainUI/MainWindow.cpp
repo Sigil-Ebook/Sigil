@@ -3370,6 +3370,8 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
                 // Clear the last inserted file
                 m_LastInsertedFile = "";
                 UpdateUiWithCurrentFile(fullfilepath);
+            } else {
+                m_CurrentFilePath.clear();
             }
 
             return true;
