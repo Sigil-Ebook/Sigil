@@ -3317,6 +3317,7 @@ void MainWindow::CreateNewBook()
     SetNewBook(new_book);
     new_book->SetModified(false);
     m_SaveACopyFilename = "";
+    m_CurrentFileName.clear();
     UpdateUiWithCurrentFile("");
 }
 
@@ -3368,6 +3369,8 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
                 ShowLastOpenFileWarnings();
             }
 
+            //preserve file name
+            m_CurrentFileName=QFileInfo(fullfilepath).fileName();
             if (!is_internal) {
                 // Store the folder the user opened from
                 m_LastFolderOpen = QFileInfo(fullfilepath).absolutePath();
@@ -3648,7 +3651,9 @@ const QMap<QString, QString> MainWindow::GetSaveFiltersMap()
 void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath)
 {
     m_CurrentFilePath = fullfilepath;
-    m_CurrentFileName = m_CurrentFilePath.isEmpty() ? DEFAULT_FILENAME : QFileInfo(m_CurrentFilePath).fileName();
+    if(m_CurrentFileName.isEmpty()){
+        m_CurrentFileName = DEFAULT_FILENAME;
+    }
     // Update the titlebar
     setWindowTitle(tr("%1[*] - %2").arg(m_CurrentFileName).arg(tr("Sigil")));
 
