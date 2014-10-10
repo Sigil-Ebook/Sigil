@@ -1,9 +1,11 @@
-= Introduction =
+Introduction
+============
 
 All items on this list must be completed for a successful release.
 
 
-= Details =
+Details
+=======
 
 * Ensure Sigil builds and runs.
 * Write release announcement.
