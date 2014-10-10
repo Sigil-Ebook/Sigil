@@ -74,7 +74,7 @@ public:
 
 private:
 
-    static bool IsBoundary(QChar prev_c, QChar c, QChar next_c);
+    static bool IsBoundary(QChar prev_c, QChar c, QChar next_c, const QString & wordChars);
 
 };
 
