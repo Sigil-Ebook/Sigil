@@ -1,4 +1,5 @@
 Sigil 0.8.1 TBA
+    - Fix issue #21: Use Hunspell WORDCHARS to help in tokenization of words.
     - Pull request #19: Moving plugin description to ToolTips.
     - Pull request #20: Preserve current file name for future save as actions
       if appropriate.
