@@ -1,4 +1,5 @@
-# Introduction
+Introduction
+============
 
 Instructions for building Sigil from source, on all platforms.
 
@@ -9,10 +10,11 @@ Current releases of Sigil (as of 0.5) bundle the majority of dependencies. Qt,
 CMake and general build tools are required to be installed separately. Sigil's
 build setup will try to use system installed versions of any bundled
 dependencies and fall back to the bundled copies. This is provided for
-connivence for Linux packagers but it is not supported.
+connivance for Linux packagers but it is not supported.
 
 
-# General notes
+General notes
+=============
 
 You will need CMake 3.0 or later on all platforms. You can download it
 [here](http://www.cmake.org/cmake/resources/software.html).
@@ -27,7 +29,8 @@ Qt 5.3.0 is also required on all platforms. It can be downloaded
 [here](http://qt-project.org/downloads).
 
 
-# Build Options
+Build Options
+=============
 
 * FORCE_BUNDLED_COPIES=1
   * Only use bundled copies and don't use system versions of dependencies.
@@ -36,7 +39,8 @@ Qt 5.3.0 is also required on all platforms. It can be downloaded
   * Must be specified if building a 64 bit installable package.
 
 
-## Compiling on Windows
+Compiling on Windows
+--------------------
 
 Only Microsoft's Visual C++ compiler is supported.
 You'll need Visual Studio to build Sigil. The express edition can be used.
@@ -53,7 +57,7 @@ builder needs to be installed and on the system PATH.
 
 ### Method 1 (nmake)
 
-*Note*: This assumes building an x64 build of Sigil.
+*Note*: This assumes building an x64 build of Sigil. A x86 build is very similar.
 
 1. Start the "Cross Tools Command Prompt" or "vcshell".
 2. Set the path.
@@ -78,7 +82,7 @@ type in and run the following:
 
     > cmake -G "Visual Studio 10" /path/to/extracted/folder
 
-This should create SLN and vcproj files for Visual Studio in that directory.
+This should create sln and vcproj files for Visual Studio in that directory.
 You can also generate project files for some other VS version. You can get a
 list of all supported generators by typing in and running `cmake`.
 
@@ -90,11 +94,12 @@ website. It will make it easier to develop Qt applications like Sigil, but is
 not strictly necessary.
 
 
-## Compiling on OS X
+Compiling on OS X
+-----------------
 
 On OS X a `makedmg` target is provided which will build a redistributable dmg.
 There is also an `addframeworks` target which will add all necessary
-dependencies to the .app for distribution. The `makedmg` will invoke
+dependencies to the .app for distribution. The `makedmg` will not invoke
 `addframeworks`.
 
 ### Method 1 (make)
@@ -121,7 +126,8 @@ procedure will build "Sigil.app"; if you want to package that into a DMG file,
 invoke the `makedmg` build target.
 
 
-## Compiling on Linux
+Compiling on Linux
+------------------
 
 Here is an example of installing Sigil on in your Home directory.
 
@@ -142,11 +148,10 @@ Create a script to run Sigil:
     $ ~/sigil-x.y.z/run/bin/sigil" > ~/sigil.sh
     $ chmod +x ~/sigil.sh
 
-# Run Sigil:
+### Run Sigil
 
     $ ~/sigil.sh
 
 
-
 Building from source in the git repository for release is *NOT* recommended, since code in
-the git repository is not stable. Do not open a bug report against a non release version .
+the git repository is not stable. Do not open a bug report against a non-release version.
