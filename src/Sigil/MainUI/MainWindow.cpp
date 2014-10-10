@@ -715,6 +715,10 @@ bool MainWindow::SaveAs()
         m_CurrentFilePath = (m_CurrentFileName.isEmpty())?DEFAULT_FILENAME:m_CurrentFileName;
     }
 
+    if (m_LastFolderOpen.isEmpty()) {
+        m_LastFolderOpen = QDir::homePath();
+    }
+
     // If we can save this file type, then we use the current filename
     if (c_SaveFilters.contains(QFileInfo(m_CurrentFilePath).suffix().toLower())) {
         save_path       = m_LastFolderOpen + "/" + QFileInfo(m_CurrentFilePath).fileName();
