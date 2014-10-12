@@ -5,7 +5,7 @@
 	<key>CFBundleVersion</key>
 	<string>SGVERSION</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © Sigil Authors 2010-2012, GNU GPL v3</string>
+	<string>Copyright © Sigil Authors 2010-2014, GNU GPL v3</string>
 	<key>CFBundleShortVersionString</key>
 	<string>SGVERSION</string>
 	<key>CFBundleGetInfoString</key>
@@ -55,5 +55,7 @@
     <string>NSApplication</string>
     <key>LSApplicationCategoryType</key>
     <string>public.app-category.productivity</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.9.0</string>
 </dict>
 </plist>
