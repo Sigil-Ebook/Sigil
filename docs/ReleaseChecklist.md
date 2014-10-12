@@ -16,7 +16,7 @@ Details
 * Set release date in Changelog.txt.
 * Commit version changes but do not push them.
 * Tag version.
-* Build source package $ git archive -o ../Sigil-x.y.z-Code.zip HEAD
+* Build source package $ git archive --prefix Sigil-x.y.z/ -o ../Sigil-x.y.z-Code.zip HEAD
 * Build packages.
   * OS X
   * Windows
