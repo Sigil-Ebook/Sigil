@@ -50,7 +50,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>24</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -162,7 +162,6 @@
     <addaction name="actionFAQ"/>
     <addaction name="separator"/>
     <addaction name="actionDonate"/>
-    <addaction name="actionReportAnIssue"/>
     <addaction name="actionSigilDevBlog"/>
     <addaction name="actionAbout"/>
    </widget>
@@ -1427,11 +1426,6 @@
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selected text.&lt;/p&gt;
     </string>
-   </property>
-  </action>
-  <action name="actionReportAnIssue">
-   <property name="text">
-    <string>&amp;Report An Issue...</string>
    </property>
   </action>
   <action name="actionSigilDevBlog">

@@ -413,11 +413,6 @@ private slots:
     void Donate();
 
     /**
-     * Implements Report An Issue action functionality.
-     */
-    void ReportAnIssue();
-
-    /**
      * Implements Sigil Dev Blog action functionality.
      */
     void SigilDevBlog();

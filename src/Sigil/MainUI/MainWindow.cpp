@@ -100,7 +100,6 @@ static const int ZOOM_SLIDER_MIN            = 0;
 static const int ZOOM_SLIDER_MAX            = 1000;
 static const int ZOOM_SLIDER_MIDDLE         = 500;
 static const int ZOOM_SLIDER_WIDTH          = 140;
-static const QString REPORTING_ISSUES_WIKI  = "http://code.google.com/p/sigil/wiki/ReportingIssues";
 static const QString DONATE_WIKI            = "http://code.google.com/p/sigil/wiki/Donate";
 static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
 static const QString USER_GUIDE_URL         = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/introduction.html";
@@ -2365,12 +2364,6 @@ void MainWindow::Donate()
 }
 
 
-void MainWindow::ReportAnIssue()
-{
-    QDesktopServices::openUrl(QUrl(REPORTING_ISSUES_WIKI));
-}
-
-
 void MainWindow::SigilDevBlog()
 {
     QDesktopServices::openUrl(QUrl(SIGIL_DEV_BLOG));
@@ -4020,7 +4013,6 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionFAQ, "MainWindow.FAQ");
     sm->registerAction(ui.actionTutorials, "MainWindow.FAQ");
     sm->registerAction(ui.actionDonate, "MainWindow.Donate");
-    sm->registerAction(ui.actionReportAnIssue, "MainWindow.ReportAnIssue");
     sm->registerAction(ui.actionSigilDevBlog, "MainWindow.SigilDevBlog");
     sm->registerAction(ui.actionAbout, "MainWindow.About");
     // Clips
@@ -4325,7 +4317,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionFAQ,           SIGNAL(triggered()), this, SLOT(FrequentlyAskedQuestions()));
     connect(ui.actionTutorials,     SIGNAL(triggered()), this, SLOT(Tutorials()));
     connect(ui.actionDonate,        SIGNAL(triggered()), this, SLOT(Donate()));
-    connect(ui.actionReportAnIssue, SIGNAL(triggered()), this, SLOT(ReportAnIssue()));
     connect(ui.actionSigilDevBlog,  SIGNAL(triggered()), this, SLOT(SigilDevBlog()));
     connect(ui.actionAbout,         SIGNAL(triggered()), this, SLOT(AboutDialog()));
     // Tools
