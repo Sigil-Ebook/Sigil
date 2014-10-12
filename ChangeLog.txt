@@ -1,4 +1,10 @@
 Sigil 0.8.1 TBA
+    - Set minimum OS X version to 10.9.0 in Info.plist so users trying to
+      run on older versions of OS X will receive an error dialog instead of
+      a crash dialog.
+    - Set minimum Windows version to Vista in Installer so installation will
+      error when trying to install on XP (which is not supported and Sigil
+      binary packages won't run on).
     - Fix issue #21: Use Hunspell WORDCHARS to help in tokenization of words.
     - Pull request #19: Moving plugin description to ToolTips.
     - Pull request #20: Preserve current file name for future save as actions
