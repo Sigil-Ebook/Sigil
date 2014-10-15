@@ -93,9 +93,10 @@ class QuickXHTMLParser(object):
                 p += 1
                 while s[p:p+1] == ' ' : p += 1
                 if s[p:p+1] in ('"', "'") :
+                    qt = s[p:p+1]
                     p = p + 1
                     b = p
-                    while s[p:p+1] not in ('"', "'") : p += 1
+                    while s[p:p+1] != qt : p += 1
                     val = s[b:p]
                     p += 1
                 else :
