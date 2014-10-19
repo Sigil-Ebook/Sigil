@@ -63,7 +63,8 @@ qrc_*
 *.build
 *.smp
 *.pl
-*.py
+*.pyc
+*.pyo
 *.orig
 *.bak
 *.rar
