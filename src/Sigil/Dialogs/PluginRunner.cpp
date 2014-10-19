@@ -383,14 +383,14 @@ bool PluginRunner::processResultXML()
 
                 QString linenumber;
                 bool   lok;
-                size_t vlinenumber;
+                int vlinenumber;
                 linenumber = attr.value("linenumber").toString();
                 vlinenumber = linenumber.toInt(&lok);
                 if (!lok) {
                     vlinenumber = 0;
                 }
 
-                m_validationResults.append(ValidationResult(vtype, attr.value("filename").toString(), vlinenumber, attr.value("message").toString()));
+                m_validationResults.append(ValidationResult(vtype, attr.value("filename").toString(), vlinenumber<0?0:(size_t)vlinenumber, attr.value("message").toString()));
             }
         }
     }
