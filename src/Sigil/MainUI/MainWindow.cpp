@@ -173,6 +173,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_menuPluginsInput(NULL),
     m_menuPluginsOutput(NULL),
     m_menuPluginsEdit(NULL),
+    m_menuPluginsValidation(NULL),
     m_SaveCSS(false)
 {
     ui.setupUi(this);
@@ -215,12 +216,12 @@ MainWindow::~MainWindow()
 // Actions can be removed
 void MainWindow::loadPluginsMenu()
 {
-    m_menuPlugins=ui.menuPlugins;
-    m_actionManagePlugins=ui.actionManage_Plugins;
+    PluginDB *pdb = PluginDB::instance();
+
+    m_menuPlugins = ui.menuPlugins;
+    m_actionManagePlugins = ui.actionManage_Plugins;
 
     unloadPluginsMenu();
-
-    PluginDB *pdb = PluginDB::instance();
 
     connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
 
@@ -242,20 +243,24 @@ void MainWindow::loadPluginsMenu()
                 connect(m_menuPluginsInput,  SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
             }
             m_menuPluginsInput->addAction(pname);
-
         } else if (ptype == "output") {
             if (m_menuPluginsOutput == NULL) {
                 m_menuPluginsOutput = m_menuPlugins->addMenu(tr("Output"));
                 connect(m_menuPluginsOutput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
             }
             m_menuPluginsOutput->addAction(pname);
-
-        } else {
+        } else if (ptype == "edit") {
             if (m_menuPluginsEdit == NULL) {
                 m_menuPluginsEdit = m_menuPlugins->addMenu(tr("Edit"));
                 connect(m_menuPluginsEdit,   SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
             }
             m_menuPluginsEdit->addAction(pname);
+        } else if (ptype == "validation") {
+            if (m_menuPluginsValidation == NULL) {
+                m_menuPluginsValidation = m_menuPlugins->addMenu(tr("Validation"));
+                connect(m_menuPluginsValidation,   SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            }
+            m_menuPluginsValidation->addAction(pname);
         }
     }
 }
@@ -264,11 +269,11 @@ void MainWindow::loadPluginsMenu()
 void MainWindow::unloadPluginsMenu()
 {
     if (m_menuPlugins != NULL) {
-        if (m_menuPluginsEdit != NULL) {
-            disconnect(m_menuPluginsEdit, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
-            m_menuPluginsEdit->clear();
-            m_menuPlugins->removeAction(m_menuPluginsEdit->menuAction());
-            m_menuPluginsEdit = NULL;
+        if (m_menuPluginsInput != NULL) {
+            disconnect(m_menuPluginsInput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            m_menuPluginsInput->clear();
+            m_menuPlugins->removeAction(m_menuPluginsInput->menuAction());
+            m_menuPluginsInput = NULL;
         }
         if (m_menuPluginsOutput != NULL) {
             disconnect(m_menuPluginsOutput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
@@ -276,11 +281,17 @@ void MainWindow::unloadPluginsMenu()
             m_menuPlugins->removeAction(m_menuPluginsOutput->menuAction());
             m_menuPluginsOutput = NULL;
         }
-        if (m_menuPluginsInput != NULL) {
-            disconnect(m_menuPluginsInput, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
-            m_menuPluginsInput->clear();
-            m_menuPlugins->removeAction(m_menuPluginsInput->menuAction());
-            m_menuPluginsInput = NULL;
+        if (m_menuPluginsEdit != NULL) {
+            disconnect(m_menuPluginsEdit, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            m_menuPluginsEdit->clear();
+            m_menuPlugins->removeAction(m_menuPluginsEdit->menuAction());
+            m_menuPluginsEdit = NULL;
+        }
+        if (m_menuPluginsValidation != NULL) {
+            disconnect(m_menuPluginsValidation, SIGNAL(triggered(QAction *)), this, SLOT(runPlugin(QAction *)));
+            m_menuPluginsValidation->clear();
+            m_menuPlugins->removeAction(m_menuPluginsValidation->menuAction());
+            m_menuPluginsValidation = NULL;
         }
     }
 }

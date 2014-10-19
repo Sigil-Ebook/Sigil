@@ -165,7 +165,6 @@ PluginDB::AddResult PluginDB::add_plugin_int(const QString &name, bool force)
     return PluginDB::AR_SUCCESS;
 }
 
-
 bool PluginDB::verify_plugin_zip(const QString &path, const QString &name)
 {
     QStringList filelist = Utility::ZipInspect(path);

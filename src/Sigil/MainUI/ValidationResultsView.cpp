@@ -35,6 +35,7 @@
 
 namespace fc = FlightCrew;
 
+static const QBrush INFO_BRUSH    = QBrush(QColor(224, 255, 255));
 static const QBrush WARNING_BRUSH = QBrush(QColor(255, 255, 230));
 static const QBrush ERROR_BRUSH   = QBrush(QColor(255, 230, 230));
 
@@ -176,7 +177,13 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
     Q_FOREACH(ValidationResult result, results) {
         int rownum = m_ResultTable.rowCount();
         QTableWidgetItem *item = NULL;
-        QBrush row_brush = result.Type() == ValidationResult::ResType_Error ? ERROR_BRUSH : WARNING_BRUSH;
+
+        QBrush row_brush = INFO_BRUSH;
+        if (result.Type() == ValidationResult::ResType_Warn) {
+            row_brush = WARNING_BRUSH;
+        } else if (result.Type() == ValidationResult::ResType_Error) {
+            row_brush = ERROR_BRUSH;
+        }
 
         m_ResultTable.insertRow(rownum);
 

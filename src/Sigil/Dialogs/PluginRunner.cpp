@@ -373,7 +373,9 @@ bool PluginRunner::processResultXML()
                 QString type;
                 ValidationResult::ResType vtype;
                 type = attr.value("type").toString();
-                if (type == "warning") {
+                if (type == "info") {
+                    vtype = ValidationResult::ResType_Info;
+                } else if (type == "warning") {
                     vtype = ValidationResult::ResType_Warn;
                 } else if (type == "error") {
                     vtype = ValidationResult::ResType_Error;

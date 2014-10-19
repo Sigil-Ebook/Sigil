@@ -1000,6 +1000,7 @@ private:
     QMenu *m_menuPluginsInput;
     QMenu *m_menuPluginsOutput;
     QMenu *m_menuPluginsEdit;
+    QMenu *m_menuPluginsValidation;
     QAction *m_actionManagePlugins;
     bool m_SaveCSS;
 

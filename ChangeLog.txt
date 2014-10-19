@@ -1,3 +1,7 @@
+Sigil 0.8.2 TBA
+    - Validator plugin type which can load validation results into
+      the main window validation panel.
+
 Sigil 0.8.1 2014.10.12
     - Set minimum OS X version to 10.9.0 in Info.plist so users trying to
       run on older versions of OS X will receive an error dialog instead of

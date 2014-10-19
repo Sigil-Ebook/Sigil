@@ -59,6 +59,7 @@ from wrapper import Wrapper
 from bookcontainer import BookContainer
 from inputcontainer import InputContainer
 from outputcontainer import OutputContainer
+from validationcontainer import ValidationContainer
 
 from xml.sax.saxutils import escape as xmlescape
 
@@ -68,7 +69,7 @@ add_cp65001_codec()
 
 _DEBUG=False
 
-SUPPORTED_SCRIPT_TYPES = ['input', 'output', 'edit']
+SUPPORTED_SCRIPT_TYPES = ['input', 'output', 'edit', 'validation']
 
 _XML_HEADER = '<?xml version="1.0" encoding="UTF-8"?>\n'
 
@@ -180,6 +181,9 @@ class ProcessScript(object):
                     id = ""
                     mime = container._w.getmime(bookhref)
                 self.wrapout.append('<modified href="%s" id="%s" media-type="%s" />\n' % (bookhref, id, mime))
+        if script_type == 'validation':
+            for vres in container.results:
+                self.wrapout.append('<validationresult type="%s" filename="%s" linenumber="%s" message="%s" />\n' % (vres.restype, vres.filename, vres.linenumber, vres.message))
         self.wrapout.append('</changes>\n')
         self.exitcode = 0
         return
@@ -248,8 +252,10 @@ def main(argv=unicode_argv()):
     # get the correct container
     if script_type == 'edit':
         bc = BookContainer(rk)
-    elif script_type == "input":
+    elif script_type == 'input':
         bc = InputContainer(rk)
+    elif script_type == 'validation':
+        bc = ValidationContainer(rk)
     else:
         bc = OutputContainer(rk)
 
