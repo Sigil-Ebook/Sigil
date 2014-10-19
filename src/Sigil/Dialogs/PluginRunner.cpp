@@ -211,7 +211,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     }
 
     // before modifying xhtmnl files make sure they are well formed
-    if (! checkIsWellFormed() ) {
+    if (!checkIsWellFormed()) {
         ui.statusLbl->setText(tr("Status: No Changes Made"));
         return;
     }
@@ -232,7 +232,6 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     m_book->GetFolderKeeper().SuspendWatchingResources();
 
     if (!m_filesToDelete.isEmpty()) {
-
         // before deleting make sure a tab of at least one of the remaining html files will be open
         // to prevent deleting the last tab when deleting resources
         QList <Resource *> remainingResources = m_xhtmlFiles.values();
@@ -262,6 +261,9 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         if (modifyFiles(m_filesToModify)) {
             book_modified = true;
         }
+    }
+    if (!m_validationResults.isEmpty()) {
+        m_mainWindow->SetValidationResults(m_validationResults);
     }
 
     // now make these changes known to Sigil
@@ -365,6 +367,30 @@ bool PluginRunner::processResultXML()
                 } else {
                     m_filesToModify.append(fileinfo);
                 }
+            } else if (name == "validationresult") {
+                QXmlStreamAttributes attr = reader.attributes();
+
+                QString type;
+                ValidationResult::ResType vtype;
+                type = attr.value("type").toString();
+                if (type == "warning") {
+                    vtype = ValidationResult::ResType_Warn;
+                } else if (type == "error") {
+                    vtype = ValidationResult::ResType_Error;
+                } else {
+                    continue;
+                }
+
+                QString linenumber;
+                bool   lok;
+                size_t vlinenumber;
+                linenumber = attr.value("linenumber").toString();
+                vlinenumber = linenumber.toInt(&lok);
+                if (!lok) {
+                    vlinenumber = 0;
+                }
+
+                m_validationResults.append(ValidationResult(vtype, attr.value("filename").toString(), vlinenumber, attr.value("message").toString()));
             }
         }
     }

@@ -28,6 +28,7 @@
 #include <QProgressBar>
 #include <QProcess>
 #include "Misc/TempFolder.h"
+#include "Misc/ValidationResult.h"
 
 #include "ResourceObjects/CSSResource.h"
 #include "ResourceObjects/FontResource.h"
@@ -115,6 +116,7 @@ private:
     QStringList m_filesToDelete;
     QStringList m_filesToAdd;
     QStringList m_filesToModify;
+    QList<ValidationResult> m_validationResults;
     QString m_result;
 
     int m_xhtml_net_change;
