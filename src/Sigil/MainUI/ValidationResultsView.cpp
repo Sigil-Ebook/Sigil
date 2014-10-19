@@ -77,6 +77,15 @@ void ValidationResultsView::ValidateCurrentBook()
     }
 
     QApplication::restoreOverrideCursor();
+    DisplayFCResults(results);
+    show();
+    raise();
+}
+
+
+void ValidationResultsView::LoadResults(const QList<ValidationResult> &results)
+{
+    ClearResults();
     DisplayResults(results);
     show();
     raise();
@@ -135,7 +144,25 @@ void ValidationResultsView::SetUpTable()
 }
 
 
-void ValidationResultsView::DisplayResults(const std::vector<fc::Result> &results)
+void ValidationResultsView::DisplayFCResults(const std::vector<fc::Result> &results)
+{
+    QList<ValidationResult> vres;
+
+    for (unsigned int i = 0; i < results.size(); ++i) {
+        fc::Result result = results[i];
+        vres.append(ValidationResult(
+                    result.GetResultType() == fc::ResultType_WARNING ? ValidationResult::ResType_Warn : ValidationResult::ResType_Error,
+                    QString::fromUtf8(result.GetFilepath().c_str()),
+                    result.GetErrorLine() < 0 ? 0 : (size_t)result.GetErrorLine(),
+                    QString::fromUtf8(result.GetMessage().c_str())
+                    ));
+    }
+
+    DisplayResults(vres);
+}
+
+
+void ValidationResultsView::DisplayResults(const QList<ValidationResult> &results)
 {
     m_ResultTable.clear();
 
@@ -146,25 +173,25 @@ void ValidationResultsView::DisplayResults(const std::vector<fc::Result> &result
 
     ConfigureTableForResults();
 
-    for (unsigned int i = 0; i < results.size(); ++i) {
-        fc::Result result = results[ i ];
-        m_ResultTable.insertRow(m_ResultTable.rowCount());
-        QBrush row_brush = result.GetResultType() == fc::ResultType_WARNING ?
-                           WARNING_BRUSH                                    :
-                           ERROR_BRUSH;
+    Q_FOREACH(ValidationResult result, results) {
+        int rownum = m_ResultTable.rowCount();
         QTableWidgetItem *item = NULL;
-        QString path = QString::fromUtf8(result.GetFilepath().c_str());
+        QBrush row_brush = result.Type() == ValidationResult::ResType_Error ? ERROR_BRUSH : WARNING_BRUSH;
+
+        m_ResultTable.insertRow(rownum);
+
+        QString path = result.Filename();
         item = new QTableWidgetItem(RemoveEpubPathPrefix(path));
         item->setBackground(row_brush);
-        m_ResultTable.setItem(i, 0, item);
-        item = result.GetErrorLine() > 0                                        ?
-               new QTableWidgetItem(QString::number(result.GetErrorLine())) :
-               new QTableWidgetItem(tr("N/A"));
+        m_ResultTable.setItem(rownum, 0, item);
+
+        item = result.LineNumber() > 0 ? new QTableWidgetItem(QString::number(result.LineNumber())) : new QTableWidgetItem(tr("N/A"));
         item->setBackground(row_brush);
-        m_ResultTable.setItem(i, 1, item);
-        item = new QTableWidgetItem(QString::fromUtf8(result.GetMessage().c_str()));
+        m_ResultTable.setItem(rownum, 1, item);
+
+        item = new QTableWidgetItem(result.Message());
         item->setBackground(row_brush);
-        m_ResultTable.setItem(i, 2, item);
+        m_ResultTable.setItem(rownum, 2, item);
     }
 
     // We first force the line number column

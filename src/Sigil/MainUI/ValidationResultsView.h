@@ -31,6 +31,7 @@
 #include "BookManipulation/Book.h"
 #include "MainUI/MainWindow.h"
 #include "Tabs/ContentTab.h"
+#include "Misc/ValidationResult.h"
 
 namespace FlightCrew
 {
@@ -61,6 +62,8 @@ public:
      * Validates the epub file given and displays the results.
      */
     void ValidateCurrentBook();
+
+    void LoadResults(const QList<ValidationResult> &results);
 
     /**
      * Clears the result table.
@@ -116,7 +119,8 @@ private:
      *
      * @param results A list of FlightCrew validation results.
      */
-    void DisplayResults(const std::vector<fc::Result> &results);
+    void DisplayFCResults(const std::vector<fc::Result> &results);
+    void DisplayResults(const QList<ValidationResult> &results);
 
     /**
      * Informs the user that no problems were found.

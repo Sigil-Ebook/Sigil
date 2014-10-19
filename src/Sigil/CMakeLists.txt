@@ -290,6 +290,8 @@ set( MISC_FILES
     Misc/TOCHTMLWriter.h
     Misc/NumericItem.h
     Misc/CaseInsensitiveItem.h
+    Misc/ValidationResult.h
+    Misc/ValidationResult.cpp
     Misc/WrapIndicator.h
     Misc/XMLEntities.cpp
     )
