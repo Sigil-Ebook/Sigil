@@ -26,34 +26,149 @@
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from __future__ import unicode_literals, division, absolute_import, print_function
+
 import sys
 import codecs
-import unicodedata
+
+PY2 = sys.version_info[0] == 2
+PY3 = sys.version_info[0] == 3
+
+iswindows = sys.platform.startswith('win')
+
 try:
     from urllib.parse import unquote
 except ImportError:
     from urllib import unquote
 
-
-PY2 = sys.version_info[0] == 2
-PY3 = sys.version_info[0] == 3
+try:
+    import html
+except ImportError:
+    from HTMLParser import HTMLParser
 
 if PY2:
-    text_type = unicode
-    binary_type = str
-    def bchr(s):
-        return chr(s)
-    def bord(s):
-        return ord(s)
-else:
+    _h = HTMLParser()
+
+if PY3:
     text_type = str
     binary_type = bytes
+    # if will be printing arbitraty binary data to stdout on python 3
+    # sys.stdin = sys.stdin.detach()
+    # sys.stdout = sys.stdout.detach()
+    # sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+else:
+    range = xrange
+    text_type = unicode
+    binary_type = str
+    # if will be printing unicode under python 2 need to protect
+    # against sys.stdout.encoding being None stupidly forcing forcing ascii encoding of unicode
+    # sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
+    # alternatively set environment variable as follows **before** launching python:  export PYTHONIOENCODING=UTF-8
+
+# NOTE: Python 3 is completely broken when accessing single bytes in bytes strings
+# (and they amazingly claim by design and no bug!)
+
+# To illustrate: this works for unicode in Python 3 and for all Python 2.X for both bytestrings and unicode
+# >>> o = '123456789'
+# >>> o[-3]
+# '7'
+# >>> type(o[-3])
+# <class 'str'>
+# >>> type(o)
+# <class 'str'>
+
+# Unfortunately, this is what Python 3 does for no sane reason and only for bytestrings
+# >>> o = b'123456789'
+# >>> o[-3]
+# 55
+# >>> type(o[-3])
+# <class 'int'>
+# >>> type(o)
+# <class 'bytes'>
+
+# This mind boggling  behaviour also happens when indexing a bytestring and/or
+# iteratoring over a bytestring.  In other words it will return an int but not
+# the byte itself!!!!!!!
+
+# The only way to access a single byte as a byte in bytestring and get the byte in both
+# Python 2 and Python 3 is to use a slice
+
+# This problem is so common there are horrible hacks floating around the net to **try**
+# to work around it, so that code that works on both Python 2 and Python 3 is possible.
+
+# So in order to write code that works on both Python 2 and Python 3
+# if you index or access a single byte and want its ord() then use the bord() function.
+# If instead you want it as a single character byte use the bchar() function
+# both of which are defined below.
+
+if PY3:
+    # Also Note: if decode a bytestring using 'latin-1' (or any other full range 0-255 encoding)
+    # in place of ascii you will get a byte value to half-word or integer value
+    # one-to-one mapping (in the 0 - 255 range)
+
     def bchr(s):
         return bytes([s])
+
+    def bstr(s):
+        if isinstance(s, str):
+            return bytes(s, 'latin-1')
+        else:
+            return bytes(s)
+
     def bord(s):
         return s
 
-iswindows = sys.platform.startswith('win')
+    def bchar(s):
+        return bytes([s])
+
+else:
+    def bchr(s):
+        return chr(s)
+
+    def bstr(s):
+        return str(s)
+
+    def bord(s):
+        return ord(s)
+
+    def bchar(s):
+        return s
+
+if PY3:
+    # list-producing versions of the major Python iterating functions
+    def lrange(*args, **kwargs):
+        return list(range(*args, **kwargs))
+
+    def lzip(*args, **kwargs):
+        return list(zip(*args, **kwargs))
+
+    def lmap(*args, **kwargs):
+        return list(map(*args, **kwargs))
+
+    def lfilter(*args, **kwargs):
+        return list(filter(*args, **kwargs))
+else:
+    import __builtin__
+    # Python 2-builtin ranges produce lists
+    lrange = __builtin__.range
+    lzip = __builtin__.zip
+    lmap = __builtin__.map
+    lfilter = __builtin__.filter
+
+# In Python 3 you can no longer use .encode('hex') on a bytestring
+# instead use the following on both platforms
+import binascii
+def hexlify(bdata):
+    return (binascii.hexlify(bdata)).decode('ascii')
+
+# If you: import struct
+# Note:  struct pack, unpack, unpack_from all *require* bytestring format
+# data all the way up to at least Python 2.7.5, Python 3 is okay with either
+
+# If you: import re
+# note: Python 3 "re" requires the pattern to be the exact same type as the data to be
+# searched ... but u"" is not allowed for the pattern itself only b""
+# Python 2.X allows the pattern to be any type and converts it to match the data
+# and returns the same type as the data
 
 # convert string to be utf-8 encoded
 def utf8_str(p, enc='utf-8'):
@@ -97,7 +212,16 @@ def unquoteurl(href):
     href = unquote(href)
     return href
 
-# get sys.argv arguments and properly encode them as unicode
+# unescape html
+def unescapeit(sval):
+    if PY2:
+        return _h.unescape(sval)
+    return html.unescape(sval)
+
+# Python 2.X commandline parsing under Windows has been horribly broken for years!
+# Use the following code to emulate full unicode commandline parsing on Python 2
+# ie. To get  sys.argv arguments and properly encode them as unicode
+
 def unicode_argv():
     global iswindows
     global PY3
