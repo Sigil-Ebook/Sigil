@@ -3406,6 +3406,12 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
 }
 
 
+void MainWindow::SetValidationResults(const QList<ValidationResult> &results)
+{
+    m_ValidationResultsView->LoadResults(results);
+}
+
+
 bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filename)
 {
     SettingsStore ss;
