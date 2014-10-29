@@ -69,6 +69,9 @@ if( NOT FORCE_BUNDLED_COPIES )
     find_package( FlightCrew )
 endif()
 
+# look for a specific lib python version
+find_package( PythonLibs 3.4 REQUIRED )
+
 # We must use the bundled Tidy because there are Sigil
 # specific changes to it.
 add_subdirectory( src/tidyLib )
