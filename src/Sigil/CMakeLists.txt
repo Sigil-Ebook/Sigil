@@ -292,6 +292,8 @@ set( MISC_FILES
     Misc/CaseInsensitiveItem.h
     Misc/WrapIndicator.h
     Misc/XMLEntities.cpp
+    Misc/EmbeddedPython.cpp
+    Misc/EmbeddedPython.h
     )
 
 set( MISC_EDITORS_FILES    
@@ -588,6 +590,7 @@ include_directories( BEFORE
                      ${XERCESEXTENSIONS_INCLUDE_DIRS}
                      ${XERCES_INCLUDE_DIRS}
                      ${BOOST_INCLUDE_DIRS}
+		     ${PYTHON_INCLUDE_DIRS}
                      ${CMAKE_CURRENT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR} )
 
@@ -606,7 +609,7 @@ if (MSVC)
     set(QT_MAIN Qt5::WinMain)
 endif()
 
-target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} ${PYTHON_LIBRARIES} )
 qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit WebKitWidgets Network Concurrent)
 
 #############################################################################
