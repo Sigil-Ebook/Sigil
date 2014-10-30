@@ -590,7 +590,7 @@ include_directories( BEFORE
                      ${XERCESEXTENSIONS_INCLUDE_DIRS}
                      ${XERCES_INCLUDE_DIRS}
                      ${BOOST_INCLUDE_DIRS}
-		     ${PYTHON_INCLUDE_DIRS}
+                     ${PYTHON_INCLUDE_DIRS}
                      ${CMAKE_CURRENT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR} )
 
@@ -906,4 +906,3 @@ if( UNIX AND NOT APPLE )
     install( FILES ${PLUGIN_FILES_PYTHON} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/plugin_launchers/python/ )
     install( FILES ${EXAMPLE_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/examples/ )
 endif()
-

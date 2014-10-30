@@ -51,7 +51,7 @@ public:
                          const QString& function_name,
                          const QVariantList& args,
                          int * pRV,
-			 QString& error_traceback);
+                         QString& error_traceback);
 
 private:
     EmbeddedPython();

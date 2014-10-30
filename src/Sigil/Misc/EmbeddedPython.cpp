@@ -309,7 +309,11 @@ QString EmbeddedPython::getPythonErrorTraceback(bool useMsgBox)
     return tb;
 }
 
-QVariant EmbeddedPython::runInPython(const QString& mname, const QString& fname, const QVariantList& args, int *rv, QString & tb)
+QVariant EmbeddedPython::runInPython(const QString& mname, 
+                                     const QString& fname, 
+                                     const QVariantList& args, 
+                                     int *rv, 
+                                     QString & tb)
 {
     QVariant  res        = QVariant(QString());
     PyObject *moduleName = NULL;
