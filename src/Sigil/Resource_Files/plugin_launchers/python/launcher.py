@@ -26,7 +26,8 @@
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from __future__ import unicode_literals, division, absolute_import, print_function
-from compatibility_utils import PY3, text_type, utf8_str, unicode_str
+
+from compatibility_utils import PY3, text_type, utf8_str, unicode_str, unescapeit
 from compatibility_utils import unicode_argv, add_cp65001_codec
 
 # Sigil Python Script Launcher
@@ -58,13 +59,9 @@ from wrapper import Wrapper
 from bookcontainer import BookContainer
 from inputcontainer import InputContainer
 from outputcontainer import OutputContainer
+from validationcontainer import ValidationContainer
 
 from xml.sax.saxutils import escape as xmlescape
-
-try:
-    from html.parser import HTMLParser
-except ImportError:
-    from HTMLParser import HTMLParser
 
 import traceback
 
@@ -72,19 +69,16 @@ add_cp65001_codec()
 
 _DEBUG=False
 
-SUPPORTED_SCRIPT_TYPES = ['input', 'output', 'edit']
+SUPPORTED_SCRIPT_TYPES = ['input', 'output', 'edit', 'validation']
 
 _XML_HEADER = '<?xml version="1.0" encoding="UTF-8"?>\n'
 
 EXTRA_ENTITIES = {'"':'&quot;', "'":"&apos;"}
-_h = HTMLParser()
 
 def escapeit(sval, EXTRAS=None):
-    global _h
     if EXTRAS:
-        return xmlescape(_h.unescape(sval), EXTRAS)
-    return xmlescape(_h.unescape(sval))
-
+        return xmlescape(unescapeit(sval), EXTRAS)
+    return xmlescape(unescapeit(sval))
 
 # Wrap a stream so that output gets saved
 # using utf-8 encoding
@@ -187,6 +181,9 @@ class ProcessScript(object):
                     id = ""
                     mime = container._w.getmime(bookhref)
                 self.wrapout.append('<modified href="%s" id="%s" media-type="%s" />\n' % (bookhref, id, mime))
+        if script_type == 'validation':
+            for vres in container.results:
+                self.wrapout.append('<validationresult type="%s" filename="%s" linenumber="%s" message="%s" />\n' % (vres.restype, vres.filename, vres.linenumber, vres.message))
         self.wrapout.append('</changes>\n')
         self.exitcode = 0
         return
@@ -255,8 +252,10 @@ def main(argv=unicode_argv()):
     # get the correct container
     if script_type == 'edit':
         bc = BookContainer(rk)
-    elif script_type == "input":
+    elif script_type == 'input':
         bc = InputContainer(rk)
+    elif script_type == 'validation':
+        bc = ValidationContainer(rk)
     else:
         bc = OutputContainer(rk)
 

@@ -165,17 +165,18 @@ class Opf_Parser(object):
     #    tname: tag name,    ttype: tag type ('begin', 'end' or 'single');
     #    tattr: dictionary of tag atributes
     def _parsetag(self, s):
+        n = len(s)
         p = 1
         tname = None
         ttype = None
         tattr = {}
-        while s[p:p+1] == ' ' : p += 1
+        while p < n and s[p:p+1] == ' ' : p += 1
         if s[p:p+1] == '/':
             ttype = 'end'
             p += 1
-            while s[p:p+1] == ' ' : p += 1
+            while p < n and s[p:p+1] == ' ' : p += 1
         b = p
-        while s[p:p+1] not in ('>', '/', ' ', '"', "'","\r","\n") : p += 1
+        while p < n and s[p:p+1] not in ('>', '/', ' ', '"', "'","\r","\n") : p += 1
         tname=s[b:p].lower()
         # some special cases
         if tname == "?xml":
@@ -187,22 +188,23 @@ class Opf_Parser(object):
         if ttype is None:
             # parse any attributes of begin or single tags
             while s.find('=',p) != -1 :
-                while s[p:p+1] == ' ' : p += 1
+                while p < n and s[p:p+1] == ' ' : p += 1
                 b = p
-                while s[p:p+1] != '=' : p += 1
+                while p < n and s[p:p+1] != '=' : p += 1
                 aname = s[b:p].lower()
                 aname = aname.rstrip(' ')
                 p += 1
-                while s[p:p+1] == ' ' : p += 1
+                while p < n and s[p:p+1] == ' ' : p += 1
                 if s[p:p+1] in ('"', "'") :
+                    qt = s[p:p+1]
                     p = p + 1
                     b = p
-                    while s[p:p+1] not in ('"', "'"): p += 1
+                    while p < n and s[p:p+1] != qt: p += 1
                     val = s[b:p]
                     p += 1
                 else :
                     b = p
-                    while s[p:p+1] not in ('>', '/', ' ') : p += 1
+                    while p < n and s[p:p+1] not in ('>', '/', ' ') : p += 1
                     val = s[b:p]
                 tattr[aname] = val
         if ttype is None:
