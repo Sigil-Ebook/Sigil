@@ -41,6 +41,9 @@ class InputContainer(object):
         self._w = wrapper
         self.qp=QuickXHTMLParser()
 
+    def launcher_version(self):
+        return self._w.getversion()
+
     def addotherfile(self, book_href, data):
         # creates a new file not in manifest with desired ebook root relative href
         self._w.addotherfile(book_href, data)

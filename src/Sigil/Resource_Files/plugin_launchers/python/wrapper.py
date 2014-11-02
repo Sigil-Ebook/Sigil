@@ -35,6 +35,8 @@ import unipath
 from unipath import pathof
 import unicodedata
 
+_launcher_version=20141103
+
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
 # Sigil's control from being directly manipulated.
@@ -152,6 +154,10 @@ class Wrapper(object):
                 self.id_to_filepath[book_href] = filepath
             else:
                 self.id_to_filepath[id] = filepath
+
+    def getversion(self):
+        global _launcher_version
+        return _launcher_version
 
 
     # utility routine to get mime from href
@@ -337,6 +343,8 @@ class Wrapper(object):
 
     def readfile(self, id):
         id = unicode_str(id)
+        if id not in self.id_to_href:
+            raise WrapperException('Id does not exist in manifest')
         filepath = self.id_to_filepath.get(id, None)
         if filepath is None:
             raise WrapperException('Id does not exist in manifest')
@@ -357,6 +365,8 @@ class Wrapper(object):
 
     def writefile(self, id, data):
         id = unicode_str(id)
+        if id not in self.id_to_href:
+            raise WrapperException('Id does not exist in manifest')
         filepath = self.id_to_filepath.get(id, None)
         if filepath is None:
             raise WrapperException('Id does not exist in manifest')
@@ -413,9 +423,11 @@ class Wrapper(object):
 
     def deletefile(self, id):
         id = unicode_str(id)
+        if id not in self.id_to_href:
+            raise WrapperException('Id does not exist in manifest')
         filepath = self.id_to_filepath.get(id, None)
         if id is None:
-            raise WrapperException('id does not exist in manifest')
+            raise WrapperException('Id does not exist in manifest')
         add_to_deleted = True
         # if file was added or modified, delete file from outdir
         if id in self.added or id in self.modified:
@@ -481,6 +493,8 @@ class Wrapper(object):
 
     def readotherfile(self, book_href):
         id = unicode_str(book_href)
+        if id in self.id_to_href:
+            raise WrapperException('Incorrect interface routine - use readfile')
         # handle special case of trying to read the opf
         if id is not None and id == "OEBPS/content.opf":
             return self.build_opf()
@@ -506,6 +520,8 @@ class Wrapper(object):
 
     def writeotherfile(self, book_href, data):
         id = unicode_str(book_href)
+        if id in self.id_to_href:
+            raise WrapperException('Incorrect interface routine - use writefile')
         filepath = self.id_to_filepath.get(id, None)
         if filepath is None:
             raise WrapperException('book href does not exist')
@@ -542,6 +558,8 @@ class Wrapper(object):
 
     def deleteotherfile(self, book_href):
         id = unicode_str(book_href)
+        if id in self.id_to_href:
+            raise WrapperException('Incorrect interface routine - use deletefile')
         filepath = self.id_to_filepath.get(id, None)
         if id is None:
             raise WrapperException('book href does not exist')

@@ -41,6 +41,9 @@ class BookContainer(object):
         self._w = wrapper
         self.qp=QuickXHTMLParser()
 
+    def launcher_version(self):
+        return self._w.getversion()
+
 # OPF Acess and Manipulation Routines
 
 # toc and pagemap access routines
@@ -146,12 +149,16 @@ class BookContainer(object):
 # iterators
 
     def text_iter(self):
-        # yields manifest id, href
-        for id in sorted(self._w.id_to_mime):
-            mime = self._w.id_to_mime[id]
-            if mime == 'application/xhtml+xml':
+        # yields manifest id, href in spine order plus any non-spine items
+        text_set = set([k for k,v in self._w.id_to_mime.items() if v == 'application/xhtml+xml'])
+        for id, linear in self._w.spine:
+            if id in text_set:
+                text_set -= set([id])
                 href = self._w.id_to_href[id]
                 yield id, href
+        for id in text_set:
+            href = self._w.id_to_href[id]
+            yield id, href
 
     def css_iter(self):
         # yields manifest id, href
