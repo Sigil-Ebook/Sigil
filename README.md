@@ -18,7 +18,7 @@ Issue Tracker
 =============
 
 Issue tracking is intended for discussion around issues with the code. It
-is not intended for developers to discus ideas before taking the time to
+is not intended for developers to discuss ideas before taking the time to
 implement them. It is also intended for actual bug tracking. It is not
 intended for feature requests.
 
@@ -48,9 +48,9 @@ are used.
 FlightCrew
 ----------
 
-EPUB validation Library. FlightCrew at it's Google Code project page is largely
+EPUB validation Library. FlightCrew at its Google Code project page is largely
 abandoned. All work on FlightCrew is happening within Sigil and changes are not
-being backed ported to the standalone project.
+being backported to the standalone project.
 
 
 Sigil
@@ -97,7 +97,7 @@ Spell checking library.
 pcre
 ----
 
-Regular epression library.
+Regular expression library.
 
 utf8-cpp
 --------
