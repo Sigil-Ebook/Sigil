@@ -178,9 +178,9 @@ class QuickXHTMLParser(object):
         if ttype in SPECIAL_HANDLING_TYPES and tattr is not None and 'special' in tattr:
             info = tattr['special']
             if ttype == 'comment':
-                return '<%s %s-->' % tname, info
+                return '<%s %s-->' % (tname, info)
             else:
-                return '<%s %s>' % tname, info
+                return '<%s %s>' % (tname, info)
         res = []
         res.append('<%s' % tname)
         if tattr is not None:
