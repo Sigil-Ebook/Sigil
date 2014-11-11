@@ -35,14 +35,14 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20141103
+_launcher_version=20141112
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
 # Sigil's control from being directly manipulated.
 # Uses "write-on-modify" and so removes the need for wholesale copying of files
 
-_Guide_types = ['cover','title-page','toc','index','glossary','acknowledgements',
+_guide_types = ['cover','title-page','toc','index','glossary','acknowledgements',
                 'bibliography','colophon','copyright-page','dedication',
                 'epigraph','foreward','loi','lot','notes','preface','text']
 
