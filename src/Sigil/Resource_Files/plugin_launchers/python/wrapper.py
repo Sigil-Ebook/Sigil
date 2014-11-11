@@ -314,7 +314,7 @@ class Wrapper(object):
             thref = href.split('#')[0]
             if thref not in self.href_to_id:
                 raise WrapperException('guide href not in manifest')
-            guide.append(type, title, href)
+            guide.append((type, title, href))
         self.guide = guide
         self.modified['OEBPS/content.opf'] = 'file'
 
