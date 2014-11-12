@@ -89,7 +89,8 @@ class QuickXHTMLParser(object):
                 while p < n and s[p:p+1] == ' ' : p += 1
                 b = p
                 while p < n and s[p:p+1] != '=' : p += 1
-                aname = s[b:p].lower()
+                # attribute names can be mixed case and are in SVG
+                aname = s[b:p]
                 aname = aname.rstrip(' ')
                 p += 1
                 while p < n and s[p:p+1] == ' ' : p += 1
