@@ -79,7 +79,7 @@ PluginRunner::~PluginRunner()
 QStringList PluginRunner::SupportedEngines()
 {
     QStringList engines;
-    engines << "python2.7" << "python3.4";
+    engines << "python2.7" << "python3.4" << "python2.7,python3.4" << "python3.4,python2.7";
     return engines;
 }
 
@@ -104,9 +104,20 @@ int PluginRunner::exec(const QString &name)
 
     // set up paths and things for the plugin and interpreter
     m_pluginsFolder = PluginDB::pluginsPath();
-    m_engine = plugin->get_engine();
     m_pluginType = plugin->get_type();
-    m_enginePath = pdb->get_engine_path(m_engine);
+
+    m_engine = plugin->get_engine();
+    // handle case of multiple engines
+    QStringList engineList;
+    if (m_engine.contains(",")) {
+        engineList = m_engine.split(",");
+    } else {
+        engineList.append(m_engine);
+    }
+    foreach(QString engine, engineList) {
+        m_enginePath = pdb->get_engine_path(engine);
+        if (!m_enginePath.isEmpty()) break;
+    } 
     if (m_enginePath.isEmpty()) {
         Utility::DisplayStdErrorDialog(tr("Error: Interpreter ") + m_engine + tr(" has no path set"));
         reject();
@@ -117,7 +128,7 @@ int PluginRunner::exec(const QString &name)
     launcher_root = PluginDB::launcherRoot();
 
     // Note: Keep SupportedEngines() in sync with the engine calling code here.
-    if ((m_engine == "python2.7") || (m_engine == "python3.4")) {
+    if ( m_engine.contains("python2.7") || m_engine.contains("python3.4") ) {
         m_launcherPath = launcher_root + "/python/launcher.py";
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + "plugin.py";
         if (!QFileInfo(m_launcherPath).exists()) {

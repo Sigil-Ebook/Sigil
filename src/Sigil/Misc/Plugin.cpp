@@ -149,9 +149,14 @@ void Plugin::set_version(const QString &val)
     m_version = val;
 }
 
+// multiple engines are possible
 void Plugin::set_engine(const QString &val)
 {
-    m_engine = val;
+    if (!m_engine.isEmpty()) {
+        m_engine = m_engine + "," + val;
+    } else {
+        m_engine = val;
+    }
 }
 
 void Plugin::set_oslist(const QString &val)
