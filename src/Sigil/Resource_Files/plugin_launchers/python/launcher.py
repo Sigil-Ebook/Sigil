@@ -98,6 +98,10 @@ class SavedStream:
             data = udata.encode('utf-8')
         if self.stype == 'stdout':
             self.ps.stdouttext.append(data)
+            if PY3:
+                self.stream.buffer.write(data)
+            else:
+                self.stream.write(data)
         else:
             self.ps.stderrtext.append(data)
     def __getattr__(self, attr):

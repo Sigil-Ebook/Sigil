@@ -174,7 +174,7 @@ void PluginRunner::startPlugin()
     ui.okButton->setEnabled(false);
     ui.cancelButton->setEnabled(true);
 
-
+    args.append(QString("-u"));  // sets python for unbuffered io
     args.append(QDir::toNativeSeparators(m_launcherPath));
     args.append(QDir::toNativeSeparators(m_bookRoot));
     args.append(QDir::toNativeSeparators(m_outputDir));
@@ -193,7 +193,8 @@ void PluginRunner::startPlugin()
 void PluginRunner::processOutput()
 {
     QByteArray newbytedata = m_process.readAllStandardOutput();
-    m_pluginOutput = m_pluginOutput + newbytedata ;
+    ui.textEdit->insertPlainText(newbytedata);
+    m_pluginOutput = m_pluginOutput + newbytedata;
 }
 
 
@@ -338,6 +339,11 @@ void PluginRunner::cancelPlugin()
 
 bool PluginRunner::processResultXML()
 {
+    // ignore any extraneous information before wrapper xml
+    int start_pos = m_pluginOutput.indexOf("<?xml ");
+    if (start_pos != -1) {
+      m_pluginOutput =  m_pluginOutput.mid(start_pos, -1);
+    }
     QXmlStreamReader reader(m_pluginOutput);
     reader.setNamespaceProcessing(false);
     while (!reader.atEnd()) {
