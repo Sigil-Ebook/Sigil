@@ -1,6 +1,18 @@
 Sigil 0.8.2 TBA
     - Validator plugin type which can load validation results into
       the main window validation panel.
+    - Corrections to Sigil Plugin Framework Documentation
+    - Pull request #17: Fix typos in README.md
+    - Additional python plugin interface features:
+       - multiple plugin engines now allowed for plugins that 
+         work on both python 2.7 and python 3.4
+       - launcher revision date interface
+       - plugin stdout will now appear immediately in Sigil 
+    - Multiple plugin launcher bug fixes:
+       - make parsing more robust to poorly formed xhtml
+       - modified text iterator to follow spine order
+       - bug fixes for readotherfile, and writeotherfile
+       - bug fixes for guide types and setting the guide
 
 Sigil 0.8.1 2014.10.12
     - Set minimum OS X version to 10.9.0 in Info.plist so users trying to
