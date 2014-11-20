@@ -339,10 +339,11 @@ void PluginRunner::cancelPlugin()
 
 bool PluginRunner::processResultXML()
 {
-    // ignore any extraneous information before wrapper xml
+    // ignore any extraneous information before wrapper xml at the end
     int start_pos = m_pluginOutput.indexOf("<?xml ");
-    if (start_pos != -1) {
-      m_pluginOutput =  m_pluginOutput.mid(start_pos, -1);
+    while (start_pos != -1) {
+        m_pluginOutput =  m_pluginOutput.mid(start_pos, -1);
+        start_pos = m_pluginOutput.indexOf("<?xml ", 1);
     }
     QXmlStreamReader reader(m_pluginOutput);
     reader.setNamespaceProcessing(false);
