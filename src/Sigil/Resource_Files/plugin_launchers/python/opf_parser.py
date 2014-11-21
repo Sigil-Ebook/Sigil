@@ -178,6 +178,9 @@ class Opf_Parser(object):
         b = p
         while p < n and s[p:p+1] not in ('>', '/', ' ', '"', "'","\r","\n") : p += 1
         tname=s[b:p].lower()
+        # remove redundant opf: namespace prefixes on opf tags
+        if tname.startswith("opf:"):
+            tname = tname[4:]
         # some special cases
         if tname == "?xml":
             tname = "xml"
