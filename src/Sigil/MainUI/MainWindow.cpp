@@ -294,6 +294,7 @@ void MainWindow::unloadPluginsMenu()
             m_menuPluginsValidation = NULL;
         }
     }
+    disconnect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
 }
 
 void MainWindow::runPlugin(QAction *action)
