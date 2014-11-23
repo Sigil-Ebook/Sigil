@@ -16,7 +16,7 @@
 #include "Misc/TempFolder.h"
 #include "Tabs/TabManager.h"
 #include "BookManipulation/XhtmlDoc.h"
-#include "PluginRunner.h"
+#include "Dialogs/PluginRunner.h"
 
 const QString ADOBE_FONT_ALGO_ID         = "http://ns.adobe.com/pdf/enc#RC";
 const QString IDPF_FONT_ALGO_ID          = "http://www.idpf.org/2008/embedding";
