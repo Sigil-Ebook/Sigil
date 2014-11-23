@@ -410,7 +410,7 @@ bool PluginRunner::processResultXML()
                     vlinenumber = 0;
                 }
 
-                m_validationResults.append(ValidationResult(vtype, attr.value("filename").toString(), vlinenumber<0?0:(size_t)vlinenumber, attr.value("message").toString()));
+                m_validationResults.append(ValidationResult(vtype, attr.value("filename").toString(), vlinenumber<0?0:(unsigned long) vlinenumber, attr.value("message").toString()));
             }
         }
     }

@@ -33,18 +33,18 @@ public:
         ResType_Error
     };
 
-    ValidationResult(ValidationResult::ResType type, const QString &filename, size_t linenumber, const QString &message);
+    ValidationResult(ValidationResult::ResType type, const QString &filename, unsigned long linenumber, const QString &message);
     ~ValidationResult();
 
     ValidationResult::ResType Type();
     QString Filename();
-    size_t LineNumber();
+    unsigned long LineNumber();
     QString Message();
 
 private:
     ValidationResult::ResType m_type;
     QString m_filename;
-    size_t m_linenumber;
+    unsigned long m_linenumber;
     QString m_message;
 };
 

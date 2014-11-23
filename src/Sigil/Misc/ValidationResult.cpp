@@ -23,7 +23,7 @@
 
 #include "Misc/ValidationResult.h"
 
-ValidationResult::ValidationResult(ValidationResult::ResType type, const QString &filename, size_t linenumber, const QString &message)
+ValidationResult::ValidationResult(ValidationResult::ResType type, const QString &filename, unsigned long linenumber, const QString &message)
 {
     m_type       = type;
     m_filename   = filename;
@@ -45,7 +45,7 @@ QString ValidationResult::Filename()
 	return m_filename;
 }
 
-size_t ValidationResult::LineNumber()
+unsigned long ValidationResult::LineNumber()
 {
 	return m_linenumber;
 }
