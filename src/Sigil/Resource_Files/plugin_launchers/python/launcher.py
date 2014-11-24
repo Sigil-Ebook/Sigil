@@ -153,11 +153,10 @@ class ProcessScript(object):
         self.wrapout.append('<result>success</result>\n')
         self.wrapout.append('<changes>\n')
         if script_type == "edit":
-            for id in container._w.deleted:
-                if id in container._w.id_to_href:
-                    href = container._w.id_to_href[id]
-                    mime = container._w.id_to_mime[id]
+            for ftype, id, href in container._w.deleted:
+                if ftype == 'manifest':
                     bookhref = 'OEBPS/' + href
+                    mime = container._w.getmime(bookhref)
                 else:
                     bookhref = id
                     id = ""

@@ -441,6 +441,7 @@ class Wrapper(object):
                 del self.modified[id]
         # remove from manifest
         href = self.id_to_href[id]
+        mime = self.id_to_mime[id]
         del self.id_to_href[id]
         del self.id_to_mime[id]
         del self.href_to_id[href]
@@ -455,7 +456,7 @@ class Wrapper(object):
         if was_modified:
             setspine(new_spine)
         if add_to_deleted:
-            self.deleted.append(id)
+            self.deleted.append(('manifest', id, href))
             self.modified['OEBPS/content.opf'] = 'file'
         del self.id_to_filepath[id]
 
@@ -579,7 +580,7 @@ class Wrapper(object):
             if id in self.modified:
                 del self.modified[id]
         if add_to_deleted:
-            self.deleted.append(id)
+            self.deleted.append(('other', id, book_href))
         del self.id_to_filepath[id]
 
 
