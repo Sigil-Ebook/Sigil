@@ -523,6 +523,7 @@ bool PluginRunner::deleteFiles(const QStringList &files)
                 m_tabManager->CloseTabForResource(*resource);
             }
             m_book->GetFolderKeeper().RemoveResource(*resource);
+            resource->Delete();
             changes_made = true;
         }
     }
