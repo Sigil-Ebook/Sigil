@@ -454,7 +454,7 @@ class Wrapper(object):
             else:
                 was_modified = True
         if was_modified:
-            setspine(new_spine)
+            self.setspine(new_spine)
         if add_to_deleted:
             self.deleted.append(('manifest', id, href))
             self.modified['OEBPS/content.opf'] = 'file'
