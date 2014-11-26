@@ -24,6 +24,7 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QStandardPaths>
 #include <QFile>
+#include <QDir>
 
 #include "Misc/SettingsStore.h"
 #include "Misc/PluginDB.h"
@@ -49,6 +50,7 @@ static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_enti
 
 static QString KEY_PLUGIN_INFO = SETTINGS_GROUP + "/" + "plugin_info";
 static QString KEY_PLUGIN_ENGINE_PATHS = SETTINGS_GROUP + "/" + "plugin_engine_paths";
+static QString KEY_PLUGIN_LAST_IMPORT = SETTINGS_GROUP + "/" + "plugin_last_import_path";
 
 static QString KEY_BOOK_VIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "book_view_font_family_standard";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_serif";
@@ -219,6 +221,16 @@ QHash <QString, QString> SettingsStore::pluginEnginePaths()
     return enginepath;
 }
 
+QString SettingsStore::lastPluginImportPath(){
+    QString path("");
+    clearSettingsGroup();
+    path=value(KEY_PLUGIN_LAST_IMPORT).toString();
+    if(path.isEmpty()) {
+       path=QDir::homePath();
+    }
+    return path;
+}
+
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
 {
     clearSettingsGroup();
@@ -379,6 +391,10 @@ void SettingsStore::setPluginEnginePaths(const QHash <QString, QString> &enginep
     setValue(KEY_PLUGIN_ENGINE_PATHS, ep);
 }
 
+void SettingsStore::setLastPluginImportPath(const QString &path){
+    clearSettingsGroup();
+    setValue(KEY_PLUGIN_LAST_IMPORT,path);
+}
 
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)
 {

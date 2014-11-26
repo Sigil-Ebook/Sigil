@@ -46,6 +46,7 @@ PluginDB::PluginDB()
     SettingsStore ss;
 
     m_engine_paths = ss.pluginEnginePaths();
+    m_lastImportPath=ss.lastPluginImportPath();
 
     QDir pluginDir(pluginsPath());
     if (!pluginDir.exists()) {
@@ -281,3 +282,15 @@ Plugin *PluginDB::load_plugin(const QString &name)
 
     return plugin;
 }
+
+QString PluginDB::getLastImportPath(){
+    return m_lastImportPath;
+}
+
+void PluginDB::setLastImportPath(const QString &path){
+    SettingsStore ss;
+    ss.setLastPluginImportPath(path);
+    m_lastImportPath=path;
+}
+
+
