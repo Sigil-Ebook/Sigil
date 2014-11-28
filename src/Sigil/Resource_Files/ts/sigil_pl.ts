@@ -6212,7 +6212,7 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wstawianie Nazwy ID&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wstaw lub edytuj kotwicę z Nazwą ID by móc wybrać ją jako cel łącza.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wstaw lub edytuj zakotwiczenie z Nazwą ID by móc wybrać ją jako cel łącza.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1134"/>
@@ -11173,7 +11173,7 @@ Czy Na Pewno Kontynuować?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="217"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Wersja</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="222"/>
@@ -11265,7 +11265,7 @@ Czy Na Pewno Kontynuować?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation type="unfinished"/>
+        <translation>Błąd: Wtyczka nie jest prawidłową wtyczką Sigila.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>

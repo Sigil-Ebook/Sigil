@@ -8905,7 +8905,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Autor des Nachworts, Kolophon, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
@@ -9185,7 +9185,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
         <source>Compositor</source>
-        <translation type="unfinished"/>
+        <translation>Verfasser</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
@@ -9195,7 +9195,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
         <source>Conceptor</source>
-        <translation type="unfinished"/>
+        <translation>Gestalter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
@@ -9336,7 +9336,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
         <source>Corrector</source>
-        <translation type="unfinished"/>
+        <translation>Korrektor</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
@@ -9346,7 +9346,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
         <source>Correspondent</source>
-        <translation type="unfinished"/>
+        <translation>Korrespondent</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
@@ -9455,7 +9455,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Data contributor</source>
-        <translation type="unfinished"/>
+        <translation>Datenspender</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
@@ -9475,7 +9475,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Dedicatee</source>
-        <translation type="unfinished"/>
+        <translation>Widmungsträger</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
@@ -9485,7 +9485,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Dedicator</source>
-        <translation type="unfinished"/>
+        <translation>Stifter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
@@ -9555,7 +9555,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Depositor</source>
-        <translation type="unfinished"/>
+        <translation>Deponent</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
@@ -9585,7 +9585,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Dissertant</source>
-        <translation type="unfinished"/>
+        <translation>Dissertant</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
@@ -9635,7 +9635,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Editor</source>
-        <translation type="unfinished"/>
+        <translation>Editor</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
@@ -9695,7 +9695,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Expert</source>
-        <translation type="unfinished"/>
+        <translation>Experte</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
@@ -9755,7 +9755,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Former owner</source>
-        <translation type="unfinished"/>
+        <translation>Ehemaliger Besitzer</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
@@ -9865,7 +9865,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Inventor</source>
-        <translation type="unfinished"/>
+        <translation>Erfinder</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
@@ -9875,7 +9875,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Laboratory</source>
-        <translation type="unfinished"/>
+        <translation>Laboratorium</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
@@ -10085,7 +10085,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Moderator</source>
-        <translation type="unfinished"/>
+        <translation>Moderator</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
@@ -10125,7 +10125,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Musician</source>
-        <translation type="unfinished"/>
+        <translation>Musiker</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
@@ -10135,7 +10135,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Narrator</source>
-        <translation type="unfinished"/>
+        <translation>Erzähler</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
@@ -10215,7 +10215,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Patent holder</source>
-        <translation type="unfinished"/>
+        <translation>Patentinhaber</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
@@ -10355,7 +10355,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Production manager</source>
-        <translation type="unfinished"/>
+        <translation>Produktionsleiter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
@@ -10470,7 +10470,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Reporter</source>
-        <translation type="unfinished"/>
+        <translation>Reporter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
@@ -10510,7 +10510,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Researcher</source>
-        <translation type="unfinished"/>
+        <translation>Forscher</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
@@ -10640,7 +10640,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Secretary</source>
-        <translation type="unfinished"/>
+        <translation>Sekretär</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
@@ -10670,7 +10670,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Singer</source>
-        <translation type="unfinished"/>
+        <translation>Sänger</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
@@ -10770,7 +10770,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Teacher</source>
-        <translation type="unfinished"/>
+        <translation>Lehrer</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
@@ -11162,7 +11162,7 @@ Sind Sie sicher, dass Sie fortsetzen wollen?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="217"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="222"/>
@@ -11254,7 +11254,7 @@ Sind Sie sicher, dass Sie fortsetzen wollen?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation type="unfinished"/>
+        <translation>Fehler: Plugin ist kein gültiges Sigil Plugin.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>

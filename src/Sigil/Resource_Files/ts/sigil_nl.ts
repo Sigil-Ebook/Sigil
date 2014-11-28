@@ -265,7 +265,7 @@ indien uw CSS een schreefloze letterfamilie opgeeft</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"/>
+        <translation>Als in de CSS voor uw pagina geen lettertype is opgegeven, zal het volgende lettertype worden gebruikt voor de weergave binnen Sigil. Deze lettertypen zullen niet worden gebruikt in uw huidig e-boek. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
@@ -786,12 +786,12 @@ Wilt u dit vervangen?</translation>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="639"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation type="unfinished"/>
+        <translation>Klembord bevat HTML-opmaak</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation type="unfinished"/>
+        <translation>Wilt u klembordgegevens plakken als platte tekst?</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="835"/>
@@ -1763,12 +1763,12 @@ U kunt ook de rechter pijltoets gebruiken.</translation>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="435"/>
         <source>Move Up</source>
-        <translation type="unfinished"/>
+        <translation>Omhoog</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="436"/>
         <source>Move Down</source>
-        <translation type="unfinished"/>
+        <translation>Omlaag</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="442"/>
@@ -8178,22 +8178,22 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="336"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plug-ins</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2274"/>
         <source>Manage Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plug-ins beheren</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="242"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Invoer</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="249"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Uitvoer</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="486"/>
@@ -11018,12 +11018,12 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation type="unfinished"/>
+        <translation>Uitvoerder voor plug-in</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Plug-in:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
@@ -11049,27 +11049,27 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
         <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="337"/>
         <source>Status: </source>
-        <translation type="unfinished"/>
+        <translation>Status:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="98"/>
         <source>Error: A plugin by that name does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Fout: Er bestaat geen plug-in met die naam</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
         <source>Error: Interpreter </source>
-        <translation type="unfinished"/>
+        <translation>Fout: Interpreter</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
         <source> has no path set</source>
-        <translation type="unfinished"/>
+        <translation>heeft geen pad ingesteld</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="124"/>
         <source>Installation Error: plugin launcher </source>
-        <translation type="unfinished"/>
+        <translation>Installatiefout: starter voor plug-in</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="125"/>
@@ -11079,129 +11079,130 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="130"/>
         <source>Error: plugin engine </source>
-        <translation type="unfinished"/>
+        <translation>Fout: machine voor plug-in</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="131"/>
         <source> is not supported (yet!)</source>
-        <translation type="unfinished"/>
+        <translation>wordt (nog!) niet ondersteund</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="137"/>
         <source>Status: ready</source>
-        <translation type="unfinished"/>
+        <translation>Status: gereed</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="150"/>
         <source>Error: plugin can not start</source>
-        <translation type="unfinished"/>
+        <translation>Fout: plug-in kan niet worden gestart</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="192"/>
         <source>Launcher process crashed</source>
-        <translation type="unfinished"/>
+        <translation>Opstartproces vastgelopen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="203"/>
         <source>Status: finished</source>
-        <translation type="unfinished"/>
+        <translation>Status: voltooid</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="215"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="224"/>
         <source>Status: No Changes Made</source>
-        <translation type="unfinished"/>
+        <translation>Status: geen wijzigingen aangebracht</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="223"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
-        <translation type="unfinished"/>
+        <translation>Fout: Plug-in probeert het laatste XHTML-bestand te verwijderen ... wijzigingen worden afgebroken</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="299"/>
         <source>Plugin failed to start</source>
-        <translation type="unfinished"/>
+        <translation>Opstarten van plug-in mislukt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="307"/>
         <source>Status: error</source>
-        <translation type="unfinished"/>
+        <translation>Status: fout</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="321"/>
         <source>Plugin cancelled</source>
-        <translation type="unfinished"/>
+        <translation>Plug-in geannuleerd</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="322"/>
         <source>Status: cancelled</source>
-        <translation type="unfinished"/>
+        <translation>Status: geannuleerd</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="372"/>
         <source>Error Parsing Result XML:  </source>
-        <translation type="unfinished"/>
+        <translation>Fout bij ontleden XML van resultaat:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
         <source>Incorrect XHTML/XML: </source>
-        <translation type="unfinished"/>
+        <translation>Onjuiste XHTML/XML:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
         <source> Line/Col </source>
-        <translation type="unfinished"/>
+        <translation>Regel/kolom</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
         <source>Check Report</source>
-        <translation type="unfinished"/>
+        <translation>Controlerapport</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Onjuiste XHTML/XML geconstateerd
+Weet u zeker dat u wilt doorgaan?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="459"/>
         <source>Status: cleaning up - deleting files</source>
-        <translation type="unfinished"/>
+        <translation>Status: opschonen - bestanden verwijderen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="474"/>
         <source>Status: deleting </source>
-        <translation type="unfinished"/>
+        <translation>Status: verwijderen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
         <source>Status: Loading </source>
-        <translation type="unfinished"/>
+        <translation>Status: inladen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="514"/>
         <source>Input Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Invoer plug-in</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="515"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
-        <translation type="unfinished"/>
+        <translation>Uw huidige boek zal geheel worden vervangen met verlies van alle niet-opgeslagen wijzigingen... Weet u zeker dat u wilt doorgaan?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="541"/>
         <source>Status: adding </source>
-        <translation type="unfinished"/>
+        <translation>Status: toevoegen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="589"/>
         <source>Status: cleaning up - modifying files</source>
-        <translation type="unfinished"/>
+        <translation>Status: opschonen - wijzigen bestanden</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="618"/>
         <source>Status: modifying </source>
-        <translation type="unfinished"/>
+        <translation>Status: wijzigen</translation>
     </message>
 </context>
 <context>
@@ -11210,7 +11211,7 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="137"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plug-ins</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
@@ -11220,7 +11221,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="217"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versie</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="222"/>
@@ -11235,7 +11236,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="232"/>
         <source>Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>Interpreter</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="240"/>
@@ -11245,101 +11246,101 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="144"/>
         <source>Remove Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plug-in verwijderen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="151"/>
         <source>Interpreters</source>
-        <translation type="unfinished"/>
+        <translation>Interpreters</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="158"/>
         <source>Add Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Plug-in toevoegen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
-        <translation type="unfinished"/>
+        <translation>Pad naar uitvoerbaar bestand van interpreter</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
         <source>Python2.7:</source>
-        <translation type="unfinished"/>
+        <translation>Python 2.7:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
         <source>Python3.4:</source>
-        <translation type="unfinished"/>
+        <translation>Python 3.4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="105"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="64"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="112"/>
         <source>Set</source>
-        <translation type="unfinished"/>
+        <translation>Instellen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
         <source>Select Plugin Zip Archive</source>
-        <translation type="unfinished"/>
+        <translation>Zip-archief met plug-in selecteren</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
         <source>Plugin Files (*.zip)</source>
-        <translation type="unfinished"/>
+        <translation>Bestanden met plug-ins (*.zip)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="103"/>
         <source>Warning: A plugin by that name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Waarschuwing: Er bestaat al een plug-in met die naam</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="106"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation type="unfinished"/>
+        <translation>Fout: Plug-in kon niet worden ontzipt.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="100"/>
         <source>Error: Plugin plugin.xml file can not be read.</source>
-        <translation type="unfinished"/>
+        <translation>Fout: Plug-in plugin.xml kan niet worden gelezen.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation type="unfinished"/>
+        <translation>Fout: Geen geldige plug-in voor Sigil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
         <source>Nothing is Selected.</source>
-        <translation type="unfinished"/>
+        <translation>Er is niets geselecteerd.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="161"/>
         <source>Remove All Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Alle plug-ins verwijderen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation type="unfinished"/>
+        <translation>Weet u zeker dat u alle plug-ins wilt verwijderen?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
         <source>Select Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>Interpreter selecteren</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="241"/>
         <source>Incorrect Interpreter Path selected</source>
-        <translation type="unfinished"/>
+        <translation>Onjuist pad naar interpreter geselecteerd.</translation>
     </message>
 </context>
 <context>
@@ -11370,18 +11371,19 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
         <source>Preserve Entities</source>
-        <translation type="unfinished"/>
+        <translation>Entiteiten behouden</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation type="unfinished"/>
+        <translation>Te behouden entiteiten</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
-        <translation type="unfinished"/>
+        <translation>Typ of plak entiteiten om aan de lijst te te voegen.
+Entiteiten kunnen worden gescheiden door regeleinden, komma&apos;s of spaties.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
@@ -11401,12 +11403,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Add Entities</source>
-        <translation type="unfinished"/>
+        <translation>Entiteiten toevoegen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Entities:</source>
-        <translation type="unfinished"/>
+        <translation>Entiteiten:</translation>
     </message>
 </context>
 <context>

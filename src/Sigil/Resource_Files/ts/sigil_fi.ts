@@ -265,7 +265,7 @@ kun CSS:llä on asetettu fonttiperheeksi sans-serif.</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"/>
+        <translation>Jos sivusi CSS-tyyliohjeessa ei aseteta fonttia, Sigil käyttää seuraavaa fonttia sisällön esittämiseen. Tämä ei vaikuta siihen, mitä fontteja e-kirjojen lukuohjelmat käyttävät.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
@@ -784,12 +784,12 @@ Haluatko korvata sen?</translation>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="639"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation type="unfinished"/>
+        <translation>Leikepöytä sisältää HTML-muotoilua</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation type="unfinished"/>
+        <translation>Haluatko liittää leikepöydältä sisältöä pelkkänä tekstinä?</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="835"/>
@@ -1760,12 +1760,12 @@ Voit käyttää myös oikealle osoittavaa nuolinäppäintä (→).</translation>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="435"/>
         <source>Move Up</source>
-        <translation type="unfinished"/>
+        <translation>Ylöspäin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="436"/>
         <source>Move Down</source>
-        <translation type="unfinished"/>
+        <translation>Alaspäin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="442"/>
@@ -6775,7 +6775,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to lowercase.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Pieniksi&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Gemenaksi&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin kirjaimet pieniksi eli gemenaksi.&lt;/p&gt;
     </translation>
@@ -6793,7 +6793,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to uppercase.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Isoiksi&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Versaaliksi&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin kirjaimet isoiksi eli versaaliksi.&lt;/p&gt;
     </translation>
@@ -6811,7 +6811,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Isot alkukirjaimet&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Sanat versaalialkuisiksi&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta jokaisen valitun sanan ensimmäinen kirjain isoksi (versaaliksi).&lt;/p&gt;
     </translation>
@@ -6824,9 +6824,9 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selected text.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Iso alkukirjain&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ensimmäinen kirjain versaalilla&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin ensimmäinen kirjain isoksi (versaaliksi).&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin ensimmäinen kirjain isoksi (versaaliksi) ja muut kirjaimet pieniksi (gemenaksi).&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -7525,12 +7525,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1406"/>
         <source>&amp;Titlecase</source>
-        <translation>Isot alkukirjaimet</translation>
+        <translation>Sanat versaalialkuisiksi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1422"/>
         <source>&amp;Capitalize</source>
-        <translation>Iso alkukirjain</translation>
+        <translation>Ensimmäinen kirjain versaaliksi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1468"/>
@@ -8179,22 +8179,22 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="336"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2274"/>
         <source>Manage Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosien hallinta</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="242"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Syöte</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="249"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Tuloste</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="486"/>
@@ -10969,12 +10969,12 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosan toteutus:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosa:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
@@ -10994,140 +10994,141 @@ Haluatko tallentaa muutoksesi?</translation>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="97"/>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="337"/>
         <source>Status: </source>
-        <translation type="unfinished"/>
+        <translation>Tila:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="98"/>
         <source>Error: A plugin by that name does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Virhe: Annetunnimistä lisäosaa ei ole</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
         <source>Error: Interpreter </source>
-        <translation type="unfinished"/>
+        <translation>Virhe: Tulkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
         <source> has no path set</source>
-        <translation type="unfinished"/>
+        <translation>:n polkua ei ole asetettu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="124"/>
         <source>Installation Error: plugin launcher </source>
-        <translation type="unfinished"/>
+        <translation>Asennusvirhe: lisäosan käynnistin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="125"/>
         <source> does not exist</source>
-        <translation type="unfinished"/>
+        <translation>ei ole olemassa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="130"/>
         <source>Error: plugin engine </source>
-        <translation type="unfinished"/>
+        <translation>Virhe: lisäosien käsittely</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="131"/>
         <source> is not supported (yet!)</source>
-        <translation type="unfinished"/>
+        <translation>ei ole (vielä) tuettu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="137"/>
         <source>Status: ready</source>
-        <translation type="unfinished"/>
+        <translation>Tila: valmis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="150"/>
         <source>Error: plugin can not start</source>
-        <translation type="unfinished"/>
+        <translation>Virhe: lisäosa ei pysty käynnistymään</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="192"/>
         <source>Launcher process crashed</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistysprosessi päättyi epänormaalisti</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="203"/>
         <source>Status: finished</source>
-        <translation type="unfinished"/>
+        <translation>Tila: päättynyt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="215"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="224"/>
         <source>Status: No Changes Made</source>
-        <translation type="unfinished"/>
+        <translation>Tila: muutoksia ei tehty</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="223"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
-        <translation type="unfinished"/>
+        <translation>Virhe: Lisäosa yritti poistaa viimeisen XHTML-tiedoston – muutokset hylätään</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="299"/>
         <source>Plugin failed to start</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosa ei käynnistynyt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="307"/>
         <source>Status: error</source>
-        <translation type="unfinished"/>
+        <translation>Tila: virhe</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="321"/>
         <source>Plugin cancelled</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosan suoritus peruutettiin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="322"/>
         <source>Status: cancelled</source>
-        <translation type="unfinished"/>
+        <translation>Tila: peruutettu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="372"/>
         <source>Error Parsing Result XML:  </source>
-        <translation type="unfinished"/>
+        <translation>Virhe XML-koodin jäsennyksessä:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
         <source>Incorrect XHTML/XML: </source>
-        <translation type="unfinished"/>
+        <translation>Virheellistä XHTML:ää tai XML:ää:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
         <source> Line/Col </source>
-        <translation type="unfinished"/>
+        <translation>Rivi/sarake</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
         <source>Check Report</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista raportti</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
-        <translation type="unfinished"/>
+        <translation>Virheellistä XHTML:ää tai XML:ää havaittu.
+Oletko varma, että haluat jatkaa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="459"/>
         <source>Status: cleaning up - deleting files</source>
-        <translation type="unfinished"/>
+        <translation>Tila: siivotaan – poistetaan tiedostoja</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="474"/>
         <source>Status: deleting </source>
-        <translation type="unfinished"/>
+        <translation>Tila: poistetaan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
         <source>Status: Loading </source>
-        <translation type="unfinished"/>
+        <translation>Tila: Ladataan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="514"/>
@@ -11137,22 +11138,22 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="515"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen kirjasi korvautuu kokonaan, jolloin kaikki tallentamattomat muutokset häviävät. Oletko varma, että haluat jatkaa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="541"/>
         <source>Status: adding </source>
-        <translation type="unfinished"/>
+        <translation>Tila: lisätään</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="589"/>
         <source>Status: cleaning up - modifying files</source>
-        <translation type="unfinished"/>
+        <translation>Tila: siivotaan – muutetaan tiedostoja</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="618"/>
         <source>Status: modifying </source>
-        <translation type="unfinished"/>
+        <translation>Tila: muutetaan</translation>
     </message>
 </context>
 <context>
@@ -11161,7 +11162,7 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="137"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
@@ -11171,7 +11172,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="217"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versio</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="222"/>
@@ -11186,7 +11187,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="232"/>
         <source>Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>Tulkki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="240"/>
@@ -11196,101 +11197,101 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="144"/>
         <source>Remove Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Poista lisäosa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="151"/>
         <source>Interpreters</source>
-        <translation type="unfinished"/>
+        <translation>Tulkit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="158"/>
         <source>Add Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Lisää lisäosa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
-        <translation type="unfinished"/>
+        <translation>Tulkin .exe-tiedoston polku</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
         <source>Python2.7:</source>
-        <translation type="unfinished"/>
+        <translation>Python 2.7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
         <source>Python3.4:</source>
-        <translation type="unfinished"/>
+        <translation>Python 3.4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="105"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Autom.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="64"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="112"/>
         <source>Set</source>
-        <translation type="unfinished"/>
+        <translation>Valitse</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
         <source>Select Plugin Zip Archive</source>
-        <translation type="unfinished"/>
+        <translation>Valitse lisäosien zip-arkisto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
         <source>Plugin Files (*.zip)</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosatiedostot (*.zip)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="103"/>
         <source>Warning: A plugin by that name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Varoitus: Annetun niminen lisäosa on jo olemassa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="106"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation type="unfinished"/>
+        <translation>Virhe: Lisäosaa ei voitu purkaa zip-paketista</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="100"/>
         <source>Error: Plugin plugin.xml file can not be read.</source>
-        <translation type="unfinished"/>
+        <translation>Virhe: Tiedostoa plugin.xml ei voitu lukea</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation type="unfinished"/>
+        <translation>Virhe: Lisäosa ei ole kelvollinen Sigilin lisäosaksi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
         <source>Nothing is Selected.</source>
-        <translation type="unfinished"/>
+        <translation>Mitään ei ole valittu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="161"/>
         <source>Remove All Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Poista kaikki lisäosat</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation type="unfinished"/>
+        <translation>Oletko varma, että haluat poistaa kaikki lisäosat?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
         <source>Select Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>Valitse tulkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="241"/>
         <source>Incorrect Interpreter Path selected</source>
-        <translation type="unfinished"/>
+        <translation>Virheellinen tulkin polku valittu</translation>
     </message>
 </context>
 <context>
@@ -11321,18 +11322,19 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
         <source>Preserve Entities</source>
-        <translation type="unfinished"/>
+        <translation>Säilytä merkkiviittaukset</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation type="unfinished"/>
+        <translation>Säilytettävät viittaukset</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
-        <translation type="unfinished"/>
+        <translation>Kirjoita tai leikkaa ja liimaa merkkiviittauksia listaan.
+Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
@@ -11352,12 +11354,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Add Entities</source>
-        <translation type="unfinished"/>
+        <translation>Lisää viittauksia</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Entities:</source>
-        <translation type="unfinished"/>
+        <translation>Viittaukset:</translation>
     </message>
 </context>
 <context>

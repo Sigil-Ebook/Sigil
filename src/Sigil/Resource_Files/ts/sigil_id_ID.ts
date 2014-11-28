@@ -4,7 +4,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>Tentang</translation>
+        <translation>Perihal</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
@@ -265,7 +265,7 @@ jika jenis fonta sans serif tidak ditentukan di CSS</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"/>
+        <translation>Jika tidak ada fonta ditetapkan di CSS untuk laman, fonta berikut ini akan digunakan untuk ditampilkan di Sigil. Fonta tersebut tidak akan digunakan pada ebook yang sebenarnya.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
@@ -428,7 +428,7 @@ jika jenis fonta sans serif tidak ditentukan di CSS</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
         <source>Font Obfuscation</source>
-        <translation>Kerancuan Fonta</translation>
+        <translation>Merancukan Fonta</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="242"/>
@@ -783,12 +783,12 @@ OK kalau diganti?</translation>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="639"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation type="unfinished"/>
+        <translation>Papan klip mengandung pemformatan HTML</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation type="unfinished"/>
+        <translation>Apakah ingin menempelkan data papan klip sebagai teks biasa?</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="835"/>
@@ -1759,12 +1759,12 @@ Bisa juga menggunakan tuts panah kanan.</translation>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="435"/>
         <source>Move Up</source>
-        <translation type="unfinished"/>
+        <translation>Pindah ke atas</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="436"/>
         <source>Move Down</source>
-        <translation type="unfinished"/>
+        <translation>Pindah ke bawah</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="442"/>
@@ -2739,7 +2739,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
         <source>Conflicts with: &lt;b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Konflik dengan: &lt;b&gt;</translation>
     </message>
 </context>
 <context>
@@ -2903,7 +2903,7 @@ Apakah ingin menyimpan perubahan?</translation>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Azerbaijani</source>
-        <translation>Azerbaijani</translation>
+        <translation>Bahasa Azerbaijan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
@@ -2928,12 +2928,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Belarusian</source>
-        <translation>Belarusia</translation>
+        <translation>Bahasa Belarusia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <source>Bengali</source>
-        <translation>Bengal</translation>
+        <translation>Bahasa Bengal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
@@ -2948,7 +2948,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bosnian</source>
-        <translation>Bosnia</translation>
+        <translation>Bahasa Bosnia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
@@ -2958,12 +2958,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Bulgarian</source>
-        <translation>Bulgaria</translation>
+        <translation>Bahasa Bulgaria</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Burmese</source>
-        <translation>Burma</translation>
+        <translation>Bahasa Burma</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
@@ -3014,7 +3014,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Singapore</source>
-        <translation>Singapore</translation>
+        <translation>Singapura</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
@@ -3049,12 +3049,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Croatian</source>
-        <translation>Kroasia</translation>
+        <translation>Bahasa Kroasia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Czech</source>
-        <translation>Ceko</translation>
+        <translation>Bahasa Ceko</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
@@ -3192,12 +3192,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Faroese</source>
-        <translation>Bahasa Faroese</translation>
+        <translation>Bahasa Faroe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Fijian</source>
-        <translation>Bahasa Fijian</translation>
+        <translation>Bahasa Fiji</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
@@ -3261,7 +3261,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Georgian</source>
-        <translation>Bahasa Georgian</translation>
+        <translation>Bahasa Georgia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
@@ -3311,7 +3311,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Haitian</source>
-        <translation>Bahasa Haitian</translation>
+        <translation>Bahasa Haiti</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="187"/>
@@ -3464,7 +3464,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kongo</source>
-        <translation>Kongo</translation>
+        <translation>Bahasa Kongo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
@@ -3479,7 +3479,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kurdish</source>
-        <translation>Bahasa Kurdish</translation>
+        <translation>Bahasa Kurdi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
@@ -3495,7 +3495,7 @@ Apakah ingin menyimpan perubahan?</translation>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvian</source>
-        <translation>Bahasa Latvian</translation>
+        <translation>Bahasa Latvia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
@@ -3505,7 +3505,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Limburgan</source>
-        <translation>Bahasa Limburgan</translation>
+        <translation>Bahasa Limburg</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
@@ -3525,17 +3525,17 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <source>Luxembourgish</source>
-        <translation>Bahasa Luxembourgish</translation>
+        <translation>Bahasa Luxembourg</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Macedonian</source>
-        <translation>Bahasa Macedonian</translation>
+        <translation>Bahasa Macedonia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Malagasy</source>
-        <translation>Malagasy</translation>
+        <translation>Bahasa Malagasy</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
@@ -3562,7 +3562,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Maltese</source>
-        <translation>Bahasa Maltese</translation>
+        <translation>Bahasa Malta</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
@@ -3582,12 +3582,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Marshallese</source>
-        <translation>Bahasa Marshallese</translation>
+        <translation>Bahasa Marshall</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Mongolian</source>
-        <translation>Bahasa Mongolian</translation>
+        <translation>Bahasa Mongolia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
@@ -3623,7 +3623,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Nepali</source>
-        <translation>Bahasa Nepali</translation>
+        <translation>Bahasa Nepal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
@@ -3635,12 +3635,12 @@ Apakah ingin menyimpan perubahan?</translation>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Norwegian</source>
-        <translation>Bahasa Norwegian</translation>
+        <translation>Bahasa Norwegia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Bokmal</source>
-        <translation>Bahasa Bokmal (Norwegia)</translation>
+        <translation>Bahasa Bokmal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
@@ -3675,7 +3675,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Ossetian</source>
-        <translation>Bahasa Ossetian</translation>
+        <translation>Bahasa Ossetia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
@@ -3690,19 +3690,19 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Persian</source>
-        <translation>Bahasa Persian</translation>
+        <translation>Bahasa Persia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Polish</source>
-        <translation>Bahasa Polish</translation>
+        <translation>Bahasa Polandia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Portuguese</source>
-        <translation>Bahasa Portuguese</translation>
+        <translation>Bahasa Portugis</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
@@ -3729,7 +3729,7 @@ Apakah ingin menyimpan perubahan?</translation>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romanian</source>
-        <translation>Bahasa Romanian</translation>
+        <translation>Bahasa Romania</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
@@ -3756,12 +3756,12 @@ Apakah ingin menyimpan perubahan?</translation>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Russian</source>
-        <translation>Bahasa Russian</translation>
+        <translation>Bahasa Russia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Samoan</source>
-        <translation>Bahasa Samoan</translation>
+        <translation>Bahasa Samoa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
@@ -3771,23 +3771,23 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Sanskrit</source>
-        <translation>Bahasa Sanskrit</translation>
+        <translation>Bahasa Sanskerta</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Sardinian</source>
-        <translation>Bahasa Sardinian</translation>
+        <translation>Bahasa Sardin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbian</source>
-        <translation>Bahasa Serbian</translation>
+        <translation>Bahasa Serbia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbia</source>
-        <translation type="unfinished"/>
+        <translation>Serbia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
@@ -3817,17 +3817,17 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Slovenian</source>
-        <translation>Bahasa Slovenian</translation>
+        <translation>Bahasa Slovenia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Somali</source>
-        <translation>Bahasa Somali</translation>
+        <translation>Bahasa Somalia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sotho, Southern</source>
-        <translation>Bahasa Sotho, Southern</translation>
+        <translation>Bahasa Sotho, Selatan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
@@ -3994,7 +3994,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Tahitian</source>
-        <translation>Bahasa Tahitian</translation>
+        <translation>Bahasa Tahiti</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
@@ -4024,7 +4024,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tibetan</source>
-        <translation>Bahasa Tibetan</translation>
+        <translation>Bahasa Tibet</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
@@ -4076,7 +4076,7 @@ Apakah ingin menyimpan perubahan?</translation>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukrainian</source>
-        <translation>Bahasa Ukrainian</translation>
+        <translation>Bahasa Ukraina</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
@@ -4187,7 +4187,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Afro-Asiatic languages</source>
-        <translation>Bahasa Afro-Asiatik</translation>
+        <translation>Bahasa-bahasa Afro-Asiatik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="355"/>
@@ -4207,12 +4207,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Algonquian languages</source>
-        <translation>Bahasa Algonquian</translation>
+        <translation>Bahasa-bahasa Algonquian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Altaic languages</source>
-        <translation>Bahasa Altaik</translation>
+        <translation>Bahasa-bahasa Altaik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="360"/>
@@ -4222,7 +4222,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Apache languages</source>
-        <translation>Bahasa Apache</translation>
+        <translation>Bahasa-bahasa Apache</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="362"/>
@@ -4237,7 +4237,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
-        <translation>Aromanian, Arumanian, Macedo-Romanian</translation>
+        <translation>Bahasa Aromania, Arumania, Macedo-Romania</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="365"/>
@@ -4247,7 +4247,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
-        <translation>Asturian, Asturleonese, Bable, Leonese</translation>
+        <translation>Bahasa Asturian, Asturleonese, Bable, Leonese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="367"/>
@@ -4442,42 +4442,42 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Classical Syriac</source>
-        <translation>Classical Syriac</translation>
+        <translation>Bahasa Suriah Classical</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Coptic</source>
-        <translation>Kptik</translation>
+        <translation>Bahasa Koptik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Creek</source>
-        <translation>Teluk</translation>
+        <translation>Bahasa Creek</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Creoles and pidgins</source>
-        <translation>Creoles and pidgins</translation>
+        <translation>Bahasa Creoles and pidgins</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Creoles and pidgins- English based</source>
-        <translation>Creoles and pidgins- English based</translation>
+        <translation>Bahasa Creoles and pidgins- English based</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Creoles and pidgins- French-based</source>
-        <translation>Creoles and pidgins- French-based</translation>
+        <translation>Bahasa Creoles and pidgins- French-based</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Creoles and pidgins- Portuguese-based</source>
-        <translation>Creoles and pidgins- Portuguese-based</translation>
+        <translation>Bahasa Creoles and pidgins- Portuguese-based</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Crimean Tatar/Turkish</source>
-        <translation>Crimean Tatar/Turkish</translation>
+        <translation>Bahasa Crimean Tatar/Turkish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="413"/>
@@ -4502,7 +4502,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
-        <translation>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</translation>
+        <translation>Bahasa Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="418"/>
@@ -4532,7 +4532,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
-        <translation>Dutch- Middle (ca.1050-1350)</translation>
+        <translation>Bahasa Belanda- Middle (ca.1050-1350)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="424"/>
@@ -4902,7 +4902,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Kru languages</source>
-        <translation>Bahasa Kru languages</translation>
+        <translation>Bahasa Kru</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="498"/>
@@ -4952,7 +4952,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="507"/>
         <source>German-Low, Low Saxon</source>
-        <translation>Bahasa German-Low, Low Saxon</translation>
+        <translation>Bahasa Jerman-Low, Low Saxon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="508"/>
@@ -5082,7 +5082,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Mirandese</source>
-        <translation>Bahasa Mirandese</translation>
+        <translation>Bahasa Miranda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="534"/>
@@ -5217,12 +5217,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation type="unfinished"/>
+        <translation>Bahasa Occitan/Provencal- Old (to 1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
-        <translation type="unfinished"/>
+        <translation>Resmi/Imperial Aramaic (700-300 BCE)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
@@ -5262,12 +5262,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
-        <translation>Bahasa Persian- Old (ca.600-400 B.C.)</translation>
+        <translation>Bahasa Persia- Old (ca.600-400 B.C.)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Philippine languages</source>
-        <translation>Bahasa Philippine languages</translation>
+        <translation>Bahasa-bahasa Filipina</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
@@ -5282,7 +5282,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Prakrit languages</source>
-        <translation>Bahasa Prakrit languages</translation>
+        <translation>Bahasa-bahasa Prakrit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
@@ -5307,7 +5307,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Romance languages</source>
-        <translation>Bahasa Romance</translation>
+        <translation>Bahasa-bahasa Romance</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
@@ -5317,7 +5317,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Salishan languages</source>
-        <translation>Bahasa Salishan</translation>
+        <translation>Bahasa-bahasa Salishan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
@@ -5327,7 +5327,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Sami languages</source>
-        <translation>Bahasa Sami</translation>
+        <translation>Bahasa-bahasa Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
@@ -5357,7 +5357,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Semitic languages</source>
-        <translation>Bahasa Semitic</translation>
+        <translation>Bahasa-bahasa Semit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
@@ -5392,12 +5392,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Sino-Tibetan languages</source>
-        <translation>Bahasa Sino-Tibetan</translation>
+        <translation>Bahasa-bahasa Sino-Tibetan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Siouan languages</source>
-        <translation>Bahasa Siouan</translation>
+        <translation>Bahasa-bahasa Siouan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
@@ -5412,7 +5412,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Slavic languages</source>
-        <translation>Bahasa Slavic</translation>
+        <translation>Bahasa-bahasa Slavic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
@@ -5422,7 +5422,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Songhai languages</source>
-        <translation>Bahasa Songhai</translation>
+        <translation>Bahasa-bahasa Songhai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
@@ -5432,12 +5432,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Sorbian languages</source>
-        <translation>Bahasa Sorbian</translation>
+        <translation>Bahasa-bahasa Sorbian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
         <source>South American Indian languages</source>
-        <translation>Bahasa Indian Amerika Selatan</translation>
+        <translation>Bahasa-bahasa Indian Amerika Selatan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
@@ -5477,12 +5477,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Syriac</source>
-        <translation>Bahasa Syriac</translation>
+        <translation>Bahasa Suriah</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Tai languages</source>
-        <translation>Bahasa Tai</translation>
+        <translation>Bahasa-bahasa Tai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
@@ -5547,7 +5547,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Tupi languages</source>
-        <translation>Bahasa Tupi</translation>
+        <translation>Bahasa-bahasa Tupi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
@@ -5607,7 +5607,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Wakashan languages</source>
-        <translation>Bahasa Wakashan</translation>
+        <translation>Bahasa-bahasa Wakashan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
@@ -5642,12 +5642,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Yupik languages</source>
-        <translation>Bahasa Yupik</translation>
+        <translation>Bahasa-bahasa Yupik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Zande languages</source>
-        <translation>Bahasa Zande</translation>
+        <translation>Bahasa-bahasa Zande</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="647"/>
@@ -5841,7 +5841,7 @@ Stylesheet yang muncul pertama akan diutamakan sebelum stylesheet setelahnya.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>Berkas</translation>
+        <translation>&amp;Berkas</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="88"/>
@@ -5861,7 +5861,7 @@ Stylesheet yang muncul pertama akan diutamakan sebelum stylesheet setelahnya.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="216"/>
         <source>&amp;View</source>
-        <translation>Lihat</translation>
+        <translation>&amp;Lihat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="235"/>
@@ -6118,7 +6118,7 @@ Stylesheet yang muncul pertama akan diutamakan sebelum stylesheet setelahnya.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="92"/>
         <source>C&amp;hange Case</source>
-        <translation>Ganti Kapital</translation>
+        <translation>Uba&amp;h Kapital</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="175"/>
@@ -7543,7 +7543,7 @@ Stylesheet yang muncul pertama akan diutamakan sebelum stylesheet setelahnya.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="1479"/>
         <source>Split &amp;Marker</source>
-        <translation>Belah Penanda</translation>
+        <translation>Tanda Pe&amp;mbelahan</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1482"/>
@@ -7954,12 +7954,14 @@ Stylesheet yang muncul pertama akan diutamakan sebelum stylesheet setelahnya.</t
         <source>Are you sure you want to open this external link?
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Apakah yakin ingin membuka berkas eksternal ini?
+
+%1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="606"/>
         <source>New file created.</source>
-        <translation type="unfinished"/>
+        <translation>Berkas baru dibuat.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="779"/>
@@ -7969,12 +7971,12 @@ Stylesheet yang muncul pertama akan diutamakan sebelum stylesheet setelahnya.</t
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="928"/>
         <source>No CSS styles named</source>
-        <translation type="unfinished"/>
+        <translation>Tidak ada CSS yang bernama</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1201"/>
         <source>Styles deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Gaya dihapus.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
@@ -7985,25 +7987,26 @@ Stylesheet yang muncul pertama akan diutamakan sebelum stylesheet setelahnya.</t
         <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
         <source>You cannot insert an id at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Anda tidak bisa menyisipkan id pada posisi ini.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1623"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1634"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
         <source>Select the destination to paste into first.</source>
-        <translation type="unfinished"/>
+        <translation>Pilih dahulu tujuan untuk menempelkannya.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
-        <translation type="unfinished"/>
+        <translation>Satu sumber daya dipilih dan tidak ada yang digabungkan ke sebelumnya.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1795"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
-        <translation type="unfinished"/>
+        <translation>Apakah yakin ingin menggabungkan berkas terpilih?
+Tindakan ini tidak bisa dikembalikan.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1857"/>
@@ -8013,235 +8016,238 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1814"/>
         <source>Merge cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Penggabungan dibatalkan karena XML tidak rapi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1839"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
-        <translation type="unfinished"/>
+        <translation>Penggabungan selesai. Anda mungkin harus membuat ulang atau menyunting Daftar Isi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1988"/>
         <source>Word updated.</source>
-        <translation type="unfinished"/>
+        <translation>Kata dimutakhirkan.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2053"/>
         <source>File(s) deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Berkas dihapus.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2101"/>
         <source>Table Of Contents generated.</source>
-        <translation type="unfinished"/>
+        <translation>Daftar Isi dibuat.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2444"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
-        <translation type="unfinished"/>
+        <translation>EPUB ini tidak mengandung stylesheet CSS untuk divalidasi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
         <source>File cannot be split at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Berkas ini tidak bisa dibelah pada posisi ini.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3090"/>
         <source>Split completed.</source>
-        <translation type="unfinished"/>
+        <translation>Pembelahan selesai.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3140"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
-        <translation type="unfinished"/>
+        <translation>Pembelahan selesai. Anda mungkin harus memperbarui Daftar Isi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation type="unfinished"/>
+        <translation>Tidak ada penanda belahan berkas. Gunakan Sisip &gt; Penanda Belahan.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3357"/>
         <source>File loaded.</source>
-        <translation type="unfinished"/>
+        <translation>Berkas dimuat.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3418"/>
         <source>Saving EPUB...</source>
-        <translation type="unfinished"/>
+        <translation>Menimpan EPUB...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil tidak bisa menyimpan berkas bertipe &quot;%1&quot;.
+Silakan pilih format lainnya.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="370"/>
         <source>Navigation cancelled as location no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Navigasi dibatalkan karena lokasi sudah tidak ada lagi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="479"/>
         <source>was updated</source>
-        <translation type="unfinished"/>
+        <translation>dimutakhirkan</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="486"/>
         <source>Warning</source>
-        <translation type="unfinished"/>
+        <translation>Peringatan</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="516"/>
         <source>Select Show Details for more information.</source>
-        <translation type="unfinished"/>
+        <translation>Pilih Tampilkan Rincian untuk keterangan lebih lanjut.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="561"/>
         <source>Sigil is closing...</source>
-        <translation type="unfinished"/>
+        <translation>Sigil sedang menutup...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="664"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Berkas sudah tidak ada lagi. Klik OK untuk menghapusnya dari menu.
+%1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1361"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Menghapus Gaya Tak Terpakai dibatalkan karena XML tidak rapi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation type="unfinished"/>
+        <translation>Tidak ada kelas stylesheet tak terpakai yang akan dihapus.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1513"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
-        <translation type="unfinished"/>
+        <translation>ID tidak sah - harus diawalai dengan huruf, diikuti dengan huruf nomor _ : atau .</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation type="unfinished"/>
+        <translation>Anda tidak bisa menandai indeks pada posisi ini atau tanpa memilih teks.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1582"/>
         <source>You cannot mark an index at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Anda tidak bisa menandai indeks pada posisi ini.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
         <source>Cannot merge file %1</source>
-        <translation type="unfinished"/>
+        <translation>Tidak bisa menggabungkan berkas %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2086"/>
         <source>Generate TOC cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Pembuatan Daftar Isi dibatalkan.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2103"/>
         <source>No Table Of Contents changes were necessary.</source>
-        <translation type="unfinished"/>
+        <translation>Tidak perlu ada perubahan pada Daftar Isi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2984"/>
         <source>Line: %1, Col: %2</source>
-        <translation type="unfinished"/>
+        <translation>Baris: %1, Kol: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3258"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>Dokumen ini sudah dimodifikasi.
+Apakah ingin menyimpan perubahan?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
         <source>No importer for file type: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tidak ada pengimpor untuk tipe berkas: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>Tidak bisa membelah karena setidaknya satu berkas bukan HTML.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="336"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plugin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2274"/>
         <source>Manage Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Kelola Plugin</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="242"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Masukan</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="249"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Keluaran</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="486"/>
         <source>The file was NOT well formed and may be corrupted.</source>
-        <translation type="unfinished"/>
+        <translation>Berkas tersebut TIDAK rapi dan mungkin rusak.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="514"/>
         <source>This EPUB contains errors.</source>
-        <translation type="unfinished"/>
+        <translation>EPUB ini mengandung kesalahan.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="858"/>
         <source>Image does not exist: </source>
-        <translation type="unfinished"/>
+        <translation>Gambar tidak ada:</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="982"/>
         <source>Add Cover</source>
-        <translation type="unfinished"/>
+        <translation>Tambah Sampul</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation type="unfinished"/>
+        <translation>Kesalahan tak terduga. Hanya berkas gambar yang bisa digunakan untuk sampul.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1079"/>
         <source>Cover added.</source>
-        <translation type="unfinished"/>
+        <translation>Sampul ditambahkan.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1211"/>
         <source>Reports cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Laporan dibatalkan karena XML tidak rapi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1298"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Menghapus Berkas Media Tak Terpakai dibatalkan karena XML tidak rapi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1351"/>
         <source>Unused media files deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Berka media tak terpakai dihapus.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1353"/>
         <source>There are no unused image, video or audio files to delete.</source>
-        <translation type="unfinished"/>
+        <translation>Tidak ada gambar, video atau audio tak terpakai yang akan dihapus.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
         <source>You cannot insert a file at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Anda tidak bisa menyisipkan berkas pada posisi ini.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1395"/>
@@ -8251,69 +8257,69 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
         <source>You must select text before inserting a new id.</source>
-        <translation type="unfinished"/>
+        <translation>Anda harus memilih teks sebelum menyisipkan id baru.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
         <source>You cannot insert a link at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Anda tidak bisa menyisipkan pranala pada posisi ini.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
         <source>You must select text before inserting a new link.</source>
-        <translation type="unfinished"/>
+        <translation>Anda harus memilih teks sebelum menyisipkan pranala baru.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1550"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Pranala tidak sah - tidak boleh mengandung &apos;&lt;&apos; atau &apos;&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1577"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Entri tidak sah - tidak boleh mengandung &apos;&lt;&apos; atau &apos;&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1642"/>
         <source>Pasted clip entry %1.</source>
-        <translation type="unfinished"/>
+        <translation>Entri klip tertempel %1.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1809"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Penggabungan dibatalkan: %1, XML tidak rapi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2064"/>
         <source>Edit Table of Contents cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Sunting Daftar Isi dibatalkan.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2069"/>
         <source>Table Of Contents edited.</source>
-        <translation type="unfinished"/>
+        <translation>Daftar Isi disunting.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2228"/>
         <source>Text selection marked.</source>
-        <translation type="unfinished"/>
+        <translation>Pemilihan teks ditandai.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2230"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2248"/>
         <source>Text selection unmarked.</source>
-        <translation type="unfinished"/>
+        <translation>Pemilihan teks tak ditandai.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3115"/>
         <source>Cannot split: %1 XML is not well formed</source>
-        <translation type="unfinished"/>
+        <translation>Tak bisa membelah: %1 XML tidak rapi</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3121"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>Tidak bisa membelah karena setidaknya satu berkas mungkin bukan HTML.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3338"/>
@@ -8322,66 +8328,72 @@ Do you want to save your changes?</source>
 %1 (line %2: %3)
 
 Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and reloading the file.</source>
-        <translation type="unfinished"/>
+        <translation>Berkas berikut ini tidak dimuat karena isinya tidak sah atau XML yang tidak rapi:
+
+%1 (baris %2: %3)
+
+Cobalah mengatur preferensi Bersihkan Sumber menjadi Pretty Print Tidy atau HTML Tidy dan muat ulang berkas itu.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3343"/>
         <source>Loading file...</source>
-        <translation type="unfinished"/>
+        <translation>Memuat berkas....</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3384"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation type="unfinished"/>
+        <translation>Sang pembuat berkas ini mengenkripsinya dengan DRM. Sigil tidak bisa membuka berkas semacam itu.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3391"/>
         <source>Cannot load EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tidak bisa memuat EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
         <source>Cannot load file %1: %2</source>
-        <translation type="unfinished"/>
+        <translation>Tidak bisa memuat berkas %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
-        <translation type="unfinished"/>
+        <translation>EPUB ini memiliki berkas HTML yang tidak teratur dan preferensi Bersihkan Sumber saat ini diatur menjadi otomatis bersihkan saat Menyimpan. Menyimpan berkas yang tidak teratur akan menjadikannya dibenahi secara otomatis, yang menghasilkan hilangnya data.
+
+Apakah ingin membenahi secara otomatis sebelum menyimpan?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3483"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation type="unfinished"/>
+        <translation>EPUB tersimpan, tetapi tidak semua berkas HTML rapi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
         <source>EPUB saved.</source>
-        <translation type="unfinished"/>
+        <translation>EPUB tersimpan.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3491"/>
         <source>Cannot save file %1: %2</source>
-        <translation type="unfinished"/>
+        <translation>Tidak bisa menyimpan %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3626"/>
         <source>EPUB files (*.epub)</source>
-        <translation type="unfinished"/>
+        <translation>Berkas EPUB (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3627"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3628"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3629"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation type="unfinished"/>
+        <translation>Berkas HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3630"/>
         <source>Text files (*.txt)</source>
-        <translation type="unfinished"/>
+        <translation>Berkas Teks (*.txt)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3631"/>
@@ -8598,7 +8610,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
-        <translation type="unfinished"/>
+        <translation>Sembarang frase atau kata kunci yang menggambarkan subyek yang dibahas. Gunakan banyak elemen &apos;subyek&apos; jika dibutuhkan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
@@ -8608,7 +8620,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation type="unfinished"/>
+        <translation>Deskripsi dari isi cetakan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
@@ -8619,7 +8631,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation type="unfinished"/>
+        <translation>Lembaga yang bertanggung jawab untuk menyediakan terbitan/cetakan.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
@@ -8644,7 +8656,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation type="unfinished"/>
+        <translation>Sifat atau genre dari isinya sumber daya.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
@@ -8654,7 +8666,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
-        <translation type="unfinished"/>
+        <translation>Jenis media atau dimensi dari terbitan/publikasi. Yang paling baik adalah menggunakan sebuah nilai dari kosakata terkendali (mis. tipe media MIME).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
@@ -8664,7 +8676,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
         <source>A reference to a resource from which the present publication is derived.</source>
-        <translation type="unfinished"/>
+        <translation>Referensi ke sebuah sumber daya dari mana publikasi ini diperoleh.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
@@ -8689,17 +8701,17 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
         <source>Coverage</source>
-        <translation>Liputan</translation>
+        <translation>Cakupan</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
-        <translation type="unfinished"/>
+        <translation>Tingkat atau lingkup atas isi dari isinya publikasi.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
         <source>Rights</source>
-        <translation>Hak</translation>
+        <translation>Hak cipta</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
@@ -8714,7 +8726,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
         <source>An optional extra title of the publication in addition to the main title already entered.</source>
-        <translation type="unfinished"/>
+        <translation>Judul tambahan opsional dari publikasi sebagai tambahan untuk judul utama yang sudah ada.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="232"/>
@@ -8774,12 +8786,12 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
         <source>Annotator</source>
-        <translation>Pencatat</translation>
+        <translation>Pencatat (anotasi)</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation type="unfinished"/>
+        <translation>Gunakan untuk orang yang menulis anotasi manuskrip pada butir yang dicetak.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
@@ -8789,7 +8801,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation type="unfinished"/>
+        <translation>Gunakan untuk orang atau organisasi yang bertanggung jawab atas pengajuan surat permohonan atau yang diatasnamakan sebagai yang memenuhi syarat untuk hasil dari penyelesaian permohonan tersebut (mis. penganugerahan hak cipta, penghargaan, gelar, jabatan)</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
@@ -8804,7 +8816,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
         <source>Arranger</source>
-        <translation>Penyusun</translation>
+        <translation>Penggubah</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
@@ -8819,7 +8831,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation type="unfinished"/>
+        <translation>Gunakan untuk orang (mis. pelukir atau pematung) yang membuat salinan karya seni rupa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
@@ -8829,7 +8841,7 @@ Apakah ingin menyimpan perubahan?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation type="unfinished"/>
+        <translation>Gunakan untuk seseorang (mis. pelukis) atau organisasi yang memahami, atau mungkin juga melaksanakan, sebuah desain grafik asli atau karya seni, jika kode khusus (mis. [egr], [etr]) tidak dikehendaki. Untuk ilustrator buku, lebih baik pilih Ilustrator [ill].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
@@ -11149,7 +11161,7 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="137"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Plugin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
@@ -11159,7 +11171,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="217"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="222"/>
@@ -11174,111 +11186,111 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="232"/>
         <source>Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>Interpreter</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="240"/>
         <source>Remove All</source>
-        <translation>Singkirkan Semua</translation>
+        <translation>Buang Semua</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="144"/>
         <source>Remove Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Buang Plugin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="151"/>
         <source>Interpreters</source>
-        <translation type="unfinished"/>
+        <translation>Interpreter</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="158"/>
         <source>Add Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Tambah Plugin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
-        <translation type="unfinished"/>
+        <translation>Jalur ke Interpreter Executable</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
         <source>Python2.7:</source>
-        <translation type="unfinished"/>
+        <translation>Python2.7:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
         <source>Python3.4:</source>
-        <translation type="unfinished"/>
+        <translation>Python3.4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="105"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="64"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="112"/>
         <source>Set</source>
-        <translation type="unfinished"/>
+        <translation>Set</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
         <source>Select Plugin Zip Archive</source>
-        <translation type="unfinished"/>
+        <translation>Pilih arsip ZIP Plugin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
         <source>Plugin Files (*.zip)</source>
-        <translation type="unfinished"/>
+        <translation>Berkas Plugin (*.zip)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="103"/>
         <source>Warning: A plugin by that name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Peringatan: Plugin dengan nama tersebut sudah ada</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="106"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation type="unfinished"/>
+        <translation>Kesalahan; Plugin tidak bisa di-Unzip</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="100"/>
         <source>Error: Plugin plugin.xml file can not be read.</source>
-        <translation type="unfinished"/>
+        <translation>Kesalahan: Berkas plugin.xml dari Plugin tidak bisa dibaca.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation type="unfinished"/>
+        <translation>Kesalahan: Plugin bukanlah plugin Sigil yang sah.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
         <source>Nothing is Selected.</source>
-        <translation type="unfinished"/>
+        <translation>Tidak ada yang dipilih.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="161"/>
         <source>Remove All Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Buang semua Plugin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation type="unfinished"/>
+        <translation>Apakah yakin ingin membuang semua plugin anda?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
         <source>Select Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>Pilih interpreter</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="241"/>
         <source>Incorrect Interpreter Path selected</source>
-        <translation type="unfinished"/>
+        <translation>Jalur Interpreter yang dipilih tidak benar</translation>
     </message>
 </context>
 <context>
@@ -11309,12 +11321,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
         <source>Preserve Entities</source>
-        <translation type="unfinished"/>
+        <translation>Pertahankan Entiti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation type="unfinished"/>
+        <translation>Entiti yang dipertahankan</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
@@ -11340,12 +11352,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Add Entities</source>
-        <translation type="unfinished"/>
+        <translation>Tambah Entiti</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Entities:</source>
-        <translation type="unfinished"/>
+        <translation>Entiti:</translation>
     </message>
 </context>
 <context>
@@ -12750,57 +12762,57 @@ Teruskan menggunakan nama yang diminta?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>tanda kutip</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>ampersand</source>
-        <translation type="unfinished"/>
+        <translation>tanda &apos;dan&apos;</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>apostrophe</source>
-        <translation type="unfinished"/>
+        <translation>apostrof</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>less-than sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda kurang dari</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>greater-than sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda lebih dari</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>no-break space</source>
-        <translation type="unfinished"/>
+        <translation>spasi tak memutus</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>inverted exclamation mark</source>
-        <translation type="unfinished"/>
+        <translation>tanda seru terbalik</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>cent sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda sen</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>pound sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda pound</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>currency sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda mata uang</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>yen sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda yen</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
@@ -12815,12 +12827,12 @@ Teruskan menggunakan nama yang diminta?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>titik dua diatas huruf vokal</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>copyright symbol</source>
-        <translation type="unfinished"/>
+        <translation>simbol hak cipta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
@@ -12850,12 +12862,12 @@ Teruskan menggunakan nama yang diminta?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>degree symbol</source>
-        <translation type="unfinished"/>
+        <translation>simbol derajat</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>plus-minus sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda plus-minus</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="120"/>
@@ -12930,7 +12942,7 @@ Teruskan menggunakan nama yang diminta?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>multiplication sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda perkalian</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="158"/>
@@ -13685,7 +13697,7 @@ Teruskan menggunakan nama yang diminta?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>euro sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda euro</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
@@ -13705,12 +13717,12 @@ Teruskan menggunakan nama yang diminta?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>trademark symbol</source>
-        <translation type="unfinished"/>
+        <translation>simbol merk dagang</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>alef symbol</source>
-        <translation type="unfinished"/>
+        <translation>simbol alif</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
@@ -13820,7 +13832,7 @@ Teruskan menggunakan nama yang diminta?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>minus sign</source>
-        <translation type="unfinished"/>
+        <translation>tanda minus</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="312"/>
@@ -13870,7 +13882,7 @@ Teruskan menggunakan nama yang diminta?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>integral</source>
-        <translation type="unfinished"/>
+        <translation>integral</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="322"/>
@@ -13905,12 +13917,12 @@ Teruskan menggunakan nama yang diminta?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>less-than or equal to</source>
-        <translation type="unfinished"/>
+        <translation>kurang dari atau sama dengan</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>greater-than or equal to</source>
-        <translation type="unfinished"/>
+        <translation>lebih dari atau sama dengan</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="330"/>

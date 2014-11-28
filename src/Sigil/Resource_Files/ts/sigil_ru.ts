@@ -19,7 +19,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>Сайт:</translation>
+        <translation>Сайт программы:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
@@ -59,17 +59,17 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer / Lead Developer</source>
-        <translation>Руководитель, главный разработчик</translation>
+        <translation>Руководитель/ Главный разработчик</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="53"/>
         <source>Code Contributors</source>
-        <translation>Участники (программисты)</translation>
+        <translation>Соавторы кода</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="62"/>
         <source>Translators</source>
-        <translation>Локализаторы</translation>
+        <translation>Переводчики</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="64"/>
@@ -105,7 +105,7 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Перечислить только имена файлов, которые содержат текст, введенный вами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
@@ -140,12 +140,12 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="126"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>файлы</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="239"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить отчет как файл с разделителями запятыми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="252"/>
@@ -194,13 +194,15 @@
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="61"/>
         <source>Default font size to be used for Book View and Preview
 if no font-size specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Размер шрифта по умолчанию, используемый для Книги и Просмотра
+если размер шрифта не указано в вашем CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="95"/>
         <source>Default font family to be used for Book View and Preview
 if no font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Семейство шрифтов по умолчанию, которые будут использоваться для Книги и Просмотра
+ если не указано семейство шрифтов в CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="99"/>
@@ -213,7 +215,8 @@ if no font-family specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="109"/>
         <source>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Семейство шрифтов по умолчанию, которые будут использоваться для Книги и Просмотра
+если семейство шрифтов с засечками указано в вашем CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="113"/>
@@ -224,7 +227,8 @@ if a serif font-family specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="123"/>
         <source>Default font family to be used for Book View and Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Семейство шрифтов по умолчанию , которые будут использоваться для Книги и Просмотра
+если семейство шрифтов без засечек указано в CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="127"/>
@@ -241,17 +245,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="32"/>
         <source>Book View / Preview:</source>
-        <translation type="unfinished"/>
+        <translation>Просмотр книги / Просмотр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="173"/>
         <source>CSS / Code View:</source>
-        <translation>Просмотр кода:</translation>
+        <translation>CSS / Просмотр кода:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="226"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Семейство шрифтов, которые будут использоваться для текста в Просмотр кода.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="183"/>
@@ -261,17 +265,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"/>
+        <translation>Если шрифт для вашей страницы не указано в CSS , следующий шрифт будет использоваться для отображения в Sigil. Эти шрифты не будут использоваться в вашей реальной книге.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Размер шрифта, используемый для текста при Просмотре кода.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="265"/>
         <source>Select an alternative color for this display item</source>
-        <translation type="unfinished"/>
+        <translation>Выберите альтернативный цвет для отображения этого элемента</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="268"/>
@@ -281,27 +285,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="298"/>
         <source>Insert Special Characters:</source>
-        <translation type="unfinished"/>
+        <translation>Вставка специальных символов:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="312"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>Размер шрифта, используемый для окна вставки специальных символов</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="345"/>
         <source>Font family to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>Семейство шрифтов, которые будут использоваться для окна вставки специальных символов</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="384"/>
         <source>Reset all fonts and colors to the default values</source>
-        <translation type="unfinished"/>
+        <translation>Восстановить значения по умолчанию для всех шрифтов и цветов</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="387"/>
         <source>Reset All</source>
-        <translation>Сбросить до исходных</translation>
+        <translation>Восстановить все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="199"/>
@@ -381,12 +385,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
         <source>XHTML CSS</source>
-        <translation type="unfinished"/>
+        <translation>CSS XHTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
         <source>XHTML CSS Comment</source>
-        <translation type="unfinished"/>
+        <translation>Комментарий CSS XHTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
@@ -396,17 +400,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
         <source>XHTML Entity</source>
-        <translation type="unfinished"/>
+        <translation>Объект XHTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="218"/>
         <source>XHTML HTML Tag</source>
-        <translation type="unfinished"/>
+        <translation>Тэг XHTML HTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="219"/>
         <source>XHTML HTML Comment</source>
-        <translation type="unfinished"/>
+        <translation>Комментарий XHTML HTML</translation>
     </message>
 </context>
 <context>
@@ -461,12 +465,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="122"/>
         <source>file</source>
-        <translation type="unfinished"/>
+        <translation>файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
         <source>files</source>
-        <translation type="unfinished"/>
+        <translation>файлы</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="593"/>
@@ -495,17 +499,17 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="728"/>
         <source>Choose the directory to save the files to</source>
-        <translation type="unfinished"/>
+        <translation>Выберите папку для сохранения файлов на</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="748"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation type="unfinished"/>
+        <translation>Один или несколько файлов уже существуют. Нажмите OK что-бы заменить</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно сохранить файлы. Конечный объект может быть каталогом.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
@@ -515,7 +519,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="948"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation type="unfinished"/>
+        <translation>Не возможно переименовывать файлы, так как при этом имена файлов дублируются .</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1012"/>
@@ -598,7 +602,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="519"/>
         <source>Add Existing Files</source>
-        <translation type="unfinished"/>
+        <translation>Добавить существующие файлы</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="557"/>
@@ -631,12 +635,12 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="663"/>
         <source>File(s) added.</source>
-        <translation type="unfinished"/>
+        <translation>Файл(ы) добавлено</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1159"/>
         <source>Unable to set file as cover image.</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно установить файл как изображение обложки.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1313"/>
@@ -666,7 +670,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
         <source>Validate with W3C</source>
-        <translation type="unfinished"/>
+        <translation>Проверить с помощью W3C</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
@@ -771,12 +775,12 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="639"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation type="unfinished"/>
+        <translation>Буфер обмена содержит HTML форматирование</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation type="unfinished"/>
+        <translation>Вставить содержимое буфера обмена как обычный текст?</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="835"/>
@@ -856,22 +860,22 @@ OK to replace?</source>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Не поддерживается</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Проверка орфографии в режиме Книга сейчас не поддерживается. Переключитесь на Просмотр кода.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Замена не поддерживается для этого вида. Переключитесь на Просмотр кода.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Заменить все для текущего файла не поддерживается для этого вида. Переключитесь на Просмотр кода.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="715"/>
@@ -889,7 +893,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Перечислить только имена файлов, которые содержат текст, введенный вами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="37"/>
@@ -924,7 +928,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить отчет как файл с разделителями запятыми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
@@ -952,7 +956,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="88"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>Эта страница должна исчезнуть, после загрузки, через 3 секунды.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="89"/>
@@ -970,7 +974,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Перечислить только имена файлов, которые содержат текст, введенный вами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
@@ -990,12 +994,12 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="75"/>
         <source>Decimal</source>
-        <translation type="unfinished"/>
+        <translation>Десятичный</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="76"/>
         <source>Hexadecimal</source>
-        <translation type="unfinished"/>
+        <translation>Шестнадцатеричный</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="77"/>
@@ -1015,7 +1019,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить отчет как файл с разделителями запятыми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
@@ -1038,7 +1042,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Перечислить только имена файлов, которые содержат текст, введенный вами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="37"/>
@@ -1088,7 +1092,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="222"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить отчет как файл с разделителями запятыми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
@@ -1122,7 +1126,8 @@ OK to replace?</source>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="90"/>
         <source>Fully clean and format your code.
 This may change your formatting to use inline style sections.</source>
-        <translation type="unfinished"/>
+        <translation>Полностью очистка и форматирование вашего кода.
+ Это может изменить ваше форматирование используя встроенный стиль разделов.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="56"/>
@@ -1132,18 +1137,19 @@ This may change your formatting to use inline style sections.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="53"/>
         <source>Clean when saving an EPUB.</source>
-        <translation type="unfinished"/>
+        <translation>Очистить перед сохранением в EPUB.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="32"/>
         <source>Choose when your HTML code is automatically 
 formatted and cleaned using your selected option.</source>
-        <translation type="unfinished"/>
+        <translation>Выберите, когда ваш HTML код будет автоматически 
+отформатирован и очищен с помощью выбранных параметров.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="36"/>
         <source>Automatically Clean and Format HTML Source Code:</source>
-        <translation type="unfinished"/>
+        <translation>Автоматически очистить и отформатировать исходный код HTML:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="42"/>
@@ -1195,7 +1201,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Показать только записи, содержащие введенный вами текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
@@ -1218,7 +1224,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation type="unfinished"/>
+        <translation>Переместить запись на уровень родительского элемента.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
@@ -1263,7 +1269,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
         <source>Paste the selected entry into the active window.</source>
-        <translation type="unfinished"/>
+        <translation>Вставить выделенную запись в активное окно</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
@@ -1283,7 +1289,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Если запущены другие экземпляры Sigil они будут автоматически обновляться с вашими изменениями.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="90"/>
@@ -1554,7 +1560,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1368"/>
         <source>Mark Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Отметить выделенный текст</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1370"/>
@@ -2092,7 +2098,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Перечислить только имена файлов, которые содержат текст, введенный вами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="37"/>
@@ -2157,12 +2163,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="183"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>файлы</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="324"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить отчет как файл с разделителями запятыми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
@@ -2289,7 +2295,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Перечислить только имена файлов, которые содержат текст, введенный вами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="37"/>
@@ -2344,7 +2350,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="175"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>файлы</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="179"/>
@@ -2354,7 +2360,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="323"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить отчет как файл с разделителями запятыми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
@@ -2453,7 +2459,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Показать только записи, содержащие введенный вами текст.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="66"/>
@@ -2488,7 +2494,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Если запущены другие экземпляры Sigil они будут автоматически обновляться с вашими изменениями.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
@@ -2641,7 +2647,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Показать только записи, содержащие введенный вами текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
@@ -5715,7 +5721,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Перечислить только имена файлов, которые содержат текст, введенный вами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
@@ -5780,7 +5786,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="327"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить отчет как файл с разделителями запятыми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
@@ -11554,7 +11560,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Показать только записи, содержащие введенный вами текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
@@ -11637,7 +11643,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="229"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation type="unfinished"/>
+        <translation>Переместить запись на уровень родительского элемента.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="258"/>
@@ -11712,7 +11718,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Если запущены другие экземпляры Sigil они будут автоматически обновляться с вашими изменениями.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="89"/>
@@ -11887,7 +11893,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Перечислить только имена файлов, которые содержат текст, введенный вами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
@@ -12215,7 +12221,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Показать только записи, содержащие введенный вами текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
@@ -12367,7 +12373,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Перечислить только имена файлов, которые содержат текст, введенный вами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="37"/>
@@ -12407,7 +12413,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="244"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить отчет как файл с разделителями запятыми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="257"/>
@@ -13647,7 +13653,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>square root</source>
-        <translation type="unfinished"/>
+        <translation>квадратный корень</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="314"/>
@@ -13657,22 +13663,22 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>infinity</source>
-        <translation type="unfinished"/>
+        <translation>бесконечность</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>angle</source>
-        <translation type="unfinished"/>
+        <translation>угол</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>logical and</source>
-        <translation type="unfinished"/>
+        <translation>логическое и</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>logical or</source>
-        <translation type="unfinished"/>
+        <translation>логическое или</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="319"/>

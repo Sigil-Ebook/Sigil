@@ -1428,7 +1428,7 @@ se hace una limpieza manual.</translation>
         <location filename="../../Dialogs/ClipEditor.cpp" line="737"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Los fragmentos pueden haber sido modificados
+        <translation>Es posible que se hayan modificado los fragmentos.
 ¿Quiere guardar los cambios?</translation>
     </message>
 </context>
@@ -1627,12 +1627,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation>Borrar ficheros</translation>
+        <translation>Eliminar ficheros</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="66"/>
         <source>Delete Marked Files</source>
-        <translation>Borrar ficheros marcados</translation>
+        <translation>Eliminar ficheros marcados</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="67"/>
@@ -2651,7 +2651,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
         <source>Text to Include</source>
-        <translation>Texto par incluir</translation>
+        <translation>Texto para incluir</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="62"/>
@@ -11170,7 +11170,7 @@ Desea continuar?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="217"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versión</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="222"/>
@@ -11262,7 +11262,7 @@ Desea continuar?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation type="unfinished"/>
+        <translation>Error: este no es un complemento de Sigil válido.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>

@@ -100,7 +100,7 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation type="unfinished"/>
+        <translation>Tüm Dosyalar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="126"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>Dosyalar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="239"/>
@@ -207,7 +207,7 @@ if no font-family specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="229"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="348"/>
         <source>Standard Font:</source>
-        <translation type="unfinished"/>
+        <translation>Standart Font</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="109"/>
@@ -218,7 +218,7 @@ if a serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="113"/>
         <source>Serif Font:</source>
-        <translation type="unfinished"/>
+        <translation>Şerif Font</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="123"/>
@@ -229,19 +229,19 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="127"/>
         <source>Sans-Serif Font:</source>
-        <translation type="unfinished"/>
+        <translation>Sans Şerif Font</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="65"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="199"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="315"/>
         <source>Font Size:</source>
-        <translation type="unfinished"/>
+        <translation>Font Büyülüğü</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="32"/>
         <source>Book View / Preview:</source>
-        <translation type="unfinished"/>
+        <translation>Ön İzleme</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="173"/>
@@ -306,7 +306,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="199"/>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Arkaplan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="200"/>
@@ -316,12 +316,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="201"/>
         <source>CSS Comment</source>
-        <translation type="unfinished"/>
+        <translation>CSS İçeriği</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="202"/>
         <source>CSS Property</source>
-        <translation type="unfinished"/>
+        <translation>CSS Özellikleri</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="203"/>
@@ -912,7 +912,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="135"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>Dosyalar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="139"/>
@@ -1584,7 +1584,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="55"/>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Arkaplan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="57"/>
@@ -2155,7 +2155,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="183"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>Dosyalar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="324"/>
@@ -2342,7 +2342,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="175"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>Dosyalar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="179"/>

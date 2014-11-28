@@ -265,7 +265,7 @@ si une famille de police sans sérif est précisée dans votre CSS</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"/>
+        <translation>Si aucune police de caractère n&apos;est spécifiée dans le CSS de votre page, la police suivante sera utilisée pour l&apos;affichage dans Sigil. Ces polices ne seront pas utilisées dans l&apos;ebook produit.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
