@@ -1,4 +1,4 @@
-Sigil 0.8.2 TBA
+Sigil 0.8.2 2014.11.28
     - Validator plugin type which can load validation results into
       the main window validation panel.
     - Corrections to Sigil Plugin Framework Documentation
