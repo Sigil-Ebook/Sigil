@@ -2040,7 +2040,7 @@ bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
 
 void CodeViewEditor::ResetFont()
 {
-    // Let's try to use our user specified value as our font (default Consolas)
+    // Let's try to use our user specified value as our font (default Courier New)
     QFont font(m_codeViewAppearance.font_family, m_codeViewAppearance.font_size);
     // But just in case, say we want a fixed width font if font is not present
     font.setStyleHint(QFont::TypeWriter);

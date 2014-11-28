@@ -169,7 +169,7 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     loadComboValueOrDefault(ui.cbBookViewFontStandard,  bookViewAppearance.font_family_standard,    "Arial");
     loadComboValueOrDefault(ui.cbBookViewFontSerif,     bookViewAppearance.font_family_serif,       "Times New Roman");
     loadComboValueOrDefault(ui.cbBookViewFontSansSerif, bookViewAppearance.font_family_sans_serif,  "Arial");
-    loadComboValueOrDefault(ui.cbCodeViewFont,          codeViewAppearance.font_family,             "Consolas");
+    loadComboValueOrDefault(ui.cbCodeViewFont,          codeViewAppearance.font_family,             "Courier New");
     loadComboValueOrDefault(ui.cbSpecialCharacterFont,  specialCharacterAppearance.font_family,     "Helvetica");
     ui.bookViewFontSizeSpin->setValue(bookViewAppearance.font_size);
     ui.codeViewFontSizeSpin->setValue(codeViewAppearance.font_size);

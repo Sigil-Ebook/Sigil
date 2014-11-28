@@ -241,7 +241,7 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
     appearance.css_quote_color = value(KEY_CODE_VIEW_CSS_QUOTE_COLOR, QColor(Qt::darkMagenta)).value<QColor>();
     appearance.css_selector_color = value(KEY_CODE_VIEW_CSS_SELECTOR_COLOR, QColor(Qt::darkRed)).value<QColor>();
     appearance.css_value_color = value(KEY_CODE_VIEW_CSS_VALUE_COLOR, QColor(Qt::black)).value<QColor>();
-    appearance.font_family = value(KEY_CODE_VIEW_FONT_FAMILY, "Consolas").toString();
+    appearance.font_family = value(KEY_CODE_VIEW_FONT_FAMILY, "Courier New").toString();
     appearance.font_size = value(KEY_CODE_VIEW_FONT_SIZE, 10).toInt();
     QColor defaultlineColor = QColor(Qt::yellow).lighter(175);
     appearance.line_highlight_color = value(KEY_CODE_VIEW_LINE_HIGHLIGHT_COLOR, defaultlineColor).value<QColor>();
