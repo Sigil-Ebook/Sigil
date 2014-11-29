@@ -45,6 +45,7 @@ private:
 
     Ui::PluginWidget ui;
     bool m_isDirty;
+    QString m_lastPluginImportPath;
 };
 
 #endif // PLUGINWIDGET_H

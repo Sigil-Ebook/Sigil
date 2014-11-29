@@ -37,6 +37,7 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
 
     pdb->set_engine_path("python2.7", ui.editPathPy2->text());
     pdb->set_engine_path("python3.4", ui.editPathPy3->text());
+    pdb->setLastImportPath(m_lastPluginImportPath);
 
     m_isDirty = false;
     return PreferencesWidget::ResultAction_None;
@@ -63,6 +64,7 @@ void PluginWidget::readSettings()
 
     ui.editPathPy2->setText(pdb->get_engine_path("python2.7"));
     ui.editPathPy3->setText(pdb->get_engine_path("python3.4"));
+    m_lastPluginImportPath=pdb->getLastImportPath();
 
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
@@ -87,10 +89,14 @@ void PluginWidget::pluginSelected(int row, int col)
 
 void PluginWidget::addPlugin()
 {
-    QString zippath = QFileDialog::getOpenFileName(this, tr("Select Plugin Zip Archive"), "./", tr("Plugin Files (*.zip)"));
+    QString zippath = QFileDialog::getOpenFileName(this,
+                            tr("Select Plugin Zip Archive"), m_lastPluginImportPath, tr("Plugin Files (*.zip)"));
     if (zippath.isEmpty()) {
         return;
     }
+
+    m_lastPluginImportPath=zippath;
+    m_isDirty=true;
 
     PluginDB *pdb = PluginDB::instance();
 

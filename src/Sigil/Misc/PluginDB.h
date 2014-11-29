@@ -61,6 +61,8 @@ public:
 
     static QString pluginsPath();
     static QString launcherRoot();
+    QString getLastImportPath();
+    void setLastImportPath(const QString &path);
 
 signals:
     void plugins_changed();
@@ -74,6 +76,7 @@ private:
 
     QHash<QString, Plugin *> m_plugins;
     QHash<QString, QString> m_engine_paths;
+    QString m_lastImportPath;
 
     static PluginDB *m_instance;
 };

@@ -99,6 +99,7 @@ public:
      * Support for Plugins
      */
     QHash <QString, QString> pluginEnginePaths();
+    QString lastPluginImportPath();
 
 
     /**
@@ -249,6 +250,7 @@ public slots:
      */
 
     void setPluginEnginePaths(const QHash <QString, QString> &enginepaths);
+    void setLastPluginImportPath(const QString &path);
 
     /**
      * Set whether automatic Spellcheck is enabled
