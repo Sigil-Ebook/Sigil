@@ -62,7 +62,7 @@ public:
 
     QHash <QString, QString> GetGuideSemanticNameForPaths();
 
-    int GetReadingOrder(const ::HTMLResource &html_resource) const;
+    int GetReadingOrder(const HTMLResource &html_resource) const;
     QHash <Resource *, int> GetReadingOrderAll( const QList <Resource *> resources);
 
     QString GetMainIdentifierValue() const;
@@ -194,8 +194,8 @@ private:
         GuideSemantics::GuideSemanticType new_type,
         xc::DOMDocument &document);
 
-    static QHash<::HTMLResource *, xc::DOMElement *> GetItemrefsForHTMLResources(
-        const QList<::HTMLResource *> html_files,
+    static QHash<HTMLResource *, xc::DOMElement *> GetItemrefsForHTMLResources(
+        const QList<HTMLResource *> html_files,
         xc::DOMDocument &document);
 
     // CAN BE NULL! NULL means no cover meta element
