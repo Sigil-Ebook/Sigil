@@ -22,13 +22,13 @@ Details
   * Windows
   * Sign packages
     * OS X
-* Generate MD5 sums file.
+* Generate Checksums file.
 * Make Release on GitHub
   * Upload packages
     * Code
     * OS X
     * Windows
-    * MD5 sums
+    * SHA256 sums
 * Post release announcement on Blog(s).
 * Post release announcement on MobileRead.
 * Push git changes.
