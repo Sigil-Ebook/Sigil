@@ -28,6 +28,12 @@ The supported generators should be listed near the bottom of the printout.
 Qt 5.3.0 is also required on all platforms. It can be downloaded
 [here](http://qt-project.org/downloads).
 
+A compiler that supports C++11 is also required.
+Compilers that are known to work are:
+* GCC 4.8+
+* Apple's compiler that ships with 10.9+
+* Visual Studio 2013+
+
 
 Build Options
 =============
