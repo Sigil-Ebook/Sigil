@@ -1,3 +1,8 @@
+Sigil NEXT TBA
+    - Validation result plugins will auto close the Plugin Runner
+      Dialog since the dialog has no real info and openes the
+      validation pane with the results anyway.
+
 Sigil 0.8.2 2014.11.28
     - Validator plugin type which can load validation results into
       the main window validation panel.
