@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20141120
+_launcher_version=20141204
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -106,9 +106,12 @@ class WrapperException(Exception):
 
 class Wrapper(object):
 
-    def __init__(self, ebook_root, outdir, op, debug = False):
+    def __init__(self, ebook_root, outdir, op, plugin_dir, plugin_name, debug = False):
         self._debug = debug
         self.ebook_root = pathof(ebook_root)
+        # plugins and plugin containers can get name and user plugin dir
+        self.plugin_dir = pathof(plugin_dir)
+        self.plugin_name = plugin_name
         self.outdir = pathof(outdir)
         # dictionaries used to map opf manifest information
         self.id_to_href = {}

@@ -30,6 +30,7 @@ from __future__ import unicode_literals, division, absolute_import, print_functi
 import sys
 import os
 from quickparser import QuickXHTMLParser
+from preferences import JSONPrefs
 
 class ContainerException(Exception):
     pass
@@ -40,6 +41,14 @@ class BookContainer(object):
         self._debug = debug
         self._w = wrapper
         self.qp=QuickXHTMLParser()
+        self._prefs_store = JSONPrefs(wrapper.plugin_dir, wrapper.plugin_name)
+
+    def getPrefs(self):
+        return self._prefs_store
+
+    def savePrefs(self, user_copy):
+        self._prefs_store = user_copy
+        self._prefs_store._commit()
 
     def launcher_version(self):
         return self._w.getversion()
