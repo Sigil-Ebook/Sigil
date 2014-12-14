@@ -99,6 +99,7 @@ public:
      * Support for Plugins
      */
     QHash <QString, QString> pluginEnginePaths();
+    QString pluginLastFolder();
 
 
     /**
@@ -249,6 +250,7 @@ public slots:
      */
 
     void setPluginEnginePaths(const QHash <QString, QString> &enginepaths);
+    void setPluginLastFolder(const QString &lastfolder);
 
     /**
      * Set whether automatic Spellcheck is enabled
