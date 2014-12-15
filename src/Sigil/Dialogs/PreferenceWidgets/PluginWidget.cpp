@@ -15,11 +15,12 @@
 #include "Misc/Plugin.h"
 #include "Misc/PluginDB.h"
 #include "Misc/Utility.h"
-
+#include "Misc/SettingsStore.h"
 
 PluginWidget::PluginWidget()
     :
-    m_isDirty(false)
+    m_isDirty(false),
+    m_LastFolderOpen(QString())
 {
     ui.setupUi(this);
     readSettings();
@@ -56,6 +57,10 @@ void PluginWidget::setPluginTableRow(Plugin *p, int row)
 
 void PluginWidget::readSettings()
 {
+    SettingsStore settings;
+    // The last folder used for saving and opening files
+    m_LastFolderOpen = settings.pluginLastFolder();
+    
     // Load the available plugin information
     PluginDB *pdb = PluginDB::instance();
     QHash<QString, Plugin *> plugins;
@@ -87,7 +92,7 @@ void PluginWidget::pluginSelected(int row, int col)
 
 void PluginWidget::addPlugin()
 {
-    QString zippath = QFileDialog::getOpenFileName(this, tr("Select Plugin Zip Archive"), "./", tr("Plugin Files (*.zip)"));
+    QString zippath = QFileDialog::getOpenFileName(this, tr("Select Plugin Zip Archive"), m_LastFolderOpen, tr("Plugin Files (*.zip)"));
     if (zippath.isEmpty()) {
         return;
     }
@@ -95,6 +100,12 @@ void PluginWidget::addPlugin()
     PluginDB *pdb = PluginDB::instance();
 
     PluginDB::AddResult ar = pdb->add_plugin(zippath);
+    
+    // Save the last folder used for adding plugin zips
+    m_LastFolderOpen = QFileInfo(zippath).absolutePath();
+    SettingsStore settings;
+    settings.setPluginLastFolder(m_LastFolderOpen);
+
     switch (ar) {
         case PluginDB::AR_XML:
             Utility::DisplayStdWarningDialog(tr("Error: Plugin plugin.xml file can not be read."));
