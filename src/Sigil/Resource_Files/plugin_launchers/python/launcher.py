@@ -242,8 +242,7 @@ def main(argv=unicode_argv()):
         return -1
 
     # update sys with path to target module home directory
-    if script_home not in sys.path:
-        sys.path.append(script_home)
+    sys.path.append(script_home)
 
     # load and parse opf if present
     op = None
