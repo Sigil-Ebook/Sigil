@@ -91,5 +91,5 @@ void CSSResource::ValidateStylesheetWithW3C()
     const QString &temp_file_path = Utility::GetTemporaryFileNameWithExtension(".html");
     Utility::WriteUnicodeTextFile(post_form_html, temp_file_path);
     m_TemporaryValidationFiles.append(temp_file_path);
-    QDesktopServices::openUrl(QUrl(temp_file_path));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(temp_file_path));
 }
