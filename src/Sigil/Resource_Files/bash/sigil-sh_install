@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Entry point for Sigil on Unix systems.
+# Adds linked Qt's lib directory to the LD_LIBRARY_PATH
+
+QTLIB_DIR="${QT_LIBRARY_DIR}"
+
+if [ -z "$LD_LIBRARY_PATH" ]; then
+  LD_LIBRARY_PATH="$QTLIB_DIR"
+else
+  LD_LIBRARY_PATH="$QTLIB_DIR:$LD_LIBRARY_PATH"
+fi
+
+# Create an environment var for SIGIL_PLUGIN_LAUNCHERS
+# since we've relocated the "real" sigil binary.
+if [ -z "$SIGIL_PLUGIN_LAUNCHERS" ]; then
+  SIGIL_PLUGIN_LAUNCHERS="${CMAKE_INSTALL_PREFIX}/share/sigil/plugin_launchers"
+  export SIGIL_PLUGIN_LAUNCHERS
+fi
+
+export LD_LIBRARY_PATH
+#export QT_DEBUG_PLUGINS=1 
+
+exec ${CMAKE_INSTALL_PREFIX}/share/sigil/${DESTINATION_EXECUTABLE_NAME} "$@"
+

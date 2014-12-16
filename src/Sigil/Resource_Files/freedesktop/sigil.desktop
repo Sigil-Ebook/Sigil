@@ -2,7 +2,7 @@
 Type=Application
 Name=Sigil
 Comment=ePUB file editor
-Exec=sigil
+Exec=sigil %F
 Icon=sigil
 Categories=Office;FileTools;Qt;Viewer;TextTools;TextEditor;Utility;
 Keywords=epub;Book;
