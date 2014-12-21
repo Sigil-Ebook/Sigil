@@ -20,5 +20,5 @@ fi
 export LD_LIBRARY_PATH
 #export QT_DEBUG_PLUGINS=1 
 
-exec ${CMAKE_INSTALL_PREFIX}/share/sigil/sigil-real "$@"
+exec ${CMAKE_INSTALL_PREFIX}/share/sigil/${DESTINATION_EXECUTABLE_NAME} "$@"
 

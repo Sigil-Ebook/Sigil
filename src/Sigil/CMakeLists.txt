@@ -502,6 +502,10 @@ set( LINUX_LAUNCH_PKG_SCRIPT
 set( LINUX_DEBIAN_CONTROL_FILE
     Resource_Files/bash/control
     )
+    
+set( LINUX_RPM_SPEC_FILE
+    Resource_Files/bash/specfile
+    )
 
 set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
@@ -911,21 +915,49 @@ endif()
 #
 #   cmake -DCMAKE_INSTALL_PREFIX=/new/install/prefix
 #
-# By default, the prefix is "/usr/local"
+# By default, the prefix is /usr/local
+#
+# You can change the type of Linux binary package by
+# running cmake with this option:
+#
+#   cmake -DLINUX_PACKAGE_TYPE="deb"
+#   cmake -DLINUX_PACKAGE_TYPE="rpm"
+#
+# By default, the package type is debian  (*.deb.
 # 
 # Use 'make install' to install normally
-# Use 'sudo make makedebpkg' to build a distributable package.
+#
+# Use 'sudo make makelinuxpkg' to build a debian distributable package.
+#
+# Use 'make makelinuxpkg' to build an rpm distributable package.
+# (Make sure the correct LINUX_PACKAGE_TYPE was set in the cmake command) 
 #
 if( UNIX AND NOT APPLE )
     query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
     query_qmake(QT_INSTALL_PLUGINS QT_PLUGINS_DIR)
+    
+    if ( NOT LINUX_PACKAGE_TYPE )
+        set ( LINUX_PACKAGE_TYPE "deb" )
+    endif()
+    
+    # If no Linux packge type was specified in the cmake command, debian will be assumed.
+    # If something other then "deb" or "rpm" is specified with -DLINUX_PACKAGE_TYPE, bail.
+    if ( NOT LINUX_PACKAGE_TYPE STREQUAL "deb" AND NOT LINUX_PACKAGE_TYPE STREQUAL "rpm" )
+        message(FATAL_ERROR "Linux package type ${LINUX_PACKAGE_TYPE} is unsupported. Please use 'deb' or 'rpm'.")
+    endif()
 
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
-    set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
+    set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/sigil-${SIGIL_FULL_VERSION} )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( DEB_TREE_ROOT ${MAIN_PACKAGE_DIR}${CMAKE_INSTALL_PREFIX} )
 
-    set( LINUX_DEBIAN_CONTROL_FILE_CONFIGURED ${CMAKE_BINARY_DIR}/control_configured )
+    # spec file for RPM or control for DEBIAN
+    if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
+        set( LINUX_RPM_SPEC_FILE_CONFIGURED ${CMAKE_BINARY_DIR}/specfile_configured )
+    else()
+        set( LINUX_DEBIAN_CONTROL_FILE_CONFIGURED ${CMAKE_BINARY_DIR}/control_configured )
+    endif()
+
     # One launch script for normal install target, and one for the makedebpkg target
     set( LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED ${CMAKE_BINARY_DIR}/sigil-sh_install_configured )
     set( LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED ${CMAKE_BINARY_DIR}/sigil-sh_pkg_configured )
@@ -934,23 +966,42 @@ if( UNIX AND NOT APPLE )
 
     # Specify platform var for dpkg-deb
     if ( 64_BIT_PLATFORM )
-        set( NIX_ARCH "amd64" )
-	set( NIX_LBL "-x86_64" )
+        set( NIX_DEBIAN_ARCH "amd64" )
+	set( NIX_RPM_ARCH "x86_64" )
+	set( NIX_LBL "-${NIX_RPM_ARCH}" )
     else()
-	set( NIX_ARCH "i386" )
-	set( NIX_LBL "-x86" )
+	set( NIX_DEBIAN_ARCH "i386" )
+	set( NIX_RPM_ARCH ${NIX_ARCH} )
+	set( NIX_LBL "-NIX_RPM_ARCH" )
     endif()
 
-    # Creates a copy of the Launch script and the DEBIAN control file and then configures them. 
-    configure_file( ${LINUX_DEBIAN_CONTROL_FILE} ${LINUX_DEBIAN_CONTROL_FILE_CONFIGURED} )
+    # Creates a copy of the Launch script and the DEBIAN control file
+    #  (or the RPM spec file) and then configures them.
+    if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
+        configure_file( ${LINUX_RPM_SPEC_FILE} ${LINUX_RPM_SPEC_FILE_CONFIGURED} )
+    else()
+        configure_file( ${LINUX_DEBIAN_CONTROL_FILE} ${LINUX_DEBIAN_CONTROL_FILE_CONFIGURED} )
+    endif()
     configure_file( ${LINUX_LAUNCH_INSTALL_SCRIPT} ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} )
     configure_file( ${LINUX_LAUNCH_PKG_SCRIPT} ${LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED} )
 
-    # Run commands to build binary *.deb package (*AFTER* all the PRE_BUILD custom commands execute)
-    add_custom_target( makedebpkg 
-			COMMAND cmake -E echo "Creating binary package."
+    # Create custom target "linuxbinpkg" to create either a debian or rpm package (-DLINUX_PACKAGE_TYPE).
+    if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
+        # Run commands to build binary *.rpm package (*AFTER* all the PRE_BUILD custom commands execute)
+        add_custom_target( linuxbinpkg 
+			COMMAND cmake -E echo "Creating binary rpm package."
+			COMMAND mkdir -p ${TEMP_PACKAGE_DIR}/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}
+			COMMAND tar -zcf ${TEMP_PACKAGE_DIR}/SOURCES/sigil-${SIGIL_FULL_VERSION}.tar.gz -C ${TEMP_PACKAGE_DIR} sigil-${SIGIL_FULL_VERSION}
+			COMMAND cp ${LINUX_RPM_SPEC_FILE_CONFIGURED} ${TEMP_PACKAGE_DIR}/SPECS/sigil.spec
+			COMMAND rpmbuild -ba --define '_topdir ${TEMP_PACKAGE_DIR}' --define '_tmppath ${TEMP_PACKAGE_DIR}/tmp'  ${TEMP_PACKAGE_DIR}/SPECS/sigil.spec 
+			COMMAND mv ${TEMP_PACKAGE_DIR}/RPMS/${NIX_RPM_ARCH}/sigil-${SIGIL_FULL_VERSION}-1.${NIX_RPM_ARCH}.rpm ${OUTPUT_PACKAGE_DIR}/ )
+    else()
+        # Run commands to build binary *.deb package (*AFTER* all the PRE_BUILD custom commands execute)
+        add_custom_target( linuxbinpkg 
+			COMMAND cmake -E echo "Creating binary debian package."
 			COMMAND dpkg-deb --build ${MAIN_PACKAGE_DIR} 
 			COMMAND mv ${MAIN_PACKAGE_DIR}.deb ${OUTPUT_PACKAGE_DIR}/Sigil-${SIGIL_FULL_VERSION}-Linux${NIX_LBL}.deb )
+    endif()
 
     set( TARGET_FOR_COPY copyfiles )
     # The intermediate target for copying
@@ -958,7 +1009,7 @@ if( UNIX AND NOT APPLE )
                       	COMMENT "Copying installer files to temporary location..."
                        	DEPENDS ${PROJECT_NAME} )
                         
-    add_dependencies( makedebpkg copyfiles )
+    add_dependencies( linuxbinpkg copyfiles )
 
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${OUTPUT_PACKAGE_DIR} )
 
@@ -1119,16 +1170,19 @@ if( UNIX AND NOT APPLE )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/${LINUX_DESKTOP_FILE} ${DEB_TREE_ROOT}/share/applications/ )
 
-    # Copy the debian control file
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/DEBIAN/ )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${LINUX_DEBIAN_CONTROL_FILE_CONFIGURED} ${MAIN_PACKAGE_DIR}/DEBIAN/control )
-
-    # Remove the temp directory used for building the installer 
-    add_custom_command( TARGET makedebpkg POST_BUILD 
+    if ( LINUX_PACKAGE_TYPE STREQUAL "deb" )
+        # Copy the debian control file
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/DEBIAN/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                            COMMAND cmake -E copy ${LINUX_DEBIAN_CONTROL_FILE_CONFIGURED} ${MAIN_PACKAGE_DIR}/DEBIAN/control )
+    endif()
+ 
+    # Remove the temp directory used for building the Linux binary package.  
+    add_custom_command( TARGET linuxbinpkg POST_BUILD 
                         COMMAND cmake -E remove_directory ${TEMP_PACKAGE_DIR}
                         COMMENT "Removing temporary directory..." )
 
+    # Standard Linux 'make install'
     install( PROGRAMS ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/ RENAME ${PROJECT_NAME} )
     install( PROGRAMS ${SIGIL_EXECUTABLE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/ RENAME ${DESTINATION_EXECUTABLE_NAME} )
     install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications/ )
