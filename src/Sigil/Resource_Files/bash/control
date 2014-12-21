@@ -1,0 +1,10 @@
+Package: sigil
+Priority: extra
+Section: contrib/editors
+Installed-Size: 140000
+Depends: libc6 (>= 2.13)
+Maintainer: DiapDealer
+Architecture: ${NIX_DEBIAN_ARCH}
+Version: ${SIGIL_FULL_VERSION}
+Provides: Sigil
+Description: Sigil is a multi-platform EPUB ebook editor.

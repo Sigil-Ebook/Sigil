@@ -49,6 +49,11 @@ if (NOT MSVC)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
     elseif(COMPILER_SUPPORTS_CXX0X)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+        # Give gcc compilers that fall through the cracks a shot.
+        if(CMAKE_COMPILER_IS_GNUCXX AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.8)
+            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
+            message("-- fpermissive CXX flag being used for gcc ${CMAKE_CXX_COMPILER_VERSION}")
+        endif()
     else()
         message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
     endif()
@@ -485,7 +490,23 @@ set( LINUX_DESKTOP_FILE
 set( LINUX_DESKTOP_ICON_FILE
     Resource_Files/icon/app_icon_48.png
     )
+
+set( LINUX_LAUNCH_INSTALL_SCRIPT
+    Resource_Files/bash/sigil-sh_install
+    )
     
+set( LINUX_LAUNCH_PKG_SCRIPT
+    Resource_Files/bash/sigil-sh_pkg
+    )
+
+set( LINUX_DEBIAN_CONTROL_FILE
+    Resource_Files/bash/control
+    )
+    
+set( LINUX_RPM_SPEC_FILE
+    Resource_Files/bash/specfile
+    )
+
 set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 #############################################################################
@@ -647,6 +668,15 @@ endif()
 
 #############################################################################
 
+get_target_property(QMAKE_EXECUTABLE Qt5::qmake LOCATION)
+function(QUERY_QMAKE VAR RESULT)
+    exec_program(${QMAKE_EXECUTABLE} ARGS "-query ${VAR}" RETURN_VALUE return_code OUTPUT_VARIABLE output )
+    if(NOT return_code)
+        file(TO_CMAKE_PATH "${output}" output)
+        set(${RESULT} ${output} PARENT_SCOPE)
+    endif(NOT return_code)
+endfunction(QUERY_QMAKE)
+
 # For Mac, add frameworks and make a DMG
 if( APPLE )
     if(CMAKE_GENERATOR STREQUAL Xcode)
@@ -673,15 +703,6 @@ if( APPLE )
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
 # For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
 elseif (MSVC)
-    get_target_property(QMAKE_EXECUTABLE Qt5::qmake LOCATION)
-    function(QUERY_QMAKE VAR RESULT)
-        exec_program(${QMAKE_EXECUTABLE} ARGS "-query ${VAR}" RETURN_VALUE return_code OUTPUT_VARIABLE output )
-        if(NOT return_code)
-            file(TO_CMAKE_PATH "${output}" output)
-            set(${RESULT} ${output} PARENT_SCOPE)
-        endif(NOT return_code)
-    endfunction(QUERY_QMAKE)
-
     query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
     query_qmake(QT_INSTALL_BINS QT_INSTALL_BINS)
     query_qmake(QT_INSTALL_PLUGINS QT_PLUGINS_DIR)
@@ -894,10 +915,276 @@ endif()
 #
 #   cmake -DCMAKE_INSTALL_PREFIX=/new/install/prefix
 #
-# By default, the prefix is "/usr/local"
+# By default, the prefix is /usr/local
+#
+# You can change the type of Linux binary package by
+# running cmake with this option:
+#
+#   cmake -DLINUX_PACKAGE_TYPE="deb"
+#   cmake -DLINUX_PACKAGE_TYPE="rpm"
+#
+# By default, the package type is debian  (*.deb.
 # 
+# Use 'make install' to install normally
+#
+# Use 'sudo make makelinuxpkg' to build a debian distributable package.
+#
+# Use 'make makelinuxpkg' to build an rpm distributable package.
+# (Make sure the correct LINUX_PACKAGE_TYPE was set in the cmake command) 
+#
 if( UNIX AND NOT APPLE )
-    install( TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/ )
+    query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
+    query_qmake(QT_INSTALL_PLUGINS QT_PLUGINS_DIR)
+    
+    if ( NOT LINUX_PACKAGE_TYPE )
+        set ( LINUX_PACKAGE_TYPE "deb" )
+    endif()
+    
+    # If no Linux packge type was specified in the cmake command, debian will be assumed.
+    # If something other then "deb" or "rpm" is specified with -DLINUX_PACKAGE_TYPE, bail.
+    if ( NOT LINUX_PACKAGE_TYPE STREQUAL "deb" AND NOT LINUX_PACKAGE_TYPE STREQUAL "rpm" )
+        message(FATAL_ERROR "Linux package type ${LINUX_PACKAGE_TYPE} is unsupported. Please use 'deb' or 'rpm'.")
+    endif()
+
+    set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
+    set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/sigil-${SIGIL_FULL_VERSION} )
+    set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
+    set( DEB_TREE_ROOT ${MAIN_PACKAGE_DIR}${CMAKE_INSTALL_PREFIX} )
+
+    # spec file for RPM or control for DEBIAN
+    if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
+        set( LINUX_RPM_SPEC_FILE_CONFIGURED ${CMAKE_BINARY_DIR}/specfile_configured )
+    else()
+        set( LINUX_DEBIAN_CONTROL_FILE_CONFIGURED ${CMAKE_BINARY_DIR}/control_configured )
+    endif()
+
+    # One launch script for normal install target, and one for the makedebpkg target
+    set( LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED ${CMAKE_BINARY_DIR}/sigil-sh_install_configured )
+    set( LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED ${CMAKE_BINARY_DIR}/sigil-sh_pkg_configured )
+    set( SIGIL_EXECUTABLE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
+    set( DESTINATION_EXECUTABLE_NAME ${PROJECT_NAME}-real )
+
+    # Specify platform var for dpkg-deb
+    if ( 64_BIT_PLATFORM )
+        set( NIX_DEBIAN_ARCH "amd64" )
+	set( NIX_RPM_ARCH "x86_64" )
+	set( NIX_LBL "-${NIX_RPM_ARCH}" )
+    else()
+	set( NIX_DEBIAN_ARCH "i386" )
+	set( NIX_RPM_ARCH ${NIX_ARCH} )
+	set( NIX_LBL "-NIX_RPM_ARCH" )
+    endif()
+
+    # Creates a copy of the Launch script and the DEBIAN control file
+    #  (or the RPM spec file) and then configures them.
+    if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
+        configure_file( ${LINUX_RPM_SPEC_FILE} ${LINUX_RPM_SPEC_FILE_CONFIGURED} )
+    else()
+        configure_file( ${LINUX_DEBIAN_CONTROL_FILE} ${LINUX_DEBIAN_CONTROL_FILE_CONFIGURED} )
+    endif()
+    configure_file( ${LINUX_LAUNCH_INSTALL_SCRIPT} ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} )
+    configure_file( ${LINUX_LAUNCH_PKG_SCRIPT} ${LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED} )
+
+    # Create custom target "linuxbinpkg" to create either a debian or rpm package (-DLINUX_PACKAGE_TYPE).
+    if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
+        # Run commands to build binary *.rpm package (*AFTER* all the PRE_BUILD custom commands execute)
+        add_custom_target( linuxbinpkg 
+			COMMAND cmake -E echo "Creating binary rpm package."
+			COMMAND mkdir -p ${TEMP_PACKAGE_DIR}/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}
+			COMMAND tar -zcf ${TEMP_PACKAGE_DIR}/SOURCES/sigil-${SIGIL_FULL_VERSION}.tar.gz -C ${TEMP_PACKAGE_DIR} sigil-${SIGIL_FULL_VERSION}
+			COMMAND cp ${LINUX_RPM_SPEC_FILE_CONFIGURED} ${TEMP_PACKAGE_DIR}/SPECS/sigil.spec
+			COMMAND rpmbuild -ba --define '_topdir ${TEMP_PACKAGE_DIR}' --define '_tmppath ${TEMP_PACKAGE_DIR}/tmp'  ${TEMP_PACKAGE_DIR}/SPECS/sigil.spec 
+			COMMAND mv ${TEMP_PACKAGE_DIR}/RPMS/${NIX_RPM_ARCH}/sigil-${SIGIL_FULL_VERSION}-1.${NIX_RPM_ARCH}.rpm ${OUTPUT_PACKAGE_DIR}/ )
+    else()
+        # Run commands to build binary *.deb package (*AFTER* all the PRE_BUILD custom commands execute)
+        add_custom_target( linuxbinpkg 
+			COMMAND cmake -E echo "Creating binary debian package."
+			COMMAND dpkg-deb --build ${MAIN_PACKAGE_DIR} 
+			COMMAND mv ${MAIN_PACKAGE_DIR}.deb ${OUTPUT_PACKAGE_DIR}/Sigil-${SIGIL_FULL_VERSION}-Linux${NIX_LBL}.deb )
+    endif()
+
+    set( TARGET_FOR_COPY copyfiles )
+    # The intermediate target for copying
+    add_custom_target( copyfiles
+                      	COMMENT "Copying installer files to temporary location..."
+                       	DEPENDS ${PROJECT_NAME} )
+                        
+    add_dependencies( linuxbinpkg copyfiles )
+
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${OUTPUT_PACKAGE_DIR} )
+
+    # Copy Qt runtime libs
+    set( QT_LIBS Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5OpenGL Qt5Multimedia Qt5MultimediaWidgets Qt5Positioning Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sensors Qt5Sql Qt5Svg Qt5WebChannel Qt5WebKit Qt5WebKitWidgets Qt5Widgets Qt5Xml Qt5XmlPatterns )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/ )
+    foreach( lib ${QT_LIBS} )
+	find_package( ${lib} )
+	string( REPLACE "Qt5" "" classname ${lib} )
+	get_target_property( location Qt5::${classname} LOCATION_Release )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/lib${lib}.so.5 )
+    endforeach( lib)
+    
+    # Copy ICU libs
+    set( QT_ICU_LIBS icudata icui18n icuuc )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/ )
+    foreach( lib ${QT_ICU_LIBS} )
+        set( location location-NOTFOUND )
+        find_file( location lib${lib}.so.53 PATHS ${QT_LIBRARY_DIR} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/ )
+    endforeach( lib )
+
+    # Copy iconengines plugins
+    set( QT_ICONENGINES qsvgicon )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/iconengines/ )
+    foreach( lib ${QT_ICONENGINES} )
+        set( location location-NOTFOUND )
+        find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/iconengines/ )
+	add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/iconengines/ )
+    endforeach( lib )    
+
+    # Copy imageformats plugins
+    set( QT_IMAGEFORMATS qgif qico qjpeg qmng qsvg qtiff qtga qwbmp )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/imageformats/ )
+    foreach( lib ${QT_IMAGEFORMATS} )   
+        set( location location-NOTFOUND )
+        find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/imageformats/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/imageformats/ )
+    endforeach( lib )
+
+    # Copy platform plugins
+    set( QT_PLATFORMS qminimal qxcb qoffscreen qminimalegl qlinuxfb qeglfs)
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/platforms/ )
+    foreach( lib ${QT_PLATFORMS} )   
+        set( location location-NOTFOUND )
+        find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/platforms/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/platforms/ )
+    endforeach( lib )
+        
+    # Copy platformtheme plugins
+    set( QT_PLATFORMTHEMES qgtk2)
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/platformthemes/ )
+    foreach( lib ${QT_PLATFORMTHEMES} )   
+        set( location location-NOTFOUND )
+        find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/platformthemes/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/platformthemes/ )
+    endforeach( lib )
+    
+    # Copy platforminputcontexts plugins
+    set( QT_PLATFORMINPUTCONTEXTS composeplatforminputcontextplugin ibusplatforminputcontextplugin)
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/platforminputcontexts/ )
+    foreach( lib ${QT_PLATFORMINPUTCONTEXTS} )   
+        set( location location-NOTFOUND )
+        find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/platforminputcontexts/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/platforminputcontexts/ )
+    endforeach( lib )
+
+    # Copy printsupport plugins
+    set( QT_PRINTSUPPORT cupsprintersupport )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/printsupport/ )
+    foreach( lib ${QT_PRINTSUPPORT} )   
+        set( location location-NOTFOUND )
+        find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/printsupport/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/printsupport/ )
+    endforeach( lib )
+
+    # Copy sqldrivers plugins
+    set( QT_SQLDRIVERS qsqlite qsqlmysql qsqlpsql )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/sqldrivers/ )
+    foreach( lib ${QT_SQLDRIVERS} )   
+        set( location location-NOTFOUND )
+        find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/sqldrivers/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/sqldrivers/ )
+    endforeach( lib )
+
+    # Copy the translation qm files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/translations/ )
+    foreach( QM ${QM_FILES} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+                            COMMAND cmake -E copy ${QM} ${DEB_TREE_ROOT}/share/sigil/translations/ )
+    endforeach( QM )
+
+    # Copy the dictionary files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/hunspell_dictionaries/ )
+    foreach( DIC ${DIC_FILES} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+                            COMMAND cmake -E copy ${DIC} ${DEB_TREE_ROOT}/share/sigil/hunspell_dictionaries/ )
+    endforeach( DIC )
+
+    # Copy the python plugin launcher files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/plugin_launchers/python/ )
+    foreach( PLUGFILE ${PLUGIN_FILES_PYTHON} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+                            COMMAND cmake -E copy ${PLUGFILE} ${DEB_TREE_ROOT}/share/sigil/plugin_launchers/python/ )
+    endforeach( PLUGFILE )
+
+    # Copy the example files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/examples/ )
+    foreach( EXAMPLE ${EXAMPLE_FILES} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+                            COMMAND cmake -E copy ${EXAMPLE} ${DEB_TREE_ROOT}/share/sigil/examples/ )
+    endforeach( EXAMPLE )
+
+    # Copy the application executable
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                        COMMAND cmake -E copy ${SIGIL_EXECUTABLE} ${DEB_TREE_ROOT}/share/sigil/${DESTINATION_EXECUTABLE_NAME} )
+
+    # Copy the Unix launcher that sets the proper environment variables before launching the real Sigil binary
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/bin/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E copy ${LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED} ${DEB_TREE_ROOT}/bin/sigil )
+
+    # Copy the Changelog
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${DEB_TREE_ROOT}/share/sigil/ )
+    
+    # Copy the license file
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${DEB_TREE_ROOT}/share/sigil/ )
+
+    # Copy the icon file (used on Linux for the application icon)
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/pixmaps/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/${LINUX_DESKTOP_ICON_FILE} ${DEB_TREE_ROOT}/share/pixmaps/sigil.png )
+
+    # Copy the desktop file (used on Linux for the application settings)
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/applications/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/${LINUX_DESKTOP_FILE} ${DEB_TREE_ROOT}/share/applications/ )
+
+    if ( LINUX_PACKAGE_TYPE STREQUAL "deb" )
+        # Copy the debian control file
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/DEBIAN/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                            COMMAND cmake -E copy ${LINUX_DEBIAN_CONTROL_FILE_CONFIGURED} ${MAIN_PACKAGE_DIR}/DEBIAN/control )
+    endif()
+ 
+    # Remove the temp directory used for building the Linux binary package.  
+    add_custom_command( TARGET linuxbinpkg POST_BUILD 
+                        COMMAND cmake -E remove_directory ${TEMP_PACKAGE_DIR}
+                        COMMENT "Removing temporary directory..." )
+
+    # Standard Linux 'make install'
+    install( PROGRAMS ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/ RENAME ${PROJECT_NAME} )
+    install( PROGRAMS ${SIGIL_EXECUTABLE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/ RENAME ${DESTINATION_EXECUTABLE_NAME} )
     install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications/ )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations/ )
