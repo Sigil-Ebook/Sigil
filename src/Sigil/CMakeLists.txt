@@ -769,7 +769,7 @@ elseif (MSVC)
     endforeach( lib )
 
     # Copy bin libs
-    set( QT_BIN_LIBS D3DCompiler_47 icudt52 icuin52 icuuc52 )
+    set( QT_BIN_LIBS D3DCompiler_47 icudt53 icuin53 icuuc53 )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
     foreach( lib ${QT_BIN_LIBS} )
         set( location location-NOTFOUND )
@@ -820,15 +820,6 @@ elseif (MSVC)
         set( location location-NOTFOUND )
         find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/sqldrivers/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/sqldrivers/ )
-    endforeach( lib )
-
-    # Copy accessible plugins
-    set( QT_ACCESSIBLE qtaccessiblequick qtaccessiblewidgets )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/accessible/ )
-    foreach( lib ${QT_ACCESSIBLE} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/accessible/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/accessible/ )
     endforeach( lib )
 
     # Copy the translation qm files
