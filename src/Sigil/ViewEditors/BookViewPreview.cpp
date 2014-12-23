@@ -25,6 +25,7 @@
 #include <QtCore/QUrl>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMessageBox>
+#include <QtWebKit/QWebSettings>
 #include <QtWebKitWidgets/QWebFrame>
 
 #include "BookManipulation/XercesCppUse.h"
@@ -338,9 +339,9 @@ void BookViewPreview::SetUpFindForSelectedText(const QString &search_regex)
     // Nothing to do for Book Preview
 }
 
-void BookViewPreview::UpdateFinishedState(int progress)
+void BookViewPreview::UpdateFinishedState(bool okay)
 {
-    if (progress == 100) {
+    if (okay) {
         m_isLoadFinished = true;
         emit DocumentLoaded();
     } else {
@@ -736,7 +737,7 @@ void BookViewPreview::ConnectSignalsToSlots()
 {
     connect(this,  SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(OpenContextMenu(const QPoint &)));
     connect(m_InspectElement,    SIGNAL(triggered()),  this, SLOT(InspectElement()));
-    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(UpdateFinishedState(int)));
+    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
     connect(page(), SIGNAL(linkClicked(const QUrl &)), SIGNAL(LinkClicked(const QUrl &)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
 }
