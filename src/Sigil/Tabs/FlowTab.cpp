@@ -33,7 +33,6 @@
 #include <QtPrintSupport/QPrintPreviewDialog>
 #include <QtWidgets/QStackedWidget>
 #include <QtWebKitWidgets/QWebInspector>
-#include <QtWebKit/QWebSettings>
 
 #include "BookManipulation/CleanSource.h"
 #include "MiscEditors/ClipEditorModel.h"
@@ -411,7 +410,7 @@ void FlowTab::ResourceModified()
 
 void FlowTab::LinkedResourceModified()
 {
-    QWebSettings::clearMemoryCaches();
+    MainWindow::clearMemoryCaches();
     ResourceModified();
     ReloadTabIfPending();
 }

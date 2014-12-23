@@ -289,7 +289,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
             m_bookBrowser->BookContentModified();
             m_bookBrowser->Refresh();
             m_book->SetModified();
-            // QWebSettings::clearMemoryCaches() and updates current tab
+            // clearMemoryCaches() and updates current tab
             m_mainWindow->ResourcesAddedOrDeleted();
         }
 #ifdef Q_OS_MAC

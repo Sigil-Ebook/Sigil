@@ -23,7 +23,7 @@
 #include <QtCore/QUrl>
 #include <QtWidgets/QLayout>
 #include <QtWebKitWidgets/QWebView>
-
+#include "MainUI/MainWindow.h"
 #include "Tabs/AVTab.h"
 #include "sigil_constants.h"
 
@@ -65,7 +65,7 @@ AVTab::AVTab(Resource &resource, QWidget *parent)
 
 void AVTab::RefreshContent()
 {
-    QWebSettings::clearMemoryCaches();
+    MainWindow::clearMemoryCaches();
     QString html;
     const QString path = m_Resource.GetFullPath();
     const QUrl resourceUrl = QUrl::fromLocalFile(path);

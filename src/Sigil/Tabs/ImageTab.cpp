@@ -35,6 +35,7 @@
 #include <QtPrintSupport/QPrintPreviewDialog>
 
 
+#include "MainUI/MainWindow.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/ImageResource.h"
@@ -129,7 +130,7 @@ void ImageTab::UpdateDisplay()
 
 void ImageTab::RefreshContent()
 {
-    QWebSettings::clearMemoryCaches();
+    MainWindow::clearMemoryCaches();
     const QString path = m_Resource.GetFullPath();
     const QFileInfo fileInfo = QFileInfo(path);
     const double ffsize = fileInfo.size() / 1024.0;

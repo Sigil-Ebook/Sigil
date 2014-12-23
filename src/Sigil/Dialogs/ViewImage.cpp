@@ -24,6 +24,7 @@
 #include <QWebView>
 #include <QWebFrame>
 
+#include "MainUI/MainWindow.h"
 #include "Dialogs/ViewImage.h"
 #include "ResourceObjects/ImageResource.h"
 #include "sigil_constants.h"
@@ -51,7 +52,7 @@ ViewImage::~ViewImage()
 
 void ViewImage::ShowImage(QString path)
 {
-    QWebSettings::clearMemoryCaches();
+    MainWindow::clearMemoryCaches();
     const QUrl resourceUrl = QUrl::fromLocalFile(path);
     QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
     ui.webView->setHtml(html, resourceUrl);

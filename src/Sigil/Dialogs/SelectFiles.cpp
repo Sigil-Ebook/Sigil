@@ -25,6 +25,7 @@
 #include <QtWebKitWidgets/QWebFrame>
 #include <QtWebKitWidgets/QWebView>
 
+#include "MainUI/MainWindow.h"
 #include "Dialogs/SelectFiles.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
@@ -286,7 +287,7 @@ void SelectFiles::SetPreviewImage()
         details = QString("%2x%3px | %4 KB | %5%6").arg(img.width()).arg(img.height())
                   .arg(fsize).arg(grayscale_color).arg(colorsInfo);
 
-        QWebSettings::clearMemoryCaches();
+        MainWindow::clearMemoryCaches();
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
         m_WebView->setHtml(html, resourceUrl);
@@ -295,14 +296,14 @@ void SelectFiles::SetPreviewImage()
     if (resource_type == Resource::VideoResourceType) {
         QString html;
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
-        QWebSettings::clearMemoryCaches();
+        MainWindow::clearMemoryCaches();
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
         m_WebView->setHtml(html, resourceUrl);
         details = QString("%1 MB").arg(fmbsize);
     } else if (resource_type == Resource::AudioResourceType) {
         QString html;
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
-        QWebSettings::clearMemoryCaches();
+        MainWindow::clearMemoryCaches();
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
         m_WebView->setHtml(html, resourceUrl);
         details = QString("%1 MB").arg(fmbsize);

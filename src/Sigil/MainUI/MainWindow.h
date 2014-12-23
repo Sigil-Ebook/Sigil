@@ -199,6 +199,8 @@ public:
 
     void SetValidationResults(const QList<ValidationResult> &results);
 
+    static void clearMemoryCaches();
+
 public slots:
     void AnyCodeView();
 

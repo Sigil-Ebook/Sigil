@@ -988,6 +988,25 @@ void MainWindow::SpellcheckEditorDialog()
 }
 
 
+void MainWindow::clearMemoryCaches()
+{
+    // See https://bugreports.qt-project.org/browse/QTBUG-4350
+    // QWebSettinbgs::clearMemoryCaches();
+
+    // replace the above with a similar sequence 
+    // that does not invalidate the fontCache
+
+    // toggle memory caches to disable and then re-enable
+    QWebSettings::setObjectCacheCapacities(0,0,0);
+    QWebSettings::setObjectCacheCapacities(0, 0, 100 * 1024 * 1024);
+
+    // do the same to flush the page cache
+    int numpages = QWebSettings::maximumPagesInCache();
+    QWebSettings::setMaximumPagesInCache(0);
+    QWebSettings::setMaximumPagesInCache(numpages);
+}
+
+
 void MainWindow::AddCover()
 {
     // Get the image to use.
@@ -1082,7 +1101,7 @@ void MainWindow::AddCover()
 
     m_BookBrowser->Refresh();
     m_Book->SetModified();
-    QWebSettings::clearMemoryCaches();
+    clearMemoryCaches();
     OpenResourceAndWaitUntilLoaded(*html_cover_resource);
     // Reload the tab to ensure it reflects updated image.
     FlowTab *flow_tab = GetCurrentFlowTab();
@@ -1478,7 +1497,7 @@ void MainWindow::InsertFilesFromDisk()
     QStringList filenames = m_BookBrowser->AddExisting(true);
     connect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
     // Since we disconnected the signal we will have missed forced clearing of cache
-    QWebSettings::clearMemoryCaches();
+    clearMemoryCaches();
     QStringList internal_filenames;
     foreach(QString filename, filenames) {
         QString internal_filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
@@ -3313,7 +3332,7 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
 
 void MainWindow::ResourcesAddedOrDeleted()
 {
-    QWebSettings::clearMemoryCaches();
+    clearMemoryCaches();
 
     // Make sure currently visible tab is updated immediately
     FlowTab *flow_tab = GetCurrentFlowTab();

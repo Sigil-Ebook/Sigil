@@ -37,6 +37,7 @@
 #include <QtWidgets/QShortcut>
 #include <QtGui/QTextDocument>
 #include <QtWebKit/QWebElement>
+#include <QtWebKit/QWebSettings>
 #include <QtWebKitWidgets/QWebFrame>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
