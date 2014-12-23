@@ -2058,13 +2058,21 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked(Resource *resource)
 
 void MainWindow::RemoveResources(QList<Resource *> resources)
 {
+    // work around Qt bug when deleting png images on page shown by both
+    // BookView and Preview by temporarily hiding the PreviewWindow
+    bool pw_showing = m_PreviewWindow->IsVisible();
+    if ((pw_showing) && (m_ViewState == MainWindow::ViewState_BookView)) {
+        m_PreviewWindow->hide();
+    }
     // Provide the open tab list to ensure one tab stays open
     if (resources.count() > 0) {
         m_BookBrowser->RemoveResources(m_TabManager.GetTabResources(), resources);
     } else {
         m_BookBrowser->RemoveSelection(m_TabManager.GetTabResources());
     }
-
+    if ((pw_showing) && !m_PreviewWindow->IsVisible()) {
+        m_PreviewWindow->show();
+    }
     ShowMessageOnStatusBar(tr("File(s) deleted."));
 }
 
