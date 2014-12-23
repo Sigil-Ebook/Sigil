@@ -272,7 +272,7 @@ signals:
 
     void OpenIndexEditorRequest(IndexEditorModel::indexEntry *);
 
-    void InspectElement();
+    void BVInspectElement();
 
 protected:
     /**

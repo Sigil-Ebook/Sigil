@@ -1520,7 +1520,7 @@ void FlowTab::ConnectBookViewSignalsToSlots()
     connect(m_wBookView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(m_wBookView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
     connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
-    connect(m_wBookView, SIGNAL(InspectElement()), this, SIGNAL(InspectElement()));
+    connect(m_wBookView, SIGNAL(BVInspectElement()), this, SIGNAL(InspectElement()));
     connect(m_wBookView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
     connect(m_wBookView, SIGNAL(PageClicked()), this, SLOT(EmitUpdatePreviewImmediately()));
     connect(m_wBookView, SIGNAL(PageOpened()), this, SLOT(EmitUpdatePreviewImmediately()));

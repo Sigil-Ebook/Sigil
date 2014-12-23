@@ -787,7 +787,7 @@ bool BookViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
 void BookViewEditor::EmitInspectElement()
 {
     StoreCurrentCaretLocation();
-    emit InspectElement();
+    emit BVInspectElement();
 }
 
 void BookViewEditor::OpenContextMenu(const QPoint &point)

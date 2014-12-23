@@ -303,8 +303,6 @@ signals:
 
     void InspectElement();
 
-    void MarkSelectionRequest();
-    void ClearMarkedTextRequest();
 
 private slots:
 
