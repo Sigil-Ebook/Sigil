@@ -50,7 +50,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>22</height>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -324,6 +324,8 @@
     <addaction name="actionValidateStylesheetsWithW3C"/>
     <addaction name="actionReports"/>
     <addaction name="separator"/>
+    <addaction name="actionCleanContent"/>
+    <addaction name="separator"/>
     <addaction name="actionClipEditor"/>
     <addaction name="actionSearchEditor"/>
     <addaction name="separator"/>
@@ -450,6 +452,7 @@
    <addaction name="actionGenerateTOC"/>
    <addaction name="actionSpellcheckEditor"/>
    <addaction name="actionValidateEpubWithFlightCrew"/>
+   <addaction name="actionCleanContent"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
@@ -2266,6 +2269,15 @@
   <action name="actionManage_Plugins">
    <property name="text">
     <string>Manage Plugins</string>
+   </property>
+  </action>
+  <action name="actionCleanContent">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/edit-clear_22px.png</normaloff>:/main/edit-clear_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clean Content...</string>
    </property>
   </action>
  </widget>
