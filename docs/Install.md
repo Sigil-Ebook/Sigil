@@ -160,8 +160,7 @@ You can also create a shortcut to the sigil.desktop file in INSTALL_PREFIX/share
 Sigil should also be available in your desktop menu system. It's typically found under the "Office" applications submenu.
 
 If you've installed Sigil to your home directory or another prefix not on your path, add INSTALL_PREFIX/bin to your path
-(via .profile or .bash_profile or .bashrc or similar) and execute sigil from a terminal.
-    $ sigil
+(via .profile or .bash_profile or .bashrc or similar) and execute 'sigil' from a terminal.
 
 If you relocate your Qt5 libraries after building Sigil, you'll need to edit the Sigil launch script (INSTALL_PREFIX/bin/sigil)
 and supply the new location of the Qt5 libraries (only necessary if you've installed via the typical "make, make install" method).
