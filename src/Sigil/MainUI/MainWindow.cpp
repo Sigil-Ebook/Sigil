@@ -43,6 +43,7 @@
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
+#include "Dialogs/CleanContent.h"
 #include "Dialogs/ClipEditor.h"
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/DeleteStyles.h"
@@ -2352,6 +2353,12 @@ void MainWindow::SearchEditorDialog(SearchEditorModel::searchEntry *search_entry
     }
 }
 
+void MainWindow::CleanContentDialog()
+{
+    CleanContent cleanContent(this);
+    cleanContent.exec();
+}
+
 void MainWindow::ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry)
 {
     // non-modal dialog
@@ -4032,6 +4039,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionIgnoreMisspelledWord, "MainWindow.IgnoreMispelledWord");
     sm->registerAction(ui.actionClearIgnoredWords, "MainWindow.ClearIgnoredWords");
     sm->registerAction(ui.actionReports, "MainWindow.Reports");
+    sm->registerAction(ui.actionCleanContent, "MainWindow.CleanContent");
     sm->registerAction(ui.actionSearchEditor, "MainWindow.SearchEditor");
     sm->registerAction(ui.actionClipEditor, "MainWindow.ClipEditor");
     sm->registerAction(ui.actionAddToIndex, "MainWindow.AddToIndex");
@@ -4380,6 +4388,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));
     connect(ui.actionCreateHTMLTOC, SIGNAL(triggered()), this, SLOT(CreateHTMLTOC()));
     connect(ui.actionReports,       SIGNAL(triggered()), this, SLOT(ReportsDialog()));
+    connect(ui.actionCleanContent,  SIGNAL(triggered()), this, SLOT(CleanContentDialog()));
     connect(ui.actionClipEditor,    SIGNAL(triggered()), this, SLOT(ClipEditorDialog()));
     connect(ui.actionSearchEditor,  SIGNAL(triggered()), this, SLOT(SearchEditorDialog()));
     connect(ui.actionIndexEditor,   SIGNAL(triggered()), this, SLOT(IndexEditorDialog()));

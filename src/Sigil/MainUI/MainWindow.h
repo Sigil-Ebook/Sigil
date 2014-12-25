@@ -394,6 +394,8 @@ private slots:
      */
     void SearchEditorDialog(SearchEditorModel::searchEntry *search_entry = NULL);
 
+    void CleanContentDialog();
+
     void ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry = NULL);
 
     /**

@@ -129,6 +129,8 @@ set( DIALOG_FILES
     Dialogs/About.h
     Dialogs/AddMetadata.cpp
     Dialogs/AddMetadata.h
+    Dialogs/CleanContent.h
+    Dialogs/CleanContent.cpp
     Dialogs/ClipboardHistorySelector.h
     Dialogs/ClipboardHistorySelector.cpp
     Dialogs/DeleteFiles.cpp
@@ -440,6 +442,7 @@ set( UI_FILES
     Form_Files/ReportsCharactersInHTMLFilesWidget.ui
     Form_Files/LinkStylesheets.ui 
     Form_Files/SearchEditor.ui
+    Form_Files/CleanContent.ui
     Form_Files/ClipEditor.ui
     Form_Files/IndexEditor.ui 
     Form_Files/SpellcheckEditor.ui 
