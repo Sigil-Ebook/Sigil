@@ -51,6 +51,16 @@ Use any number as sample page number or number of pages.</string>
     </layout>
    </item>
    <item>
+    <widget class="QCheckBox" name="checkBoxRemoveEmptyParagraphs">
+     <property name="text">
+      <string>Remove empty paragraphs</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QCheckBox" name="checkBoxJoinParagraphs">
      <property name="toolTip">
       <string>Join sentences splitted between paragraphs.

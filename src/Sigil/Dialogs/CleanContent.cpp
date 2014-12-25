@@ -35,6 +35,8 @@ CleanContentParams CleanContent::GetParams()
     params.remove_page_numbers = ui.checkBoxRemovePageNumbers->isChecked();
     params.page_number_format = ui.lineEditPageNumberFormat->text();
 
+    params.remove_empty_paragraphs = ui.checkBoxRemoveEmptyParagraphs->isChecked();
+
     params.join_paragraphs = ui.checkBoxJoinParagraphs->isChecked();
 
     return params;

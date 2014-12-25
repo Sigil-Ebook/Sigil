@@ -53,6 +53,10 @@ void CleanContentUpdates::CleanContentInOneFile(HTMLResource *html_resource,
         RemovePageNumbers(doc, params.page_number_format);
     }
 
+    if (params.remove_empty_paragraphs) {
+        RemoveEmptyParagraphs(doc);
+    }
+
     html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(doc));
 }
 
@@ -75,6 +79,29 @@ void CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc, const QString 
 
         QString element_text = XtoQ(element.getTextContent());
         if (re.match(element_text).hasMatch()) {
+            body_element.removeChild(&element);
+        }
+    }
+}
+
+void CleanContentUpdates::RemoveEmptyParagraphs(xc::DOMDocument &doc)
+{
+    // body should only appear once
+    xc::DOMNodeList *bodys = doc.getElementsByTagName(QtoX("body"));
+    xc::DOMElement &body_element = *static_cast<xc::DOMElement *>(bodys->item(0));
+
+    xc::DOMNodeList *paragraphs = body_element.getElementsByTagName(QtoX("p"));
+
+    // change in reverse to preserve location information
+    uint paragraph_count = paragraphs->getLength();
+    for (uint i = paragraph_count; i > 0; i--) {
+        // always delete the top element since list is dynamic
+        xc::DOMElement &element = *static_cast<xc::DOMElement *>(paragraphs->item(i - 1));
+        Q_ASSERT(&element);
+
+        QString element_text = XtoQ(element.getTextContent());
+        element_text = element_text.trimmed();
+        if (element_text.length() == 0) {
             body_element.removeChild(&element);
         }
     }

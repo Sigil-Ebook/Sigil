@@ -32,6 +32,8 @@ struct CleanContentParams
     bool remove_page_numbers;
     QString page_number_format;
 
+    bool remove_empty_paragraphs;
+
     bool join_paragraphs;
 };
 
@@ -48,6 +50,8 @@ private:
                                       const CleanContentParams &params);
 
     static void RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format);
+    static void RemoveEmptyParagraphs(xc::DOMDocument &doc);
+
     static QString ConvertSamplePageNumberToRegExp(const QString &page_number_format);
 };
 
