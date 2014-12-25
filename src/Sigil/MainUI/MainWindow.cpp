@@ -2373,10 +2373,8 @@ void MainWindow::CleanContentDialog()
         }
     }
 
-    if (cleanContent.IsJoinParagraphsSelected()) {
-        CleanContentUpdates::JoinParagraphsInAllFiles(html_resources);
-        m_Book->SetModified();
-    }
+    CleanContentUpdates::CleanContentInAllFiles(html_resources, cleanContent.GetParams());
+    m_Book->SetModified();
 
     ShowMessageOnStatusBar(tr("Cleaning content done."));
 

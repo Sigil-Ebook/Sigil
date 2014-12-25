@@ -25,15 +25,25 @@
 
 class HTMLResource;
 
+struct CleanContentParams
+{
+    bool remove_page_numbers;
+    QString page_number_format;
+
+    bool join_paragraphs;
+};
+
 class CleanContentUpdates
 {
 
 public:
 
-    static void JoinParagraphsInAllFiles(const QList<HTMLResource *> &html_resources);
+    static void CleanContentInAllFiles(const QList<HTMLResource *> &html_resources,
+                                       const CleanContentParams &params);
 
 private:
-    static void JoinParagraphsInOneFile(HTMLResource *html_resource);
+    static void CleanContentInOneFile(HTMLResource *html_resource,
+                                      const CleanContentParams &params);
 };
 
 #endif // CLEANCONTENTUPDATES_H

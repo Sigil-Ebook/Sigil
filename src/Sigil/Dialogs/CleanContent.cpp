@@ -28,7 +28,14 @@ CleanContent::CleanContent(QWidget *parent)
     ui.setupUi(this);
 }
 
-bool CleanContent::IsJoinParagraphsSelected()
+CleanContentParams CleanContent::GetParams()
 {
-    return ui.checkBoxJoinParagraphs->isChecked();
+    CleanContentParams params;
+
+    params.remove_page_numbers = ui.checkBoxRemovePageNumbers->isChecked();
+    params.page_number_format = ui.lineEditPageNumberFormat->text();
+
+    params.join_paragraphs = ui.checkBoxJoinParagraphs->isChecked();
+
+    return params;
 }

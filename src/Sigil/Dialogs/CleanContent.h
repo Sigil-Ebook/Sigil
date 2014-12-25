@@ -26,6 +26,7 @@
 #include <QtWidgets/QDialog>
 
 #include "ui_CleanContent.h"
+#include "../SourceUpdates/CleanContentUpdates.h"
 
 /**
  * The dialog used to setup and run content cleaning process.
@@ -37,7 +38,7 @@ class CleanContent : public QDialog
 public:
     CleanContent(QWidget *parent);
 
-    bool IsJoinParagraphsSelected();
+    CleanContentParams GetParams();
 
 public slots:
 

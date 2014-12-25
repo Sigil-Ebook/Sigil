@@ -6,14 +6,50 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>364</width>
-    <height>156</height>
+    <width>577</width>
+    <height>347</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Clean Content</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QCheckBox" name="checkBoxRemovePageNumbers">
+     <property name="toolTip">
+      <string>Removes paragraphs with content matching given regexp.
+Useful for removing page numbers but not only.</string>
+     </property>
+     <property name="text">
+      <string>Remove page numbers</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="labelPageNumberFormat">
+       <property name="text">
+        <string>Page number format (regexp):</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEditPageNumberFormat">
+       <property name="toolTip">
+        <string>Regexp describing paragraph content.
+Use &quot;d+&quot; in place of any number.</string>
+       </property>
+       <property name="text">
+        <string>\d+</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
    <item>
     <widget class="QCheckBox" name="checkBoxJoinParagraphs">
      <property name="toolTip">
@@ -30,6 +66,19 @@ This sometimes happens for documents converted from PDF format.</string>
       <bool>false</bool>
      </property>
     </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">

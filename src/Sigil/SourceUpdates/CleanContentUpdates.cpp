@@ -28,12 +28,15 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "SourceUpdates/CleanContentUpdates.h"
 
-void CleanContentUpdates::JoinParagraphsInAllFiles(const QList<HTMLResource *> &html_resources)
+void CleanContentUpdates::CleanContentInAllFiles(const QList<HTMLResource *> &html_resources,
+                                                 const CleanContentParams &params)
 {
-    QtConcurrent::blockingMap(html_resources, JoinParagraphsInOneFile);
+    QtConcurrent::blockingMap(html_resources,
+                              boost::bind(CleanContentInOneFile, _1, params));
 }
 
-void CleanContentUpdates::JoinParagraphsInOneFile(HTMLResource *html_resource)
+void CleanContentUpdates::CleanContentInOneFile(HTMLResource *html_resource,
+                                                const CleanContentParams &params)
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
