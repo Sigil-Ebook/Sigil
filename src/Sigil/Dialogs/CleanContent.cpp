@@ -27,3 +27,8 @@ CleanContent::CleanContent(QWidget *parent)
 {
     ui.setupUi(this);
 }
+
+bool CleanContent::IsJoinParagraphsSelected()
+{
+    return ui.checkBoxJoinParagraphs->isChecked();
+}

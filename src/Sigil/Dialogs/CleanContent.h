@@ -37,6 +37,8 @@ class CleanContent : public QDialog
 public:
     CleanContent(QWidget *parent);
 
+    bool IsJoinParagraphsSelected();
+
 public slots:
 
 signals:
