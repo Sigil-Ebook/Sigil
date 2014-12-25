@@ -41,7 +41,8 @@ Useful for removing page numbers but not only.</string>
       <widget class="QLineEdit" name="lineEditPageNumberFormat">
        <property name="toolTip">
         <string>Sample format describing paragraph content.
-Use any number as sample page number or number of pages.</string>
+Use any number as sample page number or number of pages.
+Examples: &quot;Page 2 of 18&quot;, &quot;- 5 -&quot;.</string>
        </property>
        <property name="text">
         <string>12</string>
