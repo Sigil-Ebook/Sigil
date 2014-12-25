@@ -51,8 +51,12 @@ private:
 
     static void RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format);
     static void RemoveEmptyParagraphs(xc::DOMDocument &doc);
+    static void JoinParagraphs(xc::DOMDocument &doc);
 
     static QString ConvertSamplePageNumberToRegExp(const QString &page_number_format);
+    static void RemoveLastChar(xc::DOMElement &element);
+    static void MoveChildren(xc::DOMElement &elementDest, xc::DOMElement &elementSrc);
+    static bool ContainsLetters(const QString &str);
 };
 
 #endif // CLEANCONTENTUPDATES_H

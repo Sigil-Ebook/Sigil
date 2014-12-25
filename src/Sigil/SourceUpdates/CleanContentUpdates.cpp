@@ -57,6 +57,10 @@ void CleanContentUpdates::CleanContentInOneFile(HTMLResource *html_resource,
         RemoveEmptyParagraphs(doc);
     }
 
+    if (params.join_paragraphs) {
+        JoinParagraphs(doc);
+    }
+
     html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(doc));
 }
 
@@ -73,7 +77,6 @@ void CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc, const QString 
     // change in reverse to preserve location information
     uint paragraph_count = paragraphs->getLength();
     for (uint i = paragraph_count; i > 0; i--) {
-        // always delete the top element since list is dynamic
         xc::DOMElement &element = *static_cast<xc::DOMElement *>(paragraphs->item(i - 1));
         Q_ASSERT(&element);
 
@@ -93,16 +96,64 @@ void CleanContentUpdates::RemoveEmptyParagraphs(xc::DOMDocument &doc)
     xc::DOMNodeList *paragraphs = body_element.getElementsByTagName(QtoX("p"));
 
     // change in reverse to preserve location information
-    uint paragraph_count = paragraphs->getLength();
-    for (uint i = paragraph_count; i > 0; i--) {
-        // always delete the top element since list is dynamic
-        xc::DOMElement &element = *static_cast<xc::DOMElement *>(paragraphs->item(i - 1));
+    int paragraph_count = paragraphs->getLength();
+    for (int i = paragraph_count - 1; i >= 0; i--) {
+        xc::DOMElement &element = *static_cast<xc::DOMElement *>(paragraphs->item(i));
         Q_ASSERT(&element);
 
         QString element_text = XtoQ(element.getTextContent());
         element_text = element_text.trimmed();
         if (element_text.length() == 0) {
             body_element.removeChild(&element);
+        }
+    }
+}
+
+void CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc)
+{
+    // body should only appear once
+    xc::DOMNodeList *bodys = doc.getElementsByTagName(QtoX("body"));
+    xc::DOMElement &body_element = *static_cast<xc::DOMElement *>(bodys->item(0));
+
+    xc::DOMNodeList *paragraphs = body_element.getElementsByTagName(QtoX("p"));
+
+    // change in reverse to preserve location information
+    int paragraph_count = paragraphs->getLength();
+    for (int i = paragraph_count - 2; i >= 0; i--) {
+        xc::DOMElement &element = *static_cast<xc::DOMElement *>(paragraphs->item(i));
+        xc::DOMElement &element_next = *static_cast<xc::DOMElement *>(paragraphs->item(i + 1));
+
+        QString element_text = XtoQ(element.getTextContent());
+        QString element_next_text = XtoQ(element_next.getTextContent());
+
+        QString element_text_trimmed = element_text.trimmed();
+        QString element_next_text_trimmed = element_next_text.trimmed();
+
+        QString last_char = element_text_trimmed.right(1);
+        QString first_char = element_next_text_trimmed.left(1);
+
+        xc::DOMNode* element_first_child = element.getFirstChild();
+        xc::DOMNode* element_next_first_child = element_next.getFirstChild();
+
+        if (XhtmlDoc::GetNodeName(*element_first_child) == "#text" &&
+            XhtmlDoc::GetNodeName(*element_next_first_child) == "#text" &&
+            ContainsLetters(element_text) &&
+            ContainsLetters(element_next_text) &&
+            last_char != "." && last_char != "?" &&
+            last_char != "!") {
+
+            if ((last_char == "-" || last_char == "—") &&
+                element_text_trimmed.length() >= 2 &&
+                element_text_trimmed[element_text_trimmed.length() - 2].isLetter()) {
+                if (first_char.length() == 1 && first_char[0].isLower()) {
+                    RemoveLastChar(element);
+                }
+            } else {
+                element.appendChild(doc.createTextNode(L" "));
+            }
+
+            MoveChildren(element, element_next);
+            body_element.removeChild(&element_next);
         }
     }
 }
@@ -125,4 +176,26 @@ QString CleanContentUpdates::ConvertSamplePageNumberToRegExp(const QString &page
     res.replace("+", "\\+");
     res.replace(QRegExp("\\d+"), "\\d+");
     return "^" + res + "$";
+}
+
+void CleanContentUpdates::RemoveLastChar(xc::DOMElement &element)
+{
+    xc::DOMNode* last_child = element.getLastChild();
+    QString content = XtoQ(last_child->getTextContent());
+    QString new_content = content.left(content.length() - 1);
+    element.setTextContent(QtoX(new_content));
+}
+
+void CleanContentUpdates::MoveChildren(xc::DOMElement &elementDest, xc::DOMElement &elementSrc)
+{
+    xc::DOMNodeList *childNodes = elementSrc.getChildNodes();
+    uint length = childNodes->getLength();
+    for (uint i = 0; i < length; i++) {
+        elementDest.appendChild(childNodes->item(0));
+    }
+}
+
+bool CleanContentUpdates::ContainsLetters(const QString &str)
+{
+    return str.contains(QRegExp("[A-Za-z]"));
 }
