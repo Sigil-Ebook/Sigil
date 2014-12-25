@@ -85,6 +85,7 @@
 #include "ResourceObjects/OPFResource.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
+#include "SourceUpdates/CleanContentUpdates.h"
 #include "SourceUpdates/LinkUpdates.h"
 #include "SourceUpdates/WordUpdates.h"
 #include "Tabs/FlowTab.h"
@@ -2356,7 +2357,29 @@ void MainWindow::SearchEditorDialog(SearchEditorModel::searchEntry *search_entry
 void MainWindow::CleanContentDialog()
 {
     CleanContent cleanContent(this);
-    cleanContent.exec();
+    if (cleanContent.exec() != QDialog::Accepted) {
+        ShowMessageOnStatusBar(tr("Cleaning content cancelled."));
+        return;
+    }
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    QList<HTMLResource *> html_resources;
+    QList<Resource *> resources = GetAllHTMLResources();
+    foreach(Resource * resource, resources) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (html_resource) {
+            html_resources.append(html_resource);
+        }
+    }
+
+    CleanContentUpdates::JoinParagraphsInAllFiles(html_resources);
+
+    m_Book->SetModified();
+
+    ShowMessageOnStatusBar(tr("Cleaning content done."));
+
+    QApplication::restoreOverrideCursor();
 }
 
 void MainWindow::ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry)

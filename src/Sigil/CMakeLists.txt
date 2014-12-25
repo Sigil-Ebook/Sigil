@@ -463,6 +463,8 @@ set( SOURCEUPDATE_FILES
     SourceUpdates/PerformCSSUpdates.h
     SourceUpdates/AnchorUpdates.cpp
     SourceUpdates/AnchorUpdates.h
+    SourceUpdates/CleanContentUpdates.cpp
+    SourceUpdates/CleanContentUpdates.h
     SourceUpdates/LinkUpdates.cpp
     SourceUpdates/LinkUpdates.h
     SourceUpdates/WordUpdates.cpp
