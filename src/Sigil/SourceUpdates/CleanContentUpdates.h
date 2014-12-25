@@ -23,6 +23,8 @@
 #ifndef CLEANCONTENTUPDATES_H
 #define CLEANCONTENTUPDATES_H
 
+#include "BookManipulation/XercesHUse.h"
+
 class HTMLResource;
 
 struct CleanContentParams
@@ -44,6 +46,9 @@ public:
 private:
     static void CleanContentInOneFile(HTMLResource *html_resource,
                                       const CleanContentParams &params);
+
+    static void RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format);
+    static QString ConvertSamplePageNumberToRegExp(const QString &page_number_format);
 };
 
 #endif // CLEANCONTENTUPDATES_H

@@ -17,7 +17,7 @@
    <item>
     <widget class="QCheckBox" name="checkBoxRemovePageNumbers">
      <property name="toolTip">
-      <string>Removes paragraphs with content matching given regexp.
+      <string>Removes paragraphs with content matching given format.
 Useful for removing page numbers but not only.</string>
      </property>
      <property name="text">
@@ -33,18 +33,18 @@ Useful for removing page numbers but not only.</string>
      <item>
       <widget class="QLabel" name="labelPageNumberFormat">
        <property name="text">
-        <string>Page number format (regexp):</string>
+        <string>Sample page number format:</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="lineEditPageNumberFormat">
        <property name="toolTip">
-        <string>Regexp describing paragraph content.
-Use &quot;d+&quot; in place of any number.</string>
+        <string>Sample format describing paragraph content.
+Use any number as sample page number or number of pages.</string>
        </property>
        <property name="text">
-        <string>\d+</string>
+        <string>12</string>
        </property>
       </widget>
      </item>

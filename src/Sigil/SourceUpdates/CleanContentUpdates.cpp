@@ -25,8 +25,14 @@
 #include <QtCore/QString>
 #include <QtConcurrent/QtConcurrent>
 
+#include "BookManipulation/XercesCppUse.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "Misc/Utility.h"
+#include "sigil_constants.h"
 #include "SourceUpdates/CleanContentUpdates.h"
+
+using boost::shared_ptr;
 
 void CleanContentUpdates::CleanContentInAllFiles(const QList<HTMLResource *> &html_resources,
                                                  const CleanContentParams &params)
@@ -40,6 +46,56 @@ void CleanContentUpdates::CleanContentInOneFile(HTMLResource *html_resource,
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    QString text = html_resource->GetText();
-    html_resource->SetText(text);
+    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    xc::DOMDocument &doc = *d.get();
+
+    if (params.remove_page_numbers) {
+        RemovePageNumbers(doc, params.page_number_format);
+    }
+
+    html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(doc));
+}
+
+void CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format)
+{
+    QRegularExpression re(ConvertSamplePageNumberToRegExp(page_number_format));
+
+    // body should only appear once
+    xc::DOMNodeList *bodys = doc.getElementsByTagName(QtoX("body"));
+    xc::DOMElement &body_element = *static_cast<xc::DOMElement *>(bodys->item(0));
+
+    xc::DOMNodeList *paragraphs = body_element.getElementsByTagName(QtoX("p"));
+
+    // change in reverse to preserve location information
+    uint paragraph_count = paragraphs->getLength();
+    for (uint i = paragraph_count; i > 0; i--) {
+        // always delete the top element since list is dynamic
+        xc::DOMElement &element = *static_cast<xc::DOMElement *>(paragraphs->item(i - 1));
+        Q_ASSERT(&element);
+
+        QString element_text = XtoQ(element.getTextContent());
+        if (re.match(element_text).hasMatch()) {
+            body_element.removeChild(&element);
+        }
+    }
+}
+
+QString CleanContentUpdates::ConvertSamplePageNumberToRegExp(const QString &page_number_format)
+{
+    QString res = page_number_format;
+    res.replace("[", "\\[");
+    res.replace("]", "\\]");
+    res.replace("{", "\\{");
+    res.replace("}", "\\}");
+    res.replace("(", "\\(");
+    res.replace(")", "\\)");
+    res.replace("|", "\\|");
+    res.replace("^", "\\^");
+    res.replace("$", "\\$");
+    res.replace(".", "\\.");
+    res.replace("?", "\\?");
+    res.replace("*", "\\*");
+    res.replace("+", "\\+");
+    res.replace(QRegExp("\\d+"), "\\d+");
+    return "^" + res + "$";
 }

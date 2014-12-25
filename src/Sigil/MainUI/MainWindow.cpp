@@ -2374,7 +2374,11 @@ void MainWindow::CleanContentDialog()
     }
 
     CleanContentUpdates::CleanContentInAllFiles(html_resources, cleanContent.GetParams());
+
     m_Book->SetModified();
+    m_BookBrowser->BookContentModified();
+    m_BookBrowser->Refresh();
+    ResourcesAddedOrDeleted();
 
     ShowMessageOnStatusBar(tr("Cleaning content done."));
 
