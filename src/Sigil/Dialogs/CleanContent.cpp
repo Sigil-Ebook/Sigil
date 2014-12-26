@@ -102,7 +102,6 @@ void CleanContent::Save()
 void CleanContent::ConnectSignalsSlots()
 {
     connect(ui.btnExecute, SIGNAL(clicked()), this, SLOT(Execute()));
-    connect(ui.btnSave, SIGNAL(clicked()), this, SLOT(Save()));
 }
 
 void CleanContent::SetLookWhere(int look_where)

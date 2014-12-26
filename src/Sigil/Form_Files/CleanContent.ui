@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>634</width>
-    <height>318</height>
+    <width>545</width>
+    <height>325</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,6 +47,9 @@ Useful for removing page numbers but not only.</string>
        </item>
        <item>
         <widget class="QLineEdit" name="lineEditPageNumberFormat">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="toolTip">
           <string>Sample format describing paragraph content.
 Use any number as sample page number or number of pages.
@@ -61,6 +64,9 @@ Examples: &quot;Page 2 of 18&quot;, &quot;- 5 -&quot;.</string>
      </item>
      <item>
       <widget class="QCheckBox" name="checkBoxRemoveEmptyParagraphs">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Remove empty paragraphs around page numbers</string>
        </property>
@@ -93,6 +99,9 @@ This sometimes happens for documents converted from PDF format.</string>
      <property name="leftMargin">
       <number>35</number>
      </property>
+     <property name="bottomMargin">
+      <number>30</number>
+     </property>
      <item>
       <widget class="QCheckBox" name="checkBoxJoinNotFormatted">
        <property name="text">
@@ -103,20 +112,20 @@ This sometimes happens for documents converted from PDF format.</string>
        </property>
       </widget>
      </item>
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QLabel" name="message">
@@ -136,19 +145,6 @@ This sometimes happens for documents converted from PDF format.</string>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QPushButton" name="btnSave">
-       <property name="text">
-        <string>Save</string>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-       <property name="flat">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -211,6 +207,54 @@ This sometimes happens for documents converted from PDF format.</string>
     <hint type="destinationlabel">
      <x>301</x>
      <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxRemovePageNumbers</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEditPageNumberFormat</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>24</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>442</x>
+     <y>59</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxRemovePageNumbers</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBoxRemoveEmptyParagraphs</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>24</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>333</x>
+     <y>93</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxJoinParagraphs</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBoxJoinNotFormatted</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>333</x>
+     <y>188</y>
     </hint>
    </hints>
   </connection>
