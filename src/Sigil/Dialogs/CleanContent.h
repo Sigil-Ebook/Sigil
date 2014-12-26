@@ -41,6 +41,16 @@ class CleanContent : public QDialog
 
 public:
     CleanContent(MainWindow &main_window);
+
+    /**
+     * Defines possible areas where the search can be performed.
+     */
+    enum LookWhere {
+        LookWhere_CurrentFile = 0,
+        LookWhere_AllHTMLFiles = 10,
+        LookWhere_SelectedHTMLFiles = 20,
+    };
+
     void ForceClose();
     void SetBook(QSharedPointer <Book> book);
 
@@ -66,6 +76,11 @@ private:
     QSharedPointer<Book> m_Book;
 
     void ConnectSignalsSlots();
+
+    void SetLookWhere(int look_where);
+    CleanContent::LookWhere GetLookWhere();
+
+    QList <HTMLResource *> GetHTMLFiles();
 };
 
 #endif // CLEANCONTENT_H

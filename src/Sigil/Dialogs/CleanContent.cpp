@@ -20,7 +20,6 @@
 *************************************************************************/
 
 #include "Dialogs/CleanContent.h"
-#include "MainUI/FindReplace.h"
 
 CleanContent::CleanContent(MainWindow &main_window)
     :
@@ -31,9 +30,9 @@ CleanContent::CleanContent(MainWindow &main_window)
     ui.setupUi(this);
 
     ui.cbLookWhere->clear();
-    ui.cbLookWhere->addItem(tr("Current File"), FindReplace::LookWhere_CurrentFile);
-    ui.cbLookWhere->addItem(tr("All HTML Files"), FindReplace::LookWhere_AllHTMLFiles);
-    ui.cbLookWhere->addItem(tr("Selected Files"), FindReplace::LookWhere_SelectedHTMLFiles);
+    ui.cbLookWhere->addItem(tr("Current File"), CleanContent::LookWhere_CurrentFile);
+    ui.cbLookWhere->addItem(tr("All HTML Files"), CleanContent::LookWhere_AllHTMLFiles);
+    ui.cbLookWhere->addItem(tr("Selected Files"), CleanContent::LookWhere_SelectedHTMLFiles);
 
     ConnectSignalsSlots();
 }
@@ -68,14 +67,7 @@ void CleanContent::Execute()
 
     m_MainWindow.GetCurrentContentTab().SaveTabContent();
 
-    QList<HTMLResource *> html_resources;
-    QList<Resource *> resources = m_MainWindow.GetAllHTMLResources();
-    foreach(Resource * resource, resources) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        if (html_resource) {
-            html_resources.append(html_resource);
-        }
-    }
+    QList<HTMLResource *> html_resources = GetHTMLFiles();
 
     CleanContentUpdates::CleanContentInAllFiles(html_resources, GetParams());
 
@@ -99,4 +91,58 @@ void CleanContent::ConnectSignalsSlots()
 {
     connect(ui.btnExecute, SIGNAL(clicked()), this, SLOT(Execute()));
     connect(ui.btnSave, SIGNAL(clicked()), this, SLOT(Save()));
+}
+
+void CleanContent::SetLookWhere(int look_where)
+{
+    ui.cbLookWhere->setCurrentIndex(0);
+
+    for (int i = 0; i < ui.cbLookWhere->count(); ++i) {
+        if (ui.cbLookWhere->itemData(i)  == look_where) {
+            ui.cbLookWhere->setCurrentIndex(i);
+            break;
+        }
+    }
+}
+
+CleanContent::LookWhere CleanContent::GetLookWhere()
+{
+    int look = ui.cbLookWhere->itemData(ui.cbLookWhere->currentIndex()).toInt();
+
+    switch (look) {
+        case CleanContent::LookWhere_AllHTMLFiles:
+            return static_cast<CleanContent::LookWhere>(look);
+            break;
+
+        case CleanContent::LookWhere_SelectedHTMLFiles:
+            return static_cast<CleanContent::LookWhere>(look);
+            break;
+
+        default:
+            return CleanContent::LookWhere_CurrentFile;
+    }
+}
+
+QList <HTMLResource *> CleanContent::GetHTMLFiles()
+{
+    QList<HTMLResource *> html_resources;
+    QList<Resource *> resources;
+
+    CleanContent::LookWhere look_where = GetLookWhere();
+    if (look_where == CleanContent::LookWhere_AllHTMLFiles) {
+        resources = m_MainWindow.GetAllHTMLResources();
+    } else if (look_where == CleanContent::LookWhere_SelectedHTMLFiles) {
+        resources = m_MainWindow.GetValidSelectedHTMLResources();
+    } else {
+        resources.append(&m_MainWindow.GetCurrentContentTab().GetLoadedResource());
+    }
+
+    foreach (Resource * resource, resources) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (html_resource) {
+            html_resources.append(html_resource);
+        }
+    }
+
+    return html_resources;
 }
