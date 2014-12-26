@@ -53,10 +53,10 @@ CleanContentParams CleanContent::GetParams()
 
     params.remove_page_numbers = ui.checkBoxRemovePageNumbers->isChecked();
     params.page_number_format = ui.lineEditPageNumberFormat->text();
-
-    params.remove_empty_paragraphs = ui.checkBoxRemoveEmptyParagraphs->isChecked();
+    params.page_number_remove_empty_paragraphs = ui.checkBoxRemoveEmptyParagraphs->isChecked();
 
     params.join_paragraphs = ui.checkBoxJoinParagraphs->isChecked();
+    params.join_paragraphs_only_not_formatted = ui.checkBoxJoinNotFormatted->isChecked();
 
     return params;
 }

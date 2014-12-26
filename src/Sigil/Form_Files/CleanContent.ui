@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>603</width>
-    <height>327</height>
+    <width>634</width>
+    <height>318</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Clean Content</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QCheckBox" name="checkBoxRemovePageNumbers">
      <property name="toolTip">
@@ -24,42 +24,52 @@ Useful for removing page numbers but not only.</string>
       <string>Remove page numbers</string>
      </property>
      <property name="checked">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
+      <number>35</number>
+     </property>
+     <property name="bottomMargin">
+      <number>30</number>
+     </property>
      <item>
-      <widget class="QLabel" name="labelPageNumberFormat">
-       <property name="text">
-        <string>Sample page number format:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEditPageNumberFormat">
-       <property name="toolTip">
-        <string>Sample format describing paragraph content.
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="labelPageNumberFormat">
+         <property name="text">
+          <string>Sample page number format:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEditPageNumberFormat">
+         <property name="toolTip">
+          <string>Sample format describing paragraph content.
 Use any number as sample page number or number of pages.
 Examples: &quot;Page 2 of 18&quot;, &quot;- 5 -&quot;.</string>
-       </property>
+         </property>
+         <property name="text">
+          <string>12</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBoxRemoveEmptyParagraphs">
        <property name="text">
-        <string>12</string>
+        <string>Remove empty paragraphs around page numbers</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
     </layout>
-   </item>
-   <item>
-    <widget class="QCheckBox" name="checkBoxRemoveEmptyParagraphs">
-     <property name="text">
-      <string>Remove empty paragraphs</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
    </item>
    <item>
     <widget class="QCheckBox" name="checkBoxJoinParagraphs">
@@ -79,17 +89,34 @@ This sometimes happens for documents converted from PDF format.</string>
     </widget>
    </item>
    <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="leftMargin">
+      <number>35</number>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
+     <item>
+      <widget class="QCheckBox" name="checkBoxJoinNotFormatted">
+       <property name="text">
+        <string>Join when paragraph's end and beginning are not formatted</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QLabel" name="message">

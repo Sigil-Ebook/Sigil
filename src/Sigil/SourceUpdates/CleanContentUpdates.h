@@ -31,10 +31,17 @@ struct CleanContentParams
 {
     bool remove_page_numbers;
     QString page_number_format;
-
-    bool remove_empty_paragraphs;
+    bool page_number_remove_empty_paragraphs;
 
     bool join_paragraphs;
+    bool join_paragraphs_only_not_formatted;
+
+    CleanContentParams() :
+        remove_page_numbers(false),
+        page_number_format("12"),
+        page_number_remove_empty_paragraphs(true),
+        join_paragraphs(true),
+        join_paragraphs_only_not_formatted(true) {}
 };
 
 struct ChangesCount
@@ -62,7 +69,7 @@ private:
 
     static int RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format);
     static int RemoveEmptyParagraphs(xc::DOMDocument &doc);
-    static int JoinParagraphs(xc::DOMDocument &doc);
+    static int JoinParagraphs(xc::DOMDocument &doc, bool only_not_formatted);
 
     static QString ConvertSamplePageNumberToRegExp(const QString &page_number_format);
     static void RemoveLastChar(xc::DOMElement &element);

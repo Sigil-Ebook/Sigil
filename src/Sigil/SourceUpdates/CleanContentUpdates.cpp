@@ -59,12 +59,12 @@ ChangesCount CleanContentUpdates::CleanContentInOneFile(HTMLResource *html_resou
         changes_count.number_of_changes += RemovePageNumbers(doc, params.page_number_format);
     }
 
-    if (params.remove_empty_paragraphs) {
+    if (params.page_number_remove_empty_paragraphs) {
         changes_count.number_of_changes += RemoveEmptyParagraphs(doc);
     }
 
     if (params.join_paragraphs) {
-        changes_count.number_of_changes += JoinParagraphs(doc);
+        changes_count.number_of_changes += JoinParagraphs(doc, params.join_paragraphs_only_not_formatted);
     }
 
     if (changes_count.number_of_changes > 0) {
@@ -136,7 +136,7 @@ int CleanContentUpdates::RemoveEmptyParagraphs(xc::DOMDocument &doc)
     return number_of_changes;
 }
 
-int CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc)
+int CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc, bool only_not_formatted)
 {
     int number_of_changes = 0;
 
@@ -161,30 +161,40 @@ int CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc)
         QString last_char = element_text_trimmed.right(1);
         QString first_char = element_next_text_trimmed.left(1);
 
-        xc::DOMNode* element_first_child = element.getFirstChild();
+        xc::DOMNode* element_last_child = element.getLastChild();
         xc::DOMNode* element_next_first_child = element_next.getFirstChild();
 
-        if (XhtmlDoc::GetNodeName(*element_first_child) == "#text" &&
-            XhtmlDoc::GetNodeName(*element_next_first_child) == "#text" &&
-            ContainsLetters(element_text) &&
-            ContainsLetters(element_next_text) &&
-            last_char != "." && last_char != "?" &&
-            last_char != "!") {
-
-            if ((last_char == "-" || last_char == "—") &&
-                element_text_trimmed.length() >= 2 &&
-                element_text_trimmed[element_text_trimmed.length() - 2].isLetter()) {
-                if (first_char.length() == 1 && first_char[0].isLower()) {
-                    RemoveLastChar(element);
-                }
-            } else {
-                element.appendChild(doc.createTextNode(L" "));
-            }
-
-            MoveChildren(element, element_next);
-            body_element.removeChild(&element_next);
-            number_of_changes++;
+        if (only_not_formatted &&
+            (XhtmlDoc::GetNodeName(*element_last_child) != "#text" ||
+             XhtmlDoc::GetNodeName(*element_next_first_child) != "#text")) {
+            continue;
         }
+
+        if (!ContainsLetters(element_text) ||
+            !ContainsLetters(element_next_text)) {
+            continue;
+        }
+
+        if (last_char == "." || last_char == "?" ||
+            last_char == "!") {
+            continue;
+        }
+
+        // join paragraphs
+
+        if ((last_char == "-" || last_char == "—") &&
+            element_text_trimmed.length() >= 2 &&
+            element_text_trimmed[element_text_trimmed.length() - 2].isLetter()) {
+            if (first_char.length() == 1 && first_char[0].isLower()) {
+                RemoveLastChar(element);
+            }
+        } else {
+            element.appendChild(doc.createTextNode(L" "));
+        }
+
+        MoveChildren(element, element_next);
+        body_element.removeChild(&element_next);
+        number_of_changes++;
     }
 
     return number_of_changes;
