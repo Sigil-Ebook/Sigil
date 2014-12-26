@@ -2378,6 +2378,8 @@ void MainWindow::CleanContentDialog()
     m_Book->SetModified();
     m_BookBrowser->BookContentModified();
     m_BookBrowser->Refresh();
+    UpdateBrowserSelectionToTab();
+    UpdateUIWhenTabsSwitch();
     ResourcesAddedOrDeleted();
 
     ShowMessageOnStatusBar(tr("Cleaning content done."));

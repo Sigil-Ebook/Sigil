@@ -25,6 +25,7 @@
 #include <QtCore/QString>
 #include <QtConcurrent/QtConcurrent>
 
+#include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -61,7 +62,7 @@ void CleanContentUpdates::CleanContentInOneFile(HTMLResource *html_resource,
         JoinParagraphs(doc);
     }
 
-    html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(doc));
+    html_resource->SetText(CleanSource::Clean(XhtmlDoc::GetDomDocumentAsString(doc)));
 }
 
 void CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format)
