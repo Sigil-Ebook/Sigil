@@ -50,17 +50,13 @@ ChangesCount CleanContentUpdates::CleanContentInOneFile(HTMLResource *html_resou
     changes_count.number_of_files = 0;
     changes_count.number_of_changes = 0;
 
-    Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
     xc::DOMDocument &doc = *d.get();
 
     if (params.remove_page_numbers) {
-        changes_count.number_of_changes += RemovePageNumbers(doc, params.page_number_format);
-    }
-
-    if (params.page_number_remove_empty_paragraphs) {
-        changes_count.number_of_changes += RemoveEmptyParagraphs(doc);
+        changes_count.number_of_changes += RemovePageNumbers(doc, params.page_number_format,
+                                                             params.page_number_remove_empty_paragraphs);
     }
 
     if (params.join_paragraphs) {
@@ -81,7 +77,9 @@ void CleanContentUpdates::ReduceFunction(ChangesCount &acc, ChangesCount one_res
     acc.number_of_changes += one_result.number_of_changes;
 }
 
-int CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format)
+int CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc,
+                                           const QString &page_number_format,
+                                           bool remove_empty_paragraphs_around)
 {
     int number_of_changes = 0;
 
@@ -94,42 +92,43 @@ int CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc, const QString &
     xc::DOMNodeList *paragraphs = body_element.getElementsByTagName(QtoX("p"));
 
     // change in reverse to preserve location information
-    uint paragraph_count = paragraphs->getLength();
-    for (uint i = paragraph_count; i > 0; i--) {
-        xc::DOMElement &element = *static_cast<xc::DOMElement *>(paragraphs->item(i - 1));
-        Q_ASSERT(&element);
-
-        QString element_text = XtoQ(element.getTextContent());
-        if (re.match(element_text).hasMatch()) {
-            body_element.removeChild(&element);
-            number_of_changes++;
-        }
-    }
-
-    return number_of_changes;
-}
-
-int CleanContentUpdates::RemoveEmptyParagraphs(xc::DOMDocument &doc)
-{
-    int number_of_changes = 0;
-
-    // body should only appear once
-    xc::DOMNodeList *bodys = doc.getElementsByTagName(QtoX("body"));
-    xc::DOMElement &body_element = *static_cast<xc::DOMElement *>(bodys->item(0));
-
-    xc::DOMNodeList *paragraphs = body_element.getElementsByTagName(QtoX("p"));
-
-    // change in reverse to preserve location information
     int paragraph_count = paragraphs->getLength();
     for (int i = paragraph_count - 1; i >= 0; i--) {
         xc::DOMElement &element = *static_cast<xc::DOMElement *>(paragraphs->item(i));
-        Q_ASSERT(&element);
-
         QString element_text = XtoQ(element.getTextContent());
-        element_text = element_text.trimmed();
-        if (element_text.length() == 0) {
+
+        if (re.match(element_text).hasMatch()) {
             body_element.removeChild(&element);
             number_of_changes++;
+
+            if (remove_empty_paragraphs_around) {
+
+                // remove paragraphs after (paragraph count is dynamic)
+                paragraph_count = paragraphs->getLength();
+                int j = i;
+                while (j < paragraph_count) {
+                    xc::DOMElement &el = *static_cast<xc::DOMElement *>(paragraphs->item(j));
+                    element_text = XtoQ(el.getTextContent());
+                    element_text = element_text.trimmed();
+                    if (element_text.length() != 0) {
+                        break;
+                    }
+                    body_element.removeChild(&el);
+                    paragraph_count = paragraphs->getLength();
+                }
+
+                // remove paragraphs before
+                while (i > 0) {
+                    xc::DOMElement &el = *static_cast<xc::DOMElement *>(paragraphs->item(i - 1));
+                    element_text = XtoQ(el.getTextContent());
+                    element_text = element_text.trimmed();
+                    if (element_text.length() != 0) {
+                        break;
+                    }
+                    body_element.removeChild(&el);
+                    i--;
+                }
+            }
         }
     }
 

@@ -67,8 +67,9 @@ private:
                                               const CleanContentParams &params);
     static void ReduceFunction(ChangesCount &acc, ChangesCount one_result);
 
-    static int RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format);
-    static int RemoveEmptyParagraphs(xc::DOMDocument &doc);
+    static int RemovePageNumbers(xc::DOMDocument &doc,
+                                 const QString &page_number_format,
+                                 bool remove_empty_paragraphs_around);
     static int JoinParagraphs(xc::DOMDocument &doc, bool only_not_formatted);
 
     static QString ConvertSamplePageNumberToRegExp(const QString &page_number_format);
