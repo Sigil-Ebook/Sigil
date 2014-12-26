@@ -26,7 +26,11 @@
 #include <QtWidgets/QDialog>
 
 #include "ui_CleanContent.h"
-#include "../SourceUpdates/CleanContentUpdates.h"
+#include "BookManipulation/Book.h"
+#include "MainUI/MainWindow.h"
+#include "SourceUpdates/CleanContentUpdates.h"
+
+class MainWindow;
 
 /**
  * The dialog used to setup and run content cleaning process.
@@ -36,7 +40,9 @@ class CleanContent : public QDialog
     Q_OBJECT
 
 public:
-    CleanContent(QWidget *parent);
+    CleanContent(MainWindow &main_window);
+    void ForceClose();
+    void SetBook(QSharedPointer <Book> book);
 
     CleanContentParams GetParams();
 
@@ -49,9 +55,17 @@ protected:
 protected slots:
 
 private slots:
+    void Execute();
+    void Save();
 
 private:
     Ui::CleanContent ui;
+
+    MainWindow &m_MainWindow;
+
+    QSharedPointer<Book> m_Book;
+
+    void ConnectSignalsSlots();
 };
 
 #endif // CLEANCONTENT_H

@@ -156,6 +156,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_headingMapper(new QSignalMapper(this)),
     m_casingChangeMapper(new QSignalMapper(this)),
     m_SearchEditor(new SearchEditor(this)),
+    m_CleanContent(new CleanContent(*this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
     m_SpellcheckEditor(new SpellcheckEditor(this)),
@@ -578,6 +579,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
         // Prompt them to save or discard their changes if any.
         if (m_SearchEditor && m_SearchEditor->isVisible()) {
             m_SearchEditor->ForceClose();
+        }
+
+        if (m_CleanContent && m_CleanContent->isVisible()) {
+            m_CleanContent->ForceClose();
         }
 
         if (m_ClipEditor && m_ClipEditor->isVisible()) {
@@ -2356,40 +2361,10 @@ void MainWindow::SearchEditorDialog(SearchEditorModel::searchEntry *search_entry
 
 void MainWindow::CleanContentDialog()
 {
-    CleanContent cleanContent(this);
-    if (cleanContent.exec() != QDialog::Accepted) {
-        ShowMessageOnStatusBar(tr("Cleaning content cancelled."));
-        return;
-    }
-
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-
-    QList<HTMLResource *> html_resources;
-    QList<Resource *> resources = GetAllHTMLResources();
-    foreach(Resource * resource, resources) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        if (html_resource) {
-            html_resources.append(html_resource);
-        }
-    }
-
-    CleanContentUpdates::CleanContentInAllFiles(html_resources, cleanContent.GetParams());
-
-    m_Book->SetModified();
-    m_BookBrowser->BookContentModified();
-    m_BookBrowser->Refresh();
-
-    // MG: switch to code view, because I'm not sure how to
-    // correctly update of book view
-    CodeView();
-
-    //UpdateBrowserSelectionToTab();
-    //UpdateUIWhenTabsSwitch();
-    //ResourcesAddedOrDeleted();
-
-    ShowMessageOnStatusBar(tr("Cleaning content done."));
-
-    QApplication::restoreOverrideCursor();
+    // non-modal dialog
+    m_CleanContent->show();
+    m_CleanContent->raise();
+    m_CleanContent->activateWindow();
 }
 
 void MainWindow::ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry)
@@ -3359,6 +3334,7 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
     m_TableOfContents->SetBook(m_Book);
     m_ValidationResultsView->SetBook(m_Book);
     m_IndexEditor->SetBook(m_Book);
+    m_CleanContent->SetBook(m_Book);
     m_ClipEditor->SetBook(m_Book);
     m_SpellcheckEditor->SetBook(m_Book);
     SpellCheck *sc = SpellCheck::instance();

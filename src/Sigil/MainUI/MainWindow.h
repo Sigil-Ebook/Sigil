@@ -31,6 +31,7 @@
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
 #include "BookManipulation/BookReports.h"
+#include "Dialogs/CleanContent.h"
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/IndexEditor.h"
 #include "Dialogs/Reports.h"
@@ -63,6 +64,7 @@ class TableOfContents;
 class ValidationResultsView;
 class PreviewWindow;
 class SearchEditor;
+class CleanContent;
 class ClipEditor;
 class ClipsWindow;
 class SelectCharacter;
@@ -961,6 +963,8 @@ private:
      * The storage for SearchEditor
      */
     SearchEditorModel *m_SearchEditorModel;
+
+    CleanContent *m_CleanContent;
 
     ClipEditor *m_ClipEditor;
 
