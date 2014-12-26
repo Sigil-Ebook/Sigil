@@ -37,21 +37,32 @@ struct CleanContentParams
     bool join_paragraphs;
 };
 
+struct ChangesCount
+{
+    int number_of_files;
+    int number_of_changes;
+
+    ChangesCount() :
+        number_of_files(0),
+        number_of_changes(0) {}
+};
+
 class CleanContentUpdates
 {
 
 public:
 
-    static void CleanContentInAllFiles(const QList<HTMLResource *> &html_resources,
-                                       const CleanContentParams &params);
+    static ChangesCount CleanContentInAllFiles(const QList<HTMLResource *> &html_resources,
+                                               const CleanContentParams &params);
 
 private:
-    static void CleanContentInOneFile(HTMLResource *html_resource,
-                                      const CleanContentParams &params);
+    static ChangesCount CleanContentInOneFile(HTMLResource *html_resource,
+                                              const CleanContentParams &params);
+    static void ReduceFunction(ChangesCount &acc, ChangesCount one_result);
 
-    static void RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format);
-    static void RemoveEmptyParagraphs(xc::DOMDocument &doc);
-    static void JoinParagraphs(xc::DOMDocument &doc);
+    static int RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format);
+    static int RemoveEmptyParagraphs(xc::DOMDocument &doc);
+    static int JoinParagraphs(xc::DOMDocument &doc);
 
     static QString ConvertSamplePageNumberToRegExp(const QString &page_number_format);
     static void RemoveLastChar(xc::DOMElement &element);

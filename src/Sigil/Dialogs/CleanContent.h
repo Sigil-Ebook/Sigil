@@ -63,6 +63,7 @@ signals:
 protected:
 
 protected slots:
+    void showEvent(QShowEvent *event);
 
 private slots:
     void Execute();

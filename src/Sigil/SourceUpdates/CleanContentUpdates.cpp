@@ -35,38 +35,56 @@
 
 using boost::shared_ptr;
 
-void CleanContentUpdates::CleanContentInAllFiles(const QList<HTMLResource *> &html_resources,
+ChangesCount CleanContentUpdates::CleanContentInAllFiles(const QList<HTMLResource *> &html_resources,
                                                  const CleanContentParams &params)
 {
-    QtConcurrent::blockingMap(html_resources,
-                              boost::bind(CleanContentInOneFile, _1, params));
+    return QtConcurrent::blockingMappedReduced(html_resources,
+                                               boost::bind(CleanContentInOneFile, _1, params),
+                                               &ReduceFunction);
 }
 
-void CleanContentUpdates::CleanContentInOneFile(HTMLResource *html_resource,
+ChangesCount CleanContentUpdates::CleanContentInOneFile(HTMLResource *html_resource,
                                                 const CleanContentParams &params)
 {
+    ChangesCount changes_count;
+    changes_count.number_of_files = 0;
+    changes_count.number_of_changes = 0;
+
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
     xc::DOMDocument &doc = *d.get();
 
     if (params.remove_page_numbers) {
-        RemovePageNumbers(doc, params.page_number_format);
+        changes_count.number_of_changes += RemovePageNumbers(doc, params.page_number_format);
     }
 
     if (params.remove_empty_paragraphs) {
-        RemoveEmptyParagraphs(doc);
+        changes_count.number_of_changes += RemoveEmptyParagraphs(doc);
     }
 
     if (params.join_paragraphs) {
-        JoinParagraphs(doc);
+        changes_count.number_of_changes += JoinParagraphs(doc);
     }
 
-    html_resource->SetText(CleanSource::Clean(XhtmlDoc::GetDomDocumentAsString(doc)));
+    if (changes_count.number_of_changes > 0) {
+        changes_count.number_of_files = 1;
+        html_resource->SetText(CleanSource::Clean(XhtmlDoc::GetDomDocumentAsString(doc)));
+    }
+
+    return changes_count;
 }
 
-void CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format)
+void CleanContentUpdates::ReduceFunction(ChangesCount &acc, ChangesCount one_result)
 {
+    acc.number_of_files += one_result.number_of_files;
+    acc.number_of_changes += one_result.number_of_changes;
+}
+
+int CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc, const QString &page_number_format)
+{
+    int number_of_changes = 0;
+
     QRegularExpression re(ConvertSamplePageNumberToRegExp(page_number_format));
 
     // body should only appear once
@@ -84,12 +102,17 @@ void CleanContentUpdates::RemovePageNumbers(xc::DOMDocument &doc, const QString 
         QString element_text = XtoQ(element.getTextContent());
         if (re.match(element_text).hasMatch()) {
             body_element.removeChild(&element);
+            number_of_changes++;
         }
     }
+
+    return number_of_changes;
 }
 
-void CleanContentUpdates::RemoveEmptyParagraphs(xc::DOMDocument &doc)
+int CleanContentUpdates::RemoveEmptyParagraphs(xc::DOMDocument &doc)
 {
+    int number_of_changes = 0;
+
     // body should only appear once
     xc::DOMNodeList *bodys = doc.getElementsByTagName(QtoX("body"));
     xc::DOMElement &body_element = *static_cast<xc::DOMElement *>(bodys->item(0));
@@ -106,12 +129,17 @@ void CleanContentUpdates::RemoveEmptyParagraphs(xc::DOMDocument &doc)
         element_text = element_text.trimmed();
         if (element_text.length() == 0) {
             body_element.removeChild(&element);
+            number_of_changes++;
         }
     }
+
+    return number_of_changes;
 }
 
-void CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc)
+int CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc)
 {
+    int number_of_changes = 0;
+
     // body should only appear once
     xc::DOMNodeList *bodys = doc.getElementsByTagName(QtoX("body"));
     xc::DOMElement &body_element = *static_cast<xc::DOMElement *>(bodys->item(0));
@@ -155,8 +183,11 @@ void CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc)
 
             MoveChildren(element, element_next);
             body_element.removeChild(&element_next);
+            number_of_changes++;
         }
     }
+
+    return number_of_changes;
 }
 
 QString CleanContentUpdates::ConvertSamplePageNumberToRegExp(const QString &page_number_format)

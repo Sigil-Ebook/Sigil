@@ -61,23 +61,35 @@ CleanContentParams CleanContent::GetParams()
     return params;
 }
 
+void CleanContent::showEvent(QShowEvent *event)
+{
+    ui.message->setText("");
+}
+
 void CleanContent::Execute()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    ui.message->setText("");
 
     m_MainWindow.GetCurrentContentTab().SaveTabContent();
 
     QList<HTMLResource *> html_resources = GetHTMLFiles();
 
-    CleanContentUpdates::CleanContentInAllFiles(html_resources, GetParams());
+    ChangesCount changes_count =
+            CleanContentUpdates::CleanContentInAllFiles(html_resources, GetParams());
 
-    m_MainWindow.GetCurrentBook()->SetModified(true);
-    m_MainWindow.GetCurrentContentTab().ContentChangedExternally();
-    m_MainWindow.AnyCodeView();
+    if (changes_count.number_of_changes > 0) {
+        m_MainWindow.GetCurrentBook()->SetModified(true);
+        m_MainWindow.GetCurrentContentTab().ContentChangedExternally();
+        m_MainWindow.AnyCodeView();
+    }
 
     activateWindow();
 
-    //m_MainWindow.ShowMessageOnStatusBar(tr("Cleaning content done."));
+    ui.message->setText(QString(tr("Done %1 change(s) in %2 file(s).")
+                                .arg(changes_count.number_of_changes)
+                                .arg(changes_count.number_of_files)));
 
     QApplication::restoreOverrideCursor();
 }
