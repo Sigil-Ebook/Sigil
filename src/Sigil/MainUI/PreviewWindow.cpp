@@ -55,12 +55,6 @@ PreviewWindow::~PreviewWindow()
     // QWebInspector and the application will SegFault. This is an issue
     // with how QWebPages interface with QWebInspector.
 
-    // if (m_Inspector) {
-        // break the link between the inspector and the page it is inspecting
-        // to prevent memory corruption from Qt modified after free issue
-        // m_Inspector->setPage(0);
-    // }
-
     if (m_Preview) {
         delete m_Preview;
         m_Preview = 0;
@@ -171,13 +165,6 @@ void PreviewWindow::SetupView()
 
     QApplication::restoreOverrideCursor();
 }
-
-// void PreviewWindow::showEvent(QShowEvent *event)
-// {
-//    QDockWidget::showEvent(event);
-//    raise();
-//    emit Shown();
-// }
 
 void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor::ElementIndex> location)
 {
