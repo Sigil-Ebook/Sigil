@@ -163,6 +163,10 @@ int CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc, bool only_not_form
         xc::DOMNode* element_last_child = element.getLastChild();
         xc::DOMNode* element_next_first_child = element_next.getFirstChild();
 
+        if (!element_last_child || !element_next_first_child) {
+            continue;
+        }
+
         if (only_not_formatted &&
             (XhtmlDoc::GetNodeName(*element_last_child) != "#text" ||
              XhtmlDoc::GetNodeName(*element_next_first_child) != "#text")) {
