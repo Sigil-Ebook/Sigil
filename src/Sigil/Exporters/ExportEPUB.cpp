@@ -62,7 +62,7 @@ const QString ENCRYPTION_XML_FILE_NAME = "encryption.xml";
 static const QString METAINF_FOLDER_SUFFIX = "/META-INF";
 static const QString OEBPS_FOLDER_SUFFIX   = "/OEBPS";
 
-static const QString EPUB_MIME_TYPE = "application/epub+zip";
+static const char * EPUB_MIME_DATA = "application/epub+zip";
 
 
 // Constructor;
@@ -148,9 +148,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
         boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
     }
 
-    const char *mime_data = EPUB_MIME_TYPE.toUtf8().constData();
-
-    if (zipWriteInFileInZip(zfile, mime_data, (unsigned int)strlen(mime_data)) != Z_OK) {
+    if (zipWriteInFileInZip(zfile, EPUB_MIME_DATA, (unsigned int)strlen(EPUB_MIME_DATA)) != Z_OK) {
         zipCloseFileInZip(zfile);
         zipClose(zfile, NULL);
         QFile::remove(tempFile);
