@@ -143,64 +143,125 @@ int CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc, bool only_not_form
     xc::DOMNodeList *bodys = doc.getElementsByTagName(QtoX("body"));
     xc::DOMElement &body_element = *static_cast<xc::DOMElement *>(bodys->item(0));
 
-    xc::DOMNodeList *paragraphs = body_element.getElementsByTagName(QtoX("p"));
+    // analyse only children of body tag
+    xc::DOMNodeList *children = body_element.getChildNodes();
+    int children_length = children->getLength();
+    int pos = 0;
+    while (pos < children_length - 1) {
 
-    // change in reverse to preserve location information
-    int paragraph_count = paragraphs->getLength();
-    for (int i = paragraph_count - 2; i >= 0; i--) {
-        xc::DOMElement &element = *static_cast<xc::DOMElement *>(paragraphs->item(i));
-        xc::DOMElement &element_next = *static_cast<xc::DOMElement *>(paragraphs->item(i + 1));
+        pos += SkipEmptyNodes(children, pos);
+        if (pos >= children_length - 1) {
+            break;
+        }
+        xc::DOMElement &e1 = *static_cast<xc::DOMElement *>(children->item(pos));
+        int pos_e1 = pos;
 
-        QString element_text = XtoQ(element.getTextContent());
-        QString element_next_text = XtoQ(element_next.getTextContent());
+        pos++;
+        pos += SkipEmptyNodes(children, pos);
+        if (pos >= children_length) {
+            break;
+        }
+        xc::DOMElement &e2 = *static_cast<xc::DOMElement *>(children->item(pos));
 
-        QString element_text_trimmed = element_text.trimmed();
-        QString element_next_text_trimmed = element_next_text.trimmed();
+        QString e1_name = XhtmlDoc::GetNodeName(e1);
+        QString e2_name = XhtmlDoc::GetNodeName(e2);
 
-        QString last_char = element_text_trimmed.right(1);
-        QString first_char = element_next_text_trimmed.left(1);
-
-        xc::DOMNode* element_last_child = element.getLastChild();
-        xc::DOMNode* element_next_first_child = element_next.getFirstChild();
-
-        if (!element_last_child || !element_next_first_child) {
+        if (e1_name != "p" || e2_name != "p") {
+            // we are looking for sibling "p" tags
             continue;
         }
 
-        if (only_not_formatted &&
-            (XhtmlDoc::GetNodeName(*element_last_child) != "#text" ||
-             XhtmlDoc::GetNodeName(*element_next_first_child) != "#text")) {
+        if (CanJoinParagraphs(e1, e2, only_not_formatted)) {
+            JoinParagraphs(doc, e1, e2);
+            number_of_changes++;
+            pos = pos_e1;
+            children_length--;
             continue;
         }
-
-        if (!ContainsLetters(element_text) ||
-            !ContainsLetters(element_next_text)) {
-            continue;
-        }
-
-        if (last_char == "." || last_char == "?" ||
-            last_char == "!") {
-            continue;
-        }
-
-        // join paragraphs
-
-        if ((last_char == "-" || last_char == "—") &&
-            element_text_trimmed.length() >= 2 &&
-            element_text_trimmed[element_text_trimmed.length() - 2].isLetter()) {
-            if (first_char.length() == 1 && first_char[0].isLower()) {
-                RemoveLastChar(element);
-            }
-        } else {
-            element.appendChild(doc.createTextNode(L" "));
-        }
-
-        MoveChildren(element, element_next);
-        body_element.removeChild(&element_next);
-        number_of_changes++;
     }
 
     return number_of_changes;
+}
+
+int CleanContentUpdates::SkipEmptyNodes(xc::DOMNodeList *nodes, int pos)
+{
+    int skipped = 0;
+    int nodes_length = nodes->getLength();
+    while (pos + skipped < nodes_length) {
+        xc::DOMElement &el = *static_cast<xc::DOMElement *>(nodes->item(pos + skipped));
+        if (XhtmlDoc::GetNodeName(el) != "#text") {
+            return skipped;
+        }
+        QString el_text = XtoQ(el.getTextContent()).trimmed();
+        if (el_text.length() > 0) {
+            return skipped;
+        }
+        skipped++;
+    }
+    return skipped;
+}
+
+bool CleanContentUpdates::CanJoinParagraphs(xc::DOMElement &p1, xc::DOMElement &p2,
+                                            bool only_not_formatted)
+{
+    QString p1_text = XtoQ(p1.getTextContent());
+    QString p2_text = XtoQ(p2.getTextContent());
+
+    QString p1_text_trimmed = p1_text.trimmed();
+    QString p2_text_trimmed = p2_text.trimmed();
+
+    QString last_char = p1_text_trimmed.right(1);
+    QString first_char = p2_text_trimmed.left(1);
+
+    xc::DOMNode* p1_last_child = p1.getLastChild();
+    xc::DOMNode* p2_first_child = p2.getFirstChild();
+
+    if (!p1_last_child || !p2_first_child) {
+        return false;
+    }
+
+    if (only_not_formatted &&
+        (XhtmlDoc::GetNodeName(*p1_last_child) != "#text" ||
+         XhtmlDoc::GetNodeName(*p2_first_child) != "#text")) {
+        return false;
+    }
+
+    if (!ContainsLetters(p1_text) ||
+        !ContainsLetters(p2_text)) {
+        return false;
+    }
+
+    if (last_char == "." || last_char == "?" ||
+        last_char == "!") {
+        return false;
+    }
+
+    return true;
+}
+
+void CleanContentUpdates::JoinParagraphs(xc::DOMDocument &doc, xc::DOMElement &p1, xc::DOMElement &p2)
+{
+    QString p1_text = XtoQ(p1.getTextContent());
+    QString p2_text = XtoQ(p2.getTextContent());
+
+    QString p1_text_trimmed = p1_text.trimmed();
+    QString p2_text_trimmed = p2_text.trimmed();
+
+    QString last_char = p1_text_trimmed.right(1);
+    QString first_char = p2_text_trimmed.left(1);
+
+    if ((last_char == "-" || last_char == "—") &&
+        p1_text_trimmed.length() >= 2 &&
+        p1_text_trimmed[p1_text_trimmed.length() - 2].isLetter()) {
+        if (first_char.length() == 1 && first_char[0].isLower()) {
+            RemoveLastChar(p1);
+        }
+    } else {
+        p1.appendChild(doc.createTextNode(L" "));
+    }
+
+    MoveChildren(p1, p2);
+    p2.getParentNode()->removeChild(&p2);
 }
 
 QString CleanContentUpdates::ConvertSamplePageNumberToRegExp(const QString &page_number_format)

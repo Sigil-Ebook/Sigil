@@ -72,6 +72,11 @@ private:
                                  bool remove_empty_paragraphs_around);
     static int JoinParagraphs(xc::DOMDocument &doc, bool only_not_formatted);
 
+    static int SkipEmptyNodes(xc::DOMNodeList *nodes, int pos);
+    static bool CanJoinParagraphs(xc::DOMElement &p1, xc::DOMElement &p2,
+                                  bool only_not_formatted);
+    static void JoinParagraphs(xc::DOMDocument &doc, xc::DOMElement &p1, xc::DOMElement &p2);
+
     static QString ConvertSamplePageNumberToRegExp(const QString &page_number_format);
     static void RemoveLastChar(xc::DOMElement &element);
     static void MoveChildren(xc::DOMElement &elementDest, xc::DOMElement &elementSrc);
