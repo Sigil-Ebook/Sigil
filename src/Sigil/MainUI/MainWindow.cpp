@@ -590,6 +590,9 @@ void MainWindow::closeEvent(QCloseEvent *event)
             m_SpellcheckEditor->ForceClose();
         }
 
+        if ((m_PreviewWindow)  && m_PreviewWindow->isVisible()) {
+            m_PreviewWindow->hide();
+        }
         event->accept();
     } else {
         event->ignore();
