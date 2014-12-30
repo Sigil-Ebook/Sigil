@@ -22,7 +22,10 @@ def cleanUsingBS4(data):
     data = remove_xml_header(data)
     data = fix_self_closing_cdata_tags(data)
     soup = BeautifulSoup(data, 'html5lib')
-    return soup.decode(False,formatter="minimal")
+    newdata = soup.decode(False,formatter="minimal")
+    newdata = newdata.replace("\n\n</body></html>","</body>\n</html>\n")
+    newdata = '<?xml version="1.0" encoding="UTF-8"?>\n' + newdata
+    return newdata
 
 def main():
     junk = "<html><head><title>testing & entities</title></head><body><p>this&nbsp;is&#160;the&#xa0;copyright symbol &copy;</p></body></html>"
