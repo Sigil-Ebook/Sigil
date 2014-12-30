@@ -5,9 +5,22 @@ from html5lib import treebuilders
 from html5lib import treewalkers
 from html5lib import serializer
 from html5lib.filters import sanitizer
+from html5lib.constants import cdataElements, rcdataElements
 from bs4 import BeautifulSoup
+import re
+
+def remove_xml_header(data):
+    return re.sub(r'<\s*\?xml\s*[^>]*\?>','',data, flags=re.I)
+
+# borrowed from Kovid's calibre to work around 
+# <title/> parsing idiocy in html5lib 
+# see: http://code.google.com/p/html5lib/issues/detail?id=195
+def fix_self_closing_cdata_tags(data):
+    return re.sub(r'<\s*(%s)\s*[^>]*/\s*>' % ('|'.join(cdataElements|rcdataElements)), r'<\1></\1>', data, flags=re.I)
 
 def cleanUsingBS4(data):
+    data = remove_xml_header(data)
+    data = fix_self_closing_cdata_tags(data)
     soup = BeautifulSoup(data, 'html5lib')
     return soup.decode(False,formatter="minimal")
 
