@@ -55,6 +55,11 @@ PreviewWindow::~PreviewWindow()
     // QWebInspector and the application will SegFault. This is an issue
     // with how QWebPages interface with QWebInspector.
 
+    if (m_Inspector) {
+        m_Inspector->setPage(0);
+        m_Inspector->close();
+    }
+
     if (m_Preview) {
         delete m_Preview;
         m_Preview = 0;
