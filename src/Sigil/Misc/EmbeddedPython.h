@@ -27,6 +27,7 @@
 #include <QCoreApplication>
 #include <QString>
 #include <QVariant>
+#include <QMutex>
 
 /**
  * Singleton.
@@ -41,6 +42,8 @@ public:
     static EmbeddedPython* instance();
     ~EmbeddedPython();
 
+    QString embeddedRoot();
+
     QVariant PyObjectToQVariant(PyObject* po);
 
     PyObject* QVariantToPyObject(QVariant& v);
@@ -54,12 +57,13 @@ public:
                          QString& error_traceback);
 
 private:
+
     EmbeddedPython();
 
-    QString embeddedRoot();
     QString getPythonErrorTraceback(bool useMsgBox = true);
 
     static EmbeddedPython *m_instance;
+    static QMutex m_mutex;
 
 };
 #endif // EMBEDDEDPYTHON_H

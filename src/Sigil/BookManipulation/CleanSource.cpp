@@ -19,6 +19,7 @@
 **
 *************************************************************************/
 
+#include "Misc/EmbeddedPython.h"
 #include <boost/tuple/tuple.hpp>
 #include <buffio.h>
 
@@ -109,9 +110,14 @@ QString CleanSource::Clean(const QString &source)
             // We store the number of CSS style tags before
             // running Tidy so CleanCSS can remove redundant classes
             // if tidy added a new style tag
-            int old_num_styles = RobustCSSStyleTagCount(newsource);
-            newsource = HTMLTidy(newsource, Tidy_Clean);
-            newsource = CleanCSS(newsource, old_num_styles);
+
+            // temp swap it for cleaning in BS4
+
+            // int old_num_styles = RobustCSSStyleTagCount(newsource);
+            // newsource = HTMLTidy(newsource, Tidy_Clean);
+            // newsource = CleanCSS(newsource, old_num_styles);
+            // return newsource;
+            newsource = cleanUsingBS4(source);
             return newsource;
         }
         default:
@@ -122,6 +128,29 @@ QString CleanSource::Clean(const QString &source)
     }
 }
 
+
+// clean using BeautifulSoup4
+QString CleanSource::cleanUsingBS4(const QString &source)
+{
+    int rv = 0;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(source));
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("bs4me"),
+                                         QString("cleanUsingBS4"),
+                                         args,
+                                         &rv,
+                                         error_traceback);    
+    if (rv != 0) {
+        Utility::DisplayStdWarningDialog(QString("error in cleanUsingBS4: ") + QString::number(rv), 
+                                         error_traceback);
+        // an error happened, return unchanged original
+        return QString(source);
+    }
+    return res.toString();
+}
 
 // Remove blank lines at the top of style tag added by Tidy
 QString CleanSource::RemoveBlankStyleLines(const QString &source)
@@ -144,7 +173,10 @@ QString CleanSource::ToValidXHTML(const QString &source)
     QString newsource = source;
 
     if (!XhtmlDoc::IsDataWellFormed(source)) {
-        newsource = HTMLTidy(source, Tidy_Fast);
+
+        // temp swap out to test 
+        // newsource = HTMLTidy(source, Tidy_Fast);
+        newsource = cleanUsingBS4(source);
         newsource = RemoveBlankStyleLines(newsource);
         // Run PP to ensure proper formatting.
         newsource = PrettyPrintTidy(newsource);

@@ -47,6 +47,8 @@ public:
 
     static QString ProcessXML(const QString &source);
 
+    static QString cleanUsingBS4(const QString &source);
+
     /**
      * Xerces when serializing into Sigil will always mess with the line feeds and
      * spacing of the DOCTYPE and html declarations at top of the document. This is

@@ -29,6 +29,7 @@
 #include <QVariant>
 #include <QMetaType>
 #include <QStandardPaths>
+#include <QDir>
 #include "Misc/Utility.h"
 
 /**
@@ -90,6 +91,7 @@
  *      return c
  */
 
+QMutex EmbeddedPython::m_mutex;
 EmbeddedPython* EmbeddedPython::m_instance = 0;
 
 EmbeddedPython* EmbeddedPython::instance()
@@ -103,7 +105,6 @@ EmbeddedPython* EmbeddedPython::instance()
 EmbeddedPython::EmbeddedPython()
 {
     Py_Initialize();
-    addToPythonSysPath(embeddedRoot());
 }
 
 EmbeddedPython::~EmbeddedPython()
@@ -132,8 +133,8 @@ QString EmbeddedPython::embeddedRoot()
         embedded_root = env_embedded_location + "/";
     }
 #endif
-
-    return embedded_root;
+    QDir base(embedded_root);
+    return base.absolutePath();
 }
 
 bool EmbeddedPython::addToPythonSysPath(const QString& mpath)
@@ -315,6 +316,7 @@ QVariant EmbeddedPython::runInPython(const QString& mname,
                                      int *rv, 
                                      QString & tb)
 {
+    EmbeddedPython::m_mutex.lock();
     QVariant  res        = QVariant(QString());
     PyObject *moduleName = NULL;
     PyObject *module     = NULL;
@@ -374,5 +376,6 @@ cleanup:
     Py_XDECREF(module);
     Py_XDECREF(moduleName);
 
+    EmbeddedPython::m_mutex.unlock();
     return res;
 }

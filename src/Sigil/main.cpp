@@ -19,6 +19,7 @@
 **
 *************************************************************************/
 
+#include "Misc/EmbeddedPython.h"
 #include <iostream>
 #include <XercesInit.h>
 
@@ -218,6 +219,8 @@ int main(int argc, char *argv[])
 #endif
     MainApplication app(argc, argv);
     XercesExt::XercesInit init;
+    EmbeddedPython* epython = EmbeddedPython::instance();
+    epython->addToPythonSysPath(epython->embeddedRoot());
 
     try {
         // We prevent Qt from constantly creating and deleting threads.
