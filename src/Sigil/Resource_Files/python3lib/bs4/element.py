@@ -9,6 +9,11 @@ PY3K = (sys.version_info[0] > 2)
 
 whitespace_re = re.compile("\s+")
 
+
+NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","cite","code",
+                            "dfn","em","i","img","kbd","small","span","strike",
+                            "strong","sub","sup","tt")
+
 def _alias(attr):
     """Alias one attribute name to another for backward compatibility"""
     @property
@@ -114,7 +119,7 @@ class HTMLAwareEntitySubstitution(EntitySubstitution):
     @classmethod
     def substitute_xml(cls, ns):
         return cls._substitute_if_appropriate(
-            ns, EntitySubstitution.substitute_xml)
+            ns, EntitySubstitution.substitute_xml_containing_entities)
 
 class PageElement(object):
     """Contains the navigational information for some part of the page
@@ -984,24 +989,21 @@ class Tag(PageElement):
     if PY3K:
         __str__ = __repr__ = __unicode__
 
-    def encode(self, encoding=DEFAULT_OUTPUT_ENCODING,
-               indent_level=None, formatter="minimal",
-               errors="xmlcharrefreplace"):
+    def encode(self, encoding=DEFAULT_OUTPUT_ENCODING, indent_level=None, formatter="minimal", errors="xmlcharrefreplace", indent_chars=" "):
         # Turn the data structure into Unicode, then encode the
         # Unicode.
-        u = self.decode(indent_level, encoding, formatter)
+        u = self.decode(indent_level=indent_level, encoding=encoding, formatter=formatter, indent_chars=indent_chars)
         return u.encode(encoding, errors)
 
     def _should_pretty_print(self, indent_level):
         """Should this tag be pretty-printed?"""
         return (
             indent_level is not None and
-            (self.name not in HTMLAwareEntitySubstitution.preformatted_tags
+            ((not self.name in HTMLAwareEntitySubstitution.preformatted_tags 
+              and not self.name in NON_BREAKING_INLINE_TAGS)
              or self._is_xml))
 
-    def decode(self, indent_level=None,
-               eventual_encoding=DEFAULT_OUTPUT_ENCODING,
-               formatter="minimal"):
+    def decode(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal", indent_chars=" "):
         """Returns a Unicode representation of this tag and its contents.
 
         :param eventual_encoding: The tag is destined to be
@@ -1053,14 +1055,13 @@ class Tag(PageElement):
         space = ''
         indent_space = ''
         if indent_level is not None:
-            indent_space = (' ' * (indent_level - 1))
+            indent_space = (indent_chars * (indent_level - 1))
         if pretty_print:
             space = indent_space
             indent_contents = indent_level + 1
         else:
             indent_contents = None
-        contents = self.decode_contents(
-            indent_contents, eventual_encoding, formatter)
+        contents = self.decode_contents(indent_contents, eventual_encoding, formatter, indent_chars)
 
         if self.hidden:
             # This is the 'document root' object.
@@ -1084,7 +1085,7 @@ class Tag(PageElement):
             if pretty_print and closeTag:
                 s.append(space)
             s.append(closeTag)
-            if indent_level is not None and closeTag and self.next_sibling:
+            if indent_level is not None and closeTag and self.next_sibling and not self.name in NON_BREAKING_INLINE_TAGS:
                 # Even if this particular tag is not pretty-printed,
                 # we're now done with the tag, and we should add a
                 # newline if appropriate.
@@ -1092,15 +1093,13 @@ class Tag(PageElement):
             s = ''.join(s)
         return s
 
-    def prettify(self, encoding=None, formatter="minimal"):
+    def prettify(self, encoding=None, formatter="minimal", indent_chars=" "):
         if encoding is None:
-            return self.decode(True, formatter=formatter)
+            return self.decode(True, formatter=formatter, indent_chars=indent_chars)
         else:
-            return self.encode(encoding, True, formatter=formatter)
+            return self.encode(encoding, True, formatter=formatter, indent_chars=indent_chars)
 
-    def decode_contents(self, indent_level=None,
-                       eventual_encoding=DEFAULT_OUTPUT_ENCODING,
-                       formatter="minimal"):
+    def decode_contents(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal", indent_chars=" "):
         """Renders the contents of this tag as a Unicode string.
 
         :param eventual_encoding: The tag is destined to be
@@ -1122,23 +1121,33 @@ class Tag(PageElement):
             if isinstance(c, NavigableString):
                 text = c.output_ready(formatter)
             elif isinstance(c, Tag):
-                s.append(c.decode(indent_level, eventual_encoding,
-                                  formatter))
-            if text and indent_level and not self.name == 'pre':
-                text = text.strip()
+                val = c.decode(indent_level, eventual_encoding, formatter, indent_chars)
+                if pretty_print:
+                    # note, BS4 serializes in an ass-backwards manner using recursion on a tag level basis
+                    # and therefore can not see if the previous line ended with a linefeed or not
+                    
+                    # So we need to remove any bad initial indentation from non breaking inline tags
+                    # that do not start a line as the decode routine can not tell where the tag in in relation
+                    # to other tags and previous newlines
+                    if c.name in NON_BREAKING_INLINE_TAGS and len(s) > 0:
+                        val = val.lstrip()
+                s.append(val)
+            # this makes no sense even when prettifying since you do not know what is coming next
+            # if text and indent_level and not self.name == 'pre' and not self.name in NON_BREAKING_INLINE_TAGS:
+            #     text = text.strip()
             if text:
-                if pretty_print and not self.name == 'pre':
-                    s.append(" " * (indent_level - 1))
+                if pretty_print and not self.name == 'pre' and not self.name in NON_BREAKING_INLINE_TAGS:
+                    if len(s) == 0 or s[-1] == "\n":
+                        s.append(indent_chars * (indent_level - 1))
                 s.append(text)
-                if pretty_print and not self.name == 'pre':
+                if pretty_print and not self.name == 'pre' and not isinstance(c, NavigableString):
                     s.append("\n")
         return ''.join(s)
 
     def encode_contents(
-        self, indent_level=None, encoding=DEFAULT_OUTPUT_ENCODING,
-        formatter="minimal"):
+        self, indent_level=None, encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal", indent_chars=" "):
         """Renders the contents of this tag as a bytestring."""
-        contents = self.decode_contents(indent_level, encoding, formatter)
+        contents = self.decode_contents(indent_level, encoding, formatter, indent_chars)
         return contents.encode(encoding)
 
     # Old method for BS3 compatibility
