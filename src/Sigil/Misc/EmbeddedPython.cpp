@@ -120,12 +120,12 @@ QString EmbeddedPython::embeddedRoot()
     QString embedded_root = QCoreApplication::applicationDirPath();
 
 #ifdef Q_OS_MAC
-    embedded_root += "/../embedded_python_code/";
+    embedded_root += "/../python3lib/";
 #elif defined(Q_OS_WIN32)
-    embedded_root += "/embedded_python_code/";
+    embedded_root += "/python3lib/";
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // all flavours of linux / unix
-    embedded_root += "/../share/" + QCoreApplication::applicationName().toLower() + "/embedded_python_code/";
+    embedded_root += "/../share/" + QCoreApplication::applicationName().toLower() + "/python3lib/";
     // user supplied environment variable to embedded python code directory will overrides everything
     const QString env_embedded_location = QString(getenv("SIGIL_EMBEDDED_PYTHON_CODE"));
     if (!env_embedded_location.isEmpty()) {
