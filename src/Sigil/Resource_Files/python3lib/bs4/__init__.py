@@ -358,7 +358,7 @@ class BeautifulSoup(Tag):
 
     def decode(self, pretty_print=False,
                eventual_encoding=DEFAULT_OUTPUT_ENCODING,
-               formatter="minimal"):
+               formatter="minimal", indent_chars=" "):
         """Returns a string or Unicode representation of this document.
         To get Unicode, pass None for encoding."""
 
@@ -375,7 +375,7 @@ class BeautifulSoup(Tag):
         else:
             indent_level = 0
         return prefix + super(BeautifulSoup, self).decode(
-            indent_level, eventual_encoding, formatter)
+            indent_level, eventual_encoding, formatter, indent_chars)
 
 # Alias to make it easier to type import: 'from bs4 import _soup'
 _s = BeautifulSoup

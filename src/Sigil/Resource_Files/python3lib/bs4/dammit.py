@@ -82,6 +82,8 @@ class EntitySubstitution(object):
                                            "&(?!#\d+;|#x[0-9a-fA-F]+;|\w+;)"
                                            ")")
 
+    IS_ENTITY = re.compile("(&#\d+;|&#x[0-9a-fA-F]+;|&\w+;)")
+
     AMPERSAND_OR_BRACKET = re.compile("([<>&])")
 
     @classmethod
@@ -188,8 +190,15 @@ class EntitySubstitution(object):
         character with "&eacute;" will make it more readable to some
         people.
         """
-        return cls.CHARACTER_TO_HTML_ENTITY_RE.sub(
-            cls._substitute_html_entity, s)
+        # ignore already existing entities
+        pieces = cls.IS_ENTITY.split(s)
+        for i in range(0,len(pieces),2):
+            piece = pieces[i]
+            pieces[i] = cls.CHARACTER_TO_HTML_ENTITY_RE.sub(cls._substitute_html_entity, piece)
+        return "".join(pieces)
+
+        # return cls.CHARACTER_TO_HTML_ENTITY_RE.sub(
+        #     cls._substitute_html_entity, s)
 
 
 class EncodingDetector:
