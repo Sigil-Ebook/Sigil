@@ -92,6 +92,8 @@ class HTMLTokenizer(object):
             charStack.append(c)
             c = self.stream.char()
 
+        numentity = "".join(charStack)
+
         # Convert the set of characters consumed to an int.
         charAsInt = int("".join(charStack), radix)
 
@@ -140,8 +142,8 @@ class HTMLTokenizer(object):
             self.tokenQueue.append({"type": tokenTypes["ParseError"], "data":
                                     "numeric-entity-without-semicolon"})
             self.stream.unget(c)
-
-        return char
+        # return char
+        return numentity
 
     def consumeEntity(self, allowedChar=None, fromAttribute=False):
         # Initialise to the default output for when no entity is matched
@@ -165,7 +167,11 @@ class HTMLTokenizer(object):
                     or (not hex and charStack[-1] in digits):
                 # At least one digit found, so consume the whole number
                 self.stream.unget(charStack[-1])
-                output = self.consumeNumberEntity(hex)
+                if hex:
+                    output = "&#x" + self.consumeNumberEntity(hex) + ";"
+                else:
+                    output = "&#" + self.consumeNumberEntity(hex) + ";"
+                # output = self.consumeNumberEntity(hex)
             else:
                 # No digits found
                 self.tokenQueue.append({"type": tokenTypes["ParseError"],
@@ -205,7 +211,8 @@ class HTMLTokenizer(object):
                     self.stream.unget(charStack.pop())
                     output = "&" + "".join(charStack)
                 else:
-                    output = entities[entityName]
+                    # output = entities[entityName]
+                    output = "&" + entityName
                     self.stream.unget(charStack.pop())
                     output += "".join(charStack[entityLength:])
             else:

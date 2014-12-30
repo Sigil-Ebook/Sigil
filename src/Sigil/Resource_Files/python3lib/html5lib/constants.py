@@ -402,6 +402,7 @@ specialElements = frozenset((
     (namespaces["html"], "script"),
     (namespaces["html"], "section"),
     (namespaces["html"], "select"),
+    (namespaces["html"], "span"),
     (namespaces["html"], "style"),
     (namespaces["html"], "table"),
     (namespaces["html"], "tbody"),

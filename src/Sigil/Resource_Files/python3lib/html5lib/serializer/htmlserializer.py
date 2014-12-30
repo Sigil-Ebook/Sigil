@@ -87,9 +87,9 @@ class HTMLSerializer(object):
     space_before_trailing_solidus = True
 
     # escaping options
-    escape_lt_in_attrs = False
+    escape_lt_in_attrs = True
     escape_rcdata = False
-    resolve_entities = True
+    resolve_entities = False
 
     # miscellaneous options
     alphabetical_attributes = False
