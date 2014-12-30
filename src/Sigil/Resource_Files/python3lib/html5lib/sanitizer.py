@@ -181,7 +181,7 @@ class HTMLSanitizerMixin(object):
         if "data" in token:
             attrs = dict([(name, val) for name, val in
                           token["data"][::-1]
-                          if name in self.allowed_attributes])
+                          if name in self.allowed_attributes or name.startswith('data-')])
             for attr in self.attr_val_is_uri:
                 if attr not in attrs:
                     continue
