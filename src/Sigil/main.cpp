@@ -280,7 +280,7 @@ int main(int argc, char *argv[])
 #ifdef Q_OS_MAC
             app.setQuitOnLastWindowClosed(false);
 
-            QMenuBar *mac_menu = new QMenuBar();
+            QMenuBar *mac_menu = new QMenuBar(0);
             QMenu *file_menu = new QMenu("File");
             QAction *action;
             // New
