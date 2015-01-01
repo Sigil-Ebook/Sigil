@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import html5lib
 from html5lib import treebuilders
 from html5lib import treewalkers
@@ -10,7 +11,7 @@ from bs4 import BeautifulSoup
 import re
 
 def remove_xml_header(data):
-    return re.sub(r'<\s*\?xml\s*[^>]*\?>','',data, flags=re.I)
+    return re.sub(r'<\s*\?xml\s*[^>]*\?>\s*','',data, flags=re.I)
 
 # borrowed from Kovid's calibre to work around 
 # <title/> parsing idiocy in html5lib 
@@ -25,9 +26,35 @@ def cleanUsingBS4(data):
     newdata = soup.serialize()
     return newdata
 
+def prettyPrintUsingBS4(data, indent_chars="  "):
+    res = []
+    data = remove_xml_header(data)
+    data = fix_self_closing_cdata_tags(data)
+    soup = BeautifulSoup(data, 'html5lib')
+    res.append('<?xml version="1.0"?>\n')
+    res.append(soup.decode(pretty_print=True,formatter='minimal',indent_chars=indent_chars))
+    return ''.join(res)
+    
 def main():
-    junk = "<html><head><title>testing & entities</title></head><body><p>this&nbsp;is&#160;the&#xa0;copyright symbol &copy;</p></body></html>"
+    junk = '<html><head><title>testing & entities</title></head>'
+    junk += '<body><p>this&nbsp;is&#160;the&#xa0;<b><i>copyright'
+    junk += '</i></b> symbol "&copy;"</p></body></html>'
     print(cleanUsingBS4(junk))
+    print(prettyPrintUsingBS4(junk))
+
+    junk = '''
+<html>
+<head>
+<title>testing & entities</title>
+</head>
+<body>
+<p>this&nbsp;is&#160;the&#xa0;<b><i>copyright</i></b> symbol "&copy;"</p>
+</body>
+</html>
+'''
+    print(cleanUsingBS4(junk))
+    print(prettyPrintUsingBS4(junk))
+
     return 0
 
 if __name__ == '__main__':
