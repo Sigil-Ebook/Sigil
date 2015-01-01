@@ -1003,7 +1003,8 @@ class Tag(PageElement):
               and not self.name in NON_BREAKING_INLINE_TAGS)
              or self._is_xml))
 
-    def decode(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal", indent_chars=" "):
+    def decode(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
+               formatter="minimal", indent_chars=" "):
         """Returns a Unicode representation of this tag and its contents.
 
         :param eventual_encoding: The tag is destined to be
@@ -1099,7 +1100,8 @@ class Tag(PageElement):
         else:
             return self.encode(encoding, True, formatter=formatter, indent_chars=indent_chars)
 
-    def decode_contents(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal", indent_chars=" "):
+    def decode_contents(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
+                        formatter="minimal", indent_chars=" "):
         """Renders the contents of this tag as a Unicode string.
 
         :param eventual_encoding: The tag is destined to be
@@ -1142,6 +1144,72 @@ class Tag(PageElement):
                 s.append(text)
                 if pretty_print and not self.name == 'pre' and not isinstance(c, NavigableString):
                     s.append("\n")
+        return ''.join(s)
+
+    def serialize(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
+        formatter = self._formatter_for_name('minimal')
+        prefix = ''
+        close = ''
+        closeTag = ''
+        attrs = []
+        if self.attrs:
+            for key, val in sorted(self.attrs.items()):
+                if val is None:
+                    ntext = key
+                else:
+                    if isinstance(val, list) or isinstance(val, tuple):
+                        val = ' '.join(val)
+                    elif not isinstance(val, str):
+                        val = str(val)
+                    elif (isinstance(val, AttributeValueWithCharsetSubstitution) and 
+                          eventual_encoding is not None):
+                        val = val.encode(eventual_encoding)
+                    text = self.format_string(val, formatter)
+                    ntext = (str(key) + '=' + EntitySubstitution.quoted_attribute_value(text))
+                attrs.append(ntext)
+
+        if self.prefix:
+            prefix = self.prefix + ":"
+        if self.is_empty_element:
+            close = '/'
+        else:
+            closeTag = '</%s%s>' % (prefix, self.name)
+
+        contents = self.serialize_contents(eventual_encoding)
+
+        # strip extra whitespace before the closing body tag
+        if self.name == 'body':
+            contents = contents.strip()
+            contents += "\n"
+
+        if self.hidden:
+            # This is the 'document root' object.
+            s = contents
+        else:
+            s = []
+            attribute_string = ''
+            if attrs:
+                attribute_string = ' ' + ' '.join(attrs)
+            s.append('<%s%s%s%s>' % (prefix, self.name, attribute_string, close))
+            if self.name in ['html', 'body']:
+                s.append("\n")
+            s.append(contents)
+            s.append(closeTag)
+            if self.name in ['html', 'body']:
+                s.append("\n")
+            s = ''.join(s)
+        return s
+
+    def serialize_contents(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
+        formatter = self._formatter_for_name('minimal')
+        s = []
+        for c in self:
+            text = None
+            if isinstance(c, NavigableString):
+                text = c.output_ready(formatter)
+                s.append(text)
+            elif isinstance(c, Tag):
+                s.append(c.serialize(eventual_encoding))
         return ''.join(s)
 
     def encode_contents(
