@@ -1134,9 +1134,8 @@ class Tag(PageElement):
                     if c.name in NON_BREAKING_INLINE_TAGS and len(s) > 0:
                         val = val.lstrip()
                 s.append(val)
-            # this makes no sense even when prettifying since you do not know what is coming next
-            # if text and indent_level and not self.name == 'pre' and not self.name in NON_BREAKING_INLINE_TAGS:
-            #     text = text.strip()
+            if text and indent_level and not self.name == 'pre' and not self.name in NON_BREAKING_INLINE_TAGS:
+                text = text.strip()
             if text:
                 if pretty_print and not self.name == 'pre' and not self.name in NON_BREAKING_INLINE_TAGS:
                     if len(s) == 0 or s[-1] == "\n":
@@ -1177,8 +1176,8 @@ class Tag(PageElement):
 
         contents = self.serialize_contents(eventual_encoding)
 
-        # strip extra whitespace before the closing body tag
-        if self.name == 'body':
+        # strip extraneous whitespace before the primary closing tag
+        if self.name in ['html', 'body']:
             contents = contents.strip()
             contents += "\n"
 
