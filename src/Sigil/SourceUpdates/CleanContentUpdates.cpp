@@ -289,7 +289,7 @@ void CleanContentUpdates::RemoveLastChar(xc::DOMElement &element)
     xc::DOMNode* last_child = element.getLastChild();
     QString content = XtoQ(last_child->getTextContent());
     QString new_content = content.left(content.length() - 1);
-    element.setTextContent(QtoX(new_content));
+    last_child->setTextContent(QtoX(new_content));
 }
 
 void CleanContentUpdates::MoveChildren(xc::DOMElement &elementDest, xc::DOMElement &elementSrc)
