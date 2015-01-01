@@ -22,9 +22,7 @@ def cleanUsingBS4(data):
     data = remove_xml_header(data)
     data = fix_self_closing_cdata_tags(data)
     soup = BeautifulSoup(data, 'html5lib')
-    newdata = soup.decode(False,formatter="minimal")
-    newdata = newdata.replace("\n\n</body></html>","</body>\n</html>\n")
-    newdata = '<?xml version="1.0" encoding="UTF-8"?>\n' + newdata
+    newdata = soup.serialize()
     return newdata
 
 def main():

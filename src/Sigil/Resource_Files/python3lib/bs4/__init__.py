@@ -377,6 +377,14 @@ class BeautifulSoup(Tag):
         return prefix + super(BeautifulSoup, self).decode(
             indent_level, eventual_encoding, formatter, indent_chars)
 
+    def serialize(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
+        encoding_part = ''
+        if eventual_encoding != None:
+            encoding_part = ' encoding="%s"' % eventual_encoding
+        prefix = '<?xml version="1.0"%s?>\n' % encoding_part
+        return prefix + super(BeautifulSoup, self).serialize(eventual_encoding)
+
+
 # Alias to make it easier to type import: 'from bs4 import _soup'
 _s = BeautifulSoup
 _soup = BeautifulSoup
