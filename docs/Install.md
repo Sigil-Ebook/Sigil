@@ -147,16 +147,23 @@ Create the build directories and get the Sigil source code.
     $ cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.y.z/5.y.z/gcc/lib/cmake -DCMAKE_INSTALL_PREFIX=~/sigil-x.y.z/run -DCMAKE_BUILD_TYPE=Release -DFORCE_BUNDLED_COPIES=1 ~/sigil-x.y.z/src
     $ make install
 
-Create a script to run Sigil:
+On Linux a 'linuxbinpkg' target is provided which will attempt to build a standalone binary installer. For that to work,
+you need to have dpkg-deb installed on Debian/Ubuntu systems and rpm-build installed on systems that use rpm based packages.
+Add -DLINUX_PACKAGE_TYPE="deb" or -DLINUX_PACKAGE_TYPE="rpm" to the original cmake command before building sigil (-DLINUX_PACKAGE_TYPE="deb"
+is the default if you don't include the command explicitly). Instead of "make install", issue 'sudo make linuxbinpkg' to build the debian binary package, or 'make linuxbinpkg'
+to build the rpm (note: sudo or su should not be used to build rpm package). The *.deb or *.rpm file will be created in the 'installer' subdirectory
+of the build directory. Install/remove using your system's dpkg -i/-r (Debian/Ubuntu) or rpm -i/-e.
 
-    $ echo "
-    $ export LD_LIBRARY_PATH=/opt/Qt5.y.z/5.y.z/gcc/lib
-    $ ~/sigil-x.y.z/run/bin/sigil" > ~/sigil.sh
-    $ chmod +x ~/sigil.sh
+### Running Sigil on Linux
+If your INSTALL_PREFIX was either /usr/bin or /usr/local/bin), all you need to do is execute 'sigil' from a terminal.
+You can also create a shortcut to the sigil.desktop file in INSTALL_PREFIX/share/applications/ to launch Sigil.
+Sigil should also be available in your desktop menu system. It's typically found under the "Office" applications submenu.
 
-### Run Sigil
+If you've installed Sigil to your home directory or another prefix not on your path, add INSTALL_PREFIX/bin to your path
+(via .profile or .bash_profile or .bashrc or similar) and execute 'sigil' from a terminal.
 
-    $ ~/sigil.sh
+If you relocate your Qt5 libraries after building Sigil, you'll need to edit the Sigil launch script (INSTALL_PREFIX/bin/sigil)
+and supply the new location of the Qt5 libraries (only necessary if you've installed via the typical "make, make install" method).
 
 
 Building from source in the git repository for release is *NOT* recommended, since code in
