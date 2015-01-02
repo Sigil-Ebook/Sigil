@@ -1,6 +1,25 @@
 #!/usr/bin/env python3
 
 import sys
+
+# until we get a properly embedded python 3 with its own site-packages
+# force our current module path to come before site_packages
+# to prevent name collisions with our versions and site-packages
+def insert_into_syspath():
+    n = 0
+    sp = None
+    ourhome = sys.path[-1]
+    for apath in sys.path:
+        if apath.endswith("site-packages"):
+            sp = n
+            break
+        n += 1
+    if sp is not None:
+        sys.path.insert(sp,ourhome)
+
+
+insert_into_syspath()
+
 import html5lib
 from html5lib import treebuilders
 from html5lib import treewalkers
@@ -35,6 +54,7 @@ def prettyPrintUsingBS4(data, indent_chars="  "):
     res.append(soup.decode(pretty_print=True,formatter='minimal',indent_chars=indent_chars))
     return ''.join(res)
     
+
 def main():
     junk = '<html><head><title>testing & entities</title></head>'
     junk += '<body><p>this&nbsp;is&#160;the&#xa0;<b><i>copyright'

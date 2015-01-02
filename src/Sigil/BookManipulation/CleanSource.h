@@ -47,7 +47,9 @@ public:
 
     static QString ProcessXML(const QString &source);
 
-    static QString cleanUsingBS4(const QString &source);
+    static QString CleanBS4(const QString &source);
+
+    static QString PrettyPrintBS4(const QString &source);
 
     /**
      * Xerces when serializing into Sigil will always mess with the line feeds and

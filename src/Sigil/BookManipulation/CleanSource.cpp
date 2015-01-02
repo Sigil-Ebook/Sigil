@@ -100,7 +100,8 @@ QString CleanSource::Clean(const QString &source)
     switch (level) {
         case SettingsStore::CleanLevel_PrettyPrint:
         case SettingsStore::CleanLevel_PrettyPrintTidy: {
-            newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintTidy(newsource);
+            // newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintTidy(newsource);
+            newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintBS4(newsource);
             // Remove any empty comments left over from pretty printing.
             QStringList css_style_tags  = CSSStyleTags(newsource);
             css_style_tags = RemoveEmptyComments(css_style_tags);
@@ -117,20 +118,19 @@ QString CleanSource::Clean(const QString &source)
             // newsource = HTMLTidy(newsource, Tidy_Clean);
             // newsource = CleanCSS(newsource, old_num_styles);
             // return newsource;
-            newsource = cleanUsingBS4(source);
+            newsource = CleanBS4(newsource);
             return newsource;
         }
         default:
             // The only thing we will do for Clean when set to None is just prettify
             // the XML declaration at the top. Xerces puts the xml, DOCTYPE and opening
             // html tag all on the same line which is ugly to read.
-            return PrettifyDOCTYPEHeader(source);
+            return PrettifyDOCTYPEHeader(newsource);
     }
 }
 
-
 // clean using BeautifulSoup4
-QString CleanSource::cleanUsingBS4(const QString &source)
+QString CleanSource::CleanBS4(const QString &source)
 {
     int rv = 0;
     QString error_traceback;
@@ -145,6 +145,29 @@ QString CleanSource::cleanUsingBS4(const QString &source)
                                          error_traceback);    
     if (rv != 0) {
         Utility::DisplayStdWarningDialog(QString("error in cleanUsingBS4: ") + QString::number(rv), 
+                                         error_traceback);
+        // an error happened, return unchanged original
+        return QString(source);
+    }
+    return res.toString();
+}
+
+// PrettyPrint using BeautifulSoup4
+QString CleanSource::PrettyPrintBS4(const QString &source)
+{
+    int rv = 0;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(source));
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("bs4me"),
+                                         QString("prettyPrintUsingBS4"),
+                                         args,
+                                         &rv,
+                                         error_traceback);    
+    if (rv != 0) {
+        Utility::DisplayStdWarningDialog(QString("error in prettyPrintUsingBS4: ") + QString::number(rv), 
                                          error_traceback);
         // an error happened, return unchanged original
         return QString(source);
@@ -174,12 +197,14 @@ QString CleanSource::ToValidXHTML(const QString &source)
 
     if (!XhtmlDoc::IsDataWellFormed(source)) {
 
-        // temp swap out to test 
         // newsource = HTMLTidy(source, Tidy_Fast);
-        newsource = cleanUsingBS4(source);
-        newsource = RemoveBlankStyleLines(newsource);
+        // newsource = RemoveBlankStyleLines(newsource);
         // Run PP to ensure proper formatting.
-        newsource = PrettyPrintTidy(newsource);
+        // newsource = PrettyPrintTidy(newsource);
+        
+        newsource = CleanBS4(source);
+        newsource = PrettyPrint(newsource);
+        newsource = RemoveBlankStyleLines(newsource);
     }
     return newsource;
 }
