@@ -32,7 +32,6 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrintPreviewDialog>
 #include <QtWidgets/QStackedWidget>
-#include <QtWebKitWidgets/QWebInspector>
 
 #include "BookManipulation/CleanSource.h"
 #include "MiscEditors/ClipEditorModel.h"
@@ -66,7 +65,6 @@ FlowTab::FlowTab(HTMLResource &resource,
     m_views(new QStackedWidget(this)),
     m_wBookView(NULL),
     m_wCodeView(NULL),
-    m_inspector(NULL),
     m_ViewState(view_state),
     m_previousViewState(view_state),
     m_WellFormedCheckComponent(*new WellFormedCheckComponent(*this, parent)),

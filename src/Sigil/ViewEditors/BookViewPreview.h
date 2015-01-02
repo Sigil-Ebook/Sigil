@@ -26,7 +26,6 @@
 
 #include <QtCore/QMap>
 #include <QtWebKitWidgets/QWebView>
-#include <QtWebKitWidgets/QWebInspector>
 
 #include "BookManipulation/XercesHUse.h"
 #include "ViewEditors/ViewEditor.h"
@@ -442,7 +441,6 @@ private:
 
     QAction *m_InspectElement;
 
-    QWebInspector *m_Inspector;
 };
 
 #endif // BOOKVIEWPREVIEW_H

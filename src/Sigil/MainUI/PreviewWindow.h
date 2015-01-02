@@ -59,7 +59,8 @@ signals:
     void ZoomFactorChanged(float factor);
 
 protected:
-    virtual void showEvent(QShowEvent *event);
+    virtual void hideEvent(QHideEvent* event);
+    virtual void showEvent(QShowEvent* event);
 
 private:
     void SetupView();

@@ -54,6 +54,12 @@ PreviewWindow::~PreviewWindow()
     // BookViewPreview, BookViewPreview will try to access the deleted
     // QWebInspector and the application will SegFault. This is an issue
     // with how QWebPages interface with QWebInspector.
+
+    if (m_Inspector) {
+        m_Inspector->setPage(0);
+        m_Inspector->close();
+    }
+
     if (m_Preview) {
         delete m_Preview;
         m_Preview = 0;
@@ -73,6 +79,51 @@ PreviewWindow::~PreviewWindow()
         delete(m_StackedViews);
         m_StackedViews= 0;
     }
+}
+
+void PreviewWindow::hideEvent(QHideEvent * event)
+{
+    if (m_Inspector) {
+        // break the link between the inspector and the page it is inspecting
+        // to prevent memory corruption from Qt modified after free issue
+        m_Inspector->setPage(0);
+        if (m_Inspector->isVisible()) {
+            m_Inspector->hide();
+        }
+    }
+    if ((m_Preview) && m_Preview->isVisible()) {
+        m_Preview->hide();
+    }
+    if ((m_Splitter) && m_Splitter->isVisible()) {
+        m_Splitter->hide();
+    }
+    if ((m_StackedViews) && m_StackedViews->isVisible()) {
+        m_StackedViews->hide();
+    }
+}
+
+void PreviewWindow::showEvent(QShowEvent * event)
+{
+    // restablish the link between the inspector and its page
+    if ((m_Inspector) && (m_Preview)) {
+        m_Inspector->setPage(m_Preview->page());
+    }
+    // perform the show for all children of this widget
+    if ((m_Preview) && !m_Preview->isVisible()) {
+        m_Preview->show();
+    }
+    if ((m_Inspector) && !m_Inspector->isVisible()) {
+        m_Inspector->show();
+    }
+    if ((m_Splitter) && !m_Splitter->isVisible()) {
+        m_Splitter->show();
+    }
+    if ((m_StackedViews) && !m_StackedViews->isVisible()) {
+        m_StackedViews->show();
+    }
+    QDockWidget::showEvent(event);
+    raise();
+    emit Shown();
 }
 
 bool PreviewWindow::IsVisible()
@@ -118,13 +169,6 @@ void PreviewWindow::SetupView()
     m_Preview->Zoom();
 
     QApplication::restoreOverrideCursor();
-}
-
-void PreviewWindow::showEvent(QShowEvent *event)
-{
-    QDockWidget::showEvent(event);
-    raise();
-    emit Shown();
 }
 
 void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor::ElementIndex> location)
