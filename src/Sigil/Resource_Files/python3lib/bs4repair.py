@@ -4,7 +4,7 @@ import sys
 
 # until we get a properly embedded python 3 with its own site-packages
 # force our current module path to come before site_packages
-# to prevent name collisions with our versions and site-packages
+# to prevent name collisions with our versions and any site-packages
 def insert_into_syspath():
     n = 0
     sp = None
@@ -27,6 +27,7 @@ from html5lib import serializer
 from html5lib.filters import sanitizer
 from html5lib.constants import cdataElements, rcdataElements
 from bs4 import BeautifulSoup
+from bs4.builder._lxml import LXMLTreeBuilderForXML
 import re
 
 def remove_xml_header(data):
@@ -38,14 +39,14 @@ def remove_xml_header(data):
 def fix_self_closing_cdata_tags(data):
     return re.sub(r'<\s*(%s)\s*[^>]*/\s*>' % ('|'.join(cdataElements|rcdataElements)), r'<\1></\1>', data, flags=re.I)
 
-def cleanUsingBS4(data):
+def repairXHTML(data):
     data = remove_xml_header(data)
     data = fix_self_closing_cdata_tags(data)
     soup = BeautifulSoup(data, 'html5lib')
     newdata = soup.serialize()
     return newdata
 
-def prettyPrintUsingBS4(data, indent_chars="  "):
+def repairPrettyPrintXHTML(data, indent_chars="  "):
     res = []
     data = remove_xml_header(data)
     data = fix_self_closing_cdata_tags(data)
@@ -54,15 +55,37 @@ def prettyPrintUsingBS4(data, indent_chars="  "):
     res.append(soup.decode(pretty_print=True,formatter='minimal',indent_chars=indent_chars))
     return ''.join(res)
     
+def repairXML(data, self_closing_tags=None):
+    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
+    soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
+    newdata = soup.serialize()
+    return newdata
+
+def repairPrettyPrintXML(data, self_closing_tags=None, indent_chars="  "):
+    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
+    soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
+    newdata = soup.decode(pretty_print=True,formatter='minimal',indent_chars=indent_chars)
+    return newdata
+
+def repairOPF(data):
+    return repairXML(data, self_closing_tags=["item", "itemref", "meta"])
+
+def repairPrettyPrintOPF(data, indent_chars="  "):
+    return repairPrettyPrintXML(data, self_closing_tags=["item", "itemref", "meta"], indent_chars=indent_chars)
+
+def repairNCX(data):
+    return repairXML(data, self_closing_tags=["meta","content"])
+
+def repairPrettyPrintNCX(data, indent_chars="  "):
+    return repairPrettyPrintXML(data, self_closing_tags=["meta", "content"], indent_chars=indent_chars)
+
 
 def main():
-    junk = '<html><head><title>testing & entities</title></head>'
-    junk += '<body><p>this&nbsp;is&#160;the&#xa0;<b><i>copyright'
-    junk += '</i></b> symbol "&copy;"</p></body></html>'
-    print(cleanUsingBS4(junk))
-    print(prettyPrintUsingBS4(junk))
+    samp1 = '<html><head><title>testing & entities</title></head>'
+    samp1 += '<body><p>this&nbsp;is&#160;the&#xa0;<b><i>copyright'
+    samp1 += '</i></b> symbol "&copy;"</p></body></html>'
 
-    junk = '''
+    samp2 = '''
 <html>
 <head>
 <title>testing & entities</title>
@@ -72,8 +95,32 @@ def main():
 </body>
 </html>
 '''
-    print(cleanUsingBS4(junk))
-    print(prettyPrintUsingBS4(junk))
+
+    opfxml = '''
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="2.0">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:identifier id="BookId" opf:scheme="UUID">urn:uuid:a418a8f1-dcbc-4c5d-a18f-533765e34ee8</dc:identifier>
+  </metadata>
+  <manifest>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
+    <item href="Text/Section0001.xhtml" id="Section0001.xhtml" media-type="application/xhtml+xml" />
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="Section0001.xhtml" >
+  </spine>
+  <guide />
+</package>
+'''
+
+    print(repairXHTML(samp1))
+    print(repairPrettyPrintXHTML(samp1))
+
+    print(repairXHTML(samp2))
+    print(repairPrettyPrintXHTML(samp2))
+
+    print(repairOPF(opfxml))
+    print(repairPrettyPrintOPF(opfxml, indent_chars="   "))
 
     return 0
 
