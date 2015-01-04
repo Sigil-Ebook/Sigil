@@ -99,26 +99,20 @@ QString CleanSource::Clean(const QString &source)
 
     switch (level) {
         case SettingsStore::CleanLevel_PrettyPrint:
-        case SettingsStore::CleanLevel_PrettyPrintTidy: {
-            // newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintTidy(newsource);
+        case SettingsStore::CleanLevel_PrettyPrintBS4: {
             newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintBS4(newsource);
             // Remove any empty comments left over from pretty printing.
             QStringList css_style_tags  = CSSStyleTags(newsource);
             css_style_tags = RemoveEmptyComments(css_style_tags);
             return WriteNewCSSStyleTags(newsource, css_style_tags);
         }
-        case SettingsStore::CleanLevel_Tidy: {
+        case SettingsStore::CleanLevel_BS4: {
             // We store the number of CSS style tags before
-            // running Tidy so CleanCSS can remove redundant classes
-            // if tidy added a new style tag
-
-            // temp swap it for cleaning in BS4
-
-            // int old_num_styles = RobustCSSStyleTagCount(newsource);
-            // newsource = HTMLTidy(newsource, Tidy_Clean);
-            // newsource = CleanCSS(newsource, old_num_styles);
-            // return newsource;
+            // running any cleaning so CleanCSS can remove redundant classes
+            // if new style tags added
+            int old_num_styles = RobustCSSStyleTagCount(newsource);
             newsource = CleanBS4(newsource);
+            newsource = CleanCSS(newsource, old_num_styles);
             return newsource;
         }
         default:
@@ -212,18 +206,12 @@ QString CleanSource::RemoveBlankStyleLines(const QString &source)
 }
 
 
-// No cleaning, just convert the source to valid XHTML
+// convert the source to valid XHTML
 QString CleanSource::ToValidXHTML(const QString &source)
 {
     QString newsource = source;
 
     if (!XhtmlDoc::IsDataWellFormed(source)) {
-
-        // newsource = HTMLTidy(source, Tidy_Fast);
-        // newsource = RemoveBlankStyleLines(newsource);
-        // Run PP to ensure proper formatting.
-        // newsource = PrettyPrintTidy(newsource);
-        
         newsource = CleanBS4(source);
         newsource = PrettyPrint(newsource);
         newsource = RemoveBlankStyleLines(newsource);
@@ -237,11 +225,6 @@ QString CleanSource::PrettyPrint(const QString &source)
     return pp.prettyPrint();
 }
 
-QString CleanSource::PrettyPrintTidy(const QString &source)
-{
-    // return HTMLTidy(source, Tidy_PrettyPrint);
-    return PrettyPrintBS4(source);
-}
 
 QString CleanSource::ProcessXML(const QString &source)
 {
@@ -250,7 +233,6 @@ QString CleanSource::ProcessXML(const QString &source)
     pp.setIndentLevel(0);
     return pp.prettyPrint();
 #endif
-    // return HTMLTidy(source, Tidy_XML)
     return XMLPrettyPrintBS4(source);
 }
 
@@ -263,15 +245,13 @@ int CleanSource::RobustCSSStyleTagCount(const QString &source)
 
 
 // Cleans CSS; currently it removes the redundant CSS classes
-// that Tidy sometimes adds because it doesn't parse existing
-// CSS classes, it only adds new ones; this also merges smaller
-// style tags into larger ones
+// this also merges smaller style tags into larger ones
 QString CleanSource::CleanCSS(const QString &source, int old_num_styles)
 {
     QString newsource           = source;
     QStringList css_style_tags  = CSSStyleTags(newsource);
 
-    // If Tidy added a new tag, we remove the redundant ones
+    // If added a new tag, we remove the redundant ones
     if (css_style_tags.count() > old_num_styles) {
         tie(newsource, css_style_tags) = RemoveRedundantClasses(newsource, css_style_tags);
     }
@@ -373,122 +353,6 @@ int CleanSource::MaxSigilCSSClassIndex(const QStringList &css_style_tags)
     return max_class_index;
 }
 
-
-TidyDoc CleanSource::TidyOptions(TidyDoc tidy_document, TidyType type, int max_class_index)
-{
-    // For more information on Tidy configuration
-    // options, see http://tidy.sourceforge.net/docs/quickref.html
-    if (type == Tidy_XML) {
-        // "output-xml"
-        tidyOptSetBool(tidy_document, TidyXmlOut, yes);
-        // "input-xml"
-        tidyOptSetBool(tidy_document, TidyXmlTags, yes);
-    } else {
-        // "output-xhtml"
-        tidyOptSetBool(tidy_document, TidyXhtmlOut, yes);
-    }
-
-    // "add-xml-decl"
-    tidyOptSetBool(tidy_document, TidyXmlDecl, yes);
-    // "preserve-entities"
-    tidyOptSetBool(tidy_document, TidyPreserveEntities, yes);
-    // "anchor-as-name"
-    tidyOptSetBool(tidy_document, TidyAnchorAsName, no);
-    // "alt-text"
-    tidyOptSetValue(tidy_document, TidyAltText, "");
-
-    if (type != Tidy_Clean) {
-        // Turning the two merge options on produces ugly markup
-        // for WYSIWYG actions...
-        // "merge-divs"
-        tidyOptSetInt(tidy_document, TidyMergeDivs, no);
-        // "merge-spans"
-        tidyOptSetInt(tidy_document, TidyMergeSpans, no);
-        // "join-styles"
-        tidyOptSetBool(tidy_document, TidyJoinStyles, no);
-    } else {
-        // "clean"
-        tidyOptSetBool(tidy_document, TidyMakeClean, yes);
-        // "css-prefix"
-        tidyOptSetValue(tidy_document, TidyCSSPrefix, SIGIL_CLASS_NAME.toUtf8().data());
-        // This option doesn't exist in "normal" Tidy. It has been hacked on
-        // and enables us to direct Tidy to start numbering new CSS classes
-        // from an index we provide it, and not always from 1 (which causes clashes).
-        tidyOptSetInt(tidy_document, TidyClassStartID, max_class_index);
-    }
-
-    // "doctype"
-    tidyOptSetValue(tidy_document, TidyDoctype, "strict");
-    // "enclose-text"
-    tidyOptSetBool(tidy_document, TidyEncloseBodyText, yes);
-    // "wrap"
-    tidyOptSetInt(tidy_document, TidyWrapLen, 0);
-    // "newline"
-    tidyOptSetValue(tidy_document, TidyNewline, "LF");
-    // Needed so that Tidy doesn't kill off SVG elements and HTML5 Tags
-    // "new-blocklevel-tags"
-    tidyOptSetValue(tidy_document, TidyBlockTags, BLOCK_ELEMENTS.toUtf8().data());
-    // "new-inline-tags"
-    tidyOptSetValue(tidy_document, TidyInlineTags, INLINE_ELEMENTS.toUtf8().data());
-    // "new-empty-tags"
-    tidyOptSetValue(tidy_document, TidyEmptyTags, EMPTY_ELEMENTS.toUtf8().data());
-
-
-    if (type != Tidy_Fast)
-        // "indent"
-    {
-        tidyOptSetInt(tidy_document, TidyIndentContent, TidyAutoState);
-    }
-
-    // "tidy-mark"
-    tidyOptSetBool(tidy_document, TidyMark, no);
-    // UTF-8 for input and output
-    tidySetCharEncoding(tidy_document, "utf8");
-    // Force output
-    tidyOptSetBool(tidy_document, TidyForceOutput, yes);
-    return tidy_document;
-}
-
-
-// Runs HTML Tidy on the provided XHTML source code
-QString CleanSource::HTMLTidy(const QString &source, TidyType type)
-{
-    if (source.isEmpty()) {
-        return QString();
-    }
-
-    TidyDoc tidy_document = tidyCreate();
-    TidyBuffer output = { 0 };
-    TidyBuffer errbuf = { 0 };
-
-    if (type == Tidy_Clean) {
-        tidy_document = TidyOptions(tidy_document, type, MaxSigilCSSClassIndex(CSSStyleTags(source)));
-    } else {
-        tidy_document = TidyOptions(tidy_document, type);
-    }
-
-    // Write all errors to error buffer
-    tidySetErrorBuffer(tidy_document, &errbuf);
-    // Set the input
-    tidyParseString(tidy_document, source.toUtf8().constData());
-    // GO BABY GO!
-    tidyCleanAndRepair(tidy_document);
-    // Run diagnostics
-    tidyRunDiagnostics(tidy_document);
-    // TODO: read and report any possible errors
-    // from the error buffer
-    // Store the cleaned up XHTML
-    tidySaveBuffer(tidy_document, &output);
-    QString clean = QString::fromUtf8((const char *) output.bp);
-    // Free memory
-    tidyBufFree(&output);
-    tidyBufFree(&errbuf);
-    tidyRelease(tidy_document);
-    clean = RemoveMetaCharset(clean);
-    return clean;
-}
-
-
 // Writes the new CSS style tags to the source, replacing the old ones
 QString CleanSource::WriteNewCSSStyleTags(const QString &source, const QStringList &css_style_tags)
 {
@@ -521,7 +385,7 @@ QStringList CleanSource::RemoveRedundantClassesTags(const QStringList &css_style
     QStringList new_css_style_tags  = css_style_tags;
     QStringList last_tag_styles     = new_css_style_tags.last().split(QChar('\n'));
     // Searches for the old class in every line;
-    // Tidy always creates class definitions as one line
+    // ***FIXME*** Deal with "Tidy always creates class definitions as one line given no Tidy now
     foreach(QString key, redundant_classes.keys()) {
         QRegularExpression remove_old("^.*" + QRegularExpression::escape(key) + ".*$", QRegularExpression::InvertedGreedinessOption|QRegularExpression::DotMatchesEverythingOption);
         last_tag_styles.replaceInStrings(remove_old, "");
@@ -556,11 +420,10 @@ QHash<QString, QString> CleanSource::GetRedundantClasses(const QStringList &css_
 {
     QHash<QString, QString> redundant_classes;
     // HACK: This whole concept is really ugly.
-    // a) We need to fix Tidy so it doesn't create useless new classes.
-    // b) We need a real CSS parser. One that knows which HTML element
+    // We need a real CSS parser. One that knows which HTML element
     // has which style/class.
-    // Tidy always create ONE style tag for its new classes,
-    // and it is always the last one
+    // **FIXME** Deal with "Tidy always create ONE style tag for its new classes,
+    // and it is always the last one"
     QString new_style_tag = css_style_tags.last();
     QStringList new_style_tag_lines = new_style_tag.split(QChar('\n'));
 
@@ -625,7 +488,7 @@ QString CleanSource::RemoveMetaCharset(const QString &source)
 QString CleanSource::PreprocessSpecialCases(const QString &source)
 {
     QString newsource = source;
-    // For content files we want to retain the functionality offered by HTMLTidy's
+    // For content files we want to retain the functionality offered by an
     // auto-correcting html parser, but this can only handle one namespace
     // in the <html> tag and simply strips tags with namespace prefixes it
     // doesn't understand. The solution used here is to embed the namespace

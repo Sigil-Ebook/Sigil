@@ -24,7 +24,6 @@
 #define CLEANSOURCE_H
 
 #include <boost/tuple/tuple.hpp>
-#include <tidy.h>
 
 #include <QtCore/QList>
 
@@ -67,16 +66,8 @@ public:
 
 private:
 
-    enum TidyType {
-        Tidy_Clean,       /**< Tidy with "clean" option (the works). */
-        Tidy_Fast,        /**< Tries to run Tidy's error correcting parser
-                               as fast as possible, with no unnecessary cleaning. */
-        Tidy_PrettyPrint, /**< Like Tidy_Fast, but pretty printing. */
-        Tidy_XML          /**< For XML files. */
-    };
 
     static QString PrettyPrint(const QString &source);
-    static QString PrettyPrintTidy(const QString &source);
 
     static int RobustCSSStyleTagCount(const QString &source);
 
@@ -103,11 +94,6 @@ private:
 
     // Returns the largest index of all the Sigil CSS classes
     static int MaxSigilCSSClassIndex(const QStringList &css_style_tags);
-
-    static TidyDoc TidyOptions(TidyDoc tidy_document, TidyType type, int max_class_index = 0);
-
-    // Runs HTML Tidy on the provided XHTML source code
-    static QString HTMLTidy(const QString &source, TidyType type);
 
     // Writes the new CSS style tags to the source, replacing the old ones
     static QString WriteNewCSSStyleTags(const QString &source, const QStringList &css_style_tags);

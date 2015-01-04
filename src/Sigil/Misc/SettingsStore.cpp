@@ -170,17 +170,17 @@ QString SettingsStore::renameTemplate()
 SettingsStore::CleanLevel SettingsStore::cleanLevel()
 {
     clearSettingsGroup();
-    int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_PrettyPrintTidy).toInt();
+    int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_PrettyPrintBS4).toInt();
 
     switch (level) {
         case SettingsStore::CleanLevel_PrettyPrint:
-        case SettingsStore::CleanLevel_PrettyPrintTidy:
-        case SettingsStore::CleanLevel_Tidy:
+        case SettingsStore::CleanLevel_PrettyPrintBS4:
+        case SettingsStore::CleanLevel_BS4:
             return static_cast<SettingsStore::CleanLevel>(level);
             break;
 
         default:
-            return SettingsStore::CleanLevel_PrettyPrintTidy;
+            return SettingsStore::CleanLevel_PrettyPrintBS4;
     }
 }
 

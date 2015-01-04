@@ -72,12 +72,12 @@ or when cleaning manually.</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout2">
       <item>
-       <widget class="QRadioButton" name="CleanLevelPrettyPrintTidy">
+       <widget class="QRadioButton" name="CleanLevelPrettyPrintBS4">
         <property name="toolTip">
          <string>Perform formatting and cleaning of your code to make it valid XHTML.</string>
         </property>
         <property name="text">
-         <string>Pretty Print Tidy</string>
+         <string>Pretty Print BS4</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -85,13 +85,13 @@ or when cleaning manually.</string>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="CleanLevelTidy">
+       <widget class="QRadioButton" name="CleanLevelBS4">
         <property name="toolTip">
          <string>Fully clean and format your code.
 This may change your formatting to use inline style sections.</string>
         </property>
         <property name="text">
-         <string>HTML Tidy</string>
+         <string>BeautifulSoup 4</string>
         </property>
         <property name="checked">
          <bool>false</bool>
