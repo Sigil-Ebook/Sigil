@@ -788,18 +788,24 @@ class Tag(PageElement):
         """Is this tag an empty-element tag? (aka a self-closing tag)
 
         A tag that has contents is never an empty-element tag.
-
+        
         A tag that has no contents may or may not be an empty-element
         tag. It depends on the builder used to create the tag. If the
         builder has a designated list of empty-element tags, then only
         a tag whose name shows up in that list is considered an
         empty-element tag.
-
+        
         If the builder has no designated list of empty-element tags,
         then any tag with no contents is an empty-element tag.
         """
         return len(self.contents) == 0 and self.can_be_empty_element
     isSelfClosing = is_empty_element  # BS3
+
+    @property
+    def is_non_breaking_inline_tag(self):
+        # used only for pretty printing of html to prevent returns after tags
+        # from introducing spaces where none are desired
+        return self.name in NON_BREAKING_INLINE_TAGS and not self._is_xml
 
     @property
     def string(self):
@@ -1047,6 +1053,13 @@ class Tag(PageElement):
         if self.prefix:
             prefix = self.prefix + ":"
 
+        if self._is_xml and self.can_be_empty_element:
+            # for pure xml, a self closing tag with only whitespace 
+            # "contents" should be treated as empty
+            tagcontents = self.string
+            if tagcontents is not None and len(tagcontents.strip()) == 0:
+                self.contents = []
+
         if self.is_empty_element:
             close = '/'
         else:
@@ -1086,7 +1099,7 @@ class Tag(PageElement):
             if pretty_print and closeTag:
                 s.append(space)
             s.append(closeTag)
-            if indent_level is not None and closeTag and self.next_sibling and not self.name in NON_BREAKING_INLINE_TAGS:
+            if indent_level is not None and closeTag and self.next_sibling and not self.is_non_breaking_inline_tag:
                 # Even if this particular tag is not pretty-printed,
                 # we're now done with the tag, and we should add a
                 # newline if appropriate.
@@ -1131,13 +1144,13 @@ class Tag(PageElement):
                     # So we need to remove any bad initial indentation from non breaking inline tags
                     # that do not start a line as the decode routine can not tell where the tag in in relation
                     # to other tags and previous newlines
-                    if c.name in NON_BREAKING_INLINE_TAGS and len(s) > 0:
+                    if c.is_non_breaking_inline_tag and len(s) > 0:
                         val = val.lstrip()
                 s.append(val)
-            if text and indent_level and not self.name == 'pre' and not self.name in NON_BREAKING_INLINE_TAGS:
+            if text and indent_level and not self.name == 'pre' and not self.is_non_breaking_inline_tag:
                 text = text.strip()
             if text:
-                if pretty_print and not self.name == 'pre' and not self.name in NON_BREAKING_INLINE_TAGS:
+                if pretty_print and not self.name == 'pre' and not self.is_non_breaking_inline_tag:
                     if len(s) == 0 or s[-1] == "\n":
                         s.append(indent_chars * (indent_level - 1))
                 s.append(text)
@@ -1169,6 +1182,14 @@ class Tag(PageElement):
 
         if self.prefix:
             prefix = self.prefix + ":"
+
+        if self._is_xml and self.can_be_empty_element:
+            # for pure xml, a self closing tag with only whitespace 
+            # "contents" should be treated as empty
+            tagcontents = self.string
+            if tagcontents is not None and len(tagcontents.strip()) == 0:
+                self.contents = []
+
         if self.is_empty_element:
             close = '/'
         else:
