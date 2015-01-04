@@ -44,10 +44,6 @@ public:
 
     QString embeddedRoot();
 
-    QVariant PyObjectToQVariant(PyObject* po);
-
-    PyObject* QVariantToPyObject(QVariant& v);
-
     bool addToPythonSysPath(const QString& modulepath);
 
     QVariant runInPython(const QString& module_name,
@@ -60,10 +56,14 @@ private:
 
     EmbeddedPython();
 
+    QVariant PyObjectToQVariant(PyObject* po);
+
+    PyObject* QVariantToPyObject(QVariant& v);
+
     QString getPythonErrorTraceback(bool useMsgBox = true);
 
-    static EmbeddedPython *m_instance;
     static QMutex m_mutex;
+    static EmbeddedPython *m_instance;
 
 };
 #endif // EMBEDDEDPYTHON_H
