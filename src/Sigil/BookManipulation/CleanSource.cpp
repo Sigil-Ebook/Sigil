@@ -129,7 +129,7 @@ QString CleanSource::Clean(const QString &source)
     }
 }
 
-// clean using BeautifulSoup4
+// Repair XHTML if needed  using BeautifulSoup4
 QString CleanSource::CleanBS4(const QString &source)
 {
     int rv = 0;
@@ -138,13 +138,13 @@ QString CleanSource::CleanBS4(const QString &source)
     args.append(QVariant(source));
     EmbeddedPython * epython  = EmbeddedPython::instance();
 
-    QVariant res = epython->runInPython( QString("bs4me"),
-                                         QString("cleanUsingBS4"),
+    QVariant res = epython->runInPython( QString("bs4repair"),
+                                         QString("repairXHTML"),
                                          args,
                                          &rv,
                                          error_traceback);    
     if (rv != 0) {
-        Utility::DisplayStdWarningDialog(QString("error in cleanUsingBS4: ") + QString::number(rv), 
+        Utility::DisplayStdWarningDialog(QString("error in bs4repair repairXHTML: ") + QString::number(rv), 
                                          error_traceback);
         // an error happened, return unchanged original
         return QString(source);
@@ -152,7 +152,7 @@ QString CleanSource::CleanBS4(const QString &source)
     return res.toString();
 }
 
-// PrettyPrint using BeautifulSoup4
+// Repair XHTML if needed and PrettyPrint using BeautifulSoup4
 QString CleanSource::PrettyPrintBS4(const QString &source)
 {
     int rv = 0;
@@ -161,13 +161,13 @@ QString CleanSource::PrettyPrintBS4(const QString &source)
     args.append(QVariant(source));
     EmbeddedPython * epython  = EmbeddedPython::instance();
 
-    QVariant res = epython->runInPython( QString("bs4me"),
-                                         QString("prettyPrintUsingBS4"),
+    QVariant res = epython->runInPython( QString("bs4repair"),
+                                         QString("repairPrettyPrintXHTML"),
                                          args,
                                          &rv,
                                          error_traceback);    
     if (rv != 0) {
-        Utility::DisplayStdWarningDialog(QString("error in prettyPrintUsingBS4: ") + QString::number(rv), 
+        Utility::DisplayStdWarningDialog(QString("error in bs4repair repairPrettyPrintXHTML: ") + QString::number(rv), 
                                          error_traceback);
         // an error happened, return unchanged original
         return QString(source);
@@ -175,7 +175,29 @@ QString CleanSource::PrettyPrintBS4(const QString &source)
     return res.toString();
 }
 
-// Remove blank lines at the top of style tag added by Tidy
+// Repair XML if needed and PrettyPrint using BeautifulSoup4
+QString CleanSource::XMLPrettyPrintBS4(const QString &source)
+{
+    int rv = 0;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(source));
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("bs4repair"),
+                                         QString("repairPrettyPrintXML"),
+                                         args,
+                                         &rv,
+                                         error_traceback);    
+    if (rv != 0) {
+        Utility::DisplayStdWarningDialog(QString("error in bs4repair repairPrettyPrintXML: ") + QString::number(rv), 
+                                         error_traceback);
+        // an error happened, return unchanged original
+        return QString(source);
+    }
+    return res.toString();
+}
+
 QString CleanSource::RemoveBlankStyleLines(const QString &source)
 {
     // Remove the extra blank lines in the style section
@@ -217,7 +239,8 @@ QString CleanSource::PrettyPrint(const QString &source)
 
 QString CleanSource::PrettyPrintTidy(const QString &source)
 {
-    return HTMLTidy(source, Tidy_PrettyPrint);
+    // return HTMLTidy(source, Tidy_PrettyPrint);
+    return PrettyPrintBS4(source);
 }
 
 QString CleanSource::ProcessXML(const QString &source)
@@ -227,7 +250,8 @@ QString CleanSource::ProcessXML(const QString &source)
     pp.setIndentLevel(0);
     return pp.prettyPrint();
 #endif
-    return HTMLTidy( source, Tidy_XML );
+    // return HTMLTidy(source, Tidy_XML)
+    return XMLPrettyPrintBS4(source);
 }
 
 

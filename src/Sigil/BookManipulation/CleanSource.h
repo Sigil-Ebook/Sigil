@@ -51,6 +51,8 @@ public:
 
     static QString PrettyPrintBS4(const QString &source);
 
+    static QString XMLPrettyPrintBS4(const QString &source);
+
     /**
      * Xerces when serializing into Sigil will always mess with the line feeds and
      * spacing of the DOCTYPE and html declarations at top of the document. This is
