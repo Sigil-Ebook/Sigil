@@ -232,7 +232,7 @@ bool CleanContentUpdates::CanJoinParagraphs(xc::DOMElement &p1, xc::DOMElement &
     }
 
     if (last_char == "." || last_char == "?" ||
-        last_char == "!") {
+        last_char == "!" || last_char == ":") {
         return false;
     }
 
