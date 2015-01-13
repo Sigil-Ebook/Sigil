@@ -80,11 +80,11 @@ Examples: &quot;Page 2 of 18&quot;, &quot;- 5 -&quot;.</string>
    <item>
     <widget class="QCheckBox" name="checkBoxJoinParagraphs">
      <property name="toolTip">
-      <string>Join sentences splitted between paragraphs.
+      <string>Join sentences split between paragraphs.
 This sometimes happens for documents converted from PDF format.</string>
      </property>
      <property name="text">
-      <string>Join paragraps with splitted sentences</string>
+      <string>Join paragraps with split sentences</string>
      </property>
      <property name="checked">
       <bool>true</bool>
