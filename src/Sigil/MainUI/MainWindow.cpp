@@ -43,6 +43,7 @@
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
+#include "Dialogs/CleanContent.h"
 #include "Dialogs/ClipEditor.h"
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/DeleteStyles.h"
@@ -84,6 +85,7 @@
 #include "ResourceObjects/OPFResource.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
+#include "SourceUpdates/CleanContentUpdates.h"
 #include "SourceUpdates/LinkUpdates.h"
 #include "SourceUpdates/WordUpdates.h"
 #include "Tabs/FlowTab.h"
@@ -154,6 +156,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_headingMapper(new QSignalMapper(this)),
     m_casingChangeMapper(new QSignalMapper(this)),
     m_SearchEditor(new SearchEditor(this)),
+    m_CleanContent(new CleanContent(*this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
     m_SpellcheckEditor(new SpellcheckEditor(this)),
@@ -576,6 +579,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
         // Prompt them to save or discard their changes if any.
         if (m_SearchEditor && m_SearchEditor->isVisible()) {
             m_SearchEditor->ForceClose();
+        }
+
+        if (m_CleanContent && m_CleanContent->isVisible()) {
+            m_CleanContent->ForceClose();
         }
 
         if (m_ClipEditor && m_ClipEditor->isVisible()) {
@@ -2352,6 +2359,14 @@ void MainWindow::SearchEditorDialog(SearchEditorModel::searchEntry *search_entry
     }
 }
 
+void MainWindow::CleanContentDialog()
+{
+    // non-modal dialog
+    m_CleanContent->show();
+    m_CleanContent->raise();
+    m_CleanContent->activateWindow();
+}
+
 void MainWindow::ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry)
 {
     // non-modal dialog
@@ -3319,6 +3334,7 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
     m_TableOfContents->SetBook(m_Book);
     m_ValidationResultsView->SetBook(m_Book);
     m_IndexEditor->SetBook(m_Book);
+    m_CleanContent->SetBook(m_Book);
     m_ClipEditor->SetBook(m_Book);
     m_SpellcheckEditor->SetBook(m_Book);
     SpellCheck *sc = SpellCheck::instance();
@@ -4032,6 +4048,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(ui.actionIgnoreMisspelledWord, "MainWindow.IgnoreMispelledWord");
     sm->registerAction(ui.actionClearIgnoredWords, "MainWindow.ClearIgnoredWords");
     sm->registerAction(ui.actionReports, "MainWindow.Reports");
+    sm->registerAction(ui.actionCleanContent, "MainWindow.CleanContent");
     sm->registerAction(ui.actionSearchEditor, "MainWindow.SearchEditor");
     sm->registerAction(ui.actionClipEditor, "MainWindow.ClipEditor");
     sm->registerAction(ui.actionAddToIndex, "MainWindow.AddToIndex");
@@ -4380,6 +4397,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));
     connect(ui.actionCreateHTMLTOC, SIGNAL(triggered()), this, SLOT(CreateHTMLTOC()));
     connect(ui.actionReports,       SIGNAL(triggered()), this, SLOT(ReportsDialog()));
+    connect(ui.actionCleanContent,  SIGNAL(triggered()), this, SLOT(CleanContentDialog()));
     connect(ui.actionClipEditor,    SIGNAL(triggered()), this, SLOT(ClipEditorDialog()));
     connect(ui.actionSearchEditor,  SIGNAL(triggered()), this, SLOT(SearchEditorDialog()));
     connect(ui.actionIndexEditor,   SIGNAL(triggered()), this, SLOT(IndexEditorDialog()));

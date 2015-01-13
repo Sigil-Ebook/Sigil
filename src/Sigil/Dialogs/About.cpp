@@ -58,6 +58,7 @@ About::About(QWidget *parent)
                       "<li>Charles King</li>" +
                       "<li>Daniel Pavel</li>" +
                       "<li>Grzegorz Wolszczak</li>" +
+                      "<li>Marek Gibek</li>" +
                       "</ul>" +
                       "<h4>" + tr("Translators") + "</h4>" +
                       "<ul><li><a href=\"https://www.transifex.net/projects/p/sigil/\">https://www.transifex.net/projects/p/sigil/teams/</a></li></ul>" +

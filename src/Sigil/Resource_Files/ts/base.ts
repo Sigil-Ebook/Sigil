@@ -69,17 +69,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="62"/>
+        <location filename="../../Dialogs/About.cpp" line="63"/>
         <source>Translators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="64"/>
+        <location filename="../../Dialogs/About.cpp" line="65"/>
         <source>Original Creator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="65"/>
+        <location filename="../../Dialogs/About.cpp" line="66"/>
         <source>retired</source>
         <translation type="unfinished"></translation>
     </message>
@@ -756,94 +756,94 @@ OK to replace?</source>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1007"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1008"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1009"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="850"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1012"/>
         <source>Open With</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="639"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
         <source>Clipboard contains HTML formatting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="641"/>
         <source>Do you want to paste clipboard data as plain text?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="835"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="836"/>
         <source>Open Tab For</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="856"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="857"/>
         <source>Other Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="904"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="905"/>
         <source>Clips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="915"/>
         <source>Add To Clips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="999"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1000"/>
         <source>Insert File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1000"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1001"/>
         <source>Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1001"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1002"/>
         <source>Redo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1002"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1003"/>
         <source>Cut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1003"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1004"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1004"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1005"/>
         <source>Copy Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1005"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1006"/>
         <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1006"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1007"/>
         <source>Select All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1014"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1015"/>
         <source>Inspect Element</source>
         <translation type="unfinished"></translation>
     </message>
@@ -851,29 +851,29 @@ OK to replace?</source>
 <context>
     <name>BookViewPreview</name>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="250"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="315"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="321"/>
         <source>Unsupported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="250"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="315"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="321"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="715"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="711"/>
         <source>Inspect Element</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1097,6 +1097,98 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
         <source>Cannot save report file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CleanContent</name>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="14"/>
+        <source>Clean Content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="20"/>
+        <source>Removes paragraphs with content matching given format.
+Useful for removing page numbers but not only.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="24"/>
+        <source>Remove page numbers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="44"/>
+        <source>Sample page number format:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="54"/>
+        <source>Sample format describing paragraph content.
+Use any number as sample page number or number of pages.
+Examples: &quot;Page 2 of 18&quot;, &quot;- 5 -&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="59"/>
+        <source>12</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="71"/>
+        <source>Remove empty paragraphs around page numbers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="83"/>
+        <source>Join sentences split between paragraphs.
+This sometimes happens for documents converted from PDF format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="87"/>
+        <source>Join paragraps with split sentences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="108"/>
+        <source>Join when paragraph&apos;s end and beginning are not formatted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="164"/>
+        <source>Mode:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="177"/>
+        <source>Execute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/CleanContent.ui" line="187"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/CleanContent.cpp" line="33"/>
+        <source>Current File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/CleanContent.cpp" line="34"/>
+        <source>All HTML Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/CleanContent.cpp" line="35"/>
+        <source>Selected Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/CleanContent.cpp" line="90"/>
+        <source>Done %1 change(s) in %2 file(s).</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2082,7 +2174,7 @@ other end to continue searching.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1116"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1113"/>
         <source>Print %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2380,49 +2472,49 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="139"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="140"/>
         <source>shades</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="139"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="140"/>
         <source>colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="140"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="141"/>
         <source>Grayscale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="140"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="141"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="230"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="255"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="258"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="231"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="256"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="259"/>
         <source>Open With</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="237"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="238"/>
         <source>Other Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="256"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="257"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="257"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="258"/>
         <source>Copy Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="291"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="292"/>
         <source>Print %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5828,232 +5920,232 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="216"/>
+        <location filename="../../Form_Files/main.ui" line="215"/>
         <source>&amp;View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="235"/>
+        <location filename="../../Form_Files/main.ui" line="234"/>
         <source>&amp;Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="239"/>
+        <location filename="../../Form_Files/main.ui" line="238"/>
         <source>Current Fil&amp;e</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="271"/>
+        <location filename="../../Form_Files/main.ui" line="270"/>
         <source>&amp;Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="354"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="479"/>
+        <location filename="../../Form_Files/main.ui" line="355"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="493"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="369"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="256"/>
+        <location filename="../../Form_Files/main.ui" line="370"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="257"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="388"/>
+        <location filename="../../Form_Files/main.ui" line="389"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="401"/>
+        <location filename="../../Form_Files/main.ui" line="402"/>
         <source>Insert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="430"/>
+        <location filename="../../Form_Files/main.ui" line="431"/>
         <source>Donate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="562"/>
+        <location filename="../../Form_Files/main.ui" line="564"/>
         <source>Clip Bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="605"/>
+        <location filename="../../Form_Files/main.ui" line="607"/>
         <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="614"/>
+        <location filename="../../Form_Files/main.ui" line="616"/>
         <source>&amp;Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="617"/>
+        <location filename="../../Form_Files/main.ui" line="619"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="622"/>
+        <location filename="../../Form_Files/main.ui" line="624"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="627"/>
+        <location filename="../../Form_Files/main.ui" line="629"/>
         <source>Save &amp;As...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="630"/>
+        <location filename="../../Form_Files/main.ui" line="632"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="635"/>
+        <location filename="../../Form_Files/main.ui" line="637"/>
         <source>Ctrl+Shift+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="652"/>
+        <location filename="../../Form_Files/main.ui" line="654"/>
         <source>Cu&amp;t</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="666"/>
+        <location filename="../../Form_Files/main.ui" line="668"/>
         <source>&amp;Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="669"/>
+        <location filename="../../Form_Files/main.ui" line="671"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="691"/>
+        <location filename="../../Form_Files/main.ui" line="693"/>
         <source>&amp;Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="694"/>
+        <location filename="../../Form_Files/main.ui" line="696"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="699"/>
+        <location filename="../../Form_Files/main.ui" line="701"/>
         <source>Ctrl+Z</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="708"/>
+        <location filename="../../Form_Files/main.ui" line="710"/>
         <source>&amp;Redo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="711"/>
+        <location filename="../../Form_Files/main.ui" line="713"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="725"/>
+        <location filename="../../Form_Files/main.ui" line="727"/>
         <source>&amp;Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="745"/>
+        <location filename="../../Form_Files/main.ui" line="747"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="762"/>
+        <location filename="../../Form_Files/main.ui" line="764"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="853"/>
+        <location filename="../../Form_Files/main.ui" line="855"/>
         <source>&amp;Open...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="856"/>
+        <location filename="../../Form_Files/main.ui" line="858"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="861"/>
+        <location filename="../../Form_Files/main.ui" line="863"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="893"/>
+        <location filename="../../Form_Files/main.ui" line="895"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="896"/>
+        <location filename="../../Form_Files/main.ui" line="898"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="905"/>
+        <location filename="../../Form_Files/main.ui" line="907"/>
         <source>&amp;About...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="935"/>
+        <location filename="../../Form_Files/main.ui" line="937"/>
         <source>F8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="957"/>
+        <location filename="../../Form_Files/main.ui" line="959"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="960"/>
+        <location filename="../../Form_Files/main.ui" line="962"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="974"/>
+        <location filename="../../Form_Files/main.ui" line="976"/>
         <source>&amp;Book View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="991"/>
+        <location filename="../../Form_Files/main.ui" line="993"/>
         <source>&amp;Code View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1004"/>
+        <location filename="../../Form_Files/main.ui" line="1006"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1024"/>
+        <location filename="../../Form_Files/main.ui" line="1026"/>
         <source>Ctrl+Return</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="977"/>
+        <location filename="../../Form_Files/main.ui" line="979"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
@@ -6070,125 +6162,125 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="175"/>
+        <location filename="../../Form_Files/main.ui" line="174"/>
         <source>&amp;Heading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="220"/>
+        <location filename="../../Form_Files/main.ui" line="219"/>
         <source>&amp;Toolbars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="287"/>
+        <location filename="../../Form_Files/main.ui" line="286"/>
         <source>&amp;Table Of Contents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="295"/>
+        <location filename="../../Form_Files/main.ui" line="294"/>
         <source>Spe&amp;llcheck</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="309"/>
+        <location filename="../../Form_Files/main.ui" line="308"/>
         <source>&amp;Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="418"/>
+        <location filename="../../Form_Files/main.ui" line="419"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="442"/>
+        <location filename="../../Form_Files/main.ui" line="443"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="600"/>
+        <location filename="../../Form_Files/main.ui" line="602"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="994"/>
+        <location filename="../../Form_Files/main.ui" line="996"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1016"/>
+        <location filename="../../Form_Files/main.ui" line="1018"/>
         <source>&amp;Split At Cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1019"/>
+        <location filename="../../Form_Files/main.ui" line="1021"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1043"/>
+        <location filename="../../Form_Files/main.ui" line="1045"/>
         <source>Ctrl+Shift+I</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1052"/>
+        <location filename="../../Form_Files/main.ui" line="1054"/>
         <source>&amp;Special Character...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1066"/>
+        <location filename="../../Form_Files/main.ui" line="1068"/>
         <source>I&amp;D...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1069"/>
+        <location filename="../../Form_Files/main.ui" line="1071"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1134"/>
+        <location filename="../../Form_Files/main.ui" line="1136"/>
         <source>Stri&amp;kethrough</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1151"/>
+        <location filename="../../Form_Files/main.ui" line="1153"/>
         <source>&amp;Subscript</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1182"/>
+        <location filename="../../Form_Files/main.ui" line="1184"/>
         <source>&amp;Print...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1185"/>
+        <location filename="../../Form_Files/main.ui" line="1187"/>
         <source>Print</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1188"/>
+        <location filename="../../Form_Files/main.ui" line="1190"/>
         <source>Ctrl+P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1197"/>
+        <location filename="../../Form_Files/main.ui" line="1199"/>
         <source>Print Pre&amp;view...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1200"/>
+        <location filename="../../Form_Files/main.ui" line="1202"/>
         <source>Print Preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="533"/>
+        <location filename="../../Form_Files/main.ui" line="535"/>
         <source>Change Case</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6198,355 +6290,355 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="171"/>
+        <location filename="../../Form_Files/main.ui" line="170"/>
         <source>For&amp;mat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="457"/>
+        <location filename="../../Form_Files/main.ui" line="459"/>
         <source>Heading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="283"/>
+        <location filename="../../Form_Files/main.ui" line="282"/>
         <source>&amp;Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="475"/>
+        <location filename="../../Form_Files/main.ui" line="477"/>
         <source>Format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="492"/>
+        <location filename="../../Form_Files/main.ui" line="494"/>
         <source>Align</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="507"/>
+        <location filename="../../Form_Files/main.ui" line="509"/>
         <source>List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="520"/>
+        <location filename="../../Form_Files/main.ui" line="522"/>
         <source>Indent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="548"/>
+        <location filename="../../Form_Files/main.ui" line="550"/>
         <source>Text Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="597"/>
+        <location filename="../../Form_Files/main.ui" line="599"/>
         <source>&amp;New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="640"/>
+        <location filename="../../Form_Files/main.ui" line="642"/>
         <source>Save A &amp;Copy...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="643"/>
+        <location filename="../../Form_Files/main.ui" line="645"/>
         <source>Save a copy of your book to another file name.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="655"/>
+        <location filename="../../Form_Files/main.ui" line="657"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="682"/>
+        <location filename="../../Form_Files/main.ui" line="684"/>
         <source>Ctrl+.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="676"/>
+        <location filename="../../Form_Files/main.ui" line="678"/>
         <source>&amp;Closing Tag</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="679"/>
+        <location filename="../../Form_Files/main.ui" line="681"/>
         <source>Insert a closing tag in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="716"/>
+        <location filename="../../Form_Files/main.ui" line="718"/>
         <source>Ctrl+Y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="728"/>
+        <location filename="../../Form_Files/main.ui" line="730"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="742"/>
+        <location filename="../../Form_Files/main.ui" line="744"/>
         <source>Align &amp;Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="759"/>
+        <location filename="../../Form_Files/main.ui" line="761"/>
         <source>Align &amp;Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1685"/>
+        <location filename="../../Form_Files/main.ui" line="1682"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="776"/>
+        <location filename="../../Form_Files/main.ui" line="778"/>
         <source>&amp;Center</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="779"/>
+        <location filename="../../Form_Files/main.ui" line="781"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="784"/>
+        <location filename="../../Form_Files/main.ui" line="786"/>
         <source>Ctrl+E</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="796"/>
+        <location filename="../../Form_Files/main.ui" line="798"/>
         <source>&amp;Justify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="799"/>
+        <location filename="../../Form_Files/main.ui" line="801"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="804"/>
+        <location filename="../../Form_Files/main.ui" line="806"/>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="816"/>
+        <location filename="../../Form_Files/main.ui" line="818"/>
         <source>&amp;Bold</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="819"/>
+        <location filename="../../Form_Files/main.ui" line="821"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="824"/>
+        <location filename="../../Form_Files/main.ui" line="826"/>
         <source>Ctrl+B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="836"/>
+        <location filename="../../Form_Files/main.ui" line="838"/>
         <source>&amp;Italic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="839"/>
+        <location filename="../../Form_Files/main.ui" line="841"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="844"/>
+        <location filename="../../Form_Files/main.ui" line="846"/>
         <source>Ctrl+I</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="873"/>
+        <location filename="../../Form_Files/main.ui" line="875"/>
         <source>&amp;Underline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="876"/>
+        <location filename="../../Form_Files/main.ui" line="878"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="881"/>
+        <location filename="../../Form_Files/main.ui" line="883"/>
         <source>Ctrl+U</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="890"/>
+        <location filename="../../Form_Files/main.ui" line="892"/>
         <source>&amp;Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="908"/>
+        <location filename="../../Form_Files/main.ui" line="910"/>
         <source>Show information about Sigil.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="930"/>
+        <location filename="../../Form_Files/main.ui" line="932"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1001"/>
+        <location filename="../../Form_Files/main.ui" line="1003"/>
         <source>&amp;Toggle View State</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1007"/>
+        <location filename="../../Form_Files/main.ui" line="1009"/>
         <source>F2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1055"/>
+        <location filename="../../Form_Files/main.ui" line="1057"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1097"/>
+        <location filename="../../Form_Files/main.ui" line="1099"/>
         <source>&amp;Numbered List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1100"/>
+        <location filename="../../Form_Files/main.ui" line="1102"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1114"/>
+        <location filename="../../Form_Files/main.ui" line="1116"/>
         <source>Bulle&amp;ted List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1117"/>
+        <location filename="../../Form_Files/main.ui" line="1119"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1122"/>
+        <location filename="../../Form_Files/main.ui" line="1124"/>
         <source>Ctrl+Shift+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1137"/>
+        <location filename="../../Form_Files/main.ui" line="1139"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1154"/>
+        <location filename="../../Form_Files/main.ui" line="1156"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1168"/>
+        <location filename="../../Form_Files/main.ui" line="1170"/>
         <source>Su&amp;perscript</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1171"/>
+        <location filename="../../Form_Files/main.ui" line="1173"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1205"/>
-        <location filename="../../Form_Files/main.ui" line="1208"/>
+        <location filename="../../Form_Files/main.ui" line="1207"/>
+        <location filename="../../Form_Files/main.ui" line="1210"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1211"/>
+        <location filename="../../Form_Files/main.ui" line="1213"/>
         <source>Ctrl+Shift+W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1220"/>
+        <location filename="../../Form_Files/main.ui" line="1222"/>
         <source>Zoom &amp;In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1223"/>
+        <location filename="../../Form_Files/main.ui" line="1225"/>
         <source>Zoom In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1235"/>
+        <location filename="../../Form_Files/main.ui" line="1237"/>
         <source>Zoom &amp;Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1238"/>
+        <location filename="../../Form_Files/main.ui" line="1240"/>
         <source>Zoom Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1241"/>
+        <location filename="../../Form_Files/main.ui" line="1243"/>
         <source>Ctrl+-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1246"/>
+        <location filename="../../Form_Files/main.ui" line="1248"/>
         <source>Sho&amp;w Tag</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="952"/>
+        <location filename="../../Form_Files/main.ui" line="954"/>
         <source>Ctrl+T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="913"/>
+        <location filename="../../Form_Files/main.ui" line="915"/>
         <source>Add &amp;Cover...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="916"/>
+        <location filename="../../Form_Files/main.ui" line="918"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="947"/>
+        <location filename="../../Form_Files/main.ui" line="949"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1033"/>
+        <location filename="../../Form_Files/main.ui" line="1035"/>
         <source>&amp;File...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1036"/>
+        <location filename="../../Form_Files/main.ui" line="1038"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -6555,71 +6647,71 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1080"/>
+        <location filename="../../Form_Files/main.ui" line="1082"/>
         <source>&amp;Link...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1083"/>
+        <location filename="../../Form_Files/main.ui" line="1085"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1226"/>
+        <location filename="../../Form_Files/main.ui" line="1228"/>
         <source>Ctrl+=</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1249"/>
+        <location filename="../../Form_Files/main.ui" line="1251"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1252"/>
+        <location filename="../../Form_Files/main.ui" line="1254"/>
         <source>Ctrl+Alt+T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1264"/>
+        <location filename="../../Form_Files/main.ui" line="1266"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1269"/>
+        <location filename="../../Form_Files/main.ui" line="1271"/>
         <source>Ctrl+F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1281"/>
+        <location filename="../../Form_Files/main.ui" line="1283"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1286"/>
+        <location filename="../../Form_Files/main.ui" line="1288"/>
         <source>Ctrl+Alt+M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1298"/>
+        <location filename="../../Form_Files/main.ui" line="1300"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1303"/>
-        <location filename="../../Form_Files/main.ui" line="1725"/>
+        <location filename="../../Form_Files/main.ui" line="1305"/>
+        <location filename="../../Form_Files/main.ui" line="1722"/>
         <source>Ctrl+Shift+M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1315"/>
+        <location filename="../../Form_Files/main.ui" line="1317"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -6628,7 +6720,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1331"/>
+        <location filename="../../Form_Files/main.ui" line="1333"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -6637,7 +6729,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1347"/>
+        <location filename="../../Form_Files/main.ui" line="1349"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -6646,12 +6738,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1359"/>
+        <location filename="../../Form_Files/main.ui" line="1361"/>
         <source>Ctrl+Space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1371"/>
+        <location filename="../../Form_Files/main.ui" line="1373"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6660,12 +6752,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1378"/>
+        <location filename="../../Form_Files/main.ui" line="1380"/>
         <source>Alt+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1390"/>
+        <location filename="../../Form_Files/main.ui" line="1392"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6674,12 +6766,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1397"/>
+        <location filename="../../Form_Files/main.ui" line="1399"/>
         <source>Alt+U</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1409"/>
+        <location filename="../../Form_Files/main.ui" line="1411"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -6688,7 +6780,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1425"/>
+        <location filename="../../Form_Files/main.ui" line="1427"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -6697,124 +6789,119 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1434"/>
-        <source>&amp;Report An Issue...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1439"/>
+        <location filename="../../Form_Files/main.ui" line="1436"/>
         <source>Sigil Dev &amp;Blog...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1444"/>
+        <location filename="../../Form_Files/main.ui" line="1441"/>
         <source>&amp;Next Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1447"/>
+        <location filename="../../Form_Files/main.ui" line="1444"/>
         <source>Ctrl+PgUp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1452"/>
+        <location filename="../../Form_Files/main.ui" line="1449"/>
         <source>&amp;Previous Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1455"/>
+        <location filename="../../Form_Files/main.ui" line="1452"/>
         <source>Ctrl+PgDown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1460"/>
+        <location filename="../../Form_Files/main.ui" line="1457"/>
         <source>&amp;Close Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1463"/>
+        <location filename="../../Form_Files/main.ui" line="1460"/>
         <source>Ctrl+W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1474"/>
+        <location filename="../../Form_Files/main.ui" line="1471"/>
         <source>F6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1521"/>
+        <location filename="../../Form_Files/main.ui" line="1518"/>
         <source>&amp;Validate EPUB With FlightCrew</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1529"/>
+        <location filename="../../Form_Files/main.ui" line="1526"/>
         <source>F7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1534"/>
+        <location filename="../../Form_Files/main.ui" line="1531"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1550"/>
+        <location filename="../../Form_Files/main.ui" line="1547"/>
         <source>&amp;Spellcheck...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1553"/>
+        <location filename="../../Form_Files/main.ui" line="1550"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1558"/>
+        <location filename="../../Form_Files/main.ui" line="1555"/>
         <source>Alt+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1569"/>
+        <location filename="../../Form_Files/main.ui" line="1566"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1574"/>
+        <location filename="../../Form_Files/main.ui" line="1571"/>
         <source>&amp;Next Misspelled Word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1596"/>
+        <location filename="../../Form_Files/main.ui" line="1593"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1604"/>
+        <location filename="../../Form_Files/main.ui" line="1601"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1612"/>
+        <location filename="../../Form_Files/main.ui" line="1609"/>
         <source>Ctrl+Alt+I</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1617"/>
+        <location filename="../../Form_Files/main.ui" line="1614"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1622"/>
+        <location filename="../../Form_Files/main.ui" line="1619"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1630"/>
+        <location filename="../../Form_Files/main.ui" line="1627"/>
         <source>Ctrl+Shift+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1642"/>
+        <location filename="../../Form_Files/main.ui" line="1639"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -6822,483 +6909,488 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1682"/>
+        <location filename="../../Form_Files/main.ui" line="1679"/>
         <source>Replace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1690"/>
+        <location filename="../../Form_Files/main.ui" line="1687"/>
         <source>&amp;Replace/Find Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1698"/>
+        <location filename="../../Form_Files/main.ui" line="1695"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1722"/>
+        <location filename="../../Form_Files/main.ui" line="1719"/>
         <source>Mar&amp;k Selected Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1730"/>
+        <location filename="../../Form_Files/main.ui" line="1727"/>
         <source>Find &amp;Next In File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1735"/>
+        <location filename="../../Form_Files/main.ui" line="1732"/>
         <source>&amp;Replace Next In File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1740"/>
+        <location filename="../../Form_Files/main.ui" line="1737"/>
         <source>Replace &amp;All In File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1745"/>
+        <location filename="../../Form_Files/main.ui" line="1742"/>
         <source>&amp;Count All In File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1753"/>
+        <location filename="../../Form_Files/main.ui" line="1750"/>
         <source>Ctrl+Alt+F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1764"/>
+        <location filename="../../Form_Files/main.ui" line="1761"/>
         <source>Ctrl+Alt+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1769"/>
+        <location filename="../../Form_Files/main.ui" line="1766"/>
         <source>Clip &amp;1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1772"/>
+        <location filename="../../Form_Files/main.ui" line="1769"/>
         <source>Insert Clip 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1775"/>
+        <location filename="../../Form_Files/main.ui" line="1772"/>
         <source>Ctrl+Alt+1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1780"/>
+        <location filename="../../Form_Files/main.ui" line="1777"/>
         <source>Clip 2&amp;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1783"/>
+        <location filename="../../Form_Files/main.ui" line="1780"/>
         <source>Insert Clip 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1786"/>
+        <location filename="../../Form_Files/main.ui" line="1783"/>
         <source>Ctrl+Alt+2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1791"/>
+        <location filename="../../Form_Files/main.ui" line="1788"/>
         <source>Clip &amp;3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1794"/>
+        <location filename="../../Form_Files/main.ui" line="1791"/>
         <source>Insert Clip 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1797"/>
+        <location filename="../../Form_Files/main.ui" line="1794"/>
         <source>Ctrl+Alt+3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1802"/>
+        <location filename="../../Form_Files/main.ui" line="1799"/>
         <source>Clip &amp;4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1805"/>
+        <location filename="../../Form_Files/main.ui" line="1802"/>
         <source>Insert Clip 4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1808"/>
+        <location filename="../../Form_Files/main.ui" line="1805"/>
         <source>Ctrl+Alt+4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1813"/>
+        <location filename="../../Form_Files/main.ui" line="1810"/>
         <source>Clip &amp;5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1816"/>
+        <location filename="../../Form_Files/main.ui" line="1813"/>
         <source>Insert Clip 5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1819"/>
+        <location filename="../../Form_Files/main.ui" line="1816"/>
         <source>Ctrl+Alt+5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1824"/>
+        <location filename="../../Form_Files/main.ui" line="1821"/>
         <source>Clip &amp;6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1827"/>
+        <location filename="../../Form_Files/main.ui" line="1824"/>
         <source>Insert Clip 6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1830"/>
+        <location filename="../../Form_Files/main.ui" line="1827"/>
         <source>Ctrl+Alt+6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1835"/>
+        <location filename="../../Form_Files/main.ui" line="1832"/>
         <source>Clip &amp;7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1838"/>
+        <location filename="../../Form_Files/main.ui" line="1835"/>
         <source>Insert Clip 7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1841"/>
+        <location filename="../../Form_Files/main.ui" line="1838"/>
         <source>Ctrl+Alt+7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1846"/>
+        <location filename="../../Form_Files/main.ui" line="1843"/>
         <source>Clip &amp;8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1849"/>
+        <location filename="../../Form_Files/main.ui" line="1846"/>
         <source>Insert Clip 8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1852"/>
+        <location filename="../../Form_Files/main.ui" line="1849"/>
         <source>Ctrl+Alt+8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1857"/>
+        <location filename="../../Form_Files/main.ui" line="1854"/>
         <source>Clip &amp;9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1860"/>
+        <location filename="../../Form_Files/main.ui" line="1857"/>
         <source>Insert Clip 9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1863"/>
+        <location filename="../../Form_Files/main.ui" line="1860"/>
         <source>Ctrl+Alt+9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1868"/>
+        <location filename="../../Form_Files/main.ui" line="1865"/>
         <source>Clip 1&amp;0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1871"/>
+        <location filename="../../Form_Files/main.ui" line="1868"/>
         <source>Insert Clip 10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1874"/>
+        <location filename="../../Form_Files/main.ui" line="1871"/>
         <source>Ctrl+Alt+0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1879"/>
+        <location filename="../../Form_Files/main.ui" line="1876"/>
         <source>Clip 11</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1882"/>
+        <location filename="../../Form_Files/main.ui" line="1879"/>
         <source>Insert Clip 11</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1887"/>
+        <location filename="../../Form_Files/main.ui" line="1884"/>
         <source>Clip 12</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1890"/>
+        <location filename="../../Form_Files/main.ui" line="1887"/>
         <source>Insert Clip 12</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1895"/>
+        <location filename="../../Form_Files/main.ui" line="1892"/>
         <source>Clip 13</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1898"/>
+        <location filename="../../Form_Files/main.ui" line="1895"/>
         <source>Insert Clip 13</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1903"/>
+        <location filename="../../Form_Files/main.ui" line="1900"/>
         <source>Clip 14</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1906"/>
+        <location filename="../../Form_Files/main.ui" line="1903"/>
         <source>Insert Clip 14</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1911"/>
+        <location filename="../../Form_Files/main.ui" line="1908"/>
         <source>Clip 15</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1914"/>
+        <location filename="../../Form_Files/main.ui" line="1911"/>
         <source>Insert Clip 15</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1919"/>
+        <location filename="../../Form_Files/main.ui" line="1916"/>
         <source>Clip 16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1922"/>
+        <location filename="../../Form_Files/main.ui" line="1919"/>
         <source>Insert Clip 16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1927"/>
+        <location filename="../../Form_Files/main.ui" line="1924"/>
         <source>Clip 17</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1930"/>
+        <location filename="../../Form_Files/main.ui" line="1927"/>
         <source>Insert Clip 17</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1935"/>
+        <location filename="../../Form_Files/main.ui" line="1932"/>
         <source>Clip 18</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1938"/>
+        <location filename="../../Form_Files/main.ui" line="1935"/>
         <source>Insert Clip 18</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1943"/>
+        <location filename="../../Form_Files/main.ui" line="1940"/>
         <source>Clip 19</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1946"/>
+        <location filename="../../Form_Files/main.ui" line="1943"/>
         <source>Insert Clip 19</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1951"/>
+        <location filename="../../Form_Files/main.ui" line="1948"/>
         <source>Clip 20</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1954"/>
+        <location filename="../../Form_Files/main.ui" line="1951"/>
         <source>Insert Clip 20</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1988"/>
+        <location filename="../../Form_Files/main.ui" line="1985"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1993"/>
+        <location filename="../../Form_Files/main.ui" line="1990"/>
         <source>Ctrl+1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2008"/>
+        <location filename="../../Form_Files/main.ui" line="2005"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2013"/>
+        <location filename="../../Form_Files/main.ui" line="2010"/>
         <source>Ctrl+2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2028"/>
+        <location filename="../../Form_Files/main.ui" line="2025"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2033"/>
+        <location filename="../../Form_Files/main.ui" line="2030"/>
         <source>Ctrl+3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2048"/>
+        <location filename="../../Form_Files/main.ui" line="2045"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2053"/>
+        <location filename="../../Form_Files/main.ui" line="2050"/>
         <source>Ctrl+4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2068"/>
+        <location filename="../../Form_Files/main.ui" line="2065"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2073"/>
+        <location filename="../../Form_Files/main.ui" line="2070"/>
         <source>Ctrl+5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2088"/>
+        <location filename="../../Form_Files/main.ui" line="2085"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2093"/>
+        <location filename="../../Form_Files/main.ui" line="2090"/>
         <source>Ctrl+6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2108"/>
+        <location filename="../../Form_Files/main.ui" line="2105"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2113"/>
+        <location filename="../../Form_Files/main.ui" line="2110"/>
         <source>Ctrl+7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2124"/>
+        <location filename="../../Form_Files/main.ui" line="2121"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2129"/>
+        <location filename="../../Form_Files/main.ui" line="2126"/>
         <source>Blank HTML File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2132"/>
+        <location filename="../../Form_Files/main.ui" line="2129"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2141"/>
+        <location filename="../../Form_Files/main.ui" line="2138"/>
         <source>Existing Files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2144"/>
+        <location filename="../../Form_Files/main.ui" line="2141"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2154"/>
+        <location filename="../../Form_Files/main.ui" line="2151"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2162"/>
+        <location filename="../../Form_Files/main.ui" line="2159"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2170"/>
+        <location filename="../../Form_Files/main.ui" line="2167"/>
         <source>Open previous file of the same type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2181"/>
+        <location filename="../../Form_Files/main.ui" line="2178"/>
         <source>Open next file of the same type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2192"/>
+        <location filename="../../Form_Files/main.ui" line="2189"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2203"/>
+        <location filename="../../Form_Files/main.ui" line="2200"/>
         <source>Ctrl+Shift+X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2200"/>
+        <location filename="../../Form_Files/main.ui" line="2280"/>
+        <source>Clean Content...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2197"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2211"/>
+        <location filename="../../Form_Files/main.ui" line="2208"/>
         <source>Generate a new Index HTML file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2219"/>
+        <location filename="../../Form_Files/main.ui" line="2216"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2224"/>
+        <location filename="../../Form_Files/main.ui" line="2221"/>
         <source>Book&amp;mark Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2227"/>
+        <location filename="../../Form_Files/main.ui" line="2224"/>
         <source>Ctrl+Alt+B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2235"/>
+        <location filename="../../Form_Files/main.ui" line="2232"/>
         <source>F3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2244"/>
+        <location filename="../../Form_Files/main.ui" line="2241"/>
         <source>&amp;Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2247"/>
+        <location filename="../../Form_Files/main.ui" line="2244"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -7306,114 +7398,114 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2253"/>
+        <location filename="../../Form_Files/main.ui" line="2250"/>
         <source>Ctrl+\</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2261"/>
+        <location filename="../../Form_Files/main.ui" line="2258"/>
         <source>Ctrl+Alt+V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1485"/>
+        <location filename="../../Form_Files/main.ui" line="1482"/>
         <source>Ctrl+Shift+Return</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1261"/>
+        <location filename="../../Form_Files/main.ui" line="1263"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1278"/>
+        <location filename="../../Form_Files/main.ui" line="1280"/>
         <source>Incre&amp;ase Indent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1295"/>
+        <location filename="../../Form_Files/main.ui" line="1297"/>
         <source>&amp;Decrease Indent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1312"/>
+        <location filename="../../Form_Files/main.ui" line="1314"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1328"/>
+        <location filename="../../Form_Files/main.ui" line="1330"/>
         <source>T&amp;ext Direction RTL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1344"/>
+        <location filename="../../Form_Files/main.ui" line="1346"/>
         <source>Text Directi&amp;on Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1356"/>
+        <location filename="../../Form_Files/main.ui" line="1358"/>
         <source>Remove &amp;Formatting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1368"/>
+        <location filename="../../Form_Files/main.ui" line="1370"/>
         <source>&amp;Lowercase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1387"/>
+        <location filename="../../Form_Files/main.ui" line="1389"/>
         <source>&amp;Uppercase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1406"/>
+        <location filename="../../Form_Files/main.ui" line="1408"/>
         <source>&amp;Titlecase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1422"/>
+        <location filename="../../Form_Files/main.ui" line="1424"/>
         <source>&amp;Capitalize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1468"/>
+        <location filename="../../Form_Files/main.ui" line="1465"/>
         <source>Split At &amp;Markers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1471"/>
+        <location filename="../../Form_Files/main.ui" line="1468"/>
         <source>Split At Sigil split file markers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1479"/>
+        <location filename="../../Form_Files/main.ui" line="1476"/>
         <source>Split &amp;Marker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1482"/>
+        <location filename="../../Form_Files/main.ui" line="1479"/>
         <source>Insert Sigil split file marker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1501"/>
+        <location filename="../../Form_Files/main.ui" line="1498"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1504"/>
+        <location filename="../../Form_Files/main.ui" line="1501"/>
         <source>Frequently Asked Questions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1524"/>
+        <location filename="../../Form_Files/main.ui" line="1521"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB with FlightCrew&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1537"/>
+        <location filename="../../Form_Files/main.ui" line="1534"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -7422,740 +7514,745 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1566"/>
+        <location filename="../../Form_Files/main.ui" line="1563"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1577"/>
+        <location filename="../../Form_Files/main.ui" line="1574"/>
         <source>Find the next misspelled word in the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1580"/>
+        <location filename="../../Form_Files/main.ui" line="1577"/>
         <source>F4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1585"/>
+        <location filename="../../Form_Files/main.ui" line="1582"/>
         <source>&amp;Add Misspelled Word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1588"/>
+        <location filename="../../Form_Files/main.ui" line="1585"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1593"/>
+        <location filename="../../Form_Files/main.ui" line="1590"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1601"/>
+        <location filename="../../Form_Files/main.ui" line="1598"/>
         <source>&amp;Clear Ignored Words</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1609"/>
+        <location filename="../../Form_Files/main.ui" line="1606"/>
         <source>&amp;Index Editor...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1627"/>
+        <location filename="../../Form_Files/main.ui" line="1624"/>
         <source>&amp;Reports...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1639"/>
+        <location filename="../../Form_Files/main.ui" line="1636"/>
         <source>&amp;Donate...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1650"/>
+        <location filename="../../Form_Files/main.ui" line="1647"/>
         <source>Close &amp;Other Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1658"/>
+        <location filename="../../Form_Files/main.ui" line="1655"/>
         <source>Go To &amp;Line...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1666"/>
+        <location filename="../../Form_Files/main.ui" line="1663"/>
         <source>Find &amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1674"/>
+        <location filename="../../Form_Files/main.ui" line="1671"/>
         <source>Find &amp;Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1706"/>
+        <location filename="../../Form_Files/main.ui" line="1703"/>
         <source>Replace &amp;All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1714"/>
+        <location filename="../../Form_Files/main.ui" line="1711"/>
         <source>&amp;Count All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1758"/>
+        <location filename="../../Form_Files/main.ui" line="1755"/>
         <source>&amp;Clip Editor...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1761"/>
+        <location filename="../../Form_Files/main.ui" line="1758"/>
         <source>Open the Clip Editor.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1985"/>
+        <location filename="../../Form_Files/main.ui" line="1982"/>
         <source>Heading &amp;1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2005"/>
+        <location filename="../../Form_Files/main.ui" line="2002"/>
         <source>Heading &amp;2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2025"/>
+        <location filename="../../Form_Files/main.ui" line="2022"/>
         <source>Heading &amp;3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2045"/>
+        <location filename="../../Form_Files/main.ui" line="2042"/>
         <source>Heading &amp;4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2065"/>
+        <location filename="../../Form_Files/main.ui" line="2062"/>
         <source>Heading &amp;5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2085"/>
+        <location filename="../../Form_Files/main.ui" line="2082"/>
         <source>Heading &amp;6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2105"/>
+        <location filename="../../Form_Files/main.ui" line="2102"/>
         <source>&amp;Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2121"/>
+        <location filename="../../Form_Files/main.ui" line="2118"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2178"/>
+        <location filename="../../Form_Files/main.ui" line="2175"/>
         <source>Next &amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2189"/>
+        <location filename="../../Form_Files/main.ui" line="2186"/>
         <source>&amp;Add To Index Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2197"/>
+        <location filename="../../Form_Files/main.ui" line="2194"/>
         <source>&amp;Mark For Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2208"/>
+        <location filename="../../Form_Files/main.ui" line="2205"/>
         <source>&amp;Create Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="944"/>
+        <location filename="../../Form_Files/main.ui" line="946"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2216"/>
+        <location filename="../../Form_Files/main.ui" line="2213"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2232"/>
+        <location filename="../../Form_Files/main.ui" line="2229"/>
         <source>&amp;Go To Link Or Style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2258"/>
+        <location filename="../../Form_Files/main.ui" line="2255"/>
         <source>Paste From Clipboard &amp;History...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2266"/>
+        <location filename="../../Form_Files/main.ui" line="2263"/>
         <source>&amp;Delete Line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2269"/>
+        <location filename="../../Form_Files/main.ui" line="2266"/>
         <source>Ctrl+D</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1653"/>
+        <location filename="../../Form_Files/main.ui" line="1650"/>
         <source>Ctrl+Alt+W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1661"/>
+        <location filename="../../Form_Files/main.ui" line="1658"/>
         <source>Ctrl+/</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1669"/>
+        <location filename="../../Form_Files/main.ui" line="1666"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1677"/>
+        <location filename="../../Form_Files/main.ui" line="1674"/>
         <source>Ctrl+Shift+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1693"/>
+        <location filename="../../Form_Files/main.ui" line="1690"/>
         <source>Ctrl+]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1701"/>
+        <location filename="../../Form_Files/main.ui" line="1698"/>
         <source>Ctrl+[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1709"/>
+        <location filename="../../Form_Files/main.ui" line="1706"/>
         <source>Alt+A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1717"/>
+        <location filename="../../Form_Files/main.ui" line="1714"/>
         <source>Alt+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1750"/>
+        <location filename="../../Form_Files/main.ui" line="1747"/>
         <source>&amp;Saved Searches...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1959"/>
+        <location filename="../../Form_Files/main.ui" line="1956"/>
         <source>&amp;Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1962"/>
+        <location filename="../../Form_Files/main.ui" line="1959"/>
         <source>F5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1967"/>
+        <location filename="../../Form_Files/main.ui" line="1964"/>
         <source>&amp;Zoom Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1970"/>
+        <location filename="../../Form_Files/main.ui" line="1967"/>
         <source>Zoom Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1973"/>
+        <location filename="../../Form_Files/main.ui" line="1970"/>
         <source>Ctrl+0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2151"/>
+        <location filename="../../Form_Files/main.ui" line="2148"/>
         <source>Blank Stylesheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2159"/>
+        <location filename="../../Form_Files/main.ui" line="2156"/>
         <source>Blank SVG Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2167"/>
+        <location filename="../../Form_Files/main.ui" line="2164"/>
         <source>Pre&amp;vious File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2173"/>
+        <location filename="../../Form_Files/main.ui" line="2170"/>
         <source>Alt+PgUp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="927"/>
+        <location filename="../../Form_Files/main.ui" line="929"/>
         <source>&amp;Metadata Editor...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1490"/>
+        <location filename="../../Form_Files/main.ui" line="1487"/>
         <source>User &amp;Guide...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1493"/>
+        <location filename="../../Form_Files/main.ui" line="1490"/>
         <source>User Guide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1496"/>
+        <location filename="../../Form_Files/main.ui" line="1493"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1509"/>
+        <location filename="../../Form_Files/main.ui" line="1506"/>
         <source>&amp;Tutorials...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1512"/>
+        <location filename="../../Form_Files/main.ui" line="1509"/>
         <source>Tutorials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2184"/>
+        <location filename="../../Form_Files/main.ui" line="2181"/>
         <source>Alt+PgDown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="627"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="648"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="730"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="755"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="860"/>
         <source>Go To Line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="860"/>
         <source>Line #</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="433"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="665"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="858"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1211"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1298"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1353"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1361"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1513"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1550"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1577"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1582"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1795"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1809"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1814"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1857"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3115"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3121"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3257"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3451"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="447"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="883"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1255"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1397"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1405"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1421"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1432"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1535"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1562"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1575"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1583"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1594"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1599"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1611"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1832"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1858"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1873"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1901"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3163"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3175"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3311"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3710"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="386"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="400"/>
         <source>Location bookmarked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="433"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="447"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="606"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="627"/>
         <source>New file created.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="804"/>
         <source>Save a Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="953"/>
         <source>No CSS styles named</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1201"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1245"/>
         <source>Styles deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1484"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1535"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1562"/>
         <source>You cannot insert an id at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1623"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1634"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1667"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1678"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1793"/>
         <source>Select the destination to paste into first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1832"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1839"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1901"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1814"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1858"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1883"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1988"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2032"/>
         <source>Word updated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2053"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2105"/>
         <source>File(s) deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2153"/>
         <source>Table Of Contents generated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2444"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2498"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
         <source>File cannot be split at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3090"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3144"/>
         <source>Split completed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3194"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3203"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3357"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3412"/>
         <source>File loaded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3418"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
         <source>Saving EPUB...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3488"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="370"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="384"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="479"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="493"/>
         <source>was updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="500"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="530"/>
         <source>Select Show Details for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="561"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="575"/>
         <source>Sigil is closing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="664"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="685"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1361"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1405"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1421"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1611"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1582"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1626"/>
         <source>You cannot mark an index at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1873"/>
         <source>Cannot merge file %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2086"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2138"/>
         <source>Generate TOC cancelled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2103"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2155"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3038"/>
         <source>Line: %1, Col: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3258"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3312"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3386"/>
         <source>No importer for file type: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3163"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="336"/>
+        <location filename="../../Form_Files/main.ui" line="337"/>
         <source>Plugins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2274"/>
+        <location filename="../../Form_Files/main.ui" line="2271"/>
         <source>Manage Plugins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="245"/>
         <source>Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="251"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="263"/>
+        <source>Validation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="500"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
         <source>This EPUB contains errors.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="858"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="883"/>
         <source>Image does not exist: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1026"/>
         <source>Add Cover</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1106"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1123"/>
         <source>Cover added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1211"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1255"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1298"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1395"/>
         <source>Unused media files deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1397"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1432"/>
         <source>You cannot insert a file at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1395"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1439"/>
         <source>Insert File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
         <source>You must select text before inserting a new id.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1575"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1599"/>
         <source>You cannot insert a link at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1583"/>
         <source>You must select text before inserting a new link.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1550"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1594"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1577"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1621"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1642"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1686"/>
         <source>Pasted clip entry %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1809"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2116"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2069"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2121"/>
         <source>Table Of Contents edited.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2228"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2280"/>
         <source>Text selection marked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2230"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2248"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2282"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2300"/>
         <source>Text selection unmarked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3115"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3175"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3338"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8164,96 +8261,96 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3343"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3398"/>
         <source>Loading file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3384"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3439"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
         <source>Cannot load EPUB: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3450"/>
         <source>Cannot load file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3544"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3546"/>
         <source>EPUB saved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3552"/>
         <source>Cannot save file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3687"/>
         <source>EPUB files (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3627"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3628"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3688"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3689"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3690"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3630"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3691"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3692"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3639"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3700"/>
         <source>EPUB file (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3710"/>
         <source>%1[*] - %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3781"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3721"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3782"/>
         <source>ON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3721"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3782"/>
         <source>OFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3746"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3807"/>
         <source>&amp;%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10809,7 +10906,7 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="337"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="369"/>
         <source>Status: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -10819,149 +10916,149 @@ Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="122"/>
         <source>Error: Interpreter </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="122"/>
         <source> has no path set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="124"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source>Installation Error: plugin launcher </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="125"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="136"/>
         <source> does not exist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="130"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="141"/>
         <source>Error: plugin engine </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="131"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="142"/>
         <source> is not supported (yet!)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="137"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="148"/>
         <source>Status: ready</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="150"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="161"/>
         <source>Error: plugin can not start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="192"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="203"/>
         <source>Launcher process crashed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="203"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="214"/>
         <source>Status: finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="215"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="224"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="226"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="235"/>
         <source>Status: No Changes Made</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="223"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="234"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="299"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="325"/>
         <source>Plugin failed to start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="307"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="333"/>
         <source>Status: error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="321"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="347"/>
         <source>Plugin cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="322"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="348"/>
         <source>Status: cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="372"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="430"/>
         <source>Error Parsing Result XML:  </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="486"/>
         <source>Incorrect XHTML/XML: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="486"/>
         <source> Line/Col </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="498"/>
         <source>Check Report</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="499"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="459"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="517"/>
         <source>Status: cleaning up - deleting files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="474"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="532"/>
         <source>Status: deleting </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="562"/>
         <source>Status: Loading </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="514"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="573"/>
         <source>Input Plugin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="515"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="574"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="541"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="600"/>
         <source>Status: adding </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="589"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="648"/>
         <source>Status: cleaning up - modifying files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="618"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="677"/>
         <source>Status: modifying </source>
         <translation type="unfinished"></translation>
     </message>
@@ -11047,59 +11144,59 @@ Are you Sure You Want to Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="95"/>
         <source>Select Plugin Zip Archive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="95"/>
         <source>Plugin Files (*.zip)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="103"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="114"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="106"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="117"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="100"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="111"/>
         <source>Error: Plugin plugin.xml file can not be read.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="153"/>
         <source>Nothing is Selected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="161"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="172"/>
         <source>Remove All Plugins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="173"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="210"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="220"/>
         <source>Select Interpreter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="241"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="236"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="252"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11885,52 +11982,52 @@ your book and automatically insert into your document.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="74"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
         <source>All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
         <source>Images</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="78"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="119"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
         <source>Files In the Book</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="122"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="123"/>
         <source>Thumbnails</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>shades</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Grayscale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12464,38 +12561,38 @@ Continue using the requested filename?</source>
 <context>
     <name>ValidationResultsView</name>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="44"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="45"/>
         <source>Validation Results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="73"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="74"/>
         <source>An exception occurred during validation: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="162"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="195"/>
         <source>N/A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="183"/>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="217"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="233"/>
         <source>Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="184"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="218"/>
         <source>No problems found!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="233"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="233"/>
         <source>Line</source>
         <translation type="unfinished"></translation>
     </message>
