@@ -86,7 +86,7 @@ p, li { white-space: pre-wrap; }
        <property name="textInteractionFlags">
         <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
        </property>
-       <property name="placeholderText">
+       <property name="placeholderText" stdset="0">
         <string>Message</string>
        </property>
       </widget>

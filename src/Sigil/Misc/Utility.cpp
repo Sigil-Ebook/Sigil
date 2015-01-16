@@ -282,7 +282,7 @@ bool Utility::ForceCopyFile(const QString &fullinpath, const QString &fulloutpat
     if (!QFileInfo(fullinpath).exists()) {
         return false;
     }
-    if (QFileInfo::exists(fulloutpath)) {
+    if (QFileInfo(fulloutpath).exists()) {
         Utility::SDeleteFile(fulloutpath);
     }
     return QFile::copy(fullinpath, fulloutpath);
