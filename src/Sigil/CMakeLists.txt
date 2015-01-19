@@ -301,6 +301,8 @@ set( MISC_FILES
     Misc/XMLEntities.cpp
     Misc/EmbeddedPython.cpp
     Misc/EmbeddedPython.h
+    Misc/GumboParser.cpp
+    Misc/GumboParser.h
     )
 
 set( MISC_EDITORS_FILES    
@@ -609,13 +611,14 @@ include_directories( BEFORE
                      ${FLIGHTCREW_INCLUDE_DIRS}
                      ${HUNSPELL_INCLUDE_DIRS}
                      ${PCRE_INCLUDE_DIRS}
-                     ${tidyLib_SOURCE_DIR}
+                     ${GUMBO_SOURCE_DIR}
                      ${MINIZIP_INCLUDE_DIRS}
                      ${ZLIB_INCLUDE_DIRS}
                      ${XERCESEXTENSIONS_INCLUDE_DIRS}
                      ${XERCES_INCLUDE_DIRS}
                      ${BOOST_INCLUDE_DIRS}
                      ${PYTHON_INCLUDE_DIRS}
+                     ${GUMBO_INCLUDE_DIRS}
                      ${CMAKE_CURRENT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR} )
 
@@ -634,7 +637,7 @@ if (MSVC)
     set(QT_MAIN Qt5::WinMain)
 endif()
 
-target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} tidyLib ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} ${PYTHON_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} gumbo ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} ${PYTHON_LIBRARIES} )
 qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit WebKitWidgets Network Concurrent)
 
 #############################################################################

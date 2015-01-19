@@ -21,7 +21,6 @@
 
 #include "Misc/EmbeddedPython.h"
 #include <boost/tuple/tuple.hpp>
-#include <buffio.h>
 
 #include <QtCore/QString>
 #include <QtCore/QStringList>
@@ -34,6 +33,7 @@
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/HTMLPrettyPrint.h"
+#include "Misc/GumboParser.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -45,6 +45,8 @@ using boost::tie;
 using boost::tuple;
 
 static const QString HEAD_END = "</\\s*head\\s*>";
+
+#if 0
 
 static const QString SIGIL_CLASS_NAME     = "sgc";
 static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";
@@ -89,6 +91,8 @@ static QString BLOCK_ELEMENTS             = HTML5_BLOCK_ELEMENTS  + "," + SVG_BL
 static QString INLINE_ELEMENTS            = HTML5_INLINE_ELEMENTS + "," + SVG_INLINE_ELEMENTS;;
 static QString EMPTY_ELEMENTS             = HTML5_EMPTY_ELEMENTS  + "," + SVG_EMPTY_ELEMENTS;
 
+#endif
+
 // Performs general cleaning (and improving)
 // of provided book XHTML source code
 QString CleanSource::Clean(const QString &source)
@@ -99,20 +103,23 @@ QString CleanSource::Clean(const QString &source)
 
     switch (level) {
         case SettingsStore::CleanLevel_PrettyPrint:
-        case SettingsStore::CleanLevel_PrettyPrintBS4: {
-            newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintBS4(newsource);
+        case SettingsStore::CleanLevel_PrettyPrintGumbo: {
+            newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintGumbo(newsource);
             // Remove any empty comments left over from pretty printing.
-            QStringList css_style_tags  = CSSStyleTags(newsource);
-            css_style_tags = RemoveEmptyComments(css_style_tags);
-            return WriteNewCSSStyleTags(newsource, css_style_tags);
+            // QStringList css_style_tags  = CSSStyleTags(newsource);
+            // css_style_tags = RemoveEmptyComments(css_style_tags);
+            // return WriteNewCSSStyleTags(newsource, css_style_tags);
         }
-        case SettingsStore::CleanLevel_BS4: {
+        case SettingsStore::CleanLevel_Gumbo: {
             // We store the number of CSS style tags before
             // running any cleaning so CleanCSS can remove redundant classes
             // if new style tags added
-            int old_num_styles = RobustCSSStyleTagCount(newsource);
-            newsource = CleanBS4(newsource);
-            newsource = CleanCSS(newsource, old_num_styles);
+            // int old_num_styles = RobustCSSStyleTagCount(newsource);
+            GumboParser gp = GumboParser(newsource);
+            newsource = gp.repair();
+            newsource = CharToEntity(newsource);
+            newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
+            // newsource = CleanCSS(newsource, old_num_styles);
             return newsource;
         }
         default:
@@ -122,6 +129,20 @@ QString CleanSource::Clean(const QString &source)
             return PrettifyDOCTYPEHeader(newsource);
     }
 }
+
+
+// Repair XHTML if needed using Gumbo and then PrettyPrint
+QString CleanSource::PrettyPrintGumbo(const QString &source)
+{
+    QString newsource;
+    GumboParser gp = GumboParser(newsource);
+    newsource = gp.repair();
+    newsource = CharToEntity(newsource);
+    newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
+    return PrettyPrint(newsource);
+}
+
+#if 0
 
 // Repair XHTML if needed  using BeautifulSoup4
 QString CleanSource::CleanBS4(const QString &source)
@@ -169,6 +190,8 @@ QString CleanSource::PrettyPrintBS4(const QString &source)
     return res.toString();
 }
 
+#endif
+
 // Repair XML if needed and PrettyPrint using BeautifulSoup4
 QString CleanSource::XMLPrettyPrintBS4(const QString &source)
 {
@@ -192,6 +215,8 @@ QString CleanSource::XMLPrettyPrintBS4(const QString &source)
     return res.toString();
 }
 
+#if 0
+
 QString CleanSource::RemoveBlankStyleLines(const QString &source)
 {
     // Remove the extra blank lines in the style section
@@ -205,6 +230,7 @@ QString CleanSource::RemoveBlankStyleLines(const QString &source)
     return WriteNewCSSStyleTags(source, css_style_tags);
 }
 
+#endif
 
 // convert the source to valid XHTML
 QString CleanSource::ToValidXHTML(const QString &source)
@@ -212,9 +238,13 @@ QString CleanSource::ToValidXHTML(const QString &source)
     QString newsource = source;
 
     if (!XhtmlDoc::IsDataWellFormed(source)) {
-        newsource = CleanBS4(source);
-        newsource = PrettyPrint(newsource);
-        newsource = RemoveBlankStyleLines(newsource);
+        GumboParser gp = GumboParser(newsource);
+        newsource = gp.repair();
+        newsource = CharToEntity(newsource);
+        newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
+        // newsource = CleanBS4(source);
+        // newsource = PrettyPrint(newsource);
+        // newsource = RemoveBlankStyleLines(newsource);
     }
     return newsource;
 }
@@ -228,14 +258,18 @@ QString CleanSource::PrettyPrint(const QString &source)
 
 QString CleanSource::ProcessXML(const QString &source)
 {
+
 #if 0
     HTMLPrettyPrint pp(source);
     pp.setIndentLevel(0);
     return pp.prettyPrint();
 #endif
+
     return XMLPrettyPrintBS4(source);
 }
 
+
+#if 0
 
 int CleanSource::RobustCSSStyleTagCount(const QString &source)
 {
@@ -465,6 +499,8 @@ QHash<QString, QString> CleanSource::GetRedundantClasses(const QStringList &css_
 }
 
 
+#endif
+
 QString CleanSource::RemoveMetaCharset(const QString &source)
 {
     int head_end = source.indexOf(QRegularExpression(HEAD_END));
@@ -574,4 +610,3 @@ void CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_fu
         resource->SetText(clean_func(resource->GetText()));
     }
 }
-

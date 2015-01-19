@@ -46,9 +46,14 @@ public:
 
     static QString ProcessXML(const QString &source);
 
-    static QString CleanBS4(const QString &source);
+    static QString CleanGumbo(const QString &source);
 
+    static QString PrettyPrintGumbo(const QString &source);
+
+#if 0
+    static QString CleanBS4(const QString &source);
     static QString PrettyPrintBS4(const QString &source);
+#endif
 
     static QString XMLPrettyPrintBS4(const QString &source);
 
@@ -69,6 +74,8 @@ private:
 
     static QString PrettyPrint(const QString &source);
 
+
+#if 0
     static int RobustCSSStyleTagCount(const QString &source);
 
     // Cleans CSS; currently it removes the redundant CSS classes
@@ -115,6 +122,7 @@ private:
     // Returns a QHash with keys being the new redundant CSS classes,
     // and the values the old classes that already do the job of the new ones.
     static QHash<QString, QString> GetRedundantClasses(const QStringList &css_style_tags);
+#endif
 
     /**
      * Removes HTML meta tags with charset declarations.

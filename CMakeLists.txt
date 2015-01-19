@@ -72,9 +72,10 @@ endif()
 # look for a specific lib python version
 find_package( PythonLibs 3.4 REQUIRED )
 
-# We must use the bundled Tidy because there are Sigil
-# specific changes to it.
-add_subdirectory( src/tidyLib )
+# gumbo-parser we bundle it as our main xhtml/html5 parser
+add_subdirectory( src/gumbo )
+set( GUMBO_LIBRARIES gumbo )
+set( GUMBO_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/gumbo )
 
 if( FORCE_BUNDLED_COPIES OR NOT Boost_FOUND )
     add_subdirectory( src/BoostParts )
