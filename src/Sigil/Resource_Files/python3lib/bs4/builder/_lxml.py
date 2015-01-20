@@ -128,12 +128,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         attrs = dict(attrs)
         nsprefix = None
         # Invert each namespace map as it comes in.
-        if len(self.nsmaps) > 1:
-            # There are no new namespaces for this tag, but
-            # non-default namespaces are in play, so we need a
-            # separate tag stack to know when they end.
-            self.nsmaps.append(None)
-        elif len(nsmap) > 0:
+        if len(nsmap) > 0:
             # A new namespace mapping has come into play.
             inverted_nsmap = dict((value, key) for key, value in list(nsmap.items()))
             self.nsmaps.append(inverted_nsmap)
@@ -144,6 +139,11 @@ class LXMLTreeBuilderForXML(TreeBuilder):
                 attribute = NamespacedAttribute(
                     "xmlns", prefix, "http://www.w3.org/2000/xmlns/")
                 attrs[attribute] = namespace
+        elif len(self.nsmaps) > 1:
+            # There are no new namespaces for this tag, but
+            # non-default namespaces are in play, so we need a
+            # separate tag stack to know when they end.
+            self.nsmaps.append(None)
 
         # Namespaces are in play. Find any attributes that came in
         # from lxml with namespaces attached to their names, and

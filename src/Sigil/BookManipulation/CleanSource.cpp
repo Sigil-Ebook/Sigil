@@ -105,6 +105,7 @@ QString CleanSource::Clean(const QString &source)
         case SettingsStore::CleanLevel_PrettyPrint:
         case SettingsStore::CleanLevel_PrettyPrintGumbo: {
             newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintGumbo(newsource);
+            return newsource;
             // Remove any empty comments left over from pretty printing.
             // QStringList css_style_tags  = CSSStyleTags(newsource);
             // css_style_tags = RemoveEmptyComments(css_style_tags);

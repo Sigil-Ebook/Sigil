@@ -34,12 +34,16 @@ class GumboParser
 public:
     GumboParser(const QString &source);
     ~GumboParser();
+    void    parse();
     QString repair();
+    QString prettyprint(QString indent_chars="  ");
 
 private:
     QString fix_self_closing_cdata_tags(const QString & source);
     std::string serialize(GumboNode* node);
     std::string serialize_contents(GumboNode* node);
+    std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
+    std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
     std::string build_doctype(GumboNode *node);
     std::string build_attributes(GumboAttribute * at, bool no_entities);
     std::string get_tag_name(GumboNode *node);
@@ -51,9 +55,8 @@ private:
     void replace_all(std::string &s, const char * s1, const char * s2);
 
     QString        m_source;
-    std::string    m_utf8src;
-    std::string    m_utf8out;
     GumboOutput*   m_output;
+    std::string    m_utf8src;
 };
 
 #endif
