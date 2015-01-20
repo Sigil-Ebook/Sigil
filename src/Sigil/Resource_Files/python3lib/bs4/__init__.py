@@ -377,6 +377,19 @@ class BeautifulSoup(Tag):
         return prefix + super(BeautifulSoup, self).decode(
             indent_level, eventual_encoding, formatter, indent_chars)
 
+    def decodexml(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING,
+               formatter="minimal", indent_chars=" "):
+        """Returns a string or Unicode representation of this document.
+        as pretty printed xml"""
+
+        # Print the XML declaration
+        encoding_part = ''
+        if eventual_encoding != None:
+            encoding_part = ' encoding="%s"' % eventual_encoding
+        prefix = '<?xml version="1.0"%s?>\n' % encoding_part
+        return prefix + super(BeautifulSoup, self).decodexml(
+            indent_level, eventual_encoding, formatter, indent_chars)
+
     def serialize(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
         encoding_part = ''
         if eventual_encoding != None:

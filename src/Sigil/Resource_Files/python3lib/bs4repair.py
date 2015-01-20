@@ -30,6 +30,8 @@ from bs4 import BeautifulSoup
 from bs4.builder._lxml import LXMLTreeBuilderForXML
 import re
 
+ebook_xml_empty_tags = ["meta", "item", "itemref", "reference", "content"]
+
 def remove_xml_header(data):
     return re.sub(r'<\s*\?xml\s*[^>]*\?>\s*','',data, flags=re.I)
 
@@ -55,29 +57,18 @@ def repairPrettyPrintXHTML(data, indent_chars="  "):
     res.append(soup.decode(pretty_print=True,formatter='minimal',indent_chars=indent_chars))
     return ''.join(res)
     
-def repairXML(data, self_closing_tags=None):
+# BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
+# def repairXML(data, self_closing_tags=ebook_xml_empty_tags):
+#     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
+#     soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
+#     newdata = soup.serialize()
+#    return newdata
+
+def repairPrettyPrintXML(data, self_closing_tags=ebook_xml_empty_tags, indent_chars="  "):
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
     soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
-    newdata = soup.serialize()
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars=indent_chars)
     return newdata
-
-def repairPrettyPrintXML(data, self_closing_tags=None, indent_chars="  "):
-    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
-    soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
-    newdata = soup.decode(pretty_print=True,formatter='minimal',indent_chars=indent_chars)
-    return newdata
-
-def repairOPF(data):
-    return repairXML(data, self_closing_tags=["item", "itemref", "meta"])
-
-def repairPrettyPrintOPF(data, indent_chars="  "):
-    return repairPrettyPrintXML(data, self_closing_tags=["item", "itemref", "meta"], indent_chars=indent_chars)
-
-def repairNCX(data):
-    return repairXML(data, self_closing_tags=["meta","content"])
-
-def repairPrettyPrintNCX(data, indent_chars="  "):
-    return repairPrettyPrintXML(data, self_closing_tags=["meta", "content"], indent_chars=indent_chars)
 
 
 def main():
@@ -119,8 +110,7 @@ def main():
     print(repairXHTML(samp2))
     print(repairPrettyPrintXHTML(samp2))
 
-    print(repairOPF(opfxml))
-    print(repairPrettyPrintOPF(opfxml, indent_chars="   "))
+    print(repairPrettyPrintXML(opfxml, indent_chars="   "))
 
     return 0
 

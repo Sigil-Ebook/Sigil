@@ -14,6 +14,10 @@ NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","cite","code",
                             "dfn","em","i","img","kbd","small","span","strike",
                             "strong","sub","sup","tt")
 
+EBOOK_XML_PARENT_TAGS = ("package","metadata","manifest","spine","guide","ncx",
+                         "head","doctitle","docauthor","navmap", "navpoint",
+                          "navlabel", "pagelist", "pagetarget") 
+
 def _alias(attr):
     """Alias one attribute name to another for backward compatibility"""
     @property
@@ -1107,6 +1111,7 @@ class Tag(PageElement):
             s = ''.join(s)
         return s
 
+
     def prettify(self, encoding=None, formatter="minimal", indent_chars=" "):
         if encoding is None:
             return self.decode(True, formatter=formatter, indent_chars=indent_chars)
@@ -1156,6 +1161,109 @@ class Tag(PageElement):
                 s.append(text)
                 if pretty_print and not self.name == 'pre' and not isinstance(c, NavigableString):
                     s.append("\n")
+        return ''.join(s)
+
+    def decodexml(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
+               formatter="minimal", indent_chars=" "):
+
+        # First off, turn a string formatter into a function. This
+        # will stop the lookup from happening over and over again.
+        if not isinstance(formatter, collections.Callable):
+            formatter = self._formatter_for_name(formatter)
+
+        is_xmlparent = self.name.lower() in EBOOK_XML_PARENT_TAGS
+        attrs = []
+        if self.attrs:
+            for key, val in sorted(self.attrs.items()):
+                if val is None:
+                    decoded = key
+                else:
+                    if isinstance(val, list) or isinstance(val, tuple):
+                        val = ' '.join(val)
+                    elif not isinstance(val, str):
+                        val = str(val)
+                    elif (
+                        isinstance(val, AttributeValueWithCharsetSubstitution)
+                        and eventual_encoding is not None):
+                        val = val.encode(eventual_encoding)
+
+                    text = self.format_string(val, formatter)
+                    decoded = (
+                        str(key) + '='
+                        + EntitySubstitution.quoted_attribute_value(text))
+                attrs.append(decoded)
+
+        prefix = ''
+        if self.prefix:
+            prefix = self.prefix + ":"
+
+        # for pure xml, a self closing tag with only whitespace 
+        # "contents" should be treated as empty
+        if self.can_be_empty_element:
+            tagcontents = self.string
+            if tagcontents is not None and len(tagcontents.strip()) == 0:
+                self.contents = []
+        
+        close = ''
+        closeTag = ''
+        if self.is_empty_element:
+            close = '/'
+        else:
+            closeTag = '</%s%s>' % (prefix, self.name)
+
+        indent_space = (indent_chars * (indent_level - 1))
+        indent_contents = indent_level
+        if is_xmlparent or self.hidden:
+            indent_contents = indent_level + 1
+
+        contents = self.decodexml_contents(indent_contents, eventual_encoding, formatter, indent_chars)
+        if self.hidden:
+            # This is the 'document root' object.
+            s = contents
+        else:
+            s = []
+            attribute_string = ''
+            if attrs:
+                attribute_string = ' ' + ' '.join(attrs)
+            s.append(indent_space)
+            s.append('<%s%s%s%s>' % (prefix, self.name, attribute_string, close))
+            if is_xmlparent:
+                s.append("\n")
+            s.append(contents)
+            if contents and contents[-1] != "\n" and is_xmlparent or self.is_empty_element:
+                s.append("\n")
+            if closeTag and is_xmlparent:
+                s.append(indent_space)
+            s.append(closeTag)
+            if closeTag and self.next_sibling:
+                s.append("\n")
+            s = ''.join(s)
+        return s
+
+    def decodexml_contents(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
+                        formatter="minimal", indent_chars=" "):
+        """Renders the contents of this tag as a Unicode string.
+        """
+        # First off, turn a string formatter into a function. This
+        # will stop the lookup from happening over and over again.
+        if not isinstance(formatter, collections.Callable):
+            formatter = self._formatter_for_name(formatter)
+
+        is_xmlparent = self.name.lower() in EBOOK_XML_PARENT_TAGS
+        s = []
+        for c in self:
+            text = None
+            if isinstance(c, NavigableString):
+                text = c.output_ready(formatter)
+            elif isinstance(c, Tag):
+                val = c.decodexml(indent_level, eventual_encoding, formatter, indent_chars)
+                s.append(val)
+            if text:
+                text = text.strip()
+            if text:
+                if is_xmlparent and len(s) == 0:
+                    s.append(indent_chars * (indent_level - 1))
+                s.append(text)
         return ''.join(s)
 
     def serialize(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
