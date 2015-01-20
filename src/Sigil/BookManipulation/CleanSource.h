@@ -50,11 +50,6 @@ public:
 
     static QString PrettyPrintGumbo(const QString &source);
 
-#if 0
-    static QString CleanBS4(const QString &source);
-    static QString PrettyPrintBS4(const QString &source);
-#endif
-
     static QString XMLPrettyPrintBS4(const QString &source);
 
     /**

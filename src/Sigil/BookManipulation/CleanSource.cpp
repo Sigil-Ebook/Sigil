@@ -65,32 +65,6 @@ static const QString TIDY_NEW_STYLE       = "(\\w+)\\.[\\w-]+\\s*(\\{.*\\})";
 // The value was picked arbitrarily
 static const int TAG_SIZE_THRESHOLD       = 1000;
 
-static const QString SVG_BLOCK_ELEMENTS         = "a,altGlyph,altGlyphDef,altGlyphItem,animate,animateColor,animateMotion"
-        ",animateTransform,circle,clipPath,color-profile,cursor,definition-src,defs,desc"
-        ",ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix"
-        ",feDiffuseLighting,feDisplacementMap,feDistantLight,feFlood,feFuncA,feFuncB"
-        ",feFuncG,feFuncR,feGaussianBlur,feImage,feMerg,feMergeNode,feMorphology,feOffset"
-        ",fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter"
-        ",font,font-face,font-face-format,font-face-name,font-face-src,font-face-uri"
-        ",foreignObject,g,glyph,glyphRef,hkern,line,linearGradient,marker,mask"
-        ",metadata,missing-glyph,mpath,path,pattern,polygon,polyline,radialGradient"
-        ",rect,script,set,stop,style,svg,switch,symbol,text,textPath,title,tref,tspan"
-        ",use,view,vkern";
-
-static const QString SVG_INLINE_ELEMENTS = "image";
-static const QString SVG_EMPTY_ELEMENTS = "image";
-
-static QString HTML5_BLOCK_ELEMENTS       = "article,aside,audio,canvas,datagrid,details,dialog"
-        ",figcaption,figure,footer,header,hgroup,menu,nav,section,source,summary,video";
-
-static QString HTML5_INLINE_ELEMENTS      = "command,mark,meter,progress,rp,rt,ruby,time";
-static QString HTML5_EMPTY_ELEMENTS       = "";
-
-// Don't mix inline with block but inline can be duplicated with empty according to tidy docs
-static QString BLOCK_ELEMENTS             = HTML5_BLOCK_ELEMENTS  + "," + SVG_BLOCK_ELEMENTS;
-static QString INLINE_ELEMENTS            = HTML5_INLINE_ELEMENTS + "," + SVG_INLINE_ELEMENTS;;
-static QString EMPTY_ELEMENTS             = HTML5_EMPTY_ELEMENTS  + "," + SVG_EMPTY_ELEMENTS;
-
 #endif
 
 // Performs general cleaning (and improving)
@@ -106,21 +80,12 @@ QString CleanSource::Clean(const QString &source)
         case SettingsStore::CleanLevel_PrettyPrintGumbo: {
             newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintGumbo(newsource);
             return newsource;
-            // Remove any empty comments left over from pretty printing.
-            // QStringList css_style_tags  = CSSStyleTags(newsource);
-            // css_style_tags = RemoveEmptyComments(css_style_tags);
-            // return WriteNewCSSStyleTags(newsource, css_style_tags);
         }
         case SettingsStore::CleanLevel_Gumbo: {
-            // We store the number of CSS style tags before
-            // running any cleaning so CleanCSS can remove redundant classes
-            // if new style tags added
-            // int old_num_styles = RobustCSSStyleTagCount(newsource);
             GumboParser gp = GumboParser(newsource);
             newsource = gp.repair();
             newsource = CharToEntity(newsource);
             newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
-            // newsource = CleanCSS(newsource, old_num_styles);
             return newsource;
         }
         default:
@@ -135,7 +100,7 @@ QString CleanSource::Clean(const QString &source)
 // Repair XHTML if needed using Gumbo and then PrettyPrint
 QString CleanSource::PrettyPrintGumbo(const QString &source)
 {
-    QString newsource;
+    QString newsource = source;
     GumboParser gp = GumboParser(newsource);
     newsource = gp.repair();
     newsource = CharToEntity(newsource);
@@ -143,55 +108,6 @@ QString CleanSource::PrettyPrintGumbo(const QString &source)
     return PrettyPrint(newsource);
 }
 
-#if 0
-
-// Repair XHTML if needed  using BeautifulSoup4
-QString CleanSource::CleanBS4(const QString &source)
-{
-    int rv = 0;
-    QString error_traceback;
-    QList<QVariant> args;
-    args.append(QVariant(source));
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("bs4repair"),
-                                         QString("repairXHTML"),
-                                         args,
-                                         &rv,
-                                         error_traceback);    
-    if (rv != 0) {
-        Utility::DisplayStdWarningDialog(QString("error in bs4repair repairXHTML: ") + QString::number(rv), 
-                                         error_traceback);
-        // an error happened, return unchanged original
-        return QString(source);
-    }
-    return res.toString();
-}
-
-// Repair XHTML if needed and PrettyPrint using BeautifulSoup4
-QString CleanSource::PrettyPrintBS4(const QString &source)
-{
-    int rv = 0;
-    QString error_traceback;
-    QList<QVariant> args;
-    args.append(QVariant(source));
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("bs4repair"),
-                                         QString("repairPrettyPrintXHTML"),
-                                         args,
-                                         &rv,
-                                         error_traceback);    
-    if (rv != 0) {
-        Utility::DisplayStdWarningDialog(QString("error in bs4repair repairPrettyPrintXHTML: ") + QString::number(rv), 
-                                         error_traceback);
-        // an error happened, return unchanged original
-        return QString(source);
-    }
-    return res.toString();
-}
-
-#endif
 
 // Repair XML if needed and PrettyPrint using BeautifulSoup4
 QString CleanSource::XMLPrettyPrintBS4(const QString &source)
@@ -243,9 +159,7 @@ QString CleanSource::ToValidXHTML(const QString &source)
         newsource = gp.repair();
         newsource = CharToEntity(newsource);
         newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
-        // newsource = CleanBS4(source);
-        // newsource = PrettyPrint(newsource);
-        // newsource = RemoveBlankStyleLines(newsource);
+        newsource = PrettyPrint(newsource);
     }
     return newsource;
 }
@@ -259,13 +173,6 @@ QString CleanSource::PrettyPrint(const QString &source)
 
 QString CleanSource::ProcessXML(const QString &source)
 {
-
-#if 0
-    HTMLPrettyPrint pp(source);
-    pp.setIndentLevel(0);
-    return pp.prettyPrint();
-#endif
-
     return XMLPrettyPrintBS4(source);
 }
 
