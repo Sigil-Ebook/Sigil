@@ -22,6 +22,8 @@
 #include <QString>
 #include <QStringList>
 #include <QRegularExpression>
+#include <QRegularExpressionMatch>
+
 
 #include "GumboParser.h"
 
@@ -31,8 +33,14 @@ static std::string preserve_whitespace = "|pre|textarea|script|style|";
 static std::string special_handling    = "|html|body|";
 static std::string no_entity_sub       = "|script|style|";
 
-static QStringList cdatatags = QStringList() << "title" << "textarea" << "style" << "script" << "xmp" << "iframe" << "noembed" << "noframes" << "noscript";
-static QStringList convert_non_void_self_closing_tags = QStringList() << "a" << "span";
+static QStringList allowed_void_tags = QStringList() << "area"    << "base"     << "basefont" 
+                                                     << "bgsound" << "br"       << "command" 
+                                                     << "col"     << "embed"    << "event-source" 
+                                                     << "frame"   << "hr"       << "image" 
+                                                     << "img"     << "input"    << "keygen" 
+                                                     << "link"    << "menuitem" << "meta" 
+                                                     << "param"   << "source"   << "spacer" 
+                                                     << "track"   << "wbr";
 
 // Note: m_output contains the gumbo output tree which 
 // has data structures with pointers into the original source
@@ -103,22 +111,31 @@ QString GumboParser::prettyprint(QString indent_chars)
 
 QString GumboParser::fix_self_closing_tags(const QString &source)
 {
-    QString result = source;
-    for (int i = 0; i < cdatatags.size(); ++i) {
-        QString tag = cdatatags.at(i);
-        QString oldtag = "<\\s*" + tag + "(\\s*[^>/]*)/\\s*>";
-        QString newtag = "<" + tag + "\\1></" + tag + ">";
-        QRegularExpression pat(oldtag);
-        result = result.replace(pat, newtag);
+    QString newsource = source;
+    QRegularExpression selfclosed("<\\s*([a-zA-Z]+)(\\s*[^>/]*)/\\s*>");
+    QRegularExpressionMatch match = selfclosed.match(newsource, 0);
+    while (match.hasMatch()) {
+        if (match.capturedStart() == -1) {
+            break;
+        }
+        QString tag = match.captured(0);
+        int sp = match.capturedStart(0);
+        int n = match.capturedLength(0);
+        QString name = match.captured(1);
+        QString atts = match.captured(2);;
+        atts = atts.trimmed();
+        if (!atts.isEmpty()) {
+            atts = " " + atts;
+        }
+        int nsp = sp + n;
+        if (!allowed_void_tags.contains(tag)) {
+            QString newtag = "<" + name + atts + "></" + name + ">";
+            newsource = newsource.replace(sp,n,newtag);
+            nsp = sp + newtag.length();
+        }
+        match = selfclosed.match(newsource, nsp);
     }
-    for (int i = 0; i < convert_non_void_self_closing_tags.size(); ++i) {
-        QString tag = convert_non_void_self_closing_tags.at(i);
-        QString oldtag = "<\\s*" + tag + "(\\s*[^>/]*)/\\s*>";
-        QString newtag = "<" + tag + "\\1></" + tag + ">";
-        QRegularExpression pat(oldtag);
-        result = result.replace(pat, newtag);
-    }
-    return result;
+    return newsource;
 }
 
 
