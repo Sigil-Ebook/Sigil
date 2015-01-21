@@ -32,7 +32,7 @@ static std::string special_handling    = "|html|body|";
 static std::string no_entity_sub       = "|script|style|";
 
 static QStringList cdatatags = QStringList() << "title" << "textarea" << "style" << "script" << "xmp" << "iframe" << "noembed" << "noframes" << "noscript";
-
+static QStringList convert_non_void_self_closing_tags = QStringList() << "a" << "span";
 
 // Note: m_output contains the gumbo output tree which 
 // has data structures with pointers into the original source
@@ -49,7 +49,7 @@ GumboParser::GumboParser(const QString &source)
           m_output(NULL),
           m_utf8src("")
 {
-    m_source = fix_self_closing_cdata_tags(source);
+    m_source = fix_self_closing_tags(source);
 }
 
 
@@ -101,12 +101,19 @@ QString GumboParser::prettyprint(QString indent_chars)
 }
 
 
-QString GumboParser::fix_self_closing_cdata_tags(const QString &source)
+QString GumboParser::fix_self_closing_tags(const QString &source)
 {
     QString result = source;
     for (int i = 0; i < cdatatags.size(); ++i) {
         QString tag = cdatatags.at(i);
-        QString oldtag = "<\\s*" + tag + "(\\s*[^>]*)/\\s*>";
+        QString oldtag = "<\\s*" + tag + "(\\s*[^>/]*)/\\s*>";
+        QString newtag = "<" + tag + "\\1></" + tag + ">";
+        QRegularExpression pat(oldtag);
+        result = result.replace(pat, newtag);
+    }
+    for (int i = 0; i < convert_non_void_self_closing_tags.size(); ++i) {
+        QString tag = convert_non_void_self_closing_tags.at(i);
+        QString oldtag = "<\\s*" + tag + "(\\s*[^>/]*)/\\s*>";
         QString newtag = "<" + tag + "\\1></" + tag + ">";
         QRegularExpression pat(oldtag);
         result = result.replace(pat, newtag);
@@ -203,11 +210,14 @@ std::string GumboParser::build_doctype(GumboNode *node)
         if ((node->v.document.public_identifier != NULL) && !pi.empty() ) {
             results.append(" PUBLIC \"");
             results.append(node->v.document.public_identifier);
-            results.append("\" \"");
+            results.append("\"\n  \"");
             results.append(node->v.document.system_identifier);
             results.append("\"");
         }
         results.append(">\n");
+    } else {
+      results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
+      results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
     }
     return results;
 }

@@ -79,6 +79,7 @@ QString CleanSource::Clean(const QString &source)
         case SettingsStore::CleanLevel_PrettyPrint:
         case SettingsStore::CleanLevel_PrettyPrintGumbo: {
             newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintGumbo(newsource);
+            newsource = PrettifyDOCTYPEHeader(newsource);
             return newsource;
         }
         case SettingsStore::CleanLevel_Gumbo: {
@@ -86,6 +87,7 @@ QString CleanSource::Clean(const QString &source)
             newsource = gp.repair();
             newsource = CharToEntity(newsource);
             newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
+            newsource = PrettifyDOCTYPEHeader(newsource);
             return newsource;
         }
         default:
@@ -105,7 +107,9 @@ QString CleanSource::PrettyPrintGumbo(const QString &source)
     newsource = gp.repair();
     newsource = CharToEntity(newsource);
     newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
-    return PrettyPrint(newsource);
+    newsource = PrettyPrint(newsource);
+    newsource = PrettifyDOCTYPEHeader(newsource);
+    return newsource;
 }
 
 
@@ -160,6 +164,7 @@ QString CleanSource::ToValidXHTML(const QString &source)
         newsource = CharToEntity(newsource);
         newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
         newsource = PrettyPrint(newsource);
+        newsource = PrettifyDOCTYPEHeader(newsource);
     }
     return newsource;
 }

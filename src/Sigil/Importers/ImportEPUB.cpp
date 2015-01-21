@@ -150,7 +150,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
                 }
             }
             if (ss.cleanOn() & CLEANON_OPEN) {
-                if (!XhtmlDoc::IsDataWellFormed(hresource->GetText())) {
+              if (!XhtmlDoc::IsDataWellFormed(hresource->GetText())) {
                     non_well_formed << hresource;
                 }
             }

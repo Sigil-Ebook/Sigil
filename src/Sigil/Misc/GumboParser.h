@@ -39,7 +39,7 @@ public:
     QString prettyprint(QString indent_chars="  ");
 
 private:
-    QString fix_self_closing_cdata_tags(const QString & source);
+    QString fix_self_closing_tags(const QString & source);
     std::string serialize(GumboNode* node);
     std::string serialize_contents(GumboNode* node);
     std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
