@@ -28,14 +28,13 @@
 #include "Misc/KeyboardShortcut_p.h"
 
 KeyboardShortcutPrivate::KeyboardShortcutPrivate()
-    : action(0),
-      shortcut(0)
+    : shortcut(0)
 {
 }
 
 KeyboardShortcutPrivate::KeyboardShortcutPrivate(const KeyboardShortcutPrivate &other)
     : QSharedData(other),
-      action(other.action),
+      actionmap(other.actionmap),
       shortcut(other.shortcut),
       description(other.description),
       toolTip(other.toolTip),
@@ -56,16 +55,27 @@ KeyboardShortcut::KeyboardShortcut(const KeyboardShortcut &other) :
 
 bool KeyboardShortcut::isEmpty()
 {
-    if (d->action == 0 && d->shortcut == 0) {
+  if (d->actionmap.size() == 0 && d->shortcut == 0) {
         return true;
     }
 
     return false;
 }
 
-void KeyboardShortcut::setAction(QAction *action)
+void KeyboardShortcut::addAction(QWidget* win, QAction *action)
 {
-    d->action = action;
+    d->actionmap.insert(win,  action);
+}
+
+void KeyboardShortcut::removeAction(QWidget * win)
+{
+    d->actionmap.remove(win);
+}
+
+
+QList<QAction*> KeyboardShortcut::getAllActions()
+{
+    return d->actionmap.values();
 }
 
 void KeyboardShortcut::setShortcut(QShortcut *shortcut)
@@ -96,11 +106,6 @@ void KeyboardShortcut::setKeySequence(const QKeySequence &keySequence)
 void KeyboardShortcut::setDefaultKeySequence(const QKeySequence &defaultKeySequence)
 {
     d->defaultKeySequence = defaultKeySequence;
-}
-
-QAction *KeyboardShortcut::action()
-{
-    return d->action;
 }
 
 QShortcut *KeyboardShortcut::shortcut()

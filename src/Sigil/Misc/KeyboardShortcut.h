@@ -23,6 +23,7 @@
 #ifndef KEYBOARDSHORTCUT_H
 #define KEYBOARDSHORTCUT_H
 
+#include <QList>
 #include <QtCore/QExplicitlySharedDataPointer>
 
 #include "Misc/KeyboardShortcut_p.h"
@@ -40,7 +41,9 @@ public:
 
     bool isEmpty();
 
-    void setAction(QAction *action);
+    void addAction(QWidget*, QAction *action);
+    void removeAction(QWidget*);
+    QList<QAction*> getAllActions();
     void setShortcut(QShortcut *shortcut);
     void setName(const QString &name);
     void setDescription(const QString &description);

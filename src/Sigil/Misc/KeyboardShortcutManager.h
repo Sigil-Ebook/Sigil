@@ -67,7 +67,7 @@ public:
      * the key sequence.
      * @param description A human readable description of what this action represents.
      */
-    void registerAction(QAction *action, const QString &id, const QString &description = QString());
+    void registerAction(QWidget* win, QAction *action, const QString &id, const QString &description = QString());
     /**
      * Register a shortcut with an id.
      *
@@ -122,6 +122,12 @@ public:
      * Set the human readable description for id.
      */
     void setDescription(const QString &id, const QString &description);
+
+    /**
+     * removes all actions in aall KeyboardShortcuts
+     * associated with this parent QWidget *.
+     */
+    void removeActions(QWidget* win);
 
     /**
      * Unregisters a given id from the manager.

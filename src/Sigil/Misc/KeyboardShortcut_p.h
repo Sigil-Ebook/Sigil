@@ -24,6 +24,7 @@
 #define KEYBOARDSHORTCUTPRIVATE_H
 
 #include <QtCore/QSharedData>
+#include <QHash>
 
 class QAction;
 class QKeySequence;
@@ -37,7 +38,7 @@ public:
     KeyboardShortcutPrivate(const KeyboardShortcutPrivate &other);
 
     // The shortcut that that is associated with the data below.
-    QAction *action;
+    QHash<QWidget*, QAction*> actionmap;
     QShortcut *shortcut;
     // If this is an action this is the text that will display when the
     // action is part of a menu.

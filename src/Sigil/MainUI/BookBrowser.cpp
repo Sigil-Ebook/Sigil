@@ -83,6 +83,8 @@ BookBrowser::BookBrowser(QWidget *parent)
 BookBrowser::~BookBrowser()
 {
     WriteSettings();
+    KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
+    sm->removeActions(this);
 }
 
 void BookBrowser::showEvent(QShowEvent *event)
@@ -1335,16 +1337,16 @@ void BookBrowser::CreateContextMenuActions()
     m_AdobesObfuscationMethod->setCheckable(true);
     m_IdpfsObfuscationMethod ->setCheckable(true);
     m_CopyHTML->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Y));
-    sm->registerAction(m_CopyHTML, "MainWindow.BookBrowser.CopyHTML");
+    sm->registerAction(this, m_CopyHTML, "MainWindow.BookBrowser.CopyHTML");
     m_Delete->setShortcut(QKeySequence::Delete);
     m_Merge->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_M));
     m_Merge->setToolTip("Merge with previous file, or merge multiple files into one.");
-    sm->registerAction(m_Merge, "MainWindow.BookBrowser.Merge");
+    sm->registerAction(this, m_Merge, "MainWindow.BookBrowser.Merge");
     m_Rename->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
     m_Rename->setToolTip("Rename selected file(s)");
-    sm->registerAction(m_Rename, "MainWindow.BookBrowser.Rename");
+    sm->registerAction(this, m_Rename, "MainWindow.BookBrowser.Rename");
     m_LinkStylesheets->setToolTip("Link Stylesheets to selected file(s).");
-    sm->registerAction(m_LinkStylesheets, "MainWindow.BookBrowser.LinkStylesheets");
+    sm->registerAction(this, m_LinkStylesheets, "MainWindow.BookBrowser.LinkStylesheets");
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.
     addAction(m_CopyHTML);

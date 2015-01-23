@@ -44,7 +44,7 @@ KeyboardShortcutManager::~KeyboardShortcutManager()
     writeSettings();
 }
 
-void KeyboardShortcutManager::registerAction(QAction *action, const QString &id, const QString &description)
+void KeyboardShortcutManager::registerAction(QWidget * win, QAction *action, const QString &id, const QString &description)
 {
     KeyboardShortcut s;
     QKeySequence keySequence = action->shortcut();
@@ -71,7 +71,7 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
 
     s.setDescription(desc.simplified());
     s.setToolTip(action->toolTip());
-    s.setAction(action);
+    s.addAction(win, action);
 
     // If we are registering with a KeyboardShortcut that was previously created
     // we don't want to over write the key sequence.
@@ -84,7 +84,11 @@ void KeyboardShortcutManager::registerAction(QAction *action, const QString &id,
     }
 
     // Set the keyboard shortcut that is associated with this id.
-    s.action()->setShortcut(s.keySequence());
+    QList<QAction *> actions = s.getAllActions();
+    foreach( QAction* action, actions)
+    {
+        if (action != 0) action->setShortcut(s.keySequence());
+    }
 }
 
 void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QString &id, const QString &description)
@@ -127,47 +131,65 @@ void KeyboardShortcutManager::registerShortcut(QShortcut *shortcut, const QStrin
     s.shortcut()->setKey(s.keySequence());
 }
 
-bool KeyboardShortcutManager::setKeySequence(const QString &id, const QKeySequence &keySequence, bool isDefault)
+bool KeyboardShortcutManager::setKeySequence(const QString &sid, const QKeySequence &keySequence, bool isDefault)
 {
     if (keySequenceInUse(keySequence)) {
-        // Find the shortcut that is using this default sequence.
-        QString id;
+        // Find the shortcut that is using this sequence.
+        QString fid;
         foreach(QString tid, m_shortcuts.keys()) {
             if (m_shortcuts[tid].keySequence() == keySequence) {
-                id = tid;
+                fid = tid;
                 break;
             }
         }
 
-        if (!id.isEmpty()) {
+        if (!fid.isEmpty()) {
             // Resetting to a keysequence's default value will always succeed.
             // Set the shortcut that is using this default to it's default
             // only if it's default is not in use otherwise clear it. We
             // don't want to end up in an infinite loop if multiple shortcuts
             // have the same default set so we try once instead of following
             // the shortcut chain.
-            if (isDefault && !keySequenceInUse(m_shortcuts[id].defaultKeySequence())) {
-                setKeySequence(id, m_shortcuts[id].defaultKeySequence());
+            if (isDefault && !keySequenceInUse(m_shortcuts[fid].defaultKeySequence())) {
+                setKeySequence(fid, m_shortcuts[fid].defaultKeySequence());
             } else {
                 // We are assigning a new value so just clear the old one.
-                setKeySequence(id, QKeySequence());
+                setKeySequence(fid, QKeySequence());
             }
         }
     }
 
     KeyboardShortcut s;
 
-    if (!m_shortcuts.contains(id)) {
+    if (!m_shortcuts.contains(sid)) {
         s = createShortcut(keySequence, keySequence);
-        m_shortcuts.insert(id, s);
+        m_shortcuts.insert(sid, s);
     } else {
-        s = m_shortcuts.value(id);
+        s = m_shortcuts.value(sid);
     }
 
     s.setKeySequence(keySequence);
 
-    if (s.action() != 0) {
-        s.action()->setShortcut(keySequence);
+    // This is all messed up for multiple MainWindows (used on the Mac)
+    // If in a new MainWindow is used to access the Preferences
+    // all shortcut key sequences seem to be rewritten 
+    // upon exiting the Preferences 
+
+    // Then when that new MainWindow is closed, many of its
+    // QAction and QKeySequnces are reaped leaving 
+    // behind dangling pointers 
+
+    // QAction does not initialize its private d->shortcut
+    // under some paths or its shortcut field gets reaped (see above)
+    // but then does this in QAction::setShortcut 
+    // if (d->shortcut == shortcut) 
+    // and thus segfaults
+    // try to work around this until we can get Qt to fix this
+
+    QList<QAction*> actions = s.getAllActions();
+    foreach (QAction * action, actions)
+    {
+        if (action != 0) action->setShortcut(keySequence);
     }
 
     if (s.shortcut() != 0) {
@@ -214,12 +236,24 @@ void KeyboardShortcutManager::unregisterAction(QAction *action)
     foreach(QString key, m_shortcuts.keys()) {
         KeyboardShortcut s = m_shortcuts.value(key);
 
-        if (s.action() == action) {
+        QList<QAction *> actions  = s.getAllActions();
+        if (actions.contains(action)) {
             ids.append(key);
         }
     }
     foreach(QString id, ids) {
         unregisterId(id);
+    }
+}
+
+void KeyboardShortcutManager::removeActions(QWidget * win)
+{
+    QStringList ids;
+    // Gather a list of ids. There could be more than one and we don't
+    // want to modify the list as we search.
+    foreach(QString key, m_shortcuts.keys()) {
+        KeyboardShortcut s = m_shortcuts.value(key);
+        s.removeAction(win);
     }
 }
 
