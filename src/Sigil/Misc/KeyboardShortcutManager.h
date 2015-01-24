@@ -124,10 +124,10 @@ public:
     void setDescription(const QString &id, const QString &description);
 
     /**
-     * removes all actions in aall KeyboardShortcuts
+     * removes all actions in all KeyboardShortcuts
      * associated with this parent QWidget *.
      */
-    void removeActions(QWidget* win);
+    void removeActionsOf(QWidget* win);
 
     /**
      * Unregisters a given id from the manager.

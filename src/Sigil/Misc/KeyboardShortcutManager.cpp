@@ -170,21 +170,9 @@ bool KeyboardShortcutManager::setKeySequence(const QString &sid, const QKeySeque
 
     s.setKeySequence(keySequence);
 
-    // This is all messed up for multiple MainWindows (used on the Mac)
-    // If in a new MainWindow is used to access the Preferences
-    // all shortcut key sequences seem to be rewritten 
-    // upon exiting the Preferences 
-
-    // Then when that new MainWindow is closed, many of its
-    // QAction and QKeySequnces are reaped leaving 
-    // behind dangling pointers 
-
-    // QAction does not initialize its private d->shortcut
-    // under some paths or its shortcut field gets reaped (see above)
-    // but then does this in QAction::setShortcut 
-    // if (d->shortcut == shortcut) 
-    // and thus segfaults
-    // try to work around this until we can get Qt to fix this
+    // When a new MainWindow is closed, its QActions
+    // are reaped which could leave behind dangling 
+    // pointers unless propererly removed 
 
     QList<QAction*> actions = s.getAllActions();
     foreach (QAction * action, actions)
@@ -246,11 +234,8 @@ void KeyboardShortcutManager::unregisterAction(QAction *action)
     }
 }
 
-void KeyboardShortcutManager::removeActions(QWidget * win)
+void KeyboardShortcutManager::removeActionsOf(QWidget * win)
 {
-    QStringList ids;
-    // Gather a list of ids. There could be more than one and we don't
-    // want to modify the list as we search.
     foreach(QString key, m_shortcuts.keys()) {
         KeyboardShortcut s = m_shortcuts.value(key);
         s.removeAction(win);

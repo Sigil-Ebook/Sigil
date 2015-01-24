@@ -84,7 +84,7 @@ BookBrowser::~BookBrowser()
 {
     WriteSettings();
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
-    sm->removeActions(this);
+    sm->removeActionsOf(this);
 }
 
 void BookBrowser::showEvent(QShowEvent *event)

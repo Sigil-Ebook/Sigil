@@ -572,7 +572,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
         WriteSettings();
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
-        sm->removeActions(this);
+        sm->removeActionsOf(this);
 
         // The user may have unsaved search/clip/index/meta entries if dialogs are open.
         // Prompt them to save or discard their changes if any.
