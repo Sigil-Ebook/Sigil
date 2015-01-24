@@ -1,8 +1,30 @@
-Sigil NEXT TBA
+Sigil 0.8.3 2015.01.??
     - Validation result plugins will auto close the Plugin Runner
       Dialog since the dialog has no real info and openes the
       validation pane with the results anyway.
-
+    - New Plugin Preferences Support added
+    - Plugins Manager will now remember last folder used
+    - Support for building both Linux .deb and .rpm packages
+    - Lots of Linux build support, compilation, installation, and 
+      documentation improvements
+    - Build changes to support update to latest Qt 5.4.0 and to 
+      use latest C++11 compiler
+    - Numerous bugs fixed or worked around including:
+       - Make Invocation of CSS W3C Online Validator more reliable
+       - Fix to make Preview Window update after BookView to prevent 
+         memory corruption and crashes
+       - Workaround Qt bug (font cache assertion) when using 
+         clearMemoryCaches() - see https://bugreports.qt.io/browse/QTBUG-43504
+       - Properly handle loadFinsihed Signal in BookViewPreview to 
+         prevent clashes between BookView and Preview
+       - Fix for Sigil memory use after it was freed bug
+       - Workaround to the extent possible Qt bug with memory use after 
+         free using QWebInspectors - see https://bugreports.qt.io/browse/QTBUG-43725
+       - Workaround to the extent possible Qt bug with memory use 
+         after free when closing MainWindows - see https://bugreports.qt.io/browse/QTBUG-43692
+       - Bug fix to prevent crashes in KeyboardsShortcuts when accessing 
+         Preferences with multiple MainWindows
+     
 Sigil 0.8.2 2014.11.28
     - Validator plugin type which can load validation results into
       the main window validation panel.
