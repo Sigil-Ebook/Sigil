@@ -23,19 +23,16 @@
 #ifndef TABLEOFCONTENTS_H
 #define TABLEOFCONTENTS_H
 
-#include <QtCore/QSharedPointer>
-#include <QtWidgets/QDockWidget>
+#include <QSharedPointer>
+#include <QDockWidget>
 
-#include "BookManipulation/Book.h"
-#include "MainUI/MainWindow.h"
-#include "MainUI/NCXModel.h"
+#include "../BookManipulation/Book.h"
+#include "../MainUI/MainWindow.h"
+#include "../MainUI/NCXModel.h"
 
 class QModelIndex;
-class QPushButton;
 class QTimer;
 class QTreeView;
-class QVBoxLayout;
-class QWidget;
 
 /**
  * Represents the pane in which the book's NCX TOC is rendered.
@@ -79,10 +76,10 @@ public slots:
      */
     void RenumberTOCContents();
 
-    /**
+    /* *
      * Implements the "Generate TOC From headings" button functionality.
      */
-    void GenerateTocFromHeadings();
+    //void GenerateTocFromHeadings();
 
     NCXModel::NCXEntry GetRootEntry();
 
@@ -96,14 +93,9 @@ private slots:
      */
     void ItemClickedHandler(const QModelIndex &index);
 
-    void CollapseAll();
-
-    void ExpandAll();
-
 protected:
 
     void contextMenuEvent(QContextMenuEvent *event);
-    virtual void showEvent(QShowEvent *event);
 
 signals:
 
@@ -119,8 +111,6 @@ signals:
                              const QString &caret_location_to_scroll_to = QString(),
                              MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                              const QUrl &fragment = QUrl());
-
-    void GenerateTocRequest();
 
 private:
 
@@ -140,16 +130,6 @@ private:
     QSharedPointer<Book> m_Book;
 
     /**
-     * A container widget for the TOC UI widgets.
-     */
-    QWidget &m_MainWidget;
-
-    /**
-     * The layout for the container widget.
-     */
-    QVBoxLayout &m_Layout;
-
-    /**
      * The tree view used to represent the TOC.
      */
     QTreeView &m_TreeView;
@@ -166,5 +146,3 @@ private:
 };
 
 #endif // TABLEOFCONTENTS_H
-
-
