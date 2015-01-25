@@ -21,7 +21,6 @@
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QTimer>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtGui/QContextMenuEvent>
@@ -35,7 +34,7 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
-static const int COLUMN_INDENTATION = 10;
+static const int COLUMN_INDENTATION = 15;
 static const int REFRESH_DELAY = 1000;
 
 TableOfContents::TableOfContents(QWidget *parent)
@@ -58,12 +57,9 @@ TableOfContents::TableOfContents(QWidget *parent)
     m_RefreshTimer.setInterval(REFRESH_DELAY);
     m_RefreshTimer.setSingleShot(true);
     SetupTreeView();
-    connect(&m_TreeView, SIGNAL(clicked(const QModelIndex &)),
-            this,        SLOT(ItemClickedHandler(const QModelIndex &)));
-    connect(&m_RefreshTimer, SIGNAL(timeout()),
-            this,            SLOT(Refresh()));
-    connect(&m_NCXModel, SIGNAL(RefreshDone()),
-            this,            SLOT(ExpandAll()));
+    connect(&m_TreeView, SIGNAL(clicked(const QModelIndex &)), this, SLOT(ItemClickedHandler(const QModelIndex &)));
+    connect(&m_RefreshTimer, SIGNAL(timeout()), this, SLOT(Refresh()));
+    connect(&m_NCXModel, SIGNAL(RefreshDone()), &m_TreeView, SLOT(expandAll()));
 }
 
 void TableOfContents::showEvent(QShowEvent *event)
@@ -76,17 +72,14 @@ void TableOfContents::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
     m_NCXModel.SetBook(book);
-    connect(&m_Book->GetNCX(), SIGNAL(Modified()),
-            this,              SLOT(StartRefreshDelay()));
+    connect(&m_Book->GetNCX(), SIGNAL(Modified()), this, SLOT(StartRefreshDelay()));
     Refresh();
 }
-
 
 void TableOfContents::Refresh()
 {
     m_NCXModel.Refresh();
 }
-
 
 void TableOfContents::StartRefreshDelay()
 {
@@ -97,12 +90,10 @@ void TableOfContents::StartRefreshDelay()
     m_RefreshTimer.start();
 }
 
-
 void TableOfContents::RenumberTOCContents()
 {
     m_Book->GetNCX().GenerateNCXFromTOCContents(*m_Book, m_NCXModel);
 }
-
 
 void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
@@ -127,18 +118,10 @@ void TableOfContents::ItemClickedHandler(const QModelIndex &index)
     }
 }
 
-
-void TableOfContents::GenerateTocFromHeadings()
-{
-    emit GenerateTocRequest();
-}
-
-
 NCXModel::NCXEntry TableOfContents::GetRootEntry()
 {
     return m_NCXModel.GetRootNCXEntry();
 }
-
 
 void TableOfContents::SetupTreeView()
 {
@@ -156,16 +139,6 @@ void TableOfContents::SetupTreeView()
     m_TreeView.setHeaderHidden(true);
 }
 
-void TableOfContents::CollapseAll()
-{
-    m_TreeView.collapseAll();
-}
-
-void TableOfContents::ExpandAll()
-{
-    m_TreeView.expandAll();
-}
-
 void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *menu = new QMenu(this);
@@ -173,11 +146,8 @@ void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
     QAction *collapseAction = new QAction(tr("Collapse All"), menu);
     QAction *expandAction = new QAction(tr("Expand All"), menu);
     menu->addAction(collapseAction);
-    connect(collapseAction, SIGNAL(triggered()), this, SLOT(CollapseAll()));
+    connect(collapseAction, SIGNAL(triggered()), &m_TreeView, SLOT(collapseAll()));
     menu->addAction(expandAction);
-    connect(expandAction, SIGNAL(triggered()), this, SLOT(ExpandAll()));
+    connect(expandAction, SIGNAL(triggered()), &m_TreeView, SLOT(expandAll()));
     menu->exec(mapToGlobal(event->pos()));
 }
-
-
-

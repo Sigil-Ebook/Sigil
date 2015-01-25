@@ -31,7 +31,6 @@
 #include "MainUI/NCXModel.h"
 
 class QModelIndex;
-class QPushButton;
 class QTimer;
 class QTreeView;
 class QVBoxLayout;
@@ -79,11 +78,6 @@ public slots:
      */
     void RenumberTOCContents();
 
-    /**
-     * Implements the "Generate TOC From headings" button functionality.
-     */
-    void GenerateTocFromHeadings();
-
     NCXModel::NCXEntry GetRootEntry();
 
 private slots:
@@ -95,10 +89,6 @@ private slots:
      * @param index The model index of the item clicked.
      */
     void ItemClickedHandler(const QModelIndex &index);
-
-    void CollapseAll();
-
-    void ExpandAll();
 
 protected:
 
@@ -120,15 +110,12 @@ signals:
                              MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                              const QUrl &fragment = QUrl());
 
-    void GenerateTocRequest();
-
 private:
 
     /**
      * Performs the initial setup for the tree view.
      */
     void SetupTreeView();
-
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
@@ -166,5 +153,3 @@ private:
 };
 
 #endif // TABLEOFCONTENTS_H
-
-
