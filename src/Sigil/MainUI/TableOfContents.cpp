@@ -19,19 +19,20 @@
 **
 *************************************************************************/
 
-#include <QFileInfo>
-#include <QTimer>
-#include <QTreeView>
-#include <QContextMenuEvent>
-#include <QAction>
-#include <QMenu>
+#include <QtCore/QFileInfo>
+#include <QtCore/QTimer>
+#include <QtWidgets/QTreeView>
+#include <QtWidgets/QVBoxLayout>
+#include <QtGui/QContextMenuEvent>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 
-#include "../BookManipulation/FolderKeeper.h"
-#include "../MainUI/TableOfContents.h"
-#include "../Misc/Utility.h"
-#include "../ResourceObjects/NCXResource.h"
-#include "../sigil_constants.h"
-#include "../sigil_exception.h"
+#include "BookManipulation/FolderKeeper.h"
+#include "MainUI/TableOfContents.h"
+#include "Misc/Utility.h"
+#include "ResourceObjects/NCXResource.h"
+#include "sigil_constants.h"
+#include "sigil_exception.h"
 
 static const int COLUMN_INDENTATION = 15;
 static const int REFRESH_DELAY = 1000;
@@ -40,17 +41,31 @@ TableOfContents::TableOfContents(QWidget *parent)
     :
     QDockWidget(tr("Table Of Contents"), parent),
     m_Book(NULL),
-    m_TreeView(*new QTreeView(this)),
+    m_MainWidget(*new QWidget(this)),
+    m_Layout(*new QVBoxLayout(&m_MainWidget)),
+    m_TreeView(*new QTreeView(&m_MainWidget)),
     m_RefreshTimer(*new QTimer(this)),
     m_NCXModel(*new NCXModel(this))
 {
-    setWidget(&m_TreeView);
+    m_Layout.setContentsMargins(0, 0, 0, 0);
+#ifdef Q_OS_MAC
+    m_Layout.setSpacing(4);
+#endif
+    m_Layout.addWidget(&m_TreeView);
+    m_MainWidget.setLayout(&m_Layout);
+    setWidget(&m_MainWidget);
     m_RefreshTimer.setInterval(REFRESH_DELAY);
     m_RefreshTimer.setSingleShot(true);
     SetupTreeView();
     connect(&m_TreeView, SIGNAL(clicked(const QModelIndex &)), this, SLOT(ItemClickedHandler(const QModelIndex &)));
     connect(&m_RefreshTimer, SIGNAL(timeout()), this, SLOT(Refresh()));
     connect(&m_NCXModel, SIGNAL(RefreshDone()), &m_TreeView, SLOT(expandAll()));
+}
+
+void TableOfContents::showEvent(QShowEvent *event)
+{
+    QDockWidget::showEvent(event);
+    raise();
 }
 
 void TableOfContents::SetBook(QSharedPointer<Book> book)
@@ -68,8 +83,10 @@ void TableOfContents::Refresh()
 
 void TableOfContents::StartRefreshDelay()
 {
-    // Repeatedly calling start() will re-start the timer and that's exactly what we want.
-    // We want the timer to fire REFRESH_DELAY miliseconds after the user has stopped typing up the NCX.
+    // Repeatedly calling start() will re-start the timer
+    // and that's exactly what we want.
+    // We want the timer to fire REFRESH_DELAY miliseconds
+    // after the user has stopped typing up the NCX.
     m_RefreshTimer.start();
 }
 
@@ -80,10 +97,11 @@ void TableOfContents::RenumberTOCContents()
 
 void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
-    QUrl url = m_NCXModel.GetUrlForIndex(index);
+    QUrl url         = m_NCXModel.GetUrlForIndex(index);
     QString filename = QFileInfo(url.path()).fileName();
 
     int line = -1;
+
     // If no id, go to the top of the page
     if (url.fragment().isEmpty()) {
         line = 1;
@@ -107,6 +125,14 @@ NCXModel::NCXEntry TableOfContents::GetRootEntry()
 
 void TableOfContents::SetupTreeView()
 {
+    m_TreeView.setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_TreeView.setSortingEnabled(false);
+    m_TreeView.sortByColumn(-1);
+    m_TreeView.setUniformRowHeights(true);
+    m_TreeView.setDragEnabled(false);
+    m_TreeView.setAcceptDrops(false);
+    m_TreeView.setDropIndicatorShown(false);
+    m_TreeView.setDragDropMode(QAbstractItemView::NoDragDrop);
     m_TreeView.setAnimated(true);
     m_TreeView.setModel(&m_NCXModel);
     m_TreeView.setIndentation(COLUMN_INDENTATION);
