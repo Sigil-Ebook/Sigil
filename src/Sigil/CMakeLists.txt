@@ -7,7 +7,7 @@
 #
 #########################################################
 
-cmake_minimum_required( VERSION 2.8.9 )
+cmake_minimum_required( VERSION 3.0.0 )
 
 if(POLICY CMP0020)
     cmake_policy(SET CMP0020 OLD)
@@ -62,8 +62,8 @@ endif()
 #############################################################################
 
 
-# Qt5 packages minimum version 5.1
-find_package(Qt5 COMPONENTS Core Network Svg WebKit WebKitWidgets Widgets Xml XmlPatterns Concurrent PrintSupport LinguistTools)
+# Qt5 packages minimum version 5.4
+find_package(Qt5 5.4 COMPONENTS Core Network Svg WebKit WebKitWidgets Widgets Xml XmlPatterns Concurrent PrintSupport LinguistTools)
 set(CMAKE_AUTOMOC ON)
 
 set( MAIN_FILES
@@ -685,10 +685,17 @@ if( APPLE )
         set( WORK_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" )
     endif()
 
-    add_custom_target(  addframeworks
-                        COMMAND macdeployqt Sigil.app
-                        WORKING_DIRECTORY ${WORK_DIR}
-                        DEPENDS ${PROJECT_NAME} )
+    if ("${CODE_SIGN_ID}" STREQUAL "")
+        add_custom_target(  addframeworks
+                            COMMAND macdeployqt Sigil.app
+                            WORKING_DIRECTORY ${WORK_DIR}
+                            DEPENDS ${PROJECT_NAME} )
+    ELSE ()
+        add_custom_target(  addframeworks
+                            COMMAND macdeployqt  Sigil.app -codesign="${CODE_SIGN_ID}"
+                            WORKING_DIRECTORY ${WORK_DIR}
+                            DEPENDS ${PROJECT_NAME} )
+    ENDIF ()
 
     add_custom_target(  makedmg 
                         COMMAND macdeployqt Sigil.app -dmg -no-plugins
