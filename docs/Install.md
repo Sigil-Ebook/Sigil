@@ -48,6 +48,23 @@ Build Options
 * WIN_INSTALLER_USE_64BIT_CRT=1
   * Windows only.
   * Must be specified if building a 64 bit installable package.
+* CODE_SIGN_ID=XYZ
+  * OS X Only.
+  * Sigil can be automatically signed.
+  * Where XYZ is the identity to sign with. This could be common name or the
+    SHA1 hash of the certificate to use.
+  * You can check if the application was signed successfully using
+    `spctl --assess --type execute bin/Sigil.app`
+    No output means it was. Any output means it was not signed successfully.
+
+Other useful variables are:
+* DCMAKE_PREFIX_PATH
+  * E.g. /usr/local/opt/qt5/lib/cmake/
+  * Which allows you to specifiy where cmake's Qt5 files are located if they are not part of the system path.
+* CMAKE_OSX_SYSROOT
+  * /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/
+  * Which allows you to specify the SDK to build against. This allows you to build on 10.10 but support
+    running on 10.9 for example.
 
 
 Compiling on Windows
@@ -112,20 +129,6 @@ On OS X a `makedmg` target is provided which will build a redistributable dmg.
 There is also an `addframeworks` target which will add all necessary
 dependencies to the .app for distribution. The `makedmg` will not invoke
 `addframeworks`.
-
-Sigil can be automatically signed (codesign) by specifying CODE_SIGN_ID=XYZ
-Where XYZ is the identity to sign with. This could be common name or the
-SHA1 hash of the certificate to use. You can check if the application
-was signed successfully using `spctl --assess --type execute bin/Sigil.app`
-No output means it was. Any output means it was not signed successfully.
-
-Other useful variables are:
-* `-DCMAKE_PREFIX_PATH=/usr/local/opt/qt5/lib/cmake/` which allows you
-  to specifiy where cmake's Qt5 files are located if they are not part
-  of the system path.
-* `-DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/`
-  which allows you to specify the SDK to build against. This allows you to build on 10.10 but support runningon 10.9
-  for example.
 
 
 ### Method 1 (make)
