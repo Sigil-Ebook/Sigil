@@ -22,7 +22,7 @@ Details
   * Windows
   * Sign packages
     * OS X
-* Generate Checksums file.
+* Generate Checksums file (sha256).
 * Make Release on GitHub
   * Upload packages
     * Code
