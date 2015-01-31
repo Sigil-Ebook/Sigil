@@ -62,7 +62,7 @@ Other useful variables are:
   * E.g. /usr/local/opt/qt5/lib/cmake/
   * Which allows you to specifiy where cmake's Qt5 files are located if they are not part of the system path.
 * CMAKE_OSX_SYSROOT
-  * /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/
+  * E.g. /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/
   * Which allows you to specify the SDK to build against. This allows you to build on 10.10 but support
     running on 10.9 for example.
 
