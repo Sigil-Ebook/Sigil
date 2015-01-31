@@ -56,6 +56,6 @@
     <key>LSApplicationCategoryType</key>
     <string>public.app-category.productivity</string>
     <key>LSMinimumSystemVersion</key>
-    <string>10.10.0</string>
+    <string>10.9.5</string>
 </dict>
 </plist>
