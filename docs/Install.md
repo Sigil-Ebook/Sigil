@@ -25,7 +25,7 @@ on Unix systems. After installing CMake, you can see a list of generators
 provided on your system by typing `cmake` in your terminal and pressing enter.
 The supported generators should be listed near the bottom of the printout.
 
-Qt 5.3.0 is also required on all platforms. It can be downloaded
+Qt 5.4.0 is also required on all platforms. It can be downloaded
 [here](http://qt-project.org/downloads).
 
 A compiler that supports C++11 is also required.
@@ -33,6 +33,11 @@ Compilers that are known to work are:
 * GCC 4.8+
 * Apple's compiler that ships with 10.9+
 * Visual Studio 2013+
+
+Primary development happens on OS X. Limited testing happens on Windows.
+Linux is not considered a platform for user submitted bug reports. Only
+patches to fix issues specific to Linux will be evaluated. But only if
+they do not interfere with other platforms.
 
 
 Build Options
@@ -108,7 +113,24 @@ There is also an `addframeworks` target which will add all necessary
 dependencies to the .app for distribution. The `makedmg` will not invoke
 `addframeworks`.
 
+Sigil can be automatically signed (codesign) by specifying CODE_SIGN_ID=XYZ
+Where XYZ is the identity to sign with. This could be common name or the
+SHA1 hash of the certificate to use. You can check if the application
+was signed successfully using `spctl --assess --type execute bin/Sigil.app`
+No output means it was. Any output means it was not signed successfully.
+
+Other useful variables are:
+* `-DCMAKE_PREFIX_PATH=/usr/local/opt/qt5/lib/cmake/` which allows you
+  to specifiy where cmake's Qt5 files are located if they are not part
+  of the system path.
+* `-DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/`
+  which allows you to specify the SDK to build against. This allows you to build on 10.10 but support runningon 10.9
+  for example.
+
+
 ### Method 1 (make)
+
+This is the preferred method and the method used by all Sigil developers.
 
     $ mkdir build
     $ cd build
@@ -136,6 +158,9 @@ Compiling on Linux
 ------------------
 
 Here is an example of installing Sigil on in your Home directory.
+NOTE: While Linux instructions are provided Linux is not considered
+      a supported platform. Bug reports against Linux build will not
+      be accepted or evaluated.
 
 Create the build directories and get the Sigil source code.
 
@@ -155,6 +180,7 @@ to build the rpm (note: sudo or su should not be used to build rpm package). The
 of the build directory. Install/remove using your system's dpkg -i/-r (Debian/Ubuntu) or rpm -i/-e.
 
 ### Running Sigil on Linux
+
 If your INSTALL_PREFIX was either /usr/bin or /usr/local/bin), all you need to do is execute 'sigil' from a terminal.
 You can also create a shortcut to the sigil.desktop file in INSTALL_PREFIX/share/applications/ to launch Sigil.
 Sigil should also be available in your desktop menu system. It's typically found under the "Office" applications submenu.
@@ -165,6 +191,9 @@ If you've installed Sigil to your home directory or another prefix not on your p
 If you relocate your Qt5 libraries after building Sigil, you'll need to edit the Sigil launch script (INSTALL_PREFIX/bin/sigil)
 and supply the new location of the Qt5 libraries (only necessary if you've installed via the typical "make, make install" method).
 
+
+Git Builds
+==========
 
 Building from source in the git repository for release is *NOT* recommended, since code in
 the git repository is not stable. Do not open a bug report against a non-release version.

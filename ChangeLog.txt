@@ -1,4 +1,6 @@
 Sigil 0.8.3 2015.01.??
+    - 10.9.5 is now the minimum OS X version required. Only 10.10.1 has been tested.
+    - -DCODE_SIGN_ID=XYZ option has been added to auto sign the app bundle on OS X.
     - Validation result plugins will auto close the Plugin Runner
       Dialog since the dialog has no real info and openes the
       validation pane with the results anyway.
@@ -7,6 +9,7 @@ Sigil 0.8.3 2015.01.??
     - Support for building both Linux .deb and .rpm packages
     - Lots of Linux build support, compilation, installation, and 
       documentation improvements
+    - Qt 5.4 is now a minimum requirement.
     - Build changes to support update to latest Qt 5.4.0 and to 
       use latest C++11 compiler
     - Numerous bugs fixed or worked around including:
