@@ -209,19 +209,19 @@ wenn keine Schriftart in Ihrem CSS spezifiziert ist</translation>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="229"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="348"/>
         <source>Standard Font:</source>
-        <translation>Standard Schriftart:</translation>
+        <translation>Standard-Schriftart:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="109"/>
         <source>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</source>
         <translation>Verwendete Standard-Schriftart für die Buch-Ansicht und Vorschau,
-wenn keine Serif Schriftart in Ihrem CSS spezifiziert ist</translation>
+wenn keine Serif-Schriftart in Ihrem CSS spezifiziert ist</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="113"/>
         <source>Serif Font:</source>
-        <translation>Serif Schriftart:</translation>
+        <translation>Serif-Schriftart:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="123"/>
@@ -11202,7 +11202,7 @@ Sind Sie sicher, dass Sie fortsetzen wollen?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
-        <translation>Pfas zum Interpreter-Programm</translation>
+        <translation>Pfad zum Interpreter-Programm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
@@ -11264,12 +11264,12 @@ Sind Sie sicher, dass Sie fortsetzen wollen?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="161"/>
         <source>Remove All Plugins</source>
-        <translation>Alle Plugin entfernen</translation>
+        <translation>Alle Plugins entfernen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation>Sind Sie sicher, dass sie alle Plugins entfernen möchten?</translation>
+        <translation>Sind Sie sicher, dass Sie alle Plugins entfernen möchten?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>

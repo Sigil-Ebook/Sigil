@@ -5771,7 +5771,7 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="66"/>
         <source>ID</source>
-        <translation>Nazwa ID</translation>
+        <translation>Identyfikator</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="67"/>
@@ -5786,7 +5786,7 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="69"/>
         <source>Target ID</source>
-        <translation>Nazwa ID Celu</translation>
+        <translation>Identyfikator Celu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="70"/>
@@ -5806,7 +5806,7 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
         <source>Target&apos;s Target ID</source>
-        <translation>Nazwa ID docelowego Celu</translation>
+        <translation>Docelowy Identyfikator Celu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
@@ -6188,7 +6188,7 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Podziel w miejscu kursora&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Bieżący plik podzielony na dwa pliki za pomocą lokalizacji kursora jako punktu podziału.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Bieżący plik zostanie podzielony na dwa pliki za pomocą lokalizacji kursora jako punktu podziału.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1043"/>
@@ -6210,9 +6210,9 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wstawianie Nazwy ID&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wstawianie Identyfikatora&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wstaw lub edytuj zakotwiczenie z Nazwą ID by móc wybrać ją jako cel łącza.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wstaw lub Edytuj Nazwę Identyfikatora zakotwiczenia by móc wybrać ją jako cel łącza.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1134"/>
@@ -6664,7 +6664,7 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Wstaw Łącze&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wstawia lub edytuje kotwicę dla celu hiperłącza.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Wstawia lub edytuje zakotwiczenie dla celu hiperłącza.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1226"/>
@@ -7987,7 +7987,7 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
         <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
         <source>You cannot insert an id at this position.</source>
-        <translation>Nie można wstawić nazwy ID w tej pozycji.</translation>
+        <translation>Nie można wstawić Identyfikatora w tej pozycji.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1623"/>
@@ -8125,7 +8125,7 @@ Proszę wybrać inny format.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1513"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
-        <translation>Nazwa ID jest błędna - musi zaczynać się od litery, a następnie przez litery i liczby _ : - lub .</translation>
+        <translation>Identyfikator jest błędny - musi zaczynać się od litery, a następnie przez litery i liczby _ : - lub .</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
@@ -8257,7 +8257,7 @@ Czy chcesz zapisać swoje zmiany?</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
         <source>You must select text before inserting a new id.</source>
-        <translation>Musisz zaznaczyć tekst przed wstawieniem nowej Nazwy ID.</translation>
+        <translation>Musisz zaznaczyć tekst przed wstawieniem nowego Identyfikatora.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
@@ -9437,7 +9437,7 @@ Na przykład użyj &quot;Angielski&quot; zamiast kodu języka &apos;en&apos;.</t
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="235"/>
         <source>Enter your own custom identifier name in the File As column, e.g. stocknumber</source>
-        <translation>Podaj nazwę identyfikatora zdarzenia w kolumnie Plik jako, np numer katalogowy</translation>
+        <translation>Podaj nazwę identyfikatora zdarzenia w kolumnie Plik Jako, np numer katalogowy</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
@@ -10947,7 +10947,7 @@ Na przykład użyj &quot;Angielski&quot; zamiast kodu języka &apos;en&apos;.</t
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="20"/>
         <source>Enter the name to display in the Open With menu for this application:</source>
-        <translation>Wpisz nazwę by wyświetlić w menu &quot;Otwórz za pomocą&quot; dla tej aplikacji:</translation>
+        <translation>Wpisz nazwę, by wyświetlić w menu &quot;Otwórz za pomocą&quot; dla tej aplikacji:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="48"/>
@@ -11600,7 +11600,7 @@ Linia: %1 Kolumna %2 - %3</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
-        <translation>Tymczasowy id został przypisany do załadowanego pliku EPUB. Należy edytować plik OPF by usunąć dublowania.</translation>
+        <translation>Tymczasowe nazwy identyfikatorów zakotwiczeń zostały przypisane do załadowanego pliku EPUB. Należy edytować plik OPF by usunąć dublowania.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="647"/>
@@ -12197,7 +12197,7 @@ podwójnie kliknąć na docelowe miejsce w książce z listy poniżej.</translat
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation>Wstaw Nazwę ID</translation>
+        <translation>Wstaw Identyfikator</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -12206,16 +12206,16 @@ podwójnie kliknąć na docelowe miejsce w książce z listy poniżej.</translat
 The dropdown box shows existing ID names in the current file.
 
 ID names must be unique and start with a letter.</source>
-        <translation>Wprowadź Nazwę ID do wykorzystania jako miejsce dla hiperłącza, notatki lub pozycji spisu treści.
+        <translation>Wprowadź nazwę Identyfikatora do wykorzystania jako miejsce dla hiperłącza, notatki lub pozycji spisu treści.
 
-Lista rozwijalna w okienku pokazuje istniejące Nazwy ID w bieżącym pliku.
+Lista rozwijalna w okienku pokazuje istniejące Identyfikatory w bieżącym pliku.
 
-Nazwa ID musi być unikalna i zaczynać się od litery.</translation>
+Nazwa Identyfikatora musi być unikalna i zaczynać się od litery.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
         <source>ID:</source>
-        <translation>Nazwa ID:</translation>
+        <translation>Identyfikator:</translation>
     </message>
 </context>
 <context>

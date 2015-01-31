@@ -54,7 +54,7 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation>Licencia general GNU V3</translation>
+        <translation>Licencia pública general GNU v3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
@@ -100,7 +100,7 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation>Todos los archivos</translation>
+        <translation>Todos los ficheros</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
@@ -265,7 +265,7 @@ y vista previa si se especifica un tipo de letra «sans-serif» en el CSS</trans
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation>Si no se especifica ningún tipo de letra en el código CSS de su página, se usará el siguiente tipo de letra dentro de Sigil. Estos tipos de letra no se emplearán en su libro electrónico generado. </translation>
+        <translation>Si no se especifica ningún tipo de letra en el código CSS de la página, se usará el siguiente tipo de letra dentro de Sigil. Estos tipos de letra no se emplearán en el libro electrónico generado. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
@@ -470,7 +470,7 @@ y vista previa si se especifica un tipo de letra «sans-serif» en el CSS</trans
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
         <source>files</source>
-        <translation>archivos</translation>
+        <translation>ficheros</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="593"/>
@@ -783,12 +783,12 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="639"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation>Portapapeles contiene formato HTML</translation>
+        <translation>El portapapeles contiene formato HTML</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation>Desea pegar los datos del portapapeles como texto sin formato?</translation>
+        <translation>¿Desea pegar los datos del portapapeles como texto sin formato?</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="835"/>
@@ -936,7 +936,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Guardar informe como un archivo separado por comas</translation>
+        <translation>Guardar informe como un fichero separado por comas</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
@@ -10967,7 +10967,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation>Activador complemento</translation>
+        <translation>Activador de complementos</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
@@ -10992,7 +10992,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="97"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>Correcto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
@@ -11003,7 +11003,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="98"/>
         <source>Error: A plugin by that name does not exist</source>
-        <translation>Error: un complemento con ese nombre no existe.</translation>
+        <translation>Error: no existe un complemento con ese nombre</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
@@ -11013,12 +11013,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
         <source> has no path set</source>
-        <translation>no se ha establecido ningún camino </translation>
+        <translation>no se ha establecido ninguna ruta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="124"/>
         <source>Installation Error: plugin launcher </source>
-        <translation>Error de instalación: lanzador de complemento</translation>
+        <translation>Error de instalación: lanzador de complementos</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="125"/>
@@ -11033,7 +11033,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="131"/>
         <source> is not supported (yet!)</source>
-        <translation>no es soportado (aun!)</translation>
+        <translation>no está soportado (¡todavía!)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="137"/>
@@ -11043,7 +11043,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="150"/>
         <source>Error: plugin can not start</source>
-        <translation>Error: complemento no puede iniciarse</translation>
+        <translation>Error: el complemento no puede iniciarse</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="192"/>
@@ -11059,17 +11059,17 @@ Do you want to save your changes?</source>
         <location filename="../../Dialogs/PluginRunner.cpp" line="215"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="224"/>
         <source>Status: No Changes Made</source>
-        <translation>Estado: no hay cambios hechos</translation>
+        <translation>Estado: no se han hecho cambios</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="223"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
-        <translation>Error: el complemento intentó eliminar el último archivo XHTML .. anulando cambios</translation>
+        <translation>Error: el complemento intentó eliminar el último fichero XHTML... anulando cambios</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="299"/>
         <source>Plugin failed to start</source>
-        <translation>Complemento falló al iniciarse</translation>
+        <translation>El complemento falló al iniciarse</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="307"/>
@@ -11099,7 +11099,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
         <source> Line/Col </source>
-        <translation>Línea/Columna</translation>
+        <translation>Línea/columna</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
@@ -11111,12 +11111,12 @@ Do you want to save your changes?</source>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>XHTML/XML incorrecto y detectado
-Desea continuar?</translation>
+¿Seguro que desea continuar?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="459"/>
         <source>Status: cleaning up - deleting files</source>
-        <translation>Estado: limpiando - eliminando archivos</translation>
+        <translation>Estado: limpiando, eliminando ficheros</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="474"/>
@@ -11126,7 +11126,7 @@ Desea continuar?</translation>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
         <source>Status: Loading </source>
-        <translation>Estado: Cargando</translation>
+        <translation>Estado: cargando</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="514"/>
@@ -11136,17 +11136,17 @@ Desea continuar?</translation>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="515"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
-        <translation>Su actual libro será completamente reemplazado, perdiendo cualquier cambio no guardado ... Seguro que desea continuar</translation>
+        <translation>El libro actual será completamente reemplazado, perdiendo cualquier cambio no guardado... ¿Seguro que desea continuar?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="541"/>
         <source>Status: adding </source>
-        <translation>Estado: agregando</translation>
+        <translation>Estado: añadiendo</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="589"/>
         <source>Status: cleaning up - modifying files</source>
-        <translation>Estado: limpiando - modificando archivos</translation>
+        <translation>Estado: limpiando, modificando ficheros</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="618"/>
@@ -11205,7 +11205,7 @@ Desea continuar?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="158"/>
         <source>Add Plugin</source>
-        <translation>Agregar complemento</translation>
+        <translation>Añadir complemento</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
@@ -11226,18 +11226,18 @@ Desea continuar?</translation>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="105"/>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation>Automático</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="64"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="112"/>
         <source>Set</source>
-        <translation>Conjunto</translation>
+        <translation>Establecer</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
         <source>Select Plugin Zip Archive</source>
-        <translation>Elegir archivo del complemento en formato zip </translation>
+        <translation>Seleccionar fichero del complemento en formato zip</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
@@ -11252,17 +11252,17 @@ Desea continuar?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="106"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation>Error: complemento no se pudo descomprimir.</translation>
+        <translation>Error: el complemento no se pudo descomprimir.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="100"/>
         <source>Error: Plugin plugin.xml file can not be read.</source>
-        <translation>Error: archivo del complemento plugin.xml no puede ser leído.</translation>
+        <translation>Error: el ficher plugin.xml del complemento no puede leerse.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation>Error: este no es un complemento de Sigil válido.</translation>
+        <translation>Error: éste no es un complemento de Sigil válido.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
@@ -11277,19 +11277,19 @@ Desea continuar?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation>Está seguro que desea eliminar todos sus complementos?</translation>
+        <translation>¿Está seguro de querer eliminar todos los complementos?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
         <source>Select Interpreter</source>
-        <translation>Seleccione intérprete</translation>
+        <translation>Seleccionar intérprete</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="241"/>
         <source>Incorrect Interpreter Path selected</source>
-        <translation>Ruta del intérprete seleccionado incorrecta</translation>
+        <translation>Ruta al intérprete seleccionada incorrecta</translation>
     </message>
 </context>
 <context>
@@ -11325,14 +11325,13 @@ Desea continuar?</translation>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation>Entidades a mantener</translation>
+        <translation>Entidades para mantener</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
-        <translation>Ingrese o pegue las entidades a agregar a la lista
-Entidades pueden estar separadas por líneas, comas o espacios.</translation>
+        <translation>Introduzca o pegue las entidades para añadir a la lista. Las entidades pueden estar separadas por líneas, comas o espacios.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
@@ -11352,7 +11351,7 @@ Entidades pueden estar separadas por líneas, comas o espacios.</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Add Entities</source>
-        <translation>Agregar entidades</translation>
+        <translation>Añadir entidades</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>

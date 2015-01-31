@@ -1753,12 +1753,12 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="435"/>
         <source>Move Up</source>
-        <translation type="unfinished"/>
+        <translation>Flyt op</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="436"/>
         <source>Move Down</source>
-        <translation type="unfinished"/>
+        <translation>Flyt ned</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="442"/>
@@ -8170,7 +8170,7 @@ Vil du gemme dine ændringer?</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="2274"/>
         <source>Manage Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Håndtér plugins</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="242"/>
@@ -10952,7 +10952,7 @@ Vil du gemme dine ændringer?</translation>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Plugin:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
