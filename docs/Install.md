@@ -58,9 +58,12 @@ Build Options
     No output means it was. Any output means it was not signed successfully.
 
 Other useful variables are:
-* DCMAKE_PREFIX_PATH
+* CMAKE_PREFIX_PATH
   * E.g. /usr/local/opt/qt5/lib/cmake/
   * Which allows you to specifiy where cmake's Qt5 files are located if they are not part of the system path.
+* Qt5_DIR
+  * E.g. "C:\Qt\x64\5.4.0\5.4\msvc2013_64\lib\cmake\Qt5"
+  * Location of Qt5 CMake .cmake files for finding cmake. It's more proper to set this than the prefix path above.
 * CMAKE_OSX_SYSROOT
   * E.g. /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/
   * Which allows you to specify the SDK to build against. This allows you to build on 10.10 but support

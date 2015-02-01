@@ -96,9 +96,8 @@ QString PluginDB::launcherRoot()
 
 void PluginDB::load_plugins_from_disk(bool force)
 {
-    QDir         d(pluginsPath());
-    QStringList  dplugins;
-    Plugin      *plugin;
+    QDir        d(pluginsPath());
+    QStringList dplugins;
 
     if (!d.exists()) {
         return;
