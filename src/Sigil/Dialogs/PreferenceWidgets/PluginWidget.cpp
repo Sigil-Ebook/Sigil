@@ -179,10 +179,9 @@ void PluginWidget::removeAllPlugins()
         while (ui.pluginTable->rowCount() > 0) {
             ui.pluginTable->removeRow(0);
         }
+        pdb->remove_all_plugins();
+        ui.pluginTable->resizeColumnsToContents();
     }
-
-    pdb->remove_all_plugins();
-    ui.pluginTable->resizeColumnsToContents();
 }
 
 void PluginWidget::AutoFindPy2()
