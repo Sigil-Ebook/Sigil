@@ -56,6 +56,8 @@ Build Options
   * You can check if the application was signed successfully using
     `spctl --assess --type execute bin/Sigil.app`
     No output means it was. Any output means it was not signed successfully.
+* LINUX_PACKAGE_TYPE
+  * Can be "deb" or "rpm"
 
 Other useful variables are:
 * CMAKE_PREFIX_PATH
@@ -96,12 +98,12 @@ builder needs to be installed and on the system PATH.
 4. Generate nmake build files.
 5. build Sigil.
 
-    > PATH=%PATH%;"C:\Program Files (x86)\CMake";"C:\Program Files (x86)\Inno Setup 5";"C:\Qt\x64\Qt5.3.1\5.3\msvc2013_64\bin
-    > mkdir build
-    > cd build
-    > cmake -G "NMake Makefiles" WIN_INSTALLER_USE_64BIT_CRT=1 -DFORCE_BUNDLED_COPIES=1 -DCMAKE_BUILD_TYPE=Release ..
-    > nmake
-    > nmake makeinstaller
+    > PATH=%PATH%;"C:\Program Files (x86)\CMake";"C:\Program Files (x86)\Inno Setup 5";"C:\Qt\x64\Qt5.3.1\5.3\msvc2013_64\bin 
+    > mkdir build 
+    > cd build 
+    > cmake -G "NMake Makefiles" WIN_INSTALLER_USE_64BIT_CRT=1 -DFORCE_BUNDLED_COPIES=1 -DCMAKE_BUILD_TYPE=Release .. 
+    > nmake 
+    > nmake makeinstaller 
 
 ### Method 2 (Visual Studio)
 
@@ -180,9 +182,8 @@ Create the build directories and get the Sigil source code.
 
 On Linux a 'linuxbinpkg' target is provided which will attempt to build a standalone binary installer. For that to work,
 you need to have dpkg-deb installed on Debian/Ubuntu systems and rpm-build installed on systems that use rpm based packages.
-Add -DLINUX_PACKAGE_TYPE="deb" or -DLINUX_PACKAGE_TYPE="rpm" to the original cmake command before building sigil (-DLINUX_PACKAGE_TYPE="deb"
-is the default if you don't include the command explicitly). Instead of "make install", issue 'sudo make linuxbinpkg' to build the debian binary package, or 'make linuxbinpkg'
-to build the rpm (note: sudo or su should not be used to build rpm package). The *.deb or *.rpm file will be created in the 'installer' subdirectory
+Instead of "make install", issue 'sudo make linuxbinpkg' to build the deb or rpm binary package. (note: sudo or su should
+not be used to build rpm package). The *.deb or *.rpm file will be created in the 'installer' subdirectory
 of the build directory. Install/remove using your system's dpkg -i/-r (Debian/Ubuntu) or rpm -i/-e.
 
 ### Running Sigil on Linux
