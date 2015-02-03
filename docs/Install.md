@@ -98,12 +98,12 @@ builder needs to be installed and on the system PATH.
 4. Generate nmake build files.
 5. build Sigil.
 
-    X PATH=%PATH%;"C:\Program Files (x86)\CMake";"C:\Program Files (x86)\Inno Setup 5";"C:\Qt\x64\Qt5.3.1\5.3\msvc2013_64\bin
-    X mkdir build
-    X cd build
-    X cmake -G "NMake Makefiles" WIN_INSTALLER_USE_64BIT_CRT=1 -DFORCE_BUNDLED_COPIES=1 -DCMAKE_BUILD_TYPE=Release ..
-    X nmake
-    X nmake makeinstaller
+    $ PATH=%PATH%;"C:\Program Files (x86)\CMake";"C:\Program Files (x86)\Inno Setup 5";"C:\Qt\x64\Qt5.3.1\5.3\msvc2013_64\bin
+    $ mkdir build
+    $ cd build
+    $ cmake -G "NMake Makefiles" WIN_INSTALLER_USE_64BIT_CRT=1 -DFORCE_BUNDLED_COPIES=1 -DCMAKE_BUILD_TYPE=Release ..
+    $ nmake
+    $ nmake makeinstaller
 
 ### Method 2 (Visual Studio)
 
