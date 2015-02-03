@@ -92,18 +92,22 @@ builder needs to be installed and on the system PATH.
 
 *Note*: This assumes building an x64 build of Sigil. A x86 build is very similar.
 
-1. Start the "Cross Tools Command Prompt" or "vcshell".
+1. Start the "Cross Tools Command Prompt".
 2. Set the path.
 3. Create the build dir.
 4. Generate nmake build files.
 5. build Sigil.
 
-    $ PATH=%PATH%;"C:\Program Files (x86)\CMake";"C:\Program Files (x86)\Inno Setup 5";"C:\Qt\x64\Qt5.3.1\5.3\msvc2013_64\bin
-    $ mkdir build
-    $ cd build
-    $ cmake -G "NMake Makefiles" WIN_INSTALLER_USE_64BIT_CRT=1 -DFORCE_BUNDLED_COPIES=1 -DCMAKE_BUILD_TYPE=Release ..
-    $ nmake
-    $ nmake makeinstaller
+
+An example of building using VS2013 x64 Cross Tools Command Prompt:
+
+    > PATH=%PATH%;"C:\Program Files (x86)\CMake";"C:\Program Files (x86)\Inno Setup 5";"C:\Qt\x64\Qt5.3.1\5.3\msvc2013_64\bin
+    > mkdir build
+    > cd build
+    > cmake -G "NMake Makefiles" WIN_INSTALLER_USE_64BIT_CRT=1 -DFORCE_BUNDLED_COPIES=1 -DCMAKE_BUILD_TYPE=Release ..
+    > nmake
+    > nmake makeinstaller
+
 
 ### Method 2 (Visual Studio)
 
