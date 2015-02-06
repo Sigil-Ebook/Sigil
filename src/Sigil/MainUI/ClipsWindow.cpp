@@ -19,24 +19,15 @@
 **
 *************************************************************************/
 
-#include <QtCore/QFileInfo>
-#include <QtCore/QTimer>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtGui/QContextMenuEvent>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
 
-#include "BookManipulation/FolderKeeper.h"
-#include "Dialogs/ClipEditor.h"
 #include "MainUI/ClipsWindow.h"
-#include "Misc/Utility.h"
-#include "sigil_constants.h"
-#include "sigil_exception.h"
 
-static const int COLUMN_INDENTATION = 10;
-static const int REFRESH_DELAY = 1000;
+static const int COLUMN_INDENTATION = 15;
 
 ClipsWindow::ClipsWindow(QWidget *parent)
     :
@@ -101,16 +92,6 @@ void ClipsWindow::ItemClickedHandler(const QModelIndex &index)
 }
 
 
-void ClipsWindow::CollapseAll()
-{
-    m_TreeView.collapseAll();
-}
-
-void ClipsWindow::ExpandAll()
-{
-    m_TreeView.expandAll();
-}
-
 void ClipsWindow::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *menu = new QMenu(this);
@@ -118,11 +99,8 @@ void ClipsWindow::contextMenuEvent(QContextMenuEvent *event)
     QAction *collapseAction = new QAction(tr("Collapse All"), menu);
     QAction *expandAction = new QAction(tr("Expand All"), menu);
     menu->addAction(collapseAction);
-    connect(collapseAction, SIGNAL(triggered()), this, SLOT(CollapseAll()));
+    connect(collapseAction, SIGNAL(triggered()), &m_TreeView, SLOT(collapseAll()));
     menu->addAction(expandAction);
-    connect(expandAction, SIGNAL(triggered()), this, SLOT(ExpandAll()));
+    connect(expandAction, SIGNAL(triggered()), &m_TreeView, SLOT(expandAll()));
     menu->exec(mapToGlobal(event->pos()));
 }
-
-
-

@@ -23,20 +23,12 @@
 #ifndef CLIPSWINDOW_H
 #define CLIPSWINDOW_H
 
-#include <QtCore/QSharedPointer>
 #include <QtWidgets/QDockWidget>
 
-#include <QtGui/QStandardItemModel>
 #include "MiscEditors/ClipEditorModel.h"
-#include "MiscEditors/ClipEditorTreeView.h"
 
-
-class QModelIndex;
-class QTimer;
 class QTreeView;
 class QVBoxLayout;
-class QWidget;
-class ClipEditorModel;
 
 /**
  * Represents the pane in which the book's NCX TOC is rendered.
@@ -65,10 +57,6 @@ private slots:
      */
     void ItemClickedHandler(const QModelIndex &index);
 
-    void CollapseAll();
-
-    void ExpandAll();
-
 protected:
 
     void contextMenuEvent(QContextMenuEvent *event);
@@ -95,7 +83,7 @@ private:
     QVBoxLayout &m_Layout;
 
     /**
-     * The tree view used to represent the TOC.
+     * The treeview used to represent the TOC.
      */
     QTreeView &m_TreeView;
 
