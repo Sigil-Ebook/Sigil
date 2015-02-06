@@ -30,11 +30,11 @@
 #include "MainUI/MainWindow.h"
 #include "MainUI/NCXModel.h"
 
-class QModelIndex;
 class QTimer;
 class QTreeView;
 class QVBoxLayout;
-class QWidget;
+
+class Book;
 
 /**
  * Represents the pane in which the book's NCX TOC is rendered.

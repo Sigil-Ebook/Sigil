@@ -24,17 +24,13 @@
 #define PREVIEWWINDOW_H
 
 #include <QtWidgets/QDockWidget>
-#include <QtCore/QTime>
+#include <ViewEditors/ViewEditor.h>
 
-
-#include "MainUI/MainWindow.h"
-
-class QWidget;
 class BookViewPreview;
 class QSplitter;
 class QStackedWidget;
 class QWebInspector;
-class ViewEditor;
+class QVBoxLayout;
 
 class PreviewWindow : public QDockWidget
 {

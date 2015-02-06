@@ -19,14 +19,16 @@
 **
 *************************************************************************/
 
+#include <QApplication>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStackedWidget>
+#include <QVBoxLayout>
 #include <QtWebKitWidgets/QWebInspector>
 
 #include "MainUI/PreviewWindow.h"
 #include "Misc/SleepFunctions.h"
-#include "ResourceObjects/HTMLResource.h"
-#include "ViewEditors/BookViewEditor.h"
+#include "Misc/SettingsStore.h"
+#include "ViewEditors/BookViewPreview.h"
 
 static const QString SETTINGS_GROUP = "previewwindow";
 

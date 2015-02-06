@@ -28,9 +28,7 @@
 #include <QtCore/QSharedPointer>
 #include <QtWidgets/QDockWidget>
 
-#include "BookManipulation/Book.h"
 #include "MainUI/MainWindow.h"
-#include "Tabs/ContentTab.h"
 #include "Misc/ValidationResult.h"
 
 namespace FlightCrew
@@ -41,6 +39,8 @@ namespace fc = FlightCrew;
 
 class QTableWidget;
 class QTableWidgetItem;
+
+class Book;
 
 /**
  * Represents the pane in which all the validation results are displayed.
