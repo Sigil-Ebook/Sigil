@@ -23,6 +23,8 @@ Details
   * Sign packages
     * OS X
 * Generate Checksums file (sha256).
+  * `shasum 256 * > Sigil-x.y.z-CHECKSUMS.sha256`
+  * Remove the first line which is the checksum for the empty checksum file produced due to the globing.
 * Make Release on GitHub
   * Upload packages
     * Code
