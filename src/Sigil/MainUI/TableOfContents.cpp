@@ -31,7 +31,6 @@
 #include "MainUI/TableOfContents.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/NCXResource.h"
-#include "sigil_constants.h"
 #include "sigil_exception.h"
 
 static const int COLUMN_INDENTATION = 15;
