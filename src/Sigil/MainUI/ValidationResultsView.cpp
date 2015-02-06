@@ -23,11 +23,11 @@
 
 #include <QtCore/QFileInfo>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QDockWidget>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QTableWidget>
 #include <QRegularExpression>
 
+#include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/ValidationResultsView.h"
 #include "Misc/Utility.h"
