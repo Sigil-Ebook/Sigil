@@ -1190,12 +1190,9 @@ void OPFResource::WriteIdentifier(
 
 void OPFResource::AddModificationDateMeta()
 {
+    QString date;
     QDate d = QDate::currentDate();
-    QString year = QString("%1").arg(d.year());
-    QString month = QString("%1%2").arg(d.month() < 10 ? "0" : "").arg(d.month());
-    QString day = QString("%1%2").arg(d.day() < 10 ? "0" : "").arg(d.day());
-
-    QString date = QString("%1-%2-%3").arg(year).arg(month).arg(day);
+    QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
     QWriteLocker locker(&GetLock());
     shared_ptr<xc::DOMDocument> document = GetDocument();
     QList<xc::DOMElement *> metas =
@@ -1225,11 +1222,9 @@ void OPFResource::WriteDate(
     const QVariant &metavalue,
     xc::DOMDocument &document)
 {
+    QString date;
     QDate d = metavalue.toDate();
-    QString year = QString("%1").arg(d.year());
-    QString month = QString("%1%2").arg(d.month() < 10 ? "0" : "").arg(d.month());
-    QString day = QString("%1%2").arg(d.day() < 10 ? "0" : "").arg(d.day());
-    QString date = QString("%1-%2-%3").arg(year).arg(month).arg(day);
+    QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
 
     // This assumes that the "dc" prefix has been declared for the DC namespace
     xc::DOMElement *element = document.createElementNS(QtoX(DUBLIN_CORE_NS), QtoX("dc:date"));
