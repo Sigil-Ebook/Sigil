@@ -8,7 +8,7 @@ It is designed to edit books in ePub format.
 Links
 =====
 
-* Its website is located at http://code.google.com/p/sigil/
+* Its website is located at http://sigil-ebook.com
 * Its current code repository is located at https://github.com/user-none/Sigil
 * Translations are located at https://www.transifex.com/projects/p/sigil/
 * Support forums are located at http://www.mobileread.com/
