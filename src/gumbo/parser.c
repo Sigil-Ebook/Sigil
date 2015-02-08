@@ -31,7 +31,7 @@
 #include "utf8.h"
 #include "util.h"
 #include "vector.h"
-
+#include "tag.h"
 
 #define AVOID_UNUSED_VARIABLE_WARNING(i) (void)(i)
 
@@ -51,6 +51,7 @@ const GumboOptions kGumboDefaultOptions = {
   &free_wrapper,
   NULL,
   8,
+  false,
   false,
   -1,
 };
@@ -628,16 +629,8 @@ static GumboError* parser_add_parse_error(GumboParser* parser, const GumboToken*
 }
 
 // Returns true if the specified token is either a start or end tag (specified
-// by is_start) with one of the tag types in the varargs list.  Terminate the
-// list with GUMBO_TAG_LAST; this functions as a sentinel since no portion of
-// the spec references tags that are not in the spec.
-// TODO(jdtang): A lot of the tag lists for this function are repeated in many
-// places in the code.  This is how it's written in the spec (and it's done this
-// way so it's easy to verify the code against the spec), but it may be worth
-// coming up with a notion of a "tag set" that includes a list of tags, and
-// using that in many places.  It'd probably also help performance, but I want
-// to profile before optimizing.
-static bool tag_in(const GumboToken* token, bool is_start, ...) {
+// by is_start) with one of the tag types in the list.  
+static bool tag_in(const GumboToken* token, bool is_start, const int * taglist, const int cnt) {
   GumboTag token_tag;
   if (is_start && token->type == GUMBO_TOKEN_START_TAG) {
     token_tag = token->v.start_tag.tag;
@@ -646,19 +639,7 @@ static bool tag_in(const GumboToken* token, bool is_start, ...) {
   } else {
     return false;
   }
-
-  va_list tags;
-  va_start(tags, is_start);
-  bool result = false;
-  for (GumboTag tag = va_arg(tags, GumboTag); tag != GUMBO_TAG_LAST;
-       tag = va_arg(tags, GumboTag)) {
-    if (tag == token_tag) {
-      result = true;
-      break;
-    }
-  }
-  va_end(tags);
-  return result;
+  return gumbo_int_in_sorted_list((int)token_tag, taglist, cnt);
 }
 
 // Like tag_in, but for the single-tag case.
@@ -673,26 +654,14 @@ static bool tag_is(const GumboToken* token, bool is_start, GumboTag tag) {
 }
 
 // Like tag_in, but checks for the tag of a node, rather than a token.
-static bool node_tag_in(const GumboNode* node, ...) {
+static bool node_tag_in(const GumboNode* node, const int * taglist, const int cnt) {
   assert(node != NULL);
   if (node->type != GUMBO_NODE_ELEMENT) {
     return false;
   }
   GumboTag node_tag = node->v.element.tag;
 
-  va_list tags;
-  va_start(tags, node);
-  bool result = false;
-  for (GumboTag tag = va_arg(tags, GumboTag); tag != GUMBO_TAG_LAST;
-       tag = va_arg(tags, GumboTag)) {
-    assert(tag <= GUMBO_TAG_LAST);
-    if (tag == node_tag) {
-      result = true;
-      break;
-    }
-  }
-  va_end(tags);
-  return result;
+  return gumbo_int_in_sorted_list((int)node_tag, taglist, cnt);
 }
 
 // Like node_tag_in, but for the single-tag case.
@@ -701,16 +670,20 @@ static bool node_tag_is(const GumboNode* node, GumboTag tag) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/multipage/tree-construction.html#mathml-text-integration-point
+#define kGumboTL00Cnt  5
+const int kGumboTagLst00[] = { GUMBO_TAG_MI, GUMBO_TAG_MN, GUMBO_TAG_MO, GUMBO_TAG_MS, GUMBO_TAG_MTEXT };
+
 static bool is_mathml_integration_point(const GumboNode* node) {
-  return node_tag_in(node, GUMBO_TAG_MI, GUMBO_TAG_MO, GUMBO_TAG_MN,
-                     GUMBO_TAG_MS, GUMBO_TAG_MTEXT, GUMBO_TAG_LAST) &&
+  return node_tag_in(node, kGumboTagLst00, kGumboTL00Cnt) &&
       node->v.element.tag_namespace == GUMBO_NAMESPACE_MATHML;
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/multipage/tree-construction.html#html-integration-point
+#define kGumboTL01Cnt  3
+const int kGumboTagLst01[] = { GUMBO_TAG_DESC, GUMBO_TAG_FOREIGNOBJECT, GUMBO_TAG_TITLE };
+
 static bool is_html_integration_point(const GumboNode* node) {
-  return (node_tag_in(node, GUMBO_TAG_FOREIGNOBJECT, GUMBO_TAG_DESC,
-                      GUMBO_TAG_TITLE, GUMBO_TAG_LAST) &&
+  return (node_tag_in(node, kGumboTagLst01, kGumboTL01Cnt) &&
       node->v.element.tag_namespace == GUMBO_NAMESPACE_SVG) ||
       (node_tag_is(node, GUMBO_TAG_ANNOTATION_XML) && (
           attribute_matches(&node->v.element.attributes,
@@ -798,6 +771,10 @@ static void foster_parent_element(GumboParser* parser, GumboNode* node) {
   append_node(parser, foster_parent_element, node);
 }
 
+
+#define kGumboTL02Cnt  5
+const int kGumboTagLst02[] = { GUMBO_TAG_TABLE, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+
 static void maybe_flush_text_node_buffer(GumboParser* parser) {
   GumboParserState* state = parser->_parser_state;
   TextNodeBufferState* buffer_state = &state->_text_node;
@@ -816,9 +793,7 @@ static void maybe_flush_text_node_buffer(GumboParser* parser) {
       state->_current_token->original_text.data -
       buffer_state->_start_original_text;
   text_node_data->start_pos = buffer_state->_start_position;
-  if (state->_foster_parent_insertions && node_tag_in(
-      get_current_node(parser), GUMBO_TAG_TABLE, GUMBO_TAG_TBODY,
-      GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD, GUMBO_TAG_TR, GUMBO_TAG_LAST)) {
+  if (state->_foster_parent_insertions && node_tag_in(get_current_node(parser), kGumboTagLst02, kGumboTL02Cnt)) {
     foster_parent_element(parser, text_node);
   } else {
     append_node(
@@ -884,26 +859,31 @@ static void append_comment_node(
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#clear-the-stack-back-to-a-table-row-context
+#define kGumboTL03Cnt  2
+const int kGumboTagLst03[] = { GUMBO_TAG_HTML, GUMBO_TAG_TR };
+
 static void clear_stack_to_table_row_context(GumboParser* parser) {
-  while (!node_tag_in(get_current_node(parser),
-                      GUMBO_TAG_HTML, GUMBO_TAG_TR, GUMBO_TAG_LAST)) {
+  while (!node_tag_in(get_current_node(parser), kGumboTagLst03, kGumboTL03Cnt)) {
     pop_current_node(parser);
   }
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#clear-the-stack-back-to-a-table-context
+#define kGumboTL04Cnt  2
+const int kGumboTagLst04[] = { GUMBO_TAG_HTML, GUMBO_TAG_TABLE };
+
 static void clear_stack_to_table_context(GumboParser* parser) {
-  while (!node_tag_in(get_current_node(parser),
-                      GUMBO_TAG_HTML, GUMBO_TAG_TABLE, GUMBO_TAG_LAST)) {
+  while (!node_tag_in(get_current_node(parser), kGumboTagLst04, kGumboTL04Cnt)) {
     pop_current_node(parser);
   }
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#clear-the-stack-back-to-a-table-body-context
+#define kGumboTL05Cnt  4
+const int kGumboTagLst05[] = { GUMBO_TAG_HTML, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD };
+
 void clear_stack_to_table_body_context(GumboParser* parser) {
-  while (!node_tag_in(get_current_node(parser), GUMBO_TAG_HTML,
-                      GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD,
-                      GUMBO_TAG_LAST)) {
+  while (!node_tag_in(get_current_node(parser), kGumboTagLst05, kGumboTL05Cnt)) {
     pop_current_node(parser);
   }
 }
@@ -951,6 +931,9 @@ static GumboNode* create_element_from_token(
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#insert-an-html-element
+#define kGumboTL06Cnt  5
+const int kGumboTagLst06[] = { GUMBO_TAG_TABLE, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+
 static void insert_element(GumboParser* parser, GumboNode* node,
                            bool is_reconstructing_formatting_elements) {
   GumboParserState* state = parser->_parser_state;
@@ -966,9 +949,8 @@ static void insert_element(GumboParser* parser, GumboNode* node,
   if (!is_reconstructing_formatting_elements) {
     maybe_flush_text_node_buffer(parser);
   }
-  if (state->_foster_parent_insertions && node_tag_in(
-      get_current_node(parser), GUMBO_TAG_TABLE, GUMBO_TAG_TBODY,
-      GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD, GUMBO_TAG_TR, GUMBO_TAG_LAST)) {
+  if (state->_foster_parent_insertions && node_tag_in(get_current_node(parser), 
+                                                      kGumboTagLst06, kGumboTL06Cnt)) {
     foster_parent_element(parser, node);
     gumbo_vector_add(parser, (void*) node, &state->_open_elements);
     return;
@@ -1354,6 +1336,12 @@ static bool has_an_element_in_scope(GumboParser* parser, GumboTag tag) {
 // predicate is different when checking for an exact node, and it's easier &
 // faster just to duplicate the code for this one case than to try and
 // parameterize it.
+#define kGumboTL07Cnt  17
+const int kGumboTagLst07[] = { GUMBO_TAG_ANNOTATION_XML, GUMBO_TAG_APPLET, GUMBO_TAG_CAPTION, GUMBO_TAG_DESC, 
+                               GUMBO_TAG_FOREIGNOBJECT, GUMBO_TAG_HTML, GUMBO_TAG_MARQUEE, GUMBO_TAG_MI, 
+                               GUMBO_TAG_MN, GUMBO_TAG_MO, GUMBO_TAG_MS, GUMBO_TAG_MTEXT, GUMBO_TAG_OBJECT, 
+                               GUMBO_TAG_TABLE, GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_TITLE };
+
 static bool has_node_in_scope(GumboParser* parser, const GumboNode* node) {
   GumboVector* open_elements = &parser->_parser_state->_open_elements;
   for (int i = open_elements->length; --i >= 0; ) {
@@ -1364,13 +1352,7 @@ static bool has_node_in_scope(GumboParser* parser, const GumboNode* node) {
     if (current->type != GUMBO_NODE_ELEMENT) {
       continue;
     }
-    if (node_tag_in(
-        current, GUMBO_TAG_APPLET, GUMBO_TAG_CAPTION, GUMBO_TAG_HTML,
-        GUMBO_TAG_TABLE, GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_MARQUEE,
-        GUMBO_TAG_OBJECT, GUMBO_TAG_MI, GUMBO_TAG_MO, GUMBO_TAG_MN,
-        GUMBO_TAG_MS, GUMBO_TAG_MTEXT, GUMBO_TAG_ANNOTATION_XML,
-        GUMBO_TAG_FOREIGNOBJECT, GUMBO_TAG_DESC, GUMBO_TAG_TITLE,
-        GUMBO_TAG_LAST)) {
+    if (node_tag_in(current, kGumboTagLst07, kGumboTL07Cnt)) {
       return false;
     }
   }
@@ -1444,11 +1426,13 @@ static bool has_an_element_in_select_scope(GumboParser* parser, GumboTag tag) {
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#generate-implied-end-tags
 // "exception" is the "element to exclude from the process" listed in the spec.
 // Pass GUMBO_TAG_LAST to not exclude any of them.
+#define kGumboTL08Cnt  8
+const int kGumboTagLst08[] = { GUMBO_TAG_DD, GUMBO_TAG_DT, GUMBO_TAG_LI, GUMBO_TAG_OPTGROUP, 
+                               GUMBO_TAG_OPTION, GUMBO_TAG_P, GUMBO_TAG_RP, GUMBO_TAG_RT };
+
 static void generate_implied_end_tags(GumboParser* parser, GumboTag exception) {
   for (;
-       node_tag_in(get_current_node(parser), GUMBO_TAG_DD, GUMBO_TAG_DT,
-                   GUMBO_TAG_LI, GUMBO_TAG_OPTION, GUMBO_TAG_OPTGROUP,
-                   GUMBO_TAG_P, GUMBO_TAG_RP, GUMBO_TAG_RT, GUMBO_TAG_LAST) &&
+       node_tag_in(get_current_node(parser), kGumboTagLst08, kGumboTL08Cnt) &&
        !node_tag_is(get_current_node(parser), exception);
        pop_current_node(parser));
 }
@@ -1516,44 +1500,49 @@ static void close_current_select(GumboParser* parser) {
 
 // The list of nodes in the "special" category:
 // http://www.whatwg.org/specs/web-apps/current-work/complete/parsing.html#special
+#define kGumboTL09Cnt  79
+const int kGumboTagLst09[] = { GUMBO_TAG_ADDRESS, GUMBO_TAG_APPLET, GUMBO_TAG_AREA, GUMBO_TAG_ARTICLE,
+                               GUMBO_TAG_ASIDE, GUMBO_TAG_BASE, GUMBO_TAG_BASEFONT, GUMBO_TAG_BGSOUND, 
+                               GUMBO_TAG_BLOCKQUOTE, GUMBO_TAG_BODY, GUMBO_TAG_BR, GUMBO_TAG_BUTTON, 
+                               GUMBO_TAG_CAPTION, GUMBO_TAG_CENTER, GUMBO_TAG_COL, GUMBO_TAG_COLGROUP, 
+                               GUMBO_TAG_DD, GUMBO_TAG_DETAILS, GUMBO_TAG_DIR, GUMBO_TAG_DIV, 
+                               GUMBO_TAG_DL, GUMBO_TAG_DT, GUMBO_TAG_EMBED, GUMBO_TAG_FIELDSET, 
+                               GUMBO_TAG_FIGCAPTION, GUMBO_TAG_FIGURE, GUMBO_TAG_FOOTER, GUMBO_TAG_FORM, 
+                               GUMBO_TAG_FRAME, GUMBO_TAG_FRAMESET, GUMBO_TAG_H1, GUMBO_TAG_H2, 
+                               GUMBO_TAG_H3, GUMBO_TAG_H4, GUMBO_TAG_H5, GUMBO_TAG_H6, GUMBO_TAG_HEAD, 
+                               GUMBO_TAG_HEADER, GUMBO_TAG_HGROUP, GUMBO_TAG_HR, GUMBO_TAG_HTML, 
+                               GUMBO_TAG_IFRAME, GUMBO_TAG_IMG, GUMBO_TAG_INPUT, GUMBO_TAG_ISINDEX, 
+                               GUMBO_TAG_LI, GUMBO_TAG_LINK, GUMBO_TAG_LISTING, GUMBO_TAG_MARQUEE, 
+                               GUMBO_TAG_MENU, GUMBO_TAG_MENUITEM, GUMBO_TAG_META, GUMBO_TAG_NAV, 
+                               GUMBO_TAG_NOEMBED, GUMBO_TAG_NOFRAMES, GUMBO_TAG_NOSCRIPT, 
+                               GUMBO_TAG_OBJECT, GUMBO_TAG_OL, GUMBO_TAG_P, GUMBO_TAG_PARAM, 
+                               GUMBO_TAG_PLAINTEXT, GUMBO_TAG_PRE, GUMBO_TAG_SCRIPT, GUMBO_TAG_SECTION, 
+                               GUMBO_TAG_SELECT, GUMBO_TAG_STYLE, GUMBO_TAG_SUMMARY, GUMBO_TAG_TABLE, 
+                               GUMBO_TAG_TBODY, GUMBO_TAG_TD, GUMBO_TAG_TEXTAREA, GUMBO_TAG_TFOOT, 
+                               GUMBO_TAG_TH, GUMBO_TAG_THEAD, GUMBO_TAG_TITLE, GUMBO_TAG_TR, 
+                               GUMBO_TAG_UL, GUMBO_TAG_WBR, GUMBO_TAG_XMP };
+
+#define kGumboTL10Cnt  6
+const int kGumboTagLst10[] = { GUMBO_TAG_ANNOTATION_XML, GUMBO_TAG_MI, GUMBO_TAG_MN, GUMBO_TAG_MO, 
+                               GUMBO_TAG_MS, GUMBO_TAG_MTEXT };
+
+#define kGumboTL11Cnt  2
+const int kGumboTagLst11[] = { GUMBO_TAG_DESC, GUMBO_TAG_FOREIGNOBJECT };
+
 static bool is_special_node(const GumboNode* node) {
   assert(node->type == GUMBO_NODE_ELEMENT);
   switch (node->v.element.tag_namespace) {
     case GUMBO_NAMESPACE_HTML:
-      return node_tag_in(node,
-           GUMBO_TAG_ADDRESS, GUMBO_TAG_APPLET, GUMBO_TAG_AREA,
-           GUMBO_TAG_ARTICLE, GUMBO_TAG_ASIDE, GUMBO_TAG_BASE,
-           GUMBO_TAG_BASEFONT, GUMBO_TAG_BGSOUND, GUMBO_TAG_BLOCKQUOTE,
-           GUMBO_TAG_BODY, GUMBO_TAG_BR, GUMBO_TAG_BUTTON, GUMBO_TAG_CAPTION,
-           GUMBO_TAG_CENTER, GUMBO_TAG_COL, GUMBO_TAG_COLGROUP,
-           GUMBO_TAG_MENUITEM, GUMBO_TAG_DD, GUMBO_TAG_DETAILS, GUMBO_TAG_DIR,
-           GUMBO_TAG_DIV, GUMBO_TAG_DL, GUMBO_TAG_DT, GUMBO_TAG_EMBED,
-           GUMBO_TAG_FIELDSET, GUMBO_TAG_FIGCAPTION, GUMBO_TAG_FIGURE,
-           GUMBO_TAG_FOOTER, GUMBO_TAG_FORM, GUMBO_TAG_FRAME,
-           GUMBO_TAG_FRAMESET, GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3,
-           GUMBO_TAG_H4, GUMBO_TAG_H5, GUMBO_TAG_H6, GUMBO_TAG_HEAD,
-           GUMBO_TAG_HEADER, GUMBO_TAG_HGROUP, GUMBO_TAG_HR, GUMBO_TAG_HTML,
-           GUMBO_TAG_IFRAME, GUMBO_TAG_IMG, GUMBO_TAG_INPUT, GUMBO_TAG_ISINDEX,
-           GUMBO_TAG_LI, GUMBO_TAG_LINK, GUMBO_TAG_LISTING, GUMBO_TAG_MARQUEE,
-           GUMBO_TAG_MENU, GUMBO_TAG_META, GUMBO_TAG_NAV, GUMBO_TAG_NOEMBED,
-           GUMBO_TAG_NOFRAMES, GUMBO_TAG_NOSCRIPT, GUMBO_TAG_OBJECT,
-           GUMBO_TAG_OL, GUMBO_TAG_P, GUMBO_TAG_PARAM, GUMBO_TAG_PLAINTEXT,
-           GUMBO_TAG_PRE, GUMBO_TAG_SCRIPT, GUMBO_TAG_SECTION, GUMBO_TAG_SELECT,
-           GUMBO_TAG_STYLE, GUMBO_TAG_SUMMARY, GUMBO_TAG_TABLE, GUMBO_TAG_TBODY,
-           GUMBO_TAG_TD, GUMBO_TAG_TEXTAREA, GUMBO_TAG_TFOOT, GUMBO_TAG_TH,
-           GUMBO_TAG_THEAD, GUMBO_TAG_TITLE, GUMBO_TAG_TR, GUMBO_TAG_UL,
-           GUMBO_TAG_WBR, GUMBO_TAG_XMP, GUMBO_TAG_LAST);
+      return node_tag_in(node, kGumboTagLst09, kGumboTL09Cnt);
     case GUMBO_NAMESPACE_MATHML:
-      return node_tag_in(node,
-          GUMBO_TAG_MI, GUMBO_TAG_MO, GUMBO_TAG_MN, GUMBO_TAG_MS,
-          GUMBO_TAG_MTEXT, GUMBO_TAG_ANNOTATION_XML, GUMBO_TAG_LAST);
+      return node_tag_in(node, kGumboTagLst10, kGumboTL10Cnt);
     case GUMBO_NAMESPACE_SVG:
-      return node_tag_in(node,
-          GUMBO_TAG_FOREIGNOBJECT, GUMBO_TAG_DESC, GUMBO_TAG_LAST);
+      return node_tag_in(node,kGumboTagLst11, kGumboTL11Cnt);
   }
   abort();
   return false;  // Pacify compiler.
 }
+
 
 // Implicitly closes currently open tags until it reaches an element with the
 // specified tag name.  If the elements closed are in the set handled by
@@ -1588,6 +1577,12 @@ static bool maybe_implicitly_close_p_tag(GumboParser* parser, GumboToken* token)
 
 // Convenience function to encapsulate the logic for closing <li> or <dd>/<dt>
 // tags.  Pass true to is_li for handling <li> tags, false for <dd> and <dt>.
+#define kGumboTL12Cnt  2
+const int kGumboTagLst12[] = { GUMBO_TAG_DD, GUMBO_TAG_DT };
+
+#define kGumboTL13Cnt  3
+const int kGumboTagLst13[] = { GUMBO_TAG_ADDRESS, GUMBO_TAG_DIV, GUMBO_TAG_P };
+
 static void maybe_implicitly_close_list_tag(
     GumboParser* parser, GumboToken* token, bool is_li) {
   GumboParserState* state = parser->_parser_state;
@@ -1596,18 +1591,18 @@ static void maybe_implicitly_close_list_tag(
     const GumboNode* node = state->_open_elements.data[i];
     bool is_list_tag = is_li ?
         node_tag_is(node, GUMBO_TAG_LI) :
-        node_tag_in(node, GUMBO_TAG_DD, GUMBO_TAG_DT, GUMBO_TAG_LAST);
+      node_tag_in(node, kGumboTagLst12, kGumboTL12Cnt);
     if (is_list_tag) {
       implicitly_close_tags(parser, token, node->v.element.tag);
       return;
     }
     if (is_special_node(node) &&
-        !node_tag_in(node, GUMBO_TAG_ADDRESS, GUMBO_TAG_DIV, GUMBO_TAG_P,
-                     GUMBO_TAG_LAST)) {
+        !node_tag_in(node, kGumboTagLst13, kGumboTL13Cnt)) {
       return;
     }
   }
 }
+
 
 static void merge_attributes(
     GumboParser* parser, GumboToken* token, GumboNode* node) {
@@ -1901,13 +1896,14 @@ static bool adoption_agency_algorithm(
     }
 
     // Step 10.
+    #define kGumboTL14Cnt  5
+    const int kGumboTagLst14[] = { GUMBO_TAG_TABLE, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD, 
+                                   GUMBO_TAG_TR };
     gumbo_debug("Removing %s node from parent ",
                 gumbo_normalized_tagname(last_node->v.element.tag));
     remove_from_parent(parser, last_node);
     last_node->parse_flags |= GUMBO_INSERTION_ADOPTION_AGENCY_MOVED;
-    if (node_tag_in(common_ancestor, GUMBO_TAG_TABLE, GUMBO_TAG_TBODY,
-                    GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD, GUMBO_TAG_TR,
-                    GUMBO_TAG_LAST)) {
+    if (node_tag_in(common_ancestor, kGumboTagLst14, kGumboTL14Cnt)) {
       gumbo_debug("and foster-parenting it.\n");
       foster_parent_element(parser, last_node);
     } else {
@@ -2026,6 +2022,9 @@ static bool handle_initial(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#the-before-html-insertion-mode
+#define kGumboTL15Cnt  4
+const int kGumboTagLst15[] = { GUMBO_TAG_BODY, GUMBO_TAG_BR, GUMBO_TAG_HEAD, GUMBO_TAG_HTML };
+
 static bool handle_before_html(GumboParser* parser, GumboToken* token) {
   if (token->type == GUMBO_TOKEN_DOCTYPE) {
     parser_add_parse_error(parser, token);
@@ -2042,9 +2041,7 @@ static bool handle_before_html(GumboParser* parser, GumboToken* token) {
     parser->_output->root = html_node;
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_BEFORE_HEAD);
     return true;
-  } else if (token->type == GUMBO_TOKEN_END_TAG && !tag_in(
-      token, false, GUMBO_TAG_HEAD, GUMBO_TAG_BODY, GUMBO_TAG_HTML,
-      GUMBO_TAG_BR, GUMBO_TAG_LAST)) {
+  } else if (token->type == GUMBO_TOKEN_END_TAG && !tag_in(token, false, kGumboTagLst15, kGumboTL15Cnt)) {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
     return false;
@@ -2060,6 +2057,9 @@ static bool handle_before_html(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#the-before-head-insertion-mode
+#define kGumboTL16Cnt  4
+const int kGumboTagLst16[] = { GUMBO_TAG_BODY, GUMBO_TAG_BR, GUMBO_TAG_HEAD, GUMBO_TAG_HTML };
+
 static bool handle_before_head(GumboParser* parser, GumboToken* token) {
   if (token->type == GUMBO_TOKEN_DOCTYPE) {
     parser_add_parse_error(parser, token);
@@ -2077,8 +2077,7 @@ static bool handle_before_head(GumboParser* parser, GumboToken* token) {
     parser->_parser_state->_head_element = node;
     return true;
   } else if (token->type == GUMBO_TOKEN_END_TAG && !tag_in(
-      token, false, GUMBO_TAG_HEAD, GUMBO_TAG_BODY, GUMBO_TAG_HTML,
-      GUMBO_TAG_BR, GUMBO_TAG_LAST)) {
+             token, false, kGumboTagLst16, kGumboTL16Cnt)) {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
     return false;
@@ -2097,6 +2096,27 @@ static bool handle_token(GumboParser* parser, GumboToken* token);
 static bool handle_in_body(GumboParser* parser, GumboToken* token);
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-inhead
+#define kGumboTL17Cnt  5
+const int kGumboTagLst17[] = { GUMBO_TAG_BASE, GUMBO_TAG_BASEFONT, GUMBO_TAG_BGSOUND, 
+                               GUMBO_TAG_LINK, GUMBO_TAG_MENUITEM };
+
+#define kGumboTL18Cnt  2
+const int kGumboTagLst18[] = { GUMBO_TAG_NOFRAMES, GUMBO_TAG_STYLE };
+
+#define kGumboTL19Cnt  3
+const int kGumboTagLst19[] = { GUMBO_TAG_BODY, GUMBO_TAG_BR, GUMBO_TAG_HTML };
+
+//XHTML5 Parser support
+#define kGumboTL100Cnt  9
+const int kGumboTagLst100[] = { GUMBO_TAG_IFRAME, GUMBO_TAG_NOEMBED, GUMBO_TAG_NOFRAMES, 
+                                GUMBO_TAG_NOSCRIPT, GUMBO_TAG_SCRIPT, GUMBO_TAG_STYLE, 
+                                GUMBO_TAG_TEXTAREA, GUMBO_TAG_TITLE, GUMBO_TAG_XMP };
+//XHTML5 Parser support
+#define kGumboTL101Cnt  9
+const int kGumboTagLst101[] = { GUMBO_TAG_IFRAME, GUMBO_TAG_NOEMBED, GUMBO_TAG_NOFRAMES, 
+                                GUMBO_TAG_NOSCRIPT, GUMBO_TAG_SCRIPT, GUMBO_TAG_STYLE, 
+                                GUMBO_TAG_TEXTAREA, GUMBO_TAG_TITLE, GUMBO_TAG_XMP };
+
 static bool handle_in_head(GumboParser* parser, GumboToken* token) {
   if (token->type == GUMBO_TOKEN_WHITESPACE) {
     insert_text_token(parser, token);
@@ -2110,9 +2130,7 @@ static bool handle_in_head(GumboParser* parser, GumboToken* token) {
     return true;
   } else if (tag_is(token, kStartTag, GUMBO_TAG_HTML)) {
     return handle_in_body(parser, token);
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_BASE, GUMBO_TAG_BASEFONT,
-                    GUMBO_TAG_BGSOUND, GUMBO_TAG_MENUITEM, GUMBO_TAG_LINK,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst17, kGumboTL17Cnt)) {
     insert_element_from_token(parser, token);
     pop_current_node(parser);
     acknowledge_self_closing_tag(parser);
@@ -2126,11 +2144,21 @@ static bool handle_in_head(GumboParser* parser, GumboToken* token) {
     // should specifically look for that string in the document and re-encode it
     // before passing to Gumbo.
     return true;
+
+  // XHTML5 Parser support for cdata and rcdata in head to fix <title/> and etc
+  } else if (parser->_options->use_xhtml_rules  && token->v.start_tag.is_self_closing &&
+             tag_in(token, kStartTag, kGumboTagLst100, kGumboTL100Cnt)) {
+    insert_element_from_token(parser, token);
+    return true;
+  } else if (parser->_options->use_xhtml_rules  && 
+             tag_in(token, kEndTag, kGumboTagLst101, kGumboTL101Cnt)) {
+    pop_current_node(parser);
+    return true;
+
   } else if (tag_is(token, kStartTag, GUMBO_TAG_TITLE)) {
     run_generic_parsing_algorithm(parser, token, GUMBO_LEX_RCDATA);
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_NOFRAMES, GUMBO_TAG_STYLE,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst18, kGumboTL18Cnt)) {
     run_generic_parsing_algorithm(parser, token, GUMBO_LEX_RAWTEXT);
     return true;
   } else if (tag_is(token, kStartTag, GUMBO_TAG_NOSCRIPT)) {
@@ -2152,8 +2180,7 @@ static bool handle_in_head(GumboParser* parser, GumboToken* token) {
     return false;
   } else if (tag_is(token, kStartTag, GUMBO_TAG_HEAD) ||
              (token->type == GUMBO_TOKEN_END_TAG &&
-              !tag_in(token, kEndTag, GUMBO_TAG_BODY, GUMBO_TAG_HTML,
-                      GUMBO_TAG_BR, GUMBO_TAG_LAST))) {
+              !tag_in(token, kEndTag, kGumboTagLst19, kGumboTL19Cnt))) {
     parser_add_parse_error(parser, token);
     return false;
   } else if (tag_is(token, kStartTag, GUMBO_TAG_UNKNOWN) && token->v.start_tag.is_self_closing) {
@@ -2173,6 +2200,12 @@ static bool handle_in_head(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-inheadnoscript
+#define kGumboTL20Cnt  6
+const int kGumboTagLst20[] = { GUMBO_TAG_BASEFONT, GUMBO_TAG_BGSOUND, GUMBO_TAG_LINK, 
+                               GUMBO_TAG_META, GUMBO_TAG_NOFRAMES, GUMBO_TAG_STYLE };
+#define kGumboTL21Cnt  2
+const int kGumboTagLst21[] = { GUMBO_TAG_HEAD, GUMBO_TAG_NOSCRIPT };
+
 static bool handle_in_head_noscript(GumboParser* parser, GumboToken* token) {
   if (token->type == GUMBO_TOKEN_DOCTYPE) {
     parser_add_parse_error(parser, token);
@@ -2187,12 +2220,9 @@ static bool handle_in_head_noscript(GumboParser* parser, GumboToken* token) {
     return true;
   } else if (token->type == GUMBO_TOKEN_WHITESPACE ||
              token->type == GUMBO_TOKEN_COMMENT ||
-             tag_in(token, kStartTag, GUMBO_TAG_BASEFONT, GUMBO_TAG_BGSOUND,
-                    GUMBO_TAG_LINK, GUMBO_TAG_META, GUMBO_TAG_NOFRAMES,
-                    GUMBO_TAG_STYLE, GUMBO_TAG_LAST)) {
+             tag_in(token, kStartTag, kGumboTagLst20, kGumboTL20Cnt)) {
     return handle_in_head(parser, token);
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_HEAD, GUMBO_TAG_NOSCRIPT,
-                    GUMBO_TAG_LAST) ||
+  } else if (tag_in(token, kStartTag, kGumboTagLst21, kGumboTL21Cnt) ||
             (token->type == GUMBO_TOKEN_END_TAG &&
              !tag_is(token, kEndTag, GUMBO_TAG_BR))) {
     parser_add_parse_error(parser, token);
@@ -2210,6 +2240,13 @@ static bool handle_in_head_noscript(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#the-after-head-insertion-mode
+#define kGumboTL22Cnt  9
+const int kGumboTagLst22[] = { GUMBO_TAG_BASE, GUMBO_TAG_BASEFONT, GUMBO_TAG_BGSOUND, 
+                               GUMBO_TAG_LINK, GUMBO_TAG_META, GUMBO_TAG_NOFRAMES, 
+                               GUMBO_TAG_SCRIPT, GUMBO_TAG_STYLE, GUMBO_TAG_TITLE };
+#define kGumboTL23Cnt  3
+const int kGumboTagLst23[] = { GUMBO_TAG_BODY, GUMBO_TAG_BR, GUMBO_TAG_HTML };
+
 static bool handle_after_head(GumboParser* parser, GumboToken* token) {
   GumboParserState* state = parser->_parser_state;
   if (token->type == GUMBO_TOKEN_WHITESPACE) {
@@ -2233,10 +2270,7 @@ static bool handle_after_head(GumboParser* parser, GumboToken* token) {
     insert_element_from_token(parser, token);
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_FRAMESET);
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_BASE, GUMBO_TAG_BASEFONT,
-                    GUMBO_TAG_BGSOUND, GUMBO_TAG_LINK, GUMBO_TAG_META,
-                    GUMBO_TAG_NOFRAMES, GUMBO_TAG_SCRIPT, GUMBO_TAG_STYLE,
-                    GUMBO_TAG_TITLE, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst22, kGumboTL22Cnt)) {
     parser_add_parse_error(parser, token);
     assert(state->_head_element != NULL);
     // This must be flushed before we push the head element on, as there may be
@@ -2248,8 +2282,7 @@ static bool handle_after_head(GumboParser* parser, GumboToken* token) {
     return result;
   } else if (tag_is(token, kStartTag, GUMBO_TAG_HEAD) ||
             (token->type == GUMBO_TOKEN_END_TAG &&
-             !tag_in(token, kEndTag, GUMBO_TAG_BODY, GUMBO_TAG_HTML,
-                     GUMBO_TAG_BR, GUMBO_TAG_LAST))) {
+             !tag_in(token, kEndTag, kGumboTagLst23, kGumboTL23Cnt))) {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
     return false;
@@ -2296,6 +2329,99 @@ static void destroy_node(GumboParser* parser, GumboNode* node) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-inbody
+#define kGumboTL24Cnt  10
+const int kGumboTagLst24[] = { GUMBO_TAG_BASE, GUMBO_TAG_BASEFONT, GUMBO_TAG_BGSOUND, 
+                               GUMBO_TAG_LINK, GUMBO_TAG_MENUITEM, GUMBO_TAG_META, 
+                               GUMBO_TAG_NOFRAMES, GUMBO_TAG_SCRIPT, GUMBO_TAG_STYLE, 
+                               GUMBO_TAG_TITLE };
+#define kGumboTL25Cnt  12
+const int kGumboTagLst25[] = { GUMBO_TAG_BODY, GUMBO_TAG_DD, GUMBO_TAG_DT, GUMBO_TAG_HTML, 
+                               GUMBO_TAG_LI, GUMBO_TAG_P, GUMBO_TAG_TBODY, GUMBO_TAG_TD, 
+                               GUMBO_TAG_TFOOT, GUMBO_TAG_TH, GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+#define kGumboTL26Cnt  2
+const int kGumboTagLst26[] = { GUMBO_TAG_BODY, GUMBO_TAG_HTML };
+
+#define kGumboTL27Cnt  16
+const int kGumboTagLst27[] = { GUMBO_TAG_BODY, GUMBO_TAG_DD, GUMBO_TAG_DT, GUMBO_TAG_HTML, 
+                               GUMBO_TAG_LI, GUMBO_TAG_OPTGROUP, GUMBO_TAG_OPTION, 
+                               GUMBO_TAG_P, GUMBO_TAG_RP, GUMBO_TAG_RT, GUMBO_TAG_TBODY, 
+                               GUMBO_TAG_TD, GUMBO_TAG_TFOOT, GUMBO_TAG_TH, GUMBO_TAG_THEAD, 
+                               GUMBO_TAG_TR };
+#define kGumboTL28Cnt  22
+const int kGumboTagLst28[] = { GUMBO_TAG_ADDRESS, GUMBO_TAG_ARTICLE, GUMBO_TAG_ASIDE, 
+                               GUMBO_TAG_BLOCKQUOTE, GUMBO_TAG_CENTER, GUMBO_TAG_DETAILS, 
+                               GUMBO_TAG_DIR, GUMBO_TAG_DIV, GUMBO_TAG_DL, GUMBO_TAG_FIELDSET, 
+                               GUMBO_TAG_FIGCAPTION, GUMBO_TAG_FIGURE, GUMBO_TAG_FOOTER, 
+                               GUMBO_TAG_HEADER, GUMBO_TAG_HGROUP, GUMBO_TAG_MENU, 
+                               GUMBO_TAG_NAV, GUMBO_TAG_OL, GUMBO_TAG_P, GUMBO_TAG_SECTION, 
+                               GUMBO_TAG_SUMMARY, GUMBO_TAG_UL };
+#define kGumboTL29Cnt  6
+const int kGumboTagLst29[] = { GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3, GUMBO_TAG_H4, 
+                               GUMBO_TAG_H5, GUMBO_TAG_H6 };
+
+#define kGumboTL30Cnt  6
+const int kGumboTagLst30[] = { GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3, GUMBO_TAG_H4, 
+                               GUMBO_TAG_H5, GUMBO_TAG_H6 };
+#define kGumboTL31Cnt  2
+const int kGumboTagLst31[] = { GUMBO_TAG_LISTING, GUMBO_TAG_PRE };
+
+#define kGumboTL32Cnt  2
+const int kGumboTagLst32[] = { GUMBO_TAG_DD, GUMBO_TAG_DT };
+
+#define kGumboTL33Cnt  24
+const int kGumboTagLst33[] = { GUMBO_TAG_ADDRESS, GUMBO_TAG_ARTICLE, GUMBO_TAG_ASIDE, 
+                               GUMBO_TAG_BLOCKQUOTE, GUMBO_TAG_BUTTON, GUMBO_TAG_CENTER, 
+                               GUMBO_TAG_DETAILS, GUMBO_TAG_DIR, GUMBO_TAG_DIV, 
+                               GUMBO_TAG_DL, GUMBO_TAG_FIELDSET, GUMBO_TAG_FIGCAPTION, 
+                               GUMBO_TAG_FIGURE, GUMBO_TAG_FOOTER, GUMBO_TAG_HEADER, 
+                               GUMBO_TAG_HGROUP, GUMBO_TAG_LISTING, GUMBO_TAG_MENU, 
+                               GUMBO_TAG_NAV, GUMBO_TAG_OL, GUMBO_TAG_PRE, GUMBO_TAG_SECTION, 
+                               GUMBO_TAG_SUMMARY, GUMBO_TAG_UL };
+#define kGumboTL34Cnt  2
+const int kGumboTagLst34[] = { GUMBO_TAG_DD, GUMBO_TAG_DT };
+
+#define kGumboTL35Cnt  6
+const int kGumboTagLst35[] = { GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3, GUMBO_TAG_H4, 
+                               GUMBO_TAG_H5, GUMBO_TAG_H6 };
+
+#define kGumboTL36Cnt  6
+const int kGumboTagLst36[] = { GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3, GUMBO_TAG_H4, 
+                               GUMBO_TAG_H5, GUMBO_TAG_H6 };
+
+#define kGumboTL37Cnt  12
+const int kGumboTagLst37[] = { GUMBO_TAG_B, GUMBO_TAG_BIG, GUMBO_TAG_CODE, GUMBO_TAG_EM, 
+                               GUMBO_TAG_FONT, GUMBO_TAG_I, GUMBO_TAG_S, GUMBO_TAG_SMALL, 
+                               GUMBO_TAG_STRIKE, GUMBO_TAG_STRONG, GUMBO_TAG_TT, GUMBO_TAG_U };
+
+#define kGumboTL38Cnt  14
+const int kGumboTagLst38[] = { GUMBO_TAG_A, GUMBO_TAG_B, GUMBO_TAG_BIG, GUMBO_TAG_CODE, 
+                               GUMBO_TAG_EM, GUMBO_TAG_FONT, GUMBO_TAG_I, GUMBO_TAG_NOBR, 
+                               GUMBO_TAG_S, GUMBO_TAG_SMALL, GUMBO_TAG_STRIKE, 
+                               GUMBO_TAG_STRONG, GUMBO_TAG_TT, GUMBO_TAG_U };
+#define kGumboTL39Cnt  3
+const int kGumboTagLst39[] = { GUMBO_TAG_APPLET, GUMBO_TAG_MARQUEE, GUMBO_TAG_OBJECT };
+
+#define kGumboTL40Cnt  3
+const int kGumboTagLst40[] = { GUMBO_TAG_APPLET, GUMBO_TAG_MARQUEE, GUMBO_TAG_OBJECT };
+
+#define kGumboTL41Cnt  7
+const int kGumboTagLst41[] = { GUMBO_TAG_AREA, GUMBO_TAG_BR, GUMBO_TAG_EMBED, GUMBO_TAG_IMAGE, 
+                               GUMBO_TAG_IMG, GUMBO_TAG_KEYGEN, GUMBO_TAG_WBR };
+
+#define kGumboTL42Cnt  3
+const int kGumboTagLst42[] = { GUMBO_TAG_PARAM, GUMBO_TAG_SOURCE, GUMBO_TAG_TRACK };
+
+#define kGumboTL43Cnt  2
+const int kGumboTagLst43[] = { GUMBO_TAG_OPTGROUP, GUMBO_TAG_OPTION };
+
+#define kGumboTL44Cnt  2
+const int kGumboTagLst44[] = { GUMBO_TAG_RP, GUMBO_TAG_RT };
+
+#define kGumboTL45Cnt  11
+const int kGumboTagLst45[] = { GUMBO_TAG_CAPTION, GUMBO_TAG_COL, GUMBO_TAG_COLGROUP, 
+                               GUMBO_TAG_FRAME, GUMBO_TAG_HEAD, GUMBO_TAG_TBODY, GUMBO_TAG_TD, 
+                               GUMBO_TAG_TFOOT, GUMBO_TAG_TH, GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+
 static bool handle_in_body(GumboParser* parser, GumboToken* token) {
   GumboParserState* state = parser->_parser_state;
   assert(state->_open_elements.length > 0);
@@ -2325,10 +2451,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
     parser_add_parse_error(parser, token);
     merge_attributes(parser, token, parser->_output->root);
     return false;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_BASE, GUMBO_TAG_BASEFONT,
-                    GUMBO_TAG_BGSOUND, GUMBO_TAG_MENUITEM, GUMBO_TAG_LINK,
-                    GUMBO_TAG_META, GUMBO_TAG_NOFRAMES, GUMBO_TAG_SCRIPT,
-                    GUMBO_TAG_STYLE, GUMBO_TAG_TITLE, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst24, kGumboTL24Cnt)) {
     return handle_in_head(parser, token);
   } else if (tag_is(token, kStartTag, GUMBO_TAG_BODY)) {
     parser_add_parse_error(parser, token);
@@ -2381,18 +2504,13 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
     return true;
   } else if (token->type == GUMBO_TOKEN_EOF) {
     for (int i = 0; i < state->_open_elements.length; ++i) {
-      if (!node_tag_in(state->_open_elements.data[i], GUMBO_TAG_DD,
-                       GUMBO_TAG_DT, GUMBO_TAG_LI, GUMBO_TAG_P, GUMBO_TAG_TBODY,
-                       GUMBO_TAG_TD, GUMBO_TAG_TFOOT, GUMBO_TAG_TH,
-                       GUMBO_TAG_THEAD, GUMBO_TAG_TR, GUMBO_TAG_BODY,
-                       GUMBO_TAG_HTML, GUMBO_TAG_LAST)) {
+      if (!node_tag_in(state->_open_elements.data[i], kGumboTagLst25, kGumboTL25Cnt)) {
         parser_add_parse_error(parser, token);
         return false;
       }
     }
     return true;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_BODY, GUMBO_TAG_HTML,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst26, kGumboTL26Cnt)) {
     if (!has_an_element_in_scope(parser, GUMBO_TAG_BODY)) {
       parser_add_parse_error(parser, token);
       ignore_token(parser);
@@ -2400,13 +2518,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
     }
     bool success = true;
     for (int i = 0; i < state->_open_elements.length; ++i) {
-      if (!node_tag_in(state->_open_elements.data[i], GUMBO_TAG_DD,
-                       GUMBO_TAG_DT, GUMBO_TAG_LI, GUMBO_TAG_OPTGROUP,
-                       GUMBO_TAG_OPTION, GUMBO_TAG_P, GUMBO_TAG_RP,
-                       GUMBO_TAG_RT, GUMBO_TAG_TBODY, GUMBO_TAG_TD,
-                       GUMBO_TAG_TFOOT, GUMBO_TAG_TH, GUMBO_TAG_THEAD,
-                       GUMBO_TAG_TR, GUMBO_TAG_BODY, GUMBO_TAG_HTML,
-                       GUMBO_TAG_LAST)) {
+      if (!node_tag_in(state->_open_elements.data[i], kGumboTagLst27, kGumboTL27Cnt)) {
         parser_add_parse_error(parser, token);
         success = false;
         break;
@@ -2421,31 +2533,20 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
       record_end_of_element(state->_current_token, &body->v.element);
     }
     return success;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_ADDRESS, GUMBO_TAG_ARTICLE,
-                    GUMBO_TAG_ASIDE, GUMBO_TAG_BLOCKQUOTE, GUMBO_TAG_CENTER,
-                    GUMBO_TAG_DETAILS, GUMBO_TAG_DIR, GUMBO_TAG_DIV,
-                    GUMBO_TAG_DL, GUMBO_TAG_FIELDSET, GUMBO_TAG_FIGCAPTION,
-                    GUMBO_TAG_FIGURE, GUMBO_TAG_FOOTER, GUMBO_TAG_HEADER,
-                    GUMBO_TAG_HGROUP, GUMBO_TAG_MENU, GUMBO_TAG_NAV,
-                    GUMBO_TAG_OL, GUMBO_TAG_P, GUMBO_TAG_SECTION,
-                    GUMBO_TAG_SUMMARY, GUMBO_TAG_UL, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst28, kGumboTL28Cnt)) {
     bool result = maybe_implicitly_close_p_tag(parser, token);
     insert_element_from_token(parser, token);
     return result;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3,
-                    GUMBO_TAG_H4, GUMBO_TAG_H5, GUMBO_TAG_H6, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst29, kGumboTL29Cnt)) {
     bool result = maybe_implicitly_close_p_tag(parser, token);
-    if (node_tag_in(get_current_node(parser), GUMBO_TAG_H1, GUMBO_TAG_H2,
-                    GUMBO_TAG_H3, GUMBO_TAG_H4, GUMBO_TAG_H5, GUMBO_TAG_H6,
-                    GUMBO_TAG_LAST)) {
+    if (node_tag_in(get_current_node(parser), kGumboTagLst30, kGumboTL30Cnt)) {
       parser_add_parse_error(parser, token);
       pop_current_node(parser);
       result = false;
     }
     insert_element_from_token(parser, token);
     return result;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_PRE, GUMBO_TAG_LISTING,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst31, kGumboTL31Cnt)) {
     bool result = maybe_implicitly_close_p_tag(parser, token);
     insert_element_from_token(parser, token);
     state->_ignore_next_linefeed = true;
@@ -2467,8 +2568,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
     bool result = maybe_implicitly_close_p_tag(parser, token);
     insert_element_from_token(parser, token);
     return result;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_DD, GUMBO_TAG_DT,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst32, kGumboTL32Cnt)) {
     maybe_implicitly_close_list_tag(parser, token, false);
     bool result = maybe_implicitly_close_p_tag(parser, token);
     insert_element_from_token(parser, token);
@@ -2489,15 +2589,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
     insert_element_from_token(parser, token);
     state->_frameset_ok = false;
     return true;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_ADDRESS, GUMBO_TAG_ARTICLE,
-                    GUMBO_TAG_ASIDE, GUMBO_TAG_BLOCKQUOTE, GUMBO_TAG_BUTTON,
-                    GUMBO_TAG_CENTER, GUMBO_TAG_DETAILS, GUMBO_TAG_DIR,
-                    GUMBO_TAG_DIV, GUMBO_TAG_DL, GUMBO_TAG_FIELDSET,
-                    GUMBO_TAG_FIGCAPTION, GUMBO_TAG_FIGURE, GUMBO_TAG_FOOTER,
-                    GUMBO_TAG_HEADER, GUMBO_TAG_HGROUP, GUMBO_TAG_LISTING,
-                    GUMBO_TAG_MENU, GUMBO_TAG_NAV, GUMBO_TAG_OL, GUMBO_TAG_PRE,
-                    GUMBO_TAG_SECTION, GUMBO_TAG_SUMMARY, GUMBO_TAG_UL,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst33, kGumboTL33Cnt)) {
     GumboTag tag = token->v.end_tag;
     if (!has_an_element_in_scope(parser, tag)) {
       parser_add_parse_error(parser, token);
@@ -2548,8 +2640,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
       return false;
     }
     return implicitly_close_tags(parser, token, GUMBO_TAG_LI);
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_DD, GUMBO_TAG_DT,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst34, kGumboTL34Cnt)) {
     assert(token->type == GUMBO_TOKEN_END_TAG);
     GumboTag token_tag = token->v.end_tag;
     if (!has_an_element_in_scope(parser, token_tag)) {
@@ -2558,8 +2649,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
       return false;
     }
     return implicitly_close_tags(parser, token, token_tag);
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3,
-                    GUMBO_TAG_H4, GUMBO_TAG_H5, GUMBO_TAG_H6, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst35, kGumboTL35Cnt)) {
     if (!has_an_element_in_scope_with_tagname(
             parser, GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3, GUMBO_TAG_H4,
             GUMBO_TAG_H5, GUMBO_TAG_H6, GUMBO_TAG_LAST)) {
@@ -2580,9 +2670,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
       }
       do {
         current_node = pop_current_node(parser);
-      } while (!node_tag_in(current_node, GUMBO_TAG_H1, GUMBO_TAG_H2,
-                            GUMBO_TAG_H3, GUMBO_TAG_H4, GUMBO_TAG_H5,
-                            GUMBO_TAG_H6, GUMBO_TAG_LAST));
+      } while (!node_tag_in(current_node, kGumboTagLst36, kGumboTL36Cnt));
       return success;
     }
   } else if (tag_is(token, kStartTag, GUMBO_TAG_A)) {
@@ -2608,11 +2696,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
     reconstruct_active_formatting_elements(parser);
     add_formatting_element(parser, insert_element_from_token(parser, token));
     return success;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_B, GUMBO_TAG_BIG,
-                    GUMBO_TAG_CODE, GUMBO_TAG_EM, GUMBO_TAG_FONT, GUMBO_TAG_I,
-                    GUMBO_TAG_S, GUMBO_TAG_SMALL, GUMBO_TAG_STRIKE,
-                    GUMBO_TAG_STRONG, GUMBO_TAG_TT, GUMBO_TAG_U,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst37, kGumboTL37Cnt)) {
     reconstruct_active_formatting_elements(parser);
     add_formatting_element(parser, insert_element_from_token(parser, token));
     return true;
@@ -2628,21 +2712,15 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
     insert_element_from_token(parser, token);
     add_formatting_element(parser, get_current_node(parser));
     return result;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_A, GUMBO_TAG_B, GUMBO_TAG_BIG,
-                    GUMBO_TAG_CODE, GUMBO_TAG_EM, GUMBO_TAG_FONT, GUMBO_TAG_I,
-                    GUMBO_TAG_NOBR, GUMBO_TAG_S, GUMBO_TAG_SMALL,
-                    GUMBO_TAG_STRIKE, GUMBO_TAG_STRONG, GUMBO_TAG_TT,
-                    GUMBO_TAG_U, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst38, kGumboTL38Cnt)) {
     return adoption_agency_algorithm(parser, token, token->v.end_tag);
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_APPLET, GUMBO_TAG_MARQUEE,
-                    GUMBO_TAG_OBJECT, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst39, kGumboTL39Cnt)) {
     reconstruct_active_formatting_elements(parser);
     insert_element_from_token(parser, token);
     add_formatting_element(parser, &kActiveFormattingScopeMarker);
     set_frameset_not_ok(parser);
     return true;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_APPLET, GUMBO_TAG_MARQUEE,
-                    GUMBO_TAG_OBJECT, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst40, kGumboTL40Cnt)) {
     GumboTag token_tag = token->v.end_tag;
     if (!has_an_element_in_table_scope(parser, token_tag)) {
       parser_add_parse_error(parser, token);
@@ -2661,9 +2739,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
     set_frameset_not_ok(parser);
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_TABLE);
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_AREA, GUMBO_TAG_BR,
-                    GUMBO_TAG_EMBED, GUMBO_TAG_IMG, GUMBO_TAG_IMAGE,
-                    GUMBO_TAG_KEYGEN, GUMBO_TAG_WBR, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst41, kGumboTL41Cnt)) {
     bool success = true;
     if (tag_is(token, kStartTag, GUMBO_TAG_IMAGE)) {
       success = false;
@@ -2693,8 +2769,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
     pop_current_node(parser);
     acknowledge_self_closing_tag(parser);
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_PARAM, GUMBO_TAG_SOURCE,
-                    GUMBO_TAG_TRACK, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst42, kGumboTL42Cnt)) {
     insert_element_from_token(parser, token);
     pop_current_node(parser);
     acknowledge_self_closing_tag(parser);
@@ -2820,16 +2895,14 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
       set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_SELECT);
     }
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_OPTION, GUMBO_TAG_OPTGROUP,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst43, kGumboTL43Cnt)) {
     if (node_tag_is(get_current_node(parser), GUMBO_TAG_OPTION)) {
       pop_current_node(parser);
     }
     reconstruct_active_formatting_elements(parser);
     insert_element_from_token(parser, token);
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_RP, GUMBO_TAG_RT,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst44, kGumboTL44Cnt)) {
     bool success = true;
     if (has_an_element_in_scope(parser, GUMBO_TAG_RUBY)) {
       generate_implied_end_tags(parser, GUMBO_TAG_LAST);
@@ -2867,11 +2940,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
       acknowledge_self_closing_tag(parser);
     }
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_CAPTION, GUMBO_TAG_COL,
-                    GUMBO_TAG_COLGROUP, GUMBO_TAG_FRAME, GUMBO_TAG_HEAD,
-                    GUMBO_TAG_TBODY, GUMBO_TAG_TD, GUMBO_TAG_TFOOT,
-                    GUMBO_TAG_TH, GUMBO_TAG_THEAD, GUMBO_TAG_TR,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst45, kGumboTL45Cnt)) {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
     return false;
@@ -2935,6 +3004,19 @@ static bool handle_text(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-intable
+#define kGumboTL46Cnt  6
+const int kGumboTagLst46[] = { GUMBO_TAG_TBODY, GUMBO_TAG_TD, GUMBO_TAG_TFOOT, GUMBO_TAG_TH, 
+                               GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+#define kGumboTL47Cnt  3
+const int kGumboTagLst47[] = { GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_TR };
+
+#define kGumboTL48Cnt  11
+const int kGumboTagLst48[] = { GUMBO_TAG_BODY, GUMBO_TAG_CAPTION, GUMBO_TAG_COL, 
+                               GUMBO_TAG_COLGROUP, GUMBO_TAG_HTML, GUMBO_TAG_TBODY, GUMBO_TAG_TD, 
+                               GUMBO_TAG_TFOOT, GUMBO_TAG_TH, GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+#define kGumboTL49Cnt  2
+const int kGumboTagLst49[] = { GUMBO_TAG_SCRIPT, GUMBO_TAG_STYLE };
+
 static bool handle_in_table(GumboParser* parser, GumboToken* token) {
   GumboParserState* state = parser->_parser_state;
   if (token->type == GUMBO_TOKEN_CHARACTER ||
@@ -2974,13 +3056,10 @@ static bool handle_in_table(GumboParser* parser, GumboToken* token) {
     parser->_parser_state->_reprocess_current_token = true;
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_COLUMN_GROUP);
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT,
-                    GUMBO_TAG_THEAD, GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_TR,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst46, kGumboTL46Cnt)) {
     clear_stack_to_table_context(parser);
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_TABLE_BODY);
-    if (tag_in(token, kStartTag, GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_TR,
-               GUMBO_TAG_LAST)) {
+    if (tag_in(token, kStartTag, kGumboTagLst47, kGumboTL47Cnt)) {
       insert_element_of_tag_type(
           parser, GUMBO_TAG_TBODY, GUMBO_INSERTION_IMPLIED);
       state->_reprocess_current_token = true;
@@ -3002,16 +3081,11 @@ static bool handle_in_table(GumboParser* parser, GumboToken* token) {
       return false;
     }
     return true;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_BODY, GUMBO_TAG_CAPTION,
-                    GUMBO_TAG_COL, GUMBO_TAG_COLGROUP, GUMBO_TAG_HTML,
-                    GUMBO_TAG_TBODY, GUMBO_TAG_TD, GUMBO_TAG_TFOOT,
-                    GUMBO_TAG_TH, GUMBO_TAG_THEAD, GUMBO_TAG_TR,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst48, kGumboTL48Cnt)) {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
     return false;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_STYLE, GUMBO_TAG_SCRIPT,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst49, kGumboTL49Cnt)) {
     return handle_in_head(parser, token);
   } else if (tag_is(token, kStartTag, GUMBO_TAG_INPUT) &&
              attribute_matches(&token->v.start_tag.attributes,
@@ -3078,13 +3152,21 @@ static bool handle_in_table_text(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-incaption
+#define kGumboTL50Cnt  9
+const int kGumboTagLst50[] = { GUMBO_TAG_CAPTION, GUMBO_TAG_COL, GUMBO_TAG_COLGROUP, 
+                               GUMBO_TAG_TBODY, GUMBO_TAG_TD, GUMBO_TAG_TFOOT, GUMBO_TAG_TH, 
+                               GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+#define kGumboTL51Cnt  2
+const int kGumboTagLst51[] = { GUMBO_TAG_CAPTION, GUMBO_TAG_TABLE };
+
+#define kGumboTL52Cnt  10
+const int kGumboTagLst52[] = { GUMBO_TAG_BODY, GUMBO_TAG_COL, GUMBO_TAG_COLGROUP, 
+                               GUMBO_TAG_HTML, GUMBO_TAG_TBODY, GUMBO_TAG_TD, GUMBO_TAG_TFOOT, 
+                               GUMBO_TAG_TH, GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+
 static bool handle_in_caption(GumboParser* parser, GumboToken* token) {
-  if (tag_in(token, kStartTag, GUMBO_TAG_CAPTION, GUMBO_TAG_COL,
-                    GUMBO_TAG_COLGROUP, GUMBO_TAG_TBODY, GUMBO_TAG_TD,
-                    GUMBO_TAG_TFOOT, GUMBO_TAG_TH, GUMBO_TAG_THEAD,
-                    GUMBO_TAG_TR, GUMBO_TAG_LAST) ||
-             tag_in(token, kEndTag, GUMBO_TAG_CAPTION, GUMBO_TAG_TABLE,
-                    GUMBO_TAG_LAST)) {
+  if (tag_in(token, kStartTag, kGumboTagLst50, kGumboTL50Cnt) ||
+      tag_in(token, kEndTag, kGumboTagLst51, kGumboTL51Cnt)) {
     if (!has_an_element_in_table_scope(parser, GUMBO_TAG_CAPTION)) {
       parser_add_parse_error(parser, token);
       ignore_token(parser);
@@ -3107,10 +3189,7 @@ static bool handle_in_caption(GumboParser* parser, GumboToken* token) {
     clear_active_formatting_elements(parser);
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_TABLE);
     return result;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_BODY, GUMBO_TAG_COL,
-                    GUMBO_TAG_COLGROUP, GUMBO_TAG_HTML, GUMBO_TAG_TBODY,
-                    GUMBO_TAG_TD, GUMBO_TAG_TFOOT, GUMBO_TAG_TH,
-                    GUMBO_TAG_THEAD, GUMBO_TAG_TR, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst52, kGumboTL52Cnt)) {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
     return false;
@@ -3161,22 +3240,34 @@ static bool handle_in_column_group(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-intbody
+#define kGumboTL53Cnt  2
+const int kGumboTagLst53[] = { GUMBO_TAG_TD, GUMBO_TAG_TH };
+
+#define kGumboTL54Cnt  3
+const int kGumboTagLst54[] = { GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD };
+
+#define kGumboTL55Cnt  6
+const int kGumboTagLst55[] = { GUMBO_TAG_CAPTION, GUMBO_TAG_COL, GUMBO_TAG_COLGROUP, 
+                               GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD };
+#define kGumboTL56Cnt  8
+const int kGumboTagLst56[] = { GUMBO_TAG_BODY, GUMBO_TAG_CAPTION, GUMBO_TAG_COL, 
+                               GUMBO_TAG_COLGROUP, GUMBO_TAG_HTML, GUMBO_TAG_TD, GUMBO_TAG_TH, 
+                               GUMBO_TAG_TR };
+
 static bool handle_in_table_body(GumboParser* parser, GumboToken* token) {
   if (tag_is(token, kStartTag, GUMBO_TAG_TR)) {
     clear_stack_to_table_body_context(parser);
     insert_element_from_token(parser, token);
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_ROW);
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_TD, GUMBO_TAG_TH,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst53, kGumboTL53Cnt)) {
     parser_add_parse_error(parser, token);
     clear_stack_to_table_body_context(parser);
     insert_element_of_tag_type(parser, GUMBO_TAG_TR, GUMBO_INSERTION_IMPLIED);
     parser->_parser_state->_reprocess_current_token = true;
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_ROW);
     return false;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT,
-                    GUMBO_TAG_THEAD, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst54, kGumboTL54Cnt)) {
     if (!has_an_element_in_table_scope(parser, token->v.end_tag)) {
       parser_add_parse_error(parser, token);
       ignore_token(parser);
@@ -3186,9 +3277,7 @@ static bool handle_in_table_body(GumboParser* parser, GumboToken* token) {
     pop_current_node(parser);
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_TABLE);
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_CAPTION, GUMBO_TAG_COL,
-                    GUMBO_TAG_COLGROUP, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT,
-                    GUMBO_TAG_THEAD, GUMBO_TAG_LAST) ||
+  } else if (tag_in(token, kStartTag, kGumboTagLst55, kGumboTL55Cnt) ||
              tag_is(token, kEndTag, GUMBO_TAG_TABLE)) {
     if (!(has_an_element_in_table_scope(parser, GUMBO_TAG_TBODY) ||
           has_an_element_in_table_scope(parser, GUMBO_TAG_THEAD) ||
@@ -3202,9 +3291,7 @@ static bool handle_in_table_body(GumboParser* parser, GumboToken* token) {
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_TABLE);
     parser->_parser_state->_reprocess_current_token = true;
     return true;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_BODY, GUMBO_TAG_CAPTION,
-                    GUMBO_TAG_COL, GUMBO_TAG_TR, GUMBO_TAG_COLGROUP,
-                    GUMBO_TAG_HTML, GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_LAST))
+  } else if (tag_in(token, kEndTag, kGumboTagLst56, kGumboTL56Cnt))
   {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
@@ -3215,25 +3302,36 @@ static bool handle_in_table_body(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-intr
+#define kGumboTL57Cnt  2
+const int kGumboTagLst57[] = { GUMBO_TAG_TD, GUMBO_TAG_TH };
+
+#define kGumboTL58Cnt  6
+const int kGumboTagLst58[] = { GUMBO_TAG_CAPTION, GUMBO_TAG_COLGROUP, GUMBO_TAG_TBODY, 
+                               GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+#define kGumboTL59Cnt  5
+const int kGumboTagLst59[] = { GUMBO_TAG_TABLE, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, 
+                               GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+#define kGumboTL60Cnt  3
+const int kGumboTagLst60[] = { GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD };
+
+#define kGumboTL61Cnt  7
+const int kGumboTagLst61[] = { GUMBO_TAG_BODY, GUMBO_TAG_CAPTION, GUMBO_TAG_COL, 
+                               GUMBO_TAG_COLGROUP, GUMBO_TAG_HTML, GUMBO_TAG_TD, GUMBO_TAG_TH };
+
 static bool handle_in_row(GumboParser* parser, GumboToken* token) {
-  if (tag_in(token, kStartTag, GUMBO_TAG_TH, GUMBO_TAG_TD, GUMBO_TAG_LAST)) {
+  if (tag_in(token, kStartTag, kGumboTagLst57, kGumboTL57Cnt)) {
     clear_stack_to_table_row_context(parser);
     insert_element_from_token(parser, token);
     set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_CELL);
     add_formatting_element(parser, &kActiveFormattingScopeMarker);
     return true;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_CAPTION, GUMBO_TAG_COLGROUP,
-                    GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD,
-                    GUMBO_TAG_TR, GUMBO_TAG_LAST) ||
-             tag_in(token, kEndTag, GUMBO_TAG_TR, GUMBO_TAG_TABLE,
-                    GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst58, kGumboTL58Cnt) ||
+             tag_in(token, kEndTag, kGumboTagLst59, kGumboTL59Cnt)) {
     // This case covers 4 clauses of the spec, each of which say "Otherwise, act
     // as if an end tag with the tag name "tr" had been seen."  The differences
     // are in error handling and whether the current token is reprocessed.
     GumboTag desired_tag =
-        tag_in(token, kEndTag, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT,
-               GUMBO_TAG_THEAD, GUMBO_TAG_LAST)
+      tag_in(token, kEndTag, kGumboTagLst60, kGumboTL60Cnt)
         ? token->v.end_tag : GUMBO_TAG_TR;
     if (!has_an_element_in_table_scope(parser, desired_tag)) {
       gumbo_debug("Bailing because there is no tag %s in table scope.\nOpen elements:",
@@ -3255,9 +3353,7 @@ static bool handle_in_row(GumboParser* parser, GumboToken* token) {
       parser->_parser_state->_reprocess_current_token = true;
     }
     return true;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_BODY, GUMBO_TAG_CAPTION,
-                    GUMBO_TAG_COL, GUMBO_TAG_COLGROUP, GUMBO_TAG_HTML,
-                    GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst61, kGumboTL61Cnt)) {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
     return false;
@@ -3267,18 +3363,29 @@ static bool handle_in_row(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-intd
+#define kGumboTL62Cnt  2
+const int kGumboTagLst62[] = { GUMBO_TAG_TD, GUMBO_TAG_TH };
+
+#define kGumboTL63Cnt  9
+const int kGumboTagLst63[] = { GUMBO_TAG_CAPTION, GUMBO_TAG_COL, GUMBO_TAG_COLGROUP, 
+                               GUMBO_TAG_TBODY, GUMBO_TAG_TD, GUMBO_TAG_TFOOT, GUMBO_TAG_TH, 
+                               GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+#define kGumboTL64Cnt  5
+const int kGumboTagLst64[] = { GUMBO_TAG_BODY, GUMBO_TAG_CAPTION, GUMBO_TAG_COL, 
+                               GUMBO_TAG_COLGROUP, GUMBO_TAG_HTML };
+#define kGumboTL65Cnt  5
+const int kGumboTagLst65[] = { GUMBO_TAG_TABLE, GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, 
+                               GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+
 static bool handle_in_cell(GumboParser* parser, GumboToken* token) {
-  if (tag_in(token, kEndTag, GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_LAST)) {
+  if (tag_in(token, kEndTag, kGumboTagLst62, kGumboTL62Cnt)) {
     GumboTag token_tag = token->v.end_tag;
     if (!has_an_element_in_table_scope(parser, token_tag)) {
       parser_add_parse_error(parser, token);
       return false;
     }
     return close_table_cell(parser, token, token_tag);
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_CAPTION, GUMBO_TAG_COL,
-                    GUMBO_TAG_COLGROUP, GUMBO_TAG_TBODY, GUMBO_TAG_TD,
-                    GUMBO_TAG_TFOOT, GUMBO_TAG_TH, GUMBO_TAG_THEAD,
-                    GUMBO_TAG_TR, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst63, kGumboTL63Cnt)) {
     gumbo_debug("Handling <td> in cell.\n");
     if (!has_an_element_in_table_scope(parser, GUMBO_TAG_TH) &&
         !has_an_element_in_table_scope(parser, GUMBO_TAG_TD)) {
@@ -3289,15 +3396,11 @@ static bool handle_in_cell(GumboParser* parser, GumboToken* token) {
     }
     parser->_parser_state->_reprocess_current_token = true;
     return close_current_cell(parser, token);
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_BODY, GUMBO_TAG_CAPTION,
-                    GUMBO_TAG_COL, GUMBO_TAG_COLGROUP, GUMBO_TAG_HTML,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst64, kGumboTL64Cnt)) {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
     return false;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_TABLE, GUMBO_TAG_TBODY,
-                    GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD, GUMBO_TAG_TR,
-                    GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst65, kGumboTL65Cnt)) {
     if (!has_an_element_in_table_scope(parser, token->v.end_tag)) {
       parser_add_parse_error(parser, token);
       ignore_token(parser);
@@ -3311,6 +3414,9 @@ static bool handle_in_cell(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-inselect
+#define kGumboTL66Cnt  3
+const int kGumboTagLst66[] = { GUMBO_TAG_INPUT, GUMBO_TAG_KEYGEN, GUMBO_TAG_TEXTAREA };
+
 static bool handle_in_select(GumboParser* parser, GumboToken* token) {
   if (token->type == GUMBO_TOKEN_NULL) {
     parser_add_parse_error(parser, token);
@@ -3381,8 +3487,7 @@ static bool handle_in_select(GumboParser* parser, GumboToken* token) {
     ignore_token(parser);
     close_current_select(parser);
     return false;
-  } else if (tag_in(token, kStartTag, GUMBO_TAG_INPUT, GUMBO_TAG_KEYGEN,
-                    GUMBO_TAG_TEXTAREA, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kStartTag, kGumboTagLst66, kGumboTL66Cnt)) {
     parser_add_parse_error(parser, token);
     if (!has_an_element_in_select_scope(parser, GUMBO_TAG_SELECT)) {
       ignore_token(parser);
@@ -3407,17 +3512,20 @@ static bool handle_in_select(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-inselectintable
+#define kGumboTL67Cnt  8
+const int kGumboTagLst67[] = { GUMBO_TAG_CAPTION, GUMBO_TAG_TABLE, GUMBO_TAG_TBODY, GUMBO_TAG_TD, 
+                               GUMBO_TAG_TFOOT, GUMBO_TAG_TH, GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+#define kGumboTL68Cnt  8
+const int kGumboTagLst68[] = { GUMBO_TAG_CAPTION, GUMBO_TAG_TABLE, GUMBO_TAG_TBODY, GUMBO_TAG_TD, 
+                               GUMBO_TAG_TFOOT, GUMBO_TAG_TH, GUMBO_TAG_THEAD, GUMBO_TAG_TR };
+
 static bool handle_in_select_in_table(GumboParser* parser, GumboToken* token) {
-  if (tag_in(token, kStartTag, GUMBO_TAG_CAPTION, GUMBO_TAG_TABLE,
-             GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD, GUMBO_TAG_TR,
-             GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_LAST)) {
+  if (tag_in(token, kStartTag, kGumboTagLst67, kGumboTL67Cnt)) {
     parser_add_parse_error(parser, token);
     close_current_select(parser);
     parser->_parser_state->_reprocess_current_token = true;
     return false;
-  } else if (tag_in(token, kEndTag, GUMBO_TAG_CAPTION, GUMBO_TAG_TABLE,
-                    GUMBO_TAG_TBODY, GUMBO_TAG_TFOOT, GUMBO_TAG_THEAD,
-                    GUMBO_TAG_TR, GUMBO_TAG_TD, GUMBO_TAG_TH, GUMBO_TAG_LAST)) {
+  } else if (tag_in(token, kEndTag, kGumboTagLst68, kGumboTL68Cnt)) {
     parser_add_parse_error(parser, token);
     if (has_an_element_in_table_scope(parser, token->v.end_tag)) {
       close_current_select(parser);
@@ -3627,6 +3735,19 @@ static bool handle_html_content(GumboParser* parser, GumboToken* token) {
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-inforeign
+#define kGumboTL69Cnt  44
+const int kGumboTagLst69[] = { GUMBO_TAG_B, GUMBO_TAG_BIG, GUMBO_TAG_BLOCKQUOTE, GUMBO_TAG_BODY, 
+                               GUMBO_TAG_BR, GUMBO_TAG_CENTER, GUMBO_TAG_CODE, GUMBO_TAG_DD, 
+                               GUMBO_TAG_DIV, GUMBO_TAG_DL, GUMBO_TAG_DT, GUMBO_TAG_EM, 
+                               GUMBO_TAG_EMBED, GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3, 
+                               GUMBO_TAG_H4, GUMBO_TAG_H5, GUMBO_TAG_H6, GUMBO_TAG_HEAD, 
+                               GUMBO_TAG_HR, GUMBO_TAG_I, GUMBO_TAG_IMG, GUMBO_TAG_LI, 
+                               GUMBO_TAG_LISTING, GUMBO_TAG_MENU, GUMBO_TAG_META, GUMBO_TAG_NOBR, 
+                               GUMBO_TAG_OL, GUMBO_TAG_P, GUMBO_TAG_PRE, GUMBO_TAG_RUBY, GUMBO_TAG_S, 
+                               GUMBO_TAG_SMALL, GUMBO_TAG_SPAN, GUMBO_TAG_STRIKE, GUMBO_TAG_STRONG, 
+                               GUMBO_TAG_SUB, GUMBO_TAG_SUP, GUMBO_TAG_TABLE, GUMBO_TAG_TT, 
+                               GUMBO_TAG_U, GUMBO_TAG_UL, GUMBO_TAG_VAR };
+
 static bool handle_in_foreign_content(GumboParser* parser, GumboToken* token) {
   switch (token->type) {
     case GUMBO_TOKEN_NULL:
@@ -3654,19 +3775,7 @@ static bool handle_in_foreign_content(GumboParser* parser, GumboToken* token) {
       break;
   }
   // Order matters for these clauses.
-  if (tag_in(token, kStartTag, GUMBO_TAG_B, GUMBO_TAG_BIG,
-             GUMBO_TAG_BLOCKQUOTE, GUMBO_TAG_BODY, GUMBO_TAG_BR,
-             GUMBO_TAG_CENTER, GUMBO_TAG_CODE, GUMBO_TAG_DD, GUMBO_TAG_DIV,
-             GUMBO_TAG_DL, GUMBO_TAG_DT, GUMBO_TAG_EM, GUMBO_TAG_EMBED,
-             GUMBO_TAG_H1, GUMBO_TAG_H2, GUMBO_TAG_H3, GUMBO_TAG_H4,
-             GUMBO_TAG_H5, GUMBO_TAG_H6, GUMBO_TAG_HEAD, GUMBO_TAG_HR,
-             GUMBO_TAG_I, GUMBO_TAG_IMG, GUMBO_TAG_LI, GUMBO_TAG_LISTING,
-             GUMBO_TAG_MENU, GUMBO_TAG_META, GUMBO_TAG_NOBR, GUMBO_TAG_OL,
-             GUMBO_TAG_P, GUMBO_TAG_PRE, GUMBO_TAG_RUBY, GUMBO_TAG_S,
-             GUMBO_TAG_SMALL, GUMBO_TAG_SPAN, GUMBO_TAG_STRONG,
-             GUMBO_TAG_STRIKE, GUMBO_TAG_SUB, GUMBO_TAG_SUP,
-             GUMBO_TAG_TABLE, GUMBO_TAG_TT, GUMBO_TAG_U, GUMBO_TAG_UL,
-             GUMBO_TAG_VAR, GUMBO_TAG_LAST) ||
+  if (tag_in(token, kStartTag, kGumboTagLst69, kGumboTL69Cnt) ||
      (tag_is(token, kStartTag, GUMBO_TAG_FONT) && (
          token_has_attribute(token, "color") ||
          token_has_attribute(token, "face") ||
@@ -3751,6 +3860,9 @@ static bool handle_in_foreign_content(GumboParser* parser, GumboToken* token) {
 
 
 // http://www.whatwg.org/specs/web-apps/current-work/multipage/tree-construction.html#tree-construction
+#define kGumboTL70Cnt  2
+const int kGumboTagLst70[] = { GUMBO_TAG_MALIGNMARK, GUMBO_TAG_MGLYPH };
+
 static bool handle_token(GumboParser* parser, GumboToken* token) {
   if (parser->_parser_state->_ignore_next_linefeed &&
       token->type == GUMBO_TOKEN_WHITESPACE && token->v.character == '\n') {
@@ -3784,8 +3896,7 @@ static bool handle_token(GumboParser* parser, GumboToken* token) {
         token->type == GUMBO_TOKEN_WHITESPACE ||
         token->type == GUMBO_TOKEN_NULL ||
         (token->type == GUMBO_TOKEN_START_TAG &&
-         !tag_in(token, kStartTag, GUMBO_TAG_MGLYPH, GUMBO_TAG_MALIGNMARK,
-                GUMBO_TAG_LAST)))) ||
+         !tag_in(token, kStartTag, kGumboTagLst70, kGumboTL70Cnt)))) ||
       (current_node->v.element.tag_namespace == GUMBO_NAMESPACE_MATHML &&
        node_tag_is(current_node, GUMBO_TAG_ANNOTATION_XML) &&
        tag_is(token, kStartTag, GUMBO_TAG_SVG)) ||
@@ -3806,6 +3917,17 @@ GumboOutput* gumbo_parse(const char* buffer) {
       &kGumboDefaultOptions, buffer, strlen(buffer));
 }
 
+
+#define kGumboTL102Cnt  22
+const int kGumboTagLst102[] = { GUMBO_TAG_AREA, GUMBO_TAG_BASE, GUMBO_TAG_BASEFONT, 
+                                GUMBO_TAG_BGSOUND, GUMBO_TAG_BR, GUMBO_TAG_COL, 
+                                GUMBO_TAG_EMBED, GUMBO_TAG_FRAME, GUMBO_TAG_HR, 
+                                GUMBO_TAG_IMAGE, GUMBO_TAG_IMG, GUMBO_TAG_INPUT, 
+                                GUMBO_TAG_ISINDEX, GUMBO_TAG_KEYGEN, GUMBO_TAG_LINK, 
+                                GUMBO_TAG_MENUITEM, GUMBO_TAG_META, GUMBO_TAG_PARAM, 
+                                GUMBO_TAG_SOURCE, GUMBO_TAG_SPACER, GUMBO_TAG_TRACK, 
+                                GUMBO_TAG_WBR };
+
 GumboOutput* gumbo_parse_with_options(
     const GumboOptions* options, const char* buffer, size_t length) {
   GumboParser parser;
@@ -3823,6 +3945,11 @@ GumboOutput* gumbo_parse_with_options(
 
   GumboToken token;
   bool has_error = false;
+
+  // XHTML5 parsing support
+  bool inject_end = false;
+  GumboToken injected_token;
+
   do {
     if (state->_reprocess_current_token) {
       state->_reprocess_current_token = false;
@@ -3859,6 +3986,25 @@ GumboOutput* gumbo_parse_with_options(
         !(token.type == GUMBO_TOKEN_START_TAG &&
           token.v.start_tag.is_self_closing);
 
+    if (parser._options->use_xhtml_rules) {
+      // XHTML5 Parser support
+      // prepare to inject an end tag token if token is not a proper 
+      // void element but is a self-closing start tag
+      // no memory is allocated so no free is ever needed
+      if (token.type == GUMBO_TOKEN_START_TAG && token.v.start_tag.is_self_closing) {
+        if (!tag_in(&token, true, kGumboTagLst102, kGumboTL102Cnt)) {
+          inject_end = true;
+    	  // since self closing tag,  end tag should share same 
+    	  // position and original text information as start tag
+    	  // but have no attributes
+  	  injected_token.type = GUMBO_TOKEN_END_TAG;
+  	  injected_token.v.end_tag = token.v.start_tag.tag;
+  	  injected_token.position = token.position;
+  	  injected_token.original_text = token.original_text;
+        }
+      }
+    }
+
     has_error = !handle_token(&parser, &token) || has_error;
 
     // Check for memory leaks when ownership is transferred from start tag
@@ -3866,6 +4012,17 @@ GumboOutput* gumbo_parse_with_options(
     assert(state->_reprocess_current_token ||
            token.type != GUMBO_TOKEN_START_TAG ||
            token.v.start_tag.attributes.data == NULL);
+
+    if (parser._options->use_xhtml_rules && inject_end && !state->_self_closing_flag_acknowledged) {
+      // XHTML5 Parser support - immediately inject end tag if self-closing 
+      // non-void start tag was just processed
+      // which the html5 parser treats as only a start tag
+      // unless in head in RCDATA where it breaks everything
+      state->_current_token = &injected_token;
+      state->_self_closing_flag_acknowledged = true;
+      has_error = !handle_token(&parser, &injected_token) || has_error;
+      inject_end = false;
+    }
 
     if (!state->_self_closing_flag_acknowledged) {
       GumboError* error = parser_add_parse_error(&parser, &token);
@@ -3898,7 +4055,7 @@ GumboOutput* gumbo_parse_with_options(
   gumbo_tokenizer_state_destroy(&parser);
   return parser._output;
 }
-
+  
 void gumbo_destroy_node(GumboOptions* options, GumboNode* node) {
   // Need a dummy GumboParser because the allocator comes along with the
   // options object.
