@@ -24,23 +24,16 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 
-
-#include "GumboParser.h"
+#include "GumboInterface.h"
+#include "string_buffer.h"
+#include "error.h"
+#include "parser.h"
 
 static std::string nonbreaking_inline  = "|a|abbr|acronym|b|bdo|big|cite|code|dfn|em|font|i|img|kbd|nobr|s|small|span|strike|strong|sub|sup|tt|";
 static std::string empty_tags          = "|area|base|basefont|bgsound|br|command|col|embed|event-source|frame|hr|image|img|input|keygen|link|menuitem|meta|param|source|spacer|track|wbr|";
 static std::string preserve_whitespace = "|pre|textarea|script|style|";
 static std::string special_handling    = "|html|body|";
 static std::string no_entity_sub       = "|script|style|";
-
-static QStringList allowed_void_tags = QStringList() << "area"    << "base"     << "basefont" 
-                                                     << "bgsound" << "br"       << "command" 
-                                                     << "col"     << "embed"    << "event-source" 
-                                                     << "frame"   << "hr"       << "image" 
-                                                     << "img"     << "input"    << "keygen" 
-                                                     << "link"    << "menuitem" << "meta" 
-                                                     << "param"   << "source"   << "spacer" 
-                                                     << "track"   << "wbr";
 
 // Note: m_output contains the gumbo output tree which 
 // has data structures with pointers into the original source
@@ -52,16 +45,16 @@ static QStringList allowed_void_tags = QStringList() << "area"    << "base"     
 // Do NOT change or delete m_utf8src once set until after you 
 // have properly destroyed the gumbo output tree
 
-GumboParser::GumboParser(const QString &source)
+GumboInterface::GumboInterface(const QString &source)
         : m_source(""),
           m_output(NULL),
           m_utf8src("")
 {
-    m_source = fix_self_closing_tags(source);
+    m_source = source;
 }
 
 
-GumboParser::~GumboParser()
+GumboInterface::~GumboInterface()
 {
     if (m_output != NULL) {
         gumbo_destroy_output(&kGumboDefaultOptions, m_output);
@@ -71,16 +64,19 @@ GumboParser::~GumboParser()
 }
 
 
-void GumboParser::parse()
+void GumboInterface::parse()
 {
     if (!m_source.isEmpty() && (m_output == NULL)) {
         m_utf8src = m_source.toStdString();
-        m_output = gumbo_parse(m_utf8src.c_str());
+        GumboOptions myoptions = kGumboDefaultOptions;
+        myoptions.use_xhtml_rules = true;
+        myoptions.tab_stop = 4;
+        m_output = gumbo_parse_with_options(&myoptions, m_utf8src.data(), m_utf8src.length());
     }
 }
 
 
-QString GumboParser::repair()
+QString GumboInterface::repair()
 {
     QString result = "";
     if (!m_source.isEmpty()) {
@@ -94,7 +90,7 @@ QString GumboParser::repair()
 }
 
 
-QString GumboParser::prettyprint(QString indent_chars)
+QString GumboInterface::prettyprint(QString indent_chars)
 {
     QString result = "";
     if (!m_source.isEmpty()) {
@@ -109,7 +105,55 @@ QString GumboParser::prettyprint(QString indent_chars)
 }
 
 
-QString GumboParser::fix_self_closing_tags(const QString &source)
+QList<GumboWellFormedError> GumboInterface::errors()
+{
+    QList<GumboWellFormedError> errlist;
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        GumboOptions myoptions = kGumboDefaultOptions;
+        myoptions.use_xhtml_rules = true;
+        myoptions.tab_stop = 4;
+        // leave this as false to prevent pre-mature stopping when no error exists
+        myoptions.stop_on_first_error = false;
+        GumboParser parser;
+        parser._options = &myoptions; 
+        const GumboVector* errors  = &m_output->errors;
+        for (int i=0; i< errors->length; ++i) {
+          GumboError* er = static_cast<GumboError*>(errors->data[i]);
+          GumboWellFormedError gperror;
+          gperror.line = er->position.line;
+          gperror.column = er->position.column;
+          unsigned int typenum = er->type;
+          GumboStringBuffer text;
+          gumbo_string_buffer_init(&parser, &text);
+          gumbo_error_to_string(&parser, er, &text);
+          std::string errmsg(text.data, text.length);
+          gperror.message = QString::fromStdString(errmsg);
+          gumbo_string_buffer_destroy(&parser, &text);
+          // gumbo_print_caret_diagnostic(&parser, er, contents.c_str());
+          errlist.append(gperror);
+        }
+    }
+    return errlist;
+}
+
+
+#if 0
+// This should no longer be needed but keep it around in case my xhtml parsing
+// support changes in gumbo cause problems later
+
+static QStringList allowed_void_tags = QStringList() << "area"    << "base"     << "basefont" 
+                                                     << "bgsound" << "br"       << "command" 
+                                                     << "col"     << "embed"    << "event-source" 
+                                                     << "frame"   << "hr"       << "image" 
+                                                     << "img"     << "input"    << "keygen" 
+                                                     << "link"    << "menuitem" << "meta" 
+                                                     << "param"   << "source"   << "spacer" 
+                                                     << "track"   << "wbr";
+
+QString GumboInterface::fix_self_closing_tags(const QString &source)
 {
     QString newsource = source;
     QRegularExpression selfclosed("<\\s*([a-zA-Z]+)(\\s*[^>/]*)/\\s*>");
@@ -137,21 +181,27 @@ QString GumboParser::fix_self_closing_tags(const QString &source)
     }
     return newsource;
 }
+#endif
 
-
-void GumboParser::rtrim(std::string &s) 
+void GumboInterface::rtrim(std::string &s) 
 {
     s.erase(s.find_last_not_of(" \n\r\t")+1);
 }
 
 
-void GumboParser::ltrim(std::string &s)
+void GumboInterface::ltrim(std::string &s)
 {
     s.erase(0,s.find_first_not_of(" \n\r\t"));
 }
 
+void GumboInterface::ltrimnewlines(std::string &s)
+{
+    s.erase(0,s.find_first_not_of("\n\r"));
+}
 
-void GumboParser::replace_all(std::string &s, const char * s1, const char * s2)
+
+
+void GumboInterface::replace_all(std::string &s, const char * s1, const char * s2)
 {
     std::string t1(s1);
     size_t len = t1.length();
@@ -163,7 +213,7 @@ void GumboParser::replace_all(std::string &s, const char * s1, const char * s2)
 }
 
 
-std::string GumboParser::substitute_xml_entities_into_text(const std::string &text)
+std::string GumboInterface::substitute_xml_entities_into_text(const std::string &text)
 {
     std::string result = text;
     // replacing & must come first 
@@ -174,7 +224,7 @@ std::string GumboParser::substitute_xml_entities_into_text(const std::string &te
 }
 
 
-std::string GumboParser::substitute_xml_entities_into_attributes(char quote, const std::string &text)
+std::string GumboInterface::substitute_xml_entities_into_attributes(char quote, const std::string &text)
 {
     std::string result = substitute_xml_entities_into_text(text);
     if (quote == '"') {
@@ -186,7 +236,7 @@ std::string GumboParser::substitute_xml_entities_into_attributes(char quote, con
 }
 
 
-std::string GumboParser::handle_unknown_tag(GumboStringPiece *text)
+std::string GumboInterface::handle_unknown_tag(GumboStringPiece *text)
 {
     std::string tagname = "";
     if (text->data == NULL) {
@@ -201,7 +251,7 @@ std::string GumboParser::handle_unknown_tag(GumboStringPiece *text)
 }
 
 
-std::string GumboParser::get_tag_name(GumboNode *node)
+std::string GumboInterface::get_tag_name(GumboNode *node)
 {
     std::string tagname;
     // work around lack of proper name for document node
@@ -217,7 +267,7 @@ std::string GumboParser::get_tag_name(GumboNode *node)
 }
 
 
-std::string GumboParser::build_doctype(GumboNode *node)
+std::string GumboInterface::build_doctype(GumboNode *node)
 {
     std::string results = "";
     if (node->v.document.has_doctype) {
@@ -240,7 +290,7 @@ std::string GumboParser::build_doctype(GumboNode *node)
 }
 
 
-std::string GumboParser::build_attributes(GumboAttribute * at, bool no_entities)
+std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entities)
 {
     std::string atts = " ";
     atts.append(at->name);
@@ -273,7 +323,7 @@ std::string GumboParser::build_attributes(GumboAttribute * at, bool no_entities)
 // serialize children of a node
 // may be invoked recursively
 
-std::string GumboParser::serialize_contents(GumboNode* node) {
+std::string GumboInterface::serialize_contents(GumboNode* node) {
     std::string contents        = "";
     std::string tagname         = get_tag_name(node);
     std::string key             = "|" + tagname + "|";
@@ -313,7 +363,7 @@ std::string GumboParser::serialize_contents(GumboNode* node) {
 // serialize a GumboNode back to html/xhtml
 // may be invoked recursively
 
-std::string GumboParser::serialize(GumboNode* node) {
+std::string GumboInterface::serialize(GumboNode* node) {
     // special case the document node
     if (node->type == GUMBO_NODE_DOCUMENT) {
         std::string results = build_doctype(node);
@@ -326,7 +376,7 @@ std::string GumboParser::serialize(GumboNode* node) {
     std::string atts = "";
     std::string tagname            = get_tag_name(node);
     std::string key                = "|" + tagname + "|";
-    bool need_special_handling     =  special_handling.find(key) != std::string::npos;
+    bool need_special_handling     = special_handling.find(key) != std::string::npos;
     bool is_empty_tag              = empty_tags.find(key) != std::string::npos;
     bool no_entity_substitution    = no_entity_sub.find(key) != std::string::npos;
     bool is_inline                 = nonbreaking_inline.find(key) != std::string::npos;
@@ -349,7 +399,7 @@ std::string GumboParser::serialize(GumboNode* node) {
     std::string contents = serialize_contents(node);
 
     if (need_special_handling) {
-        ltrim(contents);
+        ltrimnewlines(contents);
         rtrim(contents);
         contents.append("\n");
     }
@@ -368,7 +418,7 @@ std::string GumboParser::serialize(GumboNode* node) {
 // prettyprint children of a node
 // may be invoked recursively
 
-std::string GumboParser::prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars) 
+std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars) 
 {
 
   std::string contents        = "";
@@ -441,7 +491,7 @@ std::string GumboParser::prettyprint_contents(GumboNode* node, int lvl, const st
 // prettyprint a GumboNode back to html/xhtml
 // may be invoked recursively
 
-std::string GumboParser::prettyprint(GumboNode* node, int lvl, const std::string indent_chars)
+std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::string indent_chars)
 {
 
   // special case the document node
@@ -456,7 +506,7 @@ std::string GumboParser::prettyprint(GumboNode* node, int lvl, const std::string
   std::string atts               = "";
   std::string tagname            = get_tag_name(node);
   std::string key                = "|" + tagname + "|";
-  bool need_special_handling     =  special_handling.find(key) != std::string::npos;
+  bool need_special_handling     = special_handling.find(key) != std::string::npos;
   bool is_empty_tag              = empty_tags.find(key) != std::string::npos;
   bool no_entity_substitution    = no_entity_sub.find(key) != std::string::npos;
   bool keep_whitespace           = preserve_whitespace.find(key) != std::string::npos;

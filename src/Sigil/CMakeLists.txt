@@ -301,8 +301,8 @@ set( MISC_FILES
     Misc/XMLEntities.cpp
     Misc/EmbeddedPython.cpp
     Misc/EmbeddedPython.h
-    Misc/GumboParser.cpp
-    Misc/GumboParser.h
+    Misc/GumboInterface.cpp
+    Misc/GumboInterface.h
     )
 
 set( MISC_EDITORS_FILES    

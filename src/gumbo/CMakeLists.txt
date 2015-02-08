@@ -18,7 +18,7 @@ if( MSVC )
     include_directories( SYSTEM ${EXTRA_INC} )
     set_source_files_properties( utf8.c PROPERTIES LANGUAGE CXX )
 endif()
-			
+
 add_library( gumbo ${SOURCES} ) 
 
 # Special compiler and linker flags for MSVC

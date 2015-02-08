@@ -19,27 +19,36 @@
 **
 *************************************************************************/
 
-#ifndef GUMBO_PARSER
-#define GUMBO_PARSER
+#ifndef GUMBO_INTERFACE
+#define GUMBO_INTERFACE
 
 #include <stdlib.h>
 #include <string>
+#include "gumbo.h"
 
-#include <gumbo.h>
+#include <QString>
+#include <QList>
 
 class QString;
 
-class GumboParser
+struct GumboWellFormedError {
+  int line;
+  int column;
+  QString message;
+};
+
+class GumboInterface
 {
 public:
-    GumboParser(const QString &source);
-    ~GumboParser();
+    GumboInterface(const QString &source);
+    ~GumboInterface();
     void    parse();
     QString repair();
     QString prettyprint(QString indent_chars="  ");
+    QList<GumboWellFormedError> errors();
 
 private:
-    QString fix_self_closing_tags(const QString & source);
+    // QString fix_self_closing_tags(const QString & source);
     std::string serialize(GumboNode* node);
     std::string serialize_contents(GumboNode* node);
     std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
@@ -52,6 +61,7 @@ private:
     std::string substitute_xml_entities_into_attributes(char quote, const std::string &text);
     void rtrim(std::string &s);
     void ltrim(std::string &s);
+    void ltrimnewlines(std::string &s);
     void replace_all(std::string &s, const char * s1, const char * s2);
 
     QString        m_source;

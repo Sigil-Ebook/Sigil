@@ -33,7 +33,7 @@
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/HTMLPrettyPrint.h"
-#include "Misc/GumboParser.h"
+#include "Misc/GumboInterface.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -83,7 +83,7 @@ QString CleanSource::Clean(const QString &source)
             return newsource;
         }
         case SettingsStore::CleanLevel_Gumbo: {
-            GumboParser gp = GumboParser(newsource);
+            GumboInterface gp = GumboInterface(newsource);
             newsource = gp.repair();
             newsource = CharToEntity(newsource);
             newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
@@ -103,7 +103,7 @@ QString CleanSource::Clean(const QString &source)
 QString CleanSource::PrettyPrintGumbo(const QString &source)
 {
     QString newsource = source;
-    GumboParser gp = GumboParser(newsource);
+    GumboInterface gp = GumboInterface(newsource);
     newsource = gp.repair();
     newsource = CharToEntity(newsource);
     newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
@@ -159,7 +159,7 @@ QString CleanSource::ToValidXHTML(const QString &source)
     QString newsource = source;
 
     if (!XhtmlDoc::IsDataWellFormed(source)) {
-        GumboParser gp = GumboParser(newsource);
+        GumboInterface gp = GumboInterface(newsource);
         newsource = gp.repair();
         newsource = CharToEntity(newsource);
         newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
