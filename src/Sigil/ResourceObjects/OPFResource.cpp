@@ -1192,6 +1192,9 @@ void OPFResource::AddModificationDateMeta()
 {
     QString date;
     QDate d = QDate::currentDate();
+    // We can't use QDate.toString() because it will take into account the locale. Which mean we may not get Arabic 
+    // numerals if the local uses it's own numbering system. So we use this instead to ensure we get a valid date per
+    // the epub spec.
     QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
     QWriteLocker locker(&GetLock());
     shared_ptr<xc::DOMDocument> document = GetDocument();
@@ -1224,6 +1227,9 @@ void OPFResource::WriteDate(
 {
     QString date;
     QDate d = metavalue.toDate();
+    // We can't use QDate.toString() because it will take into account the locale. Which mean we may not get Arabic 
+    // numerals if the local uses it's own numbering system. So we use this instead to ensure we get a valid date per
+    // the epub spec.
     QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
 
     // This assumes that the "dc" prefix has been declared for the DC namespace
