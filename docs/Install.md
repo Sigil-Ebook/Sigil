@@ -17,7 +17,7 @@ General notes
 =============
 
 You will need CMake 3.0 or later on all platforms. You can download it
-[here](http://www.cmake.org/cmake/resources/software.html).
+[here](http://www.cmake.org/download/).
 
 CMake is a cross-platform system for build automation. It can generate Visual
 Studio project files on Windows, Xcode project files on Mac OS X and Makefiles
