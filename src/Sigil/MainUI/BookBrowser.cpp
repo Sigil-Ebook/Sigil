@@ -1223,6 +1223,7 @@ void BookBrowser::NoObfuscationMethod()
         FontResource *font_resource = qobject_cast<FontResource *>(resource);
         Q_ASSERT(font_resource);
         font_resource->SetObfuscationAlgorithm("");
+        emit BookContentModified();
     }
 }
 
@@ -1233,6 +1234,7 @@ void BookBrowser::AdobesObfuscationMethod()
         FontResource *font_resource = qobject_cast<FontResource *>(resource);
         Q_ASSERT(font_resource);
         font_resource->SetObfuscationAlgorithm(ADOBE_FONT_ALGO_ID);
+        emit BookContentModified();
     }
 }
 
@@ -1243,6 +1245,7 @@ void BookBrowser::IdpfsObfuscationMethod()
         FontResource *font_resource = qobject_cast<FontResource *>(resource);
         Q_ASSERT(font_resource);
         font_resource->SetObfuscationAlgorithm(IDPF_FONT_ALGO_ID);
+        emit BookContentModified();
     }
 }
 

@@ -1,3 +1,8 @@
+Sigil NEXT TBA
+    - Fix issue #54 modified date using local numerials when it should be
+      using Arabic numerals per the spec.
+    - Set the book to modified when font's are obfuscated.
+
 Sigil 0.8.4 2015.02.01
     - Fix for removeall plugins bug where all plugins would remove all plugins
       regardless if the user clicked no instead of yes.
