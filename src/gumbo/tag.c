@@ -15,7 +15,6 @@
 // Author: jdtang@google.com (Jonathan Tang)
 
 #include "gumbo.h"
-#include "tag.h"
 
 #include <assert.h>
 #include <ctype.h>
@@ -283,154 +282,6 @@ const char* kGumboTagNames[] = {
   "",
 };
 
-
-#define kGumboMathMLTagsLength 43
-
-static const int kGumboMathMLTags[] = {
-  GUMBO_TAG_ANNOTATION_XML,
-  GUMBO_TAG_MACTION,
-  GUMBO_TAG_MALIGNGROUP,
-  GUMBO_TAG_MALIGNMARK,
-  GUMBO_TAG_MATH,
-  GUMBO_TAG_MENCLOSE,
-  GUMBO_TAG_MERROR,
-  GUMBO_TAG_MFENCED,
-  GUMBO_TAG_MFRAC,
-  GUMBO_TAG_MGLYPH,
-  GUMBO_TAG_MI,
-  GUMBO_TAG_MLABELEDTR,
-  GUMBO_TAG_MLONGDIV,
-  GUMBO_TAG_MMULTISCRIPTS,
-  GUMBO_TAG_MN,
-  GUMBO_TAG_MO,
-  GUMBO_TAG_MOVER,
-  GUMBO_TAG_MPADDED,
-  GUMBO_TAG_MPHANTOM,
-  GUMBO_TAG_MPRESCRIPTS,
-  GUMBO_TAG_MROOT,
-  GUMBO_TAG_MROW,
-  GUMBO_TAG_MS,
-  GUMBO_TAG_MSCARRIES,
-  GUMBO_TAG_MSCARRY,
-  GUMBO_TAG_MSGROUP,
-  GUMBO_TAG_MSLINE,
-  GUMBO_TAG_MSPACE,
-  GUMBO_TAG_MSQRT,
-  GUMBO_TAG_MSROW,
-  GUMBO_TAG_MSTACK,
-  GUMBO_TAG_MSTYLE,
-  GUMBO_TAG_MSUB,
-  GUMBO_TAG_MSUBSUP,
-  GUMBO_TAG_MSUP,
-  GUMBO_TAG_MTABLE,
-  GUMBO_TAG_MTD,
-  GUMBO_TAG_MTEXT,
-  GUMBO_TAG_MTR,
-  GUMBO_TAG_MUNDER,
-  GUMBO_TAG_MUNDEROVER,
-  GUMBO_TAG_NONE,
-  GUMBO_TAG_SEMANTICS
-};
-
-
-// these 5 tags are valid in both the html and svg namespaces
-#define kGumboSharedTagsLength 5
-
-static const int kGumboSharedTags[] = {
-  GUMBO_TAG_A,
-  GUMBO_TAG_FONT,
-  GUMBO_TAG_SCRIPT,
-  GUMBO_TAG_STYLE,
-  GUMBO_TAG_TITLE
-};
-
-
-#define kGumboSVGTagsLength 80
-
-static const int kGumboSVGTags[] = {
-  GUMBO_TAG_A,
-  GUMBO_TAG_ALTGLYPH,
-  GUMBO_TAG_ALTGLYPHDEF,
-  GUMBO_TAG_ALTGLYPHITEM,
-  GUMBO_TAG_ANIMATE,
-  GUMBO_TAG_ANIMATECOLOR,
-  GUMBO_TAG_ANIMATEMOTION,
-  GUMBO_TAG_ANIMATETRANSFORM,
-  GUMBO_TAG_CIRCLE,
-  GUMBO_TAG_CLIPPATH,
-  GUMBO_TAG_COLOR_PROFILE,
-  GUMBO_TAG_CURSOR,
-  GUMBO_TAG_DEFS,
-  GUMBO_TAG_DESC,
-  GUMBO_TAG_ELLIPSE,
-  GUMBO_TAG_FEBLEND,
-  GUMBO_TAG_FECOLORMATRIX,
-  GUMBO_TAG_FECOMPONENTTRANSFER,
-  GUMBO_TAG_FECOMPOSITE,
-  GUMBO_TAG_FECONVOLVEMATRIX,
-  GUMBO_TAG_FEDIFFUSELIGHTING,
-  GUMBO_TAG_FEDISPLACEMENTMAP,
-  GUMBO_TAG_FEDISTANTLIGHT,
-  GUMBO_TAG_FEFLOOD,
-  GUMBO_TAG_FEFUNCA,
-  GUMBO_TAG_FEFUNCB,
-  GUMBO_TAG_FEFUNCG,
-  GUMBO_TAG_FEFUNCR,
-  GUMBO_TAG_FEGAUSSIANBLUR,
-  GUMBO_TAG_FEIMAGE,
-  GUMBO_TAG_FEMERGE,
-  GUMBO_TAG_FEMERGENODE,
-  GUMBO_TAG_FEMORPHOLOGY,
-  GUMBO_TAG_FEOFFSET,
-  GUMBO_TAG_FEPOINTLIGHT,
-  GUMBO_TAG_FESPECTACTUALRLIGHTING,
-  GUMBO_TAG_FESPOTLIGHT,
-  GUMBO_TAG_FETILE,
-  GUMBO_TAG_FETURBULENCE,
-  GUMBO_TAG_FILTER,
-  GUMBO_TAG_FONT,
-  GUMBO_TAG_FONT_FACE,
-  GUMBO_TAG_FONT_FACE_NAME,
-  GUMBO_TAG_FONT_FACE_SRC,
-  GUMBO_TAG_FONT_FACE_URI,
-  GUMBO_TAG_FONT_FACE_FORMAT,
-  GUMBO_TAG_FOREIGNOBJECT,
-  GUMBO_TAG_G,
-  GUMBO_TAG_GLYPH,
-  GUMBO_TAG_GLYPHREF,
-  GUMBO_TAG_HKERN,
-  GUMBO_TAG_IMAGE,
-  GUMBO_TAG_LINE,
-  GUMBO_TAG_LINEARGRADIENT,
-  GUMBO_TAG_MARKER,
-  GUMBO_TAG_MASK,
-  GUMBO_TAG_METADATA,
-  GUMBO_TAG_MISSING_GLYPH,
-  GUMBO_TAG_MPATH,
-  GUMBO_TAG_PATH,
-  GUMBO_TAG_PATTERN,
-  GUMBO_TAG_POLYGON,
-  GUMBO_TAG_POLYLINE,
-  GUMBO_TAG_RADIALGRADIENT,
-  GUMBO_TAG_RECT,
-  GUMBO_TAG_SCRIPT,
-  GUMBO_TAG_SET,
-  GUMBO_TAG_STOP,
-  GUMBO_TAG_STYLE,
-  GUMBO_TAG_SVG,
-  GUMBO_TAG_SWITCH,
-  GUMBO_TAG_SYMBOL,
-  GUMBO_TAG_TEXT,
-  GUMBO_TAG_TEXTPATH,
-  GUMBO_TAG_TITLE,
-  GUMBO_TAG_TREF,
-  GUMBO_TAG_TSPAN,
-  GUMBO_TAG_USE,
-  GUMBO_TAG_VIEW,
-  GUMBO_TAG_VKERN
-};
-
-
 const char* gumbo_normalized_tagname(GumboTag tag) {
   assert(tag <= GUMBO_TAG_LAST);
   return kGumboTagNames[tag];
@@ -492,29 +343,6 @@ static int binsearch(const char * sw, const char* list[], int nlst)
 }
 
 
-bool gumbo_int_in_sorted_list(int tag, const int* taglist, int nlst)
-{
-    int lp, up, mp, indx;
-    lp = 0;
-    up = nlst-1;
-    indx = -1;
-    if ((int) tag < taglist[lp]) return false;
-    if ((int) tag > taglist[up]) return false;
-    while (indx < 0 ) {
-        mp = (int)((lp+up) >> 1);
-        if ((int) tag > taglist[mp]) {
-          lp = mp + 1;
-        } else if ((int) tag < taglist[mp]) {
-          up = mp - 1;
-        } else {
-          indx = mp;
-        }
-        if (lp > up) return false;      
-    }
-    return true;
-}
-
-
 GumboTag gumbo_tag_enum(const char* tagname) {
   int i = binsearch(tagname, kGumboTagNames, GUMBO_TAG_UNKNOWN);
   if (i < 0) {
@@ -522,23 +350,3 @@ GumboTag gumbo_tag_enum(const char* tagname) {
   }
   return (GumboTag) i;
 }
-
-
-bool gumbo_can_be_svg_tag(GumboTag tag)
-{
-  return gumbo_int_in_sorted_list( (int)tag, kGumboSVGTags, kGumboSVGTagsLength); 
-}
-
-
-bool gumbo_can_be_mathml_tag(GumboTag tag)
-{
-  return gumbo_int_in_sorted_list( (int)tag, kGumboMathMLTags, kGumboMathMLTagsLength); 
-}
-
-
-bool gumbo_can_be_shared_tag(GumboTag tag)
-{
-  return gumbo_int_in_sorted_list( (int)tag, kGumboSharedTags, kGumboSharedTagsLength); 
-}
-
-

@@ -2568,7 +2568,8 @@ static StateResult handle_after_doctype_public_id_state(
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
       tokenizer->_reconsume_current_input = true;
       tokenizer->_doc_type_state.force_quirks = true;
-      return NEXT_CHAR;
+      emit_doctype(parser, output);
+      return RETURN_ERROR;
     default:
       tokenizer_add_parse_error(parser, GUMBO_ERR_DOCTYPE_INVALID);
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_BOGUS_DOCTYPE);
