@@ -1141,7 +1141,7 @@ if( UNIX AND NOT APPLE )
 
     # Copy the application executable
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${SIGIL_EXECUTABLE} ${DEB_TREE_ROOT}/share/sigil/${DESTINATION_EXECUTABLE_NAME} )
+                        COMMAND cmake -E copy ${SIGIL_EXECUTABLE} ${DEB_TREE_ROOT}/lib/sigil/${DESTINATION_EXECUTABLE_NAME} )
 
     # Copy the Unix launcher that sets the proper environment variables before launching the real Sigil binary
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
@@ -1182,7 +1182,7 @@ if( UNIX AND NOT APPLE )
 
     # Standard Linux 'make install'
     install( PROGRAMS ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/ RENAME ${PROJECT_NAME} )
-    install( PROGRAMS ${SIGIL_EXECUTABLE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/ RENAME ${DESTINATION_EXECUTABLE_NAME} )
+    install( PROGRAMS ${SIGIL_EXECUTABLE} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ RENAME ${DESTINATION_EXECUTABLE_NAME} )
     install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications/ )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations/ )
