@@ -136,6 +136,10 @@ typedef struct GumboInternalTokenizerState {
   // markup declaration state.
   bool _is_current_node_foreign;
 
+  // A flag indicating whether the tokenizer is in a CDATA section.  If so, then
+  // text tokens emitted will be GUMBO_TOKEN_CDATA.
+  bool _is_in_cdata;
+
   // Certain states (notably character references) may emit two character tokens
   // at once, but the contract for lex() fills in only one token at a time.  The
   // extra character is buffered here, and then this is checked on entry to
@@ -315,7 +319,11 @@ static int ensure_lowercase(int c) {
   return c >= 'A' && c <= 'Z' ? c + 0x20 : c;
 }
 
-static GumboTokenType get_char_token_type(int c) {
+static GumboTokenType get_char_token_type(bool is_in_cdata, int c) {
+  if (is_in_cdata && c > 0) {
+    return GUMBO_TOKEN_CDATA;
+  }
+
   switch (c) {
     case '\t':
     case '\n':
@@ -475,7 +483,7 @@ static void finish_doctype_system_id(GumboParser* parser) {
 
 // Writes a single specified character to the output token.
 static void emit_char(GumboParser* parser, int c, GumboToken* output) {
-  output->type = get_char_token_type(c);
+  output->type = get_char_token_type(parser->_tokenizer_state->_is_in_cdata, c);
   output->v.character = c;
   finish_token(parser, output);
 }
@@ -743,11 +751,9 @@ static void finish_tag_name(GumboParser* parser) {
   GumboTokenizerState* tokenizer = parser->_tokenizer_state;
   GumboTagState* tag_state = &tokenizer->_tag_state;
 
-  const char* temp;
-  copy_over_tag_buffer(parser, &temp);
-  tag_state->_tag = gumbo_tag_enum(temp);
+  tag_state->_tag = gumbo_tagn_enum(
+		tag_state->_buffer.data, tag_state->_buffer.length);
   reinitialize_tag_buffer(parser);
-  gumbo_parser_deallocate(parser, (void*) temp);
 }
 
 // Adds an ERR_DUPLICATE_ATTR parse error to the parser's error struct.
@@ -833,13 +839,9 @@ static void finish_attribute_value(GumboParser* parser) {
 static bool is_appropriate_end_tag(GumboParser* parser) {
   GumboTagState* tag_state = &parser->_tokenizer_state->_tag_state;
   assert(!tag_state->_is_start_tag);
-  // Null terminate the current string buffer, so it can be passed to
-  // gumbo_tag_enum, but don't increment the length in case we need to dump the
-  // buffer as character tokens.
-  gumbo_string_buffer_append_codepoint(parser, '\0', &tag_state->_buffer);
-  --tag_state->_buffer.length;
   return tag_state->_last_start_tag != GUMBO_TAG_LAST &&
-      tag_state->_last_start_tag == gumbo_tag_enum(tag_state->_buffer.data);
+      tag_state->_last_start_tag ==
+	  gumbo_tagn_enum(tag_state->_buffer.data, tag_state->_buffer.length);
 }
 
 void gumbo_tokenizer_state_init(
@@ -850,6 +852,7 @@ void gumbo_tokenizer_state_init(
   gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
   tokenizer->_reconsume_current_input = false;
   tokenizer->_is_current_node_foreign = false;
+  tokenizer->_is_in_cdata = false;
   tokenizer->_tag_state._last_start_tag = GUMBO_TAG_LAST;
 
   tokenizer->_buffered_emit_char = kGumboNoChar;
@@ -2041,6 +2044,7 @@ static StateResult handle_markup_declaration_state(
              utf8iterator_maybe_consume_match(
                 &tokenizer->_input, "[CDATA[", sizeof("[CDATA[") - 1, true)) {
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_CDATA);
+    tokenizer->_is_in_cdata = true;
     tokenizer->_reconsume_current_input = true;
   } else {
     tokenizer_add_parse_error(parser, GUMBO_ERR_DASHES_OR_DOCTYPE);
@@ -2814,6 +2818,7 @@ static StateResult handle_cdata_state(
     tokenizer->_reconsume_current_input = true;
     reset_token_start_point(tokenizer);
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
+    tokenizer->_is_in_cdata = false;
     return NEXT_CHAR;
   } else {
     return emit_current_char(parser, output);
@@ -2930,7 +2935,8 @@ bool gumbo_lex(GumboParser* parser, GumboToken* output) {
     assert(!tokenizer->_temporary_buffer_emit);
     assert(tokenizer->_buffered_emit_char == kGumboNoChar);
     int c = utf8iterator_current(&tokenizer->_input);
-    gumbo_debug("Lexing character '%c' in state %d.\n", c, tokenizer->_state);
+    gumbo_debug("Lexing character '%c' (%d) in state %d.\n",
+        c, c, tokenizer->_state);
     StateResult result =
         dispatch_table[tokenizer->_state](parser, tokenizer, c, output);
     // We need to clear reconsume_current_input before returning to prevent

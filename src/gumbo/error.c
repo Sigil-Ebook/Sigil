@@ -106,6 +106,7 @@ static void handle_parser_error(GumboParser* parser,
       // But just in case...
       print_message(parser, output, "Comments aren't legal here");
       return;
+    case GUMBO_TOKEN_CDATA:
     case GUMBO_TOKEN_WHITESPACE:
     case GUMBO_TOKEN_CHARACTER:
       print_message(parser, output, "Character tokens aren't legal here");

@@ -133,10 +133,10 @@ static void read_char(Utf8Iterator* iter) {
     decode(&state, &code_point, (uint32_t) (unsigned char) (*c));
     if (state == UTF8_ACCEPT) {
       iter->_width = c - iter->_start + 1;
-      // This is the special handling for carriage returns that is mandated by the
-      // HTML5 spec.  Since we're looking for particular 7-bit literal characters,
-      // we operate in terms of chars and only need a check for iter overrun,
-      // instead of having to read in a full next code point.
+      // This is the special handling for carriage returns that is mandated by
+      // the HTML5 spec.  Since we're looking for particular 7-bit literal
+      // characters, we operate in terms of chars and only need a check for iter
+      // overrun, instead of having to read in a full next code point.
       // http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#preprocessing-the-input-stream
       if (code_point == '\r') {
         assert(iter->_width == 1);
@@ -165,10 +165,11 @@ static void read_char(Utf8Iterator* iter) {
       return;
     }
   }
-  // If we got here without exiting early, then we've reached the end of the iterator.
-  // Add an error for truncated input, set the width to consume the rest of the
-  // iterator, and emit a replacement character.  The next time we enter this method,
-  // it will detect that there's no input to consume and 
+  // If we got here without exiting early, then we've reached the end of the
+  // iterator.  Add an error for truncated input, set the width to consume the
+  // rest of the iterator, and emit a replacement character.  The next time we
+  // enter this method, it will detect that there's no input to consume and
+  // output an EOF.
   iter->_current = kUtf8ReplacementChar;
   iter->_width = iter->_end - iter->_start;
   add_error(iter, GUMBO_ERR_UTF8_TRUNCATED);

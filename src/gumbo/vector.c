@@ -81,7 +81,7 @@ void* gumbo_vector_pop(
   return vector->data[--vector->length];
 }
 
-int gumbo_vector_index_of(GumboVector* vector, void* element) {
+int gumbo_vector_index_of(GumboVector* vector, const void* element) {
   for (int i = 0; i < vector->length; ++i) {
     if (vector->data[i] == element) {
       return i;

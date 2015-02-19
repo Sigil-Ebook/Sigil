@@ -19,267 +19,12 @@
 #include <assert.h>
 #include <ctype.h>
 #include <strings.h>    // For strcasecmp.
-
-
-// NOTE(jdtang): Keep this in sync with the GumboTag enum in the header.
-// keep sorted so that a binary search will always work
+#include <string.h>    // For strcasecmp.
 
 const char* kGumboTagNames[] = {
-  "a",
-  "abbr",
-  "acronym",
-  "address",
-  "altGlyph",
-  "altGlyphDef",
-  "altGlyphItem",
-  "animate",
-  "animateColor",
-  "animateMotion",
-  "animateTransform",
-  "annotation-xml",
-  "applet",
-  "area",
-  "article",
-  "aside",
-  "audio",
-  "b",
-  "base",
-  "basefont",
-  "bdi",
-  "bdo",
-  "bgsound",
-  "big",
-  "blink",
-  "blockquote",
-  "body",
-  "br",
-  "button",
-  "canvas",
-  "caption",
-  "center",
-  "circle",
-  "cite",
-  "clippath",
-  "code",
-  "col",
-  "colgroup",
-  "color-profile",
-  "cursor",
-  "data",
-  "datalist",
-  "dd",
-  "defs",
-  "del",
-  "desc",
-  "details",
-  "dfn",
-  "dir",
-  "div",
-  "dl",
-  "dt",
-  "ellipse",
-  "em",
-  "embed",
-  "feBlend",
-  "feColorMatrix",
-  "feComponentTransfer",
-  "feComposite",
-  "feConvolveMatrix",
-  "feDiffuseLighting",
-  "feDisplacementMap",
-  "feDistantLight",
-  "feFlood",
-  "feFuncA",
-  "feFuncB",
-  "feFuncG",
-  "feFuncR",
-  "feGaussianBlur",
-  "feImage",
-  "feMerge",
-  "feMergeNode",
-  "feMorphology",
-  "feOffset",
-  "fePointLight",
-  "feSpectactualrLighting",
-  "feSpotLight",
-  "feTile",
-  "feTurbulence",
-  "fieldset",
-  "figcaption",
-  "figure",
-  "filter",
-  "font",
-  "font-face",
-  "font-face-format",
-  "font-face-name",
-  "font-face-src",
-  "font-face-uri",
-  "footer",
-  "foreignObject",
-  "form",
-  "frame",
-  "frameset",
-  "g",
-  "glyph",
-  "glyphRef",
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "head",
-  "header",
-  "hgroup",
-  "hkern",
-  "hr",
-  "html",
-  "i",
-  "iframe",
-  "image",
-  "img",
-  "input",
-  "ins",
-  "isindex",
-  "kbd",
-  "keygen",
-  "label",
-  "legend",
-  "li",
-  "line",
-  "linearGradient",
-  "link",
-  "listing",
-  "maction",
-  "main",
-  "maligngroup",
-  "malignmark",
-  "map",
-  "mark",
-  "marker",
-  "marquee",
-  "mask",
-  "math",
-  "menclose",
-  "menu",
-  "menuitem",
-  "merror",
-  "meta",
-  "metadata",
-  "meter",
-  "mfenced",
-  "mfrac",
-  "mglyph",
-  "mi",
-  "missing-glyph",
-  "mlabeledtr",
-  "mlongdiv",
-  "mmultiscripts",
-  "mn",
-  "mo",
-  "mover",
-  "mpadded",
-  "mpath",
-  "mphantom",
-  "mprescripts",
-  "mroot",
-  "mrow",
-  "ms",
-  "mscarries",
-  "mscarry",
-  "msgroup",
-  "msline",
-  "mspace",
-  "msqrt",
-  "msrow",
-  "mstack",
-  "mstyle",
-  "msub",
-  "msubsup",
-  "msup",
-  "mtable",
-  "mtd",
-  "mtext",
-  "mtr",
-  "multicol",
-  "munder",
-  "munderover",
-  "nav",
-  "nextid",
-  "nobr",
-  "noembed",
-  "noframes",
-  "none",
-  "noscript",
-  "object",
-  "ol",
-  "optgroup",
-  "option",
-  "output",
-  "p",
-  "param",
-  "path",
-  "pattern",
-  "plaintext",
-  "polygon",
-  "polyline",
-  "pre",
-  "progress",
-  "q",
-  "radialGradient",
-  "rb",
-  "rect",
-  "rp",
-  "rt",
-  "ruby",
-  "s",
-  "samp",
-  "script",
-  "section",
-  "select",
-  "semantics",
-  "set",
-  "small",
-  "source",
-  "spacer",
-  "span",
-  "stop",
-  "strike",
-  "strong",
-  "style",
-  "sub",
-  "summary",
-  "sup",
-  "svg",
-  "switch",
-  "symbol",
-  "table",
-  "tbody",
-  "td",
-  "template",
-  "text",
-  "textPath",
-  "textarea",
-  "tfoot",
-  "th",
-  "thead",
-  "time",
-  "title",
-  "tr",
-  "track",
-  "tref",
-  "tspan",
-  "tt",
-  "u",
-  "ul",
-  "use",
-  "var",
-  "video",
-  "view",
-  "vkern",
-  "wbr",
-  "xmp",
-  "",
+# include "tag_strings.h"
+  "",                   // TAG_UNKNOWN
+  "",                   // TAG_LAST
 };
 
 const char* gumbo_normalized_tagname(GumboTag tag) {
@@ -287,11 +32,11 @@ const char* gumbo_normalized_tagname(GumboTag tag) {
   return kGumboTagNames[tag];
 }
 
-// TODO(jdtang): Add test for this.
 void gumbo_tag_from_original_text(GumboStringPiece* text) {
   if (text->data == NULL) {
     return;
   }
+
   assert(text->length >= 2);
   assert(text->data[0] == '<');
   assert(text->data[text->length - 1] == '>');
@@ -315,38 +60,27 @@ void gumbo_tag_from_original_text(GumboStringPiece* text) {
   }
 }
 
+#include "tag_perf.h"
 
-//  performs a binary search on case insensitive null terminated character strings,
-//  looks for string sw in the provided list
-//  returns: -1 on not found or the index of entry in the list[]
-static int binsearch(const char * sw, const char* list[], int nlst) 
+static int
+case_memcmp(const char *s1, const char *s2, int n)
 {
-    int lp, up, mp, j, indx;
-    lp = 0;
-    up = nlst-1;
-    indx = -1;
-    if (strcasecmp(sw,list[lp]) < 0) return -1;
-    if (strcasecmp(sw,list[up]) > 0) return -1;
-    while (indx < 0 ) {
-        mp = (int)((lp+up) >> 1);
-        j = strcmp(sw,list[mp]);
-        if ( j > 0) {
-            lp = mp + 1;
-        } else if (j < 0 ) {
-            up = mp - 1;
-        } else {
-            indx = mp;
-        }
-        if (lp > up) return -1;      
-    }
-    return indx;
+	while (n--) {
+		unsigned char c1 = tolower(*s1++);
+		unsigned char c2 = tolower(*s2++);
+		if (c1 != c2)
+			return (int)c1 - (int)c2;
+	}
+	return 0;
 }
 
+GumboTag gumbo_tagn_enum(const char* tagname, int length) {
+  int position = perfhash((const unsigned char *)tagname, length);
+  if (position >= 0 && !case_memcmp(tagname, kGumboTagNames[position], length))
+    return (GumboTag)position;
+  return GUMBO_TAG_UNKNOWN;
+}
 
 GumboTag gumbo_tag_enum(const char* tagname) {
-  int i = binsearch(tagname, kGumboTagNames, GUMBO_TAG_UNKNOWN);
-  if (i < 0) {
-    return GUMBO_TAG_UNKNOWN;
-  }
-  return (GumboTag) i;
+  return gumbo_tagn_enum(tagname, strlen(tagname));
 }
