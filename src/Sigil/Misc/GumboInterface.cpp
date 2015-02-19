@@ -236,34 +236,36 @@ std::string GumboInterface::substitute_xml_entities_into_attributes(char quote, 
 }
 
 
-std::string GumboInterface::handle_unknown_tag(GumboStringPiece *text)
-{
-    std::string tagname = "";
-    if (text->data == NULL) {
-        return tagname;
-    }
-    // work with copy GumboStringPiece to prevent asserts 
-    // if try to read same unknown tag name more than once
-    GumboStringPiece gsp = *text;
-    gumbo_tag_from_original_text(&gsp);
-    tagname = std::string(gsp.data, gsp.length);
-    return tagname; 
-}
-
-
 std::string GumboInterface::get_tag_name(GumboNode *node)
 {
-    std::string tagname;
-    // work around lack of proper name for document node
-    if (node->type == GUMBO_NODE_DOCUMENT) {
-        tagname = "document";
-    } else {
-        tagname = gumbo_normalized_tagname(node->v.element.tag);
+  std::string tagname;
+  if (node->type == GUMBO_NODE_DOCUMENT) {
+    tagname = "document";
+    return tagname;
+  }
+  tagname = gumbo_normalized_tagname(node->v.element.tag);
+  if ((tagname.empty()) ||
+      (node->v.element.tag_namespace == GUMBO_NAMESPACE_SVG)) {
+
+    // set up to examine original text of tag.
+    GumboStringPiece gsp = node->v.element.original_tag;
+    gumbo_tag_from_original_text(&gsp);
+
+    // special handling for some svg tag names.
+    if (node->v.element.tag_namespace  == GUMBO_NAMESPACE_SVG) {
+      const char * data = gumbo_normalize_svg_tagname(&gsp);
+      // NOTE: data may not be null-terminated!
+      // since case change only - length must be same as original
+      // if no replacement found returns null, not original tag!
+      if (data != NULL) {
+        return std::string(data, gsp.length);
+      }
     }
     if (tagname.empty()) {
-        tagname = handle_unknown_tag(&node->v.element.original_tag);
+      return std::string(gsp.data, gsp.length);
     }
-    return tagname;
+  }
+  return tagname;
 }
 
 
@@ -347,15 +349,18 @@ std::string GumboInterface::serialize_contents(GumboNode* node) {
         } else if (child->type == GUMBO_NODE_ELEMENT) {
              contents.append(serialize(child));
 
-        } else if (child->type == GUMBO_NODE_WHITESPACE) {
-            // keep all whitespace to keep as close to original as possible
-            contents.append(std::string(child->v.text.text));
+        } else if (child->type == GUMBO_NODE_CDATA) {
+          contents.append("<![CDATA[" + std::string(child->v.text.text) + "]]>");
 
-        } else if (child->type != GUMBO_NODE_COMMENT) {
-            // Does this actually exist: (child->type == GUMBO_NODE_CDATA)
-            fprintf(stderr, "unknown element of type: %d\n", child->type); 
+        } else if (child->type == GUMBO_NODE_COMMENT) {
+          contents.append("<!--" + std::string(child->v.text.text) + "-->");
+
+        } else {
+          fprintf(stderr, "unknown element of type: %d\n", child->type);
         }
+
     }
+
     return contents;
 }
 
@@ -475,11 +480,14 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
         contents.append(std::string(child->v.text.text));
       }
 
-    } else if (child->type != GUMBO_NODE_COMMENT) {
+    } else if (child->type == GUMBO_NODE_CDATA) {
+      contents.append("<![CDATA[" + std::string(child->v.text.text) + "]]>");
 
-      // Does this actually exist: (child->type == GUMBO_NODE_CDATA)
-      fprintf(stderr, "unknown element of type: %d\n", child->type); 
+    } else if (child->type == GUMBO_NODE_COMMENT) {
+      contents.append("<!--" + std::string(child->v.text.text) + "-->");
 
+    } else {
+      fprintf(stderr, "unknown element of type: %d\n", child->type);
     }
 
   }
