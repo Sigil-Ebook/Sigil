@@ -1396,7 +1396,7 @@ void BookBrowser::CreateGuideSemanticActions()
     action->setData(GuideSemantics::Colophon);
     m_GuideSemanticMapper.setMapping(action, GuideSemantics::Colophon);
     m_GuideSemanticActions.append(action);
-    action = new QAction(tr("CopyrightPage"), this);
+    action = new QAction(tr("Copyright Page"), this);
     action->setData(GuideSemantics::CopyrightPage);
     m_GuideSemanticMapper.setMapping(action, GuideSemantics::CopyrightPage);
     m_GuideSemanticActions.append(action);
