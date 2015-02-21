@@ -27,7 +27,6 @@
 #include "GumboInterface.h"
 #include "string_buffer.h"
 #include "error.h"
-#include "parser.h"
 
 static std::string nonbreaking_inline  = "|a|abbr|acronym|b|bdo|big|cite|code|dfn|em|font|i|img|kbd|nobr|s|small|span|strike|strong|sub|sup|tt|";
 static std::string empty_tags          = "|area|base|basefont|bgsound|br|command|col|embed|event-source|frame|hr|image|img|input|keygen|link|menuitem|meta|param|source|spacer|track|wbr|";
@@ -57,7 +56,7 @@ GumboInterface::GumboInterface(const QString &source)
 GumboInterface::~GumboInterface()
 {
     if (m_output != NULL) {
-        gumbo_destroy_output(&kGumboDefaultOptions, m_output);
+        gumbo_destroy_output(m_output);
         m_output = NULL;
         m_utf8src = "";
     }
@@ -117,8 +116,6 @@ QList<GumboWellFormedError> GumboInterface::errors()
         myoptions.tab_stop = 4;
         // leave this as false to prevent pre-mature stopping when no error exists
         myoptions.stop_on_first_error = false;
-        GumboParser parser;
-        parser._options = &myoptions; 
         const GumboVector* errors  = &m_output->errors;
         for (int i=0; i< errors->length; ++i) {
           GumboError* er = static_cast<GumboError*>(errors->data[i]);
@@ -127,12 +124,12 @@ QList<GumboWellFormedError> GumboInterface::errors()
           gperror.column = er->position.column;
           unsigned int typenum = er->type;
           GumboStringBuffer text;
-          gumbo_string_buffer_init(&parser, &text);
-          gumbo_error_to_string(&parser, er, &text);
+          gumbo_string_buffer_init(&text);
+          gumbo_error_to_string(er, &text);
           std::string errmsg(text.data, text.length);
           gperror.message = QString::fromStdString(errmsg);
-          gumbo_string_buffer_destroy(&parser, &text);
-          // gumbo_print_caret_diagnostic(&parser, er, contents.c_str());
+          gumbo_string_buffer_destroy(&text);
+          // gumbo_print_caret_diagnostic(er, contents.c_str());
           errlist.append(gperror);
         }
     }

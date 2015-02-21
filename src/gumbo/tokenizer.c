@@ -308,17 +308,6 @@ static void tokenizer_add_parse_error(GumboParser* parser, GumboErrorType type) 
   }
 }
 
-static bool is_alpha(int c) {
-  // We don't use ISO C isupper/islower functions here because they
-  // depend upon the program's locale, while the behavior of the HTML5 spec is
-  // independent of which locale the program is run in.
-  return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
-}
-
-static int ensure_lowercase(int c) {
-  return c >= 'A' && c <= 'Z' ? c + 0x20 : c;
-}
-
 static GumboTokenType get_char_token_type(bool is_in_cdata, int c) {
   if (is_in_cdata && c > 0) {
     return GUMBO_TOKEN_CDATA;
@@ -356,19 +345,19 @@ static void clear_temporary_buffer(GumboParser* parser) {
   GumboTokenizerState* tokenizer = parser->_tokenizer_state;
   assert(!tokenizer->_temporary_buffer_emit);
   utf8iterator_mark(&tokenizer->_input);
-  gumbo_string_buffer_destroy(parser, &tokenizer->_temporary_buffer);
-  gumbo_string_buffer_init(parser, &tokenizer->_temporary_buffer);
+  gumbo_string_buffer_destroy(&tokenizer->_temporary_buffer);
+  gumbo_string_buffer_init(&tokenizer->_temporary_buffer);
   // The temporary buffer and script data buffer are the same object in the
   // spec, so the script data buffer should be cleared as well.
-  gumbo_string_buffer_destroy(parser, &tokenizer->_script_data_buffer);
-  gumbo_string_buffer_init(parser, &tokenizer->_script_data_buffer);
+  gumbo_string_buffer_destroy(&tokenizer->_script_data_buffer);
+  gumbo_string_buffer_init(&tokenizer->_script_data_buffer);
 }
 
 // Appends a codepoint to the temporary buffer.
 static void append_char_to_temporary_buffer(
     GumboParser* parser, int codepoint) {
   gumbo_string_buffer_append_codepoint(
-      parser, codepoint, &parser->_tokenizer_state->_temporary_buffer);
+      codepoint, &parser->_tokenizer_state->_temporary_buffer);
 }
 
 // Checks to see if the temporary buffer equals a certain string.
@@ -427,7 +416,7 @@ static void reset_tag_buffer_start_point(GumboParser* parser) {
 static void finish_temporary_buffer(GumboParser* parser, const char** output) {
   GumboTokenizerState* tokenizer = parser->_tokenizer_state;
   *output =
-      gumbo_string_buffer_to_string(parser, &tokenizer->_temporary_buffer);
+      gumbo_string_buffer_to_string(&tokenizer->_temporary_buffer);
   clear_temporary_buffer(parser);
 }
 
@@ -466,7 +455,7 @@ static void finish_token(GumboParser* parser, GumboToken* token) {
 static void finish_doctype_public_id(GumboParser* parser) {
   GumboTokenDocType* doc_type_state =
       &parser->_tokenizer_state->_doc_type_state;
-  gumbo_parser_deallocate(parser, (void*) doc_type_state->public_identifier);
+  gumbo_free((void*) doc_type_state->public_identifier);
   finish_temporary_buffer(parser, &doc_type_state->public_identifier);
   doc_type_state->has_public_identifier = true;
 }
@@ -476,7 +465,7 @@ static void finish_doctype_public_id(GumboParser* parser) {
 static void finish_doctype_system_id(GumboParser* parser) {
   GumboTokenDocType* doc_type_state =
       &parser->_tokenizer_state->_doc_type_state;
-  gumbo_parser_deallocate(parser, (void*) doc_type_state->system_identifier);
+  gumbo_free((void*) doc_type_state->system_identifier);
   finish_temporary_buffer(parser, &doc_type_state->system_identifier);
   doc_type_state->has_system_identifier = true;
 }
@@ -549,14 +538,14 @@ static StateResult emit_current_tag(GumboParser* parser, GumboToken* output) {
     // deallocated.  There may also be attributes to destroy, in certain broken
     // cases like </div</th> (the "th" is an attribute there).
     for (int i = 0; i < tag_state->_attributes.length; ++i) {
-      gumbo_destroy_attribute(parser, tag_state->_attributes.data[i]);
+      gumbo_destroy_attribute(tag_state->_attributes.data[i]);
     }
-    gumbo_parser_deallocate(parser, tag_state->_attributes.data);
+    gumbo_free(tag_state->_attributes.data);
     mark_tag_state_as_empty(tag_state);
     gumbo_debug("Emitted end tag %s.\n",
                gumbo_normalized_tagname(tag_state->_tag));
   }
-  gumbo_string_buffer_destroy(parser, &tag_state->_buffer);
+  gumbo_string_buffer_destroy(&tag_state->_buffer);
   finish_token(parser, output);
   gumbo_debug("Original text = %.*s.\n", output->original_text.length, output->original_text.data);
   assert(output->original_text.length >= 2);
@@ -572,11 +561,11 @@ static StateResult emit_current_tag(GumboParser* parser, GumboToken* output) {
 static void abandon_current_tag(GumboParser* parser) {
   GumboTagState* tag_state = &parser->_tokenizer_state->_tag_state;
   for (int i = 0; i < tag_state->_attributes.length; ++i) {
-    gumbo_destroy_attribute(parser, tag_state->_attributes.data[i]);
+    gumbo_destroy_attribute(tag_state->_attributes.data[i]);
   }
-  gumbo_parser_deallocate(parser, tag_state->_attributes.data);
+  gumbo_free(tag_state->_attributes.data);
   mark_tag_state_as_empty(tag_state);
-  gumbo_string_buffer_destroy(parser, &tag_state->_buffer);
+  gumbo_string_buffer_destroy(&tag_state->_buffer);
   gumbo_debug("Abandoning current tag.\n");
 }
 
@@ -669,7 +658,7 @@ static void append_char_to_tag_buffer(GumboParser* parser, int codepoint,
   if (buffer->length == 0 && reinitilize_position_on_first) {
     reset_tag_buffer_start_point(parser);
   }
-  gumbo_string_buffer_append_codepoint(parser, codepoint, buffer);
+  gumbo_string_buffer_append_codepoint(codepoint, buffer);
 }
 
 // (Re-)initialize the tag buffer.  This also resets the original_text pointer
@@ -678,7 +667,7 @@ static void initialize_tag_buffer(GumboParser* parser) {
   GumboTokenizerState* tokenizer = parser->_tokenizer_state;
   GumboTagState* tag_state = &tokenizer->_tag_state;
 
-  gumbo_string_buffer_init(parser, &tag_state->_buffer);
+  gumbo_string_buffer_init(&tag_state->_buffer);
   reset_tag_buffer_start_point(parser);
 }
 
@@ -689,15 +678,15 @@ static void start_new_tag(GumboParser* parser, bool is_start_tag) {
   GumboTokenizerState* tokenizer = parser->_tokenizer_state;
   GumboTagState* tag_state = &tokenizer->_tag_state;
   int c = utf8iterator_current(&tokenizer->_input);
-  assert(is_alpha(c));
-  c = ensure_lowercase(c);
-  assert(is_alpha(c));
+  assert(gumbo_isalpha(c));
+  c = gumbo_tolower(c);
+  assert(gumbo_isalpha(c));
 
   initialize_tag_buffer(parser);
-  gumbo_string_buffer_append_codepoint(parser, c, &tag_state->_buffer);
+  gumbo_string_buffer_append_codepoint(c, &tag_state->_buffer);
 
   assert(tag_state->_attributes.data == NULL);
-  gumbo_vector_init(parser, 4, &tag_state->_attributes);
+  gumbo_vector_init(4, &tag_state->_attributes);
   tag_state->_drop_next_attr_value = false;
   tag_state->_is_start_tag = is_start_tag;
   tag_state->_is_self_closing = false;
@@ -708,7 +697,7 @@ static void start_new_tag(GumboParser* parser, bool is_start_tag) {
 static void copy_over_tag_buffer(GumboParser* parser, const char** output) {
   GumboTokenizerState* tokenizer = parser->_tokenizer_state;
   GumboTagState* tag_state = &tokenizer->_tag_state;
-  *output = gumbo_string_buffer_to_string(parser, &tag_state->_buffer);
+  *output = gumbo_string_buffer_to_string(&tag_state->_buffer);
 }
 
 // Fills in:
@@ -740,8 +729,7 @@ static void copy_over_original_tag_text(
 
 // Releases and then re-initializes the tag buffer.
 static void reinitialize_tag_buffer(GumboParser* parser) {
-  gumbo_parser_deallocate(
-      parser, parser->_tokenizer_state->_tag_state._buffer.data);
+  gumbo_free(parser->_tokenizer_state->_tag_state._buffer.data);
   initialize_tag_buffer(parser);
 }
 
@@ -801,15 +789,15 @@ static bool finish_attribute_name(GumboParser* parser) {
     }
   }
 
-  GumboAttribute* attr = gumbo_parser_allocate(parser, sizeof(GumboAttribute));
+  GumboAttribute* attr = gumbo_malloc(sizeof(GumboAttribute));
   attr->attr_namespace = GUMBO_ATTR_NAMESPACE_NONE;
   copy_over_tag_buffer(parser, &attr->name);
   copy_over_original_tag_text(parser, &attr->original_name,
                               &attr->name_start, &attr->name_end);
-  attr->value = gumbo_copy_stringz(parser, "");
+  attr->value = gumbo_strdup("");
   copy_over_original_tag_text(parser, &attr->original_value,
                               &attr->name_start, &attr->name_end);
-  gumbo_vector_add(parser, attr, attributes);
+  gumbo_vector_add(attr, attributes);
   reinitialize_tag_buffer(parser);
   return true;
 }
@@ -828,7 +816,7 @@ static void finish_attribute_value(GumboParser* parser) {
 
   GumboAttribute* attr =
       tag_state->_attributes.data[tag_state->_attributes.length - 1];
-  gumbo_parser_deallocate(parser, (void*) attr->value);
+  gumbo_free((void*) attr->value);
   copy_over_tag_buffer(parser, &attr->value);
   copy_over_original_tag_text(parser, &attr->original_value,
                               &attr->value_start, &attr->value_end);
@@ -846,8 +834,7 @@ static bool is_appropriate_end_tag(GumboParser* parser) {
 
 void gumbo_tokenizer_state_init(
     GumboParser* parser, const char* text, size_t text_length) {
-  GumboTokenizerState* tokenizer =
-      gumbo_parser_allocate(parser, sizeof(GumboTokenizerState));
+  GumboTokenizerState* tokenizer = gumbo_malloc(sizeof(GumboTokenizerState));
   parser->_tokenizer_state = tokenizer;
   gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
   tokenizer->_reconsume_current_input = false;
@@ -856,12 +843,12 @@ void gumbo_tokenizer_state_init(
   tokenizer->_tag_state._last_start_tag = GUMBO_TAG_LAST;
 
   tokenizer->_buffered_emit_char = kGumboNoChar;
-  gumbo_string_buffer_init(parser, &tokenizer->_temporary_buffer);
+  gumbo_string_buffer_init(&tokenizer->_temporary_buffer);
   tokenizer->_temporary_buffer_emit = NULL;
 
   mark_tag_state_as_empty(&tokenizer->_tag_state);
 
-  gumbo_string_buffer_init(parser, &tokenizer->_script_data_buffer);
+  gumbo_string_buffer_init(&tokenizer->_script_data_buffer);
   tokenizer->_token_start = text;
   utf8iterator_init(parser, text, text_length, &tokenizer->_input);
   utf8iterator_get_position(&tokenizer->_input, &tokenizer->_token_start_pos);
@@ -873,9 +860,9 @@ void gumbo_tokenizer_state_destroy(GumboParser* parser) {
   assert(tokenizer->_doc_type_state.name == NULL);
   assert(tokenizer->_doc_type_state.public_identifier == NULL);
   assert(tokenizer->_doc_type_state.system_identifier == NULL);
-  gumbo_string_buffer_destroy(parser, &tokenizer->_temporary_buffer);
-  gumbo_string_buffer_destroy(parser, &tokenizer->_script_data_buffer);
-  gumbo_parser_deallocate(parser, tokenizer);
+  gumbo_string_buffer_destroy(&tokenizer->_temporary_buffer);
+  gumbo_string_buffer_destroy(&tokenizer->_script_data_buffer);
+  gumbo_free(tokenizer);
 }
 
 void gumbo_tokenizer_set_state(GumboParser* parser, GumboTokenizerEnum state) {
@@ -1029,7 +1016,7 @@ static StateResult handle_tag_open_state(
       tokenizer_add_parse_error(parser, GUMBO_ERR_TAG_STARTS_WITH_QUESTION);
       return NEXT_CHAR;
     default:
-      if (is_alpha(c)) {
+      if (gumbo_isalpha(c)) {
         gumbo_tokenizer_set_state(parser, GUMBO_LEX_TAG_NAME);
         start_new_tag(parser, true);
         return NEXT_CHAR;
@@ -1057,7 +1044,7 @@ static StateResult handle_end_tag_open_state(
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
       return emit_temporary_buffer(parser, output);
     default:
-      if (is_alpha(c)) {
+      if (gumbo_isalpha(c)) {
         gumbo_tokenizer_set_state(parser, GUMBO_LEX_TAG_NAME);
         start_new_tag(parser, false);
       } else {
@@ -1100,7 +1087,7 @@ static StateResult handle_tag_name_state(
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
       return NEXT_CHAR;
     default:
-      append_char_to_tag_buffer(parser, ensure_lowercase(c), true);
+      append_char_to_tag_buffer(parser, gumbo_tolower(c), true);
       return NEXT_CHAR;
   }
 }
@@ -1126,7 +1113,7 @@ static StateResult handle_rcdata_end_tag_open_state(
     GumboParser* parser, GumboTokenizerState* tokenizer,
     int c, GumboToken* output) {
   assert(temporary_buffer_equals(parser, "</"));
-  if (is_alpha(c)) {
+  if (gumbo_isalpha(c)) {
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_RCDATA_END_TAG_NAME);
     start_new_tag(parser, false);
     append_char_to_temporary_buffer(parser, c);
@@ -1143,8 +1130,8 @@ static StateResult handle_rcdata_end_tag_name_state(
     GumboParser* parser, GumboTokenizerState* tokenizer,
     int c, GumboToken* output) {
   assert(tokenizer->_temporary_buffer.length >= 2);
-  if (is_alpha(c)) {
-    append_char_to_tag_buffer(parser, ensure_lowercase(c), true);
+  if (gumbo_isalpha(c)) {
+    append_char_to_tag_buffer(parser, gumbo_tolower(c), true);
     append_char_to_temporary_buffer(parser, c);
     return NEXT_CHAR;
   } else if (is_appropriate_end_tag(parser)) {
@@ -1192,7 +1179,7 @@ static StateResult handle_rawtext_end_tag_open_state(
     GumboParser* parser, GumboTokenizerState* tokenizer,
     int c, GumboToken* output) {
   assert(temporary_buffer_equals(parser, "</"));
-  if (is_alpha(c)) {
+  if (gumbo_isalpha(c)) {
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_RAWTEXT_END_TAG_NAME);
     start_new_tag(parser, false);
     append_char_to_temporary_buffer(parser, c);
@@ -1210,8 +1197,8 @@ static StateResult handle_rawtext_end_tag_name_state(
   assert(tokenizer->_temporary_buffer.length >= 2);
   gumbo_debug("Last end tag: %*s\n", (int) tokenizer->_tag_state._buffer.length,
              tokenizer->_tag_state._buffer.data);
-  if (is_alpha(c)) {
-    append_char_to_tag_buffer(parser, ensure_lowercase(c), true);
+  if (gumbo_isalpha(c)) {
+    append_char_to_tag_buffer(parser, gumbo_tolower(c), true);
     append_char_to_temporary_buffer(parser, c);
     return NEXT_CHAR;
   } else if (is_appropriate_end_tag(parser)) {
@@ -1264,7 +1251,7 @@ static StateResult handle_script_end_tag_open_state(
     GumboParser* parser, GumboTokenizerState* tokenizer,
     int c, GumboToken* output) {
   assert(temporary_buffer_equals(parser, "</"));
-  if (is_alpha(c)) {
+  if (gumbo_isalpha(c)) {
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_SCRIPT_END_TAG_NAME);
     start_new_tag(parser, false);
     append_char_to_temporary_buffer(parser, c);
@@ -1280,8 +1267,8 @@ static StateResult handle_script_end_tag_name_state(
     GumboParser* parser, GumboTokenizerState* tokenizer,
     int c, GumboToken* output) {
   assert(tokenizer->_temporary_buffer.length >= 2);
-  if (is_alpha(c)) {
-    append_char_to_tag_buffer(parser, ensure_lowercase(c), true);
+  if (gumbo_isalpha(c)) {
+    append_char_to_tag_buffer(parser, gumbo_tolower(c), true);
     append_char_to_temporary_buffer(parser, c);
     return NEXT_CHAR;
   } else if (is_appropriate_end_tag(parser)) {
@@ -1423,11 +1410,11 @@ static StateResult handle_script_escaped_lt_state(
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_SCRIPT_ESCAPED_END_TAG_OPEN);
     append_char_to_temporary_buffer(parser, c);
     return NEXT_CHAR;
-  } else if (is_alpha(c)) {
+  } else if (gumbo_isalpha(c)) {
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_SCRIPT_DOUBLE_ESCAPED_START);
     append_char_to_temporary_buffer(parser, c);
     gumbo_string_buffer_append_codepoint(
-        parser, ensure_lowercase(c), &tokenizer->_script_data_buffer);
+        gumbo_tolower(c), &tokenizer->_script_data_buffer);
     return emit_temporary_buffer(parser, output);
   } else {
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_SCRIPT_ESCAPED);
@@ -1440,7 +1427,7 @@ static StateResult handle_script_escaped_end_tag_open_state(
     GumboParser* parser, GumboTokenizerState* tokenizer,
     int c, GumboToken* output) {
   assert(temporary_buffer_equals(parser, "</"));
-  if (is_alpha(c)) {
+  if (gumbo_isalpha(c)) {
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_SCRIPT_ESCAPED_END_TAG_NAME);
     start_new_tag(parser, false);
     append_char_to_temporary_buffer(parser, c);
@@ -1456,8 +1443,8 @@ static StateResult handle_script_escaped_end_tag_name_state(
     GumboParser* parser, GumboTokenizerState* tokenizer,
     int c, GumboToken* output) {
   assert(tokenizer->_temporary_buffer.length >= 2);
-  if (is_alpha(c)) {
-    append_char_to_tag_buffer(parser, ensure_lowercase(c), true);
+  if (gumbo_isalpha(c)) {
+    append_char_to_tag_buffer(parser, gumbo_tolower(c), true);
     append_char_to_temporary_buffer(parser, c);
     return NEXT_CHAR;
   } else if (is_appropriate_end_tag(parser)) {
@@ -1500,9 +1487,9 @@ static StateResult handle_script_double_escaped_start_state(
           ? GUMBO_LEX_SCRIPT_DOUBLE_ESCAPED : GUMBO_LEX_SCRIPT_ESCAPED);
       return emit_current_char(parser, output);
     default:
-      if (is_alpha(c)) {
+      if (gumbo_isalpha(c)) {
         gumbo_string_buffer_append_codepoint(
-            parser, ensure_lowercase(c), &tokenizer->_script_data_buffer);
+            gumbo_tolower(c), &tokenizer->_script_data_buffer);
         return emit_current_char(parser, output);
       } else {
         gumbo_tokenizer_set_state(parser, GUMBO_LEX_SCRIPT_ESCAPED);
@@ -1591,8 +1578,8 @@ static StateResult handle_script_double_escaped_lt_state(
     int c, GumboToken* output) {
   if (c == '/') {
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_SCRIPT_DOUBLE_ESCAPED_END);
-    gumbo_string_buffer_destroy(parser, &tokenizer->_script_data_buffer);
-    gumbo_string_buffer_init(parser, &tokenizer->_script_data_buffer);
+    gumbo_string_buffer_destroy(&tokenizer->_script_data_buffer);
+    gumbo_string_buffer_init(&tokenizer->_script_data_buffer);
     return emit_current_char(parser, output);
   } else {
     gumbo_tokenizer_set_state(parser, GUMBO_LEX_SCRIPT_DOUBLE_ESCAPED);
@@ -1618,9 +1605,9 @@ static StateResult handle_script_double_escaped_end_state(
           ? GUMBO_LEX_SCRIPT_ESCAPED : GUMBO_LEX_SCRIPT_DOUBLE_ESCAPED);
       return emit_current_char(parser, output);
     default:
-      if (is_alpha(c)) {
+      if (gumbo_isalpha(c)) {
         gumbo_string_buffer_append_codepoint(
-            parser, ensure_lowercase(c), &tokenizer->_script_data_buffer);
+            gumbo_tolower(c), &tokenizer->_script_data_buffer);
         return emit_current_char(parser, output);
       } else {
         gumbo_tokenizer_set_state(parser, GUMBO_LEX_SCRIPT_DOUBLE_ESCAPED);
@@ -1664,7 +1651,7 @@ static StateResult handle_before_attr_name_state(
       // Fall through.
     default:
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_ATTR_NAME);
-      append_char_to_tag_buffer(parser, ensure_lowercase(c), true);
+      append_char_to_tag_buffer(parser, gumbo_tolower(c), true);
       return NEXT_CHAR;
   }
 }
@@ -1708,7 +1695,7 @@ static StateResult handle_attr_name_state(
       tokenizer_add_parse_error(parser, GUMBO_ERR_ATTR_NAME_INVALID);
       // Fall through.
     default:
-      append_char_to_tag_buffer(parser, ensure_lowercase(c), true);
+      append_char_to_tag_buffer(parser, gumbo_tolower(c), true);
       return NEXT_CHAR;
   }
 }
@@ -1749,7 +1736,7 @@ static StateResult handle_after_attr_name_state(
       // Fall through.
     default:
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_ATTR_NAME);
-      append_char_to_tag_buffer(parser, ensure_lowercase(c), true);
+      append_char_to_tag_buffer(parser, gumbo_tolower(c), true);
       return NEXT_CHAR;
   }
 }
@@ -2035,11 +2022,11 @@ static StateResult handle_markup_declaration_state(
     // the time to initialize the doctype strings.  (Not in doctype_state_init,
     // since then they'll leak if ownership never gets transferred to the
     // doctype token.
-    tokenizer->_doc_type_state.name = gumbo_copy_stringz(parser, "");
+    tokenizer->_doc_type_state.name = gumbo_strdup("");
     tokenizer->_doc_type_state.public_identifier =
-        gumbo_copy_stringz(parser, "");
+        gumbo_strdup("");
     tokenizer->_doc_type_state.system_identifier =
-        gumbo_copy_stringz(parser, "");
+        gumbo_strdup("");
   } else if (tokenizer->_is_current_node_foreign &&
              utf8iterator_maybe_consume_match(
                 &tokenizer->_input, "[CDATA[", sizeof("[CDATA[") - 1, true)) {
@@ -2300,7 +2287,7 @@ static StateResult handle_before_doctype_name_state(
     default:
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_DOCTYPE_NAME);
       tokenizer->_doc_type_state.force_quirks = false;
-      append_char_to_temporary_buffer(parser, ensure_lowercase(c));
+      append_char_to_temporary_buffer(parser, gumbo_tolower(c));
       return NEXT_CHAR;
   }
 }
@@ -2315,13 +2302,13 @@ static StateResult handle_doctype_name_state(
     case '\f':
     case ' ':
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_AFTER_DOCTYPE_NAME);
-      gumbo_parser_deallocate(parser, (void*) tokenizer->_doc_type_state.name);
+      gumbo_free((void*) tokenizer->_doc_type_state.name);
       finish_temporary_buffer(
           parser, &tokenizer->_doc_type_state.name);
       return NEXT_CHAR;
     case '>':
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
-      gumbo_parser_deallocate(parser, (void*) tokenizer->_doc_type_state.name);
+      gumbo_free((void*) tokenizer->_doc_type_state.name);
       finish_temporary_buffer(
           parser, &tokenizer->_doc_type_state.name);
       emit_doctype(parser, output);
@@ -2334,7 +2321,7 @@ static StateResult handle_doctype_name_state(
       tokenizer_add_parse_error(parser, GUMBO_ERR_DOCTYPE_EOF);
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
       tokenizer->_doc_type_state.force_quirks = true;
-      gumbo_parser_deallocate(parser, (void*) tokenizer->_doc_type_state.name);
+      gumbo_free((void*) tokenizer->_doc_type_state.name);
       finish_temporary_buffer(
           parser, &tokenizer->_doc_type_state.name);
       emit_doctype(parser, output);
@@ -2342,7 +2329,7 @@ static StateResult handle_doctype_name_state(
     default:
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_DOCTYPE_NAME);
       tokenizer->_doc_type_state.force_quirks = false;
-      append_char_to_temporary_buffer(parser, ensure_lowercase(c));
+      append_char_to_temporary_buffer(parser, gumbo_tolower(c));
       return NEXT_CHAR;
   }
 }
@@ -2956,30 +2943,27 @@ bool gumbo_lex(GumboParser* parser, GumboToken* output) {
   }
 }
 
-void gumbo_token_destroy(GumboParser* parser, GumboToken* token) {
+void gumbo_token_destroy(GumboToken* token) {
   if (!token) return;
 
   switch (token->type) {
     case GUMBO_TOKEN_DOCTYPE:
-      gumbo_parser_deallocate(parser, (void*) token->v.doc_type.name);
-      gumbo_parser_deallocate(
-          parser, (void*) token->v.doc_type.public_identifier);
-      gumbo_parser_deallocate(
-          parser, (void*) token->v.doc_type.system_identifier);
+      gumbo_free((void*) token->v.doc_type.name);
+      gumbo_free((void*) token->v.doc_type.public_identifier);
+      gumbo_free((void*) token->v.doc_type.system_identifier);
       return;
     case GUMBO_TOKEN_START_TAG:
       for (int i = 0; i < token->v.start_tag.attributes.length; ++i) {
         GumboAttribute* attr = token->v.start_tag.attributes.data[i];
         if (attr) {
           // May have been nulled out if this token was merged with another.
-          gumbo_destroy_attribute(parser, attr);
+          gumbo_destroy_attribute(attr);
         }
       }
-      gumbo_parser_deallocate(
-          parser, (void*) token->v.start_tag.attributes.data);
+      gumbo_free((void*) token->v.start_tag.attributes.data);
       return;
     case GUMBO_TOKEN_COMMENT:
-      gumbo_parser_deallocate(parser, (void*) token->v.text);
+      gumbo_free((void*) token->v.text);
       return;
     default:
       return;

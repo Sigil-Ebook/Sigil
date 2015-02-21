@@ -194,31 +194,27 @@ void gumbo_init_errors(struct GumboInternalParser* errors);
 void gumbo_destroy_errors(struct GumboInternalParser* errors);
 
 // Frees the memory used for a single GumboError.
-void gumbo_error_destroy(struct GumboInternalParser* parser, GumboError* error);
+void gumbo_error_destroy(GumboError* error);
 
 // Prints an error to a string.  This fills an empty GumboStringBuffer with a
 // freshly-allocated buffer containing the error message text.  The caller is
 // responsible for deleting the buffer.  (Note that the buffer is allocated with
 // the allocator specified in the GumboParser config and hence should be freed
-// by gumbo_parser_deallocate().)
-void gumbo_error_to_string(
-    struct GumboInternalParser* parser, const GumboError* error,
-    GumboStringBuffer* output);
+// by gumbo_free().)
+void gumbo_error_to_string(const GumboError* error, GumboStringBuffer* output);
 
 // Prints a caret diagnostic to a string.  This fills an empty GumboStringBuffer
 // with a freshly-allocated buffer containing the error message text.  The
 // caller is responsible for deleting the buffer.  (Note that the buffer is
 // allocated with the allocator specified in the GumboParser config and hence
 // should be freed by gumbo_parser_deallocate().)
-void gumbo_caret_diagnostic_to_string(
-    struct GumboInternalParser* parser, const GumboError* error,
+void gumbo_caret_diagnostic_to_string(const GumboError* error,
     const char* source_text, GumboStringBuffer* output);
 
 // Like gumbo_caret_diagnostic_to_string, but prints the text to stdout instead
 // of writing to a string.
 void gumbo_print_caret_diagnostic(
-    struct GumboInternalParser* parser, const GumboError* error,
-    const char* source_text);
+    const GumboError* error, const char* source_text);
 
 #ifdef __cplusplus
 }

@@ -31,18 +31,21 @@
 // as any.
 const GumboSourcePosition kGumboEmptySourcePosition = { 0, 0, 0 };
 
-void* gumbo_parser_allocate(GumboParser* parser, size_t num_bytes) {
-  return parser->_options->allocator(parser->_options->userdata, num_bytes);
+/*
+ * Default memory management helpers;
+ * set to system's realloc and free by default
+ */
+void *(* gumbo_user_allocator)(void *, size_t) = realloc;
+void (* gumbo_user_free)(void *) = free;
+
+void gumbo_memory_set_allocator(void *(*allocator_p)(void *, size_t))
+{
+  gumbo_user_allocator = allocator_p ? allocator_p : realloc;
 }
 
-void gumbo_parser_deallocate(GumboParser* parser, void* ptr) {
-  parser->_options->deallocator(parser->_options->userdata, ptr);
-}
-
-char* gumbo_copy_stringz(GumboParser* parser, const char* str) {
-  char* buffer = gumbo_parser_allocate(parser, strlen(str) + 1);
-  strcpy(buffer, str);
-  return buffer;
+void gumbo_memory_set_free(void (*free_p)(void *))
+{
+  gumbo_user_free = free_p ? free_p : free;
 }
 
 // Debug function to trace operation of the parser.  Pass --copts=-DGUMBO_DEBUG

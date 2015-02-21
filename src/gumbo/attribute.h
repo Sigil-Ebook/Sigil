@@ -25,10 +25,13 @@ extern "C" {
 
 struct GumboInternalParser;
 
-// Release the memory used for an GumboAttribute, including the attribute
-// itself.
-void gumbo_destroy_attribute(
-    struct GumboInternalParser* parser, GumboAttribute* attribute);
+void gumbo_attribute_set_value(GumboAttribute *attr, const char *value);
+void gumbo_destroy_attribute(GumboAttribute* attribute);
+
+void gumbo_element_set_attribute(
+    GumboElement *element, const char *name, const char *value);
+void gumbo_element_remove_attribute_at(GumboElement *element, unsigned int pos);
+void gumbo_element_remove_attribute(GumboElement *element, GumboAttribute *attr);
 
 #ifdef __cplusplus
 }

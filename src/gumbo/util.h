@@ -24,32 +24,48 @@
 #endif
 #include <stdbool.h>
 #include <stddef.h>
-
-
+#include <stdlib.h>
+#include <string.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-// Forward declaration since it's passed into some of the functions in this
-// header.
-struct GumboInternalParser;
+extern void *(* gumbo_user_allocator)(void *, size_t);
+extern void (* gumbo_user_free)(void *);
 
-// Utility function for allocating & copying a null-terminated string into a
-// freshly-allocated buffer.  This is necessary for proper memory management; we
-// have the convention that all const char* in parse tree structures are
-// freshly-allocated, so if we didn't copy, we'd try to delete a literal string
-// when the parse tree is destroyed.
-char* gumbo_copy_stringz(struct GumboInternalParser* parser, const char* str);
+static inline void *gumbo_malloc(size_t size)
+{
+  return gumbo_user_allocator(NULL, size);
+}
 
-// Allocate a chunk of memory, using the allocator specified in the Parser's
-// config options.
-void* gumbo_parser_allocate(
-    struct GumboInternalParser* parser, size_t num_bytes);
+static inline void *gumbo_realloc(void *ptr, size_t size)
+{
+  return gumbo_user_allocator(ptr, size);
+}
 
-// Deallocate a chunk of memory, using the deallocator specified in the Parser's
-// config options.
-void gumbo_parser_deallocate(struct GumboInternalParser* parser, void* ptr);
+static inline char *gumbo_strdup(const char *str)
+{
+  size_t len = strlen(str) + 1;
+  char *copy = (char *)gumbo_malloc(len);
+  memcpy(copy, str, len);
+  return copy;
+}
+
+static inline void gumbo_free(void *ptr)
+{
+  gumbo_user_free(ptr);
+}
+
+static inline int gumbo_tolower(int c)
+{
+  return c | ((c >= 'A' && c <= 'Z') << 5);
+}
+
+static inline bool gumbo_isalpha(int c)
+{
+  return (c | 0x20) >= 'a' && (c | 0x20) <= 'z';
+}
 
 // Debug wrapper for printf, to make it easier to turn off debugging info when
 // required.
