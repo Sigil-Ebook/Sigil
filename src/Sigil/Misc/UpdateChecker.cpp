@@ -34,7 +34,7 @@
 #include "Misc/UpdateChecker.h"
 #include "sigil_constants.h"
 
-static const QString DOWNLOAD_PAGE_LOCATION  = "https://github.com/user-none/Sigil/releases";
+static const QString DOWNLOAD_PAGE_LOCATION  = "http://sigil-ebook.com/get";
 static const QString UPDATE_XML_LOCATION     = "https://github.com/user-none/Sigil/raw/master/version.xml";
 static const QString XML_VERSION_ELEMENT     = "current-version";
 static const QString LAST_ONLINE_VERSION_KEY = "last_online_version";
@@ -92,7 +92,6 @@ void UpdateChecker::ReplyRecieved(QNetworkReply *reply)
                              0,
                              QObject::tr("Sigil"),
                              QObject::tr("<p>A newer version of Sigil is available, version <b>%1</b>.<br/>"
-                                         "The ChangeLog can be seen <a href='http://sigil.googlecode.com/git/ChangeLog.txt'>here</a>.</p>"
                                          "<p>Would you like to go to the download page?</p>")
                              .arg(current_online_version),
                              QMessageBox::Yes | QMessageBox::No,
