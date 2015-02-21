@@ -23,7 +23,7 @@
 #ifndef EMBEDDEDPYTHON_H
 #define EMBEDDEDPYTHON_H
 
-#include "Python.h"
+#include <Python.h>
 #include <QCoreApplication>
 #include <QString>
 #include <QVariant>
