@@ -438,9 +438,9 @@ private slots:
     void ManagePluginsDialog();
 
     /**
-     * Implements Validate Epub with FlightCrew action functionality.
+     * Implements Validate Epub action functionality.
      */
-    void ValidateEpubWithFlightCrew();
+    void ValidateEpub();
 
     void ValidateStylesheetsWithW3C();
 

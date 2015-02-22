@@ -52,9 +52,6 @@ if( CMAKE_COMPILER_IS_GNUCXX  )
     set( CMAKE_BUILD_TYPE  )
 endif()
 
-# This disables the building of the test runner app for FlightCrew
-set( NO_TEST_EXE 1 )
-
 if( NOT FORCE_BUNDLED_COPIES )
     find_package( Boost COMPONENTS date_time filesystem program_options regex system thread )
     find_package( ZLIB )
@@ -66,7 +63,6 @@ if( NOT FORCE_BUNDLED_COPIES )
         pkg_check_modules( PCRE libpcre16 )
     endif()
     find_package( XercesExtensions )
-    find_package( FlightCrew )
 endif()
 
 # look for a specific lib python version
@@ -127,12 +123,6 @@ if( NOT XERCESEXTENSIONS_FOUND )
     add_subdirectory( src/XercesExtensions )
     set( XERCESEXTENSIONS_LIBRARIES XercesExtensions )
     set( XERCESEXTENSIONS_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/XercesExtensions )
-endif()
-
-if( NOT FLIGHTCREW_FOUND )
-    add_subdirectory( src/FlightCrew )
-    set( FLIGHTCREW_LIBRARIES FlightCrew )
-    set( FLIGHTCREW_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/FlightCrew )
 endif()
 
 add_subdirectory( src/Sigil )

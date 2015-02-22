@@ -320,7 +320,7 @@
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
     <addaction name="menuSpellCheckMenu"/>
-    <addaction name="actionValidateEpubWithFlightCrew"/>
+    <addaction name="actionValidateEpub"/>
     <addaction name="actionValidateStylesheetsWithW3C"/>
     <addaction name="actionReports"/>
     <addaction name="separator"/>
@@ -449,7 +449,7 @@
    <addaction name="actionMetaEditor"/>
    <addaction name="actionGenerateTOC"/>
    <addaction name="actionSpellcheckEditor"/>
-   <addaction name="actionValidateEpubWithFlightCrew"/>
+   <addaction name="actionValidateEpub"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
@@ -1506,18 +1506,16 @@
     <string>Tutorials</string>
    </property>
   </action>
-  <action name="actionValidateEpubWithFlightCrew">
+  <action name="actionValidateEpub">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/document-validate_22px.png</normaloff>:/main/document-validate_22px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Validate EPUB With FlightCrew</string>
+    <string>&amp;Validate EPUB</string>
    </property>
    <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB with FlightCrew&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="shortcut">
     <string>F7</string>

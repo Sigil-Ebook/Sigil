@@ -19,8 +19,6 @@
 **
 *************************************************************************/
 
-#include <flightcrew.h>
-
 #include <QtCore/QFileInfo>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHeaderView>
@@ -32,8 +30,6 @@
 #include "MainUI/ValidationResultsView.h"
 #include "Misc/Utility.h"
 #include "sigil_exception.h"
-
-namespace fc = FlightCrew;
 
 static const QBrush INFO_BRUSH    = QBrush(QColor(224, 255, 255));
 static const QBrush WARNING_BRUSH = QBrush(QColor(255, 255, 230));
@@ -61,24 +57,15 @@ void ValidationResultsView::showEvent(QShowEvent *event)
 void ValidationResultsView::ValidateCurrentBook()
 {
     ClearResults();
-    std::vector<fc::Result> results;
+    QList<ValidationResult> results;
+
     QApplication::setOverrideCursor(Qt::WaitCursor);
     m_Book->SaveAllResourcesToDisk();
 
-    try {
-        results = fc::ValidateEpubRootFolder(
-                      m_Book->GetFolderKeeper().GetFullPathToMainFolder().toUtf8().constData());
-    } catch (std::exception &exception) {
-        // TODO: extract boost exception info
-        Utility::DisplayStdErrorDialog(
-            tr("An exception occurred during validation: %1.")
-            .arg(QString::fromStdString(exception.what()))
-        );
-        return;
-    }
+    results.append(ValidationResult(ValidationResult::ResType_Info, NULL, 0, "Not implemented"));
 
     QApplication::restoreOverrideCursor();
-    DisplayFCResults(results);
+    DisplayResults(results);
     show();
     raise();
 }
@@ -142,24 +129,6 @@ void ValidationResultsView::SetUpTable()
     m_ResultTable.setDropIndicatorShown(false);
     m_ResultTable.horizontalHeader()->setStretchLastSection(true);
     m_ResultTable.verticalHeader()->setVisible(false);
-}
-
-
-void ValidationResultsView::DisplayFCResults(const std::vector<fc::Result> &results)
-{
-    QList<ValidationResult> vres;
-
-    for (unsigned int i = 0; i < results.size(); ++i) {
-        fc::Result result = results[i];
-        vres.append(ValidationResult(
-                    result.GetResultType() == fc::ResultType_WARNING ? ValidationResult::ResType_Warn : ValidationResult::ResType_Error,
-                    QString::fromUtf8(result.GetFilepath().c_str()),
-                    result.GetErrorLine() < 0 ? 0 : (size_t)result.GetErrorLine(),
-                    QString::fromUtf8(result.GetMessage().c_str())
-                    ));
-    }
-
-    DisplayResults(vres);
 }
 
 

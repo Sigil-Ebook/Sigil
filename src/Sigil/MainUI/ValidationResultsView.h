@@ -31,12 +31,6 @@
 #include "MainUI/MainWindow.h"
 #include "Misc/ValidationResult.h"
 
-namespace FlightCrew
-{
-class Result;
-}
-namespace fc = FlightCrew;
-
 class QTableWidget;
 class QTableWidgetItem;
 
@@ -117,9 +111,8 @@ private:
     /**
      * Displays the given results in the widget's table.
      *
-     * @param results A list of FlightCrew validation results.
+     * @param results A list of validation results.
      */
-    void DisplayFCResults(const std::vector<fc::Result> &results);
     void DisplayResults(const QList<ValidationResult> &results);
 
     /**

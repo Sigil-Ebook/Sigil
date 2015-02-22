@@ -608,7 +608,6 @@ endif()
 # The directories are in reverse order because we're using before to
 # put our include dirs before any system ones.
 include_directories( BEFORE
-                     ${FLIGHTCREW_INCLUDE_DIRS}
                      ${HUNSPELL_INCLUDE_DIRS}
                      ${PCRE_INCLUDE_DIRS}
                      ${GUMBO_SOURCE_DIR}
@@ -637,7 +636,7 @@ if (MSVC)
     set(QT_MAIN Qt5::WinMain)
 endif()
 
-target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} gumbo ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${FLIGHTCREW_LIBRARIES} ${PYTHON_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} gumbo ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${PYTHON_LIBRARIES} )
 qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit WebKitWidgets Network Concurrent)
 
 #############################################################################

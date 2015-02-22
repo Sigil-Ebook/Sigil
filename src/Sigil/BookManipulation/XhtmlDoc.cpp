@@ -27,8 +27,6 @@
 #include <xercesc/framework/MemBufInputSource.hpp>
 #include <xercesc/sax2/SAX2XMLReader.hpp>
 #include <xercesc/sax2/XMLReaderFactory.hpp>
-//FlightCrew
-#include <Misc/ErrorResultCollector.h>
 // XercesExtensions
 #include <LocationAwareDOMParser.h>
 #include <NodeLocationInfo.h>
@@ -83,16 +81,6 @@ static const QString ENTITY_SEARCH = "<!ENTITY\\s+(\\w+)\\s+\"([^\"]+)\">";
 static const QString URL_ATTRIBUTE_SEARCH = ":.*(url\\s*\\([^\\)]+\\))";
 
 const QString BREAK_TAG_SEARCH  = "(<div>\\s*)?<hr\\s*class\\s*=\\s*\"[^\"]*(sigil_split_marker|sigilChapterBreak)[^\"]*\"\\s*/>(\\s*</div>)?";
-
-namespace FlightCrew
-{
-extern const char         *NCX_2005_1_DTD_ID;
-extern const unsigned int  NCX_2005_1_DTD_LEN;
-extern const unsigned char NCX_2005_1_DTD[];
-}
-
-namespace fc = FlightCrew;
-
 
 // Resolves custom ENTITY declarations
 QString XhtmlDoc::ResolveCustomEntities(const QString &source)
@@ -449,8 +437,10 @@ shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source
     parser.setDoNamespaces(true);
     xc::MemBufInputSource xhtml_dtd(XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID);
     parser.loadGrammar(xhtml_dtd, xc::Grammar::DTDGrammarType, true);
-    xc::MemBufInputSource ncx_dtd(fc::NCX_2005_1_DTD, fc::NCX_2005_1_DTD_LEN, fc::NCX_2005_1_DTD_ID);
+// FC
+#if 0
     parser.loadGrammar(ncx_dtd, xc::Grammar::DTDGrammarType, true);
+#endif
     QString prepared_source = PrepareSourceForXerces(source);
     // We use source.count() * 2 because count returns
     // the number of QChars, which are 2 bytes long
@@ -485,6 +475,7 @@ int XhtmlDoc::NodeColumnNumber(const xc::DOMNode &node)
 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
 {
+#if 0
     boost::scoped_ptr<xc::SAX2XMLReader> parser(xc::XMLReaderFactory::createXMLReader());
     parser->setFeature(xc::XMLUni::fgSAX2CoreValidation,            false);
     parser->setFeature(xc::XMLUni::fgXercesSchema,                  false);
@@ -527,6 +518,7 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
         error.message = QString::fromUtf8(results[ 0 ].GetMessage().data());
         return error;
     }
+#endif
 
     return XhtmlDoc::WellFormedError();
 }

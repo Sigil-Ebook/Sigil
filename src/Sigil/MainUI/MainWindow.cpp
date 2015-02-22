@@ -2465,7 +2465,7 @@ void MainWindow::ManagePluginsDialog()
 }
 
 
-void MainWindow::ValidateEpubWithFlightCrew()
+void MainWindow::ValidateEpub()
 {
     m_ValidationResultsView->ValidateCurrentBook();
 }
@@ -4025,7 +4025,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionEditTOC, "MainWindow.EditTOC");
     sm->registerAction(this, ui.actionGenerateTOC, "MainWindow.GenerateTOC");
     sm->registerAction(this, ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
-    sm->registerAction(this, ui.actionValidateEpubWithFlightCrew, "MainWindow.ValidateEpub");
+    sm->registerAction(this, ui.actionValidateEpub, "MainWindow.ValidateEpub");
     sm->registerAction(this, ui.actionValidateStylesheetsWithW3C, "MainWindow.ValidateStylesheetsWithW3C");
     sm->registerAction(this, ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
@@ -4144,9 +4144,9 @@ void MainWindow::ExtendIconSizes()
     icon = ui.actionSave->icon();
     icon.addFile(QString::fromUtf8(":/main/document-save_16px.png"));
     ui.actionSave->setIcon(icon);
-    icon = ui.actionValidateEpubWithFlightCrew->icon();
+    icon = ui.actionValidateEpub->icon();
     icon.addFile(QString::fromUtf8(":/main/document-validate_16px.png"));
-    ui.actionValidateEpubWithFlightCrew->setIcon(icon);
+    ui.actionValidateEpub->setIcon(icon);
     icon = ui.actionSpellcheckEditor->icon();
     icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
     ui.actionSpellcheckEditor->setIcon(icon);
@@ -4372,7 +4372,7 @@ void MainWindow::ConnectSignalsToSlots()
     // Tools
     connect(ui.actionAddCover,      SIGNAL(triggered()), this, SLOT(AddCover()));
     connect(ui.actionMetaEditor,    SIGNAL(triggered()), this, SLOT(MetaEditorDialog()));
-    connect(ui.actionValidateEpubWithFlightCrew,  SIGNAL(triggered()), this, SLOT(ValidateEpubWithFlightCrew()));
+    connect(ui.actionValidateEpub,  SIGNAL(triggered()), this, SLOT(ValidateEpub()));
     connect(ui.actionValidateStylesheetsWithW3C,  SIGNAL(triggered()), this, SLOT(ValidateStylesheetsWithW3C()));
     connect(ui.actionSpellcheckEditor,   SIGNAL(triggered()), this, SLOT(SpellcheckEditorDialog()));
     connect(ui.actionAutoSpellCheck, SIGNAL(triggered(bool)), this, SLOT(SetAutoSpellCheck(bool)));
