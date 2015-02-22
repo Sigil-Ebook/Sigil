@@ -343,17 +343,21 @@ std::string GumboInterface::serialize_contents(GumboNode* node) {
                 contents.append(substitute_xml_entities_into_text(std::string(child->v.text.text)));
             }
 
-        } else if (child->type == GUMBO_NODE_ELEMENT) {
+        } else if (child->type == GUMBO_NODE_ELEMENT || child->type == GUMBO_NODE_TEMPLATE) {
              contents.append(serialize(child));
+
+        } else if (child->type == GUMBO_NODE_WHITESPACE) {
+          // keep all whitespace to keep as close to original as possible
+          contents.append(std::string(child->v.text.text));
 
         } else if (child->type == GUMBO_NODE_CDATA) {
           contents.append("<![CDATA[" + std::string(child->v.text.text) + "]]>");
 
         } else if (child->type == GUMBO_NODE_COMMENT) {
           contents.append("<!--" + std::string(child->v.text.text) + "-->");
-
+ 
         } else {
-          fprintf(stderr, "unknown element of type: %d\n", child->type);
+          fprintf(stderr, "unknown element of type: %d\n", child->type); 
         }
 
     }
@@ -437,28 +441,23 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
     GumboNode* child = static_cast<GumboNode*> (children->data[i]);
 
     if (child->type == GUMBO_NODE_TEXT) {
-
       std::string val;
-
       if (no_entity_substitution) {
         val = std::string(child->v.text.text);
       } else {
         val = substitute_xml_entities_into_text(std::string(child->v.text.text));
       }
-
       if (pp_okay) rtrim(val);
-
       if (pp_okay && (contents.length() == 0)) {
         // add required indentation
         char c = indent_chars.at(0);
         int n  = indent_chars.length();
         contents.append(std::string((lvl-1)*n,c));
       }
-
       contents.append(val);
 
 
-    } else if (child->type == GUMBO_NODE_ELEMENT) {
+    } else if (child->type == GUMBO_NODE_ELEMENT || child->type == GUMBO_NODE_TEMPLATE) {
 
       std::string val = prettyprint(child, lvl, indent_chars);
 
@@ -468,11 +467,9 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
       if ((nonbreaking_inline.find(childkey) != std::string::npos) && (contents.length() > 0)) {
         ltrim(val);
       }
-
       contents.append(val);
 
     } else if (child->type == GUMBO_NODE_WHITESPACE) {
-
       if (keep_whitespace || is_inline) {
         contents.append(std::string(child->v.text.text));
       }
