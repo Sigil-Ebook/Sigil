@@ -856,6 +856,9 @@ elseif (MSVC)
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${PLUGFILE} ${MAIN_PACKAGE_DIR}/plugin_launchers/python/ )
     endforeach( PLUGFILE )
 
+    # Copy python3lib
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/python3lib ${MAIN_PACKAGE_DIR}/python3lib )
+
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
     foreach( EXAMPLE ${EXAMPLE_FILES} )
@@ -1144,9 +1147,6 @@ if( UNIX AND NOT APPLE )
                         COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/python3lib/ )
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
                             COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/python3lib/* ${DEB_TREE_ROOT}/share/sigil/python3lib/ )
-
-    # Copy python3lib
-    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/python3lib ${MAIN_PACKAGE_DIR}/python3lib )
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
