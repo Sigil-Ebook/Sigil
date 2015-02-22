@@ -285,6 +285,7 @@ set( MISC_FILES
     Misc/KeyboardShortcutManager.cpp
     Misc/KeyboardShortcutManager.h
     Misc/XhtmlEntitiesDtd.cpp
+    Misc/Ncx20051Dtd.cpp
     Misc/FontObfuscation.cpp
     Misc/FontObfuscation.h
     Misc/TempFolder.cpp

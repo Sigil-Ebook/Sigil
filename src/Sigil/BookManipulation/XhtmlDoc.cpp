@@ -437,10 +437,8 @@ shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source
     parser.setDoNamespaces(true);
     xc::MemBufInputSource xhtml_dtd(XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID);
     parser.loadGrammar(xhtml_dtd, xc::Grammar::DTDGrammarType, true);
-// XXX: FC
-#if 0
+    xc::MemBufInputSource ncx_dtd(NCX_2005_1_DTD, NCX_2005_1_DTD_LEN, NCX_2005_1_DTD_ID);
     parser.loadGrammar(ncx_dtd, xc::Grammar::DTDGrammarType, true);
-#endif
     QString prepared_source = PrepareSourceForXerces(source);
     // We use source.count() * 2 because count returns
     // the number of QChars, which are 2 bytes long
@@ -475,7 +473,7 @@ int XhtmlDoc::NodeColumnNumber(const xc::DOMNode &node)
 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
 {
-// XXX: FC
+// FC
 #if 0
     boost::scoped_ptr<xc::SAX2XMLReader> parser(xc::XMLReaderFactory::createXMLReader());
     parser->setFeature(xc::XMLUni::fgSAX2CoreValidation,            false);
@@ -488,7 +486,7 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
                         (void *) xc::XMLUni::fgDGXMLScanner);
     xc::MemBufInputSource xhtml_dtd(XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID);
     parser->loadGrammar(xhtml_dtd, xc::Grammar::DTDGrammarType, true);
-    xc::MemBufInputSource ncx_dtd(fc::NCX_2005_1_DTD, fc::NCX_2005_1_DTD_LEN, fc::NCX_2005_1_DTD_ID);
+    xc::MemBufInputSource ncx_dtd(NCX_2005_1_DTD, NCX_2005_1_DTD_LEN, NCX_2005_1_DTD_ID);
     parser->loadGrammar(ncx_dtd, xc::Grammar::DTDGrammarType, true);
     fc::ErrorResultCollector collector;
     parser->setErrorHandler(&collector);
@@ -520,7 +518,6 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
         return error;
     }
 #endif
-
     return XhtmlDoc::WellFormedError();
 }
 
