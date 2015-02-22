@@ -437,7 +437,7 @@ shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source
     parser.setDoNamespaces(true);
     xc::MemBufInputSource xhtml_dtd(XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID);
     parser.loadGrammar(xhtml_dtd, xc::Grammar::DTDGrammarType, true);
-// FC
+// XXX: FC
 #if 0
     parser.loadGrammar(ncx_dtd, xc::Grammar::DTDGrammarType, true);
 #endif
@@ -475,6 +475,7 @@ int XhtmlDoc::NodeColumnNumber(const xc::DOMNode &node)
 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
 {
+// XXX: FC
 #if 0
     boost::scoped_ptr<xc::SAX2XMLReader> parser(xc::XMLReaderFactory::createXMLReader());
     parser->setFeature(xc::XMLUni::fgSAX2CoreValidation,            false);
