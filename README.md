@@ -35,6 +35,11 @@ will be left open.
 Source Components
 =================
 
+*THESE ARE IN FLUX AND CHANGING RAPIDLY. DO NOT USE THIS AS A GUIDE RIGHT NOW*
+
+
+
+
 The src directory contains all of the source code. It has
 a few subdirectories:
 
