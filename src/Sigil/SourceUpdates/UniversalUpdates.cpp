@@ -162,7 +162,6 @@ tuple <QHash<QString, QString>,
             css_updates[ key_path ] = html_updates.value(key_path);
         }
     }
-    Utility::WriteUnicodeTextFile(supdates, QString("/Users/kbhend/Desktop/source_updates.txt"));
     return make_tuple(html_updates, css_updates, xml_updates);
 }
 
