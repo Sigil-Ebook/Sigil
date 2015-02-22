@@ -47,6 +47,7 @@
 
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/Metadata.h"
+#include "BookManipulation/CleanSource.h"
 #include "Importers/ImportEPUB.h"
 #include "Misc/FontObfuscation.h"
 #include "Misc/HTMLEncodingResolver.h"
@@ -690,7 +691,7 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 void ImportEPUB::LoadInfrastructureFiles()
 {
     m_Book->GetOPF().SetText(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)));
-    m_Book->GetNCX().SetText(Utility::ReadUnicodeTextFile(m_NCXFilePath));
+    m_Book->GetNCX().SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath)));
 }
 
 
@@ -727,11 +728,15 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QString &mimetype)
 {
     QString fullfilepath = QFileInfo(m_OPFFilePath).absolutePath() + "/" + path;
-
+    QString currentpath = fullfilepath;
+    currentpath = currentpath.remove(0,m_ExtractedFolderPath.length()+1);
     try {
         Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath, false, mimetype);
+        if (resource.Type() == Resource::HTMLResourceType) {
+            resource.SetCurrentBookRelPath(currentpath);
+        }
         QString newpath = "../" + resource.GetRelativePathToOEBPS();
-        return make_tuple(fullfilepath, newpath);
+        return make_tuple(currentpath, newpath);
     } catch (FileDoesNotExist &) {
         return make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);
     }

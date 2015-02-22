@@ -23,33 +23,29 @@
 #ifndef PERFORMHTMLUPDATES_H
 #define PERFORMHTMLUPDATES_H
 
-#include "SourceUpdates/PerformXMLUpdates.h"
 
-class PerformHTMLUpdates : public PerformXMLUpdates
+class PerformHTMLUpdates
 {
 
 public:
 
     PerformHTMLUpdates(const QString &source,
                        const QHash<QString, QString> &html_updates,
-                       const QHash<QString, QString> &css_updates);
+                       const QHash<QString, QString> &css_updates, 
+                       const QString& currentpath);
 
-    PerformHTMLUpdates(const xc::DOMDocument &document,
-                       const QHash<QString, QString> &html_updates,
-                       const QHash<QString, QString> &css_updates);
-
-    shared_ptr<xc::DOMDocument> operator()();
+    QString operator()();
 
 private:
-
-    void InitPathTags();
-
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
+    
+    const QHash<QString, QString> &m_HTMLUpdates;
     const QHash<QString, QString> &m_CSSUpdates;
+    const QString& m_CurrentPath;
+    const QString& m_source;
 };
 
 #endif // PERFORMHTMLUPDATES_H

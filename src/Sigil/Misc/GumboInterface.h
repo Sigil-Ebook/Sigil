@@ -28,6 +28,7 @@
 
 #include <QString>
 #include <QList>
+#include <QHash>
 
 class QString;
 
@@ -44,19 +45,22 @@ public:
     ~GumboInterface();
     void    parse();
     QString repair();
-    QString prettyprint(QString indent_chars="  ");
+    QString perform_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
     QList<GumboWellFormedError> errors();
+    // QString prettyprint(QString indent_chars="  ");
 
 private:
+
     // QString fix_self_closing_tags(const QString & source);
-    std::string serialize(GumboNode* node);
-    std::string serialize_contents(GumboNode* node);
-    std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
-    std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
+    // std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
+    // std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
+
+    std::string serialize(GumboNode* node, bool doupdates = false);
+    std::string serialize_contents(GumboNode* node, bool doupdates = false);
     std::string build_doctype(GumboNode *node);
-    std::string build_attributes(GumboAttribute * at, bool no_entities);
+    std::string build_attributes(GumboAttribute * at, bool no_entities, bool doupdates = false);
+    std::string update_attribute_value(std::string href);
     std::string get_tag_name(GumboNode *node);
-    std::string handle_unknown_tag(GumboStringPiece *text);
     std::string substitute_xml_entities_into_text(const std::string &text);
     std::string substitute_xml_entities_into_attributes(char quote, const std::string &text);
     void rtrim(std::string &s);
@@ -67,6 +71,9 @@ private:
     QString        m_source;
     GumboOutput*   m_output;
     std::string    m_utf8src;
+    QHash<QString, QString> & m_updates;
+    QString        m_currentdir;
+    
 };
 
 #endif

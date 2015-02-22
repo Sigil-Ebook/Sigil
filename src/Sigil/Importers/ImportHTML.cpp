@@ -79,7 +79,8 @@ QSharedPointer<Book> ImportHTML::GetBook()
 {
     shared_ptr<xc::DOMDocument> document = XhtmlDoc::LoadTextIntoDocument(LoadSource());
     LoadMetadata(*document);
-    UpdateFiles(CreateHTMLResource(), *document, LoadFolderStructure(*document));
+    QString source = XhtmlDoc::GetDomDocumentAsString(*document);
+    UpdateFiles(CreateHTMLResource(), source, LoadFolderStructure(*document));
     return m_Book;
 }
 
@@ -133,17 +134,20 @@ HTMLResource &ImportHTML::CreateHTMLResource()
     Utility::WriteUnicodeTextFile("TEMP_SOURCE", fullfilepath);
     HTMLResource &resource = *qobject_cast<HTMLResource *>(
                                  &m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath));
+    resource.SetCurrentBookRelPath(m_FullFilePath);
     return resource;
 }
 
 
 void ImportHTML::UpdateFiles(HTMLResource &html_resource,
-                             xc::DOMDocument &document,
+                             QString & source, 
                              const QHash<QString, QString> &updates)
 {
     Q_ASSERT(&html_resource != NULL);
     QHash<QString, QString> html_updates;
     QHash<QString, QString> css_updates;
+    QString newsource = source;
+    QString currentpath = html_resource.GetCurrentBookRelPath();
     tie(html_updates, css_updates, boost::tuples::ignore) =
         UniversalUpdates::SeparateHtmlCssXmlUpdates(updates);
     QList<Resource *> all_files = m_Book->GetFolderKeeper().GetResourceList();
@@ -157,11 +161,12 @@ void ImportHTML::UpdateFiles(HTMLResource &html_resource,
             css_resources.append(qobject_cast<CSSResource *>(resource));
         }
     }
-
+    
     QFutureSynchronizer<void> sync;
     sync.addFuture(QtConcurrent::map(css_resources,
                                      boost::bind(UniversalUpdates::LoadAndUpdateOneCSSFile, _1, css_updates)));
-    html_resource.SetText(XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates(document, html_updates, css_updates)().get()));
+    html_resource.SetText(PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath)());
+    html_resource.SetCurrentBookRelPath("");
     sync.waitForFinished();
 }
 
