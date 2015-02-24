@@ -228,8 +228,7 @@ QHash<QString, QString> ImportEPUB::ParseEncryptionXml()
             if (encryption.name() == "EncryptionMethod") {
                 encryption_algo = encryption.attributes().value("", "Algorithm").toString();
             } else if (encryption.name() == "CipherReference") {
-                uri = m_ExtractedFolderPath + "/" +
-                      Utility::URLDecodePath(encryption.attributes().value("", "URI").toString());
+                uri = Utility::URLDecodePath(encryption.attributes().value("", "URI").toString());
                 encrypted_files[ uri ] = encryption_algo;
             }
         }
