@@ -172,7 +172,7 @@ else()
 
             if(NOT EXISTS "${PYTHON_LIBRARY}")
               set(_PYTHON_SHORT_VERSION_NO_DOT "${_PYTHON_MAJOR_VERSION}${_PYTHON_MINOR_VERSION}")
-              set(_PYTHON_LIBRARY_NAMES python${_PYTHON_SHORT_VERSION} python${_PYTHON_SHORT_VERSION_NO_DOT})
+              set(_PYTHON_LIBRARY_NAMES python${_PYTHON_SHORT_VERSION} python${_PYTHON_SHORT_VERSION_NO_DOT} python${_PYTHON_SHORT_VERSION}m python${_PYTHON_SHORT_VERSION_NO_DOT}m)
               FIND_LIBRARY(PYTHON_LIBRARY
                 NAMES ${_PYTHON_LIBRARY_NAMES}
                 PATH_SUFFIXES
@@ -180,13 +180,15 @@ else()
                 python${_PYTHON_SHORT_VERSION_NO_DOT}/config
                 PATHS
                 ${_PYTHON_LIBRARY_DIR}
-                ${_PYTHON_PREFIX}/lib $
-                {_PYTHON_PREFIX}/libs
+                ${_PYTHON_LIBRARY_DIR}/x86_64-linux-gnu
+                ${_PYTHON_LIBRARY_DIR}/i386-linux-gnu
+                ${_PYTHON_PREFIX}/lib
+                ${_PYTHON_PREFIX}/libs
                 NO_DEFAULT_PATH)
 
               if(WIN32)
                 find_library(PYTHON_DEBUG_LIBRARY
-                  NAMES python${_PYTHON_SHORT_VERSION_NO_DOT}_d python
+                  NAMES python${_PYTHON_SHORT_VERSION_NO_DOT}_d python${_PYTHON_SHORT_VERSION_NO_DOT} python 
                   PATHS
                   [HKEY_LOCAL_MACHINE\\SOFTWARE\\Python\\PythonCore\\${_CURRENT_VERSION}\\InstallPath]/libs/Debug
                   [HKEY_CURRENT_USER\\SOFTWARE\\Python\\PythonCore\\${_CURRENT_VERSION}\\InstallPath]/libs/Debug
