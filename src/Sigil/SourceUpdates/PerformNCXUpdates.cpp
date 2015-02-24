@@ -23,7 +23,7 @@
 
 PerformNCXUpdates::PerformNCXUpdates(const QString &source,
                                      const QHash<QString, QString> &xml_updates)
-    : PerformXMLUpdates(source, xml_updates)
+  : PerformXMLUpdates(source, xml_updates)
 {
     InitPathTags();
 }

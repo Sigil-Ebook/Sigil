@@ -37,6 +37,7 @@ Resource::Resource(const QString &mainfolder, const QString &fullfilepath, QObje
     m_Identifier(Utility::CreateUUID()),
     m_MainFolder(mainfolder),
     m_FullFilePath(fullfilepath),
+    m_CurrentBookRelPath(""),
     m_LastSaved(0),
     m_LastWrittenTo(0),
     m_LastWrittenSize(0),
@@ -101,6 +102,21 @@ QString Resource::GetFullPath() const
 QUrl Resource::GetBaseUrl() const
 {
     return QUrl::fromLocalFile(QFileInfo(m_FullFilePath).absolutePath() + "/");
+}
+
+
+void Resource::SetCurrentBookRelPath(const QString& current_path)
+{
+    m_CurrentBookRelPath = current_path;
+}
+
+
+QString Resource::GetCurrentBookRelPath()
+{
+  if (m_CurrentBookRelPath.isEmpty()) {
+      return GetRelativePathToRoot();
+  }
+  return m_CurrentBookRelPath;
 }
 
 

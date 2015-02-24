@@ -1016,11 +1016,11 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
     if (html_updates.isEmpty()) {
         html_resource->SetText(CleanSource::Clean(section_info.source));
     } else {
-        html_resource->SetText(
-            XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates(CleanSource::Clean(section_info.source),
+        QString currentpath = html_resource->GetCurrentBookRelPath();
+        html_resource->SetText(PerformHTMLUpdates(CleanSource::Clean(section_info.source),
                                              html_updates,
-                                             QHash<QString, QString>()
-                                                                )().get()));
+                                             QHash<QString, QString>(), currentpath)() );
+        html_resource->SetCurrentBookRelPath("");
     }
 
     NewSectionResult section;

@@ -19,51 +19,32 @@
 **
 *************************************************************************/
 
-#include "BookManipulation/XercesCppUse.h"
-#include "BookManipulation/XhtmlDoc.h"
+#include "Misc/GumboInterface.h"
 #include "SourceUpdates/PerformCSSUpdates.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 
-
 PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
                                        const QHash<QString, QString> &html_updates,
-                                       const QHash<QString, QString> &css_updates)
-    :
-    PerformXMLUpdates(source, html_updates),
-    m_CSSUpdates(css_updates)
+                                       const QHash<QString, QString> &css_updates,
+                                       const QString& currentpath)
+  :
+  m_HTMLUpdates(html_updates),
+  m_CSSUpdates(css_updates),
+  m_CurrentPath(currentpath),
+  m_source(source)
 {
-    InitPathTags();
 }
 
 
-PerformHTMLUpdates::PerformHTMLUpdates(const xc::DOMDocument &document,
-                                       const QHash<QString, QString> &html_updates,
-                                       const QHash<QString, QString> &css_updates)
-    :
-    PerformXMLUpdates(document, html_updates),
-    m_CSSUpdates(css_updates)
+QString PerformHTMLUpdates::operator()()
 {
-    InitPathTags();
-}
-
-
-shared_ptr<xc::DOMDocument> PerformHTMLUpdates::operator()()
-{
-    UpdateXMLReferences();
-
+    QString newsource = m_source;
+    GumboInterface gi = GumboInterface(newsource);
+    gi.parse();
+    newsource = gi.perform_updates(m_HTMLUpdates, m_CurrentPath);
     if (!m_CSSUpdates.isEmpty()) {
-        m_Document = XhtmlDoc::LoadTextIntoDocument(
-                         PerformCSSUpdates(XhtmlDoc::GetDomDocumentAsString(*m_Document), m_CSSUpdates)());
+        newsource = PerformCSSUpdates(newsource, m_CSSUpdates)();
     }
-
-    return m_Document;
+    return newsource;
 }
 
-
-void PerformHTMLUpdates::InitPathTags()
-{
-    // We look at a different set of tags
-    // This is the list of tags whose contents will be scanned for file references
-    // that need to be updated.
-    m_PathTags = QStringList() << "audio" << "link" << "a" << "img" << "image" << "script" << "video";
-}

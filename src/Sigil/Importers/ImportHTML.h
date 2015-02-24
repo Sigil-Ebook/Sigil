@@ -62,7 +62,7 @@ private:
     HTMLResource &CreateHTMLResource();
 
     void UpdateFiles(HTMLResource &html_resource,
-                     xc::DOMDocument &document,
+                     QString &source,
                      const QHash<QString, QString> &updates);
 
     // Loads the referenced files into the main folder of the book;

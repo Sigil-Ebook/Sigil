@@ -131,6 +131,7 @@ tuple <QHash<QString, QString>,
       QHash<QString, QString>>
       UniversalUpdates::SeparateHtmlCssXmlUpdates(const QHash<QString, QString> &updates)
 {
+    QString supdates;
     QHash<QString, QString> html_updates = updates;
     QHash<QString, QString> css_updates;
     QHash<QString, QString> xml_updates;
@@ -140,8 +141,13 @@ tuple <QHash<QString, QString>,
     for (int i = 0; i < num_keys; ++i) {
         QString key_path = keys.at(i);
         QString extension = QFileInfo(key_path).suffix().toLower();
+        supdates += key_path;
+        supdates += QString(" : ");
+        supdates += html_updates.value(key_path);
+        supdates += QString("\n");
         // The OPF and NCX files are in the OEBPS folder along with the content folders.
         // This means that the "../" prefix is unnecessary and wrong.
+
         xml_updates[ key_path ] = QString(html_updates.value(key_path)).remove(QRegularExpression("^../"));
 
         // Font file updates are CSS updates, not HTML updates
@@ -156,7 +162,6 @@ tuple <QHash<QString, QString>,
             css_updates[ key_path ] = html_updates.value(key_path);
         }
     }
-
     return make_tuple(html_updates, css_updates, xml_updates);
 }
 
@@ -171,9 +176,12 @@ QString UniversalUpdates::UpdateOneHTMLFile(HTMLResource *html_resource,
 
     try {
         QWriteLocker locker(&html_resource->GetLock());
-        shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-        shared_ptr<xc::DOMDocument> u = PerformHTMLUpdates(*d.get(), html_updates, css_updates)();
-        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*u.get()));
+        QString currentpath = html_resource->GetCurrentBookRelPath();
+        QString source = html_resource->GetText();
+        QString newsource = source;
+        newsource = PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath)();
+        html_resource->SetText(newsource);
+        html_resource->SetCurrentBookRelPath("");
         return QString();
     } catch (const ErrorBuildingDOM &) {
         // It would be great if we could just let this exception bubble up,
@@ -208,6 +216,8 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         return QString();
     }
 
+    QString currentpath = html_resource->GetCurrentBookRelPath();
+
     // non_well_formed will only be set if the user has chosen not to have
     // the file auto fixed.
     if (non_well_formed.contains(html_resource)) {
@@ -227,7 +237,8 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
             throw QObject::tr(NON_WELL_FORMED_MESSAGE);
         }
 
-        source = XhtmlDoc::GetDomDocumentAsString(*PerformHTMLUpdates(source, html_updates, css_updates)().get());
+        source = PerformHTMLUpdates(source, html_updates, css_updates, currentpath)();
+        html_resource->SetCurrentBookRelPath("");
         // For files that are valid we need to do a second clean because Xerces (PerformHTMLUpdates) will remove
         // the formatting.
         if (ss.cleanOn() & CLEANON_OPEN) {

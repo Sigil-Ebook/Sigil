@@ -23,6 +23,10 @@
 #include <QStringList>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QDir>
+#include <QFileInfo>
+
+#include "Misc/Utility.h"
 
 #include "GumboInterface.h"
 #include "string_buffer.h"
@@ -33,6 +37,15 @@ static std::string empty_tags          = "|area|base|basefont|bgsound|br|command
 static std::string preserve_whitespace = "|pre|textarea|script|style|";
 static std::string special_handling    = "|html|body|";
 static std::string no_entity_sub       = "|script|style|";
+static std::string href_src_tags       = "|a|audio|image|img|link|script|video|";
+
+static const QChar POUND_SIGN    = QChar::fromLatin1('#');
+static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
+static const std::string SRC = std::string("src");
+static const std::string HREF = std::string("href");
+
+
+static QHash<QString,QString> EmptyHash = QHash<QString,QString>();
 
 // Note: m_output contains the gumbo output tree which 
 // has data structures with pointers into the original source
@@ -45,11 +58,12 @@ static std::string no_entity_sub       = "|script|style|";
 // have properly destroyed the gumbo output tree
 
 GumboInterface::GumboInterface(const QString &source)
-        : m_source(""),
+        : m_source(source),
           m_output(NULL),
+          m_updates(EmptyHash),
+          m_currentdir(""),
           m_utf8src("")
 {
-    m_source = source;
 }
 
 
@@ -89,6 +103,25 @@ QString GumboInterface::repair()
 }
 
 
+QString GumboInterface::perform_updates(const QHash<QString, QString>& updates, const QString& my_current_book_relpath)
+{
+    m_updates = updates;
+    m_currentdir = QFileInfo(my_current_book_relpath).dir().path();
+    QString result = "";
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        bool doupdates = true;
+        std::string utf8out = serialize(m_output->document, doupdates);
+        result = QString::fromStdString(utf8out);
+    }
+    return result;
+}
+
+
+#if 0
+// disable this for now as still not quite up to snuff
 QString GumboInterface::prettyprint(QString indent_chars)
 {
     QString result = "";
@@ -102,7 +135,7 @@ QString GumboInterface::prettyprint(QString indent_chars)
     }
     return result;
 }
-
+#endif
 
 QList<GumboWellFormedError> GumboInterface::errors()
 {
@@ -197,7 +230,6 @@ void GumboInterface::ltrimnewlines(std::string &s)
 }
 
 
-
 void GumboInterface::replace_all(std::string &s, const char * s1, const char * s2)
 {
     std::string t1(s1);
@@ -207,6 +239,28 @@ void GumboInterface::replace_all(std::string &s, const char * s1, const char * s
       s.replace(pos, len, s2);
       pos = s.find(t1, pos + len);
     }
+}
+
+
+std::string GumboInterface::update_attribute_value(std::string attvalue)
+{
+    std::string result = attvalue; 
+    QString attpath = Utility::URLDecodePath(QString::fromStdString(attvalue));
+    int fragpos = attpath.lastIndexOf(POUND_SIGN);
+    bool has_fragment = fragpos != -1;
+    QString fragment = "";
+    if (has_fragment) {
+        fragment = attpath.mid(fragpos, -1);
+        attpath = attpath.mid(0, fragpos);
+    }
+    QString search_key = QDir::cleanPath(m_currentdir + FORWARD_SLASH + attpath);
+    QString new_href = m_updates.value(search_key, QString());
+    if (!new_href.isEmpty()) {
+        new_href += fragment;
+        new_href = Utility::URLEncodePath(new_href);
+        result =  new_href.toStdString();
+    } 
+    return result;
 }
 
 
@@ -289,15 +343,20 @@ std::string GumboInterface::build_doctype(GumboNode *node)
 }
 
 
-std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entities)
+std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entities, bool runupdates)
 {
     std::string atts = " ";
     atts.append(at->name);
+    std::string attvalue = at->value;
+
+    if (runupdates && (at->name == HREF || at->name == SRC)) {
+        attvalue = update_attribute_value(attvalue);
+    }
 
     // how do we want to handle attributes with empty values
     // <input type="checkbox" checked />  or <input type="checkbox" checked="" /> 
 
-    if ( (!std::string(at->value).empty())   || 
+    if ( (!attvalue.empty())   || 
          (at->original_value.data[0] == '"') || 
          (at->original_value.data[0] == '\'') ) {
 
@@ -309,9 +368,9 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
         atts.append("=");
         atts.append(qs);
         if (no_entities) {
-            atts.append(at->value);
+            atts.append(attvalue);
         } else {
-            atts.append(substitute_xml_entities_into_attributes(quote, std::string(at->value)));
+            atts.append(substitute_xml_entities_into_attributes(quote, attvalue));
         }
         atts.append(qs);
     }
@@ -322,7 +381,7 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
 // serialize children of a node
 // may be invoked recursively
 
-std::string GumboInterface::serialize_contents(GumboNode* node) {
+std::string GumboInterface::serialize_contents(GumboNode* node, bool doupdates) {
     std::string contents        = "";
     std::string tagname         = get_tag_name(node);
     std::string key             = "|" + tagname + "|";
@@ -344,7 +403,7 @@ std::string GumboInterface::serialize_contents(GumboNode* node) {
             }
 
         } else if (child->type == GUMBO_NODE_ELEMENT || child->type == GUMBO_NODE_TEMPLATE) {
-             contents.append(serialize(child));
+          contents.append(serialize(child, doupdates));
 
         } else if (child->type == GUMBO_NODE_WHITESPACE) {
           // keep all whitespace to keep as close to original as possible
@@ -369,11 +428,11 @@ std::string GumboInterface::serialize_contents(GumboNode* node) {
 // serialize a GumboNode back to html/xhtml
 // may be invoked recursively
 
-std::string GumboInterface::serialize(GumboNode* node) {
+std::string GumboInterface::serialize(GumboNode* node, bool doupdates) {
     // special case the document node
     if (node->type == GUMBO_NODE_DOCUMENT) {
         std::string results = build_doctype(node);
-        results.append(serialize_contents(node));
+        results.append(serialize_contents(node, doupdates));
         return results;
     }
 
@@ -386,12 +445,13 @@ std::string GumboInterface::serialize(GumboNode* node) {
     bool is_empty_tag              = empty_tags.find(key) != std::string::npos;
     bool no_entity_substitution    = no_entity_sub.find(key) != std::string::npos;
     bool is_inline                 = nonbreaking_inline.find(key) != std::string::npos;
+    bool is_href_src_tag           = href_src_tags.find(key) != std::string::npos;
 
     // build attr string  
     const GumboVector * attribs = &node->v.element.attributes;
     for (int i=0; i< attribs->length; ++i) {
         GumboAttribute* at = static_cast<GumboAttribute*>(attribs->data[i]);
-        atts.append(build_attributes(at, no_entity_substitution));
+        atts.append(build_attributes(at, no_entity_substitution, (doupdates && is_href_src_tag) ));
     }
 
     // determine closing tag type
@@ -402,7 +462,7 @@ std::string GumboInterface::serialize(GumboNode* node) {
     }
 
     // serialize your contents
-    std::string contents = serialize_contents(node);
+    std::string contents = serialize_contents(node, doupdates);
 
     if (need_special_handling) {
         ltrimnewlines(contents);
@@ -420,6 +480,9 @@ std::string GumboInterface::serialize(GumboNode* node) {
     return results;
 }
 
+
+#if 0
+// disable this for now as still not quite up to snuff
 
 // prettyprint children of a node
 // may be invoked recursively
@@ -569,4 +632,4 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 
   return results;
 }
-
+#endif

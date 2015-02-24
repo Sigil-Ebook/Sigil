@@ -82,6 +82,10 @@ extern const char         *XHTML_ENTITIES_DTD_ID;
 extern const unsigned int  XHTML_ENTITIES_DTD_LEN;
 extern const unsigned char XHTML_ENTITIES_DTD[];
 
+extern const char         *NCX_2005_1_DTD_ID;
+extern const unsigned int  NCX_2005_1_DTD_LEN;
+extern const unsigned char NCX_2005_1_DTD[];
+
 extern const int PCRE_MAX_CAPTURE_GROUPS;
 
 extern const float ZOOM_STEP;
