@@ -131,7 +131,6 @@ tuple <QHash<QString, QString>,
       QHash<QString, QString>>
       UniversalUpdates::SeparateHtmlCssXmlUpdates(const QHash<QString, QString> &updates)
 {
-    QString supdates;
     QHash<QString, QString> html_updates = updates;
     QHash<QString, QString> css_updates;
     QHash<QString, QString> xml_updates;
@@ -141,10 +140,6 @@ tuple <QHash<QString, QString>,
     for (int i = 0; i < num_keys; ++i) {
         QString key_path = keys.at(i);
         QString extension = QFileInfo(key_path).suffix().toLower();
-        supdates += key_path;
-        supdates += QString(" : ");
-        supdates += html_updates.value(key_path);
-        supdates += QString("\n");
         // The OPF and NCX files are in the OEBPS folder along with the content folders.
         // This means that the "../" prefix is unnecessary and wrong.
 
