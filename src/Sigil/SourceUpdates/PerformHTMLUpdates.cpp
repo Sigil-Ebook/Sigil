@@ -41,7 +41,7 @@ QString PerformHTMLUpdates::operator()()
     QString newsource = m_source;
     GumboInterface gi = GumboInterface(newsource);
     gi.parse();
-    newsource = gi.perform_updates(m_HTMLUpdates, m_CurrentPath);
+    newsource = gi.perform_source_updates(m_HTMLUpdates, m_CurrentPath);
     if (!m_CSSUpdates.isEmpty()) {
         newsource = PerformCSSUpdates(newsource, m_CSSUpdates)();
     }

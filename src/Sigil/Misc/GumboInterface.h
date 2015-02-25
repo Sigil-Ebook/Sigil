@@ -41,24 +41,33 @@ struct GumboWellFormedError {
 class GumboInterface
 {
 public:
+
     GumboInterface(const QString &source);
     ~GumboInterface();
     void    parse();
     QString repair();
-    QString perform_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
+    QString perform_source_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
+    QString perform_link_updates(const QString & newlinks);
     QList<GumboWellFormedError> errors();
     // QString prettyprint(QString indent_chars="  ");
 
 private:
 
+    enum UpdateTypes {
+        NoUpdates      = 0, 
+        SourceUpdates  = 1 <<  0,
+        LinkUpdates    = 1 <<  1,
+        AnchorUpdates  = 1 <<  2
+    };
+
     // QString fix_self_closing_tags(const QString & source);
     // std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
     // std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
 
-    std::string serialize(GumboNode* node, bool doupdates = false);
-    std::string serialize_contents(GumboNode* node, bool doupdates = false);
+    std::string serialize(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
+    std::string serialize_contents(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
     std::string build_doctype(GumboNode *node);
-    std::string build_attributes(GumboAttribute * at, bool no_entities, bool doupdates = false);
+    std::string build_attributes(GumboAttribute * at, bool no_entities, bool runupdates = false);
     std::string update_attribute_value(std::string href);
     std::string get_tag_name(GumboNode *node);
     std::string substitute_xml_entities_into_text(const std::string &text);
@@ -72,6 +81,7 @@ private:
     GumboOutput*   m_output;
     std::string    m_utf8src;
     QHash<QString, QString> & m_updates;
+    std::string     m_newcsslinks;
     QString        m_currentdir;
     
 };

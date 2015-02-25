@@ -32,19 +32,17 @@
 #include "string_buffer.h"
 #include "error.h"
 
-static std::string nonbreaking_inline  = "|a|abbr|acronym|b|bdo|big|cite|code|dfn|em|font|i|img|kbd|nobr|s|small|span|strike|strong|sub|sup|tt|";
-static std::string empty_tags          = "|area|base|basefont|bgsound|br|command|col|embed|event-source|frame|hr|image|img|input|keygen|link|menuitem|meta|param|source|spacer|track|wbr|";
 static std::string preserve_whitespace = "|pre|textarea|script|style|";
 static std::string special_handling    = "|html|body|";
 static std::string no_entity_sub       = "|script|style|";
 static std::string href_src_tags       = "|a|audio|image|img|link|script|video|";
+static std::string nonbreaking_inline  = "|a|abbr|acronym|b|bdo|big|cite|code|dfn|em|font|i|img|kbd|nobr|s|small|span|strike|strong|sub|sup|tt|";
+static std::string empty_tags          = "|area|base|basefont|bgsound|br|command|col|embed|event-source|frame|hr|image|img|input|keygen|link|menuitem|meta|param|source|spacer|track|wbr|";
 
 static const QChar POUND_SIGN    = QChar::fromLatin1('#');
 static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
 static const std::string SRC = std::string("src");
 static const std::string HREF = std::string("href");
-
-
 static QHash<QString,QString> EmptyHash = QHash<QString,QString>();
 
 // Note: m_output contains the gumbo output tree which 
@@ -61,6 +59,7 @@ GumboInterface::GumboInterface(const QString &source)
         : m_source(source),
           m_output(NULL),
           m_updates(EmptyHash),
+          m_newcsslinks(""),
           m_currentdir(""),
           m_utf8src("")
 {
@@ -103,7 +102,7 @@ QString GumboInterface::repair()
 }
 
 
-QString GumboInterface::perform_updates(const QHash<QString, QString>& updates, const QString& my_current_book_relpath)
+QString GumboInterface::perform_source_updates(const QHash<QString, QString>& updates, const QString& my_current_book_relpath)
 {
     m_updates = updates;
     m_currentdir = QFileInfo(my_current_book_relpath).dir().path();
@@ -112,7 +111,23 @@ QString GumboInterface::perform_updates(const QHash<QString, QString>& updates, 
         if (m_output == NULL) {
             parse();
         }
-        bool doupdates = true;
+        enum UpdateTypes doupdates = SourceUpdates;
+        std::string utf8out = serialize(m_output->document, doupdates);
+        result = QString::fromStdString(utf8out);
+    }
+    return result;
+}
+
+
+QString GumboInterface::perform_link_updates(const QString& newcsslinks)
+{
+    m_newcsslinks = newcsslinks.toStdString();
+    QString result = "";
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        enum UpdateTypes doupdates = LinkUpdates;
         std::string utf8out = serialize(m_output->document, doupdates);
         result = QString::fromStdString(utf8out);
     }
@@ -170,48 +185,6 @@ QList<GumboWellFormedError> GumboInterface::errors()
 }
 
 
-#if 0
-// This should no longer be needed but keep it around in case my xhtml parsing
-// support changes in gumbo cause problems later
-
-static QStringList allowed_void_tags = QStringList() << "area"    << "base"     << "basefont" 
-                                                     << "bgsound" << "br"       << "command" 
-                                                     << "col"     << "embed"    << "event-source" 
-                                                     << "frame"   << "hr"       << "image" 
-                                                     << "img"     << "input"    << "keygen" 
-                                                     << "link"    << "menuitem" << "meta" 
-                                                     << "param"   << "source"   << "spacer" 
-                                                     << "track"   << "wbr";
-
-QString GumboInterface::fix_self_closing_tags(const QString &source)
-{
-    QString newsource = source;
-    QRegularExpression selfclosed("<\\s*([a-zA-Z]+)(\\s*[^>/]*)/\\s*>");
-    QRegularExpressionMatch match = selfclosed.match(newsource, 0);
-    while (match.hasMatch()) {
-        if (match.capturedStart() == -1) {
-            break;
-        }
-        QString tag = match.captured(0);
-        int sp = match.capturedStart(0);
-        int n = match.capturedLength(0);
-        QString name = match.captured(1);
-        QString atts = match.captured(2);;
-        atts = atts.trimmed();
-        if (!atts.isEmpty()) {
-            atts = " " + atts;
-        }
-        int nsp = sp + n;
-        if (!allowed_void_tags.contains(tag)) {
-            QString newtag = "<" + name + atts + "></" + name + ">";
-            newsource = newsource.replace(sp,n,newtag);
-            nsp = sp + newtag.length();
-        }
-        match = selfclosed.match(newsource, nsp);
-    }
-    return newsource;
-}
-#endif
 
 void GumboInterface::rtrim(std::string &s) 
 {
@@ -381,7 +354,7 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
 // serialize children of a node
 // may be invoked recursively
 
-std::string GumboInterface::serialize_contents(GumboNode* node, bool doupdates) {
+std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes doupdates) {
     std::string contents        = "";
     std::string tagname         = get_tag_name(node);
     std::string key             = "|" + tagname + "|";
@@ -428,7 +401,7 @@ std::string GumboInterface::serialize_contents(GumboNode* node, bool doupdates) 
 // serialize a GumboNode back to html/xhtml
 // may be invoked recursively
 
-std::string GumboInterface::serialize(GumboNode* node, bool doupdates) {
+std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdates) {
     // special case the document node
     if (node->type == GUMBO_NODE_DOCUMENT) {
         std::string results = build_doctype(node);
@@ -451,7 +424,7 @@ std::string GumboInterface::serialize(GumboNode* node, bool doupdates) {
     const GumboVector * attribs = &node->v.element.attributes;
     for (int i=0; i< attribs->length; ++i) {
         GumboAttribute* at = static_cast<GumboAttribute*>(attribs->data[i]);
-        atts.append(build_attributes(at, no_entity_substitution, (doupdates && is_href_src_tag) ));
+        atts.append(build_attributes(at, no_entity_substitution, ((doupdates & SourceUpdates) && is_href_src_tag) ));
     }
 
     // determine closing tag type
@@ -472,9 +445,21 @@ std::string GumboInterface::serialize(GumboNode* node, bool doupdates) {
 
     // build results
     std::string results;
+
+    if ((doupdates & LinkUpdates) && (tagname == "link") && 
+        (node->parent->type == GUMBO_NODE_ELEMENT) && 
+        (node->parent->v.element.tag == GUMBO_TAG_HEAD)) {
+      return "";
+    }
+
     results.append("<"+tagname+atts+close+">");
     if (need_special_handling) results.append("\n");
     results.append(contents);
+
+    if ((doupdates & LinkUpdates) && (tagname == "head")) {
+        results.append(m_newcsslinks);
+    }
+
     results.append(closeTag);
     if (need_special_handling) results.append("\n");
     return results;
@@ -631,5 +616,48 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
   }
 
   return results;
+}
+#endif
+
+#if 0
+// This should no longer be needed but keep it around in case my xhtml parsing
+// support changes in gumbo cause problems later
+
+static QStringList allowed_void_tags = QStringList() << "area"    << "base"     << "basefont" 
+                                                     << "bgsound" << "br"       << "command" 
+                                                     << "col"     << "embed"    << "event-source" 
+                                                     << "frame"   << "hr"       << "image" 
+                                                     << "img"     << "input"    << "keygen" 
+                                                     << "link"    << "menuitem" << "meta" 
+                                                     << "param"   << "source"   << "spacer" 
+                                                     << "track"   << "wbr";
+
+QString GumboInterface::fix_self_closing_tags(const QString &source)
+{
+    QString newsource = source;
+    QRegularExpression selfclosed("<\\s*([a-zA-Z]+)(\\s*[^>/]*)/\\s*>");
+    QRegularExpressionMatch match = selfclosed.match(newsource, 0);
+    while (match.hasMatch()) {
+        if (match.capturedStart() == -1) {
+            break;
+        }
+        QString tag = match.captured(0);
+        int sp = match.capturedStart(0);
+        int n = match.capturedLength(0);
+        QString name = match.captured(1);
+        QString atts = match.captured(2);;
+        atts = atts.trimmed();
+        if (!atts.isEmpty()) {
+            atts = " " + atts;
+        }
+        int nsp = sp + n;
+        if (!allowed_void_tags.contains(tag)) {
+            QString newtag = "<" + name + atts + "></" + name + ">";
+            newsource = newsource.replace(sp,n,newtag);
+            nsp = sp + newtag.length();
+        }
+        match = selfclosed.match(newsource, nsp);
+    }
+    return newsource;
 }
 #endif

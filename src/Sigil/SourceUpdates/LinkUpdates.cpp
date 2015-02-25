@@ -26,17 +26,13 @@
 #include <QtCore/QString>
 #include <QtConcurrent/QtConcurrent>
 
-#include "BookManipulation/XercesCppUse.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "Misc/Utility.h"
+#include "Misc/GumboInterface.h"
 #include "sigil_constants.h"
 #include "SourceUpdates/LinkUpdates.h"
 
 using boost::shared_ptr;
-
-static QString HTML_XML_NAMESPACE = "http://www.w3.org/1999/xhtml";
-
 
 void LinkUpdates::UpdateLinksInAllFiles(const QList<HTMLResource *> &html_resources, const QList<QString> new_stylesheets)
 {
@@ -46,38 +42,16 @@ void LinkUpdates::UpdateLinksInAllFiles(const QList<HTMLResource *> &html_resour
 void LinkUpdates::UpdateLinksInOneFile(HTMLResource *html_resource, QList<QString> new_stylesheets)
 {
     Q_ASSERT(html_resource);
-    QWriteLocker locker(&html_resource->GetLock());
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    xc::DOMDocument &document = *d.get();
-    // head should only appear once
-    xc::DOMNodeList *heads = document.getElementsByTagName(QtoX("head"));
-    xc::DOMElement &head_element = *static_cast<xc::DOMElement *>(heads->item(0));
-    // We only want links in the head
-    xc::DOMNodeList *links = head_element.getElementsByTagName(QtoX("link"));
-    // Remove the old stylesheet links
-    // Link count is dynamic
-    uint links_count = links->getLength();
 
-    for (uint i = 0; i < links_count; i++) {
-        // Always delete the top element since list is dynamic
-        xc::DOMElement &element = *static_cast<xc::DOMElement *>(links->item(0));
-        Q_ASSERT(&element);
-
-        if (element.hasAttribute(QtoX("type")) &&
-            XtoQ(element.getAttribute(QtoX("type"))) == "text/css" &&
-            element.hasAttribute(QtoX("rel")) &&
-            XtoQ(element.getAttribute(QtoX("rel"))) == "stylesheet") {
-            head_element.removeChild(&element);
-        }
-    }
-
-    // Add the new stylesheet links
+    QString newcsslinks;
+    // build the new stylesheet links
     foreach(QString stylesheet, new_stylesheets) {
-        xc::DOMElement *element = document.createElementNS(QtoX(HTML_XML_NAMESPACE), QtoX("link"));
-        element->setAttribute(QtoX("href"), QtoX(stylesheet));
-        element->setAttribute(QtoX("type"), QtoX("text/css"));
-        element->setAttribute(QtoX("rel"),  QtoX("stylesheet"));
-        head_element.appendChild(element);
+        newcsslinks += "<link href=\"" + stylesheet + "\" type=\"text/css\" rel=\"stylesheet\"/>\n";
     }
-    html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+    QWriteLocker locker(&html_resource->GetLock());
+    QString newsource = html_resource->GetText();
+    GumboInterface gi = GumboInterface(newsource);
+    gi.parse();
+    newsource = gi.perform_link_updates(newcsslinks);
+    html_resource->SetText(newsource);
 }
