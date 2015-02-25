@@ -80,6 +80,12 @@ void GumboInterface::parse()
 {
     if (!m_source.isEmpty() && (m_output == NULL)) {
         m_utf8src = m_source.toStdString();
+        // remove any xml header line and any trailing whitespace
+        if (m_utf8src.compare(0,5,"<?xml") == 0) {
+            size_t end = m_utf8src.find_first_of('>', 5);
+            end = m_utf8src.find_first_not_of("\n\r\t ",end+1);
+            m_utf8src.erase(0,end);
+        }
         GumboOptions myoptions = kGumboDefaultOptions;
         myoptions.use_xhtml_rules = true;
         myoptions.tab_stop = 4;
@@ -135,55 +141,80 @@ QString GumboInterface::perform_link_updates(const QString& newcsslinks)
 }
 
 
-#if 0
-// disable this for now as still not quite up to snuff
-QString GumboInterface::prettyprint(QString indent_chars)
-{
-    QString result = "";
-    if (!m_source.isEmpty()) {
-        if (m_output == NULL) {
-            parse();
-        }
-        std::string ind = indent_chars.toStdString();
-        std::string utf8out = prettyprint(m_output->document, 0, ind);
-        result = QString::fromStdString(utf8out);
-    }
-    return result;
-}
-#endif
-
-QList<GumboWellFormedError> GumboInterface::errors()
+QList<GumboWellFormedError> GumboInterface::error_check()
 {
     QList<GumboWellFormedError> errlist;
-    if (!m_source.isEmpty()) {
-        if (m_output == NULL) {
-            parse();
+    int line_offset = 0;
+    GumboOptions myoptions = kGumboDefaultOptions;
+    myoptions.use_xhtml_rules = true;
+    myoptions.tab_stop = 4;
+    // leave this as false to prevent pre-mature stopping when no error exists
+    myoptions.stop_on_first_error = false;
+
+    if (!m_source.isEmpty() && (m_output == NULL)) {
+        m_utf8src = m_source.toStdString();
+        // remove any xml header line and trailing whitespace
+        if (m_utf8src.compare(0,5,"<?xml") == 0) {
+            size_t end = m_utf8src.find_first_of('>', 0);
+            end = m_utf8src.find_first_not_of("\n\r\t ",end+1);
+            m_utf8src.erase(0,end);
+            line_offset++;
         }
-        GumboOptions myoptions = kGumboDefaultOptions;
-        myoptions.use_xhtml_rules = true;
-        myoptions.tab_stop = 4;
-        // leave this as false to prevent pre-mature stopping when no error exists
-        myoptions.stop_on_first_error = false;
-        const GumboVector* errors  = &m_output->errors;
-        for (int i=0; i< errors->length; ++i) {
-          GumboError* er = static_cast<GumboError*>(errors->data[i]);
-          GumboWellFormedError gperror;
-          gperror.line = er->position.line;
-          gperror.column = er->position.column;
-          unsigned int typenum = er->type;
-          GumboStringBuffer text;
-          gumbo_string_buffer_init(&text);
-          gumbo_error_to_string(er, &text);
-          std::string errmsg(text.data, text.length);
-          gperror.message = QString::fromStdString(errmsg);
-          gumbo_string_buffer_destroy(&text);
-          // gumbo_print_caret_diagnostic(er, contents.c_str());
-          errlist.append(gperror);
+        // add in doctype if missing
+        if ((m_utf8src.compare(0,9,"<!DOCTYPE") != 0) && (m_utf8src.compare(0,9,"<!doctype") != 0)) {
+            m_utf8src.insert(0,"<!DOCTYPE html>\n");
+            line_offset--;
         }
+        m_output = gumbo_parse_with_options(&myoptions, m_utf8src.data(), m_utf8src.length());
+    }
+    const GumboVector* errors  = &m_output->errors;
+    for (int i=0; i< errors->length; ++i) {
+        GumboError* er = static_cast<GumboError*>(errors->data[i]);
+        GumboWellFormedError gperror;
+        gperror.line = er->position.line + line_offset;;
+        gperror.column = er->position.column;
+        unsigned int typenum = er->type;
+        GumboStringBuffer text;
+        gumbo_string_buffer_init(&text);
+        gumbo_error_to_string(er, &text);
+        std::string errmsg(text.data, text.length);
+        gperror.message = QString::fromStdString(errmsg);
+        gumbo_string_buffer_destroy(&text);
+        errlist.append(gperror);
     }
     return errlist;
 }
 
+
+QStringList GumboInterface::get_all_values_for_attribute(const QString& attname)
+{
+    QStringList attrvals;
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        attrvals = get_values_for_attr(m_output->root, attname.toUtf8()); 
+    }
+    return attrvals;
+}
+
+
+QStringList  GumboInterface::get_values_for_attr(GumboNode* node, const char* attr_name) 
+{
+  if (node->type != GUMBO_NODE_ELEMENT) {
+    return QStringList();
+  }
+  QStringList attr_vals;
+  GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, attr_name);
+  if (attr != NULL) {
+      attr_vals.append(QString::fromUtf8(attr->value));
+  }
+  GumboVector* children = &node->v.element.children;
+  for (int i = 0; i < children->length; ++i) {
+      attr_vals.append(get_values_for_attr(static_cast<GumboNode*>(children->data[i]), attr_name));
+  }
+  return attr_vals;
+}
 
 
 void GumboInterface::rtrim(std::string &s) 
@@ -196,6 +227,7 @@ void GumboInterface::ltrim(std::string &s)
 {
     s.erase(0,s.find_first_not_of(" \n\r\t"));
 }
+
 
 void GumboInterface::ltrimnewlines(std::string &s)
 {
@@ -469,6 +501,20 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
 #if 0
 // disable this for now as still not quite up to snuff
 
+QString GumboInterface::prettyprint(QString indent_chars)
+{
+    QString result = "";
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        std::string ind = indent_chars.toStdString();
+        std::string utf8out = prettyprint(m_output->document, 0, ind);
+        result = QString::fromStdString(utf8out);
+    }
+    return result;
+}
+
 // prettyprint children of a node
 // may be invoked recursively
 
@@ -617,7 +663,10 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 
   return results;
 }
+
 #endif
+
+
 
 #if 0
 // This should no longer be needed but keep it around in case my xhtml parsing

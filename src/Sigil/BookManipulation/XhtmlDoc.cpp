@@ -47,6 +47,7 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
+#include "Misc/GumboInterface.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -473,8 +474,8 @@ int XhtmlDoc::NodeColumnNumber(const xc::DOMNode &node)
 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
 {
-// FC
 #if 0
+// FC
     boost::scoped_ptr<xc::SAX2XMLReader> parser(xc::XMLReaderFactory::createXMLReader());
     parser->setFeature(xc::XMLUni::fgSAX2CoreValidation,            false);
     parser->setFeature(xc::XMLUni::fgXercesSchema,                  false);
@@ -517,9 +518,20 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
         error.message = QString::fromUtf8(results[ 0 ].GetMessage().data());
         return error;
     }
+#else
+    GumboInterface gi = GumboInterface(source);
+    QList<GumboWellFormedError> results = gi.error_check();
+    if (!results.isEmpty()) {
+        XhtmlDoc::WellFormedError error;
+        error.line    = results.at(0).line;
+        error.column  = results.at(0).column;
+        error.message = QString(results.at(0).message);
+        return error;
+    }
 #endif
     return XhtmlDoc::WellFormedError();
 }
+
 
 bool XhtmlDoc::IsDataWellFormed(const QString &data)
 {

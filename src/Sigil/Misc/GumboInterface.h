@@ -48,7 +48,8 @@ public:
     QString repair();
     QString perform_source_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
     QString perform_link_updates(const QString & newlinks);
-    QList<GumboWellFormedError> errors();
+    QStringList get_all_values_for_attribute(const QString & attname);
+    QList<GumboWellFormedError> error_check();
     // QString prettyprint(QString indent_chars="  ");
 
 private:
@@ -64,6 +65,7 @@ private:
     // std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
     // std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
 
+    QStringList get_values_for_attr(GumboNode* node, const char* attr_name);
     std::string serialize(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
     std::string serialize_contents(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
     std::string build_doctype(GumboNode *node);

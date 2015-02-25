@@ -31,6 +31,7 @@
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
+#include "Misc/GumboInterface.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "sigil_constants.h"
@@ -92,8 +93,10 @@ tuple<QString, QList<QString>> AnchorUpdates::GetOneFileIDs(HTMLResource *html_r
 {
     Q_ASSERT(html_resource);
     QReadLocker locker(&html_resource->GetLock());
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    QList<QString> ids = XhtmlDoc::GetAllDescendantIDs(*d.get()->getDocumentElement());
+    QString newsource = html_resource->GetText();
+    GumboInterface gi = GumboInterface(newsource);
+    gi.parse();
+    QList<QString> ids = gi.get_all_values_for_attribute(QString("id"));
     return make_tuple(html_resource->Filename(), ids);
 }
 
