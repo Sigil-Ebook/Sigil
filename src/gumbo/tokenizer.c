@@ -686,7 +686,11 @@ static void start_new_tag(GumboParser* parser, bool is_start_tag) {
   gumbo_string_buffer_append_codepoint(c, &tag_state->_buffer);
 
   assert(tag_state->_attributes.data == NULL);
-  gumbo_vector_init(4, &tag_state->_attributes);
+  // Initial size chosen by statistical analysis of a corpus of 60k webpages.
+  // 99.5% of elements have 0 elements, 93% of the remainder have 1.  These
+  // numbers are a bit higher for more modern websites (eg. ~45% = 0, ~40% = 1
+  // for the HTML5 Spec), but still have basically 99% of nodes with <= 2 attrs.
+  gumbo_vector_init(2, &tag_state->_attributes);
   tag_state->_drop_next_attr_value = false;
   tag_state->_is_start_tag = is_start_tag;
   tag_state->_is_self_closing = false;
