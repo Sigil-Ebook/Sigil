@@ -42,12 +42,9 @@ QStringList UILanguage::GetPossibleTranslationPaths()
     // The user can specify an env variable that points to the translation.
     if (!sigil_extra_root.isEmpty()) {
         possible_qm_locations.append(sigil_extra_root + "/translations/");
+    } else {
+        possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/../share/sigil/translations/");
     }
-
-    // Possible location if the user installed from source.
-    // This really should be changed to be passed the install prefix given to
-    // cmake instead of guessing based upon the executable path.
-    possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/translations/");
 #endif
 
     possible_qm_locations.append(QLibraryInfo::location(QLibraryInfo::TranslationsPath));

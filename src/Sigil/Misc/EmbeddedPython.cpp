@@ -118,19 +118,30 @@ EmbeddedPython::~EmbeddedPython()
 
 QString EmbeddedPython::embeddedRoot()
 {
-    QString embedded_root = QCoreApplication::applicationDirPath();
+    QString     embedded_root;
+    QStringList embedded_roots;
+    QDir        d;
 
 #ifdef Q_OS_MAC
-    embedded_root += "/../python3lib/";
+    embedded_roots.append(QCoreApplication::applicationDirPath() + "/../python3lib/");
 #elif defined(Q_OS_WIN32)
-    embedded_root += "/python3lib/";
+    embedded_roots.append(QCoreApplication::applicationDirPath() + "/python3lib/");
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // all flavours of linux / unix
-    embedded_root += "/../share/" + QCoreApplication::applicationName().toLower() + "/python3lib/";
     if (!sigil_extra_root.isEmpty()) {
-        embedded_root = sigil_extra_root + "/python3lib/";
+        embedded_roots.append(sigil_extra_root + "/python3lib/");
+    } else {
+        embedded_root.append(QCoreApplication::applicationDirPath() + "/../share/sigil/python3lib/");
     }
 #endif
+    
+    Q_FOREACH (QString s, embedded_roots) {
+        if (d.exists(s)) {
+            embedded_root = s;
+            break;
+        }
+    }
+
     QDir base(embedded_root);
     return base.absolutePath();
 }

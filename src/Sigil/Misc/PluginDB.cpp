@@ -73,24 +73,32 @@ QString PluginDB::pluginsPath()
 
 QString PluginDB::launcherRoot()
 {
-    QString launcher_root;
-
-    launcher_root = QCoreApplication::applicationDirPath();
+    QString     launcher_root;
+    QStringList launcher_roots;
+    QDir        d;
 
 #ifdef Q_OS_MAC
-    launcher_root += "/../plugin_launchers/";
+    launcher_roots.append(QCoreApplication::applicationDirPath() + "/../plugin_launchers/");
 #elif defined(Q_OS_WIN32)
-    launcher_root += "/plugin_launchers/";
+    launcher_roots.append(QCoreApplication::applicationDirPath() + "/plugin_launchers/");
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    // all flavours of linux / unix
-    launcher_root += "/../share/" + QCoreApplication::applicationName().toLower() + "/plugin_launchers/";
     // user supplied environment variable to plugin launcher directory will overrides everything
     if (!sigil_extra_root.isEmpty()) {
         launcher_root = sigil_extra_root += "/plugin_launchers/";
+    } else {
+        launcher_roots += QCoreApplication::applicationDirPath() + "/../share/sigil/plugin_launchers/";
     }
 #endif
 
-    return launcher_root;
+    Q_FOREACH (QString s, launcher_roots) {
+        if (d.exists(s)) {
+            launcher_root = s;
+            break;
+        }
+    }
+
+    QDir base(launcher_root);
+    return base.absolutePath();
 }
 
 void PluginDB::load_plugins_from_disk(bool force)

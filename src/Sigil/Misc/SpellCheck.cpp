@@ -331,12 +331,9 @@ void SpellCheck::loadDictionaryNames()
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     if (!sigil_extra_root.isEmpty()) {
         paths.append(sigil_extra_root + "/hunspell_dictionaries/");
+    } else {
+        paths.append(QCoreApplication::applicationDirPath() + "/../share/sigil/hunspell_dictionaries/");
     }
-
-    // Possible location if the user installed from source.
-    // This really should be changed to be passed the install prefix given to
-    // cmake instead of guessing based upon the executable path.
-    paths.append(QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/hunspell_dictionaries/");
 #endif
     // Add the user dictionary directory last because anything in here
     // will override installation supplied dictionaries.
