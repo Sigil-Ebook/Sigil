@@ -973,7 +973,6 @@ if( UNIX AND NOT APPLE )
     set( LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED ${CMAKE_BINARY_DIR}/sigil-sh_install_configured )
     set( LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED ${CMAKE_BINARY_DIR}/sigil-sh_pkg_configured )
     set( SIGIL_EXECUTABLE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
-    set( DESTINATION_EXECUTABLE_NAME ${PROJECT_NAME}-real )
 
     # Specify platform var for dpkg-deb
     if ( 64_BIT_PLATFORM )
@@ -1026,98 +1025,98 @@ if( UNIX AND NOT APPLE )
 
     # Copy Qt runtime libs
     set( QT_LIBS Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5OpenGL Qt5Multimedia Qt5MultimediaWidgets Qt5Positioning Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sensors Qt5Sql Qt5Svg Qt5WebChannel Qt5WebKit Qt5WebKitWidgets Qt5Widgets Qt5Xml Qt5XmlPatterns )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/lib/sigil/ )
     foreach( lib ${QT_LIBS} )
 	find_package( ${lib} )
 	string( REPLACE "Qt5" "" classname ${lib} )
 	get_target_property( location Qt5::${classname} LOCATION_Release )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/lib${lib}.so.5 )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/lib/sigil/lib${lib}.so.5 )
     endforeach( lib)
     
     # Copy ICU libs
     set( QT_ICU_LIBS icudata icui18n icuuc )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/lib/sigil/ )
     foreach( lib ${QT_ICU_LIBS} )
         set( location location-NOTFOUND )
         find_file( location lib${lib}.so.53 PATHS ${QT_LIBRARY_DIR} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/lib/sigil/ )
     endforeach( lib )
 
     # Copy iconengines plugins
     set( QT_ICONENGINES qsvgicon )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/iconengines/ )
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/lib/sigil/iconengines/ )
     foreach( lib ${QT_ICONENGINES} )
         set( location location-NOTFOUND )
         find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/iconengines/ )
 	add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/iconengines/ )
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/lib/sigil/iconengines/ )
     endforeach( lib )    
 
     # Copy imageformats plugins
     set( QT_IMAGEFORMATS qgif qico qjpeg qmng qsvg qtiff qtga qwbmp )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/imageformats/ )
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/lib/sigil/imageformats/ )
     foreach( lib ${QT_IMAGEFORMATS} )   
         set( location location-NOTFOUND )
         find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/imageformats/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/imageformats/ )
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/lib/sigil/imageformats/ )
     endforeach( lib )
 
     # Copy platform plugins
     set( QT_PLATFORMS qminimal qxcb qoffscreen qminimalegl qlinuxfb qeglfs)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/platforms/ )
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/lib/sigil/platforms/ )
     foreach( lib ${QT_PLATFORMS} )   
         set( location location-NOTFOUND )
         find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/platforms/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/platforms/ )
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/lib/sigil/platforms/ )
     endforeach( lib )
         
     # Copy platformtheme plugins
     set( QT_PLATFORMTHEMES qgtk2)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/platformthemes/ )
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/lib/sigil/platformthemes/ )
     foreach( lib ${QT_PLATFORMTHEMES} )   
         set( location location-NOTFOUND )
         find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/platformthemes/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/platformthemes/ )
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/lib/sigil/platformthemes/ )
     endforeach( lib )
     
     # Copy platforminputcontexts plugins
     set( QT_PLATFORMINPUTCONTEXTS composeplatforminputcontextplugin ibusplatforminputcontextplugin)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/platforminputcontexts/ )
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/lib/sigil/platforminputcontexts/ )
     foreach( lib ${QT_PLATFORMINPUTCONTEXTS} )   
         set( location location-NOTFOUND )
         find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/platforminputcontexts/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/platforminputcontexts/ )
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/lib/sigil/platforminputcontexts/ )
     endforeach( lib )
 
     # Copy printsupport plugins
     set( QT_PRINTSUPPORT cupsprintersupport )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/printsupport/ )
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/lib/sigil/printsupport/ )
     foreach( lib ${QT_PRINTSUPPORT} )   
         set( location location-NOTFOUND )
         find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/printsupport/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/printsupport/ )
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/lib/sigil/printsupport/ )
     endforeach( lib )
 
     # Copy sqldrivers plugins
     set( QT_SQLDRIVERS qsqlite qsqlmysql qsqlpsql )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/sqldrivers/ )
+                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/lib/sigil/sqldrivers/ )
     foreach( lib ${QT_SQLDRIVERS} )   
         set( location location-NOTFOUND )
         find_file( location lib${lib}.so PATHS ${QT_PLUGINS_DIR}/sqldrivers/ )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/share/sigil/sqldrivers/ )
+                            COMMAND cmake -E copy ${location} ${DEB_TREE_ROOT}/lib/sigil/sqldrivers/ )
     endforeach( lib )
 
     # Copy the translation qm files
@@ -1160,7 +1159,7 @@ if( UNIX AND NOT APPLE )
 
     # Copy the application executable
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${SIGIL_EXECUTABLE} ${DEB_TREE_ROOT}/lib/sigil/${DESTINATION_EXECUTABLE_NAME} )
+                        COMMAND cmake -E copy ${SIGIL_EXECUTABLE} ${DEB_TREE_ROOT}/lib/sigil/ )
 
     # Copy the Unix launcher that sets the proper environment variables before launching the real Sigil binary
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
@@ -1201,7 +1200,7 @@ if( UNIX AND NOT APPLE )
 
     # Standard Linux 'make install'
     install( PROGRAMS ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/ RENAME ${PROJECT_NAME} )
-    install( PROGRAMS ${SIGIL_EXECUTABLE} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ RENAME ${DESTINATION_EXECUTABLE_NAME} )
+    install( PROGRAMS ${SIGIL_EXECUTABLE} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
     install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications/ )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations/ )

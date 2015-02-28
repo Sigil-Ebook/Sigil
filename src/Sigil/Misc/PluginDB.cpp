@@ -29,6 +29,7 @@
 #include "Misc/PluginDB.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "sigil_constants.h"
 
 PluginDB *PluginDB::m_instance = 0;
 
@@ -84,10 +85,10 @@ QString PluginDB::launcherRoot()
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // user supplied environment variable to plugin launcher directory will overrides everything
     if (!sigil_extra_root.isEmpty()) {
-        launcher_root = sigil_extra_root += "/plugin_launchers/";
+        launcher_root = sigil_extra_root + "/plugin_launchers/";
     } else {
-        launcher_roots += QCoreApplication::applicationDirPath() + "/../../share/sigil/plugin_launchers/";
-        launcher_roots += QCoreApplication::applicationDirPath() + "/../share/sigil/plugin_launchers/";
+        launcher_roots.append(QCoreApplication::applicationDirPath() + "/../../share/sigil/plugin_launchers/");
+        launcher_roots.append(QCoreApplication::applicationDirPath() + "/../share/sigil/plugin_launchers/");
     }
 #endif
 

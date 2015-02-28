@@ -31,6 +31,7 @@
 #include <QStandardPaths>
 #include <QDir>
 #include "Misc/Utility.h"
+#include "sigil_constants.h"
 
 /**
  * Possibly Useful QMetaTypes::Type types
