@@ -27,8 +27,6 @@
 #include <xercesc/dom/DOMDocument.hpp>
 #include <xercesc/dom/DOMNodeList.hpp>
 #include <xercesc/dom/DOMNamedNodeMap.hpp>
-#include <boost/foreach.hpp> 
-#define foreach BOOST_FOREACH
 
 extern const char *LOCATION_INFO_KEY;
 
@@ -193,10 +191,13 @@ bool ElementListContains( std::vector< xc::DOMElement* > element_list,
 xc::DOMNode* GetFirstAvailableElement( const std::vector< QName > &element_qnames,
                                        const xc::DOMDocument &document )
 {
-    foreach( QName element_qname, element_qnames )
-    {
+    size_t cnt;
+    size_t i;
+
+    cnt = element_qnames.size();
+    for (i = 0; i < cnt; i++) {
         xc::DOMNodeList *matching_nodes = document.getElementsByTagNameNS(
-               toX( element_qname.namespace_name ),  toX( element_qname.local_name ) );
+               toX( element_qnames.at(i).namespace_name ),  toX( element_qnames.at(i).local_name ) );
 
         if ( matching_nodes->getLength() > 0 )
 
