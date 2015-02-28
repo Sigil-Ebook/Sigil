@@ -101,19 +101,17 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    xc::DOMDocument &document = *d.get();
-    xc::DOMNodeList *anchors  = document.getElementsByTagName(QtoX("a"));
+    GumboInterface gi = GumboInterface(html_resource->GetText());
+    gi.parse();
+    const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     const QString &resource_filename = html_resource->Filename();
     bool is_changed = false;
 
-    for (uint i = 0; i < anchors->getLength(); ++i) {
-        xc::DOMElement &element = *static_cast<xc::DOMElement *>(anchors->item(i));
-        Q_ASSERT(&element);
-
-        if (element.hasAttribute(QtoX("href")) &&
-            QUrl(XtoQ(element.getAttribute(QtoX("href")))).isRelative()) {
-            QString href = XtoQ(element.getAttribute(QtoX("href")));
+    for (uint i = 0; i < anchor_nodes.length(); ++i) {
+        GumboNode* node = anchor_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+        if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
+            QString href = QString::fromUtf8(attr->value);
             QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
 
             if (parts.length() > 1) {
@@ -128,7 +126,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
                                               .append(Utility::URLEncodePath(file_id))
                                               .append("#")
                                               .append(fragment_id);
-                    element.setAttribute(QtoX("href"), QtoX(attribute_value));
+                    gumbo_attribute_set_value(attr, attribute_value.toUtf8());
                     is_changed = true;
                 }
             }
@@ -136,7 +134,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
     }
 
     if (is_changed) {
-        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+        html_resource->SetText(gi.gettext());
     }
 }
 
@@ -145,22 +143,21 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    xc::DOMDocument &document = *d.get();
-    xc::DOMNodeList *anchors  = document.getElementsByTagName(QtoX("a"));
+    GumboInterface gi = GumboInterface(html_resource->GetText());
+    gi.parse();
+    const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     QString original_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % originating_filename;
     bool is_changed = false;
 
-    for (uint i = 0; i < anchors->getLength(); ++i) {
-        xc::DOMElement &element = *static_cast<xc::DOMElement *>(anchors->item(i));
-        Q_ASSERT(&element);
+    for (uint i = 0; i < anchor_nodes.length(); ++i) {
+        GumboNode* node = anchor_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
 
         // We're only interested in hrefs of the form "originating_filename#fragment_id".
         // But must be wary of hrefs that are "originating_filename", "originating_filename#" or "#fragment_id"
         // First, we find the hrefs that are relative and contain a fragment id.
-        if (element.hasAttribute(QtoX("href")) &&
-            QUrl(XtoQ(element.getAttribute(QtoX("href")))).isRelative()) {
-            QString href = XtoQ(element.getAttribute(QtoX("href")));
+        if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
+            QString href = QString::fromUtf8(attr->value);
             QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
 
             // If the href pointed to the original file then update the file_id.
@@ -172,14 +169,14 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
                                           .append(Utility::URLEncodePath(ID_locations.value(fragment_id)))
                                           .append("#")
                                           .append(fragment_id);
-                element.setAttribute(QtoX("href"), QtoX(attribute_value));
+                gumbo_attribute_set_value(attr, attribute_value.toUtf8());
                 is_changed = true;
             }
         }
     }
 
     if (is_changed) {
-        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+        html_resource->SetText(gi.gettext());
     }
 }
 
@@ -191,27 +188,27 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    xc::DOMDocument &document = *d.get();
-    xc::DOMNodeList *anchors  = document.getElementsByTagName(QtoX("a"));
+    GumboInterface gi = GumboInterface(html_resource->GetText());
+    gi.parse();
+    const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     bool is_changed = false;
 
-    for (uint i = 0; i < anchors->getLength(); ++i) {
-        xc::DOMElement &element = *static_cast<xc::DOMElement *>(anchors->item(i));
-        Q_ASSERT(&element);
+    for (uint i = 0; i < anchor_nodes.length(); ++i) {
+        GumboNode* node = anchor_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
 
         // We find the hrefs that are relative and contain an href.
-        if (element.hasAttribute(QtoX("href")) &&
-            QUrl(XtoQ(element.getAttribute(QtoX("href")))).isRelative()) {
+        if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
+            QString href = QString::fromUtf8(attr->value);
+
             // Is this href in the form "originating_filename#fragment_id" or "originating_filename" or "#fragment_id"?
-            QString href = XtoQ(element.getAttribute(QtoX("href")));
             QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
 
             // If the href pointed to the original file then update the file_id.
             if (originating_filename_links.contains(parts.at(0))) {
                 if (parts.count() == 1 || parts.at(1).isEmpty()) {
                     // This is a straight href with no anchor fragment
-                    element.setAttribute(QtoX("href"), QtoX(new_filename));
+                    gumbo_attribute_set_value(attr, new_filename.toUtf8());
                 } else {
                     // Rather than using parts.at(1) we will allow a # being part of the anchor
                     QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
@@ -221,16 +218,15 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
                                               .append(Utility::URLEncodePath(ID_locations.value(fragment_id)))
                                               .append("#")
                                               .append(fragment_id);
-                    element.setAttribute(QtoX("href"), QtoX(attribute_value));
+                    gumbo_attribute_set_value(attr, attribute_value.toUtf8());
                 }
-
                 is_changed = true;
             }
         }
     }
 
     if (is_changed) {
-        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+        html_resource->SetText(gi.gettext());
     }
 }
 

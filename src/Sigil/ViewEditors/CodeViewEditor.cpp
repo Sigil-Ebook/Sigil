@@ -22,8 +22,6 @@
 **
 *************************************************************************/
 
-#include <boost/shared_ptr.hpp>
-
 #include <QtCore/QFileInfo>
 #include <QtGui/QContextMenuEvent>
 #include <QtCore/QSignalMapper>
@@ -2233,7 +2231,7 @@ QList<ViewEditor::ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QS
 
 std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const
 {
-    shared_ptr<xc::DOMDocument> dom = XhtmlDoc::LoadTextIntoDocument(toPlainText());
+    std::shared_ptr<xc::DOMDocument> dom = XhtmlDoc::LoadTextIntoDocument(toPlainText());
     xc::DOMNode *end_node = XhtmlDoc::GetNodeFromHierarchy(*dom, hierarchy);
     QTextCursor cursor(document());
 

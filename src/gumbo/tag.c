@@ -19,6 +19,7 @@
 
 #include <assert.h>
 #include <ctype.h>
+#include <stdint.h>
 #include <strings.h>    // For strcasecmp.
 #include <string.h>    // For strcasecmp.
 
@@ -26,6 +27,12 @@ const char* kGumboTagNames[] = {
 # include "tag_strings.h"
   "",                   // TAG_UNKNOWN
   "",                   // TAG_LAST
+};
+
+static const uint8_t kGumboTagSizes[] = {
+# include "tag_sizes.h"
+  0, // TAG_UNKNOWN
+  0, // TAG_LAST
 };
 
 const char* gumbo_normalized_tagname(GumboTag tag) {
@@ -84,7 +91,9 @@ case_memcmp(const char *s1, const char *s2, int n)
 
 GumboTag gumbo_tagn_enum(const char* tagname, int length) {
   int position = perfhash((const unsigned char *)tagname, length);
-  if (position >= 0 && !case_memcmp(tagname, kGumboTagNames[position], length))
+  if (position >= 0 &&
+      length == kGumboTagSizes[position] &&
+      !case_memcmp(tagname, kGumboTagNames[position], length))
     return (GumboTag)position;
   return GUMBO_TAG_UNKNOWN;
 }

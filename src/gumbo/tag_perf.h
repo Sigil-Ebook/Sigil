@@ -1,12 +1,4 @@
 /*
- * http://www.ibiblio.org/pub/Linux/devel/lang/c/!INDEX.short.html
- * mph-1.2.tar.gz
- *
- * Generated with `mph`
- * ./mph -d2 -m2 -c1.33 < tag.in | emitc -s -l
- */
-
-/*
  * d=2
  * n=340
  * m=255
@@ -18,7 +10,7 @@
  * maxchar=121
  * loop=0
  * numiter=331446
- * seed=
+ * seed=0
  */
 
 static int g[] = {
@@ -96,22 +88,23 @@ static int T1[] = {
 	55, 43, 162, 233, 
 };
 
-#define uchar unsigned char
+#ifndef perfhash_tolower
+#define perfhash_tolower(c) tolower(c)
+#endif
 
-static int
-perfhash(const uchar *key, int len)
+static int perfhash(const unsigned char *key, int len)
 {
 	int i;
-        int n;
+	int n;
 	unsigned f0, f1;
-	const uchar *kp = key;
+	const unsigned char *kp = key;
 
 	if (len < 1 || len > 22)
 		return -1;
 
-	for (i=-45, n=0, f0=f1=0; n < len; ++n) {
-                int c = kp[n];
-                c = tolower(c);
+	for (i=-45, f0=f1=0, n=0; n<len; ++n) {
+		int c = kp[n];
+		c = perfhash_tolower(c);
 		if (c < 45 || c > 121)
 			return -1;
 		f0 += T0[i + c];
