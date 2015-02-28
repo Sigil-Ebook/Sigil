@@ -13,9 +13,9 @@ fi
 
 # Create an environment var for SIGIL_PLUGIN_LAUNCHERS
 # since we've relocated the "real" sigil binary.
-if [ -z "$SIGIL_ENV_ROOT" ]; then
-  SIGIL_ENV_ROOT="$QTLIB_DIR"
-  export SIGIL_ENV_ROOT
+if [ -z "$SIGIL_EXTRA_ROOT" ]; then
+  SIGIL_EXTRA_ROOT="$QTLIB_DIR"
+  export SIGIL_EXTRA_ROOT
 fi
 export LD_LIBRARY_PATH
 
