@@ -121,7 +121,7 @@ FolderKeeper::~FolderKeeper()
 Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, const QString &mimetype)
 {
     if (!QFileInfo(fullfilepath).exists()) {
-        boost_throw(FileDoesNotExist() << errinfo_file_name(fullfilepath.toStdString()));
+        throw(FileDoesNotExist(fullfilepath.toStdString()));
     }
 
     QString new_file_path;
@@ -307,7 +307,7 @@ Resource &FolderKeeper::GetResourceByFilename(const QString &filename) const
             return *resource;
         }
     }
-    boost_throw(ResourceDoesNotExist() << errinfo_resource_name(filename.toStdString()));
+    throw(ResourceDoesNotExist(filename.toStdString()));
 }
 
 

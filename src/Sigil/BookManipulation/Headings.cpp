@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <memory>
+
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
@@ -68,7 +70,7 @@ QList<Headings::Heading> Headings::GetHeadingListForOneFile(HTMLResource *html_r
     Q_ASSERT(html_resource);
     // We have to store the shared pointer and then reference it otherwise it will
     // not a have reference and the DOMDocument will be destroyed.
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    std::shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
     const xc::DOMDocument &document = *d.get();
     QList<xc::DOMElement *> dom_elements = XhtmlDoc::GetTagMatchingDescendants(document, "body");
 

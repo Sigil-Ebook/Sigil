@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <QtCore/QtCore>
 #include <QtCore/QFutureSynchronizer>
@@ -43,8 +43,6 @@
 #include "SourceUpdates/PerformNCXUpdates.h"
 #include "SourceUpdates/PerformOPFUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
-
-using boost::shared_ptr;
 
 #define NON_WELL_FORMED_MESSAGE "Cannot perform HTML updates since the file is not well formed"
 
@@ -173,7 +171,7 @@ QString UniversalUpdates::UpdateOneHTMLFile(HTMLResource *html_resource,
         html_resource->SetText(newsource);
         html_resource->SetCurrentBookRelPath("");
         return QString();
-    } catch (const ErrorBuildingDOM &) {
+    } catch (ErrorBuildingDOM) {
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
@@ -236,12 +234,12 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         }
         html_resource->SetText(source);
         return QString();
-    } catch (const ErrorBuildingDOM &) {
+    } catch (ErrorBuildingDOM) {
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
         return QString(QObject::tr("Invalid HTML file: %1")).arg(html_resource->Filename());
-    } catch (const QString &err) {
+    } catch (QString err) {
         return QString("%1: %2").arg(err).arg(html_resource->Filename());
     } catch (...) {
         return QString("Cannot perform HTML updates there was an unrecoverable error: %1").arg(html_resource->Filename());
@@ -273,10 +271,10 @@ QString UniversalUpdates::UpdateOPFFile(OPFResource *opf_resource,
     const QString &source = opf_resource->GetText();
 
     try {
-        shared_ptr<xc::DOMDocument> document = PerformOPFUpdates(source, xml_updates)();
+        std::shared_ptr<xc::DOMDocument> document = PerformOPFUpdates(source, xml_updates)();
         opf_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*document.get()));
         return QString();
-    } catch (const ErrorBuildingDOM &) {
+    } catch (ErrorBuildingDOM) {
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
@@ -296,10 +294,10 @@ QString UniversalUpdates::UpdateNCXFile(NCXResource *ncx_resource,
     const QString &source = ncx_resource->GetText();
 
     try {
-        shared_ptr<xc::DOMDocument> document = PerformNCXUpdates(source, xml_updates)();
+        std::shared_ptr<xc::DOMDocument> document = PerformNCXUpdates(source, xml_updates)();
         ncx_resource->SetText(CleanSource::PrettifyDOCTYPEHeader(XhtmlDoc::GetDomDocumentAsString(*document.get())));
         return QString();
-    } catch (const ErrorBuildingDOM &) {
+    } catch (ErrorBuildingDOM) {
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.

@@ -19,8 +19,6 @@
 **
 *************************************************************************/
 
-#include <boost/shared_ptr.hpp>
-
 #include <QtCore/QtCore>
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
@@ -42,8 +40,6 @@
 #include "SourceUpdates/AnchorUpdates.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
-
-using boost::shared_ptr;
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
 static const QString FIRST_SVG_NAME   = "Image0001.svg";
@@ -872,7 +868,7 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     {
         // Load our DOMDocument just once up front for our sink resource we are merging into
         QWriteLocker sink_locker(&sink_html_resource.GetLock());
-        shared_ptr<xc::DOMDocument> sink_d = XhtmlDoc::LoadTextIntoDocument(sink_html_resource.GetText());
+        std::shared_ptr<xc::DOMDocument> sink_d = XhtmlDoc::LoadTextIntoDocument(sink_html_resource.GetText());
         xc::DOMDocument &sink_dom        = *sink_d.get();
         xc::DOMNodeList &sink_body_nodes = *sink_dom.getElementsByTagName(QtoX("body"));
         xc::DOMNode &sink_body_node      = *sink_body_nodes.item(0);
@@ -897,7 +893,7 @@ Resource *Book::MergeResources(QList<Resource *> resources)
 
             // Get the html document for this source resource.
             QWriteLocker source_locker(&source_html_resource.GetLock());
-            shared_ptr<xc::DOMDocument> sd = XhtmlDoc::LoadTextIntoDocument(source_html_resource.GetText());
+            std::shared_ptr<xc::DOMDocument> sd = XhtmlDoc::LoadTextIntoDocument(source_html_resource.GetText());
             const xc::DOMDocument &source_dom  = *sd.get();
             xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName(QtoX("body"));
 

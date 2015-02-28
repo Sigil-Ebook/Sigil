@@ -111,7 +111,7 @@ void OPFModel::SortHTML(QList <QModelIndex> index_list)
 QModelIndex OPFModel::GetFirstHTMLModelIndex()
 {
     if (!m_TextFolderItem.hasChildren()) {
-        boost_throw(NoHTMLFiles());
+        throw(NoHTMLFiles(""));
     }
 
     return m_TextFolderItem.child(0)->index();

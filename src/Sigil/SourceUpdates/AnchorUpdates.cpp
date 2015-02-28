@@ -19,7 +19,8 @@
 **
 *************************************************************************/
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
+
 #include "Misc/EmbeddedPython.h"
 #include <QtCore/QtCore>
 #include <QtCore/QString>
@@ -32,8 +33,6 @@
 #include "ResourceObjects/NCXResource.h"
 #include "sigil_constants.h"
 #include "SourceUpdates/AnchorUpdates.h"
-
-using boost::shared_ptr;
 
 void AnchorUpdates::UpdateAllAnchorsWithIDs(const QList<HTMLResource *> &html_resources)
 {
@@ -263,7 +262,6 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
                                        error_traceback);
       // an error happened - make no changes
       return;
-
     }
     ncx_resource->SetText(res.toString());
 }

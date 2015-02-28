@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <memory>
+
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 #include <QtCore/QStringList>
@@ -54,7 +56,7 @@ PerformXMLUpdates::PerformXMLUpdates(const xc::DOMDocument &document,
 }
 
 
-shared_ptr<xc::DOMDocument> PerformXMLUpdates::operator()()
+std::shared_ptr<xc::DOMDocument> PerformXMLUpdates::operator()()
 {
     UpdateXMLReferences();
     return m_Document;
@@ -66,7 +68,7 @@ void PerformXMLUpdates::UpdateXMLReferences()
     xc::DOMElement *document_element = m_Document->getDocumentElement();
 
     if (!document_element) {
-        boost_throw(ErrorBuildingDOM());
+        throw(ErrorBuildingDOM(""));
     }
 
     QList<xc::DOMElement *> nodes = XhtmlDoc::GetTagMatchingDescendants(*document_element, m_PathTags);

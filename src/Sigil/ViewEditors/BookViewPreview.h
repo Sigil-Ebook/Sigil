@@ -22,15 +22,13 @@
 #ifndef BOOKVIEWPREVIEW_H
 #define BOOKVIEWPREVIEW_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <QtCore/QMap>
 #include <QtWebKitWidgets/QWebView>
 
 #include "BookManipulation/XercesHUse.h"
 #include "ViewEditors/ViewEditor.h"
-
-using boost::shared_ptr;
 
 class QSize;
 class ViewWebPage;
@@ -267,7 +265,7 @@ private:
         /**
          *  A DOM document with the loaded text.
          */
-        shared_ptr<xc::DOMDocument> document;
+        std::shared_ptr<xc::DOMDocument> document;
     };
 
     /**

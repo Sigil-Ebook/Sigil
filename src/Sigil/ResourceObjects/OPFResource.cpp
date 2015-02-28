@@ -20,6 +20,8 @@
 **
 *************************************************************************/
 
+#include <memory>
+
 // XercesExtensions
 #include <XmlUtils.h>
 
@@ -94,7 +96,7 @@ Resource::ResourceType OPFResource::Type() const
 GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource &resource) const
 {
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     return GetGuideSemanticTypeForResource(resource, *document);
 }
 
@@ -108,7 +110,7 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
     QHash <QString, QString> semantic_types;
 
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
 
     QList<xc::DOMElement *> references =
         XhtmlDoc::GetTagMatchingDescendants(*document, "reference", OPF_XML_NAMESPACE);
@@ -151,7 +153,7 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
     QHash <Resource *, int> reading_order;
 
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
 
     QList<xc::DOMElement *> itemrefs =
         XhtmlDoc::GetTagMatchingDescendants(*document, "itemref", OPF_XML_NAMESPACE);
@@ -174,7 +176,7 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
 int OPFResource::GetReadingOrder(const ::HTMLResource &html_resource) const
 {
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     const Resource &resource = *static_cast<const Resource *>(&html_resource);
     QString resource_id = GetResourceManifestID(resource, *document);
     QList<xc::DOMElement *> itemrefs =
@@ -195,7 +197,7 @@ int OPFResource::GetReadingOrder(const ::HTMLResource &html_resource) const
 QString OPFResource::GetMainIdentifierValue() const
 {
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     return XtoQ(GetMainIdentifier(*document).getTextContent());
 }
 
@@ -213,7 +215,7 @@ QString OPFResource::GetUUIDIdentifierValue()
 {
     EnsureUUIDIdentifierPresent();
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QList<xc::DOMElement *> identifiers =
         XhtmlDoc::GetTagMatchingDescendants(*document, "identifier", DUBLIN_CORE_NS);
     foreach(xc::DOMElement * identifier, identifiers) {
@@ -233,7 +235,7 @@ QString OPFResource::GetUUIDIdentifierValue()
 void OPFResource::EnsureUUIDIdentifierPresent()
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QList<xc::DOMElement *> identifiers = XhtmlDoc::GetTagMatchingDescendants(*document, "identifier", DUBLIN_CORE_NS);
 
     foreach(xc::DOMElement *identifier, identifiers) {
@@ -253,7 +255,7 @@ QString OPFResource::AddNCXItem(const QString &ncx_path)
     QWriteLocker locker(&GetLock());
     QString path_to_oebps_folder = QFileInfo(GetFullPath()).absolutePath() + "/";
     QString ncx_oebps_path  = Utility::URLEncodePath(QString(ncx_path).remove(path_to_oebps_folder));
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QHash<QString, QString> attributes;
     attributes[ "id"         ] = GetUniqueID("ncx", *document);
     attributes[ "href"       ] = Utility::URLEncodePath(ncx_oebps_path);
@@ -272,7 +274,7 @@ QString OPFResource::AddNCXItem(const QString &ncx_path)
 void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     xc::DOMElement *spine = GetSpineElement(*document);
     if (!spine) {
         return;
@@ -288,7 +290,7 @@ void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
 void OPFResource::UpdateNCXLocationInManifest(const ::NCXResource &ncx)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     xc::DOMElement *spine = GetSpineElement(*document);
     QString ncx_id = XtoQ(spine->getAttribute(QtoX("toc")));
     QList<xc::DOMElement *> items = XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
@@ -307,7 +309,7 @@ void OPFResource::UpdateNCXLocationInManifest(const ::NCXResource &ncx)
 void OPFResource::AddSigilVersionMeta()
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QList<xc::DOMElement *> metas =
         XhtmlDoc::GetTagMatchingDescendants(*document, "meta", OPF_XML_NAMESPACE);
     foreach(xc::DOMElement * meta, metas) {
@@ -334,7 +336,7 @@ void OPFResource::AddSigilVersionMeta()
 bool OPFResource::IsCoverImage(const ::ImageResource &image_resource) const
 {
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     return IsCoverImageCheck(image_resource, *document);
 }
 
@@ -359,7 +361,7 @@ bool OPFResource::IsCoverImageCheck(QString resource_id, xc::DOMDocument &docume
 bool OPFResource::CoverImageExists() const
 {
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     return GetCoverMeta(*document) != NULL;
 }
 
@@ -374,7 +376,7 @@ void OPFResource::AutoFixWellFormedErrors()
 QStringList OPFResource::GetSpineOrderFilenames() const
 {
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QList<xc::DOMElement *> items =
         XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
     QHash<QString, QString> id_to_filename_mapping;
@@ -400,7 +402,7 @@ QStringList OPFResource::GetSpineOrderFilenames() const
 void OPFResource::SetSpineOrderFromFilenames(const QStringList spineOrder)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QList<xc::DOMElement *> items =
         XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
     QHash<QString, QString> filename_to_id_mapping;
@@ -443,7 +445,7 @@ void OPFResource::SetSpineOrderFromFilenames(const QStringList spineOrder)
 QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
 {
     QReadLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QList<xc::DOMElement *> dc_elements =
         XhtmlDoc::GetTagMatchingDescendants(*document, "*", DUBLIN_CORE_NS);
     QList<Metadata::MetaElement> metadata;
@@ -474,7 +476,7 @@ QList<QVariant> OPFResource::GetDCMetadataValues(QString text) const
 void OPFResource::SetDCMetadata(const QList<Metadata::MetaElement> &metadata)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     RemoveDCElements(*document);
     foreach(Metadata::MetaElement book_meta, metadata) {
         MetadataDispatcher(book_meta, *document);
@@ -487,7 +489,7 @@ void OPFResource::SetDCMetadata(const QList<Metadata::MetaElement> &metadata)
 void OPFResource::AddResource(const Resource &resource)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QHash<QString, QString> attributes;
     attributes[ "id"         ] = GetUniqueID(GetValidID(resource.Filename()), *document);
     attributes[ "href"       ] = Utility::URLEncodePath(resource.GetRelativePathToOEBPS());
@@ -540,7 +542,7 @@ void OPFResource::AddCoverMetaForImage(const Resource &resource, xc::DOMDocument
 void OPFResource::RemoveResource(const Resource &resource)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document  = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document  = GetDocument();
     xc::DOMElement *manifest                = GetManifestElement(*document);
     if (!manifest) {
         return;
@@ -578,7 +580,7 @@ void OPFResource::AddGuideSemanticType(
     GuideSemantics::GuideSemanticType new_type)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document         = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document         = GetDocument();
     GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource(html_resource, *document);
 
     if (current_type != new_type) {
@@ -598,7 +600,7 @@ void OPFResource::AddGuideSemanticType(
 void OPFResource::SetResourceAsCoverImage(const ::ImageResource &image_resource)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
 
     if (IsCoverImageCheck(image_resource, *document)) {
         RemoveCoverMetaForImage(image_resource, *document);
@@ -613,7 +615,7 @@ void OPFResource::SetResourceAsCoverImage(const ::ImageResource &image_resource)
 void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QHash<::HTMLResource *, xc::DOMElement *> itemref_mapping = GetItemrefsForHTMLResources(html_files, *document);
     xc::DOMElement *spine = GetSpineElement(*document);
     if (!spine) {
@@ -634,7 +636,7 @@ void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 void OPFResource::ResourceRenamed(const Resource &resource, QString old_full_path)
 {
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QString path_to_oebps_folder = QFileInfo(GetFullPath()).absolutePath() + "/";
     QString resource_oebps_path  = Utility::URLEncodePath(QString(old_full_path).remove(path_to_oebps_folder));
     QList<xc::DOMElement *> items =
@@ -716,13 +718,13 @@ void OPFResource::UpdateItemrefID(const QString &old_id, const QString &new_id, 
 }
 
 
-shared_ptr<xc::DOMDocument> OPFResource::GetDocument() const
+std::shared_ptr<xc::DOMDocument> OPFResource::GetDocument() const
 {
     // The call to ProcessXML is needed because even though we have well-formed
     // checks tied to "focus lost" events of the OPF tab, on Win XP those events
     // are sometimes not delivered at all. Blame MS. In the mean time, this
     // work-around makes sure we get valid XML into Xerces no matter what.
-    shared_ptr<xc::DOMDocument> document =
+    std::shared_ptr<xc::DOMDocument> document =
         XhtmlDoc::LoadTextIntoDocument(CleanSource::ProcessXML(GetText()));
 
     if (!BasicStructurePresent(*document)) {
@@ -1195,7 +1197,7 @@ void OPFResource::AddModificationDateMeta()
     // the epub spec.
     QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
     QWriteLocker locker(&GetLock());
-    shared_ptr<xc::DOMDocument> document = GetDocument();
+    std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QList<xc::DOMElement *> metas =
         XhtmlDoc::GetTagMatchingDescendants(*document, "date", DUBLIN_CORE_NS);
     foreach(xc::DOMElement * meta, metas) {
@@ -1279,7 +1281,7 @@ bool OPFResource::BasicStructurePresent(const xc::DOMDocument &document)
     return true;
 }
 
-shared_ptr<xc::DOMDocument> OPFResource::CreateOPFFromScratch(const xc::DOMDocument *d) const
+std::shared_ptr<xc::DOMDocument> OPFResource::CreateOPFFromScratch(const xc::DOMDocument *d) const
 {
     xc::DOMElement *elem;
     QList<xc::DOMElement *> children;
@@ -1415,7 +1417,7 @@ shared_ptr<xc::DOMDocument> OPFResource::CreateOPFFromScratch(const xc::DOMDocum
     .replace("</guide>", guide_content + "</guide>")
     .replace("<guide>\n\n</guide>\n\n", "");
 
-    shared_ptr<xc::DOMDocument> document = XhtmlDoc::LoadTextIntoDocument(xml_source);
+    std::shared_ptr<xc::DOMDocument> document = XhtmlDoc::LoadTextIntoDocument(xml_source);
     document->setXmlStandalone(true);
     return document;
 }

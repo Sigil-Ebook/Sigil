@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QString>
@@ -33,8 +33,6 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_exception.h"
-
-using boost::shared_ptr;
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
 const QString XML_NAMESPACE_CRUFT = "xmlns=\"http://www.w3.org/1999/xhtml\"";
@@ -107,7 +105,7 @@ QStringList HTMLResource::SplitOnSGFSectionMarkers()
 QStringList HTMLResource::GetPathsToLinkedResources()
 {
     QStringList linked_resources;
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(GetText());
+    std::shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(GetText());
     xc::DOMDocument &document = *d.get();
     QStringList tags = QStringList() << "link" << "img";
     Q_FOREACH(QString tag, tags) {

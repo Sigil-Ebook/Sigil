@@ -106,11 +106,8 @@ void FontObfuscation::ObfuscateFile(const QString &filepath,
     if (!QFileInfo(filepath).exists() ||
         algorithm.isEmpty()             ||
         identifier.isEmpty()) {
-        boost_throw(FontObfuscationError()
-                    << errinfo_font_filepath(filepath.toStdString())
-                    << errinfo_font_obfuscation_algorithm(algorithm.toStdString())
-                    << errinfo_font_obfuscation_key(identifier.toStdString())
-                   );
+        std::string msg = filepath.toStdString() + ": " + algorithm.toStdString() + ": " + identifier.toStdString();
+        throw(FontObfuscationError(msg));
     }
 
     if (algorithm == ADOBE_FONT_ALGO_ID) {
@@ -118,11 +115,8 @@ void FontObfuscation::ObfuscateFile(const QString &filepath,
     } else if (algorithm == IDPF_FONT_ALGO_ID) {
         IdpfObfuscate(filepath, identifier);
     } else {
-        boost_throw(FontObfuscationError()
-                    << errinfo_font_filepath(filepath.toStdString())
-                    << errinfo_font_obfuscation_algorithm(algorithm.toStdString())
-                    << errinfo_font_obfuscation_key(identifier.toStdString())
-                   );
+        std::string msg = filepath.toStdString() + ": " + algorithm.toStdString() + ": " + identifier.toStdString();
+        throw(FontObfuscationError(msg));
     }
 }
 

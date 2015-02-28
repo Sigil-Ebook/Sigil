@@ -48,7 +48,7 @@ ImportTXT::ImportTXT(const QString &fullfilepath)
 QSharedPointer<Book> ImportTXT::GetBook()
 {
     if (!Utility::IsFileReadable(m_FullFilePath)) {
-        boost_throw(CannotReadFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
+        throw(CannotReadFile(m_FullFilePath.toStdString()));
     }
 
     QString source = LoadSource();

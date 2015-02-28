@@ -29,6 +29,8 @@
 #include "iowin32.h"
 #endif
 
+#include <string>
+
 #include <QApplication>
 #include <QtCore/QtCore>
 #include <QtCore/QDir>
@@ -104,7 +106,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     SettingsStore ss;
 
     if (!Utility::IsFileReadable(m_FullFilePath)) {
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot read EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
+        throw (EPUBLoadParseError(QString(QObject::tr("Cannot read EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
     }
 
     // These read the EPUB file
@@ -112,7 +114,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     QHash<QString, QString> encrypted_files = ParseEncryptionXml();
 
     if (BookContentEncrypted(encrypted_files)) {
-        boost_throw(FileEncryptedWithDrm());
+        throw (FileEncryptedWithDrm(""));
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -237,7 +239,7 @@ QHash<QString, QString> ImportEPUB::ParseEncryptionXml()
                               .arg(encryption.lineNumber())
                               .arg(encryption.columnNumber())
                               .arg(encryption.errorString());
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(error.toStdString()));
+        throw (EPUBLoadParseError(error.toStdString()));
     }
 
     return encrypted_files;
@@ -365,7 +367,7 @@ void ImportEPUB::ExtractContainer()
 #endif
 
     if (zfile == NULL) {
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot unzip EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
+        throw (EPUBLoadParseError(QString(QObject::tr("Cannot unzip EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
     }
 
     res = unzGoToFirstFile(zfile);
@@ -405,7 +407,7 @@ void ImportEPUB::ExtractContainer()
                 // Open the file entry in the archive for reading.
                 if (unzOpenCurrentFile(zfile) != UNZ_OK) {
                     unzClose(zfile);
-                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
+                    throw (EPUBLoadParseError(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
 
                 // Open the file on disk to write the entry in the archive to.
@@ -414,7 +416,7 @@ void ImportEPUB::ExtractContainer()
                 if (!entry.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
                     unzCloseCurrentFile(zfile);
                     unzClose(zfile);
-                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
+                    throw (EPUBLoadParseError(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
 
                 // Buffered reading and writing.
@@ -431,7 +433,7 @@ void ImportEPUB::ExtractContainer()
                 if (read < 0) {
                     unzCloseCurrentFile(zfile);
                     unzClose(zfile);
-                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
+                    throw (EPUBLoadParseError(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
 
                 // The file was read but the CRC did not match.
@@ -439,7 +441,7 @@ void ImportEPUB::ExtractContainer()
                 // because if they're different there should be a CRC error.
                 if (unzCloseCurrentFile(zfile) == UNZ_CRCERROR) {
                     unzClose(zfile);
-                    boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
+                    throw (EPUBLoadParseError(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
 
                 if (!cp437_file_name.isEmpty() && cp437_file_name != qfile_name) {
@@ -452,7 +454,7 @@ void ImportEPUB::ExtractContainer()
 
     if (res != UNZ_END_OF_LIST_OF_FILE) {
         unzClose(zfile);
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(QString(QObject::tr("Cannot open EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
+        throw (EPUBLoadParseError(QString(QObject::tr("Cannot open EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
     }
 
     unzClose(zfile);
@@ -474,9 +476,8 @@ void ImportEPUB::LocateOPF()
         }
 
         if (OPFfile.isEmpty()) {
-            boost_throw(CannotOpenFile()
-                        << errinfo_file_fullpath(fullpath.toStdString())
-                        << errinfo_file_errorstring("Missing and no OPF in archive."));
+            std::string msg = fullpath.toStdString() + ": " + tr("Missing and no OPF in archive.").toStdString();
+            throw (CannotOpenFile(msg));
         }
 
         // Create a default container.xml.
@@ -509,12 +510,11 @@ void ImportEPUB::LocateOPF()
                               .arg(container.lineNumber())
                               .arg(container.columnNumber())
                               .arg(container.errorString());
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(error.toStdString()));
+        throw (EPUBLoadParseError(error.toStdString()));
     }
 
     if (m_OPFFilePath.isEmpty() || !QFile::exists(m_OPFFilePath)) {
-        boost_throw(EPUBLoadParseError()
-                    << errinfo_epub_load_parse_errors(QString(QObject::tr("No appropriate OPF file found")).toStdString()));
+        throw (EPUBLoadParseError(QString(QObject::tr("No appropriate OPF file found")).toStdString()));
     }
 }
 
@@ -555,7 +555,7 @@ void ImportEPUB::ReadOPF()
                               .arg(opf_reader.lineNumber())
                               .arg(opf_reader.columnNumber())
                               .arg(opf_reader.errorString());
-        boost_throw(EPUBLoadParseError() << errinfo_epub_load_parse_errors(error.toStdString()));
+        throw (EPUBLoadParseError(error.toStdString()));
     }
 
     // Ensure we have an NCX available
@@ -734,7 +734,7 @@ std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const 
         }
         QString newpath = "../" + resource.GetRelativePathToOEBPS();
         return std::make_tuple(currentpath, newpath);
-    } catch (FileDoesNotExist &) {
+    } catch (FileDoesNotExist) {
         return std::make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);
     }
 }
