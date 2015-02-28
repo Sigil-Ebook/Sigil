@@ -23,13 +23,9 @@
 #ifndef SEARCHOPERATIONS_H
 #define SEARCHOPERATIONS_H
 
-#include <boost/tuple/tuple.hpp>
-
 class Resource;
 class TextResource;
 class HTMLResource;
-
-using boost::tuple;
 
 class SearchOperations
 {
@@ -89,11 +85,11 @@ private:
                                  const QString &replacement,
                                  TextResource *text_resource);
 
-    static tuple<QString, int> PerformGlobalReplace(const QString &text,
+    static std::tuple<QString, int> PerformGlobalReplace(const QString &text,
             const QString &search_regex,
             const QString &replacement);
 
-    static tuple<QString, int> PerformHTMLSpellCheckReplace(const QString &text,
+    static std::tuple<QString, int> PerformHTMLSpellCheckReplace(const QString &text,
             const QString &search_regex,
             const QString &replacement);
 

@@ -23,8 +23,6 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include <boost/tuple/tuple.hpp>
-
 #include <QtCore/QHash>
 #include <QtCore/QObject>
 #include <QtCore/QUrl>
@@ -207,20 +205,20 @@ public:
     Resource *PreviousResource(Resource *resource);
 
     QHash <QString, QList<XhtmlDoc::XMLElement>> GetLinkElements();
-    static boost::tuple<QString, QList<XhtmlDoc::XMLElement>> GetLinkElementsInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QList<XhtmlDoc::XMLElement>> GetLinkElementsInHTMLFileMapped(HTMLResource *html_resource);
 
     QStringList GetStyleUrlsInHTMLFiles();
-    static boost::tuple<QString, QStringList> GetStyleUrlsInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QStringList> GetStyleUrlsInHTMLFileMapped(HTMLResource *html_resource);
     QHash<QString, QStringList> GetIdsInHTMLFiles();
-    static boost::tuple<QString, QStringList> GetIdsInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QStringList> GetIdsInHTMLFileMapped(HTMLResource *html_resource);
     QStringList GetIdsInHTMLFile(HTMLResource *html_resource);
 
     QStringList GetIdsInHrefs();
     QHash<QString, QStringList> GetHrefsInHTMLFiles();
-    static boost::tuple<QString, QStringList> GetHrefsInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QStringList> GetHrefsInHTMLFileMapped(HTMLResource *html_resource);
 
     QHash<QString, QStringList> GetClassesInHTMLFiles();
-    static boost::tuple<QString, QStringList> GetClassesInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QStringList> GetClassesInHTMLFileMapped(HTMLResource *html_resource);
     QStringList GetClassesInHTMLFile(QString filename);
 
     QSet<QString> GetWordsInHTMLFiles();
@@ -229,7 +227,7 @@ public:
     QHash<QString, int> GetUniqueWordsInHTMLFiles();
 
     QHash<QString, QStringList> GetStylesheetsInHTMLFiles();
-    static boost::tuple<QString, QStringList> GetStylesheetsInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QStringList> GetStylesheetsInHTMLFileMapped(HTMLResource *html_resource);
     QStringList GetStylesheetsInHTMLFile(HTMLResource *html_resource);
 
     QHash<QString, QStringList> GetImagesInHTMLFiles();
@@ -238,10 +236,10 @@ public:
 
     QHash<QString, QStringList> GetHTMLFilesUsingMedia();
     QHash<QString, QStringList> GetHTMLFilesUsingImages();
-    static boost::tuple<QString, QStringList> GetMediaInHTMLFileMapped(HTMLResource *html_resource);
-    static boost::tuple<QString, QStringList> GetImagesInHTMLFileMapped(HTMLResource *html_resource);
-    static boost::tuple<QString, QStringList> GetVideoInHTMLFileMapped(HTMLResource *html_resource);
-    static boost::tuple<QString, QStringList> GetAudioInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QStringList> GetMediaInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QStringList> GetImagesInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QStringList> GetVideoInHTMLFileMapped(HTMLResource *html_resource);
+    static std::tuple<QString, QStringList> GetAudioInHTMLFileMapped(HTMLResource *html_resource);
 
     QList<HTMLResource *> GetNonWellFormedHTMLFiles();
 

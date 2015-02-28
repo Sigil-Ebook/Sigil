@@ -23,12 +23,8 @@
 #ifndef GUIDESEMANTICS_H
 #define GUIDESEMANTICS_H
 
-#include <boost/tuple/tuple.hpp>
-
 #include <QtCore/QMutex>
 #include <QtCore/QHash>
-
-using boost::tuple;
 
 /**
  * Singleton storing information about <guide> semantic information.
@@ -77,7 +73,7 @@ public:
      *
      * @return The reference.
      */
-    const QHash<int, tuple<QString, QString>> &GetGuideTypeMapping();
+    const QHash<int, std::tuple<QString, QString>> &GetGuideTypeMapping();
 
     /**
      * Maps a reference type string ("loi", "cover" etc.)
@@ -126,7 +122,7 @@ private:
      * A mapping between GuideSemanticType
      * and the reference type and default title.
      */
-    QHash<int, tuple<QString, QString>> m_GuideTypeMapping;
+    QHash<int, std::tuple<QString, QString>> m_GuideTypeMapping;
 
     /**
      * A mapping of a reference type string ("loi", "cover" etc.)

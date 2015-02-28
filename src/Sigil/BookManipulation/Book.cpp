@@ -44,9 +44,6 @@
 #include "SourceUpdates/UniversalUpdates.h"
 
 using boost::shared_ptr;
-using boost::make_tuple;
-using boost::tuple;
-using boost::tie;
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
 static const QString FIRST_SVG_NAME   = "Image0001.svg";
@@ -514,12 +511,12 @@ QHash <QString, QList<XhtmlDoc::XMLElement>> Book::GetLinkElements()
 {
     QHash<QString, QList<XhtmlDoc::XMLElement>> links_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
-    QFuture<boost::tuple<QString, QList<XhtmlDoc::XMLElement>>> future = QtConcurrent::mapped(html_resources, GetLinkElementsInHTMLFileMapped);
+    QFuture<std::tuple<QString, QList<XhtmlDoc::XMLElement>>> future = QtConcurrent::mapped(html_resources, GetLinkElementsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QList<XhtmlDoc::XMLElement> links;
-        tie(filename, links) = future.resultAt(i);
+        std::tie(filename, links) = future.resultAt(i);
         // Each target entry has a list of filenames that contain it
         links_in_html[filename] = links;
     }
@@ -527,9 +524,9 @@ QHash <QString, QList<XhtmlDoc::XMLElement>> Book::GetLinkElements()
     return links_in_html;
 }
 
-tuple<QString, QList<XhtmlDoc::XMLElement>> Book::GetLinkElementsInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QList<XhtmlDoc::XMLElement>> Book::GetLinkElementsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetTagsInDocument(html_resource->GetText(), "a"));
 }
 
@@ -538,12 +535,12 @@ QStringList Book::GetStyleUrlsInHTMLFiles()
 {
     QStringList images_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
-    QFuture<boost::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetStyleUrlsInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetStyleUrlsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QStringList images;
-        tie(filename, images) = future.resultAt(i);
+        std::tie(filename, images) = future.resultAt(i);
         // Each target entry has a list of filenames that contain it
         images_in_html.append(images);
     }
@@ -551,9 +548,9 @@ QStringList Book::GetStyleUrlsInHTMLFiles()
     return images_in_html;
 }
 
-tuple<QString, QStringList> Book::GetStyleUrlsInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QStringList> Book::GetStyleUrlsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetAllDescendantStyleUrls(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
 }
 
@@ -561,12 +558,12 @@ QHash<QString, QStringList> Book::GetIdsInHTMLFiles()
 {
     QHash<QString, QStringList> ids_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
-    QFuture<boost::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetIdsInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetIdsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QStringList ids;
-        tie(filename, ids) = future.resultAt(i);
+        std::tie(filename, ids) = future.resultAt(i);
         // Each target entry has a list of filenames that contain it
         ids_in_html[filename] = ids;
     }
@@ -574,9 +571,9 @@ QHash<QString, QStringList> Book::GetIdsInHTMLFiles()
     return ids_in_html;
 }
 
-tuple<QString, QStringList> Book::GetIdsInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QStringList> Book::GetIdsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetAllDescendantIDs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
 }
 
@@ -614,12 +611,12 @@ QHash<QString, QStringList> Book::GetHrefsInHTMLFiles()
 {
     QHash<QString, QStringList> hrefs_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
-    QFuture<boost::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetHrefsInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetHrefsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QStringList hrefs;
-        tie(filename, hrefs) = future.resultAt(i);
+        std::tie(filename, hrefs) = future.resultAt(i);
         // Each target entry has a list of filenames that contain it
         hrefs_in_html[filename] = hrefs;
     }
@@ -627,9 +624,9 @@ QHash<QString, QStringList> Book::GetHrefsInHTMLFiles()
     return hrefs_in_html;
 }
 
-tuple<QString, QStringList> Book::GetHrefsInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QStringList> Book::GetHrefsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetAllDescendantHrefs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
 }
 
@@ -638,11 +635,11 @@ QHash<QString, QStringList> Book::GetClassesInHTMLFiles()
     QHash<QString, QStringList> classes_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
 
-    QFuture<tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetClassesInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetClassesInHTMLFileMapped);
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QStringList class_names;
-        tie(filename, class_names) = future.resultAt(i);
+        std::tie(filename, class_names) = future.resultAt(i);
         // Each class entry has a list of filenames that contain it
         foreach(QString class_name, class_names) {
             classes_in_html[class_name].append(filename);
@@ -652,9 +649,9 @@ QHash<QString, QStringList> Book::GetClassesInHTMLFiles()
     return classes_in_html;
 }
 
-tuple<QString, QStringList> Book::GetClassesInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QStringList> Book::GetClassesInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetAllDescendantClasses(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
 }
 
@@ -673,12 +670,12 @@ QHash<QString, QStringList> Book::GetImagesInHTMLFiles()
 {
     QHash<QString, QStringList> media_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
-    QFuture<tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetImagesInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetImagesInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QStringList media_files;
-        tie(filename, media_files) = future.resultAt(i);
+        std::tie(filename, media_files) = future.resultAt(i);
         media_in_html[filename] = media_files;
     }
 
@@ -689,12 +686,12 @@ QHash<QString, QStringList> Book::GetVideoInHTMLFiles()
 {
     QHash<QString, QStringList> media_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
-    QFuture<tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetVideoInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetVideoInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QStringList media_files;
-        tie(filename, media_files) = future.resultAt(i);
+        std::tie(filename, media_files) = future.resultAt(i);
         media_in_html[filename] = media_files;
     }
 
@@ -705,12 +702,12 @@ QHash<QString, QStringList> Book::GetAudioInHTMLFiles()
 {
     QHash<QString, QStringList> media_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
-    QFuture<tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetAudioInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetAudioInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QStringList media_files;
-        tie(filename, media_files) = future.resultAt(i);
+        std::tie(filename, media_files) = future.resultAt(i);
         media_in_html[filename] = media_files;
     }
 
@@ -722,12 +719,12 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingMedia()
     QHash<QString, QStringList> html_files;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
 
-    QFuture<tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetMediaInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetMediaInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString html_filename;
         QStringList media_filenames;
-        tie(html_filename, media_filenames) = future.resultAt(i);
+        std::tie(html_filename, media_filenames) = future.resultAt(i);
         foreach(QString media_filename, media_filenames) {
             html_files[media_filename].append(html_filename);
         }
@@ -741,12 +738,12 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
     QHash<QString, QStringList> html_files;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
 
-    QFuture<tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetImagesInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetImagesInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString html_filename;
         QStringList media_filenames;
-        tie(html_filename, media_filenames) = future.resultAt(i);
+        std::tie(html_filename, media_filenames) = future.resultAt(i);
         foreach(QString media_filename, media_filenames) {
             html_files[media_filename].append(html_filename);
         }
@@ -756,27 +753,27 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
 }
 
 
-tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS));
 }
 
-tuple<QString, QStringList> Book::GetImagesInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QStringList> Book::GetImagesInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), IMAGE_TAGS));
 }
 
-tuple<QString, QStringList> Book::GetVideoInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QStringList> Book::GetVideoInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), VIDEO_TAGS));
 }
 
-tuple<QString, QStringList> Book::GetAudioInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QStringList> Book::GetAudioInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), AUDIO_TAGS));
 }
 
@@ -836,21 +833,21 @@ QHash<QString, QStringList> Book::GetStylesheetsInHTMLFiles()
 {
     QHash<QString, QStringList> links_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(false);
-    QFuture<boost::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetStylesheetsInHTMLFileMapped);
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetStylesheetsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString filename;
         QStringList links;
-        tie(filename, links) = future.resultAt(i);
+        std::tie(filename, links) = future.resultAt(i);
         links_in_html[filename] = links;
     }
 
     return links_in_html;
 }
 
-tuple<QString, QStringList> Book::GetStylesheetsInHTMLFileMapped(HTMLResource *html_resource)
+std::tuple<QString, QStringList> Book::GetStylesheetsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->Filename(),
                       XhtmlDoc::GetLinkedStylesheets(html_resource->GetText()));
 }
 

@@ -20,7 +20,6 @@
 **
 *************************************************************************/
 
-#include <boost/tuple/tuple.hpp>
 // XercesExtensions
 #include <XmlUtils.h>
 
@@ -42,7 +41,6 @@
 #include "ResourceObjects/OPFResource.h"
 #include "sigil_constants.h"
 
-using boost::tie;
 namespace xe = XercesExt;
 
 static const QString SIGIL_VERSION_META_NAME  = "Sigil version";
@@ -856,7 +854,7 @@ void OPFResource::SetGuideSemanticTypeForResource(
     xc::DOMElement *reference = GetGuideReferenceForResource(resource, document);
     QString type_attribute;
     QString title_attribute;
-    tie(type_attribute, title_attribute) = GuideSemantics::Instance().GetGuideTypeMapping()[ type ];
+    std::tie(type_attribute, title_attribute) = GuideSemantics::Instance().GetGuideTypeMapping()[ type ];
 
     if (reference) {
         reference->setAttribute(QtoX("type"), QtoX(type_attribute));

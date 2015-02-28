@@ -70,8 +70,6 @@
 // This is the same read buffer size used by Java and Perl.
 #define BUFF_SIZE 8192
 
-using boost::make_tuple;
-
 const QString DUBLIN_CORE_NS             = "http://purl.org/dc/elements/1.1/";
 static const QString OEBPS_MIMETYPE      = "application/oebps-package+xml";
 static const QString UPDATE_ERROR_STRING = "SG_ERROR";
@@ -698,7 +696,7 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 {
     QList<QString> keys = m_Files.keys();
     int num_files = keys.count();
-    QFutureSynchronizer<tuple<QString, QString>> sync;
+    QFutureSynchronizer<std::tuple<QString, QString>> sync;
 
     for (int i = 0; i < num_files; ++i) {
         QString id = keys.at(i);
@@ -710,13 +708,13 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
     }
 
     sync.waitForFinished();
-    QList<QFuture<tuple<QString, QString>>> futures = sync.futures();
+    QList<QFuture<std::tuple<QString, QString>>> futures = sync.futures();
     int num_futures = futures.count();
     QHash<QString, QString> updates;
 
     for (int i = 0; i < num_futures; ++i) {
-        tuple<QString, QString> result = futures.at(i).result();
-        updates[result.get<0>()] = result.get<1>();
+        std::tuple<QString, QString> result = futures.at(i).result();
+        updates[std::get<0>(result)] = std::get<1>(result);
     }
 
     updates.remove(UPDATE_ERROR_STRING);
@@ -724,7 +722,7 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 }
 
 
-tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QString &mimetype)
+std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QString &mimetype)
 {
     QString fullfilepath = QFileInfo(m_OPFFilePath).absolutePath() + "/" + path;
     QString currentpath = fullfilepath;
@@ -735,9 +733,9 @@ tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QStri
             resource.SetCurrentBookRelPath(currentpath);
         }
         QString newpath = "../" + resource.GetRelativePathToOEBPS();
-        return make_tuple(currentpath, newpath);
+        return std::make_tuple(currentpath, newpath);
     } catch (FileDoesNotExist &) {
-        return make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);
+        return std::make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);
     }
 }
 

@@ -20,7 +20,6 @@
 *************************************************************************/
 
 #include <boost/bind/bind.hpp>
-#include <boost/tuple/tuple.hpp>
 #include <signal.h>
 
 #include <QtCore/QtCore>
@@ -39,10 +38,6 @@
 #include "ResourceObjects/TextResource.h"
 #include "ViewEditors/Searchable.h"
 #include "sigil_constants.h"
-
-using boost::make_tuple;
-using boost::tie;
-using boost::tuple;
 
 int SearchOperations::CountInFiles(const QString &search_regex,
                                    QList<Resource *> resources,
@@ -168,7 +163,7 @@ int SearchOperations::ReplaceHTMLInFile(const QString &search_regex,
         int count;
         QString new_text;
         QString text = html_resource->GetText();
-        tie(new_text, count) = PerformGlobalReplace(text, search_regex, replacement);
+        std::tie(new_text, count) = PerformGlobalReplace(text, search_regex, replacement);
         html_resource->SetText(new_text);
         return count;
     }
@@ -187,7 +182,7 @@ int SearchOperations::ReplaceTextInFile(const QString &search_regex,
 }
 
 
-tuple<QString, int> SearchOperations::PerformGlobalReplace(const QString &text,
+std::tuple<QString, int> SearchOperations::PerformGlobalReplace(const QString &text,
         const QString &search_regex,
         const QString &replacement)
 {
@@ -206,11 +201,11 @@ tuple<QString, int> SearchOperations::PerformGlobalReplace(const QString &text,
         }
     }
 
-    return make_tuple(new_text, count);
+    return std::make_tuple(new_text, count);
 }
 
 
-tuple<QString, int> SearchOperations::PerformHTMLSpellCheckReplace(const QString &text,
+std::tuple<QString, int> SearchOperations::PerformHTMLSpellCheckReplace(const QString &text,
         const QString &search_regex,
         const QString &replacement)
 {
@@ -232,7 +227,7 @@ tuple<QString, int> SearchOperations::PerformHTMLSpellCheckReplace(const QString
             }
         }
     }
-    return make_tuple(new_text, count);
+    return std::make_tuple(new_text, count);
 }
 
 
