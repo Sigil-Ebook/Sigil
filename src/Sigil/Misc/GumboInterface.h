@@ -25,6 +25,7 @@
 #include <stdlib.h>
 #include <string>
 #include "gumbo.h"
+#include "gumbo_edit.h"
 
 #include <QString>
 #include <QList>
@@ -46,26 +47,24 @@ public:
     ~GumboInterface();
     void    parse();
     QString repair();
+    QString gettext();
     QString perform_source_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
     QString perform_link_updates(const QString & newlinks);
     QStringList get_all_values_for_attribute(const QString & attname);
+    QList<GumboNode*> get_all_nodes_with_tag(GumboTag tag);
     QList<GumboWellFormedError> error_check();
-    // QString prettyprint(QString indent_chars="  ");
 
 private:
 
     enum UpdateTypes {
         NoUpdates      = 0, 
         SourceUpdates  = 1 <<  0,
-        LinkUpdates    = 1 <<  1,
-        AnchorUpdates  = 1 <<  2
+        LinkUpdates    = 1 <<  1
     };
 
     // QString fix_self_closing_tags(const QString & source);
-    // std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
-    // std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
-
     QStringList get_values_for_attr(GumboNode* node, const char* attr_name);
+    QList<GumboNode*> get_nodes_with_tag(GumboNode* node, GumboTag tag);
     std::string serialize(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
     std::string serialize_contents(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
     std::string build_doctype(GumboNode *node);
@@ -79,12 +78,12 @@ private:
     void ltrimnewlines(std::string &s);
     void replace_all(std::string &s, const char * s1, const char * s2);
 
-    QString        m_source;
-    GumboOutput*   m_output;
-    std::string    m_utf8src;
-    QHash<QString, QString> & m_updates;
-    std::string     m_newcsslinks;
-    QString        m_currentdir;
+    QString                   m_source;
+    GumboOutput*              m_output;
+    std::string               m_utf8src;
+    QHash<QString, QString> & m_sourceupdates;
+    std::string               m_newcsslinks;
+    QString                   m_currentdir;
     
 };
 

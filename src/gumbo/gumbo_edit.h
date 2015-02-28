@@ -22,9 +22,49 @@
 extern "C" {
 #endif
 
+  // The attribute interface routines (copied from attribute.h since not installed publicly)
+  void gumbo_attribute_set_value(GumboAttribute *attr, const char *value);
+  void gumbo_destroy_attribute(GumboAttribute* attribute);
+  void gumbo_element_set_attribute(GumboElement *element, const char *name, const char *value);
+  void gumbo_element_remove_attribute_at(GumboElement *element, unsigned int pos);
+  void gumbo_element_remove_attribute(GumboElement *element, GumboAttribute *attr);
+
+  // The vector interface routines (copied from vector.h since not installed publicly)
+  // Initializes a new GumboVector with the specified initial capacity.
+  void gumbo_vector_init(size_t initial_capacity, GumboVector* vector);
+
+  // Frees the memory used by an GumboVector.  Does not free the contained
+  // pointers.
+  void gumbo_vector_destroy(GumboVector* vector);
+
+  // Adds a new element to an GumboVector.
+  void gumbo_vector_add(void* element, GumboVector* vector);
+
+  // Removes and returns the element most recently added to the GumboVector.
+  // Ownership is transferred to caller.  Capacity is unchanged.  If the vector is
+  // empty, NULL is returned.
+  void* gumbo_vector_pop(GumboVector* vector);
+
+  // Inserts an element at a specific index.  This is potentially O(N) time, but
+  // is necessary for some of the spec's behavior.
+  void gumbo_vector_insert_at(void* element, int index, GumboVector* vector);
+
+  // Removes an element from the vector, or does nothing if the element is not in
+  // the vector.
+  void gumbo_vector_remove(const void* element, GumboVector* vector);
+
+  // Removes and returns an element at a specific index.  Note that this is
+  // potentially O(N) time and should be used sparingly.
+  void* gumbo_vector_remove_at(int index, GumboVector* vector);
+
+  int gumbo_vector_index_of(GumboVector* vector, const void* element);
+  void gumbo_vector_splice(int where, int n_to_remove, void **data, int n_to_insert, GumboVector* vector);
+
+
   // See gumbo.h for:
   //   void gumbo_create_node(void);
   //   void gumbo_destroy_node(GumboNode* node)
+
 
   // create and initialize a completely new output tree
   GumboOutput*  gumbo_new_output_init(void);
@@ -47,7 +87,7 @@ extern "C" {
   // Note: Use gumbo_destroy_node(GumboNode * node) to properly destroy the node if outside 
   // the final output tree
 
-  GumboNode* gumbo_create_element_node(GumboTag tag, GumboNamespaceEnum namespace);
+  GumboNode* gumbo_create_element_node(GumboTag tag, GumboNamespaceEnum gns);
 
   // Creates an template node and returns it.
 

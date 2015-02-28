@@ -99,13 +99,13 @@ GumboNode*  gumbo_create_text_node(GumboNode* node, GumboNodeType type, const ch
 // Creates an element node with the tag (enum) in the specified namespace and returns it.
 // Since no original text exists, any created element tag must already exist in the tag_enum.h
 // This is why we have expanded the set of recognized tags to include all svg and mathml tags 
-GumboNode* gumbo_create_element_node(GumboTag tag, GumboNamespaceEnum namespace) {
+GumboNode* gumbo_create_element_node(GumboTag tag, GumboNamespaceEnum gns) {
   GumboNode* node = gumbo_create_node(GUMBO_NODE_ELEMENT);
   GumboElement* element = &node->v.element;
   gumbo_vector_init(1, &element->children);
   gumbo_vector_init(0, &element->attributes);
   element->tag = tag;
-  element->tag_namespace = namespace;
+  element->tag_namespace = gns;
   element->original_tag = kGumboEmptyString;
   element->original_end_tag = kGumboEmptyString;
   element->start_pos = kGumboEmptySourcePosition;

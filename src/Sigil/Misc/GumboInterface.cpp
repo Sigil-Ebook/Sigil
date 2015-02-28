@@ -58,7 +58,7 @@ static QHash<QString,QString> EmptyHash = QHash<QString,QString>();
 GumboInterface::GumboInterface(const QString &source)
         : m_source(source),
           m_output(NULL),
-          m_updates(EmptyHash),
+          m_sourceupdates(EmptyHash),
           m_newcsslinks(""),
           m_currentdir(""),
           m_utf8src("")
@@ -108,9 +108,23 @@ QString GumboInterface::repair()
 }
 
 
+QString GumboInterface::gettext()
+{
+    QString result = "";
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        std::string utf8out = serialize(m_output->document);
+        result = QString::fromStdString(utf8out);
+    }
+    return result;
+}
+
+
 QString GumboInterface::perform_source_updates(const QHash<QString, QString>& updates, const QString& my_current_book_relpath)
 {
-    m_updates = updates;
+    m_sourceupdates = updates;
     m_currentdir = QFileInfo(my_current_book_relpath).dir().path();
     QString result = "";
     if (!m_source.isEmpty()) {
@@ -217,6 +231,36 @@ QStringList  GumboInterface::get_values_for_attr(GumboNode* node, const char* at
 }
 
 
+QList<GumboNode*> GumboInterface::get_all_nodes_with_tag(GumboTag tag)
+{
+    QList<GumboNode*> nodes;
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        nodes = get_nodes_with_tag(m_output->root, tag); 
+    }
+    return nodes;
+}
+
+
+QList<GumboNode*>  GumboInterface::get_nodes_with_tag(GumboNode* node, GumboTag tag) 
+{
+  if (node->type != GUMBO_NODE_ELEMENT) {
+    return QList<GumboNode*>();
+  }
+  QList<GumboNode*> nodes;
+  if (tag == node->v.element.tag) {
+      nodes.append(node);
+  }
+  GumboVector* children = &node->v.element.children;
+  for (int i = 0; i < children->length; ++i) {
+      nodes.append(get_nodes_with_tag(static_cast<GumboNode*>(children->data[i]), tag));
+  }
+  return nodes;
+}
+
+
 void GumboInterface::rtrim(std::string &s) 
 {
     s.erase(s.find_last_not_of(" \n\r\t")+1);
@@ -259,7 +303,7 @@ std::string GumboInterface::update_attribute_value(std::string attvalue)
         attpath = attpath.mid(0, fragpos);
     }
     QString search_key = QDir::cleanPath(m_currentdir + FORWARD_SLASH + attpath);
-    QString new_href = m_updates.value(search_key, QString());
+    QString new_href = m_sourceupdates.value(search_key, QString());
     if (!new_href.isEmpty()) {
         new_href += fragment;
         new_href = Utility::URLEncodePath(new_href);
