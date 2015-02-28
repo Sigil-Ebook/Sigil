@@ -20,14 +20,12 @@
 *************************************************************************/
 
 #include <boost/shared_ptr.hpp>
-
+#include "Misc/EmbeddedPython.h"
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtCore/QHash>
 #include <QtConcurrent/QtConcurrent>
 
-#include "BookManipulation/XercesCppUse.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "Misc/GumboInterface.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -235,35 +233,37 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
 {
     Q_ASSERT(ncx_resource);
     const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
-    QWriteLocker locker(&ncx_resource->GetLock());
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(ncx_resource->GetText());
-    xc::DOMDocument &document = *d.get();
-    xc::DOMNodeList *anchors  = document.getElementsByTagName(QtoX("content"));
-    QString original_filename_with_relative_path = TEXT_FOLDER_NAME % "/" % originating_filename;
-
-    for (uint i = 0; i < anchors->getLength(); ++i) {
-        xc::DOMElement &element = *static_cast<xc::DOMElement *>(anchors->item(i));
-        Q_ASSERT(&element);
-
-        // We're only interested in src links of the form "originating_filename#fragment_id".
-        // First, we find the hrefs that are relative and contain a fragment id.
-        if (element.hasAttribute(QtoX("src")) &&
-            QUrl(XtoQ(element.getAttribute(QtoX("src")))).isRelative()) {
-            QString src = XtoQ(element.getAttribute(QtoX("src")));
-            QStringList parts = src.split(QChar('#'), QString::KeepEmptyParts);
-
-            // If the src pointed to the original file then update the file_id.
-            if (parts.count() > 1 && parts.at(0) == original_filename_with_relative_path && !parts.at(1).isEmpty()) {
-                QString fragment_id = src.right(src.size() - (parts.at(0).length() + 1));
-                QString attribute_value = QString("%1").arg(TEXT_FOLDER_NAME)
-                                          .append("/")
-                                          .append(Utility::URLEncodePath(ID_locations.value(fragment_id)))
-                                          .append("#")
-                                          .append(fragment_id);
-                element.setAttribute(QtoX("src"), QtoX(attribute_value));
-            }
-        }
+    // serialize the hash for passing to python
+    QStringList dictkeys = ID_locations.keys();
+    QStringList dictvals;
+    foreach(QString key, dictkeys) {
+      dictvals.append(ID_locations.value(key));
     }
+    QWriteLocker locker(&ncx_resource->GetLock());
+    QString source = ncx_resource->GetText();
 
-    ncx_resource->SetText(XhtmlDoc::GetDomDocumentAsString(document));
+    int rv = 0;
+    QString error_traceback;
+
+    QList<QVariant> args;
+    args.append(QVariant(source));
+    args.append(QVariant(originating_filename));
+    args.append(QVariant(dictkeys));
+    args.append(QVariant(dictvals));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("xmlprocessor"),
+                                         QString("anchorNCXUpdates"),
+                                         args,
+                                         &rv,
+                                         error_traceback);    
+    if (rv != 0) {
+      Utility::DisplayStdWarningDialog(QString("error in xmlprocessor anchorNCXUpdates: ") + QString::number(rv), 
+                                       error_traceback);
+      // an error happened - make no changes
+      return;
+
+    }
+    ncx_resource->SetText(res.toString());
 }
