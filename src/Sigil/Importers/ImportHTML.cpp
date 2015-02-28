@@ -19,9 +19,6 @@
 **
 *************************************************************************/
 
-#include <boost/bind/bind.hpp>
-#include <boost/tuple/tuple.hpp>
-
 #include <QtCore/QtCore>
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
@@ -45,8 +42,6 @@
 #include "SourceUpdates/UniversalUpdates.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
-
-using boost::tie;
 
 // Constructor;
 // The parameter is the file to be imported
@@ -148,7 +143,7 @@ void ImportHTML::UpdateFiles(HTMLResource &html_resource,
     QHash<QString, QString> css_updates;
     QString newsource = source;
     QString currentpath = html_resource.GetCurrentBookRelPath();
-    tie(html_updates, css_updates, boost::tuples::ignore) =
+    std::tie(html_updates, css_updates, std::ignore) =
         UniversalUpdates::SeparateHtmlCssXmlUpdates(updates);
     QList<Resource *> all_files = m_Book->GetFolderKeeper().GetResourceList();
     int num_files = all_files.count();
@@ -164,7 +159,7 @@ void ImportHTML::UpdateFiles(HTMLResource &html_resource,
     
     QFutureSynchronizer<void> sync;
     sync.addFuture(QtConcurrent::map(css_resources,
-                                     boost::bind(UniversalUpdates::LoadAndUpdateOneCSSFile, _1, css_updates)));
+                                     std::bind(UniversalUpdates::LoadAndUpdateOneCSSFile, std::placeholders::_1, css_updates)));
     html_resource.SetText(PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath)());
     html_resource.SetCurrentBookRelPath("");
     sync.waitForFinished();

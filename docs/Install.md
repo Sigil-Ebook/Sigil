@@ -202,6 +202,17 @@ If you've installed Sigil to your home directory or another prefix not on your p
 If you relocate your Qt5 libraries after building Sigil, you'll need to edit the Sigil launch script (INSTALL_PREFIX/bin/sigil)
 and supply the new location of the Qt5 libraries (only necessary if you've installed via the typical "make, make install" method).
 
+Sigil by default (when packaging) will install sigil-bin into /usr/lib/sigil and a launcher script into /usr/bin. Helper files
+such as plugins launchers, translations, dictionaries... will be installed into /usr/share/sigil. The base location (/usr)
+can be controlled by the environment variable SIGIL_EXTRA_ROOT. Meaning  the location of the helper files will become
+SIGIL_EXTRA_ROOT/share/sigil/.
+
+The directory structure needs to always be:
+
+* install_base/bin/sigil (wrapper file)
+* install_base/share/sigil (helper files)
+* install_base/lib/sigil/sigil (binary)
+
 
 Git Builds
 ==========

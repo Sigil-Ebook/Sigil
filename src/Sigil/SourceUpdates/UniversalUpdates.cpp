@@ -19,9 +19,7 @@
 **
 *************************************************************************/
 
-#include <boost/bind/bind.hpp>
 #include <boost/shared_ptr.hpp>
-#include <boost/tuple/tuple.hpp>
 
 #include <QtCore/QtCore>
 #include <QtCore/QFutureSynchronizer>
@@ -46,10 +44,7 @@
 #include "SourceUpdates/PerformOPFUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
 
-using boost::make_tuple;
 using boost::shared_ptr;
-using boost::tie;
-using boost::tuple;
 
 #define NON_WELL_FORMED_MESSAGE "Cannot perform HTML updates since the file is not well formed"
 
@@ -61,7 +56,7 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
     QHash<QString, QString> html_updates;
     QHash<QString, QString> css_updates;
     QHash<QString, QString> xml_updates;
-    tie(html_updates, css_updates, xml_updates) = SeparateHtmlCssXmlUpdates(updates);
+    std::tie(html_updates, css_updates, xml_updates) = SeparateHtmlCssXmlUpdates(updates);
     QList<HTMLResource *> html_resources;
     QList<CSSResource *> css_resources;
     OPFResource *opf_resource = NULL;
@@ -87,11 +82,11 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
     QFuture<void> css_future;
 
     if (resources_already_loaded) {
-        html_future = QtConcurrent::mapped(html_resources, boost::bind(UpdateOneHTMLFile, _1, html_updates, css_updates));
-        css_future = QtConcurrent::map(css_resources,  boost::bind(UpdateOneCSSFile,  _1, css_updates));
+        html_future = QtConcurrent::mapped(html_resources, std::bind(UpdateOneHTMLFile, std::placeholders::_1, html_updates, css_updates));
+        css_future = QtConcurrent::map(css_resources,  std::bind(UpdateOneCSSFile,  std::placeholders::_1, css_updates));
     } else {
-        html_future = QtConcurrent::mapped(html_resources, boost::bind(LoadAndUpdateOneHTMLFile, _1, html_updates, css_updates, non_well_formed));
-        css_future = QtConcurrent::map(css_resources,  boost::bind(LoadAndUpdateOneCSSFile,  _1, css_updates));
+        html_future = QtConcurrent::mapped(html_resources, std::bind(LoadAndUpdateOneHTMLFile, std::placeholders::_1, html_updates, css_updates, non_well_formed));
+        css_future = QtConcurrent::map(css_resources,  std::bind(LoadAndUpdateOneCSSFile,  std::placeholders::_1, css_updates));
     }
 
     sync.addFuture(html_future);
@@ -126,7 +121,7 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
 }
 
 
-tuple <QHash<QString, QString>,
+std::tuple <QHash<QString, QString>,
       QHash<QString, QString>,
       QHash<QString, QString>>
       UniversalUpdates::SeparateHtmlCssXmlUpdates(const QHash<QString, QString> &updates)
@@ -157,7 +152,7 @@ tuple <QHash<QString, QString>,
             css_updates[ key_path ] = html_updates.value(key_path);
         }
     }
-    return make_tuple(html_updates, css_updates, xml_updates);
+    return std::make_tuple(html_updates, css_updates, xml_updates);
 }
 
 

@@ -35,6 +35,7 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "sigil_constants.h"
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 # include <stdlib.h>
@@ -329,17 +330,12 @@ void SpellCheck::loadDictionaryNames()
     paths << QCoreApplication::applicationDirPath() + "/hunspell_dictionaries";
 #endif
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    // The user can specify an env variable that points to the dictionaries.
-    const QString env_dic_location = QString(getenv("SIGIL_DICTIONARIES"));
-
-    if (!env_dic_location.isEmpty()) {
-        paths << env_dic_location;
+    if (!sigil_extra_root.isEmpty()) {
+        paths.append(sigil_extra_root + "/hunspell_dictionaries/");
+    } else {
+        paths.append(QCoreApplication::applicationDirPath() + "/../../share/sigil/hunspell_dictionaries/");
+        paths.append(QCoreApplication::applicationDirPath() + "/../share/sigil/hunspell_dictionaries/");
     }
-
-    // Possible location if the user installed from source.
-    // This really should be changed to be passed the install prefix given to
-    // cmake instead of guessing based upon the executable path.
-    paths << QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/hunspell_dictionaries/";
 #endif
     // Add the user dictionary directory last because anything in here
     // will override installation supplied dictionaries.

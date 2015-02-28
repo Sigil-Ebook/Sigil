@@ -20,8 +20,6 @@
 **
 *************************************************************************/
 
-#include <boost/bind/bind.hpp>
-
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtConcurrent/QtConcurrent>
@@ -36,7 +34,7 @@ using boost::shared_ptr;
 
 void LinkUpdates::UpdateLinksInAllFiles(const QList<HTMLResource *> &html_resources, const QList<QString> new_stylesheets)
 {
-    QtConcurrent::blockingMap(html_resources, boost::bind(UpdateLinksInOneFile, _1, new_stylesheets));
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateLinksInOneFile, std::placeholders::_1, new_stylesheets));
 }
 
 void LinkUpdates::UpdateLinksInOneFile(HTMLResource *html_resource, QList<QString> new_stylesheets)

@@ -68,7 +68,7 @@ private:
 
     static QHash<QString, QString> GetIDLocations(const QList<HTMLResource *> &html_resources);
 
-    static tuple<QString, QList<QString>> GetOneFileIDs(HTMLResource *html_resource);
+    static std::tuple<QString, QList<QString>> GetOneFileIDs(HTMLResource *html_resource);
 
     static void UpdateAnchorsInOneFile(HTMLResource *html_resource,
                                        const QHash<QString, QString> ID_locations);

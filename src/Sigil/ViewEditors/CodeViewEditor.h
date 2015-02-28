@@ -23,8 +23,6 @@
 #ifndef CODEVIEWEDITOR_H
 #define CODEVIEWEDITOR_H
 
-#include <boost/tuple/tuple.hpp>
-
 #include <QtCore/QList>
 #include <QtCore/QStack>
 #include <QtWidgets/QPlainTextEdit>
@@ -645,7 +643,7 @@ private:
      * @param hierarchy The caret location as ElementIndex hierarchy.
      * @return The info needed to move the caret to the new location.
      */
-    boost::tuple<int, int> ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const;
+    std::tuple<int, int> ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const;
 
     /**
      * Insert HTML tags around the current selection.

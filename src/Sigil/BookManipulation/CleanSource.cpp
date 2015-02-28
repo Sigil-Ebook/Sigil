@@ -20,7 +20,6 @@
 *************************************************************************/
 
 #include "Misc/EmbeddedPython.h"
-#include <boost/tuple/tuple.hpp>
 
 #include <QtCore/QString>
 #include <QtCore/QStringList>
@@ -39,10 +38,6 @@
 #include "sigil_exception.h"
 #include "Misc/Utility.h"
 #include <utility>
-
-using boost::make_tuple;
-using boost::tie;
-using boost::tuple;
 
 static const QString HEAD_END = "</\\s*head\\s*>";
 
@@ -200,7 +195,7 @@ QString CleanSource::CleanCSS(const QString &source, int old_num_styles)
 
     // If added a new tag, we remove the redundant ones
     if (css_style_tags.count() > old_num_styles) {
-        tie(newsource, css_style_tags) = RemoveRedundantClasses(newsource, css_style_tags);
+        std::tie(newsource, css_style_tags) = RemoveRedundantClasses(newsource, css_style_tags);
     }
 
     css_style_tags = RemoveEmptyComments(css_style_tags);
@@ -319,10 +314,10 @@ QString CleanSource::WriteNewCSSStyleTags(const QString &source, const QStringLi
 }
 
 
-tuple<QString, QStringList> CleanSource::RemoveRedundantClasses(const QString &source, const QStringList &css_style_tags)
+std::tuple<QString, QStringList> CleanSource::RemoveRedundantClasses(const QString &source, const QStringList &css_style_tags)
 {
     QHash<QString, QString> redundant_classes = GetRedundantClasses(css_style_tags);
-    return make_tuple(RemoveRedundantClassesSource(source, redundant_classes),
+    return std::make_tuple(RemoveRedundantClassesSource(source, redundant_classes),
                       RemoveRedundantClassesTags(css_style_tags, redundant_classes));
 }
 
