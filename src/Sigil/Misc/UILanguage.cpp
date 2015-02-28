@@ -24,6 +24,7 @@
 #include <QtCore/QLibraryInfo>
 #include <QtCore/QString>
 #include "Misc/UILanguage.h"
+#include "sigil_constants.h"
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 #include <stdlib.h>
@@ -39,10 +40,8 @@ QStringList UILanguage::GetPossibleTranslationPaths()
     QStringList possible_qm_locations;
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // The user can specify an env variable that points to the translation.
-    const QString env_qm_location = QString(getenv("SIGIL_TRANSLATIONS"));
-
-    if (!env_qm_location.isEmpty()) {
-        possible_qm_locations.append(env_qm_location);
+    if (!sigil_extra_root.isEmpty()) {
+        possible_qm_locations.append(sigil_extra_root + "/translations/");
     }
 
     // Possible location if the user installed from source.

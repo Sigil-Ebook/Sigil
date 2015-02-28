@@ -68,6 +68,7 @@ set(CMAKE_AUTOMOC ON)
 
 set( MAIN_FILES
     sigil_constants.h
+    sigil_constants.cpp
     sigil_exception.h
     main.cpp
     )

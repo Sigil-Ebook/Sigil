@@ -108,4 +108,8 @@ extern const QString SGC_INDEX_CSS_FILENAME;
 extern const QString HTML_COVER_FILENAME;
 extern const QString HTML_COVER_SOURCE;
 
+#if !defined(_WIN32) && !defined(__APPLE__)
+extern const QString sigil_extra_root;
+#endif
+
 #endif // SG_CONSTANTS_H
