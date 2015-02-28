@@ -19,8 +19,6 @@
 **
 *************************************************************************/
 
-#include <boost/shared_ptr.hpp>
-
 #include <QtCore/QtCore>
 #include <QtCore/QFutureSynchronizer>
 #include <QtConcurrent/QtConcurrent>
@@ -43,8 +41,6 @@
 #include "SourceUpdates/PerformNCXUpdates.h"
 #include "SourceUpdates/PerformOPFUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
-
-using boost::shared_ptr;
 
 #define NON_WELL_FORMED_MESSAGE "Cannot perform HTML updates since the file is not well formed"
 
@@ -273,7 +269,7 @@ QString UniversalUpdates::UpdateOPFFile(OPFResource *opf_resource,
     const QString &source = opf_resource->GetText();
 
     try {
-        shared_ptr<xc::DOMDocument> document = PerformOPFUpdates(source, xml_updates)();
+        std::shared_ptr<xc::DOMDocument> document = PerformOPFUpdates(source, xml_updates)();
         opf_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*document.get()));
         return QString();
     } catch (const ErrorBuildingDOM &) {
@@ -296,7 +292,7 @@ QString UniversalUpdates::UpdateNCXFile(NCXResource *ncx_resource,
     const QString &source = ncx_resource->GetText();
 
     try {
-        shared_ptr<xc::DOMDocument> document = PerformNCXUpdates(source, xml_updates)();
+        std::shared_ptr<xc::DOMDocument> document = PerformNCXUpdates(source, xml_updates)();
         ncx_resource->SetText(CleanSource::PrettifyDOCTYPEHeader(XhtmlDoc::GetDomDocumentAsString(*document.get())));
         return QString();
     } catch (const ErrorBuildingDOM &) {

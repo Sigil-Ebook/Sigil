@@ -72,7 +72,7 @@ XhtmlDoc::WellFormedError ImportHTML::CheckValidToLoad()
 // and returns the created Book
 QSharedPointer<Book> ImportHTML::GetBook()
 {
-    shared_ptr<xc::DOMDocument> document = XhtmlDoc::LoadTextIntoDocument(LoadSource());
+    std::shared_ptr<xc::DOMDocument> document = XhtmlDoc::LoadTextIntoDocument(LoadSource());
     LoadMetadata(*document);
     QString source = XhtmlDoc::GetDomDocumentAsString(*document);
     UpdateFiles(CreateHTMLResource(), source, LoadFolderStructure(*document));

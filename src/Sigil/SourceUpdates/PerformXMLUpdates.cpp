@@ -54,7 +54,7 @@ PerformXMLUpdates::PerformXMLUpdates(const xc::DOMDocument &document,
 }
 
 
-shared_ptr<xc::DOMDocument> PerformXMLUpdates::operator()()
+std::shared_ptr<xc::DOMDocument> PerformXMLUpdates::operator()()
 {
     UpdateXMLReferences();
     return m_Document;

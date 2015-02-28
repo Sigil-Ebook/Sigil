@@ -19,8 +19,6 @@
 **
 *************************************************************************/
 
-#include <boost/shared_ptr.hpp>
-
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtCore/QHash>
@@ -34,8 +32,6 @@
 #include "ResourceObjects/NCXResource.h"
 #include "sigil_constants.h"
 #include "SourceUpdates/AnchorUpdates.h"
-
-using boost::shared_ptr;
 
 void AnchorUpdates::UpdateAllAnchorsWithIDs(const QList<HTMLResource *> &html_resources)
 {
@@ -236,7 +232,7 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
     Q_ASSERT(ncx_resource);
     const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
     QWriteLocker locker(&ncx_resource->GetLock());
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(ncx_resource->GetText());
+    std::shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(ncx_resource->GetText());
     xc::DOMDocument &document = *d.get();
     xc::DOMNodeList *anchors  = document.getElementsByTagName(QtoX("content"));
     QString original_filename_with_relative_path = TEXT_FOLDER_NAME % "/" % originating_filename;

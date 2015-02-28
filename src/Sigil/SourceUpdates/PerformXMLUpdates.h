@@ -23,8 +23,6 @@
 #ifndef PERFORMXMLUPDATES_H
 #define PERFORMXMLUPDATES_H
 
-#include <boost/shared_ptr.hpp>
-
 #include <QtCore/QHash>
 #include <QtCore/QStringList>
 
@@ -32,8 +30,6 @@
 
 class QString;
 class QStringList;
-
-using boost::shared_ptr;
 
 /**
  * Performs path updates on XML documents.
@@ -66,7 +62,7 @@ public:
      *
      * @return The updated DOM of the provided XML file.
      */
-    virtual shared_ptr<xc::DOMDocument> operator()();
+    virtual std::shared_ptr<xc::DOMDocument> operator()();
 
 protected:
 
@@ -93,7 +89,7 @@ protected:
     /**
      * The parsed DOM document
      */
-    shared_ptr<xc::DOMDocument> m_Document;
+    std::shared_ptr<xc::DOMDocument> m_Document;
 
 private:
 

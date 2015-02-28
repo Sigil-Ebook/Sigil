@@ -30,8 +30,6 @@
 #include "sigil_constants.h"
 #include "SourceUpdates/LinkUpdates.h"
 
-using boost::shared_ptr;
-
 void LinkUpdates::UpdateLinksInAllFiles(const QList<HTMLResource *> &html_resources, const QList<QString> new_stylesheets)
 {
     QtConcurrent::blockingMap(html_resources, std::bind(UpdateLinksInOneFile, std::placeholders::_1, new_stylesheets));

@@ -23,13 +23,9 @@
 #ifndef OPFRESOURCE_H
 #define OPFRESOURCE_H
 
-#include <boost/shared_ptr.hpp>
-
 #include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/XMLResource.h"
 #include "BookManipulation/Metadata.h"
-
-using boost::shared_ptr;
 
 class HTMLResource;
 class ImageResource;
@@ -159,7 +155,7 @@ private:
 
     static void UpdateItemrefID(const QString &old_id, const QString &new_id, xc::DOMDocument &document);
 
-    boost::shared_ptr<xc::DOMDocument> GetDocument() const;
+    std::shared_ptr<xc::DOMDocument> GetDocument() const;
 
     static xc::DOMElement *GetPackageElement(const xc::DOMDocument &document);
 
@@ -265,7 +261,7 @@ private:
 
     static bool BasicStructurePresent(const xc::DOMDocument &document);
 
-    boost::shared_ptr<xc::DOMDocument> CreateOPFFromScratch(const xc::DOMDocument *document=NULL) const;
+    std::shared_ptr<xc::DOMDocument> CreateOPFFromScratch(const xc::DOMDocument *document=NULL) const;
 
     QStringList GetRelativePathsToAllFilesInOEPBS() const;
 

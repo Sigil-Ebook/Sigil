@@ -23,8 +23,6 @@
 #ifndef XHTMLDOC_H
 #define XHTMLDOC_H
 
-#include <boost/shared_ptr.hpp>
-
 #include <QtWebKit/QWebElement>
 
 #include "BookManipulation/XercesHUse.h"
@@ -103,11 +101,11 @@ public:
      * Parses the source text into a DOM and returns a shared pointer
      * to the heap-created document.
      */
-    static boost::shared_ptr<xc::DOMDocument> LoadTextIntoDocument(const QString &source);
+    static std::shared_ptr<xc::DOMDocument> LoadTextIntoDocument(const QString &source);
 
-    static boost::shared_ptr<xc::DOMDocument> CopyDomDocument(const xc::DOMDocument &document);
+    static std::shared_ptr<xc::DOMDocument> CopyDomDocument(const xc::DOMDocument &document);
 
-    static boost::shared_ptr<xc::DOMDocument> RaiiWrapDocument(xc::DOMDocument *document);
+    static std::shared_ptr<xc::DOMDocument> RaiiWrapDocument(xc::DOMDocument *document);
 
     static int NodeLineNumber(const xc::DOMNode &node);
 

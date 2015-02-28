@@ -20,8 +20,6 @@
 **
 *************************************************************************/
 
-#include <boost/shared_ptr.hpp>
-
 #include <QtCore/QtCore>
 #include <QtConcurrent/QtConcurrent>
 #include <QtWidgets/QApplication>
@@ -35,9 +33,6 @@
 #include "BookManipulation/Index.h"
 #include "MiscEditors/IndexEntries.h"
 #include "sigil_constants.h"
-
-
-using boost::shared_ptr;
 
 const QString SIGIL_INDEX_CLASS = "sigil_index_marker";
 const QString SIGIL_INDEX_ID_PREFIX = "sigil_index_id_";
@@ -68,7 +63,7 @@ bool Index::BuildIndex(QList<HTMLResource *> html_resources)
 void Index::AddIndexIDsOneFile(HTMLResource *html_resource)
 {
     QWriteLocker locker(&html_resource->GetLock());
-    shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
+    std::shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
     QList<xc::DOMNode *> nodes = XhtmlDoc::GetIDNodes(*d.get());
     bool resource_updated = false;
     int index_id_number = 1;

@@ -1,5 +1,4 @@
-/************************************************************************
-**
+/**
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -21,8 +20,6 @@
 **
 *************************************************************************/
 
-#include <boost/scoped_ptr.hpp>
-#include <boost/shared_ptr.hpp>
 #include <xercesc/framework/MemBufInputSource.hpp>
 #include <xercesc/sax2/SAX2XMLReader.hpp>
 #include <xercesc/sax2/XMLReaderFactory.hpp>
@@ -49,8 +46,6 @@
 #include "Misc/GumboInterface.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
-
-using boost::shared_ptr;
 
 const QStringList BLOCK_LEVEL_TAGS = QStringList() << "address" << "blockquote" << "center" << "dir" << "div" <<
                                      "dl" << "fieldset" << "form" << "h1" << "h2" << "h3" <<
@@ -399,12 +394,12 @@ QString XhtmlDoc::GetDomNodeAsString(const xc::DOMNode &node)
 {
     XMLCh LS[] = { xc::chLatin_L, xc::chLatin_S, xc::chNull };
     xc::DOMImplementation *impl = xc::DOMImplementationRegistry::getDOMImplementation(LS);
-    shared_ptr<xc::DOMLSSerializer> serializer(
+    std::shared_ptr<xc::DOMLSSerializer> serializer(
         ((xc::DOMImplementationLS *) impl)->createLSSerializer(),
         XercesExt::XercesDeallocator<xc::DOMLSSerializer>);
     serializer->getDomConfig()->setParameter(xc::XMLUni::fgDOMWRTDiscardDefaultContent, false);
     serializer->getDomConfig()->setParameter(xc::XMLUni::fgDOMWRTBOM, true);
-    shared_ptr<XMLCh> xwritten(serializer->writeToString(&node), XercesExt::XercesStringDeallocator);
+    std::shared_ptr<XMLCh> xwritten(serializer->writeToString(&node), XercesExt::XercesStringDeallocator);
     return XtoQ(xwritten.get());
 }
 
@@ -420,13 +415,13 @@ QString XhtmlDoc::GetDomDocumentAsString(const xc::DOMDocument &document)
 }
 
 
-shared_ptr<xc::DOMDocument> XhtmlDoc::CopyDomDocument(const xc::DOMDocument &document)
+std::shared_ptr<xc::DOMDocument> XhtmlDoc::CopyDomDocument(const xc::DOMDocument &document)
 {
     return RaiiWrapDocument(static_cast<xc::DOMDocument *>(document.cloneNode(true)));
 }
 
 
-shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source)
+std::shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source)
 {
     XercesExt::LocationAwareDOMParser parser;
     // This scanner ignores schemas
@@ -453,9 +448,9 @@ shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source
 }
 
 
-shared_ptr<xc::DOMDocument> XhtmlDoc::RaiiWrapDocument(xc::DOMDocument *document)
+std::shared_ptr<xc::DOMDocument> XhtmlDoc::RaiiWrapDocument(xc::DOMDocument *document)
 {
-    return shared_ptr<xc::DOMDocument>(document, XercesExt::XercesDeallocator<xc::DOMDocument>);
+    return std::shared_ptr<xc::DOMDocument>(document, XercesExt::XercesDeallocator<xc::DOMDocument>);
 }
 
 
@@ -475,7 +470,7 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
 {
 #if 0
 // FC
-    boost::scoped_ptr<xc::SAX2XMLReader> parser(xc::XMLReaderFactory::createXMLReader());
+    std::unique_ptr<xc::SAX2XMLReader> parser(xc::XMLReaderFactory::createXMLReader());
     parser->setFeature(xc::XMLUni::fgSAX2CoreValidation,            false);
     parser->setFeature(xc::XMLUni::fgXercesSchema,                  false);
     parser->setFeature(xc::XMLUni::fgXercesLoadSchema,              false);
