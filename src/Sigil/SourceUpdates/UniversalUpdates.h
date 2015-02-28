@@ -42,7 +42,7 @@ public:
             const QHash<QString, QString> &updates,
             const QList<XMLResource *> &non_well_formed=QList<XMLResource *>());
 
-    static tuple <QHash<QString, QString>,
+    static std::tuple <QHash<QString, QString>,
            QHash<QString, QString>,
            QHash<QString, QString>> SeparateHtmlCssXmlUpdates(const QHash<QString, QString> &updates);
 

@@ -24,8 +24,6 @@
 #ifndef IMPORTEPUB_H
 #define IMPORTEPUB_H
 
-#include <boost/tuple/tuple.hpp>
-
 #include <QCoreApplication>
 #include <QtCore/QHash>
 #include <QtCore/QSet>
@@ -33,8 +31,6 @@
 
 #include "Importers/Importer.h"
 #include "Misc/TempFolder.h"
-
-using boost::tuple;
 
 class HTMLResource;
 class CSSResource;
@@ -117,7 +113,7 @@ private:
      * @return A tuple where the first member is the old path to the file,
      *         and the new member is the new, OEBPS-relative path to it.
      */
-    tuple<QString, QString> LoadOneFile(const QString &path,
+    std::tuple<QString, QString> LoadOneFile(const QString &path,
                                         const QString &mimetype = QString());
 
     /**

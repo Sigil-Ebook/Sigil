@@ -23,13 +23,9 @@
 #ifndef CLEANSOURCE_H
 #define CLEANSOURCE_H
 
-#include <boost/tuple/tuple.hpp>
-
 #include <QtCore/QList>
 
 #include "ResourceObjects/HTMLResource.h"
-
-using boost::tuple;
 
 class QStringList;
 
@@ -102,7 +98,7 @@ private:
 
     // Removes redundant CSS classes from the style tags and source code;
     // Calls more specific version.
-    static tuple<QString, QStringList> RemoveRedundantClasses(const QString &source,
+    static std::tuple<QString, QStringList> RemoveRedundantClasses(const QString &source,
             const QStringList &css_style_tags);
 
     // Removes redundant CSS classes from the provided CSS style tags

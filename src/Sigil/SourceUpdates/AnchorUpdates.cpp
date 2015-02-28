@@ -21,7 +21,6 @@
 
 #include <boost/bind/bind.hpp>
 #include <boost/shared_ptr.hpp>
-#include <boost/tuple/tuple.hpp>
 
 #include <QtCore/QtCore>
 #include <QtCore/QString>
@@ -37,10 +36,7 @@
 #include "sigil_constants.h"
 #include "SourceUpdates/AnchorUpdates.h"
 
-using boost::make_tuple;
 using boost::shared_ptr;
-using boost::tie;
-using boost::tuple;
 
 void AnchorUpdates::UpdateAllAnchorsWithIDs(const QList<HTMLResource *> &html_resources)
 {
@@ -72,13 +68,13 @@ void AnchorUpdates::UpdateAllAnchors(const QList<HTMLResource *> &html_resources
 
 QHash<QString, QString> AnchorUpdates::GetIDLocations(const QList<HTMLResource *> &html_resources)
 {
-    const QList<tuple<QString, QList<QString>>> &IDs_in_files = QtConcurrent::blockingMapped(html_resources, GetOneFileIDs);
+    const QList<std::tuple<QString, QList<QString>>> &IDs_in_files = QtConcurrent::blockingMapped(html_resources, GetOneFileIDs);
     QHash<QString, QString> ID_locations;
 
     for (int i = 0; i < IDs_in_files.count(); ++i) {
         QList<QString> file_element_IDs;
         QString resource_filename;
-        tie(resource_filename, file_element_IDs) = IDs_in_files.at(i);
+        std::tie(resource_filename, file_element_IDs) = IDs_in_files.at(i);
 
         for (int j = 0; j < file_element_IDs.count(); ++j) {
             ID_locations[ file_element_IDs.at(j) ] = resource_filename;
@@ -89,7 +85,7 @@ QHash<QString, QString> AnchorUpdates::GetIDLocations(const QList<HTMLResource *
 }
 
 
-tuple<QString, QList<QString>> AnchorUpdates::GetOneFileIDs(HTMLResource *html_resource)
+std::tuple<QString, QList<QString>> AnchorUpdates::GetOneFileIDs(HTMLResource *html_resource)
 {
     Q_ASSERT(html_resource);
     QReadLocker locker(&html_resource->GetLock());
@@ -97,7 +93,7 @@ tuple<QString, QList<QString>> AnchorUpdates::GetOneFileIDs(HTMLResource *html_r
     GumboInterface gi = GumboInterface(newsource);
     gi.parse();
     QList<QString> ids = gi.get_all_values_for_attribute(QString("id"));
-    return make_tuple(html_resource->Filename(), ids);
+    return std::make_tuple(html_resource->Filename(), ids);
 }
 
 

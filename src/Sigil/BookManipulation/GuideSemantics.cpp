@@ -25,9 +25,6 @@
 
 #include "GuideSemantics.h"
 
-using boost::make_tuple;
-using boost::tie;
-
 QMutex GuideSemantics::s_AccessMutex;
 GuideSemantics *GuideSemantics::m_Instance = NULL;
 
@@ -47,7 +44,7 @@ GuideSemantics &GuideSemantics::Instance()
 }
 
 
-const QHash<int, tuple<QString, QString>> &GuideSemantics::GetGuideTypeMapping()
+const QHash<int, std::tuple<QString, QString>> &GuideSemantics::GetGuideTypeMapping()
 {
     return m_GuideTypeMapping;
 }
@@ -57,7 +54,7 @@ QString GuideSemantics::GetGuideName(GuideSemantics::GuideSemanticType type)
     if (m_GuideTypeMapping.contains(type)) {
         QString abbrev;
         QString name;
-        tie(abbrev, name) = m_GuideTypeMapping[type];
+        std::tie(abbrev, name) = m_GuideTypeMapping[type];
         return name;
     }
 
@@ -80,39 +77,39 @@ GuideSemantics::GuideSemantics()
 void GuideSemantics::CreateGuideMapping()
 {
     m_GuideTypeMapping[ GuideSemantics::Cover ]
-        = make_tuple(QString("cover"),           QObject::tr("Cover"));
+        = std::make_tuple(QString("cover"),           QObject::tr("Cover"));
     m_GuideTypeMapping[ GuideSemantics::TitlePage ]
-        = make_tuple(QString("title-page"),      QObject::tr("Title Page"));
+        = std::make_tuple(QString("title-page"),      QObject::tr("Title Page"));
     m_GuideTypeMapping[ GuideSemantics::TableOfContents ]
-        = make_tuple(QString("toc"),             QObject::tr("Table Of Contents"));
+        = std::make_tuple(QString("toc"),             QObject::tr("Table Of Contents"));
     m_GuideTypeMapping[ GuideSemantics::Index ]
-        = make_tuple(QString("index"),           QObject::tr("Index"));
+        = std::make_tuple(QString("index"),           QObject::tr("Index"));
     m_GuideTypeMapping[ GuideSemantics::Glossary ]
-        = make_tuple(QString("glossary"),        QObject::tr("Glossary"));
+        = std::make_tuple(QString("glossary"),        QObject::tr("Glossary"));
     m_GuideTypeMapping[ GuideSemantics::Acknowledgements ]
-        = make_tuple(QString("acknowledgements"), QObject::tr("Acknowledgements"));
+        = std::make_tuple(QString("acknowledgements"), QObject::tr("Acknowledgements"));
     m_GuideTypeMapping[ GuideSemantics::Bibliography ]
-        = make_tuple(QString("bibliography"),    QObject::tr("Bibliography"));
+        = std::make_tuple(QString("bibliography"),    QObject::tr("Bibliography"));
     m_GuideTypeMapping[ GuideSemantics::Colophon ]
-        = make_tuple(QString("colophon"),        QObject::tr("Colophon"));
+        = std::make_tuple(QString("colophon"),        QObject::tr("Colophon"));
     m_GuideTypeMapping[ GuideSemantics::CopyrightPage ]
-        = make_tuple(QString("copyright-page"),  QObject::tr("Copyright Page"));
+        = std::make_tuple(QString("copyright-page"),  QObject::tr("Copyright Page"));
     m_GuideTypeMapping[ GuideSemantics::Dedication ]
-        = make_tuple(QString("dedication"),      QObject::tr("Dedication"));
+        = std::make_tuple(QString("dedication"),      QObject::tr("Dedication"));
     m_GuideTypeMapping[ GuideSemantics::Epigraph ]
-        = make_tuple(QString("epigraph"),        QObject::tr("Epigraph"));
+        = std::make_tuple(QString("epigraph"),        QObject::tr("Epigraph"));
     m_GuideTypeMapping[ GuideSemantics::Foreword ]
-        = make_tuple(QString("foreword"),        QObject::tr("Foreword"));
+        = std::make_tuple(QString("foreword"),        QObject::tr("Foreword"));
     m_GuideTypeMapping[ GuideSemantics::ListOfIllustrations ]
-        = make_tuple(QString("loi"),             QObject::tr("List Of Illustrations"));
+        = std::make_tuple(QString("loi"),             QObject::tr("List Of Illustrations"));
     m_GuideTypeMapping[ GuideSemantics::ListOfTables ]
-        = make_tuple(QString("lot"),             QObject::tr("List Of Tables"));
+        = std::make_tuple(QString("lot"),             QObject::tr("List Of Tables"));
     m_GuideTypeMapping[ GuideSemantics::Notes ]
-        = make_tuple(QString("notes"),           QObject::tr("Notes"));
+        = std::make_tuple(QString("notes"),           QObject::tr("Notes"));
     m_GuideTypeMapping[ GuideSemantics::Preface ]
-        = make_tuple(QString("preface"),         QObject::tr("Preface"));
+        = std::make_tuple(QString("preface"),         QObject::tr("Preface"));
     m_GuideTypeMapping[ GuideSemantics::Text ]
-        = make_tuple(QString("text"),            QObject::tr("Text"));
+        = std::make_tuple(QString("text"),            QObject::tr("Text"));
 }
 
 void GuideSemantics::CreateReferenceTypeToGuideEnum()

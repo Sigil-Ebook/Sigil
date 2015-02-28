@@ -23,7 +23,6 @@
 *************************************************************************/
 
 #include <boost/shared_ptr.hpp>
-#include <boost/tuple/tuple.hpp>
 
 #include <QtCore/QFileInfo>
 #include <QtGui/QContextMenuEvent>
@@ -54,11 +53,6 @@
 #include "ViewEditors/CodeViewEditor.h"
 #include "ViewEditors/LineNumberArea.h"
 #include "sigil_constants.h"
-
-using boost::make_tuple;
-using boost::shared_ptr;
-using boost::tie;
-using boost::tuple;
 
 static const int TAB_SPACES_WIDTH        = 4;
 static const int LINE_NUMBER_MARGIN      = 5;
@@ -2237,17 +2231,17 @@ QList<ViewEditor::ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QS
 }
 
 
-tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const
+std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const
 {
     shared_ptr<xc::DOMDocument> dom = XhtmlDoc::LoadTextIntoDocument(toPlainText());
     xc::DOMNode *end_node = XhtmlDoc::GetNodeFromHierarchy(*dom, hierarchy);
     QTextCursor cursor(document());
 
     if (end_node)
-        return make_tuple(XhtmlDoc::NodeLineNumber(*end_node) - cursor.blockNumber(),
+        return std::make_tuple(XhtmlDoc::NodeLineNumber(*end_node) - cursor.blockNumber(),
                           XhtmlDoc::NodeColumnNumber(*end_node));
     else {
-        return make_tuple(0, 0);
+        return std::make_tuple(0, 0);
     }
 }
 
@@ -2271,7 +2265,7 @@ bool CodeViewEditor::ExecuteCaretUpdate(bool default_to_top)
     int horizontal_chars_move = 0;
     // We *have* to do the conversion on-demand since the
     // conversion uses toPlainText(), and the text needs to up-to-date.
-    tie(vertical_lines_move, horizontal_chars_move) = ConvertHierarchyToCaretMove(m_CaretUpdate);
+    std::tie(vertical_lines_move, horizontal_chars_move) = ConvertHierarchyToCaretMove(m_CaretUpdate);
     cursor.movePosition(QTextCursor::NextBlock, QTextCursor::MoveAnchor, vertical_lines_move - 1);
 
     for (int i = 1 ; i < horizontal_chars_move ; i++) {
