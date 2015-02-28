@@ -35,6 +35,7 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "sigil_constants.h"
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 # include <stdlib.h>

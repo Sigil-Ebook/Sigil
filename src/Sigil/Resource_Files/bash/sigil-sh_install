@@ -11,21 +11,13 @@ else
   LD_LIBRARY_PATH="$QTLIB_DIR:$LD_LIBRARY_PATH"
 fi
 
-# Create an environment var for SIGIL_PLUGIN_LAUNCHERS
-# since we've relocated the "real" sigil binary.
-if [ -z "$SIGIL_PLUGIN_LAUNCHERS" ]; then
-  SIGIL_PLUGIN_LAUNCHERS="${CMAKE_INSTALL_PREFIX}/share/sigil/plugin_launchers"
-  export SIGIL_PLUGIN_LAUNCHERS
-fi
-
-# Create env var for SIGIL_EMBEDDED_PYTHON_CODE
-if [ -z "$SIGIL_EMBEDDED_PYTHON_CODE" ]; then
-  SIGIL_EMBEDDED_PYTHON_CODE="${CMAKE_INSTALL_PREFIX}/share/sigil/python3lib"
-  export SIGIL_EMBEDDED_PYTHON_CODE
+# Create an environment var for the Sigil helper directory.
+if [ -z "$SIGIL_EXTRA_ROOT" ]; then
+  SIGIL_EXTRA_ROOT="${CMAKE_INSTALL_PREFIX}/share/sigil"
+  export SIGIL_EXTRA_ROOT
 fi
 
 export LD_LIBRARY_PATH
-#export QT_DEBUG_PLUGINS=1 
 
-exec ${CMAKE_INSTALL_PREFIX}/lib/sigil/${DESTINATION_EXECUTABLE_NAME} "$@"
+exec ${CMAKE_INSTALL_PREFIX}/lib/sigil/sigil "$@"
 
