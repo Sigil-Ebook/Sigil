@@ -19,9 +19,6 @@
 **
 *************************************************************************/
 
-#include <boost/bind/bind.hpp>
-#include <boost/tuple/tuple.hpp>
-
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
@@ -33,8 +30,6 @@
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_constants.h"
-
-using boost::make_tuple;
 
 
 // The maximum allowed distance (in lines) that a heading
@@ -57,7 +52,7 @@ QList<Headings::Heading> Headings::GetHeadingList(QList<HTMLResource *> html_res
     QList<Headings::Heading> heading_list;
     QList<QList<Headings::Heading>> per_file_headings =
                                      QtConcurrent::blockingMapped(html_resources,
-                                             boost::bind(GetHeadingListForOneFile, _1, include_unwanted_headings));
+                                             std::bind(GetHeadingListForOneFile, std::placeholders::_1, include_unwanted_headings));
 
     for (int i = 0; i < per_file_headings.count(); ++i) {
         heading_list.append(per_file_headings.at(i));

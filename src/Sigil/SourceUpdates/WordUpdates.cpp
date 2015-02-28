@@ -19,8 +19,6 @@
 **
 *************************************************************************/
 
-#include <boost/bind/bind.hpp>
-
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtConcurrent/QtConcurrent>
@@ -31,7 +29,7 @@
 
 void WordUpdates::UpdateWordInAllFiles(const QList<HTMLResource *> &html_resources, const QString old_word, QString new_word)
 {
-    QtConcurrent::blockingMap(html_resources, boost::bind(UpdateWordsInOneFile, _1, old_word, new_word));
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateWordsInOneFile, std::placeholders::_1, old_word, new_word));
 }
 
 void WordUpdates::UpdateWordsInOneFile(HTMLResource *html_resource, QString old_word, QString new_word)

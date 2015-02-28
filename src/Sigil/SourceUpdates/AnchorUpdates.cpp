@@ -19,7 +19,6 @@
 **
 *************************************************************************/
 
-#include <boost/bind/bind.hpp>
 #include <boost/shared_ptr.hpp>
 
 #include <QtCore/QtCore>
@@ -41,14 +40,14 @@ using boost::shared_ptr;
 void AnchorUpdates::UpdateAllAnchorsWithIDs(const QList<HTMLResource *> &html_resources)
 {
     const QHash<QString, QString> &ID_locations = GetIDLocations(html_resources);
-    QtConcurrent::blockingMap(html_resources, boost::bind(UpdateAnchorsInOneFile, _1, ID_locations));
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateAnchorsInOneFile, std::placeholders::_1, ID_locations));
 }
 
 
 void AnchorUpdates::UpdateExternalAnchors(const QList<HTMLResource *> &html_resources, const QString &originating_filename, const QList<HTMLResource *> new_files)
 {
     const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
-    QtConcurrent::blockingMap(html_resources, boost::bind(UpdateExternalAnchorsInOneFile, _1, originating_filename, ID_locations));
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateExternalAnchorsInOneFile, std::placeholders::_1, originating_filename, ID_locations));
 }
 
 
@@ -62,7 +61,7 @@ void AnchorUpdates::UpdateAllAnchors(const QList<HTMLResource *> &html_resources
         originating_filename_links.append("../" % TEXT_FOLDER_NAME % "/" % originating_filename);
     }
     const QString &new_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % Utility::URLEncodePath(new_file->Filename());
-    QtConcurrent::blockingMap(html_resources, boost::bind(UpdateAllAnchorsInOneFile, _1, originating_filename_links, ID_locations, new_filename_with_relative_path));
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateAllAnchorsInOneFile, std::placeholders::_1, originating_filename_links, ID_locations, new_filename_with_relative_path));
 }
 
 

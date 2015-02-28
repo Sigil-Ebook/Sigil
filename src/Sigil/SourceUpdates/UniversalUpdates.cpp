@@ -19,7 +19,6 @@
 **
 *************************************************************************/
 
-#include <boost/bind/bind.hpp>
 #include <boost/shared_ptr.hpp>
 
 #include <QtCore/QtCore>
@@ -83,11 +82,11 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
     QFuture<void> css_future;
 
     if (resources_already_loaded) {
-        html_future = QtConcurrent::mapped(html_resources, boost::bind(UpdateOneHTMLFile, _1, html_updates, css_updates));
-        css_future = QtConcurrent::map(css_resources,  boost::bind(UpdateOneCSSFile,  _1, css_updates));
+        html_future = QtConcurrent::mapped(html_resources, std::bind(UpdateOneHTMLFile, std::placeholders::_1, html_updates, css_updates));
+        css_future = QtConcurrent::map(css_resources,  std::bind(UpdateOneCSSFile,  std::placeholders::_1, css_updates));
     } else {
-        html_future = QtConcurrent::mapped(html_resources, boost::bind(LoadAndUpdateOneHTMLFile, _1, html_updates, css_updates, non_well_formed));
-        css_future = QtConcurrent::map(css_resources,  boost::bind(LoadAndUpdateOneCSSFile,  _1, css_updates));
+        html_future = QtConcurrent::mapped(html_resources, std::bind(LoadAndUpdateOneHTMLFile, std::placeholders::_1, html_updates, css_updates, non_well_formed));
+        css_future = QtConcurrent::map(css_resources,  std::bind(LoadAndUpdateOneCSSFile,  std::placeholders::_1, css_updates));
     }
 
     sync.addFuture(html_future);

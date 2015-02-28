@@ -19,7 +19,6 @@
 **
 *************************************************************************/
 
-#include <boost/bind/bind.hpp>
 #include <signal.h>
 
 #include <QtCore/QtCore>
