@@ -43,6 +43,7 @@ QStringList UILanguage::GetPossibleTranslationPaths()
     if (!sigil_extra_root.isEmpty()) {
         possible_qm_locations.append(sigil_extra_root + "/translations/");
     } else {
+        possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/../../share/sigil/translations/");
         possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/../share/sigil/translations/");
     }
 #endif

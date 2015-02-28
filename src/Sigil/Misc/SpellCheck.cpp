@@ -332,6 +332,7 @@ void SpellCheck::loadDictionaryNames()
     if (!sigil_extra_root.isEmpty()) {
         paths.append(sigil_extra_root + "/hunspell_dictionaries/");
     } else {
+        paths.append(QCoreApplication::applicationDirPath() + "/../../share/sigil/hunspell_dictionaries/");
         paths.append(QCoreApplication::applicationDirPath() + "/../share/sigil/hunspell_dictionaries/");
     }
 #endif
