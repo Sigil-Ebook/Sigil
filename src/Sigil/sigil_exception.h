@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -23,108 +24,112 @@
 #ifndef SG_EXCEPTION_H
 #define SG_EXCEPTION_H
 
-#include <boost/exception/all.hpp>
-
-#define boost_throw(x) BOOST_THROW_EXCEPTION(x)
-
-// Sigil uses the "Exception types as semantic tags" idiom.
-// For more information, see this link:
-//   http://www.boost.org/doc/libs/1_41_0/libs/exception/doc/exception_types_as_simple_semantic_tags.html
-
-/**
- * The common base for all exceptions.
- */
-struct ExceptionBase: virtual std::exception, virtual boost::exception {};
+#include <exception>
+#include <string>
 
 /**
 * Thrown when a file does not exist.
 */
-struct FileDoesNotExist : virtual ExceptionBase {};
-typedef boost::error_info<struct file_name, std::string> errinfo_file_name;
+class FileDoesNotExist : public std::runtime_error
+{
+public:
+    FileDoesNotExist(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown when a resource object does not exist.
  */
-struct ResourceDoesNotExist : virtual ExceptionBase {};
-typedef boost::error_info<struct resource_name, std::string> errinfo_resource_name;
+class ResourceDoesNotExist : public std::runtime_error {
+public:
+    ResourceDoesNotExist(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown when the book has no HTML files.
  */
-struct NoHTMLFiles : virtual ExceptionBase {};
+class NoHTMLFiles : public std::runtime_error {
+public:
+    NoHTMLFiles(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown for XML parsing errors.
  */
-struct ErrorParsingXml : virtual ExceptionBase {};
-typedef boost::error_info<struct error_string, std::string> errinfo_XML_parsing_error_string;
-typedef boost::error_info<struct line_number, qint64> errinfo_XML_parsing_line_number;
-typedef boost::error_info<struct column_number, qint64> errinfo_XML_parsing_column_number;
-
-/**
- * Wrapper for CZipExceptions.
- */
-struct CZipExceptionWrapper : virtual ExceptionBase {};
-typedef boost::error_info<struct zip_info, std::string> errinfo_zip_info_msg;
-typedef boost::error_info<struct zip_iCause, int> errinfo_zip_error_id;
+class ErrorParsingXml : public std::runtime_error {
+public:
+    ErrorParsingXml(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown when a file cannot be read.
  */
-struct CannotReadFile : virtual ExceptionBase {};
-typedef boost::error_info<struct file_fullpath, std::string> errinfo_file_fullpath;
+class CannotReadFile : public std::runtime_error {
+public:
+    CannotReadFile(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown when a file cannot be opened.
  */
-struct CannotOpenFile : virtual ExceptionBase {};
-typedef boost::error_info<struct file_errorstring, std::string> errinfo_file_errorstring;
+class CannotOpenFile : public std::runtime_error {
+public:
+    CannotOpenFile(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown when a file cannot be put into an archive.
  */
-struct CannotStoreFile : virtual ExceptionBase {};
+class CannotStoreFile : public std::runtime_error {
+public:
+    CannotStoreFile(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown when a file cannot be copied.
  */
-struct CannotCopyFile : virtual ExceptionBase {};
-typedef boost::error_info<struct file_copypath, std::string> errinfo_file_copypath;
+class CannotCopyFile : public std::runtime_error {
+public:
+    CannotCopyFile(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown when a file cannot be written.
  */
-struct CannotWriteFile : virtual ExceptionBase {};
-typedef boost::error_info<struct file_errorstring, std::string> errinfo_file_errorstring;
-
-/**
- * Thrown when a file cannot be removed.
- */
-struct CannotDeleteFile : virtual ExceptionBase {};
+class CannotWriteFile : public std::runtime_error {
+public:
+    CannotWriteFile (const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown when the user tries to open a file encrypted with DRM.
  */
-struct FileEncryptedWithDrm : virtual ExceptionBase {};
+class FileEncryptedWithDrm : public std::runtime_error {
+public:
+    FileEncryptedWithDrm(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown for XML parsing errors.
  */
-struct FontObfuscationError : virtual ExceptionBase {};
-typedef boost::error_info<struct font_filepath, std::string> errinfo_font_filepath;
-typedef boost::error_info<struct algorithm, std::string> errinfo_font_obfuscation_algorithm;
-typedef boost::error_info<struct key, std::string> errinfo_font_obfuscation_key;
+class FontObfuscationError : public std::runtime_error {
+public:
+    FontObfuscationError(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown when the document has no root document element.
  */
-struct ErrorBuildingDOM : virtual ExceptionBase {};
+class ErrorBuildingDOM : public std::runtime_error {
+public:
+    ErrorBuildingDOM(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 /**
  * Thrown for Invalid EPUB errors while loading and parsing content files.
  */
-struct EPUBLoadParseError : virtual ExceptionBase {};
-typedef boost::error_info<struct parse_errors, std::string> errinfo_epub_load_parse_errors;
+class EPUBLoadParseError : public std::runtime_error {
+public:
+    EPUBLoadParseError(const std::string &msg) : std::runtime_error(msg) { };
+};
 
 #endif // SG_EXCEPTION_H
-

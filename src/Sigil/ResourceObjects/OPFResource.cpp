@@ -20,6 +20,8 @@
 **
 *************************************************************************/
 
+#include <memory>
+
 // XercesExtensions
 #include <XmlUtils.h>
 

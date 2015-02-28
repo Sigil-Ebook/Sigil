@@ -376,7 +376,7 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
         SetViewState(locationBookmark->view_state);
         OpenResource(resource, -1, locationBookmark->cv_cursor_position, locationBookmark->bv_caret_location_update, locationBookmark->view_state);
         ShowMessageOnStatusBar();
-    } catch (const ResourceDoesNotExist &) {
+    } catch (ResourceDoesNotExist) {
         // Nothing. Old file must have been deleted.
         ShowMessageOnStatusBar(tr("Navigation cancelled as location no longer exists."));
         ResetLocationBookmark(locationBookmark);
@@ -874,7 +874,7 @@ void MainWindow::ViewImageDialog(const QUrl &url)
         if (resource.Type() == Resource::ImageResourceType || resource.Type() == Resource::SVGResourceType) {
             m_ViewImage->ShowImage(resource.GetFullPath());
         }
-    } catch (const ResourceDoesNotExist &) {
+    } catch (ResourceDoesNotExist) {
         QMessageBox::warning(this, tr("Sigil"), tr("Image does not exist: ") + image_path);
     }
 }
@@ -1100,7 +1100,7 @@ void MainWindow::AddCover()
         } else {
             Utility::DisplayStdErrorDialog(tr("Unexpected error. Only image files can be used for the cover."));
         }
-    } catch (const ResourceDoesNotExist &) {
+    } catch (ResourceDoesNotExist) {
         //
     }
 
@@ -1270,7 +1270,7 @@ void MainWindow::OpenFile(QString filename, int line)
     try {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
         OpenResource(resource, line);
-    } catch (const ResourceDoesNotExist &) {
+    } catch (ResourceDoesNotExist) {
         //
     }
 }
@@ -1287,7 +1287,7 @@ void MainWindow::DeleteFilenames(QStringList files_to_delete)
         try {
             Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
             resources.append(&resource);
-        } catch (const ResourceDoesNotExist &) {
+        } catch (ResourceDoesNotExist) {
             continue;
         }
     }
@@ -1475,7 +1475,7 @@ void MainWindow::InsertFiles(const QStringList &selected_files)
                     }
 
                     flow_tab->InsertFile(html);
-                } catch (const ResourceDoesNotExist &) {
+                } catch (ResourceDoesNotExist) {
                     Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.") .arg(selected_file));
                 }
             }
@@ -3418,25 +3418,25 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
 
             return true;
         }
-    } catch (const FileEncryptedWithDrm &) {
+    } catch (FileEncryptedWithDrm) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         Utility::DisplayStdErrorDialog(
             tr("The creator of this file has encrypted it with DRM. "
                "Sigil cannot open such files."));
-    } catch (const EPUBLoadParseError &epub_load_error) {
+    } catch (EPUBLoadParseError epub_load_error) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
-        const QString errors = QString::fromStdString(*boost::get_error_info<errinfo_epub_load_parse_errors>(epub_load_error));
+        const QString errors = QString(epub_load_error.what());
         Utility::DisplayStdErrorDialog(
             tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
-    } catch (const ExceptionBase &exception) {
+    } catch (const std::runtime_error &e) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
-                                             .arg(Utility::GetExceptionInfo(exception)));
-    } catch (const QString &err) {
+                                             .arg(e.what()));
+    } catch (QString err) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         Utility::DisplayStdErrorDialog(err);
@@ -3532,10 +3532,10 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
             ShowMessageOnStatusBar(tr("EPUB saved."));
         }
         QApplication::restoreOverrideCursor();
-    } catch (const ExceptionBase &exception) {
+    } catch (std::runtime_error e) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
-        Utility::DisplayExceptionErrorDialog(tr("Cannot save file %1: %2").arg(fullfilepath).arg(Utility::GetExceptionInfo(exception)));
+        Utility::DisplayExceptionErrorDialog(tr("Cannot save file %1: %2").arg(fullfilepath).arg(e.what()));
         return false;
     }
 
@@ -3662,7 +3662,7 @@ void MainWindow::SetInsertedFileWatchResourceFile(const QString &pathname)
     try {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
         m_Book->GetFolderKeeper().WatchResourceFile(resource);
-    } catch (const ResourceDoesNotExist &) {
+    } catch (ResourceDoesNotExist) {
         // nothing
     }
 }

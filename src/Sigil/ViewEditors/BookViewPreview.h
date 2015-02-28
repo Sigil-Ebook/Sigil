@@ -22,6 +22,8 @@
 #ifndef BOOKVIEWPREVIEW_H
 #define BOOKVIEWPREVIEW_H
 
+#include <memory>
+
 #include <QtCore/QMap>
 #include <QtWebKitWidgets/QWebView>
 

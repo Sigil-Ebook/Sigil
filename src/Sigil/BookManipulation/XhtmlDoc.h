@@ -23,6 +23,8 @@
 #ifndef XHTMLDOC_H
 #define XHTMLDOC_H
 
+#include <memory>
+
 #include <QtWebKit/QWebElement>
 
 #include "BookManipulation/XercesHUse.h"

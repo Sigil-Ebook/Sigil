@@ -30,6 +30,7 @@
 
 #include <stdio.h>
 #include <time.h>
+#include <string>
 
 #include <QApplication>
 #include <QtCore/QDir>
@@ -213,10 +214,8 @@ void Utility::CopyFiles(const QString &fullfolderpath_source, const QString &ful
                 bool success = QFile::copy(file.absoluteFilePath(), destination);
 
                 if (!success) {
-                    boost_throw(CannotCopyFile()
-                                << errinfo_file_fullpath(file.absoluteFilePath().toStdString())
-                                << errinfo_file_copypath(destination.toStdString())
-                               );
+                    std::string msg = file.absoluteFilePath().toStdString() + ": " + destination.toStdString();
+                    throw(CannotCopyFile(msg));
                 }
             }
             // Else it's a directory, copy everything in it
@@ -381,10 +380,8 @@ QString Utility::ReadUnicodeTextFile(const QString &fullfilepath)
 
     // Check if we can open the file
     if (!file.open(QFile::ReadOnly)) {
-        boost_throw(CannotOpenFile()
-                    << errinfo_file_fullpath(fullfilepath.toStdString())
-                    << errinfo_file_errorstring(file.errorString().toStdString())
-                   );
+        std::string msg = fullfilepath.toStdString() + ": " + file.errorString().toStdString();
+        throw(CannotOpenFile(msg));
     }
 
     QTextStream in(&file);
@@ -408,10 +405,8 @@ void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilep
                    QIODevice::Text
                   )
        ) {
-        boost_throw(CannotOpenFile()
-                    << errinfo_file_fullpath(file.fileName().toStdString())
-                    << errinfo_file_errorstring(file.errorString().toStdString())
-                   );
+        std::string msg = file.fileName().toStdString() + ": " + file.errorString().toStdString();
+        throw(CannotOpenFile(msg));
     }
 
     QTextStream out(&file);
@@ -506,13 +501,6 @@ void Utility::DisplayStdWarningDialog(const QString &warning_message, const QStr
     message_box.setStandardButtons(QMessageBox::Close);
     message_box.exec();
 }
-
-
-QString Utility::GetExceptionInfo(const ExceptionBase &exception)
-{
-    return QString::fromStdString(diagnostic_information(exception));
-}
-
 
 // Returns a value for the environment variable name passed;
 // if the env var isn't set, it returns an empty string

@@ -20,6 +20,9 @@
 **
 *************************************************************************/
 
+#include <memory>
+#include <string>
+
 #include <xercesc/framework/MemBufInputSource.hpp>
 #include <xercesc/sax2/SAX2XMLReader.hpp>
 #include <xercesc/sax2/XMLReaderFactory.hpp>
@@ -146,11 +149,8 @@ QList<XhtmlDoc::XMLElement> XhtmlDoc::GetTagsInHead(const QString &source, const
     }
 
     if (reader.hasError()) {
-        boost_throw(ErrorParsingXml()
-                    << errinfo_XML_parsing_error_string(reader.errorString().toStdString())
-                    << errinfo_XML_parsing_line_number(reader.lineNumber())
-                    << errinfo_XML_parsing_column_number(reader.columnNumber())
-                   );
+        std::string msg = reader.errorString().toStdString() + ": " + QString::number(reader.lineNumber()).toStdString() + ": " + QString::number(reader.columnNumber()).toStdString();
+        throw (ErrorParsingXml(msg));
     }
 
     return matching_elements;
@@ -177,11 +177,8 @@ QList<XhtmlDoc::XMLElement> XhtmlDoc::GetTagsInDocument(const QString &source, c
     }
 
     if (reader.hasError()) {
-        boost_throw(ErrorParsingXml()
-                    << errinfo_XML_parsing_error_string(reader.errorString().toStdString())
-                    << errinfo_XML_parsing_line_number(reader.lineNumber())
-                    << errinfo_XML_parsing_column_number(reader.columnNumber())
-                   );
+        std::string msg = reader.errorString().toStdString() + ": " + QString::number(reader.lineNumber()).toStdString() + ": " + QString::number(reader.columnNumber()).toStdString();
+        throw(msg);
     }
 
     return matching_elements;

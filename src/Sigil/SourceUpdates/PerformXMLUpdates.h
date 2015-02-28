@@ -23,6 +23,8 @@
 #ifndef PERFORMXMLUPDATES_H
 #define PERFORMXMLUPDATES_H
 
+#include <memory>
+
 #include <QtCore/QHash>
 #include <QtCore/QStringList>
 

@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <memory>
+
 #include <QtCore/QFileInfo>
 #include <QtCore/QString>
 #include <QtWebKitWidgets/QWebFrame>

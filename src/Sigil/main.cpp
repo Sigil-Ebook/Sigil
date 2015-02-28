@@ -307,8 +307,8 @@ int main(int argc, char *argv[])
             widget->show();
             return app.exec();
         }
-    } catch (ExceptionBase &exception) {
-        Utility::DisplayExceptionErrorDialog(Utility::GetExceptionInfo(exception));
+    } catch (std::exception e) {
+        Utility::DisplayExceptionErrorDialog(e.what());
         return 1;
     }
 }

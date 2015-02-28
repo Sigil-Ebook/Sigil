@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <memory>
+
 #include <QtCore/QtCore>
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
@@ -87,7 +89,7 @@ QString ImportHTML::LoadSource()
 
     if (m_CachedSource.isNull()) {
         if (!Utility::IsFileReadable(m_FullFilePath)) {
-            boost_throw(CannotReadFile() << errinfo_file_fullpath(m_FullFilePath.toStdString()));
+            throw (CannotReadFile(m_FullFilePath.toStdString()));
         }
 
         m_CachedSource = HTMLEncodingResolver::ReadHTMLFile(m_FullFilePath);
@@ -208,7 +210,7 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const xc::DOMDocument *docume
             }
 
             updates[ fullfilepath ] = newpath;
-        } catch (FileDoesNotExist &) {
+        } catch (FileDoesNotExist) {
             // Do nothing. If the referenced file does not exist,
             // well then we don't load it.
             // TODO: log this.
@@ -243,7 +245,7 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const xc::DOMDocument *docume
                 }
 
                 updates[ relative_path ] = newpath;
-            } catch (FileDoesNotExist &) {
+            } catch (FileDoesNotExist) {
                 // Do nothing. If the referenced file does not exist,
                 // well then we don't load it.
                 // TODO: log this.
@@ -253,6 +255,3 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const xc::DOMDocument *docume
 
     return updates;
 }
-
-
-

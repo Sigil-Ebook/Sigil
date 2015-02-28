@@ -20,6 +20,8 @@
 **
 *************************************************************************/
 
+#include <memory>
+
 #include <QtCore/QtCore>
 #include <QtConcurrent/QtConcurrent>
 #include <QtWidgets/QApplication>

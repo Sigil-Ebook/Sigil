@@ -23,6 +23,8 @@
 #ifndef OPFRESOURCE_H
 #define OPFRESOURCE_H
 
+#include <memory>
+
 #include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/XMLResource.h"
 #include "BookManipulation/Metadata.h"

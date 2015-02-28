@@ -22,6 +22,8 @@
 **
 *************************************************************************/
 
+#include <memory>
+
 #include <QtCore/QFileInfo>
 #include <QtGui/QContextMenuEvent>
 #include <QtCore/QSignalMapper>

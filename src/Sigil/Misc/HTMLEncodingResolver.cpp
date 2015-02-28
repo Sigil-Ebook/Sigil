@@ -20,6 +20,8 @@
 **
 *************************************************************************/
 
+#include <string>
+
 #include <QtCore/QFile>
 #include <QtCore/QString>
 #include <QtCore/QTextCodec>
@@ -46,10 +48,8 @@ QString HTMLEncodingResolver::ReadHTMLFile(const QString &fullfilepath)
 
     // Check if we can open the file
     if (!file.open(QFile::ReadOnly)) {
-        boost_throw(CannotOpenFile()
-                    << errinfo_file_fullpath(file.fileName().toStdString())
-                    << errinfo_file_errorstring(file.errorString().toStdString())
-                   );
+        std::string msg = file.fileName().toStdString() + ": " + file.errorString().toStdString();
+        throw (CannotOpenFile(msg));
     }
 
     QByteArray data = file.readAll();

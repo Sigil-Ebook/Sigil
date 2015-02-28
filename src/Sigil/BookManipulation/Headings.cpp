@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <memory>
+
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtCore/QStringList>

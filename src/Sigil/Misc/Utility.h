@@ -138,8 +138,6 @@ public:
 
     static void DisplayExceptionErrorDialog(const QString &error_info);
 
-    static QString GetExceptionInfo(const ExceptionBase &exception);
-
     // Returns a value for the environment variable name passed;
     // if the env var isn't set, it returns an empty string
     static QString GetEnvironmentVar(const QString &variable_name);

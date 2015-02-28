@@ -116,7 +116,7 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
     try {
         Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
         emit OpenResourceRequest(resource, line, -1, QString(), MainWindow::ViewState_CodeView);
-    } catch (ResourceDoesNotExist &) {
+    } catch (ResourceDoesNotExist) {
         return;
     }
 }

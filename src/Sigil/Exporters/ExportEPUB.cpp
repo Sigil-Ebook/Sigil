@@ -23,6 +23,7 @@
 #define NOMINMAX
 #endif
 
+#include <string>
 #include <string.h>
 #include <zip.h>
 #ifdef _WIN32
@@ -130,7 +131,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
 #endif
 
     if (zfile == NULL) {
-        boost_throw(CannotOpenFile() << errinfo_file_fullpath(tempFile.toStdString()));
+        throw (CannotOpenFile(tempFile.toStdString()));
     }
 
     memset(&fileInfo, 0, sizeof(fileInfo));
@@ -145,14 +146,14 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
     if (zipOpenNewFileInZip64(zfile, "mimetype", &fileInfo, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0, 0) != Z_OK) {
         zipClose(zfile, NULL);
         QFile::remove(tempFile);
-        boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
+        throw(CannotStoreFile("mimetype"));
     }
 
     if (zipWriteInFileInZip(zfile, EPUB_MIME_DATA, (unsigned int)strlen(EPUB_MIME_DATA)) != Z_OK) {
         zipCloseFileInZip(zfile);
         zipClose(zfile, NULL);
         QFile::remove(tempFile);
-        boost_throw(CannotStoreFile() << errinfo_file_fullpath("mimetype"));
+        throw(CannotStoreFile("mimetype"));
     }
 
     zipCloseFileInZip(zfile);
@@ -172,7 +173,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
         if (zipOpenNewFileInZip4_64(zfile, relpath.toUtf8().constData(), &fileInfo, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8, 0, 15, 8, Z_DEFAULT_STRATEGY, NULL, 0, 0x0b00, 1<<11, 0) != Z_OK) {
             zipClose(zfile, NULL);
             QFile::remove(tempFile);
-            boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
+            throw(CannotStoreFile(relpath.toStdString()));
         }
 
         // Open the file on disk. We will read this and write what we read into
@@ -183,7 +184,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
             zipCloseFileInZip(zfile);
             zipClose(zfile, NULL);
             QFile::remove(tempFile);
-            boost_throw(CannotOpenFile() << errinfo_file_fullpath(it.fileName().toStdString()));
+            throw(CannotOpenFile(it.fileName().toStdString()));
         }
 
         // Write the data from the file on disk into the archive.
@@ -196,7 +197,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
                 zipCloseFileInZip(zfile);
                 zipClose(zfile, NULL);
                 QFile::remove(tempFile);
-                boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
+                throw(CannotStoreFile(relpath.toStdString()));
             }
         }
 
@@ -207,13 +208,13 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
             zipCloseFileInZip(zfile);
             zipClose(zfile, NULL);
             QFile::remove(tempFile);
-            boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
+            throw(CannotStoreFile(relpath.toStdString()));
         }
 
         if (zipCloseFileInZip(zfile) != Z_OK) {
             zipClose(zfile, NULL);
             QFile::remove(tempFile);
-            boost_throw(CannotStoreFile() << errinfo_file_fullpath(relpath.toStdString()));
+            throw(CannotStoreFile(relpath.toStdString()));
         }
     }
 
@@ -224,14 +225,14 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
     QFile temp_epub(tempFile);
 
     if (!temp_epub.open(QFile::ReadOnly)) {
-        boost_throw(CannotOpenFile() << errinfo_file_fullpath(tempFile.toStdString()));
+        throw(CannotOpenFile(tempFile.toStdString()));
     }
 
     QFile real_epub(fullfilepath);
 
     if (!real_epub.open(QFile::WriteOnly | QFile::Truncate)) {
         temp_epub.close();
-        boost_throw(CannotWriteFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+        throw(CannotWriteFile(fullfilepath.toStdString()));
     }
 
     // Copy the contents from the temp file to the real file.
@@ -246,7 +247,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
             temp_epub.close();
             real_epub.close();
             QFile::remove(tempFile);
-            boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+            throw(CannotCopyFile(fullfilepath.toStdString()));
         }
     }
 
@@ -254,7 +255,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
         temp_epub.close();
         real_epub.close();
         QFile::remove(tempFile);
-        boost_throw(CannotCopyFile() << errinfo_file_fullpath(fullfilepath.toStdString()));
+        throw(CannotCopyFile(fullfilepath.toStdString()));
     }
 
     temp_epub.close();
@@ -268,10 +269,8 @@ void ExportEPUB::CreateEncryptionXML(const QString &fullfolderpath)
     QTemporaryFile file;
 
     if (!file.open()) {
-        boost_throw(CannotOpenFile()
-                    << errinfo_file_fullpath(file.fileName().toStdString())
-                    << errinfo_file_errorstring(file.errorString().toStdString())
-                   );
+    std::string msg = file.fileName().toStdString() + ": " + file.errorString().toStdString();
+        throw (CannotOpenFile(msg));
     }
 
     EncryptionXmlWriter enc(*m_Book, file);
