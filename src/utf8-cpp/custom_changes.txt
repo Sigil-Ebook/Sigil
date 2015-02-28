@@ -1,7 +1,0 @@
-core.h was changed to use the boost versions of uint8_t, uint16_t and uint32_t 
-coming from BoostParts/boost/cstdint.hpp
-
-This was done to improve code portability, as the original header comments suggested.
-
-
-
