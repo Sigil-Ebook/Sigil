@@ -476,7 +476,7 @@ void ImportEPUB::LocateOPF()
         }
 
         if (OPFfile.isEmpty()) {
-            std::string msg = fullpath.toStdString() + ": Missing and no OPF in archive.";
+            std::string msg = fullpath.toStdString() + ": " + tr("Missing and no OPF in archive.").toStdString();
             throw (CannotOpenFile(msg));
         }
 
