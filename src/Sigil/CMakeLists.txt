@@ -454,8 +454,6 @@ set( UI_FILES
     )
     
 set( SOURCEUPDATE_FILES   
-    SourceUpdates/PerformXMLUpdates.cpp
-    SourceUpdates/PerformXMLUpdates.h
     SourceUpdates/PerformHTMLUpdates.cpp 
     SourceUpdates/PerformHTMLUpdates.h
     SourceUpdates/PerformOPFUpdates.cpp

@@ -19,28 +19,59 @@
 **
 *************************************************************************/
 
-#include <QtCore/QStringList>
-
+#include "Misc/EmbeddedPython.h"
+#include <QStringList>
+#include <QFileInfo>
+#include <QDir>
+#include "Misc/Utility.h"
 #include "SourceUpdates/PerformOPFUpdates.h"
 
+
 PerformOPFUpdates::PerformOPFUpdates(const QString &source,
-                                     const QHash<QString, QString> &xml_updates)
-    : PerformXMLUpdates(source, xml_updates)
+                                     const QHash<QString, QString> &xml_updates,
+                                     const QString& currentpath)
+  :
+  m_XMLUpdates(xml_updates),
+  m_CurrentPath(currentpath),
+  m_source(source)
 {
-    InitPathTags();
 }
 
 
-PerformOPFUpdates::PerformOPFUpdates(const xc::DOMDocument &document,
-                                     const QHash<QString, QString> &xml_updates)
-    : PerformXMLUpdates(document, xml_updates)
+QString PerformOPFUpdates::operator()()
 {
-    InitPathTags();
+  QString newsource = m_source;
+  QString currentdir = QFileInfo(m_CurrentPath).dir().path();
+
+  // serialize the hash for passing to python
+  QStringList dictkeys = m_XMLUpdates.keys();
+  QStringList dictvals;
+  foreach(QString key, dictkeys) {
+    dictvals.append(m_XMLUpdates.value(key));
+  }
+
+  int rv = 0;
+  QString error_traceback;
+
+  QList<QVariant> args;
+  args.append(QVariant(m_source));
+  args.append(QVariant(currentdir));
+  args.append(QVariant(dictkeys));
+  args.append(QVariant(dictvals));
+
+  EmbeddedPython * epython  = EmbeddedPython::instance();
+
+  QVariant res = epython->runInPython( QString("xmlprocessor"),
+                                       QString("performOPFSourceUpdates"),
+                                       args,
+                                       &rv,
+                                       error_traceback);    
+  if (rv != 0) {
+    Utility::DisplayStdWarningDialog(QString("error in xmlprocessor performOPFSourceUpdates: ") + QString::number(rv), 
+                                     error_traceback);
+    // an error happened - make no changes
+    return newsource;
+  }
+  return res.toString();
 }
 
-
-void PerformOPFUpdates::InitPathTags()
-{
-    // We look at a different set of tags
-    m_PathTags = QStringList() << "item" << "reference" << "site";
-}

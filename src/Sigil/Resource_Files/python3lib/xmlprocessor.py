@@ -20,6 +20,7 @@ def insert_into_syspath():
 
 insert_into_syspath()
 
+import os
 from bs4 import BeautifulSoup
 from bs4.builder._lxml import LXMLTreeBuilderForXML
 import re
@@ -87,7 +88,65 @@ def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
                     fragment_id = parts[1]
                     if fragment_id in id_dict:
                         attribute_value = TEXT_FOLDER_NAME + "/" + quoteurl(id_dict[fragment_id]) + "#" + fragment_id
-                        tag[src] = attribute_value
+                        tag["src"] = attribute_value
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    return newdata
+
+
+def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
+    # rebuild serialized lookup dictionary
+    updates = {}
+    for i in range(0, len(keylist)):
+        updates[ keylist[i] ] = valuelist[i]
+    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
+    soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
+    for tag in soup.find_all("content"):
+        if "src" in tag.attrs:
+            src = tag["src"]
+            if src.find(":") == -1:
+                parts = src.split('#')
+                url = parts[0]
+                fragment = ""
+                if len(parts) > 1:
+                    fragment = parts[1]
+                bookrelpath = os.path.join(currentdir, unquoteurl(url))
+                bookrelpath = os.path.normpath(bookrelpath)
+                bookrelpath = bookrelpath.replace(os.sep, "/")
+                if bookrelpath in updates:
+                    attribute_value = updates[bookrelpath]
+                    if fragment != "":
+                        attribute_value = attribute_value + "#" + fragment
+                    attribute_value = quoteurl(attribute_value)
+                    tag["src"] = attribute_value
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    return newdata
+
+
+def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
+    # rebuild serialized lookup dictionary
+    updates = {}
+    for i in range(0, len(keylist)):
+        updates[ keylist[i] ] = valuelist[i]
+    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
+    soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
+    for tag in soup.find_all(["item","reference","site"]):
+        if "href" in tag.attrs :
+            href = tag["href"]
+            if href.find(":") == -1 :
+                parts = href.split('#')
+                url = parts[0]
+                fragment = ""
+                if len(parts) > 1:
+                    fragment = parts[1]
+                bookrelpath = os.path.join(currentdir, unquoteurl(url))
+                bookrelpath = os.path.normpath(bookrelpath)
+                bookrelpath = bookrelpath.replace(os.sep, "/")
+                if bookrelpath in updates:
+                    attribute_value = updates[bookrelpath]
+                    if fragment != "":
+                        attribute_value = attribute_value + "#" + fragment
+                    attribute_value = quoteurl(attribute_value)
+                    tag["href"] = attribute_value
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 

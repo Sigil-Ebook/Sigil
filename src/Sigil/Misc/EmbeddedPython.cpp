@@ -342,16 +342,28 @@ PyObject* EmbeddedPython::QVariantToPyObject(QVariant & v)
             value = Py_BuildValue("y", v.toByteArray().constData());
             break;
         case QMetaType::QStringList:
-            // fall through
-        case QMetaType::QVariantList: {
-                QVariantList vlist = v.toList();
-                value = PyList_New(vlist.size());
-                int idx=0;
-                foreach(QVariant av, vlist) {
-                    PyList_SetItem(value, idx, QVariantToPyObject(av));
-                    idx++;
-                }
-            } break;
+            {
+              QStringList vlist = v.toStringList();
+              value = PyList_New(vlist.size());
+              int pos = 0;
+              foreach(QString av, vlist) {
+                  PyObject* strval = PyUnicode_FromKindAndData(PyUnicode_2BYTE_KIND, av.utf16(), av.size());
+                  PyList_SetItem(value, pos, strval);
+                  pos++;
+               }
+            }
+            break;
+         case QMetaType::QVariantList:
+            {
+              QVariantList vlist = v.toList();
+              value = PyList_New(vlist.size());
+              int pos = 0;
+              foreach(QVariant av, vlist) {
+                  PyList_SetItem(value, pos, QVariantToPyObject(av));
+                  pos++;
+              }
+            }
+            break;
         default:
             // Ensure we don't have any holes.
             value = Py_BuildValue("u", "");

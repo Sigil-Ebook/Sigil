@@ -23,22 +23,24 @@
 #ifndef PERFORMNCXUPDATES_H
 #define PERFORMNCXUPDATES_H
 
-#include "SourceUpdates/PerformXMLUpdates.h"
 
-class PerformNCXUpdates : public PerformXMLUpdates
+class PerformNCXUpdates
 {
 
 public:
 
     PerformNCXUpdates(const QString &source,
-                      const QHash<QString, QString> &xml_updates);
+                      const QHash<QString, QString> &xml_updates,
+                      const QString& currentpath);
 
-    PerformNCXUpdates(const xc::DOMDocument &document,
-                      const QHash<QString, QString> &xml_updates);
+    QString operator()();
 
-private:
+ private:
 
-    void InitPathTags();
+    const QHash<QString, QString> &m_XMLUpdates;
+    const QString& m_CurrentPath;
+    const QString& m_source;
+
 };
 
 #endif // PERFORMNCXUPDATES_H
