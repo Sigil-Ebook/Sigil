@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <memory>
+#include <functional>
 
 #include "Misc/EmbeddedPython.h"
 #include <QtCore/QtCore>
