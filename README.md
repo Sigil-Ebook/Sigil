@@ -32,89 +32,12 @@ anyone willing to implement the requested feature. Only items being worked
 will be left open.
 
 
-Source Components
-=================
-
-*THESE ARE IN FLUX AND CHANGING RAPIDLY. DO NOT USE THIS AS A GUIDE RIGHT NOW*
-
-
-
-
-The src directory contains all of the source code. It has
-a few subdirectories:
-
-BoostParts
-----------
-
-Various parts of the Boost C++ Libraries that Sigil uses.  This is not a
-complete copy of Boost, BCP was used to only include the parts of Boost that
-are used.
-
-FlightCrew
-----------
-
-EPUB validation Library. FlightCrew at its Google Code project page is largely
-abandoned. All work on FlightCrew is happening within Sigil and changes are not
-being backported to the standalone project.
-
-
-Sigil
------
-
-Source code for Sigil.
-
-
-tidyLib
--------
-
-HTML Tidy, an HTML cleaner. This is a heavily modified
-version of tidy because tidy upstream is dead so patches from us
-don't have a chance of being integrated.
-
-
-Xerces
-------
-
-Xerces-C++, XML manipulation Library.
-
-XercesExtensions
-----------------
-
-Helper classes that shuffle data between into and out of formats supported and
-required by Xerces. This is part of Sigil and not a third party library.
-
-minizip
--------
-
-A zipping library.
-
-zlib
-----
-
-Compression library. Epub uses the zip container with deflate compression.
-This is used by minizip for the compression part of the zip format.
-
-hunspell
---------
-
-Spell checking library.
-
-pcre
-----
-
-Regular expression library.
-
-utf8-cpp
---------
-
-UTF8 manipulation and validation library.
-
-
 Build and Install
 =================
 
 The INSTALL.md file in the docs directory contains information on building
 Sigil from source code (and installing it on Linux machines).
+
 
 
 License
