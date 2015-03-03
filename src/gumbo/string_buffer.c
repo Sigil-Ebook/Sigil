@@ -127,6 +127,10 @@ char* gumbo_string_buffer_to_string(GumboStringBuffer* input) {
   return buffer;
 }
 
+void gumbo_string_buffer_clear(GumboStringBuffer* input) {
+  input->length = 0;
+}
+
 void gumbo_string_buffer_destroy(GumboStringBuffer* buffer) {
   gumbo_free(buffer->data);
 }

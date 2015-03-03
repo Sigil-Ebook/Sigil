@@ -62,6 +62,10 @@ void gumbo_string_buffer_append_string(GumboStringPiece* str, GumboStringBuffer*
 // Converts this string buffer to const char*, alloctaing a new buffer for it.
 char* gumbo_string_buffer_to_string(GumboStringBuffer* input);
 
+// Reinitialize this string buffer.  This clears it by setting length=0.  It
+// does not zero out the buffer itself.
+void gumbo_string_buffer_clear(GumboStringBuffer* input);
+
 // Deallocates this GumboStringBuffer.
 void gumbo_string_buffer_destroy(GumboStringBuffer* buffer);
 

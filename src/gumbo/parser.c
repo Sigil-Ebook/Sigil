@@ -908,8 +908,7 @@ static void maybe_flush_text_node_buffer(GumboParser* parser) {
     insert_node(text_node, location);
   }
 
-  gumbo_string_buffer_destroy(&buffer_state->_buffer);
-  gumbo_string_buffer_init(&buffer_state->_buffer);
+  gumbo_string_buffer_clear(&buffer_state->_buffer);
   buffer_state->_type = GUMBO_NODE_WHITESPACE;
   assert(buffer_state->_buffer.length == 0);
 }
