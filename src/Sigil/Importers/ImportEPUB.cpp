@@ -688,7 +688,14 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 void ImportEPUB::LoadInfrastructureFiles()
 {
     m_Book->GetOPF().SetText(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)));
+    QString OPFBookRelPath = m_OPFFilePath;
+    OPFBookRelPath = OPFBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
+    m_Book->GetOPF().SetCurrentBookRelPath(OPFBookRelPath);
+
     m_Book->GetNCX().SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath)));
+    QString NCXBookRelPath = m_NCXFilePath;
+    NCXBookRelPath = NCXBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
+    m_Book->GetNCX().SetCurrentBookRelPath(NCXBookRelPath);
 }
 
 

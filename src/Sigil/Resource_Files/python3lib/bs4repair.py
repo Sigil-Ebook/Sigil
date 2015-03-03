@@ -20,12 +20,6 @@ def insert_into_syspath():
 
 insert_into_syspath()
 
-import html5lib
-from html5lib import treebuilders
-from html5lib import treewalkers
-from html5lib import serializer
-from html5lib.filters import sanitizer
-from html5lib.constants import cdataElements, rcdataElements
 from bs4 import BeautifulSoup
 from bs4.builder._lxml import LXMLTreeBuilderForXML
 import re
@@ -41,22 +35,6 @@ def remove_xml_header(data):
 def fix_self_closing_cdata_tags(data):
     return re.sub(r'<\s*(%s)\s*[^>]*/\s*>' % ('|'.join(cdataElements|rcdataElements)), r'<\1></\1>', data, flags=re.I)
 
-def repairXHTML(data):
-    data = remove_xml_header(data)
-    data = fix_self_closing_cdata_tags(data)
-    soup = BeautifulSoup(data, 'html5lib')
-    newdata = soup.serialize()
-    return newdata
-
-def repairPrettyPrintXHTML(data, indent_chars="  "):
-    res = []
-    data = remove_xml_header(data)
-    data = fix_self_closing_cdata_tags(data)
-    soup = BeautifulSoup(data, 'html5lib')
-    res.append('<?xml version="1.0"?>\n')
-    res.append(soup.decode(pretty_print=True,formatter='minimal',indent_chars=indent_chars))
-    return ''.join(res)
-    
 # BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
 # def repairXML(data, self_closing_tags=ebook_xml_empty_tags):
 #     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
@@ -72,21 +50,6 @@ def repairPrettyPrintXML(data, self_closing_tags=ebook_xml_empty_tags, indent_ch
 
 
 def main():
-    samp1 = '<html><head><title>testing & entities</title></head>'
-    samp1 += '<body><p>this&nbsp;is&#160;the&#xa0;<b><i>copyright'
-    samp1 += '</i></b> symbol "&copy;"</p></body></html>'
-
-    samp2 = '''
-<html>
-<head>
-<title>testing & entities</title>
-</head>
-<body>
-<p>this&nbsp;is&#160;the&#xa0;<b><i>copyright</i></b> symbol "&copy;"</p>
-</body>
-</html>
-'''
-
     opfxml = '''
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="2.0">
@@ -104,14 +67,7 @@ def main():
 </package>
 '''
 
-    print(repairXHTML(samp1))
-    print(repairPrettyPrintXHTML(samp1))
-
-    print(repairXHTML(samp2))
-    print(repairPrettyPrintXHTML(samp2))
-
-    print(repairPrettyPrintXML(opfxml, indent_chars="   "))
-
+    print(repairPrettyPrintXML(opfxml, indent_chars="  "))
     return 0
 
 if __name__ == '__main__':

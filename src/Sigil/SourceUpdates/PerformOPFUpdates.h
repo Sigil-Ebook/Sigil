@@ -23,22 +23,24 @@
 #ifndef PERFORMOPFUPDATES_H
 #define PERFORMOPFUPDATES_H
 
-#include "SourceUpdates/PerformXMLUpdates.h"
 
-class PerformOPFUpdates : public PerformXMLUpdates
+class PerformOPFUpdates
 {
 
 public:
 
     PerformOPFUpdates(const QString &source,
-                      const QHash<QString, QString> &xml_updates);
+                      const QHash<QString, QString> &xml_updates,
+                      const QString& currentpath);
 
-    PerformOPFUpdates(const xc::DOMDocument &document,
-                      const QHash<QString, QString> &xml_updates);
+    QString operator()();
 
-private:
+ private:
 
-    void InitPathTags();
+    const QHash<QString, QString> &m_XMLUpdates;
+    const QString& m_CurrentPath;
+    const QString& m_source;
+
 };
 
 #endif // PERFORMOPFUPDATES_H

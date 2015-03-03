@@ -28,7 +28,6 @@
 #include <QRegularExpression>
 
 #include "BookManipulation/CleanSource.h"
-#include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/HTMLEncodingResolver.h"
 #include "Misc/SettingsStore.h"
@@ -52,6 +51,7 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
         const QHash<QString, QString> &updates,
         const QList<XMLResource *> &non_well_formed)
 {
+    QStringList updatekeys = updates.keys();
     QHash<QString, QString> html_updates;
     QHash<QString, QString> css_updates;
     QHash<QString, QString> xml_updates;
@@ -270,10 +270,11 @@ QString UniversalUpdates::UpdateOPFFile(OPFResource *opf_resource,
 
     QWriteLocker locker(&opf_resource->GetLock());
     const QString &source = opf_resource->GetText();
-
+    QString currentpath = opf_resource->GetCurrentBookRelPath();
     try {
-        std::shared_ptr<xc::DOMDocument> document = PerformOPFUpdates(source, xml_updates)();
-        opf_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*document.get()));
+        QString newsource = PerformOPFUpdates(source, xml_updates, currentpath)();
+        opf_resource->SetText(newsource);
+        opf_resource->SetCurrentBookRelPath("");
         return QString();
     } catch (ErrorBuildingDOM) {
         // It would be great if we could just let this exception bubble up,
@@ -293,10 +294,12 @@ QString UniversalUpdates::UpdateNCXFile(NCXResource *ncx_resource,
 
     QWriteLocker locker(&ncx_resource->GetLock());
     const QString &source = ncx_resource->GetText();
+    QString currentpath = ncx_resource->GetCurrentBookRelPath();
 
     try {
-        std::shared_ptr<xc::DOMDocument> document = PerformNCXUpdates(source, xml_updates)();
-        ncx_resource->SetText(CleanSource::PrettifyDOCTYPEHeader(XhtmlDoc::GetDomDocumentAsString(*document.get())));
+        QString newsource = PerformNCXUpdates(source, xml_updates, currentpath)();
+        ncx_resource->SetText(CleanSource::PrettifyDOCTYPEHeader(newsource));
+        ncx_resource->SetCurrentBookRelPath("");
         return QString();
     } catch (ErrorBuildingDOM) {
         // It would be great if we could just let this exception bubble up,
