@@ -28,6 +28,7 @@
 #include <QString>
 #include <QVariant>
 #include <QMutex>
+#include "Misc/PyObjectPtr.h"
 
 /**
  * Singleton.
@@ -50,13 +51,14 @@ public:
                          const QString& function_name,
                          const QVariantList& args,
                          int * pRV,
-                         QString& error_traceback);
+                         QString& error_traceback,
+                         bool ret_python_object = false);
 
 private:
 
     EmbeddedPython();
 
-    QVariant PyObjectToQVariant(PyObject* po);
+    QVariant PyObjectToQVariant(PyObject* po, bool ret_python_object = false);
 
     PyObject* QVariantToPyObject(QVariant& v);
 
@@ -64,6 +66,6 @@ private:
 
     static QMutex m_mutex;
     static EmbeddedPython *m_instance;
-
+    static int m_pyobjmetaid;
 };
 #endif // EMBEDDEDPYTHON_H

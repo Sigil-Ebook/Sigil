@@ -58,6 +58,7 @@
  * QMetaType::QStringList     11	QStringList
  * QMetaType::QVariantMap      8	QVariantMap
  * QMetaType::QVariantHash    28	QVariantHash
+ * QMetaType::User           1024       Base value for User registered Type
  * QMetaType::UnknownType      0	This is an invalid type id. It is returned from QMetaType for types that are not registered
 */
 
@@ -93,7 +94,9 @@
  */
 
 QMutex EmbeddedPython::m_mutex;
+
 EmbeddedPython* EmbeddedPython::m_instance = 0;
+int EmbeddedPython::m_pyobjmetaid = 0;
 
 EmbeddedPython* EmbeddedPython::instance()
 {
@@ -106,6 +109,7 @@ EmbeddedPython* EmbeddedPython::instance()
 EmbeddedPython::EmbeddedPython()
 {
     Py_Initialize();
+    m_pyobjmetaid = qRegisterMetaType<PyObjectPtr>("PyObjectPtr");
 }
 
 EmbeddedPython::~EmbeddedPython()
@@ -114,6 +118,7 @@ EmbeddedPython::~EmbeddedPython()
         delete m_instance;
         m_instance = 0;
     }
+    m_pyobjmetaid = 0;
     Py_Finalize();
 }
 
@@ -175,7 +180,8 @@ QVariant EmbeddedPython::runInPython(const QString& mname,
                                      const QString& fname, 
                                      const QVariantList& args, 
                                      int *rv, 
-                                     QString & tb)
+                                     QString & tb,
+                                     bool ret_python_object)
 {
     EmbeddedPython::m_mutex.lock();
     QVariant  res        = QVariant(QString());
@@ -225,7 +231,7 @@ QVariant EmbeddedPython::runInPython(const QString& mname,
 
     *rv = 0;
 
-    res = PyObjectToQVariant(pyres);
+    res = PyObjectToQVariant(pyres, ret_python_object);
 
 cleanup:
     if (PyErr_Occurred() != NULL) {
@@ -248,7 +254,7 @@ cleanup:
 
 // Convert PyObject types to their QVariant equivalents 
 // call recursively to allow populating QVariant lists and lists of lists
-QVariant EmbeddedPython::PyObjectToQVariant(PyObject* po)
+QVariant EmbeddedPython::PyObjectToQVariant(PyObject* po, bool ret_python_object)
 {
     QVariant res = QVariant(QString());
 
@@ -303,7 +309,11 @@ QVariant EmbeddedPython::PyObjectToQVariant(PyObject* po)
         }
         res = QVariant(vlist);
 
-    } else {
+    } else if (ret_python_object) {
+        QVariant var;
+        var.setValue(PyObjectPtr(po));
+        res = var;
+    } else { 
        // do nothing here to return null value
     }
     return res;
@@ -365,10 +375,21 @@ PyObject* EmbeddedPython::QVariantToPyObject(QVariant & v)
             }
             break;
         default:
-            // Ensure we don't have any holes.
-            value = Py_BuildValue("u", "");
-            break;
-        }
+          {
+            if ((QMetaType::Type)v.type() == m_pyobjmetaid)
+            {
+
+              PyObjectPtr op = v.value<PyObjectPtr>();
+              value = op.object();
+
+            } else {
+
+              // Ensure we don't have any holes.
+              value = Py_BuildValue("u", "");
+            }
+          }
+          break;
+    }
     return value;
 }
 

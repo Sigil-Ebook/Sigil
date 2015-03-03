@@ -301,10 +301,12 @@ set( MISC_FILES
     Misc/ValidationResult.cpp
     Misc/WrapIndicator.h
     Misc/XMLEntities.cpp
-    Misc/EmbeddedPython.cpp
+    Misc/PyObjectPtr.h
+    Misc/PyObjectPtr.cpp
     Misc/EmbeddedPython.h
-    Misc/GumboInterface.cpp
+    Misc/EmbeddedPython.cpp
     Misc/GumboInterface.h
+    Misc/GumboInterface.cpp
     )
 
 set( MISC_EDITORS_FILES    
