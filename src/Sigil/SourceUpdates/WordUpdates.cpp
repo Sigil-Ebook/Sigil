@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <functional>
+
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtConcurrent/QtConcurrent>

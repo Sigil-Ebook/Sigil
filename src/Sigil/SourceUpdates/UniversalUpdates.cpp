@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <memory>
+#include <functional>
 
 #include <QtCore/QtCore>
 #include <QtCore/QFutureSynchronizer>
