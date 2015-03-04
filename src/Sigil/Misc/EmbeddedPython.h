@@ -54,6 +54,13 @@ public:
                          QString& error_traceback,
                          bool ret_python_object = false);
 
+    QVariant callPyObjMethod(PyObjectPtr& pyobj, 
+                             const QString& methname, 
+                             const QVariantList& args, 
+                             int *rv, 
+                             QString & tb,
+                             bool ret_python_object = false);
+
 private:
 
     EmbeddedPython();

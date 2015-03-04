@@ -2,7 +2,7 @@
 #define _PYOBJECTPTR_H
 
 /*
- *  Much Simplified Version adopted from the PythonQt project.
+ *  Much Simplified Version adapted from the PythonQt project.
  *  Original license and info provided below:
  * 
  *  Copyright (C) 2010 MeVis Medical Solutions AG All Rights Reserved.
@@ -40,7 +40,7 @@
 
 #include <Python.h>
 #include <QVariant>
-#include<QMetaType>
+#include <QMetaType>
 
 //! a smart pointer that stores a PyObject pointer and that handles reference counting automatically
 class PyObjectPtr
@@ -125,4 +125,3 @@ private:
 Q_DECLARE_METATYPE(PyObjectPtr)
 
 #endif
-

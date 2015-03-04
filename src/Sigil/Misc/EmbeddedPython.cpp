@@ -21,7 +21,6 @@
 *************************************************************************/
 
 #include "Misc/EmbeddedPython.h"
-
 #include <QString>
 #include <QByteArray>
 #include <QList>
@@ -60,10 +59,12 @@
  * QMetaType::QVariantHash    28	QVariantHash
  * QMetaType::User           1024       Base value for User registered Type
  * QMetaType::UnknownType      0	This is an invalid type id. It is returned from QMetaType for types that are not registered
-*/
+ */
+
 
 /**
- * a simple example of how to use code:
+ *  // example of how to run a python function inside a specific module
+ *
  *  void EmbeddedPython::multiply_pushed(int val1, int val2)
  *  {
  *      int rv   = 0;
@@ -83,7 +84,7 @@
  *      }
  *  }
  *
- *  Where multiply.py is:
+ *  // Where multiply.py is:
  *
  *  #!/usr/bin/env python3
  *                                                                                                           
@@ -91,6 +92,70 @@
  *      print("Will compute", a, "times", b)
  *      c  = a * b
  *      return c
+ */
+
+/**
+ * // example of how to use the callPyObjMethod
+ *
+ *  // First invoke module function to get the Python object
+ *
+ *  PyObjectPtr MyClass::get_object()
+ *  {
+ *      int rv = 0;
+ *      QString traceback;
+ *      QString v1 = QString("Hello");
+ *      QList<QVariant> args;
+ *      args.append(QVariant(v1));
+ *  
+ *      QVariant res = m_epp->runInPython( QString("multiply"),
+ *                                         QString("get_object"),
+ *                                         args,
+ *                                         &rv,
+ *                                         traceback,
+ *                                         true);
+ *      if (rv == 0) {
+ *          return PyObjectPtr(res);
+ *      } else {
+ *          return PyObjectPtr();
+ *      }
+ *  }
+ *
+ * // Now invoke its "get_len" method
+ *
+ * QString MyClass:use_object(PyObjectPtr v)
+ * {
+ *     int rv = 0;
+ *     QString traceback;
+ *     QList<QVariant> args;
+ *     QVariant res = m_epp->callPyObjMethod(v,
+ *                                           QString("get_len"),
+ *                                           args,
+ *                                           &rv,
+ *                                           traceback);
+ *     if (rv == 0) {
+ *         return res.toString();
+ *     } else {
+ *         return QString("Error: ") + QString::number(rv);
+ *     }
+ * }
+ *
+ *
+ * # With the following python code inside of multiply.py
+ *
+ * class TestMe:
+ *     def __init__(self, storeme):
+ *         self.storeme = storeme
+ *         self.mylen = len(self.storeme)
+ * 
+ *     def get_me(self):
+ *         return self.storeme
+ *
+ *     def get_len(self):
+ *         return self.mylen
+ * 
+ * def get_object(v1):
+ *     tme = TestMe(v1)
+ *     return tme
  */
 
 QMutex EmbeddedPython::m_mutex;
@@ -109,7 +174,7 @@ EmbeddedPython* EmbeddedPython::instance()
 EmbeddedPython::EmbeddedPython()
 {
     Py_Initialize();
-    m_pyobjmetaid = qRegisterMetaType<PyObjectPtr>("PyObjectPtr");
+    m_pyobjmetaid = qMetaTypeId<PyObjectPtr>();
 }
 
 EmbeddedPython::~EmbeddedPython()
@@ -248,8 +313,67 @@ cleanup:
 }
 
 
+// given an existing python object instance, invoke one of its methods 
+// grabs mutex to prevent need for Python GIL
+QVariant EmbeddedPython::callPyObjMethod(PyObjectPtr& pyobj, 
+                                         const QString& methname, 
+                                         const QVariantList& args, 
+                                         int *rv, 
+                                         QString & tb,
+                                         bool ret_python_object)
+{
+    EmbeddedPython::m_mutex.lock();
+    QVariant  res        = QVariant(QString());
+    PyObject* obj        = pyobj.object();
+    PyObject* func       = NULL;
+    PyObject* pyargs     = NULL;
+    PyObject* pyres      = NULL;
+    int       idx        = 0;
+     
+    func = PyObject_GetAttrString(obj,methname.toUtf8().constData());
+    if (func == NULL) {
+         *rv = -1;
+         goto cleanup;
+    }
+
+    if (!PyCallable_Check(func)) {
+        *rv = -2;
+        goto cleanup;
+    }
+
+    // Build up Python argument List from args
+    pyargs = PyTuple_New(args.size());
+    idx = 0;
+    foreach(QVariant arg, args) {
+        PyTuple_SetItem(pyargs, idx, QVariantToPyObject(arg));
+        idx++;
+    }
+
+    pyres = PyObject_CallObject(func, pyargs);
+    if (pyres == NULL) {
+        *rv = -3;
+        goto cleanup;
+    }
+
+    *rv = 0;
+
+    res = PyObjectToQVariant(pyres, ret_python_object);
+
+    cleanup:
+    if (PyErr_Occurred() != NULL) {
+        tb = getPythonErrorTraceback();
+     }
+    Py_XDECREF(pyres);
+    Py_XDECREF(pyargs);
+    Py_XDECREF(func);
+
+    EmbeddedPython::m_mutex.unlock();
+    return res;
+}
+
+
 // *** below here all routines are private and only invoked 
-// *** from runInPython with lock held
+// *** from runInPython and callPyObjMethod with lock held
 
 
 // Convert PyObject types to their QVariant equivalents 
@@ -376,11 +500,13 @@ PyObject* EmbeddedPython::QVariantToPyObject(QVariant & v)
             break;
         default:
           {
-            if ((QMetaType::Type)v.type() == m_pyobjmetaid)
+            if ((QMetaType::Type)v.type() >= QMetaType::User && (v.userType() ==  m_pyobjmetaid))
             {
 
               PyObjectPtr op = v.value<PyObjectPtr>();
               value = op.object();
+              // Need to increment object count otherwise will go away when Py_XDECREF used on pyargs
+              Py_XINCREF(value);
 
             } else {
 
