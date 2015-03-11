@@ -22,6 +22,8 @@
 
 #include <memory>
 
+#include "Misc/EmbeddedPython.h"
+
 // XercesExtensions
 #include <XmlUtils.h>
 
@@ -90,6 +92,82 @@ bool OPFResource::RenameTo(const QString &new_filename)
 Resource::ResourceType OPFResource::Type() const
 {
     return Resource::OPFResourceType;
+}
+
+
+QString OPFResource::GetText() const
+{
+    return convert_to_xml();
+}
+
+
+void OPFResource::SetText(const QString &text)
+{
+    // first parse the new text to set internal opf members after grabbing locks
+    int rv = 0;
+    QString traceback;
+
+    QList<QVariant> args;
+    args.append(QVariant(text));
+    EmbeddedPython* epp = EmbeddedPython::instance();
+    QVariant res = epp->runInPython( QString("opf_newparser"), QString("parseopf"), args, &rv, traceback, true);
+    if (rv) fprintf(stderr, "setext parseropf error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    PyObjectPtr mpo = PyObjectPtr(res);
+
+    args.clear();
+    res = epp->callPyObjMethod(mpo, QString("get_package"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext package error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_package = PackageEntry(res);
+
+    res = epp->callPyObjMethod(mpo, QString("get_metadata_attr"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext meta_attr error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_metans = MetaNSEntry(res);
+
+    res = epp->callPyObjMethod(mpo, QString("get_metadata"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext metadata error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_metadata.clear();
+    QList<QVariant> lst = res.toList();
+    foreach(QVariant qv, lst) {
+      m_metadata.append(MetaEntry(qv));
+    }
+
+    res = epp->callPyObjMethod(mpo, QString("get_manifest"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext manifest error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_manifest.clear();
+    lst = res.toList();
+    foreach(QVariant qv, lst) {
+      m_manifest.append(ManifestEntry(qv));
+    }
+
+    res = epp->callPyObjMethod(mpo, QString("get_spine_attr"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext spineattr error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_spineattr = SpineAttrEntry(res);
+
+    res = epp->callPyObjMethod(mpo, QString("get_spine"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext spine error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_spine.clear();
+    lst = res.toList();
+    foreach(QVariant qv, lst) {
+      m_spine.append(SpineEntry(qv));
+    }
+
+    res = epp->callPyObjMethod(mpo, QString("get_guide"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext guide error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_guide.clear();
+    lst = res.toList();
+    foreach(QVariant qv, lst) {
+      m_guide.append(GuideEntry(qv));
+    }
+
+    res = epp->callPyObjMethod(mpo, QString("get_bindings"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext bindings error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_bindings.clear();
+    lst = res.toList();
+    foreach(QVariant qv, lst) {
+      m_bindings.append(BindingsEntry(qv));
+    }
+
+    TextResource::SetText(text);
 }
 
 
@@ -1507,4 +1585,42 @@ QString OPFResource::GetRelativePathToRoot() const
     QDir parent_dir = info.dir();
     QString parent_name = parent_dir.dirName();
     return parent_name + "/" + Filename();
+}
+
+
+QString OPFResource::convert_to_xml() const
+{
+    QStringList xmlres;
+    xmlres << m_package.convert_to_xml();
+    xmlres << m_metans.convert_to_xml();
+    foreach (MetaEntry me, m_metadata) {
+        xmlres << me.convert_to_xml();
+    }
+    xmlres << "  </metadata>\n";
+    xmlres << "  <manifest>\n";
+    foreach (ManifestEntry me, m_manifest) {
+        xmlres << me.convert_to_xml();
+    }
+    xmlres << "  </manifest>\n";
+    xmlres << m_spineattr.convert_to_xml();
+    foreach(SpineEntry sp, m_spine) {
+        xmlres << sp.convert_to_xml();
+    }
+    xmlres << "  </spine>\n";
+    if ((m_guide.size() > 0) || (m_package.m_version.startsWith("2"))) {
+        xmlres << "  <guide>\n";
+        foreach(GuideEntry ge, m_guide) {
+            xmlres << ge.convert_to_xml();
+        }
+        xmlres << "  </guide>\n";
+    }
+    if ((m_bindings.size() > 0) && (!m_package.m_version.startsWith("2"))) {
+        xmlres << "  <bindings>\n";
+        foreach(BindingsEntry be, m_bindings) {
+            xmlres << be.convert_to_xml();
+        }
+        xmlres << "  </bindings>\n";
+    }
+    xmlres << "</package>\n";
+    return xmlres.join("");
 }

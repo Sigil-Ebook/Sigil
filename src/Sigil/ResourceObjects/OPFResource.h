@@ -27,6 +27,7 @@
 
 #include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/XMLResource.h"
+#include "ResourceObjects/OPFEntry.h"
 #include "BookManipulation/Metadata.h"
 
 class HTMLResource;
@@ -54,6 +55,10 @@ public:
     virtual bool RenameTo(const QString &new_filename);
 
     virtual ResourceType Type() const;
+
+    virtual QString GetText() const;
+
+    virtual void SetText(const QString &text);
 
     GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource &resource) const;
     QString GetGuideSemanticNameForResource(Resource *resource);
@@ -277,6 +282,8 @@ private:
 
     QString GetFileMimetype(const QString &filepath) const;
 
+    QString convert_to_xml() const;
+
     /**
      * Initializes m_Mimetypes.
      */
@@ -285,6 +292,15 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
+
+    PackageEntry         m_package;
+    MetaNSEntry          m_metans;
+    QList<MetaEntry>     m_metadata;
+    QList<ManifestEntry> m_manifest;
+    SpineAttrEntry       m_spineattr;
+    QList<SpineEntry>    m_spine;
+    QList<GuideEntry>    m_guide;
+    QList<BindingsEntry> m_bindings;
 
     /**
      * A mapping between file extensions

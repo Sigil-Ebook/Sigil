@@ -53,12 +53,12 @@ public:
      *
      * @return The resource text.
      */
-    QString GetText() const;
+    virtual QString GetText() const;
 
     /**
      * Sets the text of the resource, replacing the stored content.
      */
-    void SetText(const QString &text);
+    virtual void SetText(const QString &text);
 
     /**
      * Returns a reference to the QTextDocument that can be read and written to
