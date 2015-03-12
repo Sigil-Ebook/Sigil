@@ -138,6 +138,35 @@ Metadata::MetaElement Metadata::MapToBookMetadata(const xc::DOMElement &element)
 }
 
 
+Metadata::MetaElement Metadata::MapMetaEntryToBookMetadata(const MetaEntry& me)
+{
+    Metadata::MetaElement meta;
+    QString element_name = me.m_name;
+
+    if (element_name == "meta") {
+        meta.name  = me.m_atts.value("name",""); 
+        meta.value = me.m_atts.value("content", "");
+        meta.attributes[ "scheme" ] = me.m_atts.value("scheme", "");
+        meta.attributes[ "id" ] = me.m_atts.value("id", "");
+
+        if ((!meta.name.isEmpty()) && (!meta.value.toString().isEmpty())) {
+            return MapToBookMetadata(meta , false);
+        }
+    } else {
+        meta.attributes = me.m_atts;
+        meta.name = element_name;
+        QString element_text = me.m_content;
+        meta.value = element_text;
+
+        if (!element_text.isEmpty()) {
+            return MapToBookMetadata(meta , true);
+        }
+    }
+
+    return meta;
+}
+
+
 // Maps Dublic Core metadata to internal book meta format
 Metadata::MetaElement Metadata::MapToBookMetadata(const Metadata::MetaElement &meta, bool is_dc_element)
 {

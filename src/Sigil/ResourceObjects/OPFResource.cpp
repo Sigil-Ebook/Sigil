@@ -35,7 +35,6 @@
 #include <QRegularExpression>
 
 #include "BookManipulation/CleanSource.h"
-#include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Language.h"
 #include "Misc/Utility.h"
@@ -44,8 +43,6 @@
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "sigil_constants.h"
-
-namespace xe = XercesExt;
 
 static const QString SIGIL_VERSION_META_NAME  = "Sigil version";
 static const QString OPF_XML_NAMESPACE        = "http://www.idpf.org/2007/opf";
@@ -71,7 +68,7 @@ static const QString TEMPLATE_TEXT =
 
 
 OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
-    : XMLResource(mainfolder, fullfilepath, parent)
+  : XMLResource(mainfolder, fullfilepath, parent), m_idpos(QHash<QString,int>()), m_hrefpos(QHash<QString,int>())
 {
     CreateMimetypes();
     FillWithDefaultText();
@@ -97,18 +94,20 @@ Resource::ResourceType OPFResource::Type() const
 
 QString OPFResource::GetText() const
 {
+    QMutexLocker locker(&m_AccessMutex);
     return convert_to_xml();
 }
 
 
 void OPFResource::SetText(const QString &text)
 {
-    // first parse the new text to set internal opf members after grabbing locks
+    QMutexLocker locker(&m_AccessMutex);
+    QString source = CleanSource::ProcessXML(text);
     int rv = 0;
     QString traceback;
 
     QList<QVariant> args;
-    args.append(QVariant(text));
+    args.append(QVariant(source));
     EmbeddedPython* epp = EmbeddedPython::instance();
     QVariant res = epp->runInPython( QString("opf_newparser"), QString("parseopf"), args, &rv, traceback, true);
     if (rv) fprintf(stderr, "setext parseropf error %d traceback %s\n",rv, traceback.toStdString().c_str());
@@ -131,12 +130,18 @@ void OPFResource::SetText(const QString &text)
       m_metadata.append(MetaEntry(qv));
     }
 
+    m_idpos.clear();
+    m_hrefpos.clear();
+
     res = epp->callPyObjMethod(mpo, QString("get_manifest"), args, &rv, traceback);
     if (rv) fprintf(stderr, "setext manifest error %d traceback %s\n",rv, traceback.toStdString().c_str());
     m_manifest.clear();
     lst = res.toList();
-    foreach(QVariant qv, lst) {
-      m_manifest.append(ManifestEntry(qv));
+    for (int i = 0; i < lst.count(); i++) {
+      ManifestEntry me = ManifestEntry(lst.at(i));
+      m_idpos[me.m_id] = i;
+      m_hrefpos[me.m_href] = i;
+      m_manifest.append(me);
     }
 
     res = epp->callPyObjMethod(mpo, QString("get_spine_attr"), args, &rv, traceback);
@@ -173,54 +178,42 @@ void OPFResource::SetText(const QString &text)
 
 GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource &resource) const
 {
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    return GetGuideSemanticTypeForResource(resource, *document);
+    QMutexLocker locker(&m_AccessMutex);
+    return GetGuideSemanticTypeForResource2(resource);
 }
+
 
 QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
 {
+    QMutexLocker locker(&m_AccessMutex);
     return GuideSemantics::Instance().GetGuideName(GetGuideSemanticTypeForResource(*resource));
 }
 
 QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 {
+    QMutexLocker locker(&m_AccessMutex);
     QHash <QString, QString> semantic_types;
 
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-
-    QList<xc::DOMElement *> references =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "reference", OPF_XML_NAMESPACE);
-
-    foreach(xc::DOMElement *reference, references) {
-        const QString &href = XtoQ(reference->getAttribute(QtoX("href")));
+    foreach(GuideEntry ge, m_guide) {
+        QString href = ge.m_href;
         QStringList parts = href.split('#', QString::KeepEmptyParts);
 
-        const QString &type_text = XtoQ(reference->getAttribute(QtoX("type")));
+        QString type_text = ge.m_type;
         GuideSemantics::GuideSemanticType type =
             GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type_text);
         semantic_types[parts.at(0)] = GuideSemantics::Instance().GetGuideName(type);
     }
 
     // Cover image semantics don't use reference
-    xc::DOMElement *meta = GetCoverMeta(*document);
-    if (meta) {
-
-        QString cover_id = XtoQ(meta->getAttribute(QtoX("content")));
-
-        QList<xc::DOMElement *> items =
-            XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
-        foreach(xc::DOMElement *item, items) {
-            QString id = XtoQ(item->getAttribute(QtoX("id")));
-
-            if (id == cover_id) {
-                QString href = XtoQ(item->getAttribute(QtoX("href")));
-                GuideSemantics::GuideSemanticType type =
+    int pos  = GetCoverMeta();
+    if (pos > -1) {
+        MetaEntry me = m_metadata.at(pos);
+        QString cover_id = me.m_atts.value(QString("content"),QString(""));
+        ManifestEntry man = m_manifest.at(m_idpos[cover_id]);
+        QString href = man.m_href;
+        GuideSemantics::GuideSemanticType type =
                     GuideSemantics::Instance().MapReferenceTypeToGuideEnum("cover");
-                semantic_types[href] = GuideSemantics::Instance().GetGuideName(type);
-            }
-        }
+        semantic_types[href] = GuideSemantics::Instance().GetGuideName(type);
     }
 
     return semantic_types;
@@ -228,79 +221,63 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 
 QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource *> resources)
 {
+    QMutexLocker locker(&m_AccessMutex);
     QHash <Resource *, int> reading_order;
-
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-
-    QList<xc::DOMElement *> itemrefs =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "itemref", OPF_XML_NAMESPACE);
-
     QHash<QString, int> id_order;
-    for (int i = 0; i < itemrefs.count(); ++i) {
-        QString idref = XtoQ(itemrefs[ i ]->getAttribute(QtoX("idref")));
-        id_order[idref] = i;
+    for (int i = 0; i < m_spine.count(); ++i) {
+      id_order[m_spine.at(i).m_idref] = i;
     }
-
-    QHash<Resource *, QString> id_mapping = GetResourceManifestIDMapping(resources, *document);
-
+    QHash<Resource *, QString> id_mapping = GetResourceManifestIDMapping(resources);
     foreach(Resource *resource, resources) {
         reading_order[resource] = id_order[id_mapping[resource]];
     }
-
     return reading_order;
 }
 
 int OPFResource::GetReadingOrder(const ::HTMLResource &html_resource) const
 {
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
+    QMutexLocker locker(&m_AccessMutex);
     const Resource &resource = *static_cast<const Resource *>(&html_resource);
-    QString resource_id = GetResourceManifestID(resource, *document);
-    QList<xc::DOMElement *> itemrefs =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "itemref", OPF_XML_NAMESPACE);
-
-    for (int i = 0; i < itemrefs.count(); ++i) {
-        QString idref = XtoQ(itemrefs[ i ]->getAttribute(QtoX("idref")));
-
-        if (resource_id == idref) {
-            return i;
-        }
+    QString resource_id = GetResourceManifestID(resource);
+    for (int i = 0; i < m_spine.count(); ++i) {
+      QString idref = m_spine.at(i).m_idref;
+      if (resource_id == idref) {
+          return i;
+      }
     }
-
     return -1;
 }
 
-
 QString OPFResource::GetMainIdentifierValue() const
 {
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    return XtoQ(GetMainIdentifier(*document).getTextContent());
+    QMutexLocker locker(&m_AccessMutex);
+    int i = GetMainIdentifier();
+    if (i > -1) {
+        return QString(m_metadata.at(i).m_content);
+    }
+    return QString();
 }
-
 
 void OPFResource::SaveToDisk(bool book_wide_save)
 {
     QString text = GetText();
     // Work around for covers appearing on the Nook. Issue 942.
     text = text.replace(QRegularExpression("<meta content=\"([^\"]+)\" name=\"cover\""), "<meta name=\"cover\" content=\"\\1\"");
-    SetText(text);
+    TextResource::SetText(text);
     TextResource::SaveToDisk(book_wide_save);
 }
 
 QString OPFResource::GetUUIDIdentifierValue()
 {
     EnsureUUIDIdentifierPresent();
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QList<xc::DOMElement *> identifiers =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "identifier", DUBLIN_CORE_NS);
-    foreach(xc::DOMElement * identifier, identifiers) {
-        QString value = XtoQ(identifier->getTextContent()).remove("urn:uuid:");
-
-        if (!QUuid(value).isNull()) {
-            return value;
+    QMutexLocker locker(&m_AccessMutex);
+    for (int i=0; i < m_metadata.count(); ++i) {
+        MetaEntry me = m_metadata.at(i);
+        if(me.m_name.startsWith("dc:identifier")) {
+            QString value = QString(me.m_content).remove("urn:uuid:");
+            if (!QUuid(value).isNull()) {
+              return value;
+            }
         }
     }
     // EnsureUUIDIdentifierPresent should ensure we
@@ -312,173 +289,139 @@ QString OPFResource::GetUUIDIdentifierValue()
 
 void OPFResource::EnsureUUIDIdentifierPresent()
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QList<xc::DOMElement *> identifiers = XhtmlDoc::GetTagMatchingDescendants(*document, "identifier", DUBLIN_CORE_NS);
-
-    foreach(xc::DOMElement *identifier, identifiers) {
-        QString value = XtoQ(identifier->getTextContent()).remove("urn:uuid:");
-
-        if (!QUuid(value).isNull()) {
-            return;
+    QMutexLocker locker(&m_AccessMutex);
+    for (int i=0; i < m_metadata.count(); ++i) {
+        MetaEntry me = m_metadata.at(i);
+        if(me.m_name.startsWith("dc:identifier")) {
+            QString value = QString(me.m_content).remove("urn:uuid:");
+            if (!QUuid(value).isNull()) {
+                return;
+            }
         }
     }
     QString uuid = Utility::CreateUUID();
-    WriteIdentifier("UUID", uuid, *document);
-    UpdateTextFromDom(*document);
+    WriteIdentifier("UUID", uuid);
 }
 
 QString OPFResource::AddNCXItem(const QString &ncx_path)
 {
-    QWriteLocker locker(&GetLock());
+    QMutexLocker locker(&m_AccessMutex);
     QString path_to_oebps_folder = QFileInfo(GetFullPath()).absolutePath() + "/";
-    QString ncx_oebps_path  = Utility::URLEncodePath(QString(ncx_path).remove(path_to_oebps_folder));
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QHash<QString, QString> attributes;
-    attributes[ "id"         ] = GetUniqueID("ncx", *document);
-    attributes[ "href"       ] = Utility::URLEncodePath(ncx_oebps_path);
-    attributes[ "media-type" ] = "application/x-dtbncx+xml";
-    xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
-                                   "item", OPF_XML_NAMESPACE, *document, attributes);
-    xc::DOMElement *manifest = GetManifestElement(*document);
-    if (!manifest) {
-        return QString();
-    }
-    manifest->appendChild(new_item);
-    UpdateTextFromDom(*document);
-    return attributes[ "id" ];
+    QString ncx_oebps_path  = QString(ncx_path).remove(path_to_oebps_folder);
+    int n = m_manifest.count();
+    ManifestEntry me;
+    me.m_id = GetUniqueID("ncx");
+    me.m_href = ncx_oebps_path;
+    me.m_mtype = "application/x-dtbncx+xml";
+    m_manifest.append(me);
+    m_idpos[me.m_id] = n;
+    m_hrefpos[me.m_href] = n;
+    return me.m_id;
 }
+
 
 void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    xc::DOMElement *spine = GetSpineElement(*document);
-    if (!spine) {
-        return;
-    }
-    QString ncx_id = XtoQ(spine->getAttribute(QtoX("toc")));
-
+    QMutexLocker locker(&m_AccessMutex);
+    QString ncx_id = m_spineattr.m_atts.value(QString("toc"),"");
     if (new_ncx_id != ncx_id) {
-        spine->setAttribute(QtoX("toc"), QtoX(new_ncx_id));
-        UpdateTextFromDom(*document);
+        m_spineattr.m_atts[QString("toc")] = new_ncx_id;
     }
 }
 
+
 void OPFResource::UpdateNCXLocationInManifest(const ::NCXResource &ncx)
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    xc::DOMElement *spine = GetSpineElement(*document);
-    QString ncx_id = XtoQ(spine->getAttribute(QtoX("toc")));
-    QList<xc::DOMElement *> items = XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
-    foreach(xc::DOMElement * item, items) {
-        QString id = XtoQ(item->getAttribute(QtoX("id")));
-
-        if (id == ncx_id) {
-            item->setAttribute(QtoX("href"), QtoX(ncx.Filename()));
-            break;
-        }
+    QMutexLocker locker(&m_AccessMutex);
+    QString ncx_id = m_spineattr.m_atts.value(QString("toc"),"");
+    int pos = m_idpos.value(ncx_id, -1);
+    if (pos > -1) {
+        ManifestEntry me = m_manifest.at(pos);
+        QString href = me.m_href;
+        me.m_href = ncx.Filename();
+        m_manifest.replace(pos, me);
+        m_hrefpos.remove(href);
+        m_hrefpos[ncx.Filename()] = pos;
     }
-    UpdateTextFromDom(*document);
 }
 
 
 void OPFResource::AddSigilVersionMeta()
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QList<xc::DOMElement *> metas =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "meta", OPF_XML_NAMESPACE);
-    foreach(xc::DOMElement * meta, metas) {
-        QString name = XtoQ(meta->getAttribute(QtoX("name")));
-
-        if (name == SIGIL_VERSION_META_NAME) {
-            meta->setAttribute(QtoX("content"), QtoX(SIGIL_VERSION));
-            UpdateTextFromDom(*document);
-            return;
+    QMutexLocker locker(&m_AccessMutex);
+    for (int i=0; i < m_metadata.count(); ++i) {
+        MetaEntry me = m_metadata.at(i);
+        if ((me.m_name == "meta") && (me.m_atts.contains("name"))) {  
+            QString name = me.m_atts[QString("name")];
+            if (name == SIGIL_VERSION_META_NAME) {
+                me.m_atts["content"] = QString(SIGIL_VERSION);
+                m_metadata.replace(i, me);
+                return;
+            }
         }
     }
-    xc::DOMElement *element = document->createElementNS(QtoX(OPF_XML_NAMESPACE), QtoX("meta"));
-    element->setAttribute(QtoX("name"),    QtoX("Sigil version"));
-    element->setAttribute(QtoX("content"), QtoX(SIGIL_VERSION));
-    xc::DOMElement *metadata = GetMetadataElement(*document);
-    if (!metadata) {
-        return;
-    }
-    metadata->appendChild(element);
-    UpdateTextFromDom(*document);
+    MetaEntry me;
+    me.m_name = "meta";
+    me.m_atts[QString("name")] = QString("Sigil version");
+    me.m_atts[QString("content")] = QString(SIGIL_VERSION);
+    m_metadata.append(me);
 }
 
 
 bool OPFResource::IsCoverImage(const ::ImageResource &image_resource) const
 {
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    return IsCoverImageCheck(image_resource, *document);
+    QMutexLocker locker(&m_AccessMutex);
+    QString resource_id = GetResourceManifestID(image_resource);
+    return IsCoverImageCheck(resource_id);
 }
 
-bool OPFResource::IsCoverImageCheck(const Resource &resource, xc::DOMDocument &document) const
-{
-    QString resource_id = GetResourceManifestID(resource, document);
-    return IsCoverImageCheck(resource_id, document);
-}
 
-bool OPFResource::IsCoverImageCheck(QString resource_id, xc::DOMDocument &document) const
+bool OPFResource::IsCoverImageCheck(QString resource_id) const
 {
-    xc::DOMElement *meta = GetCoverMeta(document);
-
-    if (meta) {
-        return XtoQ(meta->getAttribute(QtoX("content"))) == resource_id;
+    int pos = GetCoverMeta();
+    if (pos > -1) {
+        MetaEntry me = m_metadata.at(pos);
+        return me.m_atts.value(QString("content"),QString("")) == resource_id;
     }
-
     return false;
 }
 
 
 bool OPFResource::CoverImageExists() const
 {
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    return GetCoverMeta(*document) != NULL;
+    return GetCoverMeta() > -1;
 }
 
 
 void OPFResource::AutoFixWellFormedErrors()
 {
-    QWriteLocker locker(&GetLock());
-    UpdateTextFromDom(*CreateOPFFromScratch());
+    QMutexLocker locker(&m_AccessMutex);
+    QString source = CleanSource::ProcessXML(GetText());
+    TextResource::SetText(source);
 }
 
 
 QStringList OPFResource::GetSpineOrderFilenames() const
 {
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QList<xc::DOMElement *> items =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
-    QHash<QString, QString> id_to_filename_mapping;
-    foreach(xc::DOMElement * item, items) {
-        QString id   = XtoQ(item->getAttribute(QtoX("id")));
-        QString href = XtoQ(item->getAttribute(QtoX("href")));
-        id_to_filename_mapping[ id ] = QFileInfo(href).fileName();
-    }
-    QList<xc::DOMElement *> itemrefs =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "itemref", OPF_XML_NAMESPACE);
+    QMutexLocker locker(&m_AccessMutex);
     QStringList filenames_in_reading_order;
-    foreach(xc::DOMElement * itemref, itemrefs) {
-        QString idref = XtoQ(itemref->getAttribute(QtoX("idref")));
-
-        if (id_to_filename_mapping.contains(idref)) {
-            filenames_in_reading_order.append(Utility::URLDecodePath(id_to_filename_mapping[ idref ]));
+    for (int i=0; i < m_spine.count(); ++i) {
+        SpineEntry sp = m_spine.at(i);
+        QString idref = sp.m_idref;
+        int pos = m_idpos.value(idref,-1);
+        if (pos > -1) {
+            QString href = m_manifest.at(pos).m_href;
+            QString filename = QFileInfo(href).fileName();
+            filenames_in_reading_order.append(filename);
         }
     }
     return filenames_in_reading_order;
 }
 
-
+#if 0
 void OPFResource::SetSpineOrderFromFilenames(const QStringList spineOrder)
 {
+    QMutexLocker locker(&m_AccessMutex);
     QWriteLocker locker(&GetLock());
     std::shared_ptr<xc::DOMDocument> document = GetDocument();
     QList<xc::DOMElement *> items =
@@ -518,21 +461,19 @@ void OPFResource::SetSpineOrderFromFilenames(const QStringList spineOrder)
 
     UpdateTextFromDom(*document);
 }
-
+#endif
 
 QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
 {
-    QReadLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QList<xc::DOMElement *> dc_elements =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "*", DUBLIN_CORE_NS);
+    QMutexLocker locker(&m_AccessMutex);
     QList<Metadata::MetaElement> metadata;
-    foreach(xc::DOMElement * dc_element, dc_elements) {
-        // Map the names in the OPF file to internal names
-        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata(*dc_element);
-
-        if (!book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty()) {
-            metadata.append(book_meta);
+    for (int i=0; i < m_metadata.count(); ++i) {
+        MetaEntry me = m_metadata.at(i);
+        if (me.m_name.startsWith("dc:")) {
+            Metadata::MetaElement book_meta = Metadata::Instance().MapMetaEntryToBookMetadata(me);
+            if (!book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty()) {
+                metadata.append(book_meta);
+            }
         }
     }
     return metadata;
@@ -541,6 +482,7 @@ QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
 
 QList<QVariant> OPFResource::GetDCMetadataValues(QString text) const
 {
+    QMutexLocker locker(&m_AccessMutex);
     QList<QVariant> values;
     foreach(Metadata::MetaElement meta, GetDCMetadata()) {
         if (meta.name == text) {
@@ -553,103 +495,101 @@ QList<QVariant> OPFResource::GetDCMetadataValues(QString text) const
 
 void OPFResource::SetDCMetadata(const QList<Metadata::MetaElement> &metadata)
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    RemoveDCElements(*document);
+    QMutexLocker locker(&m_AccessMutex);
+    RemoveDCElements();
     foreach(Metadata::MetaElement book_meta, metadata) {
-        MetadataDispatcher(book_meta, *document);
+        MetadataDispatcher(book_meta);
     }
-    SetMetaElementsLast(*document);
-    UpdateTextFromDom(*document);
 }
 
 
 void OPFResource::AddResource(const Resource &resource)
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QHash<QString, QString> attributes;
-    attributes[ "id"         ] = GetUniqueID(GetValidID(resource.Filename()), *document);
-    attributes[ "href"       ] = Utility::URLEncodePath(resource.GetRelativePathToOEBPS());
-    attributes[ "media-type" ] = GetResourceMimetype(resource);
-    xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
-                                   "item", OPF_XML_NAMESPACE, *document, attributes);
-    xc::DOMElement *manifest = GetManifestElement(*document);
-    if (!manifest) {
-        return;
-    }
-    manifest->appendChild(new_item);
-
+    QMutexLocker locker(&m_AccessMutex);
+    ManifestEntry me;
+    me.m_id = GetUniqueID(GetValidID(resource.Filename()));
+    me.m_href = resource.GetRelativePathToOEBPS();
+    me.m_mtype = GetResourceMimetype(resource);
+    int n = m_manifest.count();
+    m_manifest.append(me);
+    m_idpos[me.m_id] = n;
+    m_hrefpos[me.m_href] = n;
     if (resource.Type() == Resource::HTMLResourceType) {
-        AppendToSpine(attributes[ "id" ], *document);
+        SpineEntry se;
+        se.m_idref = me.m_id;
+        m_spine.append(se);
     }
-
-    UpdateTextFromDom(*document);
 }
 
-void OPFResource::RemoveCoverMetaForImage(const Resource &resource, xc::DOMDocument &document)
+void OPFResource::RemoveCoverMetaForImage(const Resource &resource)
 {
-    xc::DOMElement *meta = GetCoverMeta(document);
-    QString resource_id = GetResourceManifestID(resource, document);
+    int pos = GetCoverMeta();
+    QString resource_id = GetResourceManifestID(resource);
 
     // Remove entry if there is a cover in meta and if this file is marked as cover
-    if (meta && XtoQ(meta->getAttribute(QtoX("content"))) == resource_id) {
-        GetMetadataElement(document)->removeChild(meta);
+    if (pos > -1) {
+       MetaEntry me = m_metadata.at(pos);
+       if (me.m_atts.value(QString("content"),QString("")) == resource_id) {
+           m_metadata.removeAt(pos);
+       }
     }
 }
 
-void OPFResource::AddCoverMetaForImage(const Resource &resource, xc::DOMDocument &document)
+void OPFResource::AddCoverMetaForImage(const Resource &resource)
 {
-    xc::DOMElement *meta = GetCoverMeta(document);
-    QString resource_id = GetResourceManifestID(resource, document);
+    int pos = GetCoverMeta();
+    QString resource_id = GetResourceManifestID(resource);
 
     // If a cover entry exists, update its id, else create one
-    if (meta) {
-        meta->setAttribute(QtoX("content"), QtoX(resource_id));
+    if (pos > -1) {
+        MetaEntry me = m_metadata.at(pos);
+        me.m_atts["content"] = resource_id;
+        m_metadata.replace(pos, me);
     } else {
-        QHash<QString, QString> attributes;
-        attributes[ "name"    ] = "cover";
-        attributes[ "content" ] = resource_id;
-        xc::DOMElement *new_meta = XhtmlDoc::CreateElementInDocument(
-                                       "meta", OPF_XML_NAMESPACE, document, attributes);
-        xc::DOMElement *metadata = GetMetadataElement(document);
-        metadata->appendChild(new_meta);
+        MetaEntry me;
+        me.m_name = "meta";
+        me.m_atts["name"] = "cover";
+        me.m_atts["content"] = QString(resource_id);
+        m_metadata.append(me);
     }
 }
 
 void OPFResource::RemoveResource(const Resource &resource)
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document  = GetDocument();
-    xc::DOMElement *manifest                = GetManifestElement(*document);
-    if (!manifest) {
-        return;
-    }
-    std::vector<xc::DOMElement *> children = xe::GetElementChildren(*manifest);
-    QString resource_oebps_path             = Utility::URLEncodePath(resource.GetRelativePathToOEBPS());
-    QString item_id;
+    QMutexLocker locker(&m_AccessMutex);
+    if (m_manifest.isEmpty()) return;
+
+    QString resource_oebps_path = resource.GetRelativePathToOEBPS();
+    int pos = m_hrefpos.value(resource_oebps_path, -1);
+    QString item_id = "";
 
     // Delete the meta tag for cover images before deleting the manifest entry
     if (resource.Type() == Resource::ImageResourceType) {
-        RemoveCoverMetaForImage(resource, *document);
+        RemoveCoverMetaForImage(resource);
     }
-
-    foreach(xc::DOMElement * child, children) {
-        QString href = XtoQ(child->getAttribute(QtoX("href")));
-
-        if (href == resource_oebps_path) {
-            item_id = XtoQ(child->getAttribute(QtoX("id")));
-            manifest->removeChild(child);
-            break;
+    if (pos > -1) {
+        item_id = m_manifest.at(pos).m_id;
+    }
+    if (resource.Type() == Resource::HTMLResourceType) {
+        for (int i=0; i < m_spine.count(); ++i) {
+            QString idref = m_spine.at(i).m_idref;
+            if (idref == item_id) {
+                m_spine.removeAt(i);
+                break;
+            }
+        }
+        RemoveGuideReferenceForResource(resource);
+    }
+    if (pos > -1) {
+        m_manifest.removeAt(pos);
+        // rebuild the maps since updating them item by item would be slower
+        m_idpos.clear();
+        m_hrefpos.clear();
+        for (int i=0; i < m_manifest.count(); ++i) {
+            m_idpos[m_manifest.at(i).m_id] = i;
+            m_idpos[m_manifest.at(i).m_href] = i;
         }
     }
-
-    if (resource.Type() == Resource::HTMLResourceType) {
-        RemoveFromSpine(item_id, *document);
-        RemoveGuideReferenceForResource(resource, *document);
-    }
-
-    UpdateTextFromDom(*document);
 }
 
 
@@ -657,306 +597,184 @@ void OPFResource::AddGuideSemanticType(
     const ::HTMLResource &html_resource,
     GuideSemantics::GuideSemanticType new_type)
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document         = GetDocument();
-    GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource(html_resource, *document);
+    QMutexLocker locker(&m_AccessMutex);
+    GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource(html_resource);
 
     if (current_type != new_type) {
-        RemoveDuplicateGuideTypes(new_type, *document);
-        SetGuideSemanticTypeForResource(new_type, html_resource, *document);
+        RemoveDuplicateGuideTypes(new_type);
+        SetGuideSemanticTypeForResource(new_type, html_resource);
     }
     // If the current type is the same as the new one,
     // we toggle it off.
     else {
-        RemoveGuideReferenceForResource(html_resource, *document);
+        RemoveGuideReferenceForResource(html_resource);
     }
-
-    UpdateTextFromDom(*document);
 }
 
 
 void OPFResource::SetResourceAsCoverImage(const ::ImageResource &image_resource)
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-
-    if (IsCoverImageCheck(image_resource, *document)) {
-        RemoveCoverMetaForImage(image_resource, *document);
+    QMutexLocker locker(&m_AccessMutex);
+    if (IsCoverImage(image_resource)) {
+        RemoveCoverMetaForImage(image_resource);
     } else {
-        AddCoverMetaForImage(image_resource, *document);
+        AddCoverMetaForImage(image_resource);
     }
-
-    UpdateTextFromDom(*document);
 }
 
 
+// note: under epub3 spine elements may have page properties set, so simply clearing the
+// spine will lose these attributes.  We should try to keep as much of the spine properties
+// and linear attributes as we can.  Either that or make the HTML Resource remember its own
+// spine page properties, linear attribute, etc
+
 void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QHash<::HTMLResource *, xc::DOMElement *> itemref_mapping = GetItemrefsForHTMLResources(html_files, *document);
-    xc::DOMElement *spine = GetSpineElement(*document);
-    if (!spine) {
-        return;
-    }
-    XhtmlDoc::RemoveChildren(*spine);
-    foreach(::HTMLResource * resource, html_files) {
-        xc::DOMElement *itemref = itemref_mapping.value(resource, NULL);
-
-        if (itemref) {
-            spine->appendChild(itemref);
+    QMutexLocker locker(&m_AccessMutex);
+    QList<SpineEntry> new_spine;
+    foreach(HTMLResource * html_resource, html_files) {
+        const Resource &resource = *static_cast<const Resource *>(html_resource);
+        QString id = GetResourceManifestID(resource);
+        int found = -1;
+        for (int i = 0; i < m_spine.count(); ++i) {
+           SpineEntry se = m_spine.at(i);
+           if (se.m_idref == id) {
+               found = i;
+               break;
+           }
+        }
+        if (found > -1) {
+            new_spine.append(m_spine.at(found));
+        } else {
+            SpineEntry se;
+            se.m_idref = id;
+            new_spine.append(se);
         }
     }
-    UpdateTextFromDom(*document);
+    m_spine.clear();
+    m_spine = new_spine;
 }
 
 
 void OPFResource::ResourceRenamed(const Resource &resource, QString old_full_path)
 {
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
+    QMutexLocker locker(&m_AccessMutex);
     QString path_to_oebps_folder = QFileInfo(GetFullPath()).absolutePath() + "/";
-    QString resource_oebps_path  = Utility::URLEncodePath(QString(old_full_path).remove(path_to_oebps_folder));
-    QList<xc::DOMElement *> items =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
+    QString resource_oebps_path  = QString(old_full_path).remove(path_to_oebps_folder);
     QString old_id;
     QString new_id;
-    foreach(xc::DOMElement * item, items) {
-        QString href = XtoQ(item->getAttribute(QtoX("href")));
-
+    for (int i=0; i < m_manifest.count(); ++i) {
+        QString href = m_manifest.at(i).m_href;
         if (href == resource_oebps_path) {
-            item->setAttribute(QtoX("href"), QtoX(Utility::URLEncodePath(resource.GetRelativePathToOEBPS())));
-            old_id = XtoQ(item->getAttribute(QtoX("id")));
-            new_id = GetUniqueID(GetValidID(resource.Filename()), *document);
-            item->setAttribute(QtoX("id"), QtoX(new_id));
+            ManifestEntry me = m_manifest.at(i);
+            QString old_href = me.m_href;
+            me.m_href = resource.GetRelativePathToOEBPS();
+            old_id = me.m_id;
+            new_id = GetUniqueID(GetValidID(resource.Filename()));
+            me.m_id = new_id;
+            m_idpos.remove(old_id);
+            m_idpos[new_id] = i;
+            m_hrefpos.remove(old_href);
+            m_hrefpos[me.m_href] = i;
+            m_manifest.replace(i, me);
             break;
         }
     }
-    UpdateItemrefID(old_id, new_id, *document);
+    for (int i=0; i < m_spine.count(); ++i) {
+        QString idref = m_spine.at(i).m_idref;
+        if (idref == old_id) {
+            SpineEntry se = m_spine.at(i);
+            se.m_idref = new_id;
+            m_spine.replace(i, se);
+            break;
+        }
+    }
 
     if (resource.Type() == Resource::ImageResourceType) {
         // Change meta entry for cover if necessary
         // Check using IDs since file is already renamed
-        if (IsCoverImageCheck(old_id, *document)) {
+        if (IsCoverImageCheck(old_id)) {
             // Add will automatically replace an existing id
             // Assumes only one cover but removing duplicates
             // can cause timing issues
-            AddCoverMetaForImage(resource, *document);
-        }
-    }
-
-    UpdateTextFromDom(*document);
-}
-
-
-void OPFResource::AppendToSpine(const QString &id, xc::DOMDocument &document)
-{
-    QHash<QString, QString> attributes;
-    attributes[ "idref" ] = id;
-    xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
-                                   "itemref", OPF_XML_NAMESPACE, document, attributes);
-    xc::DOMElement *spine = GetSpineElement(document);
-    if (!spine) {
-        return;
-    }
-    spine->appendChild(new_item);
-}
-
-
-void OPFResource::RemoveFromSpine(const QString &id, xc::DOMDocument &document)
-{
-    xc::DOMElement *spine = GetSpineElement(document);
-    if (!spine) {
-        return;
-    }
-    std::vector<xc::DOMElement *> children = xe::GetElementChildren(*spine);
-    foreach(xc::DOMElement * child, children) {
-        QString idref = XtoQ(child->getAttribute(QtoX("idref")));
-
-        if (idref == id) {
-            spine->removeChild(child);
-            break;
+            AddCoverMetaForImage(resource);
         }
     }
 }
 
 
-void OPFResource::UpdateItemrefID(const QString &old_id, const QString &new_id, xc::DOMDocument &document)
+# if 0
+QString OPFResource::GetDocument() const
 {
-    xc::DOMElement *spine = GetSpineElement(document);
-    std::vector<xc::DOMElement *> children = xe::GetElementChildren(*spine);
-    foreach(xc::DOMElement * child, children) {
-        QString idref = XtoQ(child->getAttribute(QtoX("idref")));
-
-        if (idref == old_id) {
-            child->setAttribute(QtoX("idref"), QtoX(new_id));
-            break;
-        }
-    }
+    QString source = GetText();
+    return source;
 }
+#endif
 
 
-std::shared_ptr<xc::DOMDocument> OPFResource::GetDocument() const
+int OPFResource::GetGuideReferenceForResourcePos(const Resource &resource) const
 {
-    // The call to ProcessXML is needed because even though we have well-formed
-    // checks tied to "focus lost" events of the OPF tab, on Win XP those events
-    // are sometimes not delivered at all. Blame MS. In the mean time, this
-    // work-around makes sure we get valid XML into Xerces no matter what.
-    std::shared_ptr<xc::DOMDocument> document =
-        XhtmlDoc::LoadTextIntoDocument(CleanSource::ProcessXML(GetText()));
-
-    if (!BasicStructurePresent(*document)) {
-        document = CreateOPFFromScratch(document.get());
-    }
-
-    // For NCX files, the default of standalone == false should remain
-    document->setXmlStandalone(true);
-    return document;
-}
-
-
-xc::DOMElement *OPFResource::GetPackageElement(const xc::DOMDocument &document)
-{
-    QList<xc::DOMElement *> packages = XhtmlDoc::GetTagMatchingDescendants(document, "package", OPF_XML_NAMESPACE);
-    if (!packages.isEmpty()) {
-        return packages[0];
-    }
-    return NULL;
-}
-
-
-xc::DOMElement *OPFResource::GetMetadataElement(const xc::DOMDocument &document)
-{
-    QList<xc::DOMElement *> metadatas = XhtmlDoc::GetTagMatchingDescendants(document, "metadata", OPF_XML_NAMESPACE);
-    if (!metadatas.isEmpty()) {
-        return metadatas[0];
-    }
-    return NULL;
-}
-
-
-xc::DOMElement *OPFResource::GetManifestElement(const xc::DOMDocument &document)
-{
-    QList<xc::DOMElement *> manifests = XhtmlDoc::GetTagMatchingDescendants(document, "manifest", OPF_XML_NAMESPACE);
-    if (!manifests.isEmpty()) {
-        return manifests[0];
-    }
-    return NULL;
-}
-
-
-xc::DOMElement *OPFResource::GetSpineElement(const xc::DOMDocument &document)
-{
-    QList<xc::DOMElement *> spines = XhtmlDoc::GetTagMatchingDescendants(document, "spine", OPF_XML_NAMESPACE);
-    if (!spines.isEmpty()) {
-        return spines[0];
-    }
-    return NULL;
-}
-
-
-xc::DOMElement *OPFResource::GetGuideElement(const xc::DOMDocument &document)
-{
-    QList<xc::DOMElement *> guides = XhtmlDoc::GetTagMatchingDescendants(document, "guide", OPF_XML_NAMESPACE);
-    if (!guides.isEmpty()) {
-        return guides[0];
-    }
-    return NULL;
-}
-
-
-xc::DOMElement *OPFResource::GetGuideElement(xc::DOMDocument &document)
-{
-    QList<xc::DOMElement *> guides = XhtmlDoc::GetTagMatchingDescendants(document, "guide", OPF_XML_NAMESPACE);
-
-    if (!guides.isEmpty()) {
-        return guides[0];
-    }
-
-    xc::DOMElement *guide = XhtmlDoc::CreateElementInDocument("guide", OPF_XML_NAMESPACE, document, QHash<QString, QString>());
-    xc::DOMElement &package = *document.getDocumentElement();
-    package.appendChild(guide);
-    return guide;
-}
-
-
-xc::DOMElement *OPFResource::GetGuideReferenceForResource(const Resource &resource, const xc::DOMDocument &document)
-{
-    QString resource_oebps_path         = Utility::URLEncodePath(resource.GetRelativePathToOEBPS());
-    QList<xc::DOMElement *> references =
-        XhtmlDoc::GetTagMatchingDescendants(document, "reference", OPF_XML_NAMESPACE);
-    foreach(xc::DOMElement * reference, references) {
-        const QString &href = XtoQ(reference->getAttribute(QtoX("href")));
+    QString resource_oebps_path = resource.GetRelativePathToOEBPS();
+    for (int i=0; i < m_guide.count(); ++i) {
+        GuideEntry ge = m_guide.at(i);
+        QString href = ge.m_href;
         QStringList parts = href.split('#', QString::KeepEmptyParts);
-
         if (parts.at(0) == resource_oebps_path) {
-            return reference;
+            return i;
         }
     }
-    return NULL;
+    return -1;
 }
 
 
-void OPFResource::RemoveGuideReferenceForResource(const Resource &resource, xc::DOMDocument &document)
+void OPFResource::RemoveGuideReferenceForResource(const Resource &resource)
 {
-    xc::DOMElement *guide = GetGuideElement(document);
-    if (!guide) {
-        return;
-    }
-    xc::DOMElement *elem = GetGuideReferenceForResource(resource, document);
-
-    if (elem) {
-        guide->removeChild(elem);
+    if (m_guide.isEmpty()) return;
+    int pos = GetGuideReferenceForResourcePos(resource);
+    if (pos > -1) {
+        m_guide.removeAt(pos);
     }
 }
 
 
-GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(
-    const Resource &resource,
-    xc::DOMDocument &document)
+GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource2(const Resource &resource) const
 {
-    xc::DOMElement *reference = GetGuideReferenceForResource(resource, document);
-
-    if (reference) {
-        QString type = XtoQ(reference->getAttribute(QtoX("type")));
+    int pos = GetGuideReferenceForResourcePos(resource);
+    if (pos > -1) {
+        GuideEntry ge = m_guide.at(pos);
+        QString type = ge.m_type;
         return GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type);
     }
-
     return GuideSemantics::NoType;
 }
 
 
 void OPFResource::SetGuideSemanticTypeForResource(
     GuideSemantics::GuideSemanticType type,
-    const Resource &resource,
-    xc::DOMDocument &document)
+    const Resource &resource)
 {
-    xc::DOMElement *reference = GetGuideReferenceForResource(resource, document);
+    int pos = GetGuideReferenceForResourcePos(resource);
     QString type_attribute;
     QString title_attribute;
     std::tie(type_attribute, title_attribute) = GuideSemantics::Instance().GetGuideTypeMapping()[ type ];
 
-    if (reference) {
-        reference->setAttribute(QtoX("type"), QtoX(type_attribute));
-        reference->setAttribute(QtoX("title"), QtoX(title_attribute));
+    if (pos > -1) {
+        GuideEntry ge = m_guide.at(pos);
+        ge.m_type = type_attribute;
+        ge.m_title = title_attribute;
+        m_guide.replace(pos, ge);
     } else {
-        QHash<QString, QString> attributes;
-        attributes[ "type"  ] = type_attribute;
-        attributes[ "title" ] = title_attribute;
-        attributes[ "href"  ] = Utility::URLEncodePath(resource.GetRelativePathToOEBPS());
-        xc::DOMElement *new_item = XhtmlDoc::CreateElementInDocument(
-                                       "reference", OPF_XML_NAMESPACE, document, attributes);
-        xc::DOMElement *guide = GetGuideElement(document);
-        if (guide) {
-            guide->appendChild(new_item);
-        }
+        GuideEntry ge;
+        ge.m_type = type_attribute;
+        ge.m_title = title_attribute;
+        ge.m_href = resource.GetRelativePathToOEBPS();
+        m_guide.append(ge);
     }
 }
 
 
 void OPFResource::RemoveDuplicateGuideTypes(
-    GuideSemantics::GuideSemanticType new_type,
-    xc::DOMDocument &document)
+    GuideSemantics::GuideSemanticType new_type)
 {
     // Industry best practice is to have only one
     // <guide> reference type instance per book.
@@ -965,157 +783,83 @@ void OPFResource::RemoveDuplicateGuideTypes(
         return;
     }
 
-    xc::DOMElement *guide = GetGuideElement(document);
-    if (!guide) {
-        return;
-    }
-    QList<xc::DOMElement *> references = XhtmlDoc::GetTagMatchingDescendants(document, "reference", OPF_XML_NAMESPACE);
-    foreach(xc::DOMElement * reference, references) {
-        QString type_text = XtoQ(reference->getAttribute(QtoX("type")));
-        GuideSemantics::GuideSemanticType current_type = GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type_text);
+    if (m_guide.isEmpty()) return;
 
+    // build up the list to be deleted in reverse order
+    QList<int> dellist;
+    for (int i = m_guide.count() - 1; i >= 0; --i) {
+        GuideEntry ge = m_guide.at(i);
+        QString type_text = ge.m_type;
+        GuideSemantics::GuideSemanticType current_type = GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type_text);
         if (current_type == new_type) {
-            guide->removeChild(reference);
-            // There is no "break" statement here because we might
-            // load an epub that has several instance of one guide type.
-            // We preserve them on load, but if the user is intent on
-            // changing them, then we enforce "one type instance per book".
+            dellist.append(i);
         }
+    }
+    // remove them from the list in reverse order
+    foreach(int index, dellist) {
+        m_guide.removeAt(index);
     }
 }
 
-// If there is no itemref for the resource, one will be created (but NOT
-// attached to the spine element!).
-// Also, it's possible that a NULL will be set as an itemref for a resource
-// if that resource doesns't have an entry in the manifest.
-QHash<::HTMLResource *, xc::DOMElement *> OPFResource::GetItemrefsForHTMLResources(
-    const QList<::HTMLResource *> html_files,
-    xc::DOMDocument &document)
-{
-    QList<xc::DOMElement *> itemrefs =
-        XhtmlDoc::GetTagMatchingDescendants(document, "itemref", OPF_XML_NAMESPACE);
-    QList<Resource *> resource_list;
-    foreach(::HTMLResource * html_resource, html_files) {
-        resource_list.append(static_cast<Resource *>(html_resource));
-    }
-    QHash<Resource *, QString> id_mapping = GetResourceManifestIDMapping(resource_list, document);
-    QList<Resource *> htmls_without_itemrefs;
-    QHash<::HTMLResource *, xc::DOMElement *> itmeref_mapping;
-    foreach(Resource * resource, resource_list) {
-        ::HTMLResource *html_resource = qobject_cast<::HTMLResource *>(resource);
-        QString resource_id = id_mapping.value(resource, "");
-        foreach(xc::DOMElement * itemref, itemrefs) {
-            QString idref = XtoQ(itemref->getAttribute(QtoX("idref")));
 
-            if (idref == resource_id) {
-                itmeref_mapping[ html_resource ] = itemref;
-                break;
+int OPFResource::GetCoverMeta() const
+{
+    for (int i = 0; i < m_metadata.count(); ++i) {
+        MetaEntry me = m_metadata.at(i);
+        if ((me.m_name == "meta") && (me.m_atts.contains(QString("name")))) {
+            QString name = me.m_atts[QString("name")];
+            if (name == "cover") {
+                return i;
             }
         }
-
-        if (!itmeref_mapping.contains(html_resource)) {
-            htmls_without_itemrefs.append(resource);
-        }
     }
-    foreach(Resource * resource, htmls_without_itemrefs) {
-        QHash<QString, QString> attributes;
-        QString resource_id = id_mapping.value(resource, "");
-        ::HTMLResource *html_resource = qobject_cast<::HTMLResource *>(resource);
-
-        if (resource_id.isEmpty()) {
-            itmeref_mapping[ html_resource ] = NULL;
-        }
-
-        attributes[ "idref" ] = resource_id;
-        xc::DOMElement *new_itemref = XhtmlDoc::CreateElementInDocument(
-                                          "itemref", OPF_XML_NAMESPACE, document, attributes);
-        itmeref_mapping[ html_resource ] = new_itemref;
-    }
-    return itmeref_mapping;
+    return -1;
 }
 
 
-xc::DOMElement *OPFResource::GetCoverMeta(const xc::DOMDocument &document)
+int OPFResource::GetMainIdentifier() const
 {
-    QList<xc::DOMElement *> metas =
-        XhtmlDoc::GetTagMatchingDescendants(document, "meta", OPF_XML_NAMESPACE);
-    foreach(xc::DOMElement * meta, metas) {
-        QString name = XtoQ(meta->getAttribute(QtoX("name")));
-
-        if (name == "cover") {
-            return meta;
+    QString unique_identifier = m_package.m_uniqueid;
+    for (int i=0; i < m_metadata.count(); ++i) {
+        MetaEntry me = m_metadata.at(i);
+        if (me.m_name == "dc:identifier") {
+            QString id = me.m_atts.value("id", "");
+            if (id == unique_identifier) {
+                return i;
+            }
         }
     }
-    return NULL;
+    return -1;
 }
 
 
-xc::DOMElement &OPFResource::GetMainIdentifier(const xc::DOMDocument &document)
+QString OPFResource::GetResourceManifestID(const Resource &resource) const
 {
-    xc::DOMElement *identifier = GetMainIdentifierUnsafe(document);
-    Q_ASSERT(identifier);
-    return *identifier;
-}
-
-
-// This is here because we use it to check for the presence of the main identifier
-// during DOM validation. But after that, the GetMainIdentifier func should be used.
-xc::DOMElement *OPFResource::GetMainIdentifierUnsafe(const xc::DOMDocument &document)
-{
-    xc::DOMElement *package = GetPackageElement(document);
-    if (!package) {
-        return NULL;
-    }
-    QString unique_identifier = XtoQ(package->getAttribute(QtoX("unique-identifier")));
-    QList<xc::DOMElement *> identifiers = XhtmlDoc::GetTagMatchingDescendants(document, "identifier", DUBLIN_CORE_NS);
-    foreach(xc::DOMElement * identifier, identifiers) {
-        QString id = XtoQ(identifier->getAttribute(QtoX("id")));
-
-        if (id == unique_identifier) {
-            return identifier;
-        }
-    }
-    return NULL;
-}
-
-QString OPFResource::GetResourceManifestID(const Resource &resource, const xc::DOMDocument &document)
-{
-    QString oebps_path = Utility::URLEncodePath(resource.GetRelativePathToOEBPS());
-    QList<xc::DOMElement *> items =
-        XhtmlDoc::GetTagMatchingDescendants(document, "item", OPF_XML_NAMESPACE);
-    foreach(xc::DOMElement * item, items) {
-        QString href = XtoQ(item->getAttribute(QtoX("href")));
-
-        if (href == oebps_path) {
-            return XtoQ(item->getAttribute(QtoX("id")));
-        }
+    QString oebps_path = resource.GetRelativePathToOEBPS();
+    int pos = m_hrefpos.value(oebps_path,-1);
+    if (pos > -1) { 
+        return QString(m_manifest.at(pos).m_id); 
     }
     return QString();
 }
 
 
 QHash<Resource *, QString> OPFResource::GetResourceManifestIDMapping(
-    const QList<Resource *> resources,
-    const xc::DOMDocument &document)
+    const QList<Resource *> resources)
 {
     QHash<Resource *, QString> id_mapping;
-    QList<xc::DOMElement *> items =
-        XhtmlDoc::GetTagMatchingDescendants(document, "item", OPF_XML_NAMESPACE);
     foreach(Resource * resource, resources) {
-        QString oebps_path = Utility::URLEncodePath(resource->GetRelativePathToOEBPS());
-        foreach(xc::DOMElement * item, items) {
-            QString href = XtoQ(item->getAttribute(QtoX("href")));
-
-            if (href == oebps_path) {
-                id_mapping[ resource ] = XtoQ(item->getAttribute(QtoX("id")));
-                break;
-            }
+        QString oebps_path = resource->GetRelativePathToOEBPS();
+        int pos = m_hrefpos.value(oebps_path,-1);
+        if (pos > -1) { 
+            id_mapping[ resource ] = m_manifest.at(pos).m_id;
         }
     }
     return id_mapping;
 }
 
 
+#if 0
 void OPFResource::SetMetaElementsLast(xc::DOMDocument &document)
 {
     QList<xc::DOMElement *> metas =
@@ -1130,29 +874,30 @@ void OPFResource::SetMetaElementsLast(xc::DOMDocument &document)
         metadata->appendChild(meta);
     }
 }
+#endif
 
-
-void OPFResource::RemoveDCElements(xc::DOMDocument &document)
+void OPFResource::RemoveDCElements()
 {
-    QList<xc::DOMElement *> dc_elements = XhtmlDoc::GetTagMatchingDescendants(document, "*", DUBLIN_CORE_NS);
-    xc::DOMElement &main_identifier = GetMainIdentifier(document);
-    foreach(xc::DOMElement * dc_element, dc_elements) {
-        // We preserve the original main identifier. Users
-        // complain when we don't.
-        if (dc_element->isSameNode(&main_identifier)) {
-            continue;
+    int pos = GetMainIdentifier();
+    // build list to be delted in reverse order
+    QList<int> dellist;
+    int n = m_metadata.count();
+    for (int i = n-1; i >= 0; --i) {
+        MetaEntry me = m_metadata.at(i);
+        if (me.m_name.startsWith("dc:")) {
+            if (i != pos) {
+               dellist.append(i);
+            }
         }
-
-        xc::DOMNode *parent = dc_element->getParentNode();
-
-        if (parent) {
-            parent->removeChild(dc_element);
-        }
+    }
+    // delete the MetaEntries in reverse order to not mess up indexes
+    foreach(int index, dellist) {
+        m_metadata.removeAt(index);
     }
 }
 
 
-void OPFResource::MetadataDispatcher(const Metadata::MetaElement &book_meta, xc::DOMDocument &document)
+void OPFResource::MetadataDispatcher(const Metadata::MetaElement &book_meta)
 {
     // We ignore badly formed meta elements.
     if (book_meta.name.isEmpty() || book_meta.value.isNull()) {
@@ -1161,27 +906,26 @@ void OPFResource::MetadataDispatcher(const Metadata::MetaElement &book_meta, xc:
 
     // Write Relator codes (always write author as relator code)
     if (Metadata::Instance().IsRelator(book_meta.name) || book_meta.name == "author") {
-        WriteCreatorOrContributor(book_meta, document);
+        WriteCreatorOrContributor(book_meta);
     }
     // There is a relator for the publisher, but there is
     // also a special publisher element that we would rather use
     else if (book_meta.name == "pub") {
-        WriteSimpleMetadata("publisher", book_meta.value.toString(), document);
+        WriteSimpleMetadata("publisher", book_meta.value.toString());
     } else if (book_meta.name  == "language") {
         WriteSimpleMetadata(book_meta.name,
-                            Language::instance()->GetLanguageCode(book_meta.value.toString()),
-                            document);
+                            Language::instance()->GetLanguageCode(book_meta.value.toString()));
     } else if (book_meta.name  == "identifier") {
-        WriteIdentifier(book_meta.file_as, book_meta.value.toString(), document);
+        WriteIdentifier(book_meta.file_as, book_meta.value.toString());
     } else if (book_meta.name == "date") {
-        WriteDate(book_meta.file_as, book_meta.value, document);
+        WriteDate(book_meta.file_as, book_meta.value);
     } else {
-        WriteSimpleMetadata(book_meta.name, book_meta.value.toString(), document);
+        WriteSimpleMetadata(book_meta.name, book_meta.value.toString());
     }
 }
 
 
-void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_meta, xc::DOMDocument &document)
+void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_meta)
 {
     QString value = book_meta.value.toString();
     QString file_as = book_meta.file_as;
@@ -1197,111 +941,82 @@ void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_met
         role_type = "contributor";
     }
 
-    // This assumes that the "dc" prefix has been declared for the DC namespace
-    xc::DOMElement *element = document.createElementNS(QtoX(DUBLIN_CORE_NS), QtoX("dc:" + role_type));
-    element->setAttributeNS(QtoX(OPF_XML_NAMESPACE), QtoX("opf:role"), QtoX(name));
-
+    MetaEntry me;
+    me.m_name = QString("dc:") + role_type;
+    me.m_atts[QString("opf:role")] = name;
     if (!file_as.isEmpty()) {
-        element->setAttributeNS(QtoX(OPF_XML_NAMESPACE), QtoX("opf:file-as"), QtoX(file_as));
+        me.m_atts[QString("opf:file-as")] = file_as;
     }
-
-    element->setTextContent(QtoX(value));
-    xc::DOMElement *metadata = GetMetadataElement(document);
-    if (!metadata) {
-        return;
-    }
-    metadata->appendChild(element);
+    me.m_content = value;
+    m_metadata.append(me);
 }
 
 
 void OPFResource::WriteSimpleMetadata(
     const QString &metaname,
-    const QString &metavalue,
-    xc::DOMDocument &document)
+    const QString &metavalue)
 {
-    try {
-        // This assumes that the "dc" prefix has been declared for the DC namespace
-        xc::DOMElement *element = document.createElementNS(QtoX(DUBLIN_CORE_NS), QtoX("dc:" + metaname));
-        element->setTextContent(QtoX(metavalue));
-        xc::DOMElement *metadata = GetMetadataElement(document);
-        if (!metadata) {
-            return;
-        }
-        metadata->appendChild(element);
-    } catch (...) {
-        // "dc" prefix isn't always declared when importing HTML.
-    }
+    MetaEntry me;
+    me.m_name = QString("dc:") + metaname;
+    me.m_content = metavalue;
+    m_metadata.append(me);
 }
 
 
 void OPFResource::WriteIdentifier(
     const QString &metaname,
-    const QString &metavalue,
-    xc::DOMDocument &document)
+    const QString &metavalue)
 {
-    xc::DOMElement &main_identifier = GetMainIdentifier(document);
-
-    // There's a possibility that this identifier is a duplicate
-    // of the main identifier that we preserved, so we don't write
-    // it out if it is.
-    if (metavalue == XtoQ(main_identifier.getTextContent()) &&
-        metaname == XtoQ(main_identifier.getAttributeNS(QtoX(OPF_XML_NAMESPACE), QtoX("scheme")))) {
-        return;
+    int pos = GetMainIdentifier();
+    if (pos > -1) {
+        MetaEntry me = m_metadata.at(pos);
+        QString scheme = me.m_atts.value(QString("scheme"),QString(""));
+        if ((metavalue == me.m_content) && (metaname == scheme)) {
+            return;
+        }
     }
-
-    // This assumes that the "dc" prefix has been declared for the DC namespace
-    xc::DOMElement *element = document.createElementNS(QtoX(DUBLIN_CORE_NS), QtoX("dc:identifier"));
-    element->setAttributeNS(QtoX(OPF_XML_NAMESPACE), QtoX("opf:scheme"), QtoX(metaname));
-
+    MetaEntry me;
+    me.m_name = QString("dc:identifier");
+    me.m_atts[QString("opf:scheme")] = metaname;
     if (metaname.toLower() == "uuid" && !metavalue.contains("urn:uuid:")) {
-        element->setTextContent(QtoX("urn:uuid:" + metavalue));
+        me.m_content = QString("urn:uuid:")  + metavalue;
     } else {
-        element->setTextContent(QtoX(metavalue));
+        me.m_content = metavalue;
     }
-
-    xc::DOMElement *metadata = GetMetadataElement(document);
-    if (!metadata) {
-        return;
-    }
-    metadata->appendChild(element);
+    m_metadata.append(me);
 }
 
 void OPFResource::AddModificationDateMeta()
 {
+    QMutexLocker locker(&m_AccessMutex);
     QString date;
     QDate d = QDate::currentDate();
     // We can't use QDate.toString() because it will take into account the locale. Which mean we may not get Arabic 
     // numerals if the local uses it's own numbering system. So we use this instead to ensure we get a valid date per
     // the epub spec.
     QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QList<xc::DOMElement *> metas =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "date", DUBLIN_CORE_NS);
-    foreach(xc::DOMElement * meta, metas) {
-        QString name = XtoQ(meta->getAttribute(QtoX("opf:event")));
-
-        if (name == "modification") {
-            meta->setTextContent(QtoX(date));
-            UpdateTextFromDom(*document);
-            return;
+    for (int i=0; i < m_metadata.count(); ++i) {
+        MetaEntry me = m_metadata.at(i);
+        if (me.m_name == QString("dc:date")) {
+            QString etype = me.m_atts.value(QString("opf:event"), QString(""));
+            if (etype == QString("modification")) {
+                me.m_content = date;
+                m_metadata.replace(i, me);
+                return;
+            }
+            
         }
     }
-    xc::DOMElement *element = document->createElementNS(QtoX(DUBLIN_CORE_NS), QtoX("dc:date"));
-    element->setAttributeNS(QtoX(OPF_XML_NAMESPACE), QtoX("opf:event"), QtoX("modification"));
-    element->setTextContent(QtoX(date));
-    xc::DOMElement *metadata = GetMetadataElement(*document);
-    if (!metadata) {
-        return;
-    }
-    metadata->appendChild(element);
-    UpdateTextFromDom(*document);
+    MetaEntry me;
+    me.m_name = QString("dc:date");
+    me.m_content = date;
+    me.m_atts[QString("opf:event")] = QString("modification");
+    m_metadata.append(me);
 }
 
 void OPFResource::WriteDate(
     const QString &metaname,
-    const QVariant &metavalue,
-    xc::DOMDocument &document)
+    const QVariant &metavalue)
 {
     QString date;
     QDate d = metavalue.toDate();
@@ -1311,17 +1026,16 @@ void OPFResource::WriteDate(
     QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
 
     // This assumes that the "dc" prefix has been declared for the DC namespace
-    xc::DOMElement *element = document.createElementNS(QtoX(DUBLIN_CORE_NS), QtoX("dc:date"));
-    element->setAttributeNS(QtoX(OPF_XML_NAMESPACE), QtoX("opf:event"), QtoX(metaname));
-    element->setTextContent(QtoX(date));
-    xc::DOMElement *metadata = GetMetadataElement(document);
-    if (!metadata) {
-        return;
-    }
-    metadata->appendChild(element);
+    QHash<QString,QString> atts;
+    atts["opf:event"] = metaname;
+    MetaEntry me;
+    me.m_name=QString("dc:date");
+    me.m_content = date;
+    me.m_atts[QString("opf:event")] = metaname;
+    m_metadata.append(me);
 }
 
-
+#if 0
 bool OPFResource::BasicStructurePresent(const xc::DOMDocument &document)
 {
     QList<xc::DOMElement *> packages =
@@ -1352,7 +1066,7 @@ bool OPFResource::BasicStructurePresent(const xc::DOMDocument &document)
         return false;
     }
 
-    if (!GetMainIdentifierUnsafe(document)) {
+    if (GetMainIdentifierUnsafe() == -1) {
         return false;
     }
 
@@ -1499,7 +1213,7 @@ std::shared_ptr<xc::DOMDocument> OPFResource::CreateOPFFromScratch(const xc::DOM
     document->setXmlStandalone(true);
     return document;
 }
-
+#endif
 
 // Yeah, we could get this list of paths with the GetSortedContentFilesList()
 // func from FolderKeeper, but let's not create a strong coupling from
@@ -1528,15 +1242,12 @@ void OPFResource::FillWithDefaultText()
 }
 
 
-QString OPFResource::GetUniqueID(const QString &preferred_id, const xc::DOMDocument &document) const
+QString OPFResource::GetUniqueID(const QString &preferred_id) const
 {
-    xc::DOMElement *element = document.getElementById(QtoX(preferred_id));
-
-    if (!element) {
-        return preferred_id;
+    if (m_idpos.contains(preferred_id)) {
+        return Utility::CreateUUID();
     }
-
-    return Utility::CreateUUID();
+    return preferred_id;
 }
 
 

@@ -28,6 +28,7 @@
 #include <QtCore/QObject>
 
 #include "BookManipulation/XercesHUse.h"
+#include "ResourceObjects/OPFEntry.h"
 
 class QMutex;
 class QString;
@@ -85,6 +86,7 @@ public:
      * @return The converted MetaElement.
      */
     MetaElement MapToBookMetadata(const xc::DOMElement &element);
+    MetaElement MapMetaEntryToBookMetadata(const MetaEntry& me);
 
 private:
 

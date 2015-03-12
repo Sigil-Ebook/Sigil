@@ -24,11 +24,11 @@
 #define OPFRESOURCE_H
 
 #include <memory>
-
+#include <QMutex>
 #include "BookManipulation/GuideSemantics.h"
+#include "BookManipulation/Metadata.h"
 #include "ResourceObjects/XMLResource.h"
 #include "ResourceObjects/OPFEntry.h"
-#include "BookManipulation/Metadata.h"
 
 class HTMLResource;
 class ImageResource;
@@ -89,16 +89,8 @@ public:
 
     bool IsCoverImage(const ::ImageResource &image_resource) const;
 
-    bool IsCoverImageCheck(const Resource &resource, xc::DOMDocument &document) const;
+    // bool IsCoverImageCheck(const Resource &resource, xc::DOMDocument &document) const;
 
-    bool IsCoverImageCheck(QString resource_id, xc::DOMDocument &document) const;
-
-    /**
-     * Determines if a cover image exists.
-     *
-     * @return \c true if a cover image exists.
-     */
-    bool CoverImageExists() const;
 
     void AutoFixWellFormedErrors();
 
@@ -111,7 +103,7 @@ public:
      * @param An list of the content file names that must be written
      *        in order to the spine.
      **/
-    void SetSpineOrderFromFilenames(const QStringList spineOrder);
+    // void SetSpineOrderFromFilenames(const QStringList spineOrder);
 
     /**
      * Returns the book's Dublin Core metadata.
@@ -140,9 +132,7 @@ public slots:
 
     void AddResource(const Resource &resource);
 
-    void RemoveCoverMetaForImage(const Resource &resource, xc::DOMDocument &document);
-
-    void AddCoverMetaForImage(const Resource &resource, xc::DOMDocument &document);
+    void AddCoverMetaForImage(const Resource &resource);
 
     void RemoveResource(const Resource &resource);
 
@@ -156,67 +146,58 @@ public slots:
 
 private:
 
-    static void AppendToSpine(const QString &id, xc::DOMDocument &document);
+    /**
+     * Determines if a cover image exists.
+     *
+     * @return \c true if a cover image exists.
+     */
+    bool CoverImageExists() const;
 
-    static void RemoveFromSpine(const QString &id, xc::DOMDocument &document);
+    bool IsCoverImageCheck(QString resource_id) const;
 
-    static void UpdateItemrefID(const QString &old_id, const QString &new_id, xc::DOMDocument &document);
+    void RemoveCoverMetaForImage(const Resource &resource);
 
-    std::shared_ptr<xc::DOMDocument> GetDocument() const;
 
-    static xc::DOMElement *GetPackageElement(const xc::DOMDocument &document);
+    // static void AppendToSpine(const QString &id);
 
-    static xc::DOMElement *GetMetadataElement(const xc::DOMDocument &document);
+    // static void RemoveFromSpine(const QString &id);
 
-    static xc::DOMElement *GetManifestElement(const xc::DOMDocument &document);
+    // static void UpdateItemrefID(const QString &old_id, const QString &new_id);
 
-    static xc::DOMElement *GetSpineElement(const xc::DOMDocument &document);
+    int GetMainIdentifier() const;
 
-    static xc::DOMElement *GetGuideElement(const xc::DOMDocument &document);
-    static xc::DOMElement *GetGuideElement(xc::DOMDocument &document);
+    // std::shared_ptr<xc::DOMDocument> GetDocument() const;
 
-    // CAN BE NULL! NULL means no reference for resource
-    static xc::DOMElement *GetGuideReferenceForResource(
-        const Resource &resource,
-        const xc::DOMDocument &document);
+    // CAN BE -1 which means no reference for resource
+    int GetGuideReferenceForResourcePos(const Resource &resource) const;
 
-    static void RemoveGuideReferenceForResource(
-        const Resource &resource,
-        xc::DOMDocument &document);
+    void RemoveGuideReferenceForResource(
+         const Resource &resource);
 
-    static GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(
-        const Resource &resource,
-        xc::DOMDocument &document);
+    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource2(
+        const Resource &resource) const;
 
-    static void SetGuideSemanticTypeForResource(
+    void SetGuideSemanticTypeForResource(
         GuideSemantics::GuideSemanticType type,
-        const Resource &resource,
-        xc::DOMDocument &document);
+        const Resource &resource);
 
-    static void RemoveDuplicateGuideTypes(
-        GuideSemantics::GuideSemanticType new_type,
-        xc::DOMDocument &document);
+    void RemoveDuplicateGuideTypes(
+        GuideSemantics::GuideSemanticType new_type);
 
-    static QHash<HTMLResource *, xc::DOMElement *> GetItemrefsForHTMLResources(
-        const QList<HTMLResource *> html_files,
-        xc::DOMDocument &document);
+    QHash<HTMLResource *, xc::DOMElement *> GetItemrefsForHTMLResources(
+        const QList<HTMLResource *> html_files);
 
-    // CAN BE NULL! NULL means no cover meta element
-    static xc::DOMElement *GetCoverMeta(const xc::DOMDocument &document);
+    // CAN BE -1 means no cover meta element
+    int GetCoverMeta() const;
 
-    static xc::DOMElement &GetMainIdentifier(const xc::DOMDocument &document);
+    QString GetResourceManifestID(const Resource &resource) const;
 
-    static xc::DOMElement *GetMainIdentifierUnsafe(const xc::DOMDocument &document);
+    QHash<Resource *, QString> GetResourceManifestIDMapping(
+        const QList<Resource *> resources);
 
-    static QString GetResourceManifestID(const Resource &resource, const xc::DOMDocument &document);
+    // static void SetMetaElementsLast(xc::DOMDocument &document);
 
-    static QHash<Resource *, QString> GetResourceManifestIDMapping(
-        const QList<Resource *> resources,
-        const xc::DOMDocument &document);
-
-    static void SetMetaElementsLast(xc::DOMDocument &document);
-
-    static void RemoveDCElements(xc::DOMDocument &document);
+    void RemoveDCElements();
 
     /**
      * Dispatches each metadata entry based on its type.
@@ -226,7 +207,7 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    static void MetadataDispatcher(const Metadata::MetaElement &book_meta, xc::DOMDocument &document);
+    void MetadataDispatcher(const Metadata::MetaElement &book_meta);
 
     /**
      * Writes <creator> and <contributor> metadata elements.
@@ -235,7 +216,7 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    static void WriteCreatorOrContributor(const Metadata::MetaElement book_meta, xc::DOMDocument &document);
+    void WriteCreatorOrContributor(const Metadata::MetaElement book_meta);
 
     /**
      * Writes simple metadata.
@@ -244,7 +225,7 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    static void WriteSimpleMetadata(const QString &metaname, const QString &metavalue, xc::DOMDocument &document);
+    void WriteSimpleMetadata(const QString &metaname, const QString &metavalue);
 
     /**
      * Writes the <identifier> elements.
@@ -254,7 +235,7 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    static void WriteIdentifier(const QString &metaname, const QString &metavalue, xc::DOMDocument &document);
+    void WriteIdentifier(const QString &metaname, const QString &metavalue);
 
     /**
      * Writes the <date> elements.
@@ -264,11 +245,10 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    static void WriteDate(const QString &metaname, const QVariant &metavalue, xc::DOMDocument &document);
+    void WriteDate(const QString &metaname, const QVariant &metavalue);
 
-    static bool BasicStructurePresent(const xc::DOMDocument &document);
-
-    std::shared_ptr<xc::DOMDocument> CreateOPFFromScratch(const xc::DOMDocument *document=NULL) const;
+    // static bool BasicStructurePresent(const xc::DOMDocument &document);
+    // std::shared_ptr<xc::DOMDocument> CreateOPFFromScratch(const xc::DOMDocument *document=NULL) const;
 
     QStringList GetRelativePathsToAllFilesInOEPBS() const;
 
@@ -276,7 +256,7 @@ private:
 
     void FillWithDefaultText();
 
-    QString GetUniqueID(const QString &preferred_id, const xc::DOMDocument &document) const;
+    QString GetUniqueID(const QString &preferred_id) const;
 
     QString GetResourceMimetype(const Resource &resource) const;
 
@@ -293,6 +273,7 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
+    mutable QMutex       m_AccessMutex;
     PackageEntry         m_package;
     MetaNSEntry          m_metans;
     QList<MetaEntry>     m_metadata;
@@ -301,6 +282,8 @@ private:
     QList<SpineEntry>    m_spine;
     QList<GuideEntry>    m_guide;
     QList<BindingsEntry> m_bindings;
+    QHash<QString,int>   m_idpos;
+    QHash<QString,int>   m_hrefpos;
 
     /**
      * A mapping between file extensions
