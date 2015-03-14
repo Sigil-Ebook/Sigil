@@ -41,40 +41,52 @@
 
 PyObjectPtr::PyObjectPtr(PyObject* o)
 {
-  _object = o;
-  if (o) Py_INCREF(_object);
+    _object = o;
+    if (o) Py_INCREF(_object);
 }
 
 PyObjectPtr::~PyObjectPtr()
 { 
-  if (_object) Py_DECREF(_object); 
+    if (_object) {
+        PyGILState_STATE gstate = PyGILState_Ensure();
+        Py_DECREF(_object);
+        PyGILState_Release(gstate);
+    }
 }
 
 void PyObjectPtr::setNewRef(PyObject* o)
 {
-  if (o != _object) {
-    if (_object) Py_DECREF(_object);
-    _object = o;
-  }
+    if (o != _object) {
+        if (_object) {
+            PyGILState_STATE gstate = PyGILState_Ensure();
+            Py_DECREF(_object);
+            PyGILState_Release(gstate);
+        }
+        _object = o;
+    }
 }
 
 bool PyObjectPtr::fromVariant(const QVariant& variant)
 {
-  if (!variant.isNull()) {
-      setObject(qvariant_cast<PyObjectPtr>(variant));
-      return true;
-  }
-  else {
-      setObject(0);
-      return false;
-  } 
+    if (!variant.isNull()) {
+        setObject(qvariant_cast<PyObjectPtr>(variant));
+        return true;
+    }
+    else {
+        setObject(0);
+        return false;
+    } 
 }
 
 void PyObjectPtr::setObject(PyObject* o)
 {
-  if (o != _object) {
-    if (_object) Py_DECREF(_object);
-    _object = o;
-    if (_object) Py_INCREF(_object);
-  }
+    if (o != _object) {
+        if (_object) {
+            PyGILState_STATE gstate = PyGILState_Ensure();
+            Py_DECREF(_object);
+            PyGILState_Release(gstate);
+        }
+        _object = o;
+        if (_object) Py_INCREF(_object);
+    }
 }

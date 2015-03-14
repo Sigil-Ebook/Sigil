@@ -162,6 +162,7 @@ QMutex EmbeddedPython::m_mutex;
 
 EmbeddedPython* EmbeddedPython::m_instance = 0;
 int EmbeddedPython::m_pyobjmetaid = 0;
+PyThreadState * EmbeddedPython::m_threadstate = NULL;
 
 EmbeddedPython* EmbeddedPython::instance()
 {
@@ -174,8 +175,11 @@ EmbeddedPython* EmbeddedPython::instance()
 EmbeddedPython::EmbeddedPython()
 {
     Py_Initialize();
+    PyEval_InitThreads();
+    m_threadstate = PyEval_SaveThread();
     m_pyobjmetaid = qMetaTypeId<PyObjectPtr>();
 }
+
 
 EmbeddedPython::~EmbeddedPython()
 {
@@ -184,6 +188,7 @@ EmbeddedPython::~EmbeddedPython()
         m_instance = 0;
     }
     m_pyobjmetaid = 0;
+    PyEval_RestoreThread(m_threadstate);
     Py_Finalize();
 }
 
@@ -221,6 +226,8 @@ QString EmbeddedPython::embeddedRoot()
 bool EmbeddedPython::addToPythonSysPath(const QString& mpath)
 {
     EmbeddedPython::m_mutex.lock();
+    PyGILState_STATE gstate = PyGILState_Ensure();
+        
     PyObject* sysPath    = NULL;
     PyObject* aPath = NULL;
     bool success = false;
@@ -235,6 +242,7 @@ bool EmbeddedPython::addToPythonSysPath(const QString& mpath)
         }
     }
     Py_XDECREF(aPath);
+    PyGILState_Release(gstate);
     EmbeddedPython::m_mutex.unlock();
     return success;
 }
@@ -249,6 +257,8 @@ QVariant EmbeddedPython::runInPython(const QString& mname,
                                      bool ret_python_object)
 {
     EmbeddedPython::m_mutex.lock();
+    PyGILState_STATE gstate = PyGILState_Ensure();
+        
     QVariant  res        = QVariant(QString());
     PyObject *moduleName = NULL;
     PyObject *module     = NULL;
@@ -256,7 +266,7 @@ QVariant EmbeddedPython::runInPython(const QString& mname,
     PyObject *pyargs     = NULL;
     PyObject *pyres      = NULL;
     int       idx        = 0;
-        
+
     moduleName = PyUnicode_FromString(mname.toUtf8().constData());
     if (moduleName == NULL) {
         *rv = -1;
@@ -308,6 +318,7 @@ cleanup:
     Py_XDECREF(module);
     Py_XDECREF(moduleName);
 
+    PyGILState_Release(gstate);
     EmbeddedPython::m_mutex.unlock();
     return res;
 }
@@ -323,6 +334,8 @@ QVariant EmbeddedPython::callPyObjMethod(PyObjectPtr& pyobj,
                                          bool ret_python_object)
 {
     EmbeddedPython::m_mutex.lock();
+    PyGILState_STATE gstate = PyGILState_Ensure();
+
     QVariant  res        = QVariant(QString());
     PyObject* obj        = pyobj.object();
     PyObject* func       = NULL;
@@ -367,6 +380,7 @@ QVariant EmbeddedPython::callPyObjMethod(PyObjectPtr& pyobj,
     Py_XDECREF(pyargs);
     Py_XDECREF(func);
 
+    PyGILState_Release(gstate);
     EmbeddedPython::m_mutex.unlock();
     return res;
 }

@@ -24,7 +24,7 @@
 #define OPFRESOURCE_H
 
 #include <memory>
-#include <QMutex>
+// #include <QMutex>
 #include "BookManipulation/GuideSemantics.h"
 #include "BookManipulation/Metadata.h"
 #include "ResourceObjects/XMLResource.h"
@@ -128,7 +128,10 @@ public slots:
      *
      * @param metadata A list with meta information about the book.
      */
+
     void SetDCMetadata(const QList<Metadata::MetaElement>  &metadata);
+
+    void Rebuild();
 
     void AddResource(const Resource &resource);
 
@@ -157,6 +160,7 @@ private:
 
     void RemoveCoverMetaForImage(const Resource &resource);
 
+    void parse(const QString& source);
 
     // static void AppendToSpine(const QString &id);
 
@@ -262,6 +266,8 @@ private:
 
     QString GetFileMimetype(const QString &filepath) const;
 
+    void UpdateText();
+
     QString convert_to_xml() const;
 
     /**
@@ -273,7 +279,7 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    mutable QMutex       m_AccessMutex;
+    // mutable QMutex       m_AccessMutex;
     PackageEntry         m_package;
     MetaNSEntry          m_metans;
     QList<MetaEntry>     m_metadata;

@@ -74,5 +74,6 @@ private:
     static QMutex m_mutex;
     static EmbeddedPython *m_instance;
     static int m_pyobjmetaid;
+    static PyThreadState* m_threadstate;
 };
 #endif // EMBEDDEDPYTHON_H
