@@ -40,7 +40,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         if self._default_parser is not None:
             return self._default_parser
         return etree.XMLParser(
-            target=self, strip_cdata=False, recover=True, encoding=encoding)
+            target=self, strip_cdata=False, recover=True, ns_clean=True, encoding=encoding)
 
     def parser_for(self, encoding):
         # Use the default parser.

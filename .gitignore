@@ -4,6 +4,10 @@
 # Lock files used by the Emacs editor.
 .\#*
 
+#use ful for stashing files
+*.orig
+*.keep
+
 # Temporary files used by the vim editor.
 .*.swp
 .swp

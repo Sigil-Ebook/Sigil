@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015  Kevin B. Hendricks, Stratford ON
 **
 **  This file is part of Sigil.
 **
@@ -24,11 +24,10 @@
 #define OPFRESOURCE_H
 
 #include <memory>
-// #include <QMutex>
 #include "BookManipulation/GuideSemantics.h"
 #include "BookManipulation/Metadata.h"
 #include "ResourceObjects/XMLResource.h"
-#include "ResourceObjects/OPFEntry.h"
+#include "ResourceObjects/OPFParser.h"
 
 class HTMLResource;
 class ImageResource;
@@ -89,9 +88,6 @@ public:
 
     bool IsCoverImage(const ::ImageResource &image_resource) const;
 
-    // bool IsCoverImageCheck(const Resource &resource, xc::DOMDocument &document) const;
-
-
     void AutoFixWellFormedErrors();
 
     QStringList GetSpineOrderFilenames() const;
@@ -131,11 +127,9 @@ public slots:
 
     void SetDCMetadata(const QList<Metadata::MetaElement>  &metadata);
 
-    void Rebuild();
-
     void AddResource(const Resource &resource);
 
-    void AddCoverMetaForImage(const Resource &resource);
+    void AddCoverMetaForImage(const Resource &resource, OPFParser& p);
 
     void RemoveResource(const Resource &resource);
 
@@ -156,11 +150,9 @@ private:
      */
     bool CoverImageExists() const;
 
-    bool IsCoverImageCheck(QString resource_id) const;
+    bool IsCoverImageCheck(QString resource_id, const OPFParser& p) const;
 
-    void RemoveCoverMetaForImage(const Resource &resource);
-
-    void parse(const QString& source);
+    void RemoveCoverMetaForImage(const Resource &resource, OPFParser& p);
 
     // static void AppendToSpine(const QString &id);
 
@@ -168,40 +160,34 @@ private:
 
     // static void UpdateItemrefID(const QString &old_id, const QString &new_id);
 
-    int GetMainIdentifier() const;
-
-    // std::shared_ptr<xc::DOMDocument> GetDocument() const;
+    int GetMainIdentifier(const OPFParser& p) const;
 
     // CAN BE -1 which means no reference for resource
-    int GetGuideReferenceForResourcePos(const Resource &resource) const;
+    int GetGuideReferenceForResourcePos(const Resource &resource, const OPFParser& p) const;
 
-    void RemoveGuideReferenceForResource(
-         const Resource &resource);
+    void RemoveGuideReferenceForResource(const Resource &resource, OPFParser& p);
 
-    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource2(
-        const Resource &resource) const;
+    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource &resource, const OPFParser &p) const;
 
-    void SetGuideSemanticTypeForResource(
-        GuideSemantics::GuideSemanticType type,
-        const Resource &resource);
+    void SetGuideSemanticTypeForResource(GuideSemantics::GuideSemanticType type,
+                                         const Resource &resource, OPFParser &p);
 
-    void RemoveDuplicateGuideTypes(
-        GuideSemantics::GuideSemanticType new_type);
+    void RemoveDuplicateGuideTypes(GuideSemantics::GuideSemanticType new_type, OPFParser &p);
 
     QHash<HTMLResource *, xc::DOMElement *> GetItemrefsForHTMLResources(
         const QList<HTMLResource *> html_files);
 
     // CAN BE -1 means no cover meta element
-    int GetCoverMeta() const;
+    int GetCoverMeta(const OPFParser &p) const;
 
-    QString GetResourceManifestID(const Resource &resource) const;
+    QString GetResourceManifestID(const Resource &resource, const OPFParser &p) const;
 
     QHash<Resource *, QString> GetResourceManifestIDMapping(
-        const QList<Resource *> resources);
+        const QList<Resource *> resources, const OPFParser &p);
 
     // static void SetMetaElementsLast(xc::DOMDocument &document);
 
-    void RemoveDCElements();
+    void RemoveDCElements(OPFParser &p);
 
     /**
      * Dispatches each metadata entry based on its type.
@@ -211,7 +197,7 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    void MetadataDispatcher(const Metadata::MetaElement &book_meta);
+    void MetadataDispatcher(const Metadata::MetaElement &book_meta, OPFParser &p);
 
     /**
      * Writes <creator> and <contributor> metadata elements.
@@ -220,7 +206,7 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    void WriteCreatorOrContributor(const Metadata::MetaElement book_meta);
+    void WriteCreatorOrContributor(const Metadata::MetaElement book_meta, OPFParser &p);
 
     /**
      * Writes simple metadata.
@@ -229,7 +215,7 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    void WriteSimpleMetadata(const QString &metaname, const QString &metavalue);
+    void WriteSimpleMetadata(const QString &metaname, const QString &metavalue, OPFParser &p);
 
     /**
      * Writes the <identifier> elements.
@@ -239,7 +225,7 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    void WriteIdentifier(const QString &metaname, const QString &metavalue);
+    void WriteIdentifier(const QString &metaname, const QString &metavalue, OPFParser &p);
 
     /**
      * Writes the <date> elements.
@@ -249,7 +235,7 @@ private:
      * @param metavalue The value of the metadata to be written.
      * @param document The OPF DOM document.
      */
-    void WriteDate(const QString &metaname, const QVariant &metavalue);
+    void WriteDate(const QString &metaname, const QVariant &metavalue, OPFParser &p);
 
     // static bool BasicStructurePresent(const xc::DOMDocument &document);
     // std::shared_ptr<xc::DOMDocument> CreateOPFFromScratch(const xc::DOMDocument *document=NULL) const;
@@ -260,15 +246,13 @@ private:
 
     void FillWithDefaultText();
 
-    QString GetUniqueID(const QString &preferred_id) const;
+    QString GetUniqueID(const QString &preferred_id, const OPFParser & p) const;
 
     QString GetResourceMimetype(const Resource &resource) const;
 
     QString GetFileMimetype(const QString &filepath) const;
 
-    void UpdateText();
-
-    QString convert_to_xml() const;
+    void UpdateText(const OPFParser &p);
 
     /**
      * Initializes m_Mimetypes.
@@ -278,18 +262,6 @@ private:
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
-    // mutable QMutex       m_AccessMutex;
-    PackageEntry         m_package;
-    MetaNSEntry          m_metans;
-    QList<MetaEntry>     m_metadata;
-    QList<ManifestEntry> m_manifest;
-    SpineAttrEntry       m_spineattr;
-    QList<SpineEntry>    m_spine;
-    QList<GuideEntry>    m_guide;
-    QList<BindingsEntry> m_bindings;
-    QHash<QString,int>   m_idpos;
-    QHash<QString,int>   m_hrefpos;
 
     /**
      * A mapping between file extensions

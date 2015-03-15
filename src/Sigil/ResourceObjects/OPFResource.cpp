@@ -22,8 +22,6 @@
 
 #include <memory>
 
-#include "Misc/EmbeddedPython.h"
-
 #include <QtCore/QBuffer>
 #include <QtCore/QDate>
 #include <QtCore/QDir>
@@ -39,6 +37,8 @@
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/OPFParser.h"
+
 #include "sigil_constants.h"
 
 static const QString SIGIL_VERSION_META_NAME  = "Sigil version";
@@ -65,7 +65,7 @@ static const QString TEMPLATE_TEXT =
 
 
 OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
-  : XMLResource(mainfolder, fullfilepath, parent), m_idpos(QHash<QString,int>()), m_hrefpos(QHash<QString,int>())
+  : XMLResource(mainfolder, fullfilepath, parent)
 {
     CreateMimetypes();
     FillWithDefaultText();
@@ -73,7 +73,6 @@ OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath,
     // Among many reasons, this also solves the problem
     // with the Book Browser not displaying an icon for this resource.
     SaveToDisk();
-    // connect(this, SIGNAL(Modified()), this, SLOT(Rebuild()));
 }
 
 
@@ -92,90 +91,7 @@ Resource::ResourceType OPFResource::Type() const
 
 QString OPFResource::GetText() const
 {
-    // How can we tell if the text in the content.opf tab has changed
-    // So that we know when to rebuild our internal representation of the opf
     return TextResource::GetText();
-}
-
-
-void OPFResource::Rebuild() 
-{
-    QReadLocker locker(&GetLock());
-    parse(TextResource::GetText());
-}
-
-
-void OPFResource::parse(const QString& source)
-{
-    int rv = 0;
-    QString traceback;
-
-    QList<QVariant> args;
-    args.append(QVariant(source));
-    EmbeddedPython* epp = EmbeddedPython::instance();
-    QVariant res = epp->runInPython( QString("opf_newparser"), QString("parseopf"), args, &rv, traceback, true);
-    if (rv) fprintf(stderr, "setext parseropf error %d traceback %s\n",rv, traceback.toStdString().c_str());
-
-    PyObjectPtr mpo = PyObjectPtr(res);
-
-    args.clear();
-    res = epp->callPyObjMethod(mpo, QString("get_package"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext package error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_package = PackageEntry(res);
-
-    res = epp->callPyObjMethod(mpo, QString("get_metadata_attr"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext meta_attr error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_metans = MetaNSEntry(res);
-
-    res = epp->callPyObjMethod(mpo, QString("get_metadata"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext metadata error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_metadata.clear();
-    QList<QVariant> lst = res.toList();
-    foreach(QVariant qv, lst) {
-      m_metadata.append(MetaEntry(qv));
-    }
-
-    m_idpos.clear();
-    m_hrefpos.clear();
-
-    res = epp->callPyObjMethod(mpo, QString("get_manifest"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext manifest error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_manifest.clear();
-    lst = res.toList();
-    for (int i = 0; i < lst.count(); i++) {
-      ManifestEntry me = ManifestEntry(lst.at(i));
-      m_idpos[me.m_id] = i;
-      m_hrefpos[me.m_href] = i;
-      m_manifest.append(me);
-    }
-
-    res = epp->callPyObjMethod(mpo, QString("get_spine_attr"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext spineattr error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_spineattr = SpineAttrEntry(res);
-
-    res = epp->callPyObjMethod(mpo, QString("get_spine"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext spine error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_spine.clear();
-    lst = res.toList();
-    foreach(QVariant qv, lst) {
-      m_spine.append(SpineEntry(qv));
-    }
-
-    res = epp->callPyObjMethod(mpo, QString("get_guide"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext guide error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_guide.clear();
-    lst = res.toList();
-    foreach(QVariant qv, lst) {
-      m_guide.append(GuideEntry(qv));
-    }
-
-    res = epp->callPyObjMethod(mpo, QString("get_bindings"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext bindings error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_bindings.clear();
-    lst = res.toList();
-    foreach(QVariant qv, lst) {
-      m_bindings.append(BindingsEntry(qv));
-    }
 }
 
 
@@ -183,7 +99,6 @@ void OPFResource::SetText(const QString &text)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(text);
-    parse(source);
     TextResource::SetText(source);
 }
 
@@ -191,22 +106,27 @@ void OPFResource::SetText(const QString &text)
 GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource &resource) const
 {
     QReadLocker locker(&GetLock());
-    return GetGuideSemanticTypeForResource2(resource);
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    return GetGuideSemanticTypeForResource(resource, p);
 }
 
 
 QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
 {
-    QReadLocker locker(&GetLock());
     return GuideSemantics::Instance().GetGuideName(GetGuideSemanticTypeForResource(*resource));
 }
 
 QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 {
     QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     QHash <QString, QString> semantic_types;
 
-    foreach(GuideEntry ge, m_guide) {
+    foreach(GuideEntry ge, p.m_guide) {
         QString href = ge.m_href;
         QStringList parts = href.split('#', QString::KeepEmptyParts);
 
@@ -217,11 +137,11 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
     }
 
     // Cover image semantics don't use reference
-    int pos  = GetCoverMeta();
+    int pos  = GetCoverMeta(p);
     if (pos > -1) {
-        MetaEntry me = m_metadata.at(pos);
+        MetaEntry me = p.m_metadata.at(pos);
         QString cover_id = me.m_atts.value(QString("content"),QString(""));
-        ManifestEntry man = m_manifest.at(m_idpos[cover_id]);
+        ManifestEntry man = p.m_manifest.at(p.m_idpos[cover_id]);
         QString href = man.m_href;
         GuideSemantics::GuideSemanticType type =
                     GuideSemantics::Instance().MapReferenceTypeToGuideEnum("cover");
@@ -234,12 +154,15 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource *> resources)
 {
     QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     QHash <Resource *, int> reading_order;
     QHash<QString, int> id_order;
-    for (int i = 0; i < m_spine.count(); ++i) {
-      id_order[m_spine.at(i).m_idref] = i;
+    for (int i = 0; i < p.m_spine.count(); ++i) {
+      id_order[p.m_spine.at(i).m_idref] = i;
     }
-    QHash<Resource *, QString> id_mapping = GetResourceManifestIDMapping(resources);
+    QHash<Resource *, QString> id_mapping = GetResourceManifestIDMapping(resources, p);
     foreach(Resource *resource, resources) {
         reading_order[resource] = id_order[id_mapping[resource]];
     }
@@ -249,10 +172,13 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
 int OPFResource::GetReadingOrder(const ::HTMLResource &html_resource) const
 {
     QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     const Resource &resource = *static_cast<const Resource *>(&html_resource);
-    QString resource_id = GetResourceManifestID(resource);
-    for (int i = 0; i < m_spine.count(); ++i) {
-      QString idref = m_spine.at(i).m_idref;
+    QString resource_id = GetResourceManifestID(resource, p);
+    for (int i = 0; i < p.m_spine.count(); ++i) {
+      QString idref = p.m_spine.at(i).m_idref;
       if (resource_id == idref) {
           return i;
       }
@@ -263,20 +189,22 @@ int OPFResource::GetReadingOrder(const ::HTMLResource &html_resource) const
 QString OPFResource::GetMainIdentifierValue() const
 {
     QReadLocker locker(&GetLock());
-    int i = GetMainIdentifier();
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    int i = GetMainIdentifier(p);
     if (i > -1) {
-        return QString(m_metadata.at(i).m_content);
+        return QString(p.m_metadata.at(i).m_content);
     }
     return QString();
 }
 
 void OPFResource::SaveToDisk(bool book_wide_save)
 {
-    QString text = TextResource::GetText();
+    QString source = CleanSource::ProcessXML(GetText());
     // Work around for covers appearing on the Nook. Issue 942.
-    text = text.replace(QRegularExpression("<meta content=\"([^\"]+)\" name=\"cover\""), "<meta name=\"cover\" content=\"\\1\"");
-    parse(text);
-    TextResource::SetText(text);
+    source = source.replace(QRegularExpression("<meta content=\"([^\"]+)\" name=\"cover\""), "<meta name=\"cover\" content=\"\\1\"");
+    TextResource::SetText(source);
     TextResource::SaveToDisk(book_wide_save);
 }
 
@@ -284,8 +212,11 @@ QString OPFResource::GetUUIDIdentifierValue()
 {
     EnsureUUIDIdentifierPresent();
     QReadLocker locker(&GetLock());
-    for (int i=0; i < m_metadata.count(); ++i) {
-        MetaEntry me = m_metadata.at(i);
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    for (int i=0; i < p.m_metadata.count(); ++i) {
+        MetaEntry me = p.m_metadata.at(i);
         if(me.m_name.startsWith("dc:identifier")) {
             QString value = QString(me.m_content).remove("urn:uuid:");
             if (!QUuid(value).isNull()) {
@@ -303,8 +234,11 @@ QString OPFResource::GetUUIDIdentifierValue()
 void OPFResource::EnsureUUIDIdentifierPresent()
 {
     QWriteLocker locker(&GetLock());
-    for (int i=0; i < m_metadata.count(); ++i) {
-        MetaEntry me = m_metadata.at(i);
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    for (int i=0; i < p.m_metadata.count(); ++i) {
+        MetaEntry me = p.m_metadata.at(i);
         if(me.m_name.startsWith("dc:identifier")) {
             QString value = QString(me.m_content).remove("urn:uuid:");
             if (!QUuid(value).isNull()) {
@@ -313,24 +247,27 @@ void OPFResource::EnsureUUIDIdentifierPresent()
         }
     }
     QString uuid = Utility::CreateUUID();
-    WriteIdentifier("UUID", uuid);
-    UpdateText();
+    WriteIdentifier("UUID", uuid, p);
+    UpdateText(p);
 }
 
 QString OPFResource::AddNCXItem(const QString &ncx_path)
 {
     QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     QString path_to_oebps_folder = QFileInfo(GetFullPath()).absolutePath() + "/";
     QString ncx_oebps_path  = QString(ncx_path).remove(path_to_oebps_folder);
-    int n = m_manifest.count();
+    int n = p.m_manifest.count();
     ManifestEntry me;
-    me.m_id = GetUniqueID("ncx");
+    me.m_id = GetUniqueID("ncx", p);
     me.m_href = ncx_oebps_path;
     me.m_mtype = "application/x-dtbncx+xml";
-    m_manifest.append(me);
-    m_idpos[me.m_id] = n;
-    m_hrefpos[me.m_href] = n;
-    UpdateText();
+    p.m_manifest.append(me);
+    p.m_idpos[me.m_id] = n;
+    p.m_hrefpos[me.m_href] = n;
+    UpdateText(p);
     return me.m_id;
 }
 
@@ -338,10 +275,13 @@ QString OPFResource::AddNCXItem(const QString &ncx_path)
 void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
 {
     QWriteLocker locker(&GetLock());
-    QString ncx_id = m_spineattr.m_atts.value(QString("toc"),"");
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    QString ncx_id = p.m_spineattr.m_atts.value(QString("toc"),"");
     if (new_ncx_id != ncx_id) {
-        m_spineattr.m_atts[QString("toc")] = new_ncx_id;
-        UpdateText();
+        p.m_spineattr.m_atts[QString("toc")] = new_ncx_id;
+        UpdateText(p);
     }
 }
 
@@ -349,16 +289,19 @@ void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
 void OPFResource::UpdateNCXLocationInManifest(const ::NCXResource &ncx)
 {
     QWriteLocker locker(&GetLock());
-    QString ncx_id = m_spineattr.m_atts.value(QString("toc"),"");
-    int pos = m_idpos.value(ncx_id, -1);
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    QString ncx_id = p.m_spineattr.m_atts.value(QString("toc"),"");
+    int pos = p.m_idpos.value(ncx_id, -1);
     if (pos > -1) {
-        ManifestEntry me = m_manifest.at(pos);
+        ManifestEntry me = p.m_manifest.at(pos);
         QString href = me.m_href;
         me.m_href = ncx.Filename();
-        m_manifest.replace(pos, me);
-        m_hrefpos.remove(href);
-        m_hrefpos[ncx.Filename()] = pos;
-        UpdateText();
+        p.m_manifest.replace(pos, me);
+        p.m_hrefpos.remove(href);
+        p.m_hrefpos[ncx.Filename()] = pos;
+        UpdateText(p);
     }
 }
 
@@ -366,14 +309,17 @@ void OPFResource::UpdateNCXLocationInManifest(const ::NCXResource &ncx)
 void OPFResource::AddSigilVersionMeta()
 {
     QWriteLocker locker(&GetLock());
-    for (int i=0; i < m_metadata.count(); ++i) {
-        MetaEntry me = m_metadata.at(i);
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    for (int i=0; i < p.m_metadata.count(); ++i) {
+        MetaEntry me = p.m_metadata.at(i);
         if ((me.m_name == "meta") && (me.m_atts.contains("name"))) {  
             QString name = me.m_atts[QString("name")];
             if (name == SIGIL_VERSION_META_NAME) {
                 me.m_atts["content"] = QString(SIGIL_VERSION);
-                m_metadata.replace(i, me);
-                UpdateText();
+                p.m_metadata.replace(i, me);
+                UpdateText(p);
                 return;
             }
         }
@@ -382,24 +328,27 @@ void OPFResource::AddSigilVersionMeta()
     me.m_name = "meta";
     me.m_atts[QString("name")] = QString("Sigil version");
     me.m_atts[QString("content")] = QString(SIGIL_VERSION);
-    m_metadata.append(me);
-    UpdateText();
+    p.m_metadata.append(me);
+    UpdateText(p);
 }
 
 
 bool OPFResource::IsCoverImage(const ::ImageResource &image_resource) const
 {
     QReadLocker locker(&GetLock());
-    QString resource_id = GetResourceManifestID(image_resource);
-    return IsCoverImageCheck(resource_id);
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    QString resource_id = GetResourceManifestID(image_resource, p);
+    return IsCoverImageCheck(resource_id, p);
 }
 
 
-bool OPFResource::IsCoverImageCheck(QString resource_id) const
+bool OPFResource::IsCoverImageCheck(QString resource_id, const OPFParser & p) const
 {
-    int pos = GetCoverMeta();
+    int pos = GetCoverMeta(p);
     if (pos > -1) {
-        MetaEntry me = m_metadata.at(pos);
+        MetaEntry me = p.m_metadata.at(pos);
         return me.m_atts.value(QString("content"),QString("")) == resource_id;
     }
     return false;
@@ -408,7 +357,11 @@ bool OPFResource::IsCoverImageCheck(QString resource_id) const
 
 bool OPFResource::CoverImageExists() const
 {
-    return GetCoverMeta() > -1;
+    QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    return GetCoverMeta(p) > -1;
 }
 
 
@@ -423,13 +376,16 @@ void OPFResource::AutoFixWellFormedErrors()
 QStringList OPFResource::GetSpineOrderFilenames() const
 {
     QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     QStringList filenames_in_reading_order;
-    for (int i=0; i < m_spine.count(); ++i) {
-        SpineEntry sp = m_spine.at(i);
+    for (int i=0; i < p.m_spine.count(); ++i) {
+        SpineEntry sp = p.m_spine.at(i);
         QString idref = sp.m_idref;
-        int pos = m_idpos.value(idref,-1);
+        int pos = p.m_idpos.value(idref,-1);
         if (pos > -1) {
-            QString href = m_manifest.at(pos).m_href;
+            QString href = p.m_manifest.at(pos).m_href;
             QString filename = QFileInfo(href).fileName();
             filenames_in_reading_order.append(filename);
         }
@@ -484,9 +440,12 @@ void OPFResource::SetSpineOrderFromFilenames(const QStringList spineOrder)
 QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
 {
     QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     QList<Metadata::MetaElement> metadata;
-    for (int i=0; i < m_metadata.count(); ++i) {
-        MetaEntry me = m_metadata.at(i);
+    for (int i=0; i < p.m_metadata.count(); ++i) {
+        MetaEntry me = p.m_metadata.at(i);
         if (me.m_name.startsWith("dc:")) {
             Metadata::MetaElement book_meta = Metadata::Instance().MapMetaEntryToBookMetadata(me);
             if (!book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty()) {
@@ -500,7 +459,6 @@ QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
 
 QList<QVariant> OPFResource::GetDCMetadataValues(QString text) const
 {
-    QReadLocker locker(&GetLock());
     QList<QVariant> values;
     foreach(Metadata::MetaElement meta, GetDCMetadata()) {
         if (meta.name == text) {
@@ -514,103 +472,112 @@ QList<QVariant> OPFResource::GetDCMetadataValues(QString text) const
 void OPFResource::SetDCMetadata(const QList<Metadata::MetaElement> &metadata)
 {
     QWriteLocker locker(&GetLock());
-    RemoveDCElements();
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    RemoveDCElements(p);
     foreach(Metadata::MetaElement book_meta, metadata) {
-        MetadataDispatcher(book_meta);;
+        MetadataDispatcher(book_meta, p);;
     }
-    UpdateText();
+    UpdateText(p);
 }
 
 
 void OPFResource::AddResource(const Resource &resource)
 {
     QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     ManifestEntry me;
-    me.m_id = GetUniqueID(GetValidID(resource.Filename()));
+    me.m_id = GetUniqueID(GetValidID(resource.Filename()),p);
     me.m_href = resource.GetRelativePathToOEBPS();
     me.m_mtype = GetResourceMimetype(resource);
-    int n = m_manifest.count();
-    m_manifest.append(me);
-    m_idpos[me.m_id] = n;
-    m_hrefpos[me.m_href] = n;
+    int n = p.m_manifest.count();
+    p.m_manifest.append(me);
+    p.m_idpos[me.m_id] = n;
+    p.m_hrefpos[me.m_href] = n;
     if (resource.Type() == Resource::HTMLResourceType) {
         SpineEntry se;
         se.m_idref = me.m_id;
-        m_spine.append(se);
+        p.m_spine.append(se);
     }
-    UpdateText();
+    UpdateText(p);
 }
 
-void OPFResource::RemoveCoverMetaForImage(const Resource &resource)
+void OPFResource::RemoveCoverMetaForImage(const Resource &resource, OPFParser& p)
 {
-    int pos = GetCoverMeta();
-    QString resource_id = GetResourceManifestID(resource);
+    int pos = GetCoverMeta(p);
+    QString resource_id = GetResourceManifestID(resource, p);
 
     // Remove entry if there is a cover in meta and if this file is marked as cover
     if (pos > -1) {
-       MetaEntry me = m_metadata.at(pos);
+       MetaEntry me = p.m_metadata.at(pos);
        if (me.m_atts.value(QString("content"),QString("")) == resource_id) {
-           m_metadata.removeAt(pos);
+           p.m_metadata.removeAt(pos);
        }
     }
 }
 
-void OPFResource::AddCoverMetaForImage(const Resource &resource)
+void OPFResource::AddCoverMetaForImage(const Resource &resource, OPFParser& p)
 {
-    int pos = GetCoverMeta();
-    QString resource_id = GetResourceManifestID(resource);
+    int pos = GetCoverMeta(p);
+    QString resource_id = GetResourceManifestID(resource, p);
 
     // If a cover entry exists, update its id, else create one
     if (pos > -1) {
-        MetaEntry me = m_metadata.at(pos);
+        MetaEntry me = p.m_metadata.at(pos);
         me.m_atts["content"] = resource_id;
-        m_metadata.replace(pos, me);
+        p.m_metadata.replace(pos, me);
     } else {
         MetaEntry me;
         me.m_name = "meta";
         me.m_atts["name"] = "cover";
         me.m_atts["content"] = QString(resource_id);
-        m_metadata.append(me);
+        p.m_metadata.append(me);
     }
 }
 
 void OPFResource::RemoveResource(const Resource &resource)
 {
     QWriteLocker locker(&GetLock());
-    if (m_manifest.isEmpty()) return;
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    if (p.m_manifest.isEmpty()) return;
 
     QString resource_oebps_path = resource.GetRelativePathToOEBPS();
-    int pos = m_hrefpos.value(resource_oebps_path, -1);
+    int pos = p.m_hrefpos.value(resource_oebps_path, -1);
     QString item_id = "";
 
     // Delete the meta tag for cover images before deleting the manifest entry
     if (resource.Type() == Resource::ImageResourceType) {
-        RemoveCoverMetaForImage(resource);
+      RemoveCoverMetaForImage(resource, p);
     }
     if (pos > -1) {
-        item_id = m_manifest.at(pos).m_id;
+        item_id = p.m_manifest.at(pos).m_id;
     }
     if (resource.Type() == Resource::HTMLResourceType) {
-        for (int i=0; i < m_spine.count(); ++i) {
-            QString idref = m_spine.at(i).m_idref;
+        for (int i=0; i < p.m_spine.count(); ++i) {
+            QString idref = p.m_spine.at(i).m_idref;
             if (idref == item_id) {
-                m_spine.removeAt(i);
+                p.m_spine.removeAt(i);
                 break;
             }
         }
-        RemoveGuideReferenceForResource(resource);
+        RemoveGuideReferenceForResource(resource, p);
     }
     if (pos > -1) {
-        m_manifest.removeAt(pos);
+        p.m_manifest.removeAt(pos);
         // rebuild the maps since updating them item by item would be slower
-        m_idpos.clear();
-        m_hrefpos.clear();
-        for (int i=0; i < m_manifest.count(); ++i) {
-            m_idpos[m_manifest.at(i).m_id] = i;
-            m_idpos[m_manifest.at(i).m_href] = i;
+        p.m_idpos.clear();
+        p.m_hrefpos.clear();
+        for (int i=0; i < p.m_manifest.count(); ++i) {
+            p.m_idpos[p.m_manifest.at(i).m_id] = i;
+            p.m_hrefpos[p.m_manifest.at(i).m_href] = i;
         }
     }
-    UpdateText();
+    UpdateText(p);
 }
 
 
@@ -619,30 +586,36 @@ void OPFResource::AddGuideSemanticType(
     GuideSemantics::GuideSemanticType new_type)
 {
     QWriteLocker locker(&GetLock());
-    GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource(html_resource);
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource(html_resource, p);
 
     if (current_type != new_type) {
-        RemoveDuplicateGuideTypes(new_type);
-        SetGuideSemanticTypeForResource(new_type, html_resource);
+      RemoveDuplicateGuideTypes(new_type, p);
+      SetGuideSemanticTypeForResource(new_type, html_resource, p);
     }
     // If the current type is the same as the new one,
     // we toggle it off.
     else {
-        RemoveGuideReferenceForResource(html_resource);
+      RemoveGuideReferenceForResource(html_resource, p);
     }
-    UpdateText();
+    UpdateText(p);
 }
 
 
 void OPFResource::SetResourceAsCoverImage(const ::ImageResource &image_resource)
 {
     QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     if (IsCoverImage(image_resource)) {
-        RemoveCoverMetaForImage(image_resource);
+        RemoveCoverMetaForImage(image_resource, p);
     } else {
-        AddCoverMetaForImage(image_resource);
+        AddCoverMetaForImage(image_resource, p);
     }
-    UpdateText();
+    UpdateText(p);
 }
 
 
@@ -654,62 +627,68 @@ void OPFResource::SetResourceAsCoverImage(const ::ImageResource &image_resource)
 void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 {
     QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     QList<SpineEntry> new_spine;
     foreach(HTMLResource * html_resource, html_files) {
         const Resource &resource = *static_cast<const Resource *>(html_resource);
-        QString id = GetResourceManifestID(resource);
+        QString id = GetResourceManifestID(resource, p);
         int found = -1;
-        for (int i = 0; i < m_spine.count(); ++i) {
-           SpineEntry se = m_spine.at(i);
+        for (int i = 0; i < p.m_spine.count(); ++i) {
+           SpineEntry se = p.m_spine.at(i);
            if (se.m_idref == id) {
                found = i;
                break;
            }
         }
         if (found > -1) {
-            new_spine.append(m_spine.at(found));
+            new_spine.append(p.m_spine.at(found));
         } else {
             SpineEntry se;
             se.m_idref = id;
             new_spine.append(se);
         }
     }
-    m_spine.clear();
-    m_spine = new_spine;
-    UpdateText();
+    p.m_spine.clear();
+    p.m_spine = new_spine;
+    UpdateText(p);
 }
 
 
 void OPFResource::ResourceRenamed(const Resource &resource, QString old_full_path)
 {
     QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     QString path_to_oebps_folder = QFileInfo(GetFullPath()).absolutePath() + "/";
     QString resource_oebps_path  = QString(old_full_path).remove(path_to_oebps_folder);
     QString old_id;
     QString new_id;
-    for (int i=0; i < m_manifest.count(); ++i) {
-        QString href = m_manifest.at(i).m_href;
+    for (int i=0; i < p.m_manifest.count(); ++i) {
+        QString href = p.m_manifest.at(i).m_href;
         if (href == resource_oebps_path) {
-            ManifestEntry me = m_manifest.at(i);
+            ManifestEntry me = p.m_manifest.at(i);
             QString old_href = me.m_href;
             me.m_href = resource.GetRelativePathToOEBPS();
             old_id = me.m_id;
-            new_id = GetUniqueID(GetValidID(resource.Filename()));
+            new_id = GetUniqueID(GetValidID(resource.Filename()),p);
             me.m_id = new_id;
-            m_idpos.remove(old_id);
-            m_idpos[new_id] = i;
-            m_hrefpos.remove(old_href);
-            m_hrefpos[me.m_href] = i;
-            m_manifest.replace(i, me);
+            p.m_idpos.remove(old_id);
+            p.m_idpos[new_id] = i;
+            p.m_hrefpos.remove(old_href);
+            p.m_hrefpos[me.m_href] = i;
+            p.m_manifest.replace(i, me);
             break;
         }
     }
-    for (int i=0; i < m_spine.count(); ++i) {
-        QString idref = m_spine.at(i).m_idref;
+    for (int i=0; i < p.m_spine.count(); ++i) {
+        QString idref = p.m_spine.at(i).m_idref;
         if (idref == old_id) {
-            SpineEntry se = m_spine.at(i);
+            SpineEntry se = p.m_spine.at(i);
             se.m_idref = new_id;
-            m_spine.replace(i, se);
+            p.m_spine.replace(i, se);
             break;
         }
     }
@@ -717,31 +696,22 @@ void OPFResource::ResourceRenamed(const Resource &resource, QString old_full_pat
     if (resource.Type() == Resource::ImageResourceType) {
         // Change meta entry for cover if necessary
         // Check using IDs since file is already renamed
-        if (IsCoverImageCheck(old_id)) {
+      if (IsCoverImageCheck(old_id, p)) {
             // Add will automatically replace an existing id
             // Assumes only one cover but removing duplicates
             // can cause timing issues
-            AddCoverMetaForImage(resource);
+        AddCoverMetaForImage(resource, p);
         }
     }
-    UpdateText();
+    UpdateText(p);
 }
 
 
-# if 0
-QString OPFResource::GetDocument() const
-{
-    QString source = GetText();
-    return source;
-}
-#endif
-
-
-int OPFResource::GetGuideReferenceForResourcePos(const Resource &resource) const
+int OPFResource::GetGuideReferenceForResourcePos(const Resource &resource, const OPFParser& p) const
 {
     QString resource_oebps_path = resource.GetRelativePathToOEBPS();
-    for (int i=0; i < m_guide.count(); ++i) {
-        GuideEntry ge = m_guide.at(i);
+    for (int i=0; i < p.m_guide.count(); ++i) {
+        GuideEntry ge = p.m_guide.at(i);
         QString href = ge.m_href;
         QStringList parts = href.split('#', QString::KeepEmptyParts);
         if (parts.at(0) == resource_oebps_path) {
@@ -752,21 +722,21 @@ int OPFResource::GetGuideReferenceForResourcePos(const Resource &resource) const
 }
 
 
-void OPFResource::RemoveGuideReferenceForResource(const Resource &resource)
+void OPFResource::RemoveGuideReferenceForResource(const Resource &resource, OPFParser& p)
 {
-    if (m_guide.isEmpty()) return;
-    int pos = GetGuideReferenceForResourcePos(resource);
+    if (p.m_guide.isEmpty()) return;
+    int pos = GetGuideReferenceForResourcePos(resource, p);
     if (pos > -1) {
-        m_guide.removeAt(pos);
+        p.m_guide.removeAt(pos);
     }
 }
 
 
-GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource2(const Resource &resource) const
+GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource &resource, const OPFParser& p) const
 {
-    int pos = GetGuideReferenceForResourcePos(resource);
+  int pos = GetGuideReferenceForResourcePos(resource, p);
     if (pos > -1) {
-        GuideEntry ge = m_guide.at(pos);
+        GuideEntry ge = p.m_guide.at(pos);
         QString type = ge.m_type;
         return GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type);
     }
@@ -774,32 +744,30 @@ GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource2(
 }
 
 
-void OPFResource::SetGuideSemanticTypeForResource(
-    GuideSemantics::GuideSemanticType type,
-    const Resource &resource)
+void OPFResource::SetGuideSemanticTypeForResource(GuideSemantics::GuideSemanticType type,
+                                                  const Resource &resource, OPFParser& p)
 {
-    int pos = GetGuideReferenceForResourcePos(resource);
+  int pos = GetGuideReferenceForResourcePos(resource, p);
     QString type_attribute;
     QString title_attribute;
     std::tie(type_attribute, title_attribute) = GuideSemantics::Instance().GetGuideTypeMapping()[ type ];
 
     if (pos > -1) {
-        GuideEntry ge = m_guide.at(pos);
+        GuideEntry ge = p.m_guide.at(pos);
         ge.m_type = type_attribute;
         ge.m_title = title_attribute;
-        m_guide.replace(pos, ge);
+        p.m_guide.replace(pos, ge);
     } else {
         GuideEntry ge;
         ge.m_type = type_attribute;
         ge.m_title = title_attribute;
         ge.m_href = resource.GetRelativePathToOEBPS();
-        m_guide.append(ge);
+        p.m_guide.append(ge);
     }
 }
 
 
-void OPFResource::RemoveDuplicateGuideTypes(
-    GuideSemantics::GuideSemanticType new_type)
+void OPFResource::RemoveDuplicateGuideTypes(GuideSemantics::GuideSemanticType new_type, OPFParser& p)
 {
     // Industry best practice is to have only one
     // <guide> reference type instance per book.
@@ -808,12 +776,12 @@ void OPFResource::RemoveDuplicateGuideTypes(
         return;
     }
 
-    if (m_guide.isEmpty()) return;
+    if (p.m_guide.isEmpty()) return;
 
     // build up the list to be deleted in reverse order
     QList<int> dellist;
-    for (int i = m_guide.count() - 1; i >= 0; --i) {
-        GuideEntry ge = m_guide.at(i);
+    for (int i = p.m_guide.count() - 1; i >= 0; --i) {
+        GuideEntry ge = p.m_guide.at(i);
         QString type_text = ge.m_type;
         GuideSemantics::GuideSemanticType current_type = GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type_text);
         if (current_type == new_type) {
@@ -822,15 +790,15 @@ void OPFResource::RemoveDuplicateGuideTypes(
     }
     // remove them from the list in reverse order
     foreach(int index, dellist) {
-        m_guide.removeAt(index);
+        p.m_guide.removeAt(index);
     }
 }
 
 
-int OPFResource::GetCoverMeta() const
+int OPFResource::GetCoverMeta(const OPFParser& p) const
 {
-    for (int i = 0; i < m_metadata.count(); ++i) {
-        MetaEntry me = m_metadata.at(i);
+    for (int i = 0; i < p.m_metadata.count(); ++i) {
+        MetaEntry me = p.m_metadata.at(i);
         if ((me.m_name == "meta") && (me.m_atts.contains(QString("name")))) {
             QString name = me.m_atts[QString("name")];
             if (name == "cover") {
@@ -842,11 +810,11 @@ int OPFResource::GetCoverMeta() const
 }
 
 
-int OPFResource::GetMainIdentifier() const
+int OPFResource::GetMainIdentifier(const OPFParser& p) const
 {
-    QString unique_identifier = m_package.m_uniqueid;
-    for (int i=0; i < m_metadata.count(); ++i) {
-        MetaEntry me = m_metadata.at(i);
+    QString unique_identifier = p.m_package.m_uniqueid;
+    for (int i=0; i < p.m_metadata.count(); ++i) {
+        MetaEntry me = p.m_metadata.at(i);
         if (me.m_name == "dc:identifier") {
             QString id = me.m_atts.value("id", "");
             if (id == unique_identifier) {
@@ -858,26 +826,26 @@ int OPFResource::GetMainIdentifier() const
 }
 
 
-QString OPFResource::GetResourceManifestID(const Resource &resource) const
+QString OPFResource::GetResourceManifestID(const Resource &resource, const OPFParser& p) const
 {
     QString oebps_path = resource.GetRelativePathToOEBPS();
-    int pos = m_hrefpos.value(oebps_path,-1);
+    int pos = p.m_hrefpos.value(oebps_path,-1);
     if (pos > -1) { 
-        return QString(m_manifest.at(pos).m_id); 
+        return QString(p.m_manifest.at(pos).m_id); 
     }
     return QString();
 }
 
 
-QHash<Resource *, QString> OPFResource::GetResourceManifestIDMapping(
-    const QList<Resource *> resources)
+QHash<Resource *, QString> OPFResource::GetResourceManifestIDMapping(const QList<Resource *> resources, 
+                                                                     const OPFParser& p)
 {
     QHash<Resource *, QString> id_mapping;
     foreach(Resource * resource, resources) {
         QString oebps_path = resource->GetRelativePathToOEBPS();
-        int pos = m_hrefpos.value(oebps_path,-1);
+        int pos = p.m_hrefpos.value(oebps_path,-1);
         if (pos > -1) { 
-            id_mapping[ resource ] = m_manifest.at(pos).m_id;
+            id_mapping[ resource ] = p.m_manifest.at(pos).m_id;
         }
     }
     return id_mapping;
@@ -901,14 +869,14 @@ void OPFResource::SetMetaElementsLast(xc::DOMDocument &document)
 }
 #endif
 
-void OPFResource::RemoveDCElements()
+void OPFResource::RemoveDCElements(OPFParser& p)
 {
-    int pos = GetMainIdentifier();
+    int pos = GetMainIdentifier(p);
     // build list to be delted in reverse order
     QList<int> dellist;
-    int n = m_metadata.count();
+    int n = p.m_metadata.count();
     for (int i = n-1; i >= 0; --i) {
-        MetaEntry me = m_metadata.at(i);
+        MetaEntry me = p.m_metadata.at(i);
         if (me.m_name.startsWith("dc:")) {
             if (i != pos) {
                dellist.append(i);
@@ -917,12 +885,12 @@ void OPFResource::RemoveDCElements()
     }
     // delete the MetaEntries in reverse order to not mess up indexes
     foreach(int index, dellist) {
-        m_metadata.removeAt(index);
+        p.m_metadata.removeAt(index);
     }
 }
 
 
-void OPFResource::MetadataDispatcher(const Metadata::MetaElement &book_meta)
+void OPFResource::MetadataDispatcher(const Metadata::MetaElement &book_meta, OPFParser& p)
 {
     // We ignore badly formed meta elements.
     if (book_meta.name.isEmpty() || book_meta.value.isNull()) {
@@ -931,26 +899,26 @@ void OPFResource::MetadataDispatcher(const Metadata::MetaElement &book_meta)
 
     // Write Relator codes (always write author as relator code)
     if (Metadata::Instance().IsRelator(book_meta.name) || book_meta.name == "author") {
-        WriteCreatorOrContributor(book_meta);
+      WriteCreatorOrContributor(book_meta, p);
     }
     // There is a relator for the publisher, but there is
     // also a special publisher element that we would rather use
     else if (book_meta.name == "pub") {
-        WriteSimpleMetadata("publisher", book_meta.value.toString());
+      WriteSimpleMetadata("publisher", book_meta.value.toString(), p);
     } else if (book_meta.name  == "language") {
         WriteSimpleMetadata(book_meta.name,
-                            Language::instance()->GetLanguageCode(book_meta.value.toString()));
+                            Language::instance()->GetLanguageCode(book_meta.value.toString()), p);
     } else if (book_meta.name  == "identifier") {
-        WriteIdentifier(book_meta.file_as, book_meta.value.toString());
+      WriteIdentifier(book_meta.file_as, book_meta.value.toString(), p);
     } else if (book_meta.name == "date") {
-        WriteDate(book_meta.file_as, book_meta.value);
+      WriteDate(book_meta.file_as, book_meta.value,p);
     } else {
-        WriteSimpleMetadata(book_meta.name, book_meta.value.toString());
+      WriteSimpleMetadata(book_meta.name, book_meta.value.toString(), p);
     }
 }
 
 
-void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_meta)
+void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_meta, OPFParser& p)
 {
     QString value = book_meta.value.toString();
     QString file_as = book_meta.file_as;
@@ -973,28 +941,24 @@ void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_met
         me.m_atts[QString("opf:file-as")] = file_as;
     }
     me.m_content = value;
-    m_metadata.append(me);
+    p.m_metadata.append(me);
 }
 
 
-void OPFResource::WriteSimpleMetadata(
-    const QString &metaname,
-    const QString &metavalue)
+void OPFResource::WriteSimpleMetadata(const QString &metaname, const QString &metavalue, OPFParser& p)
 {
     MetaEntry me;
     me.m_name = QString("dc:") + metaname;
     me.m_content = metavalue;
-    m_metadata.append(me);
+    p.m_metadata.append(me);
 }
 
 
-void OPFResource::WriteIdentifier(
-    const QString &metaname,
-    const QString &metavalue)
+void OPFResource::WriteIdentifier(const QString &metaname, const QString &metavalue, OPFParser& p)
 {
-    int pos = GetMainIdentifier();
+    int pos = GetMainIdentifier(p);
     if (pos > -1) {
-        MetaEntry me = m_metadata.at(pos);
+        MetaEntry me = p.m_metadata.at(pos);
         QString scheme = me.m_atts.value(QString("scheme"),QString(""));
         if ((metavalue == me.m_content) && (metaname == scheme)) {
             return;
@@ -1008,26 +972,29 @@ void OPFResource::WriteIdentifier(
     } else {
         me.m_content = metavalue;
     }
-    m_metadata.append(me);
+    p.m_metadata.append(me);
 }
 
 void OPFResource::AddModificationDateMeta()
 {
     QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
     QString date;
     QDate d = QDate::currentDate();
     // We can't use QDate.toString() because it will take into account the locale. Which mean we may not get Arabic 
     // numerals if the local uses it's own numbering system. So we use this instead to ensure we get a valid date per
     // the epub spec.
     QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
-    for (int i=0; i < m_metadata.count(); ++i) {
-        MetaEntry me = m_metadata.at(i);
+    for (int i=0; i < p.m_metadata.count(); ++i) {
+        MetaEntry me = p.m_metadata.at(i);
         if (me.m_name == QString("dc:date")) {
             QString etype = me.m_atts.value(QString("opf:event"), QString(""));
             if (etype == QString("modification")) {
                 me.m_content = date;
-                m_metadata.replace(i, me);
-                UpdateText();
+                p.m_metadata.replace(i, me);
+                UpdateText(p);
                 return;
             }
             
@@ -1038,13 +1005,11 @@ void OPFResource::AddModificationDateMeta()
     me.m_content = date;
     me.m_atts["xmlns:opf"]="http://www.idpf.org/2007/opf";
     me.m_atts[QString("opf:event")] = QString("modification");
-    m_metadata.append(me);
-    UpdateText();
+    p.m_metadata.append(me);
+    UpdateText(p);
 }
 
-void OPFResource::WriteDate(
-    const QString &metaname,
-    const QVariant &metavalue)
+void OPFResource::WriteDate(const QString &metaname, const QVariant &metavalue, OPFParser& p)
 {
     QString date;
     QDate d = metavalue.toDate();
@@ -1060,7 +1025,7 @@ void OPFResource::WriteDate(
     me.m_name=QString("dc:date");
     me.m_content = date;
     me.m_atts[QString("opf:event")] = metaname;
-    m_metadata.append(me);
+    p.m_metadata.append(me);
 }
 
 #if 0
@@ -1270,9 +1235,9 @@ void OPFResource::FillWithDefaultText()
 }
 
 
-QString OPFResource::GetUniqueID(const QString &preferred_id) const
+QString OPFResource::GetUniqueID(const QString &preferred_id, const OPFParser& p) const
 {
-    if (m_idpos.contains(preferred_id)) {
+    if (p.m_idpos.contains(preferred_id)) {
         return Utility::CreateUUID();
     }
     return preferred_id;
@@ -1327,45 +1292,8 @@ QString OPFResource::GetRelativePathToRoot() const
 }
 
 
-void OPFResource::UpdateText()
+void OPFResource::UpdateText(const OPFParser &p)
 {
-    TextResource::SetText(convert_to_xml());
+    TextResource::SetText(p.convert_to_xml());
 }
 
-
-QString OPFResource::convert_to_xml() const
-{
-    QStringList xmlres;
-    xmlres << m_package.convert_to_xml();
-    xmlres << m_metans.convert_to_xml();
-    foreach (MetaEntry me, m_metadata) {
-        xmlres << me.convert_to_xml();
-    }
-    xmlres << "  </metadata>\n";
-    xmlres << "  <manifest>\n";
-    foreach (ManifestEntry me, m_manifest) {
-        xmlres << me.convert_to_xml();
-    }
-    xmlres << "  </manifest>\n";
-    xmlres << m_spineattr.convert_to_xml();
-    foreach(SpineEntry sp, m_spine) {
-        xmlres << sp.convert_to_xml();
-    }
-    xmlres << "  </spine>\n";
-    if ((m_guide.size() > 0) || (m_package.m_version.startsWith("2"))) {
-        xmlres << "  <guide>\n";
-        foreach(GuideEntry ge, m_guide) {
-            xmlres << ge.convert_to_xml();
-        }
-        xmlres << "  </guide>\n";
-    }
-    if ((m_bindings.size() > 0) && (!m_package.m_version.startsWith("2"))) {
-        xmlres << "  <bindings>\n";
-        foreach(BindingsEntry be, m_bindings) {
-            xmlres << be.convert_to_xml();
-        }
-        xmlres << "  </bindings>\n";
-    }
-    xmlres << "</package>\n";
-    return xmlres.join("");
-}

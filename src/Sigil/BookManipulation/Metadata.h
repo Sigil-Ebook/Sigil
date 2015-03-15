@@ -28,7 +28,7 @@
 #include <QtCore/QObject>
 
 #include "BookManipulation/XercesHUse.h"
-#include "ResourceObjects/OPFEntry.h"
+#include "ResourceObjects/OPFParser.h"
 
 class QMutex;
 class QString;

@@ -34,9 +34,3 @@ void OPFTab::AutoFixWellFormedErrors()
     m_OPFResource.AutoFixWellFormedErrors();
 }
 
-
-
-
-
-
-

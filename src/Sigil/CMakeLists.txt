@@ -117,8 +117,8 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/SVGResource.h
     ResourceObjects/FontResource.cpp
     ResourceObjects/FontResource.h
-    ResourceObjects/OPFEntry.cpp
-    ResourceObjects/OPFEntry.h
+    ResourceObjects/OPFParser.cpp
+    ResourceObjects/OPFParser.h
     ResourceObjects/OPFResource.cpp
     ResourceObjects/OPFResource.h
     ResourceObjects/NCXResource.cpp
