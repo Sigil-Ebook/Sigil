@@ -28,9 +28,9 @@
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/GuideSemantics.h"
-#include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
+#include "Misc/GumboInterface.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_exception.h"
 
@@ -105,27 +105,29 @@ QStringList HTMLResource::SplitOnSGFSectionMarkers()
 QStringList HTMLResource::GetPathsToLinkedResources()
 {
     QStringList linked_resources;
-    std::shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(GetText());
-    xc::DOMDocument &document = *d.get();
-    QStringList tags = QStringList() << "link" << "img";
-    Q_FOREACH(QString tag, tags) {
-        xc::DOMNodeList *elems = document.getElementsByTagName(QtoX(tag));
+    GumboInterface gi = GumboInterface(GetText());
+    gi.parse();
+    QList<GumboTag> tags;
+    tags << GUMBO_TAG_IMG << GUMBO_TAG_LINK;
+    const QList<GumboNode*> linked_rsc_nodes = gi.get_all_nodes_with_tags(tags);
+    for (int i = 0; i < linked_rsc_nodes.count(); ++i) {
+        GumboNode* node = linked_rsc_nodes.at(i);
 
-        for (uint i = 0; i < elems->getLength(); ++i) {
-            xc::DOMElement &element = *static_cast<xc::DOMElement *>(elems->item(i));
-            Q_ASSERT(&element);
-
-            // We skip the link elements that are not stylesheets
-            if (tag == "link" && element.hasAttribute(QtoX("rel")) &&
-                XtoQ(element.getAttribute(QtoX("rel"))).toLower() != "stylesheet") {
+        // We skip the link elements that are not stylesheets
+        if (node->v.element.tag == GUMBO_TAG_LINK) {
+            GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "rel");
+            if (attr && (QString::fromUtf8(attr->value) != "stylesheet")) { 
                 continue;
             }
-
-            if (element.hasAttribute(QtoX("href"))) {
-                linked_resources.append(XtoQ(element.getAttribute(QtoX("href"))));
-            } else if (element.hasAttribute(QtoX("src"))) {
-                linked_resources.append(XtoQ(element.getAttribute(QtoX("src"))));
-            }
+        }
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+        if (attr) {
+            linked_resources.append(QString::fromUtf8(attr->value));
+            continue;
+        }
+        attr = gumbo_get_attribute(&node->v.element.attributes, "src");
+        if (attr) {
+            linked_resources.append(QString::fromUtf8(attr->value));
         }
     }
     return linked_resources;

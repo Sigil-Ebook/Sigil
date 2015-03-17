@@ -53,8 +53,6 @@ public:
 
 protected:
 
-    void UpdateTextFromDom(const xc::DOMDocument &document);
-
     /**
      * Creates a valid ID from the requested value.
      *

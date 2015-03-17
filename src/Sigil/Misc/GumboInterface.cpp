@@ -233,29 +233,38 @@ QStringList  GumboInterface::get_values_for_attr(GumboNode* node, const char* at
 
 QList<GumboNode*> GumboInterface::get_all_nodes_with_tag(GumboTag tag)
 {
-    QList<GumboNode*> nodes;
-    if (!m_source.isEmpty()) {
-        if (m_output == NULL) {
-            parse();
-        }
-        nodes = get_nodes_with_tag(m_output->root, tag); 
-    }
-    return nodes;
+    QList<GumboTag> tags;
+    tags << tag;
+    return  get_all_nodes_with_tags(tags); 
 }
 
 
-QList<GumboNode*>  GumboInterface::get_nodes_with_tag(GumboNode* node, GumboTag tag) 
+QList<GumboNode*> GumboInterface::get_all_nodes_with_tags(const QList<GumboTag> & tags )
+{
+  QList<GumboNode*> nodes;
+  if (!m_source.isEmpty()) {
+    if (m_output == NULL) {
+      parse();
+    }
+    nodes = get_nodes_with_tags(m_output->root, tags); 
+  }
+  return nodes;
+}
+
+
+QList<GumboNode*>  GumboInterface::get_nodes_with_tags(GumboNode* node, const QList<GumboTag> & tags) 
 {
   if (node->type != GUMBO_NODE_ELEMENT) {
     return QList<GumboNode*>();
   }
   QList<GumboNode*> nodes;
-  if (tag == node->v.element.tag) {
-      nodes.append(node);
+  GumboTag tag = node ->v.element.tag;
+  if (tags.contains(tag)) {
+    nodes.append(node);
   }
   GumboVector* children = &node->v.element.children;
   for (int i = 0; i < children->length; ++i) {
-      nodes.append(get_nodes_with_tag(static_cast<GumboNode*>(children->data[i]), tag));
+    nodes.append(get_nodes_with_tags(static_cast<GumboNode*>(children->data[i]), tags));
   }
   return nodes;
 }

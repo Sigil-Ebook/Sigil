@@ -54,13 +54,6 @@ XhtmlDoc::WellFormedError XMLResource::WellFormedErrorLocation() const
 }
 
 
-void XMLResource::UpdateTextFromDom(const xc::DOMDocument &document)
-{
-    QWriteLocker locker(&GetLock());
-    SetText(CleanSource::ProcessXML(XhtmlDoc::GetDomDocumentAsString(document)));
-}
-
-
 QString XMLResource::GetValidID(const QString &value)
 {
     QString new_value = value.simplified();
