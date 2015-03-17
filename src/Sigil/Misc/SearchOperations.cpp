@@ -26,8 +26,6 @@
 #include <QtWidgets/QProgressDialog>
 
 #include "BookManipulation/CleanSource.h"
-#include "BookManipulation/XercesCppUse.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "Misc/SearchOperations.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
