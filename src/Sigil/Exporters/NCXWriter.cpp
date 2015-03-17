@@ -22,7 +22,6 @@
 #include <QtCore/QXmlStreamWriter>
 
 #include "BookManipulation/Book.h"
-#include "BookManipulation/XercesCppUse.h"
 #include "Exporters/NCXWriter.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
