@@ -53,6 +53,9 @@ public:
     QStringList get_all_values_for_attribute(const QString & attname);
     QList<GumboNode*> get_all_nodes_with_tag(GumboTag tag);
     QList<GumboNode*> get_all_nodes_with_tags(const QList<GumboTag> & tags);
+    std::string get_tag_name(GumboNode *node);
+    QHash<QString,QString> get_attributes_of_node(GumboNode* node);
+    QString get_local_text_of_node(GumboNode* node);
     QList<GumboWellFormedError> error_check();
 
 private:
@@ -71,7 +74,6 @@ private:
     std::string build_doctype(GumboNode *node);
     std::string build_attributes(GumboAttribute * at, bool no_entities, bool runupdates = false);
     std::string update_attribute_value(std::string href);
-    std::string get_tag_name(GumboNode *node);
     std::string substitute_xml_entities_into_text(const std::string &text);
     std::string substitute_xml_entities_into_attributes(char quote, const std::string &text);
     void rtrim(std::string &s);

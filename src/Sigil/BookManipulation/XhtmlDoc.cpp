@@ -41,12 +41,12 @@
 #include <QtXml/QXmlSimpleReader>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QFileInfo>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
-#include "Misc/GumboInterface.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -412,10 +412,12 @@ QString XhtmlDoc::GetDomDocumentAsString(const xc::DOMDocument &document)
 }
 
 
+#if 0
 std::shared_ptr<xc::DOMDocument> XhtmlDoc::CopyDomDocument(const xc::DOMDocument &document)
 {
     return RaiiWrapDocument(static_cast<xc::DOMDocument *>(document.cloneNode(true)));
 }
+#endif
 
 
 std::shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source)
@@ -685,6 +687,7 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
 }
 
 
+#if 0
 void XhtmlDoc::RemoveChildren(xc::DOMNode &node)
 {
     while (true) {
@@ -697,6 +700,7 @@ void XhtmlDoc::RemoveChildren(xc::DOMNode &node)
         node.removeChild(child);
     }
 }
+#endif
 
 
 // Returns the node's "real" name. We don't care
@@ -924,6 +928,7 @@ QString XhtmlDoc::GetIDElementText(const xc::DOMNode &node)
 }
 
 
+#if 0
 // Returns a list of ALL text nodes that are descendants
 // of the specified node.
 QList<xc::DOMNode *> XhtmlDoc::GetAllTextNodes(const xc::DOMNode &node)
@@ -947,7 +952,7 @@ QList<xc::DOMNode *> XhtmlDoc::GetAllTextNodes(const xc::DOMNode &node)
 
     return QList<xc::DOMNode *>();
 }
-
+#endif
 
 // Returns the first block element ancestor of the specified node
 xc::DOMNode &XhtmlDoc::GetAncestorBlockElement(const xc::DOMNode &node)
@@ -988,6 +993,48 @@ xc::DOMNode &XhtmlDoc::GetAncestorIDElement(const xc::DOMNode &node)
     }
 }
 
+QStringList XhtmlDoc::GetPathsToMediaFiles(GumboInterface & gi)
+{
+  QStringList media_paths;
+  QList<GumboTag> tags;
+  tags << GUMBO_TAG_IMG << GUMBO_TAG_IMAGE << GUMBO_TAG_VIDEO << GUMBO_TAG_AUDIO;
+  QList<GumboNode*> nodes = gi.get_all_nodes_with_tags(tags);
+  for (int i = 0; i < nodes.count(); ++i) {
+    GumboNode* node = nodes.at(i);
+    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "src");
+    if (!attr) {
+      attr = gumbo_get_attribute(&node->v.element.attributes, "xlink:href");
+    }
+    if (attr) {
+      QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
+      media_paths << relative_path;
+    }
+  }
+  // Remove duplicate references
+  media_paths.removeDuplicates();
+  return media_paths;
+}
+
+QStringList XhtmlDoc::GetPathsToStyleFiles(GumboInterface & gi)
+{
+  QStringList style_paths;
+  QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_LINK);
+  for (int i = 0; i < nodes.count(); ++i) {
+    GumboNode* node = nodes.at(i);
+    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+    if (attr) {
+      QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
+      QFileInfo file_info(relative_path);
+      if (file_info.suffix().toLower() == "css") {
+        style_paths << relative_path;
+      }
+    }
+  }
+  style_paths.removeDuplicates();
+  return style_paths;
+}
+
+#if 0
 QStringList XhtmlDoc::GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags)
 {
     QStringList links = GetAllMediaPathsFromMediaChildren(node, tags);
@@ -995,6 +1042,7 @@ QStringList XhtmlDoc::GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QS
     links.removeDuplicates();
     return links;
 }
+#endif
 
 QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags)
 {
@@ -1018,6 +1066,7 @@ QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node,
     return links;
 }
 
+#if 0
 QStringList XhtmlDoc::GetAllHrefPaths(const xc::DOMNode &node)
 {
     // Anchor tags
@@ -1031,6 +1080,8 @@ QStringList XhtmlDoc::GetAllHrefPaths(const xc::DOMNode &node)
     }
     return hrefs;
 }
+#endif
+
 
 // Accepts a reference to an XML stream reader positioned on an XML element.
 // Returns an XMLElement struct with the data in the stream.
@@ -1129,6 +1180,7 @@ QList<ViewEditor::ElementIndex> XhtmlDoc::GetHierarchyFromNode(const xc::DOMNode
     return element_list;
 }
 
+#if 0
 QString XhtmlDoc::GetNodeChildrenAsString(const xc::DOMNode *node)
 {
     QStringList builder;
@@ -1145,4 +1197,5 @@ QString XhtmlDoc::GetNodeChildrenAsString(const xc::DOMNode *node)
 
     return builder.join("");
 }
+#endif
 

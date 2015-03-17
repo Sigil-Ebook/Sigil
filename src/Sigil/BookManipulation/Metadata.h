@@ -27,6 +27,7 @@
 #include <QtCore/QVariant>
 #include <QtCore/QObject>
 
+#include "Misc/GumboInterface.h"
 #include "BookManipulation/XercesHUse.h"
 #include "ResourceObjects/OPFParser.h"
 
@@ -85,7 +86,7 @@ public:
      * @param element The element to convert.
      * @return The converted MetaElement.
      */
-    MetaElement MapToBookMetadata(const xc::DOMElement &element);
+    MetaElement MapToBookMetadata(GumboNode* node, GumboInterface & gi);
     MetaElement MapMetaEntryToBookMetadata(const MetaEntry& me);
 
 private:

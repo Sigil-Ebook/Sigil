@@ -29,6 +29,7 @@
 
 #include "BookManipulation/XercesHUse.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "Misc/GumboInterface.h"
 
 #include "ViewEditors/ViewEditor.h"
 
@@ -105,7 +106,7 @@ public:
      */
     static std::shared_ptr<xc::DOMDocument> LoadTextIntoDocument(const QString &source);
 
-    static std::shared_ptr<xc::DOMDocument> CopyDomDocument(const xc::DOMDocument &document);
+    // static std::shared_ptr<xc::DOMDocument> CopyDomDocument(const xc::DOMDocument &document);
 
     static std::shared_ptr<xc::DOMDocument> RaiiWrapDocument(xc::DOMDocument *document);
 
@@ -165,7 +166,7 @@ public:
                                            const QString &custom_header = QString());
 
     // Removes all the children of a node
-    static void RemoveChildren(xc::DOMNode &node);
+    // static void RemoveChildren(xc::DOMNode &node);
 
     // Return a list of all linked CSS stylesheets
     static QStringList GetLinkedStylesheets(const QString &source);
@@ -219,18 +220,22 @@ public:
 
     // Returns a list of ALL text nodes that are descendants
     // of the specified node.
-    static QList<xc::DOMNode *> GetAllTextNodes(const xc::DOMNode &node);
+    // static QList<xc::DOMNode *> GetAllTextNodes(const xc::DOMNode &node);
 
     // Returns the first block element ancestor of the specified node
     static xc::DOMNode &GetAncestorBlockElement(const xc::DOMNode &node);
 
     static xc::DOMNode &GetAncestorIDElement(const xc::DOMNode &node);
 
-    static QStringList GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags);
+    static QStringList GetPathsToMediaFiles(GumboInterface & gi);
+
+    static QStringList GetPathsToStyleFiles(GumboInterface & gi);
+
+    // static QStringList GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags);
 
     static QStringList GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags);
 
-    static QStringList GetAllHrefPaths(const xc::DOMNode &node);
+    // static QStringList GetAllHrefPaths(const xc::DOMNode &node);
 
     // Returns the node identified by the specified ViewEditor element hierarchy
     static xc::DOMNode *GetNodeFromHierarchy(const xc::DOMDocument &document,
@@ -240,7 +245,7 @@ public:
     static QList<ViewEditor::ElementIndex> GetHierarchyFromNode(const xc::DOMNode &node);
 
     // Gets all children of a node as a string.
-    static QString GetNodeChildrenAsString(const xc::DOMNode *node);
+    // static QString GetNodeChildrenAsString(const xc::DOMNode *node);
 
 private:
 

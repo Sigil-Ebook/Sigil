@@ -23,7 +23,7 @@
 #ifndef IMPORTHTML_H
 #define IMPORTHTML_H
 
-#include "BookManipulation/XercesHUse.h"
+#include "Misc/GumboInterface.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Importers/Importer.h"
 
@@ -57,7 +57,7 @@ private:
 
     // Searches for meta information in the HTML file
     // and tries to convert it to Dublin Core
-    void LoadMetadata(const xc::DOMDocument &document);
+    void LoadMetadata(GumboInterface & gi);
 
     HTMLResource &CreateHTMLResource();
 
@@ -67,13 +67,13 @@ private:
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated
-    QHash<QString, QString> LoadFolderStructure(const xc::DOMDocument &document);
+    QHash<QString, QString> LoadFolderStructure(GumboInterface & gi);
 
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.
-    QHash<QString, QString> LoadMediaFiles(const xc::DOMDocument *document);
+    QHash<QString, QString> LoadMediaFiles(const QStringList & file_paths);
 
-    QHash<QString, QString> LoadStyleFiles(const xc::DOMDocument *document);
+    QHash<QString, QString> LoadStyleFiles(const QStringList & file_paths);
 
 
     ///////////////////////////////

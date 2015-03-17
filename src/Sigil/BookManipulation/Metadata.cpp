@@ -25,7 +25,6 @@
 #include <QtCore/QStringList>
 
 #include "BookManipulation/Metadata.h"
-#include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "Misc/Language.h"
@@ -109,31 +108,36 @@ const QHash<QString, Metadata::MetaInfo> &Metadata::GetBasicMetaMap()
 }
 
 
-Metadata::MetaElement Metadata::MapToBookMetadata(const xc::DOMElement &element)
+Metadata::MetaElement Metadata::MapToBookMetadata(GumboNode* node, GumboInterface & gi)
 {
     Metadata::MetaElement meta;
-    QString element_name = XhtmlDoc::GetNodeName(element);
+    if (node->v.element.tag == GUMBO_TAG_META) {
 
-    if (element_name == "meta") {
-        meta.name  = XtoQ(element.getAttribute(QtoX("name")));
-        meta.value = XtoQ(element.getAttribute(QtoX("content")));
-        meta.attributes[ "scheme" ] = XtoQ(element.getAttribute(QtoX("scheme")));
-        meta.attributes[ "id" ] = XtoQ(element.getAttribute(QtoX("id")));
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "name");
+        if (attr) meta.name  = QString::fromUtf8(attr->value);
+
+        attr = gumbo_get_attribute(&node->v.element.attributes, "content");
+        if (attr) meta.value  = QString::fromUtf8(attr->value);
+
+        attr = gumbo_get_attribute(&node->v.element.attributes, "scheme");
+        if (attr) meta.attributes[ "scheme"] = QString::fromUtf8(attr->value);
+
+        attr = gumbo_get_attribute(&node->v.element.attributes, "id");
+        if (attr) meta.attributes[ "id"] = QString::fromUtf8(attr->value);
 
         if ((!meta.name.isEmpty()) && (!meta.value.toString().isEmpty())) {
             return MapToBookMetadata(meta , false);
         }
-    } else {
-        meta.attributes = XhtmlDoc::GetNodeAttributes(element);
-        meta.name = element_name;
-        QString element_text = XtoQ(element.getTextContent());
-        meta.value = element_text;
 
+    } else {
+        meta.name = QString::fromStdString(gi.get_tag_name(node));
+        meta.attributes = gi.get_attributes_of_node(node);
+        QString element_text = gi.get_local_text_of_node(node);
+        meta.value = element_text;
         if (!element_text.isEmpty()) {
             return MapToBookMetadata(meta , true);
         }
     }
-
     return meta;
 }
 

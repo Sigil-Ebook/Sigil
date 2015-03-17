@@ -31,9 +31,9 @@
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/Metadata.h"
-#include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Importers/ImportHTML.h"
+#include "Misc/GumboInterface.h"
 #include "Misc/HTMLEncodingResolver.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/TempFolder.h"
@@ -75,10 +75,11 @@ XhtmlDoc::WellFormedError ImportHTML::CheckValidToLoad()
 // and returns the created Book
 QSharedPointer<Book> ImportHTML::GetBook()
 {
-    std::shared_ptr<xc::DOMDocument> document = XhtmlDoc::LoadTextIntoDocument(LoadSource());
-    LoadMetadata(*document);
-    QString source = XhtmlDoc::GetDomDocumentAsString(*document);
-    UpdateFiles(CreateHTMLResource(), source, LoadFolderStructure(*document));
+    QString source = LoadSource();
+    GumboInterface gi(source);
+    gi.parse();
+    LoadMetadata(gi);
+    UpdateFiles(CreateHTMLResource(), source, LoadFolderStructure(gi));
     return m_Book;
 }
 
@@ -107,15 +108,13 @@ QString ImportHTML::LoadSource()
 
 // Searches for meta information in the HTML file
 // and tries to convert it to Dublin Core
-void ImportHTML::LoadMetadata(const xc::DOMDocument &document)
+void ImportHTML::LoadMetadata(GumboInterface & gi)
 {
-    QList<xc::DOMElement *> metatags = XhtmlDoc::GetTagMatchingDescendants(document, "meta");
     QList<Metadata::MetaElement> metadata;
-
-    for (int i = 0; i < metatags.count(); ++i) {
-        xc::DOMElement &element = *metatags.at(i);
-        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata(element);
-
+    QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_META); 
+    for (int i = 0; i < nodes.count(); ++i) {
+        GumboNode* node = nodes.at(i);
+        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata(node, gi);
         if (!book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty()) {
             metadata.append(book_meta);
         }
@@ -171,11 +170,13 @@ void ImportHTML::UpdateFiles(HTMLResource &html_resource,
 
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
-QHash<QString, QString> ImportHTML::LoadFolderStructure(const xc::DOMDocument &document)
+QHash<QString, QString> ImportHTML::LoadFolderStructure(GumboInterface & gi)
 {
+    QStringList mediapaths = XhtmlDoc::GetPathsToMediaFiles(gi);
+    QStringList stylepaths = XhtmlDoc::GetPathsToStyleFiles(gi);
     QFutureSynchronizer<QHash<QString, QString>> sync;
-    sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadMediaFiles,     &document));
-    sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadStyleFiles, &document));
+    sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadMediaFiles,  mediapaths));
+    sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadStyleFiles,  stylepaths));
     sync.waitForFinished();
     QList<QFuture<QHash<QString, QString>>> futures = sync.futures();
     int num_futures = futures.count();
@@ -189,9 +190,8 @@ QHash<QString, QString> ImportHTML::LoadFolderStructure(const xc::DOMDocument &d
 }
 
 
-QHash<QString, QString> ImportHTML::LoadMediaFiles(const xc::DOMDocument *document)
+QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_paths)
 {
-    QStringList file_paths = XhtmlDoc::GetMediaPathsFromMediaChildren(*document, IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS);
     QHash<QString, QString> updates;
     QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
     QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
@@ -221,23 +221,15 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const xc::DOMDocument *docume
 }
 
 
-QHash<QString, QString> ImportHTML::LoadStyleFiles(const xc::DOMDocument *document)
+QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_paths )
 {
-    QList<xc::DOMElement *> link_nodes = XhtmlDoc::GetTagMatchingDescendants(*document, "link");
     QHash<QString, QString> updates;
     QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
-
-    for (int i = 0; i < link_nodes.count(); ++i) {
-        xc::DOMElement &element = *link_nodes.at(i);
-        Q_ASSERT(&element);
-        QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
-        QString relative_path = Utility::URLDecodePath(XtoQ(element.getAttribute(QtoX("href"))));
-        QFileInfo file_info(folder, relative_path);
-
-        if (file_info.suffix().toLower() == "css") {
+    QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
+    foreach(QString file_path, file_paths) {
             try {
                 QString newpath;
-
+                QFileInfo file_info(folder, file_path);
                 if (m_IgnoreDuplicates && current_filenames.contains(file_info.fileName())) {
                     newpath = "../" + m_Book->GetFolderKeeper().GetResourceByFilename(file_info.fileName()).GetRelativePathToOEBPS();
                 } else {
@@ -245,13 +237,12 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const xc::DOMDocument *docume
                                   file_info.absoluteFilePath()).GetRelativePathToOEBPS();
                 }
 
-                updates[ relative_path ] = newpath;
+                updates[ file_path ] = newpath;
             } catch (FileDoesNotExist) {
                 // Do nothing. If the referenced file does not exist,
                 // well then we don't load it.
                 // TODO: log this.
             }
-        }
     }
 
     return updates;
