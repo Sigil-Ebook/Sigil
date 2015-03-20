@@ -524,16 +524,20 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
 
     // how do we want to handle attributes with empty values
     // <input type="checkbox" checked />  or <input type="checkbox" checked="" /> 
-
-    if ( (!attvalue.empty())   || 
-         (at->original_value.data[0] == '"') || 
-         (at->original_value.data[0] == '\'') ) {
-
-        // determine original quote character used if it exists
-        char quote = at->original_value.data[0];
+    // So determine original quote character used if it exists
+    char quote = '"';
+    if (!attvalue.empty()) {
+        if (at->original_value.length > 0) {
+            quote = at->original_value.data[0];
+        }
         std::string qs = "";
-        if (quote == '\'') qs = std::string("'");
-        if (quote == '"') qs = std::string("\"");
+        if (quote == '\'') {
+          qs = std::string("'");
+        } else if (quote == '"') {
+          qs = std::string("\"");
+        } else {
+          quote = '"';
+        }
         atts.append("=");
         atts.append(qs);
         if (no_entities) {

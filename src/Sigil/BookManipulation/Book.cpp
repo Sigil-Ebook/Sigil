@@ -897,8 +897,8 @@ Resource *Book::MergeResources(QList<Resource *> resources)
             // Abort the merge process. We will discard whatever we had merged so far
             return failed_resource;
         }
-
-        QString new_source = gi.perform_body_updates(new_bodies.join(""));
+        QString new_body = new_bodies.join("");
+        QString new_source = gi.perform_body_updates(new_body);
         // Now all fragments have been merged into this sink document, serialize and store it.
         sink_html_resource.SetText(new_source);
         // Now safe to do the delete
