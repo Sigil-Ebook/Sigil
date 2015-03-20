@@ -682,6 +682,9 @@ QString XhtmlDoc::GetNodeName(const xc::DOMNode &node)
 }
 
 
+
+
+
 // TODO: this should be covered by attribute.localName(), no?
 QString XhtmlDoc::GetAttributeName(const xc::DOMAttr &attribute)
 {
@@ -838,30 +841,36 @@ QList<xc::DOMNode *> XhtmlDoc::GetVisibleTextNodes(const xc::DOMNode &node)
 
 
 // Returns a list of all nodes suitable for "id" element
-QList<xc::DOMNode *> XhtmlDoc::GetIDNodes(const xc::DOMNode &node)
+QList<GumboNode*> XhtmlDoc::GetIDNodes(GumboInterface & gi, GumboNode* node)
 {
-    QList<xc::DOMNode *> text_nodes = QList<xc::DOMNode *>();
-    QString node_name = GetNodeName(node);
+    QList<GumboNode*> text_nodes = QList<GumboNode*>();
+    if (node->type != GUMBO_NODE_ELEMENT) {
+        return text_nodes;
+    }
+    QString node_name = QString::fromStdString(gi.get_tag_name(node));
+    GumboVector* children = &node->v.element.children;
 
-    if (node.hasChildNodes() && node_name != "head") {
-        QList<xc::DOMNode *> children = GetNodeChildren(node);
+    if ((children->length > 0) && (node_name != "head")) {
 
         if (!INVALID_ID_TAGS.contains(node_name)) {
-            if (ID_TAGS.contains(node_name)) {
-                text_nodes.append(const_cast <xc::DOMNode *>(&node));
-            } else if (!SKIP_ID_TAGS.contains(node_name)) {
-                xc::DOMNode &ancestor_id_node = GetAncestorIDElement(node);
 
-                if (!text_nodes.contains(const_cast <xc::DOMNode *>(&ancestor_id_node))) {
-                    text_nodes.append(const_cast <xc::DOMNode *>(&ancestor_id_node));
+            if (ID_TAGS.contains(node_name)) {
+                text_nodes.append(node);
+
+            } else if (!SKIP_ID_TAGS.contains(node_name)) {
+                GumboNode * ancestor_id_node = GetAncestorIDElement(gi, node);
+
+                if (!text_nodes.contains(ancestor_id_node)) {
+                    text_nodes.append(ancestor_id_node);
                 }
             }
 
             // Parse children after parent to keep index numbers in order
-            for (int i = 0; i < children.count(); ++i) {
-                QList<xc::DOMNode *> children_text_nodes = GetIDNodes(*children.at(i));
-                foreach(xc::DOMNode * cnode, children_text_nodes) {
-                    if (!text_nodes.contains(const_cast <xc::DOMNode *>(cnode))) {
+            for (unsigned int i = 0; i < children->length; ++i) {
+                GumboNode* child = static_cast<GumboNode*> (children->data[i]);
+                QList<GumboNode *> children_text_nodes = GetIDNodes(gi, child);
+                foreach(GumboNode * cnode, children_text_nodes) {
+                    if (!text_nodes.contains(cnode)) {
                         text_nodes.append(cnode);
                     }
                 }
@@ -872,25 +881,25 @@ QList<xc::DOMNode *> XhtmlDoc::GetIDNodes(const xc::DOMNode &node)
     return text_nodes;
 }
 
-QString XhtmlDoc::GetIDElementText(const xc::DOMNode &node)
+
+QString XhtmlDoc::GetIDElementText(GumboInterface & gi, GumboNode * node)
 {
     QString text;
-    QList<xc::DOMNode *> children = GetNodeChildren(node);
+    if (node->type != GUMBO_NODE_ELEMENT) {
+        return text;
+    }
+    GumboVector* children = &node->v.element.children;
 
     // Combine all text nodes for this node plus all text for non-ID element children
-    for (int i = 0; i < children.count(); ++i) {
-        xc::DOMNode *child_node = children.at(i);
-        QString child_node_name = GetNodeName(*child_node);
-
-        if ((*children.at(i)).getNodeType() == xc::DOMNode::TEXT_NODE) {
-            xc::DOMNode *text_node = children.at(i);
-            xc::DOMElement &text_element = static_cast<xc::DOMElement &>(*text_node);
-            text += XtoQ(text_element.getTextContent());
+    for (int i = 0; i < children->length; ++i) {
+        GumboNode* child_node = static_cast<GumboNode*>(children->data[i]);
+        QString child_node_name = QString::fromStdString(gi.get_tag_name(node));
+        if ((child_node->type == GUMBO_NODE_TEXT) || (child_node->type == GUMBO_NODE_WHITESPACE)) {
+            text += QString::fromUtf8(child_node->v.text.text);
         } else if (!ID_TAGS.contains(child_node_name)) {
-            text += GetIDElementText(*child_node);
+            text += GetIDElementText(gi, child_node);
         }
     }
-
     return text;
 }
 
@@ -941,22 +950,21 @@ xc::DOMNode &XhtmlDoc::GetAncestorBlockElement(const xc::DOMNode &node)
     }
 }
 
-xc::DOMNode &XhtmlDoc::GetAncestorIDElement(const xc::DOMNode &node)
+GumboNode * XhtmlDoc::GetAncestorIDElement(GumboInterface & gi, GumboNode * node)
 {
-    const xc::DOMNode *parent_node = &node;
+    GumboNode * parent_node = node;
 
     while (true) {
-        parent_node = parent_node->getParentNode();
-
-        if (ID_TAGS.contains(GetNodeName(*parent_node))) {
+        parent_node = parent_node->parent;
+        QString node_name = QString::fromStdString(gi.get_tag_name(parent_node));
+        if (ID_TAGS.contains(node_name)) {
             break;
         }
     }
-
     if (parent_node) {
-        return const_cast<xc::DOMNode &>(*parent_node);
+        return parent_node;
     } else {
-        return *(node.getOwnerDocument()->getElementsByTagName(QtoX("body"))->item(0));
+        return gi.get_all_nodes_with_tag(GUMBO_TAG_BODY).at(0);
     }
 }
 

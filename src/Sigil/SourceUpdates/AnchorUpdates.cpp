@@ -132,7 +132,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
     }
 
     if (is_changed) {
-        html_resource->SetText(gi.gettext());
+        html_resource->SetText(gi.getxhtml());
     }
 }
 
@@ -174,7 +174,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
     }
 
     if (is_changed) {
-        html_resource->SetText(gi.gettext());
+        html_resource->SetText(gi.getxhtml());
     }
 }
 
@@ -224,7 +224,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
     }
 
     if (is_changed) {
-        html_resource->SetText(gi.gettext());
+        html_resource->SetText(gi.getxhtml());
     }
 }
 

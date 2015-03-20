@@ -109,7 +109,7 @@ QString GumboInterface::repair()
 }
 
 
-QString GumboInterface::gettext()
+QString GumboInterface::getxhtml()
 {
     QString result = "";
     if (!m_source.isEmpty()) {
@@ -153,6 +153,16 @@ QString GumboInterface::perform_link_updates(const QString& newcsslinks)
         result = QString::fromStdString(utf8out);
     }
     return result;
+}
+
+
+GumboNode * GumboInterface::get_root_node() {
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+    }
+    return m_output->root;
 }
 
 

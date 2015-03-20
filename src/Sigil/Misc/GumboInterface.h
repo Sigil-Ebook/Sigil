@@ -47,7 +47,8 @@ public:
     ~GumboInterface();
     void    parse();
     QString repair();
-    QString gettext();
+    QString getxhtml();
+    GumboNode * get_root_node();
     QString perform_source_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
     QString perform_link_updates(const QString & newlinks);
     QString get_body_contents();

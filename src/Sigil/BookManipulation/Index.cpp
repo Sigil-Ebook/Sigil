@@ -29,7 +29,8 @@
 #include <QRegularExpression>
 
 #include "ResourceObjects/HTMLResource.h"
-#include "BookManipulation/XercesCppUse.h"
+// #include "BookManipulation/XercesCppUse.h"
+#include "Misc/GumboInterface.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "MiscEditors/IndexEditorModel.h"
 #include "BookManipulation/Index.h"
@@ -65,25 +66,25 @@ bool Index::BuildIndex(QList<HTMLResource *> html_resources)
 void Index::AddIndexIDsOneFile(HTMLResource *html_resource)
 {
     QWriteLocker locker(&html_resource->GetLock());
-    std::shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    QList<xc::DOMNode *> nodes = XhtmlDoc::GetIDNodes(*d.get());
+    QString source = html_resource->GetText();
+    GumboInterface gi = GumboInterface(source);
+    QList<GumboNode*> nodes = XhtmlDoc::GetIDNodes(gi, gi.get_root_node());
     bool resource_updated = false;
     int index_id_number = 1;
-    foreach(xc::DOMNode * node, nodes) {
+    foreach(GumboNode * node, nodes) {
         QString index_id_value;
-        xc::DOMElement &element = static_cast<xc::DOMElement &>(*node);
 
         // Get the text of all sub-nodes.
-        QString text_node_text = XhtmlDoc::GetIDElementText(*node);
+        QString text_node_text = XhtmlDoc::GetIDElementText(gi, node);
         // Convert &nbsp; to space since Index Editor unfortunately does the same.
         text_node_text.replace(QChar(160), " ");
 
-        // Remove existing index ids
-        if (element.hasAttribute(QtoX("id"))) {
-            index_id_value = XtoQ(element.getAttribute(QtoX("id")));
-
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "id");
+        if (attr) {
+            index_id_value = QString::fromUtf8(attr->value);
             if (index_id_value.startsWith(SIGIL_INDEX_ID_PREFIX)) {
-                element.removeAttribute(QtoX("id"));
+                GumboElement* element = &node->v.element;
+                gumbo_element_remove_attribute(element, attr);
                 resource_updated = true;
             }
         }
@@ -92,30 +93,34 @@ void Index::AddIndexIDsOneFile(HTMLResource *html_resource)
         bool is_custom_index_entry = false;
         QString custom_index_value = text_node_text;
 
-        if (element.hasAttribute(QtoX("class"))) {
-            QString class_names = XtoQ(element.getAttribute(QtoX("class")));
+        attr = gumbo_get_attribute(&node->v.element.attributes, "class");
+        if (attr) {
+            QString class_names = QString::fromUtf8(attr->value);
 
             if (class_names.split(" ").contains(SIGIL_INDEX_CLASS)) {
                 is_custom_index_entry = true;
-
-                if (element.hasAttribute(QtoX("title"))) {
-                    QString title = XtoQ(element.getAttribute(QtoX("title")));
-
+                
+                GumboAttribute* titleattr = gumbo_get_attribute(&node->v.element.attributes, "title");
+                if (titleattr) {
+                    QString title = QString::fromUtf8(titleattr->value);
                     if (!title.isEmpty()) {
                         custom_index_value = title;
                     }
                 }
             }
+
         }
 
         // Use the existing id if there is one, else add one if node contains index item
-        if (element.hasAttribute(QtoX("id"))) {
+        attr = gumbo_get_attribute(&node->v.element.attributes, "id");
+        if (attr) {
             CreateIndexEntry(text_node_text, html_resource, index_id_value, is_custom_index_entry, custom_index_value);
         } else {
             index_id_value = SIGIL_INDEX_ID_PREFIX + QString::number(index_id_number);
 
             if (CreateIndexEntry(text_node_text, html_resource, index_id_value, is_custom_index_entry, custom_index_value)) {
-                element.setAttribute(QtoX("id"), QtoX(index_id_value));
+                GumboElement* element = &node->v.element;
+                gumbo_element_set_attribute(element, "id", index_id_value.toUtf8()); 
                 resource_updated = true;
                 index_id_number++;
             }
@@ -123,9 +128,10 @@ void Index::AddIndexIDsOneFile(HTMLResource *html_resource)
     }
 
     if (resource_updated) {
-        html_resource->SetText(XhtmlDoc::GetDomDocumentAsString(*d.get()));
+        html_resource->SetText(gi.getxhtml());
     }
 }
+
 
 bool Index::CreateIndexEntry(const QString text, HTMLResource *html_resource, QString index_id_value, bool is_custom_index_entry, QString custom_index_value)
 {
