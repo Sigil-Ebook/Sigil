@@ -76,10 +76,8 @@ XhtmlDoc::WellFormedError ImportHTML::CheckValidToLoad()
 QSharedPointer<Book> ImportHTML::GetBook()
 {
     QString source = LoadSource();
-    GumboInterface gi(source);
-    gi.parse();
-    LoadMetadata(gi);
-    UpdateFiles(CreateHTMLResource(), source, LoadFolderStructure(gi));
+    LoadMetadata(source);
+    UpdateFiles(CreateHTMLResource(), source, LoadFolderStructure(source));
     return m_Book;
 }
 
@@ -108,8 +106,10 @@ QString ImportHTML::LoadSource()
 
 // Searches for meta information in the HTML file
 // and tries to convert it to Dublin Core
-void ImportHTML::LoadMetadata(GumboInterface & gi)
+void ImportHTML::LoadMetadata(const QString & source)
 {
+    GumboInterface gi(source);
+    gi.parse();
     QList<Metadata::MetaElement> metadata;
     QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_META); 
     for (int i = 0; i < nodes.count(); ++i) {
@@ -170,10 +170,10 @@ void ImportHTML::UpdateFiles(HTMLResource &html_resource,
 
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
-QHash<QString, QString> ImportHTML::LoadFolderStructure(GumboInterface & gi)
+QHash<QString, QString> ImportHTML::LoadFolderStructure(const QString & source)
 {
-    QStringList mediapaths = XhtmlDoc::GetPathsToMediaFiles(gi);
-    QStringList stylepaths = XhtmlDoc::GetPathsToStyleFiles(gi);
+    QStringList mediapaths = XhtmlDoc::GetPathsToMediaFiles(source);
+    QStringList stylepaths = XhtmlDoc::GetPathsToStyleFiles(source);
     QFutureSynchronizer<QHash<QString, QString>> sync;
     sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadMediaFiles,  mediapaths));
     sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadStyleFiles,  stylepaths));

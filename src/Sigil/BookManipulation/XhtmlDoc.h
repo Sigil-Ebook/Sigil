@@ -37,6 +37,10 @@ class QString;
 class QStringList;
 class QXmlStreamReader;
 
+const QList<GumboTag> GIMAGE_TAGS = QList<GumboTag>() << GUMBO_TAG_IMG << GUMBO_TAG_IMAGE;
+const QList<GumboTag> GVIDEO_TAGS = QList<GumboTag>() << GUMBO_TAG_VIDEO;
+const QList<GumboTag> GAUDIO_TAGS = QList<GumboTag>() << GUMBO_TAG_AUDIO;
+
 class XhtmlDoc
 {
 
@@ -89,12 +93,10 @@ public:
         const QString &tag_name,
         const QString &namespace_name);
 
-    static QList<QString> GetAllDescendantStyleUrls(const xc::DOMNode &node);
-
-    static QList<QString> GetAllDescendantHrefs(const xc::DOMNode &node);
-
-    static QList<QString> GetAllDescendantIDs(const xc::DOMNode &node);
-    static QList<QString> GetAllDescendantClasses(const xc::DOMNode &node);
+    static QList<QString> GetAllDescendantStyleUrls(const QString & source);
+    static QList<QString> GetAllDescendantHrefs(const QString & source);
+    static QList<QString> GetAllDescendantIDs(const QString & );
+    static QList<QString> GetAllDescendantClasses(const QString & source);
 
     static QString GetDomNodeAsString(const xc::DOMNode &node);
 
@@ -227,13 +229,11 @@ public:
 
     static xc::DOMNode &GetAncestorIDElement(const xc::DOMNode &node);
 
-    static QStringList GetPathsToMediaFiles(GumboInterface & gi);
+    static QStringList GetPathsToMediaFiles(const QString & source);
 
-    static QStringList GetPathsToStyleFiles(GumboInterface & gi);
+    static QStringList GetPathsToStyleFiles(const QString & source);
 
-    // static QStringList GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags);
-
-    static QStringList GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags);
+    static QStringList GetAllMediaPathsFromMediaChildren(const QString & source, QList<GumboTag> tags);
 
     // static QStringList GetAllHrefPaths(const xc::DOMNode &node);
 

@@ -50,6 +50,7 @@ public:
     QString gettext();
     QString perform_source_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
     QString perform_link_updates(const QString & newlinks);
+    QList<GumboNode*> get_all_nodes_with_attribute(const QString & attname);
     QStringList get_all_values_for_attribute(const QString & attname);
     QList<GumboNode*> get_all_nodes_with_tag(GumboTag tag);
     QList<GumboNode*> get_all_nodes_with_tags(const QList<GumboTag> & tags);
@@ -67,6 +68,7 @@ private:
     };
 
     // QString fix_self_closing_tags(const QString & source);
+    QList<GumboNode*> get_nodes_with_attribute(GumboNode* node, const char * att_name);
     QStringList get_values_for_attr(GumboNode* node, const char* attr_name);
     QList<GumboNode*> get_nodes_with_tags(GumboNode* node, const QList<GumboTag> & tags);
     std::string serialize(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);

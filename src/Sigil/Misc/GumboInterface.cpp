@@ -200,6 +200,37 @@ QList<GumboWellFormedError> GumboInterface::error_check()
 }
 
 
+QList<GumboNode*> GumboInterface::get_all_nodes_with_attribute(const QString& attname)
+{
+    QList<GumboNode*> nodes;
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        nodes = get_nodes_with_attribute(m_output->root, attname.toUtf8()); 
+    }
+    return nodes;
+}
+
+
+QList<GumboNode*> GumboInterface::get_nodes_with_attribute(GumboNode* node, const char * attname)
+{
+  if (node->type != GUMBO_NODE_ELEMENT) {
+    return QList<GumboNode*>();
+  }
+  QList<GumboNode*> nodes;
+  GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, attname);
+  if (attr) {
+      nodes.append(node);
+  }
+  GumboVector* children = &node->v.element.children;
+  for (int i = 0; i < children->length; ++i) {
+      nodes.append(get_nodes_with_attribute(static_cast<GumboNode*>(children->data[i]), attname));
+  }
+  return nodes;
+}
+
+
 QStringList GumboInterface::get_all_values_for_attribute(const QString& attname)
 {
     QStringList attrvals;
@@ -215,19 +246,19 @@ QStringList GumboInterface::get_all_values_for_attribute(const QString& attname)
 
 QStringList  GumboInterface::get_values_for_attr(GumboNode* node, const char* attr_name) 
 {
-  if (node->type != GUMBO_NODE_ELEMENT) {
-    return QStringList();
-  }
-  QStringList attr_vals;
-  GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, attr_name);
-  if (attr != NULL) {
-      attr_vals.append(QString::fromUtf8(attr->value));
-  }
-  GumboVector* children = &node->v.element.children;
-  for (int i = 0; i < children->length; ++i) {
-      attr_vals.append(get_values_for_attr(static_cast<GumboNode*>(children->data[i]), attr_name));
-  }
-  return attr_vals;
+    if (node->type != GUMBO_NODE_ELEMENT) {
+        return QStringList();
+    }
+    QStringList attr_vals;
+    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, attr_name);
+    if (attr != NULL) {
+        attr_vals.append(QString::fromUtf8(attr->value));
+    }
+    GumboVector* children = &node->v.element.children;
+    for (int i = 0; i < children->length; ++i) {
+        attr_vals.append(get_values_for_attr(static_cast<GumboNode*>(children->data[i]), attr_name));
+    }
+    return attr_vals;
 }
 
 QHash<QString,QString> GumboInterface::get_attributes_of_node(GumboNode* node)

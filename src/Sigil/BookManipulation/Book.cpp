@@ -30,6 +30,7 @@
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/XercesCppUse.h"
+#include "Misc/GumboInterface.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "Misc/HTMLSpellCheck.h"
@@ -547,7 +548,7 @@ QStringList Book::GetStyleUrlsInHTMLFiles()
 std::tuple<QString, QStringList> Book::GetStyleUrlsInHTMLFileMapped(HTMLResource *html_resource)
 {
     return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllDescendantStyleUrls(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+                           XhtmlDoc::GetAllDescendantStyleUrls(html_resource->GetText()));
 }
 
 QHash<QString, QStringList> Book::GetIdsInHTMLFiles()
@@ -570,12 +571,12 @@ QHash<QString, QStringList> Book::GetIdsInHTMLFiles()
 std::tuple<QString, QStringList> Book::GetIdsInHTMLFileMapped(HTMLResource *html_resource)
 {
     return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllDescendantIDs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+                           XhtmlDoc::GetAllDescendantIDs(html_resource->GetText()));
 }
 
 QStringList Book::GetIdsInHTMLFile(HTMLResource *html_resource)
 {
-    return XhtmlDoc::GetAllDescendantIDs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement());
+    return XhtmlDoc::GetAllDescendantIDs(html_resource->GetText());
 }
 
 
@@ -623,7 +624,7 @@ QHash<QString, QStringList> Book::GetHrefsInHTMLFiles()
 std::tuple<QString, QStringList> Book::GetHrefsInHTMLFileMapped(HTMLResource *html_resource)
 {
     return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllDescendantHrefs(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+                           XhtmlDoc::GetAllDescendantHrefs(html_resource->GetText()));
 }
 
 QHash<QString, QStringList> Book::GetClassesInHTMLFiles()
@@ -648,7 +649,7 @@ QHash<QString, QStringList> Book::GetClassesInHTMLFiles()
 std::tuple<QString, QStringList> Book::GetClassesInHTMLFileMapped(HTMLResource *html_resource)
 {
     return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllDescendantClasses(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement()));
+                           XhtmlDoc::GetAllDescendantClasses(html_resource->GetText()));
 }
 
 QStringList Book::GetClassesInHTMLFile(QString filename)
@@ -656,7 +657,7 @@ QStringList Book::GetClassesInHTMLFile(QString filename)
     QList<HTMLResource *> html_resources = m_Mainfolder.GetResourceTypeList<HTMLResource>(true);
     foreach(HTMLResource * html_resource, html_resources) {
         if (html_resource->Filename() == filename) {
-            return XhtmlDoc::GetAllDescendantClasses(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get()->getDocumentElement());
+            return XhtmlDoc::GetAllDescendantClasses(html_resource->GetText());
         }
     }
     return QStringList();
@@ -752,25 +753,26 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
 std::tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *html_resource)
 {
     return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), IMAGE_TAGS + VIDEO_TAGS + AUDIO_TAGS));
+                           XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), 
+                                                                       GIMAGE_TAGS + GVIDEO_TAGS + GAUDIO_TAGS));
 }
 
 std::tuple<QString, QStringList> Book::GetImagesInHTMLFileMapped(HTMLResource *html_resource)
 {
     return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), IMAGE_TAGS));
+                           XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GIMAGE_TAGS));
 }
 
 std::tuple<QString, QStringList> Book::GetVideoInHTMLFileMapped(HTMLResource *html_resource)
 {
     return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), VIDEO_TAGS));
+                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GVIDEO_TAGS));
 }
 
 std::tuple<QString, QStringList> Book::GetAudioInHTMLFileMapped(HTMLResource *html_resource)
 {
     return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(*XhtmlDoc::LoadTextIntoDocument(html_resource->GetText()).get(), AUDIO_TAGS));
+                           XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GAUDIO_TAGS));
 }
 
 QList<HTMLResource *> Book::GetNonWellFormedHTMLFiles()

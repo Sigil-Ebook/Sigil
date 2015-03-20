@@ -57,7 +57,7 @@ private:
 
     // Searches for meta information in the HTML file
     // and tries to convert it to Dublin Core
-    void LoadMetadata(GumboInterface & gi);
+    void LoadMetadata(const QString & source);
 
     HTMLResource &CreateHTMLResource();
 
@@ -67,7 +67,7 @@ private:
 
     // Loads the referenced files into the main folder of the book;
     // as the files get a new name, the references are updated
-    QHash<QString, QString> LoadFolderStructure(GumboInterface & gi);
+    QHash<QString, QString> LoadFolderStructure(const QString & source);
 
     // Returns a hash with keys being old references (URLs) to resources,
     // and values being the new references to those resources.

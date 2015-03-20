@@ -274,114 +274,79 @@ QList<xc::DOMElement *> XhtmlDoc::GetTagMatchingDescendants(
     return qtchildren;
 }
 
-QList<QString> XhtmlDoc::GetAllDescendantClasses(const xc::DOMNode &node)
+QList<QString> XhtmlDoc::GetAllDescendantClasses(const QString & source)
 {
-    if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
-        return QList<QString>();
-    }
-
-    const xc::DOMElement *element = static_cast<const xc::DOMElement *>(&node);
-    QList<QString> classes;
-    QString element_name = GetNodeName(*element);
-
-    if (element->hasAttribute(QtoX("class"))) {
-        QString class_values = XtoQ(element->getAttribute(QtoX("class")));
-        foreach(QString class_name, class_values.split(" ")) {
-            classes.append(element_name + "." + class_name);
+    GumboInterface gi = GumboInterface(source);
+    QList<GumboNode*> nodes = gi.get_all_nodes_with_attribute(QString("class"));
+    QStringList classes;
+    foreach(GumboNode * node, nodes) {
+        QString element_name = QString::fromStdString(gi.get_tag_name(node));
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "class");
+        if (attr) {
+            QString class_values = QString::fromUtf8(attr->value);
+            foreach(QString class_name, class_values.split(" ")) {
+                classes.append(element_name + "." + class_name);
+            }
         }
     }
-
-    if (node.hasChildNodes()) {
-        QList<xc::DOMNode *> children = GetNodeChildren(node);
-
-        for (int i = 0; i < children.count(); ++i) {
-            classes.append(GetAllDescendantClasses(*children.at(i)));
-        }
-    }
-
     return classes;
 }
 
-QList<QString> XhtmlDoc::GetAllDescendantStyleUrls(const xc::DOMNode &node)
+QList<QString> XhtmlDoc::GetAllDescendantStyleUrls(const QString & source)
 {
-    if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
-        return QList<QString>();
-    }
-
-    const xc::DOMElement *element = static_cast<const xc::DOMElement *>(&node);
-    QList<QString> styles;
-
-    if (element->hasAttribute(QtoX("style"))) {
-        QString attribute = XtoQ(element->getAttribute(QtoX("style")));
-        QRegularExpression url_search(URL_ATTRIBUTE_SEARCH);
-        QRegularExpressionMatch match = url_search.match(attribute);
-        if (match.hasMatch()) {
-            styles.append(match.captured(1));
+    GumboInterface gi = GumboInterface(source);
+    QList<GumboNode*> nodes = gi.get_all_nodes_with_attribute(QString("style"));
+    QStringList styles;
+    foreach(GumboNode * node, nodes) {
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "style");
+        if (attr) {
+            QString style_value = QString::fromUtf8(attr->value);
+            QRegularExpression url_search(URL_ATTRIBUTE_SEARCH);
+            QRegularExpressionMatch match = url_search.match(style_value);
+            if (match.hasMatch()) {
+                styles.append(match.captured(1));
+            }
         }
     }
-
-    if (node.hasChildNodes()) {
-        QList<xc::DOMNode *> children = GetNodeChildren(node);
-
-        for (int i = 0; i < children.count(); ++i) {
-            styles.append(GetAllDescendantStyleUrls(*children.at(i)));
-        }
-    }
-
     return styles;
 }
 
-QList<QString> XhtmlDoc::GetAllDescendantIDs(const xc::DOMNode &node)
+
+QList<QString> XhtmlDoc::GetAllDescendantIDs(const QString & source)
 {
-    if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
-        return QList<QString>();
-    }
-
-    const xc::DOMElement *element = static_cast<const xc::DOMElement *>(&node);
-    QList<QString> IDs;
-
-    if (element->hasAttribute(QtoX("id"))) {
-        IDs.append(XtoQ(element->getAttribute(QtoX("id"))));
-    } else if (element->hasAttribute(QtoX("name"))) {
-        // This is supporting legacy html of <a name="xxx"> (deprecated).
-        // Make sure we don't return names of other elements like <meta> tags.
-        if (XtoQ(element->getTagName()).toLower() == "a") {
-            IDs.append(XtoQ(element->getAttribute(QtoX("name"))));
+    GumboInterface gi = GumboInterface(source);
+    QList<GumboNode*> nodes = gi.get_all_nodes_with_attribute(QString("id"));
+    nodes.append(gi.get_all_nodes_with_attribute(QString("name")));
+    QStringList IDs;
+    foreach(GumboNode * node, nodes) {
+        QString element_name = QString::fromStdString(gi.get_tag_name(node));
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "id");
+        if (attr) {
+            IDs.append(QString::fromUtf8(attr->value));
+        } else {
+            // This is supporting legacy html of <a name="xxx"> (deprecated).
+            // Make sure we don't return names of other elements like <meta> tags.
+            if (element_name == "a") {
+                attr = gumbo_get_attribute(&node->v.element.attributes, "name");
+                IDs.append(QString::fromUtf8(attr->value));
+            }
         }
     }
-
-    if (node.hasChildNodes()) {
-        QList<xc::DOMNode *> children = GetNodeChildren(node);
-
-        for (int i = 0; i < children.count(); ++i) {
-            IDs.append(GetAllDescendantIDs(*children.at(i)));
-        }
-    }
-
     return IDs;
 }
 
-QList<QString> XhtmlDoc::GetAllDescendantHrefs(const xc::DOMNode &node)
+QList<QString> XhtmlDoc::GetAllDescendantHrefs(const QString & source)
 {
-    if (node.getNodeType() != xc::DOMNode::ELEMENT_NODE) {
-        return QList<QString>();
-    }
-
-    const xc::DOMElement *element = static_cast<const xc::DOMElement *>(&node);
-    QList<QString> hrefs;
-
-    if (element->hasAttribute(QtoX("href"))) {
-        hrefs.append(XtoQ(element->getAttribute(QtoX("href"))));
-    }
-
-    if (node.hasChildNodes()) {
-        QList<xc::DOMNode *> children = GetNodeChildren(node);
-
-        for (int i = 0; i < children.count(); ++i) {
-            hrefs.append(GetAllDescendantHrefs(*children.at(i)));
+    GumboInterface gi = GumboInterface(source);
+    QList<GumboNode*> nodes = gi.get_all_nodes_with_attribute(QString("href"));
+    QStringList hrefs;
+    foreach(GumboNode * node, nodes) {
+        QString element_name = QString::fromStdString(gi.get_tag_name(node));
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+        if (attr) {
+            hrefs.append(QString::fromUtf8(attr->value));
         }
     }
-
     return hrefs;
 }
 
@@ -993,78 +958,55 @@ xc::DOMNode &XhtmlDoc::GetAncestorIDElement(const xc::DOMNode &node)
     }
 }
 
-QStringList XhtmlDoc::GetPathsToMediaFiles(GumboInterface & gi)
+QStringList XhtmlDoc::GetPathsToMediaFiles(const QString & source)
 {
-  QStringList media_paths;
-  QList<GumboTag> tags;
-  tags << GUMBO_TAG_IMG << GUMBO_TAG_IMAGE << GUMBO_TAG_VIDEO << GUMBO_TAG_AUDIO;
-  QList<GumboNode*> nodes = gi.get_all_nodes_with_tags(tags);
-  for (int i = 0; i < nodes.count(); ++i) {
-    GumboNode* node = nodes.at(i);
-    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "src");
-    if (!attr) {
-      attr = gumbo_get_attribute(&node->v.element.attributes, "xlink:href");
-    }
-    if (attr) {
-      QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-      media_paths << relative_path;
-    }
-  }
+  QList<GumboTag> tags = QList<GumboTag>() << GIMAGE_TAGS << GVIDEO_TAGS << GAUDIO_TAGS;
+  QStringList media_paths = GetAllMediaPathsFromMediaChildren(source, tags);
   // Remove duplicate references
   media_paths.removeDuplicates();
   return media_paths;
 }
 
-QStringList XhtmlDoc::GetPathsToStyleFiles(GumboInterface & gi)
+QStringList XhtmlDoc::GetPathsToStyleFiles(const QString & source)
 {
-  QStringList style_paths;
-  QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_LINK);
-  for (int i = 0; i < nodes.count(); ++i) {
-    GumboNode* node = nodes.at(i);
-    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
-    if (attr) {
-      QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-      QFileInfo file_info(relative_path);
-      if (file_info.suffix().toLower() == "css") {
-        style_paths << relative_path;
-      }
-    }
+    GumboInterface gi = GumboInterface(source);
+    QStringList style_paths;
+    QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_LINK);
+    for (int i = 0; i < nodes.count(); ++i) {
+        GumboNode* node = nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+        if (attr) {
+            QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
+            QFileInfo file_info(relative_path);
+            if (file_info.suffix().toLower() == "css") {
+                style_paths << relative_path;
+            }
+        }
   }
   style_paths.removeDuplicates();
   return style_paths;
 }
 
-#if 0
-QStringList XhtmlDoc::GetMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags)
-{
-    QStringList links = GetAllMediaPathsFromMediaChildren(node, tags);
-    // Remove duplicate references
-    links.removeDuplicates();
-    return links;
-}
-#endif
 
-QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const xc::DOMNode &node, QStringList tags)
+QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, QList<GumboTag> tags)
 {
-    // "Normal" HTML media file elements
-    QList<xc::DOMElement *> nodes = GetTagMatchingDescendants(node, tags);
-    QStringList links;
-    // Get a list of all media files referenced
-    foreach(xc::DOMElement * node, nodes) {
-        QString url_reference;
-
-        if (node->hasAttribute(QtoX("src"))) {
-            url_reference = Utility::URLDecodePath(XtoQ(node->getAttribute(QtoX("src"))));
-        } else { // This covers the SVG "image" tags
-            url_reference = Utility::URLDecodePath(XtoQ(node->getAttribute(QtoX("xlink:href"))));
+    GumboInterface gi = GumboInterface(source);
+    QStringList media_paths;
+    QList<GumboNode*> nodes = gi.get_all_nodes_with_tags(tags);
+    for (int i = 0; i < nodes.count(); ++i) {
+        GumboNode* node = nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "src");
+        if (!attr) {
+            attr = gumbo_get_attribute(&node->v.element.attributes, "xlink:href");
         }
-
-        if (!url_reference.isEmpty()) {
-            links << url_reference;
+        if (attr) {
+            QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
+            media_paths << relative_path;
         }
     }
-    return links;
+    return media_paths;
 }
+
 
 #if 0
 QStringList XhtmlDoc::GetAllHrefPaths(const xc::DOMNode &node)
