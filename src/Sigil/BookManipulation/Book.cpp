@@ -29,7 +29,7 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "BookManipulation/XercesCppUse.h"
+// #include "BookManipulation/XercesCppUse.h"
 #include "Misc/GumboInterface.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
@@ -854,6 +854,7 @@ QStringList Book::GetStylesheetsInHTMLFile(HTMLResource *html_resource)
     return XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
 }
 
+
 Resource *Book::MergeResources(QList<Resource *> resources)
 {
     QProgressDialog progress(QObject::tr("Merging Files.."), 0, 0, resources.count(), QApplication::activeWindow());
@@ -866,48 +867,29 @@ Resource *Book::MergeResources(QList<Resource *> resources)
         return sink_resource;
     }
 
+    QStringList new_bodies;
     QList<QString> merged_filenames;
     {
-        // Load our DOMDocument just once up front for our sink resource we are merging into
-        QWriteLocker sink_locker(&sink_html_resource.GetLock());
-        std::shared_ptr<xc::DOMDocument> sink_d = XhtmlDoc::LoadTextIntoDocument(sink_html_resource.GetText());
-        xc::DOMDocument &sink_dom        = *sink_d.get();
-        xc::DOMNodeList &sink_body_nodes = *sink_dom.getElementsByTagName(QtoX("body"));
-        xc::DOMNode &sink_body_node      = *sink_body_nodes.item(0);
-
-        if (sink_body_nodes.getLength() != 1) {
-            return sink_resource;
-        }
-
+        GumboInterface gi = GumboInterface(sink_html_resource.GetText());
+        new_bodies << gi.get_body_contents();
         Resource *failed_resource = NULL;
+        
         // Now iterate across all the other resources merging them into this resource
         foreach(Resource * source_resource, resources) {
+
             // Set progress value and ensure dialog has time to display when doing extensive updates
             progress.setValue(progress_value++);
             qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-            xc::DOMDocumentFragment *body_children_fragment = NULL;
-            HTMLResource &source_html_resource = *qobject_cast<HTMLResource *>(source_resource);
 
+            HTMLResource &source_html_resource = *qobject_cast<HTMLResource *>(source_resource);
             if (!IsDataWellFormed(source_html_resource)) {
                 failed_resource = source_resource;
                 break;
             }
 
             // Get the html document for this source resource.
-            QWriteLocker source_locker(&source_html_resource.GetLock());
-            std::shared_ptr<xc::DOMDocument> sd = XhtmlDoc::LoadTextIntoDocument(source_html_resource.GetText());
-            const xc::DOMDocument &source_dom  = *sd.get();
-            xc::DOMNodeList &source_body_nodes = *source_dom.getElementsByTagName(QtoX("body"));
-
-            if (source_body_nodes.getLength() != 1) {
-                failed_resource = source_resource;
-                break;
-            }
-
-            // Append the html fragment to the body for our sink.
-            xc::DOMNode &source_body_node = *source_body_nodes.item(0);
-            body_children_fragment        = XhtmlDoc::ConvertToDocumentFragment(*source_body_node.getChildNodes());
-            sink_body_node.appendChild(sink_dom.importNode(body_children_fragment, true));
+            GumboInterface ngi = GumboInterface(source_html_resource.GetText());
+            new_bodies << ngi.get_body_contents();
             merged_filenames.append(Utility::URLEncodePath(source_resource->Filename()));
         }
 
@@ -916,8 +898,9 @@ Resource *Book::MergeResources(QList<Resource *> resources)
             return failed_resource;
         }
 
+        QString new_source = gi.perform_body_updates(new_bodies.join(""));
         // Now all fragments have been merged into this sink document, serialize and store it.
-        sink_html_resource.SetText(XhtmlDoc::GetDomDocumentAsString(sink_dom));
+        sink_html_resource.SetText(new_source);
         // Now safe to do the delete
         foreach(Resource * source_resource, resources) {
             source_resource->Delete();

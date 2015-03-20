@@ -61,7 +61,8 @@ GumboInterface::GumboInterface(const QString &source)
           m_sourceupdates(EmptyHash),
           m_newcsslinks(""),
           m_currentdir(""),
-          m_utf8src("")
+          m_utf8src(""),
+          m_newbody("")
 {
 }
 
@@ -154,6 +155,44 @@ QString GumboInterface::perform_link_updates(const QString& newcsslinks)
     return result;
 }
 
+
+QString GumboInterface::get_body_contents() 
+{
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+    }
+    QList<GumboTag> tags = QList<GumboTag>() << GUMBO_TAG_BODY;
+    QList<GumboNode*> nodes = get_all_nodes_with_tags(tags);
+    if (nodes.count() != 1) {
+        return QString();
+    }
+    enum UpdateTypes doupdates = NoUpdates;
+    std::string results = serialize_contents(nodes.at(0), doupdates);
+    return QString::fromStdString(results);
+}
+
+
+QString GumboInterface::perform_body_updates(const QString & new_body) 
+{
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+    }
+    QList<GumboTag> tags = QList<GumboTag>() << GUMBO_TAG_BODY;
+    QList<GumboNode*> nodes = get_all_nodes_with_tags(tags);
+    if (nodes.count() != 1) {
+        return QString();
+    }
+    m_newbody = new_body.toStdString();
+    enum UpdateTypes doupdates = BodyUpdates;
+    std::string results = serialize_contents(m_output->document, doupdates);
+    m_newbody= "";
+    return QString::fromStdString(results);
+}
+    
 
 QList<GumboWellFormedError> GumboInterface::error_check()
 {
@@ -591,8 +630,14 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
         closeTag = "</" + tagname + ">";
     }
 
-    // serialize your contents
-    std::string contents = serialize_contents(node, doupdates);
+    std::string contents;
+
+    if ((tagname == "body") && (doupdates & BodyUpdates)) {
+        contents = m_newbody;
+    } else {
+        // serialize your contents
+        contents = serialize_contents(node, doupdates);
+    }
 
     if (need_special_handling) {
         ltrimnewlines(contents);

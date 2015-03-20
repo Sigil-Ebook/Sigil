@@ -696,6 +696,7 @@ QString XhtmlDoc::GetAttributeName(const xc::DOMAttr &attribute)
 }
 
 
+#if 0
 xc::DOMDocumentFragment *XhtmlDoc::ConvertToDocumentFragment(const xc::DOMNodeList &list)
 {
     if (list.getLength() == 0) {
@@ -715,6 +716,7 @@ xc::DOMDocumentFragment *XhtmlDoc::ConvertToDocumentFragment(const xc::DOMNodeLi
 
     return fragment;
 }
+#endif
 
 
 // Converts a DomNodeList to a regular QList

@@ -189,7 +189,7 @@ public:
      * @param list The list of nodes to go into the fragment.
      * @return The new document fragment.
      */
-    static xc::DOMDocumentFragment *ConvertToDocumentFragment(const xc::DOMNodeList &list);
+    // static xc::DOMDocumentFragment *ConvertToDocumentFragment(const xc::DOMNodeList &list);
 
     // Converts a DomNodeList to a regular QList
     static QList<xc::DOMNode *> ConvertToRegularList(const xc::DOMNodeList &list);

@@ -50,6 +50,8 @@ public:
     QString gettext();
     QString perform_source_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
     QString perform_link_updates(const QString & newlinks);
+    QString get_body_contents();
+    QString perform_body_updates(const QString & new_body);
     QList<GumboNode*> get_all_nodes_with_attribute(const QString & attname);
     QStringList get_all_values_for_attribute(const QString & attname);
     QList<GumboNode*> get_all_nodes_with_tag(GumboTag tag);
@@ -64,7 +66,8 @@ private:
     enum UpdateTypes {
         NoUpdates      = 0, 
         SourceUpdates  = 1 <<  0,
-        LinkUpdates    = 1 <<  1
+        LinkUpdates    = 1 <<  1,
+        BodyUpdates    = 1 <<  2
     };
 
     // QString fix_self_closing_tags(const QString & source);
@@ -89,6 +92,7 @@ private:
     QHash<QString, QString> & m_sourceupdates;
     std::string               m_newcsslinks;
     QString                   m_currentdir;
+    std::string               m_newbody;
     
 };
 
