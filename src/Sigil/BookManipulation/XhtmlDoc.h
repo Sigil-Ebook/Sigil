@@ -99,17 +99,11 @@ public:
     static QList<QString> GetAllDescendantIDs(const QString & );
     static QList<QString> GetAllDescendantClasses(const QString & source);
 
-    static QString GetDomNodeAsString(const xc::DOMNode &node);
-
-    static QString GetDomDocumentAsString(const xc::DOMDocument &document);
-
     /**
      * Parses the source text into a DOM and returns a shared pointer
      * to the heap-created document.
      */
     static std::shared_ptr<xc::DOMDocument> LoadTextIntoDocument(const QString &source);
-
-    // static std::shared_ptr<xc::DOMDocument> CopyDomDocument(const xc::DOMDocument &document);
 
     static std::shared_ptr<xc::DOMDocument> RaiiWrapDocument(xc::DOMDocument *document);
 
@@ -127,19 +121,6 @@ public:
 
     static WellFormedError WellFormedErrorForSource(const QString &source);
     static bool IsDataWellFormed(const QString &data);
-
-    static xc::DOMElement *CreateElementInDocument(
-        const QString &tag_name,
-        const QString &namespace_name,
-        xc::DOMDocument &document);
-
-    static xc::DOMElement *CreateElementInDocument(
-        const QString &tag_name,
-        const QString &namespace_name,
-        xc::DOMDocument &document,
-        QHash<QString, QString> attributes);
-
-    static xc::DOMElement *RenameElementInDocument(xc::DOMDocument &document, xc::DOMNode &node, QString tag_name);
 
     // Accepts a string with HTML and returns the text
     // in that HTML fragment. For instance:
@@ -168,9 +149,6 @@ public:
     static QStringList GetSGFSectionSplits(const QString &source,
                                            const QString &custom_header = QString());
 
-    // Removes all the children of a node
-    // static void RemoveChildren(xc::DOMNode &node);
-
     // Return a list of all linked CSS stylesheets
     static QStringList GetLinkedStylesheets(const QString &source);
 
@@ -181,16 +159,6 @@ public:
     // Returns the attribute's "real" name. We don't care
     // about namespace prefixes and whatnot.
     static QString GetAttributeName(const xc::DOMAttr &attribute);
-
-    /**
-     * Converts a DomNodeList of nodes (and all their descendants)
-     * into a document fragment that can then be easily inserted
-     * into other documents.
-     *
-     * @param list The list of nodes to go into the fragment.
-     * @return The new document fragment.
-     */
-    // static xc::DOMDocumentFragment *ConvertToDocumentFragment(const xc::DOMNodeList &list);
 
     // Converts a DomNodeList to a regular QList
     static QList<xc::DOMNode *> ConvertToRegularList(const xc::DOMNodeList &list);
@@ -236,17 +204,12 @@ public:
 
     static QStringList GetAllMediaPathsFromMediaChildren(const QString & source, QList<GumboTag> tags);
 
-    // static QStringList GetAllHrefPaths(const xc::DOMNode &node);
-
     // Returns the node identified by the specified ViewEditor element hierarchy
     static xc::DOMNode *GetNodeFromHierarchy(const xc::DOMDocument &document,
             const QList<ViewEditor::ElementIndex> &hierarchy);
 
     // Creates a ViewEditor element hierarchy from the specified node
     static QList<ViewEditor::ElementIndex> GetHierarchyFromNode(const xc::DOMNode &node);
-
-    // Gets all children of a node as a string.
-    // static QString GetNodeChildrenAsString(const xc::DOMNode *node);
 
 private:
 

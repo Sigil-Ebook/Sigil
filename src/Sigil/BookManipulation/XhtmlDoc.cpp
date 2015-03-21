@@ -218,63 +218,6 @@ QHash<QString, QString> XhtmlDoc::GetNodeAttributes(const xc::DOMNode &node)
 }
 
 
-QList<xc::DOMElement *> XhtmlDoc::GetTagMatchingDescendants(const xc::DOMNode &node, const QStringList &tag_names)
-{
-    QList<xc::DOMElement *> matching_nodes;
-
-    if (tag_names.contains(GetNodeName(node), Qt::CaseInsensitive)) {
-        matching_nodes.append((xc::DOMElement *) &node);
-    }
-
-    if (node.hasChildNodes()) {
-        QList<xc::DOMNode *> children = GetNodeChildren(node);
-
-        for (int i = 0; i < children.count(); ++i) {
-            matching_nodes.append(GetTagMatchingDescendants(*children.at(i), tag_names));
-        }
-    }
-
-    return matching_nodes;
-}
-
-
-// TODO: turn the overloads into a template
-QList<xc::DOMElement *> XhtmlDoc::GetTagMatchingDescendants(const xc::DOMElement &node, const QString &tag_name)
-{
-    xc::DOMNodeList *children = node.getElementsByTagName(QtoX(tag_name));
-    int num_children = children->getLength();
-    QList<xc::DOMElement *> qtchildren;
-
-    for (int i = 0; i < num_children; ++i) {
-        qtchildren.append(static_cast<xc::DOMElement *>(children->item(i)));
-    }
-
-    return qtchildren;
-}
-
-
-QList<xc::DOMElement *> XhtmlDoc::GetTagMatchingDescendants(const xc::DOMDocument &node, const QString &tag_name)
-{
-    return GetTagMatchingDescendants(node, tag_name, "*");
-}
-
-
-QList<xc::DOMElement *> XhtmlDoc::GetTagMatchingDescendants(
-    const xc::DOMDocument &node,
-    const QString &tag_name,
-    const QString &namespace_name)
-{
-    xc::DOMNodeList *children = node.getElementsByTagNameNS(QtoX(namespace_name), QtoX(tag_name));
-    int num_children = children->getLength();
-    QList<xc::DOMElement *> qtchildren;
-
-    for (int i = 0; i < num_children; ++i) {
-        qtchildren.append(static_cast<xc::DOMElement *>(children->item(i)));
-    }
-
-    return qtchildren;
-}
-
 QList<QString> XhtmlDoc::GetAllDescendantClasses(const QString & source)
 {
     GumboInterface gi = GumboInterface(source);
@@ -352,40 +295,6 @@ QList<QString> XhtmlDoc::GetAllDescendantHrefs(const QString & source)
 }
 
 
-// DO NOT USE FOR DOMDOCUMENTS! Use GetDomDocumentAsString for such needs!
-QString XhtmlDoc::GetDomNodeAsString(const xc::DOMNode &node)
-{
-    XMLCh LS[] = { xc::chLatin_L, xc::chLatin_S, xc::chNull };
-    xc::DOMImplementation *impl = xc::DOMImplementationRegistry::getDOMImplementation(LS);
-    std::shared_ptr<xc::DOMLSSerializer> serializer(
-        ((xc::DOMImplementationLS *) impl)->createLSSerializer(),
-        XercesExt::XercesDeallocator<xc::DOMLSSerializer>);
-    serializer->getDomConfig()->setParameter(xc::XMLUni::fgDOMWRTDiscardDefaultContent, false);
-    serializer->getDomConfig()->setParameter(xc::XMLUni::fgDOMWRTBOM, true);
-    std::shared_ptr<XMLCh> xwritten(serializer->writeToString(&node), XercesExt::XercesStringDeallocator);
-    return XtoQ(xwritten.get());
-}
-
-
-// This func makes sure that the UTF-8 encoding is set for the XML declaration
-QString XhtmlDoc::GetDomDocumentAsString(const xc::DOMDocument &document)
-{
-    QString raw_source = GetDomNodeAsString(document);
-    QRegularExpression encoding(ENCODING_ATTRIBUTE);
-    QRegularExpressionMatch match = encoding.match(raw_source);
-    int encoding_start = match.capturedStart();
-    return raw_source.replace(encoding_start, match.capturedLength(), "encoding=\"UTF-8\"");
-}
-
-
-#if 0
-std::shared_ptr<xc::DOMDocument> XhtmlDoc::CopyDomDocument(const xc::DOMDocument &document)
-{
-    return RaiiWrapDocument(static_cast<xc::DOMDocument *>(document.cloneNode(true)));
-}
-#endif
-
-
 std::shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source)
 {
     XercesExt::LocationAwareDOMParser parser;
@@ -433,51 +342,6 @@ int XhtmlDoc::NodeColumnNumber(const xc::DOMNode &node)
 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
 {
-#if 0
-// FC
-    std::unique_ptr<xc::SAX2XMLReader> parser(xc::XMLReaderFactory::createXMLReader());
-    parser->setFeature(xc::XMLUni::fgSAX2CoreValidation,            false);
-    parser->setFeature(xc::XMLUni::fgXercesSchema,                  false);
-    parser->setFeature(xc::XMLUni::fgXercesLoadSchema,              false);
-    parser->setFeature(xc::XMLUni::fgXercesUseCachedGrammarInParse, true);
-    parser->setFeature(xc::XMLUni::fgXercesSkipDTDValidation,       true);
-    // We need the DGXMLScanner because of the entities
-    parser->setProperty(xc::XMLUni::fgXercesScannerName,
-                        (void *) xc::XMLUni::fgDGXMLScanner);
-    xc::MemBufInputSource xhtml_dtd(XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID);
-    parser->loadGrammar(xhtml_dtd, xc::Grammar::DTDGrammarType, true);
-    xc::MemBufInputSource ncx_dtd(NCX_2005_1_DTD, NCX_2005_1_DTD_LEN, NCX_2005_1_DTD_ID);
-    parser->loadGrammar(ncx_dtd, xc::Grammar::DTDGrammarType, true);
-    fc::ErrorResultCollector collector;
-    parser->setErrorHandler(&collector);
-    QString prepared_source = PrepareSourceForXerces(source);
-    // We use source.count() * 2 because count returns
-    // the number of QChars, which are 2 bytes long
-    xc::MemBufInputSource input(
-        reinterpret_cast<const XMLByte *>(prepared_source.utf16()),
-        prepared_source.count() * 2,
-        "empty");
-    XMLCh UTF16[] = { xc::chLatin_U, xc::chLatin_T, xc::chLatin_F, xc::chDigit_1, xc::chDigit_6, xc::chNull };
-    input.setEncoding(UTF16);
-
-    try {
-        parser->parse(input);
-    } catch (xc::SAXException &exception) {
-        collector.AddNewExceptionAsResult(exception);
-    } catch (xc::XMLException &exception) {
-        collector.AddNewExceptionAsResult(exception);
-    }
-
-    std::vector<fc::Result> results = collector.GetResults();
-
-    if (!results.empty()) {
-        XhtmlDoc::WellFormedError error;
-        error.line    = results[ 0 ].GetErrorLine();
-        error.column  = results[ 0 ].GetErrorColumn();
-        error.message = QString::fromUtf8(results[ 0 ].GetMessage().data());
-        return error;
-    }
-#else
     GumboInterface gi = GumboInterface(source);
     QList<GumboWellFormedError> results = gi.error_check();
     if (!results.isEmpty()) {
@@ -487,7 +351,6 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
         error.message = QString(results.at(0).message);
         return error;
     }
-#endif
     return XhtmlDoc::WellFormedError();
 }
 
@@ -496,47 +359,6 @@ bool XhtmlDoc::IsDataWellFormed(const QString &data)
 {
     XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
     return error.line == -1;
-}
-
-
-// This only exist because of a bug in Apple's GCC.
-// It has problems with templates in default arguments.
-xc::DOMElement *XhtmlDoc::CreateElementInDocument(
-    const QString &tag_name,
-    const QString &namespace_name,
-    xc::DOMDocument &document)
-{
-    return CreateElementInDocument(tag_name, namespace_name, document, QHash<QString, QString>());
-}
-
-
-xc::DOMElement *XhtmlDoc::CreateElementInDocument(
-    const QString &tag_name,
-    const QString &namespace_name,
-    xc::DOMDocument &document,
-    QHash<QString, QString> attributes)
-{
-    xc::DOMElement *element = document.createElementNS(QtoX(namespace_name), QtoX(tag_name));
-    foreach(QString attribute_name, attributes.keys()) {
-        element->setAttribute(QtoX(attribute_name), QtoX(attributes[ attribute_name ]));
-    }
-    return element;
-}
-
-
-xc::DOMElement *XhtmlDoc::RenameElementInDocument(xc::DOMDocument &document, xc::DOMNode &node, QString tag_name)
-{
-    xc::DOMElement *element = static_cast<xc::DOMElement *>(&node);
-    xc::DOMElement *new_element = CreateElementInDocument(tag_name, XtoQ(element->getNamespaceURI()), document, GetNodeAttributes(node));
-
-    // Move all the children
-    while (node.hasChildNodes()) {
-        new_element->appendChild(element->getFirstChild());
-    }
-
-    // Replace the old node with the new node
-    node.getParentNode()->replaceChild(new_element, element);
-    return new_element;
 }
 
 
@@ -653,22 +475,6 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
 }
 
 
-#if 0
-void XhtmlDoc::RemoveChildren(xc::DOMNode &node)
-{
-    while (true) {
-        xc::DOMNode *child = node.getFirstChild();
-
-        if (!child) {
-            break;
-        }
-
-        node.removeChild(child);
-    }
-}
-#endif
-
-
 // Returns the node's "real" name. We don't care
 // about namespace prefixes and whatnot.
 QString XhtmlDoc::GetNodeName(const xc::DOMNode &node)
@@ -683,9 +489,6 @@ QString XhtmlDoc::GetNodeName(const xc::DOMNode &node)
 }
 
 
-
-
-
 // TODO: this should be covered by attribute.localName(), no?
 QString XhtmlDoc::GetAttributeName(const xc::DOMAttr &attribute)
 {
@@ -698,29 +501,6 @@ QString XhtmlDoc::GetAttributeName(const xc::DOMAttr &attribute)
         return name.mid(colon_index + 1);
     }
 }
-
-
-#if 0
-xc::DOMDocumentFragment *XhtmlDoc::ConvertToDocumentFragment(const xc::DOMNodeList &list)
-{
-    if (list.getLength() == 0) {
-        return NULL;
-    }
-
-    xc::DOMDocumentFragment *fragment = list.item(0)->getOwnerDocument()->createDocumentFragment();
-    // Since a DomNodeList is "live", we store the count
-    // so we don't have to recalculate it every loop iteration
-    int count = list.getLength();
-
-    for (int i = 0; i < count; ++i) {
-        // We need to clone the node before inserting it in the
-        // fragment so as to pick up the node's descendants too
-        fragment->appendChild(list.item(i)->cloneNode(true));
-    }
-
-    return fragment;
-}
-#endif
 
 
 // Converts a DomNodeList to a regular QList
@@ -905,32 +685,6 @@ QString XhtmlDoc::GetIDElementText(GumboInterface & gi, GumboNode * node)
 }
 
 
-#if 0
-// Returns a list of ALL text nodes that are descendants
-// of the specified node.
-QList<xc::DOMNode *> XhtmlDoc::GetAllTextNodes(const xc::DOMNode &node)
-{
-    // TODO: investigate possible parallelization
-    // opportunities for this function (profile before and after!)
-    if (node.getNodeType() == xc::DOMNode::TEXT_NODE) {
-        return QList<xc::DOMNode *>() << const_cast<xc::DOMNode *>(&node);
-    } else {
-        if (node.hasChildNodes()) {
-            QList<xc::DOMNode *> children = GetNodeChildren(node);
-            QList<xc::DOMNode *> text_nodes;
-
-            for (int i = 0; i < children.count(); ++i) {
-                text_nodes.append(GetAllTextNodes(*children.at(i)));
-            }
-
-            return text_nodes;
-        }
-    }
-
-    return QList<xc::DOMNode *>();
-}
-#endif
-
 // Returns the first block element ancestor of the specified node
 xc::DOMNode &XhtmlDoc::GetAncestorBlockElement(const xc::DOMNode &node)
 {
@@ -1017,23 +771,6 @@ QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, 
     }
     return media_paths;
 }
-
-
-#if 0
-QStringList XhtmlDoc::GetAllHrefPaths(const xc::DOMNode &node)
-{
-    // Anchor tags
-    QList<xc::DOMElement *> nodes = GetTagMatchingDescendants(node, ANCHOR_TAGS);
-    QStringList hrefs;
-    // Get a list of all defined hrefs
-    foreach(xc::DOMElement * node, nodes) {
-        if (node->hasAttribute(QtoX("href"))) {
-            hrefs.append(XtoQ(node->getAttribute(QtoX("href"))));
-        }
-    }
-    return hrefs;
-}
-#endif
 
 
 // Accepts a reference to an XML stream reader positioned on an XML element.
@@ -1132,23 +869,4 @@ QList<ViewEditor::ElementIndex> XhtmlDoc::GetHierarchyFromNode(const xc::DOMNode
 
     return element_list;
 }
-
-#if 0
-QString XhtmlDoc::GetNodeChildrenAsString(const xc::DOMNode *node)
-{
-    QStringList builder;
-    QList<xc::DOMNode *> children;
-
-    if (!node) {
-        return QString();
-    }
-
-    children = GetNodeChildren(*node);
-    for (int i=0; i<children.count(); ++i) {
-        builder.append(GetDomNodeAsString(*children.at(i)));
-    }
-
-    return builder.join("");
-}
-#endif
 
