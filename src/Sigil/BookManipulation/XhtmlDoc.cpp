@@ -200,24 +200,6 @@ QList<xc::DOMNode *> XhtmlDoc::GetNodeChildren(const xc::DOMNode &node)
 }
 
 
-QHash<QString, QString> XhtmlDoc::GetNodeAttributes(const xc::DOMNode &node)
-{
-    QHash<QString, QString> attributes_hash;
-    xc::DOMNamedNodeMap *attributes = node.getAttributes();
-
-    if (!attributes) {
-        return attributes_hash;
-    }
-
-    for (uint i = 0; i < attributes->getLength(); ++i) {
-        xc::DOMAttr &attribute = *static_cast<xc::DOMAttr *>(attributes->item(i));
-        attributes_hash[ GetAttributeName(attribute) ] = XtoQ(attribute.getValue());
-    }
-
-    return attributes_hash;
-}
-
-
 QList<QString> XhtmlDoc::GetAllDescendantClasses(const QString & source)
 {
     GumboInterface gi = GumboInterface(source);
@@ -485,20 +467,6 @@ QString XhtmlDoc::GetNodeName(const xc::DOMNode &node)
         return XtoQ(node.getNodeName());
     } else {
         return local_name;
-    }
-}
-
-
-// TODO: this should be covered by attribute.localName(), no?
-QString XhtmlDoc::GetAttributeName(const xc::DOMAttr &attribute)
-{
-    QString name = XtoQ(attribute.getName());
-    int colon_index = name.lastIndexOf(QChar(':'));
-
-    if (colon_index < 0) {
-        return name;
-    } else {
-        return name.mid(colon_index + 1);
     }
 }
 
