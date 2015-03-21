@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **

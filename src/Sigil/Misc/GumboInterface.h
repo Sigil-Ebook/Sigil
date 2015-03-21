@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2012  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -48,18 +49,27 @@ public:
     void    parse();
     QString repair();
     QString getxhtml();
+
     GumboNode * get_root_node();
+    GumboNode* get_node_from_path(QList<unsigned int> & apath);
+    QList<unsigned int> get_path_to_node(GumboNode* node);
+
     QString perform_source_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
     QString perform_link_updates(const QString & newlinks);
     QString get_body_contents();
     QString perform_body_updates(const QString & new_body);
+
     QList<GumboNode*> get_all_nodes_with_attribute(const QString & attname);
     QStringList get_all_values_for_attribute(const QString & attname);
+    QHash<QString,QString> get_attributes_of_node(GumboNode* node);
+
     QList<GumboNode*> get_all_nodes_with_tag(GumboTag tag);
     QList<GumboNode*> get_all_nodes_with_tags(const QList<GumboTag> & tags);
+
     std::string get_tag_name(GumboNode *node);
-    QHash<QString,QString> get_attributes_of_node(GumboNode* node);
+
     QString get_local_text_of_node(GumboNode* node);
+
     QList<GumboWellFormedError> error_check();
 
 private:

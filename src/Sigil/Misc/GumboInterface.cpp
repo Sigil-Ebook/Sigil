@@ -184,6 +184,37 @@ QString GumboInterface::get_body_contents()
 }
 
 
+QList<unsigned int> GumboInterface::get_path_to_node(GumboNode* node) 
+{
+  QList<unsigned int> apath = QList<unsigned int>();
+  GumboNode* anode = node;
+  while (anode && !((anode->type == GUMBO_NODE_ELEMENT) && (anode->v.element.tag == GUMBO_TAG_HTML))) {
+      apath.prepend(anode->index_within_parent);
+      anode = anode->parent;
+  }
+  return apath;
+}
+
+
+GumboNode* GumboInterface::get_node_from_path(QList<unsigned int> & apath) 
+{
+   GumboNode* dest = get_root_node();
+   foreach(unsigned int childnum, apath) {
+       if ((dest->type == GUMBO_NODE_ELEMENT) || (dest->type == GUMBO_NODE_TEMPLATE)) {
+           GumboVector* children = &dest->v.element.children;
+           if (childnum < children->length) {
+               dest = static_cast<GumboNode*>(children->data[childnum]);
+           } else {
+             break;
+           }
+       } else {
+           break;
+       }
+   }
+   return dest;
+}
+
+
 QString GumboInterface::perform_body_updates(const QString & new_body) 
 {
     if (!m_source.isEmpty()) {
@@ -470,7 +501,13 @@ std::string GumboInterface::get_tag_name(GumboNode *node)
 {
   std::string tagname;
   if (node->type == GUMBO_NODE_DOCUMENT) {
-    tagname = "document";
+    tagname = "#document";
+    return tagname;
+  } else if ((node->type == GUMBO_NODE_TEXT) || (node->type == GUMBO_NODE_WHITESPACE)) {
+    tagname = "#text";
+    return tagname;
+  } else if (node->type == GUMBO_NODE_CDATA) {
+    tagname = "#cdata";
     return tagname;
   }
   tagname = gumbo_normalized_tagname(node->v.element.tag);

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2014 Kevin B. Hendricks, John Schember
+**  Copyright (C) 2015 Kevin B. Hendricks, John Schember
 **
 **  This file is part of Sigil.
 **

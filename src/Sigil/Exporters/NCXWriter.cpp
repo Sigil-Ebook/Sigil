@@ -158,7 +158,15 @@ NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker(Headings::Heading &heading)
     if (heading.include_in_toc) {
         ncx_child.text = heading.text;
         QString heading_file = heading.resource_file->GetRelativePathToOEBPS();
-        QString existing_ids = XtoQ(heading.element->getAttribute(QtoX("id"))).simplified();
+        QString source = heading.resource_file->GetText();
+        GumboInterface gi = GumboInterface(source);
+        gi.parse();
+        GumboNode* node = gi.get_node_from_path(heading.path_to_node);
+        QString existing_ids;
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "id");
+        if (attr) {
+            existing_ids = QString::fromUtf8(attr->value);
+        }
         QString id_to_use = existing_ids;
         foreach(QString id, existing_ids.split(QChar(' '))) {
             if (id.startsWith(SIGIL_TOC_ID_PREFIX)) {

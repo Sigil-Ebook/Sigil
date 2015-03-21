@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -25,9 +26,10 @@
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "BookManipulation/XercesCppUse.h"
+// #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Dialogs/HeadingSelector.h"
+#include "Misc/GumboInterface.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -243,12 +245,6 @@ void HeadingSelector::UpdateHeadingElements()
     // if required, setting ids etc.
     int next_toc_id = 1;
     UpdateOneHeadingElement(m_TableOfContents.invisibleRootItem(), used_ids, next_toc_id);
-    // Now iterate through the headings one final time, to save the underlying resources
-    // that we have changed.
-    QStringList ids;
-    foreach(Headings::Heading heading, m_Headings) {
-        ids = UpdateOneFile(heading, ids);
-    }
     // Finally check to see whether we did actually make a change to the book.
     foreach(Headings::Heading heading, m_Headings) {
         if (heading.is_changed) {
@@ -266,14 +262,23 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
     if (heading != NULL) {
         // Update heading inclusion: if a heading element
         // has one of the SIGIL_NOT_IN_TOC_CLASS classes, then it's not in the TOC
-        const QString &class_attribute = XtoQ(heading->element->getAttribute(QtoX("class")));
+
+        QString source = heading->resource_file->GetText();
+        GumboInterface gi = GumboInterface(source);
+        gi.parse();
+        GumboNode* node = gi.get_node_from_path(heading->path_to_node);
+
+        QString class_attribute;
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "class");
+        if (attr) {
+            class_attribute = QString::fromUtf8(attr->value);
+        }
         QString new_class_attribute = QString(class_attribute)
                                       .remove(SIGIL_NOT_IN_TOC_CLASS)
-                                      .remove(OLD_SIGIL_NOT_IN_TOC_CLASS)
-                                      .simplified();
+                                      .remove(OLD_SIGIL_NOT_IN_TOC_CLASS);
 
         if (!heading->include_in_toc) {
-            new_class_attribute = new_class_attribute.append(" " % SIGIL_NOT_IN_TOC_CLASS).simplified();
+            new_class_attribute = new_class_attribute.append(" " % SIGIL_NOT_IN_TOC_CLASS);
         }
 
         // Only apply the change if it is different
@@ -281,16 +286,20 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
             heading->is_changed = true;
 
             if (!new_class_attribute.isEmpty()) {
-                heading->element->setAttribute(QtoX("class"), QtoX(new_class_attribute));
+                gumbo_attribute_set_value(attr, new_class_attribute.toUtf8());
             } else {
-                heading->element->removeAttribute(QtoX("class"));
+                GumboElement* element = &node->v.element;
+                gumbo_element_remove_attribute(element, attr);
             }
         }
 
         // Now apply the new id as needed.
-        const QString &existing_id_attribute = heading->element->hasAttribute(QtoX("id"))
-                                               ? XtoQ(heading->element->getAttribute(QtoX("id")))
-                                               : QString();
+
+        QString existing_id_attribute;
+        attr = gumbo_get_attribute(&node->v.element.attributes, "id");
+        if (attr) {
+            existing_id_attribute = QString::fromUtf8(attr->value);
+        }
         QString new_id_attribute(existing_id_attribute);
 
         if (!heading->include_in_toc || heading->at_file_start) {
@@ -323,11 +332,18 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
             heading->is_changed = true;
 
             if (!new_id_attribute.isEmpty()) {
-                heading->element->setAttribute(QtoX("id"), QtoX(new_id_attribute));
+                gumbo_attribute_set_value(attr, new_id_attribute.toUtf8());
             } else {
-                heading->element->removeAttribute(QtoX("id"));
+                GumboElement* element = &node->v.element;
+                gumbo_element_remove_attribute(element, attr);
             }
         }
+
+        if (heading->is_changed) {
+            source = gi.getxhtml();
+            heading->resource_file->SetText(source);
+        }
+
     }
 
     if (item->hasChildren()) {
@@ -339,12 +355,12 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
     return next_toc_id;
 }
 
+
 QStringList HeadingSelector::UpdateOneFile(Headings::Heading &heading, QStringList ids)
 {
     // Only save the document if we have changed the heading
     if (heading.is_changed) {
         if (!ids.contains(heading.resource_file->GetIdentifier())) {
-            heading.resource_file->SetText(XhtmlDoc::GetDomDocumentAsString(*heading.document.get()));
             ids << heading.resource_file->GetIdentifier();
         }
     }
@@ -353,10 +369,11 @@ QStringList HeadingSelector::UpdateOneFile(Headings::Heading &heading, QStringLi
         for (int i = 0; i < heading.children.count(); ++i) {
             ids = UpdateOneFile(heading.children[ i ], ids);
         }
-    }
+     }
 
-    return ids;
+     return ids;
 }
+
 
 void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, const QString &title)
 {
@@ -368,7 +385,21 @@ void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, const QString &
         if (title != heading->title) {
             heading->title = title;
             heading->is_changed = true;
-            heading->element->setAttribute(QtoX("title"), QtoX(title));
+
+            QString source = heading->resource_file->GetText();
+            GumboInterface gi = GumboInterface(source);
+            gi.parse();
+            GumboNode* node = gi.get_node_from_path(heading->path_to_node);
+            GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "title");
+            // if the title attribute exists replace it, ow. ad a new title element
+            if (attr) {
+                gumbo_attribute_set_value(attr, title.toUtf8());
+            } else {
+                GumboElement* element = &node->v.element;
+                gumbo_element_set_attribute(element, "title", title.toUtf8());
+            }
+            source = gi.getxhtml();
+            heading->resource_file->SetText(source);
         }
     }
 }
@@ -415,11 +446,22 @@ void HeadingSelector::ChangeHeadingLevel(int change_amount)
     heading->level += change_amount;
     // Update whether we have made changes to the document for this heading element
     heading->is_changed = (heading->level != heading->orig_level) || (heading->title != heading->orig_title);
-    // Get new tag name
-    QString tag_name = XtoQ(heading->element->getTagName());
-    QString new_tag_name = "h" + QString::number(heading->level);
+
     // Rename in document
-    heading->element = XhtmlDoc::RenameElementInDocument(*heading->document, *heading->element, new_tag_name);
+    QList<GumboTag> HEADING_LOOKUP = QList<GumboTag>() << GUMBO_TAG_H1 << GUMBO_TAG_H2 << GUMBO_TAG_H3 << GUMBO_TAG_H4 << GUMBO_TAG_H5 << GUMBO_TAG_H6;
+    GumboTag new_tag = HEADING_LOOKUP.at(heading->level - 1);
+    QString source = heading->resource_file->GetText();
+    GumboInterface gi = GumboInterface(source);
+    gi.parse();
+    GumboNode* node = gi.get_node_from_path(heading->path_to_node);
+    if (node->type == GUMBO_NODE_ELEMENT) {
+        GumboTag old_tag = node->v.element.tag;
+        if (HEADING_LOOKUP.contains(old_tag)) {
+            node->v.element.tag = new_tag;
+            source = gi.getxhtml();
+            heading->resource_file->SetText(source);
+        }
+    }
     // Clear all children information then rebuild hierarchy
     QList<Headings::Heading> flat_headings = Headings::GetFlattenedHeadings(m_Headings);
 
@@ -575,8 +617,9 @@ void HeadingSelector::InsertHeadingIntoModel(Headings::Heading &heading, QStanda
     wrap.heading = &heading;
     item_heading->setData(QVariant::fromValue(wrap));
     // Apparently using \n in the string means you don't have to replace < with &lt; or > with &gt;
-    QString html = XhtmlDoc::GetDomNodeAsString(*heading.element).remove("xmlns=\"http://www.w3.org/1999/xhtml\"");
-    item_heading->setToolTip(heading.resource_file->Filename() + ":\n\n" + html);
+    // QString html = XhtmlDoc::GetDomNodeAsString(*heading.element).remove("xmlns=\"http://www.w3.org/1999/xhtml\"");
+    // item_heading->setToolTip(heading.resource_file->Filename() + ":\n\n" + html);
+    item_heading->setToolTip(heading.resource_file->Filename() + ":\n\n");
     QList<QStandardItem *> items;
     items << item_heading << heading_level << heading_included_check;
     parent_item->appendRow(items);

@@ -2,6 +2,7 @@
 #define _PYOBJECTPTR_H
 
 /*
+ *  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
  *  Much Simplified Version adapted from the PythonQt project.
  *  Original license and info provided below:
  * 

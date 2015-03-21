@@ -1,4 +1,5 @@
 /*
+ *  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
  * Much Simplified Version of PythonQtObjectPtr.cpp from the PythonQt Project
  * 
  * The original author and license are provided below:

@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -28,8 +29,9 @@
 #include <QtConcurrent/QtConcurrent>
 
 #include "BookManipulation/Headings.h"
-#include "BookManipulation/XercesCppUse.h"
+// #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "Misc/GumboInterface.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_constants.h"
@@ -40,6 +42,8 @@
 // be detected as the "name" for that chapter.
 // The value was picked arbitrarily.
 static const int ALLOWED_HEADING_DISTANCE = 20;
+
+const QList<GumboTag> GHEADING_TAGS = QList<GumboTag>() << GUMBO_TAG_H1 << GUMBO_TAG_H2 << GUMBO_TAG_H3 << GUMBO_TAG_H4 << GUMBO_TAG_H5 << GUMBO_TAG_H6;
 
 const QStringList HEADING_TAGS = QStringList() << "h1" << "h2" << "h3" << "h4" << "h5" << "h6";
 
@@ -69,47 +73,57 @@ QList<Headings::Heading> Headings::GetHeadingListForOneFile(HTMLResource *html_r
         bool include_unwanted_headings)
 {
     Q_ASSERT(html_resource);
-    // We have to store the shared pointer and then reference it otherwise it will
-    // not a have reference and the DOMDocument will be destroyed.
-    std::shared_ptr<xc::DOMDocument> d = XhtmlDoc::LoadTextIntoDocument(html_resource->GetText());
-    const xc::DOMDocument &document = *d.get();
-    QList<xc::DOMElement *> dom_elements = XhtmlDoc::GetTagMatchingDescendants(document, "body");
+    QString source = html_resource->GetText();
+    GumboInterface gi = GumboInterface(source);
+    gi.parse();
 
-    // We want to ensure we don't try to get an element out of an empty list.
-    // This could happen if there is no body but there should never be an HTMLResource
-    // without a body.
-    if (dom_elements.isEmpty()) {
-        return QList<Headings::Heading>();
+    // get original source line number of body element
+    unsigned int body_line = 0;
+    QList<GumboNode*> bodylist = gi.get_all_nodes_with_tag(GUMBO_TAG_BODY);
+    if (!bodylist.isEmpty()) {
+        GumboNode* body = bodylist.at(0);
+        body_line = body->v.element.start_pos.line;
     }
 
-    xc::DOMElement &body_element = *dom_elements.at(0);
-    QList<xc::DOMElement *> heading_nodes = XhtmlDoc::GetTagMatchingDescendants(document, HEADING_TAGS);
+    QList<GumboNode*> heading_nodes = gi.get_all_nodes_with_tags(GHEADING_TAGS);
     int num_heading_nodes = heading_nodes.count();
     QList<Headings::Heading> headings;
 
     for (int i = 0; i < num_heading_nodes; ++i) {
-        xc::DOMElement &element = *heading_nodes.at(i);
-        Q_ASSERT(&element);
+
+        GumboNode* node = heading_nodes.at(i);
+
         Heading heading;
+
         heading.resource_file  = html_resource;
-        heading.document       = d;
-        heading.element        = &element;
-        heading.title          = element.hasAttribute(QtoX("title"))
-                                 ? XtoQ(element.getAttribute(QtoX("title"))).simplified()
-                                 : QString();
+        heading.path_to_node = gi.get_path_to_node(node);
+
+        heading.title = QString();
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes,"title");
+        if (attr) {
+           heading.title = QString::fromUtf8(attr->value);
+        }
         heading.orig_title     = heading.title;
-        heading.text           = !heading.title.isNull() ?
-                                 heading.title :
-                                 XtoQ(element.getTextContent()).simplified();
-        heading.level          = QString(XtoQ(element.getTagName()).at(1)).toInt();
+        if (!heading.title.isEmpty()) {
+            heading.text = heading.title;
+        } else {
+            heading.text = gi.get_local_text_of_node(node);
+        }
+        heading.level = QString( QString::fromStdString(gi.get_tag_name(node)).at(1) ).toInt();
         heading.orig_level     = heading.level;
-        QString classes        = XtoQ(element.getAttribute(QtoX("class")));
+
+        QString classes  = QString();
+        attr = gumbo_get_attribute(&node->v.element.attributes,"class");
+        if (attr) {
+            classes = QString::fromUtf8(attr->value);
+        }
+
         heading.include_in_toc = !(classes.contains(SIGIL_NOT_IN_TOC_CLASS) ||
                                    classes.contains(OLD_SIGIL_NOT_IN_TOC_CLASS));
-        heading.at_file_start  =
-            i == 0 &&
-            XhtmlDoc::NodeLineNumber(element) -
-            XhtmlDoc::NodeLineNumber(body_element) < ALLOWED_HEADING_DISTANCE;
+
+        unsigned int node_line = node->v.element.start_pos.line;
+
+        heading.at_file_start = (i == 0) && ((node_line - body_line) < ALLOWED_HEADING_DISTANCE);
         heading.is_changed     = false;
 
         if (heading.include_in_toc || include_unwanted_headings) {

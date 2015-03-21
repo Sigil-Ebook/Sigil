@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2014  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2014  Kevin Hendricks
+**  Copyright (C) 2015  Kevin Hendricks
+**  Copyright (C) 2015  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **

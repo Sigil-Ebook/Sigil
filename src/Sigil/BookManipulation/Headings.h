@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -42,10 +43,7 @@ public:
         // The HTMLResource file the heading belongs to
         HTMLResource *resource_file;
 
-        std::shared_ptr<xc::DOMDocument> document;
-
-        // The DomElement of the heading in the file's DomDocument
-        xc::DOMElement *element;
+        QList<unsigned int> path_to_node;
 
         // Represents what the heading should
         // look like in the TOC.
