@@ -46,30 +46,42 @@ public:
 
     GumboInterface(const QString &source);
     ~GumboInterface();
+
     void    parse();
     QString repair();
     QString getxhtml();
 
+    // returns "html" node
     GumboNode * get_root_node();
+
+    // routines for working with gumbo paths
     GumboNode* get_node_from_path(QList<unsigned int> & apath);
     QList<unsigned int> get_path_to_node(GumboNode* node);
 
+    // routines for working with qwebpaths
+    GumboNode* get_node_from_qwebpath(QString webpath);
+    QString get_qwebpath_to_node(GumboNode* node);
+
+    // routines for updating while serializing (see SourceUpdates and AnchorUpdates
     QString perform_source_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
     QString perform_link_updates(const QString & newlinks);
     QString get_body_contents();
     QString perform_body_updates(const QString & new_body);
 
+    // routines for working with nodes with specific attributes
     QList<GumboNode*> get_all_nodes_with_attribute(const QString & attname);
     QStringList get_all_values_for_attribute(const QString & attname);
     QHash<QString,QString> get_attributes_of_node(GumboNode* node);
 
+    // routines for working with nodes with specific tags
     QList<GumboNode*> get_all_nodes_with_tag(GumboTag tag);
     QList<GumboNode*> get_all_nodes_with_tags(const QList<GumboTag> & tags);
 
+    // utility routines 
     std::string get_tag_name(GumboNode *node);
-
     QString get_local_text_of_node(GumboNode* node);
 
+    // routine to check if well-formed
     QList<GumboWellFormedError> error_check();
 
 private:

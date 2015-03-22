@@ -186,6 +186,7 @@ QList<XhtmlDoc::XMLElement> XhtmlDoc::GetTagsInDocument(const QString &source, c
 }
 
 
+#if 0
 QList<xc::DOMNode *> XhtmlDoc::GetNodeChildren(const xc::DOMNode &node)
 {
     xc::DOMNodeList *children = node.getChildNodes();
@@ -198,6 +199,7 @@ QList<xc::DOMNode *> XhtmlDoc::GetNodeChildren(const xc::DOMNode &node)
 
     return qtchildren;
 }
+#endif
 
 
 QList<QString> XhtmlDoc::GetAllDescendantClasses(const QString & source)
@@ -456,7 +458,7 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
     return linked_css_paths;
 }
 
-
+#if 0
 // Returns the node's "real" name. We don't care
 // about namespace prefixes and whatnot.
 QString XhtmlDoc::GetNodeName(const xc::DOMNode &node)
@@ -469,6 +471,7 @@ QString XhtmlDoc::GetNodeName(const xc::DOMNode &node)
         return local_name;
     }
 }
+#endif
 
 
 // Converts a DomNodeList to a regular QList
@@ -561,31 +564,25 @@ int XhtmlDoc::GetCustomIndexInList(const xc::DOMNode &node, const xc::DOMNodeLis
 
 // Returns a list of all the "visible" text nodes that are descendants
 // of the specified node. "Visible" means we ignore style tags, script tags etc...
-QList<xc::DOMNode *> XhtmlDoc::GetVisibleTextNodes(const xc::DOMNode &node)
+QList<GumboNode*> XhtmlDoc::GetVisibleTextNodes(GumboInterface & gi, GumboNode* node)
 {
-    // TODO: investigate possible parallelization
-    // opportunities for this function (profile before and after!)
-    if (node.getNodeType() == xc::DOMNode::TEXT_NODE) {
-        return QList<xc::DOMNode *>() << const_cast<xc::DOMNode *>(&node);
+    if ((node->type == GUMBO_NODE_TEXT) || (node->type == GUMBO_NODE_WHITESPACE)) {
+        return QList<GumboNode *>() << node;
+    } else if ((node->type == GUMBO_NODE_CDATA) || (node->type == GUMBO_NODE_COMMENT)) {
+        return QList<GumboNode*>();
     } else {
-        QString node_name = GetNodeName(node);
-
-        if (node.hasChildNodes()  &&
-            node_name != "script" &&
-            node_name != "style"
-           ) {
-            QList<xc::DOMNode *> children = GetNodeChildren(node);
-            QList<xc::DOMNode *> text_nodes;
-
-            for (int i = 0; i < children.count(); ++i) {
-                text_nodes.append(GetVisibleTextNodes(*children.at(i)));
+        QString node_name = QString::fromStdString(gi.get_tag_name(node));
+        GumboVector* children = &node->v.element.children;
+        if ((children->length > 0)  && (node_name != "script") && (node_name != "style")) {
+            QList<GumboNode *> text_nodes;
+            for (int i = 0; i < children->length; ++i) {
+                GumboNode* child = static_cast<GumboNode*>(children->data[i]);
+                text_nodes.append(GetVisibleTextNodes(gi, child));
             }
-
             return text_nodes;
         }
     }
-
-    return QList<xc::DOMNode *>();
+    return QList<GumboNode *>();
 }
 
 
@@ -654,22 +651,23 @@ QString XhtmlDoc::GetIDElementText(GumboInterface & gi, GumboNode * node)
 
 
 // Returns the first block element ancestor of the specified node
-xc::DOMNode &XhtmlDoc::GetAncestorBlockElement(const xc::DOMNode &node)
+GumboNode * XhtmlDoc::GetAncestorBlockElement(GumboInterface & gi, GumboNode* node)
 {
-    const xc::DOMNode *parent_node = &node;
+    GumboNode * parent_node = node;
 
     while (true) {
-        parent_node = parent_node->getParentNode();
-
-        if (BLOCK_LEVEL_TAGS.contains(GetNodeName(*parent_node))) {
+        parent_node = parent_node->parent;
+        QString node_name = QString::fromStdString(gi.get_tag_name(parent_node));
+        if (BLOCK_LEVEL_TAGS.contains(node_name)) {
             break;
         }
     }
 
     if (parent_node) {
-        return const_cast<xc::DOMNode &>(*parent_node);
+        return parent_node;
     } else {
-        return *(node.getOwnerDocument()->getElementsByTagName(QtoX("body"))->item(0));
+        // This assume a body tag must exist!  Gumbo will make sure of that unless parsing a fragment
+      return gi.get_all_nodes_with_tag(GUMBO_TAG_BODY).at(0);
     }
 }
 
@@ -819,6 +817,7 @@ xc::DOMNode *XhtmlDoc::GetNodeFromHierarchy(const xc::DOMDocument &document,
     return end_node;
 }
 
+#if 0
 // Creates a ViewEditor element hierarchy from the specified node
 QList<ViewEditor::ElementIndex> XhtmlDoc::GetHierarchyFromNode(const xc::DOMNode &node)
 {
@@ -837,4 +836,4 @@ QList<ViewEditor::ElementIndex> XhtmlDoc::GetHierarchyFromNode(const xc::DOMNode
 
     return element_list;
 }
-
+#endif

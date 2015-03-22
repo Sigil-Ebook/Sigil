@@ -184,6 +184,78 @@ QString GumboInterface::get_body_contents()
 }
 
 
+QString GumboInterface::get_qwebpath_to_node(GumboNode* node) 
+{
+    QStringList path_pieces;
+    GumboNode* anode = node;
+    while (anode && !((anode->type == GUMBO_NODE_ELEMENT) && (anode->v.element.tag == GUMBO_TAG_HTML))) {
+        GumboNode* myparent = anode->parent;
+        QString parent_name = QString::fromStdString(get_tag_name(myparent));
+        int index;
+        QString aname = QString::fromStdString(get_tag_name(anode));
+        if (aname == "#text") {
+            index = anode->index_within_parent;
+        } else {
+            // need to find child num in parent as if only elements exist
+            GumboVector* children = &myparent->v.element.children;
+            int elnum = 0;
+            for (int i=0; i < children->length; i++) {
+                GumboNode* child = static_cast<GumboNode*>(children->data[i]);
+                if (i == anode->index_within_parent) {
+                    break;
+                }
+                if ((child->type == GUMBO_NODE_ELEMENT) || (child->type == GUMBO_NODE_TEMPLATE)) {
+                    elnum++;
+                } 
+            }
+            index = elnum;
+        }
+        path_pieces.prepend(parent_name + " " +  QString::number(index));
+        anode = myparent;
+    }
+    return path_pieces.join(",");
+}
+
+
+GumboNode* GumboInterface::get_node_from_qwebpath(QString webpath) 
+{
+    QStringList path_pieces = webpath.split(",", QString::SkipEmptyParts);
+    GumboNode* node = get_root_node();
+    GumboNode* end_node = node;
+    for (int i=0; i < path_pieces.count() - 1 ; ++i) {
+        QString piece = path_pieces.at(i);
+        QString name = piece.split(" ")[0];
+        int index = piece.split(" ")[1].toInt();
+        GumboVector* children = &node->v.element.children;
+        GumboNode * next_node = NULL;
+        if (children->length > 0) {
+            if (path_pieces.at(i+1).startsWith("#text")) {
+                next_node = static_cast<GumboNode*>(children->data[index]);
+            } else {
+                // need to index correct child index when only counting elements
+                int elnum = -1;
+                for (int j=0; j < children->length; j++) {
+                    GumboNode* child = static_cast<GumboNode*>(children->data[j]);
+                    if ((child->type == GUMBO_NODE_ELEMENT) || (child->type == GUMBO_NODE_TEMPLATE)) {
+                        elnum++;
+                    }
+                    if (elnum == index) {
+                        next_node = child;
+                        break;
+                    }
+                }
+            }
+            if (next_node) {
+                end_node = next_node;
+                node = next_node;
+            } else {
+                break;
+            }
+         }
+     }
+     return end_node;
+}
+
 QList<unsigned int> GumboInterface::get_path_to_node(GumboNode* node) 
 {
   QList<unsigned int> apath = QList<unsigned int>();
@@ -287,7 +359,7 @@ QList<GumboNode*> GumboInterface::get_all_nodes_with_attribute(const QString& at
         if (m_output == NULL) {
             parse();
         }
-        nodes = get_nodes_with_attribute(m_output->root, attname.toUtf8()); 
+        nodes = get_nodes_with_attribute(m_output->root, attname.toUtf8().constData()); 
     }
     return nodes;
 }
@@ -318,7 +390,7 @@ QStringList GumboInterface::get_all_values_for_attribute(const QString& attname)
         if (m_output == NULL) {
             parse();
         }
-        attrvals = get_values_for_attr(m_output->root, attname.toUtf8()); 
+        attrvals = get_values_for_attr(m_output->root, attname.toUtf8().constData()); 
     }
     return attrvals;
 }

@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -27,9 +28,8 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWebKit/QWebSettings>
 #include <QtWebKitWidgets/QWebFrame>
-
-#include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "Misc/GumboInterface.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
@@ -261,7 +261,7 @@ bool BookViewPreview::FindNext(SearchTools &search_tools,
         if (ignore_selection_offset) {
             selection_offset = search_tools.fulltext.count();
         } else {
-            selection_offset = GetSelectionOffset(*search_tools.document, search_tools.node_offsets, search_direction);
+            selection_offset = GetSelectionOffset(search_tools.node_offsets, search_direction);
         }
 
         match_info = spcre->getLastMatchInfo(Utility::Substring(0, selection_offset, search_tools.fulltext));
@@ -269,7 +269,7 @@ bool BookViewPreview::FindNext(SearchTools &search_tools,
         if (ignore_selection_offset) {
             selection_offset = 0;
         } else {
-            selection_offset = GetSelectionOffset(*search_tools.document, search_tools.node_offsets, search_direction) - 1;
+            selection_offset = GetSelectionOffset(search_tools.node_offsets, search_direction) - 1;
         }
 
         match_info = spcre->getFirstMatchInfo(Utility::Substring(selection_offset, search_tools.fulltext.count(), search_tools.fulltext));
@@ -289,9 +289,9 @@ bool BookViewPreview::FindNext(SearchTools &search_tools,
 
         last_match.offset.first += selection_offset;
         last_match.offset.second += selection_offset;
-        SelectRangeInputs input = GetRangeInputs(search_tools.node_offsets, match_info.offset.first + start_offset, match_info.offset.second - match_info.offset.first);
+        SelectRangeInputs input = GetRangeInputs(search_tools.node_offsets, match_info.offset.first + start_offset, match_info.offset.second - match_info.offset.first, search_tools.textlen);
         SelectTextRange(input);
-        ScrollToNodeText(*input.start_node, input.start_node_index);
+        ScrollToNodeText(input.start_node, input.start_node_index);
         return true;
     } else if (wrap) {
         if (FindNext(search_regex, search_direction, check_spelling, true, false)) {
@@ -431,12 +431,15 @@ int BookViewPreview::GetLocalSelectionOffset(bool start_of_selection)
     }
 }
 
-int BookViewPreview::GetSelectionOffset(const xc::DOMDocument &document,
-                                        const QMap<int, xc::DOMNode *> &node_offsets,
+int BookViewPreview::GetSelectionOffset(const QMap<int, QString> &node_offsets,
                                         Searchable::Direction search_direction)
 {
     QList<ViewEditor::ElementIndex> cl = GetCaretLocation();
-    xc::DOMNode *caret_node = XhtmlDoc::GetNodeFromHierarchy(document, cl);
+    // remove final #text node if it exists
+    if (cl.at(cl.count()-1).name == "#text") {
+        cl.removeLast();
+    }
+    QString caret_node = ConvertHierarchyToQWebPath(cl);
     bool searching_down = search_direction == Searchable::Direction_Down ? true : false;
     int local_offset    = GetLocalSelectionOffset(!searching_down);
     int search_start    = node_offsets.key(caret_node) + local_offset;
@@ -448,31 +451,36 @@ BookViewPreview::SearchTools BookViewPreview::GetSearchTools() const
 {
     SearchTools search_tools;
     search_tools.fulltext = "";
-    search_tools.document = XhtmlDoc::LoadTextIntoDocument(page()->mainFrame()->toHtml());
-    QList<xc::DOMNode *> text_nodes = XhtmlDoc::GetVisibleTextNodes(
-                                          *(search_tools.document->getElementsByTagName(QtoX("body"))->item(0)));
-    xc::DOMNode *current_block_ancestor = NULL;
+    QString source = page()->mainFrame()->toHtml();
+    GumboInterface gi = GumboInterface(source);
+    gi.parse();
+
+    // start with body node
+    // Gumbo adds body tag if missing (unless parsing a fragment which we are not doing)
+    GumboNode* node = gi.get_all_nodes_with_tag(GUMBO_TAG_BODY).at(0);
+    QList<GumboNode *> text_nodes = XhtmlDoc::GetVisibleTextNodes(gi, node);
+    GumboNode *  current_block_ancestor = NULL;
 
     // We concatenate all text nodes that have the same
     // block level ancestor element. A newline is added
     // when a new block element starts.
     // We also record the starting offset of every text node.
     for (int i = 0; i < text_nodes.count(); ++i) {
-        xc::DOMNode *new_block_ancestor = &XhtmlDoc::GetAncestorBlockElement(*text_nodes[ i ]);
-
-        if (new_block_ancestor == current_block_ancestor) {
-            search_tools.node_offsets[ search_tools.fulltext.length() ] = text_nodes[ i ];
-            search_tools.fulltext.append(XtoQ(text_nodes[ i ]->getNodeValue()));
-        } else {
+        GumboNode * anode = text_nodes.at(i);
+        GumboNode *new_block_ancestor = XhtmlDoc::GetAncestorBlockElement(gi, anode);
+        QString webpath = gi.get_qwebpath_to_node(anode); 
+        if (new_block_ancestor != current_block_ancestor) {
             current_block_ancestor = new_block_ancestor;
             search_tools.fulltext.append("\n");
-            search_tools.node_offsets[ search_tools.fulltext.length() ] = text_nodes[ i ];
-            search_tools.fulltext.append(XtoQ(text_nodes[ i ]->getNodeValue()));
         }
+        search_tools.node_offsets[ search_tools.fulltext.length() ] = webpath;
+        search_tools.fulltext.append(QString::fromUtf8(anode->v.text.text));
     }
-
+    search_tools.textlen = search_tools.fulltext.length();
     return search_tools;
 }
+
+
 
 
 QString BookViewPreview::GetElementSelectingJS_NoTextNodes(const QList<ViewEditor::ElementIndex> &hierarchy) const
@@ -509,15 +517,32 @@ QList<ViewEditor::ElementIndex> BookViewPreview::GetCaretLocation()
 {
     // The location element hierarchy encoded in a string
     QString location_string = EvaluateJavascript(c_GetCaretLocation).toString();
+    return ConvertQWebPathToHierarchy(location_string);
+}
+
+QList<ViewEditor::ElementIndex> BookViewPreview::ConvertQWebPathToHierarchy(const QString & webpath) const
+{
+    // The location element hierarchy encoded in a string
+    QString location_string = webpath;
     QStringList elements    = location_string.split(",", QString::SkipEmptyParts);
-    QList<ElementIndex> caret_location;
+    QList<ElementIndex> location;
     foreach(QString element, elements) {
         ElementIndex new_element;
         new_element.name  = element.split(" ")[ 0 ];
         new_element.index = element.split(" ")[ 1 ].toInt();
-        caret_location.append(new_element);
+        location.append(new_element);
     }
-    return caret_location;
+    return location;
+}
+
+QString BookViewPreview::ConvertHierarchyToQWebPath(const QList<ViewEditor::ElementIndex>& hierarchy)
+{
+    QStringList pathparts;
+    for (int i=0; i < hierarchy.count(); i++) {
+        QString part = hierarchy.at(i).name + " " + QString::number(hierarchy.at(i).index);
+        pathparts.append(part);
+    }
+    return pathparts.join(",");
 }
 
 void BookViewPreview::StoreCurrentCaretLocation()
@@ -551,9 +576,9 @@ QString BookViewPreview::GetElementSelectingJS_WithTextNode(const QList<ViewEdit
     return element_selector;
 }
 
-QWebElement BookViewPreview::DomNodeToQWebElement(const xc::DOMNode &node)
+QWebElement BookViewPreview::QWebPathToQWebElement(const QString & webpath)
 {
-    const QList<ViewEditor::ElementIndex> &hierarchy = XhtmlDoc::GetHierarchyFromNode(node);
+    const QList<ViewEditor::ElementIndex> &hierarchy = ConvertQWebPathToHierarchy(webpath);
     QWebElement element = page()->mainFrame()->documentElement();
     element.findFirst("html");
 
@@ -596,9 +621,8 @@ bool BookViewPreview::ExecuteCaretUpdate(const QString &caret_update)
     return false;
 }
 
-BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs(const QMap<int, xc::DOMNode *> &node_offsets,
-        int string_start,
-        int string_length) const
+BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs(const QMap<int, QString> &node_offsets,
+        int string_start, int string_length, int textlen) const
 {
     SelectRangeInputs input;
     QList<int> offsets = node_offsets.keys();
@@ -612,27 +636,26 @@ BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs(const QMap<in
             next_offset = offsets[ i + 1 ];
         }
         // Otherwise compute it
-        else
+        else {
             // + 1 because we are pretending there is another text node after this one
-        {
-            next_offset = offsets[ i ] + XtoQ(node_offsets[ offsets[ i ] ]->getNodeValue()).length() + 1;
+            next_offset = offsets[ i ] + textlen + 1;
         }
 
         if (next_offset > string_start &&
-            input.start_node == NULL
+            input.start_node.isEmpty()
            ) {
             input.start_node_index = string_start - last_offset;
             input.start_node       = node_offsets.value(last_offset);
         }
 
         if (next_offset > string_start + string_length &&
-            input.end_node == NULL
+            input.end_node.isEmpty()
            ) {
             input.end_node_index = string_start + string_length - last_offset;
             input.end_node       = node_offsets.value(last_offset);
         }
 
-        if (input.start_node != NULL && input.end_node != NULL) {
+        if (!input.start_node.isEmpty() && !input.end_node.isEmpty()) {
             break;
         }
 
@@ -640,14 +663,14 @@ BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs(const QMap<in
     }
 
     // TODO: throw an exception
-    Q_ASSERT(input.start_node != NULL && input.end_node != NULL);
+    Q_ASSERT(!(input.start_node.isEmpty()) && !(input.end_node.isEmpty()));
     return input;
 }
 
 QString BookViewPreview::GetRangeJS(const SelectRangeInputs &input) const
 {
-    QString start_node_js = GetElementSelectingJS_WithTextNode(XhtmlDoc::GetHierarchyFromNode(*input.start_node));
-    QString end_node_js   = GetElementSelectingJS_WithTextNode(XhtmlDoc::GetHierarchyFromNode(*input.end_node));
+    QString start_node_js = GetElementSelectingJS_WithTextNode(ConvertQWebPathToHierarchy(input.start_node));
+    QString end_node_js   = GetElementSelectingJS_WithTextNode(ConvertQWebPathToHierarchy(input.end_node));
     QString start_node_index = QString::number(input.start_node_index);
     QString end_node_index   = QString::number(input.end_node_index);
     QString get_range_js = c_GetRange;
@@ -664,10 +687,10 @@ void BookViewPreview::SelectTextRange(const SelectRangeInputs &input)
 }
 
 
-void BookViewPreview::ScrollToNodeText(const xc::DOMNode &node, int character_offset)
+void BookViewPreview::ScrollToNodeText(const QString & webpath, int character_offset)
 {
     const int MIN_MARGIN = 20;
-    const QWebElement element = DomNodeToQWebElement(node);
+    const QWebElement element = QWebPathToQWebElement(webpath);
     QRect element_geometry    = element.geometry();
     int elem_offset  = element_geometry.top();
     int elem_height  = element_geometry.height();

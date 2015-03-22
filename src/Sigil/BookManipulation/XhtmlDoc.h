@@ -73,7 +73,7 @@ public:
     // in the entire document of the provided XHTML source code
     static QList<XMLElement> GetTagsInDocument(const QString &source, const QString &tag_name);
 
-    static QList<xc::DOMNode *> GetNodeChildren(const xc::DOMNode &node);
+    // static QList<xc::DOMNode *> GetNodeChildren(const xc::DOMNode &node);
 
     static QList<QString> GetAllDescendantStyleUrls(const QString & source);
     static QList<QString> GetAllDescendantHrefs(const QString & source);
@@ -135,7 +135,7 @@ public:
 
     // Returns the node's "real" name. We don't care
     // about namespace prefixes and whatnot.
-    static QString GetNodeName(const xc::DOMNode &node);
+    // static QString GetNodeName(const xc::DOMNode &node);
 
     // Converts a DomNodeList to a regular QList
     static QList<xc::DOMNode *> ConvertToRegularList(const xc::DOMNodeList &list);
@@ -158,7 +158,7 @@ public:
 
     // Returns a list of all the "visible" text nodes that are descendants
     // of the specified node. "Visible" means we ignore style tags, script tags etc...
-    static QList<xc::DOMNode *> GetVisibleTextNodes(const xc::DOMNode &node);
+    static QList<GumboNode*> GetVisibleTextNodes(GumboInterface & gi, GumboNode* node);
 
     // Returns a list of all the nodes that are suitable for use with "id" attributes
     static QList<GumboNode*> GetIDNodes(GumboInterface & gi, GumboNode* node);
@@ -171,7 +171,7 @@ public:
     // static QList<xc::DOMNode *> GetAllTextNodes(const xc::DOMNode &node);
 
     // Returns the first block element ancestor of the specified node
-    static xc::DOMNode &GetAncestorBlockElement(const xc::DOMNode &node);
+    static GumboNode * GetAncestorBlockElement(GumboInterface & gi, GumboNode * node);
 
     static GumboNode * GetAncestorIDElement(GumboInterface & gi, GumboNode* node);
 
@@ -186,7 +186,7 @@ public:
             const QList<ViewEditor::ElementIndex> &hierarchy);
 
     // Creates a ViewEditor element hierarchy from the specified node
-    static QList<ViewEditor::ElementIndex> GetHierarchyFromNode(const xc::DOMNode &node);
+    // static QList<ViewEditor::ElementIndex> GetHierarchyFromNode(const xc::DOMNode &node);
 
 private:
 

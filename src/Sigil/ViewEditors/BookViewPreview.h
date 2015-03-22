@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -99,6 +100,10 @@ public:
 
     // inherited
     QList<ViewEditor::ElementIndex> GetCaretLocation();
+
+    // methods for working with and converting QWebPaths to ViewEditor::ElementIndex Lists 
+    QList<ViewEditor::ElementIndex> ConvertQWebPathToHierarchy(const QString & webpath) const;
+    QString ConvertHierarchyToQWebPath(const QList<ViewEditor::ElementIndex>& hierarchy);
 
     // inherited
     void StoreCaretLocationUpdate(const QList<ViewEditor::ElementIndex> &hierarchy);
@@ -223,7 +228,7 @@ private:
      *
      * @param node The node to covert.
      */
-    QWebElement DomNodeToQWebElement(const xc::DOMNode &node);
+    QWebElement QWebPathToQWebElement(const QString & webpath);
 
     /**
      * Returns the local character offset of the selection.
@@ -238,13 +243,11 @@ private:
     /**
      * Returns the selection offset from the start of the document.
      *
-     * @param document The loaded DOM document.
      * @param node_offsets The text node offset map from SearchTools.
      * @param search_direction The direction of the search.
      * @return The offset.
      */
-    int GetSelectionOffset(const xc::DOMDocument &document,
-                           const QMap<int, xc::DOMNode *> &node_offsets,
+    int GetSelectionOffset(const QMap<int, QString> &node_offsets,
                            Searchable::Direction search_direction);
 
     /**
@@ -260,12 +263,12 @@ private:
          * A map with text node starting offsets as keys,
          * and those text nodes as values.
          */
-        QMap<int, xc::DOMNode *> node_offsets;
+        QMap<int, QString> node_offsets;
 
-        /**
-         *  A DOM document with the loaded text.
-         */
-        std::shared_ptr<xc::DOMDocument> document;
+      /**
+       * length of full text
+       */
+        int textlen;
     };
 
     /**
@@ -287,20 +290,20 @@ private:
     struct SelectRangeInputs {
         SelectRangeInputs()
             :
-            start_node(NULL),
-            end_node(NULL),
+            start_node(QString()),
+            end_node(QString()),
             start_node_index(-1),
             end_node_index(-1) {}
 
         /**
          * The range start node.
          */
-        xc::DOMNode *start_node;
+        QString start_node;
 
         /**
          *  The range end node.
          */
-        xc::DOMNode *end_node;
+        QString end_node;
 
         /**
          * The char index inside the start node.
@@ -323,9 +326,10 @@ private:
      * @return The inputs for a \c range object.
      * @see SearchTools
      */
-    SelectRangeInputs GetRangeInputs(const QMap<int, xc::DOMNode *> &node_offsets,
+    SelectRangeInputs GetRangeInputs(const QMap<int, QString> &node_offsets,
                                      int string_start,
-                                     int string_length) const;
+                                     int string_length,
+                                     int textlen) const;
 
     /**
      * Converts the \c range input struct into the \c range creating JavaScript code.
@@ -350,7 +354,7 @@ private:
      * @param character_offset The specific offset we're interested
      *                         in within the node.
      */
-    void ScrollToNodeText(const xc::DOMNode &node, int character_offset);
+    void ScrollToNodeText(const QString & webpath, int character_offset);
 
     /**
      * Returns the all the necessary tools for searching.
