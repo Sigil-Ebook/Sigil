@@ -45,7 +45,7 @@
 #include <QFileInfo>
 
 #include "BookManipulation/CleanSource.h"
-#include "BookManipulation/XercesCppUse.h"
+// #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
@@ -279,6 +279,7 @@ QList<QString> XhtmlDoc::GetAllDescendantHrefs(const QString & source)
 }
 
 
+#if 0
 std::shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source)
 {
     XercesExt::LocationAwareDOMParser parser;
@@ -304,25 +305,28 @@ std::shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &s
     parser.parse(input);
     return RaiiWrapDocument(parser.adoptDocument());
 }
+#endif
 
-
+# if 0
 std::shared_ptr<xc::DOMDocument> XhtmlDoc::RaiiWrapDocument(xc::DOMDocument *document)
 {
     return std::shared_ptr<xc::DOMDocument>(document, XercesExt::XercesDeallocator<xc::DOMDocument>);
 }
+#endif
 
-
+#if 0
 int XhtmlDoc::NodeLineNumber(const xc::DOMNode &node)
 {
     return XercesExt::GetNearestNodeLocationInfo(node).LineNumber;
 }
+#endif
 
-
+#if 0
 int XhtmlDoc::NodeColumnNumber(const xc::DOMNode &node)
 {
     return XercesExt::GetNearestNodeLocationInfo(node).ColumnNumber;
 }
-
+#endif
 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
 {
@@ -474,6 +478,7 @@ QString XhtmlDoc::GetNodeName(const xc::DOMNode &node)
 #endif
 
 
+#if 0
 // Converts a DomNodeList to a regular QList
 QList<xc::DOMNode *> XhtmlDoc::ConvertToRegularList(const xc::DOMNodeList &list)
 {
@@ -488,8 +493,9 @@ QList<xc::DOMNode *> XhtmlDoc::ConvertToRegularList(const xc::DOMNodeList &list)
 
     return nodes;
 }
+#endif
 
-
+#if 0
 // Returns a list with only the element nodes
 QList<xc::DOMNode *> XhtmlDoc::ExtractElements(const xc::DOMNodeList &list)
 {
@@ -508,8 +514,9 @@ QList<xc::DOMNode *> XhtmlDoc::ExtractElements(const xc::DOMNodeList &list)
 
     return element_nodes;
 }
+#endif
 
-
+#if 0
 // Returns the node's real index in the list
 int XhtmlDoc::GetRealIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list)
 {
@@ -525,7 +532,9 @@ int XhtmlDoc::GetRealIndexInList(const xc::DOMNode &node, const xc::DOMNodeList 
 
     return -1;
 }
+#endif
 
+#if 0
 // Returns the node's "element" index
 // (pretending the list is only made up of element nodes).
 int XhtmlDoc::GetElementIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list)
@@ -547,7 +556,9 @@ int XhtmlDoc::GetElementIndexInList(const xc::DOMNode &node, const xc::DOMNodeLi
 
     return -1;
 }
+#endif
 
+#if 0
 // Returns the index of node in the specified list
 // depending on the node type. Text nodes get the "real"
 // index, element nodes get the "element" index
@@ -560,7 +571,7 @@ int XhtmlDoc::GetCustomIndexInList(const xc::DOMNode &node, const xc::DOMNodeLis
         return GetElementIndexInList(node, list);
     }
 }
-
+#endif
 
 // Returns a list of all the "visible" text nodes that are descendants
 // of the specified node. "Visible" means we ignore style tags, script tags etc...
@@ -763,7 +774,7 @@ XhtmlDoc::XMLElement XhtmlDoc::CreateXMLElement(QXmlStreamReader &reader)
     return element;
 }
 
-
+#if 0
 QString XhtmlDoc::PrepareSourceForXerces(const QString &source)
 {
     QString prefix = source.left(XML_DECLARATION_SEARCH_PREFIX_SIZE);
@@ -771,8 +782,9 @@ QString XhtmlDoc::PrepareSourceForXerces(const QString &source)
     QRegularExpressionMatch match = standalone.match(prefix);
     return QString(source).remove(match.capturedStart(), match.capturedLength());
 }
+#endif
 
-
+#if 0
 // Returns the node identified by the specified ViewEditor element hierarchy
 xc::DOMNode *XhtmlDoc::GetNodeFromHierarchy(const xc::DOMDocument &document,
         const QList<ViewEditor::ElementIndex> &hierarchy)
@@ -816,6 +828,7 @@ xc::DOMNode *XhtmlDoc::GetNodeFromHierarchy(const xc::DOMDocument &document,
 
     return end_node;
 }
+#endif
 
 #if 0
 // Creates a ViewEditor element hierarchy from the specified node

@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -39,9 +40,9 @@
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
-#include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "MainUI/MainWindow.h"
+#include "Misc/GumboInterface.h"
 #include "Misc/XHTMLHighlighter.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/CSSHighlighter.h"
@@ -2152,7 +2153,7 @@ QList<ViewEditor::ElementIndex> CodeViewEditor::GetCaretLocation()
     QRegularExpression tag(XML_OPENING_TAG);
     QRegularExpressionMatchIterator i = tag.globalMatch(toPlainText());
     // There is no way to search for the last match (str.lastIndexOf) in a string and also have
-    // the matched text length. So we search forward for every match (QRegularExpression doen't
+    // the matched text length. So we search forward for every match (QRegularExpression doesn't
     // have a way to search backwards) and only use the last match's info.
     while (i.hasNext()) {
         QRegularExpressionMatch mo = i.next();
@@ -2218,6 +2219,17 @@ QStack<CodeViewEditor::StackElement> CodeViewEditor::GetCaretLocationStack(int o
 }
 
 
+QString CodeViewEditor::ConvertHierarchyToQWebPath(const QList<ViewEditor::ElementIndex>& hierarchy) const
+{
+    QStringList pathparts;
+    for (int i=0; i < hierarchy.count(); i++) {
+        QString part = hierarchy.at(i).name + " " + QString::number(hierarchy.at(i).index);
+        pathparts.append(part);
+    }
+    return pathparts.join(",");
+}
+
+
 QList<ViewEditor::ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QStack<StackElement> stack) const
 {
     QList<ViewEditor::ElementIndex> hierarchy;
@@ -2233,13 +2245,24 @@ QList<ViewEditor::ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QS
 
 std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const
 {
-    std::shared_ptr<xc::DOMDocument> dom = XhtmlDoc::LoadTextIntoDocument(toPlainText());
-    xc::DOMNode *end_node = XhtmlDoc::GetNodeFromHierarchy(*dom, hierarchy);
+    QString source = toPlainText();
+    GumboInterface gi = GumboInterface(source);
+    gi.parse();
+    QString webpath = ConvertHierarchyToQWebPath(hierarchy);
+    GumboNode* end_node = gi.get_node_from_qwebpath(webpath);
+    unsigned int line = 0;
+    unsigned int col = 0;
+    if ((end_node->type == GUMBO_NODE_TEXT) || (end_node->type == GUMBO_NODE_WHITESPACE) || 
+        (end_node->type == GUMBO_NODE_CDATA) || (end_node->type == GUMBO_NODE_COMMENT)) {
+      line = end_node->v.text.start_pos.line + 1; // compensate for xml header removed for gumbo
+        col = end_node->v.text.start_pos.column;
+    } else if ((end_node->type == GUMBO_NODE_ELEMENT) || (end_node->type == GUMBO_NODE_TEMPLATE)) {
+      line = end_node->v.element.start_pos.line + 1; // comprensate for xml header removed for gumbo
+        col = end_node->v.element.start_pos.column;
+    }
     QTextCursor cursor(document());
-
     if (end_node)
-        return std::make_tuple(XhtmlDoc::NodeLineNumber(*end_node) - cursor.blockNumber(),
-                          XhtmlDoc::NodeColumnNumber(*end_node));
+        return std::make_tuple(line - cursor.blockNumber(), col);
     else {
         return std::make_tuple(0, 0);
     }

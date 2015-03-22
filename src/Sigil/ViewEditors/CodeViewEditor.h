@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>, Nokia Corporation
+**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON Canada 
+**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -635,6 +636,10 @@ private:
      * @return The converted ElementIndex hierarchy.
      */
     QList<ElementIndex> ConvertStackToHierarchy(const QStack<StackElement> stack) const;
+
+
+    // Used to convert Hierarchy to QWedPath used by BV and Gumbo
+    QString ConvertHierarchyToQWebPath(const QList<ViewEditor::ElementIndex>& hierarchy) const;
 
     /**
      * Converts a ViewEditor element hierarchy to a tuple describing necessary caret moves.

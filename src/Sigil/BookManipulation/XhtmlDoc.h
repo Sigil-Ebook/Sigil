@@ -84,13 +84,13 @@ public:
      * Parses the source text into a DOM and returns a shared pointer
      * to the heap-created document.
      */
-    static std::shared_ptr<xc::DOMDocument> LoadTextIntoDocument(const QString &source);
+    // static std::shared_ptr<xc::DOMDocument> LoadTextIntoDocument(const QString &source);
 
-    static std::shared_ptr<xc::DOMDocument> RaiiWrapDocument(xc::DOMDocument *document);
+    // static std::shared_ptr<xc::DOMDocument> RaiiWrapDocument(xc::DOMDocument *document);
 
-    static int NodeLineNumber(const xc::DOMNode &node);
+    // static int NodeLineNumber(const xc::DOMNode &node);
 
-    static int NodeColumnNumber(const xc::DOMNode &node);
+    // static int NodeColumnNumber(const xc::DOMNode &node);
 
     struct WellFormedError {
         int line;
@@ -138,23 +138,23 @@ public:
     // static QString GetNodeName(const xc::DOMNode &node);
 
     // Converts a DomNodeList to a regular QList
-    static QList<xc::DOMNode *> ConvertToRegularList(const xc::DOMNodeList &list);
+    // static QList<xc::DOMNode *> ConvertToRegularList(const xc::DOMNodeList &list);
 
     // Returns a list with only the element nodes
-    static QList<xc::DOMNode *> ExtractElements(const xc::DOMNodeList &list);
+    // static QList<xc::DOMNode *> ExtractElements(const xc::DOMNodeList &list);
 
     // Returns the node's real index in the list
-    static int GetRealIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list);
+    // static int GetRealIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list);
 
     // Returns the node's "element" index
     // (pretending the list is only made up of element nodes).
-    static int GetElementIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list);
+    // static int GetElementIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list);
 
     // Returns the index of node in the specified list
     // depending on the node type. Text nodes get the "real"
     // index, element nodes get the "element" index
     // (pretending the list is only made up of element nodes).
-    static int GetCustomIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list);
+    // static int GetCustomIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list);
 
     // Returns a list of all the "visible" text nodes that are descendants
     // of the specified node. "Visible" means we ignore style tags, script tags etc...
@@ -182,8 +182,8 @@ public:
     static QStringList GetAllMediaPathsFromMediaChildren(const QString & source, QList<GumboTag> tags);
 
     // Returns the node identified by the specified ViewEditor element hierarchy
-    static xc::DOMNode *GetNodeFromHierarchy(const xc::DOMDocument &document,
-            const QList<ViewEditor::ElementIndex> &hierarchy);
+    // static xc::DOMNode *GetNodeFromHierarchy(const xc::DOMDocument &document,
+    //         const QList<ViewEditor::ElementIndex> &hierarchy);
 
     // Creates a ViewEditor element hierarchy from the specified node
     // static QList<ViewEditor::ElementIndex> GetHierarchyFromNode(const xc::DOMNode &node);
@@ -194,7 +194,7 @@ private:
     // Returns an XMLElement struct with the data in the stream.
     static XMLElement CreateXMLElement(QXmlStreamReader &reader);
 
-    static QString PrepareSourceForXerces(const QString &source);
+    // static QString PrepareSourceForXerces(const QString &source);
 };
 
 #endif // XHTMLDOC_H
