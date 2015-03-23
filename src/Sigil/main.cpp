@@ -21,7 +21,6 @@
 
 #include "Misc/EmbeddedPython.h"
 #include <iostream>
-#include <XercesInit.h>
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
@@ -218,7 +217,6 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(MessageHandler);
 #endif
     MainApplication app(argc, argv);
-    XercesExt::XercesInit init;
     EmbeddedPython* epython = EmbeddedPython::instance();
     epython->addToPythonSysPath(epython->embeddedRoot());
 

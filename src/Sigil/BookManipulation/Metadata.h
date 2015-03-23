@@ -29,7 +29,6 @@
 #include <QtCore/QObject>
 
 #include "Misc/GumboInterface.h"
-#include "BookManipulation/XercesHUse.h"
 #include "ResourceObjects/OPFParser.h"
 
 class QMutex;

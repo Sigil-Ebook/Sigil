@@ -174,10 +174,7 @@ private:
 
     void RemoveDuplicateGuideTypes(GuideSemantics::GuideSemanticType new_type, OPFParser &p);
 
-    QHash<HTMLResource *, xc::DOMElement *> GetItemrefsForHTMLResources(
-        const QList<HTMLResource *> html_files);
-
-    // CAN BE -1 means no cover meta element
+        // CAN BE -1 means no cover meta element
     int GetCoverMeta(const OPFParser &p) const;
 
     QString GetResourceManifestID(const Resource &resource, const OPFParser &p) const;

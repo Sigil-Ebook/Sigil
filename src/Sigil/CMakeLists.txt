@@ -92,8 +92,6 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/XhtmlDoc.h
     BookManipulation/GuideSemantics.cpp
     BookManipulation/GuideSemantics.h
-    BookManipulation/XercesCppUse.h
-    BookManipulation/XercesHUse.h
     )
 
 set( RESOURCE_OBJECT_FILES

@@ -362,14 +362,14 @@ QString CodeViewEditor::SplitSection()
         cursor.insertBlock();
     }
 
-    // There is a scenario which causes Xerces disaster - if our split point is next to
-    // a <br/> tag then Xerces will discard all content after the end of the current block.
+    // There is a scenario which can cause disaster - if our split point is next to
+    // a <br/> tag then parsing may discard all content after the end of the current block.
     // e.g. If split point is: <br/></p><p>More text</p> then anything after first </p> is lost
     //      from within AnchorUpdates.cpp when it replaces the resource text by re-serializing.
     // An additional problem occurs if the user splits inside the last block in the body,
     // as previous logic would always give you a blank new page without the split off text.
     // So instead we will identify any open tags for the current caret position, and repeat
-    // those at the caret position to ensure we have valid html that Xerces will not choke on.
+    // those at the caret position to ensure we have valid html 
     const QStringList &opening_tags = GetUnmatchedTagsForBlock(split_position, text);
 
     if (!opening_tags.isEmpty()) {

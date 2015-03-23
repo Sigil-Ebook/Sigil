@@ -23,7 +23,6 @@
 #ifndef XMLRESOURCE_H
 #define XMLRESOURCE_H
 
-#include "BookManipulation/XercesHUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/TextResource.h"
 

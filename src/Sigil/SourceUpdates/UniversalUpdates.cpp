@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015  Kevin B. Hendricks  Stratford, ON Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -228,7 +229,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
 
         source = PerformHTMLUpdates(source, html_updates, css_updates, currentpath)();
         html_resource->SetCurrentBookRelPath("");
-        // For files that are valid we need to do a second clean because Xerces (PerformHTMLUpdates) will remove
+        // For files that are valid we need to do a second clean becasue PerformHTMLUpdates) will remove
         // the formatting.
         if (ss.cleanOn() & CLEANON_OPEN) {
             source = CleanSource::Clean(source);

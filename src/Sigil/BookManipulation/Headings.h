@@ -27,7 +27,6 @@
 #include <QtCore/QList>
 #include <QtCore/QMetaType>
 
-#include "BookManipulation/XercesHUse.h"
 
 class HTMLResource;
 class QString;

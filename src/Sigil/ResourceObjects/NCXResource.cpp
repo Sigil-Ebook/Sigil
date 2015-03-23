@@ -98,8 +98,7 @@ bool NCXResource::GenerateNCXFromBookContents(const Book &book)
 
     // Only update the resource if have changed. Note that this is_changed trick will not
     // work after first loading an EPUB, because the metadata elements have their attributes
-    // in swapped in a different order from the xhtml processing. Would have to serialize the
-    // NCX back through a Xerces document, not worth doing.
+    // in swapped in a different order from the xhtml processing. 
     if (new_text != existing_text) {
         SetText(new_text);
         is_changed = true;

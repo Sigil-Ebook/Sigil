@@ -24,11 +24,8 @@
 #define BOOKVIEWPREVIEW_H
 
 #include <memory>
-
 #include <QtCore/QMap>
 #include <QtWebKitWidgets/QWebView>
-
-#include "BookManipulation/XercesHUse.h"
 #include "ViewEditors/ViewEditor.h"
 
 class QSize;

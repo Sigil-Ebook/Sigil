@@ -30,7 +30,6 @@
 #include <QRegularExpression>
 
 #include "ResourceObjects/HTMLResource.h"
-// #include "BookManipulation/XercesCppUse.h"
 #include "Misc/GumboInterface.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "MiscEditors/IndexEditorModel.h"

@@ -26,7 +26,6 @@
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
-// #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Misc/GumboInterface.h"

@@ -23,15 +23,6 @@
 
 #include <memory>
 #include <string>
-
-#include <xercesc/framework/MemBufInputSource.hpp>
-#include <xercesc/sax2/SAX2XMLReader.hpp>
-#include <xercesc/sax2/XMLReaderFactory.hpp>
-// XercesExtensions
-#include <LocationAwareDOMParser.h>
-#include <NodeLocationInfo.h>
-#include <XmlUtils.h>
-
 #include <QtCore/QHash>
 #include <QtCore/QList>
 #include <QtCore/QString>
@@ -45,7 +36,6 @@
 #include <QFileInfo>
 
 #include "BookManipulation/CleanSource.h"
-// #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
@@ -186,22 +176,6 @@ QList<XhtmlDoc::XMLElement> XhtmlDoc::GetTagsInDocument(const QString &source, c
 }
 
 
-#if 0
-QList<xc::DOMNode *> XhtmlDoc::GetNodeChildren(const xc::DOMNode &node)
-{
-    xc::DOMNodeList *children = node.getChildNodes();
-    int num_children = children->getLength();
-    QList<xc::DOMNode *> qtchildren;
-
-    for (int i = 0; i < num_children; ++i) {
-        qtchildren.append(children->item(i));
-    }
-
-    return qtchildren;
-}
-#endif
-
-
 QList<QString> XhtmlDoc::GetAllDescendantClasses(const QString & source)
 {
     GumboInterface gi = GumboInterface(source);
@@ -219,6 +193,7 @@ QList<QString> XhtmlDoc::GetAllDescendantClasses(const QString & source)
     }
     return classes;
 }
+
 
 QList<QString> XhtmlDoc::GetAllDescendantStyleUrls(const QString & source)
 {
@@ -278,55 +253,6 @@ QList<QString> XhtmlDoc::GetAllDescendantHrefs(const QString & source)
     return hrefs;
 }
 
-
-#if 0
-std::shared_ptr<xc::DOMDocument> XhtmlDoc::LoadTextIntoDocument(const QString &source)
-{
-    XercesExt::LocationAwareDOMParser parser;
-    // This scanner ignores schemas
-    parser.useScanner(xc::XMLUni::fgDGXMLScanner);
-    parser.setValidationScheme(xc::AbstractDOMParser::Val_Never);
-    parser.useCachedGrammarInParse(true);
-    parser.setLoadExternalDTD(true);
-    parser.setDoNamespaces(true);
-    xc::MemBufInputSource xhtml_dtd(XHTML_ENTITIES_DTD, XHTML_ENTITIES_DTD_LEN, XHTML_ENTITIES_DTD_ID);
-    parser.loadGrammar(xhtml_dtd, xc::Grammar::DTDGrammarType, true);
-    xc::MemBufInputSource ncx_dtd(NCX_2005_1_DTD, NCX_2005_1_DTD_LEN, NCX_2005_1_DTD_ID);
-    parser.loadGrammar(ncx_dtd, xc::Grammar::DTDGrammarType, true);
-    QString prepared_source = PrepareSourceForXerces(source);
-    // We use source.count() * 2 because count returns
-    // the number of QChars, which are 2 bytes long
-    xc::MemBufInputSource input(
-        reinterpret_cast<const XMLByte *>(prepared_source.utf16()),
-        prepared_source.count() * 2,
-        "empty");
-    XMLCh UTF16[] = { xc::chLatin_U, xc::chLatin_T, xc::chLatin_F, xc::chDigit_1, xc::chDigit_6, xc::chNull };
-    input.setEncoding(UTF16);
-    parser.parse(input);
-    return RaiiWrapDocument(parser.adoptDocument());
-}
-#endif
-
-# if 0
-std::shared_ptr<xc::DOMDocument> XhtmlDoc::RaiiWrapDocument(xc::DOMDocument *document)
-{
-    return std::shared_ptr<xc::DOMDocument>(document, XercesExt::XercesDeallocator<xc::DOMDocument>);
-}
-#endif
-
-#if 0
-int XhtmlDoc::NodeLineNumber(const xc::DOMNode &node)
-{
-    return XercesExt::GetNearestNodeLocationInfo(node).LineNumber;
-}
-#endif
-
-#if 0
-int XhtmlDoc::NodeColumnNumber(const xc::DOMNode &node)
-{
-    return XercesExt::GetNearestNodeLocationInfo(node).ColumnNumber;
-}
-#endif
 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
 {
@@ -462,116 +388,6 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
     return linked_css_paths;
 }
 
-#if 0
-// Returns the node's "real" name. We don't care
-// about namespace prefixes and whatnot.
-QString XhtmlDoc::GetNodeName(const xc::DOMNode &node)
-{
-    QString local_name = XtoQ(node.getLocalName());
-
-    if (local_name.isEmpty()) {
-        return XtoQ(node.getNodeName());
-    } else {
-        return local_name;
-    }
-}
-#endif
-
-
-#if 0
-// Converts a DomNodeList to a regular QList
-QList<xc::DOMNode *> XhtmlDoc::ConvertToRegularList(const xc::DOMNodeList &list)
-{
-    // Since a DomNodeList is "live", we store the count
-    // so we don't have to recalculate it every loop iteration
-    int count = list.getLength();
-    QList<xc::DOMNode *> nodes;
-
-    for (int i = 0; i < count; ++i) {
-        nodes.append(list.item(i));
-    }
-
-    return nodes;
-}
-#endif
-
-#if 0
-// Returns a list with only the element nodes
-QList<xc::DOMNode *> XhtmlDoc::ExtractElements(const xc::DOMNodeList &list)
-{
-    // Since a DomNodeList is "live", we store the count
-    // so we don't have to recalculate it every loop iteration
-    int count = list.getLength();
-    QList<xc::DOMNode *> element_nodes;
-
-    for (int i = 0; i < count; ++i) {
-        xc::DOMNode *node = list.item(i);
-
-        if (node->getNodeType() == xc::DOMNode::ELEMENT_NODE) {
-            element_nodes.append(node);
-        }
-    }
-
-    return element_nodes;
-}
-#endif
-
-#if 0
-// Returns the node's real index in the list
-int XhtmlDoc::GetRealIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list)
-{
-    // Since a DomNodeList is "live", we store the count
-    // so we don't have to recalculate it every loop iteration
-    int count = list.getLength();
-
-    for (int i = 0; i < count; ++i) {
-        if (list.item(i)->isSameNode(&node)) {
-            return i;
-        }
-    }
-
-    return -1;
-}
-#endif
-
-#if 0
-// Returns the node's "element" index
-// (pretending the list is only made up of element nodes).
-int XhtmlDoc::GetElementIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list)
-{
-    // Since a DomNodeList is "live", we store the count
-    // so we don't have to recalculate it every loop iteration
-    int count = list.getLength();
-    int element_index = 0;
-
-    for (int i = 0; i < count; ++i) {
-        if (list.item(i)->isSameNode(&node)) {
-            return element_index;
-        }
-
-        if (list.item(i)->getNodeType() == xc::DOMNode::ELEMENT_NODE) {
-            element_index++;
-        }
-    }
-
-    return -1;
-}
-#endif
-
-#if 0
-// Returns the index of node in the specified list
-// depending on the node type. Text nodes get the "real"
-// index, element nodes get the "element" index
-// (pretending the list is only made up of element nodes).
-int XhtmlDoc::GetCustomIndexInList(const xc::DOMNode &node, const xc::DOMNodeList &list)
-{
-    if (node.getNodeType() == xc::DOMNode::TEXT_NODE) {
-        return GetRealIndexInList(node, list);
-    } else {
-        return GetElementIndexInList(node, list);
-    }
-}
-#endif
 
 // Returns a list of all the "visible" text nodes that are descendants
 // of the specified node. "Visible" means we ignore style tags, script tags etc...
@@ -682,6 +498,7 @@ GumboNode * XhtmlDoc::GetAncestorBlockElement(GumboInterface & gi, GumboNode* no
     }
 }
 
+
 GumboNode * XhtmlDoc::GetAncestorIDElement(GumboInterface & gi, GumboNode * node)
 {
     GumboNode * parent_node = node;
@@ -699,6 +516,7 @@ GumboNode * XhtmlDoc::GetAncestorIDElement(GumboInterface & gi, GumboNode * node
         return gi.get_all_nodes_with_tag(GUMBO_TAG_BODY).at(0);
     }
 }
+
 
 QStringList XhtmlDoc::GetPathsToMediaFiles(const QString & source)
 {
@@ -773,80 +591,3 @@ XhtmlDoc::XMLElement XhtmlDoc::CreateXMLElement(QXmlStreamReader &reader)
 
     return element;
 }
-
-#if 0
-QString XhtmlDoc::PrepareSourceForXerces(const QString &source)
-{
-    QString prefix = source.left(XML_DECLARATION_SEARCH_PREFIX_SIZE);
-    QRegularExpression standalone(STANDALONE_ATTRIBUTE);
-    QRegularExpressionMatch match = standalone.match(prefix);
-    return QString(source).remove(match.capturedStart(), match.capturedLength());
-}
-#endif
-
-#if 0
-// Returns the node identified by the specified ViewEditor element hierarchy
-xc::DOMNode *XhtmlDoc::GetNodeFromHierarchy(const xc::DOMDocument &document,
-        const QList<ViewEditor::ElementIndex> &hierarchy)
-{
-    xc::DOMNode *node = document.getElementsByTagName(QtoX("html"))->item(0);
-    if (node == NULL) {
-        return NULL;
-    }
-    xc::DOMNode *end_node = NULL;
-    xc::DOMNodeList *tmp_node = NULL;
-
-    for (int i = 0; i < hierarchy.count() - 1; ++i) {
-        QList<xc::DOMNode *> children;
-
-        tmp_node = node->getChildNodes();
-        if (tmp_node != NULL) {
-            if (hierarchy[ i + 1 ].name != "#text") {
-                children = ExtractElements(*tmp_node);
-            } else {
-                children = ConvertToRegularList(*tmp_node);
-            }
-        }
-
-        // If the index is within the range, descend
-        if (hierarchy[ i ].index < children.count()) {
-            node = children.at(hierarchy[ i ].index);
-
-            if (node) {
-                end_node = node;
-            } else {
-                break;
-            }
-        }
-        // Error handling. The asked-for node cannot be found,
-        // so we stop where we are.
-        else {
-            end_node = node;
-            break;
-        }
-    }
-
-    return end_node;
-}
-#endif
-
-#if 0
-// Creates a ViewEditor element hierarchy from the specified node
-QList<ViewEditor::ElementIndex> XhtmlDoc::GetHierarchyFromNode(const xc::DOMNode &node)
-{
-    xc::DOMNode *html_node = node.getOwnerDocument()->getElementsByTagName(QtoX("html"))->item(0);
-    const xc::DOMNode *current_node = &node;
-    QList<ViewEditor::ElementIndex> element_list;
-
-    while (current_node != html_node) {
-        xc::DOMNode *parent = current_node->getParentNode();
-        ViewEditor::ElementIndex element;
-        element.name  = GetNodeName(*parent);
-        element.index = GetCustomIndexInList(*current_node, *parent->getChildNodes());
-        element_list.prepend(element);
-        current_node = parent;
-    }
-
-    return element_list;
-}
-#endif

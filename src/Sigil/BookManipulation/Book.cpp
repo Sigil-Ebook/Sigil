@@ -30,7 +30,6 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
-// #include "BookManipulation/XercesCppUse.h"
 #include "Misc/GumboInterface.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"

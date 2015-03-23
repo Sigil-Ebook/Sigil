@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015              Kevin B. Hendricks  Stratford, ON Canada
 **  Copyright (C) 2013              John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -393,49 +394,6 @@ QStringList OPFResource::GetSpineOrderFilenames() const
     return filenames_in_reading_order;
 }
 
-#if 0
-void OPFResource::SetSpineOrderFromFilenames(const QStringList spineOrder)
-{
-    QWriteLocker locker(&GetLock());
-    std::shared_ptr<xc::DOMDocument> document = GetDocument();
-    QList<xc::DOMElement *> items =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "item", OPF_XML_NAMESPACE);
-    QHash<QString, QString> filename_to_id_mapping;
-    foreach(xc::DOMElement * item, items) {
-        QString id   = XtoQ(item->getAttribute(QtoX("id")));
-        QString href = XtoQ(item->getAttribute(QtoX("href")));
-    }
-    QList<xc::DOMElement *> itemrefs =
-        XhtmlDoc::GetTagMatchingDescendants(*document, "itemref", OPF_XML_NAMESPACE);
-    QList<xc::DOMElement *> newSpine;
-    foreach(QString spineItem, spineOrder) {
-        QString id = filename_to_id_mapping[ spineItem ];
-        bool found = false;
-        QListIterator<xc::DOMElement *> spineElementSearch(itemrefs);
-
-        while (spineElementSearch.hasNext() && !found) {
-            xc::DOMElement *spineElement = spineElementSearch.next();
-
-            if (XtoQ(spineElement->getAttribute(QtoX("idref"))) == spineItem) {
-                newSpine.append(spineElement);
-                found = true;
-            }
-        }
-    }
-    xc::DOMElement *spine = GetSpineElement(*document);
-    if (!spine) {
-        return;
-    }
-    XhtmlDoc::RemoveChildren(*spine);
-    QListIterator<xc::DOMElement *> spineWriter(newSpine);
-
-    while (spineWriter.hasNext()) {
-        spine->appendChild(spineWriter.next());
-    }
-
-    UpdateTextFromDom(*document);
-}
-#endif
 
 QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
 {
@@ -852,23 +810,6 @@ QHash<Resource *, QString> OPFResource::GetResourceManifestIDMapping(const QList
 }
 
 
-#if 0
-void OPFResource::SetMetaElementsLast(xc::DOMDocument &document)
-{
-    QList<xc::DOMElement *> metas =
-        XhtmlDoc::GetTagMatchingDescendants(document, "meta", OPF_XML_NAMESPACE);
-    xc::DOMElement *metadata = GetMetadataElement(document);
-    if (!metadata) {
-        return;
-    }
-    foreach(xc::DOMElement * meta, metas) {
-        // This makes sure that the <meta> elements come last
-        metadata->removeChild(meta);
-        metadata->appendChild(meta);
-    }
-}
-#endif
-
 void OPFResource::RemoveDCElements(OPFParser& p)
 {
     int pos = GetMainIdentifier(p);
@@ -1028,185 +969,6 @@ void OPFResource::WriteDate(const QString &metaname, const QVariant &metavalue, 
     p.m_metadata.append(me);
 }
 
-#if 0
-bool OPFResource::BasicStructurePresent(const xc::DOMDocument &document)
-{
-    QList<xc::DOMElement *> packages =
-        XhtmlDoc::GetTagMatchingDescendants(document, "package", OPF_XML_NAMESPACE);
-
-    if (packages.count() != 1) {
-        return false;
-    }
-
-    QList<xc::DOMElement *> metadatas =
-        XhtmlDoc::GetTagMatchingDescendants(document, "metadata", OPF_XML_NAMESPACE);
-
-    if (metadatas.count() != 1) {
-        return false;
-    }
-
-    QList<xc::DOMElement *> manifests =
-        XhtmlDoc::GetTagMatchingDescendants(document, "manifest", OPF_XML_NAMESPACE);
-
-    if (manifests.count() != 1) {
-        return false;
-    }
-
-    QList<xc::DOMElement *> spines =
-        XhtmlDoc::GetTagMatchingDescendants(document, "spine", OPF_XML_NAMESPACE);
-
-    if (spines.count() != 1) {
-        return false;
-    }
-
-    if (GetMainIdentifierUnsafe() == -1) {
-        return false;
-    }
-
-    return true;
-}
-
-std::shared_ptr<xc::DOMDocument> OPFResource::CreateOPFFromScratch(const xc::DOMDocument *d) const
-{
-    xc::DOMElement *elem;
-    QList<xc::DOMElement *> children;
-    QString xml_source;
-    QString manifest;
-    QString spine;
-    QString metadata_content;
-    QList<std::pair<QString, QString>> manifest_file;
-    QList<std::pair<QString, QString>> manifest_recovered;
-    QString manifest_content;
-    QList<QString> ids_in_manifest;
-    QList<QString> spine_file;
-    QList<QString> spine_recovered;
-    QString spine_content;
-    QString guide_content;
-    QString item_id;
-    QString path;
-    QStringList relative_oebps_paths;
-    QString id;
-    QString href;
-    QString mime;
-    bool exists;
-
-    // Try to pull as much as we can out of the originial OPF is present.
-    if (d) {
-        metadata_content = XhtmlDoc::GetNodeChildrenAsString(GetMetadataElement(*d));
-        guide_content = XhtmlDoc::GetNodeChildrenAsString(GetGuideElement(*d));
-
-        elem = GetManifestElement(*d);
-        if (elem) {
-            children = XhtmlDoc::GetTagMatchingDescendants(*elem, "item");;
-            for (int i=0; i<children.length(); ++i) {
-                if (XtoQ(children.at(i)->getAttribute(QtoX("media-type"))).toLower() == NCX_MIMETYPE) {
-                    continue;
-                }
-                id = XtoQ(children.at(i)->getAttribute(QtoX("id")));
-                href = XtoQ(children.at(i)->getAttribute(QtoX("href")));
-                if (!id.isEmpty() && !href.isEmpty()) {
-                    manifest_recovered.append(std::pair<QString, QString>(id, href));
-                }
-            }
-        }
-
-        elem = GetSpineElement(*d);
-        if (elem) {
-            children = XhtmlDoc::GetTagMatchingDescendants(*elem, "itemref");;
-            for (int i=0; i<children.length(); ++i) {
-                id = XtoQ(children.at(i)->getAttribute(QtoX("idref")));
-                if (!id.isEmpty()) {
-                    spine_recovered.append(id);
-                }
-            }
-        }
-    }
-
-    // Get a list of all items on disk.
-    relative_oebps_paths = GetRelativePathsToAllFilesInOEPBS();
-    foreach(path, relative_oebps_paths) {
-        // The OPF is not allowed to be in the manifest and the NCX
-        // is already in the template.
-        if (path.contains(OPF_FILE_NAME) || path.contains(NCX_FILE_NAME)) {
-            continue;
-        }
-
-        item_id = GetValidID(QFileInfo(path).fileName());
-        manifest_file.append(std::pair<QString, QString>(item_id, path));
-
-        if (TEXT_EXTENSIONS.contains(QFileInfo(path).suffix().toLower())) {
-            spine_file.append(item_id);
-        }
-    }
-
-    // Compare the recovered with on disk content to ensure we aren't missing anything.
-    // Put anything recovered that exists on disk into content.
-    for (int i=0; i<manifest_recovered.count(); ++i) {
-        std::pair<QString, QString> rec = manifest_recovered.at(i);
-        item_id = rec.first;
-        path = rec.second;
-        for (int j=0; j<manifest_file.count(); ++j) {
-            std::pair<QString, QString> frec = manifest_file.at(j);
-            if (frec.second == path) {
-                mime = GetFileMimetype(path);
-                manifest_content.append(QString(ITEM_ELEMENT_TEMPLATE).arg(item_id).arg(path).arg(mime));
-                if (mime == "application/xhtml+xml") {
-                    ids_in_manifest.append(item_id);
-                }
-                break;
-            }
-        }
-    }
-    // Put anything that exists on disk that isn't in recovered into content.
-    for (int i=0; i<manifest_file.count(); ++i) {
-        std::pair<QString, QString> frec = manifest_file.at(i);
-        exists = false;
-        item_id = frec.first;
-        path = frec.second;
-        for (int j=0; i<manifest_recovered.count(); ++j) {
-            std::pair<QString, QString> rec = manifest_recovered.at(j);
-            if (rec.second == path) {
-                exists = true;
-                break;
-            }
-        }
-        if (!exists) {
-            mime = GetFileMimetype(path);
-            manifest_content.append(QString(ITEM_ELEMENT_TEMPLATE).arg(item_id).arg(path).arg(mime));
-            if (mime == "application/xhtml+xml") {
-                ids_in_manifest.append(item_id);
-            }
-        }
-    }
-
-    // Compare the recovered sine with the items that are in the manifest. We only
-    // use a recovered spine item if the id exists in the manfiest.
-    foreach (id, spine_recovered) {
-        if (ids_in_manifest.contains(id)) {
-            spine_content.append(ITEMREF_ELEMENT_TEMPLATE.arg(id));
-        }
-    }
-    // Add any spine items that are on disk that are not in the recovered spine to the spine.
-    foreach (id, spine_file) {
-        if (!spine_recovered.contains(id) && ids_in_manifest.contains(id)) {
-            spine_content.append(ITEMREF_ELEMENT_TEMPLATE.arg(id));
-        }
-    }
-
-    // Build the OPF.
-    xml_source = GetOPFDefaultText();
-    xml_source.replace("</manifest>", manifest_content + "</manifest>")
-    .replace("</spine>", spine_content + "</spine>")
-    .replace("<metadata", OPF_REWRITTEN_COMMENT + "<metadata")
-    .replace("</metadata>", metadata_content + "</metadata>")
-    .replace("</guide>", guide_content + "</guide>")
-    .replace("<guide>\n\n</guide>\n\n", "");
-
-    std::shared_ptr<xc::DOMDocument> document = XhtmlDoc::LoadTextIntoDocument(xml_source);
-    document->setXmlStandalone(true);
-    return document;
-}
-#endif
 
 // Yeah, we could get this list of paths with the GetSortedContentFilesList()
 // func from FolderKeeper, but let's not create a strong coupling from

@@ -29,7 +29,6 @@
 #include <QtConcurrent/QtConcurrent>
 
 #include "BookManipulation/Headings.h"
-// #include "BookManipulation/XercesCppUse.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/GumboInterface.h"
 #include "Misc/Utility.h"
