@@ -437,6 +437,7 @@ void OPFParser::parse(const QString& source)
 QString OPFParser::convert_to_xml() const
 {
   QStringList xmlres;
+  xmlres <<  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
   xmlres << m_package.convert_to_xml();
   xmlres << m_metans.convert_to_xml();
   foreach (MetaEntry me, m_metadata) {

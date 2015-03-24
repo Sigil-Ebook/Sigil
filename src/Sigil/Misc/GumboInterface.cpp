@@ -103,7 +103,7 @@ QString GumboInterface::repair()
             parse();
         }
         std::string utf8out = serialize(m_output->document);
-        result = QString::fromStdString(utf8out);
+        result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
 }
@@ -117,7 +117,7 @@ QString GumboInterface::getxhtml()
             parse();
         }
         std::string utf8out = serialize(m_output->document);
-        result = QString::fromStdString(utf8out);
+        result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
 }
@@ -134,7 +134,7 @@ QString GumboInterface::perform_source_updates(const QHash<QString, QString>& up
         }
         enum UpdateTypes doupdates = SourceUpdates;
         std::string utf8out = serialize(m_output->document, doupdates);
-        result = QString::fromStdString(utf8out);
+        result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
 }
@@ -150,7 +150,7 @@ QString GumboInterface::perform_link_updates(const QString& newcsslinks)
         }
         enum UpdateTypes doupdates = LinkUpdates;
         std::string utf8out = serialize(m_output->document, doupdates);
-        result = QString::fromStdString(utf8out);
+        result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
 }
@@ -289,6 +289,7 @@ GumboNode* GumboInterface::get_node_from_path(QList<unsigned int> & apath)
 
 QString GumboInterface::perform_body_updates(const QString & new_body) 
 {
+    QString result = "";
     if (!m_source.isEmpty()) {
         if (m_output == NULL) {
             parse();
@@ -301,9 +302,10 @@ QString GumboInterface::perform_body_updates(const QString & new_body)
     }
     m_newbody = new_body.toStdString();
     enum UpdateTypes doupdates = BodyUpdates;
-    std::string results = serialize_contents(m_output->document, doupdates);
+    std::string utf8out = serialize_contents(m_output->document, doupdates);
+    result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     m_newbody= "";
-    return QString::fromStdString(results);
+    return result;
 }
     
 

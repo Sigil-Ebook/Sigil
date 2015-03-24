@@ -42,26 +42,6 @@
 
 static const QString HEAD_END = "</\\s*head\\s*>";
 
-#if 0
-
-static const QString SIGIL_CLASS_NAME     = "sgc";
-static const QString SIGIL_CLASS_NAME_REG = SIGIL_CLASS_NAME + "-(\\d+)";
-
-static const QString CSS_STYLE_TAG_START  = "<\\s*style[^>]*type\\s*=\\s*\"text/css\"[^>]*>";
-
-// Use with minimal matching.
-static const QString STYLE_TAG_CSS_ONLY   = CSS_STYLE_TAG_START + ".*</\\s*style[^>]*>";
-
-static const QString CLASS_REMOVE_START   = "<[^>]*class\\s*=\\s*\"[^\"]*";
-static const QString CLASS_REMOVE_END     = "[^\"]*\"[^>]*>";
-
-// Use with minimal matching.
-static const QString TIDY_NEW_STYLE       = "(\\w+)\\.[\\w-]+\\s*(\\{.*\\})";
-
-// The value was picked arbitrarily
-static const int TAG_SIZE_THRESHOLD       = 1000;
-
-#endif
 
 // Performs general cleaning (and improving)
 // of provided book XHTML source code
@@ -82,7 +62,6 @@ QString CleanSource::Clean(const QString &source)
             GumboInterface gp = GumboInterface(newsource);
             newsource = gp.repair();
             newsource = CharToEntity(newsource);
-            newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
             newsource = PrettifyDOCTYPEHeader(newsource);
             return newsource;
         }
@@ -101,7 +80,6 @@ QString CleanSource::PrettyPrintGumbo(const QString &source)
     GumboInterface gp = GumboInterface(newsource);
     newsource = gp.repair();
     newsource = CharToEntity(newsource);
-    newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
     newsource = PrettyPrint(newsource);
     newsource = PrettifyDOCTYPEHeader(newsource);
     return newsource;
@@ -140,7 +118,6 @@ QString CleanSource::ToValidXHTML(const QString &source)
         GumboInterface gp = GumboInterface(newsource);
         newsource = gp.repair();
         newsource = CharToEntity(newsource);
-        newsource = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + newsource;
         newsource = PrettyPrint(newsource);
         newsource = PrettifyDOCTYPEHeader(newsource);
     }
@@ -197,6 +174,8 @@ QString CleanSource::PreprocessSpecialCases(const QString &source)
     return newsource;
 }
 
+
+// Be careful to make sure that we do not mess up epub3 <!DOCTYPE html> here
 QString CleanSource::PrettifyDOCTYPEHeader(const QString &source)
 {
     QString newsource = source;
