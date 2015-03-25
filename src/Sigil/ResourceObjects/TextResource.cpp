@@ -91,17 +91,25 @@ QTextDocument &TextResource::GetTextDocumentForWriting()
 
 void TextResource::SaveToDisk(bool book_wide_save)
 {
-    if (!m_CacheInUse && !m_IsLoaded) {
-        return;
-    }
-
-    // We can't perform the document modified check
-    // here because that causes problems with epub export
-    // when the user has not changed the text file.
-    // (some text files have placeholder text on disk)
     {
         QWriteLocker locker(&GetLock());
-        Utility::WriteUnicodeTextFile(GetText(), GetFullPath());
+
+        if (!m_CacheInUse && !m_IsLoaded) {
+            return;
+        }
+
+        // We can't perform the document modified check
+        // here because that causes problems with epub export
+        // when the user has not changed the text file.
+        // (some text files have placeholder text on disk)
+
+        // But we always want to save the most up to date version
+
+        if (m_CacheInUse) {
+            Utility::WriteUnicodeTextFile(m_Cache, GetFullPath());
+        } else {
+            Utility::WriteUnicodeTextFile(GetText(), GetFullPath());
+        }
     }
 
     if (!book_wide_save) {
