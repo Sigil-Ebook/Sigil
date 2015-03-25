@@ -638,7 +638,11 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
             }
         } else {
             // TODO: adding a CSS file should add the referenced fonts too
-            m_Book->GetFolderKeeper().AddContentFileToFolder(filepath);
+            Resource & resource = m_Book->GetFolderKeeper().AddContentFileToFolder(filepath);
+            if (resource.Type() == Resource::CSSResourceType) {
+                CSSResource *css_resource = qobject_cast<CSSResource *> (&resource);
+                css_resource->InitialLoad();
+            }
         }
 
         added_files.append(filepath);
