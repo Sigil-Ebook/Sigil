@@ -123,6 +123,9 @@ Metadata::MetaElement Metadata::MapToBookMetadata(GumboNode* node, GumboInterfac
         attr = gumbo_get_attribute(&node->v.element.attributes, "scheme");
         if (attr) meta.attributes[ "scheme"] = QString::fromUtf8(attr->value);
 
+        attr = gumbo_get_attribute(&node->v.element.attributes, "opf:scheme");
+        if (attr) meta.attributes[ "scheme"] = QString::fromUtf8(attr->value);
+
         attr = gumbo_get_attribute(&node->v.element.attributes, "id");
         if (attr) meta.attributes[ "id"] = QString::fromUtf8(attr->value);
 
@@ -132,7 +135,20 @@ Metadata::MetaElement Metadata::MapToBookMetadata(GumboNode* node, GumboInterfac
 
     } else {
         meta.name = QString::fromStdString(gi.get_tag_name(node));
+        // Metadata class works only with local names so strip off any dc: prefix
+        if (meta.name.startsWith("dc:")) meta.name.remove(0,3);
         meta.attributes = gi.get_attributes_of_node(node);
+        // strip off any namespace prefixes from attribute keys
+        QStringList keys = meta.attributes.keys();
+        foreach(QString key, keys){
+            QString value = meta.attributes.value(key,"");
+            int i = key.indexOf(":");
+            if (i != -1) {
+                meta.attributes.remove(key);
+                key.remove(0,i+1);
+                meta.attributes[key] = value;
+            }
+        }
         QString element_text = gi.get_local_text_of_node(node);
         meta.value = element_text;
         if (!element_text.isEmpty()) {
@@ -147,11 +163,15 @@ Metadata::MetaElement Metadata::MapMetaEntryToBookMetadata(const MetaEntry& me)
 {
     Metadata::MetaElement meta;
     QString element_name = me.m_name;
-
+    if (element_name.startsWith("dc:")) element_name.remove(0,3);
     if (element_name == "meta") {
         meta.name  = me.m_atts.value("name",""); 
         meta.value = me.m_atts.value("content", "");
-        meta.attributes[ "scheme" ] = me.m_atts.value("scheme", "");
+        QString schemeval = me.m_atts.value("scheme", "");
+        if (schemeval.isEmpty()) {
+            schemeval = me.m_atts.value("opf:scheme", "");
+        }
+        meta.attributes[ "scheme" ] = schemeval;
         meta.attributes[ "id" ] = me.m_atts.value("id", "");
 
         if ((!meta.name.isEmpty()) && (!meta.value.toString().isEmpty())) {
@@ -159,6 +179,17 @@ Metadata::MetaElement Metadata::MapMetaEntryToBookMetadata(const MetaEntry& me)
         }
     } else {
         meta.attributes = me.m_atts;
+        // The Metadata class requires removal the ns prefixes from attribute keys
+        QStringList keys = meta.attributes.keys();
+        foreach(QString key, keys){
+            QString value = meta.attributes.value(key,"");
+            int i = key.indexOf(":");
+            if (i != -1) {
+                meta.attributes.remove(key);
+                key.remove(0,i+1);
+                meta.attributes[key] = value;
+            }
+        }
         meta.name = element_name;
         QString element_text = me.m_content;
         meta.value = element_text;
