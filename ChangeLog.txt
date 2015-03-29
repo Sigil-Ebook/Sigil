@@ -1,9 +1,18 @@
 Sigil NEXT TBA
     - Kill tidy and replace it with a combination of Gumbo parser, html5lib
       and BS4. 
+    - Kill Xerces and XercesExtras.
+    - Kill Boost.
+    - Kill unused bundles.
     - Fix issue #54 modified date using local numerials when it should be
       using Arabic numerals per the spec.
     - Set the book to modified when font's are obfuscated.
+
+Sigil 0.8.5 2015.03.29
+    - Fix text resource not alwalys saving to disk.
+    - Fix bug in missing CSS.
+    - Fix create html toc crash bug.
+    - Update some links in the help menu.
 
 Sigil 0.8.4 2015.02.01
     - Fix for removeall plugins bug where all plugins would remove all plugins
