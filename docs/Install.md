@@ -43,8 +43,12 @@ they do not interfere with other platforms.
 Build Options
 =============
 
-* FORCE_BUNDLED_COPIES=1
-  * Only use bundled copies and don't use system versions of dependencies.
+* USE_SYSTEM_LIBS=1
+  * Use system libraries for dependencies if they are available.
+* SYSTEM_LIBS_REQUIRED=1
+  * System libraries are required in place of all 3rdparty bundled copies.
+  * Build will fail if any system libraries are not found. If CMake failes
+    check which libraries are marked as bundled to know what's missing.
 * WIN_INSTALLER_USE_64BIT_CRT=1
   * Windows only.
   * Must be specified if building a 64 bit installable package.

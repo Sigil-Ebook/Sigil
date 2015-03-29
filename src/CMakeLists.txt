@@ -22,7 +22,7 @@ endif()
 # read the build instructions and then complain
 # when the build process fails for them.
 if ( ${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR} )
-    message( FATAL_ERROR "You are trying to run CMake from the <top_folder>/src/Sigil directory, "
+    message( FATAL_ERROR "You are trying to run CMake from the <top_folder>/src/ directory, "
                          "instead of just from the <top_folder> directory.\nDO NOT DO THIS.\n"
                          "The correct way looks like this:\n"
                          "  cmake -G '<generator_name>' /path/to/topmost/folder/in/source/package\n"
@@ -644,13 +644,13 @@ qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit 
 #############################################################################
 
 # needed for correct static header inclusion
-if( FORCE_BUNDLED_COPIES OR NOT XERCES_FOUND )
+if( NOT USE_SYSTEM_LIBS OR NOT XERCES_FOUND )
     add_definitions( -DXERCES_STATIC_LIBRARY )
 endif()
-if( FORCE_BUNDLED_COPIES OR NOT PCRE_FOUND )
+if( NOT USE_SYSTEM_LIBS OR NOT PCRE_FOUND )
     add_definitions( -DPCRE_STATIC )
 endif()
-if( FORCE_BUNDLED_COPIES OR NOT HUNSPELL_FOUND )
+if( NOT USE_SYSTEM_LIBS OR NOT HUNSPELL_FOUND )
     add_definitions( -DHUNSPELL_STATIC )
 endif()
 
@@ -711,10 +711,10 @@ if( APPLE )
                         WORKING_DIRECTORY ${WORK_DIR})
 
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
-    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
-    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/plugin_launchers/python/* ${WORK_DIR}/Sigil.app/Contents/plugin_launchers/python )
-    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/python3lib/* ${WORK_DIR}/Sigil.app/Contents/python3lib )
-    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/plugin_launchers/python/* ${WORK_DIR}/Sigil.app/Contents/plugin_launchers/python )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${WORK_DIR}/Sigil.app/Contents/python3lib )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
  
 # For Linux and Windows, provide binary installers.
 # For this to work on Linux, InstallJammer needs to be installed and on the system path.
@@ -859,7 +859,7 @@ elseif (MSVC)
     endforeach( PLUGFILE )
 
     # Copy python3lib
-    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/python3lib ${MAIN_PACKAGE_DIR}/python3lib )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib ${MAIN_PACKAGE_DIR}/python3lib )
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
@@ -1147,7 +1147,7 @@ if( UNIX AND NOT APPLE )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/python3lib/ )
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
-                            COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/python3lib/* ${DEB_TREE_ROOT}/share/sigil/python3lib/ )
+                            COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${DEB_TREE_ROOT}/share/sigil/python3lib/ )
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
@@ -1206,6 +1206,6 @@ if( UNIX AND NOT APPLE )
     install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations/ )
     install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/hunspell_dictionaries/ )
     install( FILES ${PLUGIN_FILES_PYTHON} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/plugin_launchers/python/ )
-    install( DIRECTORY ${CMAKE_SOURCE_DIR}/src/Sigil/Resource_Files/python3lib/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/python3lib )
+    install( DIRECTORY ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/python3lib )
     install( FILES ${EXAMPLE_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/examples/ )
 endif()

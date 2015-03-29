@@ -23,16 +23,6 @@ set( SIGIL_MINOR_VERSION 8 )
 set( SIGIL_REVISION_VERSION 4 )
 set( SIGIL_FULL_VERSION ${SIGIL_MAJOR_VERSION}.${SIGIL_MINOR_VERSION}.${SIGIL_REVISION_VERSION} )
 
-# Apple users building with XCode notes:
-# If building with XCode you need to set the target and location
-# of the SDK. If you are building with the Command Line Tools
-# you do not need to specify the follwing options.
-# It is recommened to set them when running cmake using -D
-# rather than editing this file directly.
-# CMAKE_OSX_DEPLOYMENT_TARGET "10.8"
-# CMAKE_OSX_SYSROOT "/Developer/SDKs/MacOSX10.8.sdk"
-
-
 # Check if platform is 64 bit
 if( NOT APPLE )
    if( CMAKE_SIZEOF_VOID_P EQUAL 4 )
@@ -52,7 +42,8 @@ if( CMAKE_COMPILER_IS_GNUCXX  )
     set( CMAKE_BUILD_TYPE  )
 endif()
 
-if( NOT FORCE_BUNDLED_COPIES )
+if (USE_SYSTEM_LIBS)
+    MESSAGE(STATUS "Trying to use System Libraries...")
     find_package( ZLIB )
     find_package( PkgConfig )
     find_package( MiniZip )
@@ -60,39 +51,58 @@ if( NOT FORCE_BUNDLED_COPIES )
     if ( NOT APPLE )
         pkg_check_modules( PCRE libpcre16 )
     endif()
+    #find_package (PythonLibs 3.4)
 endif()
+find_package (PythonLibs 3.4)
 
-# look for a specific lib python version
-find_package( PythonLibs 3.4 REQUIRED )
-
-# gumbo-parser we bundle it as our main xhtml/html5 parser
-add_subdirectory( src/gumbo )
+# gumbo-parser it is our main xhtml/html5 parser.
+# We have an internal version because it diverges from Google's and GitHub's
+# versions and neither want's our epub specific changes.
+add_subdirectory( internal/gumbo )
 set( GUMBO_LIBRARIES gumbo )
-set( GUMBO_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/gumbo )
+set( GUMBO_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/internal/gumbo )
 
-if( FORCE_BUNDLED_COPIES OR NOT ZLIB_FOUND )
-    add_subdirectory( src/zlib )
+if( NOT USE_SYSTEM_LIBS OR NOT ZLIB_FOUND )
+    MESSAGE(STATUS "Using Bundled ZLIB")
+    add_subdirectory( 3rdparty/zlib )
     set( ZLIB_LIBRARIES zlib )
-    set( ZLIB_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/zlib ${CMAKE_BINARY_DIR}/src/zlib )
+    set( ZLIB_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/zlib ${CMAKE_BINARY_DIR}/3rdparty/zlib )
+else ()
+    MESSAGE(STATUS "Using System ZLIB")
 endif()
 
-if( FORCE_BUNDLED_COPIES OR NOT MINIZIP_FOUND )
-    add_subdirectory( src/minizip )
+if( NOT USE_SYSTEM_LIBS OR NOT MINIZIP_FOUND )
+    MESSAGE(STATUS "Using Bundled MiniZip")
+    add_subdirectory( 3rdparty/minizip )
     set( MINIZIP_LIBRARIES minizip )
-    set( MINIZIP_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/minizip )
+    set( MINIZIP_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/minizip )
+else ()
+    MESSAGE(STATUS "Using System MiniZip")
 endif()
 
 
-if( FORCE_BUNDLED_COPIES OR NOT HUNSPELL_FOUND )
-    add_subdirectory( src/hunspell )
+if( NOT USE_SYSTEM_LIBS OR NOT HUNSPELL_FOUND )
+    MESSAGE(STATUS "Using Bundled Hunspell")
+    add_subdirectory( 3rdparty/hunspell )
     set( HUNSPELL_LIBRARIES hunspell )
-    set( HUNSPELL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/hunspell )
+    set( HUNSPELL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/hunspell )
+else ()
+    MESSAGE(STATUS "Using System Hunspell")
 endif()
 
-if( FORCE_BUNDLED_COPIES OR NOT PCRE_FOUND OR APPLE )
-    add_subdirectory( src/pcre )
+if( NOT USE_SYSTEM_LIBS OR NOT PCRE_FOUND OR APPLE )
+    MESSAGE(STATUS "Using Bundled PCRE")
+    add_subdirectory( 3rdparty/pcre )
     set( PCRE_LIBRARIES pcre )
-    set( PCRE_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/pcre ${CMAKE_BINARY_DIR}/src/pcre )
+    set( PCRE_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/pcre ${CMAKE_BINARY_DIR}/3rdparty/pcre )
+else ()
+    MESSAGE(STATUS "Using System PCRE")
 endif()
 
-add_subdirectory( src/Sigil )
+if (SYSTEM_LIBS_REQUIRED)
+    if (NOT ZLIB_FOUND OR NOT MINIZIP_FOUND OR NOT HUNSPELL_FOUND OR (NOT APPLE AND NOT PCRE_FOUND))
+        MESSAGE(FATAL_ERROR "Could not find all required system libraries...")
+    endif()
+endif()
+
+add_subdirectory( src/ )

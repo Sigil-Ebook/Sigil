@@ -1,4 +1,10 @@
 Sigil NEXT TBA
+    - Change FORCE_BUNDLED_COPIES build flag to USE_SYSTEM_LIBS. This flips
+      the meaning of the flag. Now USE_SYSTEM_LIBS will enable using system
+      libraries. Also, SYSTEM_LIBS_REQUIRED was added which will fail the
+      cmake configure if any system libraries are not found instead of
+      falling back to the bundled copy. Finally, this makes the build more
+      consistent for Windows and OS X users.
     - Kill tidy and replace it with a combination of Gumbo parser, html5lib
       and BS4. 
     - Kill Xerces and XercesExtras.
