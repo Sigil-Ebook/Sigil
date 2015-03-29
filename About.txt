@@ -1,0 +1,29 @@
+de_DE-frami
+ - Version 2011.06.03
+ - http://extensions.libreoffice.org/extension-center/german-de-de-frami-dictionaries
+ - License: GPL-v3 LGPL-v3+
+
+en_GB
+ - Version 1.0 - 98,000 word list
+ - http://extensions.libreoffice.org/extension-center/american-british-canadian-spelling-hyphen-thesaurus-dictionaries
+ - License: GPL
+
+en_US
+ - Version 1.0 - 98,000 word list
+ - http://extensions.libreoffice.org/extension-center/american-british-canadian-spelling-hyphen-thesaurus-dictionaries
+ - License: GPL
+
+es_ANY
+ - Version 1.0
+ - http://extensions.libreoffice.org/extension-center/diccionario-espanol
+ - License: GPL
+
+fr-moderne
+ - Version 4.4.1
+ - http://www.dicollecte.org/
+ - License: MPL-v1.1 GPL-v2 LGPL-v2.1
+
+hyph_fr
+ - Version 3.0
+ - http://www.dicollecte.org/
+ - License GPL-v3
