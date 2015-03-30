@@ -1,3 +1,9 @@
+Sigil 0.8.5 2015.03.29
+    - Fix text resource not alwalys saving to disk.
+    - Fix bug in missing CSS.
+    - Fix create html toc crash bug.
+    - Update some links in the help menu.
+
 Sigil 0.8.4 2015.02.01
     - Fix for removeall plugins bug where all plugins would remove all plugins
       regardless if the user clicked no instead of yes.

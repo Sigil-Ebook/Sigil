@@ -158,11 +158,9 @@
      <string>&amp;Help</string>
     </property>
     <addaction name="actionUserGuide"/>
-    <addaction name="actionTutorials"/>
-    <addaction name="actionFAQ"/>
+    <addaction name="actionSigilWebsite"/>
     <addaction name="separator"/>
     <addaction name="actionDonate"/>
-    <addaction name="actionSigilDevBlog"/>
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuFormat">
@@ -1428,9 +1426,9 @@
     </string>
    </property>
   </action>
-  <action name="actionSigilDevBlog">
+  <action name="actionSigilWebsite">
    <property name="text">
-    <string>Sigil Dev &amp;Blog...</string>
+    <string>Sigl Website...</string>
    </property>
   </action>
   <action name="actionNextTab">

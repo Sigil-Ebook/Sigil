@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2012, 2013 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012, 2013 Dave Heiland
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012-2013 Dave Heiland
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -90,21 +90,20 @@
 #include "Tabs/OPFTab.h"
 #include "Tabs/TabManager.h"
 
-static const int TEXT_ELIDE_WIDTH           = 300;
-static const QString SETTINGS_GROUP         = "mainwindow";
-const float ZOOM_STEP                = 0.1f;
-const float ZOOM_MIN                 = 0.09f;
-const float ZOOM_MAX                 = 5.0f;
-const float ZOOM_NORMAL              = 1.0f;
-static const int ZOOM_SLIDER_MIN            = 0;
-static const int ZOOM_SLIDER_MAX            = 1000;
-static const int ZOOM_SLIDER_MIDDLE         = 500;
-static const int ZOOM_SLIDER_WIDTH          = 140;
-static const QString DONATE_WIKI            = "http://code.google.com/p/sigil/wiki/Donate";
-static const QString SIGIL_DEV_BLOG         = "http://sigildev.blogspot.com/";
-static const QString USER_GUIDE_URL         = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/introduction.html";
-static const QString FAQ_URL                = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/faq.html";
-static const QString TUTORIALS_URL          = "http://web.sigil.googlecode.com/git/files/OEBPS/Text/tutorials.html";
+static const int TEXT_ELIDE_WIDTH   = 300;
+static const QString SETTINGS_GROUP = "mainwindow";
+const float ZOOM_STEP               = 0.1f;
+const float ZOOM_MIN                = 0.09f;
+const float ZOOM_MAX                = 5.0f;
+const float ZOOM_NORMAL             = 1.0f;
+static const int ZOOM_SLIDER_MIN    = 0;
+static const int ZOOM_SLIDER_MAX    = 1000;
+static const int ZOOM_SLIDER_MIDDLE = 500;
+static const int ZOOM_SLIDER_WIDTH  = 140;
+
+static const QString DONATE         = "http://sigil-ebook.com/donate";
+static const QString SIGIL_WEBSITE  = "http://sigil-ebook.com";
+static const QString USER_GUIDE_URL = "https://github.com/user-none/Sigil/tree/master/docs";
 
 static const QString BOOK_BROWSER_NAME            = "bookbrowser";
 static const QString FIND_REPLACE_NAME            = "findreplace";
@@ -2390,27 +2389,15 @@ void MainWindow::UserGuide()
 }
 
 
-void MainWindow::FrequentlyAskedQuestions()
-{
-    QDesktopServices::openUrl(QUrl(FAQ_URL));
-}
-
-
-void MainWindow::Tutorials()
-{
-    QDesktopServices::openUrl(QUrl(TUTORIALS_URL));
-}
-
-
 void MainWindow::Donate()
 {
-    QDesktopServices::openUrl(QUrl(DONATE_WIKI));
+    QDesktopServices::openUrl(QUrl(DONATE));
 }
 
 
-void MainWindow::SigilDevBlog()
+void MainWindow::SigilWebsite()
 {
-    QDesktopServices::openUrl(QUrl(SIGIL_DEV_BLOG));
+    QDesktopServices::openUrl(QUrl(SIGIL_WEBSITE));
 }
 
 
@@ -4063,7 +4050,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionFAQ, "MainWindow.FAQ");
     sm->registerAction(this, ui.actionTutorials, "MainWindow.FAQ");
     sm->registerAction(this, ui.actionDonate, "MainWindow.Donate");
-    sm->registerAction(this, ui.actionSigilDevBlog, "MainWindow.SigilDevBlog");
+    sm->registerAction(this, ui.actionSigilWebsite, "MainWindow.SigilWebsite");
     sm->registerAction(this, ui.actionAbout, "MainWindow.About");
     // Clips
     sm->registerAction(this, ui.actionClip1, "MainWindow.Clip1");
@@ -4364,10 +4351,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionGoToLine,         SIGNAL(triggered()), this, SLOT(GoToLine()));
     // About
     connect(ui.actionUserGuide,     SIGNAL(triggered()), this, SLOT(UserGuide()));
-    connect(ui.actionFAQ,           SIGNAL(triggered()), this, SLOT(FrequentlyAskedQuestions()));
-    connect(ui.actionTutorials,     SIGNAL(triggered()), this, SLOT(Tutorials()));
     connect(ui.actionDonate,        SIGNAL(triggered()), this, SLOT(Donate()));
-    connect(ui.actionSigilDevBlog,  SIGNAL(triggered()), this, SLOT(SigilDevBlog()));
+    connect(ui.actionSigilWebsite,  SIGNAL(triggered()), this, SLOT(SigilWebsite()));
     connect(ui.actionAbout,         SIGNAL(triggered()), this, SLOT(AboutDialog()));
     // Tools
     connect(ui.actionAddCover,      SIGNAL(triggered()), this, SLOT(AddCover()));

@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -397,19 +397,9 @@ private slots:
     void ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry = NULL);
 
     /**
-     * Implements Tutorials action functionality.
-     */
-    void Tutorials();
-
-    /**
      * Implements User Guide action functionality.
      */
     void UserGuide();
-
-    /**
-     * Implements Frequently Asked Questions action functionality.
-     */
-    void FrequentlyAskedQuestions();
 
     /**
      * Implements Donate action functionality.
@@ -417,9 +407,9 @@ private slots:
     void Donate();
 
     /**
-     * Implements Sigil Dev Blog action functionality.
+     * Implements Sigil Website action functionality.
      */
-    void SigilDevBlog();
+    void SigilWebsite();
 
     /**
      * Implements About action functionality.
