@@ -1033,6 +1033,7 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "ncx"   ] = NCX_MIMETYPE;
     // We convert all HTML document types to XHTML
     m_Mimetypes[ "xml"   ] = "application/xhtml+xml";
+    // m_Mimetypes[ "xml"   ] = "application/oebs-page-map+xml";
     m_Mimetypes[ "xhtml" ] = "application/xhtml+xml";
     m_Mimetypes[ "html"  ] = "application/xhtml+xml";
     m_Mimetypes[ "htm"   ] = "application/xhtml+xml";
@@ -1042,6 +1043,12 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "otf"   ] = "application/vnd.ms-opentype";
     m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
     m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
+    m_Mimetypes[ "woff"  ] = "application/font-woff";
+    m_Mimetypes[ "mp3"   ] = "audio/mpeg";
+    m_Mimetypes[ "mp4"   ] = "video/mp4";
+    m_Mimetypes[ "smil"  ] = "application/smil+xml";
+    m_Mimetypes[ "pls"   ] = "application/pls-xml";
+    m_Mimetypes[ "js"    ] = "text/javascript";
 }
 
 
