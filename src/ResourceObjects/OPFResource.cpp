@@ -1047,7 +1047,7 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "mp3"   ] = "audio/mpeg";
     m_Mimetypes[ "mp4"   ] = "video/mp4";
     m_Mimetypes[ "smil"  ] = "application/smil+xml";
-    m_Mimetypes[ "pls"   ] = "application/pls-xml";
+    m_Mimetypes[ "pls"   ] = "application/pls+xml";
     m_Mimetypes[ "js"    ] = "text/javascript";
 }
 
