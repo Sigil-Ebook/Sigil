@@ -72,6 +72,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     // Enable our link filter.
     page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
+    page()->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
     CreateContextMenuActions();
     ConnectSignalsToSlots();
 }
