@@ -1038,17 +1038,21 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "html"  ] = "application/xhtml+xml";
     m_Mimetypes[ "htm"   ] = "application/xhtml+xml";
     m_Mimetypes[ "css"   ] = "text/css";
+    m_Mimetypes[ "mp3"   ] = "audio/mpeg";
+    m_Mimetypes[ "oga"   ] = "audio/ogg";
+    m_Mimetypes[ "ogg"   ] = "audio/ogg";
+    m_Mimetypes[ "mp4"   ] = "video/mp4";
+    m_Mimetypes[ "ogv"   ] = "video/ogg";
+    m_Mimetypes[ "webm"  ] = "video/webm";
+    m_Mimetypes[ "smil"  ] = "application/smil+xml";
+    m_Mimetypes[ "pls"   ] = "application/pls+xml";
+    m_Mimetypes[ "js"    ] = "text/javascript";
     // Until the standards gods grace us with font mimetypes,
     // these will have to do
     m_Mimetypes[ "otf"   ] = "application/vnd.ms-opentype";
     m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
     m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
     m_Mimetypes[ "woff"  ] = "application/font-woff";
-    m_Mimetypes[ "mp3"   ] = "audio/mpeg";
-    m_Mimetypes[ "mp4"   ] = "video/mp4";
-    m_Mimetypes[ "smil"  ] = "application/smil+xml";
-    m_Mimetypes[ "pls"   ] = "application/pls+xml";
-    m_Mimetypes[ "js"    ] = "text/javascript";
 }
 
 

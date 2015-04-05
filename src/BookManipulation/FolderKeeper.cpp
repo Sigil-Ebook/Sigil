@@ -57,8 +57,8 @@ const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js" << "xp
 const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf";
 const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm" << "xml";
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
-const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg";
-const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v" << "mp4" << "mov" << "ogg" << "webm";
+const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg" << "oga" << "ogg";
+const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v" << "mp4" << "mov" << "ogv" << "webm";
 
 const QString IMAGE_FOLDER_NAME = "Images";
 const QString FONT_FOLDER_NAME  = "Fonts";
@@ -75,8 +75,8 @@ const QStringList TEXT_MIMETYPES = QStringList() << "application/xhtml+xml"
                                    << "application/x-dtbook+xml"
                                    << "application/xml";
 const QStringList STYLE_MIMETYPES = QStringList() << "text/css";
-const QStringList AUDIO_MIMETYPES = QStringList() << "audio/mpeg" << "audio/mp4";
-const QStringList VIDEO_MIMETYPES = QStringList() << "video/mp4" << "video/mp4" << "video/mp4";
+const QStringList AUDIO_MIMETYPES = QStringList() << "audio/mpeg" << "audio/mp4" << "audio/ogg";
+const QStringList VIDEO_MIMETYPES = QStringList() << "video/mp4" << "video/mp4" << "video/mp4" << "video/ogg" << "video/webm";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                                      "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
