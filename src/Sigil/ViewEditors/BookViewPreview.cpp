@@ -72,6 +72,8 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     // Enable our link filter.
     page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
+    // This should not be needed on Windows if we simply include the correct qt plugins
+    // page()->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
     CreateContextMenuActions();
     ConnectSignalsToSlots();
 }

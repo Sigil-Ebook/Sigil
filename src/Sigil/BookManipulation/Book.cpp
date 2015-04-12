@@ -925,6 +925,9 @@ Resource *Book::MergeResources(QList<Resource *> resources)
         sink_html_resource.SetText(XhtmlDoc::GetDomDocumentAsString(sink_dom));
         // Now safe to do the delete
         foreach(Resource * source_resource, resources) {
+            // Need to alert FolderKeeper that these are going away to properly update its
+            // m_Resources hash to prevent stale values from deleted resources hanging around
+            m_Mainfolder.RemoveResource(*source_resource);
             source_resource->Delete();
         }
     }

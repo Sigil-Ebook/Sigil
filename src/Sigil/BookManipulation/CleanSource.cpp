@@ -83,9 +83,15 @@ static QString HTML5_BLOCK_ELEMENTS       = "article,aside,audio,canvas,datagrid
 static QString HTML5_INLINE_ELEMENTS      = "command,mark,meter,progress,rp,rt,ruby,time";
 static QString HTML5_EMPTY_ELEMENTS       = "";
 
+static QString MATHML_INLINE_ELEMENTS     = "math,maction,maligngroup,malignmark,menclose,merror,mfenced"
+        ",mfrac,mglyph,mi,mlabeledtr,mlongdiv,mmultiscripts,mn,mo,mover,mpadded,mphantom,mroot"
+        ",mrow,ms,mscarries,mscarry,msgroup,msline,mspace,msqrt,msrow,mstack,mstyle,msub,msup,msubsup"
+        ",mtable,mtd,mtext,mtr,munder,munderover,semantics,annotation,annotation-xml";
+
+
 // Don't mix inline with block but inline can be duplicated with empty according to tidy docs
 static QString BLOCK_ELEMENTS             = HTML5_BLOCK_ELEMENTS  + "," + SVG_BLOCK_ELEMENTS;
-static QString INLINE_ELEMENTS            = HTML5_INLINE_ELEMENTS + "," + SVG_INLINE_ELEMENTS;;
+static QString INLINE_ELEMENTS            = HTML5_INLINE_ELEMENTS + "," + SVG_INLINE_ELEMENTS + "," + MATHML_INLINE_ELEMENTS;
 static QString EMPTY_ELEMENTS             = HTML5_EMPTY_ELEMENTS  + "," + SVG_EMPTY_ELEMENTS;
 
 // Performs general cleaning (and improving)

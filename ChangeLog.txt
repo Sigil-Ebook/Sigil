@@ -1,3 +1,11 @@
+Sigil 0.8.6 2015.04.12
+    - Fix for crash during merging xhtml files.
+    - Changed fix for "Create TOC crash in Sigil 0.8.5" to reduce the degree
+      of disconnecting to prevent lost signals on html resources.
+    - Fix for missing audio and video mime types in OPFResource  and
+      FolderKeeper.
+    - Attempt to prevent Tidy from simply deleting all mathml during cleaning.
+
 Sigil 0.8.5 2015.03.29
     - Fix text resource not alwalys saving to disk.
     - Fix bug in missing CSS.

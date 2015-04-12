@@ -57,8 +57,8 @@ const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js" << "xp
 const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf";
 const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm" << "xml";
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
-const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg";
-const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v" << "mp4" << "mov" << "ogg" << "webm";
+const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg" << "oga" << "ogg";
+const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v" << "mp4" << "mov" << "ogv" << "webm";
 
 const QString IMAGE_FOLDER_NAME = "Images";
 const QString FONT_FOLDER_NAME  = "Fonts";
