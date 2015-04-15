@@ -43,7 +43,10 @@ if( NOT APPLE )
 endif()
 
 # Profiler configuration for GCC
-if( CMAKE_COMPILER_IS_GNUCXX  )
+if (APPLE)
+    SET (CMAKE_C_FLAGS_RELEASE "-O0 -DNDEBUG")
+    SET (CMAKE_CXX_FLAGS_RELEASE "-O0 -DNDEBUG")
+elseif( CMAKE_COMPILER_IS_GNUCXX  )
     set( CMAKE_BUILD_TYPE profiling )
     set( CMAKE_CXX_FLAGS_PROFILING "-O2 -DNDEBUG -pg -g -fno-omit-frame-pointer -fno-inline-functions -fno-inline-functions-called-once -fno-optimize-sibling-calls" )
 
