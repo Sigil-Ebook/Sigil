@@ -26,7 +26,7 @@
 
 #include <QtCore/QString>
 
-#include "PCRE/SPCRE.h"
+#include "pcre/SPCRE.h"
 
 class QChar;
 

@@ -29,7 +29,7 @@
 #include "Misc/SearchOperations.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "PCRE/PCRECache.h"
+#include "pcre/PCRECache.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/TextResource.h"

@@ -21,7 +21,7 @@
 
 #include <QtCore/QChar>
 
-#include "PCRE/PCREReplaceTextBuilder.h"
+#include "pcre/PCREReplaceTextBuilder.h"
 #include "Misc/Utility.h"
 
 #define is_hex(a) (((a) >= '0' && (a) <= '9') || ((a) >= 'a' && (a) <= 'f') || ((a) >= 'A' && (a) <= 'F') ? true : false)

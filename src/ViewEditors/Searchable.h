@@ -24,7 +24,7 @@
 #ifndef SEARCHABLE_H
 #define SEARCHABLE_H
 
-#include "PCRE/SPCRE.h"
+#include "pcre/SPCRE.h"
 
 class QString;
 class QStringList;

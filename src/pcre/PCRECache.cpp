@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 
-#include "PCRE/PCRECache.h"
+#include "pcre/PCRECache.h"
 
 PCRECache *PCRECache::m_instance = 0;
 
