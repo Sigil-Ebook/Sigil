@@ -32,7 +32,7 @@
 #include "Misc/GumboInterface.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "PCRE/PCRECache.h"
+#include "pcre/PCRECache.h"
 #include "sigil_constants.h"
 #include "ViewEditors/BookViewPreview.h"
 #include "ViewEditors/ViewWebPage.h"

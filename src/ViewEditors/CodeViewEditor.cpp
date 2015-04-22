@@ -50,7 +50,7 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/Utility.h"
-#include "PCRE/PCRECache.h"
+#include "pcre/PCRECache.h"
 #include "ViewEditors/CodeViewEditor.h"
 #include "ViewEditors/LineNumberArea.h"
 #include "sigil_constants.h"

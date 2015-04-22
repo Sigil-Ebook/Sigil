@@ -19,8 +19,8 @@
 **
 *************************************************************************/
 
-#include "PCRE/SPCRE.h"
-#include "PCRE/PCREReplaceTextBuilder.h"
+#include "pcre/SPCRE.h"
+#include "pcre/PCREReplaceTextBuilder.h"
 #include "sigil_constants.h"
 
 // The maximum number of catpures that we will allow.

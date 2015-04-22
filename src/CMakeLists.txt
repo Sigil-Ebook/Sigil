@@ -329,12 +329,12 @@ set( MISC_EDITORS_FILES
     )
 
 set( SPCRE_FILES
-    PCRE/SPCRE.cpp
-    PCRE/SPCRE.h
-    PCRE/PCRECache.cpp
-    PCRE/PCRECache.h
-    PCRE/PCREReplaceTextBuilder.cpp
-    PCRE/PCREReplaceTextBuilder.h
+    pcre/SPCRE.cpp
+    pcre/SPCRE.h
+    pcre/PCRECache.cpp
+    pcre/PCRECache.h
+    pcre/PCREReplaceTextBuilder.cpp
+    pcre/PCREReplaceTextBuilder.h
     )
 
 set( VIEW_EDITOR_FILES

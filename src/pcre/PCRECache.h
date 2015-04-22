@@ -27,7 +27,7 @@
 #include <QtCore/QCache>
 #include <QtCore/QString>
 
-#include "PCRE/SPCRE.h"
+#include "pcre/SPCRE.h"
 
 /**
  * Singleton. A cache of SPCRE regular expression objects.
