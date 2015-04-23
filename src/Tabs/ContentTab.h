@@ -50,12 +50,12 @@ public:
      * @param resource The resource this tab will be displaying.
      * @param parent The parent of this QObject.
      */
-    ContentTab(Resource &resource, QWidget *parent = 0);
+    ContentTab(Resource *resource, QWidget *parent = 0);
 
     /**
      * Destructor.
      */
-    virtual ~ContentTab() {}
+    virtual ~ContentTab();
 
     /**
      * Returns the filename of the displayed resource.
@@ -76,7 +76,7 @@ public:
      *
      * @return A reference to the resource.
      */
-    Resource &GetLoadedResource();
+    Resource *GetLoadedResource();
 
     /**
      * The modification state of the resource.
@@ -462,12 +462,12 @@ protected:
     /**
      * The resource being displayed.
      */
-    Resource &m_Resource;
+    Resource *m_Resource;
 
     /**
      * The main layout of the widget.
      */
-    QLayout &m_Layout;
+    QLayout *m_Layout;
 };
 
 #endif // CONTENTTAB_H

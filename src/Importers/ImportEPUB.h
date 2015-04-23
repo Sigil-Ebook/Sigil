@@ -74,7 +74,7 @@ private:
      * @param opf_reader The OPF reader positioned to read
      *                   the required element type.
      */
-    void ReadIdentifierElement(QXmlStreamReader &opf_reader);
+    void ReadIdentifierElement(QXmlStreamReader *opf_reader);
 
     /**
      * Reads a manifest <item> element.
@@ -82,7 +82,7 @@ private:
      * @param opf_reader The OPF reader positioned to read
      *                   the required element type.
      */
-    void ReadManifestItemElement(QXmlStreamReader &opf_reader);
+    void ReadManifestItemElement(QXmlStreamReader *opf_reader);
 
     /**
      * Locate or create an NCX file if missing or not correctly specified.

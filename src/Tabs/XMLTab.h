@@ -36,7 +36,7 @@ class XMLTab : public TextTab, public WellFormedContent
 
 public:
 
-    XMLTab(XMLResource &resource,
+    XMLTab(XMLResource *resource,
            int line_to_scroll_to = -1,
            QWidget *parent = 0);
 
@@ -63,13 +63,13 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    XMLResource &m_XMLResource;
+    XMLResource *m_XMLResource;
 
     /**
      * The component used to display a dialog about
      * well-formedness errors.
      */
-    WellFormedCheckComponent &m_WellFormedCheckComponent;
+    WellFormedCheckComponent *m_WellFormedCheckComponent;
 };
 
 #endif // XMLTAB_H

@@ -25,11 +25,11 @@
 #include "Tabs/XMLTab.h"
 
 
-XMLTab::XMLTab(XMLResource &resource, int line_to_scroll_to, QWidget *parent)
+XMLTab::XMLTab(XMLResource *resource, int line_to_scroll_to, QWidget *parent)
     :
     TextTab(resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, parent),
     m_XMLResource(resource),
-    m_WellFormedCheckComponent(*new WellFormedCheckComponent(*this, parent))
+    m_WellFormedCheckComponent(new WellFormedCheckComponent(this, parent))
 {
     ConnectSignalsToSlots();
 }
@@ -37,7 +37,7 @@ XMLTab::XMLTab(XMLResource &resource, int line_to_scroll_to, QWidget *parent)
 
 XMLTab::~XMLTab()
 {
-    m_WellFormedCheckComponent.deleteLater();
+    m_WellFormedCheckComponent->deleteLater();
 }
 
 
@@ -49,7 +49,7 @@ void XMLTab::ScrollToLine(int line)
 
 void XMLTab::AutoFixWellFormedErrors()
 {
-    m_wCodeView.ReplaceDocumentText(CleanSource::ProcessXML(m_wCodeView.toPlainText()));
+    m_wCodeView->ReplaceDocumentText(CleanSource::ProcessXML(m_wCodeView->toPlainText()));
 }
 
 
@@ -68,11 +68,11 @@ QString XMLTab::GetFilename()
 
 bool XMLTab::IsDataWellFormed()
 {
-    XhtmlDoc::WellFormedError error = m_XMLResource.WellFormedErrorLocation();
+    XhtmlDoc::WellFormedError error = m_XMLResource->WellFormedErrorLocation();
     bool well_formed = error.line == -1;
 
     if (!well_formed) {
-        m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
+        m_WellFormedCheckComponent->DemandAttentionIfAllowed(error);
     }
 
     return well_formed;
@@ -81,6 +81,6 @@ bool XMLTab::IsDataWellFormed()
 
 void XMLTab::ConnectSignalsToSlots()
 {
-    connect(&m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
+    connect(m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
 }
 

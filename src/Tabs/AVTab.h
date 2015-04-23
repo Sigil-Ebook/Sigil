@@ -33,7 +33,7 @@ class AVTab : public ContentTab
     Q_OBJECT
 
 public:
-    AVTab(Resource &resource, QWidget *parent=0);
+    AVTab(Resource *resource, QWidget *parent=0);
 
 public slots:
     void RefreshContent();

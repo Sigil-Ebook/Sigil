@@ -75,6 +75,7 @@ public:
      * @param parent The object's parent.
      */
     CodeViewEditor(HighlighterType highlighter_type, bool check_spelling = false, QWidget *parent = 0);
+    ~CodeViewEditor();
 
     QSize sizeHint() const;
 
@@ -749,12 +750,12 @@ private:
     /**
      * Catches when the user wants to scroll the view by one line up.
      */
-    QShortcut &m_ScrollOneLineUp;
+    QShortcut *m_ScrollOneLineUp;
 
     /**
      * Catches when the user wants to scroll the view by one line down.
      */
-    QShortcut &m_ScrollOneLineDown;
+    QShortcut *m_ScrollOneLineDown;
 
     /**
      * Set to \c false whenever the page is loading content.

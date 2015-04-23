@@ -82,7 +82,7 @@ void EditTOC::CreateTOCModel()
 
 void EditTOC::Save()
 {
-    m_Book->GetNCX().GenerateNCXFromTOCEntries(*m_Book, ConvertTableToEntries());
+    m_Book->GetNCX()->GenerateNCXFromTOCEntries(m_Book.data(), ConvertTableToEntries());
 }
 
 NCXModel::NCXEntry EditTOC::ConvertTableToEntries()

@@ -124,7 +124,7 @@ public:
      *
      * @return A reference to the current content tab.
      */
-    ContentTab &GetCurrentContentTab();
+    ContentTab *GetCurrentContentTab();
 
     FlowTab *GetCurrentFlowTab();
 
@@ -209,7 +209,7 @@ public slots:
     /**
      * Opens the specified resource in the specified view state.
      */
-    void OpenResource(Resource &resource,
+    void OpenResource(Resource *resource,
                       int line_to_scroll_to = -1,
                       int position_to_scroll_to = -1,
                       const QString &caret_location_to_scroll_to = QString(),
@@ -217,7 +217,7 @@ public slots:
                       const QUrl &fragment = QUrl(),
                       bool precede_current_tab = false);
 
-    void OpenResourceAndWaitUntilLoaded(Resource &resource,
+    void OpenResourceAndWaitUntilLoaded(Resource *resource,
                                         int line_to_scroll_to = -1,
                                         int position_to_scroll_to = -1,
                                         const QString &caret_location_to_scroll_to = QString(),
@@ -546,7 +546,7 @@ private slots:
      * @see FlowTab::SplitSection, FlowTab::OldTabRequest,
      *      BookViewEditor::SplitSection, Book::CreateSectionBreakOriginalResource
      */
-    void CreateSectionBreakOldTab(QString content, HTMLResource &originating_resource);
+    void CreateSectionBreakOldTab(QString content, HTMLResource *originating_resource);
 
 
     /**
@@ -571,7 +571,7 @@ private slots:
 
     void LinkStylesheetsToResources(QList <Resource *> resources);
 
-    void ResourceUpdatedFromDisk(Resource &resource);
+    void ResourceUpdatedFromDisk(Resource *resource);
 
     void UpdateWord(QString old_word, QString new_word);
     void FindWord(QString word);
@@ -872,7 +872,7 @@ private:
     /**
      * The tab managing object.
      */
-    TabManager &m_TabManager;
+    TabManager *m_TabManager;
 
     /**
      * The Book Browser pane that lists all the files in the book.
@@ -979,7 +979,7 @@ private:
      */
     QByteArray m_LastWindowSize;
 
-    QTimer &m_PreviewTimer;
+    QTimer m_PreviewTimer;
 
     HTMLResource *m_PreviousHTMLResource;
     QString m_PreviousHTMLText;

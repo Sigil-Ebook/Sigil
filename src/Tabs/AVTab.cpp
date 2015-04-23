@@ -51,14 +51,14 @@ const QString VIDEO_HTML_BASE =
     "</body>"
     "</html>";
 
-AVTab::AVTab(Resource &resource, QWidget *parent)
+AVTab::AVTab(Resource *resource, QWidget *parent)
     : ContentTab(resource, parent),
       m_WebView(new QWebView(this))
 {
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
-    m_Layout.addWidget(m_WebView);
+    m_Layout->addWidget(m_WebView);
     ConnectSignalsToSlots();
     RefreshContent();
 }
@@ -67,9 +67,9 @@ void AVTab::RefreshContent()
 {
     MainWindow::clearMemoryCaches();
     QString html;
-    const QString path = m_Resource.GetFullPath();
+    const QString path = m_Resource->GetFullPath();
     const QUrl resourceUrl = QUrl::fromLocalFile(path);
-    if (m_Resource.Type() == Resource::AudioResourceType) {
+    if (m_Resource->Type() == Resource::AudioResourceType) {
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
     } else {
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
@@ -79,7 +79,7 @@ void AVTab::RefreshContent()
 
 void AVTab::ConnectSignalsToSlots()
 {
-    connect(&m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));
-    connect(&m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
+    connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));
+    connect(m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
 }
 

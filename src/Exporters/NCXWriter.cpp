@@ -27,17 +27,17 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_constants.h"
 
-NCXWriter::NCXWriter(const Book &book, QIODevice &device)
+NCXWriter::NCXWriter(const Book *book, QIODevice &device)
     :
     XMLWriter(book, device),
     m_Headings(Headings::MakeHeadingHeirarchy(
-                   Headings::GetHeadingList(book.GetFolderKeeper().GetResourceTypeList<HTMLResource>(true)))),
+                   Headings::GetHeadingList(book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true)))),
     m_NCXRootEntry(NCXModel::NCXEntry())
 {
 }
 
 
-NCXWriter::NCXWriter(const Book &book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry)
+NCXWriter::NCXWriter(const Book *book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry)
     :
     XMLWriter(book, device),
     m_NCXRootEntry(ncx_root_entry)
@@ -73,7 +73,7 @@ void NCXWriter::WriteHead()
     m_Writer->writeStartElement("head");
     m_Writer->writeEmptyElement("meta");
     m_Writer->writeAttribute("name", "dtb:uid");
-    m_Writer->writeAttribute("content", m_Book.GetPublicationIdentifier());
+    m_Writer->writeAttribute("content", m_Book->GetPublicationIdentifier());
     m_Writer->writeEmptyElement("meta");
     m_Writer->writeAttribute("name", "dtb:depth");
     m_Writer->writeAttribute("content", QString::number(GetTOCDepth()));
@@ -90,7 +90,7 @@ void NCXWriter::WriteHead()
 void NCXWriter::WriteDocTitle()
 {
     QString document_title;
-    QList<QVariant> titles = m_Book.GetMetadataValues("title");
+    QList<QVariant> titles = m_Book->GetMetadataValues("title");
 
     if (titles.isEmpty()) {
         document_title = "Unknown";
@@ -134,7 +134,7 @@ void NCXWriter::WriteFallbackNavPoint()
     m_Writer->writeStartElement("navLabel");
     m_Writer->writeTextElement("text", "Start");
     m_Writer->writeEndElement();
-    QList<HTMLResource *> html_resources = m_Book.GetFolderKeeper().GetResourceTypeList<HTMLResource>(true);
+    QList<HTMLResource *> html_resources = m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true);
     Q_ASSERT(!html_resources.isEmpty());
     m_Writer->writeEmptyElement("content");
     m_Writer->writeAttribute("src", Utility::URLEncodePath(html_resources.at(0)->GetRelativePathToOEBPS()));

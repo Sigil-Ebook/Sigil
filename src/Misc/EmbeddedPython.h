@@ -47,33 +47,33 @@ public:
 
     bool addToPythonSysPath(const QString& modulepath);
 
-    QVariant runInPython(const QString& module_name,
-                         const QString& function_name,
-                         const QVariantList& args,
-                         int * pRV,
-                         QString& error_traceback,
+    QVariant runInPython(const QString &module_name,
+                         const QString &function_name,
+                         const QVariantList &args,
+                         int *pRV,
+                         QString &error_traceback,
                          bool ret_python_object = false);
 
-    QVariant callPyObjMethod(PyObjectPtr& pyobj, 
-                             const QString& methname, 
-                             const QVariantList& args, 
+    QVariant callPyObjMethod(PyObjectPtr &pyobj, 
+                             const QString &methname, 
+                             const QVariantList &args, 
                              int *rv, 
-                             QString & tb,
+                             QString &tb,
                              bool ret_python_object = false);
 
 private:
 
     EmbeddedPython();
 
-    QVariant PyObjectToQVariant(PyObject* po, bool ret_python_object = false);
+    QVariant PyObjectToQVariant(PyObject *po, bool ret_python_object = false);
 
-    PyObject* QVariantToPyObject(QVariant& v);
+    PyObject *QVariantToPyObject(const QVariant &v);
 
     QString getPythonErrorTraceback(bool useMsgBox = true);
 
     static QMutex m_mutex;
     static EmbeddedPython *m_instance;
     static int m_pyobjmetaid;
-    static PyThreadState* m_threadstate;
+    static PyThreadState *m_threadstate;
 };
 #endif // EMBEDDEDPYTHON_H

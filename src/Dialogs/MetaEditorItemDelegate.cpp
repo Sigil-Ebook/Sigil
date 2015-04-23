@@ -51,8 +51,8 @@ QWidget *MetaEditorItemDelegate::createEditor(QWidget *parent, const QStyleOptio
     // Create the combobox and populate it
     QComboBox *cb = new QComboBox(parent);
     // Add name - all translations done in Metadata for consistency
-    cb->addItem(Metadata::Instance().GetText("creator"));
-    cb->addItem(Metadata::Instance().GetText("contributor"));
+    cb->addItem(Metadata::Instance()->GetText("creator"));
+    cb->addItem(Metadata::Instance()->GetText("contributor"));
     return cb;
 }
 

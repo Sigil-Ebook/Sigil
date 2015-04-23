@@ -66,7 +66,7 @@ public:
      *
      * @return The reference.
      */
-    static GuideSemantics &Instance();
+    static GuideSemantics *Instance();
 
     /**
      * Returns a reference to m_GuideTypeMapping

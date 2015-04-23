@@ -56,8 +56,8 @@ CSSFilesWidget::CSSFilesWidget()
 void CSSFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_HTMLResources = m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(false);
-    m_CSSResources = m_Book->GetFolderKeeper().GetResourceTypeList<CSSResource>(false);
+    m_HTMLResources = m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(false);
+    m_CSSResources = m_Book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);
     SetupTable();
 }
 

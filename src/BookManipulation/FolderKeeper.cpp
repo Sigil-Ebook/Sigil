@@ -112,13 +112,13 @@ FolderKeeper::~FolderKeeper()
         // the OPF will try to update itself on every resource
         // removal (and there's no point to that, FolderKeeper is dying).
         // Disconnecting this speeds up FolderKeeper destruction.
-        disconnect(resource, SIGNAL(Deleted(const Resource &)),
-                   this,     SLOT(RemoveResource(const Resource &)));
+        disconnect(resource, SIGNAL(Deleted(const Resource *)),
+                   this,     SLOT(RemoveResource(const Resource *)));
         resource->Delete();
     }
 }
 
-Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, const QString &mimetype)
+Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, const QString &mimetype)
 {
     if (!QFileInfo(fullfilepath).exists()) {
         throw(FileDoesNotExist(fullfilepath.toStdString()));
@@ -193,16 +193,16 @@ Resource &FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         resource->moveToThread(QApplication::instance()->thread());
     }
 
-    connect(resource, SIGNAL(Deleted(const Resource &)),
-            this,     SLOT(RemoveResource(const Resource &)), Qt::DirectConnection);
-    connect(resource, SIGNAL(Renamed(const Resource &, QString)),
-            this,     SLOT(ResourceRenamed(const Resource &, QString)), Qt::DirectConnection);
+    connect(resource, SIGNAL(Deleted(const Resource *)),
+            this,     SLOT(RemoveResource(const Resource *)), Qt::DirectConnection);
+    connect(resource, SIGNAL(Renamed(const Resource *, QString)),
+            this,     SLOT(ResourceRenamed(const Resource *, QString)), Qt::DirectConnection);
 
     if (update_opf) {
-        emit ResourceAdded(*resource);
+        emit ResourceAdded(resource);
     }
 
-    return *resource;
+    return resource;
 }
 
 
@@ -294,32 +294,32 @@ QList<Resource *> FolderKeeper::GetResourceListByType(Resource::ResourceType typ
     return resources;
 }
 
-Resource &FolderKeeper::GetResourceByIdentifier(const QString &identifier) const
+Resource *FolderKeeper::GetResourceByIdentifier(const QString &identifier) const
 {
-    return *m_Resources[ identifier ];
+    return m_Resources[ identifier ];
 }
 
 
-Resource &FolderKeeper::GetResourceByFilename(const QString &filename) const
+Resource *FolderKeeper::GetResourceByFilename(const QString &filename) const
 {
-    foreach(Resource * resource, m_Resources.values()) {
+    foreach(Resource *resource, m_Resources.values()) {
         if (resource->Filename() == filename) {
-            return *resource;
+            return resource;
         }
     }
     throw(ResourceDoesNotExist(filename.toStdString()));
 }
 
 
-OPFResource &FolderKeeper::GetOPF() const
+OPFResource *FolderKeeper::GetOPF() const
 {
-    return *m_OPF;
+    return m_OPF;
 }
 
 
-NCXResource &FolderKeeper::GetNCX() const
+NCXResource *FolderKeeper::GetNCX() const
 {
-    return *m_NCX;
+    return m_NCX;
 }
 
 
@@ -360,26 +360,26 @@ QString FolderKeeper::GetFullPathToVideoFolder() const
 QStringList FolderKeeper::GetAllFilenames() const
 {
     QStringList filelist;
-    foreach(Resource * resource, m_Resources.values()) {
+    foreach(Resource *resource, m_Resources.values()) {
         filelist.append(resource->Filename());
     }
     return filelist;
 }
 
 
-void FolderKeeper::RemoveResource(const Resource &resource)
+void FolderKeeper::RemoveResource(const Resource *resource)
 {
-    m_Resources.remove(resource.GetIdentifier());
+    m_Resources.remove(resource->GetIdentifier());
 
-    if (m_FSWatcher->files().contains(resource.GetFullPath())) {
-        m_FSWatcher->removePath(resource.GetFullPath());
+    if (m_FSWatcher->files().contains(resource->GetFullPath())) {
+        m_FSWatcher->removePath(resource->GetFullPath());
     }
 
-    m_SuspendedWatchedFiles.removeAll(resource.GetFullPath());
+    m_SuspendedWatchedFiles.removeAll(resource->GetFullPath());
     emit ResourceRemoved(resource);
 }
 
-void FolderKeeper::ResourceRenamed(const Resource &resource, const QString &old_full_path)
+void FolderKeeper::ResourceRenamed(const Resource *resource, const QString &old_full_path)
 {
     m_OPF->ResourceRenamed(resource, old_full_path);
 }
@@ -403,7 +403,7 @@ void FolderKeeper::ResourceFileChanged(const QString &path) const
             m_FSWatcher->addPath(path);
         }
 
-        foreach(Resource * resource, m_Resources.values()) {
+        foreach(Resource *resource, m_Resources.values()) {
             if (resource->GetFullPath() == path) {
                 resource->FileChangedOnDisk();
                 return;
@@ -412,17 +412,17 @@ void FolderKeeper::ResourceFileChanged(const QString &path) const
     }
 }
 
-void FolderKeeper::WatchResourceFile(const Resource &resource)
+void FolderKeeper::WatchResourceFile(const Resource *resource)
 {
-    if (OpenExternally::mayOpen(resource.Type())) {
-        if (!m_FSWatcher->files().contains(resource.GetFullPath())) {
-            m_FSWatcher->addPath(resource.GetFullPath());
+    if (OpenExternally::mayOpen(resource->Type())) {
+        if (!m_FSWatcher->files().contains(resource->GetFullPath())) {
+            m_FSWatcher->addPath(resource->GetFullPath());
         }
 
         // when the file is changed externally, mark the owning Book as modified
         // parent() is the Book object
-        connect(&resource,  SIGNAL(ResourceUpdatedFromDisk(Resource &)),
-                parent(),   SLOT(ResourceUpdatedFromDisk(Resource &)), Qt::UniqueConnection);
+        connect(resource,  SIGNAL(ResourceUpdatedFromDisk(Resource *)),
+                parent(),   SLOT(ResourceUpdatedFromDisk(Resource *)), Qt::UniqueConnection);
     }
 }
 
@@ -486,15 +486,15 @@ void FolderKeeper::CreateInfrastructureFiles()
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     // TODO: change from Resource* to const Resource&
-    connect(m_OPF, SIGNAL(Deleted(const Resource &)), this, SLOT(RemoveResource(const Resource &)));
-    connect(m_NCX, SIGNAL(Deleted(const Resource &)), this, SLOT(RemoveResource(const Resource &)));
+    connect(m_OPF, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
+    connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
     // For ResourceAdded, the connection has to be DirectConnection,
     // otherwise the default of AutoConnection screws us when
     // AddContentFileToFolder is called from multiple threads.
-    connect(this,  SIGNAL(ResourceAdded(const Resource &)),
-            m_OPF, SLOT(AddResource(const Resource &)), Qt::DirectConnection);
-    connect(this,  SIGNAL(ResourceRemoved(const Resource &)),
-            m_OPF, SLOT(RemoveResource(const Resource &)));
+    connect(this,  SIGNAL(ResourceAdded(const Resource *)),
+            m_OPF, SLOT(AddResource(const Resource *)), Qt::DirectConnection);
+    connect(this,  SIGNAL(ResourceRemoved(const Resource *)),
+            m_OPF, SLOT(RemoveResource(const Resource *)));
     connect(m_FSWatcher, SIGNAL(fileChanged(const QString &)),
             this,        SLOT(ResourceFileChanged(const QString &)), Qt::DirectConnection);
     Utility::WriteUnicodeTextFile(CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml");

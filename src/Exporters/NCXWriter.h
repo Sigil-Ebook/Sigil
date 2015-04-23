@@ -41,9 +41,9 @@ public:
      * @param book The book for which we're writing the NCX.
      * @param device The IODevice into which we should write the XML.
      */
-    NCXWriter(const Book &book, QIODevice &device);
+    NCXWriter(const Book *book, QIODevice &device);
 
-    NCXWriter(const Book &book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry);
+    NCXWriter(const Book *book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry);
 
     void WriteXML();
 

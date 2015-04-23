@@ -391,7 +391,7 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
 
 // Returns a list of all the "visible" text nodes that are descendants
 // of the specified node. "Visible" means we ignore style tags, script tags etc...
-QList<GumboNode*> XhtmlDoc::GetVisibleTextNodes(GumboInterface & gi, GumboNode* node)
+QList<GumboNode *> XhtmlDoc::GetVisibleTextNodes(GumboInterface &gi, GumboNode *node)
 {
     if ((node->type == GUMBO_NODE_TEXT) || (node->type == GUMBO_NODE_WHITESPACE)) {
         return QList<GumboNode *>() << node;
@@ -414,7 +414,7 @@ QList<GumboNode*> XhtmlDoc::GetVisibleTextNodes(GumboInterface & gi, GumboNode* 
 
 
 // Returns a list of all nodes suitable for "id" element
-QList<GumboNode*> XhtmlDoc::GetIDNodes(GumboInterface & gi, GumboNode* node)
+QList<GumboNode *> XhtmlDoc::GetIDNodes(GumboInterface &gi, GumboNode *node)
 {
     QList<GumboNode*> text_nodes = QList<GumboNode*>();
     if (node->type != GUMBO_NODE_ELEMENT) {
@@ -455,7 +455,7 @@ QList<GumboNode*> XhtmlDoc::GetIDNodes(GumboInterface & gi, GumboNode* node)
 }
 
 
-QString XhtmlDoc::GetIDElementText(GumboInterface & gi, GumboNode * node)
+QString XhtmlDoc::GetIDElementText(GumboInterface &gi, GumboNode *node)
 {
     QString text;
     if (node->type != GUMBO_NODE_ELEMENT) {
@@ -478,7 +478,7 @@ QString XhtmlDoc::GetIDElementText(GumboInterface & gi, GumboNode * node)
 
 
 // Returns the first block element ancestor of the specified node
-GumboNode * XhtmlDoc::GetAncestorBlockElement(GumboInterface & gi, GumboNode* node)
+GumboNode *XhtmlDoc::GetAncestorBlockElement(GumboInterface &gi, GumboNode *node)
 {
     GumboNode * parent_node = node;
 
@@ -499,9 +499,9 @@ GumboNode * XhtmlDoc::GetAncestorBlockElement(GumboInterface & gi, GumboNode* no
 }
 
 
-GumboNode * XhtmlDoc::GetAncestorIDElement(GumboInterface & gi, GumboNode * node)
+GumboNode *XhtmlDoc::GetAncestorIDElement(GumboInterface &gi, GumboNode *node)
 {
-    GumboNode * parent_node = node;
+    GumboNode *parent_node = node;
 
     while (true) {
         parent_node = parent_node->parent;
@@ -518,7 +518,7 @@ GumboNode * XhtmlDoc::GetAncestorIDElement(GumboInterface & gi, GumboNode * node
 }
 
 
-QStringList XhtmlDoc::GetPathsToMediaFiles(const QString & source)
+QStringList XhtmlDoc::GetPathsToMediaFiles(const QString &source)
 {
   QList<GumboTag> tags = QList<GumboTag>() << GIMAGE_TAGS << GVIDEO_TAGS << GAUDIO_TAGS;
   QStringList media_paths = GetAllMediaPathsFromMediaChildren(source, tags);
@@ -527,7 +527,7 @@ QStringList XhtmlDoc::GetPathsToMediaFiles(const QString & source)
   return media_paths;
 }
 
-QStringList XhtmlDoc::GetPathsToStyleFiles(const QString & source)
+QStringList XhtmlDoc::GetPathsToStyleFiles(const QString &source)
 {
     GumboInterface gi = GumboInterface(source);
     QStringList style_paths;

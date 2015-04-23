@@ -64,7 +64,7 @@ public:
      * @param line_to_scroll_to To which line should the resource scroll.
      * @param parent The parent of this QObject.
      */
-    FlowTab(HTMLResource &resource,
+    FlowTab(HTMLResource *resource,
             const QUrl &fragment,
             MainWindow::ViewState view_state,
             int line_to_scroll_to = -1,
@@ -285,7 +285,7 @@ signals:
      * @param originating_resource  The original resource from which the content
      *                              was extracted to create the "old" tab/resource.
      */
-    void OldTabRequest(QString content, HTMLResource &originating_resource);
+    void OldTabRequest(QString content, HTMLResource *originating_resource);
 
     void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
 
@@ -385,7 +385,7 @@ private:
     /**
      * The HTML resource the tab is currently displaying.
      */
-    HTMLResource &m_HTMLResource;
+    HTMLResource *m_HTMLResource;
 
     /**
      * The splitter widget that separates the two Views.
@@ -420,7 +420,7 @@ private:
      * The component used to display a dialog about
      * well-formedness errors.
      */
-    WellFormedCheckComponent &m_WellFormedCheckComponent;
+    WellFormedCheckComponent *m_WellFormedCheckComponent;
 
     /**
      * A flag to be used in conjunction with the check for well-formedness which

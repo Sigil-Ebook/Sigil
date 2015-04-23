@@ -32,21 +32,21 @@ static const int COLUMN_INDENTATION = 15;
 ClipsWindow::ClipsWindow(QWidget *parent)
     :
     QDockWidget(tr("Clips"), parent),
-    m_MainWidget(*new QWidget(this)),
-    m_Layout(*new QVBoxLayout(&m_MainWidget)),
-    m_TreeView(*new QTreeView(&m_MainWidget))
+    m_MainWidget(new QWidget(this)),
+    m_Layout(new QVBoxLayout(m_MainWidget)),
+    m_TreeView(new QTreeView(m_MainWidget))
 {
-    m_Layout.setContentsMargins(0, 0, 0, 0);
+    m_Layout->setContentsMargins(0, 0, 0, 0);
 #ifdef Q_OS_MAC
-    m_Layout.setSpacing(4);
+    m_Layout->setSpacing(4);
 #endif
-    m_Layout.addWidget(&m_TreeView);
-    m_MainWidget.setLayout(&m_Layout);
-    setWidget(&m_MainWidget);
+    m_Layout->addWidget(m_TreeView);
+    m_MainWidget->setLayout(m_Layout);
+    setWidget(m_MainWidget);
 
     SetupTreeView();
 
-    connect(&m_TreeView, SIGNAL(clicked(const QModelIndex &)),
+    connect(m_TreeView, SIGNAL(clicked(const QModelIndex &)),
             this,        SLOT(ItemClickedHandler(const QModelIndex &)));
 }
 
@@ -59,25 +59,25 @@ void ClipsWindow::showEvent(QShowEvent *event)
 void ClipsWindow::SetupTreeView()
 {
     m_ClipsModel = ClipEditorModel::instance();
-    m_TreeView.setModel(m_ClipsModel);
-    m_TreeView.setSortingEnabled(false);
-    m_TreeView.setWordWrap(false);
-    m_TreeView.setAlternatingRowColors(false);
+    m_TreeView->setModel(m_ClipsModel);
+    m_TreeView->setSortingEnabled(false);
+    m_TreeView->setWordWrap(false);
+    m_TreeView->setAlternatingRowColors(false);
 
-    m_TreeView.setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_TreeView.sortByColumn(-1);
-    m_TreeView.setUniformRowHeights(true);
-    m_TreeView.setDragEnabled(false);
-    m_TreeView.setAcceptDrops(false);
-    m_TreeView.setDropIndicatorShown(false);
-    m_TreeView.setDragDropMode(QAbstractItemView::NoDragDrop);
-    m_TreeView.setAnimated(true);
-    m_TreeView.setIndentation(COLUMN_INDENTATION);
-    m_TreeView.setHeaderHidden(true);
+    m_TreeView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_TreeView->sortByColumn(-1);
+    m_TreeView->setUniformRowHeights(true);
+    m_TreeView->setDragEnabled(false);
+    m_TreeView->setAcceptDrops(false);
+    m_TreeView->setDropIndicatorShown(false);
+    m_TreeView->setDragDropMode(QAbstractItemView::NoDragDrop);
+    m_TreeView->setAnimated(true);
+    m_TreeView->setIndentation(COLUMN_INDENTATION);
+    m_TreeView->setHeaderHidden(true);
 
-    m_TreeView.setColumnHidden(1, true);
+    m_TreeView->setColumnHidden(1, true);
 
-    m_TreeView.expandAll();
+    m_TreeView->expandAll();
 }
 
 
@@ -99,8 +99,8 @@ void ClipsWindow::contextMenuEvent(QContextMenuEvent *event)
     QAction *collapseAction = new QAction(tr("Collapse All"), menu);
     QAction *expandAction = new QAction(tr("Expand All"), menu);
     menu->addAction(collapseAction);
-    connect(collapseAction, SIGNAL(triggered()), &m_TreeView, SLOT(collapseAll()));
+    connect(collapseAction, SIGNAL(triggered()), m_TreeView, SLOT(collapseAll()));
     menu->addAction(expandAction);
-    connect(expandAction, SIGNAL(triggered()), &m_TreeView, SLOT(expandAll()));
+    connect(expandAction, SIGNAL(triggered()), m_TreeView, SLOT(expandAll()));
     menu->exec(mapToGlobal(event->pos()));
 }

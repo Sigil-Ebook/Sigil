@@ -25,7 +25,7 @@
 #include "Exporters/EncryptionXmlWriter.h"
 #include "Misc/Utility.h"
 
-EncryptionXmlWriter::EncryptionXmlWriter(const Book &book, QIODevice &device)
+EncryptionXmlWriter::EncryptionXmlWriter(const Book *book, QIODevice &device)
     : XMLWriter(book, device)
 {
 }
@@ -36,18 +36,18 @@ void EncryptionXmlWriter::WriteXML()
     m_Writer->writeStartElement("encryption");
     m_Writer->writeAttribute("xmlns", "urn:oasis:names:tc:opendocument:xmlns:container");
     m_Writer->writeAttribute("xmlns:enc", "http://www.w3.org/2001/04/xmlenc#");
-    QList<FontResource *> font_resources = m_Book.GetFolderKeeper().GetResourceTypeList<FontResource>();
-    foreach(FontResource * font_resource, font_resources) {
-        WriteEncryptedData(*font_resource);
+    QList<FontResource *> font_resources = m_Book->GetFolderKeeper()->GetResourceTypeList<FontResource>();
+    foreach(FontResource *font_resource, font_resources) {
+        WriteEncryptedData(font_resource);
     }
     m_Writer->writeEndElement();
     m_Writer->writeEndDocument();
 }
 
 
-void EncryptionXmlWriter::WriteEncryptedData(const FontResource &font_resource)
+void EncryptionXmlWriter::WriteEncryptedData(const FontResource *font_resource)
 {
-    QString algorithm = font_resource.GetObfuscationAlgorithm();
+    QString algorithm = font_resource->GetObfuscationAlgorithm();
 
     if (algorithm.isEmpty()) {
         return;
@@ -58,7 +58,7 @@ void EncryptionXmlWriter::WriteEncryptedData(const FontResource &font_resource)
     m_Writer->writeAttribute("Algorithm", algorithm);
     m_Writer->writeStartElement("enc:CipherData");
     m_Writer->writeEmptyElement("enc:CipherReference");
-    m_Writer->writeAttribute("URI", font_resource.GetRelativePathToRoot());
+    m_Writer->writeAttribute("URI", font_resource->GetRelativePathToRoot());
     m_Writer->writeEndElement();
     m_Writer->writeEndElement();
 }

@@ -119,24 +119,24 @@ public:
 
     // Returns a list of all the "visible" text nodes that are descendants
     // of the specified node. "Visible" means we ignore style tags, script tags etc...
-    static QList<GumboNode*> GetVisibleTextNodes(GumboInterface & gi, GumboNode* node);
+    static QList<GumboNode *> GetVisibleTextNodes(GumboInterface &gi, GumboNode *node);
 
     // Returns a list of all the nodes that are suitable for use with "id" attributes
-    static QList<GumboNode*> GetIDNodes(GumboInterface & gi, GumboNode* node);
+    static QList<GumboNode *> GetIDNodes(GumboInterface &gi, GumboNode* node);
 
     // Returns the text for the node plus any children's text if they are not ID nodes
-    static QString GetIDElementText(GumboInterface & gi, GumboNode* node);
+    static QString GetIDElementText(GumboInterface &gi, GumboNode *node);
 
     // Returns the first block element ancestor of the specified node
-    static GumboNode * GetAncestorBlockElement(GumboInterface & gi, GumboNode * node);
+    static GumboNode *GetAncestorBlockElement(GumboInterface &gi, GumboNode *node);
 
-    static GumboNode * GetAncestorIDElement(GumboInterface & gi, GumboNode* node);
+    static GumboNode *GetAncestorIDElement(GumboInterface &gi, GumboNode *node);
 
-    static QStringList GetPathsToMediaFiles(const QString & source);
+    static QStringList GetPathsToMediaFiles(const QString &source);
 
-    static QStringList GetPathsToStyleFiles(const QString & source);
+    static QStringList GetPathsToStyleFiles(const QString &source);
 
-    static QStringList GetAllMediaPathsFromMediaChildren(const QString & source, QList<GumboTag> tags);
+    static QStringList GetAllMediaPathsFromMediaChildren(const QString &source, QList<GumboTag> tags);
 
 
 private:

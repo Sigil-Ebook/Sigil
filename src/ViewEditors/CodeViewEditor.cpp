@@ -76,8 +76,8 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_LastBlockCount(0),
     m_LineNumberAreaBlockNumber(-1),
     m_LineNumberArea(new LineNumberArea(this)),
-    m_ScrollOneLineUp(*(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up), this, 0, 0, Qt::WidgetShortcut))),
-    m_ScrollOneLineDown(*(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Down), this, 0, 0, Qt::WidgetShortcut))),
+    m_ScrollOneLineUp(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up), this, 0, 0, Qt::WidgetShortcut)),
+    m_ScrollOneLineDown(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Down), this, 0, 0, Qt::WidgetShortcut)),
     m_isLoadFinished(false),
     m_DelayedCursorScreenCenteringRequired(false),
     m_CaretUpdate(QList<ViewEditor::ElementIndex>()),
@@ -115,6 +115,11 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     Zoom();
 }
 
+CodeViewEditor::~CodeViewEditor()
+{
+    m_ScrollOneLineUp->deleteLater();
+    m_ScrollOneLineDown->deleteLater();
+}
 
 QSize CodeViewEditor::sizeHint() const
 {
@@ -3304,7 +3309,7 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
             return;
         }
 
-        mainWindow->GetCurrentContentTab().SaveTabContent();
+        mainWindow->GetCurrentContentTab()->SaveTabContent();
         QList <HTMLResource *> resources;
         Q_FOREACH(Resource * r, mainWindow->GetAllHTMLResources()) {
             HTMLResource *t = dynamic_cast<HTMLResource *>(r);
@@ -3541,8 +3546,8 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect(this, SIGNAL(textChanged()), this, SLOT(TextChangedFilter()));
     connect(this, SIGNAL(undoAvailable(bool)), this, SLOT(UpdateUndoAvailable(bool)));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(ResetLastFindMatch()));
-    connect(&m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
-    connect(&m_ScrollOneLineDown, SIGNAL(activated()), this, SLOT(ScrollOneLineDown()));
+    connect(m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
+    connect(m_ScrollOneLineDown, SIGNAL(activated()), this, SLOT(ScrollOneLineDown()));
     connect(m_spellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(InsertText(const QString &)));
     connect(m_addSpellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(addToDefaultDictionary(const QString &)));
     connect(m_addDictMapper, SIGNAL(mapped(const QString &)), this, SLOT(addToUserDictionary(const QString &)));

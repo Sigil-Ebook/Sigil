@@ -108,7 +108,7 @@ public:
     /**
      * Updates the selection in the book display
      */
-    void UpdateSelection(Resource &resource);
+    void UpdateSelection(Resource *resource);
 
     void AddFile(QString filepath);
 
@@ -188,7 +188,7 @@ signals:
      *
      * @param resource The selected resource.
      */
-    void ResourceActivated(Resource &resource);
+    void ResourceActivated(Resource *resource);
 
     /**
      * Emitted when merging to force open tabs to close
@@ -456,29 +456,29 @@ private:
     /**
      * The tree view used to represent the book's files.
      */
-    QTreeView &m_TreeView;
+    QTreeView *m_TreeView;
 
     /**
      * The data model used to feed the tree view.
      */
-    OPFModel &m_OPFModel;
+    OPFModel *m_OPFModel;
 
     /**
      * The right-click context menu.
      */
-    QMenu &m_ContextMenu;
+    QMenu *m_ContextMenu;
 
     /**
      * The sub-menu for adding semantic
      * information to resources.
      */
-    QMenu &m_SemanticsContextMenu;
+    QMenu *m_SemanticsContextMenu;
 
     /**
      * The sub-menu for marking fonts
      * for obfuscation.
      */
-    QMenu &m_FontObfuscationContextMenu;
+    QMenu *m_FontObfuscationContextMenu;
 
     // The context menu actions.
 
@@ -503,7 +503,7 @@ private:
     QAction *m_SaveAs;
     QAction *m_ValidateWithW3C;
 
-    QMenu &m_OpenWithContextMenu;
+    QMenu *m_OpenWithContextMenu;
     QAction *m_OpenWith;
     QAction *m_OpenWithEditor;
 
@@ -518,7 +518,7 @@ private:
      * various guide-related semantic actions into calls to
      * AddGuideSemanticType().
      */
-    QSignalMapper &m_GuideSemanticMapper;
+    QSignalMapper *m_GuideSemanticMapper;
 
     /**
      * The resource type of the last item on which the

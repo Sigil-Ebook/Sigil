@@ -47,7 +47,7 @@
 
 static const QString SETTINGS_GROUP = "flowtab";
 
-FlowTab::FlowTab(HTMLResource &resource,
+FlowTab::FlowTab(HTMLResource *resource,
                  const QUrl &fragment,
                  MainWindow::ViewState view_state,
                  int line_to_scroll_to,
@@ -67,7 +67,7 @@ FlowTab::FlowTab(HTMLResource &resource,
     m_wCodeView(NULL),
     m_ViewState(view_state),
     m_previousViewState(view_state),
-    m_WellFormedCheckComponent(*new WellFormedCheckComponent(*this, parent)),
+    m_WellFormedCheckComponent(new WellFormedCheckComponent(this, parent)),
     m_safeToLoad(false),
     m_initialLoad(true),
     m_bookViewNeedsReload(false),
@@ -85,7 +85,7 @@ FlowTab::FlowTab(HTMLResource &resource,
         CreateCodeViewIfRequired(false);
     }
 
-    m_Layout.addWidget(m_views);
+    m_Layout->addWidget(m_views);
     LoadSettings();
 
     // We need to set this in the constructor too,
@@ -110,9 +110,9 @@ FlowTab::~FlowTab()
     // function to be called after we delete BV and PV later in this destructor.
     // No idea how that's possible but this prevents a segfault...
 
-    disconnect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+    disconnect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
     disconnect(this, 0, 0, 0);
-    m_WellFormedCheckComponent.deleteLater();
+    m_WellFormedCheckComponent->deleteLater();
 
     if (m_wBookView) {
         delete m_wBookView;
@@ -165,7 +165,7 @@ void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
         // CodeView (if already loaded) will be directly hooked into the TextResource and
         // will not need reloading. However if the tab was not in Code View at tab opening
         // then we must populate it now.
-        m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
+        m_wCodeView->CustomSetDocument(m_HTMLResource->GetTextDocumentForWriting());
         // Zoom assignment only works after the document has been loaded
         m_wCodeView->Zoom();
     }
@@ -179,7 +179,7 @@ void FlowTab::DelayedInitialization()
         m_safeToLoad = true;
         LoadTabContent();
     } else if (m_wCodeView) {
-        m_wCodeView->CustomSetDocument(m_HTMLResource.GetTextDocumentForWriting());
+        m_wCodeView->CustomSetDocument(m_HTMLResource->GetTextDocumentForWriting());
         // Zoom factor for CodeView can only be set when document has been loaded.
         m_wCodeView->Zoom();
     }
@@ -362,7 +362,7 @@ void FlowTab::LoadTabContent()
     //        resource into BV and then saving will alter badly formed sections of text.
     if (m_ViewState == MainWindow::ViewState_BookView) {
         if (m_safeToLoad && m_bookViewNeedsReload) {
-            m_wBookView->CustomSetDocument(m_HTMLResource.GetFullPath(), m_HTMLResource.GetText());
+            m_wBookView->CustomSetDocument(m_HTMLResource->GetFullPath(), m_HTMLResource->GetText());
             m_bookViewNeedsReload = false;
         }
     }
@@ -381,13 +381,13 @@ void FlowTab::SaveTabContent()
         if (ss.cleanOn() & CLEANON_OPEN) {
             html = CleanSource::Clean(html);
         }
-        m_HTMLResource.SetText(html);
+        m_HTMLResource->SetText(html);
         m_wBookView->ResetModified();
         m_safeToLoad = true;
     }
 
     // Either from being in CV or saving from BV above we now reset the resource to say no user changes unsaved.
-    m_HTMLResource.GetTextDocumentForWriting().setModified(false);
+    m_HTMLResource->GetTextDocumentForWriting().setModified(false);
 }
 
 void FlowTab::ResourceModified()
@@ -863,7 +863,7 @@ bool FlowTab::IsDataWellFormed()
         // So lets play safe and have a fallback to use the resource text if CV is not loaded yet.
         XhtmlDoc::WellFormedError error = (m_wCodeView != NULL)
                                           ? XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText())
-                                          : XhtmlDoc::WellFormedErrorForSource(m_HTMLResource.GetText());
+                                          : XhtmlDoc::WellFormedErrorForSource(m_HTMLResource->GetText());
         m_safeToLoad = error.line == -1;
 
         if (!m_safeToLoad) {
@@ -871,7 +871,7 @@ bool FlowTab::IsDataWellFormed()
                 CodeView();
             }
 
-            m_WellFormedCheckComponent.DemandAttentionIfAllowed(error);
+            m_WellFormedCheckComponent->DemandAttentionIfAllowed(error);
         }
     }
 
@@ -953,7 +953,7 @@ void FlowTab::SplitSection()
     }
 
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        const QString &content = m_wBookView->SplitSection();
+        QString content = m_wBookView->SplitSection();
         // The webview visually has split off the text, but not yet saved to the underlying resource
         SaveTabContent();
         emit OldTabRequest(content, m_HTMLResource);
@@ -1499,10 +1499,10 @@ void FlowTab::ResumeTabReloading()
 
 void FlowTab::DelayedConnectSignalsToSlots()
 {
-    connect(&m_HTMLResource, SIGNAL(TextChanging()), this, SLOT(ResourceTextChanging()));
-    connect(&m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(LinkedResourceModified()));
-    connect(&m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
-    connect(&m_HTMLResource, SIGNAL(LoadedFromDisk()), this, SLOT(ReloadTabIfPending()));
+    connect(m_HTMLResource, SIGNAL(TextChanging()), this, SLOT(ResourceTextChanging()));
+    connect(m_HTMLResource, SIGNAL(LinkedResourceUpdated()), this, SLOT(LinkedResourceModified()));
+    connect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+    connect(m_HTMLResource, SIGNAL(LoadedFromDisk()), this, SLOT(ReloadTabIfPending()));
 }
 
 void FlowTab::ConnectBookViewSignalsToSlots()

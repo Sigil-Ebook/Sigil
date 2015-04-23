@@ -196,7 +196,7 @@ private:
      * Watches the completion of the GetRootNCXEntry func
      * and signals the RefreshEnd func when the root NCX entry is ready.
      */
-    QFutureWatcher<NCXEntry> &m_NcxRootWatcher;
+    QFutureWatcher<NCXEntry> *m_NcxRootWatcher;
 };
 
 

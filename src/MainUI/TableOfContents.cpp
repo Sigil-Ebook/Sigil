@@ -40,25 +40,24 @@ TableOfContents::TableOfContents(QWidget *parent)
     :
     QDockWidget(tr("Table Of Contents"), parent),
     m_Book(NULL),
-    m_MainWidget(*new QWidget(this)),
-    m_Layout(*new QVBoxLayout(&m_MainWidget)),
-    m_TreeView(*new QTreeView(&m_MainWidget)),
-    m_RefreshTimer(*new QTimer(this)),
-    m_NCXModel(*new NCXModel(this))
+    m_MainWidget(new QWidget(this)),
+    m_Layout(new QVBoxLayout(m_MainWidget)),
+    m_TreeView(new QTreeView(m_MainWidget)),
+    m_NCXModel(new NCXModel(this))
 {
-    m_Layout.setContentsMargins(0, 0, 0, 0);
+    m_Layout->setContentsMargins(0, 0, 0, 0);
 #ifdef Q_OS_MAC
-    m_Layout.setSpacing(4);
+    m_Layout->setSpacing(4);
 #endif
-    m_Layout.addWidget(&m_TreeView);
-    m_MainWidget.setLayout(&m_Layout);
-    setWidget(&m_MainWidget);
+    m_Layout->addWidget(m_TreeView);
+    m_MainWidget->setLayout(m_Layout);
+    setWidget(m_MainWidget);
     m_RefreshTimer.setInterval(REFRESH_DELAY);
     m_RefreshTimer.setSingleShot(true);
     SetupTreeView();
-    connect(&m_TreeView, SIGNAL(clicked(const QModelIndex &)), this, SLOT(ItemClickedHandler(const QModelIndex &)));
+    connect(m_TreeView, SIGNAL(clicked(const QModelIndex &)), this, SLOT(ItemClickedHandler(const QModelIndex &)));
     connect(&m_RefreshTimer, SIGNAL(timeout()), this, SLOT(Refresh()));
-    connect(&m_NCXModel, SIGNAL(RefreshDone()), &m_TreeView, SLOT(expandAll()));
+    connect(m_NCXModel, SIGNAL(RefreshDone()), m_TreeView, SLOT(expandAll()));
 }
 
 void TableOfContents::showEvent(QShowEvent *event)
@@ -70,14 +69,14 @@ void TableOfContents::showEvent(QShowEvent *event)
 void TableOfContents::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_NCXModel.SetBook(book);
-    connect(&m_Book->GetNCX(), SIGNAL(Modified()), this, SLOT(StartRefreshDelay()));
+    m_NCXModel->SetBook(book);
+    connect(m_Book->GetNCX(), SIGNAL(Modified()), this, SLOT(StartRefreshDelay()));
     Refresh();
 }
 
 void TableOfContents::Refresh()
 {
-    m_NCXModel.Refresh();
+    m_NCXModel->Refresh();
 }
 
 void TableOfContents::StartRefreshDelay()
@@ -91,12 +90,12 @@ void TableOfContents::StartRefreshDelay()
 
 void TableOfContents::RenumberTOCContents()
 {
-    m_Book->GetNCX().GenerateNCXFromTOCContents(*m_Book, m_NCXModel);
+    m_Book->GetNCX()->GenerateNCXFromTOCContents(m_Book.data(), m_NCXModel);
 }
 
 void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
-    QUrl url         = m_NCXModel.GetUrlForIndex(index);
+    QUrl url         = m_NCXModel->GetUrlForIndex(index);
     QString filename = QFileInfo(url.path()).fileName();
 
     int line = -1;
@@ -107,7 +106,7 @@ void TableOfContents::ItemClickedHandler(const QModelIndex &index)
     }
 
     try {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
         emit OpenResourceRequest(resource, line, -1, QString(), MainWindow::ViewState_Unknown, url.fragment());
     } catch (ResourceDoesNotExist) {
         Utility::DisplayStdErrorDialog(
@@ -119,23 +118,23 @@ void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 
 NCXModel::NCXEntry TableOfContents::GetRootEntry()
 {
-    return m_NCXModel.GetRootNCXEntry();
+    return m_NCXModel->GetRootNCXEntry();
 }
 
 void TableOfContents::SetupTreeView()
 {
-    m_TreeView.setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_TreeView.setSortingEnabled(false);
-    m_TreeView.sortByColumn(-1);
-    m_TreeView.setUniformRowHeights(true);
-    m_TreeView.setDragEnabled(false);
-    m_TreeView.setAcceptDrops(false);
-    m_TreeView.setDropIndicatorShown(false);
-    m_TreeView.setDragDropMode(QAbstractItemView::NoDragDrop);
-    m_TreeView.setAnimated(true);
-    m_TreeView.setModel(&m_NCXModel);
-    m_TreeView.setIndentation(COLUMN_INDENTATION);
-    m_TreeView.setHeaderHidden(true);
+    m_TreeView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_TreeView->setSortingEnabled(false);
+    m_TreeView->sortByColumn(-1);
+    m_TreeView->setUniformRowHeights(true);
+    m_TreeView->setDragEnabled(false);
+    m_TreeView->setAcceptDrops(false);
+    m_TreeView->setDropIndicatorShown(false);
+    m_TreeView->setDragDropMode(QAbstractItemView::NoDragDrop);
+    m_TreeView->setAnimated(true);
+    m_TreeView->setModel(m_NCXModel);
+    m_TreeView->setIndentation(COLUMN_INDENTATION);
+    m_TreeView->setHeaderHidden(true);
 }
 
 void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
@@ -145,8 +144,8 @@ void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
     QAction *collapseAction = new QAction(tr("Collapse All"), menu);
     QAction *expandAction = new QAction(tr("Expand All"), menu);
     menu->addAction(collapseAction);
-    connect(collapseAction, SIGNAL(triggered()), &m_TreeView, SLOT(collapseAll()));
+    connect(collapseAction, SIGNAL(triggered()), m_TreeView, SLOT(collapseAll()));
     menu->addAction(expandAction);
-    connect(expandAction, SIGNAL(triggered()), &m_TreeView, SLOT(expandAll()));
+    connect(expandAction, SIGNAL(triggered()), m_TreeView, SLOT(expandAll()));
     menu->exec(mapToGlobal(event->pos()));
 }

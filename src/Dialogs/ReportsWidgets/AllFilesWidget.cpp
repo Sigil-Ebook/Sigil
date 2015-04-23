@@ -71,7 +71,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     ui.fileTree->setModel(m_ItemModel);
     ui.fileTree->header()->setSortIndicatorShown(true);
     double total_size = 0;
-    QString main_folder = m_Book->GetFolderKeeper().GetFullPathToMainFolder();
+    QString main_folder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
     foreach(Resource *resource, m_AllResources) {
         QString fullpath = resource->GetFullPath();
         QString filepath = resource->GetRelativePath();
@@ -101,7 +101,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << item;
         // Semantics
         item = new QStandardItem();
-        item->setText(m_Book->GetOPF().GetGuideSemanticNameForResource(resource));
+        item->setText(m_Book->GetOPF()->GetGuideSemanticNameForResource(resource));
         rowItems << item;
 
         // Add item to table

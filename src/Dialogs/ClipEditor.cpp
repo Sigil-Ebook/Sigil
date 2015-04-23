@@ -463,7 +463,7 @@ void ClipEditor::AutoFill()
 
     QStringList css_list;
 
-    QList<CSSResource *> css_resources = m_Book->GetFolderKeeper().GetResourceTypeList<CSSResource>(false);
+    QList<CSSResource *> css_resources = m_Book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);
 
     foreach(CSSResource * css_resource, css_resources) {
         CSSInfo css_info(css_resource->GetText(), true);

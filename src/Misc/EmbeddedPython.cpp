@@ -223,7 +223,7 @@ QString EmbeddedPython::embeddedRoot()
     return base.absolutePath();
 }
 
-bool EmbeddedPython::addToPythonSysPath(const QString& mpath)
+bool EmbeddedPython::addToPythonSysPath(const QString &mpath)
 {
     EmbeddedPython::m_mutex.lock();
     PyGILState_STATE gstate = PyGILState_Ensure();
@@ -249,11 +249,11 @@ bool EmbeddedPython::addToPythonSysPath(const QString& mpath)
 
 // run interpreter without initiating/locking/unlocking GIL 
 // in a single thread at a time
-QVariant EmbeddedPython::runInPython(const QString& mname, 
-                                     const QString& fname, 
-                                     const QVariantList& args, 
+QVariant EmbeddedPython::runInPython(const QString &mname, 
+                                     const QString &fname, 
+                                     const QVariantList &args, 
                                      int *rv, 
-                                     QString & tb,
+                                     QString &tb,
                                      bool ret_python_object)
 {
     EmbeddedPython::m_mutex.lock();
@@ -326,11 +326,11 @@ cleanup:
 
 // given an existing python object instance, invoke one of its methods 
 // grabs mutex to prevent need for Python GIL
-QVariant EmbeddedPython::callPyObjMethod(PyObjectPtr& pyobj, 
-                                         const QString& methname, 
-                                         const QVariantList& args, 
+QVariant EmbeddedPython::callPyObjMethod(PyObjectPtr &pyobj, 
+                                         const QString &methname, 
+                                         const QVariantList &args, 
                                          int *rv, 
-                                         QString & tb,
+                                         QString &tb,
                                          bool ret_python_object)
 {
     EmbeddedPython::m_mutex.lock();
@@ -392,7 +392,7 @@ QVariant EmbeddedPython::callPyObjMethod(PyObjectPtr& pyobj,
 
 // Convert PyObject types to their QVariant equivalents 
 // call recursively to allow populating QVariant lists and lists of lists
-QVariant EmbeddedPython::PyObjectToQVariant(PyObject* po, bool ret_python_object)
+QVariant EmbeddedPython::PyObjectToQVariant(PyObject *po, bool ret_python_object)
 {
     QVariant res = QVariant(QString());
 
@@ -459,7 +459,7 @@ QVariant EmbeddedPython::PyObjectToQVariant(PyObject* po, bool ret_python_object
 
 // Convert QVariant to a Python Equivalent Type
 // call recursively to allow populating tuples/lists and lists of lists
-PyObject* EmbeddedPython::QVariantToPyObject(QVariant & v)
+PyObject* EmbeddedPython::QVariantToPyObject(const QVariant &v)
 {
     PyObject* value = NULL;
     bool      ok;

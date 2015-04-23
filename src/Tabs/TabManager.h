@@ -56,7 +56,7 @@ public:
      *
      * @return A reference to the current content tab.
      */
-    ContentTab &GetCurrentContentTab();
+    ContentTab *GetCurrentContentTab();
 
     QList<ContentTab *> GetContentTabs();
 
@@ -65,7 +65,7 @@ public:
     int GetTabCount();
 
     void CloseAllTabs(bool all=false);
-    void CloseTabForResource(const Resource &resource);
+    void CloseTabForResource(const Resource *resource);
 
     /**
      * Returns \c true if all open tabs data is well-formed.
@@ -104,7 +104,7 @@ public slots:
      * @param fragment - The fragment ID to which the new tab should be scrolled to.
      * @param precede_current_tab - Should the new tab precede the currently opened one.
      */
-    void OpenResource(Resource &resource,
+    void OpenResource(Resource *resource,
                       int line_to_scroll_to = -1,
                       int position_to_scroll_to = -1,
                       const QString &caret_location_to_scroll_to = QString(),
@@ -175,7 +175,7 @@ signals:
     /**
      * Wired to the current FlowTab::OldTabRequest signal.
      */
-    void OldTabRequest(QString content, HTMLResource &originating_resource);
+    void OldTabRequest(QString content, HTMLResource *originating_resource);
 
     void ShowStatusMessageRequest(const QString &message, int duration = 5000);
 
@@ -232,7 +232,7 @@ private:
      * @param resource The resource whose tab index we want.
      * @return The index of the resource.
      */
-    int ResourceTabIndex(const Resource &resource) const;
+    int ResourceTabIndex(const Resource *resource) const;
 
     /**
      * Returns true if we have succeeded in switching to the tab of the provided resource.
@@ -242,7 +242,7 @@ private:
      * @param line_to_scroll_to To which line should the resource scroll.
      * @return \c true if we succeeded in switching.
      */
-    bool SwitchedToExistingTab(Resource &resource,
+    bool SwitchedToExistingTab(const Resource *resource,
                                int line_to_scroll_to,
                                int position_to_scroll_to,
                                const QString &caret_location_to_scroll_to,
@@ -257,7 +257,7 @@ private:
      * @param fragment The fragment ID to which the tab should scroll after load.
      * @return The newly created tab.
      */
-    ContentTab *CreateTabForResource(Resource &resource,
+    ContentTab *CreateTabForResource(Resource *resource,
                                      int line_to_scroll_to,
                                      int position_to_scroll_to,
                                      const QString &caret_location_to_scroll_to,

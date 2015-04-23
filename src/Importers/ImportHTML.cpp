@@ -114,7 +114,7 @@ void ImportHTML::LoadMetadata(const QString & source)
     QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_META); 
     for (int i = 0; i < nodes.count(); ++i) {
         GumboNode* node = nodes.at(i);
-        Metadata::MetaElement book_meta = Metadata::Instance().MapToBookMetadata(node, gi);
+        Metadata::MetaElement book_meta = Metadata::Instance()->MapToBookMetadata(node, gi);
         if (!book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty()) {
             metadata.append(book_meta);
         }
@@ -124,30 +124,29 @@ void ImportHTML::LoadMetadata(const QString & source)
 }
 
 
-HTMLResource &ImportHTML::CreateHTMLResource()
+HTMLResource *ImportHTML::CreateHTMLResource()
 {
     TempFolder tempfolder;
     QString fullfilepath = tempfolder.GetPath() + "/" + QFileInfo(m_FullFilePath).fileName();
     Utility::WriteUnicodeTextFile("TEMP_SOURCE", fullfilepath);
-    HTMLResource &resource = *qobject_cast<HTMLResource *>(
-                                 &m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath));
-    resource.SetCurrentBookRelPath(m_FullFilePath);
+    HTMLResource *resource = qobject_cast<HTMLResource *>(m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath));
+    resource->SetCurrentBookRelPath(m_FullFilePath);
     return resource;
 }
 
 
-void ImportHTML::UpdateFiles(HTMLResource &html_resource,
-                             QString & source, 
+void ImportHTML::UpdateFiles(HTMLResource *html_resource,
+                             QString &source, 
                              const QHash<QString, QString> &updates)
 {
-    Q_ASSERT(&html_resource != NULL);
+    Q_ASSERT(html_resource != NULL);
     QHash<QString, QString> html_updates;
     QHash<QString, QString> css_updates;
     QString newsource = source;
-    QString currentpath = html_resource.GetCurrentBookRelPath();
+    QString currentpath = html_resource->GetCurrentBookRelPath();
     std::tie(html_updates, css_updates, std::ignore) =
         UniversalUpdates::SeparateHtmlCssXmlUpdates(updates);
-    QList<Resource *> all_files = m_Book->GetFolderKeeper().GetResourceList();
+    QList<Resource *> all_files = m_Book->GetFolderKeeper()->GetResourceList();
     int num_files = all_files.count();
     QList<CSSResource *> css_resources;
 
@@ -162,15 +161,15 @@ void ImportHTML::UpdateFiles(HTMLResource &html_resource,
     QFutureSynchronizer<void> sync;
     sync.addFuture(QtConcurrent::map(css_resources,
                                      std::bind(UniversalUpdates::LoadAndUpdateOneCSSFile, std::placeholders::_1, css_updates)));
-    html_resource.SetText(PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath)());
-    html_resource.SetCurrentBookRelPath("");
+    html_resource->SetText(PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath)());
+    html_resource->SetCurrentBookRelPath("");
     sync.waitForFinished();
 }
 
 
 // Loads the referenced files into the main folder of the book;
 // as the files get a new name, the references are updated
-QHash<QString, QString> ImportHTML::LoadFolderStructure(const QString & source)
+QHash<QString, QString> ImportHTML::LoadFolderStructure(const QString &source)
 {
     QStringList mediapaths = XhtmlDoc::GetPathsToMediaFiles(source);
     QStringList stylepaths = XhtmlDoc::GetPathsToStyleFiles(source);
@@ -194,7 +193,7 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
 {
     QHash<QString, QString> updates;
     QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
-    QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    QStringList current_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     // Load the media files (images, video, audio) into the book and
     // update all references with new urls
     foreach(QString file_path, file_paths) {
@@ -204,10 +203,9 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             QString newpath;
 
             if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
-                newpath = "../" + m_Book->GetFolderKeeper().GetResourceByFilename(filename).GetRelativePathToOEBPS();
+                newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePathToOEBPS();
             } else {
-                newpath       = "../" + m_Book->GetFolderKeeper()
-                                .AddContentFileToFolder(fullfilepath).GetRelativePathToOEBPS();
+                newpath       = "../" + m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath)->GetRelativePathToOEBPS();
             }
 
             updates[ fullfilepath ] = newpath;
@@ -224,17 +222,16 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
 QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_paths )
 {
     QHash<QString, QString> updates;
-    QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    QStringList current_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
     foreach(QString file_path, file_paths) {
             try {
                 QString newpath;
                 QFileInfo file_info(folder, file_path);
                 if (m_IgnoreDuplicates && current_filenames.contains(file_info.fileName())) {
-                    newpath = "../" + m_Book->GetFolderKeeper().GetResourceByFilename(file_info.fileName()).GetRelativePathToOEBPS();
+                    newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(file_info.fileName())->GetRelativePathToOEBPS();
                 } else {
-                    newpath = "../" + m_Book->GetFolderKeeper().AddContentFileToFolder(
-                                  file_info.absoluteFilePath()).GetRelativePathToOEBPS();
+                    newpath = "../" + m_Book->GetFolderKeeper()->AddContentFileToFolder(file_info.absoluteFilePath())->GetRelativePathToOEBPS();
                 }
 
                 updates[ file_path ] = newpath;

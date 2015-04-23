@@ -63,8 +63,8 @@ private:
     void LoadSettings();
     void ConnectSignalsToSlots();
 
-    QWidget &m_MainWidget;
-    QVBoxLayout &m_Layout;
+    QWidget *m_MainWidget;
+    QVBoxLayout *m_Layout;
 
     BookViewPreview *m_Preview;
     QWebInspector *m_Inspector;

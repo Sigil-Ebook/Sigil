@@ -28,7 +28,7 @@
 QMutex GuideSemantics::s_AccessMutex;
 GuideSemantics *GuideSemantics::m_Instance = NULL;
 
-GuideSemantics &GuideSemantics::Instance()
+GuideSemantics *GuideSemantics::Instance()
 {
     // We use a static local variable
     // to hold our singleton instance; using a pointer member
@@ -40,7 +40,7 @@ GuideSemantics &GuideSemantics::Instance()
         m_Instance = &guide_semantics;
     }
 
-    return *m_Instance;
+    return m_Instance;
 }
 
 

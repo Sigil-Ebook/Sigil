@@ -83,7 +83,7 @@ public:
      * @param mimetype The mimetype for the associated file.
      * @return The newly created resource.
      */
-    Resource &AddContentFileToFolder(const QString &fullfilepath,
+    Resource *AddContentFileToFolder(const QString &fullfilepath,
                                      bool update_opf = true,
                                      const QString &mimetype = QString());
 
@@ -151,7 +151,7 @@ public:
      * @param identifier The identifier to search for.
      * @return The searched-for resourcse.
      */
-    Resource &GetResourceByIdentifier(const QString &identifier) const;
+    Resource *GetResourceByIdentifier(const QString &identifier) const;
 
     /**
      * Returns the resource with the given filename.
@@ -164,21 +164,21 @@ public:
      * @param filename The filename to search for.
      * @return The searched-for resource.
      */
-    Resource &GetResourceByFilename(const QString &filename) const;
+    Resource *GetResourceByFilename(const QString &filename) const;
 
     /**
      * Returns the book's OPF file.
      *
      * @return The OPF.
      */
-    OPFResource &GetOPF() const;
+    OPFResource *GetOPF() const;
 
     /**
      * Returns the book's NCX file.
      *
      * @return The NCX.
      */
-    NCXResource &GetNCX() const;
+    NCXResource *GetNCX() const;
 
     /**
      * Returns the full path to the main folder of the publication.
@@ -221,7 +221,7 @@ public:
     /**
      * Registers certain file types to be watched for external modifications.
      */
-    void WatchResourceFile(const Resource &resource);
+    void WatchResourceFile(const Resource *resource);
 
     /**
      * Dueing Save operations from Sigil we need to suspend/resume file watching.
@@ -236,14 +236,14 @@ signals:
      *
      * @param resource The new resource.
      */
-    void ResourceAdded(const Resource &resource);
+    void ResourceAdded(const Resource *resource);
 
     /**
      * Emitted when a resource is removed from the FolderKeeper.
      *
      * @param resource The removed resource.
      */
-    void ResourceRemoved(const Resource &resource);
+    void ResourceRemoved(const Resource *resource);
 
 public slots:
 
@@ -253,7 +253,7 @@ public slots:
      *
      * @param resource The resource to remove.
      */
-    void RemoveResource(const Resource &resource);
+    void RemoveResource(const Resource *resource);
 
 private slots:
 
@@ -261,7 +261,7 @@ private slots:
      * Tell the OPF object to updated itself,
      * and (optionally) register the new file with the FS watcher.
      */
-    void ResourceRenamed(const Resource &resource, const QString &old_full_path);
+    void ResourceRenamed(const Resource *resource, const QString &old_full_path);
 
     /**
      * Called by the FSWatcher when a watched file has changed on disk.
@@ -402,7 +402,7 @@ QList<T *> FolderKeeper::ListResourceSort(const QList<T *> &resource_list)  cons
 template<> inline
 QList<HTMLResource *> FolderKeeper::ListResourceSort<HTMLResource>(const QList<HTMLResource *> &resource_list) const
 {
-    QStringList spine_order_filenames = GetOPF().GetSpineOrderFilenames();
+    QStringList spine_order_filenames = GetOPF()->GetSpineOrderFilenames();
     QList<HTMLResource *> htmls = resource_list;
     QList<HTMLResource *> sorted_htmls;
     foreach(const QString & spine_filename, spine_order_filenames) {

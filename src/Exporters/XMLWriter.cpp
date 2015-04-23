@@ -25,7 +25,7 @@
 #include "BookManipulation/Book.h"
 #include "Exporters/XMLWriter.h"
 
-XMLWriter::XMLWriter(const Book &book, QIODevice &device)
+XMLWriter::XMLWriter(const Book *book, QIODevice &device)
     :
     m_Book(book),
     m_IODevice(device),

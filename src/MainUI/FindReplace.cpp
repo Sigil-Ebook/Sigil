@@ -40,8 +40,8 @@ static const QString REGEX_OPTION_MINIMAL_MATCH = "(?U)";
 
 static const int SHOW_FIND_RESULTS_MESSAGE_DELAY_MS = 20000;
 
-FindReplace::FindReplace(MainWindow &main_window)
-    : QWidget(&main_window),
+FindReplace::FindReplace(MainWindow *main_window)
+    : QWidget(main_window),
       m_MainWindow(main_window),
       m_RegexOptionDotAll(false),
       m_RegexOptionMinimalMatch(false),
@@ -383,7 +383,7 @@ bool FindReplace::ReplaceCurrent()
 // replacement text in the entire document.
 int FindReplace::ReplaceAll()
 {
-    m_MainWindow.GetCurrentContentTab().SaveTabContent();
+    m_MainWindow->GetCurrentContentTab()->SaveTabContent();
     clearMessage();
 
     if (!IsValidFindText()) {
@@ -422,8 +422,8 @@ int FindReplace::ReplaceAll()
 
     if (count > 0) {
         // Signal that the contents have changed and update the view
-        m_MainWindow.GetCurrentBook()->SetModified(true);
-        m_MainWindow.GetCurrentContentTab().ContentChangedExternally();
+        m_MainWindow->GetCurrentBook()->SetModified(true);
+        m_MainWindow->GetCurrentContentTab()->ContentChangedExternally();
     }
 
     UpdatePreviousFindStrings();
@@ -602,9 +602,9 @@ void FindReplace::SetCodeViewIfNeeded(bool force)
         (!m_LookWhereCurrentFile &&
          (GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles ||
           GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles) &&
-         (m_MainWindow.GetViewState() == MainWindow::ViewState_BookView))) {
+         (m_MainWindow->GetViewState() == MainWindow::ViewState_BookView))) {
         // Force change to Code View
-        m_MainWindow.AnyCodeView();
+        m_MainWindow->AnyCodeView();
 
         if (has_focus) {
             SetFocus();
@@ -693,9 +693,9 @@ QList <Resource *> FindReplace::GetHTMLFiles()
     QList <Resource *> resources;
 
     if (GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles) {
-        all_resources = m_MainWindow.GetAllHTMLResources();
+        all_resources = m_MainWindow->GetAllHTMLResources();
     } else {
-        all_resources = m_MainWindow.GetValidSelectedHTMLResources();
+        all_resources = m_MainWindow->GetValidSelectedHTMLResources();
     }
 
     // If wrapping, or the current resource is not in the HTML files to search
@@ -732,7 +732,7 @@ int FindReplace::CountInFiles()
 {
     // For now, this must hold
     Q_ASSERT(GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles);
-    m_MainWindow.GetCurrentContentTab().SaveTabContent();
+    m_MainWindow->GetCurrentContentTab()->SaveTabContent();
 
     // When not wrapping remove the current resource as it's counted separately
     QList<Resource *>html_files = GetHTMLFiles();
@@ -750,7 +750,7 @@ int FindReplace::ReplaceInAllFiles()
 {
     // For now, this must hold
     Q_ASSERT(GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles);
-    m_MainWindow.GetCurrentContentTab().SaveTabContent();
+    m_MainWindow->GetCurrentContentTab()->SaveTabContent();
     // When not wrapping remove the current resource as it's replace separately
     QList<Resource *>html_files = GetHTMLFiles();
     if (!m_OptionWrap) {
@@ -787,11 +787,11 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
             // Save selected resources since opening tabs changes selection
             QList<Resource *>selected_resources = GetHTMLFiles();
 
-            m_MainWindow.OpenResourceAndWaitUntilLoaded(*containing_resource);
+            m_MainWindow->OpenResourceAndWaitUntilLoaded(containing_resource);
 
             // Restore selection since opening tabs changes selection
             if (GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles && !m_SpellCheck) {
-                m_MainWindow.SelectResources(selected_resources);
+                m_MainWindow->SelectResources(selected_resources);
             }
 
             // Reset focus to F&R if it had it
@@ -897,7 +897,7 @@ HTMLResource *FindReplace::GetNextHTMLResource(HTMLResource *current_resource, S
 
 Resource *FindReplace::GetCurrentResource()
 {
-    return &m_MainWindow.GetCurrentContentTab().GetLoadedResource();
+    return m_MainWindow->GetCurrentContentTab()->GetLoadedResource();
 }
 
 
@@ -1129,7 +1129,7 @@ void FindReplace::WriteSettings()
 
 Searchable *FindReplace::GetAvailableSearchable()
 {
-    Searchable *searchable = m_MainWindow.GetCurrentContentTab().GetSearchableContent();
+    Searchable *searchable = m_MainWindow->GetCurrentContentTab()->GetSearchableContent();
 
     if (!searchable) {
         ShowMessage(tr("This tab cannot be searched"));

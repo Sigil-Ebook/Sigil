@@ -36,7 +36,7 @@ public:
      * @param book The book for which we're writing the OPF.
      * @param device The IODevice into which we should write the XML.
      */
-    EncryptionXmlWriter(const Book &book, QIODevice &device);
+    EncryptionXmlWriter(const Book *book, QIODevice &device);
 
     void WriteXML();
 
@@ -48,7 +48,7 @@ private:
      *
      * @param The font for which we want to write the encryption info.
      */
-    void WriteEncryptedData(const FontResource &font_resource);
+    void WriteEncryptedData(const FontResource *font_resource);
 
 };
 

@@ -35,8 +35,8 @@ static const QString SETTINGS_GROUP = "previewwindow";
 PreviewWindow::PreviewWindow(QWidget *parent)
     :
     QDockWidget(tr("Preview"), parent),
-    m_MainWidget(*new QWidget(this)),
-    m_Layout(*new QVBoxLayout(&m_MainWidget)),
+    m_MainWidget(new QWidget(this)),
+    m_Layout(new QVBoxLayout(m_MainWidget)),
     m_Preview(new BookViewPreview(this)),
     m_Inspector(new QWebInspector(this)),
     m_Splitter(new QSplitter(this)),
@@ -152,12 +152,12 @@ void PreviewWindow::SetupView()
 
     m_Inspector->setPage(m_Preview->page());
 
-    m_Layout.setContentsMargins(0, 0, 0, 0);
+    m_Layout->setContentsMargins(0, 0, 0, 0);
 #ifdef Q_OS_MAC
-    m_Layout.setSpacing(4);
+    m_Layout->setSpacing(4);
 #endif
 
-    m_Layout.addWidget(m_StackedViews);
+    m_Layout->addWidget(m_StackedViews);
 
     m_Splitter->setOrientation(Qt::Vertical);
     m_Splitter->addWidget(m_Preview);
@@ -165,8 +165,8 @@ void PreviewWindow::SetupView()
     m_Splitter->setSizes(QList<int>() << 400 << 200);
     m_StackedViews->addWidget(m_Splitter);
 
-    m_MainWidget.setLayout(&m_Layout);
-    setWidget(&m_MainWidget);
+    m_MainWidget->setLayout(m_Layout);
+    setWidget(m_MainWidget);
 
     m_Preview->Zoom();
 

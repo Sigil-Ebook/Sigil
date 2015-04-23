@@ -58,13 +58,13 @@ TabManager::TabManager(QWidget *parent)
 }
 
 
-ContentTab &TabManager::GetCurrentContentTab()
+ContentTab *TabManager::GetCurrentContentTab()
 {
     QWidget *widget = currentWidget();
     // TODO: turn on this assert after you make sure a tab
     // is created before this is called in MainWindow constructor
     //Q_ASSERT( widget != NULL );
-    return *qobject_cast<ContentTab *>(widget);
+    return qobject_cast<ContentTab *>(widget);
 }
 
 QList<ContentTab *> TabManager::GetContentTabs()
@@ -83,8 +83,8 @@ QList<Resource *> TabManager::GetTabResources()
 {
     QList <ContentTab *> tabs = GetContentTabs();
     QList <Resource *> tab_resources;
-    foreach(ContentTab * tab, tabs) {
-        tab_resources.append(&tab->GetLoadedResource());
+    foreach(ContentTab *tab, tabs) {
+        tab_resources.append(tab->GetLoadedResource());
     }
     return tab_resources;
 }
@@ -106,7 +106,7 @@ void TabManager::CloseAllTabs(bool all)
     }
 }
 
-void TabManager::CloseTabForResource(const Resource &resource)
+void TabManager::CloseTabForResource(const Resource *resource)
 {
     int index = ResourceTabIndex(resource);
 
@@ -118,8 +118,8 @@ void TabManager::CloseTabForResource(const Resource &resource)
 bool TabManager::IsAllTabDataWellFormed()
 {
     QList<Resource *> resources = GetTabResources();
-    foreach(Resource * resource, resources) {
-        int index = ResourceTabIndex(*resource);
+    foreach(Resource *resource, resources) {
+        int index = ResourceTabIndex(resource);
         WellFormedContent *content = dynamic_cast<WellFormedContent *>(widget(index));
 
         if (content) {
@@ -133,8 +133,8 @@ bool TabManager::IsAllTabDataWellFormed()
 
 void TabManager::ReloadTabDataForResources(const QList<Resource *> &resources)
 {
-    foreach(Resource * resource, resources) {
-        int index = ResourceTabIndex(*resource);
+    foreach(Resource *resource, resources) {
+        int index = ResourceTabIndex(resource);
 
         if (index != -1) {
             FlowTab *flow_tab = qobject_cast<FlowTab *>(widget(index));
@@ -148,15 +148,15 @@ void TabManager::ReloadTabDataForResources(const QList<Resource *> &resources)
 
 void TabManager::ReopenTabs(MainWindow::ViewState view_state)
 {
-    ContentTab &currentTab = GetCurrentContentTab();
+    ContentTab *currentTab = GetCurrentContentTab();
     QList<Resource *> resources = GetTabResources();
-    foreach(Resource * resource, resources) {
-        CloseTabForResource(*resource);
+    foreach(Resource *resource, resources) {
+        CloseTabForResource(resource);
     }
-    foreach(Resource * resource, resources) {
-        OpenResource(*resource, -1, -1, QString(), view_state);
+    foreach(Resource *resource, resources) {
+        OpenResource(resource, -1, -1, QString(), view_state);
     }
-    OpenResource(currentTab.GetLoadedResource(), -1, -1, QString(), view_state);
+    OpenResource(currentTab->GetLoadedResource(), -1, -1, QString(), view_state);
 }
 
 
@@ -177,22 +177,22 @@ void TabManager::LinkClicked(const QUrl &url)
         return;
     }
 
-    ContentTab &tab = GetCurrentContentTab();
+    ContentTab *tab = GetCurrentContentTab();
     QString url_string = url.toString();
 
     // Convert fragments to full filename/fragments
     if (url_string.startsWith("#")) {
-        url_string.prepend(tab.GetFilename());
+        url_string.prepend(tab->GetFilename());
     } else if (url.scheme() == "file") {
         if (url_string.contains("/#")) {
-            url_string.insert(url_string.indexOf("/#") + 1, tab.GetFilename());
+            url_string.insert(url_string.indexOf("/#") + 1, tab->GetFilename());
         }
     }
 
     emit OpenUrlRequest(QUrl(url_string));
 }
 
-void TabManager::OpenResource(Resource &resource,
+void TabManager::OpenResource(Resource *resource,
                               int line_to_scroll_to,
                               int position_to_scroll_to,
                               const QString &caret_location_to_scroll_to,
@@ -212,7 +212,7 @@ void TabManager::OpenResource(Resource &resource,
         AddNewContentTab(new_tab, precede_current_tab);
         emit ShowStatusMessageRequest("");
     } else {
-        QString message = tr("Cannot edit file") + ": " + resource.Filename();
+        QString message = tr("Cannot edit file") + ": " + resource->Filename();
         emit ShowStatusMessageRequest(message);
     }
 }
@@ -341,10 +341,10 @@ void TabManager::UpdateTabName(ContentTab *renamed_tab)
 
 void TabManager::SetFocusInTab()
 {
-    ContentTab &tab = GetCurrentContentTab();
+    ContentTab *tab = GetCurrentContentTab();
 
-    if (&tab != NULL) {
-        tab.setFocus();
+    if (tab != NULL) {
+        tab->setFocus();
     }
 }
 
@@ -357,15 +357,15 @@ WellFormedContent *TabManager::GetWellFormedContent(int index)
 
 
 // Returns the index of the tab the index is loaded in, -1 if it isn't
-int TabManager::ResourceTabIndex(const Resource &resource) const
+int TabManager::ResourceTabIndex(const Resource *resource) const
 {
-    QString identifier(resource.GetIdentifier());
+    QString identifier(resource->GetIdentifier());
     int index = -1;
 
     for (int i = 0; i < count(); ++i) {
         ContentTab *tab = qobject_cast<ContentTab *>(widget(i));
 
-        if (tab && tab->GetLoadedResource().GetIdentifier() == identifier) {
+        if (tab && tab->GetLoadedResource()->GetIdentifier() == identifier) {
             index = i;
             break;
         }
@@ -375,7 +375,7 @@ int TabManager::ResourceTabIndex(const Resource &resource) const
 }
 
 
-bool TabManager::SwitchedToExistingTab(Resource &resource,
+bool TabManager::SwitchedToExistingTab(const Resource *resource,
                                        int line_to_scroll_to,
                                        int position_to_scroll_to,
                                        const QString &caret_location_to_scroll_to,
@@ -424,7 +424,7 @@ bool TabManager::SwitchedToExistingTab(Resource &resource,
 }
 
 
-ContentTab *TabManager::CreateTabForResource(Resource &resource,
+ContentTab *TabManager::CreateTabForResource(Resource *resource,
         int line_to_scroll_to,
         int position_to_scroll_to,
         const QString &caret_location_to_scroll_to,
@@ -434,13 +434,13 @@ ContentTab *TabManager::CreateTabForResource(Resource &resource,
 {
     ContentTab *tab = NULL;
 
-    switch (resource.Type()) {
+    switch (resource->Type()) {
         case Resource::HTMLResourceType: {
-            HTMLResource *html_resource = qobject_cast<HTMLResource *>(&resource);
+            HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
             if (!html_resource) {
                 break;
             }
-            tab = new FlowTab(*html_resource,
+            tab = new FlowTab(html_resource,
                               fragment,
                               view_state,
                               line_to_scroll_to,
@@ -449,54 +449,54 @@ ContentTab *TabManager::CreateTabForResource(Resource &resource,
                               grab_focus,
                               this);
             connect(tab,  SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
-            connect(tab,  SIGNAL(OldTabRequest(QString, HTMLResource &)),
-                    this, SIGNAL(OldTabRequest(QString, HTMLResource &)));
+            connect(tab,  SIGNAL(OldTabRequest(QString, HTMLResource *)),
+                    this, SIGNAL(OldTabRequest(QString, HTMLResource *)));
             break;
         }
 
         case Resource::CSSResourceType: {
-            tab = new CSSTab(*(qobject_cast<CSSResource *>(&resource)), line_to_scroll_to, this);
+            tab = new CSSTab(qobject_cast<CSSResource *>(resource), line_to_scroll_to, this);
             break;
         }
 
         case Resource::ImageResourceType: {
-            tab = new ImageTab(*(qobject_cast<ImageResource *>(&resource)), this);
+            tab = new ImageTab(qobject_cast<ImageResource *>(resource), this);
             break;
         }
 
         case Resource::MiscTextResourceType: {
-            tab = new MiscTextTab(*(qobject_cast<MiscTextResource *>(&resource)), line_to_scroll_to, this);
+            tab = new MiscTextTab(qobject_cast<MiscTextResource *>(resource), line_to_scroll_to, this);
             break;
         }
 
         case Resource::SVGResourceType: {
-            tab = new SVGTab(*(qobject_cast<SVGResource *>(&resource)), line_to_scroll_to, this);
+            tab = new SVGTab(qobject_cast<SVGResource *>(resource), line_to_scroll_to, this);
             break;
         }
 
         case Resource::OPFResourceType: {
-            tab = new OPFTab(*(qobject_cast<OPFResource *>(&resource)), line_to_scroll_to, this);
+            tab = new OPFTab(qobject_cast<OPFResource *>(resource), line_to_scroll_to, this);
             break;
         }
 
         case Resource::NCXResourceType: {
-            tab = new NCXTab(*(qobject_cast<NCXResource *>(&resource)), line_to_scroll_to, this);
+            tab = new NCXTab(qobject_cast<NCXResource *>(resource), line_to_scroll_to, this);
             break;
         }
 
         case Resource::XMLResourceType: {
-            tab = new XMLTab(*(qobject_cast<XMLResource *>(&resource)), line_to_scroll_to, this);
+            tab = new XMLTab(qobject_cast<XMLResource *>(resource), line_to_scroll_to, this);
             break;
         }
 
         case Resource::TextResourceType: {
-            tab = new TextTab(*(qobject_cast<TextResource *>(&resource)), CodeViewEditor::Highlight_NONE, line_to_scroll_to, this);
+            tab = new TextTab(qobject_cast<TextResource *>(resource), CodeViewEditor::Highlight_NONE, line_to_scroll_to, this);
             break;
         }
 
         case Resource::AudioResourceType:
         case Resource::VideoResourceType: {
-            tab = new AVTab(resource, this);
+            tab = new AVTab(qobject_cast<Resource *>(resource), this);
             break;
         }
 

@@ -56,27 +56,27 @@ BookBrowser::BookBrowser(QWidget *parent)
     :
     QDockWidget(tr("Book Browser"), parent),
     m_Book(NULL),
-    m_TreeView(*new QTreeView(this)),
-    m_OPFModel(*new OPFModel(this)),
-    m_ContextMenu(*new QMenu(this)),
-    m_SemanticsContextMenu(*new QMenu(this)),
-    m_FontObfuscationContextMenu(*new QMenu(this)),
-    m_OpenWithContextMenu(*new QMenu(this)),
-    m_GuideSemanticMapper(*new QSignalMapper(this)),
+    m_TreeView(new QTreeView(this)),
+    m_OPFModel(new OPFModel(this)),
+    m_ContextMenu(new QMenu(this)),
+    m_SemanticsContextMenu(new QMenu(this)),
+    m_FontObfuscationContextMenu(new QMenu(this)),
+    m_OpenWithContextMenu(new QMenu(this)),
+    m_GuideSemanticMapper(new QSignalMapper(this)),
     m_LastContextMenuType(Resource::GenericResourceType),
     m_RenamedResource(NULL)
 {
-    m_SemanticsContextMenu      .setTitle(tr("Add Semantics"));
-    m_FontObfuscationContextMenu.setTitle(tr("Font Obfuscation"));
-    m_OpenWithContextMenu       .setTitle(tr("Open With"));
-    setWidget(&m_TreeView);
+    m_SemanticsContextMenu->setTitle(tr("Add Semantics"));
+    m_FontObfuscationContextMenu->setTitle(tr("Font Obfuscation"));
+    m_OpenWithContextMenu->setTitle(tr("Open With"));
+    setWidget(m_TreeView);
     setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     ReadSettings();
     SetupTreeView();
     CreateContextMenuActions();
     ConnectSignalsToSlots();
-    m_OpenWithContextMenu.addAction(m_OpenWithEditor);
-    m_OpenWithContextMenu.addAction(m_OpenWith);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor);
+    m_OpenWithContextMenu->addAction(m_OpenWith);
 }
 
 
@@ -96,7 +96,7 @@ void BookBrowser::showEvent(QShowEvent *event)
 void BookBrowser::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_OPFModel.SetBook(book);
+    m_OPFModel->SetBook(book);
     connect(this, SIGNAL(BookContentModified()), m_Book.data(), SLOT(SetModified()));
     ExpandTextFolder();
     RefreshCounts();
@@ -105,7 +105,7 @@ void BookBrowser::SetBook(QSharedPointer<Book> book)
         // Here we fake that the "first" HTML file has been double clicked
         // so that we have a default first tab opened.
         // An exception is thrown if there are no HTML files in the epub.
-        EmitResourceActivated(m_OPFModel.GetFirstHTMLModelIndex());
+        EmitResourceActivated(m_OPFModel->GetFirstHTMLModelIndex());
     }
     // No exception variable since we don't use it
     catch (NoHTMLFiles) {
@@ -115,8 +115,8 @@ void BookBrowser::SetBook(QSharedPointer<Book> book)
 
 void BookBrowser::RefreshCounts()
 {
-    for (int i = 0; i < m_OPFModel.invisibleRootItem()->rowCount(); i++) {
-        QStandardItem *folder = m_OPFModel.invisibleRootItem()->child(i);
+    for (int i = 0; i < m_OPFModel->invisibleRootItem()->rowCount(); i++) {
+        QStandardItem *folder = m_OPFModel->invisibleRootItem()->child(i);
         int count = folder->rowCount();
         QString tooltip = QString("%1 ").arg(count);
 
@@ -132,7 +132,7 @@ void BookBrowser::RefreshCounts()
 
 void BookBrowser::Refresh()
 {
-    m_OPFModel.Refresh();
+    m_OPFModel->Refresh();
     RefreshCounts();
     emit UpdateBrowserSelection();
 }
@@ -140,17 +140,17 @@ void BookBrowser::Refresh()
 
 void BookBrowser::SelectAll()
 {
-    QList<Resource *> resources = m_OPFModel.GetResourceListInFolder(m_LastContextMenuType);
+    QList<Resource *> resources = m_OPFModel->GetResourceListInFolder(m_LastContextMenuType);
     SelectResources(resources);
 }
 
 
 void BookBrowser::SelectResources(QList<Resource *> resources)
 {
-    m_TreeView.selectionModel()->clearSelection();
-    foreach(Resource * resource, resources) {
-        QModelIndex index = m_OPFModel.GetModelItemIndex(*resource, OPFModel::IndexChoice_Current);
-        m_TreeView.selectionModel()->select(index, QItemSelectionModel::Select);
+    m_TreeView->selectionModel()->clearSelection();
+    foreach(Resource *resource, resources) {
+        QModelIndex index = m_OPFModel->GetModelItemIndex(resource, OPFModel::IndexChoice_Current);
+        m_TreeView->selectionModel()->select(index, QItemSelectionModel::Select);
     }
 }
 
@@ -161,25 +161,25 @@ void BookBrowser::SelectRenamedResource()
     }
 
     // Set the selection to the resource that was being renamed
-    UpdateSelection(*m_RenamedResource);
+    UpdateSelection(m_RenamedResource);
     // Make sure Book Browser has focus so keyboard navigation works as expected
-    qobject_cast<QWidget *>(&m_TreeView)->setFocus();
+    qobject_cast<QWidget *>(m_TreeView)->setFocus();
     m_RenamedResource = NULL;
 }
 
-void BookBrowser::UpdateSelection(Resource &resource)
+void BookBrowser::UpdateSelection(Resource *resource)
 {
     const int MIN_SPACE = 40;
-    m_TreeView.selectionModel()->clearSelection();
-    QModelIndex index = m_OPFModel.GetModelItemIndex(resource, OPFModel::IndexChoice_Current);
-    m_TreeView.selectionModel()->setCurrentIndex(index, QItemSelectionModel::SelectCurrent);
+    m_TreeView->selectionModel()->clearSelection();
+    QModelIndex index = m_OPFModel->GetModelItemIndex(resource, OPFModel::IndexChoice_Current);
+    m_TreeView->selectionModel()->setCurrentIndex(index, QItemSelectionModel::SelectCurrent);
     // Do we need to scroll the TreeView further to ensure the item is easily visible?
-    QRect item_rect = m_TreeView.visualRect(index);
-    QRect tv_rect = m_TreeView.rect();
+    QRect item_rect = m_TreeView->visualRect(index);
+    QRect tv_rect = m_TreeView->rect();
 
     if ((item_rect.top() < MIN_SPACE) || ((tv_rect.bottom() - item_rect.bottom()) < MIN_SPACE)) {
         // Too close to the top or bottom
-        m_TreeView.scrollTo(index, QAbstractItemView::PositionAtCenter);
+        m_TreeView->scrollTo(index, QAbstractItemView::PositionAtCenter);
     }
 }
 
@@ -188,10 +188,10 @@ void BookBrowser::NextResource()
     Resource *resource = GetCurrentResource();
 
     if (resource != NULL) {
-        QModelIndex index = m_OPFModel.GetModelItemIndex(*resource, OPFModel::IndexChoice_Next);
+        QModelIndex index = m_OPFModel->GetModelItemIndex(resource, OPFModel::IndexChoice_Next);
 
         if (index.isValid()) {
-            emit ResourceActivated(*GetResourceByIndex(index));
+            emit ResourceActivated(GetResourceByIndex(index));
         }
     }
 }
@@ -201,10 +201,10 @@ void BookBrowser::PreviousResource()
     Resource *resource = GetCurrentResource();
 
     if (resource != NULL) {
-        QModelIndex index = m_OPFModel.GetModelItemIndex(*resource, OPFModel::IndexChoice_Previous);
+        QModelIndex index = m_OPFModel->GetModelItemIndex(resource, OPFModel::IndexChoice_Previous);
 
         if (index.isValid()) {
-            emit ResourceActivated(*GetResourceByIndex(index));
+            emit ResourceActivated(GetResourceByIndex(index));
         }
     }
 }
@@ -222,8 +222,8 @@ void BookBrowser::SortHTML()
         return;
     }
 
-    QList <QModelIndex> indexList = m_TreeView.selectionModel()->selectedRows(0);
-    m_OPFModel.SortHTML(indexList);
+    QList <QModelIndex> indexList = m_TreeView->selectionModel()->selectedRows(0);
+    m_OPFModel->SortHTML(indexList);
     SelectResources(resources);
 }
 
@@ -237,13 +237,10 @@ Resource *BookBrowser::GetUrlResource(const QUrl &url)
     const QString &filename = QFileInfo(url.path()).fileName();
 
     try {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
-        return &resource;
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+        return resource;
     } catch (ResourceDoesNotExist) {
-        Utility::DisplayStdErrorDialog(
-            tr("The file \"%1\" does not exist.")
-            .arg(filename)
-        );
+        Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.").arg(filename));
     }
 
     return NULL;
@@ -252,10 +249,10 @@ Resource *BookBrowser::GetUrlResource(const QUrl &url)
 
 void BookBrowser::EmitResourceActivated(const QModelIndex &index)
 {
-    QString identifier(m_OPFModel.itemFromIndex(index)->data().toString());
+    QString identifier(m_OPFModel->itemFromIndex(index)->data().toString());
 
     if (!identifier.isEmpty()) {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByIdentifier(identifier);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
         emit ResourceActivated(resource);
     }
 }
@@ -267,9 +264,9 @@ void BookBrowser::OpenContextMenu(const QPoint &point)
         return;
     }
 
-    m_ContextMenu.exec(m_TreeView.viewport()->mapToGlobal(point));
-    m_ContextMenu.clear();
-    m_SemanticsContextMenu.clear();
+    m_ContextMenu->exec(m_TreeView->viewport()->mapToGlobal(point));
+    m_ContextMenu->clear();
+    m_SemanticsContextMenu->clear();
     // Ensure any actions with keyboard shortcuts that might have temporarily been
     // disabled are enabled again to let the shortcut work outside the menu.
     m_Delete->setEnabled(true);
@@ -284,32 +281,32 @@ QList <Resource *> BookBrowser::ValidSelectedHTMLResources()
 
 QList <Resource *> BookBrowser::AllHTMLResources()
 {
-    return m_OPFModel.GetResourceListInFolder(Resource::HTMLResourceType);
+    return m_OPFModel->GetResourceListInFolder(Resource::HTMLResourceType);
 }
 
 QList <Resource *> BookBrowser::AllImageResources()
 {
-    return m_OPFModel.GetResourceListInFolder(Resource::ImageResourceType);
+    return m_OPFModel->GetResourceListInFolder(Resource::ImageResourceType);
 }
 
 QList <Resource *> BookBrowser::AllMediaResources()
 {
     QList <Resource *> resources;
-    resources = m_OPFModel.GetResourceListInFolder(Resource::ImageResourceType);
-    resources.append(m_OPFModel.GetResourceListInFolder(Resource::VideoResourceType));
-    resources.append(m_OPFModel.GetResourceListInFolder(Resource::AudioResourceType));
+    resources = m_OPFModel->GetResourceListInFolder(Resource::ImageResourceType);
+    resources.append(m_OPFModel->GetResourceListInFolder(Resource::VideoResourceType));
+    resources.append(m_OPFModel->GetResourceListInFolder(Resource::AudioResourceType));
     return resources;
 }
 
 QList <Resource *> BookBrowser::AllCSSResources()
 {
-    return m_OPFModel.GetResourceListInFolder(Resource::CSSResourceType);
+    return m_OPFModel->GetResourceListInFolder(Resource::CSSResourceType);
 }
 
 QList <Resource *> BookBrowser::ValidSelectedResources(Resource::ResourceType resource_type)
 {
     QList <Resource *> resources = ValidSelectedResources();
-    foreach(Resource * resource, resources) {
+    foreach(Resource *resource, resources) {
         if (resource->Type() != resource_type) {
             resources.clear();
         }
@@ -326,13 +323,13 @@ QList <Resource *> BookBrowser::ValidSelectedResources()
         return resources;
     }
 
-    QList <QModelIndex> list = m_TreeView.selectionModel()->selectedRows(0);
+    QList <QModelIndex> list = m_TreeView->selectionModel()->selectedRows(0);
     foreach(QModelIndex index, list) {
-        QStandardItem *item = m_OPFModel.itemFromIndex(index);
+        QStandardItem *item = m_OPFModel->itemFromIndex(index);
 
         if (item != NULL) {
             const QString &identifier = item->data().toString();
-            Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier(identifier);
+            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
 
             if (resource != NULL) {
                 resources.append(resource);
@@ -348,7 +345,7 @@ QList <Resource *> BookBrowser::ValidSelectedResources()
 
     // Sort according to treeview order
     QList <Resource *> sorted_resources;
-    QList <Resource *> all_resources = m_OPFModel.GetResourceListInFolder(resource_type);
+    QList <Resource *> all_resources = m_OPFModel->GetResourceListInFolder(resource_type);
     foreach(Resource * all_resource, all_resources) {
         foreach(Resource * resource, resources) {
             if (all_resource->Filename() == resource->Filename()) {
@@ -363,7 +360,7 @@ QList <Resource *> BookBrowser::ValidSelectedResources()
 
 int BookBrowser::ValidSelectedItemCount()
 {
-    QList <QModelIndex> list = m_TreeView.selectionModel()->selectedRows(0);
+    QList <QModelIndex> list = m_TreeView->selectionModel()->selectedRows(0);
     int count = list.length();
 
     if (count <= 1) {
@@ -372,7 +369,7 @@ int BookBrowser::ValidSelectedItemCount()
 
     Resource::ResourceType resource_type = Resource::HTMLResourceType;
     foreach(QModelIndex index, list) {
-        QStandardItem *item = m_OPFModel.itemFromIndex(index);
+        QStandardItem *item = m_OPFModel->itemFromIndex(index);
         const QString &identifier = item->data().toString();
 
         // If folder item included, multiple selection is invalid
@@ -380,7 +377,7 @@ int BookBrowser::ValidSelectedItemCount()
             return -1;
         }
 
-        Resource *resource = &m_Book->GetFolderKeeper().GetResourceByIdentifier(identifier);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
 
         // If for some reason there is something with an identifier but no resource, fail
         if (resource == NULL) {
@@ -399,7 +396,7 @@ int BookBrowser::ValidSelectedItemCount()
 
 void BookBrowser::AddFile(QString filepath)
 {
-    m_Book->GetFolderKeeper().AddContentFileToFolder(filepath);
+    m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath);
     emit BookContentModified();
     Refresh();
 }
@@ -425,12 +422,12 @@ void BookBrowser::CopyHTML()
         return;
     }
 
-    HTMLResource &current_html_resource = *qobject_cast<HTMLResource *>(current_resource);
+    HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(current_resource);
     // Create an empty file
-    HTMLResource &new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource);
+    HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource);
     m_Book->MoveResourceAfter(new_html_resource, current_html_resource);
     // Copy the text from the current file
-    new_html_resource.SetText(current_html_resource.GetText());
+    new_html_resource->SetText(current_html_resource->GetText());
     // Open the new file in a tab
     emit ResourceActivated(new_html_resource);
     emit BookContentModified();
@@ -442,8 +439,8 @@ void BookBrowser::CopyHTML()
 void BookBrowser::AddNewHTML()
 {
     Resource *current_resource = GetCurrentResource();
-    HTMLResource &current_html_resource = *qobject_cast<HTMLResource *>(current_resource);
-    HTMLResource &new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource);
+    HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(current_resource);
+    HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource);
 
     if (current_resource != NULL) {
         m_Book->MoveResourceAfter(new_html_resource, current_html_resource);
@@ -463,11 +460,11 @@ void BookBrowser::CopyCSS()
         return;
     }
 
-    CSSResource &current_css_resource = *qobject_cast<CSSResource *>(current_resource);
+    CSSResource *current_css_resource = qobject_cast<CSSResource *>(current_resource);
     // Create an empty file
-    CSSResource &new_resource = m_Book->CreateEmptyCSSFile();
+    CSSResource *new_resource = m_Book->CreateEmptyCSSFile();
     // Copy the text from the current file
-    new_resource.SetText(current_css_resource.GetText());
+    new_resource->SetText(current_css_resource->GetText());
     // Open the new file in a tab
     emit ResourceActivated(new_resource);
     emit BookContentModified();
@@ -476,7 +473,7 @@ void BookBrowser::CopyCSS()
 
 void BookBrowser::AddNewCSS()
 {
-    CSSResource &new_resource = m_Book->CreateEmptyCSSFile();
+    CSSResource *new_resource = m_Book->CreateEmptyCSSFile();
     // Open the new file in a tab
     emit ResourceActivated(new_resource);
     emit BookContentModified();
@@ -485,7 +482,7 @@ void BookBrowser::AddNewCSS()
 
 void BookBrowser::AddNewSVG()
 {
-    SVGResource &new_resource = m_Book->CreateEmptySVGFile();
+    SVGResource *new_resource = m_Book->CreateEmptySVGFile();
     // Open the new file in a tab
     emit ResourceActivated(new_resource);
     emit BookContentModified();
@@ -494,16 +491,16 @@ void BookBrowser::AddNewSVG()
 
 void BookBrowser::CreateHTMLTOCCSSFile()
 {
-    CSSResource &css_resource = m_Book->CreateHTMLTOCCSSFile();
-    m_OPFModel.RenameResource(css_resource, SGC_TOC_CSS_FILENAME);
+    CSSResource *css_resource = m_Book->CreateHTMLTOCCSSFile();
+    m_OPFModel->RenameResource(css_resource, SGC_TOC_CSS_FILENAME);
     emit BookContentModified();
     Refresh();
 }
 
 void BookBrowser::CreateIndexCSSFile()
 {
-    CSSResource &css_resource = m_Book->CreateIndexCSSFile();
-    m_OPFModel.RenameResource(css_resource, SGC_INDEX_CSS_FILENAME);
+    CSSResource *css_resource = m_Book->CreateIndexCSSFile();
+    m_OPFModel->RenameResource(css_resource, SGC_INDEX_CSS_FILENAME);
     emit BookContentModified();
     Refresh();
 }
@@ -517,10 +514,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         m_LastFolderOpen = "";
     }
 
-    QStringList filepaths = QFileDialog::getOpenFileNames(this,
-                            tr("Add Existing Files"),
-                            m_LastFolderOpen,
-                            filter_string);
+    QStringList filepaths = QFileDialog::getOpenFileNames(this, tr("Add Existing Files"), m_LastFolderOpen, filter_string);
 
     if (filepaths.isEmpty()) {
         return added_files;
@@ -530,7 +524,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     // We need to store the current metadata since the
     // GetBook call will clear it.
     QList<Metadata::MetaElement> old_metadata = m_Book->GetMetadata();
-    QStringList current_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    QStringList current_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     QStringList invalid_filenames;
     HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(GetCurrentResource());
     Resource *open_resource = NULL;
@@ -588,27 +582,21 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                 }
 
                 try {
-                    Resource &old_resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
-                    old_resource.Delete();
+                    Resource *old_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+                    old_resource->Delete();
                 } catch (ResourceDoesNotExist) {
-                    Utility::DisplayStdErrorDialog(
-                        tr("Unable to delete or replace file \"%1\".")
-                        .arg(filename)
+                    Utility::DisplayStdErrorDialog(tr("Unable to delete or replace file \"%1\".").arg(filename)
                     );
                     continue;
                 }
             } else {
-                QMessageBox::warning(this,
-                                     tr("Sigil"),
-                                     tr("Unable to load \"%1\"\n\nA file with this name already exists in the book.")
-                                     .arg(filename)
-                                    );
+                QMessageBox::warning(this, tr("Sigil"), tr("Unable to load \"%1\"\n\nA file with this name already exists in the book.").arg(filename));
                 continue;
             }
         }
 
         if (QFileInfo(filepath).fileName() == "page-map.xml") {
-            m_Book->GetFolderKeeper().AddContentFileToFolder(filepath);
+            m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath);
         } else if (TEXT_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
             ImportHTML html_import(filepath);
             XhtmlDoc::WellFormedError error = html_import.CheckValidToLoad();
@@ -622,25 +610,25 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
             // Since we set the Book manually,
             // this call merely mutates our Book.
             html_import.GetBook();
-            Resource &added_resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
-            HTMLResource *added_html_resource = qobject_cast<HTMLResource *>(&added_resource);
+            Resource *added_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+            HTMLResource *added_html_resource = qobject_cast<HTMLResource *>(added_resource);
 
             if (current_html_resource && added_html_resource) {
-                m_Book->MoveResourceAfter(*added_html_resource, *current_html_resource);
+                m_Book->MoveResourceAfter(added_html_resource, current_html_resource);
                 current_html_resource = added_html_resource;
 
                 // Only open HTML files as they are likely to be edited whereas other items
                 // are likely to be inserted into or linked to the current file.
                 // Only open the first file in any added group.
                 if (!open_resource) {
-                    open_resource = &added_resource;
+                    open_resource = added_resource;
                 }
             }
         } else {
             // TODO: adding a CSS file should add the referenced fonts too
-            Resource & resource = m_Book->GetFolderKeeper().AddContentFileToFolder(filepath);
-            if (resource.Type() == Resource::CSSResourceType) {
-                CSSResource *css_resource = qobject_cast<CSSResource *> (&resource);
+            Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath);
+            if (resource->Type() == Resource::CSSResourceType) {
+                CSSResource *css_resource = qobject_cast<CSSResource *> (resource);
                 css_resource->InitialLoad();
             }
         }
@@ -660,7 +648,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         emit ResourcesAdded();
 
         if (open_resource) {
-            emit ResourceActivated(*open_resource);
+            emit ResourceActivated(open_resource);
         }
 
         m_Book->SetMetadata(old_metadata);
@@ -713,9 +701,9 @@ void BookBrowser::SaveAsFile(Resource *resource)
 
     // Store the folder the user saved to
     m_LastFolderSaveAs = QFileInfo(destination).absolutePath();
-    m_Book->GetFolderKeeper().SuspendWatchingResources();
+    m_Book->GetFolderKeeper()->SuspendWatchingResources();
     resource->SaveToDisk();
-    m_Book->GetFolderKeeper().ResumeWatchingResources();
+    m_Book->GetFolderKeeper()->ResumeWatchingResources();
     QString source = resource->GetFullPath();
 
     if (QFileInfo(destination).exists()) {
@@ -760,7 +748,7 @@ void BookBrowser::SaveAsFiles()
     }
 
     m_LastFolderSaveAs = dirname;
-    m_Book->GetFolderKeeper().SuspendWatchingResources();
+    m_Book->GetFolderKeeper()->SuspendWatchingResources();
     foreach(Resource * resource, resources) {
         resource->SaveToDisk();
         QString source = resource->GetFullPath();
@@ -780,7 +768,7 @@ void BookBrowser::SaveAsFiles()
             break;
         }
     }
-    m_Book->GetFolderKeeper().ResumeWatchingResources();
+    m_Book->GetFolderKeeper()->ResumeWatchingResources();
 }
 
 void BookBrowser::OpenWith() const
@@ -788,14 +776,14 @@ void BookBrowser::OpenWith() const
     Resource *resource = GetCurrentResource();
 
     if (resource) {
-        m_Book->GetFolderKeeper().SuspendWatchingResources();
+        m_Book->GetFolderKeeper()->SuspendWatchingResources();
         resource->SaveToDisk();
-        m_Book->GetFolderKeeper().ResumeWatchingResources();
+        m_Book->GetFolderKeeper()->ResumeWatchingResources();
         const QString &editorPath = OpenExternally::selectEditorForResourceType(resource->Type());
 
         if (!editorPath.isEmpty()) {
             if (OpenExternally::openFile(resource->GetFullPath(), editorPath)) {
-                m_Book->GetFolderKeeper().WatchResourceFile(*resource);
+                m_Book->GetFolderKeeper()->WatchResourceFile(resource);
             }
         }
     }
@@ -806,14 +794,14 @@ void BookBrowser::OpenWithEditor() const
     Resource *resource = GetCurrentResource();
 
     if (resource) {
-        m_Book->GetFolderKeeper().SuspendWatchingResources();
+        m_Book->GetFolderKeeper()->SuspendWatchingResources();
         resource->SaveToDisk();
-        m_Book->GetFolderKeeper().ResumeWatchingResources();
+        m_Book->GetFolderKeeper()->ResumeWatchingResources();
         const QVariant &editorPathData = m_OpenWithEditor->data();
 
         if (editorPathData.isValid()) {
             if (OpenExternally::openFile(resource->GetFullPath(), editorPathData.toString())) {
-                m_Book->GetFolderKeeper().WatchResourceFile(*resource);
+                m_Book->GetFolderKeeper()->WatchResourceFile(resource);
             }
         }
     }
@@ -837,7 +825,7 @@ void BookBrowser::Rename()
         // Save the resource so it can be re-selected
         m_RenamedResource = GetCurrentResource();
         // The actual renaming code is in OPFModel::ItemChangedHandler
-        m_TreeView.edit(m_TreeView.currentIndex());
+        m_TreeView->edit(m_TreeView->currentIndex());
     } else {
         RenameSelected();
     }
@@ -847,7 +835,7 @@ QString BookBrowser::GetFirstAvailableTemplateName(QString base, QString number_
 {
     int number = number_string.toInt();
 
-    QStringList book_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    QStringList book_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     QStringList short_filenames;
     foreach(QString filename, book_filenames) {
         short_filenames.append(filename.left(filename.lastIndexOf(".")));
@@ -927,7 +915,7 @@ void BookBrowser::RenameSelected()
     int template_number_start = template_number_string.toInt();
 
     QStringList new_filenames;
-    QStringList book_filenames = m_Book->GetFolderKeeper().GetAllFilenames();
+    QStringList book_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     int template_number = template_number_start;
 
     for (int i = 0; i < resources_count; i++) {
@@ -981,13 +969,13 @@ void BookBrowser::RenameSelected()
     settings.setRenameTemplate(next_name_template);
 
     // After a rename we want to keep the resources in the identical position.
-    int scrollY = m_TreeView.verticalScrollBar()->value();
+    int scrollY = m_TreeView->verticalScrollBar()->value();
 
     // Rename the resources
-    m_OPFModel.RenameResourceList(resources, new_filenames);
+    m_OPFModel->RenameResourceList(resources, new_filenames);
 
     SelectResources(resources);
-    m_TreeView.verticalScrollBar()->setSliderPosition(scrollY);
+    m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
 }
 
 
@@ -1019,7 +1007,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
         );
         return;
     } else if (resource_type == Resource::HTMLResourceType &&
-               resources.count() == m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>().count()) {
+               resources.count() == m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>().count()) {
         {
             Utility::DisplayStdErrorDialog(
                 tr("You cannot remove all html files.\n"
@@ -1082,7 +1070,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     // next_resource will always be an openable type resource if no
     // tabs remain because at least one tab was open before deletion.
     if (!tab_remaining && next_resource) {
-        emit ResourceActivated(*next_resource);
+        emit ResourceActivated(next_resource);
     }
 
     // Delete the resources
@@ -1092,14 +1080,14 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     emit ResourcesDeleted();
     emit BookContentModified();
     // Avoid full refresh so selection stays for non-openable resources
-    m_OPFModel.Refresh();
+    m_OPFModel->Refresh();
     RefreshCounts();
 
     if (keep_selection) {
         SelectResources(selected_resources);
     } else {
         if (next_resource) {
-            UpdateSelection(*next_resource);
+            UpdateSelection(next_resource);
         }
     }
 
@@ -1113,7 +1101,7 @@ Resource *BookBrowser::ResourceToSelectAfterRemove(QList<Resource *> selected_re
         return NULL;
     }
 
-    QList <Resource *> all_resources = m_OPFModel.GetResourceListInFolder(selected_resources.first());
+    QList <Resource *> all_resources = m_OPFModel->GetResourceListInFolder(selected_resources.first());
 
     if (all_resources.isEmpty()) {
         return NULL;
@@ -1158,26 +1146,26 @@ Resource *BookBrowser::ResourceToSelectAfterRemove(QList<Resource *> selected_re
 void BookBrowser::SetCoverImage()
 {
     QList <Resource *> resources = ValidSelectedResources();
-    int scrollY = m_TreeView.verticalScrollBar()->value();
+    int scrollY = m_TreeView->verticalScrollBar()->value();
 
     ImageResource *image_resource = qobject_cast<ImageResource *>(GetCurrentResource());
     if (image_resource == NULL) {
         emit ShowStatusMessageRequest(tr("Unable to set file as cover image."));
         return;
     }
-    m_Book->GetOPF().SetResourceAsCoverImage(*image_resource);
-    m_OPFModel.Refresh();
+    m_Book->GetOPF()->SetResourceAsCoverImage(image_resource);
+    m_OPFModel->Refresh();
     emit BookContentModified();
 
     SelectResources(resources);
-    m_TreeView.verticalScrollBar()->setSliderPosition(scrollY);
+    m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
 }
 
 
 void BookBrowser::AddGuideSemanticType(int type)
 {
     QList <Resource *> resources = ValidSelectedResources();
-    int scrollY = m_TreeView.verticalScrollBar()->value();
+    int scrollY = m_TreeView->verticalScrollBar()->value();
 
     if (resources.isEmpty()) {
         return;
@@ -1185,21 +1173,21 @@ void BookBrowser::AddGuideSemanticType(int type)
 
     foreach(Resource * resource, resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        m_Book->GetOPF().AddGuideSemanticType(*html_resource, (GuideSemantics::GuideSemanticType) type);
+        m_Book->GetOPF()->AddGuideSemanticType(html_resource, (GuideSemantics::GuideSemanticType) type);
 
     }
-    m_OPFModel.Refresh();
+    m_OPFModel->Refresh();
     emit BookContentModified();
 
     SelectResources(resources);
-    m_TreeView.verticalScrollBar()->setSliderPosition(scrollY);
+    m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
 }
 
 void BookBrowser::Merge()
 {
-    int scrollY = m_TreeView.verticalScrollBar()->value();
+    int scrollY = m_TreeView->verticalScrollBar()->value();
     emit MergeResourcesRequest(ValidSelectedResources(Resource::HTMLResourceType));
-    m_TreeView.verticalScrollBar()->setSliderPosition(scrollY);
+    m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
 }
 
 
@@ -1267,7 +1255,7 @@ void BookBrowser::ValidateStylesheetWithW3C()
 
 void BookBrowser::ExpandTextFolder()
 {
-    m_TreeView.expand(m_OPFModel.GetTextFolderModelIndex());
+    m_TreeView->expand(m_OPFModel->GetTextFolderModelIndex());
 }
 
 
@@ -1293,25 +1281,25 @@ void BookBrowser::WriteSettings()
 
 void BookBrowser::SetupTreeView()
 {
-    m_TreeView.setEditTriggers(QAbstractItemView::EditKeyPressed);
-    m_TreeView.setSortingEnabled(false);
-    m_TreeView.sortByColumn(-1);
-    m_TreeView.setUniformRowHeights(true);
-    m_TreeView.setDragEnabled(true);
-    m_TreeView.setAcceptDrops(false);
-    m_TreeView.setDropIndicatorShown(true);
-    m_TreeView.setDragDropMode(QAbstractItemView::InternalMove);
-    m_TreeView.setContextMenuPolicy(Qt::CustomContextMenu);
-    m_TreeView.setItemDelegate(new FilenameDelegate);
-    m_TreeView.setSelectionMode(QAbstractItemView::ExtendedSelection);
-    m_TreeView.setModel(&m_OPFModel);
+    m_TreeView->setEditTriggers(QAbstractItemView::EditKeyPressed);
+    m_TreeView->setSortingEnabled(false);
+    m_TreeView->sortByColumn(-1);
+    m_TreeView->setUniformRowHeights(true);
+    m_TreeView->setDragEnabled(true);
+    m_TreeView->setAcceptDrops(false);
+    m_TreeView->setDropIndicatorShown(true);
+    m_TreeView->setDragDropMode(QAbstractItemView::InternalMove);
+    m_TreeView->setContextMenuPolicy(Qt::CustomContextMenu);
+    m_TreeView->setItemDelegate(new FilenameDelegate);
+    m_TreeView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    m_TreeView->setModel(m_OPFModel);
 
-    for (int i = 1; i < m_OPFModel.columnCount(); ++i) {
-        m_TreeView.hideColumn(i);
+    for (int i = 1; i < m_OPFModel->columnCount(); ++i) {
+        m_TreeView->hideColumn(i);
     }
 
-    m_TreeView.setIndentation(COLUMN_INDENTATION);
-    m_TreeView.setHeaderHidden(true);
+    m_TreeView->setIndentation(COLUMN_INDENTATION);
+    m_TreeView->setHeaderHidden(true);
 }
 
 
@@ -1370,71 +1358,71 @@ void BookBrowser::CreateGuideSemanticActions()
     QAction *action = NULL;
     action = new QAction(tr("Cover"), this);
     action->setData(GuideSemantics::Cover);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Cover);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Cover);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Title Page"), this);
     action->setData(GuideSemantics::TitlePage);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::TitlePage);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::TitlePage);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Table Of Contents"), this);
     action->setData(GuideSemantics::TableOfContents);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::TableOfContents);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::TableOfContents);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Index"), this);
     action->setData(GuideSemantics::Index);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Index);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Index);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Glossary"), this);
     action->setData(GuideSemantics::Glossary);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Glossary);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Glossary);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Acknowledgements"), this);
     action->setData(GuideSemantics::Acknowledgements);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Acknowledgements);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Acknowledgements);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Bibliography"), this);
     action->setData(GuideSemantics::Bibliography);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Bibliography);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Bibliography);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Colophon"), this);
     action->setData(GuideSemantics::Colophon);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Colophon);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Colophon);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Copyright Page"), this);
     action->setData(GuideSemantics::CopyrightPage);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::CopyrightPage);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::CopyrightPage);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Dedication"), this);
     action->setData(GuideSemantics::Dedication);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Dedication);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Dedication);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Epigraph"), this);
     action->setData(GuideSemantics::Epigraph);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Epigraph);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Epigraph);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Foreword"), this);
     action->setData(GuideSemantics::Foreword);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Foreword);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Foreword);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("List Of Illustrations"), this);
     action->setData(GuideSemantics::ListOfIllustrations);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::ListOfIllustrations);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::ListOfIllustrations);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("List Of Tables"), this);
     action->setData(GuideSemantics::ListOfTables);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::ListOfTables);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::ListOfTables);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Notes"), this);
     action->setData(GuideSemantics::Notes);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Notes);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Notes);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Preface"), this);
     action->setData(GuideSemantics::Preface);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Preface);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Preface);
     m_GuideSemanticActions.append(action);
     action = new QAction(tr("Text"), this);
     action->setData(GuideSemantics::Text);
-    m_GuideSemanticMapper.setMapping(action, GuideSemantics::Text);
+    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Text);
     m_GuideSemanticActions.append(action);
     foreach(QAction * action, m_GuideSemanticActions) {
         action->setCheckable(true);
@@ -1444,7 +1432,7 @@ void BookBrowser::CreateGuideSemanticActions()
 
 bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
 {
-    QModelIndex index = m_TreeView.indexAt(point);
+    QModelIndex index = m_TreeView->indexAt(point);
 
     if (!index.isValid()) {
         return false;
@@ -1456,32 +1444,32 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
         return false;
     }
 
-    QStandardItem *item = m_OPFModel.itemFromIndex(index);
+    QStandardItem *item = m_OPFModel->itemFromIndex(index);
     Q_ASSERT(item);
-    m_LastContextMenuType = m_OPFModel.GetResourceType(item);
-    QList<Resource *> resources = m_OPFModel.GetResourceListInFolder(m_LastContextMenuType);
+    m_LastContextMenuType = m_OPFModel->GetResourceType(item);
+    QList<Resource *> resources = m_OPFModel->GetResourceListInFolder(m_LastContextMenuType);
     Resource *resource = GetCurrentResource();
 
     if (resource) {
-        m_ContextMenu.addSeparator();
+        m_ContextMenu->addSeparator();
 
         // Delete and Rename
         if (m_LastContextMenuType != Resource::OPFResourceType &&
             m_LastContextMenuType != Resource::NCXResourceType) {
-            m_ContextMenu.addAction(m_Delete);
+            m_ContextMenu->addAction(m_Delete);
             m_Delete->setEnabled(m_LastContextMenuType != Resource::HTMLResourceType ||
                                  (AllHTMLResources().count() > 1 && resources.count() != item_count));
-            m_ContextMenu.addAction(m_Rename);
+            m_ContextMenu->addAction(m_Rename);
         }
 
         if (resource->Type() == Resource::HTMLResourceType) {
-            m_ContextMenu.addAction(m_Merge);
+            m_ContextMenu->addAction(m_Merge);
             m_Merge->setEnabled(item_count > 1 ||
                                 (AllHTMLResources().count() > 1 &&
                                  AllHTMLResources().at(0) != ValidSelectedResources().at(0)));
-            m_ContextMenu.addAction(m_SortHTML);
+            m_ContextMenu->addAction(m_SortHTML);
             m_SortHTML->setEnabled(item_count > 1);
-            m_ContextMenu.addAction(m_LinkStylesheets);
+            m_ContextMenu->addAction(m_LinkStylesheets);
             m_LinkStylesheets->setEnabled(AllCSSResources().count() > 0);
         }
 
@@ -1490,16 +1478,16 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
         }
 
         if (resource->Type() == Resource::NCXResourceType) {
-            m_ContextMenu.addAction(m_RenumberTOC);
+            m_ContextMenu->addAction(m_RenumberTOC);
         }
 
         if (resource->Type() == Resource::CSSResourceType) {
-            m_ContextMenu.addAction(m_ValidateWithW3C);
+            m_ContextMenu->addAction(m_ValidateWithW3C);
         }
 
         // Semantic Menu
         SetupSemanticContextmenu(resource);
-        m_ContextMenu.addSeparator();
+        m_ContextMenu->addSeparator();
 
         // Open With
         if (OpenExternally::mayOpen(resource->Type())) {
@@ -1509,46 +1497,46 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
             if (editorPath.isEmpty()) {
                 m_OpenWithEditor->setData(QVariant::Invalid);
                 m_OpenWith->setText(tr("Open With") + "...");
-                m_ContextMenu.addAction(m_OpenWith);
+                m_ContextMenu->addAction(m_OpenWith);
             } else {
                 m_OpenWithEditor->setText(editorDescription);
                 m_OpenWithEditor->setData(editorPath);
                 m_OpenWithEditor->setEnabled(item_count == 1);
                 m_OpenWith->setText(tr("Other Application") + "...");
-                m_ContextMenu.addMenu(&m_OpenWithContextMenu);
+                m_ContextMenu->addMenu(m_OpenWithContextMenu);
             }
 
             m_OpenWith->setEnabled(item_count == 1);
-            m_OpenWithContextMenu.setEnabled(item_count == 1);
+            m_OpenWithContextMenu->setEnabled(item_count == 1);
         }
 
         // Save As
-        m_ContextMenu.addAction(m_SaveAs);
+        m_ContextMenu->addAction(m_SaveAs);
     }
 
     // Applies to Menus and Resources
     // Add Existing and Add specific file types
-    m_ContextMenu.addSeparator();
+    m_ContextMenu->addSeparator();
 
     if (m_LastContextMenuType == Resource::HTMLResourceType) {
-        m_ContextMenu.addAction(m_AddNewHTML);
-        m_ContextMenu.addAction(m_CopyHTML);
+        m_ContextMenu->addAction(m_AddNewHTML);
+        m_ContextMenu->addAction(m_CopyHTML);
         m_CopyHTML->setEnabled(item_count == 1);
     } else if (m_LastContextMenuType == Resource::CSSResourceType) {
-        m_ContextMenu.addAction(m_AddNewCSS);
-        m_ContextMenu.addAction(m_CopyCSS);
+        m_ContextMenu->addAction(m_AddNewCSS);
+        m_ContextMenu->addAction(m_CopyCSS);
         m_CopyCSS->setEnabled(item_count == 1);
     } else if (m_LastContextMenuType == Resource::ImageResourceType || m_LastContextMenuType == Resource::SVGResourceType) {
-        m_ContextMenu.addAction(m_AddNewSVG);
+        m_ContextMenu->addAction(m_AddNewSVG);
     }
 
-    m_ContextMenu.addAction(m_AddExisting);
+    m_ContextMenu->addAction(m_AddExisting);
 
     // Select All
     if (m_LastContextMenuType != Resource::OPFResourceType &&
         m_LastContextMenuType != Resource::NCXResourceType) {
-        m_ContextMenu.addSeparator();
-        m_ContextMenu.addAction(m_SelectAll);
+        m_ContextMenu->addSeparator();
+        m_ContextMenu->addAction(m_SelectAll);
         m_SelectAll->setEnabled(item_count > 0 || (!resource && resources.count() > 0));
     }
 
@@ -1560,20 +1548,20 @@ void BookBrowser::SetupSemanticContextmenu(Resource *resource)
 {
     if (resource->Type() == Resource::HTMLResourceType) {
         SetupHTMLSemanticContextMenu(resource);
-        m_ContextMenu.addMenu(&m_SemanticsContextMenu);
+        m_ContextMenu->addMenu(m_SemanticsContextMenu);
     } else if (resource->Type() == Resource::ImageResourceType) {
         SetupImageSemanticContextMenu(resource);
-        m_ContextMenu.addMenu(&m_SemanticsContextMenu);
+        m_ContextMenu->addMenu(m_SemanticsContextMenu);
     }
 
-    m_SemanticsContextMenu.setEnabled(ValidSelectedItemCount() == 1);
+    m_SemanticsContextMenu->setEnabled(ValidSelectedItemCount() == 1);
 }
 
 
 void BookBrowser::SetupHTMLSemanticContextMenu(Resource *resource)
 {
     foreach(QAction * action, m_GuideSemanticActions) {
-        m_SemanticsContextMenu.addAction(action);
+        m_SemanticsContextMenu->addAction(action);
     }
     SetHTMLSemanticActionCheckState(resource);
 }
@@ -1581,12 +1569,12 @@ void BookBrowser::SetupHTMLSemanticContextMenu(Resource *resource)
 
 void BookBrowser::SetupImageSemanticContextMenu(Resource *resource)
 {
-    m_SemanticsContextMenu.addAction(m_CoverImage);
+    m_SemanticsContextMenu->addAction(m_CoverImage);
     ImageResource *image_resource = qobject_cast<ImageResource *>(GetCurrentResource());
     Q_ASSERT(image_resource);
     m_CoverImage->setChecked(false);
 
-    if (m_Book->GetOPF().IsCoverImage(*image_resource)) {
+    if (m_Book->GetOPF()->IsCoverImage(image_resource)) {
         m_CoverImage->setChecked(true);
     }
 }
@@ -1600,11 +1588,11 @@ void BookBrowser::SetHTMLSemanticActionCheckState(Resource *resource)
 
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
     Q_ASSERT(html_resource);
-    foreach(QAction * action, m_GuideSemanticActions) {
+    foreach(QAction *action, m_GuideSemanticActions) {
         action->setChecked(false);
     }
     GuideSemantics::GuideSemanticType semantic_type =
-        m_Book->GetOPF().GetGuideSemanticTypeForResource(*html_resource);
+        m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_resource);
 
     if (semantic_type == GuideSemantics::NoType) {
         return;
@@ -1614,7 +1602,7 @@ void BookBrowser::SetHTMLSemanticActionCheckState(Resource *resource)
         HTMLResource *valid_html_resource = qobject_cast<HTMLResource *>(valid_resource);
         Q_ASSERT(html_resource);
         GuideSemantics::GuideSemanticType valid_semantic_type =
-            m_Book->GetOPF().GetGuideSemanticTypeForResource(*valid_html_resource);
+            m_Book->GetOPF()->GetGuideSemanticTypeForResource(valid_html_resource);
 
         if (valid_semantic_type != semantic_type) {
             return;
@@ -1631,11 +1619,11 @@ void BookBrowser::SetHTMLSemanticActionCheckState(Resource *resource)
 
 void BookBrowser::SetupFontObfuscationMenu()
 {
-    m_FontObfuscationContextMenu.addAction(m_NoObfuscationMethod);
-    m_FontObfuscationContextMenu.addAction(m_AdobesObfuscationMethod);
-    m_FontObfuscationContextMenu.addAction(m_IdpfsObfuscationMethod);
+    m_FontObfuscationContextMenu->addAction(m_NoObfuscationMethod);
+    m_FontObfuscationContextMenu->addAction(m_AdobesObfuscationMethod);
+    m_FontObfuscationContextMenu->addAction(m_IdpfsObfuscationMethod);
     SetFontObfuscationActionCheckState();
-    m_ContextMenu.addMenu(&m_FontObfuscationContextMenu);
+    m_ContextMenu->addMenu(m_FontObfuscationContextMenu);
 }
 
 
@@ -1671,11 +1659,11 @@ void BookBrowser::SetFontObfuscationActionCheckState()
 
 void BookBrowser::ConnectSignalsToSlots()
 {
-    connect(&m_TreeView, SIGNAL(activated(const QModelIndex &)),
+    connect(m_TreeView, SIGNAL(activated(const QModelIndex &)),
             this,         SLOT(EmitResourceActivated(const QModelIndex &)));
-    connect(&m_TreeView, SIGNAL(customContextMenuRequested(const QPoint &)),
+    connect(m_TreeView, SIGNAL(customContextMenuRequested(const QPoint &)),
             this,        SLOT(OpenContextMenu(const QPoint &)));
-    connect(&m_OPFModel, SIGNAL(ResourceRenamed()),
+    connect(m_OPFModel, SIGNAL(ResourceRenamed()),
             this,        SLOT(SelectRenamedResource()));
     connect(m_SelectAll,               SIGNAL(triggered()), this, SLOT(SelectAll()));
     connect(m_CopyHTML,                SIGNAL(triggered()), this, SLOT(CopyHTML()));
@@ -1699,15 +1687,15 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_IdpfsObfuscationMethod,  SIGNAL(triggered()), this, SLOT(IdpfsObfuscationMethod()));
     connect(m_NoObfuscationMethod,     SIGNAL(triggered()), this, SLOT(NoObfuscationMethod()));
     foreach(QAction * action, m_GuideSemanticActions) {
-        connect(action, SIGNAL(triggered()), &m_GuideSemanticMapper, SLOT(map()));
+        connect(action, SIGNAL(triggered()), m_GuideSemanticMapper, SLOT(map()));
     }
-    connect(&m_GuideSemanticMapper, SIGNAL(mapped(int)), this, SLOT(AddGuideSemanticType(int)));
+    connect(m_GuideSemanticMapper, SIGNAL(mapped(int)), this, SLOT(AddGuideSemanticType(int)));
 }
 
 
 Resource *BookBrowser::GetCurrentResource() const
 {
-    return GetResourceByIndex(m_TreeView.currentIndex());
+    return GetResourceByIndex(m_TreeView->currentIndex());
 }
 
 
@@ -1717,8 +1705,8 @@ Resource *BookBrowser::GetResourceByIndex(QModelIndex index) const
         return NULL;
     }
 
-    QStandardItem *item = m_OPFModel.itemFromIndex(index);
+    QStandardItem *item = m_OPFModel->itemFromIndex(index);
     Q_ASSERT(item);
     const QString &identifier = item->data().toString();
-    return &m_Book->GetFolderKeeper().GetResourceByIdentifier(identifier);
+    return m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
 }

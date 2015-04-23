@@ -39,19 +39,18 @@ static const QStringList SCHEME_LIST          = QStringList() << "ISBN" << "ISSN
 QMutex Metadata::s_AccessMutex;
 Metadata *Metadata::m_Instance = NULL;
 
-Metadata &Metadata::Instance()
+Metadata *Metadata::Instance()
 {
     // We use a static local variable
     // to hold our singleton instance; using a pointer member
     // variable creates problems with object destruction;
     QMutexLocker locker(&s_AccessMutex);
 
-    if (!m_Instance) {
-        static Metadata meta;
-        m_Instance = &meta;
+    if (m_Instance == 0) {
+        m_Instance = new Metadata();
     }
 
-    return *m_Instance;
+    return m_Instance;
 }
 
 QString Metadata::GetName(QString code)
