@@ -191,8 +191,8 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     ConnectSignalsToSlots();
     CreateRecentFilesActions();
     UpdateRecentFileActions();
-    ChangeSignalsWhenTabChanges(NULL, &m_TabManager.GetCurrentContentTab());
     LoadInitialFile(openfilepath, is_internal);
+    ChangeSignalsWhenTabChanges(NULL, &m_TabManager.GetCurrentContentTab());
     loadPluginsMenu();
 }
 
