@@ -59,12 +59,12 @@ public:
 
     virtual void SetText(const QString &text);
 
-    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource &resource) const;
+    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource *resource) const;
     QString GetGuideSemanticNameForResource(Resource *resource);
 
     QHash <QString, QString> GetGuideSemanticNameForPaths();
 
-    int GetReadingOrder(const HTMLResource &html_resource) const;
+    int GetReadingOrder(const HTMLResource *html_resource) const;
     QHash <Resource *, int> GetReadingOrderAll( const QList <Resource *> resources);
 
     QString GetMainIdentifierValue() const;
@@ -80,13 +80,13 @@ public:
 
     void UpdateNCXOnSpine(const QString &new_ncx_id);
 
-    void UpdateNCXLocationInManifest(const ::NCXResource &ncx);
+    void UpdateNCXLocationInManifest(const NCXResource *ncx);
 
     void AddModificationDateMeta();
 
     void AddSigilVersionMeta();
 
-    bool IsCoverImage(const ::ImageResource &image_resource) const;
+    bool IsCoverImage(const ImageResource *image_resource) const;
 
     void AutoFixWellFormedErrors();
 
@@ -127,19 +127,19 @@ public slots:
 
     void SetDCMetadata(const QList<Metadata::MetaElement>  &metadata);
 
-    void AddResource(const Resource &resource);
+    void AddResource(const Resource *resource);
 
-    void AddCoverMetaForImage(const Resource &resource, OPFParser& p);
+    void AddCoverMetaForImage(const Resource *resource, OPFParser &p);
 
-    void RemoveResource(const Resource &resource);
+    void RemoveResource(const Resource *resource);
 
-    void AddGuideSemanticType(const HTMLResource &html_resource, GuideSemantics::GuideSemanticType new_type);
+    void AddGuideSemanticType(HTMLResource *html_resource, GuideSemantics::GuideSemanticType new_type);
 
-    void SetResourceAsCoverImage(const ImageResource &image_resource);
+    void SetResourceAsCoverImage(ImageResource *image_resource);
 
     void UpdateSpineOrder(const QList<HTMLResource *> html_files);
 
-    void ResourceRenamed(const Resource &resource, QString old_full_path);
+    void ResourceRenamed(const Resource *resource, QString old_full_path);
 
 private:
 
@@ -152,7 +152,7 @@ private:
 
     bool IsCoverImageCheck(QString resource_id, const OPFParser& p) const;
 
-    void RemoveCoverMetaForImage(const Resource &resource, OPFParser& p);
+    void RemoveCoverMetaForImage(const Resource *resource, OPFParser &p);
 
     // static void AppendToSpine(const QString &id);
 
@@ -160,27 +160,25 @@ private:
 
     // static void UpdateItemrefID(const QString &old_id, const QString &new_id);
 
-    int GetMainIdentifier(const OPFParser& p) const;
+    int GetMainIdentifier(const OPFParser &p) const;
 
     // CAN BE -1 which means no reference for resource
-    int GetGuideReferenceForResourcePos(const Resource &resource, const OPFParser& p) const;
+    int GetGuideReferenceForResourcePos(const Resource *resource, const OPFParser &p) const;
 
-    void RemoveGuideReferenceForResource(const Resource &resource, OPFParser& p);
+    void RemoveGuideReferenceForResource(const Resource *resource, OPFParser &p);
 
-    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource &resource, const OPFParser &p) const;
+    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource *resource, const OPFParser &p) const;
 
-    void SetGuideSemanticTypeForResource(GuideSemantics::GuideSemanticType type,
-                                         const Resource &resource, OPFParser &p);
+    void SetGuideSemanticTypeForResource(GuideSemantics::GuideSemanticType type, const Resource *resource, OPFParser &p);
 
     void RemoveDuplicateGuideTypes(GuideSemantics::GuideSemanticType new_type, OPFParser &p);
 
         // CAN BE -1 means no cover meta element
     int GetCoverMeta(const OPFParser &p) const;
 
-    QString GetResourceManifestID(const Resource &resource, const OPFParser &p) const;
+    QString GetResourceManifestID(const Resource *resource, const OPFParser &p) const;
 
-    QHash<Resource *, QString> GetResourceManifestIDMapping(
-        const QList<Resource *> resources, const OPFParser &p);
+    QHash<Resource *, QString> GetResourceManifestIDMapping(const QList<Resource *> resources, const OPFParser &p);
 
     // static void SetMetaElementsLast(xc::DOMDocument &document);
 
@@ -243,9 +241,9 @@ private:
 
     void FillWithDefaultText();
 
-    QString GetUniqueID(const QString &preferred_id, const OPFParser & p) const;
+    QString GetUniqueID(const QString &preferred_id, const OPFParser &p) const;
 
-    QString GetResourceMimetype(const Resource &resource) const;
+    QString GetResourceMimetype(const Resource *resource) const;
 
     QString GetFileMimetype(const QString &filepath) const;
 

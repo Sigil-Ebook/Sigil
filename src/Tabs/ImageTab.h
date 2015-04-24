@@ -38,7 +38,7 @@ class ImageTab : public ContentTab
 
 public:
 
-    ImageTab(ImageResource &resource, QWidget *parent = 0);
+    ImageTab(ImageResource *resource, QWidget *parent = 0);
     ~ImageTab();
 
     // Overrides inherited from ContentTab
@@ -93,10 +93,10 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    QWebView &m_WebView;
+    QWebView *m_WebView;
 
-    QMenu &m_ContextMenu;
-    QMenu &m_OpenWithContextMenu;
+    QMenu *m_ContextMenu;
+    QMenu *m_OpenWithContextMenu;
 
     QAction *m_OpenWith;
     QAction *m_OpenWithEditor;

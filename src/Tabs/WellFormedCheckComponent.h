@@ -50,7 +50,7 @@ public:
      *
      * @param content The GUI element containing well-formed content.
      */
-    WellFormedCheckComponent(WellFormedContent &content, QWidget *parent = 0);
+    WellFormedCheckComponent(WellFormedContent *content, QWidget *parent = 0);
 
     /**
      * Destructor.
@@ -91,7 +91,7 @@ private:
     /**
      * The GUI element containing well-formed content.
      */
-    WellFormedContent &m_Content;
+    WellFormedContent *m_Content;
 
     /**
      * The message used in the dialog (with placeholders).

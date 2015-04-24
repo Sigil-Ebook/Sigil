@@ -98,14 +98,14 @@ public:
      *
      * @return The QModelIndex of the resource in any folder.
      */
-    QModelIndex GetModelItemIndex(Resource &resource, IndexChoice indexChoice);
+    QModelIndex GetModelItemIndex(Resource *resource, IndexChoice indexChoice);
 
     /**
      * Returns the QModelIndex of the resource in the given folder.
      *
      * @return The QModelIndex of the folder in the given folder.
      */
-    QModelIndex GetModelFolderItemIndex(QStandardItem const *folder, Resource &resource, IndexChoice indexChoice);
+    QModelIndex GetModelFolderItemIndex(QStandardItem const *folder, Resource *resource, IndexChoice indexChoice);
 
     /**
      * Gets a sorted list of the resources in the folder containing the given resource name
@@ -155,7 +155,7 @@ public:
      *
      * @return Whether rename succeeded or not
      */
-    bool RenameResource(Resource &resource, const QString &new_filename);
+    bool RenameResource(Resource *resource, const QString &new_filename);
     bool RenameResourceList(QList<Resource *> resources, QList<QString> new_filenames);
 
 signals:
@@ -253,13 +253,13 @@ private:
      */
     QSharedPointer<Book> m_Book;
 
-    QStandardItem &m_TextFolderItem;   /**< The Text folder item. */
-    QStandardItem &m_StylesFolderItem; /**< The Styles folder item. */
-    QStandardItem &m_ImagesFolderItem; /**< The Images folder item. */
-    QStandardItem &m_FontsFolderItem;  /**< The Fonts folder item. */
-    QStandardItem &m_MiscFolderItem;   /**< The Misc folder item. */
-    QStandardItem &m_AudioFolderItem;
-    QStandardItem &m_VideoFolderItem;
+    QStandardItem *m_TextFolderItem;   /**< The Text folder item. */
+    QStandardItem *m_StylesFolderItem; /**< The Styles folder item. */
+    QStandardItem *m_ImagesFolderItem; /**< The Images folder item. */
+    QStandardItem *m_FontsFolderItem;  /**< The Fonts folder item. */
+    QStandardItem *m_MiscFolderItem;   /**< The Misc folder item. */
+    QStandardItem *m_AudioFolderItem;
+    QStandardItem *m_VideoFolderItem;
 };
 
 

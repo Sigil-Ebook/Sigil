@@ -57,8 +57,7 @@ HeadingSelector::HeadingSelector(QSharedPointer<Book> book, QWidget *parent)
     ConnectSignalsToSlots();
     ui.tvTOCDisplay->setModel(&m_TableOfContents);
     LockHTMLResources();
-    QList<Headings::Heading> flat_headings = Headings::GetHeadingList(
-                m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(true), true);
+    QList<Headings::Heading> flat_headings = Headings::GetHeadingList(m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true), true);
     m_Headings = Headings::MakeHeadingHeirarchy(flat_headings);
     PopulateSelectHeadingCombo(GetMaxHeadingLevel(flat_headings));
     RefreshTOCModelDisplay();
@@ -899,7 +898,7 @@ void HeadingSelector::WriteSettings()
 
 void HeadingSelector::LockHTMLResources()
 {
-    foreach(HTMLResource * resource, m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(true)) {
+    foreach(HTMLResource *resource, m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true)) {
         resource->GetLock().lockForWrite();
     }
 }
@@ -907,7 +906,7 @@ void HeadingSelector::LockHTMLResources()
 
 void HeadingSelector::UnlockHTMLResources()
 {
-    foreach(HTMLResource * resource, m_Book->GetFolderKeeper().GetResourceTypeList<HTMLResource>(true)) {
+    foreach(HTMLResource * resource, m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true)) {
         resource->GetLock().unlock();
     }
 }

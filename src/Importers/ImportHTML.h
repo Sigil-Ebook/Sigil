@@ -57,11 +57,11 @@ private:
 
     // Searches for meta information in the HTML file
     // and tries to convert it to Dublin Core
-    void LoadMetadata(const QString & source);
+    void LoadMetadata(const QString &source);
 
-    HTMLResource &CreateHTMLResource();
+    HTMLResource *CreateHTMLResource();
 
-    void UpdateFiles(HTMLResource &html_resource,
+    void UpdateFiles(HTMLResource *html_resource,
                      QString &source,
                      const QHash<QString, QString> &updates);
 

@@ -75,17 +75,17 @@ private:
     /**
      * A container widget for the TOC UI widgets.
      */
-    QWidget &m_MainWidget;
+    QWidget *m_MainWidget;
 
     /**
      * The layout for the container widget.
      */
-    QVBoxLayout &m_Layout;
+    QVBoxLayout *m_Layout;
 
     /**
      * The treeview used to represent the TOC.
      */
-    QTreeView &m_TreeView;
+    QTreeView *m_TreeView;
 
     ClipEditorModel *m_ClipsModel;
 };

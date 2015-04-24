@@ -60,8 +60,8 @@ void ImageFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
     m_AllImageResources.clear();
-    QList<ImageResource *> image_resources = m_Book->GetFolderKeeper().GetResourceTypeList<ImageResource>(false);
-    QList<SVGResource *> svg_resources = m_Book->GetFolderKeeper().GetResourceTypeList<SVGResource>(false);
+    QList<ImageResource *> image_resources = m_Book->GetFolderKeeper()->GetResourceTypeList<ImageResource>(false);
+    QList<SVGResource *> svg_resources = m_Book->GetFolderKeeper()->GetResourceTypeList<SVGResource>(false);
     // Images actually consist of 2 resource types ImageResource and SVGResource
     foreach(ImageResource * image_resource, image_resources) {
         m_AllImageResources.append(image_resource);

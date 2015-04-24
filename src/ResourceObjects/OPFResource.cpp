@@ -104,7 +104,7 @@ void OPFResource::SetText(const QString &text)
 }
 
 
-GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource &resource) const
+GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource *resource) const
 {
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
@@ -116,7 +116,7 @@ GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(c
 
 QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
 {
-    return GuideSemantics::Instance().GetGuideName(GetGuideSemanticTypeForResource(*resource));
+    return GuideSemantics::Instance()->GetGuideName(GetGuideSemanticTypeForResource(resource));
 }
 
 QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
@@ -133,8 +133,8 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 
         QString type_text = ge.m_type;
         GuideSemantics::GuideSemanticType type =
-            GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type_text);
-        semantic_types[parts.at(0)] = GuideSemantics::Instance().GetGuideName(type);
+            GuideSemantics::Instance()->MapReferenceTypeToGuideEnum(type_text);
+        semantic_types[parts.at(0)] = GuideSemantics::Instance()->GetGuideName(type);
     }
 
     // Cover image semantics don't use reference
@@ -145,8 +145,8 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
         ManifestEntry man = p.m_manifest.at(p.m_idpos[cover_id]);
         QString href = man.m_href;
         GuideSemantics::GuideSemanticType type =
-                    GuideSemantics::Instance().MapReferenceTypeToGuideEnum("cover");
-        semantic_types[href] = GuideSemantics::Instance().GetGuideName(type);
+                    GuideSemantics::Instance()->MapReferenceTypeToGuideEnum("cover");
+        semantic_types[href] = GuideSemantics::Instance()->GetGuideName(type);
     }
 
     return semantic_types;
@@ -170,13 +170,13 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
     return reading_order;
 }
 
-int OPFResource::GetReadingOrder(const ::HTMLResource &html_resource) const
+int OPFResource::GetReadingOrder(const HTMLResource *html_resource) const
 {
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
     OPFParser p;
     p.parse(source);
-    const Resource &resource = *static_cast<const Resource *>(&html_resource);
+    const Resource *resource = static_cast<const Resource *>(html_resource);
     QString resource_id = GetResourceManifestID(resource, p);
     for (int i = 0; i < p.m_spine.count(); ++i) {
       QString idref = p.m_spine.at(i).m_idref;
@@ -287,21 +287,21 @@ void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
 }
 
 
-void OPFResource::UpdateNCXLocationInManifest(const ::NCXResource &ncx)
+void OPFResource::UpdateNCXLocationInManifest(const NCXResource *ncx)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
     OPFParser p;
     p.parse(source);
-    QString ncx_id = p.m_spineattr.m_atts.value(QString("toc"),"");
+    QString ncx_id = p.m_spineattr.m_atts.value(QString("toc"), "");
     int pos = p.m_idpos.value(ncx_id, -1);
     if (pos > -1) {
         ManifestEntry me = p.m_manifest.at(pos);
         QString href = me.m_href;
-        me.m_href = ncx.Filename();
+        me.m_href = ncx->Filename();
         p.m_manifest.replace(pos, me);
         p.m_hrefpos.remove(href);
-        p.m_hrefpos[ncx.Filename()] = pos;
+        p.m_hrefpos[ncx->Filename()] = pos;
         UpdateText(p);
     }
 }
@@ -334,7 +334,7 @@ void OPFResource::AddSigilVersionMeta()
 }
 
 
-bool OPFResource::IsCoverImage(const ::ImageResource &image_resource) const
+bool OPFResource::IsCoverImage(const ImageResource *image_resource) const
 {
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
@@ -405,7 +405,7 @@ QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
     for (int i=0; i < p.m_metadata.count(); ++i) {
         MetaEntry me = p.m_metadata.at(i);
         if (me.m_name.startsWith("dc:")) {
-            Metadata::MetaElement book_meta = Metadata::Instance().MapMetaEntryToBookMetadata(me);
+            Metadata::MetaElement book_meta = Metadata::Instance()->MapMetaEntryToBookMetadata(me);
             if (!book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty()) {
                 metadata.append(book_meta);
             }
@@ -441,21 +441,21 @@ void OPFResource::SetDCMetadata(const QList<Metadata::MetaElement> &metadata)
 }
 
 
-void OPFResource::AddResource(const Resource &resource)
+void OPFResource::AddResource(const Resource *resource)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
     OPFParser p;
     p.parse(source);
     ManifestEntry me;
-    me.m_id = GetUniqueID(GetValidID(resource.Filename()),p);
-    me.m_href = resource.GetRelativePathToOEBPS();
+    me.m_id = GetUniqueID(GetValidID(resource->Filename()),p);
+    me.m_href = resource->GetRelativePathToOEBPS();
     me.m_mtype = GetResourceMimetype(resource);
     int n = p.m_manifest.count();
     p.m_manifest.append(me);
     p.m_idpos[me.m_id] = n;
     p.m_hrefpos[me.m_href] = n;
-    if (resource.Type() == Resource::HTMLResourceType) {
+    if (resource->Type() == Resource::HTMLResourceType) {
         SpineEntry se;
         se.m_idref = me.m_id;
         p.m_spine.append(se);
@@ -463,7 +463,7 @@ void OPFResource::AddResource(const Resource &resource)
     UpdateText(p);
 }
 
-void OPFResource::RemoveCoverMetaForImage(const Resource &resource, OPFParser& p)
+void OPFResource::RemoveCoverMetaForImage(const Resource *resource, OPFParser& p)
 {
     int pos = GetCoverMeta(p);
     QString resource_id = GetResourceManifestID(resource, p);
@@ -477,7 +477,7 @@ void OPFResource::RemoveCoverMetaForImage(const Resource &resource, OPFParser& p
     }
 }
 
-void OPFResource::AddCoverMetaForImage(const Resource &resource, OPFParser& p)
+void OPFResource::AddCoverMetaForImage(const Resource *resource, OPFParser &p)
 {
     int pos = GetCoverMeta(p);
     QString resource_id = GetResourceManifestID(resource, p);
@@ -496,7 +496,7 @@ void OPFResource::AddCoverMetaForImage(const Resource &resource, OPFParser& p)
     }
 }
 
-void OPFResource::RemoveResource(const Resource &resource)
+void OPFResource::RemoveResource(const Resource *resource)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
@@ -504,18 +504,18 @@ void OPFResource::RemoveResource(const Resource &resource)
     p.parse(source);
     if (p.m_manifest.isEmpty()) return;
 
-    QString resource_oebps_path = resource.GetRelativePathToOEBPS();
+    QString resource_oebps_path = resource->GetRelativePathToOEBPS();
     int pos = p.m_hrefpos.value(resource_oebps_path, -1);
     QString item_id = "";
 
     // Delete the meta tag for cover images before deleting the manifest entry
-    if (resource.Type() == Resource::ImageResourceType) {
+    if (resource->Type() == Resource::ImageResourceType) {
       RemoveCoverMetaForImage(resource, p);
     }
     if (pos > -1) {
         item_id = p.m_manifest.at(pos).m_id;
     }
-    if (resource.Type() == Resource::HTMLResourceType) {
+    if (resource->Type() == Resource::HTMLResourceType) {
         for (int i=0; i < p.m_spine.count(); ++i) {
             QString idref = p.m_spine.at(i).m_idref;
             if (idref == item_id) {
@@ -539,9 +539,7 @@ void OPFResource::RemoveResource(const Resource &resource)
 }
 
 
-void OPFResource::AddGuideSemanticType(
-    const ::HTMLResource &html_resource,
-    GuideSemantics::GuideSemanticType new_type)
+void OPFResource::AddGuideSemanticType(HTMLResource *html_resource, GuideSemantics::GuideSemanticType new_type)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
@@ -562,7 +560,7 @@ void OPFResource::AddGuideSemanticType(
 }
 
 
-void OPFResource::SetResourceAsCoverImage(const ::ImageResource &image_resource)
+void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
@@ -590,7 +588,7 @@ void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
     p.parse(source);
     QList<SpineEntry> new_spine;
     foreach(HTMLResource * html_resource, html_files) {
-        const Resource &resource = *static_cast<const Resource *>(html_resource);
+        const Resource *resource = static_cast<const Resource *>(html_resource);
         QString id = GetResourceManifestID(resource, p);
         int found = -1;
         for (int i = 0; i < p.m_spine.count(); ++i) {
@@ -614,7 +612,7 @@ void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 }
 
 
-void OPFResource::ResourceRenamed(const Resource &resource, QString old_full_path)
+void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_path)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
@@ -629,9 +627,9 @@ void OPFResource::ResourceRenamed(const Resource &resource, QString old_full_pat
         if (href == resource_oebps_path) {
             ManifestEntry me = p.m_manifest.at(i);
             QString old_href = me.m_href;
-            me.m_href = resource.GetRelativePathToOEBPS();
+            me.m_href = resource->GetRelativePathToOEBPS();
             old_id = me.m_id;
-            new_id = GetUniqueID(GetValidID(resource.Filename()),p);
+            new_id = GetUniqueID(GetValidID(resource->Filename()),p);
             me.m_id = new_id;
             p.m_idpos.remove(old_id);
             p.m_idpos[new_id] = i;
@@ -651,7 +649,7 @@ void OPFResource::ResourceRenamed(const Resource &resource, QString old_full_pat
         }
     }
 
-    if (resource.Type() == Resource::ImageResourceType) {
+    if (resource->Type() == Resource::ImageResourceType) {
         // Change meta entry for cover if necessary
         // Check using IDs since file is already renamed
       if (IsCoverImageCheck(old_id, p)) {
@@ -665,9 +663,9 @@ void OPFResource::ResourceRenamed(const Resource &resource, QString old_full_pat
 }
 
 
-int OPFResource::GetGuideReferenceForResourcePos(const Resource &resource, const OPFParser& p) const
+int OPFResource::GetGuideReferenceForResourcePos(const Resource *resource, const OPFParser &p) const
 {
-    QString resource_oebps_path = resource.GetRelativePathToOEBPS();
+    QString resource_oebps_path = resource->GetRelativePathToOEBPS();
     for (int i=0; i < p.m_guide.count(); ++i) {
         GuideEntry ge = p.m_guide.at(i);
         QString href = ge.m_href;
@@ -680,7 +678,7 @@ int OPFResource::GetGuideReferenceForResourcePos(const Resource &resource, const
 }
 
 
-void OPFResource::RemoveGuideReferenceForResource(const Resource &resource, OPFParser& p)
+void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFParser& p)
 {
     if (p.m_guide.isEmpty()) return;
     int pos = GetGuideReferenceForResourcePos(resource, p);
@@ -690,25 +688,25 @@ void OPFResource::RemoveGuideReferenceForResource(const Resource &resource, OPFP
 }
 
 
-GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource &resource, const OPFParser& p) const
+GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource *resource, const OPFParser &p) const
 {
   int pos = GetGuideReferenceForResourcePos(resource, p);
     if (pos > -1) {
         GuideEntry ge = p.m_guide.at(pos);
         QString type = ge.m_type;
-        return GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type);
+        return GuideSemantics::Instance()->MapReferenceTypeToGuideEnum(type);
     }
     return GuideSemantics::NoType;
 }
 
 
 void OPFResource::SetGuideSemanticTypeForResource(GuideSemantics::GuideSemanticType type,
-                                                  const Resource &resource, OPFParser& p)
+                                                  const Resource *resource, OPFParser& p)
 {
   int pos = GetGuideReferenceForResourcePos(resource, p);
     QString type_attribute;
     QString title_attribute;
-    std::tie(type_attribute, title_attribute) = GuideSemantics::Instance().GetGuideTypeMapping()[ type ];
+    std::tie(type_attribute, title_attribute) = GuideSemantics::Instance()->GetGuideTypeMapping()[ type ];
 
     if (pos > -1) {
         GuideEntry ge = p.m_guide.at(pos);
@@ -719,7 +717,7 @@ void OPFResource::SetGuideSemanticTypeForResource(GuideSemantics::GuideSemanticT
         GuideEntry ge;
         ge.m_type = type_attribute;
         ge.m_title = title_attribute;
-        ge.m_href = resource.GetRelativePathToOEBPS();
+        ge.m_href = resource->GetRelativePathToOEBPS();
         p.m_guide.append(ge);
     }
 }
@@ -741,7 +739,7 @@ void OPFResource::RemoveDuplicateGuideTypes(GuideSemantics::GuideSemanticType ne
     for (int i = p.m_guide.count() - 1; i >= 0; --i) {
         GuideEntry ge = p.m_guide.at(i);
         QString type_text = ge.m_type;
-        GuideSemantics::GuideSemanticType current_type = GuideSemantics::Instance().MapReferenceTypeToGuideEnum(type_text);
+        GuideSemantics::GuideSemanticType current_type = GuideSemantics::Instance()->MapReferenceTypeToGuideEnum(type_text);
         if (current_type == new_type) {
             dellist.append(i);
         }
@@ -784,9 +782,9 @@ int OPFResource::GetMainIdentifier(const OPFParser& p) const
 }
 
 
-QString OPFResource::GetResourceManifestID(const Resource &resource, const OPFParser& p) const
+QString OPFResource::GetResourceManifestID(const Resource *resource, const OPFParser& p) const
 {
-    QString oebps_path = resource.GetRelativePathToOEBPS();
+    QString oebps_path = resource->GetRelativePathToOEBPS();
     int pos = p.m_hrefpos.value(oebps_path,-1);
     if (pos > -1) { 
         return QString(p.m_manifest.at(pos).m_id); 
@@ -839,7 +837,7 @@ void OPFResource::MetadataDispatcher(const Metadata::MetaElement &book_meta, OPF
     }
 
     // Write Relator codes (always write author as relator code)
-    if (Metadata::Instance().IsRelator(book_meta.name) || book_meta.name == "author") {
+    if (Metadata::Instance()->IsRelator(book_meta.name) || book_meta.name == "author") {
       WriteCreatorOrContributor(book_meta, p);
     }
     // There is a relator for the publisher, but there is
@@ -1006,9 +1004,9 @@ QString OPFResource::GetUniqueID(const QString &preferred_id, const OPFParser& p
 }
 
 
-QString OPFResource::GetResourceMimetype(const Resource &resource) const
+QString OPFResource::GetResourceMimetype(const Resource *resource) const
 {
-    return GetFileMimetype(resource.Filename());
+    return GetFileMimetype(resource->Filename());
 }
 
 

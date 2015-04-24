@@ -202,14 +202,14 @@ signals:
      *
      * @param resource The resource's that was renamed.
      */
-    void Renamed(const Resource &resource, QString old_full_path);
+    void Renamed(const Resource *resource, QString old_full_path);
 
     /**
      * Emitted when the resource has been scheduled for deletion.
      *
      * @param resource The resource's that was deleted.
      */
-    void Deleted(const Resource &resource);
+    void Deleted(const Resource *resource);
 
     /**
      * Emitted when the resource has been updated on disk.
@@ -220,7 +220,7 @@ signals:
      * Emitted after a resource was refreshed from a newer version on disk.
      * Caused by book files being modified from outside Sigil.
      */
-    void ResourceUpdatedFromDisk(Resource &resource);
+    void ResourceUpdatedFromDisk(Resource *resource);
 
     /**
      * Emitted when the resource has been modified. This

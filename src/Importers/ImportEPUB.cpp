@@ -127,7 +127,7 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     AddNonStandardAppleXML();
     LoadInfrastructureFiles();
     const QHash<QString, QString> updates = LoadFolderStructure();
-    const QList<Resource *> resources     = m_Book->GetFolderKeeper().GetResourceList();
+    const QList<Resource *> resources     = m_Book->GetFolderKeeper()->GetResourceList();
 
     // We're going to check all html files until we find one that isn't well formed then we'll prompt
     // the user if they want to auto fix or not.
@@ -183,20 +183,20 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     if (m_NCXNotInManifest) {
         // We manually created an NCX file because there wasn't one in the manifest.
         // Need to create a new manifest id for it.
-        m_NCXId = m_Book->GetOPF().AddNCXItem(m_NCXFilePath);
+        m_NCXId = m_Book->GetOPF()->AddNCXItem(m_NCXFilePath);
     }
 
     // Ensure that our spine has a <spine toc="ncx"> element on it now in case it was missing.
-    m_Book->GetOPF().UpdateNCXOnSpine(m_NCXId);
+    m_Book->GetOPF()->UpdateNCXOnSpine(m_NCXId);
     // Make sure the <item> for the NCX in the manifest reflects correct href path
-    m_Book->GetOPF().UpdateNCXLocationInManifest(m_Book->GetNCX());
+    m_Book->GetOPF()->UpdateNCXLocationInManifest(m_Book->GetNCX());
 
     // If spine was not present or did not contain any items, recreate the OPF from scratch
     // preserving any important metadata elements and making a new reading order.
     if (!m_HasSpineItems) {
-        QList<Metadata::MetaElement> originalMetadata = m_Book->GetOPF().GetDCMetadata();
-        m_Book->GetOPF().AutoFixWellFormedErrors();
-        m_Book->GetOPF().SetDCMetadata(originalMetadata);
+        QList<Metadata::MetaElement> originalMetadata = m_Book->GetOPF()->GetDCMetadata();
+        m_Book->GetOPF()->AutoFixWellFormedErrors();
+        m_Book->GetOPF()->SetDCMetadata(originalMetadata);
         AddLoadWarning(QObject::tr("The OPF file does not contain a valid spine.") % "\n" %
                        QObject::tr("Sigil has created a new one for you."));
     }
@@ -312,7 +312,7 @@ void ImportEPUB::ProcessFontFiles(const QList<Resource *> &resources,
         return;
     }
 
-    QList<FontResource *> font_resources = m_Book->GetFolderKeeper().GetResourceTypeList<FontResource>();
+    QList<FontResource *> font_resources = m_Book->GetFolderKeeper()->GetResourceTypeList<FontResource>();
 
     if (font_resources.empty()) {
         return;
@@ -535,12 +535,12 @@ void ImportEPUB::ReadOPF()
         if (opf_reader.name() == "package") {
             m_UniqueIdentifierId = opf_reader.attributes().value("", "unique-identifier").toString();
         } else if (opf_reader.name() == "identifier") {
-            ReadIdentifierElement(opf_reader);
+            ReadIdentifierElement(&opf_reader);
         }
         // Get the list of content files that
         // make up the publication
         else if (opf_reader.name() == "item") {
-            ReadManifestItemElement(opf_reader);
+            ReadManifestItemElement(&opf_reader);
         }
         // We read this just to get the NCX id
         else if (opf_reader.name() == "spine") {
@@ -563,11 +563,11 @@ void ImportEPUB::ReadOPF()
 }
 
 
-void ImportEPUB::ReadIdentifierElement(QXmlStreamReader &opf_reader)
+void ImportEPUB::ReadIdentifierElement(QXmlStreamReader *opf_reader)
 {
-    QString id     = opf_reader.attributes().value("", "id").toString();
-    QString scheme = opf_reader.attributes().value("", "scheme").toString();
-    QString value  = opf_reader.readElementText();
+    QString id     = opf_reader->attributes().value("", "id").toString();
+    QString scheme = opf_reader->attributes().value("", "scheme").toString();
+    QString value  = opf_reader->readElementText();
 
     if (id == m_UniqueIdentifierId) {
         m_UniqueIdentifierValue = value;
@@ -580,11 +580,11 @@ void ImportEPUB::ReadIdentifierElement(QXmlStreamReader &opf_reader)
 }
 
 
-void ImportEPUB::ReadManifestItemElement(QXmlStreamReader &opf_reader)
+void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 {
-    QString id   = opf_reader.attributes().value("", "id").toString();
-    QString href = opf_reader.attributes().value("", "href").toString();
-    QString type = opf_reader.attributes().value("", "media-type").toString();
+    QString id   = opf_reader->attributes().value("", "id").toString();
+    QString href = opf_reader->attributes().value("", "href").toString();
+    QString type = opf_reader->attributes().value("", "media-type").toString();
     // Paths are percent encoded in the OPF, we use "normal" paths internally.
     href = Utility::URLDecodePath(href);
     QString extension = QFileInfo(href).suffix().toLower();
@@ -660,7 +660,7 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         // the file does not physically exist.  We need to create a new one.
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % NCX_FILE_NAME;
         // Create a new file for the NCX.
-        NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, &m_Book->GetFolderKeeper());
+        NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, m_Book->GetFolderKeeper());
 
         // We are relying on an identifier being set from the metadata.
         // It might not have one if the book does not have the urn:uuid: format.
@@ -687,15 +687,15 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 
 void ImportEPUB::LoadInfrastructureFiles()
 {
-    m_Book->GetOPF().SetText(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)));
+    m_Book->GetOPF()->SetText(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)));
     QString OPFBookRelPath = m_OPFFilePath;
     OPFBookRelPath = OPFBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
-    m_Book->GetOPF().SetCurrentBookRelPath(OPFBookRelPath);
+    m_Book->GetOPF()->SetCurrentBookRelPath(OPFBookRelPath);
 
-    m_Book->GetNCX().SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath)));
+    m_Book->GetNCX()->SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath)));
     QString NCXBookRelPath = m_NCXFilePath;
     NCXBookRelPath = NCXBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
-    m_Book->GetNCX().SetCurrentBookRelPath(NCXBookRelPath);
+    m_Book->GetNCX()->SetCurrentBookRelPath(NCXBookRelPath);
 }
 
 
@@ -735,11 +735,11 @@ std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const 
     QString currentpath = fullfilepath;
     currentpath = currentpath.remove(0,m_ExtractedFolderPath.length()+1);
     try {
-        Resource &resource = m_Book->GetFolderKeeper().AddContentFileToFolder(fullfilepath, false, mimetype);
-        if (resource.Type() == Resource::HTMLResourceType) {
-            resource.SetCurrentBookRelPath(currentpath);
+        Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath, false, mimetype);
+        if (resource->Type() == Resource::HTMLResourceType) {
+            resource->SetCurrentBookRelPath(currentpath);
         }
-        QString newpath = "../" + resource.GetRelativePathToOEBPS();
+        QString newpath = "../" + resource->GetRelativePathToOEBPS();
         return std::make_tuple(currentpath, newpath);
     } catch (FileDoesNotExist) {
         return std::make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);

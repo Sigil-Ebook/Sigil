@@ -39,12 +39,12 @@ static const QBrush ERROR_BRUSH   = QBrush(QColor(255, 230, 230));
 ValidationResultsView::ValidationResultsView(QWidget *parent)
     :
     QDockWidget(tr("Validation Results"), parent),
-    m_ResultTable(*new QTableWidget(this))
+    m_ResultTable(new QTableWidget(this))
 {
-    setWidget(&m_ResultTable);
+    setWidget(m_ResultTable);
     setAllowedAreas(Qt::BottomDockWidgetArea);
     SetUpTable();
-    connect(&m_ResultTable, SIGNAL(itemDoubleClicked(QTableWidgetItem *)),
+    connect(m_ResultTable, SIGNAL(itemDoubleClicked(QTableWidgetItem *)),
             this,           SLOT(ResultDoubleClicked(QTableWidgetItem *)));
 }
 
@@ -82,8 +82,8 @@ void ValidationResultsView::LoadResults(const QList<ValidationResult> &results)
 
 void ValidationResultsView::ClearResults()
 {
-    m_ResultTable.clearContents();
-    m_ResultTable.setRowCount(0);
+    m_ResultTable->clearContents();
+    m_ResultTable->setRowCount(0);
 }
 
 
@@ -98,14 +98,14 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
 {
     Q_ASSERT(item);
     int row = item->row();
-    QTableWidgetItem *path_item = m_ResultTable.item(row, 0);
+    QTableWidgetItem *path_item = m_ResultTable->item(row, 0);
 
     if (!path_item) {
         return;
     }
 
     QString filename = QFileInfo(path_item->text()).fileName();
-    QTableWidgetItem *line_item = m_ResultTable.item(row, 1);
+    QTableWidgetItem *line_item = m_ResultTable->item(row, 1);
 
     if (!line_item) {
         return;
@@ -114,7 +114,7 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
     int line = line_item->text().toInt();
 
     try {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
         emit OpenResourceRequest(resource, line, -1, QString(), MainWindow::ViewState_CodeView);
     } catch (ResourceDoesNotExist) {
         return;
@@ -124,17 +124,17 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
 
 void ValidationResultsView::SetUpTable()
 {
-    m_ResultTable.setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_ResultTable.setTabKeyNavigation(false);
-    m_ResultTable.setDropIndicatorShown(false);
-    m_ResultTable.horizontalHeader()->setStretchLastSection(true);
-    m_ResultTable.verticalHeader()->setVisible(false);
+    m_ResultTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_ResultTable->setTabKeyNavigation(false);
+    m_ResultTable->setDropIndicatorShown(false);
+    m_ResultTable->horizontalHeader()->setStretchLastSection(true);
+    m_ResultTable->verticalHeader()->setVisible(false);
 }
 
 
 void ValidationResultsView::DisplayResults(const QList<ValidationResult> &results)
 {
-    m_ResultTable.clear();
+    m_ResultTable->clear();
 
     if (results.empty()) {
         DisplayNoProblemsMessage();
@@ -144,7 +144,7 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
     ConfigureTableForResults();
 
     Q_FOREACH(ValidationResult result, results) {
-        int rownum = m_ResultTable.rowCount();
+        int rownum = m_ResultTable->rowCount();
         QTableWidgetItem *item = NULL;
 
         QBrush row_brush = INFO_BRUSH;
@@ -154,53 +154,53 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
             row_brush = ERROR_BRUSH;
         }
 
-        m_ResultTable.insertRow(rownum);
+        m_ResultTable->insertRow(rownum);
 
         QString path = result.Filename();
         item = new QTableWidgetItem(RemoveEpubPathPrefix(path));
         item->setBackground(row_brush);
-        m_ResultTable.setItem(rownum, 0, item);
+        m_ResultTable->setItem(rownum, 0, item);
 
         item = result.LineNumber() > 0 ? new QTableWidgetItem(QString::number(result.LineNumber())) : new QTableWidgetItem(tr("N/A"));
         item->setBackground(row_brush);
-        m_ResultTable.setItem(rownum, 1, item);
+        m_ResultTable->setItem(rownum, 1, item);
 
         item = new QTableWidgetItem(result.Message());
         item->setBackground(row_brush);
-        m_ResultTable.setItem(rownum, 2, item);
+        m_ResultTable->setItem(rownum, 2, item);
     }
 
     // We first force the line number column
     // to the smallest needed size...
-    m_ResultTable.resizeColumnToContents(0);
+    m_ResultTable->resizeColumnToContents(0);
     // ... and now the file column can be widened.
-    m_ResultTable.resizeColumnToContents(1);
+    m_ResultTable->resizeColumnToContents(1);
 }
 
 
 void ValidationResultsView::DisplayNoProblemsMessage()
 {
-    m_ResultTable.setRowCount(1);
-    m_ResultTable.setColumnCount(1);
-    m_ResultTable.setHorizontalHeaderLabels(
+    m_ResultTable->setRowCount(1);
+    m_ResultTable->setColumnCount(1);
+    m_ResultTable->setHorizontalHeaderLabels(
         QStringList() << tr("Message"));
     QTableWidgetItem *item = new QTableWidgetItem(tr("No problems found!"));
     item->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     QFont font = item->font();
     font.setPointSize(16);
     item->setFont(font);
-    m_ResultTable.setItem(0, 0, item);
-    m_ResultTable.resizeRowToContents(0);
+    m_ResultTable->setItem(0, 0, item);
+    m_ResultTable->resizeRowToContents(0);
 }
 
 
 void ValidationResultsView::ConfigureTableForResults()
 {
-    m_ResultTable.setRowCount(0);
-    m_ResultTable.setColumnCount(3);
-    m_ResultTable.setHorizontalHeaderLabels(
+    m_ResultTable->setRowCount(0);
+    m_ResultTable->setColumnCount(3);
+    m_ResultTable->setHorizontalHeaderLabels(
         QStringList() << tr("File") << tr("Line") << tr("Message"));
-    m_ResultTable.verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    m_ResultTable->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 }
 
 

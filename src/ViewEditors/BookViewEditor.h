@@ -433,7 +433,7 @@ private:
     QAction *m_InsertFile;
     QAction *m_Open;
 
-    QMenu &m_OpenWithContextMenu;
+    QMenu *m_OpenWithContextMenu;
 
     QAction *m_OpenWith;
     QAction *m_OpenWithEditor;
@@ -444,28 +444,28 @@ private:
     /**
      * Paste keyboard shortcuts - CTRL+V (Command-V - MacOS) and SHIFT-Insert (Old - Windows).
      */
-    QShortcut &m_Paste1;
-    QShortcut &m_Paste2;
+    QShortcut *m_Paste1;
+    QShortcut *m_Paste2;
 
     /**
      * PageUp keyboard shortcut.
      */
-    QShortcut &m_PageUp;
+    QShortcut *m_PageUp;
 
     /**
      * PageDown keyboard shortcut.
      */
-    QShortcut &m_PageDown;
+    QShortcut *m_PageDown;
 
     /**
      * Keyboard shortcut for scrolling one line up.
      */
-    QShortcut &m_ScrollOneLineUp;
+    QShortcut *m_ScrollOneLineUp;
 
     /**
      * Keyboard shortcut for scrolling one line down.
      */
-    QShortcut &m_ScrollOneLineDown;
+    QShortcut *m_ScrollOneLineDown;
 
     /**
      * The JavaScript source code that returns the XHTML source

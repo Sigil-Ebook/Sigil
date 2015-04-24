@@ -33,9 +33,9 @@ NCXModel::NCXModel(QObject *parent)
     QStandardItemModel(parent),
     m_Book(NULL),
     m_RefreshInProgress(false),
-    m_NcxRootWatcher(*new QFutureWatcher<NCXModel::NCXEntry>(this))
+    m_NcxRootWatcher(new QFutureWatcher<NCXModel::NCXEntry>(this))
 {
-    connect(&m_NcxRootWatcher, SIGNAL(finished()), this, SLOT(RefreshEnd()));
+    connect(m_NcxRootWatcher, SIGNAL(finished()), this, SLOT(RefreshEnd()));
 }
 
 
@@ -75,13 +75,13 @@ void NCXModel::Refresh()
     }
 
     m_RefreshInProgress = true;
-    m_NcxRootWatcher.setFuture(QtConcurrent::run(this, &NCXModel::GetRootNCXEntry));
+    m_NcxRootWatcher->setFuture(QtConcurrent::run(this, &NCXModel::GetRootNCXEntry));
 }
 
 
 void NCXModel::RefreshEnd()
 {
-    BuildModel(m_NcxRootWatcher.result());
+    BuildModel(m_NcxRootWatcher->result());
     m_RefreshInProgress = false;
     emit RefreshDone();
 }
@@ -96,9 +96,9 @@ NCXModel::NCXEntry NCXModel::GetRootNCXEntry()
 QString NCXModel::GetNCXText()
 {
     QMutexLocker book_lock(&m_UsingBookMutex);
-    NCXResource &ncx = m_Book->GetNCX();
-    QReadLocker locker(&ncx.GetLock());
-    return ncx.GetText();
+    NCXResource *ncx = m_Book->GetNCX();
+    QReadLocker locker(&(ncx->GetLock()));
+    return ncx->GetText();
 }
 
 

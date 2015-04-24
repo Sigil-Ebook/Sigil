@@ -43,11 +43,11 @@ PluginRunner::PluginRunner(TabManager *tabMgr, QWidget *parent)
     // get book manipulation objects
     m_book = m_mainWindow->GetCurrentBook();
     m_bookBrowser = m_mainWindow->GetBookBrowser();
-    m_bookRoot = m_book->GetFolderKeeper().GetFullPathToMainFolder();
+    m_bookRoot = m_book->GetFolderKeeper()->GetFullPathToMainFolder();
 
     // set default font obfuscation algorithm to use
     // ADOBE_FONT_ALGO_ID or IDPF_FONT_ALGO_ID ??
-    QList<Resource *> fonts = m_book->GetFolderKeeper().GetResourceListByType(Resource::FontResourceType);
+    QList<Resource *> fonts = m_book->GetFolderKeeper()->GetResourceListByType(Resource::FontResourceType);
     foreach (Resource * resource, fonts) {
         FontResource *font_resource = qobject_cast<FontResource *> (resource);
         QString algorithm = font_resource->GetObfuscationAlgorithm();
@@ -58,7 +58,7 @@ PluginRunner::PluginRunner(TabManager *tabMgr, QWidget *parent)
     }
 
     // build hashes of href (book root relative path) to resources
-    QList<Resource *> resources = m_book->GetFolderKeeper().GetResourceList();
+    QList<Resource *> resources = m_book->GetFolderKeeper()->GetResourceList();
     foreach (Resource * resource, resources) {
         QString href = resource->GetRelativePathToRoot();
         if (resource->Type() == Resource::HTMLResourceType) {
@@ -167,9 +167,9 @@ void PluginRunner::startPlugin()
 
     // prepare for the plugin by flushing all current book changes to disk
     m_mainWindow->SaveTabData();
-    m_book->GetFolderKeeper().SuspendWatchingResources();
+    m_book->GetFolderKeeper()->SuspendWatchingResources();
     m_book->SaveAllResourcesToDisk();
-    m_book->GetFolderKeeper().ResumeWatchingResources();
+    m_book->GetFolderKeeper()->ResumeWatchingResources();
     ui.startButton->setEnabled(false);
     ui.okButton->setEnabled(false);
     ui.cancelButton->setEnabled(true);
@@ -229,7 +229,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
 
     // don't allow changes to proceed if they will remove the very last xhtml/html file
     if (m_xhtml_net_change < 0) {
-        QList<Resource *> htmlresources = m_book->GetFolderKeeper().GetResourceListByType(Resource::HTMLResourceType);
+        QList<Resource *> htmlresources = m_book->GetFolderKeeper()->GetResourceListByType(Resource::HTMLResourceType);
         if (htmlresources.count() + m_xhtml_net_change < 0) {
             Utility::DisplayStdErrorDialog(tr("Error: Plugin Tried to Remove the Last XHTML file .. aborting changes"));
             ui.statusLbl->setText(tr("Status: No Changes Made"));
@@ -240,7 +240,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     // everthing looks good so now make any necessary changes
     bool book_modified = false;
 
-    m_book->GetFolderKeeper().SuspendWatchingResources();
+    m_book->GetFolderKeeper()->SuspendWatchingResources();
 
     if (!m_filesToDelete.isEmpty()) {
         // before deleting make sure a tab of at least one of the remaining html files will be open
@@ -256,7 +256,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         }
         if (!tabs_will_remain) {
             Resource *xhtmlresource = remainingResources.at(0);
-            m_mainWindow->OpenResource(*xhtmlresource);
+            m_mainWindow->OpenResource(xhtmlresource);
         }
 
         if (deleteFiles(m_filesToDelete)) {
@@ -278,7 +278,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     }
 
     // now make these changes known to Sigil
-    m_book->GetFolderKeeper().ResumeWatchingResources();
+    m_book->GetFolderKeeper()->ResumeWatchingResources();
 
 #ifdef Q_OS_MAC
     // On OS X a new window with the book is opened. The current one's content is not
@@ -532,9 +532,9 @@ bool PluginRunner::deleteFiles(const QStringList &files)
             ui.statusLbl->setText(tr("Status: deleting ") + resource->Filename());
 
             if (tabResources.contains(resource)) {
-                m_tabManager->CloseTabForResource(*resource);
+                m_tabManager->CloseTabForResource(resource);
             }
-            m_book->GetFolderKeeper().RemoveResource(*resource);
+            m_book->GetFolderKeeper()->RemoveResource(resource);
             resource->Delete();
             changes_made = true;
         }
@@ -599,7 +599,7 @@ bool PluginRunner::addFiles(const QStringList &files)
         QFileInfo fi(inpath);
         ui.statusLbl->setText(tr("Status: adding ") + fi.fileName());
 
-        Resource &resource = m_book->GetFolderKeeper().AddContentFileToFolder(inpath,false);
+        Resource *resource = m_book->GetFolderKeeper()->AddContentFileToFolder(inpath,false);
 
         // AudioResource, VideoResource, FontResource, ImageResource do not appear to be cached
 
@@ -608,34 +608,23 @@ bool PluginRunner::addFiles(const QStringList &files)
 
         // NOTE! AddContentFileToFolder returns a resource reference and not a pointer
 
-        if (resource.Type() == Resource::FontResourceType && !m_algorithm.isEmpty()) {
-
-            FontResource *font_resource = qobject_cast<FontResource *> (&resource);
+        if (resource->Type() == Resource::FontResourceType && !m_algorithm.isEmpty()) {
+            FontResource *font_resource = qobject_cast<FontResource *>(resource);
             font_resource->SetObfuscationAlgorithm(m_algorithm);
-
-        } else  if (resource.Type() == Resource::HTMLResourceType) {
-
-            HTMLResource *html_resource = qobject_cast<HTMLResource *> (&resource);
+        } else  if (resource->Type() == Resource::HTMLResourceType) {
+            HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
             html_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
-
-        } else if (resource.Type() == Resource::CSSResourceType) {
-
-            CSSResource *css_resource = qobject_cast<CSSResource *> (&resource);
+        } else if (resource->Type() == Resource::CSSResourceType) {
+            CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
             css_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
-
-        } else if (resource.Type() == Resource::SVGResourceType) {
-
-            SVGResource *svg_resource = qobject_cast<SVGResource *> (&resource);
+        } else if (resource->Type() == Resource::SVGResourceType) {
+            SVGResource *svg_resource = qobject_cast<SVGResource *>(resource);
             svg_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
-
-        } else if (resource.Type() == Resource::MiscTextResourceType) {
-
-            MiscTextResource *misctext_resource = qobject_cast<MiscTextResource *> (&resource);
+        } else if (resource->Type() == Resource::MiscTextResourceType) {
+            MiscTextResource *misctext_resource = qobject_cast<MiscTextResource *>(resource);
             misctext_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
-
-        } else if (resource.Type() == Resource::XMLResourceType) {
-
-            XMLResource *xml_resource = qobject_cast<XMLResource *> (&resource);
+        } else if (resource->Type() == Resource::XMLResourceType) {
+            XMLResource *xml_resource = qobject_cast<XMLResource *>(resource);
             xml_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
         }
     }

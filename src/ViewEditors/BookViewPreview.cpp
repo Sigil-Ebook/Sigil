@@ -50,7 +50,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     : QWebView(parent),
       c_GetBlock(Utility::ReadUnicodeTextFile(":/javascript/get_block.js")),
       m_isLoadFinished(false),
-      m_ContextMenu(*new QMenu(this)),
+      m_ContextMenu(new QMenu(this)),
       m_ViewWebPage(new ViewWebPage(this)),
       c_jQuery(Utility::ReadUnicodeTextFile(":/javascript/jquery-1.6.2.min.js")),
       c_jQueryScrollTo(Utility::ReadUnicodeTextFile(":/javascript/jquery.scrollTo-1.4.2-min.js")),
@@ -79,6 +79,11 @@ BookViewPreview::BookViewPreview(QWidget *parent)
 
 BookViewPreview::~BookViewPreview()
 {
+    if (m_ContextMenu != NULL) {
+        delete m_ContextMenu;
+        m_ContextMenu = 0;
+    }
+
     if (m_ViewWebPage != NULL) {
         delete m_ViewWebPage;
         m_ViewWebPage = 0;
@@ -741,13 +746,13 @@ void BookViewPreview::OpenContextMenu(const QPoint &point)
         return;
     }
 
-    m_ContextMenu.exec(mapToGlobal(point));
-    m_ContextMenu.clear();
+    m_ContextMenu->exec(mapToGlobal(point));
+    m_ContextMenu->clear();
 }
 
 bool BookViewPreview::SuccessfullySetupContextMenu(const QPoint &point)
 {
-    m_ContextMenu.addAction(m_InspectElement);
+    m_ContextMenu->addAction(m_InspectElement);
     m_InspectElement->setEnabled(page()->action(QWebPage::InspectElement)->isEnabled());
     return true;
 }

@@ -43,7 +43,7 @@ class FindReplace : public QWidget
     Q_OBJECT
 
 public:
-    FindReplace(MainWindow &main_window);
+    FindReplace(MainWindow *main_window);
     ~FindReplace();
 
     /**
@@ -288,7 +288,7 @@ private:
 
     // A const reference to the mainwindow that
     // spawned this widget. Needed for searching.
-    MainWindow &m_MainWindow;
+    MainWindow *m_MainWindow;
 
     QTimer m_timer;
 

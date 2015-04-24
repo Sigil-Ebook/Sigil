@@ -103,7 +103,7 @@ signals:
      * @param resource The resource that should be opened.
      * @param fragment The fragment ID to which the new tab should be scrolled.
      */
-    void OpenResourceRequest(Resource &resource,
+    void OpenResourceRequest(Resource *resource,
                              int line_to_scroll_to = -1,
                              int position_to_scroll_to = -1,
                              const QString &caret_location_to_scroll_to = QString(),
@@ -129,27 +129,27 @@ private:
     /**
      * A container widget for the TOC UI widgets.
      */
-    QWidget &m_MainWidget;
+    QWidget *m_MainWidget;
 
     /**
      * The layout for the container widget.
      */
-    QVBoxLayout &m_Layout;
+    QVBoxLayout *m_Layout;
 
     /**
      * The tree view used to represent the TOC.
      */
-    QTreeView &m_TreeView;
+    QTreeView *m_TreeView;
 
     /**
      * The timer that provides the delay for the refresh operation.
      */
-    QTimer &m_RefreshTimer;
+    QTimer m_RefreshTimer;
 
     /**
      * The data model used to feed the tree view.
      */
-    NCXModel &m_NCXModel;
+    NCXModel *m_NCXModel;
 };
 
 #endif // TABLEOFCONTENTS_H

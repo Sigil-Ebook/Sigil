@@ -145,7 +145,7 @@ bool Resource::RenameTo(const QString &new_filename)
     if (successful) {
         QString old_path = m_FullFilePath;
         m_FullFilePath = new_path;
-        emit Renamed(*this, old_path);
+        emit Renamed(this, old_path);
     }
 
     return successful;
@@ -160,7 +160,7 @@ bool Resource::Delete()
     }
 
     if (successful) {
-        emit Deleted(*this);
+        emit Deleted(this);
         deleteLater();
     }
 
@@ -220,7 +220,7 @@ void Resource::ResourceFileModified()
     } else {
         if (LoadFromDisk()) {
             // will trigger marking the book as modified
-            emit ResourceUpdatedFromDisk(*this);
+            emit ResourceUpdatedFromDisk(this);
         }
 
         // will trigger updates in other resources that link to this resource

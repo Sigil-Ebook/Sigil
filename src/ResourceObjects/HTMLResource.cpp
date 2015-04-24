@@ -144,7 +144,7 @@ void HTMLResource::TrackNewResources(const QStringList &filepaths)
     }
     foreach(Resource * resource, m_Resources.values()) {
         disconnect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
-        disconnect(resource, SIGNAL(Deleted(const Resource &)), this, SIGNAL(LinkedResourceUpdated()));
+        disconnect(resource, SIGNAL(Deleted(const Resource *)), this, SIGNAL(LinkedResourceUpdated()));
 
         if (filenames.contains(resource->Filename())) {
             linkedResourceIDs.append(resource->GetIdentifier());
@@ -155,7 +155,7 @@ void HTMLResource::TrackNewResources(const QStringList &filepaths)
 
         if (resource) {
             connect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
-            connect(resource, SIGNAL(Deleted(const Resource &)), this, SIGNAL(LinkedResourceUpdated()));
+            connect(resource, SIGNAL(Deleted(const Resource *)), this, SIGNAL(LinkedResourceUpdated()));
         }
     }
 }

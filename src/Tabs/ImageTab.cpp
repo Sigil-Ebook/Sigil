@@ -57,17 +57,17 @@ const QString IMAGE_HTML_BASE =
     "</body>"
     "</html>";
 
-ImageTab::ImageTab(ImageResource &resource, QWidget *parent)
+ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     :
     ContentTab(resource, parent),
-    m_WebView(*new QWebView(this)),
-    m_ContextMenu(*new QMenu(this)),
-    m_OpenWithContextMenu(*new QMenu(this))
+    m_WebView(new QWebView(this)),
+    m_ContextMenu(new QMenu(this)),
+    m_OpenWithContextMenu(new QMenu(this))
 {
-    m_WebView.setContextMenuPolicy(Qt::CustomContextMenu);
-    m_WebView.setFocusPolicy(Qt::NoFocus);
-    m_WebView.setAcceptDrops(false);
-    m_Layout.addWidget(&m_WebView);
+    m_WebView->setContextMenuPolicy(Qt::CustomContextMenu);
+    m_WebView->setFocusPolicy(Qt::NoFocus);
+    m_WebView->setAcceptDrops(false);
+    m_Layout->addWidget(m_WebView);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
     m_CurrentZoomFactor = settings.zoomImage();
@@ -79,6 +79,21 @@ ImageTab::ImageTab(ImageResource &resource, QWidget *parent)
 
 ImageTab::~ImageTab()
 {
+    if (m_WebView) {
+        delete m_WebView;
+        m_WebView = 0;
+    }
+
+    if (m_ContextMenu) {
+        delete m_ContextMenu;
+        m_ContextMenu = 0;
+    }
+
+    if (m_OpenWithContextMenu) {
+        delete m_OpenWithContextMenu;
+        m_OpenWithContextMenu = 0;
+    }
+
     if (m_OpenWith) {
         delete m_OpenWith;
         m_OpenWith = 0;
@@ -131,7 +146,7 @@ void ImageTab::UpdateDisplay()
 void ImageTab::RefreshContent()
 {
     MainWindow::clearMemoryCaches();
-    const QString path = m_Resource.GetFullPath();
+    const QString path = m_Resource->GetFullPath();
     const QFileInfo fileInfo = QFileInfo(path);
     const double ffsize = fileInfo.size() / 1024.0;
     const QString fsize = QLocale().toString(ffsize, 'f', 2);
@@ -149,7 +164,7 @@ void ImageTab::RefreshContent()
 
     const QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
                          .arg(grayscale_color).arg(colorsInfo);
-    m_WebView.setHtml(html, imgUrl);
+    m_WebView->setHtml(html, imgUrl);
 }
 
 void ImageTab::saveAs()
@@ -164,7 +179,7 @@ void ImageTab::saveAs()
 
 void ImageTab::copyImage()
 {
-    const QImage img(m_Resource.GetFullPath());
+    const QImage img(m_Resource->GetFullPath());
     QApplication::clipboard()->setImage(img);
 }
 
@@ -207,13 +222,13 @@ void ImageTab::OpenContextMenu(const QPoint &point)
         return;
     }
 
-    m_ContextMenu.exec(mapToGlobal(point));
-    m_ContextMenu.clear();
+    m_ContextMenu->exec(mapToGlobal(point));
+    m_ContextMenu->clear();
 }
 
 bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
 {
-    QUrl imageUrl("file:///" % m_Resource.GetFullPath());
+    QUrl imageUrl("file:///" % m_Resource->GetFullPath());
 
     if (imageUrl.isValid() && imageUrl.isLocalFile()) {
         // Open With
@@ -230,21 +245,21 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
             m_OpenWithEditor->setData(QVariant::Invalid);
             m_OpenWith->setText(tr("Open With") + "...");
             m_OpenWith->setData(imageUrl);
-            m_ContextMenu.addAction(m_OpenWith);
+            m_ContextMenu->addAction(m_OpenWith);
         } else {
             const QString &editorDescription = OpenExternally::editorDescriptionForResourceType(imageType);
             m_OpenWithEditor->setText(editorDescription);
             m_OpenWithEditor->setData(imageUrl);
             m_OpenWith->setText(tr("Other Application") + "...");
             m_OpenWith->setData(imageUrl);
-            m_ContextMenu.addMenu(&m_OpenWithContextMenu);
+            m_ContextMenu->addMenu(m_OpenWithContextMenu);
         }
 
         // Save As
         m_SaveAs->setData(imageUrl);
-        m_ContextMenu.addAction(m_SaveAs);
-        m_ContextMenu.addSeparator();
-        m_ContextMenu.addAction(m_CopyImage);
+        m_ContextMenu->addAction(m_SaveAs);
+        m_ContextMenu->addSeparator();
+        m_ContextMenu->addAction(m_CopyImage);
     }
 
     return true;
@@ -256,16 +271,16 @@ void ImageTab::CreateContextMenuActions()
     m_OpenWith       = new QAction(tr("Open With") + "...",  this);
     m_SaveAs         = new QAction(tr("Save As") + "...",  this);
     m_CopyImage      = new QAction(tr("Copy Image"),  this);
-    m_OpenWithContextMenu.setTitle(tr("Open With"));
-    m_OpenWithContextMenu.addAction(m_OpenWithEditor);
-    m_OpenWithContextMenu.addAction(m_OpenWith);
+    m_OpenWithContextMenu->setTitle(tr("Open With"));
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor);
+    m_OpenWithContextMenu->addAction(m_OpenWith);
 }
 
 void ImageTab::ConnectSignalsToSlots()
 {
-    connect(&m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));
-    connect(&m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
-    connect(&m_WebView, SIGNAL(customContextMenuRequested(const QPoint &)),  this, SLOT(OpenContextMenu(const QPoint &)));
+    connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));
+    connect(m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
+    connect(m_WebView, SIGNAL(customContextMenuRequested(const QPoint &)),  this, SLOT(OpenContextMenu(const QPoint &)));
     connect(m_OpenWith,       SIGNAL(triggered()),  this, SLOT(openWith()));
     connect(m_OpenWithEditor, SIGNAL(triggered()),  this, SLOT(openWithEditor()));
     connect(m_SaveAs,         SIGNAL(triggered()),  this, SLOT(saveAs()));
@@ -274,13 +289,13 @@ void ImageTab::ConnectSignalsToSlots()
 
 void ImageTab::Zoom()
 {
-    m_WebView.setZoomFactor(m_CurrentZoomFactor);
+    m_WebView->setZoomFactor(m_CurrentZoomFactor);
 }
 
 void ImageTab::PrintPreview()
 {
     QPrintPreviewDialog *print_preview = new QPrintPreviewDialog(this);
-    connect(print_preview, SIGNAL(paintRequested(QPrinter *)), &m_WebView, SLOT(print(QPrinter *)));
+    connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_WebView, SLOT(print(QPrinter *)));
     print_preview->exec();
     print_preview->deleteLater();
 }
@@ -292,7 +307,7 @@ void ImageTab::Print()
     print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
 
     if (print_dialog.exec() == QDialog::Accepted) {
-        m_WebView.print(&printer);
+        m_WebView->print(&printer);
     }
 }
 

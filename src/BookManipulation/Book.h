@@ -56,6 +56,8 @@ public:
      */
     Book();
 
+    ~Book();
+
     /**
      * Returns the base url of the book.
      * This is the location of the text folder
@@ -68,35 +70,35 @@ public:
      *
      * @return A reference to the FolderKeeper instance of the Book.
      */
-    FolderKeeper &GetFolderKeeper();
+    FolderKeeper *GetFolderKeeper();
 
     /**
      * Returns the FolderKeeper instance.
      *
      * @return A const reference to the FolderKeeper instance of the Book.
      */
-    const FolderKeeper &GetFolderKeeper() const;
+    const FolderKeeper *GetFolderKeeper() const;
 
     /**
      * Returns the book's OPF file.
      *
      * @return The OPF.
      */
-    OPFResource &GetOPF();
+    OPFResource *GetOPF();
 
     /**
      * Returns the book's OPF file as a const object.
      *
      * @return The OPF.
      */
-    const OPFResource &GetConstOPF() const;
+    const OPFResource *GetConstOPF() const;
 
     /**
      * Returns the book's NCX file.
      *
      * @return The NCX.
      */
-    NCXResource &GetNCX();
+    NCXResource *GetNCX();
 
     /**
      * Returns the book's publication identifier.
@@ -137,18 +139,18 @@ public:
      *
      * @return A reference to the created HTMLResource file.
      */
-    HTMLResource &CreateNewHTMLFile();
+    HTMLResource *CreateNewHTMLFile();
 
     /**
      * Moves the first resource to after the second resource
      */
-    void MoveResourceAfter(HTMLResource &from_resource, HTMLResource &to_resource);
+    void MoveResourceAfter(HTMLResource *from_resource, HTMLResource *to_resource);
 
     /**
      * Creates a new HTMLResource file with a basic XHTML structure.
      * The file on disk has only placeholder text.
      */
-    HTMLResource &CreateEmptyHTMLFile();
+    HTMLResource *CreateEmptyHTMLFile();
 
 
     /**
@@ -156,20 +158,20 @@ public:
      * inserted after the given resource.
      * The file on disk has only placeholder text.
      */
-    HTMLResource &CreateEmptyHTMLFile(HTMLResource &resource);
+    HTMLResource *CreateEmptyHTMLFile(HTMLResource *resource);
 
     /**
      * Creates a new CSSResource file with no stored data.
      * The file on disk is empty.
      */
-    CSSResource &CreateEmptyCSSFile();
+    CSSResource *CreateEmptyCSSFile();
 
-    SVGResource &CreateEmptySVGFile();
+    SVGResource *CreateEmptySVGFile();
 
-    HTMLResource &CreateHTMLCoverFile(QString text);
+    HTMLResource *CreateHTMLCoverFile(QString text);
 
-    CSSResource &CreateHTMLTOCCSSFile();
-    CSSResource &CreateIndexCSSFile();
+    CSSResource *CreateHTMLTOCCSSFile();
+    CSSResource *CreateIndexCSSFile();
 
     /**
      * Creates an "old" resource from a section breaking operation.
@@ -183,8 +185,8 @@ public:
      * @see FlowTab::SplitSection, FlowTab::OldTabRequest,
      *      BookViewEditor::SplitSection, MainWindow::CreateSectionBreakOldTab
      */
-    HTMLResource &CreateSectionBreakOriginalResource(const QString &content,
-            HTMLResource &originating_resource);
+    HTMLResource *CreateSectionBreakOriginalResource(const QString &content,
+            HTMLResource *originating_resource);
 
     /**
      * Creates new sections/XHTML documents.
@@ -196,7 +198,7 @@ public:
      * will be created after.
      */
     void CreateNewSections(const QStringList &new_sections,
-                           HTMLResource &originalResource);
+                           HTMLResource *originalResource);
 
     /**
      * Returns the previous resource, or the same resource if at top of folder
@@ -275,7 +277,7 @@ public:
      *
      * @return true if well formed
      */
-    bool IsDataWellFormed(HTMLResource &html_resource);
+    bool IsDataWellFormed(HTMLResource *html_resource);
 
     /**
      * Returns whether or not a resource's data is well formed
@@ -283,7 +285,7 @@ public:
      *
      * @return true if well formed
      */
-    bool IsDataOnDiskWellFormed(HTMLResource &html_resource);
+    bool IsDataOnDiskWellFormed(HTMLResource *html_resource);
 
     /**
      * Checks for the presence of obfuscated fonts in the book.
@@ -306,7 +308,7 @@ public slots:
      */
     void SetModified(bool modified = true);
 
-    void ResourceUpdatedFromDisk(Resource &resource);
+    void ResourceUpdatedFromDisk(Resource *resource);
 
 signals:
 
@@ -317,7 +319,7 @@ signals:
      */
     void ModifiedStateChanged(bool new_state);
 
-    void ResourceUpdatedFromDiskRequest(Resource &resource);
+    void ResourceUpdatedFromDiskRequest(Resource *resource);
 
 private:
 
@@ -389,7 +391,7 @@ private:
      * The FolderKeeper object that represents
      * this book's presence on the hard drive.
      */
-    FolderKeeper &m_Mainfolder;
+    FolderKeeper *m_Mainfolder;
 
     /**
      * A hash with meta information about the book. The keys are

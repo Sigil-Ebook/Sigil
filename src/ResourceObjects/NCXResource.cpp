@@ -84,7 +84,7 @@ void NCXResource::SetMainID(const QString &main_id)
 }
 
 
-bool NCXResource::GenerateNCXFromBookContents(const Book &book)
+bool NCXResource::GenerateNCXFromBookContents(const Book *book)
 {
     bool is_changed = false;
     QByteArray raw_ncx;
@@ -108,7 +108,7 @@ bool NCXResource::GenerateNCXFromBookContents(const Book &book)
 }
 
 
-void NCXResource::GenerateNCXFromTOCContents(const Book &book, NCXModel &ncx_model)
+void NCXResource::GenerateNCXFromTOCContents(const Book *book, NCXModel *ncx_model)
 {
     //    QByteArray raw_ncx;
     //    QBuffer buffer(&raw_ncx);
@@ -117,10 +117,10 @@ void NCXResource::GenerateNCXFromTOCContents(const Book &book, NCXModel &ncx_mod
     //    ncx.WriteXML();
     //    buffer.close();
     //    SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size())));
-    GenerateNCXFromTOCEntries(book, ncx_model.GetRootNCXEntry());
+    GenerateNCXFromTOCEntries(book, ncx_model->GetRootNCXEntry());
 }
 
-void NCXResource::GenerateNCXFromTOCEntries(const Book &book, NCXModel::NCXEntry ncx_root_entry)
+void NCXResource::GenerateNCXFromTOCEntries(const Book *book, NCXModel::NCXEntry ncx_root_entry)
 {
     QByteArray raw_ncx;
     QBuffer buffer(&raw_ncx);

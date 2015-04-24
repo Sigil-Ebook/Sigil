@@ -85,14 +85,14 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     BookViewPreview(parent),
     m_WebPageModified(false),
     m_clipMapper(new QSignalMapper(this)),
-    m_OpenWithContextMenu(*new QMenu(this)),
-    m_Paste1(*(new QShortcut(QKeySequence(QKeySequence::Paste), this, 0, 0, Qt::WidgetShortcut))),
+    m_OpenWithContextMenu(new QMenu(this)),
+    m_Paste1(new QShortcut(QKeySequence(QKeySequence::Paste), this, 0, 0, Qt::WidgetShortcut)),
     // Old style windows paste.
-    m_Paste2(*(new QShortcut(QKeySequence(Qt::ShiftModifier + Qt::Key_Insert), this, 0, 0, Qt::WidgetShortcut))),
-    m_PageUp(*(new QShortcut(QKeySequence(QKeySequence::MoveToPreviousPage), this, 0, 0, Qt::WidgetShortcut))),
-    m_PageDown(*(new QShortcut(QKeySequence(QKeySequence::MoveToNextPage), this, 0, 0, Qt::WidgetShortcut))),
-    m_ScrollOneLineUp(*(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up), this, 0, 0, Qt::WidgetShortcut))),
-    m_ScrollOneLineDown(*(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Down), this, 0, 0, Qt::WidgetShortcut))),
+    m_Paste2(new QShortcut(QKeySequence(Qt::ShiftModifier + Qt::Key_Insert), this, 0, 0, Qt::WidgetShortcut)),
+    m_PageUp(new QShortcut(QKeySequence(QKeySequence::MoveToPreviousPage), this, 0, 0, Qt::WidgetShortcut)),
+    m_PageDown(new QShortcut(QKeySequence(QKeySequence::MoveToNextPage), this, 0, 0, Qt::WidgetShortcut)),
+    m_ScrollOneLineUp(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up), this, 0, 0, Qt::WidgetShortcut)),
+    m_ScrollOneLineDown(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Down), this, 0, 0, Qt::WidgetShortcut)),
     c_GetSegmentHTML(Utility::ReadUnicodeTextFile(":/javascript/get_segment_html.js")),
     c_FormatBlock(Utility::ReadUnicodeTextFile(":/javascript/format_block.js")),
     c_GetAncestor(Utility::ReadUnicodeTextFile(":/javascript/get_ancestor.js")),
@@ -113,6 +113,15 @@ BookViewEditor::BookViewEditor(QWidget *parent)
 
 BookViewEditor::~BookViewEditor()
 {
+    m_clipMapper->deleteLater();
+    m_OpenWithContextMenu->deleteLater();
+    m_Paste1->deleteLater();
+    m_Paste2->deleteLater();
+    m_PageUp->deleteLater();
+    m_PageDown->deleteLater();
+    m_ScrollOneLineUp->deleteLater();
+    m_ScrollOneLineDown->deleteLater();
+
     if (m_Undo) {
         delete m_Undo;
         m_Undo = 0;
@@ -796,8 +805,8 @@ void BookViewEditor::OpenContextMenu(const QPoint &point)
         return;
     }
 
-    m_ContextMenu.exec(mapToGlobal(point));
-    m_ContextMenu.clear();
+    m_ContextMenu->exec(mapToGlobal(point));
+    m_ContextMenu->clear();
 }
 
 bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
@@ -834,7 +843,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
             filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
             m_Open->setData(imageUrl);
             m_Open->setText(tr("Open Tab For") + " \"" + filename + "\"");
-            m_ContextMenu.addAction(m_Open);
+            m_ContextMenu->addAction(m_Open);
             // Open With
             Resource::ResourceType imageType = Resource::ImageResourceType;
 
@@ -849,42 +858,42 @@ bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
                 m_OpenWithEditor->setData(QVariant::Invalid);
                 m_OpenWith->setText(tr("Open With") + "...");
                 m_OpenWith->setData(imageUrl);
-                m_ContextMenu.addAction(m_OpenWith);
+                m_ContextMenu->addAction(m_OpenWith);
             } else {
                 const QString &editorDescription = OpenExternally::editorDescriptionForResourceType(imageType);
                 m_OpenWithEditor->setText(editorDescription);
                 m_OpenWithEditor->setData(imageUrl);
                 m_OpenWith->setText(tr("Other Application") + "...");
                 m_OpenWith->setData(imageUrl);
-                m_ContextMenu.addMenu(&m_OpenWithContextMenu);
+                m_ContextMenu->addMenu(m_OpenWithContextMenu);
             }
 
             // Save As
             m_SaveAs->setData(imageUrl);
             m_CopyImage->setData(imageUrl);
-            m_ContextMenu.addAction(m_SaveAs);
-            m_ContextMenu.addSeparator();
+            m_ContextMenu->addAction(m_SaveAs);
+            m_ContextMenu->addSeparator();
         } else {
             // If not an image allow insert - otherwise cursor is not where you expect.
-            AddClipContextMenu(&m_ContextMenu);
-            m_ContextMenu.addSeparator();
-            m_ContextMenu.addAction(m_InsertFile);
+            AddClipContextMenu(m_ContextMenu);
+            m_ContextMenu->addSeparator();
+            m_ContextMenu->addAction(m_InsertFile);
         }
     }
 
-    m_ContextMenu.addSeparator();
-    m_ContextMenu.addAction(m_InspectElement);
+    m_ContextMenu->addSeparator();
+    m_ContextMenu->addAction(m_InspectElement);
 
-    m_ContextMenu.addSeparator();
-    m_ContextMenu.addAction(m_Undo);
-    m_ContextMenu.addAction(m_Redo);
-    m_ContextMenu.addSeparator();
-    m_ContextMenu.addAction(m_Cut);
-    m_ContextMenu.addAction(m_Copy);
-    m_ContextMenu.addAction(m_CopyImage);
-    m_ContextMenu.addAction(m_Paste);
-    m_ContextMenu.addSeparator();
-    m_ContextMenu.addAction(m_SelectAll);
+    m_ContextMenu->addSeparator();
+    m_ContextMenu->addAction(m_Undo);
+    m_ContextMenu->addAction(m_Redo);
+    m_ContextMenu->addSeparator();
+    m_ContextMenu->addAction(m_Cut);
+    m_ContextMenu->addAction(m_Copy);
+    m_ContextMenu->addAction(m_CopyImage);
+    m_ContextMenu->addAction(m_Paste);
+    m_ContextMenu->addSeparator();
+    m_ContextMenu->addAction(m_SelectAll);
     bool has_selection = !selectedText().isEmpty();
     m_Cut->setEnabled(has_selection);
     m_Copy->setEnabled(has_selection);
@@ -1009,20 +1018,20 @@ void BookViewEditor::CreateContextMenuActions()
     m_OpenWithEditor = new QAction("",          this);
     m_OpenWith       = new QAction(tr("Open With") + "...",  this);
     m_SaveAs         = new QAction(tr("Save As") + "...",  this);
-    m_OpenWithContextMenu.setTitle(tr("Open With"));
-    m_OpenWithContextMenu.addAction(m_OpenWithEditor);
-    m_OpenWithContextMenu.addAction(m_OpenWith);
+    m_OpenWithContextMenu->setTitle(tr("Open With"));
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor);
+    m_OpenWithContextMenu->addAction(m_OpenWith);
     m_InspectElement = new QAction(tr("Inspect Element") + "...", this);
 }
 
 void BookViewEditor::ConnectSignalsToSlots()
 {
-    connect(&m_Paste1,            SIGNAL(activated()), this, SLOT(paste()));
-    connect(&m_Paste2,            SIGNAL(activated()), this, SLOT(paste()));
-    connect(&m_PageUp,            SIGNAL(activated()), this, SLOT(PageUp()));
-    connect(&m_PageDown,          SIGNAL(activated()), this, SLOT(PageDown()));
-    connect(&m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
-    connect(&m_ScrollOneLineDown, SIGNAL(activated()), this, SLOT(ScrollOneLineDown()));
+    connect(m_Paste1,            SIGNAL(activated()), this, SLOT(paste()));
+    connect(m_Paste2,            SIGNAL(activated()), this, SLOT(paste()));
+    connect(m_PageUp,            SIGNAL(activated()), this, SLOT(PageUp()));
+    connect(m_PageDown,          SIGNAL(activated()), this, SLOT(PageDown()));
+    connect(m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
+    connect(m_ScrollOneLineDown, SIGNAL(activated()), this, SLOT(ScrollOneLineDown()));
     connect(this,   SIGNAL(contentsChangedExtra()),  page(), SIGNAL(contentsChanged()));
     connect(page(), SIGNAL(contentsChanged()),      this,   SIGNAL(textChanged()));
     connect(page(), SIGNAL(selectionChanged()),      this,   SIGNAL(selectionChanged()));

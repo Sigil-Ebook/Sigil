@@ -41,7 +41,7 @@ AddMetadata::AddMetadata(const QHash<QString, Metadata::MetaInfo> &metadata, QWi
     // Fill the dialog with sorted translated metadata names
     QStringList names;
     foreach(QString code, m_Metadata.keys()) {
-        names.append(Metadata::Instance().GetName(code));
+        names.append(Metadata::Instance()->GetName(code));
     }
     names.sort();
     foreach(QString name, names) {
@@ -52,7 +52,7 @@ AddMetadata::AddMetadata(const QHash<QString, Metadata::MetaInfo> &metadata, QWi
 
 void AddMetadata::UpdateDescription(QListWidgetItem *current)
 {
-    QString text = m_Metadata.value(Metadata::Instance().GetCode(current->text())).description;
+    QString text = m_Metadata.value(Metadata::Instance()->GetCode(current->text())).description;
 
     if (!text.isEmpty()) {
         ui.lbDescription->setText(text);
@@ -68,7 +68,7 @@ void AddMetadata::SaveSelection()
 {
     m_SelectedEntries.clear();
     foreach(QListWidgetItem * item, ui.lwProperties->selectedItems()) {
-        m_SelectedEntries.append(Metadata::Instance().GetCode(item->text()));
+        m_SelectedEntries.append(Metadata::Instance()->GetCode(item->text()));
     }
 }
 

@@ -29,7 +29,7 @@
 #include "Tabs/WellFormedCheckComponent.h"
 #include "Tabs/WellFormedContent.h"
 
-WellFormedCheckComponent::WellFormedCheckComponent(WellFormedContent &content, QWidget *parent)
+WellFormedCheckComponent::WellFormedCheckComponent(WellFormedContent *content, QWidget *parent)
     :
     QObject(),
     m_Content(content),
@@ -93,7 +93,7 @@ void WellFormedCheckComponent::DemandAttention()
     }
 
     m_DemandingAttention = true;
-    m_Content.TakeControlOfUI();
+    m_Content->TakeControlOfUI();
     DisplayErrorMessage();
     m_LastError = XhtmlDoc::WellFormedError();
     m_DemandingAttention = false;
@@ -107,7 +107,7 @@ void WellFormedCheckComponent::DisplayErrorMessage()
                                QString::number(m_LastError.line) :
                                "N/A";
     QString full_message = m_Message
-                           .arg(m_Content.GetFilename(), error_line, m_LastError.message);
+                           .arg(m_Content->GetFilename(), error_line, m_LastError.message);
 
     if (settings.cleanLevel() == SettingsStore::CleanLevel_Off) {
         m_AutoFixButton->setVisible(false);
@@ -120,10 +120,10 @@ void WellFormedCheckComponent::DisplayErrorMessage()
     m_MessageBox->exec();
 
     if (m_MessageBox->clickedButton() == m_AutoFixButton) {
-        m_Content.AutoFixWellFormedErrors();
+        m_Content->AutoFixWellFormedErrors();
     } else {
         if (m_LastError.line != -1) {
-            m_Content.ScrollToLine(m_LastError.line);
+            m_Content->ScrollToLine(m_LastError.line);
         }
     }
 }

@@ -83,7 +83,7 @@ signals:
      * @param line_to_scroll_to To which line should the resource scroll.
      * @param view_state In which View should the resource open or switch to.
      */
-    void OpenResourceRequest(Resource &resource,
+    void OpenResourceRequest(Resource *resource,
                              int line_to_scroll_to = -1,
                              int position_to_scroll_to = -1,
                              const QString &caret_location_to_scroll_to = QString(),
@@ -141,7 +141,7 @@ private:
     /**
      * The table that holds all the validation results.
      */
-    QTableWidget &m_ResultTable;
+    QTableWidget *m_ResultTable;
 
     /**
      * The book being validated.

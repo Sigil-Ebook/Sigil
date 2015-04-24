@@ -89,11 +89,11 @@ void ExportEPUB::WriteBook()
 {
     // Obfuscating fonts needs an UUID ident
     if (m_Book->HasObfuscatedFonts()) {
-        m_Book->GetOPF().EnsureUUIDIdentifierPresent();
+        m_Book->GetOPF()->EnsureUUIDIdentifierPresent();
     }
 
-    m_Book->GetOPF().AddSigilVersionMeta();
-    m_Book->GetOPF().AddModificationDateMeta();
+    m_Book->GetOPF()->AddSigilVersionMeta();
+    m_Book->GetOPF()->AddModificationDateMeta();
     m_Book->SaveAllResourcesToDisk();
     TempFolder tempfolder;
     CreatePublication(tempfolder.GetPath());
@@ -110,7 +110,7 @@ void ExportEPUB::WriteBook()
 // (creates XHTML, CSS, OPF, NCX files etc.)
 void ExportEPUB::CreatePublication(const QString &fullfolderpath)
 {
-    Utility::CopyFiles(m_Book->GetFolderKeeper().GetFullPathToMainFolder(), fullfolderpath);
+    Utility::CopyFiles(m_Book->GetFolderKeeper()->GetFullPathToMainFolder(), fullfolderpath);
 
     if (m_Book->HasObfuscatedFonts()) {
         CreateEncryptionXML(fullfolderpath + METAINF_FOLDER_SUFFIX);
@@ -273,7 +273,7 @@ void ExportEPUB::CreateEncryptionXML(const QString &fullfolderpath)
         throw (CannotOpenFile(msg));
     }
 
-    EncryptionXmlWriter enc(*m_Book, file);
+    EncryptionXmlWriter enc(m_Book.data(), file);
     enc.WriteXML();
     // Write to disk immediately
     file.flush();
@@ -283,10 +283,10 @@ void ExportEPUB::CreateEncryptionXML(const QString &fullfolderpath)
 
 void ExportEPUB::ObfuscateFonts(const QString &fullfolderpath)
 {
-    QString uuid_id = m_Book->GetOPF().GetUUIDIdentifierValue();
+    QString uuid_id = m_Book->GetOPF()->GetUUIDIdentifierValue();
     QString main_id = m_Book->GetPublicationIdentifier();
-    QList<FontResource *> font_resources = m_Book->GetFolderKeeper().GetResourceTypeList<FontResource>();
-    foreach(FontResource * font_resource, font_resources) {
+    QList<FontResource *> font_resources = m_Book->GetFolderKeeper()->GetResourceTypeList<FontResource>();
+    foreach(FontResource *font_resource, font_resources) {
         QString algorithm = font_resource->GetObfuscationAlgorithm();
 
         if (algorithm.isEmpty()) {
@@ -302,9 +302,3 @@ void ExportEPUB::ObfuscateFonts(const QString &fullfolderpath)
         }
     }
 }
-
-
-
-
-
-

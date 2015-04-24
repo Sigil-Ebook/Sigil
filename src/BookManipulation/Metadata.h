@@ -67,7 +67,7 @@ public:
         QHash<QString, QString> attributes;
     };
 
-    static Metadata &Instance();
+    static Metadata *Instance();
 
     const QHash<QString, MetaInfo> &GetRelatorMap();
     const QHash<QString, MetaInfo> &GetBasicMetaMap();
@@ -86,7 +86,7 @@ public:
      * @param element The element to convert.
      * @return The converted MetaElement.
      */
-    MetaElement MapToBookMetadata(GumboNode* node, GumboInterface & gi);
+    MetaElement MapToBookMetadata(GumboNode *node, GumboInterface &gi);
     MetaElement MapMetaEntryToBookMetadata(const MetaEntry& me);
 
 private:

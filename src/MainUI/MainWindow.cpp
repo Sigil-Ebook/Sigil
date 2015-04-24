@@ -137,10 +137,10 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_LastFolderOpen(QString()),
     m_SaveACopyFilename(QString()),
     m_LastInsertedFile(QString()),
-    m_TabManager(*new TabManager(this)),
+    m_TabManager(new TabManager(this)),
     m_BookBrowser(NULL),
     m_Clips(NULL),
-    m_FindReplace(new FindReplace(*this)),
+    m_FindReplace(new FindReplace(this)),
     m_MetaEditor(new MetaEditor(this)),
     m_TableOfContents(NULL),
     m_ValidationResultsView(NULL),
@@ -165,7 +165,6 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_LastPasteTarget(NULL),
     m_ZoomPreview(false),
     m_LastWindowSize(QByteArray()),
-    m_PreviewTimer(*new QTimer(this)),
     m_PreviousHTMLResource(NULL),
     m_PreviousHTMLText(QString()),
     m_PreviousHTMLLocation(QList<ViewEditor::ElementIndex>()),
@@ -191,8 +190,8 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     ConnectSignalsToSlots();
     CreateRecentFilesActions();
     UpdateRecentFileActions();
-    ChangeSignalsWhenTabChanges(NULL, &m_TabManager.GetCurrentContentTab());
     LoadInitialFile(openfilepath, is_internal);
+    ChangeSignalsWhenTabChanges(NULL, m_TabManager->GetCurrentContentTab());
     loadPluginsMenu();
 }
 
@@ -299,7 +298,7 @@ void MainWindow::unloadPluginsMenu()
 void MainWindow::runPlugin(QAction *action)
 {
     QString pname = action->text();
-    PluginRunner prunner(&m_TabManager, this);
+    PluginRunner prunner(m_TabManager, this);
     prunner.exec(pname);
 }
 
@@ -328,20 +327,20 @@ QSharedPointer<Book> MainWindow::GetCurrentBook()
 }
 
 
-BookBrowser   *MainWindow::GetBookBrowser()
+BookBrowser *MainWindow::GetBookBrowser()
 {
     return m_BookBrowser;
 }
 
 
-ContentTab &MainWindow::GetCurrentContentTab()
+ContentTab *MainWindow::GetCurrentContentTab()
 {
-    return m_TabManager.GetCurrentContentTab();
+    return m_TabManager->GetCurrentContentTab();
 }
 
 FlowTab *MainWindow::GetCurrentFlowTab()
 {
-    return qobject_cast<FlowTab *>(&GetCurrentContentTab());
+    return qobject_cast<FlowTab *>(GetCurrentContentTab());
 }
 
 void MainWindow::ResetLinkOrStyleBookmark()
@@ -368,7 +367,7 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
     }
 
     try {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(locationBookmark->filename);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(locationBookmark->filename);
         // The following OpenResource call will switch ViewState if required to be changed.
         // However in order to ensure the caret is moved to the bookmark which may not be where
         // the tab was last clicked on we must switch view state now.
@@ -385,7 +384,7 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
 void MainWindow::GoToPreviewLocation()
 {
     FlowTab *flow_tab = GetCurrentFlowTab();
-    if (flow_tab && flow_tab->GetLoadedResource().Type() == Resource::HTMLResourceType) {
+    if (flow_tab && flow_tab->GetLoadedResource()->Type() == Resource::HTMLResourceType) {
         flow_tab->GoToCaretLocation(m_PreviewWindow->GetCaretLocation());
     }
 }
@@ -399,17 +398,17 @@ void MainWindow::BookmarkLocation()
 void MainWindow::BookmarkLinkOrStyleLocation()
 {
     ResetLinkOrStyleBookmark();
-    ContentTab &tab = GetCurrentContentTab();
+    ContentTab *tab = GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
-    Resource *current_resource = &tab.GetLoadedResource();
+    Resource *current_resource = tab->GetLoadedResource();
     m_LinkOrStyleBookmark->filename = current_resource->Filename();
     m_LinkOrStyleBookmark->view_state = m_ViewState;
-    m_LinkOrStyleBookmark->cv_cursor_position = tab.GetCursorPosition();
-    m_LinkOrStyleBookmark->bv_caret_location_update = tab.GetCaretLocationUpdate();
+    m_LinkOrStyleBookmark->cv_cursor_position = tab->GetCursorPosition();
+    m_LinkOrStyleBookmark->bv_caret_location_update = tab->GetCaretLocationUpdate();
     ui.actionGoBackFromLinkOrStyle->setEnabled(!m_LinkOrStyleBookmark->filename.isEmpty());
 }
 
@@ -424,7 +423,7 @@ void MainWindow::OpenUrl(const QUrl &url)
     if (url.scheme().isEmpty() || url.scheme() == "file") {
         Resource *resource = m_BookBrowser->GetUrlResource(url);
 
-        if (!resource) {
+        if (resource == NULL) {
             ResetLinkOrStyleBookmark();
             return;
         }
@@ -437,7 +436,7 @@ void MainWindow::OpenUrl(const QUrl &url)
             line = 1;
         }
 
-        OpenResource(*resource, line, -1, QString(), MainWindow::ViewState_Unknown, url.fragment());
+        OpenResource(resource, line, -1, QString(), MainWindow::ViewState_Unknown, url.fragment());
     } else {
         QMessageBox::StandardButton button_pressed;
         button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to open this external link?\n\n%1").arg(url.toString()), QMessageBox::Ok | QMessageBox::Cancel);
@@ -448,7 +447,7 @@ void MainWindow::OpenUrl(const QUrl &url)
     }
 }
 
-void MainWindow::OpenResource(Resource &resource,
+void MainWindow::OpenResource(Resource *resource,
                               int line_to_scroll_to,
                               int position_to_scroll_to,
                               const QString &caret_location_to_scroll_to,
@@ -460,7 +459,7 @@ void MainWindow::OpenResource(Resource &resource,
         view_state = m_ViewState;
     }
 
-    m_TabManager.OpenResource(resource, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to,
+    m_TabManager->OpenResource(resource, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to,
                               view_state, fragment, precede_current_tab);
 
     if (view_state != m_ViewState) {
@@ -468,7 +467,7 @@ void MainWindow::OpenResource(Resource &resource,
     }
 }
 
-void MainWindow::OpenResourceAndWaitUntilLoaded(Resource &resource,
+void MainWindow::OpenResourceAndWaitUntilLoaded(Resource *resource,
         int line_to_scroll_to,
         int position_to_scroll_to,
         const QString &caret_location_to_scroll_to,
@@ -477,20 +476,20 @@ void MainWindow::OpenResourceAndWaitUntilLoaded(Resource &resource,
         bool precede_current_tab)
 {
     OpenResource(resource, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, view_state, fragment, precede_current_tab);
-    while (!GetCurrentContentTab().IsLoadingFinished()) {
+    while (!GetCurrentContentTab()->IsLoadingFinished()) {
         qApp->processEvents();
         SleepFunctions::msleep(100);
     }
 }
 
-void MainWindow::ResourceUpdatedFromDisk(Resource &resource)
+void MainWindow::ResourceUpdatedFromDisk(Resource *resource)
 {
     SettingsStore ss;
-    QString message = QString(tr("File")) + " " + resource.Filename() + " " + tr("was updated") + ".";
+    QString message = QString(tr("File")) + " " + resource->Filename() + " " + tr("was updated") + ".";
     int duration = 10000;
 
-    if (resource.Type() == Resource::HTMLResourceType) {
-        HTMLResource &html_resource = *qobject_cast<HTMLResource *>(&resource);
+    if (resource->Type() == Resource::HTMLResourceType) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         if (!m_Book->IsDataOnDiskWellFormed(html_resource)) {
             OpenResource(resource, -1, -1, QString(), MainWindow::ViewState_CodeView);
             message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well formed and may be corrupted.");
@@ -845,16 +844,16 @@ void MainWindow::Find()
 
 void MainWindow::GoToLine()
 {
-    ContentTab &tab = GetCurrentContentTab();
+    ContentTab *tab = GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
     int line = QInputDialog::getInt(this, tr("Go To Line"), tr("Line #"), -1, 1);
 
     if (line >= 1) {
-        OpenResource(tab.GetLoadedResource(), line, -1, QString(), MainWindow::ViewState_CodeView);
+        OpenResource(tab->GetLoadedResource(), line, -1, QString(), MainWindow::ViewState_CodeView);
     }
 }
 
@@ -869,9 +868,9 @@ void MainWindow::ViewImageDialog(const QUrl &url)
     QString filename = QFileInfo(image_path).fileName();
 
     try {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
-        if (resource.Type() == Resource::ImageResourceType || resource.Type() == Resource::SVGResourceType) {
-            m_ViewImage->ShowImage(resource.GetFullPath());
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+        if (resource->Type() == Resource::ImageResourceType || resource->Type() == Resource::SVGResourceType) {
+            m_ViewImage->ShowImage(resource->GetFullPath());
         }
     } catch (ResourceDoesNotExist) {
         QMessageBox::warning(this, tr("Sigil"), tr("Image does not exist: ") + image_path);
@@ -883,13 +882,13 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
     // Invoked via a signal when the user has requested to navigate to a
     // style definition and none was found in the inline styles, so look
     // at the linked resources for this tab instead.
-    ContentTab &tab = GetCurrentContentTab();
+    ContentTab *tab = GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
-    Resource *current_resource = &tab.GetLoadedResource();
+    Resource *current_resource = tab->GetLoadedResource();
 
     if (current_resource->Type() == Resource::HTMLResourceType) {
         BookmarkLinkOrStyleLocation();
@@ -923,7 +922,7 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
                 }
 
                 if (selector) {
-                    m_TabManager.OpenResource(*css_resource, selector->line);
+                    m_TabManager->OpenResource(css_resource, selector->line);
                     found_match = true;
                     break;
                 }
@@ -941,7 +940,7 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
 
             // Open the first linked stylesheet if any
             if (first_css_resource) {
-                OpenResource(*first_css_resource, 1);
+                OpenResource(first_css_resource, 1);
             }
 
             ShowMessageOnStatusBar(QString(tr("No CSS styles named") +  " " + display_name + " found, " + "or stylesheet not linked."), 7000);
@@ -1016,7 +1015,7 @@ void MainWindow::AddCover()
     // Get the image to use.
     QStringList selected_files;
     // Get just images, not svg files.
-    QList<Resource *> image_resources = m_Book->GetFolderKeeper().GetResourceListByType(Resource::ImageResourceType);
+    QList<Resource *> image_resources = m_Book->GetFolderKeeper()->GetResourceListByType(Resource::ImageResourceType);
     QString title = tr("Add Cover");
     SelectFiles select_files(title, image_resources, m_LastInsertedFile, this);
 
@@ -1050,7 +1049,7 @@ void MainWindow::AddCover()
             html_resources.append(html_resource);
 
             // Check if this is an existing cover file.
-            if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*html_resource) == GuideSemantics::Cover) {
+            if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_resource) == GuideSemantics::Cover) {
                 html_cover_resource = html_resource;
             } else if (resource->Filename().toLower() == HTML_COVER_FILENAME && html_cover_resource == NULL) {
                 html_cover_resource = html_resource;
@@ -1068,27 +1067,27 @@ void MainWindow::AddCover()
 
     // Create an HTMLResource for the cover if it doesn't exist.
     if (html_cover_resource == NULL) {
-        html_cover_resource = &m_Book->CreateHTMLCoverFile(text);
+        html_cover_resource = m_Book->CreateHTMLCoverFile(text);
     } else {
         html_cover_resource->SetText(text);
     }
 
     try {
-        Resource &image_resource = m_Book->GetFolderKeeper().GetResourceByFilename(image_filename);
+        Resource *image_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(image_filename);
 
         // Set cover semantics on both files.
-        if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*html_cover_resource) != GuideSemantics::Cover) {
-            m_Book->GetOPF().AddGuideSemanticType(*html_cover_resource, GuideSemantics::Cover);
+        if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_cover_resource) != GuideSemantics::Cover) {
+            m_Book->GetOPF()->AddGuideSemanticType(html_cover_resource, GuideSemantics::Cover);
         }
-        ImageResource *image_type_resource = qobject_cast<ImageResource *>(&image_resource);
+        ImageResource *image_type_resource = qobject_cast<ImageResource *>(image_resource);
         if (image_type_resource) {
-            if (!m_Book->GetOPF().IsCoverImage(*image_type_resource)) {
-                m_Book->GetOPF().SetResourceAsCoverImage(*image_type_resource);
+            if (!m_Book->GetOPF()->IsCoverImage(image_type_resource)) {
+                m_Book->GetOPF()->SetResourceAsCoverImage(image_type_resource);
             }
 
             // Add the filename and dimensions of the image to the HTML source.
-            QString image_relative_path = "../" + image_resource.GetRelativePathToOEBPS();
-            QImage img(image_resource.GetFullPath());
+            QString image_relative_path = "../" + image_resource->GetRelativePathToOEBPS();
+            QImage img(image_resource->GetFullPath());
             QString text = html_cover_resource->GetText();
             QString width = QString::number(img.width());
             QString height = QString::number(img.height());
@@ -1106,7 +1105,7 @@ void MainWindow::AddCover()
     m_BookBrowser->Refresh();
     m_Book->SetModified();
     clearMemoryCaches();
-    OpenResourceAndWaitUntilLoaded(*html_cover_resource);
+    OpenResourceAndWaitUntilLoaded(html_cover_resource);
     // Reload the tab to ensure it reflects updated image.
     FlowTab *flow_tab = GetCurrentFlowTab();
     if (flow_tab) {
@@ -1154,7 +1153,7 @@ void MainWindow::CreateIndex()
             html_resources.append(html_resource);
 
             // Check if this is an existing index file.
-            if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*html_resource) == GuideSemantics::Index) {
+            if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_resource) == GuideSemantics::Index) {
                 index_resource = html_resource;
             } else if (resource->Filename() == HTML_INDEX_FILE && html_resource == NULL) {
                 index_resource = html_resource;
@@ -1165,15 +1164,15 @@ void MainWindow::CreateIndex()
     // Close the tab so the focus saving doesn't overwrite the text were
     // replacing in the resource.
     if (index_resource != NULL) {
-        m_TabManager.CloseTabForResource(*index_resource);
+        m_TabManager->CloseTabForResource(index_resource);
     }
 
     // Create an HTMLResource for the INDEX if it doesn't exist.
     if (index_resource == NULL) {
-        index_resource = &m_Book->CreateEmptyHTMLFile();
+        index_resource = m_Book->CreateEmptyHTMLFile();
         index_resource->RenameTo(HTML_INDEX_FILE);
         html_resources.append(index_resource);
-        m_Book->GetOPF().UpdateSpineOrder(html_resources);
+        m_Book->GetOPF()->UpdateSpineOrder(html_resources);
     }
 
     // Skip indexing the index page itself
@@ -1190,13 +1189,13 @@ void MainWindow::CreateIndex()
     index_resource->SetText(index.WriteXML());
 
     // Setting a semantic on a resource that already has it set will remove the semantic.
-    if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*index_resource) != GuideSemantics::Index) {
-        m_Book->GetOPF().AddGuideSemanticType(*index_resource, GuideSemantics::Index);
+    if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(index_resource) != GuideSemantics::Index) {
+        m_Book->GetOPF()->AddGuideSemanticType(index_resource, GuideSemantics::Index);
     }
 
     m_Book->SetModified();
     m_BookBrowser->Refresh();
-    OpenResource(*index_resource);
+    OpenResource(index_resource);
     QApplication::restoreOverrideCursor();
 }
 
@@ -1267,7 +1266,7 @@ void MainWindow::OpenFile(QString filename, int line)
     }
 
     try {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
         OpenResource(resource, line);
     } catch (ResourceDoesNotExist) {
         //
@@ -1284,8 +1283,8 @@ void MainWindow::DeleteFilenames(QStringList files_to_delete)
     QList <Resource *> resources;
     foreach(QString filename, files_to_delete) {
         try {
-            Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
-            resources.append(&resource);
+            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+            resources.append(resource);
         } catch (ResourceDoesNotExist) {
             continue;
         }
@@ -1378,7 +1377,7 @@ void MainWindow::DeleteUnusedMedia()
         if (html_files_hash[filepath].count() == 0 && !style_url_files.contains(filepath)) {
             // If used as cover image, consider it referenced.
             ImageResource *image_resource = qobject_cast<ImageResource *>(resource);
-            if (!image_resource || !m_Book->GetOPF().IsCoverImage(*image_resource)) {
+            if (!image_resource || !m_Book->GetOPF()->IsCoverImage(image_resource)) {
                 resources.append(resource);
             }
         }
@@ -1455,8 +1454,8 @@ void MainWindow::InsertFiles(const QStringList &selected_files)
         if (flow_tab->InsertFileEnabled()) {
             foreach(QString selected_file, selected_files) {
                 try {
-                    Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(selected_file);
-                    QString relative_path = "../" + resource.GetRelativePathToOEBPS();
+                    Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(selected_file);
+                    QString relative_path = "../" + resource->GetRelativePathToOEBPS();
 
                     QString filename = relative_path.right(relative_path.length() - relative_path.lastIndexOf("/") - 1);
                     if (filename.contains(".")) {
@@ -1464,12 +1463,12 @@ void MainWindow::InsertFiles(const QStringList &selected_files)
                     }
 
                     QString html;
-                    if (resource.Type() == Resource::ImageResourceType || resource.Type() == Resource::SVGResourceType) {
+                    if (resource->Type() == Resource::ImageResourceType || resource->Type() == Resource::SVGResourceType) {
                         html = QString("<img alt=\"%1\" src=\"%2\"/>").arg(filename).arg(relative_path);
-                    } else if (resource.Type() == Resource::VideoResourceType) {
+                    } else if (resource->Type() == Resource::VideoResourceType) {
                         // When inserted in BV the filename will disappear
                         html = QString("<video controls=\"controls\" src=\"%1\">%2</video>").arg(relative_path).arg(filename);
-                    } else if (resource.Type() == Resource::AudioResourceType) {
+                    } else if (resource->Type() == Resource::AudioResourceType) {
                         html = QString("<audio controls=\"controls\" src=\"%1\">%2</audio>").arg(relative_path).arg(filename);
                     }
 
@@ -1538,7 +1537,7 @@ void MainWindow::InsertId()
         return;
     }
 
-    HTMLResource *html_resource = qobject_cast<HTMLResource *>(&flow_tab->GetLoadedResource());
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(flow_tab->GetLoadedResource());
 
     SelectId select_id(id, html_resource, m_Book, this);
 
@@ -1578,7 +1577,7 @@ void MainWindow::InsertHyperlink()
         return;
     }
 
-    HTMLResource *html_resource = qobject_cast<HTMLResource *>(&flow_tab->GetLoadedResource());
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(flow_tab->GetLoadedResource());
     QList<Resource *> resources = GetAllHTMLResources() + m_BookBrowser->AllMediaResources();
     SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);
 
@@ -1645,8 +1644,8 @@ void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
         UpdateZoomLabel(zoom_factor);
         UpdateZoomSlider(zoom_factor);
     } else {
-        ContentTab &tab = m_TabManager.GetCurrentContentTab();
-        if (&tab != NULL && tab.hasFocus()) {
+        ContentTab *tab = m_TabManager->GetCurrentContentTab();
+        if (tab != NULL && tab->hasFocus()) {
             m_ZoomPreview = false;
             float zoom_factor = GetZoomFactor();
             UpdateZoomLabel(zoom_factor);
@@ -1799,7 +1798,7 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
 void MainWindow::PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel::clipEntry *> &clips)
 {
     FlowTab *flow_tab = GetCurrentFlowTab();
-    if (flow_tab && flow_tab->GetLoadedResource().Type() == Resource::HTMLResourceType) {
+    if (flow_tab && flow_tab->GetLoadedResource()->Type() == Resource::HTMLResourceType) {
         bool applied = flow_tab->PasteClipEntries(clips);
         if (applied) {
             flow_tab->setFocus();
@@ -1848,15 +1847,15 @@ void MainWindow::MergeResources(QList <Resource *> resources)
             return;
         }
     }
-    if (!m_TabManager.IsAllTabDataWellFormed()) {
+    if (!m_TabManager->IsAllTabDataWellFormed()) {
         QMessageBox::warning(this, tr("Sigil"), tr("Merge cancelled due to XML not well formed."));
         return;
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
     // Close all tabs being updated to prevent BV overwriting the new data
-    foreach(Resource * resource, resources) {
-        m_TabManager.CloseTabForResource(*resource);
+    foreach(Resource *resource, resources) {
+        m_TabManager->CloseTabForResource(resource);
     }
     // Display progress dialog
     Resource *resource_to_open = resources.first();
@@ -1871,7 +1870,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         m_BookBrowser->Refresh();
     }
 
-    OpenResource(*resource_to_open);
+    OpenResource(resource_to_open);
     UpdateBrowserSelectionToTab();
     QApplication::restoreOverrideCursor();
     ShowMessageOnStatusBar(tr("Merge completed. You may need to regenerate or edit your Table Of Contents."));
@@ -1905,28 +1904,28 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
     }
 
     Resource *current_resource = NULL;
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    ContentTab *tab = m_TabManager->GetCurrentContentTab();
 
-    if (&tab != NULL) {
-        current_resource = &tab.GetLoadedResource();
+    if (tab != NULL) {
+        current_resource = tab->GetLoadedResource();
     }
 
     // Close all tabs being updated to prevent BV overwriting the new data
-    foreach(Resource * resource, resources) {
-        m_TabManager.CloseTabForResource(*resource);
+    foreach(Resource *resource, resources) {
+        m_TabManager->CloseTabForResource(resource);
     }
     QStringList stylesheets = link.GetStylesheets();
     QApplication::setOverrideCursor(Qt::WaitCursor);
     // Convert HTML resources into HTMLResource types
     QList<HTMLResource *>html_resources;
-    foreach(Resource * resource, resources) {
+    foreach(Resource *resource, resources) {
         html_resources.append(qobject_cast<HTMLResource *>(resource));
     }
     LinkUpdates::UpdateLinksInAllFiles(html_resources, stylesheets);
     m_Book->SetModified();
 
     if (current_resource && resources.contains(current_resource)) {
-        OpenResource(*current_resource);
+        OpenResource(current_resource);
     }
 
     SelectResources(resources);
@@ -1943,7 +1942,7 @@ void MainWindow::FindWord(QString word)
     QString current_html_filename;
     FlowTab *flow_tab = GetCurrentFlowTab();
     if (flow_tab) {
-        Resource *resource = &flow_tab->GetLoadedResource();
+        Resource *resource = flow_tab->GetLoadedResource();
         if (resource->Type() == Resource::HTMLResourceType) {
             current_html_resource = qobject_cast<HTMLResource *>(resource);
             current_html_filename = current_html_resource->Filename();
@@ -1993,7 +1992,7 @@ void MainWindow::FindWord(QString word)
         int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
         if (found_pos >= 0) {
             if (resource->Filename() != current_html_filename) {
-                OpenResourceAndWaitUntilLoaded(*resource, -1, found_pos);
+                OpenResourceAndWaitUntilLoaded(resource, -1, found_pos);
             }
             FlowTab *flow_tab = GetCurrentFlowTab();
             if (flow_tab) {
@@ -2089,9 +2088,9 @@ void MainWindow::RemoveResources(QList<Resource *> resources)
     }
     // Provide the open tab list to ensure one tab stays open
     if (resources.count() > 0) {
-        m_BookBrowser->RemoveResources(m_TabManager.GetTabResources(), resources);
+        m_BookBrowser->RemoveResources(m_TabManager->GetTabResources(), resources);
     } else {
-        m_BookBrowser->RemoveSelection(m_TabManager.GetTabResources());
+        m_BookBrowser->RemoveSelection(m_TabManager->GetTabResources());
     }
     if ((pw_showing) && !m_PreviewWindow->IsVisible()) {
         m_PreviewWindow->show();
@@ -2137,7 +2136,7 @@ void MainWindow::GenerateToc()
     }
     QApplication::setOverrideCursor(Qt::WaitCursor);
     // Regenerate the NCX regardless of whether headings were changed, in case the user erased it.
-    bool is_ncx_changed = m_Book->GetNCX().GenerateNCXFromBookContents(*m_Book);
+    bool is_ncx_changed = m_Book->GetNCX()->GenerateNCXFromBookContents(m_Book.data());
 
     if (is_headings_changed || is_ncx_changed) {
         // Reload the current tab to see visual impact if user changed heading level(s)
@@ -2188,7 +2187,7 @@ void MainWindow::CreateHTMLTOC()
             htmlResources.append(htmlResource);
 
             // Check if this is an existing toc file.
-            if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*htmlResource) == GuideSemantics::TableOfContents) {
+            if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(htmlResource) == GuideSemantics::TableOfContents) {
                 tocResource = htmlResource;
             } else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
                 tocResource = htmlResource;
@@ -2199,36 +2198,36 @@ void MainWindow::CreateHTMLTOC()
     // Close the tab so the focus saving doesn't overwrite the text were
     // replacing in the resource.
     if (tocResource != NULL) {
-        m_TabManager.CloseTabForResource(*tocResource);
+        m_TabManager->CloseTabForResource(tocResource);
     }
 
     // Create the an HTMLResource for the TOC if it doesn't exit.
     if (tocResource == NULL) {
-        tocResource = &m_Book->CreateEmptyHTMLFile();
+        tocResource = m_Book->CreateEmptyHTMLFile();
         tocResource->RenameTo(HTML_TOC_FILE);
         htmlResources.insert(0, tocResource);
-        m_Book->GetOPF().UpdateSpineOrder(htmlResources);
+        m_Book->GetOPF()->UpdateSpineOrder(htmlResources);
     }
 
     TOCHTMLWriter toc(m_TableOfContents->GetRootEntry());
     tocResource->SetText(toc.WriteXML());
 
     // Setting a semantic on a resource that already has it set will remove the semantic.
-    if (m_Book->GetOPF().GetGuideSemanticTypeForResource(*tocResource) != GuideSemantics::TableOfContents) {
-        m_Book->GetOPF().AddGuideSemanticType(*tocResource, GuideSemantics::TableOfContents);
+    if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(tocResource) != GuideSemantics::TableOfContents) {
+        m_Book->GetOPF()->AddGuideSemanticType(tocResource, GuideSemantics::TableOfContents);
     }
 
     m_Book->SetModified();
     m_BookBrowser->Refresh();
-    OpenResource(*tocResource);
+    OpenResource(tocResource);
     QApplication::restoreOverrideCursor();
 }
 
 void MainWindow::ChangeCasing(int casing_mode)
 {
-    ContentTab &tab = GetCurrentContentTab();
+    ContentTab *tab = GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
@@ -2259,16 +2258,16 @@ void MainWindow::ChangeCasing(int casing_mode)
             return;
     }
 
-    tab.ChangeCasing(casing);
+    tab->ChangeCasing(casing);
 }
 
 void MainWindow::MarkSelection()
 {
-    ContentTab &tab = GetCurrentContentTab();
-    if (&tab == NULL) {
+    ContentTab *tab = GetCurrentContentTab();
+    if (tab == NULL) {
         return;
     }
-    bool marked = tab.MarkSelection();
+    bool marked = tab->MarkSelection();
     m_FindReplace->ShowHideMarkedText(marked);
     if (marked) {
         ShowMessageOnStatusBar(tr("Text selection marked."));
@@ -2283,11 +2282,11 @@ void MainWindow::ClearMarkedText(ContentTab *old_tab)
     if (old_tab) {
         cleared = old_tab->ClearMarkedText();
     } else {
-        ContentTab &tab = GetCurrentContentTab();
-        if (&tab == NULL) {
+        ContentTab *tab = GetCurrentContentTab();
+        if (tab == NULL) {
             return;
         }
-        cleared = tab.ClearMarkedText();
+        cleared = tab->ClearMarkedText();
     }
     if (cleared) {
         // Only show message if there was a selection to clear.
@@ -2299,13 +2298,13 @@ void MainWindow::ClearMarkedText(ContentTab *old_tab)
 
 void MainWindow::ToggleViewState()
 {
-    ContentTab &tab = GetCurrentContentTab();
+    ContentTab *tab = GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
-    Resource::ResourceType type = tab.GetLoadedResource().Type();
+    Resource::ResourceType type = tab->GetLoadedResource()->Type();
 
     if (type == Resource::HTMLResourceType) {
         if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -2367,12 +2366,12 @@ void MainWindow::ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry)
 
 void MainWindow::CloseAllTabs()
 {
-    m_TabManager.CloseAllTabs();
+    m_TabManager->CloseAllTabs();
 }
 
 void MainWindow::SaveTabData()
 {
-    m_TabManager.SaveTabData();
+    m_TabManager->SaveTabData();
 }
 
 void MainWindow::MetaEditorDialog()
@@ -2414,7 +2413,7 @@ void MainWindow::PreferencesDialog()
     preferences.exec();
 
     if (preferences.isReloadTabsRequired()) {
-        m_TabManager.ReopenTabs(m_ViewState);
+        m_TabManager->ReopenTabs(m_ViewState);
     } else if (preferences.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set
@@ -2437,7 +2436,7 @@ void MainWindow::ManagePluginsDialog()
 
     // other preferences may have been changed as well
     if (preferences.isReloadTabsRequired()) {
-        m_TabManager.ReopenTabs(m_ViewState);
+        m_TabManager->ReopenTabs(m_ViewState);
     } else if (preferences.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set
@@ -2508,17 +2507,17 @@ void MainWindow::SetViewState(MainWindow::ViewState view_state)
 
 void MainWindow::UpdateViewState(bool set_tab_state)
 {
-    ContentTab &tab = GetCurrentContentTab();
+    ContentTab *tab = GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
-    Resource::ResourceType type = tab.GetLoadedResource().Type();
+    Resource::ResourceType type = tab->GetLoadedResource()->Type();
 
     if (type == Resource::HTMLResourceType) {
         if (set_tab_state) {
-            FlowTab *ftab = dynamic_cast<FlowTab *>(&tab);
+            FlowTab *ftab = dynamic_cast<FlowTab *>(tab);
 
             if (ftab) {
                 bool view_state_changed = ftab->SetViewState(m_ViewState);
@@ -2558,51 +2557,51 @@ void MainWindow::UpdateViewState(bool set_tab_state)
 
 void MainWindow::UpdateUIOnTabChanges()
 {
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    ContentTab *tab = m_TabManager->GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
     // Set enabled state based on selection change
-    ui.actionCut                ->setEnabled(tab.CutEnabled());
-    ui.actionCopy               ->setEnabled(tab.CopyEnabled());
-    ui.actionPaste              ->setEnabled(tab.PasteEnabled());
-    ui.actionDeleteLine         ->setEnabled(tab.DeleteLineEnabled());
-    ui.actionAddToIndex         ->setEnabled(tab.AddToIndexEnabled());
-    ui.actionMarkForIndex       ->setEnabled(tab.MarkForIndexEnabled());
-    ui.actionRemoveFormatting   ->setEnabled(tab.RemoveFormattingEnabled());
+    ui.actionCut                ->setEnabled(tab->CutEnabled());
+    ui.actionCopy               ->setEnabled(tab->CopyEnabled());
+    ui.actionPaste              ->setEnabled(tab->PasteEnabled());
+    ui.actionDeleteLine         ->setEnabled(tab->DeleteLineEnabled());
+    ui.actionAddToIndex         ->setEnabled(tab->AddToIndexEnabled());
+    ui.actionMarkForIndex       ->setEnabled(tab->MarkForIndexEnabled());
+    ui.actionRemoveFormatting   ->setEnabled(tab->RemoveFormattingEnabled());
     // Set whether icons are checked
-    ui.actionBold           ->setChecked(tab.BoldChecked());
-    ui.actionItalic         ->setChecked(tab.ItalicChecked());
-    ui.actionUnderline      ->setChecked(tab.UnderlineChecked());
-    ui.actionStrikethrough  ->setChecked(tab.StrikethroughChecked());
-    ui.actionSubscript      ->setChecked(tab.SubscriptChecked());
-    ui.actionSuperscript    ->setChecked(tab.SuperscriptChecked());
-    ui.actionAlignLeft      ->setChecked(tab.AlignLeftChecked());
-    ui.actionAlignRight     ->setChecked(tab.AlignRightChecked());
-    ui.actionAlignCenter    ->setChecked(tab.AlignCenterChecked());
-    ui.actionAlignJustify   ->setChecked(tab.AlignJustifyChecked());
-    ui.actionInsertBulletedList ->setChecked(tab.BulletListChecked());
-    ui.actionInsertNumberedList ->setChecked(tab.NumberListChecked());
+    ui.actionBold           ->setChecked(tab->BoldChecked());
+    ui.actionItalic         ->setChecked(tab->ItalicChecked());
+    ui.actionUnderline      ->setChecked(tab->UnderlineChecked());
+    ui.actionStrikethrough  ->setChecked(tab->StrikethroughChecked());
+    ui.actionSubscript      ->setChecked(tab->SubscriptChecked());
+    ui.actionSuperscript    ->setChecked(tab->SuperscriptChecked());
+    ui.actionAlignLeft      ->setChecked(tab->AlignLeftChecked());
+    ui.actionAlignRight     ->setChecked(tab->AlignRightChecked());
+    ui.actionAlignCenter    ->setChecked(tab->AlignCenterChecked());
+    ui.actionAlignJustify   ->setChecked(tab->AlignJustifyChecked());
+    ui.actionInsertBulletedList ->setChecked(tab->BulletListChecked());
+    ui.actionInsertNumberedList ->setChecked(tab->NumberListChecked());
     // State of zoom controls depends on current tab/view
     float zoom_factor = GetZoomFactor();
     UpdateZoomLabel(zoom_factor);
     UpdateZoomSlider(zoom_factor);
-    UpdateCursorPositionLabel(tab.GetCursorLine(), tab.GetCursorColumn());
-    SelectEntryOnHeadingToolbar(tab.GetCaretElementName());
+    UpdateCursorPositionLabel(tab->GetCursorLine(), tab->GetCursorColumn());
+    SelectEntryOnHeadingToolbar(tab->GetCaretElementName());
 }
 
 
 void MainWindow::UpdateUIWhenTabsSwitch()
 {
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    ContentTab *tab = m_TabManager->GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
-    tab.UpdateDisplay();
+    tab->UpdateDisplay();
     UpdateViewState();
     ClearMarkedText();
 }
@@ -2610,10 +2609,10 @@ void MainWindow::UpdateUIWhenTabsSwitch()
 
 void MainWindow::UpdateUIOnTabCountChange()
 {
-    ui.actionNextTab       ->setEnabled(m_TabManager.GetTabCount() > 1);
-    ui.actionPreviousTab   ->setEnabled(m_TabManager.GetTabCount() > 1);
-    ui.actionCloseTab      ->setEnabled(m_TabManager.GetTabCount() > 1);
-    ui.actionCloseOtherTabs->setEnabled(m_TabManager.GetTabCount() > 1);
+    ui.actionNextTab       ->setEnabled(m_TabManager->GetTabCount() > 1);
+    ui.actionPreviousTab   ->setEnabled(m_TabManager->GetTabCount() > 1);
+    ui.actionCloseTab      ->setEnabled(m_TabManager->GetTabCount() > 1);
+    ui.actionCloseOtherTabs->setEnabled(m_TabManager->GetTabCount() > 1);
 }
 
 
@@ -2927,8 +2926,7 @@ void MainWindow::SetupPreviewTimer()
 {
     m_PreviewTimer.setSingleShot(true);
     m_PreviewTimer.setInterval(1000);
-    connect(&m_PreviewTimer, SIGNAL(timeout()),
-            this,            SLOT(UpdatePreview()));
+    connect(&m_PreviewTimer, SIGNAL(timeout()), this, SLOT(UpdatePreview()));
 }
 
 void MainWindow::UpdatePreviewRequest()
@@ -2953,16 +2951,16 @@ void MainWindow::UpdatePreview()
     QList<ViewEditor::ElementIndex> location;
     HTMLResource *html_resource;
 
-    ContentTab &tab = GetCurrentContentTab();
-    if (&tab != NULL) {
+    ContentTab *tab = GetCurrentContentTab();
+    if (tab != NULL) {
 
         // Save CSS if update requested from CSS tab
         if (m_SaveCSS) {
             m_SaveCSS = false;
-            tab.SaveTabContent();
+            tab->SaveTabContent();
         }
 
-        html_resource = qobject_cast<HTMLResource *>(&tab.GetLoadedResource());
+        html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
         if (!html_resource) {
             html_resource = m_PreviousHTMLResource;
         } else {
@@ -2970,7 +2968,7 @@ void MainWindow::UpdatePreview()
         }
 
         if (html_resource) {
-            FlowTab *flow_tab = qobject_cast<FlowTab *>(&tab);
+            FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
             if (flow_tab) {
                 // Make sure the document is loaded.  As soon as the views are created
                 // signals are sent that it has changed which requests Preview to update
@@ -3019,9 +3017,9 @@ void MainWindow::UpdateCursorPositionLabel(int line, int column)
 
 void MainWindow::SliderZoom(int slider_value)
 {
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    ContentTab *tab = m_TabManager->GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
@@ -3080,8 +3078,8 @@ void MainWindow::ClearIgnoredWords()
 
 void MainWindow::RefreshSpellingHighlighting()
 {
-    QList<ContentTab *> content_tabs = m_TabManager.GetContentTabs();
-    foreach(ContentTab * content_tab, content_tabs) {
+    QList<ContentTab *> content_tabs = m_TabManager->GetContentTabs();
+    foreach(ContentTab *content_tab, content_tabs) {
         FlowTab *flow_tab = qobject_cast<FlowTab *>(content_tab);
 
         if (flow_tab) {
@@ -3095,14 +3093,14 @@ void MainWindow::UpdateZoomLabel(float new_zoom_factor)
     m_lbZoomLabel->setText(QString("%1% ").arg(qRound(new_zoom_factor * 100)));
 }
 
-void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource &originating_resource)
+void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *originating_resource)
 {
     if (content.isEmpty()) {
         QMessageBox::warning(this, tr("Sigil"), tr("File cannot be split at this position."));
         return;
     }
 
-    HTMLResource &html_resource = m_Book->CreateSectionBreakOriginalResource(content, originating_resource);
+    HTMLResource *html_resource = m_Book->CreateSectionBreakOriginalResource(content, originating_resource);
     m_BookBrowser->Refresh();
     // Open the old shortened content in a new tab preceding the current one.
     // without grabbing focus
@@ -3151,19 +3149,19 @@ void MainWindow::SplitOnSGFSectionMarkers()
         }
     }
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    QList<Resource *> *changed_resources = new QList<Resource *>();
+    QList<Resource *> changed_resources;
     foreach(Resource * resource, html_resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         QStringList new_sections = html_resource->SplitOnSGFSectionMarkers();
 
         if (!new_sections.isEmpty()) {
-            m_Book->CreateNewSections(new_sections, *html_resource);
-            changed_resources->append(resource);
+            m_Book->CreateNewSections(new_sections, html_resource);
+            changed_resources.append(resource);
         }
     }
 
-    if (changed_resources->count() > 0) {
-        m_TabManager.ReloadTabDataForResources(*changed_resources);
+    if (changed_resources.count() > 0) {
+        m_TabManager->ReloadTabDataForResources(changed_resources);
         m_BookBrowser->Refresh();
         ShowMessageOnStatusBar(tr("Split completed. You may need to update the Table of Contents."));
 
@@ -3193,10 +3191,10 @@ void MainWindow::ShowPasteClipboardHistoryDialog()
 // Change the selected/highlighted resource to match the current tab
 void MainWindow::UpdateBrowserSelectionToTab()
 {
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    ContentTab *tab = m_TabManager->GetCurrentContentTab();
 
-    if (&tab != NULL) {
-        m_BookBrowser->UpdateSelection(tab.GetLoadedResource());
+    if (tab != NULL) {
+        m_BookBrowser->UpdateSelection(tab->GetLoadedResource());
     }
 }
 
@@ -3301,8 +3299,8 @@ bool MainWindow::MaybeSaveDialogSaysProceed()
 
 void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
 {
-    m_TabManager.CloseOtherTabs();
-    m_TabManager.CloseAllTabs(true);
+    m_TabManager->CloseOtherTabs();
+    m_TabManager->CloseAllTabs(true);
     m_Book = new_book;
     m_BookBrowser->SetBook(m_Book);
     m_TableOfContents->SetBook(m_Book);
@@ -3316,7 +3314,7 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
     SettingsStore settings;
     settings.setRenameTemplate("");
     connect(m_Book.data(),     SIGNAL(ModifiedStateChanged(bool)), this, SLOT(setWindowModified(bool)));
-    connect(m_Book.data(),     SIGNAL(ResourceUpdatedFromDiskRequest(Resource &)), this, SLOT(ResourceUpdatedFromDisk(Resource &)));
+    connect(m_Book.data(),     SIGNAL(ResourceUpdatedFromDiskRequest(Resource *)), this, SLOT(ResourceUpdatedFromDisk(Resource *)));
     connect(m_BookBrowser,     SIGNAL(ShowStatusMessageRequest(const QString &, int)), this, SLOT(ShowMessageOnStatusBar(const QString &, int)));
     connect(m_BookBrowser,     SIGNAL(ResourcesDeleted()), this, SLOT(ResourcesAddedOrDeleted()));
     connect(m_BookBrowser,     SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
@@ -3499,13 +3497,13 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
             }
         }
 
-        ExporterFactory().GetExporter(fullfilepath, m_Book).WriteBook();
+        ExporterFactory().GetExporter(fullfilepath, m_Book)->WriteBook();
 
         // Return the focus back to the current tab
-        ContentTab &tab = GetCurrentContentTab();
+        ContentTab *tab = GetCurrentContentTab();
 
-        if (&tab != NULL) {
-            tab.setFocus();
+        if (tab != NULL) {
+            tab->setFocus();
         }
 
         if (update_current_filename) {
@@ -3532,9 +3530,9 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
 
 void MainWindow::ZoomByStep(bool zoom_in)
 {
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    ContentTab *tab = m_TabManager->GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
@@ -3561,9 +3559,9 @@ void MainWindow::ZoomByStep(bool zoom_in)
 
 void MainWindow::ZoomByFactor(float new_zoom_factor)
 {
-    ContentTab &tab = m_TabManager.GetCurrentContentTab();
+    ContentTab *tab = m_TabManager->GetCurrentContentTab();
 
-    if (&tab == NULL) {
+    if (tab == NULL) {
         return;
     }
 
@@ -3574,7 +3572,7 @@ void MainWindow::ZoomByFactor(float new_zoom_factor)
     if (m_ZoomPreview && m_PreviewWindow->IsVisible()) {
         m_PreviewWindow->SetZoomFactor(new_zoom_factor);
     } else {
-        tab.SetZoomFactor(new_zoom_factor);
+        tab->SetZoomFactor(new_zoom_factor);
     }
 }
 
@@ -3583,10 +3581,10 @@ float MainWindow::GetZoomFactor()
     if (m_ZoomPreview && m_PreviewWindow->IsVisible()) {
         return m_PreviewWindow->GetZoomFactor();
     } else {
-        ContentTab &tab = m_TabManager.GetCurrentContentTab();
+        ContentTab *tab = m_TabManager->GetCurrentContentTab();
 
-        if (&tab != NULL) {
-            return tab.GetZoomFactor();
+        if (tab != NULL) {
+            return tab->GetZoomFactor();
         }
     }
 
@@ -3647,8 +3645,8 @@ void MainWindow::SetInsertedFileWatchResourceFile(const QString &pathname)
     QString filename = QFileInfo(pathname).fileName();
 
     try {
-        Resource &resource = m_Book->GetFolderKeeper().GetResourceByFilename(filename);
-        m_Book->GetFolderKeeper().WatchResourceFile(resource);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+        m_Book->GetFolderKeeper()->WatchResourceFile(resource);
     } catch (ResourceDoesNotExist) {
         // nothing
     }
@@ -3827,7 +3825,7 @@ void MainWindow::ExtendUI()
     QFrame *frame = new QFrame(this);
     QLayout *layout = new QVBoxLayout(frame);
     frame->setLayout(layout);
-    layout->addWidget(&m_TabManager);
+    layout->addWidget(m_TabManager);
     layout->addWidget(m_FindReplace);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(1);
@@ -4394,10 +4392,10 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionHeadingPreserveAttributes, SIGNAL(triggered(bool)), this, SLOT(SetPreserveHeadingAttributes(bool)));
     connect(m_headingMapper,      SIGNAL(mapped(const QString &)),  this,   SLOT(ApplyHeadingStyleToTab(const QString &)));
     // Window
-    connect(ui.actionNextTab,       SIGNAL(triggered()), &m_TabManager, SLOT(NextTab()));
-    connect(ui.actionPreviousTab,   SIGNAL(triggered()), &m_TabManager, SLOT(PreviousTab()));
-    connect(ui.actionCloseTab,      SIGNAL(triggered()), &m_TabManager, SLOT(CloseTab()));
-    connect(ui.actionCloseOtherTabs, SIGNAL(triggered()), &m_TabManager, SLOT(CloseOtherTabs()));
+    connect(ui.actionNextTab,       SIGNAL(triggered()), m_TabManager, SLOT(NextTab()));
+    connect(ui.actionPreviousTab,   SIGNAL(triggered()), m_TabManager, SLOT(PreviousTab()));
+    connect(ui.actionCloseTab,      SIGNAL(triggered()), m_TabManager, SLOT(CloseTab()));
+    connect(ui.actionCloseOtherTabs, SIGNAL(triggered()), m_TabManager, SLOT(CloseOtherTabs()));
     connect(ui.actionPreviousResource, SIGNAL(triggered()), m_BookBrowser, SLOT(PreviousResource()));
     connect(ui.actionNextResource,     SIGNAL(triggered()), m_BookBrowser, SLOT(NextResource()));
     connect(ui.actionBookmarkLocation,  SIGNAL(triggered()), this,   SLOT(BookmarkLocation()));
@@ -4430,41 +4428,41 @@ void MainWindow::ConnectSignalsToSlots()
     // We also update the label when the slider moves... this is to show
     // the zoom value the slider will land on while it is being moved.
     connect(m_slZoomSlider,         SIGNAL(sliderMoved(int)),  this, SLOT(UpdateZoomLabel(int)));
-    connect(&m_TabManager,          SIGNAL(TabCountChanged()),
+    connect(m_TabManager,          SIGNAL(TabCountChanged()),
             this,                   SLOT(UpdateUIOnTabCountChange()));
-    connect(&m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
+    connect(m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
             this,                   SLOT(ChangeSignalsWhenTabChanges(ContentTab *, ContentTab *)));
-    connect(&m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
+    connect(m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
             this,                   SLOT(UpdateUIWhenTabsSwitch()));
-    connect(&m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
+    connect(m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
             this,                    SLOT(UpdateBrowserSelectionToTab()));
-    connect(&m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
+    connect(m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
             this,                    SLOT(UpdatePreview()));
     connect(m_BookBrowser,          SIGNAL(UpdateBrowserSelection()),
             this,                    SLOT(UpdateBrowserSelectionToTab()));
     connect(m_BookBrowser, SIGNAL(RenumberTOCContentsRequest()),
             m_TableOfContents,     SLOT(RenumberTOCContents()));
     connect(m_BookBrowser, SIGNAL(RemoveTabRequest()),
-            &m_TabManager, SLOT(RemoveTab()));
-    connect(m_BookBrowser, SIGNAL(ResourceActivated(Resource &)),
-            this, SLOT(OpenResource(Resource &)));
+            m_TabManager, SLOT(RemoveTab()));
+    connect(m_BookBrowser, SIGNAL(ResourceActivated(Resource *)),
+            this, SLOT(OpenResource(Resource *)));
     connect(m_BookBrowser, SIGNAL(MergeResourcesRequest(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
     connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
     connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
     connect(m_BookBrowser, SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
-    connect(m_TableOfContents, SIGNAL(OpenResourceRequest(Resource &, int, int, const QString &, MainWindow::ViewState, const QUrl &)),
-            this,     SLOT(OpenResource(Resource &, int, int, const QString &, MainWindow::ViewState, const QUrl &)));
-    connect(m_ValidationResultsView, SIGNAL(OpenResourceRequest(Resource &, int, int, const QString &, MainWindow::ViewState)),
-            this,     SLOT(OpenResource(Resource &, int, int, const QString &, MainWindow::ViewState)));
-    connect(&m_TabManager, SIGNAL(OpenUrlRequest(const QUrl &)),
+    connect(m_TableOfContents, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &, MainWindow::ViewState, const QUrl &)),
+            this,     SLOT(OpenResource(Resource *, int, int, const QString &, MainWindow::ViewState, const QUrl &)));
+    connect(m_ValidationResultsView, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &, MainWindow::ViewState)),
+            this,     SLOT(OpenResource(Resource *, int, int, const QString &, MainWindow::ViewState)));
+    connect(m_TabManager, SIGNAL(OpenUrlRequest(const QUrl &)),
             this, SLOT(OpenUrl(const QUrl &)));
-    connect(&m_TabManager, SIGNAL(OldTabRequest(QString, HTMLResource &)),
-            this,          SLOT(CreateSectionBreakOldTab(QString, HTMLResource &)));
-    connect(&m_TabManager, SIGNAL(ToggleViewStateRequest()),
+    connect(m_TabManager, SIGNAL(OldTabRequest(QString, HTMLResource *)),
+            this,          SLOT(CreateSectionBreakOldTab(QString, HTMLResource *)));
+    connect(m_TabManager, SIGNAL(ToggleViewStateRequest()),
             this,          SLOT(ToggleViewState()));
     connect(m_FindReplace, SIGNAL(OpenSearchEditorRequest(SearchEditorModel::searchEntry *)),
             this,          SLOT(SearchEditorDialog(SearchEditorModel::searchEntry *)));
-    connect(&m_TabManager, SIGNAL(ShowStatusMessageRequest(const QString &, int)), this, SLOT(ShowMessageOnStatusBar(const QString &, int)));
+    connect(m_TabManager, SIGNAL(ShowStatusMessageRequest(const QString &, int)), this, SLOT(ShowMessageOnStatusBar(const QString &, int)));
     connect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
             m_SearchEditor, SLOT(ShowMessage(const QString &)));
     connect(m_FindReplace,   SIGNAL(ClipboardSaveRequest()),     m_ClipboardHistorySelector,  SLOT(SaveClipboardState()));
@@ -4524,7 +4522,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         return;
     }
 
-    rType = tab->GetLoadedResource().Type();
+    rType = tab->GetLoadedResource()->Type();
 
     // Triggered connections should be disconnected in BreakTabConnections
     if (rType != Resource::ImageResourceType && rType != Resource::AudioResourceType && rType != Resource::VideoResourceType) {

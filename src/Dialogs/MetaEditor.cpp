@@ -56,7 +56,7 @@ MetaEditor::~MetaEditor()
 void MetaEditor::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_OPF = &(m_Book->GetOPF());
+    m_OPF = m_Book->GetOPF();
     m_Metadata = m_OPF->GetDCMetadata();
 
     SetUpMetaTable();
@@ -112,7 +112,7 @@ void MetaEditor::AddEmptyMetadataToTable(const QStringList &metanames)
         Metadata::MetaElement book_meta;
         book_meta.name = metaname;
 
-        if (Metadata::Instance().IsRelator(book_meta.name)) {
+        if (Metadata::Instance()->IsRelator(book_meta.name)) {
             book_meta.role_type = "contributor";
         }
 
@@ -152,11 +152,11 @@ void MetaEditor::AddMetadataToTable(Metadata::MetaElement book_meta, int row)
     QString fullname;
 
     if (book_meta.name == "date") {
-        fullname = Metadata::Instance().GetText("date");
+        fullname = Metadata::Instance()->GetText("date");
     } else if (book_meta.name == "identifier") {
-        fullname = Metadata::Instance().GetText("identifier");
+        fullname = Metadata::Instance()->GetText("identifier");
     } else {
-        fullname = Metadata::Instance().GetName(book_meta.name);
+        fullname = Metadata::Instance()->GetName(book_meta.name);
     }
 
     // Add name, making sure its not editable
@@ -166,7 +166,7 @@ void MetaEditor::AddMetadataToTable(Metadata::MetaElement book_meta, int row)
     m_MetaModel.setData(m_MetaModel.index(row, 1), book_meta.value);
 
     // Add file_as and role_type and set editable based on type of entry
-    if (Metadata::Instance().IsRelator(book_meta.name)) {
+    if (Metadata::Instance()->IsRelator(book_meta.name)) {
         // File As
         m_MetaModel.setData(m_MetaModel.index(row, 2), book_meta.file_as);
         // Role Type - always ensure a default value
@@ -176,7 +176,7 @@ void MetaEditor::AddMetadataToTable(Metadata::MetaElement book_meta, int row)
             role = "contributor";
         }
 
-        m_MetaModel.setData(m_MetaModel.index(row, 3), Metadata::Instance().GetText(role));
+        m_MetaModel.setData(m_MetaModel.index(row, 3), Metadata::Instance()->GetText(role));
     } else if (book_meta.name == "date" || book_meta.name == "identifier") {
         // File As or Event description
         m_MetaModel.setData(m_MetaModel.index(row, 2), book_meta.file_as);
@@ -196,7 +196,7 @@ void MetaEditor::AddMetadataToTable(Metadata::MetaElement book_meta, int row)
 
 void MetaEditor::AddBasic()
 {
-    AddMetadata addmeta(Metadata::Instance().GetBasicMetaMap(), this);
+    AddMetadata addmeta(Metadata::Instance()->GetBasicMetaMap(), this);
 
     if (addmeta.exec() == QDialog::Accepted) {
         AddEmptyMetadataToTable(addmeta.GetSelectedEntries());
@@ -206,7 +206,7 @@ void MetaEditor::AddBasic()
 
 void MetaEditor::AddRole()
 {
-    AddMetadata addmeta(Metadata::Instance().GetRelatorMap(), this);
+    AddMetadata addmeta(Metadata::Instance()->GetRelatorMap(), this);
 
     if (addmeta.exec() == QDialog::Accepted) {
         AddEmptyMetadataToTable(addmeta.GetSelectedEntries());
@@ -224,12 +224,12 @@ void MetaEditor::Copy()
     int row = ui.tvMetaTable->selectionModel()->selectedIndexes().first().row();
     QString code = m_MetaModel.data(m_MetaModel.index(row, 0)).toString();
 
-    if (code == Metadata::Instance().GetText("date")) {
+    if (code == Metadata::Instance()->GetText("date")) {
         code = "date";
-    } else if (code == Metadata::Instance().GetText("identifier")) {
+    } else if (code == Metadata::Instance()->GetText("identifier")) {
         code = "identifier";
     } else {
-        code = Metadata::Instance().GetCode(code);
+        code = Metadata::Instance()->GetCode(code);
     }
 
     book_meta.name = code;
@@ -260,9 +260,9 @@ void MetaEditor::AddMetaElement(QString name, QVariant value, QString role_type,
     book_meta.name = name;
     book_meta.value = value;
 
-    if (role_type == Metadata::Instance().GetText("creator")) {
+    if (role_type == Metadata::Instance()->GetText("creator")) {
         book_meta.role_type = "creator";
-    } else if (role_type == Metadata::Instance().GetText("contributor")) {
+    } else if (role_type == Metadata::Instance()->GetText("contributor")) {
         book_meta.role_type = "contributor";
     }
 
@@ -295,7 +295,7 @@ bool MetaEditor::SaveData()
         author_name = author_file_as;
     }
 
-    AddMetaElements("aut", InputsInField(author_name), Metadata::Instance().GetText("creator"), author_file_as);
+    AddMetaElements("aut", InputsInField(author_name), Metadata::Instance()->GetText("creator"), author_file_as);
     AddMetaElements("language", InputsInField(ui.cbLanguages->currentText()));
 
     // Save the table
@@ -308,14 +308,14 @@ bool MetaEditor::SaveData()
         QString code;
 
         // Handle date differently due to event name stored in file_as
-        if (name == Metadata::Instance().GetText("date")) {
+        if (name == Metadata::Instance()->GetText("date")) {
             code = "date";
         }
         // Handle identifier differently due to scheme name stored in file_as
-        else if (name == Metadata::Instance().GetText("identifier")) {
+        else if (name == Metadata::Instance()->GetText("identifier")) {
             code = "identifier";
         } else {
-            code = Metadata::Instance().GetCode(name);
+            code = Metadata::Instance()->GetCode(name);
         }
 
         // For string-based metadata, create multiple entries

@@ -181,7 +181,7 @@ protected slots:
 
 protected:
 
-    QMenu &m_ContextMenu;
+    QMenu *m_ContextMenu;
 
 private slots:
 

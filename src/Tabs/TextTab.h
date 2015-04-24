@@ -38,10 +38,12 @@ class TextTab : public ContentTab
 
 public:
 
-    TextTab(TextResource &resource,
+    TextTab(TextResource *resource,
             CodeViewEditor::HighlighterType type,
             int line_to_scroll_to = -1,
             QWidget *parent = 0);
+
+    ~TextTab();
 
     void ScrollToLine(int line);
 
@@ -140,7 +142,7 @@ private:
 protected:
 
     // The plain text code editor
-    CodeViewEditor &m_wCodeView;
+    CodeViewEditor *m_wCodeView;
 
 private:
 
@@ -148,7 +150,7 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    TextResource &m_TextResource;
+    TextResource *m_TextResource;
 
     int m_LineToScrollTo;
 
