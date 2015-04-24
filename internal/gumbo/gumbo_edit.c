@@ -192,7 +192,7 @@ void gumbo_remove_from_parent(GumboNode* node) {
          node->parent->type == GUMBO_NODE_TEMPLATE ||
          node->parent->type == GUMBO_NODE_DOCUMENT);
   GumboVector* children = &node->parent->v.element.children;
-  if (&node->parent->type == GUMBO_NODE_DOCUMENT) {
+  if (node->parent->type == GUMBO_NODE_DOCUMENT) {
       children = &node->parent->v.document.children;
   }
   int index = gumbo_vector_index_of(children, node);
