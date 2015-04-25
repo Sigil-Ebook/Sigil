@@ -130,7 +130,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     nitem->setText(QLocale().toString(total_size, 'f', 2));
     rowItems << nitem;
 
-    QFont font = *new QFont();
+    QFont font;
     font.setWeight(QFont::Bold);
     for (int i = 0; i < rowItems.count(); i++) {
         rowItems[i]->setEditable(false);

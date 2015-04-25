@@ -459,7 +459,7 @@ QStandardItem *ClipEditorModel::AddEntryToModel(ClipEditorModel::clipEntry *entr
 
     if (entry->is_group) {
         group_item = new QStandardItem(entry->name);
-        QFont font = *new QFont();
+        QFont font;
         font.setWeight(QFont::Bold);
         group_item->setFont(font);
         rowItems << group_item;

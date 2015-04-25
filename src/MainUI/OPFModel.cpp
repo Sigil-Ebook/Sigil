@@ -528,18 +528,18 @@ void OPFModel::SortHTMLFilesByReadingOrder()
 void OPFModel::SortHTMLFilesByAlphanumeric(QList <QModelIndex> index_list)
 {
     // Get items for all selected indexes
-    QList <QStandardItem *> item_list;
+    QList<QStandardItem *> item_list;
     foreach(QModelIndex index, index_list) {
         QStandardItem *qitem = itemFromIndex(index);
         item_list.append(qitem);
     }
     // Create new model for selected items to allow temporary sorting
-    QStandardItemModel &sort_model = * new QStandardItemModel();
+    QStandardItemModel sort_model;
     sort_model.setSortRole(ALPHANUMERIC_ORDER_ROLE);
-    QStandardItem &items = *new QStandardItem();
-    sort_model.setItem(0, &items);
+    QStandardItem *items = new QStandardItem();
+    sort_model.setItem(0, items);
     int first_item_position = -1;
-    foreach(QStandardItem * item, item_list) {
+    foreach(QStandardItem *item, item_list) {
         int i = 0;
 
         while (i < m_TextFolderItem->rowCount()) {
@@ -548,9 +548,9 @@ void OPFModel::SortHTMLFilesByAlphanumeric(QList <QModelIndex> index_list)
                     first_item_position = i;
                 }
 
-                QList <QStandardItem *> removed_items = m_TextFolderItem->takeRow(i--);
-                foreach(QStandardItem * one_item, removed_items) {
-                    items.appendRow(one_item);
+                QList<QStandardItem *> removed_items = m_TextFolderItem->takeRow(i--);
+                foreach(QStandardItem *one_item, removed_items) {
+                    items->appendRow(one_item);
                 }
                 break;
             }
@@ -558,11 +558,11 @@ void OPFModel::SortHTMLFilesByAlphanumeric(QList <QModelIndex> index_list)
             i++;
         }
     }
-    items.sortChildren(0);
+    items->sortChildren(0);
 
-    for (int i = 0; i < items.rowCount(); ++i) {
-        QList <QStandardItem *> removed_items = items.takeRow(i--);
-        foreach(QStandardItem * one_item, removed_items) {
+    for (int i = 0; i < items->rowCount(); ++i) {
+        QList<QStandardItem *> removed_items = items->takeRow(i--);
+        foreach(QStandardItem *one_item, removed_items) {
             m_TextFolderItem->insertRow(first_item_position++, one_item);
         }
     }

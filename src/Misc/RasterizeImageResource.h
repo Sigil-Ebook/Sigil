@@ -37,6 +37,7 @@ class RasterizeImageResource : public QObject
 public:
 
     RasterizeImageResource(QWidget *parent = 0);
+    ~RasterizeImageResource();
 
     QPixmap operator()(const ImageResource &resource, float zoom_factor);
 
@@ -46,7 +47,7 @@ private slots:
 
 private:
 
-    QWebPage &m_WebPage;
+    QWebPage *m_WebPage;
 
     bool m_LoadFinishedFlag;
 
