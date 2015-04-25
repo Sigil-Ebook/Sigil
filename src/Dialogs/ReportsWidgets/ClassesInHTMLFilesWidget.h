@@ -64,7 +64,7 @@ private:
     void connectSignalsSlots();
 
     void SetupTable();
-    void AddTableData(QList<BookReports::StyleData *> html_classes_usage);
+    void AddTableData(const QList<BookReports::StyleData *> html_classes_usage);
 
     QSharedPointer<Book> m_Book;
 

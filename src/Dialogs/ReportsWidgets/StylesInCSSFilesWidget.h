@@ -75,7 +75,7 @@ private:
 
     void SetupTable();
 
-    void AddTableData(QList<BookReports::StyleData *> css_selectors_usage);
+    void AddTableData(const QList<BookReports::StyleData *> css_selectors_usage);
 
     QSharedPointer<Book> m_Book;
 

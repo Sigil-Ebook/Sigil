@@ -47,7 +47,7 @@ public:
     };
 
     static QList<BookReports::StyleData *> GetHTMLClassUsage(QSharedPointer<Book> book, bool show_progress = false);
-    static QList<BookReports::StyleData *> GetCSSSelectorUsage(QSharedPointer<Book> book, QList<BookReports::StyleData *> html_classes_usage);
+    static QList<BookReports::StyleData *> GetCSSSelectorUsage(QSharedPointer<Book> book, const QList<BookReports::StyleData *> html_classes_usage);
 };
 
 #endif // BOOKREPORTS_H

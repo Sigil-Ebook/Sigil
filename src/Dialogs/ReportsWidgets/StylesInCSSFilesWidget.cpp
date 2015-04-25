@@ -60,7 +60,9 @@ void StylesInCSSFilesWidget::CreateReport(QSharedPointer<Book> book)
     QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_Book);
     // Get the list of selectors in CSS files and if they were matched by HTML classes
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_classes_usage);
+    qDeleteAll(html_classes_usage);
     AddTableData(css_selector_usage);
+    qDeleteAll(css_selector_usage);
 
     for (int i = 0; i < ui.fileTree->header()->count(); i++) {
         ui.fileTree->resizeColumnToContents(i);
@@ -89,9 +91,9 @@ void StylesInCSSFilesWidget::SetupTable()
     );
 }
 
-void StylesInCSSFilesWidget::AddTableData(QList<BookReports::StyleData *> css_selectors_usage)
+void StylesInCSSFilesWidget::AddTableData(const QList<BookReports::StyleData *> css_selectors_usage)
 {
-    foreach(BookReports::StyleData * selector_usage, css_selectors_usage) {
+    foreach(BookReports::StyleData *selector_usage, css_selectors_usage) {
         // Write the table entries
         QList<QStandardItem *> rowItems;
         // File name
