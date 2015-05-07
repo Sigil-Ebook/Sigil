@@ -1482,7 +1482,7 @@ static void generate_all_implied_end_tags_thoroughly(GumboParser* parser) {
 // scope which was successfully closed, false if not and the token should be
 // ignored.  Does not add parse errors; callers should handle that.
 static bool close_table(GumboParser* parser) {
-  if (!has_an_element_in_table_scope(parser, GUMBO_TAG_TABLE)) {
+  if (!has_an_Element_in_table_scope(parser, GUMBO_TAG_TABLE)) {
     return false;
   }
 
@@ -3457,7 +3457,9 @@ static bool handle_in_select(GumboParser* parser, GumboToken* token) {
   } else if (tag_is(token, kStartTag, GUMBO_TAG_SELECT)) {
     parser_add_parse_error(parser, token);
     ignore_token(parser);
-    close_current_select(parser);
+    if (has_an_element_in_select_scope(parser, GUMBO_TAG_SELECT)) {
+      close_current_select(parser);
+    }
     return false;
   } else if (tag_in(token, kStartTag, (gumbo_tagset) { TAG(INPUT), TAG(KEYGEN), TAG(TEXTAREA) })) {
     parser_add_parse_error(parser, token);

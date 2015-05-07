@@ -188,23 +188,11 @@ static void update_position(Utf8Iterator* iter) {
   }
 }
 
-// Use a table for the first byte of utf8_is_invalid_code_point, for
-// performance.
-static const uint8_t kInvalidSingleByte[] = {
-  0,1,1,1,1,1,1,1, 1,0,0,1,0,0,1,1, 1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1, 
-  0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 
-  0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 
-  0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,1, 
-  1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1, 
-  0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 
-  0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 
-  0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0, 
-};
-
 // Returns true if this Unicode code point is in the list of characters
 // forbidden by the HTML5 spec, such as undefined control chars.
 bool utf8_is_invalid_code_point(int c) {
-  return (c < 0xFF && kInvalidSingleByte[c]) || (c >= 0xFDD0 && c <= 0xFDEF) || 
+  return (c >= 0x1 && c <= 0x8) || c == 0xB || (c >= 0xE && c <= 0x1F) ||
+    (c >= 0x7F && c <= 0x9F) || (c >= 0xFDD0 && c <= 0xFDEF) ||
     ((c & 0xFFFF) == 0xFFFE) || ((c & 0xFFFF) == 0xFFFF);
 }
 
