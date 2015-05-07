@@ -105,15 +105,17 @@ FolderKeeper::~FolderKeeper()
         return;
     }
 
-    delete m_FSWatcher;
-    m_FSWatcher = 0;
-    foreach(Resource * resource, m_Resources.values()) {
+    if (m_FSWatcher) {
+        delete m_FSWatcher;
+        m_FSWatcher = 0;
+    }
+
+    foreach(Resource *resource, m_Resources.values()) {
         // We disconnect the Deleted signal, since if we don't
         // the OPF will try to update itself on every resource
         // removal (and there's no point to that, FolderKeeper is dying).
         // Disconnecting this speeds up FolderKeeper destruction.
-        disconnect(resource, SIGNAL(Deleted(const Resource *)),
-                   this,     SLOT(RemoveResource(const Resource *)));
+        disconnect(resource, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
         resource->Delete();
     }
 }

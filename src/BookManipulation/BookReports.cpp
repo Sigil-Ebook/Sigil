@@ -104,12 +104,12 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer<Bo
     return html_classes_usage;
 }
 
-QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QSharedPointer<Book> book, QList<BookReports::StyleData *> html_classes_usage)
+QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QSharedPointer<Book> book, const QList<BookReports::StyleData *> html_classes_usage)
 {
     QList<CSSResource *> css_resources = book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);
     QList<BookReports::StyleData *> css_selectors_usage;
     // Now check the CSS files to see if their classes appear in an HTML file
-    foreach(CSSResource * css_resource, css_resources) {
+    foreach(CSSResource *css_resource, css_resources) {
         QString text = css_resource->GetText();
         CSSInfo css_info(text, true);
         QList<CSSInfo::CSSSelector *> selectors = css_info.getClassSelectors();
@@ -121,7 +121,7 @@ QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QSharedPointer<
             selector_usage->css_selector_text = selector->groupText;
             selector_usage->css_selector_position = selector->position;
             selector_usage->css_selector_line = selector->line;
-            foreach(BookReports::StyleData * html_class, html_classes_usage) {
+            foreach(BookReports::StyleData *html_class, html_classes_usage) {
                 if (css_filename == html_class->css_filename && selector->position == html_class->css_selector_position) {
                     selector_usage->html_filename = html_class->html_filename;
                     break;

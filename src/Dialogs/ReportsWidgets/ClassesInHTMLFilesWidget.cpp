@@ -57,6 +57,7 @@ void ClassesInHTMLFilesWidget::CreateReport(QSharedPointer<Book> book)
     SetupTable();
     QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_Book);
     AddTableData(html_classes_usage);
+    qDeleteAll(html_classes_usage);
 
     for (int i = 0; i < ui.fileTree->header()->count(); i++) {
         ui.fileTree->resizeColumnToContents(i);
@@ -89,9 +90,9 @@ void ClassesInHTMLFilesWidget::SetupTable()
     );
 }
 
-void ClassesInHTMLFilesWidget::AddTableData(QList<BookReports::StyleData *> html_classes_usage)
+void ClassesInHTMLFilesWidget::AddTableData(const QList<BookReports::StyleData *> html_classes_usage)
 {
-    foreach(BookReports::StyleData * class_usage, html_classes_usage) {
+    foreach(BookReports::StyleData *class_usage, html_classes_usage) {
         // Skip custom Sigil classes that are only used as markers not styles
         if (class_usage->html_class_name == SIGIL_NOT_IN_TOC_CLASS ||
             class_usage->html_class_name == OLD_SIGIL_NOT_IN_TOC_CLASS ||

@@ -43,10 +43,19 @@ static const QString PAGE_SOURCE =  "<html xmlns=\"http://www.w3.org/1999/xhtml\
 RasterizeImageResource::RasterizeImageResource(QWidget *parent)
     :
     QObject(parent),
-    m_WebPage(*new QWebPage(this)),
+    m_WebPage(new QWebPage(this)),
     m_LoadFinishedFlag(false)
 {
-    connect(m_WebPage.mainFrame(), SIGNAL(loadFinished(bool)), this, SLOT(SetLoadFinishedFlag()));
+    connect(m_WebPage->mainFrame(), SIGNAL(loadFinished(bool)), this, SLOT(SetLoadFinishedFlag()));
+}
+
+
+RasterizeImageResource::~RasterizeImageResource()
+{
+    if (m_WebPage) {
+        delete m_WebPage;
+        m_WebPage = NULL;
+    }
 }
 
 
@@ -58,8 +67,8 @@ QPixmap RasterizeImageResource::operator()(const ImageResource &resource, float 
 {
     QString source(PAGE_SOURCE);
     source.replace("REPLACEME", Utility::URLEncodePath(resource.Filename()));
-    m_WebPage.mainFrame()->setHtml(source, resource.GetBaseUrl());
-    m_WebPage.mainFrame()->setZoomFactor(zoom_factor);
+    m_WebPage->mainFrame()->setHtml(source, resource.GetBaseUrl());
+    m_WebPage->mainFrame()->setZoomFactor(zoom_factor);
 
     while (!m_LoadFinishedFlag) {
         // Make sure Qt processes events, signals and calls slots
@@ -71,10 +80,10 @@ QPixmap RasterizeImageResource::operator()(const ImageResource &resource, float 
     // can call this func multiple times on the same object
     m_LoadFinishedFlag = false;
     // Now we render the frame onto an image
-    m_WebPage.setViewportSize(m_WebPage.mainFrame()->contentsSize());
-    QImage image(m_WebPage.viewportSize(), QImage::Format_ARGB32);
+    m_WebPage->setViewportSize(m_WebPage->mainFrame()->contentsSize());
+    QImage image(m_WebPage->viewportSize(), QImage::Format_ARGB32);
     QPainter painter(&image);
-    m_WebPage.mainFrame()->render(&painter);
+    m_WebPage->mainFrame()->render(&painter);
     painter.end();
     return QPixmap::fromImage(image);
 }

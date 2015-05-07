@@ -1401,8 +1401,9 @@ void MainWindow::DeleteUnusedStyles()
 
     QList<BookReports::StyleData *> html_class_usage = BookReports::GetHTMLClassUsage(m_Book, true);
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_class_usage);
+    qDeleteAll(html_class_usage);
     QList<BookReports::StyleData *> css_selectors_to_delete;
-    foreach(BookReports::StyleData * selector, css_selector_usage) {
+    foreach(BookReports::StyleData *selector, css_selector_usage) {
         if (selector->html_filename.isEmpty()) {
             css_selectors_to_delete.append(selector);
         }
@@ -1413,6 +1414,7 @@ void MainWindow::DeleteUnusedStyles()
     } else {
         QMessageBox::information(this, tr("Sigil"), tr("There are no unused stylesheet classes to delete."));
     }
+    qDeleteAll(css_selector_usage);
 }
 
 void MainWindow::InsertFileDialog()
