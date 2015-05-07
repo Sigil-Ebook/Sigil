@@ -1482,7 +1482,7 @@ static void generate_all_implied_end_tags_thoroughly(GumboParser* parser) {
 // scope which was successfully closed, false if not and the token should be
 // ignored.  Does not add parse errors; callers should handle that.
 static bool close_table(GumboParser* parser) {
-  if (!has_an_Element_in_table_scope(parser, GUMBO_TAG_TABLE)) {
+  if (!has_an_element_in_table_scope(parser, GUMBO_TAG_TABLE)) {
     return false;
   }
 
