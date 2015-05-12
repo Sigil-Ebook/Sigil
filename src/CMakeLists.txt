@@ -928,6 +928,12 @@ endif()
 #
 # By default, the prefix is /usr/local
 #
+# You can also control the share installation location
+#
+#   cmake -DSHARE_INSTALL_PREFIX=/new/share/install/prefix
+#
+# By default, the prefix is the same as CMAKE_INSTALL_PREFIX
+#
 # You can change the type of Linux binary package by
 # running cmake with this option:
 #
@@ -956,6 +962,12 @@ if( UNIX AND NOT APPLE )
     if ( NOT LINUX_PACKAGE_TYPE STREQUAL "deb" AND NOT LINUX_PACKAGE_TYPE STREQUAL "rpm" )
         message(FATAL_ERROR "Linux package type ${LINUX_PACKAGE_TYPE} is unsupported. Please use 'deb' or 'rpm'.")
     endif()
+
+    if ( NOT SHARE_INSTALL_PREFIX )
+        set ( SHARE_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX} )
+    endif()
+    set ( SIGIL_SHARE_ROOT "${SHARE_INSTALL_PREFIX}/share/sigil" )
+    set_source_files_properties( sigil_constants.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_SHARE_ROOT="${SIGIL_SHARE_ROOT}" )
 
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/sigil-${SIGIL_FULL_VERSION} )
@@ -1201,11 +1213,11 @@ if( UNIX AND NOT APPLE )
     # Standard Linux 'make install'
     install( PROGRAMS ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/ RENAME ${PROJECT_NAME} )
     install( PROGRAMS ${SIGIL_EXECUTABLE} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
-    install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications/ )
-    install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
-    install( FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/translations/ )
-    install( FILES ${DIC_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/hunspell_dictionaries/ )
-    install( FILES ${PLUGIN_FILES_PYTHON} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/plugin_launchers/python/ )
-    install( DIRECTORY ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/ DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/python3lib )
-    install( FILES ${EXAMPLE_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/sigil/examples/ )
+    install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/applications/ )
+    install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
+    install( FILES ${QM_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/translations/ )
+    install( FILES ${DIC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/hunspell_dictionaries/ )
+    install( FILES ${PLUGIN_FILES_PYTHON} DESTINATION ${SIGIL_SHARE_ROOT}/plugin_launchers/python/ )
+    install( DIRECTORY ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/ DESTINATION ${SIGIL_SHARE_ROOT}/python3lib )
+    install( FILES ${EXAMPLE_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/examples/ )
 endif()

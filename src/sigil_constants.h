@@ -110,6 +110,7 @@ extern const QString HTML_COVER_SOURCE;
 
 #if !defined(_WIN32) && !defined(__APPLE__)
 extern const QString sigil_extra_root;
+extern const QString sigil_share_root;
 #endif
 
 #endif // SG_CONSTANTS_H

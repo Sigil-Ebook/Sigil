@@ -87,8 +87,7 @@ QString PluginDB::launcherRoot()
     if (!sigil_extra_root.isEmpty()) {
         launcher_root = sigil_extra_root + "/plugin_launchers/";
     } else {
-        launcher_roots.append(QCoreApplication::applicationDirPath() + "/../../share/sigil/plugin_launchers/");
-        launcher_roots.append(QCoreApplication::applicationDirPath() + "/../share/sigil/plugin_launchers/");
+        launcher_roots.append(sigil_share_root + "/plugin_launchers/");
     }
 #endif
 

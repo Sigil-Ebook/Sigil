@@ -207,8 +207,7 @@ QString EmbeddedPython::embeddedRoot()
     if (!sigil_extra_root.isEmpty()) {
         embedded_roots.append(sigil_extra_root + "/python3lib/");
     } else {
-        embedded_roots.append(QCoreApplication::applicationDirPath() + "/../../share/sigil/python3lib/");
-        embedded_roots.append(QCoreApplication::applicationDirPath() + "/../share/sigil/python3lib/");
+        embedded_roots.append(sigil_share_root + "/python3lib/");
     }
 #endif
     
