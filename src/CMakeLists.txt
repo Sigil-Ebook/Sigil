@@ -973,6 +973,7 @@ if( UNIX AND NOT APPLE )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/sigil-${SIGIL_FULL_VERSION} )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( DEB_TREE_ROOT ${MAIN_PACKAGE_DIR}${CMAKE_INSTALL_PREFIX} )
+    set( DEB_SHARE_PREFIX ${MAIN_PACKAGE_DIR}${SHARE_INSTALL_PREFIX} )
 
     # spec file for RPM or control for DEBIAN
     if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
@@ -993,8 +994,8 @@ if( UNIX AND NOT APPLE )
 	set( NIX_LBL "-${NIX_RPM_ARCH}" )
     else()
 	set( NIX_DEBIAN_ARCH "i386" )
-	set( NIX_RPM_ARCH ${NIX_ARCH} )
-	set( NIX_LBL "-NIX_RPM_ARCH" )
+	set( NIX_RPM_ARCH ${NIX_DEBIAN_ARCH} )
+	set( NIX_LBL "-${NIX_RPM_ARCH}" )
     endif()
 
     # Creates a copy of the Launch script and the DEBIAN control file
@@ -1133,40 +1134,40 @@ if( UNIX AND NOT APPLE )
 
     # Copy the translation qm files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/translations/ )
+                        COMMAND cmake -E make_directory ${DEB_SHARE_PREFIX}/share/sigil/translations/ )
     foreach( QM ${QM_FILES} )
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
-                            COMMAND cmake -E copy ${QM} ${DEB_TREE_ROOT}/share/sigil/translations/ )
+                            COMMAND cmake -E copy ${QM} ${DEB_SHARE_PREFIX}/share/sigil/translations/ )
     endforeach( QM )
 
     # Copy the dictionary files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/hunspell_dictionaries/ )
+                        COMMAND cmake -E make_directory ${DEB_SHARE_PREFIX}/share/sigil/hunspell_dictionaries/ )
     foreach( DIC ${DIC_FILES} )
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
-                            COMMAND cmake -E copy ${DIC} ${DEB_TREE_ROOT}/share/sigil/hunspell_dictionaries/ )
+                            COMMAND cmake -E copy ${DIC} ${DEB_SHARE_PREFIX}/share/sigil/hunspell_dictionaries/ )
     endforeach( DIC )
 
     # Copy the python plugin launcher files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/plugin_launchers/python/ )
+                        COMMAND cmake -E make_directory ${DEB_SHARE_PREFIX}/share/sigil/plugin_launchers/python/ )
     foreach( PLUGFILE ${PLUGIN_FILES_PYTHON} )
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
-                            COMMAND cmake -E copy ${PLUGFILE} ${DEB_TREE_ROOT}/share/sigil/plugin_launchers/python/ )
+                            COMMAND cmake -E copy ${PLUGFILE} ${DEB_SHARE_PREFIX}/share/sigil/plugin_launchers/python/ )
     endforeach( PLUGFILE )
 
     # Copy the python3lib
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/python3lib/ )
+                        COMMAND cmake -E make_directory ${DEB_SHARE_PREFIX}/share/sigil/python3lib/ )
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
-                            COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${DEB_TREE_ROOT}/share/sigil/python3lib/ )
+                            COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${DEB_SHARE_PREFIX}/share/sigil/python3lib/ )
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/sigil/examples/ )
+                        COMMAND cmake -E make_directory ${DEB_SHARE_PREFIX}/share/sigil/examples/ )
     foreach( EXAMPLE ${EXAMPLE_FILES} )
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
-                            COMMAND cmake -E copy ${EXAMPLE} ${DEB_TREE_ROOT}/share/sigil/examples/ )
+                            COMMAND cmake -E copy ${EXAMPLE} ${DEB_SHARE_PREFIX}/share/sigil/examples/ )
     endforeach( EXAMPLE )
 
     # Copy the application executable
@@ -1181,22 +1182,22 @@ if( UNIX AND NOT APPLE )
 
     # Copy the Changelog
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${DEB_TREE_ROOT}/share/sigil/ )
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${DEB_SHARE_PREFIX}/share/sigil/ )
     
     # Copy the license file
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${DEB_TREE_ROOT}/share/sigil/ )
+                        COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${DEB_SHARE_PREFIX}/share/sigil/ )
 
     # Copy the icon file (used on Linux for the application icon)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/pixmaps/ )
+                        COMMAND cmake -E make_directory ${DEB_SHARE_PREFIX}/share/pixmaps/ )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/${LINUX_DESKTOP_ICON_FILE} ${DEB_TREE_ROOT}/share/pixmaps/sigil.png )
+                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/${LINUX_DESKTOP_ICON_FILE} ${DEB_SHARE_PREFIX}/share/pixmaps/sigil.png )
 
     # Copy the desktop file (used on Linux for the application settings)
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${DEB_TREE_ROOT}/share/applications/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${DEB_SHARE_PREFIX}/share/applications/ )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/${LINUX_DESKTOP_FILE} ${DEB_TREE_ROOT}/share/applications/ )
+                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/${LINUX_DESKTOP_FILE} ${DEB_SHARE_PREFIX}/share/applications/ )
 
     if ( LINUX_PACKAGE_TYPE STREQUAL "deb" )
         # Copy the debian control file
