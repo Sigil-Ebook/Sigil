@@ -13,7 +13,7 @@ fi
 
 # Create an environment var for the Sigil helper directory.
 if [ -z "$SIGIL_EXTRA_ROOT" ]; then
-  SIGIL_EXTRA_ROOT="${CMAKE_INSTALL_PREFIX}/share/sigil"
+  SIGIL_EXTRA_ROOT="${SIGIL_SHARE_ROOT}"
   export SIGIL_EXTRA_ROOT
 fi
 
