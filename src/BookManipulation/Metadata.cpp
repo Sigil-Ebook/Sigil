@@ -416,12 +416,12 @@ void Metadata::LoadRelatorCodes()
          tr("Engraver") << "egr" << tr("Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.") <<
          tr("Etcher") << "etr" << tr("Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.") <<
          tr("Expert") << "exp" << tr("Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. ") <<
-         tr("Facsimilist") << "fac" << tr("Use for a person or organization that executed the facsimile. ") <<
+         tr("Facsimilist") << "fac" << tr("Use for a person or organization that executed the facsimile.") <<
          tr("Field director") << "fld" << tr("Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).") <<
          tr("Film editor") << "flm" << tr("Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). ") <<
-         tr("First party") << "fpy" << tr("Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party") <<
+         tr("First party") << "fpy" << tr("Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.") <<
          tr("Forger") << "frg" << tr("Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. ") <<
-         tr("Former owner") << "fmo" << tr("Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr]") <<
+         tr("Former owner") << "fmo" << tr("Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].") <<
          tr("Funder") << "fnd" << tr("Use for a person or organization that furnished financial support for the production of the work.") <<
          tr("Geographic information specialist") << "gis" << tr("Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.") <<
          tr("Honoree") << "hnr" << tr("Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. ") <<
