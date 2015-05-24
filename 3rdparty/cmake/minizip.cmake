@@ -25,7 +25,6 @@ if(APPLE)
     set(PROJECT_C_FLAGS "${PROJECT_C_FLAGS} -DUSE_FILE32API")
 endif()
 
-link_directories(${PROJECT_BINARY_DIR}/lib)
 add_library(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}

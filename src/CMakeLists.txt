@@ -612,12 +612,8 @@ endif()
 include_directories( BEFORE
                      ${HUNSPELL_INCLUDE_DIRS}
                      ${PCRE_INCLUDE_DIRS}
-                     ${GUMBO_SOURCE_DIR}
                      ${MINIZIP_INCLUDE_DIRS}
                      ${ZLIB_INCLUDE_DIRS}
-                     ${XERCESEXTENSIONS_INCLUDE_DIRS}
-                     ${XERCES_INCLUDE_DIRS}
-                     ${BOOST_INCLUDE_DIRS}
                      ${PYTHON_INCLUDE_DIRS}
                      ${GUMBO_INCLUDE_DIRS}
                      ${CMAKE_CURRENT_SOURCE_DIR}
@@ -634,11 +630,19 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
+# To ensure Python is fully built before starting the Sigil build. Otherwise Python files
+# will be missing when Sigil builds in parallel (make -jX). This is only necessary because
+# Python is being built as an external project using it's internal autotools build process
+# and not cmake.
+if( NOT USE_SYSTEM_LIBS OR NOT PYTHON_FOUND )
+    ADD_DEPENDENCIES (${PROJECT_NAME} python)
+endif ()
+
 if (MSVC)
     set(QT_MAIN Qt5::WinMain)
 endif()
 
-target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} gumbo ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${PYTHON_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${PYTHON_LIBRARIES} )
 qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit WebKitWidgets Network Concurrent)
 
 #############################################################################

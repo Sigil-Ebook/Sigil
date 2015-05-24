@@ -51,16 +51,15 @@ if (USE_SYSTEM_LIBS)
     if ( NOT APPLE )
         pkg_check_modules( PCRE libpcre16 )
     endif()
-    #find_package (PythonLibs 3.4)
-endif()
-find_package (PythonLibs 3.4)
+    find_package (PythonLibs 3.4)
+elseif (WIN32)
+    find_package (PythonLibs 3.4)
+ENDIF()
 
 # gumbo-parser it is our main xhtml/html5 parser.
 # We have an internal version because it diverges from Google's and GitHub's
 # versions and neither want's our epub specific changes.
 add_subdirectory( internal/gumbo )
-set( GUMBO_LIBRARIES gumbo )
-set( GUMBO_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/internal/gumbo )
 
 add_subdirectory( 3rdparty/ )
 add_subdirectory( src/ )

@@ -9,9 +9,12 @@
 
 cmake_minimum_required( VERSION 3.0 ) 
 
-project( gumbo )
+project( gumbo C )
 
-file( GLOB SOURCES *.c *.h )
+set( GUMBO_LIBRARIES ${PROJECT_NAME} CACHE INTERNAL "" )
+set( GUMBO_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR} CACHE INTERNAL "" )
+
+file( GLOB SOURCES *.c )
 
 add_library( gumbo ${SOURCES} ) 
 
