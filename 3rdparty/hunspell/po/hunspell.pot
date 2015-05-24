@@ -1,0 +1,432 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: hunspell 1.3.3\n"
+"Report-Msgid-Bugs-To: nemeth@numbertext.org\n"
+"POT-Creation-Date: 2014-06-02 13:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/tools/hunspell.cxx:212 src/tools/hunspell.cxx:320
+#, c-format
+msgid "error - iconv_open: %s -> %s\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:255 src/tools/hunspell.cxx:278
+#, c-format
+msgid "error - iconv_open: UTF-8 -> %s\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:571 src/tools/hunspell.cxx:1391
+#: src/tools/hunspell.cxx:1410 src/tools/hunspell.cxx:1420
+msgid "Can't open inputfile"
+msgstr ""
+
+#: src/tools/hunspell.cxx:624 src/tools/hunspell.cxx:1157
+#: src/tools/hunspell.cxx:1290
+#, c-format
+msgid "error - missing HOME variable\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:708
+#, c-format
+msgid "Line %d: %s -> "
+msgstr ""
+
+#: src/tools/hunspell.cxx:958
+msgid "FORBIDDEN!"
+msgstr ""
+
+#: src/tools/hunspell.cxx:959
+msgid "Spelling mistake?"
+msgstr ""
+
+#: src/tools/hunspell.cxx:961
+#, c-format
+msgid ""
+"\t%s\t\tFile: %s\n"
+"\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1015
+msgid ""
+"\n"
+"[SPACE] R)epl A)ccept I)nsert U)ncap S)tem Q)uit e(X)it or ? for help\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1084
+msgid ""
+"Whenever a word is found that is not in the dictionary\n"
+"it is printed on the first line of the screen.  If the dictionary\n"
+"contains any similar words, they are listed with a number\n"
+"next to each one.  You have the option of replacing the word\n"
+"completely, or choosing one of the suggested words.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1089
+msgid ""
+"\n"
+"Commands are:\n"
+"\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1090
+msgid "R\tReplace the misspelled word completely.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1091
+msgid "Space\tAccept the word this time only.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1092
+msgid "A\tAccept the word for the rest of this session.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1093
+msgid "I\tAccept the word, and put it in your private dictionary.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1094
+msgid "U\tAccept and add lowercase version to private dictionary.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1096
+msgid ""
+"S\tAsk a stem and a model word and store them in the private dictionary.\n"
+"\tThe stem will be accepted also with the affixes of the model word.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1099
+msgid "0-n\tReplace with one of the suggested words.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1100
+msgid ""
+"X\tWrite the rest of this file, ignoring misspellings, and start next file.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1101
+msgid "Q\tQuit immediately. Asks for confirmation. Leaves file unchanged.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1102
+msgid "^Z\tSuspend program. Restart with fg command.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1103
+msgid "?\tShow this help screen.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1104
+msgid ""
+"\n"
+"-- Type space to continue -- \n"
+msgstr ""
+
+#. TRANSLATORS: translate this letter according to the shortcut letter used
+#. previously in the  translation of "R)epl" before
+#: src/tools/hunspell.cxx:1114
+msgid "r"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1126
+msgid "Replace with: "
+msgstr ""
+
+#. TRANSLATORS: translate these letters according to the shortcut letter used
+#. previously in the  translation of "U)ncap" and I)nsert before
+#. TRANSLATORS: translate this letter according to the shortcut letter used
+#. previously in the  translation of "U)ncap" and I)nsert before
+#: src/tools/hunspell.cxx:1147 src/tools/hunspell.cxx:1179
+msgid "u"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1148 src/tools/hunspell.cxx:1179
+msgid "i"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1173 src/tools/hunspell.cxx:1306
+#, c-format
+msgid "Cannot update personal dictionary."
+msgstr ""
+
+#: src/tools/hunspell.cxx:1179
+msgid "a"
+msgstr ""
+
+#. TRANSLATORS: translate this letter according to the shortcut letter used
+#. previously in the  translation of "S)tem" before
+#: src/tools/hunspell.cxx:1186
+msgid "s"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1220
+msgid "New word (stem): "
+msgstr ""
+
+#: src/tools/hunspell.cxx:1248
+msgid "Model word (a similar dictionary word): "
+msgstr ""
+
+#: src/tools/hunspell.cxx:1312
+msgid "Model word must be in the dictionary. Press any key!"
+msgstr ""
+
+#. TRANSLATORS: translate this letter according to the shortcut letter used
+#. previously in the  translation of "e(X)it" before
+#: src/tools/hunspell.cxx:1321
+msgid "x"
+msgstr ""
+
+#. TRANSLATORS: translate this letter according to the shortcut letter used
+#. previously in the  translation of "Q)uit" before
+#: src/tools/hunspell.cxx:1326
+msgid "q"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1328
+msgid "Are you sure you want to throw away your changes? "
+msgstr ""
+
+#. TRANSLATORS: translate this letter according to the shortcut letter y)es
+#: src/tools/hunspell.cxx:1330
+msgid "y"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1430
+msgid "Can't create tempfile"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1469
+msgid "Can't open outputfile"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1621
+#, c-format
+msgid "Usage: hunspell [OPTION]... [FILE]...\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1622
+#, c-format
+msgid ""
+"Check spelling of each FILE. Without FILE, check standard input.\n"
+"\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1623
+#, c-format
+msgid "  -1\t\tcheck only first field in lines (delimiter = tabulator)\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1624
+#, c-format
+msgid "  -a\t\tIspell's pipe interface\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1625
+#, c-format
+msgid "  --check-url\tcheck URLs, e-mail addresses and directory paths\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1626
+#, c-format
+msgid "  --check-apostrophe\tcheck Unicode typographic apostrophe\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1627
+#, c-format
+msgid "  -d d[,d2,...]\tuse d (d2 etc.) dictionaries\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1628
+#, c-format
+msgid "  -D\t\tshow available dictionaries\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1629
+#, c-format
+msgid "  -G\t\tprint only correct words or lines\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1630
+#, c-format
+msgid "  -h, --help\tdisplay this help and exit\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1631
+#, c-format
+msgid "  -H\t\tHTML input file format\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1632
+#, c-format
+msgid "  -i enc\tinput encoding\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1633
+#, c-format
+msgid "  -l\t\tprint misspelled words\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1634
+#, c-format
+msgid "  -L\t\tprint lines with misspelled words\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1635
+#, c-format
+msgid "  -m \t\tanalyze the words of the input text\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1636
+#, c-format
+msgid "  -n\t\tnroff/troff input file format\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1637
+#, c-format
+msgid "  -O\t\tOpenDocument (ODF or Flat ODF) input file format\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1638
+#, c-format
+msgid "  -p dict\tset dict custom dictionary\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1639
+#, c-format
+msgid "  -r\t\twarn of the potential mistakes (rare words)\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1640
+#, c-format
+msgid "  -P password\tset password for encrypted dictionaries\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1641
+#, c-format
+msgid "  -s \t\tstem the words of the input text\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1642
+#, c-format
+msgid "  -t\t\tTeX/LaTeX input file format\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1648
+#, c-format
+msgid "  -v, --version\tprint version number\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1649
+#, c-format
+msgid "  -vv\t\tprint Ispell compatible version number\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1650
+#, c-format
+msgid "  -w\t\tprint misspelled words (= lines) from one word/line input.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1651
+#, c-format
+msgid ""
+"  -X\t\tXML input file format\n"
+"\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1652
+#, c-format
+msgid ""
+"Example: hunspell -d en_US file.txt    # interactive spelling\n"
+"         hunspell -i utf-8 file.txt    # check UTF-8 encoded file\n"
+"         hunspell -l *.odt             # print misspelled words of ODF "
+"files\n"
+"\n"
+"         # Quick fix of ODF documents by personal dictionary creation\n"
+"\n"
+"         # 1 Make a reduced list from misspelled and unknown words:\n"
+"\n"
+"         hunspell -l *.odt | sort | uniq >words\n"
+"\n"
+"         # 2 Delete misspelled words of the file by a text editor.\n"
+"         # 3 Use this personal dictionary to fix the deleted words:\n"
+"\n"
+"         hunspell -p words *.odt\n"
+"\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1661
+#, c-format
+msgid "Bug reports: http://hunspell.sourceforge.net\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1667
+#, c-format
+msgid ""
+"\n"
+"Copyright (C) 2002-2014 László Németh. License: MPL/GPL/LGPL.\n"
+"\n"
+"Based on OpenOffice.org's Myspell library.\n"
+"Myspell's copyright (C) Kevin Hendricks, 2001-2002, License: BSD.\n"
+"\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1670
+#, c-format
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE,\n"
+"to the extent permitted by law.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1770 src/tools/hunspell.cxx:1894
+#: src/tools/hunspell.cxx:1911
+#, c-format
+msgid "Can't open %s.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1819
+#, c-format
+msgid ""
+"SEARCH PATH:\n"
+"%s\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1820
+#, c-format
+msgid "AVAILABLE DICTIONARIES (path is not mandatory for -d option):\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1832
+#, c-format
+msgid ""
+"LOADED DICTIONARY:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1850
+#, c-format
+msgid "error - %s exceeds dictionary limit.\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1854
+#, c-format
+msgid "Can't open affix or dictionary files for dictionary named \"%s\".\n"
+msgstr ""
+
+#: src/tools/hunspell.cxx:1921
+#, c-format
+msgid "Hunspell has been compiled without Ncurses user interface.\n"
+msgstr ""

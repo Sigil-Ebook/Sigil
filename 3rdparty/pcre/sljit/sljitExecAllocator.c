@@ -287,3 +287,26 @@ SLJIT_API_FUNC_ATTRIBUTE void sljit_free_exec(void* ptr)
 
 	allocator_release_lock();
 }
+
+SLJIT_API_FUNC_ATTRIBUTE void sljit_free_unused_memory_exec(void)
+{
+	struct free_block* free_block;
+	struct free_block* next_free_block;
+
+	allocator_grab_lock();
+
+	free_block = free_blocks;
+	while (free_block) {
+		next_free_block = free_block->next;
+		if (!free_block->header.prev_size && 
+				AS_BLOCK_HEADER(free_block, free_block->size)->size == 1) {
+			total_size -= free_block->size;
+			sljit_remove_free_block(free_block);
+			free_chunk(free_block, free_block->size + sizeof(struct block_header));
+		}
+		free_block = next_free_block;
+	}
+
+	SLJIT_ASSERT((total_size && free_blocks) || (!total_size && !free_blocks));
+	allocator_release_lock();
+}

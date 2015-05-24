@@ -14,7 +14,7 @@
  * The Original Code is Hunspell, based on MySpell.
  *
  * The Initial Developers of the Original Code are
- * Kevin Hendricks (MySpell) and Laszlo Nemeth (Hunspell).
+ * Kevin Hendricks (MySpell) and Németh László (Hunspell).
  * Portions created by the Initial Developers are Copyright (C) 2002-2005
  * the Initial Developers. All Rights Reserved.
  *
@@ -24,23 +24,21 @@
  * Giuseppe Modugno 
  * Gianluca Turconi
  * Simon Brouwer
- * Noll Janos
- * Biro Arpad
- * Goldman Eleonora
- * Sarlos Tamas
- * Bencsath Boldizsar
- * Halacsy Peter
- * Dvornik Laszlo
- * Gefferth Andras
+ * Noll János
+ * Bíró Árpád
+ * Goldman Eleonóra
+ * Sarlós Tamás
+ * Bencsáth Boldizsár
+ * Halácsy Péter
+ * Dvornik László
+ * Gefferth András
  * Nagy Viktor
- * Varga Daniel
+ * Varga Dániel
  * Chris Halls
  * Rene Engelhard
  * Bram Moolenaar
  * Dafydd Jones
- * Harri Pitkanen
- * Andras Timar
- * Tor Lillqvist
+ * Harri Pitkänen
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -55,5 +53,3 @@
  * the terms of any one of the MPL, the GPL or the LGPL.
  *
  * ***** END LICENSE BLOCK ***** */
-
-#include "config.h"
