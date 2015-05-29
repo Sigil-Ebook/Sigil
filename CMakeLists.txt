@@ -51,10 +51,8 @@ if (USE_SYSTEM_LIBS)
     if ( NOT APPLE )
         pkg_check_modules( PCRE libpcre16 )
     endif()
-    find_package (PythonLibs 3.4)
-elseif (WIN32)
-    find_package (PythonLibs 3.4)
-ENDIF()
+endif()
+find_package (PythonLibs 3.4)
 
 # gumbo-parser it is our main xhtml/html5 parser.
 # We have an internal version because it diverges from Google's and GitHub's
