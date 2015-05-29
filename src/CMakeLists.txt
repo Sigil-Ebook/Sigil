@@ -634,9 +634,9 @@ endif()
 # will be missing when Sigil builds in parallel (make -jX). This is only necessary because
 # Python is being built as an external project using it's internal autotools build process
 # and not cmake.
-if( NOT USE_SYSTEM_LIBS OR NOT PYTHON_FOUND )
-    ADD_DEPENDENCIES (${PROJECT_NAME} python)
-endif ()
+#if( NOT USE_SYSTEM_LIBS OR NOT PYTHON_FOUND )
+#    ADD_DEPENDENCIES (${PROJECT_NAME} python)
+#endif ()
 
 if (MSVC)
     set(QT_MAIN Qt5::WinMain)
