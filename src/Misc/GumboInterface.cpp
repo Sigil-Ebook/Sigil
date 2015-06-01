@@ -38,7 +38,7 @@ static std::string no_entity_sub       = "|script|style|";
 static std::string href_src_tags       = "|a|audio|image|img|link|script|video|";
 static std::string nonbreaking_inline  = "|a|abbr|acronym|b|bdo|big|cite|code|dfn|em|font|i|img|kbd|nobr|s|small|span|strike|strong|sub|sup|tt|";
 static std::string empty_tags          = "|area|base|basefont|bgsound|br|command|col|embed|event-source|frame|hr|image|img|input|keygen|link|menuitem|meta|param|source|spacer|track|wbr|";
-static std::string manifest_properties = "|math|svg|epub:switch|nav|";
+static std::string manifest_properties = "|math|nav|script|svg|epub:switch|";
 
 static const QChar POUND_SIGN    = QChar::fromLatin1('#');
 static const QChar FORWARD_SLASH = QChar::fromLatin1('/');

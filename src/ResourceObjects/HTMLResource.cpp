@@ -103,9 +103,10 @@ QStringList HTMLResource::GetManifestProperties() const
     gi.parse();
     QStringList props = gi.get_all_properties();
     if (props.contains("math")) properties.append("mathml");
-    if (props.contains("svg"))  properties.append("svg");
-    if (props.contains("nav"))  properties.append("nav");
-    if (props.contains("epub:switch"))  properties.append("switch");
+    if (props.contains("svg")) properties.append("svg");
+    if (props.contains("nav")) properties.append("nav");
+    if (props.contains("script")) properties.append("scripted");
+    if (props.contains("epub:switch")) properties.append("switch");
     return properties;
 }
 
