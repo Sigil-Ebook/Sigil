@@ -99,6 +99,8 @@ public:
      */
     QStringList GetLinkedStylesheets();
 
+    QStringList GetManifestProperties() const;
+
     bool DeleteCSStyles(QList<CSSInfo::CSSSelector *> css_selectors);
 
 signals:

@@ -71,6 +71,8 @@ public:
 
     void SaveToDisk(bool book_wide_save = false);
 
+    QString GetPackageVersion() const;
+
     // Also creates such an ident if none was found
     QString GetUUIDIdentifierValue();
 

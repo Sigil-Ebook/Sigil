@@ -38,6 +38,7 @@ static std::string no_entity_sub       = "|script|style|";
 static std::string href_src_tags       = "|a|audio|image|img|link|script|video|";
 static std::string nonbreaking_inline  = "|a|abbr|acronym|b|bdo|big|cite|code|dfn|em|font|i|img|kbd|nobr|s|small|span|strike|strong|sub|sup|tt|";
 static std::string empty_tags          = "|area|base|basefont|bgsound|br|command|col|embed|event-source|frame|hr|image|img|input|keygen|link|menuitem|meta|param|source|spacer|track|wbr|";
+static std::string manifest_properties = "|math|svg|epub:switch|nav|";
 
 static const QChar POUND_SIGN    = QChar::fromLatin1('#');
 static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
@@ -123,6 +124,19 @@ QString GumboInterface::getxhtml()
 }
 
 
+QStringList GumboInterface::get_all_properties()
+{
+    QStringList properties;
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+    }
+    properties = get_properties(m_output->root);
+    return properties;
+}
+
+
 QString GumboInterface::perform_source_updates(const QHash<QString, QString>& updates, const QString& my_current_book_relpath)
 {
     m_sourceupdates = updates;
@@ -181,6 +195,24 @@ QString GumboInterface::get_body_contents()
     enum UpdateTypes doupdates = NoUpdates;
     std::string results = serialize_contents(nodes.at(0), doupdates);
     return QString::fromStdString(results);
+}
+
+
+QStringList GumboInterface::get_properties(GumboNode* node)
+{
+    if (node->type != GUMBO_NODE_ELEMENT) {
+        return QStringList();
+    }
+    QStringList properties;
+    std::string tagname = get_tag_name(node);
+    if (manifest_properties.find(tagname) != std::string::npos) {
+        properties.append(QString::fromStdString(tagname));
+    }
+    GumboVector* children = &node->v.element.children;
+    for (int i = 0; i < children->length; ++i) {
+        properties.append(get_properties(static_cast<GumboNode*>(children->data[i])));
+    }
+    return properties;
 }
 
 
