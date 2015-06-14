@@ -51,6 +51,9 @@ public:
     QString repair();
     QString getxhtml();
 
+    // returns list tags that match manifest properties
+    QStringList get_all_properties();
+
     // returns "html" node
     GumboNode * get_root_node();
 
@@ -94,6 +97,7 @@ private:
     };
 
     // QString fix_self_closing_tags(const QString & source);
+    QStringList get_properties(GumboNode* node);
     QList<GumboNode*> get_nodes_with_attribute(GumboNode* node, const char * att_name);
     QStringList get_values_for_attr(GumboNode* node, const char* attr_name);
     QList<GumboNode*> get_nodes_with_tags(GumboNode* node, const QList<GumboTag> & tags);

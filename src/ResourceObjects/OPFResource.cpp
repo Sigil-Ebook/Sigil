@@ -209,6 +209,17 @@ void OPFResource::SaveToDisk(bool book_wide_save)
     TextResource::SaveToDisk(book_wide_save);
 }
 
+
+QString OPFResource::GetPackageVersion() const
+{
+  QReadLocker locker(&GetLock());
+  QString source = CleanSource::ProcessXML(GetText());
+  OPFParser p;
+  p.parse(source);
+  return p.m_package.m_version;
+}
+
+
 QString OPFResource::GetUUIDIdentifierValue()
 {
     EnsureUUIDIdentifierPresent();
@@ -451,6 +462,15 @@ void OPFResource::AddResource(const Resource *resource)
     me.m_id = GetUniqueID(GetValidID(resource->Filename()),p);
     me.m_href = resource->GetRelativePathToOEBPS();
     me.m_mtype = GetResourceMimetype(resource);
+    if (resource->Type() == Resource::HTMLResourceType) {
+        if (p.m_package.m_version == "3.0") {
+            const HTMLResource * html_resource = qobject_cast<const HTMLResource *>(resource);
+            QStringList properties = html_resource->GetManifestProperties();
+            if (properties.count() > 0) {
+                me.m_atts["properties"] = properties.join(QString(" "));
+            }
+        }
+    }
     int n = p.m_manifest.count();
     p.m_manifest.append(me);
     p.m_idpos[me.m_id] = n;

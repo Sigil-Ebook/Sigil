@@ -95,6 +95,22 @@ QStringList HTMLResource::GetLinkedStylesheets()
 }
 
 
+QStringList HTMLResource::GetManifestProperties() const
+{
+    QStringList properties;
+    QReadLocker locker(&GetLock());
+    GumboInterface gi = GumboInterface(GetText());
+    gi.parse();
+    QStringList props = gi.get_all_properties();
+    if (props.contains("math")) properties.append("mathml");
+    if (props.contains("svg")) properties.append("svg");
+    if (props.contains("nav")) properties.append("nav");
+    if (props.contains("script")) properties.append("scripted");
+    if (props.contains("epub:switch")) properties.append("switch");
+    return properties;
+}
+
+
 QStringList HTMLResource::SplitOnSGFSectionMarkers()
 {
     QStringList sections = XhtmlDoc::GetSGFSectionSplits(GetText());
@@ -106,6 +122,7 @@ QStringList HTMLResource::SplitOnSGFSectionMarkers()
 QStringList HTMLResource::GetPathsToLinkedResources()
 {
     QStringList linked_resources;
+    QReadLocker locker(&GetLock());
     GumboInterface gi = GumboInterface(GetText());
     gi.parse();
     QList<GumboTag> tags;
