@@ -1,0 +1,23 @@
+$ mkdir build
+$ cd build
+$ cmake -DCMAKE_BUILD_TYPE=Release -DFORCE_BUNDLED_COPIES=1 -DCMAKE_PREFIX_PATH=/usr/local/opt/qt5/lib/cmake/ -DCODE_SIGN_ID="XXX" -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/ ..
+$ make -j9
+$ PATH=/usr/local/opt/qt5/bin/:$PATH make addframeworks
+$ spctl --assess --type execute bin/Sigil.app
+$ PATH=/usr/local/opt/qt5/bin/:$PATH make makedmg
+
+x64
+> PATH=%PATH%;"C:\Program Files (x86)\CMake";"C:\Program Files (x86)\Inno Setup 5";"C:\Qt\x64\Qt5.4.0\5.4\msvc2013_64\bin
+> mkdir build_64
+> cd build_64
+> cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DFORCE_BUNDLED_COPIES=1 -DQt5_DIR="C:\Qt\x64\5.4.0\5.4\msvc2013_64\lib\cmake\Qt5" -DCMAKE_BUILD_TYPE=Release ..
+> nmake
+> nmake makeinstaller
+
+x86
+> PATH=%PATH%;"C:\Program Files (x86)\CMake";"C:\Program Files (x86)\Inno Setup 5";"C:\Qt\x86\Qt5.4.0\5.4\msvc2013\bin
+> mkdir build_32
+> cd build_32
+> cmake -G "NMake Makefiles" -DFORCE_BUNDLED_COPIES=1 -DQt5_DIR="C:\Qt\x86\5.4.0\5.4\msvc2013\lib\cmake\Qt5" -DCMAKE_BUILD_TYPE=Release ..
+> nmake
+> nmake makeinstaller
