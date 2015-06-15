@@ -29,7 +29,7 @@
 
 const QString VERSION_NUMBERS = "(\\d+)\\.(\\d+)\\.(\\d+)";
 const QString SIGIL_VERSION   = QString(SIGIL_FULL_VERSION);
-const QString SIGIL_HOMEPAGE  = "http://code.google.com/p/sigil/";
+const QString SIGIL_HOMEPAGE  = "http://sigil-ebook.com";
 const QString GNU_LICENSE     = "http://www.gnu.org/licenses/gpl-3.0-standalone.html";
 
 
@@ -48,11 +48,17 @@ About::About(QWidget *parent)
                            .arg(mo.captured(2).toInt())
                            .arg(mo.captured(3).toInt());
     ui.lbVersionDisplay->setText(version_text);
-    QString credits = "<h4>" + tr("Maintainer / Lead Developer") + "</h4>" +
-                      "<ul><li>John Schember</li></ul>" +
-                      "<h4>" + tr("Code Contributors") + "</h4>" +
+    QString credits = "<h4>" + tr("Maintainer(s)") + "</h4>" +
                       "<ul>" +
                       "<li>Kevin Hendricks</li>" +
+                      "<li>Doug Massay</li>" +
+                      "</ul>" +
+                      "<h4>" + tr("Previous Maintainer(s)") + "</h4>" +
+                      "<ul>" +
+                      "<li>John Schember</li>" +
+                      "</ul>" +
+                      "<h4>" + tr("Code Contributors") + "</h4>" +
+                      "<ul>" +
                       "<li>Grant Drake</li>" +
                       "<li>Dave Heiland</li>" +
                       "<li>Charles King</li>" +

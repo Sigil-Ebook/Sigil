@@ -11,7 +11,7 @@ Release: 1
 License: GPLv3
 Group: Applications/Editors
 SOURCE0 : sigil-${SIGIL_FULL_VERSION}.tar.gz
-URL: http://github.com/user-none/Sigil/
+URL: http://sigil-ebook.com
 AutoReqProv: no
 
 %description
