@@ -122,7 +122,9 @@ QStringList HTMLResource::SplitOnSGFSectionMarkers()
 QStringList HTMLResource::GetPathsToLinkedResources()
 {
     QStringList linked_resources;
-    QReadLocker locker(&GetLock());
+    // Can NOT grab Read Lock here as this is also invoked in SetText which has write lock!
+    // leading to instant lockup when renaming any resource
+    // QReadLocker locker(&GetLock());
     GumboInterface gi = GumboInterface(GetText());
     gi.parse();
     QList<GumboTag> tags;
