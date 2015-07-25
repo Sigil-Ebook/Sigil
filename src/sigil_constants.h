@@ -108,6 +108,10 @@ extern const QString SGC_INDEX_CSS_FILENAME;
 extern const QString HTML_COVER_FILENAME;
 extern const QString HTML_COVER_SOURCE;
 
+extern const QString sep;
+extern const QString python_sys_path;
+extern const QStringList python_src_paths;
+
 #if !defined(_WIN32) && !defined(__APPLE__)
 extern const QString sigil_extra_root;
 extern const QString sigil_share_root;

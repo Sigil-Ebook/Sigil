@@ -304,7 +304,6 @@ set( MISC_FILES
     Misc/PyObjectPtr.h
     Misc/PyObjectPtr.cpp
     Misc/EmbeddedPython.h
-    Misc/EmbeddedPython.cpp
     Misc/GumboInterface.h
     Misc/GumboInterface.cpp
     )
@@ -512,6 +511,16 @@ set( LINUX_DEBIAN_CONTROL_FILE
 set( LINUX_RPM_SPEC_FILE
     Resource_Files/bash/specfile
     )
+
+if ( NOT DEFINED PKG_SYSTEM_PYTHON )
+    set ( PKG_SYSTEM_PYTHON 1 )
+endif()
+
+if ( PKG_SYSTEM_PYTHON )
+    set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPythonPkg.cpp)
+else()
+    set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPython.cpp)
+endif()
 
 set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
@@ -978,6 +987,7 @@ if( UNIX AND NOT APPLE )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( DEB_TREE_ROOT ${MAIN_PACKAGE_DIR}${CMAKE_INSTALL_PREFIX} )
     set( DEB_SHARE_PREFIX ${MAIN_PACKAGE_DIR}${SHARE_INSTALL_PREFIX} )
+    set( PYTHON_DEST_DIR ${DEB_TREE_ROOT}/lib/sigil/python )
 
     # spec file for RPM or control for DEBIAN
     if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
@@ -1011,6 +1021,8 @@ if( UNIX AND NOT APPLE )
     endif()
     configure_file( ${LINUX_LAUNCH_INSTALL_SCRIPT} ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} )
     configure_file( ${LINUX_LAUNCH_PKG_SCRIPT} ${LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED} )
+    configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
+    configure_file( Resource_Files/python_pkg/linux_python_freeze.py ${CMAKE_BINARY_DIR}/linux_python_freeze.py )
 
     # Create custom target "linuxbinpkg" to create either a debian or rpm package (-DLINUX_PACKAGE_TYPE).
     if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
@@ -1165,6 +1177,14 @@ if( UNIX AND NOT APPLE )
                         COMMAND cmake -E make_directory ${DEB_SHARE_PREFIX}/share/sigil/python3lib/ )
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
                             COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${DEB_SHARE_PREFIX}/share/sigil/python3lib/ )
+
+    # Create python virtual environment
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${PYTHON_DEST_DIR}/lib/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${PYTHON_DEST_DIR}/bin/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+                        COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/linux_python_freeze.py )
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
