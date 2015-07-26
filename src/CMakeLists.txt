@@ -518,8 +518,8 @@ endif()
 
 if ( PKG_SYSTEM_PYTHON )
     if ( MSVC )
-		set_source_files_properties(Misc/EmbeddedPythonPkg.cpp
-                        PROPERTIES COMPILE_FLAGS "/Zc:wchar_t")
+	set_source_files_properties(Misc/EmbeddedPythonPkg.cpp
+                       PROPERTIES COMPILE_FLAGS "/Zc:wchar_t")
 	endif()
     set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPythonPkg.cpp)
 else()
@@ -793,7 +793,7 @@ elseif (MSVC)
                         COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
 
     # windeployqt
-	add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
 	    windeployqt.exe --release --webkit2 --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
 
     # Copy the translation qm files
