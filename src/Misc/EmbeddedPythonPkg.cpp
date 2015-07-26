@@ -174,21 +174,16 @@ EmbeddedPython* EmbeddedPython::instance()
 
 EmbeddedPython::EmbeddedPython()
 {
-    char *encoding, *p;
-
-    /*QString binary_name = "sigil";
-    wchar_t *progname = new wchar_t[binary_name.size()+1];
-    binary_name.toWCharArray(progname);
-    progname[binary_name.size()]=L'\0';*/
-
-    QString pyhomepath = QCoreApplication::applicationDirPath();
+    // Build string list of paths that will
+	// comprise the embedded Python's sys.path.
+	QString pyhomepath = QCoreApplication::applicationDirPath();
     wchar_t *hpath = new wchar_t[pyhomepath.size()+1];
     pyhomepath.toWCharArray(hpath);
     hpath[pyhomepath.size()]=L'\0';
 
-    QString pysyspath = pyhomepath + python_sys_path;
-    for (const QString &src_path : python_src_paths) {
-        pysyspath = pysyspath + sep + pyhomepath + python_sys_path + src_path;
+    QString pysyspath = pyhomepath + PYTHON_MAIN_PATH;
+    foreach (const QString &src_path, PYTHON_SYS_PATHS) {
+        pysyspath = pysyspath + PATH_LIST_DELIM + pyhomepath + PYTHON_MAIN_PATH + src_path;
     }
     wchar_t *mpath = new wchar_t[pysyspath.size()+1];
     pysyspath.toWCharArray(mpath);
@@ -206,10 +201,15 @@ EmbeddedPython::EmbeddedPython()
     delete[] progname;
     Py_SetPythonHome(hpath);
     delete[] hpath;*/
+
+	// Set before Py_Initialize to ensure isolation from system python
     Py_SetPath(mpath);
     delete[] mpath;
 
     Py_Initialize();
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    // all flavours of linux / unix
+	char *encoding, *p;
     if (!Py_FileSystemDefaultEncoding) {
         encoding = getenv("PYTHONIOENCODING");
         if (encoding != NULL) {
@@ -219,6 +219,7 @@ EmbeddedPython::EmbeddedPython()
         } else
             Py_FileSystemDefaultEncoding = strndup("UTF-8", 10);
     }
+#endif
 
     PyEval_InitThreads();
     m_threadstate = PyEval_SaveThread();

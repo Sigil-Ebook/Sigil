@@ -517,6 +517,10 @@ if ( NOT DEFINED PKG_SYSTEM_PYTHON )
 endif()
 
 if ( PKG_SYSTEM_PYTHON )
+    if ( MSVC )
+		set_source_files_properties(Misc/EmbeddedPythonPkg.cpp
+                        PROPERTIES COMPILE_FLAGS "/Zc:wchar_t")
+	endif()
     set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPythonPkg.cpp)
 else()
     set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPython.cpp)
@@ -675,7 +679,7 @@ add_definitions( -DQT_USE_FAST_OPERATOR_PLUS )
 
 # "Link time code generation" flags for MSVC
 if( MSVC )
-    add_definitions( /DUNICODE /D_UNICODE )
+    add_definitions( /DUNICODE /D_UNICODE /DHAVE_ROUND )
     # The /Zc:wchar_t- flag can't go into add_definitions
     # because the RC compiler picks it up too and it provokes a name clash
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /MP")
@@ -730,7 +734,6 @@ if( APPLE )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
  
 # For Linux and Windows, provide binary installers.
-# For this to work on Linux, InstallJammer needs to be installed and on the system path.
 # For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
 elseif (MSVC)
     query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
@@ -788,69 +791,10 @@ elseif (MSVC)
     # Copy ISS file to temp folder location
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
-    
-    # Copy Qt runtime libs
-    set( QT_LIBS libEGL libGLESv2 Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5OpenGL Qt5Multimedia Qt5MultimediaWidgets Qt5Positioning Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sensors Qt5Sql Qt5WebKit Qt5WebkitWidgets Qt5Widgets Qt5WebChannel Qt5Xml Qt5XmlPatterns )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
-    foreach( lib ${QT_LIBS} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_INSTALL_BINS} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/ )
-    endforeach( lib )
 
-    # Copy bin libs
-    set( QT_BIN_LIBS D3DCompiler_47 icudt53 icuin53 icuuc53 )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
-    foreach( lib ${QT_BIN_LIBS} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_INSTALL_BINS} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/ )
-    endforeach( lib )
-    
-    # Copy iconengines plugins
-    set( QT_ICONENGINES qsvgicon )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/iconengines/ )
-    foreach( lib ${QT_ICONENGINES} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/iconengines/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/iconengines/ )
-    endforeach( lib )    
-
-    # Copy imageformats plugins
-    set( QT_IMAGEFORMATS qgif qico qjpeg qmng qsvg qtiff )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/imageformats/ )
-    foreach( lib ${QT_IMAGEFORMATS} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/imageformats/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/imageformats/ )
-    endforeach( lib )
-
-    # Copy platform plugins
-    set( QT_PLATFORMS qminimal qwindows)
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/platforms/ )
-    foreach( lib ${QT_PLATFORMS} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/platforms/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/platforms/ )
-    endforeach( lib )
-
-    # Copy printsupport plugins
-    set( QT_PRINTSUPPORT windowsprintersupport )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/printsupport/ )
-    foreach( lib ${QT_PRINTSUPPORT} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/printsupport/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/printsupport/ )
-    endforeach( lib )
-
-    # Copy sqldrivers plugins
-    set( QT_SQLDRIVERS qsqlite )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/sqldrivers/ )
-    foreach( lib ${QT_SQLDRIVERS} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/sqldrivers/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/sqldrivers/ )
-    endforeach( lib )
+    # windeployqt
+	add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
+	    windeployqt.exe --release --webkit2 --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
 
     # Copy the translation qm files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/translations/ )
