@@ -1,0 +1,201 @@
+#!/usr/bin/env python3
+# vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
+
+from __future__ import (unicode_literals, division, absolute_import,
+                        print_function)
+
+import sys, os, inspect, shutil, platform, textwrap, py_compile, site
+from python_paths import py_ver, py_lib, py_exe, py_inc, py_dest, tmp_prefix, proj_name
+
+# Python standard modules location
+srcdir = os.path.dirname(inspect.getfile(os))
+
+# Where we're going to copy stuff
+lib_dir = os.path.join(py_dest, 'Lib')
+print ('lib_dir', lib_dir)
+dll_dir = os.path.join(py_dest, 'DLLs')
+print ('dll_dir', dll_dir)
+
+pyhome_dir = r'C:\Program Files\%s\Python%s'% (proj_name, py_ver)
+
+site_dest = os.path.join(lib_dir, 'site-packages')
+
+# Cherry-picked additional and/or modified modules
+site_packages = [('lxml', 'd'), ('six.py', 'f')]
+
+
+def copy_site_packages():
+    for pkg, typ in site_packages:
+        found = False
+        for path in site.getsitepackages():
+            if not found:
+                for entry in os.listdir(path):
+                    if entry == pkg:
+                        if typ == 'd' and os.path.isdir(os.path.join(path, entry)):
+                            shutil.copytree(os.path.join(path, entry), os.path.join(lib_dir, entry), ignore=ignore_in_dirs)
+                            found = True
+                            break
+                        else:
+                            if os.path.isfile(os.path.join(path, entry)):
+                                shutil.copy2(os.path.join(path, entry), os.path.join(lib_dir, entry))
+                                found = True
+                                break
+            else:
+                break
+
+def ignore_in_dirs(base, items, ignored_dirs=None):
+    ans = []
+    if ignored_dirs is None:
+        ignored_dirs = {'.svn', '.bzr', '.git', 'test', 'tests', 'testing', '__pycache__'}
+    for name in items:
+        path = os.path.join(base, name)
+        if os.path.isdir(path):
+            if name in ignored_dirs: # or not os.path.exists(os.path.join(path, '__init__.py')):
+                ans.append(name)
+        #else:
+        #    if name.rpartition('.')[-1] not in ('py', 'pyd', 'dll'):
+        #        ans.append(name)
+    return ans
+
+def dll_walk():
+    shutil.copytree(r'C:\Python%s\DLLs'%py_ver, dll_dir,
+                ignore=shutil.ignore_patterns('msvc*.dll', 'Microsoft.*'))
+
+    '''for dirpath, dirnames, filenames in os.walk(r'C:\Python%s\Lib'%py_ver):
+        if os.path.basename(dirpath) == 'pythonwin':
+            continue
+        for f in filenames:
+            if f.lower().endswith('.dll'):
+                f = os.path.join(dirpath, f)
+                shutil.copy2(f, dll_dir)'''
+
+def copy_tk_tcl():
+    def ignore_lib(root, items):
+            ans = []
+            for x in items:
+                ext = os.path.splitext(x)[1]
+                if (not ext and (x in ('demos', 'tzdata'))) or \
+                    (ext in ('.chm', '.htm', '.txt')):
+                    ans.append(x)
+            return ans
+
+    src = r'C:\Python%s\tcl'%py_ver
+    for entry in os.listdir(src):
+        if entry in ('tk8.6', 'tcl8.6'):
+            if os.path.isdir(os.path.join(src, entry)):
+                shutil.copytree(os.path.join(src, entry), os.path.join(lib_dir, entry), ignore=ignore_lib)
+
+def copy_pylib():
+    #shutil.copy2(py_lib, py_dest)
+    shutil.copy2(r'C:\windows\system32\python%s.dll'%py_ver, tmp_prefix)
+    shutil.copy2(py_exe, os.path.join(py_dest, "sigil-python34.exe"))
+
+
+def copy_python():
+    def ignore_lib(root, items):
+            ans = []
+            for x in items:
+                ext = os.path.splitext(x)[1]
+                if (not ext and (x in ('demos', 'tests', 'test', 'idlelib', 'lib2to3', '__pycache__', 'site-packages'))) or \
+                    (ext in ('.chm', '.htm', '.txt')):
+                    ans.append(x)
+            return ans
+
+    shutil.copytree(r'C:\Python%s\Lib'%py_ver, lib_dir,
+                ignore=ignore_lib)
+    
+
+def compile_libs():
+    for x in os.walk(lib_dir):
+        for f in x[-1]:
+            if f.endswith('.py'):
+                y = os.path.join(x[0], f)
+                rel = os.path.relpath(y, lib_dir)
+                try:
+                    py_compile.compile(y, cfile=y+'o',dfile=rel, doraise=True, optimize=2)
+                    os.remove(y)
+                    z = y+'c'
+                    if os.path.exists(z):
+                        os.remove(z)
+                except:
+                    print ('Failed to byte-compile', y)
+
+def create_site_py():
+    with open(os.path.join(lib_dir, 'site.py'), 'wb') as f:
+        f.write(bytes(textwrap.dedent('''\
+        import sys
+        import encodings  # noqa
+        import builtins
+        import locale
+        import os
+        import codecs
+
+        def set_default_encoding():
+            try:
+                locale.setlocale(locale.LC_ALL, '')
+            except:
+                print ('WARNING: Failed to set default libc locale, using en_US.UTF-8')
+                locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+            enc = locale.getdefaultlocale()[1]
+            if not enc:
+                enc = locale.nl_langinfo(locale.CODESET)
+            if not enc or enc.lower() == 'ascii':
+                enc = 'UTF-8'
+            try:
+                enc = codecs.lookup(enc).name
+            except LookupError:
+                enc = 'UTF-8'
+            sys.setdefaultencoding(enc)
+            del sys.setdefaultencoding
+
+        class _Helper(object):
+            """Define the builtin 'help'.
+            This is a wrapper around pydoc.help (with a twist).
+
+            """
+
+            def __repr__(self):
+                return "Type help() for interactive help, " \
+                    "or help(object) for help about object."
+            def __call__(self, *args, **kwds):
+                import pydoc
+                return pydoc.help(*args, **kwds)
+
+        def set_helper():
+            __builtin__.help = _Helper()
+
+        def main():
+            try:
+                set_default_encoding()
+                set_helper()
+            except SystemExit as err:
+                if err.code is None:
+                    return 0
+                if isinstance(err.code, int):
+                    return err.code
+                print (err.code)
+                return 1
+            except:
+                import traceback
+                traceback.print_exc()
+            return 1
+            '''), 'UTF-8'))
+
+def create_pyvenv():
+    with open(os.path.join(py_dest, 'pyvenv.cfg'), 'wb') as f:
+        f.write(bytes(textwrap.dedent('''\
+        home = %s
+        include-system-site-packages = false
+        version = 3.4.0
+        ''') % pyhome_dir, 'UTF-8'))
+
+
+if __name__ == '__main__':
+    dll_walk()
+    copy_pylib()
+    copy_python()
+    copy_site_packages()
+    create_site_py()
+    create_pyvenv()
+    copy_tk_tcl()
+    compile_libs()

@@ -175,8 +175,8 @@ EmbeddedPython* EmbeddedPython::instance()
 EmbeddedPython::EmbeddedPython()
 {
     // Build string list of paths that will
-	// comprise the embedded Python's sys.path.
-	QString pyhomepath = QCoreApplication::applicationDirPath();
+    // comprise the embedded Python's sys.path.
+    QString pyhomepath = QCoreApplication::applicationDirPath();
     wchar_t *hpath = new wchar_t[pyhomepath.size()+1];
     pyhomepath.toWCharArray(hpath);
     hpath[pyhomepath.size()]=L'\0';
@@ -202,25 +202,11 @@ EmbeddedPython::EmbeddedPython()
     Py_SetPythonHome(hpath);
     delete[] hpath;*/
 
-	// Set before Py_Initialize to ensure isolation from system python
+    // Set before Py_Initialize to ensure isolation from system python
     Py_SetPath(mpath);
     delete[] mpath;
 
     Py_Initialize();
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    // all flavours of linux / unix
-	char *encoding, *p;
-    if (!Py_FileSystemDefaultEncoding) {
-        encoding = getenv("PYTHONIOENCODING");
-        if (encoding != NULL) {
-            Py_FileSystemDefaultEncoding = strndup(encoding, 20);
-            p = const_cast<char*>(index(Py_FileSystemDefaultEncoding, ':'));
-            if (p != NULL) *p = 0;
-        } else
-            Py_FileSystemDefaultEncoding = strndup("UTF-8", 10);
-    }
-#endif
-
     PyEval_InitThreads();
     m_threadstate = PyEval_SaveThread();
     m_pyobjmetaid = qMetaTypeId<PyObjectPtr>();

@@ -6,7 +6,7 @@ from __future__ import (unicode_literals, division, absolute_import,
 
 import sys
 
-py_ver = '.'.join(map(str, sys.version_info[:2]))
+py_ver = ''.join(map(str, sys.version_info[:2]))
 py_exe = '${PYTHON_EXECUTABLE}'
 py_lib_temp = '${PYTHON_LIBRARIES}'
 if not sys.platform.startswith('win') and not sys.platform.startswith('darwin'):    
@@ -16,4 +16,5 @@ py_lib = py_lib_temp
 py_inc = '${PYTHON_INCLUDE_DIRS}'
 py_dest = '${PYTHON_DEST_DIR}'
 tmp_prefix = '${MAIN_PACKAGE_DIR}'
+proj_name = '${PROJECT_NAME}'
 

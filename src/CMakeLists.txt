@@ -743,6 +743,7 @@ elseif (MSVC)
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
+    set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/Python34 )
     
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
@@ -762,6 +763,9 @@ elseif (MSVC)
     # Used in the ISS CMake configuration
     set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )
     configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
+
+    configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
+    configure_file( Resource_Files/python_pkg/windows_python_freeze.py ${CMAKE_BINARY_DIR}/windows_python_freeze.py )
 
     # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
     add_custom_target(  makeinstaller 
@@ -817,6 +821,12 @@ elseif (MSVC)
 
     # Copy python3lib
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib ${MAIN_PACKAGE_DIR}/python3lib )
+
+    # Create python virtual environment
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${PYTHON_DEST_DIR} )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+                        COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/windows_python_freeze.py )
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
@@ -931,7 +941,7 @@ if( UNIX AND NOT APPLE )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( DEB_TREE_ROOT ${MAIN_PACKAGE_DIR}${CMAKE_INSTALL_PREFIX} )
     set( DEB_SHARE_PREFIX ${MAIN_PACKAGE_DIR}${SHARE_INSTALL_PREFIX} )
-    set( PYTHON_DEST_DIR ${DEB_TREE_ROOT}/lib/sigil/python )
+    set( PYTHON_DEST_DIR ${DEB_TREE_ROOT}/lib/sigil/python34 )
 
     # spec file for RPM or control for DEBIAN
     if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
