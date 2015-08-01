@@ -513,15 +513,19 @@ set( LINUX_RPM_SPEC_FILE
     )
 
 if ( NOT DEFINED PKG_SYSTEM_PYTHON )
-    set ( PKG_SYSTEM_PYTHON 1 )
+    if (MSVC)
+        set ( PKG_SYSTEM_PYTHON 1 )
+    else()
+        set ( PKG_SYSTEM_PYTHON 0 )
+    endif()
 endif()
 
 if ( PKG_SYSTEM_PYTHON )
+    set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPythonPkg.cpp)
     if ( MSVC )
 	set_source_files_properties(Misc/EmbeddedPythonPkg.cpp
                        PROPERTIES COMPILE_FLAGS "/Zc:wchar_t")
-	endif()
-    set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPythonPkg.cpp)
+    endif()
 else()
     set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPython.cpp)
 endif()
@@ -765,7 +769,7 @@ elseif (MSVC)
     configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
 
     configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
-    configure_file( Resource_Files/python_pkg/windows_python_freeze.py ${CMAKE_BINARY_DIR}/windows_python_freeze.py )
+    configure_file( Resource_Files/python_pkg/windows_python_gather.py ${CMAKE_BINARY_DIR}/windows_python_gather.py )
 
     # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
     add_custom_target(  makeinstaller 
@@ -826,7 +830,7 @@ elseif (MSVC)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E make_directory ${PYTHON_DEST_DIR} )
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
-                        COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/windows_python_freeze.py )
+                        COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/windows_python_gather.py )
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
@@ -976,7 +980,7 @@ if( UNIX AND NOT APPLE )
     configure_file( ${LINUX_LAUNCH_INSTALL_SCRIPT} ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} )
     configure_file( ${LINUX_LAUNCH_PKG_SCRIPT} ${LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED} )
     configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
-    configure_file( Resource_Files/python_pkg/linux_python_freeze.py ${CMAKE_BINARY_DIR}/linux_python_freeze.py )
+    configure_file( Resource_Files/python_pkg/linux_python_gather.py ${CMAKE_BINARY_DIR}/linux_python_gather.py )
 
     # Create custom target "linuxbinpkg" to create either a debian or rpm package (-DLINUX_PACKAGE_TYPE).
     if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
@@ -1138,7 +1142,7 @@ if( UNIX AND NOT APPLE )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E make_directory ${PYTHON_DEST_DIR}/bin/ )
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
-                        COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/linux_python_freeze.py )
+                        COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/linux_python_gather.py )
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
