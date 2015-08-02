@@ -530,6 +530,18 @@ else()
     set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPython.cpp)
 endif()
 
+# Default will work for building 32bit Sigil on Windows 32bit and
+# building 64bi Sigil on Windows 64bit. Those building 32bit Sigil on
+# Windows 64bit will probably have to set -DSYS_DLL_DIR="C:\Windows\SysWOW64"
+# in the original CMAKE command.
+if ( MSVC )
+    if ( NOT DEFINED SYS_DLL_DIR )
+        set( SYS_DLL_DIR "C:\\Windows\\System32" )
+    endif()
+else()
+     set( SYS_DLL_DIR "" )
+endif()
+
 set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 #############################################################################
@@ -586,7 +598,7 @@ endif()
 if( APPLE )
     # TODO: put these in some sort of add_custom_command( TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ...)
     # also delete the Sigil.app folder as PRE_BUILD of Sigil executable
-    
+
     if( CMAKE_GENERATOR STREQUAL Xcode )
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         exec_program("cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
@@ -598,6 +610,12 @@ if( APPLE )
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/plugin_launchers")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/plugin_launchers/python")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/python3lib")
+        if ( PKG_SYSTEM_PYTHON )
+            set( PYTHON_DEST_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/python3)
+            exec_program("mkdir -p ${PYTHON_DEST_DIR}")
+            exec_program("mkdir -p ${PYTHON_DEST_DIR}/lib")
+            exec_program("mkdir -p ${PYTHON_DEST_DIR}/bin")
+        endif()
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/examples")
     else()
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
@@ -610,7 +628,18 @@ if( APPLE )
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers/python")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/python3lib")
+        if ( PKG_SYSTEM_PYTHON )
+            set( PYTHON_DEST_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/python3)
+            exec_program("mkdir -p ${PYTHON_DEST_DIR}")
+            exec_program("mkdir -p ${PYTHON_DEST_DIR}/lib")
+            exec_program("mkdir -p ${PYTHON_DEST_DIR}/bin")
+        endif()
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/examples")
+    endif()
+
+    if ( PKG_SYSTEM_PYTHON )
+        configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/python_paths.py )
+        configure_file( Resource_Files/python_pkg/osx_python_gather.py ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_python_gather.py )
     endif()
 
     # Copy the PLIST file...
@@ -714,6 +743,7 @@ if( APPLE )
     else()
         set( WORK_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" )
     endif()
+    set( MAIN_PACKAGE_DIR ${WORK_DIR}/Sigil.app )
 
     if ("${CODE_SIGN_ID}" STREQUAL "")
         add_custom_target(  addframeworks
@@ -735,6 +765,7 @@ if( APPLE )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/plugin_launchers/python/* ${WORK_DIR}/Sigil.app/Contents/plugin_launchers/python )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${WORK_DIR}/Sigil.app/Contents/python3lib )
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_python_gather.py )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
  
 # For Linux and Windows, provide binary installers.
@@ -747,7 +778,7 @@ elseif (MSVC)
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
-    set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/Python34 )
+    set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/Python3 )
     
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
@@ -768,8 +799,10 @@ elseif (MSVC)
     set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )
     configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
 
-    configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
-    configure_file( Resource_Files/python_pkg/windows_python_gather.py ${CMAKE_BINARY_DIR}/windows_python_gather.py )
+    if ( PKG_SYSTEM_PYTHON )
+        configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
+        configure_file( Resource_Files/python_pkg/windows_python_gather.py ${CMAKE_BINARY_DIR}/windows_python_gather.py )
+    endif()
 
     # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
     add_custom_target(  makeinstaller 
@@ -827,10 +860,12 @@ elseif (MSVC)
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib ${MAIN_PACKAGE_DIR}/python3lib )
 
     # Create python virtual environment
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+    if ( PKG_SYSTEM_PYTHON )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E make_directory ${PYTHON_DEST_DIR} )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
                         COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/windows_python_gather.py )
+    endif()
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
@@ -945,7 +980,7 @@ if( UNIX AND NOT APPLE )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( DEB_TREE_ROOT ${MAIN_PACKAGE_DIR}${CMAKE_INSTALL_PREFIX} )
     set( DEB_SHARE_PREFIX ${MAIN_PACKAGE_DIR}${SHARE_INSTALL_PREFIX} )
-    set( PYTHON_DEST_DIR ${DEB_TREE_ROOT}/lib/sigil/python34 )
+    set( PYTHON_DEST_DIR ${DEB_TREE_ROOT}/lib/sigil/python3 )
 
     # spec file for RPM or control for DEBIAN
     if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
@@ -979,8 +1014,10 @@ if( UNIX AND NOT APPLE )
     endif()
     configure_file( ${LINUX_LAUNCH_INSTALL_SCRIPT} ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} )
     configure_file( ${LINUX_LAUNCH_PKG_SCRIPT} ${LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED} )
-    configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
-    configure_file( Resource_Files/python_pkg/linux_python_gather.py ${CMAKE_BINARY_DIR}/linux_python_gather.py )
+    if ( PKG_SYSTEM_PYTHON )
+        configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
+        configure_file( Resource_Files/python_pkg/linux_python_gather.py ${CMAKE_BINARY_DIR}/linux_python_gather.py )
+    endif()
 
     # Create custom target "linuxbinpkg" to create either a debian or rpm package (-DLINUX_PACKAGE_TYPE).
     if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
@@ -1137,12 +1174,14 @@ if( UNIX AND NOT APPLE )
                             COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${DEB_SHARE_PREFIX}/share/sigil/python3lib/ )
 
     # Create python virtual environment
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+    if ( PKG_SYSTEM_PYTHON )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E make_directory ${PYTHON_DEST_DIR}/lib/ )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E make_directory ${PYTHON_DEST_DIR}/bin/ )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
                         COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/linux_python_gather.py )
+    endif()
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD

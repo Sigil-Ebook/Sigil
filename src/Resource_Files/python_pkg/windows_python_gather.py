@@ -5,22 +5,24 @@ from __future__ import (unicode_literals, division, absolute_import,
                         print_function)
 
 import sys, os, inspect, shutil, platform, textwrap, py_compile, site
-from python_paths import py_ver, py_lib, py_exe, py_inc, py_dest, tmp_prefix, proj_name
+from python_paths import py_ver, py_lib, sys_dlls, py_exe, py_inc, py_dest, tmp_prefix, proj_name
 
 # Python standard modules location
 srcdir = os.path.dirname(inspect.getfile(os))
+pybase = os.path.dirname(srcdir)
+
 
 # Where we're going to copy stuff
 lib_dir = os.path.join(py_dest, 'Lib')
-print ('lib_dir', lib_dir)
 dll_dir = os.path.join(py_dest, 'DLLs')
-print ('dll_dir', dll_dir)
-
-pyhome_dir = r'C:\Program Files\%s\Python%s'% (proj_name, py_ver)
-
 site_dest = os.path.join(lib_dir, 'site-packages')
 
-# Cherry-picked additional and/or modified modules
+# A hack. This must eventually be set by a postinstall script, or
+# possibly Sigil itself at runtime. Installing the 32-bit version
+# of Sigil on 64-bit Windows will break this hardcoded crap.
+pyvenv_home_dir = r'C:\Program Files\%s\Python3'% proj_name
+
+# Cherry-picked additional and/or modified site modules
 site_packages = [('lxml', 'd'), ('six.py', 'f')]
 
 
@@ -32,12 +34,12 @@ def copy_site_packages():
                 for entry in os.listdir(path):
                     if entry == pkg:
                         if typ == 'd' and os.path.isdir(os.path.join(path, entry)):
-                            shutil.copytree(os.path.join(path, entry), os.path.join(lib_dir, entry), ignore=ignore_in_dirs)
+                            shutil.copytree(os.path.join(path, entry), os.path.join(site_dest, entry), ignore=ignore_in_dirs)
                             found = True
                             break
                         else:
                             if os.path.isfile(os.path.join(path, entry)):
-                                shutil.copy2(os.path.join(path, entry), os.path.join(lib_dir, entry))
+                                shutil.copy2(os.path.join(path, entry), os.path.join(site_dest, entry))
                                 found = True
                                 break
             else:
@@ -58,7 +60,7 @@ def ignore_in_dirs(base, items, ignored_dirs=None):
     return ans
 
 def dll_walk():
-    shutil.copytree(r'C:\Python%s\DLLs'%py_ver, dll_dir,
+    shutil.copytree(os.path.join(pybase, "DLLs"), dll_dir,
                 ignore=shutil.ignore_patterns('msvc*.dll', 'Microsoft.*'))
 
     '''for dirpath, dirnames, filenames in os.walk(r'C:\Python%s\Lib'%py_ver):
@@ -79,7 +81,7 @@ def copy_tk_tcl():
                     ans.append(x)
             return ans
 
-    src = r'C:\Python%s\tcl'%py_ver
+    src = os.path.join(pybase, "tcl")
     for entry in os.listdir(src):
         if entry in ('tk8.6', 'tcl8.6'):
             if os.path.isdir(os.path.join(src, entry)):
@@ -87,8 +89,17 @@ def copy_tk_tcl():
 
 def copy_pylib():
     #shutil.copy2(py_lib, py_dest)
-    shutil.copy2(r'C:\windows\system32\python%s.dll'%py_ver, tmp_prefix)
-    shutil.copy2(py_exe, os.path.join(py_dest, "sigil-python34.exe"))
+    try: 
+        shutil.copy2(os.path.join(sys_dlls, 'python%s.dll'%py_ver), tmp_prefix)
+    except:
+        print ('Couldn\'t find the Python%s.dll file. May need to include -DSYS_DLL_DIR="c:\windows\syswow64" in the cmake command.'%py_ver)
+        exit
+    try:
+        shutil.copy2(os.path.join(sys_dlls, 'pywintypes%s.dll'%py_ver), tmp_prefix)
+        shutil.copy2(os.path.join(sys_dlls, 'pythoncom%s.dll'%py_ver), tmp_prefix)
+    except:
+        pass
+    shutil.copy2(py_exe, os.path.join(py_dest, "sigil-python3.exe"))
 
 
 def copy_python():
@@ -101,7 +112,7 @@ def copy_python():
                     ans.append(x)
             return ans
 
-    shutil.copytree(r'C:\Python%s\Lib'%py_ver, lib_dir,
+    shutil.copytree(os.path.join(pybase, "Lib"), lib_dir,
                 ignore=ignore_lib)
     
 
@@ -124,49 +135,28 @@ def create_site_py():
     with open(os.path.join(lib_dir, 'site.py'), 'wb') as f:
         f.write(bytes(textwrap.dedent('''\
         import sys
-        import encodings  # noqa
         import builtins
-        import locale
         import os
-        import codecs
-
-        def set_default_encoding():
-            try:
-                locale.setlocale(locale.LC_ALL, '')
-            except:
-                print ('WARNING: Failed to set default libc locale, using en_US.UTF-8')
-                locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
-            enc = locale.getdefaultlocale()[1]
-            if not enc:
-                enc = locale.nl_langinfo(locale.CODESET)
-            if not enc or enc.lower() == 'ascii':
-                enc = 'UTF-8'
-            try:
-                enc = codecs.lookup(enc).name
-            except LookupError:
-                enc = 'UTF-8'
-            sys.setdefaultencoding(enc)
-            del sys.setdefaultencoding
-
-        class _Helper(object):
-            """Define the builtin 'help'.
-            This is a wrapper around pydoc.help (with a twist).
-
-            """
-
-            def __repr__(self):
-                return "Type help() for interactive help, " \
-                    "or help(object) for help about object."
-            def __call__(self, *args, **kwds):
-                import pydoc
-                return pydoc.help(*args, **kwds)
+        import _sitebuiltins
 
         def set_helper():
-            __builtin__.help = _Helper()
+            builtins.help = _sitebuiltins._Helper()
+
+        def fix_sys_path():
+            if os.sep == '/':
+                sys.path.append(os.path.join(sys.prefix, "lib",
+                                "python" + sys.version[:3],
+                                "site-packages"))
+            else:
+                for path in sys.path:
+                    py_ver = "".join(map(str, sys.version_info[:2]))
+                    if os.path.basename(path) == "python" + py_ver + ".zip":
+                        sys.path.remove(path)
+                sys.path.append(os.path.join(sys.prefix, "lib", "site-packages"))
 
         def main():
             try:
-                set_default_encoding()
+                fix_sys_path()
                 set_helper()
             except SystemExit as err:
                 if err.code is None:
@@ -179,6 +169,9 @@ def create_site_py():
                 import traceback
                 traceback.print_exc()
             return 1
+
+        if not sys.flags.no_site:
+            main()
             '''), 'UTF-8'))
 
 def create_pyvenv():
@@ -187,7 +180,7 @@ def create_pyvenv():
         home = %s
         include-system-site-packages = false
         version = 3.4.0
-        ''') % pyhome_dir, 'UTF-8'))
+        ''') % pyvenv_home_dir, 'UTF-8'))
 
 
 if __name__ == '__main__':
