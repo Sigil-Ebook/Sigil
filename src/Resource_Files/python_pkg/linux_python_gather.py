@@ -61,7 +61,7 @@ def ignore_in_dirs(base, items, ignored_dirs=None):
 
 def copy_pylib():
     shutil.copy2(py_lib, app_dir)
-    shutil.copy2(py_exe, os.path.join(py_dest, 'bin', "sigil-python34"))
+    shutil.copy2(py_exe, os.path.join(py_dest, 'bin', "sigil-python3"))
 
 
 def copy_python():
