@@ -34,12 +34,12 @@ def copy_site_packages(packages, dest):
                 for entry in os.listdir(path):
                     if entry == pkg:
                         if typ == 'd' and os.path.isdir(os.path.join(path, entry)):
-                            shutil.copytree(os.path.join(path, entry), os.path.join(py_dir, entry), ignore=ignore_in_dirs)
+                            shutil.copytree(os.path.join(path, entry), os.path.join(site_dest, entry), ignore=ignore_in_dirs)
                             found = True
                             break
                         else:
                             if os.path.isfile(os.path.join(path, entry)):
-                                shutil.copy2(os.path.join(path, entry), os.path.join(py_dir, entry))
+                                shutil.copy2(os.path.join(path, entry), os.path.join(site_dest, entry))
                                 found = True
                                 break
             else:
