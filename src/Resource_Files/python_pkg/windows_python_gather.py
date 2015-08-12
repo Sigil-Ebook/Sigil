@@ -90,13 +90,14 @@ def copy_tk_tcl():
 def copy_pylib():
     #shutil.copy2(py_lib, py_dest)
     try: 
+        shutil.copy2(os.path.join(sys_dlls, 'python%s.dll'%py_ver), py_dest)
         shutil.copy2(os.path.join(sys_dlls, 'python%s.dll'%py_ver), tmp_prefix)
     except:
         print ('Couldn\'t find the Python%s.dll file. May need to include -DSYS_DLL_DIR="c:\windows\syswow64" in the cmake command.'%py_ver)
         exit
     try:
-        shutil.copy2(os.path.join(sys_dlls, 'pywintypes%s.dll'%py_ver), tmp_prefix)
-        shutil.copy2(os.path.join(sys_dlls, 'pythoncom%s.dll'%py_ver), tmp_prefix)
+        shutil.copy2(os.path.join(sys_dlls, 'pywintypes%s.dll'%py_ver), py_dest)
+        shutil.copy2(os.path.join(sys_dlls, 'pythoncom%s.dll'%py_ver), py_dest)
     except:
         pass
     shutil.copy2(py_exe, os.path.join(py_dest, "sigil-python3.exe"))
@@ -104,13 +105,13 @@ def copy_pylib():
 
 def copy_python():
     def ignore_lib(root, items):
-            ans = []
-            for x in items:
-                ext = os.path.splitext(x)[1]
-                if (not ext and (x in ('demos', 'tests', 'test', 'idlelib', 'lib2to3', '__pycache__', 'site-packages'))) or \
-                    (ext in ('.chm', '.htm', '.txt')):
-                    ans.append(x)
-            return ans
+        ans = []
+        for x in items:
+            ext = os.path.splitext(x)[1]
+            if (not ext and (x in ('demos', 'tests', 'test', 'idlelib', 'lib2to3', '__pycache__', 'site-packages'))) or \
+                (ext in ('.chm', '.htm', '.txt')):
+                ans.append(x)
+        return ans
 
     shutil.copytree(os.path.join(pybase, "Lib"), lib_dir,
                 ignore=ignore_lib)

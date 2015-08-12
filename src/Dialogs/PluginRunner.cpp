@@ -174,7 +174,7 @@ void PluginRunner::startPlugin()
     ui.okButton->setEnabled(false);
     ui.cancelButton->setEnabled(true);
 
-    args.append(QString("-EOBu"));  // sets python for unbuffered io
+    args.append(QString("-OBu"));  // sets python for unbuffered io
     args.append(QDir::toNativeSeparators(m_launcherPath));
     args.append(QDir::toNativeSeparators(m_bookRoot));
     args.append(QDir::toNativeSeparators(m_outputDir));
