@@ -35,6 +35,7 @@ ArchitecturesInstallIn64BitMode="${ISS_ARCH}"
 [Files]
 Source: "Sigil\*"; DestDir: "{app}"; Flags: createallsubdirs recursesubdirs ignoreversion
 Source: vendor\vcredist.exe; DestDir: {tmp}
+Source: postinstall\postinstall.bat; DestDir: {tmp}
 
 [Components]
 ; Main files cannot be unchecked. Doesn't do anything, just here for show
@@ -67,5 +68,6 @@ Components: dicon\common; Name: "{commondesktop}\Sigil"; Filename: "{app}\Sigil.
 Components: dicon\user; Name: "{userdesktop}\Sigil"; Filename: "{app}\Sigil.exe"
 
 [Run]
+Filename: {tmp}\postinstall.bat; Parameters: """{app}\Python3\pyvenv.cfg"" ""{app}\Python3"""; StatusMsg: Configuring pyvenv.cfg file...
 Filename: {tmp}\vcredist.exe; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist.msi"" "; StatusMsg: Installing 2013 RunTime...
 
