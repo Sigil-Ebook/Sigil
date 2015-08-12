@@ -52,6 +52,7 @@ if (USE_SYSTEM_LIBS)
         pkg_check_modules( PCRE libpcre16 )
     endif()
 endif()
+find_package(PythonInterp 3.4)
 find_package (PythonLibs 3.4)
 
 # gumbo-parser it is our main xhtml/html5 parser.

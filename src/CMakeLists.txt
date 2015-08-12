@@ -304,7 +304,6 @@ set( MISC_FILES
     Misc/PyObjectPtr.h
     Misc/PyObjectPtr.cpp
     Misc/EmbeddedPython.h
-    Misc/EmbeddedPython.cpp
     Misc/GumboInterface.h
     Misc/GumboInterface.cpp
     )
@@ -513,6 +512,40 @@ set( LINUX_RPM_SPEC_FILE
     Resource_Files/bash/specfile
     )
 
+if ( NOT DEFINED PKG_SYSTEM_PYTHON )
+    if (MSVC)
+        set ( PKG_SYSTEM_PYTHON 1 )
+    else()
+        set ( PKG_SYSTEM_PYTHON 0 )
+    endif()
+endif()
+
+if ( PKG_SYSTEM_PYTHON )
+    if ( APPLE )
+        set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPython.cpp)
+    else()
+        set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPythonPkg.cpp)
+    endif()
+    if ( MSVC )
+	set_source_files_properties(Misc/EmbeddedPythonPkg.cpp
+                       PROPERTIES COMPILE_FLAGS "/Zc:wchar_t")
+    endif()
+else()
+    set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPython.cpp)
+endif()
+
+# Default will work for building 32bit Sigil on Windows 32bit and
+# building 64bi Sigil on Windows 64bit. Those building 32bit Sigil on
+# Windows 64bit will probably have to set -DSYS_DLL_DIR="C:\Windows\SysWOW64"
+# in the original CMAKE command.
+if ( MSVC )
+    if ( NOT DEFINED SYS_DLL_DIR )
+        set( SYS_DLL_DIR "C:\\Windows\\System32" )
+    endif()
+else()
+     set( SYS_DLL_DIR "" )
+endif()
+
 set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 #############################################################################
@@ -569,7 +602,7 @@ endif()
 if( APPLE )
     # TODO: put these in some sort of add_custom_command( TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ...)
     # also delete the Sigil.app folder as PRE_BUILD of Sigil executable
-    
+
     if( CMAKE_GENERATOR STREQUAL Xcode )
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         exec_program("cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/Sigil.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
@@ -594,6 +627,10 @@ if( APPLE )
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers/python")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/python3lib")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/examples")
+    endif()
+
+    if ( PKG_SYSTEM_PYTHON )
+        configure_file( Resource_Files/python_pkg/osx_add_python_framework.py ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework.py )
     endif()
 
     # Copy the PLIST file...
@@ -666,7 +703,7 @@ add_definitions( -DQT_USE_FAST_OPERATOR_PLUS )
 
 # "Link time code generation" flags for MSVC
 if( MSVC )
-    add_definitions( /DUNICODE /D_UNICODE )
+    add_definitions( /DUNICODE /D_UNICODE /DHAVE_ROUND )
     # The /Zc:wchar_t- flag can't go into add_definitions
     # because the RC compiler picks it up too and it provokes a name clash
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /MP")
@@ -697,6 +734,7 @@ if( APPLE )
     else()
         set( WORK_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}" )
     endif()
+    set( MAIN_PACKAGE_DIR ${WORK_DIR}/Sigil.app )
 
     if ("${CODE_SIGN_ID}" STREQUAL "")
         add_custom_target(  addframeworks
@@ -718,10 +756,12 @@ if( APPLE )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/plugin_launchers/python/* ${WORK_DIR}/Sigil.app/Contents/plugin_launchers/python )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${WORK_DIR}/Sigil.app/Contents/python3lib )
+    if ( PKG_SYSTEM_PYTHON )
+        add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework.py )
+    endif()
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
  
 # For Linux and Windows, provide binary installers.
-# For this to work on Linux, InstallJammer needs to be installed and on the system path.
 # For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
 elseif (MSVC)
     query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
@@ -731,6 +771,7 @@ elseif (MSVC)
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
+    set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/Python3 )
     
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
@@ -750,6 +791,11 @@ elseif (MSVC)
     # Used in the ISS CMake configuration
     set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )
     configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
+
+    if ( PKG_SYSTEM_PYTHON )
+        configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
+        configure_file( Resource_Files/python_pkg/windows_python_gather.py ${CMAKE_BINARY_DIR}/windows_python_gather.py )
+    endif()
 
     # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
     add_custom_target(  makeinstaller 
@@ -779,69 +825,10 @@ elseif (MSVC)
     # Copy ISS file to temp folder location
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
-    
-    # Copy Qt runtime libs
-    set( QT_LIBS libEGL libGLESv2 Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5OpenGL Qt5Multimedia Qt5MultimediaWidgets Qt5Positioning Qt5PrintSupport Qt5Qml Qt5Quick Qt5Sensors Qt5Sql Qt5WebKit Qt5WebkitWidgets Qt5Widgets Qt5WebChannel Qt5Xml Qt5XmlPatterns )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
-    foreach( lib ${QT_LIBS} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_INSTALL_BINS} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/ )
-    endforeach( lib )
 
-    # Copy bin libs
-    set( QT_BIN_LIBS D3DCompiler_47 icudt53 icuin53 icuuc53 )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )    
-    foreach( lib ${QT_BIN_LIBS} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_INSTALL_BINS} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/ )
-    endforeach( lib )
-    
-    # Copy iconengines plugins
-    set( QT_ICONENGINES qsvgicon )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/iconengines/ )
-    foreach( lib ${QT_ICONENGINES} )
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/iconengines/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/iconengines/ )
-    endforeach( lib )    
-
-    # Copy imageformats plugins
-    set( QT_IMAGEFORMATS qgif qico qjpeg qmng qsvg qtiff )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/imageformats/ )
-    foreach( lib ${QT_IMAGEFORMATS} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/imageformats/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/imageformats/ )
-    endforeach( lib )
-
-    # Copy platform plugins
-    set( QT_PLATFORMS qminimal qwindows)
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/platforms/ )
-    foreach( lib ${QT_PLATFORMS} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/platforms/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/platforms/ )
-    endforeach( lib )
-
-    # Copy printsupport plugins
-    set( QT_PRINTSUPPORT windowsprintersupport )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/printsupport/ )
-    foreach( lib ${QT_PRINTSUPPORT} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/printsupport/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/printsupport/ )
-    endforeach( lib )
-
-    # Copy sqldrivers plugins
-    set( QT_SQLDRIVERS qsqlite )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/sqldrivers/ )
-    foreach( lib ${QT_SQLDRIVERS} )   
-        set( location location-NOTFOUND )
-        find_file( location ${lib}.dll PATHS ${QT_PLUGINS_DIR}/sqldrivers/ )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${location} ${MAIN_PACKAGE_DIR}/sqldrivers/ )
-    endforeach( lib )
+    # windeployqt
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
+	    windeployqt.exe --release --webkit2 --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
 
     # Copy the translation qm files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/translations/ )
@@ -864,6 +851,14 @@ elseif (MSVC)
 
     # Copy python3lib
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib ${MAIN_PACKAGE_DIR}/python3lib )
+
+    # Create python virtual environment
+    if ( PKG_SYSTEM_PYTHON )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${PYTHON_DEST_DIR} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+                        COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/windows_python_gather.py )
+    endif()
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
@@ -898,6 +893,11 @@ elseif (MSVC)
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
             COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x86.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist.exe )
     endif()
+
+    # Add postinstall script to Inno package
+	add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/postinstall/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/src/Resource_Files/windows/postinstall.bat ${TEMP_PACKAGE_DIR}/postinstall/ )
 
     # Copy the Changelog
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
@@ -978,6 +978,7 @@ if( UNIX AND NOT APPLE )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( DEB_TREE_ROOT ${MAIN_PACKAGE_DIR}${CMAKE_INSTALL_PREFIX} )
     set( DEB_SHARE_PREFIX ${MAIN_PACKAGE_DIR}${SHARE_INSTALL_PREFIX} )
+    set( PYTHON_DEST_DIR ${DEB_TREE_ROOT}/lib/sigil/python3 )
 
     # spec file for RPM or control for DEBIAN
     if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
@@ -1011,6 +1012,10 @@ if( UNIX AND NOT APPLE )
     endif()
     configure_file( ${LINUX_LAUNCH_INSTALL_SCRIPT} ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} )
     configure_file( ${LINUX_LAUNCH_PKG_SCRIPT} ${LINUX_LAUNCH_PKG_SCRIPT_CONFIGURED} )
+    if ( PKG_SYSTEM_PYTHON )
+        configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
+        configure_file( Resource_Files/python_pkg/linux_python_gather.py ${CMAKE_BINARY_DIR}/linux_python_gather.py )
+    endif()
 
     # Create custom target "linuxbinpkg" to create either a debian or rpm package (-DLINUX_PACKAGE_TYPE).
     if ( LINUX_PACKAGE_TYPE STREQUAL "rpm" )
@@ -1165,6 +1170,16 @@ if( UNIX AND NOT APPLE )
                         COMMAND cmake -E make_directory ${DEB_SHARE_PREFIX}/share/sigil/python3lib/ )
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
                             COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${DEB_SHARE_PREFIX}/share/sigil/python3lib/ )
+
+    # Create python virtual environment
+    if ( PKG_SYSTEM_PYTHON )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${PYTHON_DEST_DIR}/lib/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E make_directory ${PYTHON_DEST_DIR}/bin/ )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
+                        COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/linux_python_gather.py )
+    endif()
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
