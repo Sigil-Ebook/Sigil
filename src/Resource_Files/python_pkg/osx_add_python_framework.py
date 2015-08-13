@@ -44,7 +44,15 @@ def copy_python_stdlibrary(src_dir, dest_dir):
         if os.path.isfile(y) and ext in ('.py', '.so'):
             shutil.copy2(y, dest_dir)
 
-site_packages = [('lxml', 'd'), ('six.py', 'f')]
+site_packages = [ ('lxml', 'd'), 
+                  ('six.py', 'f'), 
+                  ('bs4', 'd'), 
+                  ('html5lib','d'), 
+                  ('PIL', 'd'), 
+                  ('regex.py','f'),
+                  ('_regex.so','f'),
+                  ('_regex_core.py','f'),
+                  ('test_regex.py', 'f')]
 
 def copy_site_packages(packages, site_dest):
     for pkg, typ in packages:
