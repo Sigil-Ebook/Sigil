@@ -1,0 +1,75 @@
+# Before building remember to rename /Applications/Python 3.4.app to save it and replace it afterwards
+# as the damn python installation from source always overwrites it no matter the configure prefix used
+
+# Also make sure you have the latest XCode and Command Line Tools Installed
+
+# Download Python-3.4.3.tgz from www.python.org
+
+export MACOSX_DEPLOYMENT_TARGET=10.9
+
+# Pick a location where the relocatable Python framework will be installed
+export MYDEST=/tmp/Frameworks
+
+# now build Python3.4.3 as a framework
+# Need to patch Python-3.4.3.tgz to allow it to build Mac OS X 10.9 compliant 
+# build under Mac OS X 10.10
+
+tar -zxvf Python-3.4.3.tgz
+cd Python-3.4.3
+patch -p0 < python_configure_fix.patch
+
+./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip MACOSX_DEPLOYMENT_TARGET=10.9
+make
+sudo make frameworkinstall
+
+# next update path in order to use the newly built/installed Python.framework's
+# pip3 to install other required python packages to its site packages
+
+export PATH=${MYDEST}/Python.framework/Versions/3.4/bin:${PATH}
+which pip3
+sudo pip3 install six
+sudo pip3 install html5lib
+sudo pip3 install lxml
+sudo pip3 install beautifulsoup4
+sudo pip3 install Pillow
+sudo pip3 install regex
+
+# Now a complete Python.framework has been built in ${MYDEST}
+# But we still need to make it a relocatable framework
+
+# To make it relocatable we need to use otool and install_name_tool to change
+# the dylib name and path to it from all executables in the Python.framework
+
+# A Quick Guide: On Mac OS X, one may use:
+#     "otool -D <file>" to view the install name of a dylib
+#     "otool -L <file>" to view the dependencies
+#     "otool -l <file> | grep LC_RPATH -A2" to view the RPATHs
+#     "install_name_tool -id ..." to change an install name
+#     "install_name_tool -change ..." to change the dependencies
+#     "install_name_tool -rpath ... -add_rpath ... -delete_rpath ..." to change RPATHs
+ 
+# Make the framework's main dylib relocatable using rpath
+
+cd ${MYDEST}/python.framework/Versions/3.4/
+sudo chmod u+w Python
+otool -D ./Python
+sudo install_name_tool -id @rpath/Python ./Python
+
+# Change the dependencies of the executable files in bin to point to the relocatable 
+# framework in a relative way and add the proper rpath to find the Python (renamed dylib)
+
+cd bin
+sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.4/Python @rpath/Python python3.4
+sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.4/Python @rpath/Python python3.4m
+sudo install_name_tool -add_rpath @executable_path/../ ./python3.4
+
+# now do the same for the Python.app stored inside the Python.framework Resources 
+# This app is needed to allow gui use by python for plugins
+
+cd ${MYDEST}/Python.framework/Versions/3.4/Resources/Python.app/Contents/MacOS
+sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.4/Python @rpath/Python ./Python
+sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
+
+# We should now have a fully relocatable Python.framework ready to use to build and 
+# bundle into Sigil
+
