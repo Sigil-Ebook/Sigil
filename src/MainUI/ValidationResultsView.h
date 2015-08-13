@@ -57,6 +57,8 @@ public:
      */
     void ValidateCurrentBook();
 
+    QStringList ValidateFile(QString &apath);
+
     void LoadResults(const QList<ValidationResult> &results);
 
     /**
@@ -147,6 +149,8 @@ private:
      * The book being validated.
      */
     QSharedPointer<Book> m_Book;
+
+    static const QString SEP;
 };
 
 #endif // VALIDATIONRESULTSVIEW_H

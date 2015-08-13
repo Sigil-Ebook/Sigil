@@ -176,7 +176,16 @@ EmbeddedPython::EmbeddedPython()
 {
     // Build string list of paths that will
     // comprise the embedded Python's sys.path.
+#if defined(__APPLE__)
+    // On Mac OS X QCoreApplication::applicationDirPath() points to 
+    // whereever Sigil.app/Contents/MacOS/ is located
+    // but the python3 dir is in Contents
+    QDir execdir(QCoreApplication::applicationDirPath());
+    execdir.cdUp();
+    QString pyhomepath = execdir.absolutePath();
+#else
     QString pyhomepath = QCoreApplication::applicationDirPath();
+#endif
     wchar_t *hpath = new wchar_t[pyhomepath.size()+1];
     pyhomepath.toWCharArray(hpath);
     hpath[pyhomepath.size()]=L'\0';
