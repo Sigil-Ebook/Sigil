@@ -771,7 +771,7 @@ elseif (MSVC)
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
-    set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/Python3 )
+    set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/python3 )
     
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
