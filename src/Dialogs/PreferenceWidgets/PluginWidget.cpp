@@ -196,6 +196,25 @@ void PluginWidget::AutoFindPy2()
 
 void PluginWidget::AutoFindPy3()
 {
+    // If bundled python3 exists use it 
+    QString bundled_python3_path; 
+#if defined(__APPLE__)
+    // On Mac OS X QCoreApplication::applicationDirPath() points to Sigil.app/Contents/MacOS/ 
+    // is located, but the Python.framework dir is in Contents/Frameworks
+    QDir execdir(QCoreApplication::applicationDirPath());
+    execdir.cdUp();
+    bundled_python3_path = execdir.absolutePath() + "/Frameworks/Python.framework/Versions/3.4/bin/python3";
+#else
+    bundled_python3_path = QCoreApplication::applicationDirPath() +'/python3/bin/sigil-python3'/;
+#endif
+    QFileInfo checkPython3(bundled_python3_path);
+    if (checkPython3.exists() && checkPython3.isFile() && checkPython3.isReadable() && checkPython3.isExecutable() ) {
+        ui.editPathPy3->setText(bundled_python3_path);
+        m_isDirty = true;
+        return;
+    }
+
+    // Otherwise search for a system python 3
     QString p3path = QStandardPaths::findExecutable("python3");
     if (p3path.isEmpty()) {
         p3path = QStandardPaths::findExecutable("python");
