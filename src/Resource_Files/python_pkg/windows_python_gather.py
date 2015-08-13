@@ -23,7 +23,15 @@ site_dest = os.path.join(lib_dir, 'site-packages')
 pyvenv_home_dir = r'C:\Program Files\%s\Python3'% proj_name
 
 # Cherry-picked additional and/or modified site modules
-site_packages = [('lxml', 'd'), ('six.py', 'f')]
+site_packages = [ ('lxml', 'd'), 
+                  ('six.py', 'f'), 
+                  ('bs4', 'd'), 
+                  ('html5lib','d'), 
+                  ('PIL', 'd'), 
+                  ('regex.py','f'),
+                  ('_regex.pyd','f'),
+                  ('_regex_core.py','f'),
+                  ('test_regex.py', 'f')]
 
 
 def copy_site_packages():
