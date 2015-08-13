@@ -894,6 +894,11 @@ elseif (MSVC)
             COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x86.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist.exe )
     endif()
 
+    # Add postinstall script to Inno package
+	add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/postinstall/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/src/Resource_Files/windows/postinstall.bat ${TEMP_PACKAGE_DIR}/postinstall/ )
+
     # Copy the Changelog
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${MAIN_PACKAGE_DIR} )
