@@ -1,5 +1,0 @@
-+++++++++
-Changelog
-+++++++++
-
-.. miscnews:: ../../Misc/NEWS

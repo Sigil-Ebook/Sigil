@@ -1,0 +1,37 @@
+# FIRST:  See Building_A_Relocatable_Python_Framework_on_MacOSX.txt
+#         Also make sure you have the latest XCode and Command Line tools Installed
+#         You will need to have CMake 3.0 or later installed and in your path
+
+# standard deployment target
+export MACOSX_DEPLOYMENT_TARGET=10.9
+
+# Set the location of where the relocatable Python framework was installed
+# See "Building_A_Relocatable_Python_Framework_on_MacOSX.txt
+export MYDEST=/tmp/Frameworks
+
+# Set the location of where Qt 5.4 is installed
+export MYQTHOME=~/Qt
+
+# Set the location of where you want your Sigil repo to be stored
+export MYSIGILREPO=~/repo
+
+# clone the Sigil git repo
+cd ${MYSIGILREPO}
+git clone https://github.com/Sigil-Ebook/Sigil.git
+
+# Add Qt to the path
+export PATH=${PATH}:${MYQTHOME}/5.4/clang_64/bin
+
+# Make sure the newly created relocatable python framework is found first
+# **before** and system version of Python3
+
+export PATH=${MYDEST}/Python.framework/Versions/3.4/bin:${PATH}
+
+mkdir build
+cd build
+cmake -DPKG_SYSTEM_PYTHON=1 -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=${MYQTHOME}/5.4/clang_64/lib/cmake -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/ ../Sigil
+make
+make addframeworks
+
+# In ${MYSIGILREPO}/build/bin you will find a the newly built Sigil.app
+
