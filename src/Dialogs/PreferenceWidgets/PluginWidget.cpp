@@ -204,8 +204,10 @@ void PluginWidget::AutoFindPy3()
     QDir execdir(QCoreApplication::applicationDirPath());
     execdir.cdUp();
     bundled_python3_path = execdir.absolutePath() + "/Frameworks/Python.framework/Versions/3.4/bin/python3";
+#elif defined(Q_OS_WIN32)
+    bundled_python3_path = QCoreApplication::applicationDirPath() +'/python3/sigil-python3';
 #else
-    bundled_python3_path = QCoreApplication::applicationDirPath() +'/python3/bin/sigil-python3'/;
+    bundled_python3_path = QCoreApplication::applicationDirPath() +'/python3/bin/sigil-python3';
 #endif
     QFileInfo checkPython3(bundled_python3_path);
     if (checkPython3.exists() && checkPython3.isFile() && checkPython3.isReadable() && checkPython3.isExecutable() ) {
