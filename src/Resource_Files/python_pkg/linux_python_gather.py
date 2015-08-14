@@ -21,7 +21,15 @@ print ('pyhome_dir', pyhome_dir)
 site_dest = os.path.join(py_dir, 'site-packages')
 
 # Cherry-picked additional and/or modified modules
-site_packages = [('lxml', 'd'), ('six.py', 'f')]
+site_packages = [ ('lxml', 'd'), 
+                  ('six.py', 'f'), 
+                  ('bs4', 'd'), 
+                  ('html5lib','d'), 
+                  ('PIL', 'd'), 
+                  ('regex.py','f'),
+                  ('_regex.cpython-34m.so','f'),
+                  ('_regex_core.py','f'),
+                  ('test_regex.py', 'f')]
 
 
 def copy_site_packages(packages, dest):
