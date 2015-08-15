@@ -10,7 +10,7 @@ def insert_into_syspath():
     sp = None
     ourhome = sys.path[-1]
     for apath in sys.path:
-        if apath.endswith("site-packages"):
+        if apath.endswith("site-packages") or apath.endswith("dist-packages"):
             sp = n
             break
         n += 1
