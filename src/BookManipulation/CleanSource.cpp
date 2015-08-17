@@ -95,13 +95,13 @@ QString CleanSource::XMLPrettyPrintBS4(const QString &source)
     args.append(QVariant(source));
     EmbeddedPython * epython  = EmbeddedPython::instance();
 
-    QVariant res = epython->runInPython( QString("bs4repair"),
-                                         QString("repairPrettyPrintXML"),
+    QVariant res = epython->runInPython( QString("xmlprocessor"),
+                                         QString("repairXML"),
                                          args,
                                          &rv,
                                          error_traceback);    
     if (rv != 0) {
-        Utility::DisplayStdWarningDialog(QString("error in bs4repair repairPrettyPrintXML: ") + QString::number(rv), 
+        Utility::DisplayStdWarningDialog(QString("error in xmlprocessor repairXML: ") + QString::number(rv), 
                                          error_traceback);
         // an error happened, return unchanged original
         return QString(source);

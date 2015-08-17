@@ -1,25 +1,6 @@
 #!/usr/bin/env python3
 
 import sys
-
-# until we get a properly embedded python 3 with its own site-packages
-# force our current module path to come before site_packages
-# to prevent name collisions with our versions and any site-packages
-def insert_into_syspath():
-    n = 0
-    sp = None
-    ourhome = sys.path[-1]
-    for apath in sys.path:
-        if apath.endswith("site-packages") or apath.endswith("dist-packages"):
-            sp = n
-            break
-        n += 1
-    if sp is not None:
-        sys.path.insert(sp,ourhome)
-
-
-insert_into_syspath()
-
 import os
 from bs4 import BeautifulSoup
 from bs4.builder._lxml import LXMLTreeBuilderForXML
@@ -59,16 +40,10 @@ def remove_xml_header(data):
 
 
 # BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
-# def repairXML(data, self_closing_tags=ebook_xml_empty_tags):
-#     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
-#     soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
-#     newdata = soup.serialize()
-#    return newdata
-
-def repairXML(data, self_closing_tags=ebook_xml_empty_tags, indent_chars="  "):
+def repairXML(data, self_closing_tags=ebook_xml_empty_tags):
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
     soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
-    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars=indent_chars)
+    newdata = soup.decode(pretty_print=True, formatter='minimal')
     return newdata
 
 def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
@@ -89,7 +64,7 @@ def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
                     if fragment_id in id_dict:
                         attribute_value = TEXT_FOLDER_NAME + "/" + quoteurl(id_dict[fragment_id]) + "#" + fragment_id
                         tag["src"] = attribute_value
-    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    newdata = soup.decode(pretty_print=True, formatter='minimal')
     return newdata
 
 
@@ -118,7 +93,7 @@ def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
                         attribute_value = attribute_value + "#" + fragment
                     attribute_value = quoteurl(attribute_value)
                     tag["src"] = attribute_value
-    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    newdata = soup.decode(pretty_print=True, formatter='minimal')
     return newdata
 
 
@@ -147,7 +122,7 @@ def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
                         attribute_value = attribute_value + "#" + fragment
                     attribute_value = quoteurl(attribute_value)
                     tag["href"] = attribute_value
-    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    newdata = soup.decode(pretty_print=True, formatter='minimal')
     return newdata
 
 
@@ -168,7 +143,7 @@ def main():
   <guide />
 </package>
 '''
-    print(repairXML(opfxml, indent_chars=" "))
+    print(repairXML(opfxml))
     return 0
 
 if __name__ == '__main__':
