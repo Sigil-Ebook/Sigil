@@ -80,9 +80,9 @@ class BookContainer(object):
         # spine_ppd is utf-8 string of page direction (rtl, ltr, None)
         return self._w.getspine_ppd()
 
-    def setspineppd(self, ppd):
+    def setspine_ppd(self, ppd):
         # new pagedirection string
-        self._w.setspineppd(ppd)
+        self._w.setspine_ppd(ppd)
 
 
 # guide get/set
