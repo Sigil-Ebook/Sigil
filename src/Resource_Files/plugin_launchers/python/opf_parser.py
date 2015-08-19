@@ -117,7 +117,7 @@ class Opf_Parser(object):
             # spine
             if tname == "spine":
                 if tattr is not None:
-                    self.spine_ppd = tattr.get("page-progession-direction", None)
+                    self.spine_ppd = tattr.get("page-progression-direction", None)
             if tname == "itemref" and prefix.endswith("spine"):
                 idref = tattr.pop("idref", None)
                 linear = tattr.pop("linear", None)
