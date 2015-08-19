@@ -9,14 +9,18 @@
 
 cmake_minimum_required( VERSION 3.0 ) 
 
-project( gumbo C )
+project( sigilgumbo C )
 
 set( GUMBO_LIBRARIES ${PROJECT_NAME} CACHE INTERNAL "" )
 set( GUMBO_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR} CACHE INTERNAL "" )
 
 file( GLOB SOURCES *.c )
 
-add_library( gumbo ${SOURCES} ) 
+if( APPLE )
+        set(CMAKE_MACOSX_RPATH 1)
+endif()
+
+add_library( sigilgumbo SHARED ${SOURCES} ) 
 
 # Special compiler and linker flags for MSVC
 if( MSVC )
@@ -26,7 +30,7 @@ if( MSVC )
 
 	set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
 	set( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /Oi /GL" ) 
-	set_target_properties( gumbo PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
+	# set_target_properties( sigilgumbo PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
 endif()
 
 if( UNIX AND NOT APPLE )

@@ -23,8 +23,12 @@ SET(SOURCES
     ${PROJECT_NAME}/src/hunspell/replist.cxx
     ${PROJECT_NAME}/src/hunspell/suggestmgr.cxx
 )
+if( APPLE )
+    set(CMAKE_MACOSX_RPATH 1)
+endif()
 
-ADD_LIBRARY(${PROJECT_NAME} ${SOURCES})
+ADD_LIBRARY(${PROJECT_NAME} SHARED ${SOURCES})
+
 target_include_directories(${PROJECT_NAME} PUBLIC
     ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}/src/hunspell
@@ -35,5 +39,5 @@ if( MSVC )
     set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS /DHUNSPELL_STATIC)
     set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
 	set( CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
-    set_target_properties( ${PROJECT_NAME} PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
+    # set_target_properties( ${PROJECT_NAME} PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
 endif()
