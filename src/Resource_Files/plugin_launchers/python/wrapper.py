@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20141204
+_launcher_version=20150819
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -291,7 +291,7 @@ class Wrapper(object):
     def getspine_ppd(self):
         return self.spine_ppd
 
-    def setspineppd(self, ppd):
+    def setspine_ppd(self, ppd):
         ppd = unicode_str(ppd)
         if ppd not in ['rtl', 'ltr', None]:
             raise WrapperException('incorrect page-progression direction')
