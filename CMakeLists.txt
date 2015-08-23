@@ -23,6 +23,27 @@ set( SIGIL_MINOR_VERSION 8 )
 set( SIGIL_REVISION_VERSION 700 )
 set( SIGIL_FULL_VERSION ${SIGIL_MAJOR_VERSION}.${SIGIL_MINOR_VERSION}.${SIGIL_REVISION_VERSION} )
 
+if( UNIX AND NOT APPLE )
+   # Make sure the coorect rpath is set for the sigil executable
+   # on Linux -- for both the build and the the nstalled versions
+   # Needed to make sure the installed shared hunspell and gumbo
+   # libraries are found/used at runtime.
+
+   # use, i.e. don't skip the full RPATH for the build tree
+   SET(CMAKE_SKIP_BUILD_RPATH  FALSE)
+
+   # when building, don't use the install RPATH already
+   # (but later on when installing)
+   SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+
+   SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib/sigil")
+
+   # add the automatically determined parts of the RPATH
+   # which point to directories outside the build tree to the install RPATH.
+   # This will ensure the Qt5 lib directory is always included after install.
+   SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+ENDIF()
+
 # Check if platform is 64 bit
 if( NOT APPLE )
    if( CMAKE_SIZEOF_VOID_P EQUAL 4 )
@@ -47,7 +68,7 @@ if (USE_SYSTEM_LIBS)
     find_package( ZLIB )
     find_package( PkgConfig )
     find_package( MiniZip )
-    pkg_check_modules( HUNSPELL hunspell )
+    #pkg_check_modules( HUNSPELL hunspell )
     if ( NOT APPLE )
         pkg_check_modules( PCRE libpcre16 )
     endif()

@@ -4,18 +4,19 @@
 # Adds linked Qt's lib directory to the LD_LIBRARY_PATH
 
 QTLIB_DIR="${QT_LIBRARY_DIR}"
+SIGIL_BIN_DIR="${CMAKE_INSTALL_PREFIX}/lib/sigil"
 
 if [ -z "$LD_LIBRARY_PATH" ]; then
-  LD_LIBRARY_PATH="$QTLIB_DIR"
+  LD_LIBRARY_PATH="$SIGIL_BIN_DIR:$QTLIB_DIR"
 else
-  LD_LIBRARY_PATH="$QTLIB_DIR:$LD_LIBRARY_PATH"
+  LD_LIBRARY_PATH="$SIGIL_BIN_DIR:$QTLIB_DIR:$LD_LIBRARY_PATH"
 fi
 
 # Create an environment var for the Sigil helper directory.
-if [ -z "$SIGIL_EXTRA_ROOT" ]; then
-  SIGIL_EXTRA_ROOT="${SIGIL_SHARE_ROOT}"
-  export SIGIL_EXTRA_ROOT
-fi
+#if [ -z "$SIGIL_EXTRA_ROOT" ]; then
+#  SIGIL_EXTRA_ROOT="${SIGIL_SHARE_ROOT}"
+#  export SIGIL_EXTRA_ROOT
+#fi
 
 export LD_LIBRARY_PATH
 
