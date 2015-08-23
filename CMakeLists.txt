@@ -24,8 +24,8 @@ set( SIGIL_REVISION_VERSION 700 )
 set( SIGIL_FULL_VERSION ${SIGIL_MAJOR_VERSION}.${SIGIL_MINOR_VERSION}.${SIGIL_REVISION_VERSION} )
 
 if( UNIX AND NOT APPLE )
-   # Make sure the coorect rpath is set for the sigil executable
-   # on Linux -- for both the build and the the nstalled versions
+   # Make sure the correct rpath is set for the sigil executable
+   # on Linux -- for both the build and the installed versions.
    # Needed to make sure the installed shared hunspell and gumbo
    # libraries are found/used at runtime.
 

@@ -24,13 +24,13 @@ add_library( sigilgumbo SHARED ${SOURCES} )
 
 # Special compiler and linker flags for MSVC
 if( MSVC )
-        set ( EXTRA_INC include/ )
-        include_directories( SYSTEM ${EXTRA_INC} )
-        add_definitions( -Dinline=__inline )
+    set ( EXTRA_INC include/ )
+    include_directories( SYSTEM ${EXTRA_INC} )
+    add_definitions( -Dinline=__inline )
 
-	set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
-	set( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /Oi /GL" ) 
-	# set_target_properties( sigilgumbo PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
+    set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
+    set( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /Oi /GL" )
+    # set_target_properties( sigilgumbo PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
 endif()
 
 if( UNIX AND NOT APPLE )
