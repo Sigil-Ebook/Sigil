@@ -69,6 +69,13 @@ public:
     ~BookBrowser();
 
     /**
+     * List of selected resources 
+     */
+    QList <Resource *> AllSelectedResources();
+
+    int AllSelectedItemCount();
+
+    /**
      * Valid resources selected in the Book Browser
      */
     QList <Resource *> ValidSelectedHTMLResources();
@@ -430,15 +437,15 @@ private:
     QList <Resource *> ValidSelectedResources();
 
     /**
+     * Number of valid items selected
+     */
+    int ValidSelectedItemCount();
+
+    /**
      * List of selected resources after validating selected resources are of the given type
      */
     QList <Resource *> ValidSelectedResources(Resource::ResourceType resource_type);
 
-
-    /**
-     * Number of valid items selected
-     */
-    int ValidSelectedItemCount();
 
     void RefreshCounts();
 

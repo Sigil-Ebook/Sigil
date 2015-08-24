@@ -7,6 +7,7 @@
 #include <QXmlStreamReader>
 #include <QXmlStreamAttributes>
 #include <QMessageBox>
+#include <QStandardPaths>
 #include "MainUI/MainWindow.h"
 #include "MainUI/BookBrowser.h"
 #include "Misc/Plugin.h"
@@ -154,6 +155,19 @@ int PluginRunner::exec(const QString &name)
     return QDialog::exec();
 }
 
+
+void PluginRunner::writeSigilCFG()
+{
+    QStringList cfg = QStringList() << QCoreApplication::applicationDirPath();
+    cfg << QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    QList <Resource *> selected_resources = m_bookBrowser->AllSelectedResources();
+    foreach(Resource * resource, selected_resources) {
+        cfg << resource->GetRelativePathToRoot();
+    }
+    Utility::WriteUnicodeTextFile(cfg.join("\n"), m_outputDir + "/sigil.cfg");
+}
+
+
 void PluginRunner::startPlugin()
 {
     QStringList args;
@@ -164,6 +178,9 @@ void PluginRunner::startPlugin()
     ui.textEdit->clear();
     ui.textEdit->setOverwriteMode(true);
     ui.textEdit->setPlainText("");
+
+    // create the sigil cfg file in the output directory
+    writeSigilCFG();
 
     // prepare for the plugin by flushing all current book changes to disk
     m_mainWindow->SaveTabData();
