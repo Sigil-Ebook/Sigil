@@ -69,6 +69,11 @@ public:
     ~BookBrowser();
 
     /**
+     * List of selected resources after validating selection
+     */
+    QList <Resource *> ValidSelectedResources();
+
+    /**
      * Valid resources selected in the Book Browser
      */
     QList <Resource *> ValidSelectedHTMLResources();
@@ -423,11 +428,6 @@ private:
      * Connects all the required signals to their respective slots.
      */
     void ConnectSignalsToSlots();
-
-    /**
-     * List of selected resources after validating selection
-     */
-    QList <Resource *> ValidSelectedResources();
 
     /**
      * List of selected resources after validating selected resources are of the given type

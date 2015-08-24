@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20150819
+_launcher_version=20150823
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -113,6 +113,20 @@ class Wrapper(object):
         self.plugin_dir = pathof(plugin_dir)
         self.plugin_name = plugin_name
         self.outdir = pathof(outdir)
+
+        # initialize the sigil cofiguration info passed in outdir with sigil.cfg
+        self.appdir = None
+        self.usrsupdir = None
+        self.selected = []
+        cfg = ''
+        with open(os.path.join(self.outdir, 'sigil.cfg'), 'rb') as f:
+            cfg = f.read().decode('utf-8')
+        cfg_lst = cfg.split("\n")
+        if len(cfg_lst) >= 2:
+            self.appdir = cfg_lst.pop(0)
+            self.usrsupdir = cfg_lst.pop(0)
+            self.selected = cfg_lst
+
         # dictionaries used to map opf manifest information
         self.id_to_href = {}
         self.id_to_mime = {}
@@ -609,3 +623,42 @@ class Wrapper(object):
                 data = utf8_str(data)
             with open(pathof(filepath),'wb') as fp:
                 fp.write(data)
+
+    def get_dictionary_dirs(self):
+        apaths = []
+        if sys.platform.startswith('darwin'):
+            apaths.append(unipath.abspath(os.path.join(self.appdir,"..","hunspell_dictionaries")))
+            apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
+        elif sys.platform.startswith('win'):
+            apaths.append(unipath.abspath(os.path.join(self.appdir,"hunspell_dictionaries")))
+            apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
+        else:
+            install_prefix = unipath.abspath(os.path.join(self.appdir,"..",".."))
+            apaths.append(unipath.abspath(os.path.join(install_prefix, "share", "hunspell_dictionaries")))
+            apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
+        return apaths
+                        
+    def get_gumbo_path(self):
+        if sys.platform.startswith('darwin'):
+            lib_dir = unipath.abspath(os.path.join(self.appdir,"..","lib"))
+            lib_name = 'libsigilgumbo.dylib'
+        elif sys.platform.startswith('win'):
+            lib_dir = unipath.abspath(self.appdir)
+            lib_name = 'sigilgumbo.dll'
+        else:
+            lib_dir = unipath.abspath(self.appdir)
+            lib_name = 'libsigilgumbo.so'
+        return os.path.join(lib_dir, libname)
+            
+    def get_hunspell_path(self):
+        if sys.platform.startswith('darwin'):
+            lib_dir = unipath.abspath(os.path.join(self.appdir,"..","lib"))
+            lib_name = 'libhunspell.dylib'
+        elif sys.platform.startswith('win'):
+            lib_dir = unipath.abspath(self.appdir)
+            lib_name = 'hunspell.dll'
+        else:
+            lib_dir = unipath.abspath(self.appdir)
+            lib_name = 'libhunspell.so'
+        return os.path.join(lib_dir, lib_name)
+
