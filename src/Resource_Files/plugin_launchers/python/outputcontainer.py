@@ -201,6 +201,11 @@ class OutputContainer(object):
         self._w.copy_book_contents_to(destdir)
 
 
+    # get a list of the directories that contain Sigil's hunspell dictionaries
+    def get_dictionary_dirs(self):
+        return self._w.get_dictionary_dirs()
+
+
     # functions for converting from  manifest id to href, basename, mimetype etc
     def href_to_id(self, href, ow=None):
         return self._w.map_href_to_id(href, ow)

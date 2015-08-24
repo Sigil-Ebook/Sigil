@@ -69,9 +69,11 @@ public:
     ~BookBrowser();
 
     /**
-     * List of selected resources after validating selection
+     * List of selected resources 
      */
-    QList <Resource *> ValidSelectedResources();
+    QList <Resource *> AllSelectedResources();
+
+    int AllSelectedItemCount();
 
     /**
      * Valid resources selected in the Book Browser
@@ -430,15 +432,20 @@ private:
     void ConnectSignalsToSlots();
 
     /**
-     * List of selected resources after validating selected resources are of the given type
+     * List of selected resources after validating selection
      */
-    QList <Resource *> ValidSelectedResources(Resource::ResourceType resource_type);
-
+    QList <Resource *> ValidSelectedResources();
 
     /**
      * Number of valid items selected
      */
     int ValidSelectedItemCount();
+
+    /**
+     * List of selected resources after validating selected resources are of the given type
+     */
+    QList <Resource *> ValidSelectedResources(Resource::ResourceType resource_type);
+
 
     void RefreshCounts();
 

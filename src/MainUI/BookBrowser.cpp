@@ -314,6 +314,57 @@ QList <Resource *> BookBrowser::ValidSelectedResources(Resource::ResourceType re
     return resources;
 }
 
+int BookBrowser::AllSelectedItemCount()
+{
+  QList <QModelIndex> list = m_TreeView->selectionModel()->selectedRows(0);
+  int count = list.length();
+
+  if (count <= 1) {
+    return count;
+  }
+
+  foreach(QModelIndex index, list) {
+    QStandardItem *item = m_OPFModel->itemFromIndex(index);
+    const QString &identifier = item->data().toString();
+
+    // If folder item included, multiple selection is invalid                                                                              
+    if (identifier == NULL) {
+      return -1;
+    }
+
+    Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
+
+    // If for some reason there is something with an identifier but no resource, fail                                                      
+    if (resource == NULL) {
+      return -1;
+    }
+  }
+  return count;
+}
+
+QList <Resource *> BookBrowser::AllSelectedResources()
+{
+    QList <Resource *> resources;
+    if (AllSelectedItemCount() < 1) {
+        return resources;
+    }
+
+    QList <QModelIndex> list = m_TreeView->selectionModel()->selectedRows(0);
+    foreach(QModelIndex index, list) {
+        QStandardItem *item = m_OPFModel->itemFromIndex(index);
+
+        if (item != NULL) {
+            const QString &identifier = item->data().toString();
+            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
+
+            if (resource != NULL) {
+                resources.append(resource);
+            }
+        }
+    }
+    return resources;
+}
+
 QList <Resource *> BookBrowser::ValidSelectedResources()
 {
     QList <Resource *> resources;

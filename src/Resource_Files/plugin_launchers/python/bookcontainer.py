@@ -232,6 +232,7 @@ class BookContainer(object):
     def selected_iter(self):
         # yields id type ('other' or 'manifest') and id/otherid for each file selected in the BookBrowser
         for book_href in self._w.selected:
+            print(book_href)
             id_type = 'other'
             id = book_href
             href = book_href
@@ -252,6 +253,10 @@ class BookContainer(object):
     # create your own current copy of all ebook contents in destintation directory
     def copy_book_contents_to(self, destdir):
         self._w.copy_book_contents_to(destdir)
+
+    # get a list of the directories that contain Sigil's hunspell dictionaries
+    def get_dictionary_dirs(self):
+        return self._w.get_dictionary_dirs()
 
 
     # functions for converting from  manifest id to href, basename, mimetype etc
