@@ -30,6 +30,7 @@ from __future__ import unicode_literals, division, absolute_import, print_functi
 import sys
 import os
 from quickparser import QuickXHTMLParser
+from pluginhunspell import HunspellChecker
 from preferences import JSONPrefs
 
 class ContainerException(Exception):
@@ -41,6 +42,8 @@ class InputContainer(object):
         self._debug = debug
         self._w = wrapper
         self.qp=QuickXHTMLParser()
+        self.hspell=HunspellChecker(wrapper.get_hunspell_path())
+        self.dictionary_dirs=wrapper.get_dictionary_dirs()
         self._prefs_store = JSONPrefs(wrapper.plugin_dir, wrapper.plugin_name)
 
     def getPrefs(self):

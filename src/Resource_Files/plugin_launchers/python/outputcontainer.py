@@ -31,6 +31,7 @@ import sys
 import os
 from quickparser import QuickXHTMLParser
 from preferences import JSONPrefs
+from pluginhunspell import HunspellChecker
 
 class ContainerException(Exception):
     pass
@@ -41,6 +42,8 @@ class OutputContainer(object):
         self._debug = debug
         self._w = wrapper
         self.qp=QuickXHTMLParser()
+        self.hspell=HunspellChecker(wrapper.get_hunspell_path())
+        self.dictionary_dirs=wrapper.get_dictionary_dirs()
         self._prefs_store = JSONPrefs(wrapper.plugin_dir, wrapper.plugin_name)
 
     def getPrefs(self):
@@ -173,6 +176,19 @@ class OutputContainer(object):
         for book_href in self._w.other:
             yield book_href
 
+    def selected_iter(self):
+        # yields id type ('other' or 'manifest') and id/otherid for each file selected in the BookBrowser
+        for book_href in self._w.selected:
+            id_type = 'other'
+            id = book_href
+            href = book_href
+            if href.startswith('OEBPS/'):
+                href = href[6:]
+            if href in self._w.href_to_id:
+                id = self._w.href_to_id[href]
+                id_type = 'manifest'
+            yield id_type, id
+
 
     # miscellaneous routines
 
@@ -183,6 +199,11 @@ class OutputContainer(object):
     # create your own current copy of all ebook contents in destintation directory
     def copy_book_contents_to(self, destdir):
         self._w.copy_book_contents_to(destdir)
+
+
+    # get a list of the directories that contain Sigil's hunspell dictionaries
+    def get_dictionary_dirs(self):
+        return self._w.get_dictionary_dirs()
 
 
     # functions for converting from  manifest id to href, basename, mimetype etc
