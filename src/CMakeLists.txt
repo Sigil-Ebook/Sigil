@@ -682,15 +682,12 @@ if (MSVC)
     set(QT_MAIN Qt5::WinMain)
 endif()
 
-target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${PYTHON_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES} )
 qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit WebKitWidgets Network Concurrent)
 
 #############################################################################
 
 # needed for correct static header inclusion
-#if( NOT USE_SYSTEM_LIBS OR NOT XERCES_FOUND )
-#    add_definitions( -DXERCES_STATIC_LIBRARY )
-#endif()
 if( NOT USE_SYSTEM_LIBS OR NOT PCRE_FOUND )
     add_definitions( -DPCRE_STATIC )
 endif()
@@ -871,18 +868,18 @@ elseif (MSVC)
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${EXAMPLE} ${MAIN_PACKAGE_DIR}/examples/ )
     endforeach( EXAMPLE )
 
+    # Copy hunspell and gumbo dlls to program directory
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E copy ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hunspell.dll ${MAIN_PACKAGE_DIR} )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E copy ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/sigilgumbo.dll ${MAIN_PACKAGE_DIR} )
+
     # Set the path of the application executable
     if( MSVC_IDE )
         set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
     else()
         set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
     endif()
-
-    # Copy hunspell and gumbo dlls to program directory
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E copy ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hunspell.dll ${MAIN_PACKAGE_DIR} )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/sigilugmbo.dll ${MAIN_PACKAGE_DIR} )
 
     # Copy the application executable
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
