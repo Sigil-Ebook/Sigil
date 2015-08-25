@@ -20,6 +20,10 @@ if( APPLE )
         set(CMAKE_MACOSX_RPATH 1)
 endif()
 
+if ( MSVC )
+     set( SOURCES ${SOURCES} include/gumbo_windll.def)
+endif()
+
 add_library( sigilgumbo SHARED ${SOURCES} ) 
 
 # Special compiler and linker flags for MSVC
