@@ -108,7 +108,7 @@ void PluginWidget::addPlugin()
 
     switch (ar) {
         case PluginDB::AR_XML:
-            Utility::DisplayStdWarningDialog(tr("Error: Plugin plugin.xml file can not be read."));
+            Utility::DisplayStdWarningDialog(tr("Error: Plugin plugin.xml is invalid or not supported on your operating system."));
             return;
         case PluginDB::AR_EXISTS:
             Utility::DisplayStdWarningDialog(tr("Warning: A plugin by that name already exists"));
