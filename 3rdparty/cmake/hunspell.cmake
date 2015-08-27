@@ -36,8 +36,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 # Special compiler and linker flags for MSVC
 if( MSVC )
-    set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS /DHUNSPELL_STATIC)
+    set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS /DBUILDING_LIBHUNSPELL)
     set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
-	set( CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
+    set( CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" )
     # set_target_properties( ${PROJECT_NAME} PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
 endif()

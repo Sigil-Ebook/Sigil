@@ -682,21 +682,18 @@ if (MSVC)
     set(QT_MAIN Qt5::WinMain)
 endif()
 
-target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES} ${BOOST_LIBS} ${XERCES_LIBRARIES} ${XERCESEXTENSIONS_LIBRARIES} ${PYTHON_LIBRARIES} )
+target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES} )
 qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit WebKitWidgets Network Concurrent)
 
 #############################################################################
 
 # needed for correct static header inclusion
-if( NOT USE_SYSTEM_LIBS OR NOT XERCES_FOUND )
-    add_definitions( -DXERCES_STATIC_LIBRARY )
-endif()
 if( NOT USE_SYSTEM_LIBS OR NOT PCRE_FOUND )
     add_definitions( -DPCRE_STATIC )
 endif()
-if( NOT USE_SYSTEM_LIBS OR NOT HUNSPELL_FOUND )
-    add_definitions( -DHUNSPELL_STATIC )
-endif()
+#if( NOT USE_SYSTEM_LIBS OR NOT HUNSPELL_FOUND )
+#    add_definitions( -DHUNSPELL_STATIC )
+#endif()
 
 # Speed up stirng building
 add_definitions( -DQT_USE_FAST_CONCATENATION )
@@ -871,6 +868,12 @@ elseif (MSVC)
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${EXAMPLE} ${MAIN_PACKAGE_DIR}/examples/ )
     endforeach( EXAMPLE )
 
+    # Copy hunspell and gumbo dlls to program directory
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E copy ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hunspell.dll ${MAIN_PACKAGE_DIR} )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E copy ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/sigilgumbo.dll ${MAIN_PACKAGE_DIR} )
+
     # Set the path of the application executable
     if( MSVC_IDE )
         set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
@@ -879,7 +882,7 @@ elseif (MSVC)
     endif()
 
     # Copy the application executable
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
                         
     # We need to copy the CRT dlls
@@ -1194,8 +1197,12 @@ if( UNIX AND NOT APPLE )
                             COMMAND cmake -E copy ${EXAMPLE} ${DEB_SHARE_PREFIX}/share/sigil/examples/ )
     endforeach( EXAMPLE )
 
-    # Copy the application executable
+    # Copy the hunspell/gumbo shared libraries
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+                        COMMAND cmake -E copy ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/*.so ${DEB_TREE_ROOT}/lib/sigil/ )
+
+    # Copy the application executable
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E copy ${SIGIL_EXECUTABLE} ${DEB_TREE_ROOT}/lib/sigil/ )
 
     # Copy the Unix launcher that sets the proper environment variables before launching the real Sigil binary
@@ -1236,8 +1243,10 @@ if( UNIX AND NOT APPLE )
                         COMMENT "Removing temporary directory..." )
 
     # Standard Linux 'make install'
+    install( TARGETS sigil DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
     install( PROGRAMS ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/ RENAME ${PROJECT_NAME} )
-    install( PROGRAMS ${SIGIL_EXECUTABLE} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
+    install( PROGRAMS ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libhunspell.so DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
+    install( PROGRAMS ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libsigilgumbo.so DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
     install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/applications/ )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/translations/ )
