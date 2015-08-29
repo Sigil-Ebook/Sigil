@@ -55,7 +55,7 @@ static void free_node(GumboNode* node);
 
 const GumboOptions kGumboDefaultOptions = {
   8,
-  false,
+  true,
   false,
   -1,
 };
