@@ -34,6 +34,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/HTMLPrettyPrint.h"
 #include "Misc/GumboInterface.h"
+#include "Misc/GumboPrettyPrint.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -54,7 +55,7 @@ QString CleanSource::Clean(const QString &source)
     switch (level) {
         case SettingsStore::CleanLevel_PrettyPrint:
         case SettingsStore::CleanLevel_PrettyPrintGumbo: {
-            newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintGumbo(newsource);
+            newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrintGumbo(newsource) : PrettyPrintGumbo(newsource);
             newsource = PrettifyDOCTYPEHeader(newsource);
             return newsource;
         }
@@ -77,10 +78,15 @@ QString CleanSource::Clean(const QString &source)
 QString CleanSource::PrettyPrintGumbo(const QString &source)
 {
     QString newsource = source;
-    GumboInterface gp = GumboInterface(newsource);
-    newsource = gp.repair();
-    newsource = CharToEntity(newsource);
+#if 0
+    GumboInterface gi = GumboInterface(newsource);
+    newsource = gi.repair();
     newsource = PrettyPrint(newsource);
+#else
+    GumboPrettyPrint gpp = GumboPrettyPrint(newsource);
+    newsource = gpp.prettyprint();
+#endif
+    newsource = CharToEntity(newsource);
     newsource = PrettifyDOCTYPEHeader(newsource);
     return newsource;
 }
@@ -115,11 +121,15 @@ QString CleanSource::ToValidXHTML(const QString &source)
     QString newsource = source;
 
     if (!XhtmlDoc::IsDataWellFormed(source)) {
+#if 1
+        newsource = PrettyPrintGumbo(newsource);
+#else
         GumboInterface gp = GumboInterface(newsource);
         newsource = gp.repair();
         newsource = CharToEntity(newsource);
         newsource = PrettyPrint(newsource);
         newsource = PrettifyDOCTYPEHeader(newsource);
+#endif
     }
     return newsource;
 }
@@ -129,7 +139,6 @@ QString CleanSource::PrettyPrint(const QString &source)
     HTMLPrettyPrint pp(source);
     return pp.prettyPrint();
 }
-
 
 QString CleanSource::ProcessXML(const QString &source)
 {

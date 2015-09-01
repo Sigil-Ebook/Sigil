@@ -60,7 +60,6 @@ private:
 
     static QString PrettyPrint(const QString &source);
 
-
     /**
      * Removes HTML meta tags with charset declarations.
      * Some applications leave a faulty charset encoding

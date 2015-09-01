@@ -306,6 +306,8 @@ set( MISC_FILES
     Misc/EmbeddedPython.h
     Misc/GumboInterface.h
     Misc/GumboInterface.cpp
+    Misc/GumboPrettyPrint.h
+    Misc/GumboPrettyPrint.cpp
     )
 
 set( MISC_EDITORS_FILES    
