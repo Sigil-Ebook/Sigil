@@ -57,7 +57,6 @@ public:
 
 private:
 
-
     static QString PrettyPrint(const QString &source);
 
     /**

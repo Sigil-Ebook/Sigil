@@ -50,6 +50,7 @@ public:
     void    parse();
     QString repair();
     QString getxhtml();
+    QString prettyprint(QString indent_chars="  ");
 
     // returns list tags that match manifest properties
     QStringList get_all_properties();
@@ -103,6 +104,8 @@ private:
     QList<GumboNode*> get_nodes_with_tags(GumboNode* node, const QList<GumboTag> & tags);
     std::string serialize(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
     std::string serialize_contents(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
+    std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
+    std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
     std::string build_doctype(GumboNode *node);
     std::string build_attributes(GumboAttribute * at, bool no_entities, bool runupdates = false);
     std::string update_attribute_value(std::string href);
@@ -111,6 +114,7 @@ private:
     void rtrim(std::string &s);
     void ltrim(std::string &s);
     void ltrimnewlines(std::string &s);
+    void newlinetrim(std::string &s);
     void replace_all(std::string &s, const char * s1, const char * s2);
 
     QString                   m_source;
@@ -124,4 +128,3 @@ private:
 };
 
 #endif
-
