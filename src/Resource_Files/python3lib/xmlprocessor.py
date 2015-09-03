@@ -35,16 +35,29 @@ def unquoteurl(href):
 TEXT_FOLDER_NAME = "Text"
 ebook_xml_empty_tags = ["meta", "item", "itemref", "reference", "content"]
 
+
 def remove_xml_header(data):
     return re.sub(r'<\s*\?xml\s*[^>]*\?>\s*','',data, flags=re.I)
 
+
+ncx_text_pattern = re.compile(r'''(<text>\s*[^<]*</text>)''',re.IGNORECASE)
+
+def fix_inline_text_tag(source):
+    srcpieces = ncx_text_pattern.split(source)
+    for i in range(1, len(srcpieces), 2):
+        tag = srcpieces[i]
+        tag = tag[6:-7]
+        tag = '<text>' + tag.strip() + '</text>'
+        srcpieces[i] = tag
+    source = "".join(srcpieces)
+    return source
 
 # BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
 def repairXML(data, self_closing_tags=ebook_xml_empty_tags):
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
     soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
     newdata = soup.decode(pretty_print=True, formatter='minimal')
-    return newdata
+    return fix_inline_text_tag(newdata)
 
 def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
     # rebuild serialized lookup dictionary
@@ -65,7 +78,7 @@ def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
                         attribute_value = TEXT_FOLDER_NAME + "/" + quoteurl(id_dict[fragment_id]) + "#" + fragment_id
                         tag["src"] = attribute_value
     newdata = soup.decode(pretty_print=True, formatter='minimal')
-    return newdata
+    return fix_inline_text_tag(newdata)
 
 
 def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
@@ -94,7 +107,7 @@ def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
                     attribute_value = quoteurl(attribute_value)
                     tag["src"] = attribute_value
     newdata = soup.decode(pretty_print=True, formatter='minimal')
-    return newdata
+    return fix_inline_text_tag(newdata)
 
 
 def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
@@ -140,6 +153,9 @@ def main():
   <spine toc="ncx">
     <itemref idref="Section0001.xhtml" >
   </spine>
+  <text>
+    this is a bunch of nonsense
+  </text>
   <guide />
 </package>
 '''
