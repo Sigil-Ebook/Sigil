@@ -1,0 +1,502 @@
+Binary files python3/bs4/.DS_Store and /Users/kbhend/Desktop/bs4_custom/.DS_Store differ
+diff -ur python3/bs4/__init__.py /Users/kbhend/Desktop/bs4_custom/__init__.py
+--- python3/bs4/__init__.py	2015-09-03 14:28:07.000000000 -0400
++++ /Users/kbhend/Desktop/bs4_custom/__init__.py	2015-09-03 12:32:41.000000000 -0400
+@@ -358,7 +358,7 @@
+ 
+     def decode(self, pretty_print=False,
+                eventual_encoding=DEFAULT_OUTPUT_ENCODING,
+-               formatter="minimal"):
++               formatter="minimal", indent_chars=" "):
+         """Returns a string or Unicode representation of this document.
+         To get Unicode, pass None for encoding."""
+ 
+@@ -375,7 +375,28 @@
+         else:
+             indent_level = 0
+         return prefix + super(BeautifulSoup, self).decode(
+-            indent_level, eventual_encoding, formatter)
++            indent_level, eventual_encoding, formatter, indent_chars)
++
++    def decodexml(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING,
++               formatter="minimal", indent_chars=" "):
++        """Returns a string or Unicode representation of this document.
++        as pretty printed xml"""
++
++        # Print the XML declaration
++        encoding_part = ''
++        if eventual_encoding != None:
++            encoding_part = ' encoding="%s"' % eventual_encoding
++        prefix = '<?xml version="1.0"%s?>\n' % encoding_part
++        return prefix + super(BeautifulSoup, self).decodexml(
++            indent_level, eventual_encoding, formatter, indent_chars)
++
++    def serialize(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
++        encoding_part = ''
++        if eventual_encoding != None:
++            encoding_part = ' encoding="%s"' % eventual_encoding
++        prefix = '<?xml version="1.0"%s?>\n' % encoding_part
++        return prefix + super(BeautifulSoup, self).serialize(eventual_encoding)
++
+ 
+ # Alias to make it easier to type import: 'from bs4 import _soup'
+ _s = BeautifulSoup
+Only in /Users/kbhend/Desktop/bs4_custom/builder: .DS_Store
+diff -ur python3/bs4/builder/_lxml.py /Users/kbhend/Desktop/bs4_custom/builder/_lxml.py
+--- python3/bs4/builder/_lxml.py	2015-09-03 14:28:08.000000000 -0400
++++ /Users/kbhend/Desktop/bs4_custom/builder/_lxml.py	2015-09-03 13:50:40.000000000 -0400
+@@ -40,7 +40,7 @@
+         if self._default_parser is not None:
+             return self._default_parser
+         return etree.XMLParser(
+-            target=self, strip_cdata=False, recover=True, encoding=encoding)
++            target=self, strip_cdata=False, recover=True, ns_clean=True, encoding=encoding)
+ 
+     def parser_for(self, encoding):
+         # Use the default parser.
+@@ -126,17 +126,14 @@
+     def start(self, name, attrs, nsmap={}):
+         # Make sure attrs is a mutable dict--lxml may send an immutable dictproxy.
+         attrs = dict(attrs)
+-        nsprefix = None
++        tagnamespace, tagname = self._getNsTag(name)
++        tagnsprefix = self._prefix_for_namespace(tagnamespace)
+         # Invert each namespace map as it comes in.
+-        if len(self.nsmaps) > 1:
+-            # There are no new namespaces for this tag, but
+-            # non-default namespaces are in play, so we need a
+-            # separate tag stack to know when they end.
+-            self.nsmaps.append(None)
+-        elif len(nsmap) > 0:
++        if len(nsmap) > 0:
+             # A new namespace mapping has come into play.
+             inverted_nsmap = dict((value, key) for key, value in list(nsmap.items()))
+             self.nsmaps.append(inverted_nsmap)
++
+             # Also treat the namespace mapping as a set of attributes on the
+             # tag, so we can recreate it later.
+             attrs = attrs.copy()
+@@ -145,6 +142,12 @@
+                     "xmlns", prefix, "http://www.w3.org/2000/xmlns/")
+                 attrs[attribute] = namespace
+ 
++        elif len(self.nsmaps) > 1:
++            # There are no new namespaces for this tag, but
++            # non-default namespaces are in play, so we need a
++            # separate tag stack to know when they end.
++            self.nsmaps.append(None)
++
+         # Namespaces are in play. Find any attributes that came in
+         # from lxml with namespaces attached to their names, and
+         # turn then into NamespacedAttribute objects.
+@@ -158,10 +161,7 @@
+                 attr = NamespacedAttribute(nsprefix, attr, namespace)
+                 new_attrs[attr] = value
+         attrs = new_attrs
+-
+-        namespace, name = self._getNsTag(name)
+-        nsprefix = self._prefix_for_namespace(namespace)
+-        self.soup.handle_starttag(name, namespace, nsprefix, attrs)
++        self.soup.handle_starttag(tagname, tagnamespace, tagnsprefix, attrs)
+ 
+     def _prefix_for_namespace(self, namespace):
+         """Find the currently active prefix for the given namespace."""
+diff -ur python3/bs4/dammit.py /Users/kbhend/Desktop/bs4_custom/dammit.py
+--- python3/bs4/dammit.py	2015-09-03 14:28:07.000000000 -0400
++++ /Users/kbhend/Desktop/bs4_custom/dammit.py	2015-09-03 12:33:32.000000000 -0400
+@@ -82,6 +82,8 @@
+                                            "&(?!#\d+;|#x[0-9a-fA-F]+;|\w+;)"
+                                            ")")
+ 
++    IS_ENTITY = re.compile("(&#\d+;|&#x[0-9a-fA-F]+;|&\w+;)")
++
+     AMPERSAND_OR_BRACKET = re.compile("([<>&])")
+ 
+     @classmethod
+@@ -188,8 +190,15 @@
+         character with "&eacute;" will make it more readable to some
+         people.
+         """
+-        return cls.CHARACTER_TO_HTML_ENTITY_RE.sub(
+-            cls._substitute_html_entity, s)
++        # ignore already existing entities
++        pieces = cls.IS_ENTITY.split(s)
++        for i in range(0,len(pieces),2):
++            piece = pieces[i]
++            pieces[i] = cls.CHARACTER_TO_HTML_ENTITY_RE.sub(cls._substitute_html_entity, piece)
++        return "".join(pieces)
++
++        # return cls.CHARACTER_TO_HTML_ENTITY_RE.sub(
++        #     cls._substitute_html_entity, s)
+ 
+ 
+ class EncodingDetector:
+diff -ur python3/bs4/element.py /Users/kbhend/Desktop/bs4_custom/element.py
+--- python3/bs4/element.py	2015-09-03 14:28:08.000000000 -0400
++++ /Users/kbhend/Desktop/bs4_custom/element.py	2015-09-03 12:34:10.000000000 -0400
+@@ -9,6 +9,15 @@
+ 
+ whitespace_re = re.compile("\s+")
+ 
++
++NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","cite","code",
++                            "dfn","em","i","img","kbd","small","span","strike",
++                            "strong","sub","sup","tt")
++
++EBOOK_XML_PARENT_TAGS = ("package","metadata","manifest","spine","guide","ncx",
++                         "head","doctitle","docauthor","navmap", "navpoint",
++                          "navlabel", "pagelist", "pagetarget") 
++
+ def _alias(attr):
+     """Alias one attribute name to another for backward compatibility"""
+     @property
+@@ -114,7 +123,7 @@
+     @classmethod
+     def substitute_xml(cls, ns):
+         return cls._substitute_if_appropriate(
+-            ns, EntitySubstitution.substitute_xml)
++            ns, EntitySubstitution.substitute_xml_containing_entities)
+ 
+ class PageElement(object):
+     """Contains the navigational information for some part of the page
+@@ -783,13 +792,13 @@
+         """Is this tag an empty-element tag? (aka a self-closing tag)
+ 
+         A tag that has contents is never an empty-element tag.
+-
++        
+         A tag that has no contents may or may not be an empty-element
+         tag. It depends on the builder used to create the tag. If the
+         builder has a designated list of empty-element tags, then only
+         a tag whose name shows up in that list is considered an
+         empty-element tag.
+-
++        
+         If the builder has no designated list of empty-element tags,
+         then any tag with no contents is an empty-element tag.
+         """
+@@ -797,6 +806,12 @@
+     isSelfClosing = is_empty_element  # BS3
+ 
+     @property
++    def is_non_breaking_inline_tag(self):
++        # used only for pretty printing of html to prevent returns after tags
++        # from introducing spaces where none are desired
++        return self.name in NON_BREAKING_INLINE_TAGS and not self._is_xml
++
++    @property
+     def string(self):
+         """Convenience property to get the single string within this tag.
+ 
+@@ -984,24 +999,22 @@
+     if PY3K:
+         __str__ = __repr__ = __unicode__
+ 
+-    def encode(self, encoding=DEFAULT_OUTPUT_ENCODING,
+-               indent_level=None, formatter="minimal",
+-               errors="xmlcharrefreplace"):
++    def encode(self, encoding=DEFAULT_OUTPUT_ENCODING, indent_level=None, formatter="minimal", errors="xmlcharrefreplace", indent_chars=" "):
+         # Turn the data structure into Unicode, then encode the
+         # Unicode.
+-        u = self.decode(indent_level, encoding, formatter)
++        u = self.decode(indent_level=indent_level, encoding=encoding, formatter=formatter, indent_chars=indent_chars)
+         return u.encode(encoding, errors)
+ 
+     def _should_pretty_print(self, indent_level):
+         """Should this tag be pretty-printed?"""
+         return (
+             indent_level is not None and
+-            (self.name not in HTMLAwareEntitySubstitution.preformatted_tags
++            ((not self.name in HTMLAwareEntitySubstitution.preformatted_tags 
++              and not self.name in NON_BREAKING_INLINE_TAGS)
+              or self._is_xml))
+ 
+-    def decode(self, indent_level=None,
+-               eventual_encoding=DEFAULT_OUTPUT_ENCODING,
+-               formatter="minimal"):
++    def decode(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
++               formatter="minimal", indent_chars=" "):
+         """Returns a Unicode representation of this tag and its contents.
+ 
+         :param eventual_encoding: The tag is destined to be
+@@ -1044,6 +1057,13 @@
+         if self.prefix:
+             prefix = self.prefix + ":"
+ 
++        if self._is_xml and self.can_be_empty_element:
++            # for pure xml, a self closing tag with only whitespace 
++            # "contents" should be treated as empty
++            tagcontents = self.string
++            if tagcontents is not None and len(tagcontents.strip()) == 0:
++                self.contents = []
++
+         if self.is_empty_element:
+             close = '/'
+         else:
+@@ -1053,14 +1073,13 @@
+         space = ''
+         indent_space = ''
+         if indent_level is not None:
+-            indent_space = (' ' * (indent_level - 1))
++            indent_space = (indent_chars * (indent_level - 1))
+         if pretty_print:
+             space = indent_space
+             indent_contents = indent_level + 1
+         else:
+             indent_contents = None
+-        contents = self.decode_contents(
+-            indent_contents, eventual_encoding, formatter)
++        contents = self.decode_contents(indent_contents, eventual_encoding, formatter, indent_chars)
+ 
+         if self.hidden:
+             # This is the 'document root' object.
+@@ -1084,7 +1103,7 @@
+             if pretty_print and closeTag:
+                 s.append(space)
+             s.append(closeTag)
+-            if indent_level is not None and closeTag and self.next_sibling:
++            if indent_level is not None and closeTag and self.next_sibling and not self.is_non_breaking_inline_tag:
+                 # Even if this particular tag is not pretty-printed,
+                 # we're now done with the tag, and we should add a
+                 # newline if appropriate.
+@@ -1092,15 +1111,15 @@
+             s = ''.join(s)
+         return s
+ 
+-    def prettify(self, encoding=None, formatter="minimal"):
++
++    def prettify(self, encoding=None, formatter="minimal", indent_chars=" "):
+         if encoding is None:
+-            return self.decode(True, formatter=formatter)
++            return self.decode(True, formatter=formatter, indent_chars=indent_chars)
+         else:
+-            return self.encode(encoding, True, formatter=formatter)
++            return self.encode(encoding, True, formatter=formatter, indent_chars=indent_chars)
+ 
+-    def decode_contents(self, indent_level=None,
+-                       eventual_encoding=DEFAULT_OUTPUT_ENCODING,
+-                       formatter="minimal"):
++    def decode_contents(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
++                        formatter="minimal", indent_chars=" "):
+         """Renders the contents of this tag as a Unicode string.
+ 
+         :param eventual_encoding: The tag is destined to be
+@@ -1122,23 +1141,209 @@
+             if isinstance(c, NavigableString):
+                 text = c.output_ready(formatter)
+             elif isinstance(c, Tag):
+-                s.append(c.decode(indent_level, eventual_encoding,
+-                                  formatter))
+-            if text and indent_level and not self.name == 'pre':
++                val = c.decode(indent_level, eventual_encoding, formatter, indent_chars)
++                if pretty_print:
++                    # note, BS4 serializes in an ass-backwards manner using recursion on a tag level basis
++                    # and therefore can not see if the previous line ended with a linefeed or not
++                    
++                    # So we need to remove any bad initial indentation from non breaking inline tags
++                    # that do not start a line as the decode routine can not tell where the tag in in relation
++                    # to other tags and previous newlines
++                    if c.is_non_breaking_inline_tag and len(s) > 0:
++                        val = val.lstrip()
++                s.append(val)
++            if text and indent_level and not self.name == 'pre' and not self.is_non_breaking_inline_tag:
+                 text = text.strip()
+             if text:
+-                if pretty_print and not self.name == 'pre':
+-                    s.append(" " * (indent_level - 1))
++                if pretty_print and not self.name == 'pre' and not self.is_non_breaking_inline_tag:
++                    if len(s) == 0 or s[-1] == "\n":
++                        s.append(indent_chars * (indent_level - 1))
+                 s.append(text)
+-                if pretty_print and not self.name == 'pre':
++                if pretty_print and not self.name == 'pre' and not isinstance(c, NavigableString):
+                     s.append("\n")
+         return ''.join(s)
+ 
++    def decodexml(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
++               formatter="minimal", indent_chars=" "):
++
++        # First off, turn a string formatter into a function. This
++        # will stop the lookup from happening over and over again.
++        if not isinstance(formatter, collections.Callable):
++            formatter = self._formatter_for_name(formatter)
++
++        is_xmlparent = self.name.lower() in EBOOK_XML_PARENT_TAGS
++        attrs = []
++        if self.attrs:
++            for key, val in sorted(self.attrs.items()):
++                if val is None:
++                    decoded = key
++                else:
++                    if isinstance(val, list) or isinstance(val, tuple):
++                        val = ' '.join(val)
++                    elif not isinstance(val, str):
++                        val = str(val)
++                    elif (
++                        isinstance(val, AttributeValueWithCharsetSubstitution)
++                        and eventual_encoding is not None):
++                        val = val.encode(eventual_encoding)
++
++                    text = self.format_string(val, formatter)
++                    decoded = (
++                        str(key) + '='
++                        + EntitySubstitution.quoted_attribute_value(text))
++                attrs.append(decoded)
++
++        prefix = ''
++        if self.prefix:
++            prefix = self.prefix + ":"
++
++        # for pure xml, a self closing tag with only whitespace 
++        # "contents" should be treated as empty
++        if self.can_be_empty_element:
++            tagcontents = self.string
++            if tagcontents is not None and len(tagcontents.strip()) == 0:
++                self.contents = []
++        
++        close = ''
++        closeTag = ''
++        if self.is_empty_element:
++            close = '/'
++        else:
++            closeTag = '</%s%s>' % (prefix, self.name)
++
++        indent_space = (indent_chars * (indent_level - 1))
++        indent_contents = indent_level
++        if is_xmlparent or self.hidden:
++            indent_contents = indent_level + 1
++
++        contents = self.decodexml_contents(indent_contents, eventual_encoding, formatter, indent_chars)
++        if self.hidden:
++            # This is the 'document root' object.
++            s = contents
++        else:
++            s = []
++            attribute_string = ''
++            if attrs:
++                attribute_string = ' ' + ' '.join(attrs)
++            s.append(indent_space)
++            s.append('<%s%s%s%s>' % (prefix, self.name, attribute_string, close))
++            if is_xmlparent:
++                s.append("\n")
++            s.append(contents)
++            if contents and contents[-1] != "\n" and is_xmlparent or self.is_empty_element:
++                s.append("\n")
++            if closeTag and is_xmlparent:
++                s.append(indent_space)
++            s.append(closeTag)
++            if closeTag and self.next_sibling:
++                s.append("\n")
++            s = ''.join(s)
++        return s
++
++    def decodexml_contents(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
++                        formatter="minimal", indent_chars=" "):
++        """Renders the contents of this tag as a Unicode string.
++        """
++        # First off, turn a string formatter into a function. This
++        # will stop the lookup from happening over and over again.
++        if not isinstance(formatter, collections.Callable):
++            formatter = self._formatter_for_name(formatter)
++
++        is_xmlparent = self.name.lower() in EBOOK_XML_PARENT_TAGS
++        s = []
++        for c in self:
++            text = None
++            if isinstance(c, NavigableString):
++                text = c.output_ready(formatter)
++            elif isinstance(c, Tag):
++                val = c.decodexml(indent_level, eventual_encoding, formatter, indent_chars)
++                s.append(val)
++            if text:
++                text = text.strip()
++            if text:
++                if is_xmlparent and len(s) == 0:
++                    s.append(indent_chars * (indent_level - 1))
++                s.append(text)
++        return ''.join(s)
++
++    def serialize(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
++        formatter = self._formatter_for_name('minimal')
++        prefix = ''
++        close = ''
++        closeTag = ''
++        attrs = []
++        if self.attrs:
++            for key, val in sorted(self.attrs.items()):
++                if val is None:
++                    ntext = key
++                else:
++                    if isinstance(val, list) or isinstance(val, tuple):
++                        val = ' '.join(val)
++                    elif not isinstance(val, str):
++                        val = str(val)
++                    elif (isinstance(val, AttributeValueWithCharsetSubstitution) and 
++                          eventual_encoding is not None):
++                        val = val.encode(eventual_encoding)
++                    text = self.format_string(val, formatter)
++                    ntext = (str(key) + '=' + EntitySubstitution.quoted_attribute_value(text))
++                attrs.append(ntext)
++
++        if self.prefix:
++            prefix = self.prefix + ":"
++
++        if self._is_xml and self.can_be_empty_element:
++            # for pure xml, a self closing tag with only whitespace 
++            # "contents" should be treated as empty
++            tagcontents = self.string
++            if tagcontents is not None and len(tagcontents.strip()) == 0:
++                self.contents = []
++
++        if self.is_empty_element:
++            close = '/'
++        else:
++            closeTag = '</%s%s>' % (prefix, self.name)
++
++        contents = self.serialize_contents(eventual_encoding)
++
++        # strip extraneous whitespace before the primary closing tag
++        if self.name in ['html', 'body']:
++            contents = contents.strip()
++            contents += "\n"
++
++        if self.hidden:
++            # This is the 'document root' object.
++            s = contents
++        else:
++            s = []
++            attribute_string = ''
++            if attrs:
++                attribute_string = ' ' + ' '.join(attrs)
++            s.append('<%s%s%s%s>' % (prefix, self.name, attribute_string, close))
++            if self.name in ['html', 'body']:
++                s.append("\n")
++            s.append(contents)
++            s.append(closeTag)
++            if self.name in ['html', 'body']:
++                s.append("\n")
++            s = ''.join(s)
++        return s
++
++    def serialize_contents(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
++        formatter = self._formatter_for_name('minimal')
++        s = []
++        for c in self:
++            text = None
++            if isinstance(c, NavigableString):
++                text = c.output_ready(formatter)
++                s.append(text)
++            elif isinstance(c, Tag):
++                s.append(c.serialize(eventual_encoding))
++        return ''.join(s)
++
+     def encode_contents(
+-        self, indent_level=None, encoding=DEFAULT_OUTPUT_ENCODING,
+-        formatter="minimal"):
++        self, indent_level=None, encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal", indent_chars=" "):
+         """Renders the contents of this tag as a bytestring."""
+-        contents = self.decode_contents(indent_level, encoding, formatter)
++        contents = self.decode_contents(indent_level, encoding, formatter, indent_chars)
+         return contents.encode(encoding)
+ 
+     # Old method for BS3 compatibility
