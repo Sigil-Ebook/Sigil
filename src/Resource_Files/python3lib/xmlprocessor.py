@@ -1,6 +1,24 @@
 #!/usr/bin/env python3
 
 import sys
+
+# until we get a properly embedded python 3 with its own site-packages
+# force our current module path to come before site_packages
+# to prevent name collisions with our versions and any site-packages
+def insert_into_syspath():
+    n = 0
+    sp = None
+    ourhome = sys.path[-1]
+    for apath in sys.path:
+        if apath.endswith("site-packages") or apath.endswith("dist-packages"):
+            sp = n
+            break
+        n += 1
+    if sp is not None:
+        sys.path.insert(sp,ourhome)
+
+insert_into_syspath()
+
 import os
 from bs4 import BeautifulSoup
 from bs4.builder._lxml import LXMLTreeBuilderForXML
@@ -39,25 +57,15 @@ ebook_xml_empty_tags = ["meta", "item", "itemref", "reference", "content"]
 def remove_xml_header(data):
     return re.sub(r'<\s*\?xml\s*[^>]*\?>\s*','',data, flags=re.I)
 
-
-ncx_text_pattern = re.compile(r'''(<text>\s*[^<]*</text>)''',re.IGNORECASE)
-
-def fix_inline_text_tag(source):
-    srcpieces = ncx_text_pattern.split(source)
-    for i in range(1, len(srcpieces), 2):
-        tag = srcpieces[i]
-        tag = tag[6:-7]
-        tag = '<text>' + tag.strip() + '</text>'
-        srcpieces[i] = tag
-    source = "".join(srcpieces)
-    return source
+# ncx_text_pattern = re.compile(r'''(<text>)\s*(\S[^<]*\S)\s*(</text>)''',re.IGNORECASE)
+# re.sub(ncx_text_pattern,r'\1\2\3',newdata)
 
 # BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
-def repairXML(data, self_closing_tags=ebook_xml_empty_tags):
+def repairXML(data, self_closing_tags=ebook_xml_empty_tags, indent_chars="  "):
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
     soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
-    newdata = soup.decode(pretty_print=True, formatter='minimal')
-    return fix_inline_text_tag(newdata)
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars=indent_chars)
+    return newdata
 
 def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
     # rebuild serialized lookup dictionary
@@ -77,8 +85,8 @@ def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
                     if fragment_id in id_dict:
                         attribute_value = TEXT_FOLDER_NAME + "/" + quoteurl(id_dict[fragment_id]) + "#" + fragment_id
                         tag["src"] = attribute_value
-    newdata = soup.decode(pretty_print=True, formatter='minimal')
-    return fix_inline_text_tag(newdata)
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    return newdata
 
 
 def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
@@ -106,8 +114,8 @@ def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
                         attribute_value = attribute_value + "#" + fragment
                     attribute_value = quoteurl(attribute_value)
                     tag["src"] = attribute_value
-    newdata = soup.decode(pretty_print=True, formatter='minimal')
-    return fix_inline_text_tag(newdata)
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    return newdata
 
 
 def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
@@ -135,7 +143,7 @@ def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
                         attribute_value = attribute_value + "#" + fragment
                     attribute_value = quoteurl(attribute_value)
                     tag["href"] = attribute_value
-    newdata = soup.decode(pretty_print=True, formatter='minimal')
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
 
@@ -155,6 +163,12 @@ def main():
   </spine>
   <text>
     this is a bunch of nonsense
+  </text>
+  <text>
+    this is a bunch of nonsense 1
+  </text>
+  <text>
+    this is a bunch of nonsense 2
   </text>
   <guide />
 </package>
