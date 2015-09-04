@@ -126,8 +126,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
     def start(self, name, attrs, nsmap={}):
         # Make sure attrs is a mutable dict--lxml may send an immutable dictproxy.
         attrs = dict(attrs)
-        tagnamespace, tagname = self._getNsTag(name)
-        tagnsprefix = self._prefix_for_namespace(tagnamespace)
+        nsprefix = None
         # Invert each namespace map as it comes in.
         if len(nsmap) > 0:
             # A new namespace mapping has come into play.
@@ -161,7 +160,9 @@ class LXMLTreeBuilderForXML(TreeBuilder):
                 attr = NamespacedAttribute(nsprefix, attr, namespace)
                 new_attrs[attr] = value
         attrs = new_attrs
-        self.soup.handle_starttag(tagname, tagnamespace, tagnsprefix, attrs)
+        namespace, name = self._getNsTag(name)
+        nsprefix = self._prefix_for_namespace(namespace)
+        self.soup.handle_starttag(name, namespace, nsprefix, attrs)
 
     def _prefix_for_namespace(self, namespace):
         """Find the currently active prefix for the given namespace."""
