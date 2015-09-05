@@ -47,6 +47,9 @@ static const std::string SRC = std::string("src");
 static const std::string HREF = std::string("href");
 static QHash<QString,QString> EmptyHash = QHash<QString,QString>();
 
+// These need to match the GumboAttributeNamespaceEnum sequence
+static const char * attribute_nsprefixes[4] = { "", "xlink:", "xml:", "xmlns:" };
+ 
 // Note: m_output contains the gumbo output tree which 
 // has data structures with pointers into the original source
 // buffer passed in!!!!!!
@@ -463,6 +466,7 @@ QStringList  GumboInterface::get_values_for_attr(GumboNode* node, const char* at
     return attr_vals;
 }
 
+
 QHash<QString,QString> GumboInterface::get_attributes_of_node(GumboNode* node)
 {
     QHash<QString,QString> node_atts;
@@ -472,7 +476,7 @@ QHash<QString,QString> GumboInterface::get_attributes_of_node(GumboNode* node)
     const GumboVector * attribs = &node->v.element.attributes;
     for (int i=0; i< attribs->length; ++i) {
         GumboAttribute* attr = static_cast<GumboAttribute*>(attribs->data[i]);
-        QString key = QString::fromUtf8(attr->name);
+        QString key = QString::fromStdString(get_attribute_name(attr));
         QString val = QString::fromUtf8(attr->value);
         node_atts[key] = val;
     }
@@ -690,13 +694,27 @@ std::string GumboInterface::build_doctype(GumboNode *node)
 }
 
 
+std::string GumboInterface::get_attribute_name(GumboAttribute * at)
+{
+    std::string attr_name = at->name;
+    GumboAttributeNamespaceEnum attr_ns = at->attr_namespace;
+    if ((attr_ns == GUMBO_ATTR_NAMESPACE_NONE) || (attr_name == "xmlns")) {
+        return attr_name;
+    } 
+    attr_name = std::string(attribute_nsprefixes[attr_ns]) + attr_name;
+    return attr_name;
+}
+
+
 std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entities, bool runupdates)
 {
     std::string atts = " ";
-    atts.append(at->name);
+    std::string name = get_attribute_name(at);
+    std::string local_name = at->name;
+    atts.append(name);
     std::string attvalue = at->value;
 
-    if (runupdates && (at->name == HREF || at->name == SRC)) {
+    if (runupdates && (local_name == HREF || local_name == SRC)) {
         attvalue = update_attribute_value(attvalue);
     }
 

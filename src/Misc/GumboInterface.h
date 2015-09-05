@@ -107,6 +107,7 @@ private:
     std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
     std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
     std::string build_doctype(GumboNode *node);
+    std::string get_attribute_name(GumboAttribute * at);
     std::string build_attributes(GumboAttribute * at, bool no_entities, bool runupdates = false);
     std::string update_attribute_value(std::string href);
     std::string substitute_xml_entities_into_text(const std::string &text);
