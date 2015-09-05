@@ -117,22 +117,33 @@ class EntitySubstitution(object):
 
           Welcome to "Bob's Bar" -> "Welcome to &quot;Bob's bar&quot;
         """
+        """
+          Robustness fix for bs4
+
+          But many other downstream processors of both html and xml 
+          really don't deal well with single quotes instead of the more
+          standard double-quotes.  So simply replace them with their xml 
+          entity regardless
+        """
+
         quote_with = '"'
         if '"' in value:
-            if "'" in value:
-                # The string contains both single and double
-                # quotes.  Turn the double quotes into
-                # entities. We quote the double quotes rather than
-                # the single quotes because the entity name is
-                # "&quot;" whether this is HTML or XML.  If we
-                # quoted the single quotes, we'd have to decide
-                # between &apos; and &squot;.
-                replace_with = "&quot;"
-                value = value.replace('"', replace_with)
-            else:
-                # There are double quotes but no single quotes.
-                # We can use single quotes to quote the attribute.
-                quote_with = "'"
+            replace_with = "&quot;"
+            value = value.replace('"', replace_with)
+            # if "'" in value:
+            #     # The string contains both single and double
+            #     # quotes.  Turn the double quotes into
+            #     # entities. We quote the double quotes rather than
+            #     # the single quotes because the entity name is
+            #     # "&quot;" whether this is HTML or XML.  If we
+            #     # quoted the single quotes, we'd have to decide
+            #     # between &apos; and &squot;.
+            #     replace_with = "&quot;"
+            #     value = value.replace('"', replace_with)
+            # else:
+            #     # There are double quotes but no single quotes.
+            #     # We can use single quotes to quote the attribute.
+            #     quote_with = "'"
         return quote_with + value + quote_with
 
     @classmethod
