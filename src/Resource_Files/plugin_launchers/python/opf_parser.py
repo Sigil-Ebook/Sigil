@@ -216,13 +216,19 @@ class Opf_Parser(object):
                 ttype = 'single'
         return ttype, tname, tattr
 
+    def handle_quoted_attribute_values(self, value):
+        if '"' in value:
+            value = value.replace('"', "&quot;")
+        return value
+        
     def taginfo_toxml(self, taginfo):
         res = []
         tname, tattr, tcontent = taginfo
         res.append('<' + tname)
         if tattr is not None:
             for key in tattr:
-                res.append(' ' + key + '="'+tattr[key]+'"' )
+                val = self.handle_quoted_attribute_values(tattr[key])
+                res.append(' ' + key + '="'+val+'"' )
         if tcontent is not None:
             res.append('>' + tcontent + '</' + tname + '>\n')
         else:
@@ -236,7 +242,8 @@ class Opf_Parser(object):
         tag = "<" + tname
         if tattr is not None:
             for key in tattr:
-                tag += ' ' + key + '="'+tattr[key]+'"'
+                val = self.handle_quoted_attribute_values(tattr[key])
+                tag += ' ' + key + '="'+val+'"'
         tag += '>\n'
         return tag
 
@@ -248,7 +255,8 @@ class Opf_Parser(object):
         tag = "<" + tname
         if tattr is not None:
             for key in tattr:
-                tag += ' ' + key + '="'+tattr[key]+'"'
+                val = self.handle_quoted_attribute_values(tattr[key])
+                tag += ' ' + key + '="'+val+'"'
         tag += '>\n'
         data.append(tag)
         for taginfo in self.metadata:

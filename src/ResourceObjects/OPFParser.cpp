@@ -26,7 +26,7 @@
 /**
  * Package tag
  */
- 
+
 PackageEntry::PackageEntry(const QString& version, const QString& uniqueid, 
   					       const QStringList& keylist, const QStringList& vallist) 
     : m_version(version), m_uniqueid(uniqueid)
@@ -65,7 +65,9 @@ QString PackageEntry::convert_to_xml() const
     xmlres << "<package version=\"" + m_version + "\"";
     xmlres << " unique-identifier=\"" + m_uniqueid + "\"";
     foreach (QString kv, m_atts.keys()) {
-        xmlres <<  " " + kv + "=\"" + m_atts.value(kv,"") + "\"";
+        QString val = m_atts.value(kv,"");
+        val.replace("\"", "&quot;");
+        xmlres <<  " " + kv + "=\"" + val + "\"";
     }
     xmlres << ">\n";
     return xmlres.join(QString(""));
@@ -107,7 +109,9 @@ QString MetaNSEntry::convert_to_xml() const
   QStringList xmlres;
   xmlres << "  <metadata";
   foreach (QString kv, m_atts.keys()) {
-    xmlres <<  " " + kv + "=\"" + m_atts.value(kv,"") + "\"";
+      QString val = m_atts.value(kv,"");
+      val.replace("\"", "&quot;");
+      xmlres <<  " " + kv + "=\"" + val + "\"";
   }
   xmlres << ">\n";
   return xmlres.join(QString(""));
@@ -154,7 +158,9 @@ QString MetaEntry::convert_to_xml() const
     QStringList xmlres;
     xmlres << "    <" + m_name;
     foreach (QString kv, m_atts.keys()) {
-        xmlres <<  " " + kv + "=\"" + m_atts.value(kv,"") + "\"";
+        QString val = m_atts.value(kv,"");
+        val.replace("\"", "&quot;");
+        xmlres <<  " " + kv + "=\"" + val + "\"";
     }
     if (m_content.isEmpty()) {
         xmlres << " />\n";
@@ -207,7 +213,9 @@ QString ManifestEntry::convert_to_xml() const
   xmlres << " href=\"" + Utility::URLEncodePath(m_href) + "\"";
   xmlres << " media-type=\"" + m_mtype+ "\"";
   foreach (QString kv, m_atts.keys()) {
-    xmlres <<  " " + kv + "=\"" + m_atts.value(kv,"") + "\"";
+      QString val = m_atts.value(kv,"");
+      val.replace("\"", "&quot;");
+      xmlres <<  " " + kv + "=\"" + val + "\"";
   }
   xmlres << "/>\n";
   return xmlres.join(QString(""));
@@ -249,7 +257,9 @@ QString SpineAttrEntry::convert_to_xml() const
   QStringList xmlres;
   xmlres << "  <spine";
   foreach (QString kv, m_atts.keys()) {
-    xmlres <<  " " + kv + "=\"" + m_atts.value(kv,"") + "\"";
+      QString val = m_atts.value(kv,"");
+      val.replace("\"", "&quot;");
+      xmlres <<  " " + kv + "=\"" + val + "\"";
   }
   xmlres << ">\n";
   return xmlres.join(QString(""));
@@ -293,7 +303,9 @@ QString SpineEntry::convert_to_xml() const
   QStringList xmlres;
   xmlres << "    <itemref  idref=\"" + m_idref + "\"";
   foreach (QString kv, m_atts.keys()) {
-    xmlres <<  " " + kv + "=\"" + m_atts.value(kv,"") + "\"";
+      QString val = m_atts.value(kv,"");
+      val.replace("\"", "&quot;");
+      xmlres <<  " " + kv + "=\"" + val + "\"";
   }
   xmlres << "/>\n";
   return xmlres.join(QString(""));
