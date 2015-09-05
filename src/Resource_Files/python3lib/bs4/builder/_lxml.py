@@ -40,7 +40,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         if self._default_parser is not None:
             return self._default_parser
         return etree.XMLParser(
-            target=self, strip_cdata=False, recover=True, ns_clean=True, encoding=encoding)
+            target=self, strip_cdata=False, recover=True, encoding=encoding)
 
     def parser_for(self, encoding):
         # Use the default parser.
@@ -127,6 +127,9 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         # Make sure attrs is a mutable dict--lxml may send an immutable dictproxy.
         attrs = dict(attrs)
         nsprefix = None
+
+        # Fix bug in bs4 _lxml.py that ignores attributes that specify namespaces on this tag
+
         # Invert each namespace map as it comes in.
         if len(nsmap) > 0:
             # A new namespace mapping has come into play.
@@ -134,7 +137,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
             self.nsmaps.append(inverted_nsmap)
 
             # Also treat the namespace mapping as a set of attributes on the
-            # tag, so we can recreate it later.
+            # tag that specified them, so we can properly recreate it later.
             attrs = attrs.copy()
             for prefix, namespace in list(nsmap.items()):
                 attribute = NamespacedAttribute(
@@ -156,16 +159,16 @@ class LXMLTreeBuilderForXML(TreeBuilder):
             if namespace is None:
                 new_attrs[attr] = value
             else:
-                nsprefix = self._prefix_for_namespace(namespace)
+                nsprefix = self._prefix_for_attr_namespace(namespace)
                 attr = NamespacedAttribute(nsprefix, attr, namespace)
                 new_attrs[attr] = value
         attrs = new_attrs
         namespace, name = self._getNsTag(name)
-        nsprefix = self._prefix_for_namespace(namespace)
+        nsprefix = self._prefix_for_tag_namespace(namespace)
         self.soup.handle_starttag(name, namespace, nsprefix, attrs)
 
-    def _prefix_for_namespace(self, namespace):
-        """Find the currently active prefix for the given namespace."""
+    def _prefix_for_attr_namespace(self, namespace):
+        """Find the currently active prefix for the given namespace for an attribute."""
         if namespace is None:
             return None
         for inverted_nsmap in reversed(self.nsmaps):
@@ -173,16 +176,28 @@ class LXMLTreeBuilderForXML(TreeBuilder):
                 return inverted_nsmap[namespace]
         return None
 
+    # To keep the tag prefixes as clean/simple as possible if there is 
+    # more than one possible prefix allowed and it includes None use it instead
+    # This happens when a namespace prefix is added for an attribute that duplicates
+    # an earlier namespace meant for tags that had set that  namespace prefix to None
+    def _prefix_for_tag_namespace(self, namespace):
+        """Find the currently active prefix for the given namespace for a tag."""
+        if namespace is None:
+            return None
+        prefixes = []
+        for inverted_nsmap in self.nsmaps:
+            if inverted_nsmap is not None and namespace in inverted_nsmap:
+                prefixes.append(inverted_nsmap[namespace])
+        if len(prefixes) == 0 or  None in prefixes:
+            return None
+        # ow return the last (most recent) viable prefix
+        return prefixes[-1]
+
     def end(self, name):
         self.soup.endData()
         completed_tag = self.soup.tagStack[-1]
         namespace, name = self._getNsTag(name)
-        nsprefix = None
-        if namespace is not None:
-            for inverted_nsmap in reversed(self.nsmaps):
-                if inverted_nsmap is not None and namespace in inverted_nsmap:
-                    nsprefix = inverted_nsmap[namespace]
-                    break
+        nsprefix = self._prefix_for_tag_namespace(namespace)
         self.soup.handle_endtag(name, nsprefix)
         if len(self.nsmaps) > 1:
             # This tag, or one of its parents, introduced a namespace

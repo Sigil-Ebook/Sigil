@@ -1,7 +1,7 @@
-Binary files python3/bs4/.DS_Store and /Users/kbhend/Desktop/bs4_custom/.DS_Store differ
-diff -ur python3/bs4/__init__.py /Users/kbhend/Desktop/bs4_custom/__init__.py
---- python3/bs4/__init__.py	2015-09-03 14:28:07.000000000 -0400
-+++ /Users/kbhend/Desktop/bs4_custom/__init__.py	2015-09-03 12:32:41.000000000 -0400
+Binary files beautifulsoup4-4.3.2/python3/bs4/.DS_Store and bs4/.DS_Store differ
+diff -ur beautifulsoup4-4.3.2/python3/bs4/__init__.py bs4/__init__.py
+--- beautifulsoup4-4.3.2/python3/bs4/__init__.py	2015-09-03 14:28:07.000000000 -0400
++++ bs4/__init__.py	2015-09-03 12:32:41.000000000 -0400
 @@ -358,7 +358,7 @@
  
      def decode(self, pretty_print=False,
@@ -41,26 +41,16 @@ diff -ur python3/bs4/__init__.py /Users/kbhend/Desktop/bs4_custom/__init__.py
  
  # Alias to make it easier to type import: 'from bs4 import _soup'
  _s = BeautifulSoup
-Only in /Users/kbhend/Desktop/bs4_custom/builder: .DS_Store
-diff -ur python3/bs4/builder/_lxml.py /Users/kbhend/Desktop/bs4_custom/builder/_lxml.py
---- python3/bs4/builder/_lxml.py	2015-09-03 14:28:08.000000000 -0400
-+++ /Users/kbhend/Desktop/bs4_custom/builder/_lxml.py	2015-09-03 13:50:40.000000000 -0400
-@@ -40,7 +40,7 @@
-         if self._default_parser is not None:
-             return self._default_parser
-         return etree.XMLParser(
--            target=self, strip_cdata=False, recover=True, encoding=encoding)
-+            target=self, strip_cdata=False, recover=True, ns_clean=True, encoding=encoding)
- 
-     def parser_for(self, encoding):
-         # Use the default parser.
-@@ -126,17 +126,14 @@
-     def start(self, name, attrs, nsmap={}):
+diff -ur beautifulsoup4-4.3.2/python3/bs4/builder/_lxml.py bs4/builder/_lxml.py
+--- beautifulsoup4-4.3.2/python3/bs4/builder/_lxml.py	2015-09-03 14:28:08.000000000 -0400
++++ bs4/builder/_lxml.py	2015-09-05 11:04:21.000000000 -0400
+@@ -127,24 +127,29 @@
          # Make sure attrs is a mutable dict--lxml may send an immutable dictproxy.
          attrs = dict(attrs)
--        nsprefix = None
-+        tagnamespace, tagname = self._getNsTag(name)
-+        tagnsprefix = self._prefix_for_namespace(tagnamespace)
+         nsprefix = None
++
++        # Fix bug in bs4 _lxml.py that ignores attributes that specify namespaces on this tag
++
          # Invert each namespace map as it comes in.
 -        if len(self.nsmaps) > 1:
 -            # There are no new namespaces for this tag, but
@@ -74,9 +64,11 @@ diff -ur python3/bs4/builder/_lxml.py /Users/kbhend/Desktop/bs4_custom/builder/_
              self.nsmaps.append(inverted_nsmap)
 +
              # Also treat the namespace mapping as a set of attributes on the
-             # tag, so we can recreate it later.
+-            # tag, so we can recreate it later.
++            # tag that specified them, so we can properly recreate it later.
              attrs = attrs.copy()
-@@ -145,6 +142,12 @@
+             for prefix, namespace in list(nsmap.items()):
+                 attribute = NamespacedAttribute(
                      "xmlns", prefix, "http://www.w3.org/2000/xmlns/")
                  attrs[attribute] = namespace
  
@@ -89,21 +81,67 @@ diff -ur python3/bs4/builder/_lxml.py /Users/kbhend/Desktop/bs4_custom/builder/_
          # Namespaces are in play. Find any attributes that came in
          # from lxml with namespaces attached to their names, and
          # turn then into NamespacedAttribute objects.
-@@ -158,10 +161,7 @@
+@@ -154,17 +159,16 @@
+             if namespace is None:
+                 new_attrs[attr] = value
+             else:
+-                nsprefix = self._prefix_for_namespace(namespace)
++                nsprefix = self._prefix_for_attr_namespace(namespace)
                  attr = NamespacedAttribute(nsprefix, attr, namespace)
                  new_attrs[attr] = value
          attrs = new_attrs
 -
--        namespace, name = self._getNsTag(name)
+         namespace, name = self._getNsTag(name)
 -        nsprefix = self._prefix_for_namespace(namespace)
--        self.soup.handle_starttag(name, namespace, nsprefix, attrs)
-+        self.soup.handle_starttag(tagname, tagnamespace, tagnsprefix, attrs)
++        nsprefix = self._prefix_for_tag_namespace(namespace)
+         self.soup.handle_starttag(name, namespace, nsprefix, attrs)
  
-     def _prefix_for_namespace(self, namespace):
-         """Find the currently active prefix for the given namespace."""
-diff -ur python3/bs4/dammit.py /Users/kbhend/Desktop/bs4_custom/dammit.py
---- python3/bs4/dammit.py	2015-09-03 14:28:07.000000000 -0400
-+++ /Users/kbhend/Desktop/bs4_custom/dammit.py	2015-09-03 12:33:32.000000000 -0400
+-    def _prefix_for_namespace(self, namespace):
+-        """Find the currently active prefix for the given namespace."""
++    def _prefix_for_attr_namespace(self, namespace):
++        """Find the currently active prefix for the given namespace for an attribute."""
+         if namespace is None:
+             return None
+         for inverted_nsmap in reversed(self.nsmaps):
+@@ -172,16 +176,28 @@
+                 return inverted_nsmap[namespace]
+         return None
+ 
++    # To keep the tag prefixes as clean/simple as possible if there is 
++    # more than one possible prefix allowed and it includes None use it instead
++    # This happens when a namespace prefix is added for an attribute that duplicates
++    # an earlier namespace meant for tags that had set that  namespace prefix to None
++    def _prefix_for_tag_namespace(self, namespace):
++        """Find the currently active prefix for the given namespace for a tag."""
++        if namespace is None:
++            return None
++        prefixes = []
++        for inverted_nsmap in self.nsmaps:
++            if inverted_nsmap is not None and namespace in inverted_nsmap:
++                prefixes.append(inverted_nsmap[namespace])
++        if len(prefixes) == 0 or  None in prefixes:
++            return None
++        # ow return the last (most recent) viable prefix
++        return prefixes[-1]
++
+     def end(self, name):
+         self.soup.endData()
+         completed_tag = self.soup.tagStack[-1]
+         namespace, name = self._getNsTag(name)
+-        nsprefix = None
+-        if namespace is not None:
+-            for inverted_nsmap in reversed(self.nsmaps):
+-                if inverted_nsmap is not None and namespace in inverted_nsmap:
+-                    nsprefix = inverted_nsmap[namespace]
+-                    break
++        nsprefix = self._prefix_for_tag_namespace(namespace)
+         self.soup.handle_endtag(name, nsprefix)
+         if len(self.nsmaps) > 1:
+             # This tag, or one of its parents, introduced a namespace
+Only in bs4/builder: _lxml.py~
+diff -ur beautifulsoup4-4.3.2/python3/bs4/dammit.py bs4/dammit.py
+--- beautifulsoup4-4.3.2/python3/bs4/dammit.py	2015-09-03 14:28:07.000000000 -0400
++++ bs4/dammit.py	2015-09-03 12:33:32.000000000 -0400
 @@ -82,6 +82,8 @@
                                             "&(?!#\d+;|#x[0-9a-fA-F]+;|\w+;)"
                                             ")")
@@ -131,9 +169,9 @@ diff -ur python3/bs4/dammit.py /Users/kbhend/Desktop/bs4_custom/dammit.py
  
  
  class EncodingDetector:
-diff -ur python3/bs4/element.py /Users/kbhend/Desktop/bs4_custom/element.py
---- python3/bs4/element.py	2015-09-03 14:28:08.000000000 -0400
-+++ /Users/kbhend/Desktop/bs4_custom/element.py	2015-09-03 12:34:10.000000000 -0400
+diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
+--- beautifulsoup4-4.3.2/python3/bs4/element.py	2015-09-03 14:28:08.000000000 -0400
++++ bs4/element.py	2015-09-03 12:34:10.000000000 -0400
 @@ -9,6 +9,15 @@
  
  whitespace_re = re.compile("\s+")
