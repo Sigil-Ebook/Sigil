@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Tests of Beautiful Soup as a whole."""
 
+from pdb import set_trace
 import logging
 import unittest
 import sys
@@ -20,6 +21,7 @@ import bs4.dammit
 from bs4.dammit import (
     EntitySubstitution,
     UnicodeDammit,
+    EncodingDetector,
 )
 from bs4.testing import (
     SoupTest,
@@ -48,8 +50,34 @@ class TestConstructor(SoupTest):
         soup = self.soup(data)
         self.assertEqual("foo\0bar", soup.h1.string)
 
+    def test_exclude_encodings(self):
+        utf8_data = "Räksmörgås".encode("utf-8")
+        soup = self.soup(utf8_data, exclude_encodings=["utf-8"])
+        self.assertEqual("windows-1252", soup.original_encoding)
 
-class TestDeprecatedConstructorArguments(SoupTest):
+
+class TestWarnings(SoupTest):
+
+    def _no_parser_specified(self, s, is_there=True):
+        v = s.startswith(BeautifulSoup.NO_PARSER_SPECIFIED_WARNING[:80])
+        self.assertTrue(v)
+
+    def test_warning_if_no_parser_specified(self):
+        with warnings.catch_warnings(record=True) as w:
+            soup = self.soup("<a><b></b></a>")
+        msg = str(w[0].message)
+        self._assert_no_parser_specified(msg)
+
+    def test_warning_if_parser_specified_too_vague(self):
+        with warnings.catch_warnings(record=True) as w:
+            soup = self.soup("<a><b></b></a>", "html")
+        msg = str(w[0].message)
+        self._assert_no_parser_specified(msg)
+
+    def test_no_warning_if_explicit_parser_specified(self):
+        with warnings.catch_warnings(record=True) as w:
+            soup = self.soup("<a><b></b></a>", "html.parser")
+        self.assertEqual([], w)
 
     def test_parseOnlyThese_renamed_to_parse_only(self):
         with warnings.catch_warnings(record=True) as w:
@@ -298,6 +326,26 @@ class TestUnicodeDammit(unittest.TestCase):
         for bad_encoding in ['.utf8', '...', 'utF---16.!']:
             dammit = UnicodeDammit(utf8_data, [bad_encoding])
             self.assertEqual(dammit.original_encoding.lower(), 'utf-8')
+
+    def test_exclude_encodings(self):
+        # This is UTF-8.
+        utf8_data = "Räksmörgås".encode("utf-8")
+
+        # But if we exclude UTF-8 from consideration, the guess is
+        # Windows-1252.
+        dammit = UnicodeDammit(utf8_data, exclude_encodings=["utf-8"])
+        self.assertEqual(dammit.original_encoding.lower(), 'windows-1252')
+
+        # And if we exclude that, there is no valid guess at all.
+        dammit = UnicodeDammit(
+            utf8_data, exclude_encodings=["utf-8", "windows-1252"])
+        self.assertEqual(dammit.original_encoding, None)
+
+    def test_encoding_detector_replaces_junk_in_encoding_name_with_replacement_character(self):
+        detected = EncodingDetector(
+            b'<?xml version="1.0" encoding="UTF-\xdb" ?>')
+        encodings = list(detected.encodings)
+        assert 'utf-\N{REPLACEMENT CHARACTER}' in encodings
 
     def test_detect_html5_style_meta_tag(self):
 

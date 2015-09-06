@@ -33,12 +33,21 @@ def diagnose(data):
 
     if 'lxml' in basic_parsers:
         basic_parsers.append(["lxml", "xml"])
-        from lxml import etree
-        print("Found lxml version %s" % ".".join(map(str,etree.LXML_VERSION)))
+        try:
+            from lxml import etree
+            print("Found lxml version %s" % ".".join(map(str,etree.LXML_VERSION)))
+        except ImportError as e:
+            print (
+                "lxml is not installed or couldn't be imported.")
+
 
     if 'html5lib' in basic_parsers:
-        import html5lib
-        print("Found html5lib version %s" % html5lib.__version__)
+        try:
+            import html5lib
+            print("Found html5lib version %s" % html5lib.__version__)
+        except ImportError as e:
+            print (
+                "html5lib is not installed or couldn't be imported.")
 
     if hasattr(data, 'read'):
         data = data.read()

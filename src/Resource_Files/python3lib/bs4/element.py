@@ -1,3 +1,4 @@
+from pdb import set_trace
 import collections
 import re
 import sys
@@ -194,24 +195,40 @@ class PageElement(object):
             return self.HTML_FORMATTERS.get(
                 name, HTMLAwareEntitySubstitution.substitute_xml)
 
-    def setup(self, parent=None, previous_element=None):
+    def setup(self, parent=None, previous_element=None, next_element=None,
+              previous_sibling=None, next_sibling=None):
         """Sets up the initial relations between this element and
         other elements."""
         self.parent = parent
+
         self.previous_element = previous_element
         if previous_element is not None:
             self.previous_element.next_element = self
-        self.next_element = None
-        self.previous_sibling = None
-        self.next_sibling = None
-        if self.parent is not None and self.parent.contents:
-            self.previous_sibling = self.parent.contents[-1]
+
+        self.next_element = next_element
+        if self.next_element:
+            self.next_element.previous_element = self
+
+        self.next_sibling = next_sibling
+        if self.next_sibling:
+            self.next_sibling.previous_sibling = self
+
+        if (not previous_sibling
+            and self.parent is not None and self.parent.contents):
+            previous_sibling = self.parent.contents[-1]
+
+        self.previous_sibling = previous_sibling
+        if previous_sibling:
             self.previous_sibling.next_sibling = self
 
     nextSibling = _alias("next_sibling")  # BS3
     previousSibling = _alias("previous_sibling")  # BS3
 
     def replace_with(self, replace_with):
+        if not self.parent:
+            raise ValueError(
+                "Cannot replace one element with another when the"
+                "element to be replaced is not part of a tree.")
         if replace_with is self:
             return
         if replace_with is self.parent:
@@ -225,6 +242,10 @@ class PageElement(object):
 
     def unwrap(self):
         my_parent = self.parent
+        if not self.parent:
+            raise ValueError(
+                "Cannot replace an element with its contents when that"
+                "element is not part of a tree.")
         my_index = self.parent.index(self)
         self.extract()
         for child in reversed(self.contents[:]):
@@ -249,17 +270,20 @@ class PageElement(object):
         last_child = self._last_descendant()
         next_element = last_child.next_element
 
-        if self.previous_element is not None:
+        if (self.previous_element is not None and
+            self.previous_element != next_element):
             self.previous_element.next_element = next_element
-        if next_element is not None:
+        if next_element is not None and next_element != self.previous_element:
             next_element.previous_element = self.previous_element
         self.previous_element = None
         last_child.next_element = None
 
         self.parent = None
-        if self.previous_sibling is not None:
+        if (self.previous_sibling is not None
+            and self.previous_sibling != self.next_sibling):
             self.previous_sibling.next_sibling = self.next_sibling
-        if self.next_sibling is not None:
+        if (self.next_sibling is not None
+            and self.next_sibling != self.previous_sibling):
             self.next_sibling.previous_sibling = self.previous_sibling
         self.previous_sibling = self.next_sibling = None
         return self
@@ -487,6 +511,10 @@ class PageElement(object):
     def _find_all(self, name, attrs, text, limit, generator, **kwargs):
         "Iterates over a generator looking for things that match."
 
+        if text is None and 'string' in kwargs:
+            text = kwargs['string']
+            del kwargs['string']
+
         if isinstance(name, SoupStrainer):
             strainer = name
         else:
@@ -557,17 +585,17 @@ class PageElement(object):
 
     # Methods for supporting CSS selectors.
 
-    tag_name_re = re.compile('^[a-z0-9]+$')
+    tag_name_re = re.compile('^[a-zA-Z0-9][-.a-zA-Z0-9:_]*$')
 
-    # /^(\w+)\[(\w+)([=~\|\^\$\*]?)=?"?([^\]"]*)"?\]$/
-    #   \---/  \---/\-------------/    \-------/
-    #     |      |         |               |
-    #     |      |         |           The value
-    #     |      |    ~,|,^,$,* or =
-    #     |   Attribute
+    # /^([a-zA-Z0-9][-.a-zA-Z0-9:_]*)\[(\w+)([=~\|\^\$\*]?)=?"?([^\]"]*)"?\]$/
+    #   \---------------------------/  \---/\-------------/    \-------/
+    #     |                              |         |               |
+    #     |                              |         |           The value
+    #     |                              |    ~,|,^,$,* or =
+    #     |                           Attribute
     #    Tag
     attribselect_re = re.compile(
-        r'^(?P<tag>\w+)?\[(?P<attribute>\w+)(?P<operator>[=~\|\^\$\*]?)' +
+        r'^(?P<tag>[a-zA-Z0-9][-.a-zA-Z0-9:_]*)?\[(?P<attribute>[\w-]+)(?P<operator>[=~\|\^\$\*]?)' +
         r'=?"?(?P<value>[^\]"]*)"?\]$'
         )
 
@@ -663,11 +691,17 @@ class NavigableString(str, PageElement):
         how to handle non-ASCII characters.
         """
         if isinstance(value, str):
-            return str.__new__(cls, value)
-        return str.__new__(cls, value, DEFAULT_OUTPUT_ENCODING)
+            u = str.__new__(cls, value)
+        else:
+            u = str.__new__(cls, value, DEFAULT_OUTPUT_ENCODING)
+        u.setup()
+        return u
 
     def __copy__(self):
-        return self
+        """A copy of a NavigableString has the same contents and class
+        as the original, but it is not connected to the parse tree.
+        """
+        return type(self)(self)
 
     def __getnewargs__(self):
         return (str(self),)
@@ -716,7 +750,7 @@ class CData(PreformattedString):
 class ProcessingInstruction(PreformattedString):
 
     PREFIX = '<?'
-    SUFFIX = '?>'
+    SUFFIX = '>'
 
 class Comment(PreformattedString):
 
@@ -768,9 +802,12 @@ class Tag(PageElement):
         self.prefix = prefix
         if attrs is None:
             attrs = {}
-        elif attrs and builder.cdata_list_attributes:
-            attrs = builder._replace_cdata_list_attribute_values(
-                self.name, attrs)
+        elif attrs:
+            if builder is not None and builder.cdata_list_attributes:
+                attrs = builder._replace_cdata_list_attribute_values(
+                    self.name, attrs)
+            else:
+                attrs = dict(attrs)
         else:
             attrs = dict(attrs)
         self.attrs = attrs
@@ -787,18 +824,30 @@ class Tag(PageElement):
 
     parserClass = _alias("parser_class")  # BS3
 
+    def __copy__(self):
+        """A copy of a Tag is a new Tag, unconnected to the parse tree.
+        Its contents are a copy of the old Tag's contents.
+        """
+        clone = type(self)(None, self.builder, self.name, self.namespace,
+                           self.nsprefix, self.attrs)
+        for attr in ('can_be_empty_element', 'hidden'):
+            setattr(clone, attr, getattr(self, attr))
+        for child in self.contents:
+            clone.append(child.__copy__())
+        return clone
+
     @property
     def is_empty_element(self):
         """Is this tag an empty-element tag? (aka a self-closing tag)
 
         A tag that has contents is never an empty-element tag.
-        
+
         A tag that has no contents may or may not be an empty-element
         tag. It depends on the builder used to create the tag. If the
         builder has a designated list of empty-element tags, then only
         a tag whose name shows up in that list is considered an
         empty-element tag.
-        
+
         If the builder has no designated list of empty-element tags,
         then any tag with no contents is an empty-element tag.
         """
@@ -986,20 +1035,32 @@ class Tag(PageElement):
         as defined in __eq__."""
         return not self == other
 
-    def __repr__(self, encoding=DEFAULT_OUTPUT_ENCODING):
+    def __repr__(self, encoding="unicode-escape"):
         """Renders this tag as a string."""
-        return self.encode(encoding)
+        if PY3K:
+            # "The return value must be a string object", i.e. Unicode
+            return self.decode()
+        else:
+            # "The return value must be a string object", i.e. a bytestring.
+            # By convention, the return value of __repr__ should also be
+            # an ASCII string.
+            return self.encode(encoding)
 
     def __unicode__(self):
         return self.decode()
 
     def __str__(self):
-        return self.encode()
+        if PY3K:
+            return self.decode()
+        else:
+            return self.encode()
 
     if PY3K:
         __str__ = __repr__ = __unicode__
 
-    def encode(self, encoding=DEFAULT_OUTPUT_ENCODING, indent_level=None, formatter="minimal", errors="xmlcharrefreplace", indent_chars=" "):
+    def encode(self, encoding=DEFAULT_OUTPUT_ENCODING,
+               indent_level=None, formatter="minimal",
+               errors="xmlcharrefreplace", indent_chars=" "):
         # Turn the data structure into Unicode, then encode the
         # Unicode.
         u = self.decode(indent_level=indent_level, encoding=encoding, formatter=formatter, indent_chars=indent_chars)
@@ -1013,7 +1074,8 @@ class Tag(PageElement):
               and not self.name in NON_BREAKING_INLINE_TAGS)
              or self._is_xml))
 
-    def decode(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
+    def decode(self, indent_level=None,
+               eventual_encoding=DEFAULT_OUTPUT_ENCODING,
                formatter="minimal", indent_chars=" "):
         """Returns a Unicode representation of this tag and its contents.
 
@@ -1079,7 +1141,8 @@ class Tag(PageElement):
             indent_contents = indent_level + 1
         else:
             indent_contents = None
-        contents = self.decode_contents(indent_contents, eventual_encoding, formatter, indent_chars)
+        contents = self.decode_contents(
+            indent_contents, eventual_encoding, formatter, indent_chars)
 
         if self.hidden:
             # This is the 'document root' object.
@@ -1111,16 +1174,19 @@ class Tag(PageElement):
             s = ''.join(s)
         return s
 
-
     def prettify(self, encoding=None, formatter="minimal", indent_chars=" "):
         if encoding is None:
             return self.decode(True, formatter=formatter, indent_chars=indent_chars)
         else:
             return self.encode(encoding, True, formatter=formatter, indent_chars=indent_chars)
 
-    def decode_contents(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
-                        formatter="minimal", indent_chars=" "):
+    def decode_contents(self, indent_level=None,
+                       eventual_encoding=DEFAULT_OUTPUT_ENCODING,
+                       formatter="minimal", indent_chars=" "):
         """Renders the contents of this tag as a Unicode string.
+
+        :param indent_level: Each line of the rendering will be
+           indented this many spaces.
 
         :param eventual_encoding: The tag is destined to be
            encoded into this encoding. This method is _not_
@@ -1128,6 +1194,9 @@ class Tag(PageElement):
            is passed in so that it can be substituted in if the
            document contains a <META> tag that mentions the document's
            encoding.
+
+        :param formatter: The output formatter responsible for converting
+           entities to Unicode characters.
         """
         # First off, turn a string formatter into a function. This
         # will stop the lookup from happening over and over again.
@@ -1341,8 +1410,19 @@ class Tag(PageElement):
         return ''.join(s)
 
     def encode_contents(
-        self, indent_level=None, encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal", indent_chars=" "):
-        """Renders the contents of this tag as a bytestring."""
+        self, indent_level=None, encoding=DEFAULT_OUTPUT_ENCODING,
+        formatter="minimal", indent_chars=" "):
+        """Renders the contents of this tag as a bytestring.
+
+        :param indent_level: Each line of the rendering will be
+           indented this many spaces.
+
+        :param eventual_encoding: The bytestring will be in this encoding.
+
+        :param formatter: The output formatter responsible for converting
+           entities to Unicode characters.
+        """
+
         contents = self.decode_contents(indent_level, encoding, formatter, indent_chars)
         return contents.encode(encoding)
 
@@ -1406,63 +1486,89 @@ class Tag(PageElement):
 
     _selector_combinators = ['>', '+', '~']
     _select_debug = False
-    def select(self, selector, _candidate_generator=None):
+    def select_one(self, selector):
         """Perform a CSS selection operation on the current element."""
-        tokens = selector.split()
+        value = self.select(selector, limit=1)
+        if value:
+            return value[0]
+        return None
+
+    def select(self, selector, _candidate_generator=None, limit=None):
+        """Perform a CSS selection operation on the current element."""
+
+        # Remove whitespace directly after the grouping operator ','
+        # then split into tokens.
+        tokens = re.sub(',[\s]*',',', selector).split()
         current_context = [self]
 
         if tokens[-1] in self._selector_combinators:
             raise ValueError(
                 'Final combinator "%s" is missing an argument.' % tokens[-1])
+
         if self._select_debug:
             print('Running CSS selector "%s"' % selector)
-        for index, token in enumerate(tokens):
-            if self._select_debug:
-                print(' Considering token "%s"' % token)
-            recursive_candidate_generator = None
-            tag_name = None
+
+        for index, token_group in enumerate(tokens):
+            new_context = []
+            new_context_ids = set([])
+
+            # Grouping selectors, ie: p,a
+            grouped_tokens = token_group.split(',')
+            if '' in grouped_tokens:
+                raise ValueError('Invalid group selection syntax: %s' % token_group)
+
             if tokens[index-1] in self._selector_combinators:
                 # This token was consumed by the previous combinator. Skip it.
                 if self._select_debug:
                     print('  Token was consumed by the previous combinator.')
                 continue
-            # Each operation corresponds to a checker function, a rule
-            # for determining whether a candidate matches the
-            # selector. Candidates are generated by the active
-            # iterator.
-            checker = None
 
-            m = self.attribselect_re.match(token)
-            if m is not None:
-                # Attribute selector
-                tag_name, attribute, operator, value = m.groups()
-                checker = self._attribute_checker(operator, attribute, value)
+            for token in grouped_tokens:
+                if self._select_debug:
+                    print(' Considering token "%s"' % token)
+                recursive_candidate_generator = None
+                tag_name = None
 
-            elif '#' in token:
-                # ID selector
-                tag_name, tag_id = token.split('#', 1)
-                def id_matches(tag):
-                    return tag.get('id', None) == tag_id
-                checker = id_matches
+                # Each operation corresponds to a checker function, a rule
+                # for determining whether a candidate matches the
+                # selector. Candidates are generated by the active
+                # iterator.
+                checker = None
 
-            elif '.' in token:
-                # Class selector
-                tag_name, klass = token.split('.', 1)
-                classes = set(klass.split('.'))
-                def classes_match(candidate):
-                    return classes.issubset(candidate.get('class', []))
-                checker = classes_match
+                m = self.attribselect_re.match(token)
+                if m is not None:
+                    # Attribute selector
+                    tag_name, attribute, operator, value = m.groups()
+                    checker = self._attribute_checker(operator, attribute, value)
 
-            elif ':' in token:
-                # Pseudo-class
-                tag_name, pseudo = token.split(':', 1)
-                if tag_name == '':
-                    raise ValueError(
-                        "A pseudo-class must be prefixed with a tag name.")
-                pseudo_attributes = re.match('([a-zA-Z\d-]+)\(([a-zA-Z\d]+)\)', pseudo)
-                found = []
-                if pseudo_attributes is not None:
-                    pseudo_type, pseudo_value = pseudo_attributes.groups()
+                elif '#' in token:
+                    # ID selector
+                    tag_name, tag_id = token.split('#', 1)
+                    def id_matches(tag):
+                        return tag.get('id', None) == tag_id
+                    checker = id_matches
+
+                elif '.' in token:
+                    # Class selector
+                    tag_name, klass = token.split('.', 1)
+                    classes = set(klass.split('.'))
+                    def classes_match(candidate):
+                        return classes.issubset(candidate.get('class', []))
+                    checker = classes_match
+
+                elif ':' in token:
+                    # Pseudo-class
+                    tag_name, pseudo = token.split(':', 1)
+                    if tag_name == '':
+                        raise ValueError(
+                            "A pseudo-class must be prefixed with a tag name.")
+                    pseudo_attributes = re.match('([a-zA-Z\d-]+)\(([a-zA-Z\d]+)\)', pseudo)
+                    found = []
+                    if pseudo_attributes is None:
+                        pseudo_type = pseudo
+                        pseudo_value = None
+                    else:
+                        pseudo_type, pseudo_value = pseudo_attributes.groups()
                     if pseudo_type == 'nth-of-type':
                         try:
                             pseudo_value = int(pseudo_value)
@@ -1491,109 +1597,110 @@ class Tag(PageElement):
                         raise NotImplementedError(
                             'Only the following pseudo-classes are implemented: nth-of-type.')
 
-            elif token == '*':
-                # Star selector -- matches everything
-                pass
-            elif token == '>':
-                # Run the next token as a CSS selector against the
-                # direct children of each tag in the current context.
-                recursive_candidate_generator = lambda tag: tag.children
-            elif token == '~':
-                # Run the next token as a CSS selector against the
-                # siblings of each tag in the current context.
-                recursive_candidate_generator = lambda tag: tag.next_siblings
-            elif token == '+':
-                # For each tag in the current context, run the next
-                # token as a CSS selector against the tag's next
-                # sibling that's a tag.
-                def next_tag_sibling(tag):
-                    yield tag.find_next_sibling(True)
-                recursive_candidate_generator = next_tag_sibling
+                elif token == '*':
+                    # Star selector -- matches everything
+                    pass
+                elif token == '>':
+                    # Run the next token as a CSS selector against the
+                    # direct children of each tag in the current context.
+                    recursive_candidate_generator = lambda tag: tag.children
+                elif token == '~':
+                    # Run the next token as a CSS selector against the
+                    # siblings of each tag in the current context.
+                    recursive_candidate_generator = lambda tag: tag.next_siblings
+                elif token == '+':
+                    # For each tag in the current context, run the next
+                    # token as a CSS selector against the tag's next
+                    # sibling that's a tag.
+                    def next_tag_sibling(tag):
+                        yield tag.find_next_sibling(True)
+                    recursive_candidate_generator = next_tag_sibling
 
-            elif self.tag_name_re.match(token):
-                # Just a tag name.
-                tag_name = token
-            else:
-                raise ValueError(
-                    'Unsupported or invalid CSS selector: "%s"' % token)
-
-            if recursive_candidate_generator:
-                # This happens when the selector looks like  "> foo".
-                #
-                # The generator calls select() recursively on every
-                # member of the current context, passing in a different
-                # candidate generator and a different selector.
-                #
-                # In the case of "> foo", the candidate generator is
-                # one that yields a tag's direct children (">"), and
-                # the selector is "foo".
-                next_token = tokens[index+1]
-                def recursive_select(tag):
-                    if self._select_debug:
-                        print('    Calling select("%s") recursively on %s %s' % (next_token, tag.name, tag.attrs))
-                        print('-' * 40)
-                    for i in tag.select(next_token, recursive_candidate_generator):
-                        if self._select_debug:
-                            print('(Recursive select picked up candidate %s %s)' % (i.name, i.attrs))
-                        yield i
-                    if self._select_debug:
-                        print('-' * 40)
-                _use_candidate_generator = recursive_select
-            elif _candidate_generator is None:
-                # By default, a tag's candidates are all of its
-                # children. If tag_name is defined, only yield tags
-                # with that name.
-                if self._select_debug:
-                    if tag_name:
-                        check = "[any]"
-                    else:
-                        check = tag_name
-                    print('   Default candidate generator, tag name="%s"' % check)
-                if self._select_debug:
-                    # This is redundant with later code, but it stops
-                    # a bunch of bogus tags from cluttering up the
-                    # debug log.
-                    def default_candidate_generator(tag):
-                        for child in tag.descendants:
-                            if not isinstance(child, Tag):
-                                continue
-                            if tag_name and not child.name == tag_name:
-                                continue
-                            yield child
-                    _use_candidate_generator = default_candidate_generator
+                elif self.tag_name_re.match(token):
+                    # Just a tag name.
+                    tag_name = token
                 else:
-                    _use_candidate_generator = lambda tag: tag.descendants
-            else:
-                _use_candidate_generator = _candidate_generator
-
-            new_context = []
-            new_context_ids = set([])
-            for tag in current_context:
-                if self._select_debug:
-                    print("    Running candidate generator on %s %s" % (
-                        tag.name, repr(tag.attrs)))
-                for candidate in _use_candidate_generator(tag):
-                    if not isinstance(candidate, Tag):
-                        continue
-                    if tag_name and candidate.name != tag_name:
-                        continue
-                    if checker is not None:
-                        try:
-                            result = checker(candidate)
-                        except StopIteration:
-                            # The checker has decided we should no longer
-                            # run the generator.
-                            break
-                    if checker is None or result:
+                    raise ValueError(
+                        'Unsupported or invalid CSS selector: "%s"' % token)
+                if recursive_candidate_generator:
+                    # This happens when the selector looks like  "> foo".
+                    #
+                    # The generator calls select() recursively on every
+                    # member of the current context, passing in a different
+                    # candidate generator and a different selector.
+                    #
+                    # In the case of "> foo", the candidate generator is
+                    # one that yields a tag's direct children (">"), and
+                    # the selector is "foo".
+                    next_token = tokens[index+1]
+                    def recursive_select(tag):
                         if self._select_debug:
-                            print("     SUCCESS %s %s" % (candidate.name, repr(candidate.attrs)))
-                        if id(candidate) not in new_context_ids:
-                            # If a tag matches a selector more than once,
-                            # don't include it in the context more than once.
-                            new_context.append(candidate)
-                            new_context_ids.add(id(candidate))
-                    elif self._select_debug:
-                        print("     FAILURE %s %s" % (candidate.name, repr(candidate.attrs)))
+                            print('    Calling select("%s") recursively on %s %s' % (next_token, tag.name, tag.attrs))
+                            print('-' * 40)
+                        for i in tag.select(next_token, recursive_candidate_generator):
+                            if self._select_debug:
+                                print('(Recursive select picked up candidate %s %s)' % (i.name, i.attrs))
+                            yield i
+                        if self._select_debug:
+                            print('-' * 40)
+                    _use_candidate_generator = recursive_select
+                elif _candidate_generator is None:
+                    # By default, a tag's candidates are all of its
+                    # children. If tag_name is defined, only yield tags
+                    # with that name.
+                    if self._select_debug:
+                        if tag_name:
+                            check = "[any]"
+                        else:
+                            check = tag_name
+                        print('   Default candidate generator, tag name="%s"' % check)
+                    if self._select_debug:
+                        # This is redundant with later code, but it stops
+                        # a bunch of bogus tags from cluttering up the
+                        # debug log.
+                        def default_candidate_generator(tag):
+                            for child in tag.descendants:
+                                if not isinstance(child, Tag):
+                                    continue
+                                if tag_name and not child.name == tag_name:
+                                    continue
+                                yield child
+                        _use_candidate_generator = default_candidate_generator
+                    else:
+                        _use_candidate_generator = lambda tag: tag.descendants
+                else:
+                    _use_candidate_generator = _candidate_generator
+
+                count = 0
+                for tag in current_context:
+                    if self._select_debug:
+                        print("    Running candidate generator on %s %s" % (
+                            tag.name, repr(tag.attrs)))
+                    for candidate in _use_candidate_generator(tag):
+                        if not isinstance(candidate, Tag):
+                            continue
+                        if tag_name and candidate.name != tag_name:
+                            continue
+                        if checker is not None:
+                            try:
+                                result = checker(candidate)
+                            except StopIteration:
+                                # The checker has decided we should no longer
+                                # run the generator.
+                                break
+                        if checker is None or result:
+                            if self._select_debug:
+                                print("     SUCCESS %s %s" % (candidate.name, repr(candidate.attrs)))
+                            if id(candidate) not in new_context_ids:
+                                # If a tag matches a selector more than once,
+                                # don't include it in the context more than once.
+                                new_context.append(candidate)
+                                new_context_ids.add(id(candidate))
+                                if limit and len(new_context) >= limit:
+                                    break
+                        elif self._select_debug:
+                            print("     FAILURE %s %s" % (candidate.name, repr(candidate.attrs)))
+
 
             current_context = new_context
 

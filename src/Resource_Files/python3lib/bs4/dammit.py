@@ -3,10 +3,11 @@
 
 This library converts a bytestream to Unicode through any means
 necessary. It is heavily based on code from Mark Pilgrim's Universal
-Feed Parser. It works best on XML and XML, but it does not rewrite the
+Feed Parser. It works best on XML and HTML, but it does not rewrite the
 XML or HTML to reflect a new encoding; that's the tree builder's job.
 """
 
+from pdb import set_trace
 import codecs
 from html.entities import codepoint2name
 import re
@@ -128,8 +129,6 @@ class EntitySubstitution(object):
 
         quote_with = '"'
         if '"' in value:
-            replace_with = "&quot;"
-            value = value.replace('"', replace_with)
             # if "'" in value:
             #     # The string contains both single and double
             #     # quotes.  Turn the double quotes into
@@ -144,6 +143,8 @@ class EntitySubstitution(object):
             #     # There are double quotes but no single quotes.
             #     # We can use single quotes to quote the attribute.
             #     quote_with = "'"
+            replace_with = "&quot;"
+            value = value.replace('"', replace_with)
         return quote_with + value + quote_with
 
     @classmethod
@@ -212,6 +213,7 @@ class EntitySubstitution(object):
         #     cls._substitute_html_entity, s)
 
 
+
 class EncodingDetector:
     """Suggests a number of possible encodings for a bytestring.
 
@@ -232,8 +234,11 @@ class EncodingDetector:
 
     5. Windows-1252.
     """
-    def __init__(self, markup, override_encodings=None, is_html=False):
+    def __init__(self, markup, override_encodings=None, is_html=False,
+                 exclude_encodings=None):
         self.override_encodings = override_encodings or []
+        exclude_encodings = exclude_encodings or []
+        self.exclude_encodings = set([x.lower() for x in exclude_encodings])
         self.chardet_encoding = None
         self.is_html = is_html
         self.declared_encoding = None
@@ -244,6 +249,8 @@ class EncodingDetector:
     def _usable(self, encoding, tried):
         if encoding is not None:
             encoding = encoding.lower()
+            if encoding in self.exclude_encodings:
+                return False
             if encoding not in tried:
                 tried.add(encoding)
                 return True
@@ -286,6 +293,9 @@ class EncodingDetector:
     def strip_byte_order_mark(cls, data):
         """If a byte-order mark is present, strip it and return the encoding it implies."""
         encoding = None
+        if isinstance(data, str):
+            # Unicode data cannot have a byte-order mark.
+            return data, encoding
         if (len(data) >= 4) and (data[:2] == b'\xfe\xff') \
                and (data[2:4] != '\x00\x00'):
             encoding = 'utf-16be'
@@ -326,7 +336,7 @@ class EncodingDetector:
             declared_encoding_match = html_meta_re.search(markup, endpos=html_endpos)
         if declared_encoding_match is not None:
             declared_encoding = declared_encoding_match.groups()[0].decode(
-                'ascii')
+                'ascii', 'replace')
         if declared_encoding:
             return declared_encoding.lower()
         return None
@@ -351,13 +361,14 @@ class UnicodeDammit:
         ]
 
     def __init__(self, markup, override_encodings=[],
-                 smart_quotes_to=None, is_html=False):
+                 smart_quotes_to=None, is_html=False, exclude_encodings=[]):
         self.smart_quotes_to = smart_quotes_to
         self.tried_encodings = []
         self.contains_replacement_characters = False
         self.is_html = is_html
 
-        self.detector = EncodingDetector(markup, override_encodings, is_html)
+        self.detector = EncodingDetector(
+            markup, override_encodings, is_html, exclude_encodings)
 
         # Short-circuit if the data is in Unicode to begin with.
         if isinstance(markup, str) or markup == '':

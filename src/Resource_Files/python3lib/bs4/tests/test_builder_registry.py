@@ -1,6 +1,7 @@
 """Tests of the builder registry."""
 
 import unittest
+import warnings
 
 from bs4 import BeautifulSoup
 from bs4.builder import (
@@ -67,10 +68,15 @@ class BuiltInRegistryTest(unittest.TestCase):
                           HTMLParserTreeBuilder)
 
     def test_beautifulsoup_constructor_does_lookup(self):
-        # You can pass in a string.
-        BeautifulSoup("", features="html")
-        # Or a list of strings.
-        BeautifulSoup("", features=["html", "fast"])
+
+        with warnings.catch_warnings(record=True) as w:
+            # This will create a warning about not explicitly
+            # specifying a parser, but we'll ignore it.
+
+            # You can pass in a string.
+            BeautifulSoup("", features="html")
+            # Or a list of strings.
+            BeautifulSoup("", features=["html", "fast"])
 
         # You'll get an exception if BS can't find an appropriate
         # builder.

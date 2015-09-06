@@ -1,5 +1,6 @@
 """Helper classes for tests."""
 
+import pickle
 import copy
 import functools
 import unittest
@@ -43,6 +44,16 @@ class SoupTest(unittest.TestCase):
 
         self.assertEqual(obj.decode(), self.document_for(compare_parsed_to))
 
+    def assertConnectedness(self, element):
+        """Ensure that next_element and previous_element are properly
+        set for all descendants of the given element.
+        """
+        earlier = None
+        for e in element.descendants:
+            if earlier:
+                self.assertEqual(e, earlier.next_element)
+                self.assertEqual(earlier, e.previous_element)
+            earlier = e
 
 class HTMLTreeBuilderSmokeTest(object):
 
@@ -53,6 +64,15 @@ class HTMLTreeBuilderSmokeTest(object):
     and different parsers can handle it differently. But with the
     markup in these tests, there's not much room for interpretation.
     """
+
+    def test_pickle_and_unpickle_identity(self):
+        # Pickling a tree, then unpickling it, yields a tree identical
+        # to the original.
+        tree = self.soup("<a><b>foo</a>")
+        dumped = pickle.dumps(tree, 2)
+        loaded = pickle.loads(dumped)
+        self.assertEqual(loaded.__class__, BeautifulSoup)
+        self.assertEqual(loaded.decode(), tree.decode())
 
     def assertDoctypeHandled(self, doctype_fragment):
         """Assert that a given doctype string is handled correctly."""
@@ -114,6 +134,11 @@ class HTMLTreeBuilderSmokeTest(object):
             soup.encode("utf-8").replace(b"\n", b""),
             markup.replace(b"\n", b""))
 
+    def test_processing_instruction(self):
+        markup = b"""<?PITarget PIContent?>"""
+        soup = self.soup(markup)
+        self.assertEqual(markup, soup.encode("utf8"))
+
     def test_deepcopy(self):
         """Make sure you can copy the tree builder.
 
@@ -154,6 +179,23 @@ class HTMLTreeBuilderSmokeTest(object):
 
     def test_nested_formatting_elements(self):
         self.assertSoupEquals("<em><em></em></em>")
+
+    def test_double_head(self):
+        html = '''<!DOCTYPE html>
+<html>
+<head>
+<title>Ordinary HEAD element test</title>
+</head>
+<script type="text/javascript">
+alert("Help!");
+</script>
+<body>
+Hello, world!
+</body>
+</html>
+'''
+        soup = self.soup(html)
+        self.assertEqual("text/javascript", soup.find('script')['type'])
 
     def test_comment(self):
         # Comments are represented as Comment objects.
@@ -221,6 +263,14 @@ class HTMLTreeBuilderSmokeTest(object):
         soup = self.soup(markup)
         self.assertEqual(["css"], soup.div.div['class'])
 
+    def test_multivalued_attribute_on_html(self):
+        # html5lib uses a different API to set the attributes ot the
+        # <html> tag. This has caused problems with multivalued
+        # attributes.
+        markup = '<html class="a b"></html>'
+        soup = self.soup(markup)
+        self.assertEqual(["a", "b"], soup.html['class'])
+
     def test_angle_brackets_in_attribute_values_are_escaped(self):
         self.assertSoupEquals('<a b="<a>"></a>', '<a b="&lt;a&gt;"></a>')
 
@@ -253,6 +303,35 @@ class HTMLTreeBuilderSmokeTest(object):
         soup = self.soup("<html><h2>\nfoo</h2><p></p></html>")
         self.assertEqual("p", soup.h2.string.next_element.name)
         self.assertEqual("p", soup.p.name)
+        self.assertConnectedness(soup)
+
+    def test_head_tag_between_head_and_body(self):
+        "Prevent recurrence of a bug in the html5lib treebuilder."
+        content = """<html><head></head>
+  <link></link>
+  <body>foo</body>
+</html>
+"""
+        soup = self.soup(content)
+        self.assertNotEqual(None, soup.html.body)
+        self.assertConnectedness(soup)
+
+    def test_multiple_copies_of_a_tag(self):
+        "Prevent recurrence of a bug in the html5lib treebuilder."
+        content = """<!DOCTYPE html>
+<html>
+ <body>
+   <article id="a" >
+   <div><a href="1"></div>
+   <footer>
+     <a href="2"></a>
+   </footer>
+  </article>
+  </body>
+</html>
+"""
+        soup = self.soup(content)
+        self.assertConnectedness(soup.article)
 
     def test_basic_namespaces(self):
         """Parsers don't need to *understand* namespaces, but at the
@@ -463,6 +542,15 @@ class HTMLTreeBuilderSmokeTest(object):
 
 class XMLTreeBuilderSmokeTest(object):
 
+    def test_pickle_and_unpickle_identity(self):
+        # Pickling a tree, then unpickling it, yields a tree identical
+        # to the original.
+        tree = self.soup("<a><b>foo</a>")
+        dumped = pickle.dumps(tree, 2)
+        loaded = pickle.loads(dumped)
+        self.assertEqual(loaded.__class__, BeautifulSoup)
+        self.assertEqual(loaded.decode(), tree.decode())
+
     def test_docstring_generated(self):
         soup = self.soup("<root/>")
         self.assertEqual(
@@ -485,7 +573,7 @@ class XMLTreeBuilderSmokeTest(object):
   <script type="text/javascript">
   </script>
 """
-        soup = BeautifulSoup(doc, "xml")
+        soup = BeautifulSoup(doc, "lxml-xml")
         # lxml would have stripped this while parsing, but we can add
         # it later.
         soup.script.string = 'console.log("< < hey > > ");'

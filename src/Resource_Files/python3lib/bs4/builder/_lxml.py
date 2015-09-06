@@ -7,7 +7,12 @@ from io import BytesIO
 from io import StringIO
 import collections
 from lxml import etree
-from bs4.element import Comment, Doctype, NamespacedAttribute
+from bs4.element import (
+    Comment,
+    Doctype,
+    NamespacedAttribute,
+    ProcessingInstruction,
+)
 from bs4.builder import (
     FAST,
     HTML,
@@ -25,8 +30,11 @@ class LXMLTreeBuilderForXML(TreeBuilder):
 
     is_xml = True
 
+    NAME = "lxml-xml"
+    ALTERNATE_NAMES = ["xml"]
+
     # Well, it's permissive by XML parser standards.
-    features = [LXML, XML, FAST, PERMISSIVE]
+    features = [NAME, LXML, XML, FAST, PERMISSIVE]
 
     CHUNK_SIZE = 512
 
@@ -70,6 +78,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
             return (None, tag)
 
     def prepare_markup(self, markup, user_specified_encoding=None,
+                       exclude_encodings=None,
                        document_declared_encoding=None):
         """
         :yield: A series of 4-tuples.
@@ -95,7 +104,8 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         # the document as each one in turn.
         is_html = not self.is_xml
         try_encodings = [user_specified_encoding, document_declared_encoding]
-        detector = EncodingDetector(markup, try_encodings, is_html)
+        detector = EncodingDetector(
+            markup, try_encodings, is_html, exclude_encodings)
         for encoding in detector.encodings:
             yield (detector.markup, encoding, document_declared_encoding, False)
 
@@ -135,9 +145,9 @@ class LXMLTreeBuilderForXML(TreeBuilder):
             # A new namespace mapping has come into play.
             inverted_nsmap = dict((value, key) for key, value in list(nsmap.items()))
             self.nsmaps.append(inverted_nsmap)
-
+        
             # Also treat the namespace mapping as a set of attributes on the
-            # tag that specified them, so we can properly recreate it later.
+            # tag, so we can properly recreate it later.
             attrs = attrs.copy()
             for prefix, namespace in list(nsmap.items()):
                 attribute = NamespacedAttribute(
@@ -163,12 +173,13 @@ class LXMLTreeBuilderForXML(TreeBuilder):
                 attr = NamespacedAttribute(nsprefix, attr, namespace)
                 new_attrs[attr] = value
         attrs = new_attrs
+
         namespace, name = self._getNsTag(name)
         nsprefix = self._prefix_for_tag_namespace(namespace)
         self.soup.handle_starttag(name, namespace, nsprefix, attrs)
 
     def _prefix_for_attr_namespace(self, namespace):
-        """Find the currently active prefix for the given namespace for an attribute."""
+        """Find the currently active prefix for the given namespace."""
         if namespace is None:
             return None
         for inverted_nsmap in reversed(self.nsmaps):
@@ -205,7 +216,9 @@ class LXMLTreeBuilderForXML(TreeBuilder):
             self.nsmaps.pop()
 
     def pi(self, target, data):
-        pass
+        self.soup.endData()
+        self.soup.handle_data(target + ' ' + data)
+        self.soup.endData(ProcessingInstruction)
 
     def data(self, content):
         self.soup.handle_data(content)
@@ -228,7 +241,10 @@ class LXMLTreeBuilderForXML(TreeBuilder):
 
 class LXMLTreeBuilder(HTMLTreeBuilder, LXMLTreeBuilderForXML):
 
-    features = [LXML, HTML, FAST, PERMISSIVE]
+    NAME = LXML
+    ALTERNATE_NAMES = ["lxml-html"]
+
+    features = ALTERNATE_NAMES + [NAME, HTML, FAST, PERMISSIVE]
     is_xml = False
 
     def default_parser(self, encoding):

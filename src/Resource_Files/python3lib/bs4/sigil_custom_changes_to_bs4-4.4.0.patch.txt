@@ -1,8 +1,7 @@
-Binary files beautifulsoup4-4.3.2/python3/bs4/.DS_Store and bs4/.DS_Store differ
-diff -ur beautifulsoup4-4.3.2/python3/bs4/__init__.py bs4/__init__.py
---- beautifulsoup4-4.3.2/python3/bs4/__init__.py	2015-09-03 14:28:07.000000000 -0400
-+++ bs4/__init__.py	2015-09-03 12:32:41.000000000 -0400
-@@ -358,7 +358,7 @@
+diff -ur bs4_4.4_official/__init__.py bs4_4.4_custom/__init__.py
+--- bs4_4.4_official/__init__.py	2015-09-05 19:23:38.000000000 -0400
++++ bs4_4.4_custom/__init__.py	2015-09-05 19:46:59.000000000 -0400
+@@ -420,7 +420,7 @@
  
      def decode(self, pretty_print=False,
                 eventual_encoding=DEFAULT_OUTPUT_ENCODING,
@@ -11,7 +10,7 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/__init__.py bs4/__init__.py
          """Returns a string or Unicode representation of this document.
          To get Unicode, pass None for encoding."""
  
-@@ -375,7 +375,28 @@
+@@ -437,7 +437,28 @@
          else:
              indent_level = 0
          return prefix + super(BeautifulSoup, self).decode(
@@ -41,10 +40,10 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/__init__.py bs4/__init__.py
  
  # Alias to make it easier to type import: 'from bs4 import _soup'
  _s = BeautifulSoup
-diff -ur beautifulsoup4-4.3.2/python3/bs4/builder/_lxml.py bs4/builder/_lxml.py
---- beautifulsoup4-4.3.2/python3/bs4/builder/_lxml.py	2015-09-03 14:28:08.000000000 -0400
-+++ bs4/builder/_lxml.py	2015-09-05 11:04:21.000000000 -0400
-@@ -127,24 +127,29 @@
+diff -ur bs4_4.4_official/builder/_lxml.py bs4_4.4_custom/builder/_lxml.py
+--- bs4_4.4_official/builder/_lxml.py	2015-09-05 19:23:39.000000000 -0400
++++ bs4_4.4_custom/builder/_lxml.py	2015-09-05 20:33:40.000000000 -0400
+@@ -137,24 +137,29 @@
          # Make sure attrs is a mutable dict--lxml may send an immutable dictproxy.
          attrs = dict(attrs)
          nsprefix = None
@@ -62,10 +61,10 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/builder/_lxml.py bs4/builder/_lxml.py
              # A new namespace mapping has come into play.
              inverted_nsmap = dict((value, key) for key, value in list(nsmap.items()))
              self.nsmaps.append(inverted_nsmap)
-+
++        
              # Also treat the namespace mapping as a set of attributes on the
 -            # tag, so we can recreate it later.
-+            # tag that specified them, so we can properly recreate it later.
++            # tag, so we can properly recreate it later.
              attrs = attrs.copy()
              for prefix, namespace in list(nsmap.items()):
                  attribute = NamespacedAttribute(
@@ -81,7 +80,7 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/builder/_lxml.py bs4/builder/_lxml.py
          # Namespaces are in play. Find any attributes that came in
          # from lxml with namespaces attached to their names, and
          # turn then into NamespacedAttribute objects.
-@@ -154,17 +159,16 @@
+@@ -164,16 +169,16 @@
              if namespace is None:
                  new_attrs[attr] = value
              else:
@@ -90,20 +89,18 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/builder/_lxml.py bs4/builder/_lxml.py
                  attr = NamespacedAttribute(nsprefix, attr, namespace)
                  new_attrs[attr] = value
          attrs = new_attrs
--
+ 
          namespace, name = self._getNsTag(name)
 -        nsprefix = self._prefix_for_namespace(namespace)
 +        nsprefix = self._prefix_for_tag_namespace(namespace)
          self.soup.handle_starttag(name, namespace, nsprefix, attrs)
  
 -    def _prefix_for_namespace(self, namespace):
--        """Find the currently active prefix for the given namespace."""
 +    def _prefix_for_attr_namespace(self, namespace):
-+        """Find the currently active prefix for the given namespace for an attribute."""
+         """Find the currently active prefix for the given namespace."""
          if namespace is None:
              return None
-         for inverted_nsmap in reversed(self.nsmaps):
-@@ -172,16 +176,28 @@
+@@ -182,16 +187,28 @@
                  return inverted_nsmap[namespace]
          return None
  
@@ -138,11 +135,10 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/builder/_lxml.py bs4/builder/_lxml.py
          self.soup.handle_endtag(name, nsprefix)
          if len(self.nsmaps) > 1:
              # This tag, or one of its parents, introduced a namespace
-Only in bs4/builder: _lxml.py~
-diff -ur beautifulsoup4-4.3.2/python3/bs4/dammit.py bs4/dammit.py
---- beautifulsoup4-4.3.2/python3/bs4/dammit.py	2015-09-03 14:28:07.000000000 -0400
-+++ bs4/dammit.py	2015-09-05 12:12:30.000000000 -0400
-@@ -82,6 +82,8 @@
+diff -ur bs4_4.4_official/dammit.py bs4_4.4_custom/dammit.py
+--- bs4_4.4_official/dammit.py	2015-09-05 19:23:38.000000000 -0400
++++ bs4_4.4_custom/dammit.py	2015-09-05 19:56:49.000000000 -0400
+@@ -83,6 +83,8 @@
                                             "&(?!#\d+;|#x[0-9a-fA-F]+;|\w+;)"
                                             ")")
  
@@ -151,7 +147,7 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/dammit.py bs4/dammit.py
      AMPERSAND_OR_BRACKET = re.compile("([<>&])")
  
      @classmethod
-@@ -115,22 +117,33 @@
+@@ -116,22 +118,33 @@
  
            Welcome to "Bob's Bar" -> "Welcome to &quot;Bob's bar&quot;
          """
@@ -180,8 +176,6 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/dammit.py bs4/dammit.py
 -                # There are double quotes but no single quotes.
 -                # We can use single quotes to quote the attribute.
 -                quote_with = "'"
-+            replace_with = "&quot;"
-+            value = value.replace('"', replace_with)
 +            # if "'" in value:
 +            #     # The string contains both single and double
 +            #     # quotes.  Turn the double quotes into
@@ -196,10 +190,12 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/dammit.py bs4/dammit.py
 +            #     # There are double quotes but no single quotes.
 +            #     # We can use single quotes to quote the attribute.
 +            #     quote_with = "'"
++            replace_with = "&quot;"
++            value = value.replace('"', replace_with)
          return quote_with + value + quote_with
  
      @classmethod
-@@ -188,8 +201,15 @@
+@@ -189,8 +202,16 @@
          character with "&eacute;" will make it more readable to some
          people.
          """
@@ -214,13 +210,14 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/dammit.py bs4/dammit.py
 +
 +        # return cls.CHARACTER_TO_HTML_ENTITY_RE.sub(
 +        #     cls._substitute_html_entity, s)
++
  
  
  class EncodingDetector:
-diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
---- beautifulsoup4-4.3.2/python3/bs4/element.py	2015-09-03 14:28:08.000000000 -0400
-+++ bs4/element.py	2015-09-03 12:34:10.000000000 -0400
-@@ -9,6 +9,15 @@
+diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
+--- bs4_4.4_official/element.py	2015-09-05 19:23:39.000000000 -0400
++++ bs4_4.4_custom/element.py	2015-09-05 20:22:33.000000000 -0400
+@@ -10,6 +10,15 @@
  
  whitespace_re = re.compile("\s+")
  
@@ -236,7 +233,7 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
  def _alias(attr):
      """Alias one attribute name to another for backward compatibility"""
      @property
-@@ -114,7 +123,7 @@
+@@ -115,7 +124,7 @@
      @classmethod
      def substitute_xml(cls, ns):
          return cls._substitute_if_appropriate(
@@ -245,23 +242,7 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
  
  class PageElement(object):
      """Contains the navigational information for some part of the page
-@@ -783,13 +792,13 @@
-         """Is this tag an empty-element tag? (aka a self-closing tag)
- 
-         A tag that has contents is never an empty-element tag.
--
-+        
-         A tag that has no contents may or may not be an empty-element
-         tag. It depends on the builder used to create the tag. If the
-         builder has a designated list of empty-element tags, then only
-         a tag whose name shows up in that list is considered an
-         empty-element tag.
--
-+        
-         If the builder has no designated list of empty-element tags,
-         then any tag with no contents is an empty-element tag.
-         """
-@@ -797,6 +806,12 @@
+@@ -846,6 +855,12 @@
      isSelfClosing = is_empty_element  # BS3
  
      @property
@@ -274,14 +255,12 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
      def string(self):
          """Convenience property to get the single string within this tag.
  
-@@ -984,24 +999,22 @@
-     if PY3K:
-         __str__ = __repr__ = __unicode__
+@@ -1045,22 +1060,23 @@
  
--    def encode(self, encoding=DEFAULT_OUTPUT_ENCODING,
--               indent_level=None, formatter="minimal",
+     def encode(self, encoding=DEFAULT_OUTPUT_ENCODING,
+                indent_level=None, formatter="minimal",
 -               errors="xmlcharrefreplace"):
-+    def encode(self, encoding=DEFAULT_OUTPUT_ENCODING, indent_level=None, formatter="minimal", errors="xmlcharrefreplace", indent_chars=" "):
++               errors="xmlcharrefreplace", indent_chars=" "):
          # Turn the data structure into Unicode, then encode the
          # Unicode.
 -        u = self.decode(indent_level, encoding, formatter)
@@ -297,15 +276,14 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
 +              and not self.name in NON_BREAKING_INLINE_TAGS)
               or self._is_xml))
  
--    def decode(self, indent_level=None,
--               eventual_encoding=DEFAULT_OUTPUT_ENCODING,
+     def decode(self, indent_level=None,
+                eventual_encoding=DEFAULT_OUTPUT_ENCODING,
 -               formatter="minimal"):
-+    def decode(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
 +               formatter="minimal", indent_chars=" "):
          """Returns a Unicode representation of this tag and its contents.
  
          :param eventual_encoding: The tag is destined to be
-@@ -1044,6 +1057,13 @@
+@@ -1103,6 +1119,13 @@
          if self.prefix:
              prefix = self.prefix + ":"
  
@@ -319,7 +297,7 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
          if self.is_empty_element:
              close = '/'
          else:
-@@ -1053,14 +1073,13 @@
+@@ -1112,14 +1135,14 @@
          space = ''
          indent_space = ''
          if indent_level is not None:
@@ -330,13 +308,13 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
              indent_contents = indent_level + 1
          else:
              indent_contents = None
--        contents = self.decode_contents(
+         contents = self.decode_contents(
 -            indent_contents, eventual_encoding, formatter)
-+        contents = self.decode_contents(indent_contents, eventual_encoding, formatter, indent_chars)
++            indent_contents, eventual_encoding, formatter, indent_chars)
  
          if self.hidden:
              # This is the 'document root' object.
-@@ -1084,7 +1103,7 @@
+@@ -1143,7 +1166,7 @@
              if pretty_print and closeTag:
                  s.append(space)
              s.append(closeTag)
@@ -345,12 +323,11 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
                  # Even if this particular tag is not pretty-printed,
                  # we're now done with the tag, and we should add a
                  # newline if appropriate.
-@@ -1092,15 +1111,15 @@
+@@ -1151,15 +1174,15 @@
              s = ''.join(s)
          return s
  
 -    def prettify(self, encoding=None, formatter="minimal"):
-+
 +    def prettify(self, encoding=None, formatter="minimal", indent_chars=" "):
          if encoding is None:
 -            return self.decode(True, formatter=formatter)
@@ -359,15 +336,14 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
 -            return self.encode(encoding, True, formatter=formatter)
 +            return self.encode(encoding, True, formatter=formatter, indent_chars=indent_chars)
  
--    def decode_contents(self, indent_level=None,
--                       eventual_encoding=DEFAULT_OUTPUT_ENCODING,
+     def decode_contents(self, indent_level=None,
+                        eventual_encoding=DEFAULT_OUTPUT_ENCODING,
 -                       formatter="minimal"):
-+    def decode_contents(self, indent_level=None, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
-+                        formatter="minimal", indent_chars=" "):
++                       formatter="minimal", indent_chars=" "):
          """Renders the contents of this tag as a Unicode string.
  
-         :param eventual_encoding: The tag is destined to be
-@@ -1122,23 +1141,209 @@
+         :param indent_level: Each line of the rendering will be
+@@ -1187,21 +1210,208 @@
              if isinstance(c, NavigableString):
                  text = c.output_ready(formatter)
              elif isinstance(c, Tag):
@@ -577,10 +553,16 @@ diff -ur beautifulsoup4-4.3.2/python3/bs4/element.py bs4/element.py
 +        return ''.join(s)
 +
      def encode_contents(
--        self, indent_level=None, encoding=DEFAULT_OUTPUT_ENCODING,
+         self, indent_level=None, encoding=DEFAULT_OUTPUT_ENCODING,
 -        formatter="minimal"):
-+        self, indent_level=None, encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal", indent_chars=" "):
-         """Renders the contents of this tag as a bytestring."""
++        formatter="minimal", indent_chars=" "):
+         """Renders the contents of this tag as a bytestring.
+ 
+         :param indent_level: Each line of the rendering will be
+@@ -1213,7 +1423,7 @@
+            entities to Unicode characters.
+         """
+ 
 -        contents = self.decode_contents(indent_level, encoding, formatter)
 +        contents = self.decode_contents(indent_level, encoding, formatter, indent_chars)
          return contents.encode(encoding)
