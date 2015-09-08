@@ -1,7 +1,68 @@
-diff -ur bs4_4.4_official/__init__.py bs4_4.4_custom/__init__.py
---- bs4_4.4_official/__init__.py	2015-09-05 19:23:38.000000000 -0400
-+++ bs4_4.4_custom/__init__.py	2015-09-05 19:46:59.000000000 -0400
-@@ -420,7 +420,7 @@
+diff -ur beautifulsoup4-4.4.0/bs4/__init__.py sigil_bs4/__init__.py
+--- beautifulsoup4-4.4.0/bs4/__init__.py	2015-09-08 15:25:46.000000000 -0400
++++ sigil_bs4/__init__.py	2015-09-06 13:14:03.000000000 -0400
+@@ -16,6 +16,21 @@
+ http://www.crummy.com/software/BeautifulSoup/bs4/doc/
+ """
+ 
++from __future__ import unicode_literals, division, absolute_import, print_function
++
++import sys
++PY3 = sys.version_info[0] == 3
++if PY3:
++    text_type = str
++    binary_type = bytes
++    basestring = str
++    unicode = str
++else:
++    range = xrange
++    text_type = unicode
++    binary_type = str
++
++
+ __author__ = "Leonard Richardson (leonardr@segfault.org)"
+ __version__ = "4.4.0"
+ __copyright__ = "Copyright (c) 2004-2015 Leonard Richardson"
+@@ -144,7 +159,7 @@
+ 
+         if builder is None:
+             original_features = features
+-            if isinstance(features, str):
++            if isinstance(features, basestring):
+                 features = [features]
+             if features is None or len(features) == 0:
+                 features = self.DEFAULT_BUILDER_FEATURES
+@@ -178,7 +193,7 @@
+             # involving passing non-markup to Beautiful Soup.
+             # Beautiful Soup will still parse the input as markup,
+             # just in case that's what the user really wants.
+-            if (isinstance(markup, str)
++            if (isinstance(markup, unicode)
+                 and not os.path.supports_unicode_filenames):
+                 possible_filename = markup.encode("utf8")
+             else:
+@@ -192,16 +207,16 @@
+                 # system. Just let it go.
+                 pass
+             if is_file:
+-                if isinstance(markup, str):
++                if isinstance(markup, unicode):
+                     markup = markup.encode("utf8")
+                 warnings.warn(
+                     '"%s" looks like a filename, not markup. You should probably open this file and pass the filehandle into Beautiful Soup.' % markup)
+             if markup[:5] == "http:" or markup[:6] == "https:":
+                 # TODO: This is ugly but I couldn't get it to work in
+                 # Python 3 otherwise.
+-                if ((isinstance(markup, bytes) and not b' ' in markup)
+-                    or (isinstance(markup, str) and not ' ' in markup)):
+-                    if isinstance(markup, str):
++                if ((isinstance(markup, binary_type) and not b' ' in markup)
++                    or (isinstance(markup, unicode) and not ' ' in markup)):
++                    if isinstance(markup, unicode):
+                         markup = markup.encode("utf8")
+                     warnings.warn(
+                         '"%s" looks like a URL. Beautiful Soup is not an HTTP client. You should probably use an HTTP client to get the document behind the URL, and feed that document to Beautiful Soup.' % markup)
+@@ -420,7 +435,7 @@
  
      def decode(self, pretty_print=False,
                 eventual_encoding=DEFAULT_OUTPUT_ENCODING,
@@ -10,7 +71,7 @@ diff -ur bs4_4.4_official/__init__.py bs4_4.4_custom/__init__.py
          """Returns a string or Unicode representation of this document.
          To get Unicode, pass None for encoding."""
  
-@@ -437,7 +437,28 @@
+@@ -437,7 +452,28 @@
          else:
              indent_level = 0
          return prefix + super(BeautifulSoup, self).decode(
@@ -40,10 +101,294 @@ diff -ur bs4_4.4_official/__init__.py bs4_4.4_custom/__init__.py
  
  # Alias to make it easier to type import: 'from bs4 import _soup'
  _s = BeautifulSoup
-diff -ur bs4_4.4_official/builder/_lxml.py bs4_4.4_custom/builder/_lxml.py
---- bs4_4.4_official/builder/_lxml.py	2015-09-05 19:23:39.000000000 -0400
-+++ bs4_4.4_custom/builder/_lxml.py	2015-09-05 20:33:40.000000000 -0400
-@@ -137,24 +137,29 @@
+diff -ur beautifulsoup4-4.4.0/bs4/builder/__init__.py sigil_bs4/builder/__init__.py
+--- beautifulsoup4-4.4.0/bs4/builder/__init__.py	2015-09-08 15:25:47.000000000 -0400
++++ sigil_bs4/builder/__init__.py	2015-09-07 19:11:03.000000000 -0400
+@@ -1,7 +1,21 @@
++from __future__ import unicode_literals, division, absolute_import, print_function
++
++import sys
++PY3 = sys.version_info[0] == 3
++if PY3:
++    text_type = str
++    binary_type = bytes
++    unicode = str
++    basestring = str
++else:
++    range = xrange
++    text_type = unicode
++    binary_type = str
++    chr = unichr
++
+ from collections import defaultdict
+ import itertools
+-import sys
+-from bs4.element import (
++from sigil_bs4.element import (
+     CharsetMetaAttributeValue,
+     ContentMetaAttributeValue,
+     whitespace_re
+@@ -162,7 +176,7 @@
+                     # value is a whitespace-separated list of
+                     # values. Split it into a list.
+                     value = attrs[attr]
+-                    if isinstance(value, str):
++                    if isinstance(value, basestring):
+                         values = whitespace_re.split(value)
+                     else:
+                         # html5lib sometimes calls setAttributes twice
+@@ -291,7 +305,7 @@
+ def register_treebuilders_from(module):
+     """Copy TreeBuilders from the given module into this module."""
+     # I'm fairly sure this is not the best way to do this.
+-    this_module = sys.modules['bs4.builder']
++    this_module = sys.modules['sigil_bs4.builder']
+     for name in module.__all__:
+         obj = getattr(module, name)
+ 
+diff -ur beautifulsoup4-4.4.0/bs4/builder/_html5lib.py sigil_bs4/builder/_html5lib.py
+--- beautifulsoup4-4.4.0/bs4/builder/_html5lib.py	2015-09-08 15:25:47.000000000 -0400
++++ sigil_bs4/builder/_html5lib.py	2015-09-07 19:11:38.000000000 -0400
+@@ -1,22 +1,37 @@
++from __future__ import unicode_literals, division, absolute_import, print_function
++
++import sys
++PY3 = sys.version_info[0] == 3
++if PY3:
++    text_type = str
++    binary_type = bytes
++    unicode = str
++    basestring = str
++else:
++    range = xrange
++    text_type = unicode
++    binary_type = str
++    chr = unichr
++
+ __all__ = [
+     'HTML5TreeBuilder',
+     ]
+ 
+ from pdb import set_trace
+ import warnings
+-from bs4.builder import (
++from sigil_bs4.builder import (
+     PERMISSIVE,
+     HTML,
+     HTML_5,
+     HTMLTreeBuilder,
+     )
+-from bs4.element import (
++from sigil_bs4.element import (
+     NamespacedAttribute,
+     whitespace_re,
+ )
+ import html5lib
+ from html5lib.constants import namespaces
+-from bs4.element import (
++from sigil_bs4.element import (
+     Comment,
+     Doctype,
+     NavigableString,
+@@ -50,7 +65,7 @@
+         doc = parser.parse(markup, encoding=self.user_specified_encoding)
+ 
+         # Set the character encoding detected by the tokenizer.
+-        if isinstance(markup, str):
++        if isinstance(markup, unicode):
+             # We need to special-case this because html5lib sets
+             # charEncoding to UTF-8 if it gets Unicode input.
+             doc.original_encoding = None
+@@ -143,7 +158,7 @@
+ 
+     def appendChild(self, node):
+         string_child = child = None
+-        if isinstance(node, str):
++        if isinstance(node, basestring):
+             # Some other piece of code decided to pass in a string
+             # instead of creating a TextElement object to contain the
+             # string.
+@@ -158,7 +173,7 @@
+         else:
+             child = node.element
+ 
+-        if not isinstance(child, str) and child.parent is not None:
++        if not isinstance(child, basestring) and child.parent is not None:
+             node.element.extract()
+ 
+         if (string_child and self.element.contents
+@@ -171,7 +186,7 @@
+             old_element.replace_with(new_element)
+             self.soup._most_recent_element = new_element
+         else:
+-            if isinstance(node, str):
++            if isinstance(node, basestring):
+                 # Create a brand new NavigableString from this string.
+                 child = self.soup.new_string(node)
+ 
+diff -ur beautifulsoup4-4.4.0/bs4/builder/_htmlparser.py sigil_bs4/builder/_htmlparser.py
+--- beautifulsoup4-4.4.0/bs4/builder/_htmlparser.py	2015-09-08 15:25:47.000000000 -0400
++++ sigil_bs4/builder/_htmlparser.py	2015-09-07 19:12:17.000000000 -0400
+@@ -1,20 +1,43 @@
++from __future__ import unicode_literals, division, absolute_import, print_function
++
++import sys
++PY3 = sys.version_info[0] == 3
++if PY3:
++    text_type = str
++    binary_type = bytes
++    unicode = str
++    basestring = str
++else:
++    range = xrange
++    text_type = unicode
++    binary_type = str
++    chr = unichr
++
+ """Use the HTMLParser library to parse HTML files that aren't too bad."""
+ 
+ __all__ = [
+     'HTMLParserTreeBuilder',
+     ]
+ 
+-from html.parser import HTMLParser
++if PY3:
++    from html.parser import HTMLParser
++    try:
++        from html.parser import HTMLParseError
++    except ImportError as e:
++        # HTMLParseError is removed in Python 3.5. Since it can never be
++        # thrown in 3.5, we can just define our own class as a placeholder.
++        class HTMLParseError(Exception):
++            pass
++else:
++    from HTMLParser import HTMLParser
++    try:
++        from HTMLParser import HTMLParseError
++    except ImportError as e:
++        # HTMLParseError is removed in Python 3.5. Since it can never be
++        # thrown in 3.5, we can just define our own class as a placeholder.
++        class HTMLParseError(Exception):
++            pass
+ 
+-try:
+-    from html.parser import HTMLParseError
+-except ImportError as e:
+-    # HTMLParseError is removed in Python 3.5. Since it can never be
+-    # thrown in 3.5, we can just define our own class as a placeholder.
+-    class HTMLParseError(Exception):
+-        pass
+-
+-import sys
+ import warnings
+ 
+ # Starting in Python 3.2, the HTMLParser constructor takes a 'strict'
+@@ -30,16 +53,16 @@
+ CONSTRUCTOR_TAKES_CONVERT_CHARREFS = major == 3 and minor >= 4
+ 
+ 
+-from bs4.element import (
++from sigil_bs4.element import (
+     CData,
+     Comment,
+     Declaration,
+     Doctype,
+     ProcessingInstruction,
+     )
+-from bs4.dammit import EntitySubstitution, UnicodeDammit
++from sigil_bs4.dammit import EntitySubstitution, UnicodeDammit
+ 
+-from bs4.builder import (
++from sigil_bs4.builder import (
+     HTML,
+     HTMLTreeBuilder,
+     STRICT,
+@@ -145,7 +168,7 @@
+         declared within markup, whether any characters had to be
+         replaced with REPLACEMENT CHARACTER).
+         """
+-        if isinstance(markup, str):
++        if isinstance(markup, unicode):
+             yield (markup, None, None, False)
+             return
+ 
+diff -ur beautifulsoup4-4.4.0/bs4/builder/_lxml.py sigil_bs4/builder/_lxml.py
+--- beautifulsoup4-4.4.0/bs4/builder/_lxml.py	2015-09-08 15:25:47.000000000 -0400
++++ sigil_bs4/builder/_lxml.py	2015-09-07 19:12:59.000000000 -0400
+@@ -1,19 +1,36 @@
++from __future__ import unicode_literals, division, absolute_import, print_function
++
++import sys
++PY3 = sys.version_info[0] == 3
++if PY3:
++    text_type = str
++    binary_type = bytes
++    unicode = str
++else:
++    range = xrange
++    text_type = unicode
++    binary_type = str
++
+ __all__ = [
+     'LXMLTreeBuilderForXML',
+     'LXMLTreeBuilder',
+     ]
+ 
+ from io import BytesIO
+-from io import StringIO
++if PY3:
++    from io import StringIO
++else:
++    from StringIO import StringIO
++
+ import collections
+ from lxml import etree
+-from bs4.element import (
++from sigil_bs4.element import (
+     Comment,
+     Doctype,
+     NamespacedAttribute,
+     ProcessingInstruction,
+ )
+-from bs4.builder import (
++from sigil_bs4.builder import (
+     FAST,
+     HTML,
+     HTMLTreeBuilder,
+@@ -21,7 +38,7 @@
+     ParserRejectedMarkup,
+     TreeBuilder,
+     XML)
+-from bs4.dammit import EncodingDetector
++from sigil_bs4.dammit import EncodingDetector
+ 
+ LXML = 'lxml'
+ 
+@@ -87,12 +104,12 @@
+ 
+         Each 4-tuple represents a strategy for parsing the document.
+         """
+-        if isinstance(markup, str):
++        if isinstance(markup, unicode):
+             # We were given Unicode. Maybe lxml can parse Unicode on
+             # this system?
+             yield markup, None, document_declared_encoding, False
+ 
+-        if isinstance(markup, str):
++        if isinstance(markup, unicode):
+             # No, apparently not. Convert the Unicode to UTF-8 and
+             # tell lxml to parse it as UTF-8.
+             yield (markup.encode("utf8"), "utf8",
+@@ -112,7 +129,7 @@
+     def feed(self, markup):
+         if isinstance(markup, bytes):
+             markup = BytesIO(markup)
+-        elif isinstance(markup, str):
++        elif isinstance(markup, unicode):
+             markup = StringIO(markup)
+ 
+         # Call feed() at least once, even if the markup is empty,
+@@ -137,24 +154,29 @@
          # Make sure attrs is a mutable dict--lxml may send an immutable dictproxy.
          attrs = dict(attrs)
          nsprefix = None
@@ -80,7 +425,7 @@ diff -ur bs4_4.4_official/builder/_lxml.py bs4_4.4_custom/builder/_lxml.py
          # Namespaces are in play. Find any attributes that came in
          # from lxml with namespaces attached to their names, and
          # turn then into NamespacedAttribute objects.
-@@ -164,16 +169,16 @@
+@@ -164,16 +186,16 @@
              if namespace is None:
                  new_attrs[attr] = value
              else:
@@ -100,7 +445,7 @@ diff -ur bs4_4.4_official/builder/_lxml.py bs4_4.4_custom/builder/_lxml.py
          """Find the currently active prefix for the given namespace."""
          if namespace is None:
              return None
-@@ -182,16 +187,28 @@
+@@ -182,16 +204,28 @@
                  return inverted_nsmap[namespace]
          return None
  
@@ -135,10 +480,39 @@ diff -ur bs4_4.4_official/builder/_lxml.py bs4_4.4_custom/builder/_lxml.py
          self.soup.handle_endtag(name, nsprefix)
          if len(self.nsmaps) > 1:
              # This tag, or one of its parents, introduced a namespace
-diff -ur bs4_4.4_official/dammit.py bs4_4.4_custom/dammit.py
---- bs4_4.4_official/dammit.py	2015-09-05 19:23:38.000000000 -0400
-+++ bs4_4.4_custom/dammit.py	2015-09-05 19:56:49.000000000 -0400
-@@ -83,6 +83,8 @@
+diff -ur beautifulsoup4-4.4.0/bs4/dammit.py sigil_bs4/dammit.py
+--- beautifulsoup4-4.4.0/bs4/dammit.py	2015-09-08 15:25:46.000000000 -0400
++++ sigil_bs4/dammit.py	2015-09-07 21:29:26.000000000 -0400
+@@ -7,9 +7,27 @@
+ XML or HTML to reflect a new encoding; that's the tree builder's job.
+ """
+ 
++from __future__ import unicode_literals, print_function
++
++import sys
++PY3 = sys.version_info[0] == 3
++if PY3:
++    text_type = str
++    binary_type = bytes
++    unicode = str
++    basestring = str
++else:
++    range = xrange
++    text_type = unicode
++    binary_type = str
++    chr = unichr
++
+ from pdb import set_trace
+ import codecs
+-from html.entities import codepoint2name
++if PY3:
++    from html.entities import codepoint2name
++else:
++    from htmlentitydefs import codepoint2name
+ import re
+ import logging
+ import string
+@@ -83,6 +101,8 @@
                                             "&(?!#\d+;|#x[0-9a-fA-F]+;|\w+;)"
                                             ")")
  
@@ -147,7 +521,7 @@ diff -ur bs4_4.4_official/dammit.py bs4_4.4_custom/dammit.py
      AMPERSAND_OR_BRACKET = re.compile("([<>&])")
  
      @classmethod
-@@ -116,22 +118,33 @@
+@@ -116,22 +136,33 @@
  
            Welcome to "Bob's Bar" -> "Welcome to &quot;Bob's bar&quot;
          """
@@ -195,7 +569,7 @@ diff -ur bs4_4.4_official/dammit.py bs4_4.4_custom/dammit.py
          return quote_with + value + quote_with
  
      @classmethod
-@@ -189,8 +202,16 @@
+@@ -189,8 +220,16 @@
          character with "&eacute;" will make it more readable to some
          people.
          """
@@ -214,10 +588,129 @@ diff -ur bs4_4.4_official/dammit.py bs4_4.4_custom/dammit.py
  
  
  class EncodingDetector:
-diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
---- bs4_4.4_official/element.py	2015-09-05 19:23:39.000000000 -0400
-+++ bs4_4.4_custom/element.py	2015-09-05 20:22:33.000000000 -0400
-@@ -10,6 +10,15 @@
+@@ -272,7 +311,7 @@
+     def strip_byte_order_mark(cls, data):
+         """If a byte-order mark is present, strip it and return the encoding it implies."""
+         encoding = None
+-        if isinstance(data, str):
++        if isinstance(data, text_type):
+             # Unicode data cannot have a byte-order mark.
+             return data, encoding
+         if (len(data) >= 4) and (data[:2] == b'\xfe\xff') \
+@@ -350,16 +389,15 @@
+             markup, override_encodings, is_html, exclude_encodings)
+ 
+         # Short-circuit if the data is in Unicode to begin with.
+-        if isinstance(markup, str) or markup == '':
++        if isinstance(markup, text_type) or markup == b'':
+             self.markup = markup
+-            self.unicode_markup = str(markup)
++            self.unicode_markup = unicode(markup)
+             self.original_encoding = None
+             return
+ 
+         # The encoding detector may have stripped a byte-order mark.
+         # Use the stripped markup from this point on.
+         self.markup = self.detector.markup
+-
+         u = None
+         for encoding in self.detector.encodings:
+             markup = self.detector.markup
+@@ -420,22 +458,22 @@
+             markup = smart_quotes_compiled.sub(self._sub_ms_char, markup)
+ 
+         try:
+-            #print "Trying to convert document to %s (errors=%s)" % (
+-            #    proposed, errors)
++            # print("Trying to convert document to %s (errors=%s)" % (proposed, errors))
+             u = self._to_unicode(markup, proposed, errors)
+             self.markup = u
+             self.original_encoding = proposed
+         except Exception as e:
+-            #print "That didn't work!"
+-            #print e
++            # print("That didn't work!")
++            # print(e)
+             return None
+-        #print "Correct encoding: %s" % proposed
++        # print("Correct encoding: %s" % proposed)
+         return self.markup
+ 
+     def _to_unicode(self, data, encoding, errors="strict"):
+         '''Given a string and its encoding, decodes the string into Unicode.
+         %encoding is a string recognized by encodings.aliases'''
+-        return str(data, encoding, errors)
++        return unicode(data, encoding, errors)
++            
+ 
+     @property
+     def declared_html_encoding(self):
+diff -ur beautifulsoup4-4.4.0/bs4/diagnose.py sigil_bs4/diagnose.py
+--- beautifulsoup4-4.4.0/bs4/diagnose.py	2015-09-08 15:25:46.000000000 -0400
++++ sigil_bs4/diagnose.py	2015-09-07 19:09:11.000000000 -0400
+@@ -1,10 +1,28 @@
+ """Diagnostic functions, mainly for use when doing tech support."""
++from __future__ import unicode_literals, division, absolute_import, print_function
++
++import sys
++PY3 = sys.version_info[0] == 3
++if PY3:
++    text_type = str
++    binary_type = bytes
++else:
++    range = xrange
++    text_type = unicode
++    binary_type = str
++
+ import cProfile
+-from io import StringIO
+-from html.parser import HTMLParser
+-import bs4
+-from bs4 import BeautifulSoup, __version__
+-from bs4.builder import builder_registry
++
++if PY3:
++    from io import StringIO
++    from html.parser import HTMLParser
++else:
++    from StringIO import StringIO
++    from HTMLParser import HTMLParser
++
++import sigil_bs4
++from sigil_bs4 import BeautifulSoup, __version__
++from sigil_bs4.builder import builder_registry
+ 
+ import os
+ import pstats
+diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
+--- beautifulsoup4-4.4.0/bs4/element.py	2015-09-08 15:25:47.000000000 -0400
++++ sigil_bs4/element.py	2015-09-07 20:02:39.000000000 -0400
+@@ -1,15 +1,38 @@
++from __future__ import unicode_literals, division, absolute_import, print_function
++
++import sys
++PY3 = sys.version_info[0] == 3
++if PY3:
++    text_type = str
++    binary_type = bytes
++    unicode = str
++    basestring = str
++else:
++    range = xrange
++    text_type = unicode
++    binary_type = str
++    chr = unichr
++
+ from pdb import set_trace
+ import collections
+ import re
+-import sys
+ import warnings
+-from bs4.dammit import EntitySubstitution
++from sigil_bs4.dammit import EntitySubstitution
+ 
+ DEFAULT_OUTPUT_ENCODING = "utf-8"
+ PY3K = (sys.version_info[0] > 2)
  
  whitespace_re = re.compile("\s+")
  
@@ -233,7 +726,57 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
  def _alias(attr):
      """Alias one attribute name to another for backward compatibility"""
      @property
-@@ -115,7 +124,7 @@
+@@ -22,22 +45,23 @@
+     return alias
+ 
+ 
+-class NamespacedAttribute(str):
++class NamespacedAttribute(unicode):
+ 
+     def __new__(cls, prefix, name, namespace=None):
+         if name is None:
+-            obj = str.__new__(cls, prefix)
++            obj = unicode.__new__(cls, prefix)
++
+         elif prefix is None:
+             # Not really namespaced.
+-            obj = str.__new__(cls, name)
++            obj = unicode.__new__(cls, name)
+         else:
+-            obj = str.__new__(cls, prefix + ":" + name)
++            obj = unicode.__new__(cls, prefix + ":" + name)
+         obj.prefix = prefix
+         obj.name = name
+         obj.namespace = namespace
+         return obj
+ 
+-class AttributeValueWithCharsetSubstitution(str):
++class AttributeValueWithCharsetSubstitution(unicode):
+     """A stand-in object for a character encoding specified in HTML."""
+ 
+ class CharsetMetaAttributeValue(AttributeValueWithCharsetSubstitution):
+@@ -48,7 +72,7 @@
+     """
+ 
+     def __new__(cls, original_value):
+-        obj = str.__new__(cls, original_value)
++        obj = unicode.__new__(cls, original_value)
+         obj.original_value = original_value
+         return obj
+ 
+@@ -71,9 +95,9 @@
+         match = cls.CHARSET_RE.search(original_value)
+         if match is None:
+             # No substitution necessary.
+-            return str.__new__(str, original_value)
++            return unicode.__new__(str, original_value)
+ 
+-        obj = str.__new__(cls, original_value)
++        obj = unicode.__new__(cls, original_value)
+         obj.original_value = original_value
+         return obj
+ 
+@@ -115,7 +139,7 @@
      @classmethod
      def substitute_xml(cls, ns):
          return cls._substitute_if_appropriate(
@@ -242,7 +785,57 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
  
  class PageElement(object):
      """Contains the navigational information for some part of the page
-@@ -846,6 +855,12 @@
+@@ -296,7 +320,7 @@
+     def insert(self, position, new_child):
+         if new_child is self:
+             raise ValueError("Cannot insert a tag into itself.")
+-        if (isinstance(new_child, str)
++        if (isinstance(new_child, basestring)
+             and not isinstance(new_child, NavigableString)):
+             new_child = NavigableString(new_child)
+ 
+@@ -517,7 +541,7 @@
+                 result = (element for element in generator
+                           if isinstance(element, Tag))
+                 return ResultSet(strainer, result)
+-            elif isinstance(name, str):
++            elif isinstance(name, basestring):
+                 # Optimization to find all tags with a given name.
+                 result = (element for element in generator
+                           if isinstance(element, Tag)
+@@ -668,7 +692,7 @@
+         return self.parents
+ 
+ 
+-class NavigableString(str, PageElement):
++class NavigableString(unicode, PageElement):
+ 
+     PREFIX = ''
+     SUFFIX = ''
+@@ -681,10 +705,10 @@
+         passed in to the superclass's __new__ or the superclass won't know
+         how to handle non-ASCII characters.
+         """
+-        if isinstance(value, str):
+-            u = str.__new__(cls, value)
++        if isinstance(value, unicode):
++            u = unicode.__new__(cls, value)
+         else:
+-            u = str.__new__(cls, value, DEFAULT_OUTPUT_ENCODING)
++            u = unicode.__new__(cls, value, DEFAULT_OUTPUT_ENCODING)
+         u.setup()
+         return u
+ 
+@@ -695,7 +719,7 @@
+         return type(self)(self)
+ 
+     def __getnewargs__(self):
+-        return (str(self),)
++        return (unicode(self),)
+ 
+     def __getattr__(self, attr):
+         """text.string gives you text. This is for backwards
+@@ -846,6 +870,12 @@
      isSelfClosing = is_empty_element  # BS3
  
      @property
@@ -255,7 +848,18 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
      def string(self):
          """Convenience property to get the single string within this tag.
  
-@@ -1045,22 +1060,23 @@
+@@ -968,6 +998,10 @@
+         "A tag is non-None even if it has no contents."
+         return True
+ 
++    def __nonzero__(self):
++        "A tag is non-None even if it has no contents."
++        return True
++
+     def __setitem__(self, key, value):
+         """Setting tag[key] sets the value of the 'key' attribute for the
+         tag."""
+@@ -1045,22 +1079,23 @@
  
      def encode(self, encoding=DEFAULT_OUTPUT_ENCODING,
                 indent_level=None, formatter="minimal",
@@ -264,7 +868,7 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
          # Turn the data structure into Unicode, then encode the
          # Unicode.
 -        u = self.decode(indent_level, encoding, formatter)
-+        u = self.decode(indent_level=indent_level, encoding=encoding, formatter=formatter, indent_chars=indent_chars)
++        u = self.decode(indent_level, encoding, formatter, indent_chars)
          return u.encode(encoding, errors)
  
      def _should_pretty_print(self, indent_level):
@@ -272,8 +876,8 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
          return (
              indent_level is not None and
 -            (self.name not in HTMLAwareEntitySubstitution.preformatted_tags
-+            ((not self.name in HTMLAwareEntitySubstitution.preformatted_tags 
-+              and not self.name in NON_BREAKING_INLINE_TAGS)
++            ((self.name not in HTMLAwareEntitySubstitution.preformatted_tags 
++              and self.name not in NON_BREAKING_INLINE_TAGS)
               or self._is_xml))
  
      def decode(self, indent_level=None,
@@ -283,7 +887,27 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
          """Returns a Unicode representation of this tag and its contents.
  
          :param eventual_encoding: The tag is destined to be
-@@ -1103,6 +1119,13 @@
+@@ -1084,8 +1119,8 @@
+                 else:
+                     if isinstance(val, list) or isinstance(val, tuple):
+                         val = ' '.join(val)
+-                    elif not isinstance(val, str):
+-                        val = str(val)
++                    elif not isinstance(val, basestring):
++                        val = unicode(val)
+                     elif (
+                         isinstance(val, AttributeValueWithCharsetSubstitution)
+                         and eventual_encoding is not None):
+@@ -1093,7 +1128,7 @@
+ 
+                     text = self.format_string(val, formatter)
+                     decoded = (
+-                        str(key) + '='
++                        unicode(key) + '='
+                         + EntitySubstitution.quoted_attribute_value(text))
+                 attrs.append(decoded)
+         close = ''
+@@ -1103,6 +1138,13 @@
          if self.prefix:
              prefix = self.prefix + ":"
  
@@ -297,7 +921,7 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
          if self.is_empty_element:
              close = '/'
          else:
-@@ -1112,14 +1135,14 @@
+@@ -1112,14 +1154,14 @@
          space = ''
          indent_space = ''
          if indent_level is not None:
@@ -314,7 +938,7 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
  
          if self.hidden:
              # This is the 'document root' object.
-@@ -1143,7 +1166,7 @@
+@@ -1143,7 +1185,7 @@
              if pretty_print and closeTag:
                  s.append(space)
              s.append(closeTag)
@@ -323,7 +947,7 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
                  # Even if this particular tag is not pretty-printed,
                  # we're now done with the tag, and we should add a
                  # newline if appropriate.
-@@ -1151,15 +1174,15 @@
+@@ -1151,15 +1193,15 @@
              s = ''.join(s)
          return s
  
@@ -343,7 +967,7 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
          """Renders the contents of this tag as a Unicode string.
  
          :param indent_level: Each line of the rendering will be
-@@ -1187,21 +1210,208 @@
+@@ -1187,21 +1229,208 @@
              if isinstance(c, NavigableString):
                  text = c.output_ready(formatter)
              elif isinstance(c, Tag):
@@ -559,7 +1183,7 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
          """Renders the contents of this tag as a bytestring.
  
          :param indent_level: Each line of the rendering will be
-@@ -1213,7 +1423,7 @@
+@@ -1213,7 +1442,7 @@
             entities to Unicode characters.
          """
  
@@ -568,3 +1192,68 @@ diff -ur bs4_4.4_official/element.py bs4_4.4_custom/element.py
          return contents.encode(encoding)
  
      # Old method for BS3 compatibility
+@@ -1550,7 +1779,7 @@
+     def _normalize_search_value(self, value):
+         # Leave it alone if it's a Unicode string, a callable, a
+         # regular expression, a boolean, or None.
+-        if (isinstance(value, str) or isinstance(value, collections.Callable) or hasattr(value, 'match')
++        if (isinstance(value, text_type) or isinstance(value, collections.Callable) or hasattr(value, 'match')
+             or isinstance(value, bool) or value is None):
+             return value
+ 
+@@ -1563,7 +1792,7 @@
+             new_value = []
+             for v in value:
+                 if (hasattr(v, '__iter__') and not isinstance(v, bytes)
+-                    and not isinstance(v, str)):
++                    and not isinstance(v, text_type)):
+                     # This is almost certainly the user's mistake. In the
+                     # interests of avoiding infinite loops, we'll let
+                     # it through as-is rather than doing a recursive call.
+@@ -1575,7 +1804,7 @@
+         # Otherwise, convert it into a Unicode string.
+         # The unicode(str()) thing is so this will do the same thing on Python 2
+         # and Python 3.
+-        return str(str(value))
++        return unicode(unicode(value))
+ 
+     def __str__(self):
+         if self.text:
+@@ -1629,7 +1858,7 @@
+         found = None
+         # If given a list of items, scan it for a text element that
+         # matches.
+-        if hasattr(markup, '__iter__') and not isinstance(markup, (Tag, str)):
++        if hasattr(markup, '__iter__') and not isinstance(markup, (Tag, basestring)):
+             for element in markup:
+                 if isinstance(element, NavigableString) \
+                        and self.search(element):
+@@ -1642,7 +1871,7 @@
+                 found = self.search_tag(markup)
+         # If it's text, make sure the text matches.
+         elif isinstance(markup, NavigableString) or \
+-                 isinstance(markup, str):
++                 isinstance(markup, basestring):
+             if not self.name and not self.attrs and self._matches(markup, self.text):
+                 found = markup
+         else:
+@@ -1656,7 +1885,7 @@
+         if isinstance(markup, list) or isinstance(markup, tuple):
+             # This should only happen when searching a multi-valued attribute
+             # like 'class'.
+-            if (isinstance(match_against, str)
++            if (isinstance(match_against, unicode)
+                 and ' ' in match_against):
+                 # A bit of a special case. If they try to match "foo
+                 # bar" on a multivalue attribute's value, only accept
+@@ -1691,7 +1920,7 @@
+             # None matches None, False, an empty string, an empty list, and so on.
+             return not match_against
+ 
+-        if isinstance(match_against, str):
++        if isinstance(match_against, unicode):
+             # Exact string match
+             return markup == match_against
+ 
+Only in beautifulsoup4-4.4.0/bs4/: testing.py
+Only in beautifulsoup4-4.4.0/bs4/: tests
