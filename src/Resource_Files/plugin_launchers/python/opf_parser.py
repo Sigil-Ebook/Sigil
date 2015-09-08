@@ -110,6 +110,8 @@ class Opf_Parser(object):
                 id = tattr.pop("id",'')
                 href = tattr.pop("href",'')
                 mtype = tattr.pop("media-type",'')
+                if mtype == "text/html":
+                    mtype = "application/xhtml+xml"
                 href = unquoteurl(href)
                 self.manifest_id_to_href[id] = href
                 self.manifest_id_to_mime[id] = mtype
