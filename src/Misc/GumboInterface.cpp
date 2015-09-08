@@ -685,10 +685,10 @@ std::string GumboInterface::build_doctype(GumboNode *node)
             results.append(node->v.document.system_identifier);
             results.append("\"");
         }
-        results.append(">\n");
+        results.append(">\n\n");
     } else {
       results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
-      results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
+      results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
     }
     return results;
 }
@@ -959,6 +959,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     std::string tagname            = get_tag_name(node);
     std::string parentname         = "|" + get_tag_name(node->parent) + "|";
     std::string key                = "|" + tagname + "|";
+    bool in_head                   = (parentname == "|head|");
     bool need_special_handling     =  special_handling.find(key) != std::string::npos;
     bool is_empty_tag              = empty_tags.find(key) != std::string::npos;
     bool no_entity_substitution    = no_entity_sub.find(key) != std::string::npos;
@@ -986,8 +987,8 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     std::string indent_space = std::string((lvl-1)*n,c);
     std::string contents;
 
-    // prettyprint your contents 
-    if (is_structural) {
+    // prettyprint your contents
+    if (is_structural && tagname != "html") {
         contents = prettyprint_contents(node, lvl+1, indent_chars);
     } else {
         contents = prettyprint_contents(node, lvl, indent_chars);
@@ -1030,7 +1031,11 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     results.append(closeTag);
 
     if (pp_okay) {
-        results.append("\n\n");
+        if (!in_head  && tagname != "html") {
+            results.append("\n\n");
+        } else {
+            results.append("\n");
+        }
     }
 
     return results;

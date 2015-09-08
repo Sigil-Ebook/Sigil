@@ -126,6 +126,11 @@ class Wrapper(object):
             self.appdir = cfg_lst.pop(0)
             self.usrsupdir = cfg_lst.pop(0)
             self.selected = cfg_lst
+        sigil_gumbo_path = self.get_gumbo_path()
+        if PY3:
+            os.environb[b'SigilGumboLibPath']=sigil_gumbo_path.encode('utf-8')
+        else:
+            os.environ[b'SigilGumboLibPath'] = sigil_gumbo_path.encode('utf-8')
 
         # dictionaries used to map opf manifest information
         self.id_to_href = {}

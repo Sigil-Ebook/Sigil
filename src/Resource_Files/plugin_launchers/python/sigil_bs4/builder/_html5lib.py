@@ -1,22 +1,37 @@
+from __future__ import unicode_literals, division, absolute_import, print_function
+
+import sys
+PY3 = sys.version_info[0] == 3
+if PY3:
+    text_type = str
+    binary_type = bytes
+    unicode = str
+    basestring = str
+else:
+    range = xrange
+    text_type = unicode
+    binary_type = str
+    chr = unichr
+
 __all__ = [
     'HTML5TreeBuilder',
     ]
 
 from pdb import set_trace
 import warnings
-from bs4.builder import (
+from sigil_bs4.builder import (
     PERMISSIVE,
     HTML,
     HTML_5,
     HTMLTreeBuilder,
     )
-from bs4.element import (
+from sigil_bs4.element import (
     NamespacedAttribute,
     whitespace_re,
 )
 import html5lib
 from html5lib.constants import namespaces
-from bs4.element import (
+from sigil_bs4.element import (
     Comment,
     Doctype,
     NavigableString,
@@ -50,7 +65,7 @@ class HTML5TreeBuilder(HTMLTreeBuilder):
         doc = parser.parse(markup, encoding=self.user_specified_encoding)
 
         # Set the character encoding detected by the tokenizer.
-        if isinstance(markup, str):
+        if isinstance(markup, unicode):
             # We need to special-case this because html5lib sets
             # charEncoding to UTF-8 if it gets Unicode input.
             doc.original_encoding = None
@@ -143,7 +158,7 @@ class Element(html5lib.treebuilders._base.Node):
 
     def appendChild(self, node):
         string_child = child = None
-        if isinstance(node, str):
+        if isinstance(node, basestring):
             # Some other piece of code decided to pass in a string
             # instead of creating a TextElement object to contain the
             # string.
@@ -158,7 +173,7 @@ class Element(html5lib.treebuilders._base.Node):
         else:
             child = node.element
 
-        if not isinstance(child, str) and child.parent is not None:
+        if not isinstance(child, basestring) and child.parent is not None:
             node.element.extract()
 
         if (string_child and self.element.contents
@@ -171,7 +186,7 @@ class Element(html5lib.treebuilders._base.Node):
             old_element.replace_with(new_element)
             self.soup._most_recent_element = new_element
         else:
-            if isinstance(node, str):
+            if isinstance(node, basestring):
                 # Create a brand new NavigableString from this string.
                 child = self.soup.new_string(node)
 

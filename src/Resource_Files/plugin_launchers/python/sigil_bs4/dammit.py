@@ -7,9 +7,27 @@ Feed Parser. It works best on XML and HTML, but it does not rewrite the
 XML or HTML to reflect a new encoding; that's the tree builder's job.
 """
 
+from __future__ import unicode_literals, print_function
+
+import sys
+PY3 = sys.version_info[0] == 3
+if PY3:
+    text_type = str
+    binary_type = bytes
+    unicode = str
+    basestring = str
+else:
+    range = xrange
+    text_type = unicode
+    binary_type = str
+    chr = unichr
+
 from pdb import set_trace
 import codecs
-from html.entities import codepoint2name
+if PY3:
+    from html.entities import codepoint2name
+else:
+    from htmlentitydefs import codepoint2name
 import re
 import logging
 import string
@@ -293,7 +311,7 @@ class EncodingDetector:
     def strip_byte_order_mark(cls, data):
         """If a byte-order mark is present, strip it and return the encoding it implies."""
         encoding = None
-        if isinstance(data, str):
+        if isinstance(data, text_type):
             # Unicode data cannot have a byte-order mark.
             return data, encoding
         if (len(data) >= 4) and (data[:2] == b'\xfe\xff') \
@@ -371,16 +389,15 @@ class UnicodeDammit:
             markup, override_encodings, is_html, exclude_encodings)
 
         # Short-circuit if the data is in Unicode to begin with.
-        if isinstance(markup, str) or markup == '':
+        if isinstance(markup, text_type) or markup == b'':
             self.markup = markup
-            self.unicode_markup = str(markup)
+            self.unicode_markup = unicode(markup)
             self.original_encoding = None
             return
 
         # The encoding detector may have stripped a byte-order mark.
         # Use the stripped markup from this point on.
         self.markup = self.detector.markup
-
         u = None
         for encoding in self.detector.encodings:
             markup = self.detector.markup
@@ -441,22 +458,22 @@ class UnicodeDammit:
             markup = smart_quotes_compiled.sub(self._sub_ms_char, markup)
 
         try:
-            #print "Trying to convert document to %s (errors=%s)" % (
-            #    proposed, errors)
+            # print("Trying to convert document to %s (errors=%s)" % (proposed, errors))
             u = self._to_unicode(markup, proposed, errors)
             self.markup = u
             self.original_encoding = proposed
         except Exception as e:
-            #print "That didn't work!"
-            #print e
+            # print("That didn't work!")
+            # print(e)
             return None
-        #print "Correct encoding: %s" % proposed
+        # print("Correct encoding: %s" % proposed)
         return self.markup
 
     def _to_unicode(self, data, encoding, errors="strict"):
         '''Given a string and its encoding, decodes the string into Unicode.
         %encoding is a string recognized by encodings.aliases'''
-        return str(data, encoding, errors)
+        return unicode(data, encoding, errors)
+            
 
     @property
     def declared_html_encoding(self):

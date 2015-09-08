@@ -16,6 +16,21 @@ documentation:
 http://www.crummy.com/software/BeautifulSoup/bs4/doc/
 """
 
+from __future__ import unicode_literals, division, absolute_import, print_function
+
+import sys
+PY3 = sys.version_info[0] == 3
+if PY3:
+    text_type = str
+    binary_type = bytes
+    basestring = str
+    unicode = str
+else:
+    range = xrange
+    text_type = unicode
+    binary_type = str
+
+
 __author__ = "Leonard Richardson (leonardr@segfault.org)"
 __version__ = "4.4.0"
 __copyright__ = "Copyright (c) 2004-2015 Leonard Richardson"
@@ -144,7 +159,7 @@ class BeautifulSoup(Tag):
 
         if builder is None:
             original_features = features
-            if isinstance(features, str):
+            if isinstance(features, basestring):
                 features = [features]
             if features is None or len(features) == 0:
                 features = self.DEFAULT_BUILDER_FEATURES
@@ -178,7 +193,7 @@ class BeautifulSoup(Tag):
             # involving passing non-markup to Beautiful Soup.
             # Beautiful Soup will still parse the input as markup,
             # just in case that's what the user really wants.
-            if (isinstance(markup, str)
+            if (isinstance(markup, unicode)
                 and not os.path.supports_unicode_filenames):
                 possible_filename = markup.encode("utf8")
             else:
@@ -192,16 +207,16 @@ class BeautifulSoup(Tag):
                 # system. Just let it go.
                 pass
             if is_file:
-                if isinstance(markup, str):
+                if isinstance(markup, unicode):
                     markup = markup.encode("utf8")
                 warnings.warn(
                     '"%s" looks like a filename, not markup. You should probably open this file and pass the filehandle into Beautiful Soup.' % markup)
             if markup[:5] == "http:" or markup[:6] == "https:":
                 # TODO: This is ugly but I couldn't get it to work in
                 # Python 3 otherwise.
-                if ((isinstance(markup, bytes) and not b' ' in markup)
-                    or (isinstance(markup, str) and not ' ' in markup)):
-                    if isinstance(markup, str):
+                if ((isinstance(markup, binary_type) and not b' ' in markup)
+                    or (isinstance(markup, unicode) and not ' ' in markup)):
+                    if isinstance(markup, unicode):
                         markup = markup.encode("utf8")
                     warnings.warn(
                         '"%s" looks like a URL. Beautiful Soup is not an HTTP client. You should probably use an HTTP client to get the document behind the URL, and feed that document to Beautiful Soup.' % markup)

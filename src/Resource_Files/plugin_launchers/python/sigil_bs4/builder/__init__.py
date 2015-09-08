@@ -1,7 +1,21 @@
+from __future__ import unicode_literals, division, absolute_import, print_function
+
+import sys
+PY3 = sys.version_info[0] == 3
+if PY3:
+    text_type = str
+    binary_type = bytes
+    unicode = str
+    basestring = str
+else:
+    range = xrange
+    text_type = unicode
+    binary_type = str
+    chr = unichr
+
 from collections import defaultdict
 import itertools
-import sys
-from bs4.element import (
+from sigil_bs4.element import (
     CharsetMetaAttributeValue,
     ContentMetaAttributeValue,
     whitespace_re
@@ -162,7 +176,7 @@ class TreeBuilder(object):
                     # value is a whitespace-separated list of
                     # values. Split it into a list.
                     value = attrs[attr]
-                    if isinstance(value, str):
+                    if isinstance(value, basestring):
                         values = whitespace_re.split(value)
                     else:
                         # html5lib sometimes calls setAttributes twice
@@ -291,7 +305,7 @@ class HTMLTreeBuilder(TreeBuilder):
 def register_treebuilders_from(module):
     """Copy TreeBuilders from the given module into this module."""
     # I'm fairly sure this is not the best way to do this.
-    this_module = sys.modules['bs4.builder']
+    this_module = sys.modules['sigil_bs4.builder']
     for name in module.__all__:
         obj = getattr(module, name)
 
