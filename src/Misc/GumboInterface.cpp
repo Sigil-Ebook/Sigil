@@ -894,6 +894,8 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
     bool is_inline              = nonbreaking_inline.find(key) != std::string::npos;
     bool is_structural          = structural_tags.find(key) != std::string::npos;
     bool pp_okay                = !is_inline && !keep_whitespace;
+    char c                         = indent_chars.at(0);
+    int  n                         = indent_chars.length(); 
 
     GumboVector* children = &node->v.element.children;
 
@@ -910,6 +912,12 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
                 val = substitute_xml_entities_into_text(std::string(child->v.text.text));
             }
 
+            // if first child of a structual element is text, indent it properly
+            if ((i==0) && is_structural) {
+              std::string indent_space = std::string((lvl-1)*n,c);
+              contents.append(indent_space);
+              ltrim(val);
+            }
             contents.append(val);
 
         } else if (child->type == GUMBO_NODE_ELEMENT || child->type == GUMBO_NODE_TEMPLATE) {
