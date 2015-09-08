@@ -219,7 +219,7 @@ int main(int argc, char *argv[])
     MainApplication app(argc, argv);
     EmbeddedPython* epython = EmbeddedPython::instance();
     epython->addToPythonSysPath(epython->embeddedRoot());
-    epython->addToPythonSysPath(PluginDB::LauncherRoot() + "/python");
+    epython->addToPythonSysPath(PluginDB::launcherRoot() + "/python");
 
     try {
         // We prevent Qt from constantly creating and deleting threads.
