@@ -653,7 +653,7 @@ class Wrapper(object):
         else:
             lib_dir = unipath.abspath(self.appdir)
             lib_name = 'libsigilgumbo.so'
-        return os.path.join(lib_dir, libname)
+        return os.path.join(lib_dir, lib_name)
             
     def get_hunspell_path(self):
         if sys.platform.startswith('darwin'):
