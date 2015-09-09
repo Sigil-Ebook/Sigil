@@ -9,7 +9,7 @@ Links
 =====
 
 * Its website is located at http://sigil-ebook.com
-* Its current code repository is located at https://github.com/user-none/Sigil
+* Its current code repository is located at https://github.com/Sigil-Ebook/Sigil
 * Translations are located at https://www.transifex.com/projects/p/sigil/
 * Support forums are located at http://www.mobileread.com/
 
