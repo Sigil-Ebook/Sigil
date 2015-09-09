@@ -5,8 +5,7 @@ Sigil NEXT TBA
       cmake configure if any system libraries are not found instead of
       falling back to the bundled copy. Finally, this makes the build more
       consistent for Windows and OS X users.
-    - Kill tidy and replace it with a combination of Gumbo parser, html5lib
-      and BS4. 
+    - Kill tidy and replace it with a combination of Gumbo parser, BS4. 
     - Kill Xerces and XercesExtras.
     - Kill Boost.
     - Kill unused bundles.
