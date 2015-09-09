@@ -121,6 +121,7 @@ class Wrapper(object):
         cfg = ''
         with open(os.path.join(self.outdir, 'sigil.cfg'), 'rb') as f:
             cfg = f.read().decode('utf-8')
+        cfg = cfg.replace("\r", "")
         cfg_lst = cfg.split("\n")
         if len(cfg_lst) >= 2:
             self.appdir = cfg_lst.pop(0)
@@ -638,8 +639,9 @@ class Wrapper(object):
             apaths.append(unipath.abspath(os.path.join(self.appdir,"hunspell_dictionaries")))
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         else:
+            # Determining the second sigil "root" needs more work yet.
             install_prefix = unipath.abspath(os.path.join(self.appdir,"..",".."))
-            apaths.append(unipath.abspath(os.path.join(install_prefix, "share", "hunspell_dictionaries")))
+            apaths.append(unipath.abspath(os.path.join(install_prefix, "share", "sigil", "hunspell_dictionaries")))
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         return apaths
                         
