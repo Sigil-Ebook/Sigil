@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20150823
+_launcher_version=20150909
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -127,11 +127,7 @@ class Wrapper(object):
             self.appdir = cfg_lst.pop(0)
             self.usrsupdir = cfg_lst.pop(0)
             self.selected = cfg_lst
-        sigil_gumbo_path = self.get_gumbo_path()
-        if PY3:
-            os.environb[b'SigilGumboLibPath']=sigil_gumbo_path.encode('utf-8')
-        else:
-            os.environ[b'SigilGumboLibPath'] = sigil_gumbo_path.encode('utf-8')
+        os.environ['SigilGumboLibPath'] = self.get_gumbo_path()
 
         # dictionaries used to map opf manifest information
         self.id_to_href = {}

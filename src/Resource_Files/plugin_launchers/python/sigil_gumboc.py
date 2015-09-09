@@ -58,15 +58,8 @@ import sigil_gumboc_tags as gumboc_tags
 
 _sigilgumbolibpath = None
 
-if PY3:
-    if b'SigilGumboLibPath' in os.environb:
-        _sigilgumbolibpath = os.environb[b'SigilGumboLibPath']
-        _sigilgumbolibpath = _sigilgumbolibpath.decode('utf-8')
-else:
-    if 'SigilGumboLibPath' in os.environ:
-        _sigilgumbolibpath = os.environ['SigilGumboLibPath']
-        if isinstance(_sigilgumbolibpath, binary_type):
-            _sigilgumbolibpath = _sigilgumbolibpath.decode('utf-8')
+if 'SigilGumboLibPath' in os.environ:
+    _sigilgumbolibpath = os.environ['SigilGumboLibPath']
 
 if _sigilgumbolibpath is not None:
     try:

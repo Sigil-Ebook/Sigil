@@ -32,12 +32,28 @@ anyone willing to implement the requested feature. Only items being worked
 will be left open.
 
 
-Build and Install
-=================
+Linux Build and Install
+=======================
 
 The INSTALL.md file in the docs directory contains information on building
 Sigil from source code (and installing it on Linux machines).
 
+
+For Building on Mac OS X
+========================
+
+Building using purely XCode is no longer supported on Mac OS X.  The easiest 
+way to build Sigil on Mac OS X is to use cmake 3.0 and the command line.   
+
+Also because Sigil now embeds Python 3.4, see  
+
+     docs/Building_A_Relocatable_Python_Framework_on_MacOSX.txt
+
+for detailed instructions on how to build a fully relocatable Python 3.4 framework before
+building Sigil.  
+
+To build Sigil with your newly built relocateable Python 3.4 framework see:
+   docs/Bundling_Python3_With_Sigil_on_MacOSX.txt
 
 
 License
