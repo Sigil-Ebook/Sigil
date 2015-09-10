@@ -23,7 +23,6 @@ site_dest = os.path.join(py_dir, 'site-packages')
 # Cherry-picked additional and/or modified modules
 site_packages = [ ('lxml', 'd'), 
                   ('six.py', 'f'), 
-                  ('bs4', 'd'), 
                   ('html5lib','d'), 
                   ('PIL', 'd'), 
                   ('regex.py','f'),

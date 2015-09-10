@@ -12,7 +12,13 @@ else
   LD_LIBRARY_PATH="$SIGIL_BIN_DIR:$QTLIB_DIR:$LD_LIBRARY_PATH"
 fi
 
-# Create an environment var for the Sigil helper directory.
+# Create an environment var for the Sigil share directory location.
+if [ -z "$SIGIL_SHARE_PREFIX" ]; then
+  SIGIL_SHARE_PREFIX="${SHARE_INSTALL_PREFIX}"
+  export SIGIL_SHARE_PREFIX
+fi
+
+# Not really needed anymore but left in for fringe cases
 #if [ -z "$SIGIL_EXTRA_ROOT" ]; then
 #  SIGIL_EXTRA_ROOT="${SIGIL_SHARE_ROOT}"
 #  export SIGIL_EXTRA_ROOT
