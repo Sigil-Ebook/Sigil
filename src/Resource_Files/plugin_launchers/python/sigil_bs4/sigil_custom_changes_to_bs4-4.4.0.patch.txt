@@ -1,6 +1,7 @@
+Only in sigil_bs4/: .DS_Store
 diff -ur beautifulsoup4-4.4.0/bs4/__init__.py sigil_bs4/__init__.py
---- beautifulsoup4-4.4.0/bs4/__init__.py	2015-09-08 15:25:46.000000000 -0400
-+++ sigil_bs4/__init__.py	2015-09-06 13:14:03.000000000 -0400
+--- beautifulsoup4-4.4.0/bs4/__init__.py	2015-09-10 19:12:24.000000000 -0400
++++ sigil_bs4/__init__.py	2015-09-10 15:47:45.000000000 -0400
 @@ -16,6 +16,21 @@
  http://www.crummy.com/software/BeautifulSoup/bs4/doc/
  """
@@ -71,7 +72,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/__init__.py sigil_bs4/__init__.py
          """Returns a string or Unicode representation of this document.
          To get Unicode, pass None for encoding."""
  
-@@ -437,7 +452,28 @@
+@@ -437,7 +452,36 @@
          else:
              indent_level = 0
          return prefix + super(BeautifulSoup, self).decode(
@@ -91,18 +92,27 @@ diff -ur beautifulsoup4-4.4.0/bs4/__init__.py sigil_bs4/__init__.py
 +        return prefix + super(BeautifulSoup, self).decodexml(
 +            indent_level, eventual_encoding, formatter, indent_chars)
 +
-+    def serialize(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
++    def serialize_xhtml(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
 +        encoding_part = ''
 +        if eventual_encoding != None:
 +            encoding_part = ' encoding="%s"' % eventual_encoding
 +        prefix = '<?xml version="1.0"%s?>\n' % encoding_part
-+        return prefix + super(BeautifulSoup, self).serialize(eventual_encoding)
++        return prefix + super(BeautifulSoup, self).serialize_xhtml(eventual_encoding)
++
++    def prettyprint_xhtml(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING,
++                          formatter="minimal", indent_chars=" "):
++        encoding_part = ''
++        if eventual_encoding != None:
++            encoding_part = ' encoding="%s"' % eventual_encoding
++        prefix = '<?xml version="1.0"%s?>\n' % encoding_part
++        return prefix + super(BeautifulSoup, self).prettyprint_xhtml(indent_level, eventual_encoding, formatter, indent_chars)
 +
  
  # Alias to make it easier to type import: 'from bs4 import _soup'
  _s = BeautifulSoup
+Only in sigil_bs4/builder: .DS_Store
 diff -ur beautifulsoup4-4.4.0/bs4/builder/__init__.py sigil_bs4/builder/__init__.py
---- beautifulsoup4-4.4.0/bs4/builder/__init__.py	2015-09-08 15:25:47.000000000 -0400
+--- beautifulsoup4-4.4.0/bs4/builder/__init__.py	2015-09-10 19:12:25.000000000 -0400
 +++ sigil_bs4/builder/__init__.py	2015-09-07 19:11:03.000000000 -0400
 @@ -1,7 +1,21 @@
 +from __future__ import unicode_literals, division, absolute_import, print_function
@@ -147,7 +157,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/builder/__init__.py sigil_bs4/builder/__init__
          obj = getattr(module, name)
  
 diff -ur beautifulsoup4-4.4.0/bs4/builder/_html5lib.py sigil_bs4/builder/_html5lib.py
---- beautifulsoup4-4.4.0/bs4/builder/_html5lib.py	2015-09-08 15:25:47.000000000 -0400
+--- beautifulsoup4-4.4.0/bs4/builder/_html5lib.py	2015-09-10 19:12:25.000000000 -0400
 +++ sigil_bs4/builder/_html5lib.py	2015-09-07 19:11:38.000000000 -0400
 @@ -1,22 +1,37 @@
 +from __future__ import unicode_literals, division, absolute_import, print_function
@@ -227,7 +237,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/builder/_html5lib.py sigil_bs4/builder/_html5l
                  child = self.soup.new_string(node)
  
 diff -ur beautifulsoup4-4.4.0/bs4/builder/_htmlparser.py sigil_bs4/builder/_htmlparser.py
---- beautifulsoup4-4.4.0/bs4/builder/_htmlparser.py	2015-09-08 15:25:47.000000000 -0400
+--- beautifulsoup4-4.4.0/bs4/builder/_htmlparser.py	2015-09-10 19:12:26.000000000 -0400
 +++ sigil_bs4/builder/_htmlparser.py	2015-09-07 19:12:17.000000000 -0400
 @@ -1,20 +1,43 @@
 +from __future__ import unicode_literals, division, absolute_import, print_function
@@ -313,7 +323,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/builder/_htmlparser.py sigil_bs4/builder/_html
              return
  
 diff -ur beautifulsoup4-4.4.0/bs4/builder/_lxml.py sigil_bs4/builder/_lxml.py
---- beautifulsoup4-4.4.0/bs4/builder/_lxml.py	2015-09-08 15:25:47.000000000 -0400
+--- beautifulsoup4-4.4.0/bs4/builder/_lxml.py	2015-09-10 19:12:26.000000000 -0400
 +++ sigil_bs4/builder/_lxml.py	2015-09-07 19:12:59.000000000 -0400
 @@ -1,19 +1,36 @@
 +from __future__ import unicode_literals, division, absolute_import, print_function
@@ -481,7 +491,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/builder/_lxml.py sigil_bs4/builder/_lxml.py
          if len(self.nsmaps) > 1:
              # This tag, or one of its parents, introduced a namespace
 diff -ur beautifulsoup4-4.4.0/bs4/dammit.py sigil_bs4/dammit.py
---- beautifulsoup4-4.4.0/bs4/dammit.py	2015-09-08 15:25:46.000000000 -0400
+--- beautifulsoup4-4.4.0/bs4/dammit.py	2015-09-10 19:12:24.000000000 -0400
 +++ sigil_bs4/dammit.py	2015-09-07 21:29:26.000000000 -0400
 @@ -7,9 +7,27 @@
  XML or HTML to reflect a new encoding; that's the tree builder's job.
@@ -646,7 +656,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/dammit.py sigil_bs4/dammit.py
      @property
      def declared_html_encoding(self):
 diff -ur beautifulsoup4-4.4.0/bs4/diagnose.py sigil_bs4/diagnose.py
---- beautifulsoup4-4.4.0/bs4/diagnose.py	2015-09-08 15:25:46.000000000 -0400
+--- beautifulsoup4-4.4.0/bs4/diagnose.py	2015-09-10 19:12:25.000000000 -0400
 +++ sigil_bs4/diagnose.py	2015-09-07 19:09:11.000000000 -0400
 @@ -1,10 +1,28 @@
  """Diagnostic functions, mainly for use when doing tech support."""
@@ -683,9 +693,9 @@ diff -ur beautifulsoup4-4.4.0/bs4/diagnose.py sigil_bs4/diagnose.py
  import os
  import pstats
 diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
---- beautifulsoup4-4.4.0/bs4/element.py	2015-09-08 15:25:47.000000000 -0400
-+++ sigil_bs4/element.py	2015-09-07 20:02:39.000000000 -0400
-@@ -1,15 +1,38 @@
+--- beautifulsoup4-4.4.0/bs4/element.py	2015-09-10 19:12:25.000000000 -0400
++++ sigil_bs4/element.py	2015-09-10 18:03:39.000000000 -0400
+@@ -1,15 +1,55 @@
 +from __future__ import unicode_literals, division, absolute_import, print_function
 +
 +import sys
@@ -715,9 +725,26 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
  whitespace_re = re.compile("\s+")
  
 +
-+NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","cite","code",
-+                            "dfn","em","i","img","kbd","small","span","strike",
-+                            "strong","sub","sup","tt")
++NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","br",
++    "button","cite","code","del","dfn","em","font","i","image","img",
++    "input","ins","kbd","label","map","nobr","object","q","s","samp",
++    "select","small","span","strike","strong","sub","sup","textarea",
++    "tt","u","var","wbr")
++
++PRESERVE_WHITESPACE_TAGS = ("pre","textarea","script","style")
++
++EMPTY_TAGS = ("area","base","basefont","bgsound","br","command","col",
++    "embed","event-source","frame","hr","image","img","input","keygen",
++    "link","menuitem","meta","param","source","spacer","track","wbr")
++
++NO_ENTITY_SUB_TAGS = ("script", "style")
++
++SPECIAL_HANDLING_TAGS = ("html", "body")
++
++STRUCTURAL_TAGS = ("article","aside","blockquote","body","canvas",
++    "div","dl","figure","footer","head","header","hr","html","ol",
++    "section","script","style","table","ul")
++
 +
 +EBOOK_XML_PARENT_TAGS = ("package","metadata","manifest","spine","guide","ncx",
 +                         "head","doctitle","docauthor","navmap", "navpoint",
@@ -726,7 +753,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
  def _alias(attr):
      """Alias one attribute name to another for backward compatibility"""
      @property
-@@ -22,22 +45,23 @@
+@@ -22,22 +62,23 @@
      return alias
  
  
@@ -755,7 +782,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
      """A stand-in object for a character encoding specified in HTML."""
  
  class CharsetMetaAttributeValue(AttributeValueWithCharsetSubstitution):
-@@ -48,7 +72,7 @@
+@@ -48,7 +89,7 @@
      """
  
      def __new__(cls, original_value):
@@ -764,7 +791,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
          obj.original_value = original_value
          return obj
  
-@@ -71,9 +95,9 @@
+@@ -71,9 +112,9 @@
          match = cls.CHARSET_RE.search(original_value)
          if match is None:
              # No substitution necessary.
@@ -776,7 +803,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
          obj.original_value = original_value
          return obj
  
-@@ -115,7 +139,7 @@
+@@ -115,7 +156,7 @@
      @classmethod
      def substitute_xml(cls, ns):
          return cls._substitute_if_appropriate(
@@ -785,7 +812,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
  
  class PageElement(object):
      """Contains the navigational information for some part of the page
-@@ -296,7 +320,7 @@
+@@ -296,7 +337,7 @@
      def insert(self, position, new_child):
          if new_child is self:
              raise ValueError("Cannot insert a tag into itself.")
@@ -794,7 +821,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
              and not isinstance(new_child, NavigableString)):
              new_child = NavigableString(new_child)
  
-@@ -517,7 +541,7 @@
+@@ -517,7 +558,7 @@
                  result = (element for element in generator
                            if isinstance(element, Tag))
                  return ResultSet(strainer, result)
@@ -803,7 +830,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
                  # Optimization to find all tags with a given name.
                  result = (element for element in generator
                            if isinstance(element, Tag)
-@@ -668,7 +692,7 @@
+@@ -668,7 +709,7 @@
          return self.parents
  
  
@@ -812,7 +839,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
  
      PREFIX = ''
      SUFFIX = ''
-@@ -681,10 +705,10 @@
+@@ -681,10 +722,10 @@
          passed in to the superclass's __new__ or the superclass won't know
          how to handle non-ASCII characters.
          """
@@ -826,7 +853,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
          u.setup()
          return u
  
-@@ -695,7 +719,7 @@
+@@ -695,7 +736,7 @@
          return type(self)(self)
  
      def __getnewargs__(self):
@@ -835,7 +862,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
  
      def __getattr__(self, attr):
          """text.string gives you text. This is for backwards
-@@ -846,6 +870,12 @@
+@@ -846,6 +887,12 @@
      isSelfClosing = is_empty_element  # BS3
  
      @property
@@ -848,7 +875,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
      def string(self):
          """Convenience property to get the single string within this tag.
  
-@@ -968,6 +998,10 @@
+@@ -968,6 +1015,10 @@
          "A tag is non-None even if it has no contents."
          return True
  
@@ -859,7 +886,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
      def __setitem__(self, key, value):
          """Setting tag[key] sets the value of the 'key' attribute for the
          tag."""
-@@ -1045,22 +1079,23 @@
+@@ -1045,22 +1096,23 @@
  
      def encode(self, encoding=DEFAULT_OUTPUT_ENCODING,
                 indent_level=None, formatter="minimal",
@@ -887,7 +914,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
          """Returns a Unicode representation of this tag and its contents.
  
          :param eventual_encoding: The tag is destined to be
-@@ -1084,8 +1119,8 @@
+@@ -1084,8 +1136,8 @@
                  else:
                      if isinstance(val, list) or isinstance(val, tuple):
                          val = ' '.join(val)
@@ -898,7 +925,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
                      elif (
                          isinstance(val, AttributeValueWithCharsetSubstitution)
                          and eventual_encoding is not None):
-@@ -1093,7 +1128,7 @@
+@@ -1093,7 +1145,7 @@
  
                      text = self.format_string(val, formatter)
                      decoded = (
@@ -907,21 +934,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
                          + EntitySubstitution.quoted_attribute_value(text))
                  attrs.append(decoded)
          close = ''
-@@ -1103,6 +1138,13 @@
-         if self.prefix:
-             prefix = self.prefix + ":"
- 
-+        if self._is_xml and self.can_be_empty_element:
-+            # for pure xml, a self closing tag with only whitespace 
-+            # "contents" should be treated as empty
-+            tagcontents = self.string
-+            if tagcontents is not None and len(tagcontents.strip()) == 0:
-+                self.contents = []
-+
-         if self.is_empty_element:
-             close = '/'
-         else:
-@@ -1112,14 +1154,14 @@
+@@ -1112,14 +1164,14 @@
          space = ''
          indent_space = ''
          if indent_level is not None:
@@ -938,16 +951,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
  
          if self.hidden:
              # This is the 'document root' object.
-@@ -1143,7 +1185,7 @@
-             if pretty_print and closeTag:
-                 s.append(space)
-             s.append(closeTag)
--            if indent_level is not None and closeTag and self.next_sibling:
-+            if indent_level is not None and closeTag and self.next_sibling and not self.is_non_breaking_inline_tag:
-                 # Even if this particular tag is not pretty-printed,
-                 # we're now done with the tag, and we should add a
-                 # newline if appropriate.
-@@ -1151,15 +1193,15 @@
+@@ -1151,15 +1203,15 @@
              s = ''.join(s)
          return s
  
@@ -967,35 +971,21 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
          """Renders the contents of this tag as a Unicode string.
  
          :param indent_level: Each line of the rendering will be
-@@ -1187,21 +1229,208 @@
+@@ -1187,21 +1239,319 @@
              if isinstance(c, NavigableString):
                  text = c.output_ready(formatter)
              elif isinstance(c, Tag):
 -                s.append(c.decode(indent_level, eventual_encoding,
 -                                  formatter))
--            if text and indent_level and not self.name == 'pre':
-+                val = c.decode(indent_level, eventual_encoding, formatter, indent_chars)
-+                if pretty_print:
-+                    # note, BS4 serializes in an ass-backwards manner using recursion on a tag level basis
-+                    # and therefore can not see if the previous line ended with a linefeed or not
-+                    
-+                    # So we need to remove any bad initial indentation from non breaking inline tags
-+                    # that do not start a line as the decode routine can not tell where the tag in in relation
-+                    # to other tags and previous newlines
-+                    if c.is_non_breaking_inline_tag and len(s) > 0:
-+                        val = val.lstrip()
-+                s.append(val)
-+            if text and indent_level and not self.name == 'pre' and not self.is_non_breaking_inline_tag:
++                s.append(c.decode(indent_level, eventual_encoding, formatter, indent_chars))
+             if text and indent_level and not self.name == 'pre':
                  text = text.strip()
              if text:
--                if pretty_print and not self.name == 'pre':
+                 if pretty_print and not self.name == 'pre':
 -                    s.append(" " * (indent_level - 1))
-+                if pretty_print and not self.name == 'pre' and not self.is_non_breaking_inline_tag:
-+                    if len(s) == 0 or s[-1] == "\n":
-+                        s.append(indent_chars * (indent_level - 1))
++                    s.append(indent_chars * (indent_level - 1))
                  s.append(text)
--                if pretty_print and not self.name == 'pre':
-+                if pretty_print and not self.name == 'pre' and not isinstance(c, NavigableString):
+                 if pretty_print and not self.name == 'pre':
                      s.append("\n")
          return ''.join(s)
  
@@ -1102,7 +1092,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
 +                s.append(text)
 +        return ''.join(s)
 +
-+    def serialize(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
++    def serialize_xhtml(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
 +        formatter = self._formatter_for_name('minimal')
 +        prefix = ''
 +        close = ''
@@ -1127,22 +1117,15 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
 +        if self.prefix:
 +            prefix = self.prefix + ":"
 +
-+        if self._is_xml and self.can_be_empty_element:
-+            # for pure xml, a self closing tag with only whitespace 
-+            # "contents" should be treated as empty
-+            tagcontents = self.string
-+            if tagcontents is not None and len(tagcontents.strip()) == 0:
-+                self.contents = []
-+
 +        if self.is_empty_element:
 +            close = '/'
 +        else:
 +            closeTag = '</%s%s>' % (prefix, self.name)
 +
-+        contents = self.serialize_contents(eventual_encoding)
++        contents = self.serialize_xhtml_contents(eventual_encoding)
 +
 +        # strip extraneous whitespace before the primary closing tag
-+        if self.name in ['html', 'body']:
++        if self.name in SPECIAL_HANDLING_TAGS:
 +            contents = contents.strip()
 +            contents += "\n"
 +
@@ -1155,16 +1138,16 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
 +            if attrs:
 +                attribute_string = ' ' + ' '.join(attrs)
 +            s.append('<%s%s%s%s>' % (prefix, self.name, attribute_string, close))
-+            if self.name in ['html', 'body']:
++            if self.name in SPECIAL_HANDLING_TAGS:
 +                s.append("\n")
 +            s.append(contents)
 +            s.append(closeTag)
-+            if self.name in ['html', 'body']:
++            if self.name in SPECIAL_HANDLING_TAGS:
 +                s.append("\n")
 +            s = ''.join(s)
 +        return s
 +
-+    def serialize_contents(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
++    def serialize_xhtml_contents(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
 +        formatter = self._formatter_for_name('minimal')
 +        s = []
 +        for c in self:
@@ -1173,7 +1156,136 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
 +                text = c.output_ready(formatter)
 +                s.append(text)
 +            elif isinstance(c, Tag):
-+                s.append(c.serialize(eventual_encoding))
++                s.append(c.serialize_xhtml(eventual_encoding))
++        return ''.join(s)
++
++    def prettyprint_xhtml(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
++               formatter="minimal", indent_chars=" "):
++
++        # First off, turn a string formatter into a function. This
++        # will stop the lookup from happening over and over again.
++        if not isinstance(formatter, collections.Callable):
++            formatter = self._formatter_for_name(formatter)
++
++        attrs = []
++        if self.attrs:
++            for key, val in sorted(self.attrs.items()):
++                if val is None:
++                    decoded = key
++                else:
++                    if isinstance(val, list) or isinstance(val, tuple):
++                        val = ' '.join(val)
++                    elif not isinstance(val, str):
++                        val = str(val)
++                    elif (
++                        isinstance(val, AttributeValueWithCharsetSubstitution)
++                        and eventual_encoding is not None):
++                        val = val.encode(eventual_encoding)
++
++                    text = self.format_string(val, formatter)
++                    decoded = (
++                        str(key) + '='
++                        + EntitySubstitution.quoted_attribute_value(text))
++                attrs.append(decoded)
++
++        prefix = ''
++        if self.prefix:
++            prefix = self.prefix + ":"
++
++        close = ''
++        closeTag = ''
++        if self.is_empty_element:
++            close = '/'
++        else:
++            closeTag = '</%s%s>' % (prefix, self.name)
++
++        indent_space = (indent_chars * (indent_level - 1))
++
++        is_structural = self.name in STRUCTURAL_TAGS
++        is_inline = self.name in NON_BREAKING_INLINE_TAGS and self.parent.name not in STRUCTURAL_TAGS
++        is_keepwhitespace = self.name in PRESERVE_WHITESPACE_TAGS
++        is_ppokay = not is_inline and not is_keepwhitespace
++
++        if is_structural:
++            contents = self.prettyprint_xhtml_contents(indent_level+1, eventual_encoding, formatter, indent_chars)
++            contents = contents.rstrip()
++            if contents != "": contents += "\n";
++        else:
++            contents = self.prettyprint_xhtml_contents(indent_level, eventual_encoding, formatter, indent_chars)
++
++        last_char = ' '
++        if contents != "": last_char = contents[-1:]
++
++        if self.hidden:
++            # This is the 'document root' object.
++            s = contents
++        else:
++            s = []
++
++            if not is_inline:
++                s.append(indent_space)
++
++            attribute_string = ''
++            if attrs:
++                attribute_string = ' ' + ' '.join(attrs)
++
++            s.append('<%s%s%s%s>' % (prefix, self.name, attribute_string, close))
++
++            if is_ppokay and is_structural and contents != "":
++                s.append("\n")
++
++            s.append(contents)
++
++            if is_ppokay and last_char != "\n" and contents != "" and is_structural:
++                s.append("\n")
++
++            if not is_inline and is_structural and closeTag and contents!="":
++                s.append(indent_space)
++
++            s.append(closeTag)
++
++            if is_ppokay:
++                s.append("\n")
++
++            s = ''.join(s)
++
++        return s
++
++    def prettyprint_xhtml_contents(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
++                        formatter="minimal", indent_chars=" "):
++        """Renders the contents of this tag as a Unicode string.
++        """
++        # First off, turn a string formatter into a function. This
++        # will stop the lookup from happening over and over again.
++        if not isinstance(formatter, collections.Callable):
++            formatter = self._formatter_for_name(formatter)
++
++        is_structural = self.name in STRUCTURAL_TAGS
++        is_inline = self.name in NON_BREAKING_INLINE_TAGS
++        is_keepwhitespace = self.name in PRESERVE_WHITESPACE_TAGS
++
++        indent_space = (indent_chars * (indent_level - 1))
++
++        s = []
++        i = -1
++        for c in self:
++            i = i + 1
++            text = None
++            if isinstance(c, NavigableString):
++                text = c.output_ready(formatter)
++                tval = text
++                is_whitespace = (tval.strip() == "")
++                if is_whitespace:
++                    if is_keepwhitespace or is_inline:
++                        s.append(text)
++                else:
++                    if i==0 and is_structural:
++                        s.append(indent_space)
++                        text = text.lstrip()
++                    s.append(text)
++            elif isinstance(c, Tag):
++                val = c.prettyprint_xhtml(indent_level, eventual_encoding, formatter, indent_chars)
++                s.append(val)
 +        return ''.join(s)
 +
      def encode_contents(
@@ -1183,7 +1295,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
          """Renders the contents of this tag as a bytestring.
  
          :param indent_level: Each line of the rendering will be
-@@ -1213,7 +1442,7 @@
+@@ -1213,7 +1563,7 @@
             entities to Unicode characters.
          """
  
@@ -1192,7 +1304,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
          return contents.encode(encoding)
  
      # Old method for BS3 compatibility
-@@ -1550,7 +1779,7 @@
+@@ -1550,7 +1900,7 @@
      def _normalize_search_value(self, value):
          # Leave it alone if it's a Unicode string, a callable, a
          # regular expression, a boolean, or None.
@@ -1201,7 +1313,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
              or isinstance(value, bool) or value is None):
              return value
  
-@@ -1563,7 +1792,7 @@
+@@ -1563,7 +1913,7 @@
              new_value = []
              for v in value:
                  if (hasattr(v, '__iter__') and not isinstance(v, bytes)
@@ -1210,7 +1322,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
                      # This is almost certainly the user's mistake. In the
                      # interests of avoiding infinite loops, we'll let
                      # it through as-is rather than doing a recursive call.
-@@ -1575,7 +1804,7 @@
+@@ -1575,7 +1925,7 @@
          # Otherwise, convert it into a Unicode string.
          # The unicode(str()) thing is so this will do the same thing on Python 2
          # and Python 3.
@@ -1219,7 +1331,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
  
      def __str__(self):
          if self.text:
-@@ -1629,7 +1858,7 @@
+@@ -1629,7 +1979,7 @@
          found = None
          # If given a list of items, scan it for a text element that
          # matches.
@@ -1228,7 +1340,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
              for element in markup:
                  if isinstance(element, NavigableString) \
                         and self.search(element):
-@@ -1642,7 +1871,7 @@
+@@ -1642,7 +1992,7 @@
                  found = self.search_tag(markup)
          # If it's text, make sure the text matches.
          elif isinstance(markup, NavigableString) or \
@@ -1237,7 +1349,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
              if not self.name and not self.attrs and self._matches(markup, self.text):
                  found = markup
          else:
-@@ -1656,7 +1885,7 @@
+@@ -1656,7 +2006,7 @@
          if isinstance(markup, list) or isinstance(markup, tuple):
              # This should only happen when searching a multi-valued attribute
              # like 'class'.
@@ -1246,7 +1358,7 @@ diff -ur beautifulsoup4-4.4.0/bs4/element.py sigil_bs4/element.py
                  and ' ' in match_against):
                  # A bit of a special case. If they try to match "foo
                  # bar" on a multivalue attribute's value, only accept
-@@ -1691,7 +1920,7 @@
+@@ -1691,7 +2041,7 @@
              # None matches None, False, an empty string, an empty list, and so on.
              return not match_against
  
