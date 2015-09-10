@@ -46,7 +46,6 @@ def copy_python_stdlibrary(src_dir, dest_dir):
 
 site_packages = [ ('lxml', 'd'), 
                   ('six.py', 'f'), 
-                  ('bs4', 'd'), 
                   ('html5lib','d'), 
                   ('PIL', 'd'), 
                   ('regex.py','f'),

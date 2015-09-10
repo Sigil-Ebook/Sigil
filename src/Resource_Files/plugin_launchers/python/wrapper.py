@@ -635,9 +635,14 @@ class Wrapper(object):
             apaths.append(unipath.abspath(os.path.join(self.appdir,"hunspell_dictionaries")))
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         else:
-            # Determining the second sigil "root" needs more work yet.
-            install_prefix = unipath.abspath(os.path.join(self.appdir,"..",".."))
-            apaths.append(unipath.abspath(os.path.join(install_prefix, "share", "sigil", "hunspell_dictionaries")))
+            # The sigil launch script in <install_prefix>/bin knows where Sigil's share
+            # prefix is and sets the env var SIGIL_SHARE_PREFIX to its value.
+            share_prefix = os.environ['SIGIL_SHARE_PREFIX']
+            if not len(share_prefix):
+                # If someone didn't launch Sigil with its launch script, this may save the 
+                # day (as long as the user didn't override SHARE_INSTALL_PREFIX at compile time).
+                share_prefix = unipath.abspath(os.path.join(self.appdir,"..",".."))
+            apaths.append(unipath.abspath(os.path.join(share_prefix, "share", "sigil", "hunspell_dictionaries")))
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         return apaths
                         

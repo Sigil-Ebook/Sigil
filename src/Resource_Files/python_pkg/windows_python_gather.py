@@ -25,7 +25,6 @@ pyvenv_home_dir = r'C:\Program Files\%s\Python3'% proj_name
 # Cherry-picked additional and/or modified site modules
 site_packages = [ ('lxml', 'd'), 
                   ('six.py', 'f'), 
-                  ('bs4', 'd'), 
                   ('html5lib','d'), 
                   ('PIL', 'd'), 
                   ('regex.py','f'),
