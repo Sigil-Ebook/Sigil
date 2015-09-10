@@ -1,17 +1,59 @@
-Sigil NEXT TBA
-    - Change FORCE_BUNDLED_COPIES build flag to USE_SYSTEM_LIBS. This flips
-      the meaning of the flag. Now USE_SYSTEM_LIBS will enable using system
-      libraries. Also, SYSTEM_LIBS_REQUIRED was added which will fail the
-      cmake configure if any system libraries are not found instead of
-      falling back to the bundled copy. Finally, this makes the build more
-      consistent for Windows and OS X users.
-    - Kill tidy and replace it with a combination of Gumbo parser, BS4. 
+Primarily Infrastructure Changes Toward Dual Epub2 / Epub3 support:
+
+Sigil 0.8.900 (pre Sigil 0.9.0 series) 
+    - Kill tidy and replace it with a combination of a specially modified Gumbo 
+         parser that supports html5
     - Kill Xerces and XercesExtras.
-    - Kill Boost.
+    - Kill Boost, replace with C++ 11
     - Kill unused bundles.
+    - Replace all "undefined - behaviour" use of "Null" References with proper 
+         pointers across entire codebase to allow it to work with the latest 
+         clang compilers
+    - Completely revamp the build process to embed the Python 3.4 Interpreter 
+         inside of Sigil and integrate it in, including as site-packages:
+         [lxml, bs4, PIL, regex, six, html5lib].  This will allow plugins 
+         that use the internal Python 3.4 engine access to all of these 
+         specialized packaes by default with no additional action
+         needed by end users of their plugin.
+    - Create our own version of BeautifulSoup4-4.4.0 called sigil_bs4 that 
+         fixes lxml namespace bugs, fixes serialization/prettyprinting of 
+         inline xhtml tags, and modifies the bs4 codebase so that a single 
+         sourcecode works equally well on both Python 2.7 and Python 3.4
+    - Replace internal opf and ncx xml processing and cleaning with a 
+         combination of embedded Python3.4, sigil_bs4 / lxml
+    - Build hunspell as a shared library and then add a ctypes interface to allow
+         plugins to spellcheck
+    - Build our modified gumbo html5 parser as a shared library 
+         and provide a bs4 ctypes interface to it for easy xhtml processing 
+         in plugins that use Python 2.7 and Python 3.4
+    - Allow plugins to auto-fix "text/html" media-types to "application/xhtml+xml"
+    - Redesign the ebook source updates upon load process to use our modified 
+         gumbo-parser
+    - Begin the transition to allow for both epub2 and epub3 editing 
+         (Note: epub3 editing is still incomplete)
+    - Convert Flightcrew to become a Sigil plugin and replace it with
+         a simple and fast internal sanity checker.
     - Fix issue #54 modified date using local numerials when it should be
-      using Arabic numerals per the spec.
+         using Arabic numerals per the spec.
     - Set the book to modified when font's are obfuscated.
+    - Change FORCE_BUNDLED_COPIES build flag to USE_SYSTEM_LIBS. This flips
+         the meaning of the flag. Now USE_SYSTEM_LIBS will enable using system
+         libraries. Also, SYSTEM_LIBS_REQUIRED was added which will fail the
+         cmake configure if any system libraries are not found instead of
+         falling back to the bundled copy. Finally, this makes the build more
+         consistent for Windows and OS X users.
+
+Sigil 0.8.7 2015.06.14
+    - Update links
+    - Try to work around clang compiler issues with older C++ codebase
+
+Sigil 0.8.6 2015.04.12
+    - Fix for crash during merging xhtml files.
+    - Changed fix for "Create TOC crash in Sigil 0.8.5" to reduce the degree
+      of disconnecting to prevent lost signals on html resources.
+    - Fix for missing audio and video mime types in OPFResource  and
+      FolderKeeper.
+    - Attempt to prevent Tidy from simply deleting all mathml during cleaning.
 
 Sigil 0.8.5 2015.03.29
     - Fix text resource not alwalys saving to disk.
