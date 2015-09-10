@@ -25,21 +25,56 @@
 #include <QRegularExpressionMatch>
 #include <QDir>
 #include <QFileInfo>
-
 #include "Misc/Utility.h"
 
 #include "GumboInterface.h"
 #include "string_buffer.h"
 #include "error.h"
 
-static std::string nonbreaking_inline  = "|a|abbr|acronym|b|bdo|big|br|button|cite|code|del|dfn|em|font|i|image|img|input|ins|kbd|label|map|nobr|object|q|s|samp|select|small|span|strike|strong|sub|sup|textarea|tt|u|var|wbr|";
-static std::string preserve_whitespace = "|pre|textarea|script|style|";
-static std::string special_handling    = "|html|body|";
-static std::string no_entity_sub       = "|script|style|";
-static std::string href_src_tags       = "|a|audio|image|img|link|script|video|";
-static std::string empty_tags          = "|area|base|basefont|bgsound|br|command|col|embed|event-source|frame|hr|image|img|input|keygen|link|menuitem|meta|param|source|spacer|track|wbr|";
-static std::string manifest_properties = "|math|nav|script|svg|epub:switch|";
-static std::string structural_tags     = "|article|aside|blockquote|body|canvas|div|dl|figure|footer|head|header|hr|html|ol|section|script|style|table|ul|";
+static std::unordered_set<std::string> nonbreaking_inline  = { 
+  "a","abbr","acronym","b","bdo","big","br","button","cite","code","del",
+  "dfn","em","font","i","image","img","input","ins","kbd","label","map",
+  "nobr","object","q","s","samp","select","small","span","strike","strong",
+  "sub","sup","textarea","tt","u","var","wbr"
+};
+
+
+static std::unordered_set<std::string> preserve_whitespace = {
+  "pre","textarea","script","style"
+};
+
+
+static std::unordered_set<std::string> special_handling    = { 
+  "html","body"
+};
+
+
+static std::unordered_set<std::string> no_entity_sub       = {
+  "script","style"
+};
+
+
+static std::unordered_set<std::string> empty_tags          = {
+  "area","base","basefont","bgsound","br","command","col","embed",
+  "event-source","frame","hr","image","img","input","keygen","link",
+  "menuitem","meta","param","source","spacer","track","wbr"
+};
+
+
+static std::unordered_set<std::string> structural_tags     = {
+  "article","aside","blockquote","body","canvas","div","dl","figure",
+  "footer","head","header","hr","html","ol","section","script","style",
+  "table","ul"
+};
+
+static std::unordered_set<std::string> manifest_properties = {
+  "math","nav","script","svg","epub:switch"
+};
+
+static std::unordered_set<std::string> href_src_tags       = {
+  "a","audio","image","img","link","script","video"
+};
+
 
 static const QChar POUND_SIGN    = QChar::fromLatin1('#');
 static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
@@ -89,7 +124,7 @@ void GumboInterface::parse()
         // remove any xml header line and any trailing whitespace
         if (m_utf8src.compare(0,5,"<?xml") == 0) {
             size_t end = m_utf8src.find_first_of('>', 5);
-            end = m_utf8src.find_first_not_of("\n\r\t ",end+1);
+            end = m_utf8src.find_first_not_of("\n\r\t\v\f ",end+1);
             m_utf8src.erase(0,end);
         }
         GumboOptions myoptions = kGumboDefaultOptions;
@@ -224,7 +259,7 @@ QStringList GumboInterface::get_properties(GumboNode* node)
     }
     QStringList properties;
     std::string tagname = get_tag_name(node);
-    if (manifest_properties.find(tagname) != std::string::npos) {
+    if (in_set(manifest_properties, tagname)) {
         properties.append(QString::fromStdString(tagname));
     }
     GumboVector* children = &node->v.element.children;
@@ -548,15 +583,21 @@ QList<GumboNode*>  GumboInterface::get_nodes_with_tags(GumboNode* node, const QL
 }
 
 
+bool GumboInterface::in_set(std::unordered_set<std::string> &s, std::string &key)
+{
+  return s.find(key) != s.end();
+}
+
+
 void GumboInterface::rtrim(std::string &s) 
 {
-    s.erase(s.find_last_not_of(" \n\r\t")+1);
+    s.erase(s.find_last_not_of(" \n\r\t\v\f")+1);
 }
 
 
 void GumboInterface::ltrim(std::string &s)
 {
-    s.erase(0,s.find_first_not_of(" \n\r\t"));
+    s.erase(0,s.find_first_not_of(" \n\r\t\v\f"));
 }
 
 
@@ -566,6 +607,7 @@ void GumboInterface::ltrimnewlines(std::string &s)
 }
 
 
+// delete everything up to and including the newline
 void GumboInterface::newlinetrim(std::string &s)
 {
   size_t pos = s.find("\n");
@@ -694,6 +736,7 @@ std::string GumboInterface::build_doctype(GumboNode *node)
 }
 
 
+// deal properly with foreign namespaced attributes
 std::string GumboInterface::get_attribute_name(GumboAttribute * at)
 {
     std::string attr_name = at->name;
@@ -750,10 +793,9 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
 std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes doupdates) {
     std::string contents        = "";
     std::string tagname         = get_tag_name(node);
-    std::string key             = "|" + tagname + "|";
-    bool no_entity_substitution = no_entity_sub.find(key) != std::string::npos;
-    bool keep_whitespace        = preserve_whitespace.find(key) != std::string::npos;
-    bool is_inline              = nonbreaking_inline.find(key) != std::string::npos;
+    bool no_entity_substitution = in_set(no_entity_sub, tagname);
+    bool keep_whitespace        = in_set(preserve_whitespace, tagname);
+    bool is_inline              = in_set(nonbreaking_inline, tagname);
 
     // build up result for each child, recursively if need be
     GumboVector* children = &node->v.element.children;
@@ -774,9 +816,8 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
         } else if (child->type == GUMBO_NODE_ELEMENT || child->type == GUMBO_NODE_TEMPLATE) {
             contents.append(serialize(child, doupdates));
             inject_newline = false;
-            std::string childname = "|" + get_tag_name(child) + "|";
-            if (!is_inline && !keep_whitespace && 
-                (nonbreaking_inline.find(childname) == std::string::npos)) {
+            std::string childname = get_tag_name(child);
+            if (!is_inline && !keep_whitespace && !in_set(nonbreaking_inline,childname)) {
                 contents.append("\n");
                 inject_newline = true;
             }
@@ -824,12 +865,11 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
     std::string closeTag = "";
     std::string atts = "";
     std::string tagname            = get_tag_name(node);
-    std::string key                = "|" + tagname + "|";
-    bool need_special_handling     = special_handling.find(key) != std::string::npos;
-    bool is_empty_tag              = empty_tags.find(key) != std::string::npos;
-    bool no_entity_substitution    = no_entity_sub.find(key) != std::string::npos;
-    bool is_inline                 = nonbreaking_inline.find(key) != std::string::npos;
-    bool is_href_src_tag           = href_src_tags.find(key) != std::string::npos;
+    bool need_special_handling     = in_set(special_handling, tagname);
+    bool is_empty_tag              = in_set(empty_tags, tagname);
+    bool no_entity_substitution    = in_set(no_entity_sub, tagname);
+    bool is_inline                 = in_set(nonbreaking_inline, tagname);
+    bool is_href_src_tag           = in_set(href_src_tags, tagname);
 
     // build attr string  
     const GumboVector * attribs = &node->v.element.attributes;
@@ -888,14 +928,13 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
 {
     std::string contents        = "";
     std::string tagname         = get_tag_name(node);
-    std::string key             = "|" + tagname + "|";
-    bool no_entity_substitution = no_entity_sub.find(key) != std::string::npos;
-    bool keep_whitespace        = preserve_whitespace.find(key) != std::string::npos;
-    bool is_inline              = nonbreaking_inline.find(key) != std::string::npos;
-    bool is_structural          = structural_tags.find(key) != std::string::npos;
+    bool no_entity_substitution = in_set(no_entity_sub, tagname);
+    bool keep_whitespace        = in_set(preserve_whitespace, tagname);
+    bool is_inline              = in_set(nonbreaking_inline, tagname);
+    bool is_structural          = in_set(structural_tags, tagname);
     bool pp_okay                = !is_inline && !keep_whitespace;
-    char c                         = indent_chars.at(0);
-    int  n                         = indent_chars.length(); 
+    char c                      = indent_chars.at(0);
+    int  n                      = indent_chars.length(); 
 
     GumboVector* children = &node->v.element.children;
 
@@ -965,15 +1004,14 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     std::string closeTag           = "";
     std::string atts               = "";
     std::string tagname            = get_tag_name(node);
-    std::string parentname         = "|" + get_tag_name(node->parent) + "|";
-    std::string key                = "|" + tagname + "|";
-    bool in_head                   = (parentname == "|head|");
-    bool need_special_handling     =  special_handling.find(key) != std::string::npos;
-    bool is_empty_tag              = empty_tags.find(key) != std::string::npos;
-    bool no_entity_substitution    = no_entity_sub.find(key) != std::string::npos;
-    bool keep_whitespace           = preserve_whitespace.find(key) != std::string::npos;
-    bool is_inline                 = (nonbreaking_inline.find(key) != std::string::npos) && (structural_tags.find(parentname) == std::string::npos);
-    bool is_structural             = structural_tags.find(key) != std::string::npos;
+    std::string parentname         = get_tag_name(node->parent);
+    bool in_head                   = (parentname == "head");
+    bool need_special_handling     = in_set(special_handling, tagname);
+    bool is_empty_tag              = in_set(empty_tags, tagname);
+    bool no_entity_substitution    = in_set(no_entity_sub, tagname);
+    bool keep_whitespace           = in_set(preserve_whitespace, tagname);
+    bool is_inline                 = in_set(nonbreaking_inline, tagname) && !in_set(structural_tags, parentname);
+    bool is_structural             = in_set(structural_tags, tagname);
     bool pp_okay                   = !is_inline && !keep_whitespace;
     char c                         = indent_chars.at(0);
     int  n                         = indent_chars.length(); 

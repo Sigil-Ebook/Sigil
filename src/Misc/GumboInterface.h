@@ -25,6 +25,8 @@
 
 #include <stdlib.h>
 #include <string>
+#include <unordered_set>
+
 #include "gumbo.h"
 #include "gumbo_edit.h"
 
@@ -97,26 +99,47 @@ private:
         BodyUpdates    = 1 <<  2
     };
 
-    // QString fix_self_closing_tags(const QString & source);
     QStringList get_properties(GumboNode* node);
+
     QList<GumboNode*> get_nodes_with_attribute(GumboNode* node, const char * att_name);
+
     QStringList get_values_for_attr(GumboNode* node, const char* attr_name);
+
     QList<GumboNode*> get_nodes_with_tags(GumboNode* node, const QList<GumboTag> & tags);
+
     std::string serialize(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
+
     std::string serialize_contents(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
+
     std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
+
     std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
+
     std::string build_doctype(GumboNode *node);
+
     std::string get_attribute_name(GumboAttribute * at);
+
     std::string build_attributes(GumboAttribute * at, bool no_entities, bool runupdates = false);
+
     std::string update_attribute_value(std::string href);
+
     std::string substitute_xml_entities_into_text(const std::string &text);
+
     std::string substitute_xml_entities_into_attributes(char quote, const std::string &text);
+
+    bool in_set(std::unordered_set<std::string> &s, std::string &key);
+
     void rtrim(std::string &s);
+
     void ltrim(std::string &s);
+
     void ltrimnewlines(std::string &s);
+
     void newlinetrim(std::string &s);
+
     void replace_all(std::string &s, const char * s1, const char * s2);
+
+    // QString fix_self_closing_tags(const QString & source);
 
     QString                   m_source;
     GumboOutput*              m_output;
