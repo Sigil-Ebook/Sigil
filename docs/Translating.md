@@ -16,7 +16,7 @@ translating Sigil.
 Updating Base Translation File
 ==============================
 
-1. Open a terminal and change to the src/Sigil/Resource_Files/ts directory.
+1. Open a terminal and change to the Sigil/src/Resource_Files/ts directory.
 2. Run `lupdate ../../* -ts base.ts`
 
 
