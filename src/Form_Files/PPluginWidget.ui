@@ -90,7 +90,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Python3.4:</string>
+        <string>≥Python3.4:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -124,7 +124,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Python2.7:</string>
+        <string>≥Python2.7:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
