@@ -9,23 +9,23 @@ Sigil 0.8.900 (pre Sigil 0.9.0 series)
     - Replace all "undefined - behaviour" use of "Null" References with proper 
          pointers across entire codebase to allow it to work with the latest 
          clang compilers
-    - Completely revamp the build process to embed the Python 3.4 Interpreter 
+    - Completely revamp the build process to embed the Python 3.5 Interpreter 
          inside of Sigil and integrate it in, including as site-packages:
          [lxml, bs4, PIL, regex, six, html5lib].  This will allow plugins 
-         that use the internal Python 3.4 engine access to all of these 
+         that use the internal Python 3.X engine access to all of these 
          specialized packaes by default with no additional action
          needed by end users of their plugin.
     - Create our own version of BeautifulSoup4-4.4.0 called sigil_bs4 that 
          fixes lxml namespace bugs, fixes serialization/prettyprinting of 
          inline xhtml tags, and modifies the bs4 codebase so that a single 
-         sourcecode works equally well on both Python 2.7 and Python 3.4
+         sourcecode works equally well on both Python 2.7 and Python 3.X
     - Replace internal opf and ncx xml processing and cleaning with a 
-         combination of embedded Python3.4, sigil_bs4 / lxml
+         combination of embedded Python3.5, sigil_bs4 / lxml
     - Build hunspell as a shared library and then add a ctypes interface to allow
          plugins to spellcheck
     - Build our modified gumbo html5 parser as a shared library 
          and provide a bs4 ctypes interface to it for easy xhtml processing 
-         in plugins that use Python 2.7 and Python 3.4
+         in plugins that use Python 2.7 and Python 3.X
     - Allow plugins to auto-fix "text/html" media-types to "application/xhtml+xml"
     - Redesign the ebook source updates upon load process to use our modified 
          gumbo-parser
@@ -33,6 +33,8 @@ Sigil 0.8.900 (pre Sigil 0.9.0 series)
          (Note: epub3 editing is still incomplete)
     - Convert Flightcrew to become a Sigil plugin and replace it with
          a simple and fast internal sanity checker.
+    - Update Hunspell dictionaries to be actual dictioanries and not word lists for en_US and en_GB
+    - Updated other dictionaries to their most current version to match what is used in LibreOffice 5
     - Fix issue #54 modified date using local numerials when it should be
          using Arabic numerals per the spec.
     - Set the book to modified when font's are obfuscated.
