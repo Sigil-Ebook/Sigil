@@ -9,7 +9,7 @@ export MACOSX_DEPLOYMENT_TARGET=10.9
 # See "Building_A_Relocatable_Python_Framework_on_MacOSX.txt
 export MYDEST=/tmp/Frameworks
 
-# Set the location of where Qt 5.4 is installed
+# Set the location of where Qt 5.4.1 is installed
 export MYQTHOME=~/Qt
 
 # Set the location of where you want your Sigil repo to be stored
@@ -25,7 +25,7 @@ export PATH=${PATH}:${MYQTHOME}/5.4/clang_64/bin
 # Make sure the newly created relocatable python framework is found first
 # **before** and system version of Python3
 
-export PATH=${MYDEST}/Python.framework/Versions/3.4/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.5/bin:${PATH}
 
 mkdir build
 cd build
