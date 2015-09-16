@@ -13,7 +13,7 @@
 #       - recognizing words with Unicode f ligatures
 #  - add phonetic suggestion (Copyright (C) 2000 Björn Jacke, see the end of the file)
 FLAG num
-AF 712
+AF 713
 AF 1 # 1
 AF 2,3 # 2
 AF 4,2 # 3
@@ -726,6 +726,7 @@ AF 205,203 # 709
 AF 201,202 # 710
 AF 205 # 711
 AF 203,300 # 712
+AF 17,200 # 713
 AM 2042
 AM ts:0
 AM st:abatis ts:Ns
