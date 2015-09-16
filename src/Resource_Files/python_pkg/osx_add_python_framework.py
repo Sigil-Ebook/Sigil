@@ -56,17 +56,18 @@ site_packages = [ ('lxml', 'd'),
 def copy_site_packages(packages, site_dest):
     for pkg, typ in packages:
         found = False
-        for path in site.getsitepackages():
-            if not found:
-                for entry in os.listdir(path):
+        for apath in site.getsitepackages():
+            if not found and os.path.exists(apath) and os.path.isdir(apath):
+                apath = os.path.abspath(apath)
+                for entry in os.listdir(apath):
                     if entry == pkg:
-                        if typ == 'd' and os.path.isdir(os.path.join(path, entry)):
-                            shutil.copytree(os.path.join(path, entry), os.path.join(site_dest, entry), ignore=ignore_in_dirs)
+                        if typ == 'd' and os.path.isdir(os.path.join(apath, entry)):
+                            shutil.copytree(os.path.join(apath, entry), os.path.join(site_dest, entry), ignore=ignore_in_dirs)
                             found = True
                             break
                         else:
-                            if os.path.isfile(os.path.join(path, entry)):
-                                shutil.copy2(os.path.join(path, entry), os.path.join(site_dest, entry))
+                            if os.path.isfile(os.path.join(apath, entry)):
+                                shutil.copy2(os.path.join(apath, entry), os.path.join(site_dest, entry))
                                 found = True
                                 break
             else:

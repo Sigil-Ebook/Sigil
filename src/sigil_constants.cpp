@@ -10,7 +10,7 @@ const QStringList PYTHON_SYS_PATHS = QStringList() << "/Lib" << "/DLLs" << "/Lib
 
 #if __APPLE__
 const QString PATH_LIST_DELIM = ":";
-const QString PYTHON_MAIN_PATH = "/Frameworks/Python.framework/Versions/3.4/lib/python3.4";
+const QString PYTHON_MAIN_PATH = "/Frameworks/Python.framework/Versions/3.5/lib/python3.5";
 const QStringList PYTHON_SYS_PATHS = QStringList () << "/plat-darwin" << "/lib-dynload" << "/site-packages";
 #endif
 
