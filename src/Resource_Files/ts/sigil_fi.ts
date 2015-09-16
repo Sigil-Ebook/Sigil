@@ -58,26 +58,31 @@
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
-        <source>Maintainer / Lead Developer</source>
-        <translation>Ylläpitäjä / Johtava kehittäjä</translation>
+        <source>Maintainer(s)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="53"/>
+        <location filename="../../Dialogs/About.cpp" line="56"/>
+        <source>Previous Maintainer(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
         <translation>Koodia luovuttaneet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="62"/>
+        <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
         <translation>Kääntäjät</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="64"/>
+        <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
         <translation>Alkuperäinen tekijä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="65"/>
+        <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
         <translation>eläkkeellä</translation>
     </message>
@@ -431,55 +436,55 @@ kun CSS:llä on asetettu fonttiperheeksi sans-serif.</translation>
         <translation>Fontin obfuskointi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="242"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Tiedostoa &quot;%1&quot; ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="581"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="600"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="647"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="748"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="948"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="628"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="692"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="993"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Oletko varma, että haluat lajitella valitut tiedot aakkosjärjestykseen?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
         <translation>Tätä toimintoa ei voida perua.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1502"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1550"/>
         <source>Open With</source>
         <translation>Avaa ohjelmalla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="122"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
         <source>file</source>
         <translation>tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="126"/>
         <source>files</source>
         <translation> tiedostoa
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="593"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="639"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Ei voi poistaa tai korvata tiedostoa ”%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="601"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -488,125 +493,130 @@ A file with this name already exists in the book.</source>
 Kirjassa on jo tämänniminen tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="698"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="743"/>
         <source>Save As File</source>
         <translation>Tallenna tiedostona</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="720"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
         <source>Unable to save the file.</source>
         <translation>Tiedostoa ei voi tallentaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="728"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
         <source>Choose the directory to save the files to</source>
         <translation>Valitse hakemisto, johon tiedostot tallennetaan</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="748"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Yksi tai useampia tiedostoja on jo olemassa. Kirjoitetaanko päälle?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="810"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Tiedostoja ei voi tallentaa. Kohde ei ehkä ole hakemisto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="818"/>
         <source>Unable to save files.</source>
         <translation>Tiedostoja ei voi tallentaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="948"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="993"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Tiedostoja ei voi nimetä uudelleen, koska se aiheuttaisi, että sama nimi on usealla tiedostolla.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1012"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1057"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>Ei NCX:ää eikä OPF:ää voi poistaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1019"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1064"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Et voi poistaa kaikkia HTML-tiedostoja.
 Niitä on oltava ainakin yksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1314"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Add Blank Stylesheet</source>
         <translation>Lisää tyhjä tyyliohje</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1315"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1363"/>
         <source>Add Blank SVG Image</source>
         <translation>Lisää tyhjä SVG-kuva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1316"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1364"/>
         <source>Add Existing Files...</source>
         <translation>Lisää valmiita tiedostoja...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1318"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1366"/>
         <source>Add Copy</source>
         <translation>Lisää kopio</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1319"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
         <source>Rename</source>
         <translation>Nimeä uudelleen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1376"/>
         <source>Link Stylesheets...</source>
         <translation>Linkitä tyyliohjeita...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1331"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1379"/>
         <source>Save As</source>
         <translation>Tallenna nimellä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1508"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1442"/>
+        <source>Copyright Page</source>
+        <translation>Tekijänoikeusilmoituksen sivu</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1556"/>
         <source>Other Application</source>
         <translation>Muu sovellus</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1321"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
         <source>Cover Image</source>
         <translation>Kansikuva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1370"/>
         <source>Merge</source>
         <translation>Yhdistä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Käytä Adoben menetelmää</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Käytä IDPF:n menetelmää</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1360"/>
         <source>Select All</source>
         <translation>Valitse kaikki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="519"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="568"/>
         <source>Add Existing Files</source>
         <translation>Lisää valmiita tiedostoja</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="557"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="604"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -615,7 +625,7 @@ Niitä on oltava ainakin yksi.</translation>
 ”%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="566"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="613"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -624,7 +634,7 @@ Niitä on oltava ainakin yksi.</translation>
 ”%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="581"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="628"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -633,7 +643,7 @@ OK to replace?</source>
 Haluatko korvata sen?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="648"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="693"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -642,127 +652,122 @@ Haluatko korvata sen?</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="663"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="708"/>
         <source>File(s) added.</source>
         <translation>Tiedosto(t) lisätty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1159"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1204"/>
         <source>Unable to set file as cover image.</source>
         <translation>Tiedostoa ei voi asettaa kansikuvaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1313"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
         <source>Add Blank HTML File</source>
         <translation>Lisää tyhjä HTML-tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1368"/>
         <source>Delete</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1323"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1371"/>
         <source>None</source>
         <translation>Ei mitää</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1326"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1374"/>
         <source>Sort</source>
         <translation>Lajittele</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1375"/>
         <source>Renumber TOC Entries</source>
         <translation>Numeroi sisällysluettelon kohdat uudestaan</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Validate with W3C</source>
         <translation>Tarkasta W3C:n validaattorilla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>Cover</source>
         <translation>Kansi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1366"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Title Page</source>
         <translation>Nimiösivu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1370"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
         <source>Table Of Contents</source>
         <translation>Sisällysluettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1374"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1422"/>
         <source>Index</source>
         <translation>Hakemisto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1426"/>
         <source>Glossary</source>
         <translation>Sanasto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1430"/>
         <source>Acknowledgements</source>
         <translation>Kiitokset</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1386"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1434"/>
         <source>Bibliography</source>
         <translation>Kirjallisuusluettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1390"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
         <source>Colophon</source>
         <translation>Kolofoni</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1394"/>
-        <source>CopyrightPage</source>
-        <translation>Tekijänoikeussivu</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1398"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1446"/>
         <source>Dedication</source>
         <translation>Omistussanat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1450"/>
         <source>Epigraph</source>
         <translation>Motto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1454"/>
         <source>Foreword</source>
         <translation>Esipuhe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1458"/>
         <source>List Of Illustrations</source>
         <translation>Kuvaluettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1462"/>
         <source>List Of Tables</source>
         <translation>Taulukoiden luettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1466"/>
         <source>Notes</source>
         <translation>Huomautuksia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1422"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1470"/>
         <source>Preface</source>
         <translation>Esipuhe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1426"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
         <source>Text</source>
         <translation>Teksti</translation>
     </message>
@@ -770,94 +775,94 @@ Haluatko korvata sen?</translation>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1007"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1017"/>
         <source>Open</source>
         <translation>Avaa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1009"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="859"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1019"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1021"/>
         <source>Open With</source>
         <translation>Avaa ohjelmalla</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="639"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="649"/>
         <source>Clipboard contains HTML formatting</source>
         <translation>Leikepöytä sisältää HTML-muotoilua</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="650"/>
         <source>Do you want to paste clipboard data as plain text?</source>
         <translation>Haluatko liittää leikepöydältä sisältöä pelkkänä tekstinä?</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="835"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="845"/>
         <source>Open Tab For</source>
         <translation>Avaa välilehti</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="856"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="866"/>
         <source>Other Application</source>
         <translation>Muu sovellus</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="904"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
         <source>Clips</source>
         <translation>Leikkeet</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="924"/>
         <source>Add To Clips</source>
         <translation>Lisää leikkeisiin</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="999"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1009"/>
         <source>Insert File</source>
         <translation>Lisää tiedosto</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1000"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
         <source>Undo</source>
         <translation>Kumoa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1001"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
         <source>Redo</source>
         <translation>Tee uudestaan</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1002"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1012"/>
         <source>Cut</source>
         <translation>Leikkaa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1003"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1013"/>
         <source>Copy</source>
         <translation>Kopioi</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1004"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1014"/>
         <source>Copy Image</source>
         <translation>Kopioi kuva</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1005"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1015"/>
         <source>Paste</source>
         <translation>Liitä</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1006"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1016"/>
         <source>Select All</source>
         <translation>Valitse kaikki</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1020"/>
         <source>Save As</source>
         <translation>Tallenna nimellä</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1014"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1024"/>
         <source>Inspect Element</source>
         <translation>Tutki elementtiä</translation>
     </message>
@@ -865,29 +870,29 @@ Haluatko korvata sen?</translation>
 <context>
     <name>BookViewPreview</name>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="256"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="321"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="327"/>
         <source>Unsupported</source>
         <translation>Ei tuettu</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="256"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
         <translation>Oikeinkirjoituksen tarkistus ei ole mahdollista kirjatilassa. Siirry kooditilaan.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="321"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
         <translation>Korvaaminen ei ole mahdollista tässä tilassa. Vaihda kooditilaan.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="327"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
         <translation>Korvaaminen ei ole mahdollista tässä tilassa. Vaihda kooditilaan.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="715"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="740"/>
         <source>Inspect Element</source>
         <translation>Tutki elementtiä</translation>
     </message>
@@ -1059,57 +1064,57 @@ Haluatko korvata sen?</translation>
         <translation>Suodatin:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="76"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="77"/>
         <source>HTML File</source>
         <translation>HTML-tiedosto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="77"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="78"/>
         <source>Element</source>
         <translation>Elementti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="78"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="79"/>
         <source>Class</source>
         <translation>Luokka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="79"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="80"/>
         <source>Matched Selector</source>
         <translation>Vastaava selektori</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="80"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="81"/>
         <source>Found In</source>
         <translation>Löytyi kohteesta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
         <translation>&lt;p&gt;Tämä on luettelo HTML-tiedostoissa käytetyistä luokista ja siitä, vastasiko tyyli selektoria linkitetyssä tyyliohjeessa.&lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
         <translation>&lt;p&gt;Huom.:&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="89"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
         <translation>&lt;p&gt;CSS:n mutkikkuuden takia koodi pitää tarkistaa manuaalisesti sen varmistamiseksi, onko tyyliä käytetty vai ei.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="222"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="223"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Cannot save report file.</source>
         <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
@@ -1122,14 +1127,14 @@ Haluatko korvata sen?</translation>
         <translation>Lähdekoodin siistiminen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="80"/>
-        <source>Pretty Print Tidy</source>
-        <translation>Pretty Print Tidy</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="77"/>
         <source>Perform formatting and cleaning of your code to make it valid XHTML.</source>
         <translation>Muotoile ja siisti koodia niin, että siitä tulee validia XHTML:ää.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="80"/>
+        <source>Pretty Print Gumbo</source>
+        <translation>Pretty Print Gumbo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="90"/>
@@ -1188,8 +1193,8 @@ tai kun siistiminen tehdään manuaalisesti.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="94"/>
-        <source>HTML Tidy</source>
-        <translation>HTML Tidy</translation>
+        <source>Google Gumbo-Parser</source>
+        <translation>Googlen Gumbo-jäsennin</translation>
     </message>
 </context>
 <context>
@@ -1472,17 +1477,17 @@ Haluatko tallentaa muutokset?</translation>
 <context>
     <name>ClipsWindow</name>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="43"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="34"/>
         <source>Clips</source>
         <translation>Leikkeet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="118"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="99"/>
         <source>Collapse All</source>
         <translation>Supista kaikki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="119"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="100"/>
         <source>Expand All</source>
         <translation>Lavenna kaikki</translation>
     </message>
@@ -1776,6 +1781,15 @@ Voit käyttää myös oikealle osoittavaa nuolinäppäintä (→).</translation>
         <location filename="../../Dialogs/EditTOC.cpp" line="443"/>
         <source>Collapse All</source>
         <translation>Supista kaikki</translation>
+    </message>
+</context>
+<context>
+    <name>EmbeddedPython</name>
+    <message>
+        <location filename="../../Misc/EmbeddedPython.cpp" line="572"/>
+        <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
+        <source>Embedded Python Error</source>
+        <translation>Upotetun Python-koodin virhe</translation>
     </message>
 </context>
 <context>
@@ -2101,7 +2115,7 @@ jatkamaan etsintää.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1116"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1115"/>
         <source>Print %1</source>
         <translation>Tulosta %1</translation>
     </message>
@@ -2220,7 +2234,7 @@ Tämä päivittää otsikon title-määritteen kirjassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="890"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="931"/>
         <source>Rename</source>
         <translation>Nimeä uudelleen</translation>
     </message>
@@ -2262,50 +2276,50 @@ You can then check or uncheck individual headings in the list above.</source>
 Voit sitten valita tai poistaa yksittäisiä otsikoita yllä olevasta listasta.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="536"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
         <source>Include</source>
         <translation>Ota mukaan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="753"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="794"/>
         <source>Up to level</source>
         <translation>Tasolle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="755"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="796"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation>&lt;Valitse sisällysluetteloon otettavat otsikot&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="758"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="819"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="799"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="860"/>
         <source>None</source>
         <translation>Ei mitään</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="534"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="574"/>
         <source>TOC Entry / Heading Title</source>
         <translation>Sisällysluettelon kohta / otsikko</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="535"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="575"/>
         <source>Level</source>
         <translation>Taso</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
         <source>Included</source>
         <translation>Mukana</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
         <source>Hidden</source>
         <translation>Piilossa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="764"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="817"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="805"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="858"/>
         <source>All</source>
         <translation>Kaikki</translation>
     </message>
@@ -2406,49 +2420,49 @@ Voit sitten valita tai poistaa yksittäisiä otsikoita yllä olevasta listasta.<
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="139"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>shades</source>
         <translation>sävyä</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="139"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>colors</source>
         <translation>väriä</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="140"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Grayscale</source>
         <translation>Harmaasävy</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="140"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Color</source>
         <translation>Väri</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="230"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="255"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="258"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="246"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="271"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="274"/>
         <source>Open With</source>
         <translation>Avaa ohjelmalla</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="237"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
         <source>Other Application</source>
         <translation>Muu sovellus</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="256"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="272"/>
         <source>Save As</source>
         <translation>Tallenna nimellä</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="257"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="273"/>
         <source>Copy Image</source>
         <translation>Kopioi kuvaa</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="291"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="307"/>
         <source>Print %1</source>
         <translation>Tulosta %1</translation>
     </message>
@@ -2456,18 +2470,23 @@ Voit sitten valita tai poistaa yksittäisiä otsikoita yllä olevasta listasta.<
 <context>
     <name>ImportEPUB</name>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="162"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="164"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
         <translation>Kirja sisältää HTML-tiedostoja, jotka eivät ole oikeamuotoisia. Sigil voi yrittää korjata nämä tiedostot automaattisesti, mutta tämä voi aiheuttaa tiedon katoamista.
 
 Haluatko korjata tiedostot automaattisesti?</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="479"/>
+        <source>Missing and no OPF in archive.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5861,69 +5880,69 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation>Ohje</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="216"/>
+        <location filename="../../Form_Files/main.ui" line="213"/>
         <source>&amp;View</source>
         <translation>Näytä</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="235"/>
+        <location filename="../../Form_Files/main.ui" line="232"/>
         <source>&amp;Search</source>
         <translation>Etsi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="239"/>
+        <location filename="../../Form_Files/main.ui" line="236"/>
         <source>Current Fil&amp;e</source>
         <translation>Nykyinen tiedosto</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="271"/>
+        <location filename="../../Form_Files/main.ui" line="268"/>
         <source>&amp;Window</source>
         <translation>Ikkuna</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="354"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="479"/>
+        <location filename="../../Form_Files/main.ui" line="351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="488"/>
         <source>File</source>
         <translation>Tiedosto</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="369"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="256"/>
+        <location filename="../../Form_Files/main.ui" line="366"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="252"/>
         <source>Edit</source>
         <translation>Muokkaa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="388"/>
+        <location filename="../../Form_Files/main.ui" line="385"/>
         <source>View</source>
         <translation>Näytä</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="401"/>
+        <location filename="../../Form_Files/main.ui" line="398"/>
         <source>Insert</source>
         <translation>Lisää</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="430"/>
+        <location filename="../../Form_Files/main.ui" line="427"/>
         <source>Donate</source>
         <translation>Lahjoita</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="562"/>
+        <location filename="../../Form_Files/main.ui" line="559"/>
         <source>Clip Bar</source>
         <translation>Leikepalkki</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="605"/>
+        <location filename="../../Form_Files/main.ui" line="602"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="614"/>
+        <location filename="../../Form_Files/main.ui" line="611"/>
         <source>&amp;Save</source>
         <translation>Tallenna</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="617"/>
+        <location filename="../../Form_Files/main.ui" line="614"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -5932,17 +5951,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tallenna nykyinen kirja.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="622"/>
+        <location filename="../../Form_Files/main.ui" line="619"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="627"/>
+        <location filename="../../Form_Files/main.ui" line="624"/>
         <source>Save &amp;As...</source>
         <translation>Tallenna nimellä...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="630"/>
+        <location filename="../../Form_Files/main.ui" line="627"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -5951,22 +5970,22 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tallenna nykyinen kirja käyttäen eri tiedostonimeä.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="635"/>
+        <location filename="../../Form_Files/main.ui" line="632"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Vaihto+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="652"/>
+        <location filename="../../Form_Files/main.ui" line="649"/>
         <source>Cu&amp;t</source>
         <translation>Leikkaa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="666"/>
+        <location filename="../../Form_Files/main.ui" line="663"/>
         <source>&amp;Paste</source>
         <translation>Liitä</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="669"/>
+        <location filename="../../Form_Files/main.ui" line="666"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -5975,12 +5994,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Liittää leikepöydän sisällön kirjaan.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="691"/>
+        <location filename="../../Form_Files/main.ui" line="688"/>
         <source>&amp;Undo</source>
         <translation>Kumoa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="694"/>
+        <location filename="../../Form_Files/main.ui" line="691"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -5989,17 +6008,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Peruu edellisen toimenpiteen aiheuttamat muutokset.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="699"/>
+        <location filename="../../Form_Files/main.ui" line="696"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="708"/>
+        <location filename="../../Form_Files/main.ui" line="705"/>
         <source>&amp;Redo</source>
         <translation>Tee uudestaan</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="711"/>
+        <location filename="../../Form_Files/main.ui" line="708"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -6008,12 +6027,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Palauttaa muutokset, jotka edellinen Kumoa-toiminto poisti.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="725"/>
+        <location filename="../../Form_Files/main.ui" line="722"/>
         <source>&amp;Copy</source>
         <translation>Kopioi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="745"/>
+        <location filename="../../Form_Files/main.ui" line="742"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -6022,7 +6041,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tasaa kappale vasempaan reunaan.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="762"/>
+        <location filename="../../Form_Files/main.ui" line="759"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -6031,12 +6050,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tasaa kappale oikeaan reunaan.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="853"/>
+        <location filename="../../Form_Files/main.ui" line="850"/>
         <source>&amp;Open...</source>
         <translation>Avaa...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="856"/>
+        <location filename="../../Form_Files/main.ui" line="853"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -6045,37 +6064,37 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Avaa kirja levyltä.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="861"/>
+        <location filename="../../Form_Files/main.ui" line="858"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="893"/>
+        <location filename="../../Form_Files/main.ui" line="890"/>
         <source>Exit</source>
         <translation>Poistu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="896"/>
+        <location filename="../../Form_Files/main.ui" line="893"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="905"/>
+        <location filename="../../Form_Files/main.ui" line="902"/>
         <source>&amp;About...</source>
         <translation>Tietoja...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="935"/>
+        <location filename="../../Form_Files/main.ui" line="932"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="957"/>
+        <location filename="../../Form_Files/main.ui" line="954"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>Muokkaa sisällysluetteloa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="960"/>
+        <location filename="../../Form_Files/main.ui" line="957"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -6084,27 +6103,27 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muokkaa suoraan olemassaolevaa sisällysluetteloa.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="974"/>
+        <location filename="../../Form_Files/main.ui" line="971"/>
         <source>&amp;Book View</source>
         <translation>Kirjatila</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="991"/>
+        <location filename="../../Form_Files/main.ui" line="988"/>
         <source>&amp;Code View</source>
         <translation>Kooditila</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1004"/>
+        <location filename="../../Form_Files/main.ui" line="1001"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
         <translation>Vaihda kirjatilasta kooditilaan tai toisinpäin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1024"/>
+        <location filename="../../Form_Files/main.ui" line="1021"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="977"/>
+        <location filename="../../Form_Files/main.ui" line="974"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
@@ -6123,42 +6142,42 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation>Muuta kirjaintaso</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="175"/>
+        <location filename="../../Form_Files/main.ui" line="172"/>
         <source>&amp;Heading</source>
         <translation>Otsikko</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="220"/>
+        <location filename="../../Form_Files/main.ui" line="217"/>
         <source>&amp;Toolbars</source>
         <translation>Työkalupalkit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="287"/>
+        <location filename="../../Form_Files/main.ui" line="284"/>
         <source>&amp;Table Of Contents</source>
         <translation>Sisällysluettelo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="295"/>
+        <location filename="../../Form_Files/main.ui" line="292"/>
         <source>Spe&amp;llcheck</source>
         <translation>Oikeinkirjoituksen tarkistus</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="309"/>
+        <location filename="../../Form_Files/main.ui" line="306"/>
         <source>&amp;Index</source>
         <translation>Hakemisto</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="418"/>
+        <location filename="../../Form_Files/main.ui" line="415"/>
         <source>Back</source>
         <translation>Takaisin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="442"/>
+        <location filename="../../Form_Files/main.ui" line="439"/>
         <source>Tools</source>
         <translation>Työkalut</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="600"/>
+        <location filename="../../Form_Files/main.ui" line="597"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
@@ -6167,7 +6186,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Luo uusi kirja.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="994"/>
+        <location filename="../../Form_Files/main.ui" line="991"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
@@ -6176,12 +6195,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muokkaa ja katsele kirjasi tiedostojen sisältöä, mukaan lukien muotoilukoodit, jotka ohjaavat sitä, miltä kirja näyttää lukijoille.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1016"/>
+        <location filename="../../Form_Files/main.ui" line="1013"/>
         <source>&amp;Split At Cursor</source>
         <translation>Jaa kohdistimen kohdalta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1019"/>
+        <location filename="../../Form_Files/main.ui" line="1016"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -6190,22 +6209,22 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Jaa nykyinen tiedosto kahdeksi tiedostoksi käyttäen kohdistimen eli kursorin paikkaa jakokohtana.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1043"/>
+        <location filename="../../Form_Files/main.ui" line="1040"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Vaihto+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1052"/>
+        <location filename="../../Form_Files/main.ui" line="1049"/>
         <source>&amp;Special Character...</source>
         <translation>Erikoismerkki...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1066"/>
+        <location filename="../../Form_Files/main.ui" line="1063"/>
         <source>I&amp;D...</source>
         <translation>Tunniste</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1069"/>
+        <location filename="../../Form_Files/main.ui" line="1066"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -6214,42 +6233,42 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lisää ankkuri, jossa on tunniste eli id-määrite, tai muokkaa sellaista ankkuria. Ankkuria voidaan käyttää linkin kohteena.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1134"/>
+        <location filename="../../Form_Files/main.ui" line="1131"/>
         <source>Stri&amp;kethrough</source>
         <translation>Yliviivaa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1151"/>
+        <location filename="../../Form_Files/main.ui" line="1148"/>
         <source>&amp;Subscript</source>
         <translation>Alaindeksi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1182"/>
+        <location filename="../../Form_Files/main.ui" line="1179"/>
         <source>&amp;Print...</source>
         <translation>Tulosta...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1185"/>
+        <location filename="../../Form_Files/main.ui" line="1182"/>
         <source>Print</source>
         <translation>Tulosta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1188"/>
+        <location filename="../../Form_Files/main.ui" line="1185"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1197"/>
+        <location filename="../../Form_Files/main.ui" line="1194"/>
         <source>Print Pre&amp;view...</source>
         <translation>Tulostuksen esikatselu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1200"/>
+        <location filename="../../Form_Files/main.ui" line="1197"/>
         <source>Print Preview</source>
         <translation>Tulostuksen esikatselu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="533"/>
+        <location filename="../../Form_Files/main.ui" line="530"/>
         <source>Change Case</source>
         <translation>Vaihda kirjaintaso</translation>
     </message>
@@ -6259,62 +6278,62 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation>Lisää</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="171"/>
+        <location filename="../../Form_Files/main.ui" line="168"/>
         <source>For&amp;mat</source>
         <translation>Muotoile</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="457"/>
+        <location filename="../../Form_Files/main.ui" line="454"/>
         <source>Heading</source>
         <translation>Otsikko</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="283"/>
+        <location filename="../../Form_Files/main.ui" line="280"/>
         <source>&amp;Tools</source>
         <translation>Työkalut</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="475"/>
+        <location filename="../../Form_Files/main.ui" line="472"/>
         <source>Format</source>
         <translation>Muotoile</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="492"/>
+        <location filename="../../Form_Files/main.ui" line="489"/>
         <source>Align</source>
         <translation>Tasaa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="507"/>
+        <location filename="../../Form_Files/main.ui" line="504"/>
         <source>List</source>
         <translation>Luetelma</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="520"/>
+        <location filename="../../Form_Files/main.ui" line="517"/>
         <source>Indent</source>
         <translation>Sisennä</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="548"/>
+        <location filename="../../Form_Files/main.ui" line="545"/>
         <source>Text Direction</source>
         <translation>Tekstin suunta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="597"/>
+        <location filename="../../Form_Files/main.ui" line="594"/>
         <source>&amp;New</source>
         <translation>Uusi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="640"/>
+        <location filename="../../Form_Files/main.ui" line="637"/>
         <source>Save A &amp;Copy...</source>
         <translation>Tallenna kopio</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="643"/>
+        <location filename="../../Form_Files/main.ui" line="640"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>Tallenna kirjan kopio toisella tiedostonimellä.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="655"/>
+        <location filename="../../Form_Files/main.ui" line="652"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6323,27 +6342,27 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Poista valittu teksti kirjasta ja liitä se leikepöydälle.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="682"/>
+        <location filename="../../Form_Files/main.ui" line="679"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="676"/>
+        <location filename="../../Form_Files/main.ui" line="673"/>
         <source>&amp;Closing Tag</source>
         <translation>Lopputagi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="679"/>
+        <location filename="../../Form_Files/main.ui" line="676"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>Lisää lopputagin kooditilassa.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="716"/>
+        <location filename="../../Form_Files/main.ui" line="713"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="728"/>
+        <location filename="../../Form_Files/main.ui" line="725"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6352,27 +6371,27 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kopioi valitun tekstin leikepöydälle.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="742"/>
+        <location filename="../../Form_Files/main.ui" line="739"/>
         <source>Align &amp;Left</source>
         <translation>Tasaa vasemmalle</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="759"/>
+        <location filename="../../Form_Files/main.ui" line="756"/>
         <source>Align &amp;Right</source>
         <translation>Tasaa oikealle</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1685"/>
+        <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="776"/>
+        <location filename="../../Form_Files/main.ui" line="773"/>
         <source>&amp;Center</source>
         <translation>Keskitä</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="779"/>
+        <location filename="../../Form_Files/main.ui" line="776"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -6381,17 +6400,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Keskitä kappale.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="784"/>
+        <location filename="../../Form_Files/main.ui" line="781"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="796"/>
+        <location filename="../../Form_Files/main.ui" line="793"/>
         <source>&amp;Justify</source>
         <translation>Tasaa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="799"/>
+        <location filename="../../Form_Files/main.ui" line="796"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -6400,17 +6419,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tasaa sekä vasen että oikea reuna.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="804"/>
+        <location filename="../../Form_Files/main.ui" line="801"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="816"/>
+        <location filename="../../Form_Files/main.ui" line="813"/>
         <source>&amp;Bold</source>
         <translation>Lihavoi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="819"/>
+        <location filename="../../Form_Files/main.ui" line="816"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -6419,17 +6438,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lihavoi valittu teksti.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="824"/>
+        <location filename="../../Form_Files/main.ui" line="821"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="836"/>
+        <location filename="../../Form_Files/main.ui" line="833"/>
         <source>&amp;Italic</source>
         <translation>Kursivoi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="839"/>
+        <location filename="../../Form_Files/main.ui" line="836"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -6438,17 +6457,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Esitä valittu teksti kursiivilla.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="844"/>
+        <location filename="../../Form_Files/main.ui" line="841"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="873"/>
+        <location filename="../../Form_Files/main.ui" line="870"/>
         <source>&amp;Underline</source>
         <translation>Alleviivaa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="876"/>
+        <location filename="../../Form_Files/main.ui" line="873"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -6457,22 +6476,22 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alleviivaa valittu teksti.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="881"/>
+        <location filename="../../Form_Files/main.ui" line="878"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="890"/>
+        <location filename="../../Form_Files/main.ui" line="887"/>
         <source>&amp;Quit</source>
         <translation>Lopeta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="908"/>
+        <location filename="../../Form_Files/main.ui" line="905"/>
         <source>Show information about Sigil.</source>
         <translation>Näytä tietoja Sigil-ohjelmasta.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="930"/>
+        <location filename="../../Form_Files/main.ui" line="927"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -6481,17 +6500,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muokkaa ja näytä kirjaa koskevia tietoja kuten tekijä ja otsikko.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1001"/>
+        <location filename="../../Form_Files/main.ui" line="998"/>
         <source>&amp;Toggle View State</source>
         <translation>Vaihda tila</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1007"/>
+        <location filename="../../Form_Files/main.ui" line="1004"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1055"/>
+        <location filename="../../Form_Files/main.ui" line="1052"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -6500,12 +6519,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Valitse merkki lisättäväksi tekstiin.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1097"/>
+        <location filename="../../Form_Files/main.ui" line="1094"/>
         <source>&amp;Numbered List</source>
         <translation>Numerointi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1100"/>
+        <location filename="../../Form_Files/main.ui" line="1097"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -6514,12 +6533,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Luo numeroitu luettelo.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1114"/>
+        <location filename="../../Form_Files/main.ui" line="1111"/>
         <source>Bulle&amp;ted List</source>
         <translation>Luettelomerkit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1117"/>
+        <location filename="../../Form_Files/main.ui" line="1114"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -6528,12 +6547,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Luo luettelomerkeillä varustettu luettelo.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1122"/>
+        <location filename="../../Form_Files/main.ui" line="1119"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Vaihto+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1137"/>
+        <location filename="../../Form_Files/main.ui" line="1134"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -6542,7 +6561,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vedä viiva valitun tekstin poikki.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1154"/>
+        <location filename="../../Form_Files/main.ui" line="1151"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -6551,12 +6570,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pienennä valittua tekstiä hiukan ja siirrä sitä peruslinjan alapuolelle.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1168"/>
+        <location filename="../../Form_Files/main.ui" line="1165"/>
         <source>Su&amp;perscript</source>
         <translation>Yläindeksi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1171"/>
+        <location filename="../../Form_Files/main.ui" line="1168"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -6565,58 +6584,58 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pienennä valittua tekstiä hieman ja siirrä se peruslinjan yläpuolelle.&lt;/p&gt;</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1202"/>
         <location filename="../../Form_Files/main.ui" line="1205"/>
-        <location filename="../../Form_Files/main.ui" line="1208"/>
         <source>Close</source>
         <translation>Sulje</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1211"/>
+        <location filename="../../Form_Files/main.ui" line="1208"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Vaihto+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1220"/>
+        <location filename="../../Form_Files/main.ui" line="1217"/>
         <source>Zoom &amp;In</source>
         <translation>Suurenna fonttikokoa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1223"/>
+        <location filename="../../Form_Files/main.ui" line="1220"/>
         <source>Zoom In</source>
         <translation>Suurenna fonttikokoa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1235"/>
+        <location filename="../../Form_Files/main.ui" line="1232"/>
         <source>Zoom &amp;Out</source>
         <translation>Pienennä fonttikokoa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1238"/>
+        <location filename="../../Form_Files/main.ui" line="1235"/>
         <source>Zoom Out</source>
         <translation>Pienennä fonttikokoa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1241"/>
+        <location filename="../../Form_Files/main.ui" line="1238"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1246"/>
+        <location filename="../../Form_Files/main.ui" line="1243"/>
         <source>Sho&amp;w Tag</source>
         <translation>Näytä tagi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="952"/>
+        <location filename="../../Form_Files/main.ui" line="949"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="913"/>
+        <location filename="../../Form_Files/main.ui" line="910"/>
         <source>Add &amp;Cover...</source>
         <translation>Lisää kansi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="916"/>
+        <location filename="../../Form_Files/main.ui" line="913"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -6625,7 +6644,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lisää kirjaan kansisivu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="947"/>
+        <location filename="../../Form_Files/main.ui" line="944"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -6634,12 +6653,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muodosta sisällysluettelo kirjassa olevista otsikoista.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1033"/>
+        <location filename="../../Form_Files/main.ui" line="1030"/>
         <source>&amp;File...</source>
         <translation>Tiedosto...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1036"/>
+        <location filename="../../Form_Files/main.ui" line="1033"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -6652,12 +6671,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kirjaan voi lisätä tiedostoja käyttämällä valikon kohtaa Tiedosto → Lisää → Valmiita tiedostoja.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1080"/>
+        <location filename="../../Form_Files/main.ui" line="1077"/>
         <source>&amp;Link...</source>
         <translation>Linkki</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1083"/>
+        <location filename="../../Form_Files/main.ui" line="1080"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -6666,22 +6685,22 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Liitä linkki tai muokkaa linkkiä.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1226"/>
+        <location filename="../../Form_Files/main.ui" line="1223"/>
         <source>Ctrl+=</source>
         <translation>Ctrl+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1249"/>
+        <location filename="../../Form_Files/main.ui" line="1246"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
         <translation>Näytä kirjatilassa se HTML-tagi, jonka vaikutusalueessa kohdistin on.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1252"/>
+        <location filename="../../Form_Files/main.ui" line="1249"/>
         <source>Ctrl+Alt+T</source>
         <translation>AltGr+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1264"/>
+        <location filename="../../Form_Files/main.ui" line="1261"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -6690,12 +6709,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Etsi ja korvaa kirjassa oleva teksti.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1269"/>
+        <location filename="../../Form_Files/main.ui" line="1266"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1281"/>
+        <location filename="../../Form_Files/main.ui" line="1278"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6704,12 +6723,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kasvattaa kappaleen sisennystasoa.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1286"/>
+        <location filename="../../Form_Files/main.ui" line="1283"/>
         <source>Ctrl+Alt+M</source>
         <translation>AltGr+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1298"/>
+        <location filename="../../Form_Files/main.ui" line="1295"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6718,13 +6737,13 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vähentää kappaleen sisennystasoa.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1303"/>
-        <location filename="../../Form_Files/main.ui" line="1725"/>
+        <location filename="../../Form_Files/main.ui" line="1300"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Vaihto+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1315"/>
+        <location filename="../../Form_Files/main.ui" line="1312"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -6737,7 +6756,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1331"/>
+        <location filename="../../Form_Files/main.ui" line="1328"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -6750,7 +6769,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1347"/>
+        <location filename="../../Form_Files/main.ui" line="1344"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -6763,12 +6782,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1359"/>
+        <location filename="../../Form_Files/main.ui" line="1356"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+välilyönti</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1371"/>
+        <location filename="../../Form_Files/main.ui" line="1368"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6781,12 +6800,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1378"/>
+        <location filename="../../Form_Files/main.ui" line="1375"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1390"/>
+        <location filename="../../Form_Files/main.ui" line="1387"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6799,12 +6818,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1397"/>
+        <location filename="../../Form_Files/main.ui" line="1394"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1409"/>
+        <location filename="../../Form_Files/main.ui" line="1406"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -6817,7 +6836,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1425"/>
+        <location filename="../../Form_Files/main.ui" line="1422"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -6830,72 +6849,57 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1434"/>
-        <source>&amp;Report An Issue...</source>
-        <translation>Ilmoita ongelmasta...</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1439"/>
-        <source>Sigil Dev &amp;Blog...</source>
-        <translation>Sigilin kehityksen blogi</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1444"/>
+        <location filename="../../Form_Files/main.ui" line="1436"/>
         <source>&amp;Next Tab</source>
         <translation>Seuraava välilehti</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1447"/>
+        <location filename="../../Form_Files/main.ui" line="1439"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PageUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1452"/>
+        <location filename="../../Form_Files/main.ui" line="1444"/>
         <source>&amp;Previous Tab</source>
         <translation>Edellinen välilehti</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1455"/>
+        <location filename="../../Form_Files/main.ui" line="1447"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PageDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1460"/>
+        <location filename="../../Form_Files/main.ui" line="1452"/>
         <source>&amp;Close Tab</source>
         <translation>Sulje välilehti</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1463"/>
+        <location filename="../../Form_Files/main.ui" line="1455"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1474"/>
+        <location filename="../../Form_Files/main.ui" line="1466"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1521"/>
-        <source>&amp;Validate EPUB With FlightCrew</source>
-        <translation>Tarkista epub-tiedosto FlightCrew’lla</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1529"/>
+        <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1534"/>
+        <location filename="../../Form_Files/main.ui" line="1524"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>Tarkista tyyliohjeet W3C:n CSS-tarkistimella</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1550"/>
+        <location filename="../../Form_Files/main.ui" line="1540"/>
         <source>&amp;Spellcheck...</source>
         <translation>Oikeinkirjoituksen tarkistus</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1553"/>
+        <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -6904,52 +6908,52 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Etsii kaikki väärin kirjoitetut sanat ja antaa sinun lisätä ne sanakirjaan tai ohittaa ne.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1558"/>
+        <location filename="../../Form_Files/main.ui" line="1548"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1569"/>
+        <location filename="../../Form_Files/main.ui" line="1559"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>Ota käyttöön tai poista käytöstä väärin kirjoitettujen sanojen korostus kooditilassa.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1574"/>
+        <location filename="../../Form_Files/main.ui" line="1564"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>Seuraava väärin kirjoitettu sana</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1596"/>
+        <location filename="../../Form_Files/main.ui" line="1586"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>Jätä nykyinen väärin kirjoitettu sana huomiotta, kunnes Sigil käynnistetään uudestaan.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1604"/>
+        <location filename="../../Form_Files/main.ui" line="1594"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>Tyhjennä niiden sanojen lista, jotka oikeinkirjoituksen tarkastus jättää huomiotta, tarvitsematta käynnistää Sigiliä uudestaan.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1612"/>
+        <location filename="../../Form_Files/main.ui" line="1602"/>
         <source>Ctrl+Alt+I</source>
         <translation>AltGr+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1617"/>
+        <location filename="../../Form_Files/main.ui" line="1607"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>Poista käyttämättömät mediatiedostot...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1622"/>
+        <location filename="../../Form_Files/main.ui" line="1612"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation>Poista CSS-säännöt, jotka perustuvat olemattomiin luokkiin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1630"/>
+        <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Vaihto+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1642"/>
+        <location filename="../../Form_Files/main.ui" line="1632"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -6960,307 +6964,307 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1682"/>
+        <location filename="../../Form_Files/main.ui" line="1672"/>
         <source>Replace</source>
         <translation>Korvaa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1690"/>
+        <location filename="../../Form_Files/main.ui" line="1680"/>
         <source>&amp;Replace/Find Next</source>
         <translation>Korvaa ja etsi seuraava</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1698"/>
+        <location filename="../../Form_Files/main.ui" line="1688"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>Korvaa ja etsi edellinen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1722"/>
+        <location filename="../../Form_Files/main.ui" line="1712"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>Merkitse valittu teksti</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1730"/>
+        <location filename="../../Form_Files/main.ui" line="1720"/>
         <source>Find &amp;Next In File</source>
         <translation>Etsi seuraava tiedostosta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1735"/>
+        <location filename="../../Form_Files/main.ui" line="1725"/>
         <source>&amp;Replace Next In File</source>
         <translation>Korvaa ja etsi seuraava tiedostossa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1740"/>
+        <location filename="../../Form_Files/main.ui" line="1730"/>
         <source>Replace &amp;All In File</source>
         <translation>Korvaa kaikki tiedostossa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1745"/>
+        <location filename="../../Form_Files/main.ui" line="1735"/>
         <source>&amp;Count All In File</source>
         <translation>Laske osumat tiedostossa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1753"/>
+        <location filename="../../Form_Files/main.ui" line="1743"/>
         <source>Ctrl+Alt+F</source>
         <translation>AltGr+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1764"/>
+        <location filename="../../Form_Files/main.ui" line="1754"/>
         <source>Ctrl+Alt+C</source>
         <translation>AltGr+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1769"/>
+        <location filename="../../Form_Files/main.ui" line="1759"/>
         <source>Clip &amp;1</source>
         <translation>Leike 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1772"/>
+        <location filename="../../Form_Files/main.ui" line="1762"/>
         <source>Insert Clip 1</source>
         <translation>Liitä leike 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1775"/>
+        <location filename="../../Form_Files/main.ui" line="1765"/>
         <source>Ctrl+Alt+1</source>
         <translation>AltGr+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1780"/>
+        <location filename="../../Form_Files/main.ui" line="1770"/>
         <source>Clip 2&amp;</source>
         <translation>Leike 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1783"/>
+        <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>Insert Clip 2</source>
         <translation>Liitä leike 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1786"/>
+        <location filename="../../Form_Files/main.ui" line="1776"/>
         <source>Ctrl+Alt+2</source>
         <translation>AltGr+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1791"/>
+        <location filename="../../Form_Files/main.ui" line="1781"/>
         <source>Clip &amp;3</source>
         <translation>Leike 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1794"/>
+        <location filename="../../Form_Files/main.ui" line="1784"/>
         <source>Insert Clip 3</source>
         <translation>Liitä leike 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1797"/>
+        <location filename="../../Form_Files/main.ui" line="1787"/>
         <source>Ctrl+Alt+3</source>
         <translation>AltGr+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1802"/>
+        <location filename="../../Form_Files/main.ui" line="1792"/>
         <source>Clip &amp;4</source>
         <translation>Leike 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1805"/>
+        <location filename="../../Form_Files/main.ui" line="1795"/>
         <source>Insert Clip 4</source>
         <translation>Liitä leike 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1808"/>
+        <location filename="../../Form_Files/main.ui" line="1798"/>
         <source>Ctrl+Alt+4</source>
         <translation>AltGr+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1813"/>
+        <location filename="../../Form_Files/main.ui" line="1803"/>
         <source>Clip &amp;5</source>
         <translation>Leike 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1816"/>
+        <location filename="../../Form_Files/main.ui" line="1806"/>
         <source>Insert Clip 5</source>
         <translation>Liitä leike 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1819"/>
+        <location filename="../../Form_Files/main.ui" line="1809"/>
         <source>Ctrl+Alt+5</source>
         <translation>AltGr+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1824"/>
+        <location filename="../../Form_Files/main.ui" line="1814"/>
         <source>Clip &amp;6</source>
         <translation>Leike 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1827"/>
+        <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Insert Clip 6</source>
         <translation>Liitä leike 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1830"/>
+        <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>Ctrl+Alt+6</source>
         <translation>AltGr+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1835"/>
+        <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>Clip &amp;7</source>
         <translation>Leike 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1838"/>
+        <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Insert Clip 7</source>
         <translation>Liitä leike 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1841"/>
+        <location filename="../../Form_Files/main.ui" line="1831"/>
         <source>Ctrl+Alt+7</source>
         <translation>AltGr+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1846"/>
+        <location filename="../../Form_Files/main.ui" line="1836"/>
         <source>Clip &amp;8</source>
         <translation>Leike 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1849"/>
+        <location filename="../../Form_Files/main.ui" line="1839"/>
         <source>Insert Clip 8</source>
         <translation>Liitä leike 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1852"/>
+        <location filename="../../Form_Files/main.ui" line="1842"/>
         <source>Ctrl+Alt+8</source>
         <translation>AltGr+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1857"/>
+        <location filename="../../Form_Files/main.ui" line="1847"/>
         <source>Clip &amp;9</source>
         <translation>Leike 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1860"/>
+        <location filename="../../Form_Files/main.ui" line="1850"/>
         <source>Insert Clip 9</source>
         <translation>Liitä leike 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1863"/>
+        <location filename="../../Form_Files/main.ui" line="1853"/>
         <source>Ctrl+Alt+9</source>
         <translation>AltGr+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1868"/>
+        <location filename="../../Form_Files/main.ui" line="1858"/>
         <source>Clip 1&amp;0</source>
         <translation>Leike 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1871"/>
+        <location filename="../../Form_Files/main.ui" line="1861"/>
         <source>Insert Clip 10</source>
         <translation>Liitä leike 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1874"/>
+        <location filename="../../Form_Files/main.ui" line="1864"/>
         <source>Ctrl+Alt+0</source>
         <translation>AltGr+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1879"/>
+        <location filename="../../Form_Files/main.ui" line="1869"/>
         <source>Clip 11</source>
         <translation>Leike 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1882"/>
+        <location filename="../../Form_Files/main.ui" line="1872"/>
         <source>Insert Clip 11</source>
         <translation>Liitä leike 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1887"/>
+        <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>Clip 12</source>
         <translation>Leike 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1890"/>
+        <location filename="../../Form_Files/main.ui" line="1880"/>
         <source>Insert Clip 12</source>
         <translation>Liitä leike 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1895"/>
+        <location filename="../../Form_Files/main.ui" line="1885"/>
         <source>Clip 13</source>
         <translation>Leike 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1898"/>
+        <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>Insert Clip 13</source>
         <translation>Liitä leike 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1903"/>
+        <location filename="../../Form_Files/main.ui" line="1893"/>
         <source>Clip 14</source>
         <translation>Leike 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1906"/>
+        <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Insert Clip 14</source>
         <translation>Liitä leike 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1911"/>
+        <location filename="../../Form_Files/main.ui" line="1901"/>
         <source>Clip 15</source>
         <translation>Leike 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1914"/>
+        <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>Insert Clip 15</source>
         <translation>Liitä leike 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1919"/>
+        <location filename="../../Form_Files/main.ui" line="1909"/>
         <source>Clip 16</source>
         <translation>Leike 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1922"/>
+        <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>Insert Clip 16</source>
         <translation>Liitä leike 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1927"/>
+        <location filename="../../Form_Files/main.ui" line="1917"/>
         <source>Clip 17</source>
         <translation>Leike 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1930"/>
+        <location filename="../../Form_Files/main.ui" line="1920"/>
         <source>Insert Clip 17</source>
         <translation>Liitä leike 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1935"/>
+        <location filename="../../Form_Files/main.ui" line="1925"/>
         <source>Clip 18</source>
         <translation>Leike 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1938"/>
+        <location filename="../../Form_Files/main.ui" line="1928"/>
         <source>Insert Clip 18</source>
         <translation>Liitä leike 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1943"/>
+        <location filename="../../Form_Files/main.ui" line="1933"/>
         <source>Clip 19</source>
         <translation>Leike 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1946"/>
+        <location filename="../../Form_Files/main.ui" line="1936"/>
         <source>Insert Clip 19</source>
         <translation>Liitä leike 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1951"/>
+        <location filename="../../Form_Files/main.ui" line="1941"/>
         <source>Clip 20</source>
         <translation>Leike 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1954"/>
+        <location filename="../../Form_Files/main.ui" line="1944"/>
         <source>Insert Clip 20</source>
         <translation>Liitä leike 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1988"/>
+        <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -7269,12 +7273,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tee kappaleesta 1. tason otsikko.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1993"/>
+        <location filename="../../Form_Files/main.ui" line="1983"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2008"/>
+        <location filename="../../Form_Files/main.ui" line="1998"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -7283,12 +7287,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tee kappaleesta 2. tason otsikko.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2013"/>
+        <location filename="../../Form_Files/main.ui" line="2003"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2028"/>
+        <location filename="../../Form_Files/main.ui" line="2018"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -7297,12 +7301,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tee kappaleesta 3. tason otsikko.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2033"/>
+        <location filename="../../Form_Files/main.ui" line="2023"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2048"/>
+        <location filename="../../Form_Files/main.ui" line="2038"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -7311,12 +7315,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tee kappaleesta 4. tason otsikko.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2053"/>
+        <location filename="../../Form_Files/main.ui" line="2043"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2068"/>
+        <location filename="../../Form_Files/main.ui" line="2058"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -7325,12 +7329,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tee kappaleesta 5. tason otsikko.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2073"/>
+        <location filename="../../Form_Files/main.ui" line="2063"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2088"/>
+        <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -7339,12 +7343,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tee kappaleesta 6. tason otsikko.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2093"/>
+        <location filename="../../Form_Files/main.ui" line="2083"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2108"/>
+        <location filename="../../Form_Files/main.ui" line="2098"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -7353,32 +7357,32 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muotoile kappaleesta normaali tekstikappale.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2113"/>
+        <location filename="../../Form_Files/main.ui" line="2103"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2124"/>
+        <location filename="../../Form_Files/main.ui" line="2114"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>Säilytä tagiin liittyvät määritteet soveltaessasi tätä tyyliä</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2129"/>
+        <location filename="../../Form_Files/main.ui" line="2119"/>
         <source>Blank HTML File</source>
         <translation>Tyhjä HTML-tiedosto</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2132"/>
+        <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>Lisää kirjaan tyhjä HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2141"/>
+        <location filename="../../Form_Files/main.ui" line="2131"/>
         <source>Existing Files...</source>
         <translation>Valmiita tiedostoja...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2144"/>
+        <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -7387,72 +7391,72 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lisää kirjaan tiedostoja tietokoneestasi.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2154"/>
+        <location filename="../../Form_Files/main.ui" line="2144"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>Lisää kirjaan tyhjä tyyliohje.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2162"/>
+        <location filename="../../Form_Files/main.ui" line="2152"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>Lisää kirjaan tyhjä SVG-kuvatiedosto.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2170"/>
+        <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Open previous file of the same type.</source>
         <translation>Avaa edellinen samantyyppinen tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2181"/>
+        <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Open next file of the same type.</source>
         <translation>Avaa seuraava samantyyppinen tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2192"/>
+        <location filename="../../Form_Files/main.ui" line="2182"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>Lisää valittu teksti hakemistoeditoriin.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2203"/>
+        <location filename="../../Form_Files/main.ui" line="2193"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Vaihto+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2200"/>
+        <location filename="../../Form_Files/main.ui" line="2190"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>Merkitse valittu teksti sisällytettäväksi hakemistoon.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2211"/>
+        <location filename="../../Form_Files/main.ui" line="2201"/>
         <source>Generate a new Index HTML file.</source>
         <translation>Luo uusi HTML-muotoinen hakemistotiedosto.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2219"/>
+        <location filename="../../Form_Files/main.ui" line="2209"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>Luo uusi HTML-tiedosto nykyisestä sisällysluettelosta.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2224"/>
+        <location filename="../../Form_Files/main.ui" line="2214"/>
         <source>Book&amp;mark Location</source>
         <translation>Tee kirjanmerkki</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2227"/>
+        <location filename="../../Form_Files/main.ui" line="2217"/>
         <source>Ctrl+Alt+B</source>
         <translation>AltGr+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2235"/>
+        <location filename="../../Form_Files/main.ui" line="2225"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2244"/>
+        <location filename="../../Form_Files/main.ui" line="2234"/>
         <source>&amp;Back</source>
         <translation>Takaisin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2247"/>
+        <location filename="../../Form_Files/main.ui" line="2237"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -7463,116 +7467,112 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2253"/>
+        <location filename="../../Form_Files/main.ui" line="2243"/>
         <source>Ctrl+\</source>
         <translation>  ‌</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2261"/>
+        <location filename="../../Form_Files/main.ui" line="2251"/>
         <source>Ctrl+Alt+V</source>
         <translation>AltGr+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1485"/>
+        <location filename="../../Form_Files/main.ui" line="1477"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Vaihto+Enter</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1261"/>
+        <location filename="../../Form_Files/main.ui" line="1258"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>Etsi ja korvaa...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1278"/>
+        <location filename="../../Form_Files/main.ui" line="1275"/>
         <source>Incre&amp;ase Indent</source>
         <translation>Suurenna sisennystä</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1295"/>
+        <location filename="../../Form_Files/main.ui" line="1292"/>
         <source>&amp;Decrease Indent</source>
         <translation>Pienennä sisennystä</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1312"/>
+        <location filename="../../Form_Files/main.ui" line="1309"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>Tekstin suunta vasemmalta oikealle</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1328"/>
+        <location filename="../../Form_Files/main.ui" line="1325"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>Tekstin suunta oikealta vasemmalle</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1344"/>
+        <location filename="../../Form_Files/main.ui" line="1341"/>
         <source>Text Directi&amp;on Default</source>
         <translation>Tekstin suunta periytyvä</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1356"/>
+        <location filename="../../Form_Files/main.ui" line="1353"/>
         <source>Remove &amp;Formatting</source>
         <translation>Poista muotoilu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1368"/>
+        <location filename="../../Form_Files/main.ui" line="1365"/>
         <source>&amp;Lowercase</source>
         <translation>Gemena</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1387"/>
+        <location filename="../../Form_Files/main.ui" line="1384"/>
         <source>&amp;Uppercase</source>
         <translation>Versaali</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1406"/>
+        <location filename="../../Form_Files/main.ui" line="1403"/>
         <source>&amp;Titlecase</source>
         <translation>Sanat versaalialkuisiksi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1422"/>
+        <location filename="../../Form_Files/main.ui" line="1419"/>
         <source>&amp;Capitalize</source>
         <translation>Ensimmäinen kirjain versaaliksi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1468"/>
+        <location filename="../../Form_Files/main.ui" line="1431"/>
+        <source>Sigil Website...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1460"/>
         <source>Split At &amp;Markers</source>
         <translation>Jaa jakomerkkien kohdalta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1471"/>
+        <location filename="../../Form_Files/main.ui" line="1463"/>
         <source>Split At Sigil split file markers</source>
         <translation>Jaa tiedosto osiin merkityistä jakokohdista.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1479"/>
+        <location filename="../../Form_Files/main.ui" line="1471"/>
         <source>Split &amp;Marker</source>
         <translation>Jakomerkki</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1482"/>
+        <location filename="../../Form_Files/main.ui" line="1474"/>
         <source>Insert Sigil split file marker</source>
         <translation>Lisää jakokohtamerkki tiedostoiksi jakamista varten</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1501"/>
+        <location filename="../../Form_Files/main.ui" line="1493"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>Usein kysyttyä (engl.)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1504"/>
+        <location filename="../../Form_Files/main.ui" line="1496"/>
         <source>Frequently Asked Questions</source>
         <translation>Usein kysyttyä (engl.)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1524"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB with FlightCrew&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Tarkista epub FlightCrew’lla&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tarkista FlightCrew’lla, noudattaako kirja epub-määrittelyjä.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1537"/>
+        <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -7585,374 +7585,384 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1566"/>
+        <location filename="../../Form_Files/main.ui" line="1556"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>Korosta väärin kirjoitetut sanat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1577"/>
+        <location filename="../../Form_Files/main.ui" line="1567"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>Etsi kirjan seuraava väärin kirjoitettu sana.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1580"/>
+        <location filename="../../Form_Files/main.ui" line="1570"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1585"/>
+        <location filename="../../Form_Files/main.ui" line="1575"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>Lisää väärin kirjoitettu sana</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1588"/>
+        <location filename="../../Form_Files/main.ui" line="1578"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>Lisää nykyinen väärin kirjoitettu sana käyttäjän oletussanakirjaan.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1593"/>
+        <location filename="../../Form_Files/main.ui" line="1583"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>Jätä väärin kirjoitettu sana huomiotta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1601"/>
+        <location filename="../../Form_Files/main.ui" line="1591"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>Tyhjennä huomiotta jätettävien sanojen lista</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1609"/>
+        <location filename="../../Form_Files/main.ui" line="1599"/>
         <source>&amp;Index Editor...</source>
         <translation>Hakemistoeditori</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1627"/>
+        <location filename="../../Form_Files/main.ui" line="1617"/>
         <source>&amp;Reports...</source>
         <translation>Raportit...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1639"/>
+        <location filename="../../Form_Files/main.ui" line="1629"/>
         <source>&amp;Donate...</source>
         <translation>Lahjoita...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1650"/>
+        <location filename="../../Form_Files/main.ui" line="1640"/>
         <source>Close &amp;Other Tabs</source>
         <translation>Sulje muut välilehdet</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1658"/>
+        <location filename="../../Form_Files/main.ui" line="1648"/>
         <source>Go To &amp;Line...</source>
         <translation>Siirry riville...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1666"/>
+        <location filename="../../Form_Files/main.ui" line="1656"/>
         <source>Find &amp;Next</source>
         <translation>Etsi seuraava</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1674"/>
+        <location filename="../../Form_Files/main.ui" line="1664"/>
         <source>Find &amp;Previous</source>
         <translation>Etsi edellinen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1706"/>
+        <location filename="../../Form_Files/main.ui" line="1696"/>
         <source>Replace &amp;All</source>
         <translation>Korvaa kaikki</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1714"/>
+        <location filename="../../Form_Files/main.ui" line="1704"/>
         <source>&amp;Count All</source>
         <translation>Laske osumat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1758"/>
+        <location filename="../../Form_Files/main.ui" line="1748"/>
         <source>&amp;Clip Editor...</source>
         <translation>Leike-editori</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1761"/>
+        <location filename="../../Form_Files/main.ui" line="1751"/>
         <source>Open the Clip Editor.</source>
         <translation>Avaa leike-editori</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1985"/>
+        <location filename="../../Form_Files/main.ui" line="1975"/>
         <source>Heading &amp;1</source>
         <translation>Otsikko 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2005"/>
+        <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>Heading &amp;2</source>
         <translation>Otsikko 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2025"/>
+        <location filename="../../Form_Files/main.ui" line="2015"/>
         <source>Heading &amp;3</source>
         <translation>Otsikko 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2045"/>
+        <location filename="../../Form_Files/main.ui" line="2035"/>
         <source>Heading &amp;4</source>
         <translation>Otsikko 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2065"/>
+        <location filename="../../Form_Files/main.ui" line="2055"/>
         <source>Heading &amp;5</source>
         <translation>Otsikko 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2085"/>
+        <location filename="../../Form_Files/main.ui" line="2075"/>
         <source>Heading &amp;6</source>
         <translation>Otsikko 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2105"/>
+        <location filename="../../Form_Files/main.ui" line="2095"/>
         <source>&amp;Normal</source>
         <translation>Normaali</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2121"/>
+        <location filename="../../Form_Files/main.ui" line="2111"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>Säilytä olemassaolevat määritteet</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2178"/>
+        <location filename="../../Form_Files/main.ui" line="2168"/>
         <source>Next &amp;File</source>
         <translation>Seuraava tiedosto</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2189"/>
+        <location filename="../../Form_Files/main.ui" line="2179"/>
         <source>&amp;Add To Index Editor</source>
         <translation>Lisää hakemistoeditoriin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2197"/>
+        <location filename="../../Form_Files/main.ui" line="2187"/>
         <source>&amp;Mark For Index</source>
         <translation>Merkitse hakemistoa varten</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2208"/>
+        <location filename="../../Form_Files/main.ui" line="2198"/>
         <source>&amp;Create Index</source>
         <translation>Luo hakemisto</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="944"/>
+        <location filename="../../Form_Files/main.ui" line="941"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>Luo sisällysluettelo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2216"/>
+        <location filename="../../Form_Files/main.ui" line="2206"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation>Luo HTML-sisällysluettelo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2232"/>
+        <location filename="../../Form_Files/main.ui" line="2222"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>Siirry linkkiin tai tyyliin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2258"/>
+        <location filename="../../Form_Files/main.ui" line="2248"/>
         <source>Paste From Clipboard &amp;History...</source>
         <translation>Liitä leikepöydän historiasta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2266"/>
+        <location filename="../../Form_Files/main.ui" line="2256"/>
         <source>&amp;Delete Line</source>
         <translation>Poista rivi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2269"/>
+        <location filename="../../Form_Files/main.ui" line="2259"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1653"/>
+        <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Ctrl+Alt+W</source>
         <translation>AltGr+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1661"/>
+        <location filename="../../Form_Files/main.ui" line="1513"/>
+        <source>&amp;Validate EPUB</source>
+        <translation>&amp;Tarkista EPUB</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Tarkista EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Tarkista, että dokumentti noudattaa EPUB-määrittelyn vähimmäisvaatimuksia. Tämä ei ole täydellinen skeemapohjainen validointi eikä takaa määrittelynmukaisuutta.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1651"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1669"/>
+        <location filename="../../Form_Files/main.ui" line="1659"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1677"/>
+        <location filename="../../Form_Files/main.ui" line="1667"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Vaihto+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1693"/>
+        <location filename="../../Form_Files/main.ui" line="1683"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1701"/>
+        <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1709"/>
+        <location filename="../../Form_Files/main.ui" line="1699"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1717"/>
+        <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1750"/>
+        <location filename="../../Form_Files/main.ui" line="1740"/>
         <source>&amp;Saved Searches...</source>
         <translation>Tallennetut haut...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1959"/>
+        <location filename="../../Form_Files/main.ui" line="1949"/>
         <source>&amp;Preferences...</source>
         <translation>Asetukset...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1962"/>
+        <location filename="../../Form_Files/main.ui" line="1952"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1967"/>
+        <location filename="../../Form_Files/main.ui" line="1957"/>
         <source>&amp;Zoom Reset</source>
         <translation>Palauta fonttikoko</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1970"/>
+        <location filename="../../Form_Files/main.ui" line="1960"/>
         <source>Zoom Reset</source>
         <translation>Palauta fonttikoko</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1973"/>
+        <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2151"/>
+        <location filename="../../Form_Files/main.ui" line="2141"/>
         <source>Blank Stylesheet</source>
         <translation>Tyhjä tyyliohje</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2159"/>
+        <location filename="../../Form_Files/main.ui" line="2149"/>
         <source>Blank SVG Image</source>
         <translation>Tyhjä SVG-kuva</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2167"/>
+        <location filename="../../Form_Files/main.ui" line="2157"/>
         <source>Pre&amp;vious File</source>
         <translation>Edellinen tiedosto</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2173"/>
+        <location filename="../../Form_Files/main.ui" line="2163"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PageUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="927"/>
+        <location filename="../../Form_Files/main.ui" line="924"/>
         <source>&amp;Metadata Editor...</source>
         <translation>Metatietoeditori</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1490"/>
+        <location filename="../../Form_Files/main.ui" line="1482"/>
         <source>User &amp;Guide...</source>
         <translation>Käyttöopas (engl.)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1493"/>
+        <location filename="../../Form_Files/main.ui" line="1485"/>
         <source>User Guide</source>
         <translation>Käyttöopas</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1496"/>
+        <location filename="../../Form_Files/main.ui" line="1488"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1509"/>
+        <location filename="../../Form_Files/main.ui" line="1501"/>
         <source>&amp;Tutorials...</source>
         <translation>Oppaita (engl.)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1512"/>
+        <location filename="../../Form_Files/main.ui" line="1504"/>
         <source>Tutorials</source>
         <translation>Oppaita (engl.)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2184"/>
+        <location filename="../../Form_Files/main.ui" line="2174"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PageDown</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="627"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="641"/>
         <source>Open File</source>
         <translation>Avaa tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="730"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="748"/>
         <source>Save File</source>
         <translation>Tallenna tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="853"/>
         <source>Go To Line</source>
         <translation>Siirry riville</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="853"/>
         <source>Line #</source>
         <translation>Rivi nro</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="433"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="665"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="858"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1211"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1298"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1353"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1361"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1513"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1550"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1577"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1582"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1795"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1809"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1814"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1857"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3115"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3121"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3257"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3451"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="442"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="679"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="876"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1248"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1398"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1415"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1538"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1552"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1570"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1578"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1589"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1594"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1606"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1616"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1827"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1848"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1868"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1896"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3285"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="386"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="395"/>
         <source>Location bookmarked.</source>
         <translation>Kohde lisätty kirjanmerkkeihin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="433"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="442"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -7961,370 +7971,375 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="606"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="620"/>
         <source>New file created.</source>
         <translation>Uusi tiedosto luotu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="797"/>
         <source>Save a Copy</source>
         <translation>Tallenna kopio</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="946"/>
         <source>No CSS styles named</source>
         <translation>Ei nimettyjä CSS-tyylejä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1201"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1238"/>
         <source>Styles deleted.</source>
         <translation>Tyylit poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1479"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Tiedostoa &quot;%1&quot; ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Et voi lisätä tähän paikkaan tunnistetta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1623"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1634"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1673"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
         <source>Select the destination to paste into first.</source>
         <translation>Valitse ensin kohde, johon liitetään.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1827"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Yksi resurssi on valittuna eikä sitä ennen ole resurssia, johon sen voisi yhdistää.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1834"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Oletko varma, että haluat yhdistää valitut tiedostot?
 Tätä toimenpidettä ei voi peruuttaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1896"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Tyyliohjeiden linkitys peruutettiin: %1, XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1814"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Yhdistäminen peruutettu, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1878"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Yhdistäminen tehty. Sisällysluettelon uudelleen luominen tai muokkaaminen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1988"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2027"/>
         <source>Word updated.</source>
         <translation>Sana päivitetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2053"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2100"/>
         <source>File(s) deleted.</source>
         <translation>Tiedosto(ja) poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2148"/>
         <source>Table Of Contents generated.</source>
         <translation>Sisällysluettelo luotu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2444"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2473"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Tämä kirja ei sisällä CSS-tyyliohjeita tarkistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>File cannot be split at this position.</source>
         <translation>Tiedostoa ei voida jakaa tästä kohdasta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3090"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
         <source>Split completed.</source>
         <translation>Jako suoritettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Jako tehty. Sisällysluettelon uudelleen luominen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Jakokohtamerkintöjä ei löytynyt. Käytä komentoa Lisää → Jakokohta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3357"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3385"/>
         <source>File loaded.</source>
         <translation>Tiedosto ladattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3418"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
         <source>Saving EPUB...</source>
         <translation>Kirjaa tallennetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil ei voi tallentaa tyyppiä ”%1” olevia tiedostoja.
 Valitse toinen muoto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="370"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Navigointi peruutettu, koska kohdetta ei enää ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="479"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="488"/>
         <source>was updated</source>
         <translation>päivitettiin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="495"/>
         <source>Warning</source>
         <translation>Varoitus</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="525"/>
         <source>Select Show Details for more information.</source>
         <translation>Valitse ”Näytä yksityiskohdat” saadaksesi lisää tietoa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="561"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="570"/>
         <source>Sigil is closing...</source>
         <translation>Sigil suljetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="664"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="678"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Tätä tiedostoa ei enää ole. Napsauta OK-painiketta poistaaksesi sen valikosta.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1361"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1398"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Käyttämättömien tyylien poisto peruuntui, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1415"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Tyyliohjeissa ei ole käyttämättömiä luokkia poistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1552"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>Tunniste on virheellinen. Tunnisteen pitää alkaa kirjaimella, ja siinä saa olla kirjaimia, numeroita ja merkkejä ”_:-.”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1606"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Et voi tehdä hakemistomerkintää tähän kohtaan tai valitsematta tekstiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1582"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1621"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Et voi tehdä hakemistomerkintää tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1868"/>
         <source>Cannot merge file %1</source>
         <translation>Ei voi yhdistää tiedostoa %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2086"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2133"/>
         <source>Generate TOC cancelled.</source>
         <translation>Sisällysluettelon luonti peruutettiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2103"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2150"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Sisällysluetteloon ei tarvittu muutoksia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
         <source>Line: %1, Col: %2</source>
         <translation>Rivi: %1, sarake: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3258"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokumenttia on muutettu.
 Haluatko tallentaa muutoksesi?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3359"/>
         <source>No importer for file type: %1</source>
         <translation>Ei tuontiohjelmaa tyyppiä ”%1” olevalle tiedostolle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="336"/>
+        <location filename="../../Form_Files/main.ui" line="333"/>
         <source>Plugins</source>
         <translation>Lisäosat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2274"/>
+        <location filename="../../Form_Files/main.ui" line="2264"/>
         <source>Manage Plugins</source>
         <translation>Lisäosien hallinta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="240"/>
         <source>Input</source>
         <translation>Syöte</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="246"/>
         <source>Output</source>
         <translation>Tuloste</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="258"/>
+        <source>Validation</source>
+        <translation>Validointi</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="495"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Tiedosto ei ollut oikeamuotoinen ja voi olla vahingoittunut.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
         <source>This EPUB contains errors.</source>
         <translation>Tämä kirja sisältää virheitä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="858"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="876"/>
         <source>Image does not exist: </source>
         <translation>Kuvaa ei ole:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1019"/>
         <source>Add Cover</source>
         <translation>Lisää kansi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1099"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Odottamaton virhe. Kantta varten voidaan käyttää vain kuvatiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1116"/>
         <source>Cover added.</source>
         <translation>Kansi lisätty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1211"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1248"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Raporttien tuottaminen peruutettiin, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1298"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1335"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Käyttämättömien mediatiedostojen poisto peruuntui, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
         <source>Unused media files deleted.</source>
         <translation>Käyttämättömät mediatiedostot poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1390"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Ei ole käyttämättömiä kuva-, video- tai audiotiedostoja poistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Et voi liittää tiedostoa tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1395"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
         <source>Insert File</source>
         <translation>Lisää tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1538"/>
         <source>You must select text before inserting a new id.</source>
         <translation>Valitse teksti ennen uuden tunnisteen määrittelemistä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1570"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1594"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Tähän kohtaan ei voi lisätä linkkiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1578"/>
         <source>You must select text before inserting a new link.</source>
         <translation>Valitse teksti ennen uuden linkin luomista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1550"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1589"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Linkki on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1577"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1616"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Kohta on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1642"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1681"/>
         <source>Pasted clip entry %1.</source>
         <translation>Liitettiin leike %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1809"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1848"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation>Yhdistäminen peruutettu: %1, XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Sisällysluettelon muokkaus peruutettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2069"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2116"/>
         <source>Table Of Contents edited.</source>
         <translation>Sisällysluetteloa muokattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2228"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2275"/>
         <source>Text selection marked.</source>
         <translation>Valittu teksti merkitty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2230"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2248"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2277"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2295"/>
         <source>Text selection unmarked.</source>
         <translation>Valitun tekstin merkitseminen poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3115"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Ei voi jakaa: %1 XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ehkä ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3338"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3366"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8337,27 +8352,27 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
 Muuta asetuksia niin, että tiedosto siistitään lataamisen yhteydessä, ja lataa se uudestaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3343"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3371"/>
         <source>Loading file...</source>
         <translation>Ladataan tiedostoa...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3384"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3412"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tämän tiedoston tuottaja on salannut sen DRM:llä. Sigil ei voi avata sellaisia tiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3419"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Kirjaa ei voi ladaya: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
         <source>Cannot load file %1: %2</source>
         <translation>Ei voi ladata tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
@@ -8366,69 +8381,69 @@ Do you want to automatically fix the files before saving?</source>
 Haluatko korjata nämä tiedostot automaattisesti ennen tallentamista?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3517"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>Kirja on tallennettu, mutta kaikki HTML-tiedostot eivät ole oikeamuotoisia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3519"/>
         <source>EPUB saved.</source>
         <translation>Kirja tallennettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
         <source>Cannot save file %1: %2</source>
         <translation>Ei voi tallentaa tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3660"/>
         <source>EPUB files (*.epub)</source>
         <translation>Epub-tiedostot (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3627"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3628"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML-tiedostot (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3630"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
         <source>Text files (*.txt)</source>
         <translation>Tekstitiedostot (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3665"/>
         <source>All files (*.*)</source>
         <translation>Kaikki tiedostot (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3639"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3673"/>
         <source>EPUB file (*.epub)</source>
         <translation>Epub-tiedosto (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3754"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Säilytä olemassaolevat otsikoiden määritteet on nyt:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3721"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
         <source>ON</source>
         <translation>käytössä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3721"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
         <source>OFF</source>
         <translation>ei käytössä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3746"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3780"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -8602,2308 +8617,2308 @@ Haluatko tallentaa muutoksesi?</translation>
 <context>
     <name>Metadata</name>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>Subject</source>
         <translation>Aihe</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>Mikä tahansa fraasi tai avainsana, joka kuvaa kyseessä olevaa aihetta. Käytä tarvittaessa useita aihe-elementtejä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Description</source>
         <translation>Kuvaus</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Julkaisun sisällön kuvaus.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Publisher</source>
         <translation>Julkaisija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Taho, joka on vastuussa julkaisun saattamisesta saataville.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>The date of publication.</source>
         <translation>Julkaisemisen ajankohta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="221"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>The date of creation.</source>
         <translation>Luomisen ajankohta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="222"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>The date of modification.</source>
         <translation>Muuttamisen ajankohta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Type</source>
         <translation>Tyyppi</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Sisällön luonne tai laji.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Format</source>
         <translation>Muoto</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>Julkaisun mediatyyppi tai ulottuvuudet. Suositeltava käytäntö on, että arvo on otettu hallitusta sanastosta (esimerkiksi MIME-mediatyypit).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Source</source>
         <translation>Lähde</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Viittaus resurssiin, josta julkaisu on johdettu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Language</source>
         <translation>Kieli</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>An optional extra language of the publication.  Use a value from the Language drop down menu.  For example use &apos;English&apos; instead of the language code &apos;en&apos;.</source>
         <translation>Julkaisun lisäkieli. Kirjoita kielen nimi sellaisena, kuin se esiintyy Kieli-pudotusvalikosta. Kirjoita esimerkiksi ”ruotsi”, älä kielitunnusta ”sv”.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="228"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Relation</source>
         <translation>Viittaus</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="228"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Viittaus resurssiin, joka liittyy teokseen. Suositeltu käytäntö on, että tällainen resurssi yksilöidään merkkijonolla tai luvulla, joka on jonkin muodollisen tunnistejärjestelmän mukainen.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Coverage</source>
         <translation>Kattavuus</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Julkaisun sisällön laajuus tai kattavuus.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Rights</source>
         <translation>Oikeudet</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Tietoja julkaisussa olevista ja sitä koskevista oikeuksista. Oikeustietoihin sisältyy usein immateriaalioikeuksia kuten tekijänoikeuksia. Jos Oikeudet-elementti puuttuu, ei mitään oletuksia saa tehdä mistään julkaisussa olevista tai sitä koskevista oikeuksista.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Title</source>
         <translation>Nimi</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>An optional extra title of the publication in addition to the main title already entered.</source>
         <translation>Julkaisun nimen lisäosa, joka täydentää jo annettua varsinaista nimeä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="232"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Digital Object Identifier</source>
         <translation>DOI-tunniste, Digital Object Identifier</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="233"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>International Standard Book Number</source>
         <translation>International Standard Book Number (teoksen standardinumero)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="234"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>International Standard Serial Number</source>
         <translation>International Standard Serial Number (sarjajulkaisun standardinumero)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Actor</source>
         <translation>Näyttelijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka esittää musiikkia tai näyttelee.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Adapter</source>
         <translation>Muokkaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka 1) muokkaa musiikkiteosta, tavallisesti eri välinettä varten tai 2) muokkaa kirjallisia teoksia elokuvaa tai muuta audiovisuaalista välinettä varten.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Analyst</source>
         <translation>Analyytikko</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka arvioi, tutkii ja tulkitsee dataa tai tietoa tietyllä alalla.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Animator</source>
         <translation>Animaattori</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka piirtää kaksiulotteisia kuvioita, käsittelee kolmiulotteisia olioita tai ohjelmoi tietokonetta siirtämään olioita ja kuvia animaatioelokuvia varten.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Annotator</source>
         <translation>Muistiinpanojen tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
         <translation>Käytä henkilölle, joka kirjoittaa painotuotetta koskevia käsikirjoituskommentteja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Applicant</source>
         <translation>Hakemuksen tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa hakemuksen lähettämisestä tai joka on nimetty ottamaan vastaan hakemuksen käsittelyn tuloksia (esimerkiksi oikeuksien, palkinnon, arvonimen tai aseman myöntäminen).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Architect</source>
         <translation>Arkkitehti</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee rakenteita tai valvoo niiden toteuttamista.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Arranger</source>
         <translation>Sovittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka muuntaa musiikkiteoksen toiseen muotoon, tavallisesti alkuperäisestä poikkeavaan välineeseen. Sovituksessa musiikillinen sisältö pysyy olennaisesti muuttumattomana.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Art copyist</source>
         <translation>Taiteen kopioija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
         <translation>Käytä henkilölle (esimerkiksi taidemaalarille tai kuvanveistäjälle), joka tekee kopioita visuaalisen taiteen teoksista.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Artist</source>
         <translation>Kuvataiteilija, graafikko</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
         <translation>Käytä henkilölle (esimerkiksi maalarille) tai organisaatiolle, joka suunnittelee ja mahdollisesti myös toteuttaa alkuperäisen graafisen asun tai taideteoksen, ellei haluta käyttää tarkempaa roolia (kuten kaivertaja [egr] tai etsaaja [etr]). Kirjan kuvittajille suositellaan mieluummin roolia kuvittaja [ill].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Artistic director</source>
         <translation>Taiteellinen johtaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
         <translation>Käytä henkilölle, joka on vastuussa koko tuotantoprosessin taiteellisen tyylin kehittämisen valvonnasta, mukaan lukien esitettävien teosten valinta ja kokeneen tuotantohenkilöstön valinnasta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Assignee</source>
         <translation>Lisenssinhoitaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
         <translation>Käytä henkilölle tai organaatiolle, jolle  julkaisemislisenssi on siirretty.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Associated name</source>
         <translation>Kohteeseen liittyvä nimi</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka liittyy tai sisältyy kohteeseen tai kokoelmaan ja jonka ei voida määrittää olevan aiempi omistaja [fmo] eikä muussa roolissa, joka osoittaa alkuperää.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Attributed name</source>
         <translation>Oletettu/väitetty tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
         <translation>Käytä kirjoittajalle, taiteilijalle tms. yhdistäen hänet teokseen, jos on olemassa tai on ollut olemassa merkittävä peruste ilmoittaa hänet teoksen tekijäksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Auctioneer</source>
         <translation>Huutokaupanpitäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka vastaa tavaroiden, etenkin kirjojen, taideteosten yms., arvioinnista ja myynnistä julkisissa huutokaupoissa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Author</source>
         <translation>Tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on pääasiassa vastuussa teoksen, yleensä painetun tekstin, henkisestä tai taiteellisesta sisällöstä. Tätä termiä voidaan käyttää silloinkin, kun useammalle kuin yhdellä on sellainen vastuu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Author in quotations or text extracts</source>
         <translation>Lainausten tai otteiden tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka teoksista on laajasti lainauksia tai otteita teoksissa, joihin hän ei antanut suoraa panosta. Sellaisia lainauksia on erityisesti näyttelyluetteloissa, valokuvakuvakokoelmissa yms.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Author of afterword, colophon, etc.</source>
         <translation>Jälkisanojen, kolofonin jne. tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa jälkisanoista, kolofonista tms., mutta ei ole teoksen päätekijä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Author of dialog</source>
         <translation>Dialogin tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa näytelmän tai äänitteen dialogista tai puhutusta selostuksesta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Author of introduction, etc.</source>
         <translation>Esipuheen tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa johdannosta, esipuheesta, alkusanoista tai muusta arvioivasta johdattavasta aineistosta, mutta ei ole päätekijä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Author of screenplay, etc.</source>
         <translation>Käsikirjoittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa elokuvan käsikirjoituksesta, vuorosanoista, puhutusta selostuksesta tms.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Bibliographic antecedent</source>
         <translation>Bibliografinen edeltäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa työstä, johon tämä työ perustuu. Tämä voi soveltua sovituksiin, jatko-osiin, jatkosarjoihin, hakemistoihin yms.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Binder</source>
         <translation>Sitoja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa painetun aineiston tai käsikirjoituksen sidonnasta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Binding designer</source>
         <translation>Sidonnan suunnittelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirja sidonnan suunnittelusta, mukaan lukien sidonnan tyyppi, käytetyt materiaalit ja sidonnan koristelu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Book designer</source>
         <translation>Kirjan suunnittelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirjan koko graafisesta suunnittelusta, mukaan lukien taiton ja kuvituksen järjestäminen, materiaalien valinta ja käytetyt menetelmät.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Book producer</source>
         <translation>Kirjan tuottaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirjojen ja muiden painotuotteiden tuottamisesta, ellei haluta käyttää tarkempia koodeja (esimerkiksi [bkd], [egr], [tyd] tai [prt]).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Bookjacket designer</source>
         <translation>Irtopäällyksen suunnittelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa niiden taipuisien päällysten suunnittelusta, jotka tehdään kirjaa varten tai julkaistaan sen kanssa, mukaan lukien käytettyjen materiaalien laji ja irtopäällyksen koristelu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Bookplate designer</source>
         <translation>Exlibriksen suunnittelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirjan oman tunnistelapun suunnittelusta. Tällainen lappu on tavallisimmin kiinnitetty kirjan etukannen sisäpuolelle.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Bookseller</source>
         <translation>Kirjakauppaus</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka myy kirjoja ja muuta bibliografista aineistoa. Kiinnostus aineistoon on ensi sijassa liiketoiminnallinen.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Calligrapher</source>
         <translation>Kalligrafi</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka kirjoittaa taiteellisella käsialalla, tavallisesti kopioijana tai tekstaajana.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Cartographer</source>
         <translation>Kartoittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on karttojen ja muun kartografisen aineiston tekeminen.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Censor</source>
         <translation>Sensori</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
         <translation>Käytä sensorille, sopimattoman sisällön poistavalle tarkastajalle tms., joka voi olla virallinen tai yksityinen.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Choreographer</source>
         <translation>Koreografi</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee tai järjestelee tanssiesityksiä tai muita liikkeitä (esim. miekkailuesityksiä) musiikki- tai näytelmäesitystä varten tai viihteeksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Cinematographer</source>
         <translation>Kuvaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on kuvaaminen elokuvaa varten. Kuvaaja toimii ohjaajan valvonnassa, ja häneen voidaan viitata myös pääkuvaajana. Ei pidä sekoittaa videokuvaajaan.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Client</source>
         <translation>Asiakas</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka hyväksi toinen henkilö tai organisaatio toimii.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Collaborator</source>
         <translation>Avustaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Use for a person or organization that takes a limited part in the elaboration of a work of another person or organization that brings complements (e.g., appendices, notes) to the work.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka osallistuu rajoitetusti toisen henkilön tai organisaation teoksen tekemiseen tavalla, joka täydentää työtä (esim. liitteillä tai huomautuksilla).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Collector</source>
         <translation>Kokoaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on koonnut eri lähteistä aineistoa, joka on järjestetty, kuvattu ja luetteloitu kokoelmaksi. Kokoaja ei ole aineiston tekijä eikä henkilö, jolle kokoelman käsikirjoitukset on osoitettu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Collotyper</source>
         <translation>Valopainon hoitaja </translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on tulosteiden tekeminen filmistä tai muusta kolloidisesta aineistosta, jossa on mustetta imeviä ja mustetta torjuvia pintoja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Commentator</source>
         <translation>Selostaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka harjoittaa tulkintaa, analyysia tai keskustelua aiheesta äänitteessä, elokuvassa tai muussa audiovisuaalisessa välineessä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Commentator for written text</source>
         <translation>Tekstin kommentaattori</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla ovat tekstiä koskevat kommentoivat tai selittävät huomautukset. Henkilölle, joka kirjoittaa käsikirjoitusta koskevia huomautuksia painettuun kirjaan, käytetään roolia annotoija [ann].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Compiler</source>
         <translation>Kokoaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tuottaa teoksen tai julkaisun valitsemalla ja yhdistämällä aineistoa eri henkilöiden tai tahojen teoksista.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Complainant</source>
         <translation>Oikeusvaatimuksen tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
         <translation>Käytä taholle, joka vetoaa tuomioistuimiin korvausten saamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Complainant-appellant</source>
         <translation>Oikeusvalituksen tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Complainant-appellee</source>
         <translation>Oikeusvalitukseen vastaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Käytä oikeusvaatimuksen tekijälle, jota vastaan on esitetty valitus yhden tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Composer</source>
         <translation>Säveltäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka luo musiikkiteoksen, tavallisesti musiikin käsikirjoituksena tai painettuna.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Compositor</source>
         <translation>Latoja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
         <translation>Käytä henkilölle tai organisaatiolle joka tekee metallisia kirjakerivejä tai muista materiaaleista tehtyjä ladelmia, joita käytetään tekstin ja kuvien tuottamiseen painetussa muodossa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Conceptor</source>
         <translation>Idean esittäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa siitä alkuperäisestä ideasta, johon työ perustuu. Tämä sisältää audiovisuaalisen teoksen tieteellisen tekijän ja mainoksen idean keksijän.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Conductor</source>
         <translation>Johtaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka johtaa esiintyvää ryhmää (orkesteria, kuoroa, oopperaa tms.) musiikki- tai näytelmäesityksessä tai viihteessä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Consultant</source>
         <translation>Konsultti</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jolta pyydetään ammattiapua tai palveluja tiedon erikoisalalla tai koulutuksessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Consultant to a project</source>
         <translation>Projektikonsultti</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on otettu mukaan erityisesti tarjoamaan strategisen tai operatiivisen tehtävän intellektuaalista valvontaa ja analyysilla, määrittelyllä tai ohjeilla luomaan tai ehdottamaan kustannustehokkaan menettelytavan tai ratkaisun.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Contestant</source>
         <translation>Vastapuoli</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
         <translation>Käytä osapuolelle, joka tuomioistuimessa vastustaa väitettä, päätöstä, tulosta tms.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Contestant-appellant</source>
         <translation>Valituksen tehnyt vastapuoli</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Käytä vaatimuksen esittäjälle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Contestant-appellee</source>
         <translation>Vaatimuksen esittäjä, jota vastaan valitus on tehty</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Käytä vaatimuksen esittäjälle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Contestee</source>
         <translation>Vaatimukseen vastaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
         <translation>Käytä osapuolelle, joka puolustaa väitettä, päätöstä, tulosta tms., jota vastustetaan tai joka kiistetään tuomioistuimessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Contestee-appellant</source>
         <translation>Valituksen tehnyt vaatimukseen vastaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Käytä vaatimukseen vastaajalle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Contestee-appellee</source>
         <translation>Vaatimukseen vastaaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Käytä vaatimukseen vastaajalle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Contractor</source>
         <translation>Sopimusosapuoli</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on merkityksellinen teoksen kannalta ja joka tekee sopimuksen toisen henkilön tai organisaation kanssa tietyn tehtävän tekemiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="197"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="261"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Contributor</source>
         <translation>Avustaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka työ on annettu käytettäväksi osana laajempaa työtä, kuten lukemistoa, sarjajulkaisua tai muuta teosten yhdistelmää. Älä käytä, jos ainoa tehtävä suhteessa työhön on toimia tekijänä, editorina, kokoajana tai kääntäjänä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Copyright claimant</source>
         <translation>Tekijänoikeuden haltijaksi ilmoitettu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on ilmoitettu tekijänoikeuden haltijaksi rekisteröintihetkellä. Tekijänoikeus voidaan myöntää tai myöhemmin siirtää toiselle henkilölle tai organisaatiolle, jolloin tekijänoikeuden vaatijasta tulee tekijänoikeuden haltija.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Copyright holder</source>
         <translation>Tekijänoikeuden haltija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jolle on myönnetty tai siirretty tekijänoikeus teokseen. Tekijänoikeuden haltijalla, joka ei välttämättä ole teoksen tekijä, on tavallisesti yksinoikeus hyötyä taloudellisesti sen teoksen myynnistä ja käytöstä, jota tekijänoikeuden suoja koskee.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Corrector</source>
         <translation>Korjaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka korjaa käsikirjoituksia, kuten luostarin kirjoitushuoneen työntekijälle, joka on korjannut käsikirjoituksen jäljentäjän työtä. Painotuotteen osalta käytä roolia oikolukija.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Correspondent</source>
         <translation>Viestinnän osapuoli</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on kirjeen tai muun viestinnän kirjoittaja tai vastaaja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Costume designer</source>
         <translation>Puvustaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee tai tekee pukuja, laittaa tukkaa tms. musiikki- tai näytelmäesitystä tai viihdettä varten</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Cover designer</source>
         <translation>Kannen suunnittelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa kirjan kannen, albumin kannen, suojakotelon, laatikon, säiliön etc. suunnittelijasta. Jos vastuu koskee koko kirjan graafista suunnittelua, käytä roolia kirjan suunnittelija, ja jos se se koskee kirjan irtopäällystä, käytä roolia irtopäällyksen suunnittelija,</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="196"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="260"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Creator</source>
         <translation>Luoja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="198"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="262"/>
         <source>Date</source>
         <translation>Päivämäärä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="199"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="232"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="233"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="234"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Identifier</source>
         <translation>Tunniste</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Date: Publication</source>
         <translation>Julkaisemisen päivämäärä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="221"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>Date: Creation</source>
         <translation>Luomisen päivämäärä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="222"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Date: Modification</source>
         <translation>Muutoksen päivämäärä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="223"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Date (custom)</source>
         <translation>Päivämäärä (erikseen määritelty)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="223"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Enter your own event name in the File As column, e.g. updated.</source>
         <translation>Kirjoita oma tapahtuman nimesi sarakkeeseen ”Tallenna nimellä”, esim. ”päivitetty”.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="235"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Identifier (custom)</source>
         <translation>Tunniste (oma)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="235"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Enter your own custom identifier name in the File As column, e.g. stocknumber</source>
         <translation>Kirjoita haluamasi oman tunnisteen nimi sarakkeeseen ”Tallenna nimellä”, esim. ”versio”.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa teoksen henkisestä tai taiteellisesta sisällöstä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Curator of an exhibition</source>
         <translation>Näyttelyn järjestäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa näyttelyn perustamisesta ja järjestämisestä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Dancer</source>
         <translation>Tanssija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka pääasiassa esittää tanssisuorituksia musiikki- tai näytelmäesityksessä tai viihteessä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Data contributor</source>
         <translation>Tiedon tuottaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka toimittaa tietoa sisällytettäväksi tietokantaan tai muuhun tiedon kokoelmaan.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Data manager</source>
         <translation>Tietokantavastaava</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa tietokantojen tai muiden tietoaineistojen hallinnasta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Dedicatee</source>
         <translation>Omistussanojen kohde</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
         <translation>Käytä henkilölle tai organisaatiolle, jolle kirja, käsikirjoitus tms. on omistettu (ei lahjan saajalle).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Dedicator</source>
         <translation>Omistussanojen kirjoittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
         <translation>Käytä omistussanojen kirjoittajalle. Omistussanat voivat olla muodollinen toteamus tai kirje- tai runomuodossa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Defendant</source>
         <translation>Vastaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
         <translation>Käytä osapuolelle, joka puolustaa itseään tai kiistää syytökset, joita on tehty oikeusjutussa tuomioistuimessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Defendant-appellant</source>
         <translation>Valituksen tehnyt vastaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Käytä vastaajalle, joka vetoaa tuomioistuimesta toiseen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Defendant-appellee</source>
         <translation>Valitukseen vastaava vastaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Käytä vastaajalle, jota vastaan on tehty valitus tuomioistuimesta toiseen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Degree grantor</source>
         <translation>Oppiarvon myöntäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
         <translation>Käytä organisaatiolle, joka myöntää sen oppiarvon, jota varten kuvattava opinnäytetyö tai väitöskirja esitettiin.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Delineator</source>
         <translation>Tekninen piirtäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tekee teknisiä piirustuksia muiden laatimien suunnitelmien mukaan.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Depicted</source>
         <translation>Kuvauksen kohde</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
         <translation>Käytä kohteelle, joka kuvataan sanoin tai kuvin teoksessa, erityisesti taideteoksessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Depositor</source>
         <translation>Tallettaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
         <translation> Käytä henkilölle tai organisaatiolle, joka toimittaa aineiston fyysisesti kirjaston tai varaston haltuun siirtämättä sen oikeudellista hallintaa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Designer</source>
         <translation>Suunnittelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on suunnittelu, ellei haluta käyttää tarkempia koodeja (esim. [bkd] tai [tyd]).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Director</source>
         <translation>Ohjaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on työn yleinen hallinta tai joka valvoo näyttämölle tai elokuvaan tehtävää esitystä tai äänen tallentamista.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Dissertant</source>
         <translation>Tutkielman esittäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
         <translation>Käytä henkilölle, joka esittää tutkielman yliopistollista tai ylemmän asteen oppiarvoa varten.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Distributor</source>
         <translation>Jakaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jolla on kohteen markkinointioikeudet yksin tai yhdessä toisen kanssa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Donor</source>
         <translation>Lahjoittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on lahjoittanut kirjan, käsikirjoituksen  tms. sen nykyiselle omistajalle. Ne, jotka ovat lahjoittaneet sen aiemmille omistajille, ilmoitetaan rooleilla aiempi omistaja [fmo] tai omistuskirjoituksen kirjoittaja [ins].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Draftsman</source>
         <translation>Piirtäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tekee taiteellisia tai teknisiä piirustuksia.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Dubious author</source>
         <translation>Kyseenalainen tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on ilmoitettu tekijäksi epäilyttävästi tai virheellisesti.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Editor</source>
         <translation>Toimittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka muokkaa julkaistavaksi teoksen, joka ei ole ensisijaisesti hänen omansa, esimerkiksi selventämällä tekstiä, lisäämällä johdattavaa tai muuta kriittistä aineistoa tai ohjaamalla teknisesti muokkaustyötä tekevää henkilöstöä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Electrician</source>
         <translation>Sähköasennuksista vastaava</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
         <translation>Käytä henkilölle, jonka vastuulla on valaistuslaitteiston asentaminen ja kohdentaminen esityksen valaistusta varten ja valaistuksen hoitaminen esityksen aikana.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Electrotyper</source>
         <translation>Galvanoplastinen jäljentäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka muottiin puristamalla ja varaamalla metallin sähköisesti  luo painopinnan, joka tuetaan lyijyllä painamista varten.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Engineer</source>
         <translation>Tekninen asiantuntija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on tekninen suunnittelu, erityisesti rakennustöissä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Engraver</source>
         <translation>Kaivertaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka leikkaa kirjaimia, kuvioita ym. pintaan, kuten puu- tai metallilaattaan, painamista varten.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Etcher</source>
         <translation>Etsaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tuottaa tekstiä tai kuvia painamista varten käsittelemällä metallia, lasia tai muuta pintaa hapolla tai muulla syövyttävällä aineella.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Expert</source>
         <translation>Asiantuntija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on tavaroiden, erityisesti harvinaisten esineiden, taideteosten yms., kuvaileminen ja arviointi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Facsimilist</source>
         <translation>Jäljenteen toteuttaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
-        <source>Use for a person or organization that executed the facsimile. </source>
-        <translation>Käytä henkilölle tai organisaatiolle, joka toteutti näköisjäljennöksen.</translation>
-    </message>
-    <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Field director</source>
         <translation>Kenttätyön johtaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka hallinnoi tai valvoo työtä, jota tehdään perustietoaineiston kokoamiseksi tai tutkimuksen tekemiseksi konkreettisessa tutkimusasetelmassa tai ympäristössä (soveltuu pääosin luonnon- ja yhteiskuntatieteisiin).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Film editor</source>
         <translation>Leikkaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on elokuvan leikkaaja. Tätä termiä käytetään riippumatta siitä, millaiselle välineelle elokuva tehdään (esim. asetaattifilmi tai videonauha).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>First party</source>
         <translation>Ensimmäinen osapuoli</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
-        <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party</source>
-        <translation>Käytä henkilölle tai organisaatiolle, joka on määritetty ainoaksi osapuoleksi tai ensimmäisen osan osapuoleksi. Kun kyse on oikeuden siirrosta, tämä on se taho, joka myöntää, siirtää, lisensoi tms. oikeuden. Useita osapuolia yhdessä voidaan nimetä ensimmäiseksi osapuoleksi.</translation>
-    </message>
-    <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Forger</source>
         <translation>Väärentäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tekee tai jäljittelee jotain arvokasta tai tärkeää, erityisesti petoksellisessa tarkoituksessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Former owner</source>
         <translation>Aiempi omistaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
-        <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr]</source>
-        <translation>Käytä henkilölle tai organisaatiolle, joka omisti kohteen joskus menneisyydessä. Sisältää ne, joille aineisto joskus esitettiin. Henkilö tai organisaatio, joka on antanut kohteen nykyiselle omistajalle, merkitään rooliin lahjoittaja [dnr].</translation>
+        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <source>Use for a person or organization that executed the facsimile.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Funder</source>
         <translation>Rahoittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka antoi rahallista tukea teoksen tuottamiselle.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Geographic information specialist</source>
         <translation>Maantieteellisen tiedon asiantuntija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
         <translation>Käytä henkilölle, jonka vastuulla on maantieteellisen tiedon järjestelmän (GIS) kehittäminen ja integrointi GPS-tiedon kanssa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Honoree</source>
         <translation>Juhlajulkaisun kohde</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka muistoksi tai kunniaksi kirja, käsikirjoitus tms. on lahjoitettu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Host</source>
         <translation>Isäntä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
         <translation>Käytä henkilölle, joka on kutsuttu juontamaan tai säännöllisesti juontaa ohjelmaa (usein lähetystä), joka sisältää muita vieraita, esiintyjiä ym. (esim. keskusteluohjelman isäntä).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Illuminator</source>
         <translation>Illuminaattori</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on taideteoksen (etenkin käsikirjoitusaineiston) koristelu arvometalleilla tai väreillä, tavallisesti käyttäen paljon yksityiskohtia ja motiiveja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Illustrator</source>
         <translation>Kuvittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee ja ehkä myös toteuttaa ulkoasun tai kuvituksen, yleensä kirjoitetulle tekstille.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Inscriber</source>
         <translation>Omistuskirjoituksen kirjoittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Use for a person who signs a presentation statement.</source>
         <translation>Käytä henkilölle, joka allekirjoittaa esitystä koskevan asiakirjan.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Instrumentalist</source>
         <translation>Soittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka pääasiallisesti soittaa soitinta musiikki- tai näytelmäesityksessä tai viihteessä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Interviewee</source>
         <translation>Haastateltava</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jota haastatellaan konsultoinnissa tai tapaamisessa. Haastattelijana on tavallisesti reportteri, kyselytutkimuksen haastattelija tai muu tiedonkeruun hoitaja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Interviewer</source>
         <translation>Haastattelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka toimii reportterina, kyselytutkimuksen haastattelijana tai muuna tiedonkeruun hoitajana konsultoinnissa tai kokouksessa, jossa on mukana yksi tai useita ihmisiä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Inventor</source>
         <translation>Keksijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka ensimmäisenä tuottaa tietyn hyödyllisen kohteen tai kehittää uuden prosessin tietyn kohteen tai tuloksen tuottamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Laboratory</source>
         <translation>Laboratorio</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
         <translation>Käytä laitokselle, joka tekee tieteellisiä analyyseja aineellisista näytteistä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Laboratory director</source>
         <translation>Laboratorionjohtaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka hallinnoi tai valvoo työtä, jota tehdään kontrolloidussa tilanteessa tai ympäristössä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Landscape architect</source>
         <translation>Maisema-arkkitehti</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka koordinoi olemassaolevien ja suunniteltujen maankäytön piirteiden ja rakenteiden järjestämistä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Lead</source>
         <translation>Päällikkö</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jolla on ensisijainen vastuu tietystä toiminnasta tai hankkeesta. Käytä yhdessä toisen roolitermin tai -koodin kanssa osoittamaan suurempaa merkitystä, joka tällä henkilöllä tai organisaatiolla on kyseisen roolin suhteen. Jos on käytetty useampaa kuin yhtä muuta roolia, käytä tätä roolia vain, jos se koskee kaikkia muita rooleja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Lender</source>
         <translation>Lainaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka sallii kirjan, käsikirjan tms. tilapäisen käytön esimerkiksi valokopiointia tai mikrofilmausta varten.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Libelant</source>
         <translation>Haastaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
         <translation>Käytä osapuolelle, joka on haastajana kirkko-oikeudellisessa tai merioikeudellisessa jutussa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Libelant-appellant</source>
         <translation>Valituksen tehnyt haastaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Käytä haastajalle, joka vetoaa kirkollisen tai merioikeudellisen tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Libelant-appellee</source>
         <translation>Haastaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Käytä haastajalle, jota vastaan on vedottu kirkollisen tai merioikeudellisen tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Libelee</source>
         <translation>Haasteen vastaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
         <translation>Käytä osapuolelle, jota vastaan on esitetty haaste kirkollisessa tai merioikeudellisessa tuomioistuimessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Libelee-appellant</source>
         <translation>Valituksen tehnyt haasteeseen vastaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Käytä haasteen vastaajalle, joka vetoaa kirkollisen tai merioikeudellisen tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Libelee-appellee</source>
         <translation>Haasteen vastaaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Käytä haasteen vastaajalle, jota vastaan on vedottu kirkollisen tai merioikeudellisen tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Librettist</source>
         <translation>Libretisti</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on kirjoittanut tekstin oopperaan, oratorioon tms.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Licensee</source>
         <translation>Lisenssinsaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on paino- tai julkaisuluvan alkuperäinen saaja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Licensor</source>
         <translation>Lisenssinantaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka lisenssin, painoluvan tms. allekirjoittaja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Lighting designer</source>
         <translation>Valaistussuunnittelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka suunnittelee valaistuskaavion teatteriesitykseen, viihteeseen, elokuvaan tms.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Lithographer</source>
         <translation>Litografi</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa kiven tai laatan litografista painamista varten. Tämä voi olla kuvataiteilija, joka luo teoksen suoraan painopinnalle.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Lyricist</source>
         <translation>Sanoittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on laulun tekstin kirjoittaja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Manufacturer</source>
         <translation>Valmistaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa artifaktin (esineen, jonka on tehnyt tai jota on muokannut yksi tai useampia henkilöitä). Esimerkkejä artifakteista ovat maljakot, tykit ja huonekalut.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Markup editor</source>
         <translation>Merkkauksen tuottaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka hoitaa metatiedon, tekstin ym. SGML-, HTML- tai XML-merkkauksen koodaamista.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Metadata contact</source>
         <translation>Metatietokontakti</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on päävastuussa metatiedon (esim. geospatiaalisen metatiedon joukon) alkuperäisen kuvauksen kokoamisesta ja ylläpidosta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Metal-engraver</source>
         <translation>Metallinkaivertaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla ovat koristelut, kuvitukset, kirjaimet yms., jotka kaiverretaan metallipintaan tulostusta tai koristamista varten.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Moderator</source>
         <translation>Keskustelun vetäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation>Käytä henkilölle, joka johtaa ohjelmaa (usein lähetystä), jossa keskustellaan joistakin aiheista, tavallisesti niin, että siihen osallistuu kyseisten alojen asiantuntijoita.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Monitor</source>
         <translation>Valvoja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka valvoo sopimuksen noudattamista ja on vastuussa raportista ja valvoo sen jakelua.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Music copyist</source>
         <translation>Musiikin kopioija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Use for a person who transcribes or copies musical notation</source>
         <translation>Käytä henkilölle, joka sovittaa tai kopioi musiikkimerkintöjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Musical director</source>
         <translation>Musiikillinen johtaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
         <translation>Käytä henkilölle, joka on vastuussa musikaalisista perusratkaisuista, jotka koskevat tuotantoa, mukaan lukien säveltäjän, äänittäjän ja miksaajien työn koordinoinnista, muusikkojen valinnasta sekä harjoitusten ja esitysten äänen järjestämisestä tai johtamisesta</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Musician</source>
         <translation>Muusikko</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka esittää musiikkia tai antaa panoksen työn musiikilliseen sisältöön, kun ei ole mahdollista tai toivottavaa kuvata roolia tarkemmin.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Narrator</source>
         <translation>Kertoja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
         <translation>Käytä henkilölle, joka selostaa toimintaa, tapahtumaa tai tapahtumakulkua.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Opponent</source>
         <translation>Vastaväittäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on esittää vastahuomautuksia väitöskirjasta tai vastaavasta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Organizer of meeting</source>
         <translation>Kokouksen järjestäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on sen kokouksen järjestäminen, jonka raportista, pöytäkirjasta tai julkaisusta on kyse.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Originator</source>
         <translation>Suorittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka suorittaa työn, so. sen henkilön tai organisaation nimelle, joka liittyy teoksen sisältöön. Tämä ei sisällä julkaisijaa eikä henkilökohtaista sidettä eikä tukijaa, ellei kyseessä ole myös tekijä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Other</source>
         <translation>Muu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
         <translation>Käytä roolikoodeille, jotka on otettu muista listoista ja joilla ei ole vastinetta MARCin listassa, ja rooleille, joille ei ole koodia.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Owner</source>
         <translation>Omistaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka nyt omistaa kohteen tai kokoelman.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Papermaker</source>
         <translation>Paperinvalmistaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on  paperin tuottaminen, tavallisesti puusta, tekstiileistä tai muusta kuitua sisältävästä materiaalista.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Patent applicant</source>
         <translation>Patentinhakija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Use for a person or organization that applied for a patent.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on hakenut patenttia.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Patent holder</source>
         <translation>Patentinhaltija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
         <translation>Käytä henkilölle tai organisaatiolle, jolle myönnettiin patentti, johon kohteessa viitataan.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Patron</source>
         <translation>Suojelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on työn toimeksianto. Tavallisesti suojelija käyttää varojaan tai vaikutusvaltaansa tukeakseen taiteilijoiden, kirjailijoiden tms. työtä. Tämä sisältää tahot, jotka antavat yksittäisiä toimeksiantoja ja maksavat niistä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Performer</source>
         <translation>Esittäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka osoittaa musikaalista tai näyttämöllistä taitoa musiikki- tai näytelmäesityksessä tai viihteessä, ellei käytetä näitä rooleja vastaavia tarkempia koodeja (näyttelijä [act], tanssija [dnc], soittaja [itr], laulusolisti [voc] jne.). Jos käytetään tarkempia koodeja, koodia esittäjä [prf] käytetään henkilölle, jonka pääasiallista taitoa ei tiedetä tai ei ilmoiteta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Permitting agency</source>
         <translation>Hyväksyjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
         <translation>Käytä taholle (tavallisesti valtion viranomaiselle), joka antaa lupia, jollaisen perusteella työ on tehty.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Photographer</source>
         <translation>Valokuvaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on valokuvien ottaminen, käytettiinpä niitä alkuperäisessä muodossaan tai reproduktioina.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
         <source>Plaintiff</source>
         <translation>Kantaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
         <translation>Käytä osapuolelle, joka esittää vaatimuksen tai syytteen oikeudessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
         <source>Plaintiff-appellant</source>
         <translation>Valituksen tehnyt kantaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Käytä kantajalle, joka on tehnyt valituksen tuomioistuimesta toiseen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
         <source>Plaintiff-appellee</source>
         <translation>Kantaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Käytä kantajalle, jota vastaan on tehty valitus tuomioistuimesta toiseen tuomion muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Platemaker</source>
         <translation>Laattojen tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on laattojen tuottaminen, tavallisesti painettujen kuvien tai tekstien tuottamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
         <source>Printer</source>
         <translation>Painaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tulostaa tekstejä, käytettiinpä siinä ladelmia tai painolaattoja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
         <source>Printer of plates</source>
         <translation>Laattojen tulostaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tulostaa kuvituksia painolaatoista. </translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
         <source>Printmaker</source>
         <translation>Pinnan tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa korkokuvan, kaiverretun korostekuvan tai laakapainon painopinnan.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
         <source>Process contact</source>
         <translation>Prosessista vastaava</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on ensisijaisessa vastuussa prosessin suorittamisesta tai käynnistämisestä, esimerkiksi metatietojen joukon keräämisessä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
         <source>Producer</source>
         <translation>Tuottaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on elokuvan valmistaminen, mukaan lukien liiketoiminnalliset näkökohdat, tuottamisen hallinta ja työn kaupallinen menestys.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
         <source>Production manager</source>
         <translation>Tuotantopäällikkö</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla ovat kaikki tuotannon tekniset ja liiketoiminnalliset asiat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
         <source>Production personnel</source>
         <translation>Tuotantohenkilökunta</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka liittyy musiikillisen tai draamallisen esityksen tai viihteen tuotantoon (lavastus, valaistus, tehosteet ym.).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
         <source>Programmer</source>
         <translation>Ohjelmoija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on tietokoneohjelman suunnitelmien, lähdekoodin ja koneluettavien digitaalisten tiedostojen ja niitä tukevan dokumentaation luominen tai ylläpito.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
         <source>Project director</source>
         <translation>Projektijohtaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka ensisijaisesti vastaa kaikista projektin olennaisista puolista tai joka hallinnoi hyvin suurta projektia, joka vaatii kokenutta vastuuhenkilöä, tai jolla on yleisvastuu projektien hallinnasta tai joka tarjoaa yleistä ohjausta projektipäällilölle.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Proofreader</source>
         <translation>Oikolukija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
         <translation>Käytä henkilölle, joka tekee korjauksia painotuotteeseen. Käsikirjoitusten osalta käytä roolia korjaaja [crr].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa painotuotteita, usein tekstiä, mutta myös painettua musiikkia, taideteoksia jne., jotka tulevat yleisön saataville.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
         <source>Publishing director</source>
         <translation>Päätoimittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka ohjaa yhteistyönä tehtävän teoksen kehittämistä sen yhtenäisyyden tai jatkuvuuden takaamiseksi. Tämä sisältää julkaisujen päätoimittajat, kirjojen toimittajat, sarjajulkaisujen toimittajat ym.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
         <source>Puppeteer</source>
         <translation>Nukketeatterin hoitaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka käsittelee, valvoo tai ohjaa nukkeja tai marionetteja musiikki- tai draamaesityksessä tai viihteessä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Recipient</source>
         <translation>Vastaanottaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jolle kirjeenvaihto on osoitettu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Recording engineer</source>
         <translation>Äänittäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka valvoo äänen tai videon tallentamista teknisesti.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
         <source>Redactor</source>
         <translation>Toimittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka kirjoittaa tai kehittää kohteelle kehikon olematta vastuussa sisällöstä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
         <source>Renderer</source>
         <translation>Luonnostelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka valmistaa arkkitehtuurisuunnitelmien luonnoksia tarkassa, esityksellisessä perspektiivissä sen esittämiseksi, miltä hanke näyttää valmiina.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Reporter</source>
         <translation>Reportteri</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka kirjoittaa tai esittää raportteja uutisista tai ajankohtaisista tapahtumista televisiossa tai painotuotteessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Repository</source>
         <translation>Varasto</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
         <translation>Käytä taholle, joka säilyttää dataa tai aineellisia kulttuuriesineitä ja tarjoaa palveluja, jotka antavat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Research team head</source>
         <translation>Tutkimusryhmän johtaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Use for a person who directed or managed a research project.</source>
         <translation>Käytä henkilölle, joka johti tai hallinnoi tutkimusprojektia.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Research team member</source>
         <translation>Tutkimusryhmän jäsen</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
         <translation>Käytä henkilölle, joka osallistui tutkimusprojektiin mutta jonka rooliin ei kuulunut sen johtaminen tai hallinnointi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
         <source>Researcher</source>
         <translation>Tutkija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
         <source>Use for a person or organization responsible for performing research. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on vastuussa tutkimuksen tekemisestä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
         <source>Respondent</source>
         <translation>Vastaaja riita-asiassa</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
         <translation>Käytä osapuolelle, joka esittää vastauksen tuomioistuimelle asiassa, joka koskee korvausvaatimusta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
         <source>Respondent-appellant</source>
         <translation>Valituksen tehnyt riita-asian vastaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Käytä riita-asian vastaajalle, joka vetoaa tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
         <source>Respondent-appellee</source>
         <translation>Riita-asian vastaaja, jota vastaan on tehty valitus</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Käytä riita-asian vastaajalle, jota vastaan on vedottu tuomioistuimen päätöksestä toiseen tuomioistuimeen päätöksen muuttamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
         <source>Responsible party</source>
         <translation>Vastaava toimittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on oikeudellisesti vastuullinen julkaistun aineiston sisällöstä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
         <source>Restager</source>
         <translation>Uudelleen näyttämölle tuova</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka ei ole alkuperäinen koreografi tai johtaja ja joka vastaa koreografisen tai draamallisen teoksen tuomisesta uudelleen näyttämölle ja joka antaa panoksenaan vähäisen uuden sisällön.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
         <source>Reviewer</source>
         <translation>Kriitikko</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla on kirjan, elokuvan, esityksen tms. arviointi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
         <source>Rubricator</source>
         <translation>Värittäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jonka vastuulla ovat teoksen osat, usein otsikot tai käsikirjoituksen aloitussanat, jotka esitetään poikkeavalla värillä, usein punaisella.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Scenarist</source>
         <translation>Elokuvan käsikirjoittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on elokuvan käsikirjoituksen tekijä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
         <source>Scientific advisor</source>
         <translation>Tieteellinen neuvonantaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tuo tieteellistä, pedagogista tai historian alaan kuuluvaa pätevyyttä teoksen kehittelyyn ja toteuttamiseen, erityisesti audiovisuaalisten kohteiden tapauksessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
         <source>Scribe</source>
         <translation>Kirjuri</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Käytä henkilölle, joka on kirjuri tai käsikirjoitusten kirjoittaja. Jos henkilö tekee näköisjäljennöksiä kynällä, käytä roolia jäljenteen toteuttaja [fac].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
         <source>Sculptor</source>
         <translation>Kuvanveistäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka mallintaa tai veistää hahmoja, jotka ovat kolmiulotteisia esityksiä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
         <source>Second party</source>
         <translation>Toinen osapuoli</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on määritetty toiseksi osapuoleksi. Kun kyse on oikeuden siirrosta, tämä on se taho, joka saa lisenssin tai muun oikeuden. Useita osapuolia yhdessä voidaan nimetä toiseksi osapuoleksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
         <source>Secretary</source>
         <translation>Sihteeri</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on tallentaja, toimittaja tai muu henkilö, joka vastuussa organisaation kannan ilmaisemisesta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
         <source>Set designer</source>
         <translation>Lavastaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka muuttaa taiteellisen johtajan karkeat luonnokset todellisiksi arkkitehtonisiksi rakenteiksi teatteriesitystä, viihdettä, elokuvaa tms. varten.  Lavastajat laativat yksityiskohtaisia ohjeita ja määrittelyjä lavastuksen rakentamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
         <source>Signer</source>
         <translation>Signeeraaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
         <translation>Käytä henkilölle, jonka allekirjoitus esiintyy ilman lausumaa tai muuta esitystä alkuperästä. Jos lausuma on esitetty, käytä roolia omistuskirjoituksen kirjoittaja [ins].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
         <source>Singer</source>
         <translation>Laulaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka käyttää ääntään säestyksen kanssa tai ilman säestystä tuottaakseen musiikkia. Esitys voi sisältää tai olla sisältämättä sanoja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
         <source>Sound designer</source>
         <translation>Äänisuunnittelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
         <translation>Käytä henkilölle, joka tuottaa ja toistaa tms. musiikkia (sekä elävää että tallennettua) ja suunnittelee mikrofonien asettelun, äänen tasojen asetukset ja äänilähteiden koordinoinnin.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
         <source>Speaker</source>
         <translation>Puhuja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
         <translation>Käytä henkilölle, joka osallistuu ohjelmaan (usein lähetykseen) ja antaa täsmälliseen muotoon saatetun panoksen tai esittää esityksen, joka on yleensä valmistettu etukäteen.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
         <source>Sponsor</source>
         <translation>Tukija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka on tehnyt sopimuksen tai sitoumuksen, jonka turvin teos on kirjoitettu, painettu, julkaistu tms.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
         <source>Stage manager</source>
         <translation>Näyttämömestari</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jolla on vastuu kaikesta, mitä tapahtuu näyttämöllä, ja joka toimii teknisen henkilökunnan päällikkönä ja ohjaajan apulaisena harjoituksissa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
         <source>Standards body</source>
         <translation>Standardointielin</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
         <translation>Käytä organisaatiolle, joka on vastuussa standardin kehittämisestä tai täytäntöönpanosta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
         <source>Stereotyper</source>
         <translation>Painolaatan valmistaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka luo uuden painolaatan muottiin valamalla tai kopioimalla toisen painopinnan.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
         <source>Storyteller</source>
         <translation>Tarinankertoja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
         <translation>Käytä henkilölle, joka kertoo tarinan luovassa tai näytelmällisessä tulkinnassa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
         <source>Supporting host</source>
         <translation>Tukiresurssien tarjoaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tukee (antamalla tiloja, henkilökuntaa tai muita resursseja) hanketta, ohjelmaa, tapaamista, tapahtumaa, tieto-olioita, aineellisen kulttuurin esiteitä tai muita kohteita, joita voi tukea.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
         <source>Surveyor</source>
         <translation>Maanmittari</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tekee mittauksia maa-alueista paikkojen, muotojen ja rajojen määrittämiseksi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
         <source>Teacher</source>
         <translation>Opettaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
         <translation>Käytä henkilölle, joka – kohteen kontekstissa – antaa opetusta tiedollisista asioista tai antaa havaintoesityksiä fyysisten taitojen opettamisessa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
         <source>Technical director</source>
         <translation>Tekninen johtaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
         <translation>Käytä henkilölle, joka on viime kädessä vastuussa lavastuksesta, näyttämötarpeistosta, valoista ja äänistä tietyssä tuotannossa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
         <source>Thesis advisor</source>
         <translation>Opinnäytteen ohjaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
         <translation>Käytä henkilölle, jonka valvonnan alaisena oppiarvoa tavoitteleva kehittää ja esittää lopputyön, tutkielman tai väitöskirjan.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
         <source>Transcriber</source>
         <translation>Puhtaaksikirjoittaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Käytä henkilölle, joka valmistaa käsin tai koneella kirjoitetun kopion alkuperäisestä aineistosta, mukaan lukien saneltu tai suullisesti tallennettu aineisto. Käytä näköisjäljenteen valmistajalle roolia jäljenteen toteuttaja [fac].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
         <source>Translator</source>
         <translation>Kääntäjä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka kääntää tekstin kielestä toiseen tai kielen vanhemmasta muodosta nykyiseen muotoon.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
         <source>Type designer</source>
         <translation>Fontin suunnittelija</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
         <translation>Käytä henkilölle tai organisaatiolle, joka suunnitteli kohteessa käytetyn fontin.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
         <source>Typographer</source>
         <translation>Typografi</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jolla on ensisijainen vastuu kohteen typografisen asun valinnasta ja järjestämisestä. Jos typografi on vastuussa myös kirjan graafisen suunnittelun muista puolista (esim. kirjan suunnittelija [bkd]), voi molempien roolien merkitseminen olla tarpeen.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
         <source>Videographer</source>
         <translation>Videokuvaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
         <translation>Käytä henkilölle tai organisaatiolle, jolla on vastuu videotuotannosta, esim. näyttämöesityksen videotallennuksesta, vastakohtana kaupalliselle elokuvalle. Videokuvaaja voi olla kameran käyttäjä tai hän voi valvoa yhtä tai useampaa kameran käyttäjää. Ei pidä sekoittaa rooliin kuvaaja.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
         <source>Vocalist</source>
         <translation>Laulusolisti</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
         <source>Use for a person or organization who principally exhibits singing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka ilmaisee pääasiassa laulutaitoa musiikki- tai näytelmäesityksessä tai viihteessä.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
         <source>Witness</source>
         <translation>Todistaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
         <translation>Käytä henkilölle, joka todentaa tapahtuman tai toimenpiteen totuudenmukaisuuden.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
         <source>Wood-engraver</source>
         <translation>Puunkaivertaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tekee painomuotteja kaivertamalla kohokuvion puupintaan.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
         <source>Woodcutter</source>
         <translation>Puunleikkaaja</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka tekee painotuotteita leikkaamalla kohokuvan puulaatan tasaiselle puolelle.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
         <source>Writer of accompanying material</source>
         <translation>Liiteaineiston tekijä</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
         <translation>Käytä henkilölle tai organisaatiolle, joka kirjoittaa merkittävää aineistoa, joka liittyy äänitteeseen tai muuhun audiovisuaaliseen aineistoon.</translation>
     </message>
@@ -10911,7 +10926,7 @@ Haluatko tallentaa muutoksesi?</translation>
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="142"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="137"/>
         <source>Start</source>
         <translation>Alku</translation>
     </message>
@@ -10998,160 +11013,160 @@ Haluatko tallentaa muutoksesi?</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="337"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="386"/>
         <source>Status: </source>
         <translation>Tila:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="98"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="99"/>
         <source>Error: A plugin by that name does not exist</source>
         <translation>Virhe: Annetunnimistä lisäosaa ei ole</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="123"/>
         <source>Error: Interpreter </source>
         <translation>Virhe: Tulkki</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="123"/>
         <source> has no path set</source>
         <translation>:n polkua ei ole asetettu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="124"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="136"/>
         <source>Installation Error: plugin launcher </source>
         <translation>Asennusvirhe: lisäosan käynnistin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="125"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="137"/>
         <source> does not exist</source>
         <translation>ei ole olemassa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="130"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="142"/>
         <source>Error: plugin engine </source>
         <translation>Virhe: lisäosien käsittely</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="131"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="143"/>
         <source> is not supported (yet!)</source>
         <translation>ei ole (vielä) tuettu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="137"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source>Status: ready</source>
         <translation>Tila: valmis</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="150"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="175"/>
         <source>Error: plugin can not start</source>
         <translation>Virhe: lisäosa ei pysty käynnistymään</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="192"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="220"/>
         <source>Launcher process crashed</source>
         <translation>Käynnistysprosessi päättyi epänormaalisti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="203"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="231"/>
         <source>Status: finished</source>
         <translation>Tila: päättynyt</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="215"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="224"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="243"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="252"/>
         <source>Status: No Changes Made</source>
         <translation>Tila: muutoksia ei tehty</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="223"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="251"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Virhe: Lisäosa yritti poistaa viimeisen XHTML-tiedoston – muutokset hylätään</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="299"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="342"/>
         <source>Plugin failed to start</source>
         <translation>Lisäosa ei käynnistynyt</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="307"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="350"/>
         <source>Status: error</source>
         <translation>Tila: virhe</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="321"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="364"/>
         <source>Plugin cancelled</source>
         <translation>Lisäosan suoritus peruutettiin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="322"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="365"/>
         <source>Status: cancelled</source>
         <translation>Tila: peruutettu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="372"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="447"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Virhe XML-koodin jäsennyksessä:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
         <source>Incorrect XHTML/XML: </source>
         <translation>Virheellistä XHTML:ää tai XML:ää:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
         <source> Line/Col </source>
         <translation>Rivi/sarake</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="515"/>
         <source>Check Report</source>
         <translation>Tarkista raportti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="516"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Virheellistä XHTML:ää tai XML:ää havaittu.
 Oletko varma, että haluat jatkaa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="459"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="534"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Tila: siivotaan – poistetaan tiedostoja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="474"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="549"/>
         <source>Status: deleting </source>
         <translation>Tila: poistetaan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
         <source>Status: Loading </source>
         <translation>Tila: Ladataan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="514"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="590"/>
         <source>Input Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Syötön lisäosa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="515"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="591"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Nykyinen kirjasi korvautuu kokonaan, jolloin kaikki tallentamattomat muutokset häviävät. Oletko varma, että haluat jatkaa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="541"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="617"/>
         <source>Status: adding </source>
         <translation>Tila: lisätään</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="589"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="654"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Tila: siivotaan – muutetaan tiedostoja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="618"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="683"/>
         <source>Status: modifying </source>
         <translation>Tila: muutetaan</translation>
     </message>
@@ -11237,59 +11252,59 @@ Oletko varma, että haluat jatkaa.</translation>
         <translation>Valitse</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="95"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Valitse lisäosien zip-arkisto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="95"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Lisäosatiedostot (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="103"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="111"/>
+        <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="114"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Varoitus: Annetun niminen lisäosa on jo olemassa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="106"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="117"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Virhe: Lisäosaa ei voitu purkaa zip-paketista</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="100"/>
-        <source>Error: Plugin plugin.xml file can not be read.</source>
-        <translation>Virhe: Tiedostoa plugin.xml ei voitu lukea</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>Virhe: Lisäosa ei ole kelvollinen Sigilin lisäosaksi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="153"/>
         <source>Nothing is Selected.</source>
         <translation>Mitään ei ole valittu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="161"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="172"/>
         <source>Remove All Plugins</source>
         <translation>Poista kaikki lisäosat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="173"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Oletko varma, että haluat poistaa kaikki lisäosat?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="230"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="240"/>
         <source>Select Interpreter</source>
         <translation>Valitse tulkki</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="241"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="256"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="272"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>Virheellinen tulkin polku valittu</translation>
     </message>
@@ -11365,7 +11380,7 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
 <context>
     <name>PreviewWindow</name>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="35"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="37"/>
         <source>Preview</source>
         <translation>Esikatselu</translation>
     </message>
@@ -11373,12 +11388,12 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../Misc/SearchOperations.cpp" line="52"/>
+        <location filename="../../Misc/SearchOperations.cpp" line="44"/>
         <source>Counting occurrences..</source>
         <translation>Lasketaan esiintymiä...</translation>
     </message>
     <message>
-        <location filename="../../Misc/SearchOperations.cpp" line="72"/>
+        <location filename="../../Misc/SearchOperations.cpp" line="64"/>
         <source>Replacing search term...</source>
         <translation>Korvataan hakutermi...</translation>
     </message>
@@ -11389,33 +11404,33 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="94"/>
-        <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;The ChangeLog can be seen &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Sigilin uudempi versio on saatavilla, versio &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;Muutosloki&lt;/a&gt; on saatavilla.&lt;/p&gt;&lt;p&gt;Haluatko siirtyä lataussivulle?&lt;/p&gt;</translation>
+        <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Sigilistä on saatavilla uudempi versio, versio &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Haluaisitko siirtyä lataussivulle?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="361"/>
+        <location filename="../../Misc/Utility.cpp" line="360"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Ei voi lukea tiedostoa %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="454"/>
+        <location filename="../../Misc/Utility.cpp" line="449"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil on kohdannut ongelman.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="455"/>
-        <source>Please &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;report it&lt;/a&gt; on the issue tracker, including the details from this dialog.</source>
-        <translation>Pyydämme &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;ilmoittamaan siitä&lt;/a&gt; (englanniksi) seurantajärjestelmään ja ilmoittamaan tällöin yksityiskohtaiset tiedot tästä dialogista.</translation>
+        <location filename="../../Misc/Utility.cpp" line="450"/>
+        <source>Sigil cannot continue and will now close</source>
+        <translation>Sigil ei voi jatkaa, ja se sulkeutuu nyt.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Index.cpp" line="49"/>
+        <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Creating Index...</source>
         <translation>Luodaan hakemistoa...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Index.cpp" line="49"/>
+        <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
@@ -11425,12 +11440,12 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
         <translation>Luodaan raportteja...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="539"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="586"/>
         <source>Adding Existing Files..</source>
         <translation>Lisätään valmiita tiedostoja...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="864"/>
+        <location filename="../../BookManipulation/Book.cpp" line="865"/>
         <source>Merging Files..</source>
         <translation>Yhdistetään tiedostoja...</translation>
     </message>
@@ -11445,105 +11460,105 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
         <translation>Avaa ohjelmalla</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="83"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="80"/>
         <source>Cover</source>
         <translation>Kansi</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="85"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="82"/>
         <source>Title Page</source>
         <translation>Nimiösivu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="87"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="84"/>
         <source>Table Of Contents</source>
         <translation>Sisällysluettelo</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="89"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="86"/>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="57"/>
         <source>Index</source>
         <translation>Hakemisto</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="91"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="88"/>
         <source>Glossary</source>
         <translation>Sanasto</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="93"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="90"/>
         <source>Acknowledgements</source>
         <translation>Kiitokset</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="95"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="92"/>
         <source>Bibliography</source>
         <translation>Kirjallisuusluettelo</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="97"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="94"/>
         <source>Colophon</source>
         <translation>Kolofoni</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="99"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="96"/>
         <source>Copyright Page</source>
         <translation>Tekijänoikeusilmoituksen sivu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="101"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="98"/>
         <source>Dedication</source>
         <translation>Omistussanat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="103"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="100"/>
         <source>Epigraph</source>
         <translation>Motto</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="105"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="102"/>
         <source>Foreword</source>
         <translation>Esipuhe</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="107"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="104"/>
         <source>List Of Illustrations</source>
         <translation>Kuvaluettelo</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="109"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="106"/>
         <source>List Of Tables</source>
         <translation>Taulukoiden luettelo</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="111"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="108"/>
         <source>Notes</source>
         <translation>Huomautuksia</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="113"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="110"/>
         <source>Preface</source>
         <translation>Esipuhe</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="115"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="112"/>
         <source>Text</source>
         <translation>Teksti</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="108"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="109"/>
         <source>Cannot read EPUB: %1</source>
         <translation>Kirjaa ei voi lukea: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="200"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>OPF-tiedosto ei sisällä kelvollista spine-elementtiä.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="200"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="680"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="201"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="675"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="678"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil on luonut sinulle uuden.</translation>
     </message>
@@ -11573,72 +11588,72 @@ Rivi: %1 Sarake %2–%3</translation>
         <translation>Epub-tiedostoa ei voi purkaa: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="509"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Tiedostoa container.xml ei voi jäsentää.
 Rivi: %1 Sarake %2–%3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="519"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="517"/>
         <source>No appropriate OPF file found</source>
         <translation>Sopivaa OPF-tiedostoa ei löytynyt</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="556"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="554"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>OPF-tiedostoa ei voi lukea.
 Rivi: %1 Sarake %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="608"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
         <source>The OPF manifest contains duplicate ids for: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>OPF-ilmoitus sisältää useamman kuin yhden tunnisteen seuraavalle: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="607"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Väliaikainen tunniste on otettu käyttöön tämän kirjan lataamiseksi. OPF-tiedostoa tulisi muokata päällekkäisyyden poistamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="647"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="645"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>OPF-tiedosto ei ilmoittanut NCX-tiedostoa oikein.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="648"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="646"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil on käyttänyt seuraavaa tiedostoa NCX:nä:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="676"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="674"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>OPF-tiedosto ei sisällä NCX-tiedostoa.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="679"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
         <source>The NCX file is not present in this EPUB.</source>
         <translation>NCX-tiedosto ei sisälly tähän epub-tiedostoon.</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="182"/>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="242"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="180"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="243"/>
         <source>Invalid HTML file: %1</source>
         <translation>Virheellinen HTML-tiedosto: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="282"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="284"/>
         <source>Invalid OPF file: %1</source>
         <translation>Virheellinen OPF-tiedosto: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="305"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="309"/>
         <source>Invalid NCX file: %1</source>
         <translation>Virheellinen OPF-tiedosto: %1</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="622"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="233"/>
         <source>Cleaning...</source>
         <translation>Siistitään...</translation>
     </message>
@@ -12108,52 +12123,52 @@ kirjaan ja liitetään automaattisesti siihen.</translation>
         <translation>Pienoiskuvan koko:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="74"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
         <source>All</source>
         <translation>Kaikki</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
         <source>Images</source>
         <translation>Kuvat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="78"/>
         <source>Audio</source>
         <translation>Audio</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="119"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
         <source>Files In the Book</source>
         <translation>Kirjan tiedostot</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="122"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="123"/>
         <source>Thumbnails</source>
         <translation>Pienoiskuvat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>shades</source>
         <translation>sävyä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>colors</source>
         <translation>väriä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Grayscale</source>
         <translation>Harmaasävy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Color</source>
         <translation>Väri</translation>
     </message>
@@ -12591,52 +12606,52 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
         <translation>Suodatin:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="78"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="80"/>
         <source>CSS File</source>
         <translation>CSS-tiedosto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="79"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="81"/>
         <source>Class Selector</source>
         <translation>Luokkaselektori</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="80"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="82"/>
         <source>Used In HTML File</source>
         <translation>Käytössä HTML-tiedostossa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="86"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</source>
         <translation>Tämä on lista luokkiin perustuvista selektoreista kaikissa CSS-tiedostoissa ja siitä, vastasiko selektori HTML-tiedostossa olevaa tyyliä.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="87"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="89"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
         <translation>&lt;p&gt;Huom.:&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="88"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
         <translation>&lt;p&gt;CSS:n mutkikkuuden takia koodi pitää tarkistaa manuaalisesti sen varmistamiseksi, onko tyyliä käytetty vai ei.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="244"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="246"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="257"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Cannot save report file.</source>
         <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="257"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="268"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="270"/>
         <source>Delete From Stylesheet</source>
         <translation>Poista tyyliohjeesta</translation>
     </message>
@@ -12660,22 +12675,22 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
 <context>
     <name>TableOfContents</name>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="43"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="41"/>
         <source>Table Of Contents</source>
         <translation>Sisällysluettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="124"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="113"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Tiedostoa &quot;%1&quot; ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="173"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="144"/>
         <source>Collapse All</source>
         <translation>Supista kaikki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="174"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="145"/>
         <source>Expand All</source>
         <translation>Lavenna kaikki</translation>
     </message>
@@ -12683,7 +12698,7 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
 <context>
     <name>TextTab</name>
     <message>
-        <location filename="../../Tabs/TextTab.cpp" line="272"/>
+        <location filename="../../Tabs/TextTab.cpp" line="280"/>
         <source>Print %1</source>
         <translation>Tulosta %1</translation>
     </message>
@@ -12691,12 +12706,12 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="575"/>
+        <location filename="../../Misc/Utility.cpp" line="563"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="576"/>
+        <location filename="../../Misc/Utility.cpp" line="564"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -12713,33 +12728,28 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
         <translation>Tarkistuksen tulokset</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="73"/>
-        <source>An exception occurred during validation: %1.</source>
-        <translation>Virhepoikkeus syntyi tarkastuksen aikana: %1.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="162"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="218"/>
         <source>N/A</source>
         <translation>.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="183"/>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="240"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
         <source>Message</source>
         <translation>Ilmoitus</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="184"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="241"/>
         <source>No problems found!</source>
         <translation>Ongelmia ei löytynyt.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
         <source>File</source>
         <translation>Tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
         <source>Line</source>
         <translation>Rivi</translation>
     </message>

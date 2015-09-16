@@ -58,26 +58,31 @@
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
-        <source>Maintainer / Lead Developer</source>
-        <translation>Správce/Hlavní vývojář</translation>
+        <source>Maintainer(s)</source>
+        <translation>Údržbář(i)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="53"/>
+        <location filename="../../Dialogs/About.cpp" line="56"/>
+        <source>Previous Maintainer(s)</source>
+        <translation>Předchozí údržbář(i)</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
         <translation>Přispěvatelé kódem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="62"/>
+        <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
         <translation>Překladatelé</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="64"/>
+        <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
         <translation>Původní tvůrce</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="65"/>
+        <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
         <translation>odešel na odpočinek</translation>
     </message>
@@ -431,54 +436,54 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
         <translation>Zamlžení písma</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="242"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Soubor &quot;%1&quot; neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="581"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="600"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="647"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="748"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="948"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="628"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="692"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="993"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Opravdu chcete třídit vybrané soubory alfanumericky?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="215"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
         <translation>Tento krok nelze vrátit zpět.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1502"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1550"/>
         <source>Open With</source>
         <translation>Otevřít s</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="122"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
         <source>file</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="126"/>
         <source>files</source>
         <translation>Soubory</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="593"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="639"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Nelze smazat nebo nahradit soubor &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="601"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -487,125 +492,130 @@ A file with this name already exists in the book.</source>
 Soubor s tímto názvem již v knize je.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="698"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="743"/>
         <source>Save As File</source>
         <translation>Uložit jako soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="720"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
         <source>Unable to save the file.</source>
         <translation>Nelze uložit soubor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="728"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
         <source>Choose the directory to save the files to</source>
         <translation>Vyberte adresář, do něhož se mají soubory ukládat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="748"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Jeden nebo více souborů již existuje. Přepsat je?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="810"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Nelze uložit soubory. Cíl může být adresář.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="818"/>
         <source>Unable to save files.</source>
         <translation>Nelze uložit soubory.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="948"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="993"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Soubory nelze přejmenovat, protože by to vedlo ke zdvojeným souborovým názvům.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1012"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1057"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>Ani NCX ani OPF nelze odstranit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1019"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1064"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Nemůžete odstranit všechny soubory html.
 Vždy tu musí být alespoň jeden.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1314"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Add Blank Stylesheet</source>
         <translation>Přidat prázdný styl</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1315"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1363"/>
         <source>Add Blank SVG Image</source>
         <translation>Přidat prázdný obrázek SVG</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1316"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1364"/>
         <source>Add Existing Files...</source>
         <translation>Přidat stávající soubory...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1317"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1318"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1366"/>
         <source>Add Copy</source>
         <translation>Přidat kopii</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1319"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
         <source>Rename</source>
         <translation>Přejmenovat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1376"/>
         <source>Link Stylesheets...</source>
         <translation>Propojit stylové listy...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1331"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1379"/>
         <source>Save As</source>
         <translation>Uložit jako</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1508"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1442"/>
+        <source>Copyright Page</source>
+        <translation>Stránka s autorskými právy</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1556"/>
         <source>Other Application</source>
         <translation>Jiný program</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1321"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
         <source>Cover Image</source>
         <translation>Obrázek obalu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1370"/>
         <source>Merge</source>
         <translation>Sloučit</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1324"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Použít způsob Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1325"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Použít způsob IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1360"/>
         <source>Select All</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="519"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="568"/>
         <source>Add Existing Files</source>
         <translation>Přidat stávající soubory</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="557"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="604"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -614,7 +624,7 @@ Vždy tu musí být alespoň jeden.</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="566"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="613"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -623,7 +633,7 @@ Vždy tu musí být alespoň jeden.</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="581"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="628"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -632,7 +642,7 @@ OK to replace?</source>
 Nahradit jej?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="648"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="693"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -641,127 +651,122 @@ Nahradit jej?</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="663"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="708"/>
         <source>File(s) added.</source>
         <translation>Soubor(y) přidán(y).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1159"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1204"/>
         <source>Unable to set file as cover image.</source>
         <translation>Nelze nastavit soubor jako obrázek obalu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1313"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
         <source>Add Blank HTML File</source>
         <translation>Přidat prázdný soubor HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1320"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1368"/>
         <source>Delete</source>
         <translation>Smazat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1323"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1371"/>
         <source>None</source>
         <translation>Žádný</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1326"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1374"/>
         <source>Sort</source>
         <translation>Třídit</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1375"/>
         <source>Renumber TOC Entries</source>
         <translation>Přečíslovat položky obsahu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Validate with W3C</source>
         <translation>Schválit pomocí W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>Cover</source>
         <translation>Obal</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1366"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Title Page</source>
         <translation>Titulní strana</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1370"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
         <source>Table Of Contents</source>
         <translation>Obsah</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1374"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1422"/>
         <source>Index</source>
         <translation>Rejstřík</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1426"/>
         <source>Glossary</source>
         <translation>Slovníček</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1382"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1430"/>
         <source>Acknowledgements</source>
         <translation>Poděkování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1386"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1434"/>
         <source>Bibliography</source>
         <translation>Bibliografie</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1390"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
         <source>Colophon</source>
         <translation>Tiráž</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1394"/>
-        <source>CopyrightPage</source>
-        <translation>Stránka s autorskými právy</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1398"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1446"/>
         <source>Dedication</source>
         <translation>Věnování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1450"/>
         <source>Epigraph</source>
         <translation>Epigraf</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1454"/>
         <source>Foreword</source>
         <translation>Předmluva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1458"/>
         <source>List Of Illustrations</source>
         <translation>Seznam ilustrací</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1462"/>
         <source>List Of Tables</source>
         <translation>Seznam tabulek</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1466"/>
         <source>Notes</source>
         <translation>Poznámky</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1422"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1470"/>
         <source>Preface</source>
         <translation>Úvod</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1426"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
@@ -769,94 +774,94 @@ Nahradit jej?</translation>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1007"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1017"/>
         <source>Open</source>
         <translation>Otevřít</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1009"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="859"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1019"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1021"/>
         <source>Open With</source>
         <translation>Otevřít s</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="639"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="649"/>
         <source>Clipboard contains HTML formatting</source>
         <translation>Schránka obsahuje formátování HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="640"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="650"/>
         <source>Do you want to paste clipboard data as plain text?</source>
         <translation>Chcete vložit data ve schránce jako prostý text?</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="835"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="845"/>
         <source>Open Tab For</source>
         <translation>Otevřít kartu pro</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="856"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="866"/>
         <source>Other Application</source>
         <translation>Jiný program</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="904"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
         <source>Clips</source>
         <translation>Úryvky</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="924"/>
         <source>Add To Clips</source>
         <translation>Přidat do úryvků</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="999"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1009"/>
         <source>Insert File</source>
         <translation>Vložit soubor</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1000"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
         <source>Undo</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1001"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
         <source>Redo</source>
         <translation>Znovu</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1002"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1012"/>
         <source>Cut</source>
         <translation>Vyjmout</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1003"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1013"/>
         <source>Copy</source>
         <translation>Kopírovat</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1004"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1014"/>
         <source>Copy Image</source>
         <translation>Kopírovat obrázek</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1005"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1015"/>
         <source>Paste</source>
         <translation>Vložit</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1006"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1016"/>
         <source>Select All</source>
         <translation>Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1020"/>
         <source>Save As</source>
         <translation>Uložit jako</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1014"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1024"/>
         <source>Inspect Element</source>
         <translation>Přezkoumat prvek</translation>
     </message>
@@ -864,29 +869,29 @@ Nahradit jej?</translation>
 <context>
     <name>BookViewPreview</name>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="256"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="321"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="327"/>
         <source>Unsupported</source>
         <translation>Nepodporováno</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="254"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="256"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
         <translation>Režim ověřování pravopisu není v tuto chvíli v Pohledu na knihu podporován. Přepnout do Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="319"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="321"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
         <translation>Nahradit není v tomto pohledu podporováno. Přepněte do Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="325"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="327"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
         <translation>Nahradit vše pro nynější soubor není v tomto pohledu podporováno. Přepněte do Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="715"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="740"/>
         <source>Inspect Element</source>
         <translation>Přezkoumat prvek</translation>
     </message>
@@ -1058,57 +1063,57 @@ Nahradit jej?</translation>
         <translation>Filtr:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="76"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="77"/>
         <source>HTML File</source>
         <translation>Soubor HTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="77"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="78"/>
         <source>Element</source>
         <translation>Prvek</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="78"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="79"/>
         <source>Class</source>
         <translation>Třída</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="79"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="80"/>
         <source>Matched Selector</source>
         <translation>Volič odpovídajících</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="80"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="81"/>
         <source>Found In</source>
         <translation>Nalezeno v</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
         <translation>&lt;p&gt;Toto je seznam tříd stylů použitých ve všech souborech HTML a zda styl odpovídá nebo neodpovídá voliči v propojeném stylovém listu.&lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
         <translation>&lt;p&gt;POZNÁMKA:&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="89"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Kvůli složitostem CSS musíte svůj kód prověřit ručně, abyste si byli jisti, že je styl používán, nebo není.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="222"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="223"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="235"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Cannot save report file.</source>
         <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
@@ -1121,14 +1126,14 @@ Nahradit jej?</translation>
         <translation>Uklizení zdroje</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="80"/>
-        <source>Pretty Print Tidy</source>
-        <translation>Pretty Print Tidy</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="77"/>
         <source>Perform formatting and cleaning of your code to make it valid XHTML.</source>
         <translation>Provést formátování a úklid vašeho kódu, aby z něk byl platný XHTML.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="80"/>
+        <source>Pretty Print Gumbo</source>
+        <translation>Ukázat Gumbo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="90"/>
@@ -1186,8 +1191,8 @@ když je automatický úklid povolen, nebo při ručním úklidu.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="94"/>
-        <source>HTML Tidy</source>
-        <translation>HTML Tidy</translation>
+        <source>Google Gumbo-Parser</source>
+        <translation>Syntaktický analyzátor Google Gumbo</translation>
     </message>
 </context>
 <context>
@@ -1471,17 +1476,17 @@ Chcete uložit své změny?</translation>
 <context>
     <name>ClipsWindow</name>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="43"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="34"/>
         <source>Clips</source>
         <translation>Úryvky</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="118"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="99"/>
         <source>Collapse All</source>
         <translation>Sbalit vše</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="119"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="100"/>
         <source>Expand All</source>
         <translation>Rozbalit vše</translation>
     </message>
@@ -1775,6 +1780,15 @@ Také můžete použít klávesu pravé šipky.</translation>
         <location filename="../../Dialogs/EditTOC.cpp" line="443"/>
         <source>Collapse All</source>
         <translation>Sbalit vše</translation>
+    </message>
+</context>
+<context>
+    <name>EmbeddedPython</name>
+    <message>
+        <location filename="../../Misc/EmbeddedPython.cpp" line="572"/>
+        <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
+        <source>Embedded Python Error</source>
+        <translation>Správa chyb Pythonu</translation>
     </message>
 </context>
 <context>
@@ -2099,7 +2113,7 @@ od opačného konce.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1116"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1115"/>
         <source>Print %1</source>
         <translation>Tisk %1</translation>
     </message>
@@ -2218,7 +2232,7 @@ Vlastnost názvu nadpisu bude v dokumentu aktualizována.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="890"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="931"/>
         <source>Rename</source>
         <translation>Přejmenovat</translation>
     </message>
@@ -2260,50 +2274,50 @@ You can then check or uncheck individual headings in the list above.</source>
 Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu výše.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="536"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
         <source>Include</source>
         <translation>Zahrnout</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="753"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="794"/>
         <source>Up to level</source>
         <translation>O úroveň výš</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="755"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="796"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation>&lt;Vybrat nadpisy k zahrnutí v obsahu&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="758"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="819"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="799"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="860"/>
         <source>None</source>
         <translation>Žádný</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="534"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="574"/>
         <source>TOC Entry / Heading Title</source>
         <translation>Položka obsahu/Název nadpisu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="535"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="575"/>
         <source>Level</source>
         <translation>Úroveň</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
         <source>Included</source>
         <translation>Zahrnuto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="519"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
         <source>Hidden</source>
         <translation>Skryto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="764"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="817"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="805"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="858"/>
         <source>All</source>
         <translation>Vše</translation>
     </message>
@@ -2404,49 +2418,49 @@ Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu v
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="139"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>shades</source>
         <translation>Odstíny</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="139"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>colors</source>
         <translation>Barvy</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="140"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Grayscale</source>
         <translation>Stupnice šedi</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="140"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Color</source>
         <translation>Barva</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="230"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="255"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="258"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="246"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="271"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="274"/>
         <source>Open With</source>
         <translation>Otevřít s</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="237"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
         <source>Other Application</source>
         <translation>Jiný program</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="256"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="272"/>
         <source>Save As</source>
         <translation>Uložit jako</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="257"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="273"/>
         <source>Copy Image</source>
         <translation>Kopírovat obrázek</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="291"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="307"/>
         <source>Print %1</source>
         <translation>Tisk %1</translation>
     </message>
@@ -2454,18 +2468,23 @@ Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu v
 <context>
     <name>ImportEPUB</name>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="162"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="164"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
         <translation>Tento EPUB má soubory HTML, jež nejsou utvořeny dobře. Sigil se může pokusit o automatickou opravu těchto souborů, i když to může vést ke ztrátě dat.
 
 Chcete soubory opravit automaticky?</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="479"/>
+        <source>Missing and no OPF in archive.</source>
+        <translation>Chybí a v archivu není žádný OPF.</translation>
     </message>
 </context>
 <context>
@@ -5862,69 +5881,69 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <translation>&amp;Nápověda</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="216"/>
+        <location filename="../../Form_Files/main.ui" line="213"/>
         <source>&amp;View</source>
         <translation>&amp;Pohled</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="235"/>
+        <location filename="../../Form_Files/main.ui" line="232"/>
         <source>&amp;Search</source>
         <translation>&amp;Hledání</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="239"/>
+        <location filename="../../Form_Files/main.ui" line="236"/>
         <source>Current Fil&amp;e</source>
         <translation>Nynější &amp;soubor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="271"/>
+        <location filename="../../Form_Files/main.ui" line="268"/>
         <source>&amp;Window</source>
         <translation>&amp;Okno</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="354"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="479"/>
+        <location filename="../../Form_Files/main.ui" line="351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="488"/>
         <source>File</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="369"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="256"/>
+        <location filename="../../Form_Files/main.ui" line="366"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="252"/>
         <source>Edit</source>
         <translation>Úpravy</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="388"/>
+        <location filename="../../Form_Files/main.ui" line="385"/>
         <source>View</source>
         <translation>Pohled</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="401"/>
+        <location filename="../../Form_Files/main.ui" line="398"/>
         <source>Insert</source>
         <translation>Vložka</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="430"/>
+        <location filename="../../Form_Files/main.ui" line="427"/>
         <source>Donate</source>
         <translation>Dary</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="562"/>
+        <location filename="../../Form_Files/main.ui" line="559"/>
         <source>Clip Bar</source>
         <translation>Úryvky</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="605"/>
+        <location filename="../../Form_Files/main.ui" line="602"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="614"/>
+        <location filename="../../Form_Files/main.ui" line="611"/>
         <source>&amp;Save</source>
         <translation>&amp;Uložit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="617"/>
+        <location filename="../../Form_Files/main.ui" line="614"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -5932,17 +5951,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Uloží nynější knihu. &lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="622"/>
+        <location filename="../../Form_Files/main.ui" line="619"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="627"/>
+        <location filename="../../Form_Files/main.ui" line="624"/>
         <source>Save &amp;As...</source>
         <translation>Uložit &amp;jako...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="630"/>
+        <location filename="../../Form_Files/main.ui" line="627"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -5951,22 +5970,22 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Uloží nynější knihu pod jiným názvem.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="635"/>
+        <location filename="../../Form_Files/main.ui" line="632"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="652"/>
+        <location filename="../../Form_Files/main.ui" line="649"/>
         <source>Cu&amp;t</source>
         <translation>V&amp;yjmout</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="666"/>
+        <location filename="../../Form_Files/main.ui" line="663"/>
         <source>&amp;Paste</source>
         <translation>&amp;Vložit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="669"/>
+        <location filename="../../Form_Files/main.ui" line="666"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -5975,12 +5994,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vloží obsah schránky do knihy.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="691"/>
+        <location filename="../../Form_Files/main.ui" line="688"/>
         <source>&amp;Undo</source>
         <translation>&amp;Zpět</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="694"/>
+        <location filename="../../Form_Files/main.ui" line="691"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -5989,17 +6008,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zruší změny předchozí operace.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="699"/>
+        <location filename="../../Form_Files/main.ui" line="696"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="708"/>
+        <location filename="../../Form_Files/main.ui" line="705"/>
         <source>&amp;Redo</source>
         <translation>Z&amp;novu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="711"/>
+        <location filename="../../Form_Files/main.ui" line="708"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -6008,12 +6027,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Obnoví změny zrušené předchozím krokem zpět.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="725"/>
+        <location filename="../../Form_Files/main.ui" line="722"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopírovat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="745"/>
+        <location filename="../../Form_Files/main.ui" line="742"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -6022,7 +6041,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zarovnat odstavec vlevo.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="762"/>
+        <location filename="../../Form_Files/main.ui" line="759"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -6031,12 +6050,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zarovnat odstavec vpravo.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="853"/>
+        <location filename="../../Form_Files/main.ui" line="850"/>
         <source>&amp;Open...</source>
         <translation>&amp;Otevřít...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="856"/>
+        <location filename="../../Form_Files/main.ui" line="853"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -6045,37 +6064,37 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Otevře knihu z disku.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="861"/>
+        <location filename="../../Form_Files/main.ui" line="858"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="893"/>
+        <location filename="../../Form_Files/main.ui" line="890"/>
         <source>Exit</source>
         <translation>Ukončit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="896"/>
+        <location filename="../../Form_Files/main.ui" line="893"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="905"/>
+        <location filename="../../Form_Files/main.ui" line="902"/>
         <source>&amp;About...</source>
         <translation>&amp;O programu...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="935"/>
+        <location filename="../../Form_Files/main.ui" line="932"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="957"/>
+        <location filename="../../Form_Files/main.ui" line="954"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>&amp;Upravit obsah...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="960"/>
+        <location filename="../../Form_Files/main.ui" line="957"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -6086,27 +6105,27 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="974"/>
+        <location filename="../../Form_Files/main.ui" line="971"/>
         <source>&amp;Book View</source>
         <translation>Pohled na &amp;knihu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="991"/>
+        <location filename="../../Form_Files/main.ui" line="988"/>
         <source>&amp;Code View</source>
         <translation>Pohled na kó&amp;d</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1004"/>
+        <location filename="../../Form_Files/main.ui" line="1001"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
         <translation>Přepnout Pohled na knihu na Pohled na kód nebo Pohled na kód na Pohled na knihu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1024"/>
+        <location filename="../../Form_Files/main.ui" line="1021"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="977"/>
+        <location filename="../../Form_Files/main.ui" line="974"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
@@ -6125,42 +6144,42 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <translation>Z&amp;měnit velikost písmen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="175"/>
+        <location filename="../../Form_Files/main.ui" line="172"/>
         <source>&amp;Heading</source>
         <translation>&amp;Nadpis</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="220"/>
+        <location filename="../../Form_Files/main.ui" line="217"/>
         <source>&amp;Toolbars</source>
         <translation>Ná&amp;strojové panely</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="287"/>
+        <location filename="../../Form_Files/main.ui" line="284"/>
         <source>&amp;Table Of Contents</source>
         <translation>&amp;Obsah</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="295"/>
+        <location filename="../../Form_Files/main.ui" line="292"/>
         <source>Spe&amp;llcheck</source>
         <translation>Ověření &amp;pravopisu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="309"/>
+        <location filename="../../Form_Files/main.ui" line="306"/>
         <source>&amp;Index</source>
         <translation>&amp;Rejstřík</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="418"/>
+        <location filename="../../Form_Files/main.ui" line="415"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="442"/>
+        <location filename="../../Form_Files/main.ui" line="439"/>
         <source>Tools</source>
         <translation>Nástroje</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="600"/>
+        <location filename="../../Form_Files/main.ui" line="597"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
@@ -6168,7 +6187,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit novou knihu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="994"/>
+        <location filename="../../Form_Files/main.ui" line="991"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
@@ -6177,36 +6196,36 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Upravit a zobrazit skutečný obsah souborů ve vaší knize, včetně formátovacího kódu, jenž řídí, jak se bude vaše kniha jevit čtenářům.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1016"/>
+        <location filename="../../Form_Files/main.ui" line="1013"/>
         <source>&amp;Split At Cursor</source>
-        <translation>Rozdělit na &amp;ukazovátku</translation>
+        <translation>Rozdělit na &amp;ukazateli</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1019"/>
+        <location filename="../../Form_Files/main.ui" line="1016"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rozdělit na ukazovátku&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rozdělit na ukazatel&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Rozdělit nynější soubor na dva soubory pomocí polohy vašeho ukazovátka jako dělicího bodu.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Rozdělit nynější soubor na dva soubory pomocí polohy ukazatele jako dělicího bodu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1043"/>
+        <location filename="../../Form_Files/main.ui" line="1040"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1052"/>
+        <location filename="../../Form_Files/main.ui" line="1049"/>
         <source>&amp;Special Character...</source>
         <translation>Zv&amp;láštní znak...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1066"/>
+        <location filename="../../Form_Files/main.ui" line="1063"/>
         <source>I&amp;D...</source>
         <translation>&amp;Identifikátor...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1069"/>
+        <location filename="../../Form_Files/main.ui" line="1066"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -6217,42 +6236,42 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1134"/>
+        <location filename="../../Form_Files/main.ui" line="1131"/>
         <source>Stri&amp;kethrough</source>
         <translation>Př&amp;eškrtnutí</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1151"/>
+        <location filename="../../Form_Files/main.ui" line="1148"/>
         <source>&amp;Subscript</source>
         <translation>&amp;Dolní index</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1182"/>
+        <location filename="../../Form_Files/main.ui" line="1179"/>
         <source>&amp;Print...</source>
         <translation>&amp;Tisk...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1185"/>
+        <location filename="../../Form_Files/main.ui" line="1182"/>
         <source>Print</source>
         <translation>Tisk</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1188"/>
+        <location filename="../../Form_Files/main.ui" line="1185"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1197"/>
+        <location filename="../../Form_Files/main.ui" line="1194"/>
         <source>Print Pre&amp;view...</source>
         <translation>Ná&amp;hled tisku...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1200"/>
+        <location filename="../../Form_Files/main.ui" line="1197"/>
         <source>Print Preview</source>
         <translation>Náhled tisku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="533"/>
+        <location filename="../../Form_Files/main.ui" line="530"/>
         <source>Change Case</source>
         <translation>Změnit velikost písmen</translation>
     </message>
@@ -6262,62 +6281,62 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <translation>&amp;Vložka</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="171"/>
+        <location filename="../../Form_Files/main.ui" line="168"/>
         <source>For&amp;mat</source>
         <translation>For&amp;mát</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="457"/>
+        <location filename="../../Form_Files/main.ui" line="454"/>
         <source>Heading</source>
         <translation>Nadpis</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="283"/>
+        <location filename="../../Form_Files/main.ui" line="280"/>
         <source>&amp;Tools</source>
         <translation>Nás&amp;troje</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="475"/>
+        <location filename="../../Form_Files/main.ui" line="472"/>
         <source>Format</source>
         <translation>Formát</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="492"/>
+        <location filename="../../Form_Files/main.ui" line="489"/>
         <source>Align</source>
         <translation>Zarovnání</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="507"/>
+        <location filename="../../Form_Files/main.ui" line="504"/>
         <source>List</source>
         <translation>Seznam</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="520"/>
+        <location filename="../../Form_Files/main.ui" line="517"/>
         <source>Indent</source>
         <translation>Odsazení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="548"/>
+        <location filename="../../Form_Files/main.ui" line="545"/>
         <source>Text Direction</source>
         <translation>Směr textu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="597"/>
+        <location filename="../../Form_Files/main.ui" line="594"/>
         <source>&amp;New</source>
         <translation>&amp;Nový</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="640"/>
+        <location filename="../../Form_Files/main.ui" line="637"/>
         <source>Save A &amp;Copy...</source>
         <translation>Uložit &amp;kopii...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="643"/>
+        <location filename="../../Form_Files/main.ui" line="640"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>Uložit kopii vaší knihy pod jiným souborovým názvem.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="655"/>
+        <location filename="../../Form_Files/main.ui" line="652"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6326,27 +6345,27 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vyjme vybraný text z dokumentu a dá jej do schránky.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="682"/>
+        <location filename="../../Form_Files/main.ui" line="679"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="676"/>
+        <location filename="../../Form_Files/main.ui" line="673"/>
         <source>&amp;Closing Tag</source>
         <translation>&amp;Uzavírající značka</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="679"/>
+        <location filename="../../Form_Files/main.ui" line="676"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>Vložit uzavírající značku v Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="716"/>
+        <location filename="../../Form_Files/main.ui" line="713"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="728"/>
+        <location filename="../../Form_Files/main.ui" line="725"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6355,27 +6374,27 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zkopíruje vybraný text a dá jej do schránky.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="742"/>
+        <location filename="../../Form_Files/main.ui" line="739"/>
         <source>Align &amp;Left</source>
         <translation>Zarovnat &amp;vlevo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="759"/>
+        <location filename="../../Form_Files/main.ui" line="756"/>
         <source>Align &amp;Right</source>
         <translation>Zarovnat v&amp;pravo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1685"/>
+        <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="776"/>
+        <location filename="../../Form_Files/main.ui" line="773"/>
         <source>&amp;Center</source>
         <translation>Zarovnat na &amp;střed</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="779"/>
+        <location filename="../../Form_Files/main.ui" line="776"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -6384,17 +6403,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zarovnat odstavec na střed.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="784"/>
+        <location filename="../../Form_Files/main.ui" line="781"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="796"/>
+        <location filename="../../Form_Files/main.ui" line="793"/>
         <source>&amp;Justify</source>
         <translation>Zarovnat do &amp;bloku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="799"/>
+        <location filename="../../Form_Files/main.ui" line="796"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -6403,17 +6422,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zarovnat odstavec do bloku, jak k levému tak k pravému okraji.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="804"/>
+        <location filename="../../Form_Files/main.ui" line="801"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="816"/>
+        <location filename="../../Form_Files/main.ui" line="813"/>
         <source>&amp;Bold</source>
         <translation>&amp;Tučné</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="819"/>
+        <location filename="../../Form_Files/main.ui" line="816"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -6422,17 +6441,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Udělat vybraný text tučným.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="824"/>
+        <location filename="../../Form_Files/main.ui" line="821"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="836"/>
+        <location filename="../../Form_Files/main.ui" line="833"/>
         <source>&amp;Italic</source>
         <translation>&amp;Kurzíva</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="839"/>
+        <location filename="../../Form_Files/main.ui" line="836"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -6441,17 +6460,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Udělat vybraný text kurzívním.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="844"/>
+        <location filename="../../Form_Files/main.ui" line="841"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="873"/>
+        <location filename="../../Form_Files/main.ui" line="870"/>
         <source>&amp;Underline</source>
         <translation>&amp;Podtržení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="876"/>
+        <location filename="../../Form_Files/main.ui" line="873"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -6460,22 +6479,22 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Podtrhnout vybraný text.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="881"/>
+        <location filename="../../Form_Files/main.ui" line="878"/>
         <source>Ctrl+U</source>
         <translation>CTRL+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="890"/>
+        <location filename="../../Form_Files/main.ui" line="887"/>
         <source>&amp;Quit</source>
         <translation>U&amp;končit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="908"/>
+        <location filename="../../Form_Files/main.ui" line="905"/>
         <source>Show information about Sigil.</source>
         <translation>Ukázat informace o Sigilu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="930"/>
+        <location filename="../../Form_Files/main.ui" line="927"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -6484,17 +6503,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Upravit a zobrazit údaje o vaší knize včetně autora a názvu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1001"/>
+        <location filename="../../Form_Files/main.ui" line="998"/>
         <source>&amp;Toggle View State</source>
         <translation>Př&amp;epnout stav pohledu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1007"/>
+        <location filename="../../Form_Files/main.ui" line="1004"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1055"/>
+        <location filename="../../Form_Files/main.ui" line="1052"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -6503,12 +6522,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vyberte znak k vložení do vašeho textu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1097"/>
+        <location filename="../../Form_Files/main.ui" line="1094"/>
         <source>&amp;Numbered List</source>
         <translation>Čís&amp;lovaný seznam</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1100"/>
+        <location filename="../../Form_Files/main.ui" line="1097"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -6517,12 +6536,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit číslovaný seznam.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1114"/>
+        <location filename="../../Form_Files/main.ui" line="1111"/>
         <source>Bulle&amp;ted List</source>
         <translation>Seznam s &amp;odrážkami</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1117"/>
+        <location filename="../../Form_Files/main.ui" line="1114"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -6531,12 +6550,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit seznam s odrážkami.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1122"/>
+        <location filename="../../Form_Files/main.ui" line="1119"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1137"/>
+        <location filename="../../Form_Files/main.ui" line="1134"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -6545,7 +6564,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Nakreslit čáru přes vybraný text.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1154"/>
+        <location filename="../../Form_Files/main.ui" line="1151"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -6554,12 +6573,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Nastavit vybraný text lehce menší a pod normálním řádkem.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1168"/>
+        <location filename="../../Form_Files/main.ui" line="1165"/>
         <source>Su&amp;perscript</source>
         <translation>&amp;Horní index</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1171"/>
+        <location filename="../../Form_Files/main.ui" line="1168"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -6568,58 +6587,58 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Nastavit vybraný text lehce menší a nad normálním řádkem.&lt;/p&gt;</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1202"/>
         <location filename="../../Form_Files/main.ui" line="1205"/>
-        <location filename="../../Form_Files/main.ui" line="1208"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1211"/>
+        <location filename="../../Form_Files/main.ui" line="1208"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1220"/>
+        <location filename="../../Form_Files/main.ui" line="1217"/>
         <source>Zoom &amp;In</source>
         <translation>Při&amp;blížit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1223"/>
+        <location filename="../../Form_Files/main.ui" line="1220"/>
         <source>Zoom In</source>
         <translation>Přiblížit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1235"/>
+        <location filename="../../Form_Files/main.ui" line="1232"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Oddálit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1238"/>
+        <location filename="../../Form_Files/main.ui" line="1235"/>
         <source>Zoom Out</source>
         <translation>Oddálit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1241"/>
+        <location filename="../../Form_Files/main.ui" line="1238"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1246"/>
+        <location filename="../../Form_Files/main.ui" line="1243"/>
         <source>Sho&amp;w Tag</source>
         <translation>&amp;Ukázat značku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="952"/>
+        <location filename="../../Form_Files/main.ui" line="949"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="913"/>
+        <location filename="../../Form_Files/main.ui" line="910"/>
         <source>Add &amp;Cover...</source>
         <translation>Přidat o&amp;bal...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="916"/>
+        <location filename="../../Form_Files/main.ui" line="913"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -6628,7 +6647,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Přidat obal.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="947"/>
+        <location filename="../../Form_Files/main.ui" line="944"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -6637,12 +6656,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit nový obsah z nadpisů vaší knihy.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1033"/>
+        <location filename="../../Form_Files/main.ui" line="1030"/>
         <source>&amp;File...</source>
         <translation>&amp;Soubor...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1036"/>
+        <location filename="../../Form_Files/main.ui" line="1033"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -6655,12 +6674,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Soubory můžete do své knihy přidat pomocí nabídky Soubor -&gt; Přidat -&gt; Stávající soubory.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1080"/>
+        <location filename="../../Form_Files/main.ui" line="1077"/>
         <source>&amp;Link...</source>
         <translation>&amp;Odkaz...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1083"/>
+        <location filename="../../Form_Files/main.ui" line="1080"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -6669,22 +6688,22 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vložit nebo upravit kotvu s odkazem na cíl.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1226"/>
+        <location filename="../../Form_Files/main.ui" line="1223"/>
         <source>Ctrl+=</source>
         <translation>Ctrl+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1249"/>
+        <location filename="../../Form_Files/main.ui" line="1246"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
         <translation>Ukázat uzavírající značku HTML pro polohu ukazatele v pohledu na knihu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1252"/>
+        <location filename="../../Form_Files/main.ui" line="1249"/>
         <source>Ctrl+Alt+T</source>
         <translation>Ctrl+Alt+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1264"/>
+        <location filename="../../Form_Files/main.ui" line="1261"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -6693,12 +6712,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Najít a nahradit text v dokumentu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1269"/>
+        <location filename="../../Form_Files/main.ui" line="1266"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1281"/>
+        <location filename="../../Form_Files/main.ui" line="1278"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6707,12 +6726,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zvětšit úroveň odsazení odstavce.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1286"/>
+        <location filename="../../Form_Files/main.ui" line="1283"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1298"/>
+        <location filename="../../Form_Files/main.ui" line="1295"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6721,13 +6740,13 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zmenšit úroveň odsazení odstavce.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1303"/>
-        <location filename="../../Form_Files/main.ui" line="1725"/>
+        <location filename="../../Form_Files/main.ui" line="1300"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1315"/>
+        <location filename="../../Form_Files/main.ui" line="1312"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -6740,7 +6759,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1331"/>
+        <location filename="../../Form_Files/main.ui" line="1328"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -6753,7 +6772,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1347"/>
+        <location filename="../../Form_Files/main.ui" line="1344"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -6766,12 +6785,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1359"/>
+        <location filename="../../Form_Files/main.ui" line="1356"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+Mezerník</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1371"/>
+        <location filename="../../Form_Files/main.ui" line="1368"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6784,12 +6803,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1378"/>
+        <location filename="../../Form_Files/main.ui" line="1375"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1390"/>
+        <location filename="../../Form_Files/main.ui" line="1387"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6802,12 +6821,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1397"/>
+        <location filename="../../Form_Files/main.ui" line="1394"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1409"/>
+        <location filename="../../Form_Files/main.ui" line="1406"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -6820,7 +6839,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1425"/>
+        <location filename="../../Form_Files/main.ui" line="1422"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -6833,72 +6852,57 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1434"/>
-        <source>&amp;Report An Issue...</source>
-        <translation>Na&amp;hlásit chybu nebo požadavek...</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1439"/>
-        <source>Sigil Dev &amp;Blog...</source>
-        <translation>Vývojářské &amp;stránky Sigilu...</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1444"/>
+        <location filename="../../Form_Files/main.ui" line="1436"/>
         <source>&amp;Next Tab</source>
         <translation>&amp;Další karta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1447"/>
+        <location filename="../../Form_Files/main.ui" line="1439"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1452"/>
+        <location filename="../../Form_Files/main.ui" line="1444"/>
         <source>&amp;Previous Tab</source>
         <translation>&amp;Předchozí karta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1455"/>
+        <location filename="../../Form_Files/main.ui" line="1447"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1460"/>
+        <location filename="../../Form_Files/main.ui" line="1452"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;Zavřít kartu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1463"/>
+        <location filename="../../Form_Files/main.ui" line="1455"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1474"/>
+        <location filename="../../Form_Files/main.ui" line="1466"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1521"/>
-        <source>&amp;Validate EPUB With FlightCrew</source>
-        <translation>&amp;Schválit EPUB pomocí FlightCrew</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1529"/>
+        <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1534"/>
+        <location filename="../../Form_Files/main.ui" line="1524"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>Schválit stylové listy pomocí &amp;W3C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1550"/>
+        <location filename="../../Form_Files/main.ui" line="1540"/>
         <source>&amp;Spellcheck...</source>
         <translation>Ověření &amp;pravopisu...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1553"/>
+        <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -6907,52 +6911,52 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Najít všechna špatně napsaná slova a umožnit vám jejich přidání do slovníku, nebo jejich přehlížení.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1558"/>
+        <location filename="../../Form_Files/main.ui" line="1548"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1569"/>
+        <location filename="../../Form_Files/main.ui" line="1559"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>Povolit nebo zakázat zvýraznění špatně napsaných slov v Pohledu na kód.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1574"/>
+        <location filename="../../Form_Files/main.ui" line="1564"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>&amp;Další špatně napsané slovo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1596"/>
+        <location filename="../../Form_Files/main.ui" line="1586"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>Přehlížet nynější špatně napsané slovo pod vsuvkou dokud Sigil nebude spuštěn znovu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1604"/>
+        <location filename="../../Form_Files/main.ui" line="1594"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>Přehlížet přehlížená slova z ověření pravopisu, aniž by se Sigil musel spustit znovu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1612"/>
+        <location filename="../../Form_Files/main.ui" line="1602"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1617"/>
+        <location filename="../../Form_Files/main.ui" line="1607"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>Smazat nepoužívané &amp;multimediální soubory...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1622"/>
+        <location filename="../../Form_Files/main.ui" line="1612"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation>Smazat nepoužívané &amp;třídy stylových listů...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1630"/>
+        <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1642"/>
+        <location filename="../../Form_Files/main.ui" line="1632"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -6962,307 +6966,307 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Poskytněte dar, a tím podpořte Sigil.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1682"/>
+        <location filename="../../Form_Files/main.ui" line="1672"/>
         <source>Replace</source>
         <translation>Nahradit</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1690"/>
+        <location filename="../../Form_Files/main.ui" line="1680"/>
         <source>&amp;Replace/Find Next</source>
         <translation>N&amp;ahradit/Najít další</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1698"/>
+        <location filename="../../Form_Files/main.ui" line="1688"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>Nah&amp;radit/Najít předchozí</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1722"/>
+        <location filename="../../Form_Files/main.ui" line="1712"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>&amp;Označit vybraný text</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1730"/>
+        <location filename="../../Form_Files/main.ui" line="1720"/>
         <source>Find &amp;Next In File</source>
         <translation>Najít &amp;další v souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1735"/>
+        <location filename="../../Form_Files/main.ui" line="1725"/>
         <source>&amp;Replace Next In File</source>
         <translation>Nahra&amp;dit další v souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1740"/>
+        <location filename="../../Form_Files/main.ui" line="1730"/>
         <source>Replace &amp;All In File</source>
         <translation>Nahradit &amp;vše v souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1745"/>
+        <location filename="../../Form_Files/main.ui" line="1735"/>
         <source>&amp;Count All In File</source>
         <translation>Spočí&amp;tat vše v souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1753"/>
+        <location filename="../../Form_Files/main.ui" line="1743"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1764"/>
+        <location filename="../../Form_Files/main.ui" line="1754"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1769"/>
+        <location filename="../../Form_Files/main.ui" line="1759"/>
         <source>Clip &amp;1</source>
         <translation>Úryvek &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1772"/>
+        <location filename="../../Form_Files/main.ui" line="1762"/>
         <source>Insert Clip 1</source>
         <translation>Vložit úryvek 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1775"/>
+        <location filename="../../Form_Files/main.ui" line="1765"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1780"/>
+        <location filename="../../Form_Files/main.ui" line="1770"/>
         <source>Clip 2&amp;</source>
         <translation>Úryvek &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1783"/>
+        <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>Insert Clip 2</source>
         <translation>Vložit úryvek 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1786"/>
+        <location filename="../../Form_Files/main.ui" line="1776"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1791"/>
+        <location filename="../../Form_Files/main.ui" line="1781"/>
         <source>Clip &amp;3</source>
         <translation>Úryvek &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1794"/>
+        <location filename="../../Form_Files/main.ui" line="1784"/>
         <source>Insert Clip 3</source>
         <translation>Vložit úryvek 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1797"/>
+        <location filename="../../Form_Files/main.ui" line="1787"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1802"/>
+        <location filename="../../Form_Files/main.ui" line="1792"/>
         <source>Clip &amp;4</source>
         <translation>Úryvek &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1805"/>
+        <location filename="../../Form_Files/main.ui" line="1795"/>
         <source>Insert Clip 4</source>
         <translation>Vložit úryvek 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1808"/>
+        <location filename="../../Form_Files/main.ui" line="1798"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1813"/>
+        <location filename="../../Form_Files/main.ui" line="1803"/>
         <source>Clip &amp;5</source>
         <translation>Úryvek &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1816"/>
+        <location filename="../../Form_Files/main.ui" line="1806"/>
         <source>Insert Clip 5</source>
         <translation>Vložit úryvek 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1819"/>
+        <location filename="../../Form_Files/main.ui" line="1809"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1824"/>
+        <location filename="../../Form_Files/main.ui" line="1814"/>
         <source>Clip &amp;6</source>
         <translation>Úryvek &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1827"/>
+        <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Insert Clip 6</source>
         <translation>Vložit úryvek 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1830"/>
+        <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1835"/>
+        <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>Clip &amp;7</source>
         <translation>Úryvek &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1838"/>
+        <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Insert Clip 7</source>
         <translation>Vložit úryvek 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1841"/>
+        <location filename="../../Form_Files/main.ui" line="1831"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1846"/>
+        <location filename="../../Form_Files/main.ui" line="1836"/>
         <source>Clip &amp;8</source>
         <translation>Úryvek &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1849"/>
+        <location filename="../../Form_Files/main.ui" line="1839"/>
         <source>Insert Clip 8</source>
         <translation>Vložit úryvek 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1852"/>
+        <location filename="../../Form_Files/main.ui" line="1842"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1857"/>
+        <location filename="../../Form_Files/main.ui" line="1847"/>
         <source>Clip &amp;9</source>
         <translation>Úryvek &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1860"/>
+        <location filename="../../Form_Files/main.ui" line="1850"/>
         <source>Insert Clip 9</source>
         <translation>Vložit úryvek 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1863"/>
+        <location filename="../../Form_Files/main.ui" line="1853"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1868"/>
+        <location filename="../../Form_Files/main.ui" line="1858"/>
         <source>Clip 1&amp;0</source>
         <translation>Úryvek 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1871"/>
+        <location filename="../../Form_Files/main.ui" line="1861"/>
         <source>Insert Clip 10</source>
         <translation>Vložit úryvek 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1874"/>
+        <location filename="../../Form_Files/main.ui" line="1864"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1879"/>
+        <location filename="../../Form_Files/main.ui" line="1869"/>
         <source>Clip 11</source>
         <translation>Úryvek 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1882"/>
+        <location filename="../../Form_Files/main.ui" line="1872"/>
         <source>Insert Clip 11</source>
         <translation>Vložit úryvek 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1887"/>
+        <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>Clip 12</source>
         <translation>Úryvek 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1890"/>
+        <location filename="../../Form_Files/main.ui" line="1880"/>
         <source>Insert Clip 12</source>
         <translation>Vložit úryvek 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1895"/>
+        <location filename="../../Form_Files/main.ui" line="1885"/>
         <source>Clip 13</source>
         <translation>Úryvek 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1898"/>
+        <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>Insert Clip 13</source>
         <translation>Vložit úryvek 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1903"/>
+        <location filename="../../Form_Files/main.ui" line="1893"/>
         <source>Clip 14</source>
         <translation>Úryvek 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1906"/>
+        <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Insert Clip 14</source>
         <translation>Vložit úryvek 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1911"/>
+        <location filename="../../Form_Files/main.ui" line="1901"/>
         <source>Clip 15</source>
         <translation>Úryvek 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1914"/>
+        <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>Insert Clip 15</source>
         <translation>Vložit úryvek 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1919"/>
+        <location filename="../../Form_Files/main.ui" line="1909"/>
         <source>Clip 16</source>
         <translation>Úryvek 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1922"/>
+        <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>Insert Clip 16</source>
         <translation>Vložit úryvek 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1927"/>
+        <location filename="../../Form_Files/main.ui" line="1917"/>
         <source>Clip 17</source>
         <translation>Úryvek 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1930"/>
+        <location filename="../../Form_Files/main.ui" line="1920"/>
         <source>Insert Clip 17</source>
         <translation>Vložit úryvek 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1935"/>
+        <location filename="../../Form_Files/main.ui" line="1925"/>
         <source>Clip 18</source>
         <translation>Úryvek 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1938"/>
+        <location filename="../../Form_Files/main.ui" line="1928"/>
         <source>Insert Clip 18</source>
         <translation>Vložit úryvek 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1943"/>
+        <location filename="../../Form_Files/main.ui" line="1933"/>
         <source>Clip 19</source>
         <translation>Úryvek 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1946"/>
+        <location filename="../../Form_Files/main.ui" line="1936"/>
         <source>Insert Clip 19</source>
         <translation>Vložit úryvek 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1951"/>
+        <location filename="../../Form_Files/main.ui" line="1941"/>
         <source>Clip 20</source>
         <translation>Úryvek 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1954"/>
+        <location filename="../../Form_Files/main.ui" line="1944"/>
         <source>Insert Clip 20</source>
         <translation>Vložit úryvek 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1988"/>
+        <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -7271,12 +7275,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 1.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1993"/>
+        <location filename="../../Form_Files/main.ui" line="1983"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2008"/>
+        <location filename="../../Form_Files/main.ui" line="1998"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -7285,12 +7289,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 2.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2013"/>
+        <location filename="../../Form_Files/main.ui" line="2003"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2028"/>
+        <location filename="../../Form_Files/main.ui" line="2018"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -7299,12 +7303,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 3.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2033"/>
+        <location filename="../../Form_Files/main.ui" line="2023"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2048"/>
+        <location filename="../../Form_Files/main.ui" line="2038"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -7313,12 +7317,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 4.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2053"/>
+        <location filename="../../Form_Files/main.ui" line="2043"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2068"/>
+        <location filename="../../Form_Files/main.ui" line="2058"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -7327,12 +7331,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 5.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2073"/>
+        <location filename="../../Form_Files/main.ui" line="2063"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2088"/>
+        <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -7341,12 +7345,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako nadpis úrovně 6.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2093"/>
+        <location filename="../../Form_Files/main.ui" line="2083"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2108"/>
+        <location filename="../../Form_Files/main.ui" line="2098"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -7355,32 +7359,32 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formátovat odstavec jako normální odstavec.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2113"/>
+        <location filename="../../Form_Files/main.ui" line="2103"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2124"/>
+        <location filename="../../Form_Files/main.ui" line="2114"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>Při použití tohoto stylu zachovat všechny stávající vlastnosti na značce</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2129"/>
+        <location filename="../../Form_Files/main.ui" line="2119"/>
         <source>Blank HTML File</source>
         <translation>Prázdný soubor HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2132"/>
+        <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>Přidat do knihy nový prázdný soubor HTML.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2141"/>
+        <location filename="../../Form_Files/main.ui" line="2131"/>
         <source>Existing Files...</source>
         <translation>Stávající soubory...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2144"/>
+        <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -7389,72 +7393,72 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Přidat soubory z vašeho počítače do knihy.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2154"/>
+        <location filename="../../Form_Files/main.ui" line="2144"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>Přidat do knihy nový prázdný stylový list.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2162"/>
+        <location filename="../../Form_Files/main.ui" line="2152"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>Přidat do knihy nový prázdný obrázkový soubor SVG.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2170"/>
+        <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Open previous file of the same type.</source>
         <translation>Otevřít předchozí soubor stejného typu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2181"/>
+        <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Open next file of the same type.</source>
         <translation>Otevřít další soubor stejného typu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2192"/>
+        <location filename="../../Form_Files/main.ui" line="2182"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>Přidat vybraný text do editoru rejstříku.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2203"/>
+        <location filename="../../Form_Files/main.ui" line="2193"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2200"/>
+        <location filename="../../Form_Files/main.ui" line="2190"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>Označit vybraný text pro zahrnutí do rejstříku.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2211"/>
+        <location filename="../../Form_Files/main.ui" line="2201"/>
         <source>Generate a new Index HTML file.</source>
         <translation>Vytvořit nový soubor HTML rejstříku.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2219"/>
+        <location filename="../../Form_Files/main.ui" line="2209"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>Vytvořit nový soubor HTML za použití nynějšího obsahu.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2224"/>
+        <location filename="../../Form_Files/main.ui" line="2214"/>
         <source>Book&amp;mark Location</source>
         <translation>Poloha záložk&amp;y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2227"/>
+        <location filename="../../Form_Files/main.ui" line="2217"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2235"/>
+        <location filename="../../Form_Files/main.ui" line="2225"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2244"/>
+        <location filename="../../Form_Files/main.ui" line="2234"/>
         <source>&amp;Back</source>
         <translation>&amp;Zpět</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2247"/>
+        <location filename="../../Form_Files/main.ui" line="2237"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -7465,116 +7469,112 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2253"/>
+        <location filename="../../Form_Files/main.ui" line="2243"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2261"/>
+        <location filename="../../Form_Files/main.ui" line="2251"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1485"/>
+        <location filename="../../Form_Files/main.ui" line="1477"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1261"/>
+        <location filename="../../Form_Files/main.ui" line="1258"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;Najít a nahradit...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1278"/>
+        <location filename="../../Form_Files/main.ui" line="1275"/>
         <source>Incre&amp;ase Indent</source>
         <translation>Zvě&amp;tšit odsazení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1295"/>
+        <location filename="../../Form_Files/main.ui" line="1292"/>
         <source>&amp;Decrease Indent</source>
         <translation>Z&amp;menšit odsazení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1312"/>
+        <location filename="../../Form_Files/main.ui" line="1309"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>Směr te&amp;xtu zleva doprava</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1328"/>
+        <location filename="../../Form_Files/main.ui" line="1325"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>Směr text&amp;u zprava doleva</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1344"/>
+        <location filename="../../Form_Files/main.ui" line="1341"/>
         <source>Text Directi&amp;on Default</source>
         <translation>Vý&amp;chozí směr textu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1356"/>
+        <location filename="../../Form_Files/main.ui" line="1353"/>
         <source>Remove &amp;Formatting</source>
         <translation>Odstranit &amp;formátování</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1368"/>
+        <location filename="../../Form_Files/main.ui" line="1365"/>
         <source>&amp;Lowercase</source>
         <translation>&amp;Malá písmena</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1387"/>
+        <location filename="../../Form_Files/main.ui" line="1384"/>
         <source>&amp;Uppercase</source>
         <translation>&amp;Velká písmena</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1406"/>
+        <location filename="../../Form_Files/main.ui" line="1403"/>
         <source>&amp;Titlecase</source>
         <translation>&amp;První písmeno velké</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1422"/>
+        <location filename="../../Form_Files/main.ui" line="1419"/>
         <source>&amp;Capitalize</source>
         <translation>&amp;Kapitálky</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1468"/>
+        <location filename="../../Form_Files/main.ui" line="1431"/>
+        <source>Sigil Website...</source>
+        <translation>Stránky Sigilu...</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1460"/>
         <source>Split At &amp;Markers</source>
         <translation>Rozdělit na zn&amp;ačkách</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1471"/>
+        <location filename="../../Form_Files/main.ui" line="1463"/>
         <source>Split At Sigil split file markers</source>
         <translation>Rozdělit na značkách Sigilu pro rozdělení souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1479"/>
+        <location filename="../../Form_Files/main.ui" line="1471"/>
         <source>Split &amp;Marker</source>
         <translation>&amp;Značka pro rozdělení</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1482"/>
+        <location filename="../../Form_Files/main.ui" line="1474"/>
         <source>Insert Sigil split file marker</source>
         <translation>Vložit značku Sigilu pro rozdělení souboru</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1501"/>
+        <location filename="../../Form_Files/main.ui" line="1493"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>Čas&amp;to kladené otázky...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1504"/>
+        <location filename="../../Form_Files/main.ui" line="1496"/>
         <source>Frequently Asked Questions</source>
         <translation>Často kladené otázky</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1524"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate EPUB with FlightCrew&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your document complies with EPUB standards using FlightCrew.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Schválit EPUB pomocí FlightCrew&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ověřit, že váš dokument vyhovuje standardům EPUB pomocí FlightCrew.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1537"/>
+        <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -7586,374 +7586,384 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ověřit, že vaše stylové listy CSS vyhovují standardům W3C pomocí internetové schvalovací služby W3C CSS.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1566"/>
+        <location filename="../../Form_Files/main.ui" line="1556"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>&amp;Zvýraznit špatně napsaná slova</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1577"/>
+        <location filename="../../Form_Files/main.ui" line="1567"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>Najít další špatně napsané slovo v knize.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1580"/>
+        <location filename="../../Form_Files/main.ui" line="1570"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1585"/>
+        <location filename="../../Form_Files/main.ui" line="1575"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>&amp;Přidat špatně napsané slovo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1588"/>
+        <location filename="../../Form_Files/main.ui" line="1578"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>Přidat nynější špatně napsané slovo pod šipkou do výchozího uživatelského slovníku.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1593"/>
+        <location filename="../../Form_Files/main.ui" line="1583"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>Pře&amp;hlížet špatně napsané slovo</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1601"/>
+        <location filename="../../Form_Files/main.ui" line="1591"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>S&amp;mazat přehlížená slova</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1609"/>
+        <location filename="../../Form_Files/main.ui" line="1599"/>
         <source>&amp;Index Editor...</source>
         <translation>Editor &amp;rejstříku...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1627"/>
+        <location filename="../../Form_Files/main.ui" line="1617"/>
         <source>&amp;Reports...</source>
         <translation>&amp;Zprávy...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1639"/>
+        <location filename="../../Form_Files/main.ui" line="1629"/>
         <source>&amp;Donate...</source>
         <translation>&amp;Darovat...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1650"/>
+        <location filename="../../Form_Files/main.ui" line="1640"/>
         <source>Close &amp;Other Tabs</source>
         <translation>Zavřít d&amp;alší karty</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1658"/>
+        <location filename="../../Form_Files/main.ui" line="1648"/>
         <source>Go To &amp;Line...</source>
         <translation>Jít na řáde&amp;k...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1666"/>
+        <location filename="../../Form_Files/main.ui" line="1656"/>
         <source>Find &amp;Next</source>
         <translation>Najít &amp;další</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1674"/>
+        <location filename="../../Form_Files/main.ui" line="1664"/>
         <source>Find &amp;Previous</source>
         <translation>Najít &amp;předchozí</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1706"/>
+        <location filename="../../Form_Files/main.ui" line="1696"/>
         <source>Replace &amp;All</source>
         <translation>Nahradit vš&amp;e</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1714"/>
+        <location filename="../../Form_Files/main.ui" line="1704"/>
         <source>&amp;Count All</source>
         <translation>Spočí&amp;tat vše</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1758"/>
+        <location filename="../../Form_Files/main.ui" line="1748"/>
         <source>&amp;Clip Editor...</source>
         <translation>E&amp;ditor úryvků...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1761"/>
+        <location filename="../../Form_Files/main.ui" line="1751"/>
         <source>Open the Clip Editor.</source>
         <translation>Otevřít editor úryvků.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1985"/>
+        <location filename="../../Form_Files/main.ui" line="1975"/>
         <source>Heading &amp;1</source>
         <translation>Nadpis &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2005"/>
+        <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>Heading &amp;2</source>
         <translation>Nadpis &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2025"/>
+        <location filename="../../Form_Files/main.ui" line="2015"/>
         <source>Heading &amp;3</source>
         <translation>Nadpis &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2045"/>
+        <location filename="../../Form_Files/main.ui" line="2035"/>
         <source>Heading &amp;4</source>
         <translation>Nadpis &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2065"/>
+        <location filename="../../Form_Files/main.ui" line="2055"/>
         <source>Heading &amp;5</source>
         <translation>Nadpis &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2085"/>
+        <location filename="../../Form_Files/main.ui" line="2075"/>
         <source>Heading &amp;6</source>
         <translation>Nadpis &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2105"/>
+        <location filename="../../Form_Files/main.ui" line="2095"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normální</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2121"/>
+        <location filename="../../Form_Files/main.ui" line="2111"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>&amp;Zachovat stávající vlastnosti</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2178"/>
+        <location filename="../../Form_Files/main.ui" line="2168"/>
         <source>Next &amp;File</source>
         <translation>Da&amp;lší soubor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2189"/>
+        <location filename="../../Form_Files/main.ui" line="2179"/>
         <source>&amp;Add To Index Editor</source>
         <translation>Př&amp;idat do editoru rejstříku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2197"/>
+        <location filename="../../Form_Files/main.ui" line="2187"/>
         <source>&amp;Mark For Index</source>
         <translation>Označit pro re&amp;jstřík</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2208"/>
+        <location filename="../../Form_Files/main.ui" line="2198"/>
         <source>&amp;Create Index</source>
         <translation>&amp;Vytvořit rejstřík</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="944"/>
+        <location filename="../../Form_Files/main.ui" line="941"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>V&amp;ytvořit obsah...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2216"/>
+        <location filename="../../Form_Files/main.ui" line="2206"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation>Vy&amp;tvořit obsah HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2232"/>
+        <location filename="../../Form_Files/main.ui" line="2222"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>&amp;Jít na odkaz nebo styl</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2258"/>
+        <location filename="../../Form_Files/main.ui" line="2248"/>
         <source>Paste From Clipboard &amp;History...</source>
         <translation>Vložit z &amp;historie schránky...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2266"/>
+        <location filename="../../Form_Files/main.ui" line="2256"/>
         <source>&amp;Delete Line</source>
         <translation>&amp;Smazat řádek</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2269"/>
+        <location filename="../../Form_Files/main.ui" line="2259"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1653"/>
+        <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1661"/>
+        <location filename="../../Form_Files/main.ui" line="1513"/>
+        <source>&amp;Validate EPUB</source>
+        <translation>&amp;Schválit EPUB</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Schválit EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Ověření vašeho dokumentu splňuje ty nejmenší nároky standardu EPUB. Toto není plným schválením a nezaručuje, že dokument plně vyhovuje.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1651"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1669"/>
+        <location filename="../../Form_Files/main.ui" line="1659"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1677"/>
+        <location filename="../../Form_Files/main.ui" line="1667"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1693"/>
+        <location filename="../../Form_Files/main.ui" line="1683"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1701"/>
+        <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1709"/>
+        <location filename="../../Form_Files/main.ui" line="1699"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1717"/>
+        <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1750"/>
+        <location filename="../../Form_Files/main.ui" line="1740"/>
         <source>&amp;Saved Searches...</source>
         <translation>&amp;Uložená hledání...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1959"/>
+        <location filename="../../Form_Files/main.ui" line="1949"/>
         <source>&amp;Preferences...</source>
         <translation>Nas&amp;tavení...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1962"/>
+        <location filename="../../Form_Files/main.ui" line="1952"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1967"/>
+        <location filename="../../Form_Files/main.ui" line="1957"/>
         <source>&amp;Zoom Reset</source>
         <translation>Nastavit &amp;zvětšení znovu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1970"/>
+        <location filename="../../Form_Files/main.ui" line="1960"/>
         <source>Zoom Reset</source>
         <translation>Nastavit zvětšení znovu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1973"/>
+        <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2151"/>
+        <location filename="../../Form_Files/main.ui" line="2141"/>
         <source>Blank Stylesheet</source>
         <translation>Prázdný styl</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2159"/>
+        <location filename="../../Form_Files/main.ui" line="2149"/>
         <source>Blank SVG Image</source>
         <translation>Prázdný obrázek SVG</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2167"/>
+        <location filename="../../Form_Files/main.ui" line="2157"/>
         <source>Pre&amp;vious File</source>
         <translation>Př&amp;edchozí soubor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2173"/>
+        <location filename="../../Form_Files/main.ui" line="2163"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="927"/>
+        <location filename="../../Form_Files/main.ui" line="924"/>
         <source>&amp;Metadata Editor...</source>
         <translation>&amp;Editor popisu...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1490"/>
+        <location filename="../../Form_Files/main.ui" line="1482"/>
         <source>User &amp;Guide...</source>
         <translation>&amp;Průvodce pro uživatele...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1493"/>
+        <location filename="../../Form_Files/main.ui" line="1485"/>
         <source>User Guide</source>
         <translation>Průvodce pro uživatele</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1496"/>
+        <location filename="../../Form_Files/main.ui" line="1488"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1509"/>
+        <location filename="../../Form_Files/main.ui" line="1501"/>
         <source>&amp;Tutorials...</source>
         <translation>Ná&amp;vody...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1512"/>
+        <location filename="../../Form_Files/main.ui" line="1504"/>
         <source>Tutorials</source>
         <translation>Návody</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2184"/>
+        <location filename="../../Form_Files/main.ui" line="2174"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="627"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="641"/>
         <source>Open File</source>
         <translation>Otevřít soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="730"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="748"/>
         <source>Save File</source>
         <translation>Uložit soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="853"/>
         <source>Go To Line</source>
         <translation>Jít na řádek</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="853"/>
         <source>Line #</source>
         <translation>Řádek #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="433"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="665"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="858"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1211"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1298"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1353"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1361"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1513"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1550"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1577"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1582"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1795"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1809"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1814"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1857"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3115"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3121"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3257"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3451"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="442"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="679"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="876"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1248"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1398"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1415"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1538"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1552"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1570"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1578"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1589"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1594"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1606"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1616"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1827"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1848"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1868"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1896"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3285"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="386"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="395"/>
         <source>Location bookmarked.</source>
         <translation>Místo opatřeno záložkou.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="433"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="442"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -7963,370 +7973,375 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="606"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="620"/>
         <source>New file created.</source>
         <translation>Nový soubor vytvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="797"/>
         <source>Save a Copy</source>
         <translation>Uložit kopii</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="946"/>
         <source>No CSS styles named</source>
         <translation>Žádné pojmenované styly CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1201"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1238"/>
         <source>Styles deleted.</source>
         <translation>Styly smazány.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1479"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Soubor &quot;%1&quot; neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1491"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Nemůžete vložit ID v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1623"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1634"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1673"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
         <source>Select the destination to paste into first.</source>
         <translation>Vyberte cíl, do kterého vkládat nejprve.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1827"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Jeden zdroj byl vybrán, ale není tu předchozí zdroj, se kterým by se sloučil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1834"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Jste si jistý, že chcete sloučit vybrané soubory?
 Tento krok nelze vrátit zpět.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1896"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Odkazování stylových listů zrušeno: %1, XML není dobře utvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1814"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Sloučení zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1878"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Sloučení dokončeno. Možná bude potřeba vytvořit obsah znovu nebo jej upravit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1988"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2027"/>
         <source>Word updated.</source>
         <translation>Slovo aktualizováno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2053"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2100"/>
         <source>File(s) deleted.</source>
         <translation>Soubor(y) smazán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2148"/>
         <source>Table Of Contents generated.</source>
         <translation>Obsah vytvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2444"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2473"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Tento EPUB neobsahuje žádné stylové listy ke schválení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>File cannot be split at this position.</source>
         <translation>Soubor nelze v tomto místě rozdělit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3090"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
         <source>Split completed.</source>
         <translation>Rozdělení dokončeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Rozdělení dokončeno. Možná bude potřeba obnovit obsah.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Nenalezeny žádné značky pro rozdělení souboru. Použijte Vložka-&gt;Značka pro rozdělení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3357"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3385"/>
         <source>File loaded.</source>
         <translation>Soubor nahrán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3418"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
         <source>Saving EPUB...</source>
         <translation>Ukládá se EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil nedokáže ukládat soubory typu &quot;%1&quot;.
 Vyberte, prosím, jiný formát.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="370"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Pohyb byl zrušen, protože poloha už neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="479"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="488"/>
         <source>was updated</source>
         <translation>byl aktualizován</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="495"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="525"/>
         <source>Select Show Details for more information.</source>
         <translation>Vyberte Ukázat podrobnosti pro zobrazení dalších informací.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="561"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="570"/>
         <source>Sigil is closing...</source>
         <translation>Sigil zavírá...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="664"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="678"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Tento soubor už neexistuje. Klepněte na OK pro jeho odstranění z nabídky.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1361"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1398"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Smazání nepoužívaných stylů zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1415"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Nejsou žádné nepoužívané třídy stylových listů ke smazání.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1552"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID je neplatné - musí začínat písmenem, následováno číslem písmene _ : - nebo .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1606"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Nemůžete označit rejstřík v této poloze nebo bez vybrání textu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1582"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1621"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Nemůžete označit rejstřík v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1868"/>
         <source>Cannot merge file %1</source>
         <translation>Nelze sloučit soubor %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2086"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2133"/>
         <source>Generate TOC cancelled.</source>
         <translation>Vytvoření obsahu zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2103"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2150"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Nebyly nutné žádné změny obsahu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
         <source>Line: %1, Col: %2</source>
         <translation>Řádek: %1, sloupec: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3258"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokument byl změněn.
 Chcete uložit své změny?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3359"/>
         <source>No importer for file type: %1</source>
         <translation>Žádný zavaděč pro souborový typ: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Nelze rozdělit, protože alespoň jeden soubor není souborem HTML.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="336"/>
+        <location filename="../../Form_Files/main.ui" line="333"/>
         <source>Plugins</source>
         <translation>Přídavné moduly</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2274"/>
+        <location filename="../../Form_Files/main.ui" line="2264"/>
         <source>Manage Plugins</source>
         <translation>Spravovat přídavné moduly</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="240"/>
         <source>Input</source>
         <translation>Vstup</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="246"/>
         <source>Output</source>
         <translation>Výstup</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="258"/>
+        <source>Validation</source>
+        <translation>Schválení</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="495"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Soubor NEBYL dobře utvořen a může být poškozen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
         <source>This EPUB contains errors.</source>
         <translation>Tento EPUB obsahuje chyby.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="858"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="876"/>
         <source>Image does not exist: </source>
         <translation>Obrázek neexistuje:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1019"/>
         <source>Add Cover</source>
         <translation>Přidat obal</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1099"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Neočekávaná chyba. Pro obal lze použít pouze obrázkové soubory.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1116"/>
         <source>Cover added.</source>
         <translation>Obal přidán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1211"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1248"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Zprávy zrušeny kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1298"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1335"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Smazání nepoužívaných multimediálních souborů zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
         <source>Unused media files deleted.</source>
         <translation>Nepoužívané multimediální soubory smazány.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1390"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Nejsou žádné nepoužívané obrázky, obrazové nebo zvukové záznamy ke smazání.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Nemůžete vložit soubor v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1395"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
         <source>Insert File</source>
         <translation>Vložit soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1499"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1538"/>
         <source>You must select text before inserting a new id.</source>
         <translation>Před vložením nového ID musíte vybrat text.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1570"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1594"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Nemůžete vložit odkaz v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1539"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1578"/>
         <source>You must select text before inserting a new link.</source>
         <translation>Před vložením nového odkazu musíte vybrat text.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1550"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1589"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Odkaz je neplatný - nemůže obsahovat &apos;&lt;&apos; nebo &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1577"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1616"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Položka je neplatná - nemůže obsahovat &apos;&lt;&apos; nebo &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1642"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1681"/>
         <source>Pasted clip entry %1.</source>
         <translation>Vložena položka úryvku %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1809"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1848"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation>Sloučení zrušeno: %1, nedobře utvořené XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Upravení obsahu zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2069"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2116"/>
         <source>Table Of Contents edited.</source>
         <translation>Obsah upraven.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2228"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2275"/>
         <source>Text selection marked.</source>
         <translation>Výběr textu označen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2230"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2248"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2277"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2295"/>
         <source>Text selection unmarked.</source>
         <translation>Výběr textu odznačen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3115"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Nelze rozdělit: %1 XML není dobře utvořen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Nelze rozdělit, protože alespoň jeden soubor nemusí být souborem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3338"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3366"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8339,27 +8354,27 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
 Zkuste nastavit nastavení pro Uklidit zdroj na Pretty Print Tidy nebo HTML Tidy a soubor nahrajte znovu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3343"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3371"/>
         <source>Loading file...</source>
         <translation>Nahrává se soubor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3384"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3412"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tvůrce tohoto souboru jej zašifroval DRM. Sigil takové soubory otevřít nedokáže.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3419"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Nelze nahrát EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
         <source>Cannot load file %1: %2</source>
         <translation>Nelze nahrát soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
@@ -8368,69 +8383,69 @@ Do you want to automatically fix the files before saving?</source>
 Chcete soubory před uložením opravit automaticky?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3517"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB uložen, ale ne všechny soubory HTML jsou utvořeny dobře.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3519"/>
         <source>EPUB saved.</source>
         <translation>EPUB uložen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
         <source>Cannot save file %1: %2</source>
         <translation>Nelze uložit soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3660"/>
         <source>EPUB files (*.epub)</source>
         <translation>Soubory EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3627"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3628"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Soubory HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3630"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
         <source>Text files (*.txt)</source>
         <translation>Textové soubory (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3665"/>
         <source>All files (*.*)</source>
         <translation>Všechny soubory (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3639"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3673"/>
         <source>EPUB file (*.epub)</source>
         <translation>Soubor EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3754"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Zachování stávajících vlastností nadpisů je nyní:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3721"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
         <source>ON</source>
         <translation>ZAPNUTO</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3721"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
         <source>OFF</source>
         <translation>VYPNUTO</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3746"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3780"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -8605,2308 +8620,2308 @@ Chcete uložit své změny?</translation>
 <context>
     <name>Metadata</name>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>Subject</source>
         <translation>Předmět</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="217"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>libovolný slovní obrat nebo klíčové slovo popisující nejistý předmět. V případě potřeby použijte více prvků &quot;předmět&quot;.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Description</source>
         <translation>Popis</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="218"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Popis obsahu díla.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Publisher</source>
         <translation>Nakladatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="219"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Bytost zodpovědná za přípravu spisu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>The date of publication.</source>
         <translation>Datum vydání.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="221"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>The date of creation.</source>
         <translation>Datum vytvoření.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="222"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>The date of modification.</source>
         <translation>Datum změny.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="224"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Povaha nebo žánr obsahu zdroje.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Format</source>
         <translation>Formát</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="225"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>Typ sdělovacího prostředku nebo rozměry knihy. Nejlepší postup je použít hodnotu z řízené slovní zásoba (např. typy nosičů MIME).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Source</source>
         <translation>Zdroj</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="226"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Odkaz na zdroj, ze kterého je přítomná kniha odvozena.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Language</source>
         <translation>Jazyk</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="227"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>An optional extra language of the publication.  Use a value from the Language drop down menu.  For example use &apos;English&apos; instead of the language code &apos;en&apos;.</source>
         <translation>Volitelný jazyk knihy navíc. Použijte hodnotu z rozbalovací jazykové nabídky. Například použijte Angličtina namísto jazykového kódu &quot;en&quot;.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="228"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Relation</source>
         <translation>Vztah</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="228"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Odkaz na související zdroj. Doporučovaný nejlepší postup je rozpoznání souvisejícího zdroje pomocí prostředků řetězce nebo čísla vyhovujících rozpoznávacímu systému odpovídajícímu normě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Coverage</source>
         <translation>Pokrytí</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="229"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Dosah nebo záběr obsahu obsahu knihy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Rights</source>
         <translation>Práva</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="230"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Informace o držení práv ke knize. Informace o právech často pokrývá práva k duševnímu vlastnictví, autorské právo (právo ke kopírování) a různá vlastnická práva. Pokud není právní prvek přítomen, nelze mít žádných domněnek o držbě jakýchkoli práv ke knize.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Title</source>
         <translation>Název</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="231"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>An optional extra title of the publication in addition to the main title already entered.</source>
         <translation>Volitelný další název knihy navíc k hlavnímu názvu již zadanému.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="232"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Digital Object Identifier</source>
         <translation>Identifikátor digitálního předmětu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="233"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>International Standard Book Number</source>
         <translation>Mezinárodní standardní číslo knihy (ISBN)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="234"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>International Standard Serial Number</source>
         <translation>Mezinárodní standardní sériové číslo (ISSN)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Actor</source>
         <translation>Představitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Použijte pro osobu nebo organizaci, která především projevuje herecké dovednosti v hudebním nebo divadelním představení nebo zábavním představení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Adapter</source>
         <translation>Adaptátor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
         <translation>Použijte pro osobu nebo organizaci, která 1) předělává hudební dílo, obvykle pro jiný sdělovací prostředek, nebo 2) přepracovává romány nebo příběhy pro filmy nebo jiný zvukověobrazový sdělovací prostředek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Analyst</source>
         <translation>Analytik</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
         <translation>Použijte pro osobu nebo organizaci, která posuzuje a vykládá dat nebo informace z určité oblasti.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Animator</source>
         <translation>Animátor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="266"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
         <translation>Použijte pro osobu nebo organizaci, která kreslí dvojrozměrné obrázky, pracuje s trojrozměrnými předměty a/nebo také programuje počítač, aby pohyboval předměty a obrázky za účelem zpracování kresleného filmu. Kamery pro kreslený film, stojany, celuloidové filmy, průsvitky a inkousty jsou některé z kresličových nástrojů.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Annotator</source>
         <translation>Vysvětlovač</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="267"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
         <translation>Použijte pro osobu, která píše vysvětlivky k rukopisům tištěných příspěvků.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Applicant</source>
         <translation>Žadatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="268"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za podání žádosti nebo která je jmenována coby způsobilá pro výsledky zpracování žádosti (např. udělení práv, odměna, název, místo).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Architect</source>
         <translation>Stavitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="269"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
         <translation>Použijte pro osobu nebo organizaci, která navrhuje stavby nebo dozírá na výstavbu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Arranger</source>
         <translation>Hudební aranžér</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="270"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
         <translation>Použijte pro osobu nebo organizaci, která přepisuje hudební dílo, obvykle pro jiný sdělovací prostředek, než je originál; v úpravě zůstáva hudební obsah v podstatě nezměněn.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Art copyist</source>
         <translation>Opisovač umění</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="271"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
         <translation>Použijte pro osobu (např. malíř nebo sochař), který dělá kopie děl viditelného umění.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Artist</source>
         <translation>Umělec</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="272"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
         <translation>Použijte pro osobu (např. malíř) nebo organizaci, která vymýšlí a snad i uskutečňuje původní obrazový návrh nebo umělecké dílo, pokud nejsou požadovány zvláštní kódy (např., [egr], [etr]). Pro ilustrátory knih upřednostňujte ilustrátora [ill]. </translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Artistic director</source>
         <translation>Umělecký vedoucí</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="273"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
         <translation>Použijte pro osobu nebo organizaci, která je zodpovědná za řízení vývoje uměleckého stylu veškeré tvorby včetně volby děl, která budou uvedena, a výběru ze starší tvorby.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Assignee</source>
         <translation>Nabyvatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="274"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
         <translation>Použijte pro osobu nebo organizaci, na kterou byla přenesena licence pro tisk nebo uveřejnění.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Associated name</source>
         <translation>Související jméno</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="275"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
         <translation>Použijte pro osobu nebo organizaci, která souvisí nebo se nachází v nějakém příspěvku nebo sbírce, kterou nelze určit jako bývalého vlastníka [fmo] nebo jiné označení ustanoveného navrhovatele žaloby.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Attributed name</source>
         <translation>Připisované jméno</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="276"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
         <translation>Použijte pro autora, umělce atd., čímž bude spojen/spojena s prací, pro což je nebo kdysi bylo zákonné právo, aby ta osoba byla označena jako autor, tvůrce atd. díla.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Auctioneer</source>
         <translation>Dražitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="277"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která vede odhad a veřejné dražení zboží, obzvláště knih, uměleckých děl atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Author</source>
         <translation>Autor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="278"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
         <translation>Použijte pro osobu nebo organizaci, která zejména zodpovídá za duchovní nebo umělecký obsah díla, obvykle vytištěného textu. Tento pojem se také dá použít, když takovou odpovědnost nese více než jedna osoba nebo skupina.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Author in quotations or text extracts</source>
         <translation>Autor v citacích nebo textových úryvcích</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="279"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, jejíž práce je velkou měrou citována nebo vypisována v dílech, do nichž on nebo ona přímo nepřispěl. Takové citace se hlavně nalézají v přehledech úryvků, sbírkách fotografií atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Author of afterword, colophon, etc.</source>
         <translation>Autor doslovu, tiráže atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="280"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovědnou za doslov, tiráž atd., ale která není hlavním tvůrcem práce.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Author of dialog</source>
         <translation>Autor rozhovoru</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za rozhovor nebo mluvený výklad pro filmový scénář nebo zvukovou nahrávku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Author of introduction, etc.</source>
         <translation>Autor úvodu, předmluvy atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za úvod, předmluvu, nebo jinou velmi důležitou úvodní záležitost, ale která není hlavním tvůrcem.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Author of screenplay, etc.</source>
         <translation>Autor filmového scénáře atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za scénář k filmu, rozhovor, mluvený výklad atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Bibliographic antecedent</source>
         <translation>Předchůdce seznamu pramenů</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za práci, na které je založena práce představovaná záznamem v přehledu (katalogu). Toto může být vhodné pro přepracování (adaptace), další díly/části, pokračování, seznamy atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Binder</source>
         <translation>Knihař</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za vyvázání vytištěných nebo rukopisných podkladů.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Binding designer</source>
         <translation>Návrhář vazby</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za návrh vazby knihy včetně druhu vazby, druhu použité látky a jakékoli ozdobné stránky vazby.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Book designer</source>
         <translation>Návrhář knihy</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za veškerý obrazový návrh knihy včetně úpravy tisku a ilustrace, výběru látky a použitého procesu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Book producer</source>
         <translation>Výrobce knihy</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za výrobu knih a dalších tištěných sdělovacích prostředků, pokud nejsou požadovány určité kódy (např. [bkd], [egr], [tyd], [prt]).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Bookjacket designer</source>
         <translation>Návrhář knižního přebalu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za návrh pružných obalů navržených pro nebo vydaných s knihou včetně druhu použité látky a jakékoli ozdobné stránky přebalu knihy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Bookplate designer</source>
         <translation>Návrhář ex libris</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za návrh umělecky provedeného štítku se značkou vlastníka knihy, který je nejběžněji vložen dovnitř přední strany obalu knihy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Bookseller</source>
         <translation>Knihkupec</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
         <translation>Použijte pro osobu nebo organizaci, která zpřístupňuje knihy a jiný bibliografický materiál kupujícím. Zájem u materiálů je v první řadě výnosný.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Calligrapher</source>
         <translation>Krasopisec</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
         <translation>Použijte pro osobu nebo organizaci, která píše umělecky, obvykle jako písař a/nebo přepisovatel.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Cartographer</source>
         <translation>Kartograf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za tvorbu map a jiných mapových podkladů.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Censor</source>
         <translation>Cenzor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
         <translation>Použijte pro cenzora, zkracovače, odstraňovatele závadných pasáží atd., úředního nebo soukromého.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Choreographer</source>
         <translation>Choreograf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
         <translation>Použijte pro osobu nebo organizaci, která skládá nebo upravuje tance nebo jiné pohyby (např. &quot;pán mečů&quot;) pro hudební nebo divadelní představení nebo zábavu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Cinematographer</source>
         <translation>Kameraman</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
         <translation>Použijte pro osobu nebo organizaci, která řídí zachytávání obrazů pro film s pohyblivými obrázky. Kameraman pracuje pod dohledem režiséra a může se na něj odkazovat jako na hlavního kameramana. Neplést si s osobou natáčející video (videokameraman).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Client</source>
         <translation>Klient</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
         <translation>Použijte pro osobu nebo organizaci, pro kterou jiná osoba nebo organizace hraje.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Collaborator</source>
         <translation>Spolupracovník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Use for a person or organization that takes a limited part in the elaboration of a work of another person or organization that brings complements (e.g., appendices, notes) to the work.</source>
         <translation>Použijte pro osobu nebo organizaci, která sdílí malou část spolupráce na práci další osoby nebo organizace, jež práci doplňuje (např. dodatky, poznámky).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Collector</source>
         <translation>Sběratel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
         <translation>Použijte pro osobu nebo organizaci, která dala dohromady látku z různých zdrojů, jež byly upraveny, popsány a sepsány jako sbírka. Sběratel není ani tvůrce látky ani osoba, které byly rukopisy ve sbírce určeny.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Collotyper</source>
         <translation>Světlotiskař</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za výrobu fotografických tisků z filmu nebo jiného koloidu, který má povrchy přijímající inkoust a inkoust odpuzující.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Commentator</source>
         <translation>Autor vysvětlujících poznámek</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
         <translation>Použijte pro osobu nebo organizaci, která poskytuje výklad, rozbor nebo pojednání o námětu na nahrávce, filmu nebo jiném zvukověobrazovém sdělovacím prostředku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Commentator for written text</source>
         <translation>Autor vysvětlujících poznámek k psanému textu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="302"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za popisné nebo vysvětlující poznámky k textu. Pro pisatele rukopisných vysvětlivek ve vytištěné knize použijte Vysvětlovače [ann].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Compiler</source>
         <translation>Sestavovatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="303"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
         <translation>Použijte pro osobu nebo organizaci, která tvoří práci nebo knihu výběrem sestavením látky z prací různých osob nebo skupin.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Complainant</source>
         <translation>Žalobce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="304"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
         <translation>Použijte pro stranu, která se zabývá soudy pro odškodné, obvykle v soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Complainant-appellant</source>
         <translation>Žalobce-odvolatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="305"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Použijte pro žalobce, který se odvolává od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby zvrátil rozsudek, obvykle v soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Complainant-appellee</source>
         <translation>Žalobce-odpůrce odvolatele</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="306"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Použijte pro žalobce, proti kterému je podáno odvolání od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby byl zvrácen rozsudek, obvykle v soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Composer</source>
         <translation>Skladatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="307"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
         <translation>Použijte pro osobu nebo organizaci, která tvoří hudební dílo, obvykle kus hudby v rukopisné nebo tištěné podobě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Compositor</source>
         <translation>Sazeč</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="308"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za tvorbu kovových kusů nebo forem dělaných z jiných materiálů používaných na zhotovování textu a obrázků v tiskovinách.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Conceptor</source>
         <translation>Myslitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="309"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za původní myšlenku, na které je práce založena. Zahrnuje to vědeckého autora zvukověobrazového příspěvku a tvůrce reklamy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Conductor</source>
         <translation>Dirigent</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="310"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
         <translation>Použijte pro osobu, která řídí jevištní skupinu (orchestr, sbor, opera atd.) v hudebním nebo divadelním představení nebo zábavním představení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Consultant</source>
         <translation>Poradce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="311"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
         <translation>Použijte pro osobu nebo organizaci, která souvisí se zdrojem, jenž je volán kvůli odborné radě nebo službám ve zvláštním oboru znalosti nebo výcviku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Consultant to a project</source>
         <translation>Poradce projektu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="312"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
         <translation>Použijte pro osobu nebo organizaci, která souvisí se zdrojem, jenž je zapojen výhradně pro poskytování vzdělaného přehledu k strategickému nebo provoznímu úkolu a podle rozboru, požadavku nebo pokynu má vytvářet nebo navrhovat hospodárný způsob jednání nebo řešení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Contestant</source>
         <translation>Odpůrce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="313"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která podává odpor, oponuje, brání se nebo zpochybňuje, má námitky, na soudu, proti nároku, pohledávce, rozhodnutí, výsledku atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Contestant-appellant</source>
         <translation>Odpůrce-odvolatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="314"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Použijte pro odpůrce, který se odvolává od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby zvrátil rozsudek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Contestant-appellee</source>
         <translation>Odpůrce-odpůrce odvolatele</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="315"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Použijte pro odpůrce, proti kterému je podáno odvolání od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby byl zvrácen rozsudek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Contestee</source>
         <translation>Odporovaný</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="316"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
         <translation>Použijte pro stranu, která se brání proti nároku, pohledávce, rozhodnutí, výsledku, která je odporována, oponována nebo zpochybňována na soudě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Contestee-appellant</source>
         <translation>Odporovaný-odvolatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="317"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Použijte pro odporovaného, který se odvolává od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby zvrátil rozsudek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Contestee-appellee</source>
         <translation>Odporovaný-odpůrce odvolatele</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="318"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Použijte pro odporovaného, proti kterému je podáno odvolání od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby byl zvrácen rozsudek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Contractor</source>
         <translation>Smluvní strana</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="319"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
         <translation>Použijte pro osobu nebo organizaci, která souvisí se zdrojem, která vstupuje ve smluvní vztah s další osobou nebo organizací, aby provedla určitý úkol.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="197"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="261"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Contributor</source>
         <translation>Přispěvatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="320"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
         <translation>Použijte pro osobu nebo organizaci, jejíž práce bylo použito na větší dílo, jako je výběr, řada knih nebo jiný soubor jednotlivých děl. Nepoužívejte, pokud jeho jediným významem ve vztahu k dílu, je, že je autorem, vydavatelem, sestavovatelem nebo překladatelem.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Copyright claimant</source>
         <translation>Nárokovatel autorského práva</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="321"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
         <translation>Použijte pro osobu nebo organizaci, která je v době přihlášení uvedena jako vlastník autorského práva. Autorské právo může být uděleno nebo později přeneseno na jinou osobu nebo organizaci, v kteréžto době se z nárokovatele stane držitel autorského práva.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Copyright holder</source>
         <translation>Držitel autorského práva</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="322"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
         <translation>Použijte pro osobu nebo organizaci, které byla udělena kopírovací a zákonná práva nebo přenesena pro duševní obsah díla. Držitel autorského práva, ačkoli nikoli nezbytně tvůrce díla, má obvykle výhradní právo mít finanční užitek z prodeje a užití díla, ke kterému se související ochrana autorského práva vztahuje.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Corrector</source>
         <translation>Korektor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="323"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
         <translation>Použijte pro osobu nebo organizaci, která je opravovatelem rukopisu, jako je vedoucí pracovník písařské dílny, který opravil práci písaře. Pro tiskoviny použijte tiskového korektora.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Correspondent</source>
         <translation>Dopisovatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="324"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
         <translation>Použijte pro osobu nebo organizaci, která byla buď pisatelem nebo příjemcem dopisu nebo jiného sdělení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Costume designer</source>
         <translation>Návrhář úboru</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="325"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
         <translation>Použijte pro osobu nebo organizaci, která navrhuje nebo dělá oblečení, upravuje vlasy atd. pro hudební nebo divadelní představení nebo zábavu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Cover designer</source>
         <translation>Návrhář obalu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="326"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za obrazový návrh obalu knihy, obalu alba, pouzdra na knihu, krabičky, krabice atd. Pro osobu nebo organizaci, která zodpovídá za obrazový návrh celé knihy použijte návrháře knihy, pro knižní přebaly použijte návrháře knižního přebalu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="196"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="260"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Creator</source>
         <translation>Tvůrce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="198"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="262"/>
         <source>Date</source>
         <translation>Datum</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="199"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="232"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="233"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="234"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Identifier</source>
         <translation>Identifikátor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="220"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Date: Publication</source>
         <translation>Datum: Vydání</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="221"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>Date: Creation</source>
         <translation>Datum: Vytvoření</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="222"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Date: Modification</source>
         <translation>Datum: Změna</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="223"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Date (custom)</source>
         <translation>Datum (vlastní)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="223"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Enter your own event name in the File As column, e.g. updated.</source>
         <translation>Zadejte svůj vlastní název události ve sloupci Vložit jako, např. aktualizováno.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="235"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Identifier (custom)</source>
         <translation>Identifikátor (vlastní)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="235"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Enter your own custom identifier name in the File As column, e.g. stocknumber</source>
         <translation>Zadejte svůj vlastní název identifikátoru ve sloupci Vložit jako, např. skladové číslo</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za duchovní nebo umělecký obsah díla.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Curator of an exhibition</source>
         <translation>Správce výstavy</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za vymýšlení a pořádání výstavy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Dancer</source>
         <translation>Tanečník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Použijte pro osobu nebo organizaci, která předvádí zejména taneční dovednosti při hudebním nebo divadelním představení nebo zábavě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Data contributor</source>
         <translation>Přispěvatel daty</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
         <translation>Použijte pro osobu nebo organizaci, která předkládá data pro zařazení do úložiště dat nebo jiné sbírky dat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Data manager</source>
         <translation>Správce dat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za správu úložišť dat nebo jiných zdrojů dat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Dedicatee</source>
         <translation>Adresát věnování</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
         <translation>Použijte pro osobu nebo organizaci, které je kniha, rukopis atd. věnován (nejde o příjemce daru).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Dedicator</source>
         <translation>Věnovatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
         <translation>Použijte pro autora věnování, což může být slavnostní vyjádření buď v dopisní podobě nebo v podobě verše.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Defendant</source>
         <translation>Obžalovaný</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
         <translation>Použijte pro stranu, která se brání nebo popírá nepodložená obvinění učiněná ve při, a vůči které je na soudech hledána náhrada nebo soudní přiznání nároku, obvykle při zákonném soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Defendant-appellant</source>
         <translation>Obžalovaný-odvolatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Použijte pro obžalovaného, který se odvolává od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby zvrátil rozsudek, obvykle při zákonném soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Defendant-appellee</source>
         <translation>Obžalovaný-odpůrce odvolatele</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Použijte pro obžalovaného, proti kterému je podáno odvolání od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby byl zvrácen rozsudek, obvykle při zákonném soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Degree grantor</source>
         <translation>Udělovatel hodnosti</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
         <translation>Použijte pro organizaci, která uděluje hodnost, pro kterou byla popsaná disertační nebo diplomová nebo doktorandská práce udělena.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Delineator</source>
         <translation>Kreslič</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
         <translation>Použijte pro osobu nebo organizaci, která provádí technické kreslení z návrhů jiných.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Depicted</source>
         <translation>Vyobrazený</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
         <translation>Použijte pro bytost znázorněnou nebo vypodobněnou v díle, obzvláště v uměleckém díle.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Depositor</source>
         <translation>Vkladatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
         <translation>Použijte pro osobu nebo organizaci, která dávající materiál do věcné úschovy knihovně nebo archiv bez toho, že by byla přeneseno vlastnické právo.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Designer</source>
         <translation>Návrhář</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za návrh, pokud nejsou požadovány určitější kódy (např., [bkd], [tyd]).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Director</source>
         <translation>Ředitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za obecnou správu díla nebo která dohlíží na výrobu představení pro jeviště, obrazovku nebo zvukovou nahrávku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Dissertant</source>
         <translation>Autor dizertace</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
         <translation>Použijte pro osobu, která představuje disertační, diplomovou nebo doktorandskou práci pro vysokou školu nebo vzdělávací stupeň vyšší úrovně.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Distributor</source>
         <translation>Šiřitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
         <translation>Použijte pro osobu nebo organizaci, která má ke kusu výhradní nebo sdílená obchodní práva.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Donor</source>
         <translation>Dárce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
         <translation>Použijte pro osobu nebo organizaci, která je dárcem knihy, rukopisu atd. jeho součastnému vlastníku. Dárci předchozímu vlastníku jsou označeni jako bývalý vlastník [fmo] nebo vpisovatel věnování [ins].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Draftsman</source>
         <translation>Technický kreslič</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
         <translation>Použijte pro osobu nebo organizaci, která připravuje umělecké nebo technické kreslení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Dubious author</source>
         <translation>Pochybný autor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
         <translation>Použijte pro osobu nebo organizaci, které bylo autorství přisouzeno pochybně nebo nesprávně.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Editor</source>
         <translation>Vydavatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
         <translation>Použijte pro osobu nebo organizaci, která připravuje dílo k vydání, které není prvotně jeho/její vlastní, jako objasněním textu, přidáním úvodníku nebo jiné zásadní věci nebo technickým řízením vydavatelské práce.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Electrician</source>
         <translation>Elektrikář</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
         <translation>Použijte pro osobu, která zodpovídá za osvětlovací výbavu a zaměření světel pro výrobu, a běh osvětlení při představení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Electrotyper</source>
         <translation>Galvanotypér</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
         <translation>Použijte pro osobu nebo organizaci, která tvoří zdvojený tiskový povrch tlakovým odléváním do formy a elektrolytickým pokovováním kovu, který je pak podložen olovem pro tisk</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Engineer</source>
         <translation>Technik</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za technické plánování a návrh, zvláště při výstavbě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Engraver</source>
         <translation>Rytec</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
         <translation>Použijte pro osobu nebo organizaci, která pro tisk vyřezává písmena, obrázky atd. do plochy, jako je dřevěná nebo kovová deska (štoček).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Etcher</source>
         <translation>Leptec</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
         <translation>Použijte pro osobu nebo organizaci, která tvoří text nebo obrázky pro tisk tím, že vystaví kov, sklo nebo nějaký jiný povrch kyselině nebo leptání nějaké jiné látky.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Expert</source>
         <translation>Odborník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
         <translation>Použijte pro osobu nebo organizaci, která řídí popis a posouzení hodnoty zboží, zejména vzácných věcí, uměleckých děl atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Facsimilist</source>
         <translation>Výrobce faksimilí</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
-        <source>Use for a person or organization that executed the facsimile. </source>
-        <translation>Použijte pro osobu nebo organizaci, která udělala přesnou kopii.</translation>
-    </message>
-    <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Field director</source>
         <translation>Oblastní ředitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
         <translation>Použijte pro osobu nebo organizaci, která spravuje a má na starost práci udělanou pro sběr surových dat nebo dělá výzkum v opravdovém prostředí (typicky se věnuje přírodním a společenským vědám).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Film editor</source>
         <translation>Filmový editor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
         <translation>Použijte pro osobu nebo organizaci, která je vydavatelem filmu. Tento pojem se používá bez ohledu na sdělovací prostředek, na kterém je film vyráběn nebo zpracován (např. acetátový film, videopáska).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>First party</source>
         <translation>První strana</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
-        <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party</source>
-        <translation>Použijte pro osobu nebo organizaci, která je rozpoznána jako jediná strana nebo strana první strany. V případě přenesení práv, toto je postupitel, převodce, poskytovatel licence, dárce atd. Více stran může být jmenováno společně jako první strana</translation>
-    </message>
-    <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Forger</source>
         <translation>Padělatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
         <translation>Použijte pro osobu nebo organizaci, která dělá nebo napodobuje něco, co má hodnotu nebo význam, obzvláště s úmyslem to ukrást.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Former owner</source>
         <translation>Bývalý vlastník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
-        <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr]</source>
-        <translation>Použijte pro osobu nebo organizaci, která vlastnila nějakou věc kdykoli v minulosti. Zahrnuje ty, jimž byl materiál kdysi předán. Osoba nebo organizace dávající věc současnému vlastníku se označuje jako dárce [dnr]</translation>
+        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <source>Use for a person or organization that executed the facsimile.</source>
+        <translation>Použijte pro osobu nebo organizaci, která udělala přesnou kopii.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
+        <translation>Použijte pro osobu nebo organizaci, která je rozpoznána jako jediná strana nebo strana první strany. V případě přenesení práv, toto je postupitel, převodce, poskytovatel licence, dárce atd. Více stran může být jmenováno společně jako první strana.</translation>
+    </message>
+    <message>
+        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
+        <translation>Použijte pro osobu nebo organizaci, která vlastnila nějakou věc kdykoli v minulosti. Zahrnuje ty, jimž byl materiál kdysi předán. Osoba nebo organizace dávající věc současnému vlastníku se označuje jako dárce [dnr].</translation>
+    </message>
+    <message>
+        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Funder</source>
         <translation>Poskytovatel peněz</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
         <translation>Použijte pro osobu nebo organizaci, která zařídila peněžní podporu pro výrobu díla.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Geographic information specialist</source>
         <translation>Odborník na zeměpisné informace</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
         <translation>Použijte pro osobu, která zodpovídá za vývoj zeměpisného informačního systému (GIS) a spojení s daty celosvětového polohovacího systému (GPS).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Honoree</source>
         <translation>Oceněná osoba</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
         <translation>Použijte pro osobu nebo organizaci, na jejíž památku nebo k jejíž poctě je kniha, rukopis darován.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Host</source>
         <translation>Hostitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
         <translation>Použijte pro osobu, která je pozvána nebo pravidelně vede program (často vysílání), který zahrnuje další hosty, účinkující atd. (např. hostitel besedního pořadu).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Illuminator</source>
         <translation>Iluminátor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za výzdobu díla (obzvláště rukopisný materiál) drahými kovy nebo barvou, obvykle s propracovaným vzhledem a vzory.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Illustrator</source>
         <translation>Ilustrátor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
         <translation>Použijte pro osobu nebo organizaci, která vymýšlí a snad i provádí kresbu nebo obrázek, obvykle jako doprovod psaného textu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Inscriber</source>
         <translation>Vpisovatel věnování</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Use for a person who signs a presentation statement.</source>
         <translation>Použijte pro osobu, která se podepíše pod prohlášení o daru.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Instrumentalist</source>
         <translation>Instrumentalista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
         <translation>Použijte pro osobu nebo organizaci, která zejména hraje na nějaký nástroj v hudebním nebo divadelním představení nebo zábavě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Interviewee</source>
         <translation>Osoba poskytující rozhovor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
         <translation>Použijte pro osobu nebo organizaci, se kterou se dělá rozhovor na poradě nebo při setkání, obvykle zpravodajem, osobou provádějící průzkum veřejného mínění nebo jiným špiónem sbírajícím informace.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Interviewer</source>
         <translation>Dotazovatel u rozhovoru</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
         <translation>Použijte pro osobu nebo organizaci, která jedná jako zpravodaj, osoba provádějící průzkum veřejného mínění nebo jiný špión sbírající informace na poradě nebo při setkání týkajícím se jednoho nebo více jednotlivců.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Inventor</source>
         <translation>Vynálezce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
         <translation>Použijte pro osobu nebo organizaci, která jako první přijde s obzvláště užitečnou věcí, nebo která vyvine nový postup pro obdržení známé věci nebo výsledku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Laboratory</source>
         <translation>Laboratoř</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
         <translation>Použijte pro ústav, který poskytuje vědecké rozbory vzorků látek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Laboratory director</source>
         <translation>Ředitel laboratoře</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
         <translation>Použijte pro osobu nebo organizaci, která spravuje nebo dohlíží na práci dělanou v řízeném prostředí.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Landscape architect</source>
         <translation>Zahradní architekt</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
         <translation>Použijte pro osobu nebo organizaci, jejíž práce zahrnuje sladění úpravy stávajících a navrhovaných krajinných rysů a uspořádání.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Lead</source>
         <translation>Hlavní úloha</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
         <translation>Použijte pro označení osoby nebo organizace, která nese hlavní zodpovědnost za určitou činnost nebo počin. Použijte s jiným pojmem pro vypravěče nebo kódem pro ukázání větší důležitosti, kterou tato osoba nebo organizace má, pokud jde o tuto zvláštní úlohu. Pokud je k nadpisu přiřazen více než jeden vypravěč, použijte vypravěče hlavní úlohy pouze tehdy, když se to vztahuje na všechny vypravěče.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Lender</source>
         <translation>Půjčovatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
         <translation>Použijte pro osobu nebo organizaci, která dovoluje dočasné používání knihy, rukopisu atd., jako například pro udělání fotokopie nebo mikrofilmování.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Libelant</source>
         <translation>Žalobce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
         <translation>Použijte pro stranu, která předkládá žalobu za nactiutrhání či očerňování v nějakém církevním nebo admiralitním případě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Libelant-appellant</source>
         <translation>Žalobce-odvolatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Použijte pro žalobce, který se odvolává od církevního soudu nebo admiralitního soudu k jinému, aby zvrátil rozsudek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Libelant-appellee</source>
         <translation>Žalobce-odpůrce odvolatele</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Použijte pro žalobce, proti kterému je podáno odvolání od církevního soudu nebo admiralitního soudu k jinému, aby byl zvrácen rozsudek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Libelee</source>
         <translation>Osoba obžalovaná za nactiutrhání</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
         <translation>Použijte pro stranu, proti které byla předložena žaloba za nactiutrhání či očerňování v nějakém církevním nebo admiralitním případě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Libelee-appellant</source>
         <translation>Osoba obžalovaná za nactiutrhání-odvolatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Použijte pro osobu obžalovanou za nactiutrhání, která se odvolává od církevního soudu nebo admiralitního soudu k jinému, aby zvrátil rozsudek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Libelee-appellee</source>
         <translation>Osoba obžalovaná za nactiutrhání-odpůrce odvolatele</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Použijte pro osobu obžalovanou za nactiutrhání, proti které je podáno odvolání od církevního soudu nebo admiralitního soudu k jinému, aby byl zvrácen rozsudek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Librettist</source>
         <translation>Libretista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která je spisovatelem textu opery, oratoria atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Licensee</source>
         <translation>Držitel licence</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
         <translation>Použijte pro osobu nebo organizaci, která je původním příjemcem práva pro tisk nebo zveřejnění.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Licensor</source>
         <translation>Poskytovatel licence</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
         <translation>Použijte pro osobu nebo organizaci, která je podepsána na licenci, svolení atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Lighting designer</source>
         <translation>Návrhář osvětlení</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která navrhuje nákres osvětlení pro divadelní představení, zábavu, film atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Lithographer</source>
         <translation>Litograf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
         <translation>Použijte pro osobu nebo organizaci, která připravuje kámen nebo desku pro litografický tisk včetně grafika tvořícího provedení přímo na povrch, ze kterého se tisk provede.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Lyricist</source>
         <translation>Textař</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
         <translation>Použijte pro osobu nebo organizaci, která je skladatelem textu písně.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Manufacturer</source>
         <translation>Výrobce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
         <translation>Použijte pro osobu nebo organizaci, která dělá dílo lidského výrobku (předmět udělaný jednou nebo více osobami). Příklady lidských výtvorů zahrnují vázy, děla nebo kusy nábytku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Markup editor</source>
         <translation>Editor značek</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která délá kódování značek SGML, HTML, nebo XML zápis popisných dat, textu atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Metadata contact</source>
         <translation>Spojení na osobu popisující dokument</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
         <translation>Použijte pro osobu nebo organizaci, která v první řadě zodpovídá za sestavení a udržování původního popisu souboru popisných dat (např. soubor s popisnými daty k zeměpisnému prostoru).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Metal-engraver</source>
         <translation>Kovorytec</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za výzdobu, ilustrace, písmena atd. vyrytá do kovového povrchu pro tisk nebo okrasu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Moderator</source>
         <translation>Prostředník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation>Použijte pro osobu, která vede program (často vysílání), kde se mluví o námětech, obvykle za účasti odborníků v oblastech souvisejících s rozpravou.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Monitor</source>
         <translation>Dozor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za dodržování smlouvy a je zodpovědná za hlášení a ovládá její šíření. Někdy je zmiňována jako postupník nebo řídící zastoupení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Music copyist</source>
         <translation>Opisovač not</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Use for a person who transcribes or copies musical notation</source>
         <translation>Použijte pro osobu, která přepisuje nebo kopíruje notový zápis hudby</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Musical director</source>
         <translation>Hudební vedoucí</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
         <translation>Použijte pro osobu, která zodpovídá za základní rozhodnutí ohledně hudby o výrobě včetně řízení práce skladatele, upravovatele zvuku a směšovačů zvuku, výběru hudebníků a pořádání a/nebo provádění zvuku pro zkoušky a vystoupení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Musician</source>
         <translation>Hudebník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
         <translation>Použijte pro osobu nebo organizaci, která provádí hudbu nebo přispívá hudebnímu obsahu díla, když není možné nebo žádoucí přesnější určení úlohy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Narrator</source>
         <translation>Vypravěč</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
         <translation>Použijte pro osobu, která je přednášejícím vyprávějícím podrobnosti jednání, příhodu nebo chod událostí.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Opponent</source>
         <translation>Odpůrce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za odporování disertační nebo diplomové nebo doktorandské práce.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Organizer of meeting</source>
         <translation>Pořadatel setkání</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za pořádání setkání, jehož předmětem je zpráva nebo zápis.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Originator</source>
         <translation>Původce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
         <translation>Použijte pro osobu nebo organizaci, která provádí dílo, např. jméno osoby nebo organizace spojené s duchovním obsahem díla. Tato skupina nezahrnuje vydavatele nebo osobní příslušnost, nebo sponzora kromě případů, kdy je to rovněž podnikový autor.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Other</source>
         <translation>Jiné</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
         <translation>Použijte pro kódy z jiných seznamů, které nemají žádnou obdobu v seznamu MARC nebo pro pojmy, který nebyl přiřazen kód.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Owner</source>
         <translation>Vlastník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
         <translation>Použijte pro osobu nebo organizaci, která v současnosti vlastní jednotlivost nebo sbírku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Papermaker</source>
         <translation>Papírník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za výrobu papíru, obvykle ze dřeva, hadrů nebo jiné vláknité látky.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Patent applicant</source>
         <translation>Žadatel o patent</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Use for a person or organization that applied for a patent.</source>
         <translation>Použijte pro osobu nebo organizaci, která zažádala o oprávnění.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Patent holder</source>
         <translation>Držitel patentu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
         <translation>Použijte pro osobu nebo organizaci, které byla výsada vztahující se k věci udělena.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Patron</source>
         <translation>Podporovatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za zadání díla. Obvykle je to podporovatel, který používá své prostředky nebo vliv na podporu práce umělců, spisovatelů atd. Zahrnuje to ty, kdož zadají a zaplatí za jednotlivá díla.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Performer</source>
         <translation>Účinkující</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
         <translation>Použijte pro osobu nebo organizaci, která předvádí hudební nebo herecké dovednosti v hudebním nebo divadelním představení nebo zábavě, pokud zvláštní kódy pro tyto úlohy ([act], [dnc], [itr], [voc] atd.) nejsou používány. Pokud se určité kódy používají, používá se [prf] pro osobu, jejíž hlavní dovednost není známa nebo určena.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Permitting agency</source>
         <translation>Povolující agentura</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
         <translation>Použijte pro úřad (obvykle vládní agentura), která vydává povolení, podle kterého je dílo hotové.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Photographer</source>
         <translation>Fotograf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za pořizování fotografií, ať už jsou používány ve své původní podobě nebo jako reprodukce.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
         <source>Plaintiff</source>
         <translation>Žalující strana</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
         <translation>Použijte pro stranu, která žaluje nebo podává žalobu na soudě v soukromé žalobě, obvykle v soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
         <source>Plaintiff-appellant</source>
         <translation>Žalující strana-odvolatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Použijte pro žalující stranu, která se odvolává od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby zvrátila rozsudek, obvykle v soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
         <source>Plaintiff-appellee</source>
         <translation>Žalující strana-odpůrce odvolatele</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Použijte pro žalující stranu, proti které je podáno odvolání od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby byl zvrácen rozsudek, obvykle v soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Platemaker</source>
         <translation>Výrobce tiskových desek</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za výrobu desek, obvykle pro výrobu tištěných obrázků a/nebo textu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
         <source>Printer</source>
         <translation>Tiskárna</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
         <translation>Použijte pro osobu nebo organizaci, která tiskne texty, ať už z písmen nebo z desek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
         <source>Printer of plates</source>
         <translation>Tiskař desek</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
         <translation>Použijte pro osobu nebo organizaci, která tiskne ilustrace z desek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
         <source>Printmaker</source>
         <translation>Grafik</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
         <translation>Použijte pro osobu nebo organizaci, která dělá reliéf, tisk z hloubky nebo povrch pro tisk z plochy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
         <source>Process contact</source>
         <translation>Spojení na osobu pro zpracování</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
         <translation>Použijte pro osobu nebo organizaci, která v první řadě zodpovídá za provádění nebo započetí zpracování, jaké se dělá se sbírkou souborů popisných dat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
         <source>Producer</source>
         <translation>Výrobce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za výrobu filmu včetně obchodní stránky, řízení výroby a obchodního úspěchu díla.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
         <source>Production manager</source>
         <translation>Ředitel výroby</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
         <translation>Použijte pro osobu, která zodpovídá za technické a obchodní záležitosti výroby.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
         <source>Production personnel</source>
         <translation>Zaměstnanec výroby</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
         <translation>Použijte pro osobu nebo organizaci, která je spojena s výrobou (rekvizitář, osvětlovač, zvláštní efekty atd.) hudebního nebo divadelního představení nebo zábavy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
         <source>Programmer</source>
         <translation>Programátor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za tvorbu a/nebo údržbu návrhu počítačového programu, zdrojového kódu a strojově spustitelných digitálních souborů a podpůrnou dokumentaci.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
         <source>Project director</source>
         <translation>Vedoucí projektu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá hlavně za podstatné stránky projektu nebo která spravuje velmi velký projekt, který vyžaduje nejvyšší úroveň odpovědnosti, nebo která má celkovou odpovědnost za správu projektů nebo poskytuje celkové vedení správci projektu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Proofreader</source>
         <translation>Tiskový korektor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
         <translation>Použijte pro osobu, která opravuje tiskoviny. Pro rukopisy použijte korektora [crr].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
         <translation>Použijte pro osobu nebo organizaci, která dělá tiskoviny, často text, ale také tištěné noty, umělecká díla atd. dostupné veřejnosti.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
         <source>Publishing director</source>
         <translation>Ředitel vydávání</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která předsedá rozpracování společné práce pro zajištění její soudržnosti nebo jejího pokračování. Zahrnuje to hlavní redaktory, literární editory, editory, editory řad atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
         <source>Puppeteer</source>
         <translation>Loutkář</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
         <translation>Použijte pro osobu nebo organizaci, která vodí, ovládá nebo řídí loutky nebo marionety při hudebním nebo divadelním představení nebo zábavě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Recipient</source>
         <translation>Příjemce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
         <translation>Použijte pro osobu nebo organizaci, které je určena pošta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Recording engineer</source>
         <translation>Nahrávací technik</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
         <translation>Použijte pro osobu nebo organizaci, která dohlíží na technické stránky nahrávání zvuku nebo obrazu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
         <source>Redactor</source>
         <translation>Redaktor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
         <translation>Použijte pro osobu nebo organizaci, která píše nebo rozvíjí rámec pro nějaký článek, aniž by byla rozumově zodpovědná za jeho obsah.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
         <source>Renderer</source>
         <translation>Kreslič</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
         <translation>Použijte pro osobu nebo organizaci, která připravuje výkresy architektonických návrhů (např. hrubý nákres) v přesné, popisné vyhlídce, aby ukázal, jak bude návrh vypadat, až bude celý.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Reporter</source>
         <translation>Zpravodaj</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
         <translation>Použijte pro osobu nebo organizaci, která píše nebo podává zprávy o novinkách nebo současných událostech na vzduchu nebo v tisku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Repository</source>
         <translation>Archiv</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
         <translation>Použijte pro místo, které hostí data nebo předměty hmotné kultury a poskytuje služby na podporu dlouhodobého, stálého a sdíleného používání těchto dat nebo předmětů.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Research team head</source>
         <translation>Hlava výzkumné skupiny</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Use for a person who directed or managed a research project.</source>
         <translation>Použijte pro osobu, která řídí nebo spravuje výzkumný projekt.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Research team member</source>
         <translation>Člen výzkumné skupiny</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
         <translation>Použijte pro osobu, která se účastní výzkumného projektu, ale jejíž úloha neobnáší jeho řízení nebo správu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
         <source>Researcher</source>
         <translation>Výzkumník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
         <source>Use for a person or organization responsible for performing research. </source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za výzkum.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
         <source>Respondent</source>
         <translation>Odpůrce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
         <translation>Použijte pro stranu, která odpovídá soudům na základě žádosti o odškodné, obvykle v soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
         <source>Respondent-appellant</source>
         <translation>Odpůrce-odvolatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Použijte pro obžalovaného, který se odvolává od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby zvrátil rozsudek, obvykle v soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
         <source>Respondent-appellee</source>
         <translation>Odpůrce-odpůrce odvolatele</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Použijte pro obžalovaného, proti kterému je podáno odvolání od jednoho soudu nebo soudní/úřední pravomoci k jiné, aby byl zvrácen rozsudek, obvykle v soudním řízení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
         <source>Responsible party</source>
         <translation>Odpovědná strana</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za obsah zveřejněného materiálu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
         <source>Restager</source>
         <translation>Znovunastudovatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
         <translation>Použijte pro osobu nebo organizaci, která je jiná než choreograf nebo režisér, která zodpovídá za znovunastudování choreografického nebo divadelního díla a která přispívá velice málo novým obsahem.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
         <source>Reviewer</source>
         <translation>Kritik</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za recenzi knihy, filmu, představení atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
         <source>Rubricator</source>
         <translation>Rubrikátor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za části díla, často nadpisy nebo úvodní části rukopisů, které jsou provedeny výraznou barvou, obvykle červenou.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Scenarist</source>
         <translation>Scénárista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
         <translation>Použijte pro osobu nebo organizaci, která je tvůrcem scénáře k filmu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
         <source>Scientific advisor</source>
         <translation>Vědecký poradce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
         <translation>Použijte pro osobu nebo organizaci, která přináší vědecké, pedagogické nebo historické schopnosti pojetí a uskutečnění díla, obzvláště v případě zvukověobrazových věcí.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
         <source>Scribe</source>
         <translation>Písař</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Použijte pro osobu, která je opisovačem a pro pisatele vlastních rukopisů. Pro osobu, která dělá brkem faksimile, použijte výrobce faksimilí [fac].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
         <source>Sculptor</source>
         <translation>Sochař</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
         <translation>Použijte pro osobu nebo organizaci, která podle vzoru vytváří nebo vyřezává postavy, jež jsou trojrozměrnými zpodobněními.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
         <source>Second party</source>
         <translation>Druhá strana</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
         <translation>Použijte pro osobu nebo organizaci, která je rozpoznána jako strana druhé strany. V případě přenesení práv, toto je nabyvatel, přejímatel, držitel licence, nabyvatel licence, postupník atd. Více stran může být jmenováno společně jako druhá strana.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
         <source>Secretary</source>
         <translation>Tajemník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
         <translation>Použijte pro osobu nebo organizaci, která je zapisovatelem, redaktorem nebo jinou osobou zodpovědnou za vyjadřování názorů organizace.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
         <source>Set designer</source>
         <translation>Návrhář výpravy</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
         <translation>Použijte pro osobu nebo organizaci, která převádí hrubé náčrty uměleckého vedoucího na skutečné architektonické stavby pro divadelní představení, zábavu, film atd. Návrháři výprav sepisují podrobné návody a přesný popis pro stavbu výpravy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
         <source>Signer</source>
         <translation>Podepsaný</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
         <translation>Použijte pro osobu, jejíž podpis se objevuje bez vysvětlení nebo jiného zdůvodnění označení původu. Když je přítomno zdůvodňující vysvětlení, použijte vpisovatele věnování [ins].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
         <source>Singer</source>
         <translation>Zpěvák</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
         <translation>Použijte pro osobu nebo organizaci, která používá jeho/její/jejich hlas s nebo bez doprovodu hudebních nástrojů, aby tvořila hudbu. Provedení může anebo nemusí zahrnovat skutečná slova.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
         <source>Sound designer</source>
         <translation>Návrhář zvuku</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
         <translation>Použijte pro osobu, která tvoří nebo napodobuje zápis hudby (jak živé tak nahrané), zařízení mikrofonů, nastavení zvukových hladin a sladění zvukových zdrojů pro výrobu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
         <source>Speaker</source>
         <translation>Řečník</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
         <translation>Použijte pro osobu, která se účastní programu (často vysílání) a podává formalizovaný příspěvek nebo provedení obecně připravené předem.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
         <source>Sponsor</source>
         <translation>Sponzor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
         <translation>Použijte pro osobu nebo organizaci, která uzavřela smlouvu nebo pod jejíž záštitou bylo dílo napsáno, vytištěno, zveřejněno atd.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
         <source>Stage manager</source>
         <translation>Divadelní inspicient</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
         <translation>Použijte pro osobu, která řídí všechno, co se stane při divadelním představení, a která jedná jako šéf všech zaměstnanců a režisérův pomocník během zkoušek.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
         <source>Standards body</source>
         <translation>Sbor pro standard</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
         <translation>Použijte pro organizaci, která zodpovídá za vývoj a vynucení standardu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
         <source>Stereotyper</source>
         <translation>Zhotovitel stereotypu</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
         <translation>Použijte pro osobu nebo organizaci, která vytváří novou desku pro tisk odléváním do formy nebo kopírováním jiného tiskového povrchu.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
         <source>Storyteller</source>
         <translation>Vypravěč příběhů</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
         <translation>Použijte pro osobu, která předává příběh nápaditým a/nebo strojeným výkladem.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
         <source>Supporting host</source>
         <translation>Podporující hostitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
         <translation>Použijte pro osobu nebo organizaci, která podporuje (přidělením vybavení, zaměstnanců nebo jinými prostředky) projekt, program, setkání, událost, datové předměty, předměty hmotné kultury nebo jiné subjekty způsobilé podpory.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
         <source>Surveyor</source>
         <translation>Zeměměřič</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
         <translation>Použijte pro osobu nebo organizaci, která dělá měření ploch země atd., aby určila polohu, tvary a hranice.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
         <source>Teacher</source>
         <translation>Učitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
         <translation>Použijte pro osobu, která v souvislosti zdroje dává pokyn duchovní bytosti nebo při výuce názorně předvádí tělesné dovednosti.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
         <source>Technical director</source>
         <translation>Hudební ředitel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
         <translation>Použijte pro osobu, která v podstatě řídí výpravu, rekvizity, světla a zvuk vystoupení.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
         <source>Thesis advisor</source>
         <translation>Poradce diplomové práce</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
         <translation>Použijte pro osobu, pod jejímž dohledem uchazeč o titul rozvíjí a představuje disertační, diplomovou nebo doktorandskou práci, pojednání nebo text dizertace.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
         <source>Transcriber</source>
         <translation>Přepisovatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Použijte pro osobu, která připravuje kopii původního materiálu psanou rukou nebo napsanou na psacím stroji (počítači) včetně hlasitě předříkaného nebo ústně nahraného materiálu. Pro osoby, které dělají brkem faksimile, použijte výrobce faksimilí [fac].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
         <source>Translator</source>
         <translation>Překladatel</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
         <translation>Použijte pro osobu nebo organizaci, která převádí text z jednoho jazyka do druhého, nebo ze starší podoby jazyka do dnešní podoby.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
         <source>Type designer</source>
         <translation>Návrhář písma</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
         <translation>Použijte pro osobu nebo organizaci, která navrhla druh písma použitého ve zvláštní věci.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
         <source>Typographer</source>
         <translation>Tiskař</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
         <translation>Použijte pro osobu nebo organizaci, která zodpovídá za výběr a úpravu písma použitého pro nějakou věc. Pokud je tiskař zodpovědný i za jiné stránky grafického návrhu knihy (např. návrhář knihy [bkd]), mohou být potřeba kódy pro obě úlohy.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
         <source>Videographer</source>
         <translation>Osoba natáčející video</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
         <translation>Použijte pro osobu nebo organizaci, která řídí výrobu videa, např. nahrávání představení v protikladu ke komerčnímu filmu. Osoba natáčející video může být obsluha kamery nebo může dohlížet na jednoho nebo více obsluhovatelů kamer. Neplést si s kameramanem.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
         <source>Vocalist</source>
         <translation>Zpěvák</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
         <source>Use for a person or organization who principally exhibits singing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Použijte pro osobu nebo organizaci, která předvádí zejména dovednost zpěvu při hudebním nebo divadelním představení nebo zábavě.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
         <source>Witness</source>
         <translation>Svědek</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
         <translation>Použijte pro osobu, která dosvědčuje pravdivost události nebo dění.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
         <source>Wood-engraver</source>
         <translation>Dřevorytec</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
         <translation>Použijte pro osobu nebo organizaci, která dělá kopie vyřezáváním obrazu v reliéfu do dřeva dřevěného špalíčku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
         <source>Woodcutter</source>
         <translation>Dřevorubec</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
         <translation>Použijte pro osobu nebo organizaci, která dělá kopie vyřezáváním obrazu v reliéfu do prkna z dřevěného špalku.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
         <source>Writer of accompanying material</source>
         <translation>Pisatel doprovodných podkladů</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
         <translation>Použijte pro osobu nebo organizaci, která píše významné podklady, jež doprovázejí nahrávku zvuku nebo jiný zvukověobrazový materiál.</translation>
     </message>
@@ -10914,7 +10929,7 @@ Chcete uložit své změny?</translation>
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="142"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="137"/>
         <source>Start</source>
         <translation>Obsah</translation>
     </message>
@@ -11001,160 +11016,160 @@ Chcete uložit své změny?</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="337"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="386"/>
         <source>Status: </source>
         <translation>Stav: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="98"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="99"/>
         <source>Error: A plugin by that name does not exist</source>
         <translation>Chyba: Přídavný modul s tímto názvem není</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="123"/>
         <source>Error: Interpreter </source>
         <translation>Chyba: Překladač</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="111"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="123"/>
         <source> has no path set</source>
         <translation>nemá nastavenu žádnou cestu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="124"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="136"/>
         <source>Installation Error: plugin launcher </source>
         <translation>Chyba při instalaci: Spouštěč přídavného modulu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="125"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="137"/>
         <source> does not exist</source>
         <translation>není</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="130"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="142"/>
         <source>Error: plugin engine </source>
         <translation>Chyba: Stroj přídavného modulu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="131"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="143"/>
         <source> is not supported (yet!)</source>
         <translation>není podporován (zatím!)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="137"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source>Status: ready</source>
         <translation>Stav: Připraven</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="150"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="175"/>
         <source>Error: plugin can not start</source>
         <translation>Chyba: Přídavný modul nelze spustit</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="192"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="220"/>
         <source>Launcher process crashed</source>
         <translation>Proces spouštěče se zhroutil.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="203"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="231"/>
         <source>Status: finished</source>
         <translation>Stav: Dokončeno</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="215"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="224"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="243"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="252"/>
         <source>Status: No Changes Made</source>
         <translation>Stav: Neprovedeny žádné změny</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="223"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="251"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Chyba: Přídavný modul se pokusil odstranit poslední soubor XHTML. Ruší se změny</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="299"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="342"/>
         <source>Plugin failed to start</source>
         <translation>Přídavný modul se nepodařilo spustit</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="307"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="350"/>
         <source>Status: error</source>
         <translation>Stav: Chyba</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="321"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="364"/>
         <source>Plugin cancelled</source>
         <translation>Přídavný modul zrušen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="322"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="365"/>
         <source>Status: cancelled</source>
         <translation>Stav: zrušeno</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="372"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="447"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Chyba při zpracování výsledného XML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
         <source>Incorrect XHTML/XML: </source>
         <translation>Nesprávný XHTML/XML: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="428"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
         <source> Line/Col </source>
         <translation>Řádek/Sloupec</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="515"/>
         <source>Check Report</source>
         <translation>Zpráva o kontrole</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="516"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Zjištěn nesprávný XHTML/XML
 Jste si jistý, že chcete pokračovat?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="459"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="534"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Stav: Uklízí se. Mažou se soubory</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="474"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="549"/>
         <source>Status: deleting </source>
         <translation>Stav: Maže se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
         <source>Status: Loading </source>
         <translation>Stav: Nahrává se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="514"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="590"/>
         <source>Input Plugin</source>
         <translation>Zadat přídavný modul</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="515"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="591"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Vaše nynější kniha bude zcela nahrazena. Budou ztraceny všechny neuložené změny. Jste si jistý, že chcete pokračovat?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="541"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="617"/>
         <source>Status: adding </source>
         <translation>Stav: Přidává se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="589"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="654"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Stav: Uklízí se. Mění se soubory</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="618"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="683"/>
         <source>Status: modifying </source>
         <translation>Stav: Mění se</translation>
     </message>
@@ -11240,59 +11255,59 @@ Jste si jistý, že chcete pokračovat?</translation>
         <translation>Nastavit</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="95"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Vybrat archiv zip s přídavným modulem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="90"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="95"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Soubory s přídavnými moduly (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="103"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="111"/>
+        <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
+        <translation>Chyba: Soubor plugin.xml s přídavným modulem je neplatný nebo jej není vaším operačním systémem podporován.</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="114"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Chyba: Přídavný modul s tímto názvem již je</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="106"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="117"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Chyba: Přídavný modul se nepodařilo rozbalit.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="100"/>
-        <source>Error: Plugin plugin.xml file can not be read.</source>
-        <translation>Chyba: Soubor plugin.xml s přídavným modulem nelze přečíst.</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="109"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>Chyba: Přídavný modul není platným přídavným modulem pro Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="153"/>
         <source>Nothing is Selected.</source>
         <translation>Nic není vybráno.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="161"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="172"/>
         <source>Remove All Plugins</source>
         <translation>Odstranit všechny přídavné moduly</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="173"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Opravdu chcete odstranit všechny vaše přídavné moduly?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="230"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="240"/>
         <source>Select Interpreter</source>
         <translation>Vybrat překladač</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="241"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="256"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="272"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>Vybrána nesprávná cesta k překladači</translation>
     </message>
@@ -11368,7 +11383,7 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
 <context>
     <name>PreviewWindow</name>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="35"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="37"/>
         <source>Preview</source>
         <translation>Náhled</translation>
     </message>
@@ -11376,12 +11391,12 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../Misc/SearchOperations.cpp" line="52"/>
+        <location filename="../../Misc/SearchOperations.cpp" line="44"/>
         <source>Counting occurrences..</source>
         <translation>Počítají se výskyty...</translation>
     </message>
     <message>
-        <location filename="../../Misc/SearchOperations.cpp" line="72"/>
+        <location filename="../../Misc/SearchOperations.cpp" line="64"/>
         <source>Replacing search term...</source>
         <translation>Nahrazuje se hledaný výraz...</translation>
     </message>
@@ -11392,33 +11407,33 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="94"/>
-        <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;The ChangeLog can be seen &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Je dostupná novější verze programu Sigil, verze &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;Seznam změn si je možné prohlédnout zde &lt;a href=&apos;http://sigil.googlecode.com/git/ChangeLog.txt&apos;&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Chcete přejít na stránku pro stahování?&lt;/p&gt;</translation>
+        <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Je dostupná novější verze programu Sigil, verze &lt;b&gt;%1&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;Chcete přejít na stránku pro stahování?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="361"/>
+        <location filename="../../Misc/Utility.cpp" line="360"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Nelze přečíst soubor %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="454"/>
+        <location filename="../../Misc/Utility.cpp" line="449"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil se potkal s potížemi.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="455"/>
-        <source>Please &lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;report it&lt;/a&gt; on the issue tracker, including the details from this dialog.</source>
-        <translation>&lt;a href=&quot;http://code.google.com/p/sigil/wiki/ReportingIssues&quot;&gt;Nahlašte to, prosím,&lt;/a&gt; na stránce pro hlášení chyb včetně podrobností z tohoto dialogového okna.</translation>
+        <location filename="../../Misc/Utility.cpp" line="450"/>
+        <source>Sigil cannot continue and will now close</source>
+        <translation>Sigil nemůže pokračovat a nyní bude ukončen</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Index.cpp" line="49"/>
+        <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Creating Index...</source>
         <translation>Vytváří se rejstřík...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Index.cpp" line="49"/>
+        <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
@@ -11428,12 +11443,12 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
         <translation>Vytváří se zprávy...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="539"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="586"/>
         <source>Adding Existing Files..</source>
         <translation>Přidávají se stávající soubory...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="864"/>
+        <location filename="../../BookManipulation/Book.cpp" line="865"/>
         <source>Merging Files..</source>
         <translation>Slučují se soubory...</translation>
     </message>
@@ -11448,105 +11463,105 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
         <translation>Otevřít s</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="83"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="80"/>
         <source>Cover</source>
         <translation>Obal</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="85"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="82"/>
         <source>Title Page</source>
         <translation>Titulní strana</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="87"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="84"/>
         <source>Table Of Contents</source>
         <translation>Obsah</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="89"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="86"/>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="57"/>
         <source>Index</source>
         <translation>Rejstřík</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="91"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="88"/>
         <source>Glossary</source>
         <translation>Slovníček</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="93"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="90"/>
         <source>Acknowledgements</source>
         <translation>Poděkování</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="95"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="92"/>
         <source>Bibliography</source>
         <translation>Bibliografie</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="97"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="94"/>
         <source>Colophon</source>
         <translation>Tiráž</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="99"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="96"/>
         <source>Copyright Page</source>
         <translation>Stránka s autorskými právy</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="101"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="98"/>
         <source>Dedication</source>
         <translation>Věnování</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="103"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="100"/>
         <source>Epigraph</source>
         <translation>Epigraf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="105"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="102"/>
         <source>Foreword</source>
         <translation>Předmluva</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="107"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="104"/>
         <source>List Of Illustrations</source>
         <translation>Seznam ilustrací</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="109"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="106"/>
         <source>List Of Tables</source>
         <translation>Seznam tabulek</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="111"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="108"/>
         <source>Notes</source>
         <translation>Poznámky</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="113"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="110"/>
         <source>Preface</source>
         <translation>Úvod</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/GuideSemantics.cpp" line="115"/>
+        <location filename="../../BookManipulation/GuideSemantics.cpp" line="112"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="108"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="109"/>
         <source>Cannot read EPUB: %1</source>
         <translation>Nelze přečíst EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="200"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>Soubor OPF neobsahuje platnou kostru.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="200"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="680"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="201"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="675"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="678"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil pro vás jednu vytvořil.</translation>
     </message>
@@ -11576,72 +11591,72 @@ Line: %1 Column %2 - %3</source>
         <translation>Nelze rozbalit EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="509"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Nelze zpracovat soubor container.xml.
 Řádek: %1, Sloupec %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="519"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="517"/>
         <source>No appropriate OPF file found</source>
         <translation>Nenalezen žádný náležitý soubor OPF</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="556"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="554"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>Nelze přečíst soubor OPF.
 Řádek: %1, Sloupec %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="608"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
         <source>The OPF manifest contains duplicate ids for: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Manifest OPF obsahuje zdvojená ID pro: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="607"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Pro nahrání tohoto EPUB bylo přiřazeno dočasné ID. Měl byste kvůli odstranění zdvojení váš soubor OPF upravit.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="647"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="645"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>Soubor OPF nerozpoznal soubor NCX správně.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="648"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="646"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil použil následující soubor jako NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="676"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="674"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>Soubor OPF neobsahuje soubor NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="679"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
         <source>The NCX file is not present in this EPUB.</source>
         <translation>Soubor NCX není přítomen v tomto EPUB.</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="182"/>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="242"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="180"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="243"/>
         <source>Invalid HTML file: %1</source>
         <translation>Neplatný soubor HTML: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="282"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="284"/>
         <source>Invalid OPF file: %1</source>
         <translation>Neplatný soubor OPF: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="305"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="309"/>
         <source>Invalid NCX file: %1</source>
         <translation>Neplatný soubor NCX: %1</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="622"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="233"/>
         <source>Cleaning...</source>
         <translation>Uklízí se...</translation>
     </message>
@@ -12108,52 +12123,52 @@ se mají přidat do vaší knihy a automaticky vložit do vašeho dokumentu.</tr
         <translation>Velikost náhledu:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="74"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
         <source>All</source>
         <translation>Vše</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
         <source>Images</source>
         <translation>Obrázky</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Video</source>
         <translation>Obraz</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="78"/>
         <source>Audio</source>
         <translation>Zvuk</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="119"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
         <source>Files In the Book</source>
         <translation>Soubory v knize</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="122"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="123"/>
         <source>Thumbnails</source>
         <translation>Náhledy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>shades</source>
         <translation>Odstíny</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>colors</source>
         <translation>Barvy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Grayscale</source>
         <translation>Stupnice šedi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Color</source>
         <translation>Barva</translation>
     </message>
@@ -12593,52 +12608,52 @@ Použijte v případě, že upravujete jakékoli soubory HTML, když je otevřen
         <translation>Filtr:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="78"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="80"/>
         <source>CSS File</source>
         <translation>Soubor CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="79"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="81"/>
         <source>Class Selector</source>
         <translation>Volič třídy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="80"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="82"/>
         <source>Used In HTML File</source>
         <translation>Použito v souboru HTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="86"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</source>
         <translation>&lt;p&gt;Toto je seznam voličů založených na třídách ve všech souborech CSS a zda volič odpovídá nebo neodpovídá stylu v souboru HTML.&lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="87"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="89"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
         <translation>&lt;p&gt;POZNÁMKA:&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="88"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Kvůli složitostem CSS musíte svůj kód prověřit ručně, abyste si byli jisti, že je styl používán, nebo není.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="244"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="246"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Uložit zprávu jako čárkou oddělený soubor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="257"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Cannot save report file.</source>
         <translation>Nelze uložit soubor se zprávou.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="257"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="268"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="270"/>
         <source>Delete From Stylesheet</source>
         <translation>Smazat ze stylového listu</translation>
     </message>
@@ -12662,22 +12677,22 @@ Použijte v případě, že upravujete jakékoli soubory HTML, když je otevřen
 <context>
     <name>TableOfContents</name>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="43"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="41"/>
         <source>Table Of Contents</source>
         <translation>Obsah</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="124"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="113"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Soubor &quot;%1&quot; neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="173"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="144"/>
         <source>Collapse All</source>
         <translation>Sbalit vše</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="174"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="145"/>
         <source>Expand All</source>
         <translation>Rozbalit vše</translation>
     </message>
@@ -12685,7 +12700,7 @@ Použijte v případě, že upravujete jakékoli soubory HTML, když je otevřen
 <context>
     <name>TextTab</name>
     <message>
-        <location filename="../../Tabs/TextTab.cpp" line="272"/>
+        <location filename="../../Tabs/TextTab.cpp" line="280"/>
         <source>Print %1</source>
         <translation>Tisk %1</translation>
     </message>
@@ -12693,12 +12708,12 @@ Použijte v případě, že upravujete jakékoli soubory HTML, když je otevřen
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="575"/>
+        <location filename="../../Misc/Utility.cpp" line="563"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="576"/>
+        <location filename="../../Misc/Utility.cpp" line="564"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -12715,33 +12730,28 @@ Pokračovat a použít požadovaný název souboru?</translation>
         <translation>Výsledky schvalování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="73"/>
-        <source>An exception occurred during validation: %1.</source>
-        <translation>Při schvalování se vyskytla výjimka: %1.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="162"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="218"/>
         <source>N/A</source>
         <translation>Nedostupné</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="183"/>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="240"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
         <source>Message</source>
         <translation>Zpráva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="184"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="241"/>
         <source>No problems found!</source>
         <translation>Nebyly nalezeny žádné potíže!</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
         <source>File</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="199"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
         <source>Line</source>
         <translation>Řádek</translation>
     </message>

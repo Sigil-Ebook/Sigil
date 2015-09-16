@@ -1,60 +1,60 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="el_GR" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr" version="2.1">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>Σχετικά</translation>
+        <translation>О програму</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>Επεξεργαστής EPUB Αρχείων</translation>
+        <translation> EPUB едитор</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation>Γενικά</translation>
+        <translation>Опште</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>Αρχική σελίδα:</translation>
+        <translation>Матична страна:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
         <source>Version:</source>
-        <translation>Έκδοση:</translation>
+        <translation>Верзија:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation>Έκδοση Qt:</translation>
+        <translation>Коришћен Qt:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
         <source>License:</source>
-        <translation>Άδεια χρήσης:</translation>
+        <translation>Лиценца:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
         <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</translation>
+        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;ГНУ Општа јавна лиценца в3&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>Χρόνος δημιουργίας:</translation>
+        <translation>Време изградње:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
         <source>Authors</source>
-        <translation>Συντάκτες</translation>
+        <translation>Аутори</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation type="unfinished"/>
+        <translation>ГНУ Општа јавна лиценца в3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
@@ -69,22 +69,22 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
-        <translation>Συντάκτες Κώδικα</translation>
+        <translation>Програмери сарадници</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
-        <translation>Μεταφραστές</translation>
+        <translation>Преводиоци</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
-        <translation type="unfinished"/>
+        <translation>Оснивач програма</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation type="unfinished"/>
+        <translation>повучен са пројекта</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Προσθήκη ιδιοτήτων μετά-δεδομένων</translation>
+        <translation>Додај својства метаподатака</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>Περιγραφή μετά-δεδομένων</translation>
+        <translation>Опис метаподатака</translation>
     </message>
 </context>
 <context>
@@ -105,87 +105,87 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation>Όλα τα αρχεία</translation>
+        <translation>Сви фајлови</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Λίστα με μόνο τα ονόματα των αρχείων που περιέχουν το κείμενο που εισαγάγατε.</translation>
+        <translation>Листа са именима фајлова које садржи текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="64"/>
         <source>Directory</source>
-        <translation>Φάκελος</translation>
+        <translation>Фасцикла</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="66"/>
         <source>File Size (KB)</source>
-        <translation>Μέγεθος αρχείου (KB)</translation>
+        <translation>Величина фајла (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="67"/>
         <source>Type</source>
-        <translation>Τύπος</translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="68"/>
         <source>Semantics</source>
-        <translation type="unfinished"/>
+        <translation>Семантика</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="126"/>
         <source> files</source>
-        <translation> αρχεία</translation>
+        <translation>фајлови</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="239"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај извештај са одвојеним зарезима</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="252"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="252"/>
         <source>Cannot save report file.</source>
-        <translation>Αδυναμία αποθήκευσης αρχείου αναφοράς.</translation>
+        <translation>Није могуће сачувати извештај.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
         <source>Image</source>
-        <translation>Εικόνα</translation>
+        <translation>Слика</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="282"/>
         <source>Audio</source>
-        <translation>Ήχος</translation>
+        <translation>Аудио</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="287"/>
         <source>Video</source>
-        <translation>Βίντεο</translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="292"/>
         <source>Font</source>
-        <translation>Γραμματοσειρά</translation>
+        <translation>Фонт</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="319"/>
         <source>Unknown</source>
-        <translation>Άγνωστο</translation>
+        <translation>Непознато</translation>
     </message>
 </context>
 <context>
@@ -193,7 +193,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation>Εμφάνιση</translation>
+        <translation>Изглед</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="61"/>
@@ -212,7 +212,7 @@ if no font-family specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="229"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="348"/>
         <source>Standard Font:</source>
-        <translation>Βασική γραμματοσειρά:</translation>
+        <translation>Стандардни фонт:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="109"/>
@@ -223,7 +223,7 @@ if a serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="113"/>
         <source>Serif Font:</source>
-        <translation type="unfinished"/>
+        <translation>Serif фонт:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="123"/>
@@ -234,34 +234,34 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="127"/>
         <source>Sans-Serif Font:</source>
-        <translation type="unfinished"/>
+        <translation>Sans-Serif фонт:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="65"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="199"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="315"/>
         <source>Font Size:</source>
-        <translation>Μέγεθος γραμματοσειράς:</translation>
+        <translation>Величина фонта:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="32"/>
         <source>Book View / Preview:</source>
-        <translation>Προβολή βιβλίου / Προεπισκόπηση:</translation>
+        <translation>Приказ књиге / Преглед:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="173"/>
         <source>CSS / Code View:</source>
-        <translation>CSS / Προβολή κώδικα:</translation>
+        <translation>CSS / Приказ кода:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="226"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Група фонтова који се користе за текст у Приказу кода.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="183"/>
         <source>Item Colors:</source>
-        <translation>Χρώμα αντικειμένου:</translation>
+        <translation>Боје ставке:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
@@ -271,57 +271,57 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation>Το μέγεθος της γραμματοσειράς για το κείμενο της προβολής του κώδικα.</translation>
+        <translation>Величина фонта која се користи за текст у Приказу кода.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="265"/>
         <source>Select an alternative color for this display item</source>
-        <translation type="unfinished"/>
+        <translation>Одаберите алтернативну боју за приказ ове ставке</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="268"/>
         <source>Custom Color...</source>
-        <translation type="unfinished"/>
+        <translation>Прилагођена боја...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="298"/>
         <source>Insert Special Characters:</source>
-        <translation>Εισαγωγή ειδικού χαρακτήρα:</translation>
+        <translation>Убаци специјалне карактере:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="312"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>Величина фонта за убацивање у прозор специјалних карактера </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="345"/>
         <source>Font family to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>Група фонтова који се користе за убацивање специјалних карактера</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="384"/>
         <source>Reset all fonts and colors to the default values</source>
-        <translation>Επαναφορά όλων των γραμματοσειρών και των χρωμάτων στις αρχικές τους τιμές</translation>
+        <translation>Поврати све фонтове и боје на подразумеване вредности</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="387"/>
         <source>Reset All</source>
-        <translation>Επαναφορά όλων</translation>
+        <translation>Ресетуј све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="199"/>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Позадина</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="200"/>
         <source>Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Предња страна</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="201"/>
         <source>CSS Comment</source>
-        <translation type="unfinished"/>
+        <translation>CSS коментар</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="202"/>
@@ -341,32 +341,32 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="205"/>
         <source>CSS Value</source>
-        <translation type="unfinished"/>
+        <translation>CSS вредност</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="206"/>
         <source>Line Highlight</source>
-        <translation type="unfinished"/>
+        <translation>Истакнута линија</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="207"/>
         <source>Line# Background</source>
-        <translation type="unfinished"/>
+        <translation>Линија# Позадина</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="208"/>
         <source>Line# Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Линија# Предња страна</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="209"/>
         <source>Selection Background</source>
-        <translation type="unfinished"/>
+        <translation>Одабери позадину</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="210"/>
         <source>Selection Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Одабери предњу страну</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="211"/>
@@ -386,7 +386,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
         <source>XHTML CSS</source>
-        <translation type="unfinished"/>
+        <translation>XHTML CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
@@ -419,22 +419,22 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="57"/>
         <source>Book Browser</source>
-        <translation>Περιοχή βιβλίου</translation>
+        <translation>Преглед књиге</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="69"/>
         <source>Add Semantics</source>
-        <translation>Προσθήκη στοιχείου</translation>
+        <translation>Додај семантику</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
         <source>Font Obfuscation</source>
-        <translation>Απόκρυψη γραμματοσειράς</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Το αρχείο &quot;%1&quot; δεν έχει δημιουργηθεί.</translation>
+        <translation>Фајл &quot;%1&quot; не постоји.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
@@ -444,318 +444,326 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="993"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>Θα θέλατε σίγουρα την αλφαβητική ταξινόμηση όλων των επιλεγμένων αρχείων;
-</translation>
+        <translation>Да ли сте сигурни на желите да сортирате одабране фајлове по бројевима?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
-        <translation>Αυτή η ενέργεια δεν μπορεί να αντιστραφεί.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1550"/>
         <source>Open With</source>
-        <translation>Άνοιγμα με</translation>
+        <translation>Отвори са</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
         <source>file</source>
-        <translation>αρχείο</translation>
+        <translation>фајл</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="126"/>
         <source>files</source>
-        <translation>αρχεία</translation>
+        <translation>фајлови</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="639"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће обрисати или заменити фајл &quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће учитати &quot;%1&quot;
+
+Фајл са овим именом већ постоји у књизи.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="743"/>
         <source>Save As File</source>
-        <translation>Αποθήκευση ως Αρχείο</translation>
+        <translation>Сачувај као фајл</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
         <source>Unable to save the file.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће сачувати фајл.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
         <source>Choose the directory to save the files to</source>
-        <translation>Επιλογή του φακέλου για την αποθήκευση των αρχείων</translation>
+        <translation>Одабери фасциклу за чување фајлова</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation>Ένα ή περισσότερα αρχεία υπάρχουν ήδη. ΟΚ για αντικατάσταση;</translation>
+        <translation>Један или виће фајлова већ постоји. Да их пребришем?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="810"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће сачувати фајлове. Дестинација може бити фасцикла.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="818"/>
         <source>Unable to save files.</source>
-        <translation>Αδυναμία αποθήκευσης αρχείων.</translation>
+        <translation>Није могуће сачувати фајлове.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="993"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће преименовати фајлове јер би могло резултирати дуплим именима.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1057"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
-        <translation>Ούτε το NCX ούτε το OPF μπορεί να αφαιρεθεί.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1064"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation>Δεν μπορεί να γίνει αφαίρεση όλων των Html αρχείων.
-Πρέπει πάντα να υπάρχει έστω κι ένα τέτοιο αρχείο.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Add Blank Stylesheet</source>
-        <translation>Προσθήκη κενής εμφάνισης</translation>
+        <translation>Додај празан стил</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1363"/>
         <source>Add Blank SVG Image</source>
-        <translation>Προσθήκη κενής SVG εικόνας</translation>
+        <translation>Додај празну SVG слику</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1364"/>
         <source>Add Existing Files...</source>
-        <translation>Προσθήκη εξαγώγιμων αρχείων...</translation>
+        <translation>Додај постојеће фајлове...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1366"/>
         <source>Add Copy</source>
-        <translation>Προσθήκη αντίγραφου</translation>
+        <translation>Додај копију</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
         <source>Rename</source>
-        <translation>Μετονομασία</translation>
+        <translation>Преименуј</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1376"/>
         <source>Link Stylesheets...</source>
-        <translation>Σύνδεσμος εμφάνισης...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1379"/>
         <source>Save As</source>
-        <translation>Αποθήκευση ως</translation>
+        <translation>Сачувај као</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1442"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Власничка права</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1556"/>
         <source>Other Application</source>
-        <translation>Άλλη εφαρμογή</translation>
+        <translation>Друге апликације</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
         <source>Cover Image</source>
-        <translation>Εικόνα εξώφυλλου</translation>
+        <translation>Слика омота</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1370"/>
         <source>Merge</source>
-        <translation>Συγχώνευση</translation>
+        <translation>Споји</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>Χρήση μεθόδου Adobe</translation>
+        <translation>Користи Adobe метод</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>Χρήση μεθόδου IDPF</translation>
+        <translation>Користи IDPF метод</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1360"/>
         <source>Select All</source>
-        <translation>Επιλογή όλων</translation>
+        <translation>Одабери све</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="568"/>
         <source>Add Existing Files</source>
-        <translation>Προσθήκη αποθηκευμένων αρχείων</translation>
+        <translation>Додај постојеће фајлове</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="604"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Фајл није слика и не може бити коришћен:
+
+&quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="613"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Фајл није мултимедија (слика, видео, аудио) и не може бити уметнут:
+
+&quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="628"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation type="unfinished"/>
+        <translation>Фајл мултимедије &quot;%1&quot; већ постоји у књизи.
+
+Да га заменим?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="693"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>The following file(s) were not loaded due to invalid content or not well formed XML:
+
+%1</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="708"/>
         <source>File(s) added.</source>
-        <translation>Αρχείο (-α) προστέθηκαν.</translation>
+        <translation>Фајл(ови) додати.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1204"/>
         <source>Unable to set file as cover image.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће подесити фајл као налепницу.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
         <source>Add Blank HTML File</source>
-        <translation>Προσθήκη κενού HTML αρχείοιυ</translation>
+        <translation>Додај чист HTML фајл</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1368"/>
         <source>Delete</source>
-        <translation>Διαγραφή</translation>
+        <translation>Обриши</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1371"/>
         <source>None</source>
-        <translation>Καμία</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1374"/>
         <source>Sort</source>
-        <translation>Ταξινόμηση</translation>
+        <translation>Врста</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1375"/>
         <source>Renumber TOC Entries</source>
-        <translation>Επαναρίθμηση των εγγραφών του TOC</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Validate with W3C</source>
-        <translation type="unfinished"/>
+        <translation>Потврди као W3C</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>Cover</source>
-        <translation>Εξώφυλλο</translation>
+        <translation>Омот</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Title Page</source>
-        <translation>Τίτλος σελίδας</translation>
+        <translation>Наслов стране</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
         <source>Table Of Contents</source>
-        <translation>Πίνακας περιεχομένων</translation>
+        <translation>Преглед садржаја</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1422"/>
         <source>Index</source>
-        <translation>Ευρετήριο</translation>
+        <translation>Индекс</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1426"/>
         <source>Glossary</source>
-        <translation>Γλωσσάρι</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1430"/>
         <source>Acknowledgements</source>
-        <translation>Ευχαριστίες</translation>
+        <translation>Захвалност</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1434"/>
         <source>Bibliography</source>
-        <translation>Βιβλιογραφία</translation>
+        <translation>Библиографија</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
         <source>Colophon</source>
-        <translation>Εκδότης βιβλίου</translation>
+        <translation>Штампарски знак</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1446"/>
         <source>Dedication</source>
-        <translation>Αφιέρωση</translation>
+        <translation>Посвета</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1450"/>
         <source>Epigraph</source>
-        <translation>Επιγραφή</translation>
+        <translation>Епиграф</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1454"/>
         <source>Foreword</source>
-        <translation>Πρόλογος εκτός του συγγραφέα</translation>
+        <translation>Предговор</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1458"/>
         <source>List Of Illustrations</source>
-        <translation>Λίστα Φωτογραφιών</translation>
+        <translation>Листа илустрација</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1462"/>
         <source>List Of Tables</source>
-        <translation>Λίστα με πίνακες</translation>
+        <translation>Листа табела</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1466"/>
         <source>Notes</source>
-        <translation>Σημειώσεις</translation>
+        <translation>Напомене</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1470"/>
         <source>Preface</source>
-        <translation>Πρόλογος συγγραφέα</translation>
+        <translation>Предговор</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
         <source>Text</source>
-        <translation>Κείμενο</translation>
+        <translation>Текст</translation>
     </message>
 </context>
 <context>
@@ -763,94 +771,94 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1017"/>
         <source>Open</source>
-        <translation>Άνοιγμα</translation>
+        <translation>Отвори</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="859"/>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1019"/>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1021"/>
         <source>Open With</source>
-        <translation>Άνοιγμα με</translation>
+        <translation>Отвори са</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="649"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation type="unfinished"/>
+        <translation>Клипборд садржи HTML формат</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="650"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation type="unfinished"/>
+        <translation>Да ли желите да налепите клипборд податке као чист текст?</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="845"/>
         <source>Open Tab For</source>
-        <translation>Άνοιγμα καρτέλας για </translation>
+        <translation>Отвори картицу за</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="866"/>
         <source>Other Application</source>
-        <translation>Άλλη εφαρμογή</translation>
+        <translation>Друга апликација</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
         <source>Clips</source>
-        <translation>Γρήγορα τμήματα</translation>
+        <translation>Шаблони</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="924"/>
         <source>Add To Clips</source>
-        <translation>Προσθήκη στα γρήγορα τμήματα</translation>
+        <translation>Додај у шаблоне</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1009"/>
         <source>Insert File</source>
-        <translation>Εισαγωγή αρχείου</translation>
+        <translation>Инсерт фајла</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
         <source>Undo</source>
-        <translation>Αναίρεση</translation>
+        <translation>Врати</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
         <source>Redo</source>
-        <translation>Επανάληψη</translation>
+        <translation>Претходно</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1012"/>
         <source>Cut</source>
-        <translation>Αποκοπή</translation>
+        <translation>Исеци</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1013"/>
         <source>Copy</source>
-        <translation>Αντιγραφή</translation>
+        <translation>Копирај</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1014"/>
         <source>Copy Image</source>
-        <translation>Αντιγραφή εικόνας</translation>
+        <translation>Копирај слику</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1015"/>
         <source>Paste</source>
-        <translation>Επικόλληση</translation>
+        <translation>Налепи</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1016"/>
         <source>Select All</source>
-        <translation>Επιλογή όλων</translation>
+        <translation>Одабери све</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1020"/>
         <source>Save As</source>
-        <translation>Αποθήκευση ως</translation>
+        <translation>Сачувај као</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1024"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>Прегледај елемент</translation>
     </message>
 </context>
 <context>
@@ -860,27 +868,27 @@ OK to replace?</source>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="321"/>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="327"/>
         <source>Unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Није подржано</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="256"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Режим провере правописа није подржан као Приказ књиге у овом тренутку. Пређите на Приказ кода.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="321"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Замена није подржана у овом приказу. Пређите на Приказ кода.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="327"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Замена свега за тренутни фајл није подржана у овом приказу. Пређите на Приказ кода.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="740"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>Прегледај елемент</translation>
     </message>
 </context>
 <context>
@@ -888,37 +896,37 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="14"/>
         <source>CSS Files</source>
-        <translation>CSS Αρχεία</translation>
+        <translation>CSS фајлови</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Λίστα με μόνο τα ονόματα των αρχείων που περιέχουν το κείμενο που εισαγάγατε.</translation>
+        <translation>Листа са именима фајлова које садржи текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="68"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="69"/>
         <source>Size (KB)</source>
-        <translation>Μέγεθος (ΚΒ)</translation>
+        <translation>Величина (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="70"/>
         <source>Times Used</source>
-        <translation>Αριθμός χρήσεων</translation>
+        <translation>Употребљено време</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="135"/>
         <source> files</source>
-        <translation>αρχεία</translation>
+        <translation>фајлови</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="139"/>
@@ -928,22 +936,22 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај извештај као фајл раздвојен зарезима</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation>Αδυναμία αποθήκευσης αρχείου αναφοράς.</translation>
+        <translation>Није могуће сачувати извештај.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="289"/>
         <source>Delete From Book</source>
-        <translation>Διαγραφή από το βιβλίο</translation>
+        <translation>Уклони из књиге</translation>
     </message>
 </context>
 <context>
@@ -951,17 +959,17 @@ OK to replace?</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="87"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil ће слати ваше податке стила на &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C валидациони сервис&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="88"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>Ова страница би требала нестати када се учита после 3 секунде.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="89"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
-        <translation type="unfinished"/>
+        <translation>Ако ваш прегледач нема јаваскрипт омогућен, кликните на дугме испод.</translation>
     </message>
 </context>
 <context>
@@ -969,67 +977,67 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters in HTML Files</source>
-        <translation>Χαρακτήρες στα HTML αρχεία</translation>
+        <translation>Карактери у HTML фајловима</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Λίστα με μόνο τα ονόματα των αρχείων που περιέχουν το κείμενο που εισαγάγατε.</translation>
+        <translation>Листа са именима фајлова које садржи текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation>Χαρακτήρες:</translation>
+        <translation>Карактери:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="74"/>
         <source>Character</source>
-        <translation>Χαρακτήρας</translation>
+        <translation>Карактер</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="75"/>
         <source>Decimal</source>
-        <translation type="unfinished"/>
+        <translation>Децимал</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="76"/>
         <source>Hexadecimal</source>
-        <translation type="unfinished"/>
+        <translation>Хексадецимал</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="77"/>
         <source>Entity Name</source>
-        <translation type="unfinished"/>
+        <translation>Име ентитета</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="78"/>
         <source>Entity Description</source>
-        <translation type="unfinished"/>
+        <translation>Опис ентитета</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="84"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Ово је листа карактера коришћених у свим HTML фајловима.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај извештај као фајл раздвојен зарезима</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation>Αδυναμία αποθήκευσης αρχείου αναφοράς.</translation>
+        <translation>Није могуће сачувати извештај.</translation>
     </message>
 </context>
 <context>
@@ -1042,27 +1050,27 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Λίστα με μόνο τα ονόματα των αρχείων που περιέχουν το κείμενο που εισαγάγατε.</translation>
+        <translation>Листа са именима фајлова које садржи текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="77"/>
         <source>HTML File</source>
-        <translation type="unfinished"/>
+        <translation>HTML фајл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="78"/>
         <source>Element</source>
-        <translation type="unfinished"/>
+        <translation>Елемент</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="79"/>
         <source>Class</source>
-        <translation type="unfinished"/>
+        <translation>Класа</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="80"/>
@@ -1072,7 +1080,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="81"/>
         <source>Found In</source>
-        <translation type="unfinished"/>
+        <translation>Основано у</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
@@ -1082,7 +1090,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;НАПОМЕНА:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="89"/>
@@ -1092,17 +1100,17 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="223"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај извештај као фајл раздвојен зарезима</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Cannot save report file.</source>
-        <translation>Αδυναμία αποθήκευσης αρχείου αναφοράς.</translation>
+        <translation>Није могуће сачувати извештај.</translation>
     </message>
 </context>
 <context>
@@ -1110,12 +1118,12 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="14"/>
         <source>Clean Source</source>
-        <translation>Καθαρισμός πηγής</translation>
+        <translation>Очисти извор</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="77"/>
         <source>Perform formatting and cleaning of your code to make it valid XHTML.</source>
-        <translation type="unfinished"/>
+        <translation>Извршите форматирање и чишћење вашег кода да направите исправан XHTML.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="80"/>
@@ -1131,12 +1139,12 @@ This may change your formatting to use inline style sections.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="56"/>
         <source>Save</source>
-        <translation>Αποθήκευση</translation>
+        <translation>Сачувај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="53"/>
         <source>Clean when saving an EPUB.</source>
-        <translation type="unfinished"/>
+        <translation>Очисти код чувања EPUB.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="32"/>
@@ -1147,18 +1155,19 @@ formatted and cleaned using your selected option.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="36"/>
         <source>Automatically Clean and Format HTML Source Code:</source>
-        <translation>Αυτόματο καθάρισμα και μορφοποίηση του κώδικα HTML:</translation>
+        <translation>Аутоматски очисти и форматирај HTML изворни код:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="42"/>
         <source>Clean when opening an EPUB or HTML file, 
 and when switching from Book View to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Очисти када отвараш EPUB или HTML фајл, 
+и када прелазиш са Приказа књиге у Приказ кода.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="46"/>
         <source>Open</source>
-        <translation>Άνοιγμα</translation>
+        <translation>Отвори</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="66"/>
@@ -1170,7 +1179,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="71"/>
         <source>When Cleaning, Use This Type:</source>
-        <translation>Μετά το καθάρισμα, χρησιμοποιήση του τύπου:</translation>
+        <translation>Када чистите, користите овај режим:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="94"/>
@@ -1184,27 +1193,27 @@ or when cleaning manually.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="503"/>
         <source>Clip Editor</source>
-        <translation type="unfinished"/>
+        <translation>Едитор шаблона</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Όνομα φίλτρου:</translation>
+        <translation>Име филтера:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Όλα τα φίλτρα:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Листа са ставкама које садрже текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
         <source>Paste Clip</source>
-        <translation type="unfinished"/>
+        <translation>Налепи шаблон</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
@@ -1237,27 +1246,27 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="619"/>
         <source>Paste</source>
-        <translation>Επικόλληση</translation>
+        <translation>Налепи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="72"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation type="unfinished"/>
+        <translation>Десни клик на ставку за преглед контекстног менија.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name of your entry or group.</source>
-        <translation type="unfinished"/>
+        <translation>Име ставке или групе.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Text</source>
-        <translation>Κείμενο</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
@@ -1267,22 +1276,22 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
         <source>Paste the selected entry into the active window.</source>
-        <translation type="unfinished"/>
+        <translation>Налепи одабрану ставку у активни прозор.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation type="unfinished"/>
+        <translation>Можете десним кликом у вашем документу одабрати ставку.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save</source>
-        <translation>Αποθήκευση</translation>
+        <translation>Сачувај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save your changes.</source>
-        <translation>Αποθήκευση των αλλαγών.</translation>
+        <translation>Сачувај промене.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
@@ -1292,12 +1301,12 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="90"/>
         <source>Cannot save entries.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће сачувати ставке.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="132"/>
         <source>Clip entries loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>Ставка шаблона учитана из фајла.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="188"/>
@@ -1307,94 +1316,94 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="270"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће копирати или исећи групе - користи превуци и спусти.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>Да ли сте сигурни да желите поновно учитати све ставке? Ово ће пребрисати све несачуване промене.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="352"/>
         <source>Import Entries</source>
-        <translation type="unfinished"/>
+        <translation>Увези ставке</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="425"/>
         <source>Export Selected Entries</source>
-        <translation type="unfinished"/>
+        <translation>Извези одабране ставке</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="503"/>
         <source>CSS entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="614"/>
         <source>Add Entry</source>
-        <translation>Προσθήκη λέξης</translation>
+        <translation>Додај ставку</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="615"/>
         <source>Add Group</source>
-        <translation type="unfinished"/>
+        <translation>Додај групу</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="616"/>
         <source>Edit</source>
-        <translation>Επεξεργασία</translation>
+        <translation>Уреди</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="617"/>
         <source>Cut</source>
-        <translation>Αποκοπή</translation>
+        <translation>Исеци</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="618"/>
         <source>Copy</source>
-        <translation>Αντιγραφή</translation>
+        <translation>Копирај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="620"/>
         <source>Delete</source>
-        <translation>Διαγραφή</translation>
+        <translation>Обриши</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="621"/>
         <source>Import</source>
-        <translation>Εισαγωγή</translation>
+        <translation>Увези</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="622"/>
         <source>Reload</source>
-        <translation>Ανανέωση</translation>
+        <translation>Поново учитај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="623"/>
         <source>Export</source>
-        <translation>Εξαγωγή</translation>
+        <translation>Извези</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="624"/>
         <source>Export All</source>
-        <translation>Εξαγωγή όλων</translation>
+        <translation>Извези све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="625"/>
         <source>Collapse All</source>
-        <translation>Σύμπτυξη όλων</translation>
+        <translation>Скупи све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="626"/>
         <source>Expand All</source>
-        <translation>Ανάπτυξη όλων</translation>
+        <translation>Прошири све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="627"/>
@@ -1404,12 +1413,12 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="707"/>
         <source>Clip entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>Ставка шаблона је сачувана.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="736"/>
         <source>Sigil: Clip Editor</source>
-        <translation type="unfinished"/>
+        <translation>Sigil: Едитор шаблона</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="737"/>
@@ -1423,17 +1432,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="63"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
         <source>Text</source>
-        <translation>Κείμενο</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="674"/>
         <source>Unable to create file %1</source>
-        <translation>Αδυναμία δημιουργίας αρχείου %1</translation>
+        <translation>Није могуће креирати фајл %1</translation>
     </message>
 </context>
 <context>
@@ -1441,17 +1450,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="14"/>
         <source>Select Text to Paste</source>
-        <translation>Επιλογή κειμένου για επικόλληση</translation>
+        <translation>Одабери текст за налепи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="20"/>
         <source>Recent clipboards:</source>
-        <translation>Πρόσφατα κείμενα:</translation>
+        <translation>Скорашњи клипборди:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="283"/>
         <source>Paste</source>
-        <translation>Επικόλληση</translation>
+        <translation>Налепи</translation>
     </message>
 </context>
 <context>
@@ -1459,17 +1468,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="34"/>
         <source>Clips</source>
-        <translation>Γρήγορα τμήματα</translation>
+        <translation>Шаблони</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="99"/>
         <source>Collapse All</source>
-        <translation>Σύμπτυξη όλων</translation>
+        <translation>Скупи све</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="100"/>
         <source>Expand All</source>
-        <translation>Ανάπτυξη όλων</translation>
+        <translation>Прошири све</translation>
     </message>
 </context>
 <context>
@@ -1487,17 +1496,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1165"/>
         <source>Add To Default Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Додај у подразумевани речник</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1178"/>
         <source>Add To Dictionary</source>
-        <translation>Προσθήκη στο λεξικό</translation>
+        <translation>Додај у речник</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1195"/>
         <source>Ignore</source>
-        <translation>Αγνόηση</translation>
+        <translation>Игнориши</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1257"/>
@@ -1517,17 +1526,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1284"/>
         <source>Reformat HTML</source>
-        <translation type="unfinished"/>
+        <translation>Поново форматирај HTML</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1285"/>
         <source>Clean Source</source>
-        <translation>Καθαρισμός πηγής</translation>
+        <translation>Очисти извор</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1286"/>
         <source>Clean Source - All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Очисти извор - све HTML фајлове</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1287"/>
@@ -1547,32 +1556,32 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1341"/>
         <source>View Image</source>
-        <translation>Προβολή εικόνας</translation>
+        <translation>Прикажи слику</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1342"/>
         <source>Open Tab For Image</source>
-        <translation>Άνοιγμα καρτέλας για εικόνα</translation>
+        <translation>Отвори картицу за слику</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1368"/>
         <source>Mark Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Означи селектовани текст</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1370"/>
         <source>Unmark Marked Text</source>
-        <translation type="unfinished"/>
+        <translation>Одзначи селектовани текст</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1396"/>
         <source>Clips</source>
-        <translation>Γρήγορα τμήματα</translation>
+        <translation>Шаблони</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1406"/>
         <source>Add To Clips</source>
-        <translation>Προσθήκη στα γρήγορα τμήματα</translation>
+        <translation>Додај у шаблоне</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1532"/>
@@ -1590,22 +1599,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="55"/>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Позадина</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="57"/>
         <source>Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Предња страна</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
         <source>Selection Background</source>
-        <translation type="unfinished"/>
+        <translation>Одабери позадину</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
         <source>Selection Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Одабери предњу страну</translation>
     </message>
 </context>
 <context>
@@ -1613,22 +1622,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation>Διαγραφή αρχείων</translation>
+        <translation>Обриши фајлове</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="66"/>
         <source>Delete Marked Files</source>
-        <translation>Διαγραφή επιλεγμένων αρχείων</translation>
+        <translation>Обриши означене фајлове</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="67"/>
         <source>Delete</source>
-        <translation>Διαγραφή</translation>
+        <translation>Обриши</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
         <source>File</source>
-        <translation>Αρχείο</translation>
+        <translation>Фајл</translation>
     </message>
 </context>
 <context>
@@ -1636,27 +1645,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="14"/>
         <source>Delete Styles</source>
-        <translation>Διαγραφή εμφανίζεων</translation>
+        <translation>Уклони стилове</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="79"/>
         <source>Delete Marked Styles</source>
-        <translation>Διαγραφή επιλεγμένων εμφανίσεων</translation>
+        <translation>Уклони означене стилове</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
         <source>Delete</source>
-        <translation>Διαγραφή</translation>
+        <translation>Уклони</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="81"/>
         <source>File</source>
-        <translation>Αρχείο</translation>
+        <translation>Фајл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="82"/>
         <source>Style</source>
-        <translation>Εμφάνιση</translation>
+        <translation>Стил</translation>
     </message>
 </context>
 <context>
@@ -1664,43 +1673,43 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation>Επεξεργασία του πίνακα περιεχομένων</translation>
+        <translation>Измени преглед садржаја</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
-        <translation type="unfinished"/>
+        <translation>Додај изнад</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>Убаците празну ставку изнад тренутно одабране ставке.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
         <source>Add Below</source>
-        <translation type="unfinished"/>
+        <translation>Додај испод</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="62"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>Додај празну ставку испод тренутно одабрене ставке.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="72"/>
         <source>Delete the selected TOC entry</source>
-        <translation type="unfinished"/>
+        <translation>Уклони одабрану TOC ставку</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="428"/>
         <source>Delete</source>
-        <translation>Διαγραφή</translation>
+        <translation>Уклони</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation>Επιλογή τοποθεσίας</translation>
+        <translation>Одабери циљ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="82"/>
@@ -1728,37 +1737,37 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="76"/>
         <source>TOC Entry</source>
-        <translation>TOC Εγγραφή</translation>
+        <translation>TOC ставка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="77"/>
         <source>Target</source>
-        <translation>Τοποθεσία</translation>
+        <translation>Циљ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="427"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Преименуј</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="435"/>
         <source>Move Up</source>
-        <translation type="unfinished"/>
+        <translation>Помери горе</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="436"/>
         <source>Move Down</source>
-        <translation type="unfinished"/>
+        <translation>Помери доле</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="442"/>
         <source>Expand All</source>
-        <translation>Ανάπτυξη όλων</translation>
+        <translation>Прошири све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="443"/>
         <source>Collapse All</source>
-        <translation>Σύμπτυξη όλων</translation>
+        <translation>Скупи све</translation>
     </message>
 </context>
 <context>
@@ -1775,22 +1784,22 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>Αναζήτηση &amp; Αντικατάσταση</translation>
+        <translation>Пронађи &amp; Замени</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="103"/>
         <source>Show/Hide Advanced Options</source>
-        <translation>Εμφάνιση/Απόκρυψη επιλογών για προχωρημένος</translation>
+        <translation>Прикажи/Сакриј напредне опције</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="152"/>
         <source>Find:</source>
-        <translation>Αναζήτηση:</translation>
+        <translation>Пронађи:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation>Αναζήτηση</translation>
+        <translation>Пронађи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
@@ -1801,7 +1810,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation>Απόκρυψη αναζήτησης και αντικατάστασης</translation>
+        <translation>Сакриј Пронађи и Замени</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
@@ -1812,7 +1821,7 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Replace/Find</source>
-        <translation>Αντικατάσταση/Αναζήτηση</translation>
+        <translation>Замени/Пронађи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="249"/>
@@ -1822,7 +1831,7 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="281"/>
         <source>Options:</source>
-        <translation>Επιλογές:</translation>
+        <translation>Опције:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="306"/>
@@ -1869,47 +1878,48 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation>Καταμέτρηση όλων</translation>
+        <translation>Рачунај све</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation>Αντικατάσταση</translation>
+        <translation>Замени</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation>Αντικατάσταση όλων</translation>
+        <translation>Замени све</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
         <source>Replace:</source>
-        <translation>Αντικατάσταση:</translation>
+        <translation>Замени:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="184"/>
         <source>Find next match.</source>
-        <translation>Αναζήτηση επόμενης λέξης.</translation>
+        <translation>Пронађи следеће подударање.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="371"/>
         <source>Count all matches in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Рачунај сва подударања у Приказу кода.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="268"/>
         <source>Replace all matches in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Замени сва подударања у Приказу кода.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="384"/>
         <source>Mode:</source>
-        <translation>Λειτουργία:</translation>
+        <translation>Режим:</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="620"/>
         <source>No matches found</source>
-        <translation>Δε βρέθηκε κανένας όρος</translation>
+        <translation>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%1 matches found</source>
@@ -1921,7 +1931,7 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="417"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1277"/>
         <source>No replacements made</source>
-        <translation>Καμία αντικατάσταση έγινε</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <source>%1 replacements made</source>
@@ -1932,12 +1942,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1135"/>
         <source>This tab cannot be searched</source>
-        <translation>Σ` αυτή την καρτέλα δεν μπορει να γίνει αναζήτηση</translation>
+        <translation>Ову картицу није могуће претражити</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
         <source>Normal</source>
-        <translation>Βασικό</translation>
+        <translation>Нормално</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
@@ -1947,12 +1957,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1433"/>
         <source>Find or replace in all HTML files in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Пронађи или замени у свим HTML фајловима у Приказу кода</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>Selected Files</source>
-        <translation>Επιλεγμένα αρχεία</translation>
+        <translation>Одабрани фајлови</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
@@ -1962,7 +1972,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
         <source>Marked Text</source>
-        <translation type="unfinished"/>
+        <translation>Означени текст</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
@@ -1988,18 +1998,18 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="333"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1253"/>
         <source>Matches found: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="419"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1279"/>
         <source>Replacements made: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1170"/>
         <source>Loaded</source>
-        <translation type="unfinished"/>
+        <translation>Учитано</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1179"/>
@@ -2013,12 +2023,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Case Sensitive</source>
-        <translation>Πεζά-κεφαλαία</translation>
+        <translation>Осетљиво на мала и велика слова</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Regex</source>
-        <translation>Στοιχεία λέξεων</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1420"/>
@@ -2044,33 +2054,33 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1441"/>
         <source>Where to search</source>
-        <translation type="unfinished"/>
+        <translation>Где претражити</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="178"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1430"/>
         <source>Current File</source>
-        <translation>Συγκεκριμένο αρχείο</translation>
+        <translation>Тренутни фајл</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>All HTML Files</source>
-        <translation>Όλα τα HTML αρχεία</translation>
+        <translation>Сви HTML фајлови</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1447"/>
         <source>Up</source>
-        <translation>Πάνω</translation>
+        <translation>Горе</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
         <source>Down</source>
-        <translation>Κάτω</translation>
+        <translation>Доле</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1449"/>
         <source>Direction to search</source>
-        <translation type="unfinished"/>
+        <translation>Смер за претрагу</translation>
     </message>
 </context>
 <context>
@@ -2078,12 +2088,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
-        <translation>Επιλογή Tokenise</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="71"/>
         <source>Save Search</source>
-        <translation>Αποθήκευση αναζήτησης</translation>
+        <translation>Сачувај претрагу</translation>
     </message>
 </context>
 <context>
@@ -2091,7 +2101,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="1115"/>
         <source>Print %1</source>
-        <translation>Εκτύπωση %1</translation>
+        <translation>Штампај %1</translation>
     </message>
 </context>
 <context>
@@ -2099,97 +2109,97 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="14"/>
         <source>HTML Files</source>
-        <translation>HTML αρχεία</translation>
+        <translation>HTML фајлови</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Λίστα με μόνο τα ονόματα των αρχείων που περιέχουν το κείμενο που εισαγάγατε.</translation>
+        <translation>Листа са именима фајлова које садржи текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="67"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="68"/>
         <source>File Size (KB)</source>
-        <translation>Μέγεθος αρχείου (KB)</translation>
+        <translation>Величина фајла (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="69"/>
         <source>All Words</source>
-        <translation>Όλες οι λέξεις</translation>
+        <translation>Све речи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="70"/>
         <source>Misspelled Words</source>
-        <translation>Ανορθόγραφες λέξεις</translation>
+        <translation>Погрешно написане речи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="71"/>
         <source>Images</source>
-        <translation>Εικόνες</translation>
+        <translation>Слике</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="72"/>
         <source>Video</source>
-        <translation>Βίντεο</translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="73"/>
         <source>Audio</source>
-        <translation>Ήχος</translation>
+        <translation>Аудио</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="74"/>
         <source>Stylesheets</source>
-        <translation>Εμφάνιση</translation>
+        <translation>Стилови</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="75"/>
         <source>Well Formed</source>
-        <translation>Σωστή μορφοποίηση</translation>
+        <translation>Добро формирано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>Yes</source>
-        <translation>Ναι</translation>
+        <translation>Да</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>No</source>
-        <translation>Όχι</translation>
+        <translation>Не</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="183"/>
         <source> files</source>
-        <translation>αρχεία</translation>
+        <translation>фајлови</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="324"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај извештај са одвојеним зарезима</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Cannot save report file.</source>
-        <translation>Αδυναμία αποθήκευσης αρχείου αναφοράς.</translation>
+        <translation>Није могуће сачувати извештај.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="360"/>
         <source>Delete From Book</source>
-        <translation>Διαγραφή από το βιβλίο</translation>
+        <translation>Уклони из књиге</translation>
     </message>
 </context>
 <context>
@@ -2197,7 +2207,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Generate Table Of Contents</source>
-        <translation>Δημιουργία πίνακα περιεχομένων</translation>
+        <translation>Генериши садржај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
@@ -2209,7 +2219,7 @@ The heading&apos;s title attribute will be updated in the document.</source>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="931"/>
         <source>Rename</source>
-        <translation>Μετονομασία</translation>
+        <translation>Преименуј</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="81"/>
@@ -2234,7 +2244,7 @@ Check or uncheck an entry to determine if it will be added to the TOC.</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
         <source>Show TOC items only</source>
-        <translation type="unfinished"/>
+        <translation>Прикажи само TOC ставке</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
@@ -2245,12 +2255,12 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
         <source>Include</source>
-        <translation>Περιλαμβάνει</translation>
+        <translation>Укључити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="794"/>
         <source>Up to level</source>
-        <translation>Επάνω</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="796"/>
@@ -2261,34 +2271,34 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="799"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="860"/>
         <source>None</source>
-        <translation>Καμία</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="574"/>
         <source>TOC Entry / Heading Title</source>
-        <translation>TOC εγγραφή / Επικεφαλίδα</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="575"/>
         <source>Level</source>
-        <translation>Επίπεδο</translation>
+        <translation>Ниво</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
         <source>Included</source>
-        <translation type="unfinished"/>
+        <translation>Укључено</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
         <source>Hidden</source>
-        <translation type="unfinished"/>
+        <translation>Сакривено</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="805"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="858"/>
         <source>All</source>
-        <translation>Όλα</translation>
+        <translation>Све</translation>
     </message>
 </context>
 <context>
@@ -2296,67 +2306,67 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="14"/>
         <source>Image Files</source>
-        <translation>Αρχεία εικόνας</translation>
+        <translation>Слике</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Λίστα με μόνο τα ονόματα των αρχείων που περιέχουν το κείμενο που εισαγάγατε.</translation>
+        <translation>Листа са именима фајлова које садржи текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="76"/>
         <source>Thumbnail size:</source>
-        <translation>Μέγεθος  μικρογραφίας:</translation>
+        <translation>Величина сличица:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="79"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="80"/>
         <source>File Size (KB)</source>
-        <translation>Μέγεθος αρχείου (KB)</translation>
+        <translation>Величина фајла (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="81"/>
         <source>Times Used</source>
-        <translation>Αριθμός χρήσεων</translation>
+        <translation>Време коришћења</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="82"/>
         <source>Width</source>
-        <translation>Πλάτος</translation>
+        <translation>Ширина</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="83"/>
         <source>Height</source>
-        <translation>Ύψος</translation>
+        <translation>Висина</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="84"/>
         <source>Pixels</source>
-        <translation>Εικονοστοιχεία</translation>
+        <translation>Пиксели</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="85"/>
         <source>Color</source>
-        <translation>Χρώμα</translation>
+        <translation>Боја</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
         <source>Image</source>
-        <translation>Εικόνα</translation>
+        <translation>Слика</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="175"/>
         <source> files</source>
-        <translation>αρχεία</translation>
+        <translation>фајлови</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="179"/>
@@ -2366,22 +2376,22 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="323"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај извештај као фајл раздвојен зарезима</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Cannot save report file.</source>
-        <translation>Αδυναμία αποθήκευσης αρχείου αναφοράς.</translation>
+        <translation>Није могуће сачувати извештај.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="408"/>
         <source>Delete From Book</source>
-        <translation>Διαγραφή από το βιβλίο</translation>
+        <translation>Уклони из књиге</translation>
     </message>
 </context>
 <context>
@@ -2389,49 +2399,49 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>shades</source>
-        <translation>αποχρώσεις</translation>
+        <translation>сенке</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>colors</source>
-        <translation>Χρώματα</translation>
+        <translation>боје</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Grayscale</source>
-        <translation>Ασπρόμαυρο</translation>
+        <translation>Црно-бело</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Color</source>
-        <translation>Χρώμα</translation>
+        <translation>Боја</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="246"/>
         <location filename="../../Tabs/ImageTab.cpp" line="271"/>
         <location filename="../../Tabs/ImageTab.cpp" line="274"/>
         <source>Open With</source>
-        <translation>Άνοιγμα με</translation>
+        <translation>Отвори са</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="253"/>
         <source>Other Application</source>
-        <translation>Άλλη εφαρμογή</translation>
+        <translation>Друга апликација</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="272"/>
         <source>Save As</source>
-        <translation>Αποθήκευση ως</translation>
+        <translation>Сачувај као</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="273"/>
         <source>Copy Image</source>
-        <translation>Αντιγραφή εικόνας</translation>
+        <translation>Копирај слику</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="307"/>
         <source>Print %1</source>
-        <translation>Εκτύπωση %1</translation>
+        <translation>Штампај %1</translation>
     </message>
 </context>
 <context>
@@ -2439,7 +2449,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="164"/>
@@ -2460,47 +2470,47 @@ Do you want to automatically fix the files?</source>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Index Editor</source>
-        <translation>Επεξεργαστής ευρετηρίου</translation>
+        <translation>Едитор индекса</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Листа са ставкама које садрже текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="66"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation type="unfinished"/>
+        <translation>Десни клик на ставку за преглед контекстног менија.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation type="unfinished"/>
+        <translation>Можете такође десним кликом у вашем документу да додате селектовани текст у индекс.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>Text to Include</source>
-        <translation>Μέρος κειμένου</translation>
+        <translation>Текст за укључење</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Index Entries</source>
-        <translation>Λέξεις ευρετηρίου</translation>
+        <translation>Индекс ставки</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
-        <translation>Αποθήκευση</translation>
+        <translation>Сачувај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
-        <translation>Αποθήκευση των αλλαγών.</translation>
+        <translation>Сачувај промене.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
@@ -2510,17 +2520,17 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
         <source>Cannot save entries.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће сачувати ставке.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="126"/>
         <source>Index entries loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>Индекс ставки учитан из фајла.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
@@ -2530,7 +2540,7 @@ Do you want to automatically fix the files?</source>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
@@ -2545,90 +2555,89 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
-        <translation type="unfinished"/>
+        <translation>Индекс фајлова: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="295"/>
         <source>Load Entries From File</source>
-        <translation type="unfinished"/>
+        <translation>Учитај ставке из фајла</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>Да ли сте сигурни да желите поновно учитати све ставке? Ово ће пребрисати све несачуване промене.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="329"/>
         <source>Save Entries to File</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај ставке у фајл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="421"/>
         <source>Add Entry</source>
-        <translation>Προσθήκη λέξης</translation>
+        <translation>Додај ставку</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="422"/>
         <source>Edit</source>
-        <translation>Επεξεργασία</translation>
+        <translation>Измени</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="423"/>
         <source>Cut</source>
-        <translation>Αποκοπή</translation>
+        <translation>Исеци</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="424"/>
         <source>Copy</source>
-        <translation>Αντιγραφή</translation>
+        <translation>Копирај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="425"/>
         <source>Paste</source>
-        <translation>Επικόλληση</translation>
+        <translation>Налепи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Delete</source>
-        <translation>Διαγραφή</translation>
+        <translation>Уклони</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Open</source>
-        <translation>Άνοιγμα</translation>
+        <translation>Отвори</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Reload</source>
-        <translation>Ανανέωση</translation>
+        <translation>Поново учитај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Save As</source>
-        <translation>Αποθήκευση ως</translation>
+        <translation>Сачувај као</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Select All</source>
-        <translation>Επιλογή όλων</translation>
+        <translation>Одабери све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="506"/>
         <source>Index entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>Индекс ставки сачуван.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="535"/>
         <source>Sigil: Index Editor</source>
-        <translation>Σφραγίδα: Επεξεργαστής ευρετηρίου</translation>
+        <translation>Sigil: Индекс едитор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="536"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Έχει γίνει επεξεργασία των λέξεων στο ευρετήριο.
-Να αποθηκευτούν οι αλλαγές;</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2636,17 +2645,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
         <source>Text to Include</source>
-        <translation>Μέρος κειμένου</translation>
+        <translation>Текст за укључење</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="62"/>
         <source>Index Entries</source>
-        <translation>Λέξεις ευρετηρίου</translation>
+        <translation>Индекс ставки</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="343"/>
         <source>Unable to create file %1</source>
-        <translation>Αδυναμία δημιουργίας αρχείου %1</translation>
+        <translation>Није могуће креирати фајл %1</translation>
     </message>
 </context>
 <context>
@@ -2654,33 +2663,33 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Συντομεύσεις πληκτρολογίου</translation>
+        <translation>Тастерске пречице</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Листа са ставкама које садрже текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
         <source>Filter: </source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="72"/>
         <source>Description</source>
-        <translation>Περιγραφή</translation>
+        <translation>Опис</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Press the key combination you want to use.</source>
-        <translation type="unfinished"/>
+        <translation>Притисни комбинацију тастера коју желиш.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
@@ -2690,42 +2699,42 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
         <source>Assign</source>
-        <translation>Αντιστοίχιση</translation>
+        <translation>Додели</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="160"/>
         <source>Remove this keyboard shortcut.</source>
-        <translation>Αφαίρεση της συντόμευσης πληκτρολογίου</translation>
+        <translation>Обриши ову тастерску пречицу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="163"/>
         <source>Remove</source>
-        <translation>Αφαίρεση</translation>
+        <translation>Обриши</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>Συντόμευση</translation>
+        <translation>Пречица</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
         <source>Reset all to default</source>
-        <translation>Επαναφορά όλων στην προεπιλογή</translation>
+        <translation>Врати на подразумевано</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation>Επαναφορά όλων</translation>
+        <translation>Ресетуј све</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
         <source>Shortcut:</source>
-        <translation>Συντόμευση:</translation>
+        <translation>Пречица:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
         <source>Conflicts with: &lt;b&gt;</source>
-        <translation>Συγκρούεται με: &lt;b&gt;</translation>
+        <translation>Сукоб са: &lt;b&gt;</translation>
     </message>
 </context>
 <context>
@@ -2733,7 +2742,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="79"/>
         <source>Abkhazian</source>
-        <translation>Αμπκχαζικά</translation>
+        <translation>Abkhazian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="80"/>
@@ -2743,22 +2752,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="81"/>
         <source>Afrikaans</source>
-        <translation>Afrikaans</translation>
+        <translation>Афрички</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="82"/>
         <source>Akan</source>
-        <translation>Akanα</translation>
+        <translation>Akan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="83"/>
         <source>Albanian</source>
-        <translation>Αλβανικά</translation>
+        <translation>Албански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="84"/>
         <source>Amharic</source>
-        <translation>Αμχαρικά</translation>
+        <translation>Amharic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="85"/>
@@ -2778,143 +2787,143 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Arabic</source>
-        <translation>Αραβικά</translation>
+        <translation>Арапски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="86"/>
         <source>Algeria</source>
-        <translation>Αλγερία</translation>
+        <translation>Алжирски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="87"/>
         <source>Bahrain</source>
-        <translation>Μπαχρέιν</translation>
+        <translation>Бахреински</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="88"/>
         <source>Egypt</source>
-        <translation>Αίγυπτος</translation>
+        <translation>Египатски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="89"/>
         <source>Iraq</source>
-        <translation>Ιράκ</translation>
+        <translation>Ирачки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="90"/>
         <source>Jordan</source>
-        <translation>Ιορδανία</translation>
+        <translation>Јордански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="91"/>
         <source>Kuwait</source>
-        <translation>Κουβέιτ</translation>
+        <translation>Кувајтски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="92"/>
         <source>Lebanon</source>
-        <translation>Λίβανος</translation>
+        <translation>Либанонски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="93"/>
         <source>Libya</source>
-        <translation>Λιβύη</translation>
+        <translation>Либијски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Morocco</source>
-        <translation>Μαρόκο</translation>
+        <translation>Марокански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Oman</source>
-        <translation>Ομάν</translation>
+        <translation>Омански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Qatar</source>
-        <translation>Κατάρ</translation>
+        <translation>Катар</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Syria</source>
-        <translation>Συρία</translation>
+        <translation>Сирија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Tunisia</source>
-        <translation>Τυνησία</translation>
+        <translation>Тунис</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>United Arab Emirates</source>
-        <translation>Ηνωμένα Αραβικά Εμιράτα</translation>
+        <translation>Уједињени арапски емирати</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Yemen</source>
-        <translation>Υεμένη</translation>
+        <translation>Јемен</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Aragonese</source>
-        <translation>Αραγόνας</translation>
+        <translation>Aragonese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Armenian</source>
-        <translation>Αρμενικά</translation>
+        <translation>Armenian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Assamese</source>
-        <translation>Assam</translation>
+        <translation>Assamese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Avaric</source>
-        <translation>Αβαρικά</translation>
+        <translation>Avaric</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <source>Avestan</source>
-        <translation>Avesta</translation>
+        <translation>Avestan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Aymara</source>
-        <translation>Aymar</translation>
+        <translation>Aymara</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Azerbaijani</source>
-        <translation>Αζέρικα</translation>
+        <translation>Азербејџански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Azerbaijan</source>
-        <translation>Αζερμπαϊτζάν</translation>
+        <translation>Азербејџан</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Bambara</source>
-        <translation>Bamanankan</translation>
+        <translation>Bambara</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Bashkir</source>
-        <translation>Bašqort</translation>
+        <translation>Bashkir</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Basque</source>
-        <translation>Βασκικά</translation>
+        <translation>Баскијски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Belarusian</source>
-        <translation>Λευκορωσικά</translation>
+        <translation>Белоруски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
@@ -2934,43 +2943,43 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bosnian</source>
-        <translation>Βοσνιακά</translation>
+        <translation>Босански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Breton</source>
-        <translation>Βρετάννης</translation>
+        <translation>Breton</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Bulgarian</source>
-        <translation>Βουλγαρικά</translation>
+        <translation>Бугарски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Burmese</source>
-        <translation>Βιρμανίας</translation>
+        <translation>Burmese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Catalan</source>
-        <translation>Καταλανικά</translation>
+        <translation>Catalan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Central Khmer</source>
-        <translation type="unfinished"/>
+        <translation>Central Khmer</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Chamorro</source>
-        <translation>Chamoru</translation>
+        <translation>Chamorro</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Chechen</source>
-        <translation>Τσετσενικά</translation>
+        <translation>Чеченски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
@@ -2980,101 +2989,101 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chinese</source>
-        <translation>Κινέζικα</translation>
+        <translation>Кинески</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <source>China</source>
-        <translation>Κίνα</translation>
+        <translation>Кина</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Hong Kong</source>
-        <translation>Χονγκ Κονγκ</translation>
+        <translation>Хонг Конг</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Macau</source>
-        <translation>Μακάου</translation>
+        <translation>Масау</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Singapore</source>
-        <translation>Σιγκαπούρη</translation>
+        <translation>Сингапур</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Taiwan</source>
-        <translation>Ταϊβάν</translation>
+        <translation>Тајван</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Church Slavic</source>
-        <translation>Εκκλησιαστικά Σλαβικά</translation>
+        <translation>Church Slavic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Chuvash</source>
-        <translation>Čăvašla</translation>
+        <translation>Chuvash</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Cornish</source>
-        <translation>Κορνουάλης</translation>
+        <translation>Cornish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Corsican</source>
-        <translation>Κορσικανικά</translation>
+        <translation>Корзикански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Cree</source>
-        <translation>Nehiyaw</translation>
+        <translation>Cree</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Croatian</source>
-        <translation>Κροατικά</translation>
+        <translation>Хрватски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Czech</source>
-        <translation>Τσεχικά</translation>
+        <translation>Чешки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Danish</source>
-        <translation>Δανέζικα</translation>
+        <translation>Дански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Denmark</source>
-        <translation>Δανία</translation>
+        <translation>Данска</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Dhivehi</source>
-        <translation type="unfinished"/>
+        <translation>Dhivehi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Dutch</source>
-        <translation>Ολλανδικά</translation>
+        <translation>Немачки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Belgium</source>
-        <translation>Βέλγιο</translation>
+        <translation>Белгијски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Netherlands</source>
-        <translation>Ολλανδία</translation>
+        <translation>Холандски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
@@ -3096,99 +3105,99 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>English</source>
-        <translation>Αγγλικά</translation>
+        <translation>Енглески</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Australia</source>
-        <translation>Αυστραλία</translation>
+        <translation>Аустралија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="147"/>
         <source>Belize</source>
-        <translation>Μπελίζε</translation>
+        <translation>Belize</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Canada</source>
-        <translation>Καναδάς</translation>
+        <translation>Канада</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Caribbean</source>
-        <translation>Καραϊβική</translation>
+        <translation>Кариби</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Great Britain</source>
-        <translation>Μεγάλη Βρετανία</translation>
+        <translation>Велика Британија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
         <source>India</source>
-        <translation>Ινδία</translation>
+        <translation>Индија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="152"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Ireland</source>
-        <translation>Ιρλανδία</translation>
+        <translation>Ирска</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Jamaica</source>
-        <translation>Τζαμάικα</translation>
+        <translation>Јамајка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <source>Phillippines</source>
-        <translation>Φιλιππίνες</translation>
+        <translation>Филипини</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Trinidad</source>
-        <translation>Τρινιντάντ</translation>
+        <translation>Тринидад</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <source>South Africa</source>
-        <translation>Νότια Αφρική</translation>
+        <translation>Јужна Африка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>United States</source>
-        <translation>Ηνωμένες Πολιτείες</translation>
+        <translation>Америка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <source>Esperanto</source>
-        <translation>Εσπεράντο</translation>
+        <translation>Есперанто</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Estonian</source>
-        <translation>Εσθονικά</translation>
+        <translation>Естонија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Ewe</source>
-        <translation>Eʋegbe</translation>
+        <translation>Ewe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Faroese</source>
-        <translation>Føroyskt</translation>
+        <translation>Faroese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Fijian</source>
-        <translation>Φίτζι</translation>
+        <translation>Fijian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Finnish</source>
-        <translation>Φιλανδικά</translation>
+        <translation>Фински</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
@@ -3198,56 +3207,56 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>French</source>
-        <translation>Γαλλικά</translation>
+        <translation>Француски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <source>France</source>
-        <translation>Γαλλία</translation>
+        <translation>Француска</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Luxembourg</source>
-        <translation>Λουξεμβούργο</translation>
+        <translation>Луксембург</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Switzerland</source>
-        <translation>Ελβετία</translation>
+        <translation>Швајцарска</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Fulah</source>
-        <translation>Fulfulde</translation>
+        <translation>Fulah</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Gaelic</source>
-        <translation type="unfinished"/>
+        <translation>Gaelic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Scotland</source>
-        <translation>Σκωτία</translation>
+        <translation>Шкотска</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>Galician</source>
-        <translation>Γαλικιανά</translation>
+        <translation>Галиција</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <source>Ganda</source>
-        <translation>Luganda</translation>
+        <translation>Ganda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Georgian</source>
-        <translation>Γεωργιανά</translation>
+        <translation>Грузијски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
@@ -3257,37 +3266,37 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>German</source>
-        <translation>Γερμανικά</translation>
+        <translation>Немачки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Austria</source>
-        <translation>Αυστρία</translation>
+        <translation>Аустријски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Germany</source>
-        <translation>Γερμανία</translation>
+        <translation>Немачка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Liechtenstein</source>
-        <translation>Λίχτενσταϊν</translation>
+        <translation>Лихтенштајн</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
         <source>Greek, Modern</source>
-        <translation>Ελληνικά, Νέα</translation>
+        <translation>Грчки, модерни</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Greek</source>
-        <translation>Ελληνικά</translation>
+        <translation>Грчки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Guarani</source>
-        <translation>Guaraní</translation>
+        <translation>Guarani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
@@ -3297,7 +3306,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Haitian</source>
-        <translation>Αϊτιανά</translation>
+        <translation>Хаићански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="187"/>
@@ -3307,7 +3316,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Hebrew</source>
-        <translation>Εβραϊκά</translation>
+        <translation>Хебрејски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
@@ -3317,7 +3326,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Hindi</source>
-        <translation>Ινδικά</translation>
+        <translation>Hindi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="191"/>
@@ -3328,12 +3337,12 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hungarian</source>
-        <translation>Ουγγρικά</translation>
+        <translation>Мађарски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Icelandic</source>
-        <translation>Ισλανδικά</translation>
+        <translation>Исландски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
@@ -3348,12 +3357,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Indonesian</source>
-        <translation>Ινδονησιακά</translation>
+        <translation>Индонежански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Indonesian - Indonesia</source>
-        <translation type="unfinished"/>
+        <translation>Индонежански - Индонезија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
@@ -3373,39 +3382,39 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Inupiaq</source>
-        <translation>Iñupiak</translation>
+        <translation>Inupiaq</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Irish</source>
-        <translation>Ιρλανδικά</translation>
+        <translation>Ирски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Italian</source>
-        <translation>Ιταλικά</translation>
+        <translation>Италијански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Italy</source>
-        <translation>Ιταλία</translation>
+        <translation>Италија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Japanese</source>
-        <translation>Ιαπωνικά</translation>
+        <translation>Јапански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Javanese</source>
-        <translation>Ιάβας</translation>
+        <translation>Javanese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Kalaallisut</source>
-        <translation>Γροιλανδικά</translation>
+        <translation>Kalaallisut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
@@ -3420,17 +3429,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Kashmiri</source>
-        <translation>Κασμίρ</translation>
+        <translation>Кашмирски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Kazakh</source>
-        <translation>Καζακικά</translation>
+        <translation>Kazakh</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Kikuyu</source>
-        <translation>Κικούγιου</translation>
+        <translation>Kikuyu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
@@ -3440,7 +3449,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Kirghiz</source>
-        <translation>Κιργιζικά</translation>
+        <translation>Киргиски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="217"/>
@@ -3450,48 +3459,48 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kongo</source>
-        <translation>Κονγκολέζικα</translation>
+        <translation>Конго</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Korean</source>
-        <translation>Κορεατικά</translation>
+        <translation>Корејски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Kuanyama</source>
-        <translation type="unfinished"/>
+        <translation>Kuanyama</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kurdish</source>
-        <translation>Κουρδικά</translation>
+        <translation>Курдски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Lao</source>
-        <translation>Λαοτιανά</translation>
+        <translation>Lao</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Latin</source>
-        <translation>Λατινικά</translation>
+        <translation>Латински</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvian</source>
-        <translation>Λετονικά</translation>
+        <translation>Латвијски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Latvia</source>
-        <translation type="unfinished"/>
+        <translation>Латвија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Limburgan</source>
-        <translation type="unfinished"/>
+        <translation>Limburgan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
@@ -3501,27 +3510,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lithuanian</source>
-        <translation>Λιθουανικά</translation>
+        <translation>Литвански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Luba-Katanga</source>
-        <translation type="unfinished"/>
+        <translation>Luba-Katanga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <source>Luxembourgish</source>
-        <translation>Λουξεμβούργου</translation>
+        <translation>Луксембуршки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Macedonian</source>
-        <translation>Σλαβομακεδονικά</translation>
+        <translation>Македонски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Malagasy</source>
-        <translation>Μαλγασικά</translation>
+        <translation>Malagasy</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
@@ -3533,32 +3542,32 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="235"/>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Malay</source>
-        <translation>Μαλαισιανά</translation>
+        <translation>Малајски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Brunei</source>
-        <translation>Μπρουνέι</translation>
+        <translation>Brunei</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Malaysia</source>
-        <translation>Μαλαισία</translation>
+        <translation>Малезијски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Maltese</source>
-        <translation>Μαλτέζικα</translation>
+        <translation>Малтешки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Manx</source>
-        <translation>Gaelg</translation>
+        <translation>Manx</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Maori</source>
-        <translation>Μαορί</translation>
+        <translation>Maori</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="240"/>
@@ -3568,38 +3577,38 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Marshallese</source>
-        <translation>Νήσων Μάρσαλ</translation>
+        <translation>Marshallese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Mongolian</source>
-        <translation>Μογγολικά</translation>
+        <translation>Монголски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Nauru</source>
-        <translation>Ναουρού</translation>
+        <translation>Nauru</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Navajo</source>
-        <translation>Νάβαχο</translation>
+        <translation>Navajo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Ndebele</source>
-        <translation type="unfinished"/>
+        <translation>Ndebele</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <source>North</source>
-        <translation type="unfinished"/>
+        <translation>Северни</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>South</source>
-        <translation type="unfinished"/>
+        <translation>Јужни</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
@@ -3609,39 +3618,39 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Nepali</source>
-        <translation>Νεπαλέζικα</translation>
+        <translation>Непалски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Northern, Sami</source>
-        <translation type="unfinished"/>
+        <translation>Northern, Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Norwegian</source>
-        <translation>Νορβηγικά</translation>
+        <translation>Норвешки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Bokmal</source>
-        <translation type="unfinished"/>
+        <translation>Bokmal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Nynorsk</source>
-        <translation type="unfinished"/>
+        <translation>Nynorsk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Nyanja</source>
-        <translation type="unfinished"/>
+        <translation>Nyanja</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Occitan</source>
-        <translation>Οξιτανικά</translation>
+        <translation>Occitan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
@@ -3656,12 +3665,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Oromo</source>
-        <translation>Oromoo</translation>
+        <translation>Oromo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Ossetian</source>
-        <translation>Οσετικά</translation>
+        <translation>Осетијски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
@@ -3676,34 +3685,34 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Persian</source>
-        <translation>Περσικά</translation>
+        <translation>Персијски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Polish</source>
-        <translation>Πολωνικά</translation>
+        <translation>Пољски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Portuguese</source>
-        <translation>Πορτογαλικά</translation>
+        <translation>Португалски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Brazil</source>
-        <translation>Βραζιλία</translation>
+        <translation>Бразил</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Portugal</source>
-        <translation>Πορτογαλία</translation>
+        <translation>Португал</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Pushto</source>
-        <translation type="unfinished"/>
+        <translation>Pushto</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
@@ -3715,39 +3724,39 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romanian</source>
-        <translation>Ρουμανικά</translation>
+        <translation>Румунски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Moldova</source>
-        <translation>Μολδαβία</translation>
+        <translation>Молдавија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Romania</source>
-        <translation type="unfinished"/>
+        <translation>Румунија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Romansh</source>
-        <translation type="unfinished"/>
+        <translation>Романски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Rundi</source>
-        <translation type="unfinished"/>
+        <translation>Rundi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Russian</source>
-        <translation>Ρωσικά</translation>
+        <translation>Руски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Samoan</source>
-        <translation>Σαμόας</translation>
+        <translation>Samoan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
@@ -3757,23 +3766,23 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Sanskrit</source>
-        <translation>Σανσκριτικά</translation>
+        <translation>Sanskrit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Sardinian</source>
-        <translation>Σαρδηνίας</translation>
+        <translation>Sardinian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbian</source>
-        <translation>Σερβικά</translation>
+        <translation>Српски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Serbia</source>
-        <translation type="unfinished"/>
+        <translation>Србија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
@@ -3783,7 +3792,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sichuan Yi</source>
-        <translation>Nuosu</translation>
+        <translation>Sichuan Yi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
@@ -3798,22 +3807,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <source>Slovak</source>
-        <translation>Σλοβακικά</translation>
+        <translation>Словачки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Slovenian</source>
-        <translation>Σλοβενικά</translation>
+        <translation>Словеначки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Somali</source>
-        <translation>Σομαλέζικα</translation>
+        <translation>Сомалијски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sotho, Southern</source>
-        <translation type="unfinished"/>
+        <translation>Sotho, Southern</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
@@ -3837,118 +3846,118 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Spanish</source>
-        <translation>Ισπανικά</translation>
+        <translation>Шпански</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Argentina</source>
-        <translation>Αργεντινή</translation>
+        <translation>Аргентина</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Bolivia</source>
-        <translation>Βολιβία</translation>
+        <translation>Боливија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Chile</source>
-        <translation>Χιλή</translation>
+        <translation>Чиле</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Columbia</source>
-        <translation>Κολομβία</translation>
+        <translation>Колумбија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Costa Rica</source>
-        <translation>Κόστα Ρίκα</translation>
+        <translation>Костарика</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
         <source>Dominican Republic</source>
-        <translation>Δομινικανή Δημοκρατία</translation>
+        <translation>Доминиканска република</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Ecuador</source>
-        <translation>Ισημερινός</translation>
+        <translation>Еквадор</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
         <source>El Salvador</source>
-        <translation>Ελ Σαλβαδόρ</translation>
+        <translation>Ел Салвадор</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Guatemala</source>
-        <translation>Γουατεμάλα</translation>
+        <translation>Гватемала</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Honduras</source>
-        <translation>Ονδούρα</translation>
+        <translation>Хондурас</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Mexico</source>
-        <translation>Μεξικό</translation>
+        <translation>Мексико</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Nicaragua</source>
-        <translation>Νικαράγουα</translation>
+        <translation>Никарагва</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Panama</source>
-        <translation>Παναμάς</translation>
+        <translation>Панама</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Paraguay</source>
-        <translation>Παραγουάη</translation>
+        <translation>Парагвај</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Peru</source>
-        <translation>Περού</translation>
+        <translation>Перу</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Puerto Rico</source>
-        <translation>Πουέρτο Ρίκο</translation>
+        <translation>Порторико</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Spain</source>
-        <translation>Ισπανία</translation>
+        <translation>Шпанија</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hungary</source>
-        <translation type="unfinished"/>
+        <translation>Мађарска</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Uruguay</source>
-        <translation>Ουρουγουάη</translation>
+        <translation>Уругвај</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Venezuela</source>
-        <translation>Βενεζουέλα</translation>
+        <translation>Венецуела</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Sundanese</source>
-        <translation>Sunda</translation>
+        <translation>Sundanese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Swahili</source>
-        <translation>Σουαχίλι</translation>
+        <translation>Swahili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
@@ -3960,17 +3969,17 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Swedish</source>
-        <translation>Σουηδικά</translation>
+        <translation>Шведски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Finland</source>
-        <translation>Φινλανδία</translation>
+        <translation>Финска</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Sweden</source>
-        <translation>Σουηδία</translation>
+        <translation>Шведска</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
@@ -3980,12 +3989,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Tahitian</source>
-        <translation>Ταϊτής</translation>
+        <translation>Tahitian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Tajik</source>
-        <translation>Τατζικικά</translation>
+        <translation>Tajik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
@@ -3995,7 +4004,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Tatar</source>
-        <translation>Ταταρικά</translation>
+        <translation>Tatar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
@@ -4005,12 +4014,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Thai</source>
-        <translation>Ταϋλανδέζικα</translation>
+        <translation>Thai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tibetan</source>
-        <translation>Θιβετιανά</translation>
+        <translation>Tibetan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
@@ -4025,28 +4034,28 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tsonga</source>
-        <translation>Xitsonga</translation>
+        <translation>Tsonga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Tswana</source>
-        <translation>Setswana</translation>
+        <translation>Tswana</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkish</source>
-        <translation>Τουρκικά</translation>
+        <translation>Турски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Turkey</source>
-        <translation>Τουρκία</translation>
+        <translation>Турска</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Turkmen</source>
-        <translation>Τουρκμενικά</translation>
+        <translation>Turkmen</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
@@ -4056,18 +4065,18 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Uighur</source>
-        <translation>Ουιγουρικά</translation>
+        <translation>Uighur</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukrainian</source>
-        <translation>Ουκρανικά</translation>
+        <translation>Украјински</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Ukraine</source>
-        <translation type="unfinished"/>
+        <translation>Украјина</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
@@ -4078,42 +4087,42 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbek</source>
-        <translation>Ουζμπεκικά</translation>
+        <translation>Узбечки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Uzbekistan</source>
-        <translation>Ουζμπεκιστάν</translation>
+        <translation>Узбекистан</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Venda</source>
-        <translation>Tshivenda</translation>
+        <translation>Venda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Vietnamese</source>
-        <translation>Βιετναμέζικα</translation>
+        <translation>Вијетнам</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Volapuk</source>
-        <translation>Volapük</translation>
+        <translation>Volapuk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Walloon</source>
-        <translation>Βαλονικά</translation>
+        <translation>Walloon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Welsh</source>
-        <translation>Ουαλλικά</translation>
+        <translation>Welsh</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Western Frisian</source>
-        <translation>Frysk</translation>
+        <translation>Western Frisian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
@@ -4128,7 +4137,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Yiddish</source>
-        <translation>Γίντις</translation>
+        <translation>Yiddish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
@@ -4143,1512 +4152,1512 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Zulu</source>
-        <translation>Ζουλού</translation>
+        <translation>Zulu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Achinese</source>
-        <translation type="unfinished"/>
+        <translation>Achinese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Acoli</source>
-        <translation type="unfinished"/>
+        <translation>Acoli</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Adangme</source>
-        <translation type="unfinished"/>
+        <translation>Adangme</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Adygei, Adyghe</source>
-        <translation type="unfinished"/>
+        <translation>Adygei, Adyghe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Afrihili</source>
-        <translation type="unfinished"/>
+        <translation>Afrihili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Afro-Asiatic languages</source>
-        <translation type="unfinished"/>
+        <translation>Афро-азијски језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Ainu</source>
-        <translation type="unfinished"/>
+        <translation>Ainu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Akkadian</source>
-        <translation type="unfinished"/>
+        <translation>Akkadian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Aleut</source>
-        <translation type="unfinished"/>
+        <translation>Aleut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Algonquian languages</source>
-        <translation type="unfinished"/>
+        <translation>Algonquian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Altaic languages</source>
-        <translation type="unfinished"/>
+        <translation>Altaic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Angika</source>
-        <translation type="unfinished"/>
+        <translation>Angika</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Apache languages</source>
-        <translation type="unfinished"/>
+        <translation>Apache languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Arapaho</source>
-        <translation type="unfinished"/>
+        <translation>Arapaho</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Arawak</source>
-        <translation type="unfinished"/>
+        <translation>Arawak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
-        <translation type="unfinished"/>
+        <translation>Aromanian, Arumanian, Macedo-Romanian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Artificial languages</source>
-        <translation type="unfinished"/>
+        <translation>Artificial languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
-        <translation type="unfinished"/>
+        <translation>Asturian, Asturleonese, Bable, Leonese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Athapascan languages</source>
-        <translation type="unfinished"/>
+        <translation>Athapascan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Australian languages</source>
-        <translation type="unfinished"/>
+        <translation>Аустралијски језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Austronesian languages</source>
-        <translation type="unfinished"/>
+        <translation>Austronesian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Awadhi</source>
-        <translation type="unfinished"/>
+        <translation>Awadhi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Balinese</source>
-        <translation type="unfinished"/>
+        <translation>Balinese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Baltic languages</source>
-        <translation type="unfinished"/>
+        <translation>Балтички језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Baluchi</source>
-        <translation type="unfinished"/>
+        <translation>Baluchi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Bamileke languages</source>
-        <translation type="unfinished"/>
+        <translation>Bamileke languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Banda languages</source>
-        <translation type="unfinished"/>
+        <translation>Banda languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Bantu languages</source>
-        <translation type="unfinished"/>
+        <translation>Bantu languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Basa</source>
-        <translation type="unfinished"/>
+        <translation>Basa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Batak languages</source>
-        <translation type="unfinished"/>
+        <translation>Batak languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Bedawiyet, Beja</source>
-        <translation type="unfinished"/>
+        <translation>Bedawiyet, Beja</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Bemba</source>
-        <translation type="unfinished"/>
+        <translation>Bemba</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Berber languages</source>
-        <translation type="unfinished"/>
+        <translation>Berber languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Bhojpuri</source>
-        <translation type="unfinished"/>
+        <translation>Bhojpuri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Bikol</source>
-        <translation type="unfinished"/>
+        <translation>Bikol</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Bilin, Blin</source>
-        <translation type="unfinished"/>
+        <translation>Bilin, Blin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Bini, Edo</source>
-        <translation type="unfinished"/>
+        <translation>Bini, Edo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
-        <translation type="unfinished"/>
+        <translation>Bliss, Blissymbols, Blissymbolics</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Braj</source>
-        <translation type="unfinished"/>
+        <translation>Braj</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Buginese</source>
-        <translation type="unfinished"/>
+        <translation>Buginese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Buriat</source>
-        <translation type="unfinished"/>
+        <translation>Buriat</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Caddo</source>
-        <translation type="unfinished"/>
+        <translation>Caddo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Caucasian languages</source>
-        <translation type="unfinished"/>
+        <translation>Caucasian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Cebuano</source>
-        <translation type="unfinished"/>
+        <translation>Cebuano</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Celtic languages</source>
-        <translation type="unfinished"/>
+        <translation>Келтски језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Central American Indian languages</source>
-        <translation type="unfinished"/>
+        <translation>Језик централно америчких индијанаца</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Chagatai</source>
-        <translation type="unfinished"/>
+        <translation>Chagatai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Chamic languages</source>
-        <translation type="unfinished"/>
+        <translation>Chamic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Cherokee</source>
-        <translation type="unfinished"/>
+        <translation>Чироки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Cheyenne</source>
-        <translation type="unfinished"/>
+        <translation>Cheyenne</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Chibcha</source>
-        <translation type="unfinished"/>
+        <translation>Chibcha</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Chinook jargon</source>
-        <translation type="unfinished"/>
+        <translation>Chinook jargon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Chipewyan, Dene Suline</source>
-        <translation type="unfinished"/>
+        <translation>Chipewyan, Dene Suline</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Choctaw</source>
-        <translation type="unfinished"/>
+        <translation>Choctaw</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Chuukese</source>
-        <translation type="unfinished"/>
+        <translation>Chuukese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
-        <translation type="unfinished"/>
+        <translation>Classical Nepal Bhasa/Newari, Old Newari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Classical Syriac</source>
-        <translation type="unfinished"/>
+        <translation>Classical Syriac</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Coptic</source>
-        <translation type="unfinished"/>
+        <translation>Coptic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Creek</source>
-        <translation type="unfinished"/>
+        <translation>Creek</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Creoles and pidgins</source>
-        <translation type="unfinished"/>
+        <translation>Creoles and pidgins</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Creoles and pidgins- English based</source>
-        <translation type="unfinished"/>
+        <translation>Creoles and pidgins- English based</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Creoles and pidgins- French-based</source>
-        <translation type="unfinished"/>
+        <translation>Creoles and pidgins- French-based</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Creoles and pidgins- Portuguese-based</source>
-        <translation type="unfinished"/>
+        <translation>Creoles and pidgins- Portuguese-based</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Crimean Tatar/Turkish</source>
-        <translation type="unfinished"/>
+        <translation>Кримски татари/Турски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Cushitic languages</source>
-        <translation type="unfinished"/>
+        <translation>Cushitic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Dakota</source>
-        <translation type="unfinished"/>
+        <translation>Дакота</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Dargwa</source>
-        <translation type="unfinished"/>
+        <translation>Dargwa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Delaware</source>
-        <translation type="unfinished"/>
+        <translation>Delaware</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
-        <translation type="unfinished"/>
+        <translation>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Dinka</source>
-        <translation type="unfinished"/>
+        <translation>Dinka</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Dogri</source>
-        <translation type="unfinished"/>
+        <translation>Dogri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Dogrib</source>
-        <translation type="unfinished"/>
+        <translation>Dogrib</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Dravidian languages</source>
-        <translation type="unfinished"/>
+        <translation>Dravidian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Duala</source>
-        <translation type="unfinished"/>
+        <translation>Duala</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
-        <translation type="unfinished"/>
+        <translation>Dutch- Middle (ca.1050-1350)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Dyula</source>
-        <translation type="unfinished"/>
+        <translation>Dyula</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Eastern Frisian</source>
-        <translation type="unfinished"/>
+        <translation>Eastern Frisian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Efik</source>
-        <translation type="unfinished"/>
+        <translation>Efik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Egyptian (Ancient)</source>
-        <translation type="unfinished"/>
+        <translation>Egyptian (Ancient)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Ekajuk</source>
-        <translation type="unfinished"/>
+        <translation>Ekajuk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Elamite</source>
-        <translation type="unfinished"/>
+        <translation>Elamite</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="430"/>
         <source>English- Middle (1100-1500)</source>
-        <translation type="unfinished"/>
+        <translation>Енглески- Средњи (1100-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="431"/>
         <source>English- Old (ca.450-1100)</source>
-        <translation type="unfinished"/>
+        <translation>Енглески- Стари (ca.450-1100)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Erzya</source>
-        <translation type="unfinished"/>
+        <translation>Erzya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Ewondo</source>
-        <translation type="unfinished"/>
+        <translation>Ewondo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Fang</source>
-        <translation type="unfinished"/>
+        <translation>Fang</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Fanti</source>
-        <translation type="unfinished"/>
+        <translation>Fanti</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="436"/>
         <source>Filipino, Pilipino</source>
-        <translation type="unfinished"/>
+        <translation>Filipino, Pilipino</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="437"/>
         <source>Finno-Ugrian languages</source>
-        <translation type="unfinished"/>
+        <translation>Finno-Ugrian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Fon</source>
-        <translation type="unfinished"/>
+        <translation>Fon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="439"/>
         <source>French- Middle (ca.1400-1600)</source>
-        <translation type="unfinished"/>
+        <translation>French- Middle (ca.1400-1600)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="440"/>
         <source>French- Old (842-ca.1400)</source>
-        <translation type="unfinished"/>
+        <translation>French- Old (842-ca.1400)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Friulian</source>
-        <translation type="unfinished"/>
+        <translation>Friulian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Ga</source>
-        <translation type="unfinished"/>
+        <translation>Ga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Galibi Carib</source>
-        <translation type="unfinished"/>
+        <translation>Galibi Carib</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Gayo</source>
-        <translation type="unfinished"/>
+        <translation>Gayo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="445"/>
         <source>Gbaya</source>
-        <translation type="unfinished"/>
+        <translation>Gbaya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="446"/>
         <source>Geez</source>
-        <translation type="unfinished"/>
+        <translation>Geez</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="447"/>
         <source>German- Middle High (ca.1050-1500)</source>
-        <translation type="unfinished"/>
+        <translation>German- Middle High (ca.1050-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="448"/>
         <source>German- Old High (ca.750-1050)</source>
-        <translation type="unfinished"/>
+        <translation>German- Old High (ca.750-1050)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Germanic languages</source>
-        <translation type="unfinished"/>
+        <translation>Германски језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Gilbertese</source>
-        <translation type="unfinished"/>
+        <translation>Gilbertese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Gondi</source>
-        <translation type="unfinished"/>
+        <translation>Gondi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Gorontalo</source>
-        <translation type="unfinished"/>
+        <translation>Gorontalo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="453"/>
         <source>Gothic</source>
-        <translation type="unfinished"/>
+        <translation>Gothic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="454"/>
         <source>Grebo</source>
-        <translation type="unfinished"/>
+        <translation>Grebo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Greek- Ancient (to 1453)</source>
-        <translation>Ελληνικά- Αρχαία (μέχρι το 1453)</translation>
+        <translation>Greek- Ancient (to 1453)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="456"/>
         <source>Gwich&apos;in</source>
-        <translation type="unfinished"/>
+        <translation>Gwich&apos;in</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Haida</source>
-        <translation type="unfinished"/>
+        <translation>Haida</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Hawaiian</source>
-        <translation type="unfinished"/>
+        <translation>Hawaiian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Hiligaynon</source>
-        <translation type="unfinished"/>
+        <translation>Hiligaynon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Himachali, Western Pahari languages</source>
-        <translation type="unfinished"/>
+        <translation>Himachali, Western Pahari languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Hittite</source>
-        <translation type="unfinished"/>
+        <translation>Hittite</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Hmong, Mong</source>
-        <translation type="unfinished"/>
+        <translation>Hmong, Mong</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="463"/>
         <source>Hupa</source>
-        <translation type="unfinished"/>
+        <translation>Hupa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="464"/>
         <source>Iban</source>
-        <translation type="unfinished"/>
+        <translation>Iban</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="465"/>
         <source>Ijo languages</source>
-        <translation type="unfinished"/>
+        <translation>Ijo languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Iloko</source>
-        <translation type="unfinished"/>
+        <translation>Iloko</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Inari Sami</source>
-        <translation type="unfinished"/>
+        <translation>Inari Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Indic languages</source>
-        <translation type="unfinished"/>
+        <translation>Indic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Indo-European languages</source>
-        <translation type="unfinished"/>
+        <translation>Indo-European languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Ingush</source>
-        <translation type="unfinished"/>
+        <translation>Ingush</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Iranian languages</source>
-        <translation type="unfinished"/>
+        <translation>Iranian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Irish- Middle (900-1200)</source>
-        <translation type="unfinished"/>
+        <translation>Irish- Middle (900-1200)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Irish- Old (to 900)</source>
-        <translation type="unfinished"/>
+        <translation>Irish- Old (to 900)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Iroquoian languages</source>
-        <translation type="unfinished"/>
+        <translation>Iroquoian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Jingpho, Kachin</source>
-        <translation type="unfinished"/>
+        <translation>Jingpho, Kachin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Judeo-Arabic</source>
-        <translation type="unfinished"/>
+        <translation>Judeo-Arabic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Judeo-Persian</source>
-        <translation type="unfinished"/>
+        <translation>Judeo-Persian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Kabardian</source>
-        <translation type="unfinished"/>
+        <translation>Kabardian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Kabyle</source>
-        <translation type="unfinished"/>
+        <translation>Kabyle</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Kalmyk, Oirat</source>
-        <translation type="unfinished"/>
+        <translation>Kalmyk, Oirat</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Kamba</source>
-        <translation type="unfinished"/>
+        <translation>Kamba</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Kapampangan, Pampanga</source>
-        <translation type="unfinished"/>
+        <translation>Kapampangan, Pampanga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Kara-Kalpak</source>
-        <translation type="unfinished"/>
+        <translation>Kara-Kalpak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Karachay-Balkar</source>
-        <translation type="unfinished"/>
+        <translation>Karachay-Balkar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Karelian</source>
-        <translation type="unfinished"/>
+        <translation>Karelian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Karen languages</source>
-        <translation type="unfinished"/>
+        <translation>Karen languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Kashubian</source>
-        <translation type="unfinished"/>
+        <translation>Kashubian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Kawi</source>
-        <translation type="unfinished"/>
+        <translation>Kawi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Khasi</source>
-        <translation type="unfinished"/>
+        <translation>Khasi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Khoisan languages</source>
-        <translation type="unfinished"/>
+        <translation>Khoisan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Khotanese, Sakan</source>
-        <translation type="unfinished"/>
+        <translation>Khotanese, Sakan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Kimbundu</source>
-        <translation type="unfinished"/>
+        <translation>Kimbundu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Klingon, tlhIngan-Hol</source>
-        <translation type="unfinished"/>
+        <translation>Klingon, tlhIngan-Hol</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Konkani</source>
-        <translation type="unfinished"/>
+        <translation>Konkani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Kosraean</source>
-        <translation type="unfinished"/>
+        <translation>Kosraean</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Kpelle</source>
-        <translation type="unfinished"/>
+        <translation>Kpelle</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Kru languages</source>
-        <translation type="unfinished"/>
+        <translation>Kru languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kumyk</source>
-        <translation type="unfinished"/>
+        <translation>Kumyk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Kurukh</source>
-        <translation type="unfinished"/>
+        <translation>Kurukh</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Kutenai</source>
-        <translation type="unfinished"/>
+        <translation>Kutenai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Ladino</source>
-        <translation type="unfinished"/>
+        <translation>Ladino</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Lahnda</source>
-        <translation type="unfinished"/>
+        <translation>Lahnda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Lamba</source>
-        <translation type="unfinished"/>
+        <translation>Lamba</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Land Dayak languages</source>
-        <translation type="unfinished"/>
+        <translation>Land Dayak languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Lezghian</source>
-        <translation type="unfinished"/>
+        <translation>Lezghian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Lojban</source>
-        <translation type="unfinished"/>
+        <translation>Lojban</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="507"/>
         <source>German-Low, Low Saxon</source>
-        <translation type="unfinished"/>
+        <translation>German-Low, Low Saxon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Lower Sorbian</source>
-        <translation type="unfinished"/>
+        <translation>Lower Sorbian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Lozi</source>
-        <translation type="unfinished"/>
+        <translation>Lozi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Luba-Lulua</source>
-        <translation type="unfinished"/>
+        <translation>Luba-Lulua</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Luiseno</source>
-        <translation type="unfinished"/>
+        <translation>Luiseno</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Lule Sami</source>
-        <translation type="unfinished"/>
+        <translation>Lule Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="513"/>
         <source>Lunda</source>
-        <translation type="unfinished"/>
+        <translation>Lunda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Luo (Kenya and Tanzania)</source>
-        <translation type="unfinished"/>
+        <translation>Luo (Kenya and Tanzania)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Lushai</source>
-        <translation type="unfinished"/>
+        <translation>Lushai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Madurese</source>
-        <translation type="unfinished"/>
+        <translation>Madurese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Magahi</source>
-        <translation type="unfinished"/>
+        <translation>Magahi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Maithili</source>
-        <translation type="unfinished"/>
+        <translation>Maithili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Makasar</source>
-        <translation type="unfinished"/>
+        <translation>Makasar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Manchu</source>
-        <translation type="unfinished"/>
+        <translation>Manchu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Mandar</source>
-        <translation type="unfinished"/>
+        <translation>Mandar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Mandingo</source>
-        <translation type="unfinished"/>
+        <translation>Mandingo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="523"/>
         <source>Manipuri</source>
-        <translation type="unfinished"/>
+        <translation>Manipuri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Manobo languages</source>
-        <translation type="unfinished"/>
+        <translation>Manobo languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Mapuche/Mapudungun</source>
-        <translation type="unfinished"/>
+        <translation>Mapuche/Mapudungun</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Mari</source>
-        <translation type="unfinished"/>
+        <translation>Mari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Marwari</source>
-        <translation type="unfinished"/>
+        <translation>Marwari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Masai</source>
-        <translation type="unfinished"/>
+        <translation>Masai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Mayan languages</source>
-        <translation type="unfinished"/>
+        <translation>Mayan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Mende</source>
-        <translation type="unfinished"/>
+        <translation>Mende</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Mi&apos;kmaq, Micmac</source>
-        <translation type="unfinished"/>
+        <translation>Mi&apos;kmaq, Micmac</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Minangkabau</source>
-        <translation type="unfinished"/>
+        <translation>Minangkabau</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Mirandese</source>
-        <translation type="unfinished"/>
+        <translation>Mirandese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Mohawk</source>
-        <translation type="unfinished"/>
+        <translation>Mohawk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Moksha</source>
-        <translation type="unfinished"/>
+        <translation>Moksha</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Mon-Khmer languages</source>
-        <translation type="unfinished"/>
+        <translation>Mon-Khmer languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Mongo</source>
-        <translation type="unfinished"/>
+        <translation>Mongo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Mossi</source>
-        <translation type="unfinished"/>
+        <translation>Mossi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Multiple languages</source>
-        <translation type="unfinished"/>
+        <translation>Вишеструки језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Munda languages</source>
-        <translation type="unfinished"/>
+        <translation>Munda languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="541"/>
         <source>N&apos;Ko</source>
-        <translation type="unfinished"/>
+        <translation>N&apos;Ko</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Nahuatl languages</source>
-        <translation type="unfinished"/>
+        <translation>Nahuatl languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Neapolitan</source>
-        <translation type="unfinished"/>
+        <translation>Neapolitan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Nepal Bhasa/Newari</source>
-        <translation type="unfinished"/>
+        <translation>Nepal Bhasa/Newari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Nias</source>
-        <translation type="unfinished"/>
+        <translation>Nias</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Niger-Kordofanian languages</source>
-        <translation type="unfinished"/>
+        <translation>Niger-Kordofanian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Nilo-Saharan languages</source>
-        <translation type="unfinished"/>
+        <translation>Nilo-Saharan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Niuean</source>
-        <translation type="unfinished"/>
+        <translation>Niuean</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="549"/>
         <source>No linguistic content/Not applicable</source>
-        <translation type="unfinished"/>
+        <translation>Без лингвистичког садржаја/Није применљиво</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nogai</source>
-        <translation type="unfinished"/>
+        <translation>Nogai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Norse- Old</source>
-        <translation type="unfinished"/>
+        <translation>Norse- Old</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="552"/>
         <source>North American Indian languages</source>
-        <translation type="unfinished"/>
+        <translation>Северно-амерички индијански језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Northern Frisian</source>
-        <translation type="unfinished"/>
+        <translation>Northern Frisian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
-        <translation type="unfinished"/>
+        <translation>Northern Sotho, Sepedi, Pedi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Nubian languages</source>
-        <translation type="unfinished"/>
+        <translation>Nubian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Nyamwezi</source>
-        <translation type="unfinished"/>
+        <translation>Nyamwezi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Nyankole</source>
-        <translation type="unfinished"/>
+        <translation>Nyankole</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Nyoro</source>
-        <translation type="unfinished"/>
+        <translation>Nyoro</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Nzima</source>
-        <translation type="unfinished"/>
+        <translation>Nzima</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation type="unfinished"/>
+        <translation>Occitan/Provencal- Old (to 1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
-        <translation type="unfinished"/>
+        <translation>Official/Imperial Aramaic (700-300 BCE)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Osage</source>
-        <translation type="unfinished"/>
+        <translation>Osage</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Otomian languages</source>
-        <translation type="unfinished"/>
+        <translation>Otomian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Pahlavi</source>
-        <translation type="unfinished"/>
+        <translation>Pahlavi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Palauan</source>
-        <translation type="unfinished"/>
+        <translation>Palauan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Pangasinan</source>
-        <translation type="unfinished"/>
+        <translation>Pangasinan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Papiamento</source>
-        <translation type="unfinished"/>
+        <translation>Papiamento</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Papuan languages</source>
-        <translation type="unfinished"/>
+        <translation>Papuan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
-        <translation type="unfinished"/>
+        <translation>Persian- Old (ca.600-400 B.C.)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Philippine languages</source>
-        <translation type="unfinished"/>
+        <translation>Филипински језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Phoenician</source>
-        <translation type="unfinished"/>
+        <translation>Phoenician</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Pohnpeian</source>
-        <translation type="unfinished"/>
+        <translation>Pohnpeian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Prakrit languages</source>
-        <translation type="unfinished"/>
+        <translation>Prakrit languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Rajasthani</source>
-        <translation type="unfinished"/>
+        <translation>Rajasthani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Rapanui</source>
-        <translation type="unfinished"/>
+        <translation>Rapanui</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Rarotongan, Cook Islands Maori</source>
-        <translation type="unfinished"/>
+        <translation>Rarotongan, Cook Islands Maori</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Reserved for local use</source>
-        <translation type="unfinished"/>
+        <translation>Резервисано за локалну употребу</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Romance languages</source>
-        <translation type="unfinished"/>
+        <translation>Романски језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Romany</source>
-        <translation type="unfinished"/>
+        <translation>Румунски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Salishan languages</source>
-        <translation type="unfinished"/>
+        <translation>Salishan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Samaritan Aramaic</source>
-        <translation type="unfinished"/>
+        <translation>Samaritan Aramaic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Sami languages</source>
-        <translation type="unfinished"/>
+        <translation>Sami languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Sandawe</source>
-        <translation type="unfinished"/>
+        <translation>Sandawe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Santali</source>
-        <translation type="unfinished"/>
+        <translation>Santali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Sasak</source>
-        <translation type="unfinished"/>
+        <translation>Sasak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Scots</source>
-        <translation type="unfinished"/>
+        <translation>Шкотски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Selkup</source>
-        <translation type="unfinished"/>
+        <translation>Selkup</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Semitic languages</source>
-        <translation type="unfinished"/>
+        <translation>Semitic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Serer</source>
-        <translation type="unfinished"/>
+        <translation>Serer</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Shan</source>
-        <translation type="unfinished"/>
+        <translation>Shan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Sicilian</source>
-        <translation type="unfinished"/>
+        <translation>Sicilian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Sidamo</source>
-        <translation type="unfinished"/>
+        <translation>Sidamo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Sign Languages</source>
-        <translation type="unfinished"/>
+        <translation>Sign Languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Siksika</source>
-        <translation type="unfinished"/>
+        <translation>Siksika</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Sino-Tibetan languages</source>
-        <translation type="unfinished"/>
+        <translation>Sino-Tibetan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Siouan languages</source>
-        <translation type="unfinished"/>
+        <translation>Siouan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Skolt Sami</source>
-        <translation type="unfinished"/>
+        <translation>Skolt Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Slave (Athapascan)</source>
-        <translation type="unfinished"/>
+        <translation>Slave (Athapascan)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Slavic languages</source>
-        <translation type="unfinished"/>
+        <translation>Словенски језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sogdian</source>
-        <translation type="unfinished"/>
+        <translation>Sogdian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Songhai languages</source>
-        <translation type="unfinished"/>
+        <translation>Songhai languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Soninke</source>
-        <translation type="unfinished"/>
+        <translation>Soninke</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Sorbian languages</source>
-        <translation type="unfinished"/>
+        <translation>Лужичко-српски</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
         <source>South American Indian languages</source>
-        <translation type="unfinished"/>
+        <translation>Јужно-амерички индијански језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Southern Altai</source>
-        <translation type="unfinished"/>
+        <translation>Southern Altai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Southern Sami</source>
-        <translation type="unfinished"/>
+        <translation>Southern Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Sranan Tongo</source>
-        <translation type="unfinished"/>
+        <translation>Sranan Tongo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Sukuma</source>
-        <translation type="unfinished"/>
+        <translation>Sukuma</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Sumerian</source>
-        <translation type="unfinished"/>
+        <translation>Sumerian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Susu</source>
-        <translation type="unfinished"/>
+        <translation>Susu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Alsatian, Swiss German, Alemannic</source>
-        <translation type="unfinished"/>
+        <translation>Alsatian, Swiss German, Alemannic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Syriac</source>
-        <translation type="unfinished"/>
+        <translation>Syriac</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Tai languages</source>
-        <translation type="unfinished"/>
+        <translation>Tai languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Tamashek</source>
-        <translation type="unfinished"/>
+        <translation>Tamashek</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Tereno</source>
-        <translation type="unfinished"/>
+        <translation>Tereno</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Tetum</source>
-        <translation type="unfinished"/>
+        <translation>Tetum</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Tigre</source>
-        <translation type="unfinished"/>
+        <translation>Tigre</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Timne</source>
-        <translation type="unfinished"/>
+        <translation>Timne</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tiv</source>
-        <translation type="unfinished"/>
+        <translation>Tiv</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tlingit</source>
-        <translation type="unfinished"/>
+        <translation>Tlingit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Tok Pisin</source>
-        <translation type="unfinished"/>
+        <translation>Tok Pisin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tokelau</source>
-        <translation type="unfinished"/>
+        <translation>Tokelau</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tonga (Nyasa)</source>
-        <translation type="unfinished"/>
+        <translation>Tonga (Nyasa)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Tsimshian</source>
-        <translation type="unfinished"/>
+        <translation>Tsimshian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Tumbuka</source>
-        <translation type="unfinished"/>
+        <translation>Tumbuka</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Tupi languages</source>
-        <translation type="unfinished"/>
+        <translation>Tupi languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Turkish- Ottoman (1500-1928)</source>
-        <translation type="unfinished"/>
+        <translation>Турско- Отомански (1500-1928)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Tuvalu</source>
-        <translation type="unfinished"/>
+        <translation>Tuvalu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Tuvinian</source>
-        <translation type="unfinished"/>
+        <translation>Tuvinian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Udmurt</source>
-        <translation type="unfinished"/>
+        <translation>Udmurt</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Ugaritic</source>
-        <translation type="unfinished"/>
+        <translation>Ugaritic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Umbundu</source>
-        <translation type="unfinished"/>
+        <translation>Umbundu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Uncoded languages</source>
-        <translation type="unfinished"/>
+        <translation>Некодирани језици</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Undetermined</source>
-        <translation type="unfinished"/>
+        <translation>Неодређено</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Upper Sorbian</source>
-        <translation type="unfinished"/>
+        <translation>Upper Sorbian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Vai</source>
-        <translation type="unfinished"/>
+        <translation>Vai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Votic</source>
-        <translation type="unfinished"/>
+        <translation>Votic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Wakashan languages</source>
-        <translation type="unfinished"/>
+        <translation>Wakashan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Waray</source>
-        <translation type="unfinished"/>
+        <translation>Waray</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Washo</source>
-        <translation type="unfinished"/>
+        <translation>Washo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Wolaitta, Wolaytta</source>
-        <translation type="unfinished"/>
+        <translation>Wolaitta, Wolaytta</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Yakut</source>
-        <translation type="unfinished"/>
+        <translation>Yakut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Yao</source>
-        <translation type="unfinished"/>
+        <translation>Yao</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Yapese</source>
-        <translation type="unfinished"/>
+        <translation>Yapese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Yupik languages</source>
-        <translation type="unfinished"/>
+        <translation>Yupik languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Zande languages</source>
-        <translation type="unfinished"/>
+        <translation>Zande languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Zapotec</source>
-        <translation type="unfinished"/>
+        <translation>Zapotec</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Zenaga</source>
-        <translation type="unfinished"/>
+        <translation>Zenaga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Zuni</source>
-        <translation type="unfinished"/>
+        <translation>Zuni</translation>
     </message>
 </context>
 <context>
@@ -5656,7 +5665,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>Γλώσσα</translation>
+        <translation>Језик</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="36"/>
@@ -5670,17 +5679,17 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
         <source>User Interface Language:</source>
-        <translation>Γλώσσα διεπαφής χρήστη:</translation>
+        <translation>Језик корисничког сучеља:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="53"/>
         <source>Set the default language used by the Metadata Editor for new books.</source>
-        <translation>Ορισμός προεπιλεγμένης γλώσσας για τον επεξεργαστή  μετά - δεδομένων για τα νέα βιβλία.</translation>
+        <translation>Подеси подразумевани језик за едитор метаподатака за нове књиге.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="56"/>
         <source>Default Language For Metadata:</source>
-        <translation>Προεπιλεγμένη Γλώσσα για τα μεταδεδομένα:</translation>
+        <translation>Подразумевани језик за метаподатке:</translation>
     </message>
 </context>
 <context>
@@ -5688,7 +5697,7 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation>Σύνδεσμος εμφάνισης css</translation>
+        <translation>Линк стилова</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="43"/>
@@ -5700,27 +5709,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation>Πάνω</translation>
+        <translation>Горе</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation>Μετακίνηση επιλεγμένων εμφανίσεων css κάτω σε προτεραιότητα</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation>Κάτω</translation>
+        <translation>Доле</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="60"/>
         <source>Include</source>
-        <translation>Περιλαμβάνει</translation>
+        <translation>Укључити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="61"/>
         <source>Stylesheet</source>
-        <translation>Εμφάνιση css</translation>
+        <translation>Стил</translation>
     </message>
 </context>
 <context>
@@ -5728,57 +5737,57 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links</source>
-        <translation>Σύνδεσμοι</translation>
+        <translation>Везе</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Λίστα με μόνο τα ονόματα των αρχείων που περιέχουν το κείμενο που εισαγάγατε.</translation>
+        <translation>Листа са именима фајлова које садржи текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="65"/>
         <source>File</source>
-        <translation>Αρχείο</translation>
+        <translation>Фајл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="66"/>
         <source>ID</source>
-        <translation type="unfinished"/>
+        <translation>ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="67"/>
         <source>Text</source>
-        <translation>Κείμενο</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="68"/>
         <source>Target File</source>
-        <translation>Τοποθεσία αρχείου</translation>
+        <translation>Циљани фајл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="69"/>
         <source>Target ID</source>
-        <translation type="unfinished"/>
+        <translation>Циљани ИД</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="70"/>
         <source>Target Exists?</source>
-        <translation type="unfinished"/>
+        <translation>Циљ постоји?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>Target Text</source>
-        <translation type="unfinished"/>
+        <translation>Циљани текст</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Target&apos;s Target File</source>
-        <translation type="unfinished"/>
+        <translation>Циљани фајл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
@@ -5788,7 +5797,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Match?</source>
-        <translation type="unfinished"/>
+        <translation>Подударање?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
@@ -5798,17 +5807,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="327"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај извештај са одвојеним зарезима</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
         <source>Cannot save report file.</source>
-        <translation>Αδυναμία αποθήκευσης αρχείου αναφοράς.</translation>
+        <translation>Није могуће сачувати извештај.</translation>
     </message>
 </context>
 <context>
@@ -5816,79 +5825,79 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>ανώνυμο.epub[*] - Sigil</translation>
+        <translation>ненасловљено.epub[*] - Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>&amp;Αρχείο</translation>
+        <translation>&amp;Фајл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="88"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Επεξεργασία</translation>
+        <translation>&amp;Измени</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
         <source>Cli&amp;p</source>
-        <translation>Γ&amp;ρήγορα τμήματα</translation>
+        <translation>Шабло&amp;н</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="158"/>
         <source>&amp;Help</source>
-        <translation>&amp;Βοήθεια</translation>
+        <translation>&amp;Помоћ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="213"/>
         <source>&amp;View</source>
-        <translation>&amp;Προβολή</translation>
+        <translation>&amp;Приказ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="232"/>
         <source>&amp;Search</source>
-        <translation>Α&amp;ναζήτηση</translation>
+        <translation>&amp;Претражи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="236"/>
         <source>Current Fil&amp;e</source>
-        <translation>Επιλεγμένο αρ&amp;χείο</translation>
+        <translation>Тренутни фа&amp;јл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="268"/>
         <source>&amp;Window</source>
-        <translation>Παρά&amp;θυρο</translation>
+        <translation>&amp;Прозор</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="351"/>
         <location filename="../../MainUI/MainWindow.cpp" line="488"/>
         <source>File</source>
-        <translation>Αρχείο</translation>
+        <translation>Фајл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="366"/>
         <location filename="../../MainUI/MainWindow.cpp" line="252"/>
         <source>Edit</source>
-        <translation>Επεξεργασία</translation>
+        <translation>Измени</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="385"/>
         <source>View</source>
-        <translation>Προβολή</translation>
+        <translation>Приказ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="398"/>
         <source>Insert</source>
-        <translation>Εισαγωγή</translation>
+        <translation>Инсерт</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="427"/>
         <source>Donate</source>
-        <translation>Δωρεά</translation>
+        <translation>Донирај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="559"/>
         <source>Clip Bar</source>
-        <translation>Μέρος γρήγορων τμημάτων</translation>
+        <translation>Трака за шаблоне</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="602"/>
@@ -5898,16 +5907,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="611"/>
         <source>&amp;Save</source>
-        <translation>&amp;Αποθήκευση</translation>
+        <translation>&amp;Сачувај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="614"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Αποθήκευση&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Сачувај&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Αποθήκευση του συγκεκριμένου βιβλίου.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Сачувај тренутну књигу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="619"/>
@@ -5917,16 +5926,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="624"/>
         <source>Save &amp;As...</source>
-        <translation>Αποθήκευση &amp;ως...</translation>
+        <translation>Сачувај &amp;као...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="627"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Αποθήκευση ως&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Сачувај као&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Αποθήκευση του συγκεκριμένου βιβλίου με διαφορετικό όνομα αρχείου.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Сачувај тренутну књигу са различитим именом.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="632"/>
@@ -5936,35 +5945,35 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="649"/>
         <source>Cu&amp;t</source>
-        <translation>Α&amp;ποκοπή</translation>
+        <translation>Ис&amp;еци</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="663"/>
         <source>&amp;Paste</source>
-        <translation>&amp;Επικόλληση</translation>
+        <translation>&amp;Налепи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="666"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επικόλληση&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Налепи&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Επικόλληση του περιεχομένου από το clipboard στο βιβλίο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Налепи садржај из клипборда у књигу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="688"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Αναίρεση</translation>
+        <translation>&amp;Врати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="691"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Αναίρεση&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Врати&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Επιστροφή σε μια προηγούμενη κατάσταση.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Врати на стање пре претходне операције.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="696"/>
@@ -5974,53 +5983,53 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="705"/>
         <source>&amp;Redo</source>
-        <translation>Ακύ&amp;ρωση αναίρεσης</translation>
+        <translation>&amp;Претходно</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="708"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ακύρωση αναίρεσης&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Претходно&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Επαναφορά στην κατάσταση πριν τη χρήση της αναίρεσης.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Поврати измене од претходне  акције Врати.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="722"/>
         <source>&amp;Copy</source>
-        <translation>Α&amp;ντιγραφή</translation>
+        <translation>&amp;Копирај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="742"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Στοίχιση αριστερά&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Положај лево&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Στοίχιση του κειμένου προς τα αριστερά.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси положај лево.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="759"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Στοίχιση δεξιά&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Положај десно&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Στοίχιση του κειμένου προς τα δεξιά.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси положај десно.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="850"/>
         <source>&amp;Open...</source>
-        <translation>Άν&amp;οιγμα...</translation>
+        <translation>&amp;Отвори...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="853"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Άνοιγμα&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Отвори&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Άνοιγμα του βιβλίου από το δίσκο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отвори књигу са диска.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="858"/>
@@ -6030,7 +6039,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="890"/>
         <source>Exit</source>
-        <translation>Έξοδος</translation>
+        <translation>Напусти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="893"/>
@@ -6040,7 +6049,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="902"/>
         <source>&amp;About...</source>
-        <translation>&amp;Σχετικά...</translation>
+        <translation>&amp;О...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="932"/>
@@ -6050,31 +6059,31 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="954"/>
         <source>&amp;Edit Table Of Contents...</source>
-        <translation>&amp;Επεξεργασία του πίνακα περιεχομένων...</translation>
+        <translation>&amp;Измени садржај...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="957"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επεξεργασία του πίνακα περιεχομένων&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Измени садржај&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Άμεση επεξεργασία του πίνακα περιεχομένων.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Директно измени постојећи садржај.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="971"/>
         <source>&amp;Book View</source>
-        <translation>&amp;Προβολή βιβλίου</translation>
+        <translation>&amp;Приказ књиге</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="988"/>
         <source>&amp;Code View</source>
-        <translation>&amp;Προβολή κώδικα</translation>
+        <translation>&amp;Приказ кода</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1001"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
-        <translation type="unfinished"/>
+        <translation>Пребаци Приказ књиге у Приказ кода или Приказ кода у Приказ књиге</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1021"/>
@@ -6086,86 +6095,82 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Προβολή βιβλίου&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Приказ књиге&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Επεξεργασία και προβολή των αρχείων του βιβλίου έτσι όπως θα φαίνονται στους αναγνώστες&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Измени и прикажи фајлове у вашој књизи да се покажу читаоцима.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation>Π&amp;ροσθήκη</translation>
+        <translation>Д&amp;одај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="92"/>
         <source>C&amp;hange Case</source>
-        <translation>Με&amp;ταβολή κατάστασης</translation>
+        <translation>И&amp;змени слова</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="172"/>
         <source>&amp;Heading</source>
-        <translation>Ε&amp;πικεφαλίδες</translation>
+        <translation>&amp;Заглавље</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="217"/>
         <source>&amp;Toolbars</source>
-        <translation>Ερ&amp;γαλειοθήκες</translation>
+        <translation>&amp;Траке алата</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="284"/>
         <source>&amp;Table Of Contents</source>
-        <translation>&amp;Πίνακας περιεχομένων</translation>
+        <translation>&amp;Садржај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="292"/>
         <source>Spe&amp;llcheck</source>
-        <translation>Έ&amp;λεγχος ορθογραφίας</translation>
+        <translation>Провера пра&amp;вописа</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="306"/>
         <source>&amp;Index</source>
-        <translation>Ευρ&amp;ετήριο</translation>
+        <translation>&amp;Индекс</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="415"/>
         <source>Back</source>
-        <translation>Πίσω</translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="439"/>
         <source>Tools</source>
-        <translation>Εργαλεία</translation>
+        <translation>Алати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="597"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Νέο&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ново&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Δημιουργία νέου βιβλίου.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Креирај нову књигу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="991"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Προβολή κώδικα&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Επεξεργασία και προβολή του πραγματικού περιεχομένου των αρχείων του βιβλίου, μαζί με τον κώδικα μορφοποίησης, έτσι όπως θα φαίνονται στους αναγνώστες.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1013"/>
         <source>&amp;Split At Cursor</source>
-        <translation>&amp;Χωρισμός στο σημείο</translation>
+        <translation>&amp;Додај картицу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1016"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Χωρισμός στο σημείο&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Χωρισμός του κειμένου σε δύο αρχεια στο σημείο που ορίστηκε από το χρήστη.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1040"/>
@@ -6175,12 +6180,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1049"/>
         <source>&amp;Special Character...</source>
-        <translation>Ε&amp;ιδικός χαρακτήρας...</translation>
+        <translation>&amp;Посебни карактери...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1063"/>
         <source>I&amp;D...</source>
-        <translation type="unfinished"/>
+        <translation>И&amp;Д...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1066"/>
@@ -6192,22 +6197,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1131"/>
         <source>Stri&amp;kethrough</source>
-        <translation>Διακριτή &amp;διαγραφή</translation>
+        <translation>Пре&amp;цртано</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1148"/>
         <source>&amp;Subscript</source>
-        <translation>Δ&amp;είκτης</translation>
+        <translation>&amp;Смањи доле</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1179"/>
         <source>&amp;Print...</source>
-        <translation>&amp;Εκτύπωση...</translation>
+        <translation>&amp;Штампај...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1182"/>
         <source>Print</source>
-        <translation>Εκτύπωση</translation>
+        <translation>Штампај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1185"/>
@@ -6217,86 +6222,86 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1194"/>
         <source>Print Pre&amp;view...</source>
-        <translation>Προεπι&amp;σκόπηση εκτύπωσης...</translation>
+        <translation>Штампај пре&amp;глед...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1197"/>
         <source>Print Preview</source>
-        <translation>Προεπισκόπηση εκτύπωσης</translation>
+        <translation>Штампај преглед</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="530"/>
         <source>Change Case</source>
-        <translation>Μεταβολή κατάστασης</translation>
+        <translation>Измени слова</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="117"/>
         <source>&amp;Insert</source>
-        <translation>Ει&amp;σαγωγή</translation>
+        <translation>&amp;Инсерт</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="168"/>
         <source>For&amp;mat</source>
-        <translation>&amp;Μορφοποίηση</translation>
+        <translation>Фор&amp;мат</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="454"/>
         <source>Heading</source>
-        <translation>Επικεφαλίδα</translation>
+        <translation>Заглавље</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="280"/>
         <source>&amp;Tools</source>
-        <translation>Ε&amp;ργαλεία</translation>
+        <translation>&amp;Алати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="472"/>
         <source>Format</source>
-        <translation>Μορφοποίηση</translation>
+        <translation>Формат</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="489"/>
         <source>Align</source>
-        <translation>Στοίχιση</translation>
+        <translation>Положај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="504"/>
         <source>List</source>
-        <translation>Λίστα</translation>
+        <translation>Листа</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="517"/>
         <source>Indent</source>
-        <translation>Εσοχή</translation>
+        <translation>Увлачење</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="545"/>
         <source>Text Direction</source>
-        <translation>Κατεύθυνση παραγράφου</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="594"/>
         <source>&amp;New</source>
-        <translation>&amp;Νέο</translation>
+        <translation>&amp;Ново</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="637"/>
         <source>Save A &amp;Copy...</source>
-        <translation>Αποθήκευση ενός αν&amp;τίγραφου...</translation>
+        <translation>Сачува &amp;копију...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="640"/>
         <source>Save a copy of your book to another file name.</source>
-        <translation>Αποθήκευση ενός αντίγραφου βιβλίου με διαφορετικό όνομα αρχείου.</translation>
+        <translation>Сачувај копију књиге у другом имену.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="652"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Αποκοπή&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Исеци&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Αποκοπή του επιλεγμένου κειμένου από το έγγραφο και μεταφορά του στο πρόχειρο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Исеци селектовани текст из документа и стави га у клипборд.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="679"/>
@@ -6306,12 +6311,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="673"/>
         <source>&amp;Closing Tag</source>
-        <translation>&amp;Κλείσιμο καρτέλας</translation>
+        <translation>&amp;Затварајућа ознака</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="676"/>
         <source>Insert a closing tag in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Убаците затварајућу ознаку у Приказ кода</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="713"/>
@@ -6323,19 +6328,19 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Αντιγραφή&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Копирај&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Αντιγραφή του επιλεγμένου κειμένου και τοποθέτησή του στο πρόχειρο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Копирај одабрани текст и стави га у клипборд.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="739"/>
         <source>Align &amp;Left</source>
-        <translation>Στοίχιση κειμένου α&amp;ριστερά</translation>
+        <translation>Положај &amp;лево</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="756"/>
         <source>Align &amp;Right</source>
-        <translation>Στοίχιση κειμένου δε&amp;ξιά</translation>
+        <translation>Положај &amp;десно</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1675"/>
@@ -6345,16 +6350,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="773"/>
         <source>&amp;Center</source>
-        <translation>Στοίχιση του κειμένου στο Κέντρ&amp;ο</translation>
+        <translation>&amp;Центрирај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="776"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Κέντρο&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Центрирај&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Στοίχιση κειμένου στο κέντρο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Центрирај параграф.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="781"/>
@@ -6364,16 +6369,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="793"/>
         <source>&amp;Justify</source>
-        <translation>Π&amp;λήρης στοίχιση κειμένου</translation>
+        <translation>&amp;Поравнај обострано</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="796"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Πλήρης στοίχιση&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Поравнај обострано&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Πλήρης στοίχιση κειμένου.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси положај поравнат на обе стране.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="801"/>
@@ -6383,16 +6388,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="813"/>
         <source>&amp;Bold</source>
-        <translation>Έν&amp;τονα</translation>
+        <translation>&amp;Подебљано</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="816"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Έντονα&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Подебљано&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Έντονη γραφή στο επιλεγμένο κείμενο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подебљај селектовани текст.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="821"/>
@@ -6402,35 +6407,35 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="833"/>
         <source>&amp;Italic</source>
-        <translation>Πλά&amp;για γραφή</translation>
+        <translation>&amp;Искошено</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="836"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Πλάγια γραφή&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Искошено&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Πλάγια γραφή του επιλεγμένου κειμένου.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Искоси селектовани текст.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="841"/>
         <source>Ctrl+I</source>
-        <translation>Ctrl+I</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="870"/>
         <source>&amp;Underline</source>
-        <translation>&amp;Υπογράμμιση</translation>
+        <translation>&amp;Подвучено</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="873"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Υπογράμμιση&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Подвучено&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Υπογράμμιση του επιλεγμένου κειμένου.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подвуци означени текст.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="878"/>
@@ -6440,26 +6445,26 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="887"/>
         <source>&amp;Quit</source>
-        <translation>Έ&amp;ξοδος</translation>
+        <translation>&amp;Напусти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="905"/>
         <source>Show information about Sigil.</source>
-        <translation>Προβολή πληροφοριών σχετικά με το Sigil.</translation>
+        <translation>Прикажи информације о Sigil.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="927"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επεξεργαστής μετά-δεδομέων&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Едитор метаподатака&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Επεξεργασία και προβολή πληροφορίων σχετικά με το περιεχόμενο του βιβλίου, τον συγγραφέα και τον τίτλο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Измени и прикажи информације о књизи укључујући аутора и наслов.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="998"/>
         <source>&amp;Toggle View State</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Пребаци приказ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1004"/>
@@ -6471,37 +6476,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Εισαγωγή ειδικού χαρακτήρα&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Убаци специјалне карактере&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Επιλογή ενός ειδικού χαρακτήρα για εισαγωγή στο κείμενο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Одабери карактере за убацивање у ваш текст.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1094"/>
         <source>&amp;Numbered List</source>
-        <translation>&amp;Αρίθμηση</translation>
+        <translation>&amp;Листа под бројем</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1097"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Αρίθμηση&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Нумерација&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Δημιουργία μιας λίστας με αρίθμηση.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Креирајте нумерисану листу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1111"/>
         <source>Bulle&amp;ted List</source>
-        <translation>Κουκκί&amp;δες</translation>
+        <translation>Лис&amp;та за набрајање</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1114"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Κουκκίδες&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Набрајање&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Δημιουργία μιας λίστας με κουκκίδες.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Креирај листу за набрајање.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1119"/>
@@ -6513,38 +6518,38 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Διακριτή διαγραφή&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Прецртано&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Σχεδιασμός μιας γραμμής διαμέσου του επιλεγμένου κειμένου.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1151"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Δείκτης&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Смањи доле&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Δημιουργία μικρών γραμμάτων κάτω από τη γραμμή βάσης.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси означени текст смањено на доњу позицију.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1165"/>
         <source>Su&amp;perscript</source>
-        <translation>Ε&amp;κθέτης</translation>
+        <translation>Сма&amp;њи горе</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1168"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Εκθέτης&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Смањи горе&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Δημιουργία μικρών γραμμάτων πάνω από τη γραμμή βάσης.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси означени текст мањим на горњу позицију.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1202"/>
         <location filename="../../Form_Files/main.ui" line="1205"/>
         <source>Close</source>
-        <translation>Κλείσιμο</translation>
+        <translation>Затвори</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1208"/>
@@ -6554,22 +6559,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1217"/>
         <source>Zoom &amp;In</source>
-        <translation>Μεγέν&amp;θυση</translation>
+        <translation>Уве&amp;ћај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1220"/>
         <source>Zoom In</source>
-        <translation>Μεγένθυση</translation>
+        <translation>Увећај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1232"/>
         <source>Zoom &amp;Out</source>
-        <translation>Σμί&amp;κρυνση</translation>
+        <translation>Сма&amp;њи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1235"/>
         <source>Zoom Out</source>
-        <translation>Σμίκρυνση</translation>
+        <translation>Смањи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1238"/>
@@ -6579,7 +6584,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1243"/>
         <source>Sho&amp;w Tag</source>
-        <translation>Προ&amp;βολή καρτέλας</translation>
+        <translation>При&amp;кажи ознаку</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="949"/>
@@ -6589,30 +6594,30 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="910"/>
         <source>Add &amp;Cover...</source>
-        <translation>Προσθήκη εξώ&amp;φυλλου...</translation>
+        <translation>Додај &amp;омот...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="913"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Προσθήκη εξώφυλλου&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Додај омот&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Προσθήκη ενός εξώφυλλου.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Додај омот.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="944"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Παραγωγή πίνακα περιεχομένου&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Генериши садржај&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Παραγωγή ενός νέου πίνακα περιεχομένων από τις επικεφαλίδες του βιβλίου.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Генериши нови садржај из наслова ваше књиге.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1030"/>
         <source>&amp;File...</source>
-        <translation>Αρ&amp;χείο...</translation>
+        <translation>&amp;Фајл...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1033"/>
@@ -6621,25 +6626,23 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add files to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Εισαγωγή αρχείου&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Убаци фајл&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Επιλογή αρχείου εικόνας, βίντεο ή ήχου από το βιβλίο στο κείμενο.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Одабери слику, видео или аудио из ваше књиге за убацивање у текст.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Εισαγωγή αρχείων στο βιβλίο από το μενού Αρχείο - Προσθήκη - Εξαγώγιμα αρχεία.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Можете додати фајлове у вашу књигу путањом мени Фајл - Додај - Постојећи фајлови.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1077"/>
         <source>&amp;Link...</source>
-        <translation>Σύν&amp;δεσμος...</translation>
+        <translation>&amp;Веза...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1080"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Εισαγωγή συνδέσμου&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Εισαγωγή ή επεξεργασία ενός υπερσυνδέσμου για έναν τόπο.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1223"/>
@@ -6649,7 +6652,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1246"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
-        <translation>Εμφάνιση της ετικέτας HTML που υπάρχει στο σημείο σε Προβολή Βιβλίου.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1249"/>
@@ -6661,9 +6664,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Αναζήτηση &amp;amp; Αντικατάσταση&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Пронађи &amp;amp; Замени&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Αναζήτηση και αντικατάσταση κειμένου μέσα στο έγγραφο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Пронађи и замени текст у документу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1266"/>
@@ -6675,9 +6678,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Αύξηση εσοχής&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Увуци напред&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Αύξηση του επιπέδου εσοχής στην παράγραφο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Параграфе помери напред.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1283"/>
@@ -6689,9 +6692,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Μείωση εσοχής&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Увуци назад&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Μείωση του επιπέδου εσοχής στην παράγραφο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Параграфе помери назад.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1300"/>
@@ -6706,11 +6709,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction left to right.&lt;/p&gt;
     </source>
-        <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Αριστερά προς δεξιά&lt;/b&gt;&lt;/p&gt;
-
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ορισμός κατεύθυνσης παραγράφου από αριστερά προς δεξιά.&lt;/p&gt;
-    </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1328"/>
@@ -6719,11 +6718,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction right to left.&lt;/p&gt;
     </source>
-        <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Δεξιά προς αριστερά&lt;/b&gt;&lt;/p&gt;
-
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ορισμός κατεύθυνσης παραγράφου από δεξιά προς αριστερά.&lt;/p&gt;
-    </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1344"/>
@@ -6732,11 +6727,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction to inherit from default.&lt;/p&gt;
     </source>
-        <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Βασικό&lt;/b&gt;&lt;/p&gt;
-
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ορισμός βασικής κατεύθυνσης κειμένου στην παράγραφο .&lt;/p&gt;
-    </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1356"/>
@@ -6751,9 +6742,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to lowercase.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Πεζά&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Мала слова&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ορισμός επιλεγμένου κειμένου σε πεζά.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси одабрани текст на мала слова.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -6769,9 +6760,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to uppercase.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Κεφαλαία&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Велика слова&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ορισμός επιλεγμένου κειμένου σε κεφαλαία.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси одабрани текст на велика слова.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -6787,9 +6778,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Τίτλος&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Почетна слова&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Κεφαλαίο το πρώτο γράμμα των επιλεγμένων λέξεων.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Увећај прва слова на свакој одабраној речи.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -6800,15 +6791,15 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selected text.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Κεφαλαίο&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Повећање&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Κεφαλαίο το πρώτο γράμμα της πρώτης λέξης στο επιλεγμένο κείμενο&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Повећај само прво слово одабране речи.&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1436"/>
         <source>&amp;Next Tab</source>
-        <translation>&amp;Επόμενη καρτέλα</translation>
+        <translation>&amp;Следећа картица</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1439"/>
@@ -6818,7 +6809,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1444"/>
         <source>&amp;Previous Tab</source>
-        <translation>&amp;Προηγούμενη καρτέλα</translation>
+        <translation>&amp;Претходна картица</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1447"/>
@@ -6828,7 +6819,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1452"/>
         <source>&amp;Close Tab</source>
-        <translation>&amp;Κλείσιμο καρτέλας</translation>
+        <translation>&amp;Затвори картицу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1455"/>
@@ -6848,21 +6839,21 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1524"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>Επικύρωση εμ&amp;φάνισης με W3C</translation>
+        <translation>Потврди стилове са &amp;W3C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1540"/>
         <source>&amp;Spellcheck...</source>
-        <translation>Έλεγχος ορ&amp;θογραφίας...</translation>
+        <translation>&amp;Провера правописа...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ορθογραφικός έλεγχος&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Провера правописа&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Αναζήτηση όλων των λέξεων με ορθογραφικά λάθη και δυνατότητα διόρθωσης, προσθήκης σ` ένα λεξικό ή αγνόηση των αποτελεσμάτων.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Пронађи све неисправне речи и омогући додавање у речник или њихово игнорисање.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1548"/>
@@ -6872,12 +6863,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1559"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Омогући или онемогући истицање неисправних речи у Приказу кода.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1564"/>
         <source>&amp;Next Misspelled Word</source>
-        <translation>&amp;Επόμενη ανορθόγραφη λέξη</translation>
+        <translation>&amp;Следећа неисправна реч</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1586"/>
@@ -6887,7 +6878,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1594"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
-        <translation type="unfinished"/>
+        <translation>Очисти тренутно игорисане речи са провере правописа без поновног покретања програма.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1602"/>
@@ -6897,12 +6888,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1607"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation>&amp;Διαγραφή μη χρησιμοποιημένων αρχείων πολυμέσων...</translation>
+        <translation>&amp;Уклони некоришћене медија фајлове...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1612"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
-        <translation>Δ&amp;ιαγραφή μη χρησιμοποιημένων αρχείων εμφάνισης...</translation>
+        <translation>Уклони &amp;некоришћене стилове...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1620"/>
@@ -6915,49 +6906,50 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
 </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Δωρεά&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Донирајте&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Δωρεά για υποστήριξη του λογισμικού Sigil.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Донирајте као подршку за Sigil.&lt;/p&gt;
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1672"/>
         <source>Replace</source>
-        <translation>Αντικατάσταση</translation>
+        <translation>Замени</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1680"/>
         <source>&amp;Replace/Find Next</source>
-        <translation>Αντικατάστασιη/Αναζήτηση &amp;επόμενου</translation>
+        <translation>&amp;Замени/пронађи следеће</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1688"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation>Αντικατάσταση/Αναζήτηση &amp;προηγούμενου</translation>
+        <translation>З&amp;амени/пронађи претходно</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1712"/>
         <source>Mar&amp;k Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Озна&amp;чи селектован текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1720"/>
         <source>Find &amp;Next In File</source>
-        <translation>Ανα&amp;ζήτηση επόμενου στο αρχείο</translation>
+        <translation>Пронађи &amp;следеће у фајлу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1725"/>
         <source>&amp;Replace Next In File</source>
-        <translation>Αντικατάστασ&amp;η επόμενου σε αρχείο</translation>
+        <translation>&amp;Замени следеће у фајлу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1730"/>
         <source>Replace &amp;All In File</source>
-        <translation>Αντικατάσταση &amp;όλων σε αρχείο</translation>
+        <translation>Замени &amp;све у фајлу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1735"/>
         <source>&amp;Count All In File</source>
-        <translation>&amp;Καταμέτρηση όλων στο αρχείο</translation>
+        <translation>&amp;Рачунај све у фајлу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1743"/>
@@ -6972,12 +6964,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1759"/>
         <source>Clip &amp;1</source>
-        <translation>Γρήγορο τμήμα &amp;1</translation>
+        <translation>Шаблон &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1762"/>
         <source>Insert Clip 1</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 1</translation>
+        <translation>Убаци шаблон 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1765"/>
@@ -6987,12 +6979,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1770"/>
         <source>Clip 2&amp;</source>
-        <translation>Γρήγορο τμήμα &amp;2</translation>
+        <translation>Шаблон 2&amp;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>Insert Clip 2</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 2</translation>
+        <translation>Убаци шаблон 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1776"/>
@@ -7002,12 +6994,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1781"/>
         <source>Clip &amp;3</source>
-        <translation>Γρήγορο τμήμα &amp;3</translation>
+        <translation>Шаблон &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1784"/>
         <source>Insert Clip 3</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 3</translation>
+        <translation>Убаци шаблон 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1787"/>
@@ -7017,12 +7009,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1792"/>
         <source>Clip &amp;4</source>
-        <translation>Γρήγορο τμήμα &amp;4</translation>
+        <translation>Шаблон &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1795"/>
         <source>Insert Clip 4</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 4</translation>
+        <translation>Убаци шаблон 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1798"/>
@@ -7032,12 +7024,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1803"/>
         <source>Clip &amp;5</source>
-        <translation>Γρήγορο τμήμα &amp;5</translation>
+        <translation>Шаблон &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1806"/>
         <source>Insert Clip 5</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 5</translation>
+        <translation>Убаци шаблон 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1809"/>
@@ -7047,12 +7039,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1814"/>
         <source>Clip &amp;6</source>
-        <translation>Γρήγορο τμήμα &amp;6</translation>
+        <translation>Шаблон &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Insert Clip 6</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 6</translation>
+        <translation>Убаци шаблон 6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1820"/>
@@ -7062,12 +7054,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>Clip &amp;7</source>
-        <translation>Γρήγορο τμήμα &amp;7</translation>
+        <translation>Шаблон &amp;7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Insert Clip 7</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 7</translation>
+        <translation>Убаци шаблон 7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1831"/>
@@ -7077,12 +7069,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1836"/>
         <source>Clip &amp;8</source>
-        <translation>Γρήγορο τμήμα &amp;8</translation>
+        <translation>Шаблон &amp;8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1839"/>
         <source>Insert Clip 8</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 8</translation>
+        <translation>Убаци шаблон 8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1842"/>
@@ -7092,12 +7084,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1847"/>
         <source>Clip &amp;9</source>
-        <translation>Γρήγορο τμήμα &amp;9</translation>
+        <translation>Шаблон &amp;9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1850"/>
         <source>Insert Clip 9</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 9</translation>
+        <translation>Убаци шаблон 9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1853"/>
@@ -7107,12 +7099,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1858"/>
         <source>Clip 1&amp;0</source>
-        <translation>Γρήγορο τμήμα 1&amp;0</translation>
+        <translation>Шаблон 1&amp;0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1861"/>
         <source>Insert Clip 10</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 10</translation>
+        <translation>Убаци шаблон 10</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1864"/>
@@ -7122,111 +7114,111 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1869"/>
         <source>Clip 11</source>
-        <translation>Γρήγορο τμήμα 11</translation>
+        <translation>Шаблон 11</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1872"/>
         <source>Insert Clip 11</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 11</translation>
+        <translation>Убаци шаблон 11</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>Clip 12</source>
-        <translation>Γρήγορο τμήμα 12</translation>
+        <translation>Шаблон 12</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1880"/>
         <source>Insert Clip 12</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 12</translation>
+        <translation>Убаци шаблон 12</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1885"/>
         <source>Clip 13</source>
-        <translation>Γρήγορο τμήμα 13</translation>
+        <translation>Шаблон 13</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>Insert Clip 13</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 13</translation>
+        <translation>Убаци шаблон 13</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1893"/>
         <source>Clip 14</source>
-        <translation>Γρήγορο τμήμα 14</translation>
+        <translation>Шаблон 14</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Insert Clip 14</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 14</translation>
+        <translation>Убаци шаблон 14</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1901"/>
         <source>Clip 15</source>
-        <translation>Γρήγορο τμήμα 15</translation>
+        <translation>Шаблон 15</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>Insert Clip 15</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 15</translation>
+        <translation>Убаци шаблон 15</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1909"/>
         <source>Clip 16</source>
-        <translation>Γρήγορο τμήμα 16</translation>
+        <translation>Шаблон 16</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>Insert Clip 16</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 16</translation>
+        <translation>Убаци шаблон 16</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1917"/>
         <source>Clip 17</source>
-        <translation>Γρήγορο τμήμα 17</translation>
+        <translation>Шаблон 17</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1920"/>
         <source>Insert Clip 17</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 17</translation>
+        <translation>Убаци шаблон 17</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1925"/>
         <source>Clip 18</source>
-        <translation>Γρήγορο τμήμα 18</translation>
+        <translation> Шаблон 18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1928"/>
         <source>Insert Clip 18</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 18</translation>
+        <translation>Убаци шаблон 18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1933"/>
         <source>Clip 19</source>
-        <translation>Γρήγορο τμήμα 19</translation>
+        <translation> Шаблон 19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1936"/>
         <source>Insert Clip 19</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 19</translation>
+        <translation>Убаци шаблон 19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1941"/>
         <source>Clip 20</source>
-        <translation>Γρήγορο τμήμα 20</translation>
+        <translation>Шаблон 20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1944"/>
         <source>Insert Clip 20</source>
-        <translation>Εισαγωγή γρήγορου τμήματος 20</translation>
+        <translation>Убаци шаблон 20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επικεφαλίδα 1&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Наслов 1&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Μορφοποίηση κειμένου τύπου επικεφαλίδας 1.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 1.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1983"/>
@@ -7238,9 +7230,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επικεφαλίδα 2&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Наслов 2&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Μορφοποίηση κειμένου τύπου επικεφαλίδας 2.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 2.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2003"/>
@@ -7252,9 +7244,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επικεφαλίδα 3&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Наслов 3&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Μορφοποίηση κειμένου τύπου επικεφαλίδας 3.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 3.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2023"/>
@@ -7266,9 +7258,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επικεφαλίδα 4&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Наслов 4&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Μορφοποίηση κειμένου τύπου επικεφαλίδας 4.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 4.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2043"/>
@@ -7280,9 +7272,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επικεφαλίδα 5&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Наслов 5&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Μορφοποίηση κειμένου τύπου επικεφαλίδας 5.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 5.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2063"/>
@@ -7294,9 +7286,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επικεφαλίδα 6&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Наслов 6&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Μορφοποίηση κειμένου τύπου επικεφαλίδας 6.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 6.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2083"/>
@@ -7308,9 +7300,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Παράγραφος&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Параграф&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Μορφοπόιηση κειμένου ως βασική παράγραφο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај параграф као нормалан параграф.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2103"/>
@@ -7325,51 +7317,51 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2119"/>
         <source>Blank HTML File</source>
-        <translation>Κενό HTML αρχείο</translation>
+        <translation>Чисти HTML фајл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Add a new blank HTML file to the book.</source>
-        <translation>Προσθήκη κενού HTML αρχείου στο βιβλίο.</translation>
+        <translation>Додај нов празан HTML фајл у књигу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2131"/>
         <source>Existing Files...</source>
-        <translation>Εξαγώγιμα αρχεία...</translation>
+        <translation>Постојећи фајлови...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Προσθήκη εξαγώγιμων αρχείων&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Додај постојеће фајлове&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Προσθήκη αρχείων από τον υπολογιστή στο βιβλίο.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Додај фајлове са компјутера у књигу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2144"/>
         <source>Add a new blank stylesheet to the book.</source>
-        <translation>Προσθήκη ενός κενού αρχείου εμφάνισης στο βιβλίο.</translation>
+        <translation>Додај нов празан стил у књигу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2152"/>
         <source>Add a new blank svg image file to the book.</source>
-        <translation>Προσθήκη ενός κενού svg αρχείου εικόνας στο βιβλίο.</translation>
+        <translation>Додај нов празан векторски фајл у књигу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Open previous file of the same type.</source>
-        <translation>Άνοιγμα προηγούμενου αρχείου του ίδιου τύπου.</translation>
+        <translation>Отвори претходни фајл истог типа.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Open next file of the same type.</source>
-        <translation>Άνοιγμα επόμενου αρχείου του ίδιου τύπου.</translation>
+        <translation>Отвори следећи фајл истог типа.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2182"/>
         <source>Add the selected text to the Index Editor.</source>
-        <translation>Προσθήκη του επιλεγμένου κειμένου στον επεξεργαστή ευρετηρίου.</translation>
+        <translation>Додај селектовани текст у едитор индекса.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2193"/>
@@ -7379,22 +7371,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2190"/>
         <source>Mark the selected text for inclusion in the Index.</source>
-        <translation>Μαρκάρισμα του επιλεγμένου κειμένου για να συμπεριληφθεί στο ευρετήριο.</translation>
+        <translation>Означи селектован текст за укључење у индекс.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2201"/>
         <source>Generate a new Index HTML file.</source>
-        <translation>Παραγωγή ενός νέου HTML αρχείου ευρετηρίου.</translation>
+        <translation>Генериши нови индекс HTML фајл.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2209"/>
         <source>Create a new HTML file using the current TOC.</source>
-        <translation>Δημιουργία ενός νέου HTML αρχείου χρησιμοποιώντας το συγκεκριμένο TOC.</translation>
+        <translation>Креирај нови HTML фајл користећи тренутни TOC.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2214"/>
         <source>Book&amp;mark Location</source>
-        <translation>Σε&amp;λιδοδείκτη τοποθεσία</translation>
+        <translation>Локац&amp;ија забелешки</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2217"/>
@@ -7409,7 +7401,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2234"/>
         <source>&amp;Back</source>
-        <translation>&amp;Πίσω</translation>
+        <translation>&amp;Врати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2237"/>
@@ -7417,10 +7409,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Πίσω&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Επιστροφή στην τελευταία θέση από σύνδεσμο ή στυλ ή σελιδοδείκτη.&lt;/p&gt;
-    </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2243"/>
@@ -7440,57 +7429,57 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1258"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
-        <translation>&amp;Αναζήτηση &amp;&amp; Αντικατάσταση...</translation>
+        <translation>&amp;Пронађи &amp;&amp; Замени...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1275"/>
         <source>Incre&amp;ase Indent</source>
-        <translation>Α&amp;ύξηση εσοχής</translation>
+        <translation>Уву&amp;ци напред</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1292"/>
         <source>&amp;Decrease Indent</source>
-        <translation>&amp;Μείωση εσοχής</translation>
+        <translation>&amp;Увуци назад</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1309"/>
         <source>Te&amp;xt Direction LTR</source>
-        <translation>Κατεύ&amp;θυνση παραγράφου ΑΚΔ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1325"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation>Κατεύθυνση παραγρά&amp;φου ΔΚΑ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1341"/>
         <source>Text Directi&amp;on Default</source>
-        <translation>Κατεύθυνσ&amp;η παραγράφου βασική</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1353"/>
         <source>Remove &amp;Formatting</source>
-        <translation>Αφαίρε&amp;ση μορφοποίησης</translation>
+        <translation>Обриши &amp;форматирање</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1365"/>
         <source>&amp;Lowercase</source>
-        <translation>&amp;Πεζά</translation>
+        <translation>&amp;Мала слова</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1384"/>
         <source>&amp;Uppercase</source>
-        <translation>&amp;Κεφαλαία</translation>
+        <translation>&amp;Велика слова</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1403"/>
         <source>&amp;Titlecase</source>
-        <translation>&amp;Τίτλος υπόθεσης</translation>
+        <translation>&amp;Почетна слова</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1419"/>
         <source>&amp;Capitalize</source>
-        <translation>&amp;Κεφαλαίο</translation>
+        <translation>&amp;Повећање</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1431"/>
@@ -7500,32 +7489,32 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1460"/>
         <source>Split At &amp;Markers</source>
-        <translation>Διαχωρισμός στους &amp;δείκτες</translation>
+        <translation>Подели на &amp;маркере</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1463"/>
         <source>Split At Sigil split file markers</source>
-        <translation>Διαχωρισμός στο Sigil αρχείο δεικτών</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1471"/>
         <source>Split &amp;Marker</source>
-        <translation>Δείκτης δια&amp;χωρισμού</translation>
+        <translation>Подели &amp;маркер</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1474"/>
         <source>Insert Sigil split file marker</source>
-        <translation>Εισαγωγή αρχείου διαχωρισμού στους δείκτες</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1493"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>&amp;Συχνές Ερωτήσεις...</translation>
+        <translation>&amp;Често постављена питања...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1496"/>
         <source>Frequently Asked Questions</source>
-        <translation>Συχνές Ερωτήσεις</translation>
+        <translation>Често постављена питања</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1527"/>
@@ -7535,20 +7524,20 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Επικύρωση εμφάνισης με W3C&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Потврди стилове са  W3C&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Βεβαίωση πως η εμφάνιση είναι σύμφωνα με τα πρότυπα W3C χρησιμοποιώντας την σχετική υπηρεσία επικύρωσης W3C .&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Потврид своје CSS стилове  са W3C стандардима користећи W3C CSS валидациони сервис на мрежи.&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1556"/>
         <source>&amp;Highlight Misspelled Words</source>
-        <translation>&amp;Επισήμανση ανορθόγραφων λέξεων</translation>
+        <translation>&amp;Истакнуте неисправне речи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1567"/>
         <source>Find the next misspelled word in the book.</source>
-        <translation>Αναζήτηση επόμενης ανορθόγραφης λέξης στο βιβλίο.</translation>
+        <translation>Пронађи следећу неисправну реч у књизи.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1570"/>
@@ -7558,162 +7547,162 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1575"/>
         <source>&amp;Add Misspelled Word</source>
-        <translation>&amp;Προσθήκη μιας λέξης στο λεξικό</translation>
+        <translation>&amp;Додај неисправну реч</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1578"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
-        <translation>Προσθήκη της συγκεκριμένης λέξης στο προεπιλεγόμενο λεξικό χρήστη.</translation>
+        <translation>Додајте тренутно погрешну реч под знак за уметање на подразумевани кориснички речник.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1583"/>
         <source>&amp;Ignore Misspelled Word</source>
-        <translation>&amp;Αγνόηση ορθογραφικών λαθών στις λέξεις</translation>
+        <translation>&amp;Игнориши неисправну реч</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1591"/>
         <source>&amp;Clear Ignored Words</source>
-        <translation>&amp;Καθαρισμός αγνοούμενων λέξεων</translation>
+        <translation>&amp;Очисти неисправне речи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1599"/>
         <source>&amp;Index Editor...</source>
-        <translation>Επεξερ&amp;γαστής ευρετηρίου...</translation>
+        <translation>&amp;Едитор индекса...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1617"/>
         <source>&amp;Reports...</source>
-        <translation>Ανα&amp;φορές...</translation>
+        <translation>&amp;Извештај...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1629"/>
         <source>&amp;Donate...</source>
-        <translation>Δ&amp;ωρεά...</translation>
+        <translation>&amp;Донирајте...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1640"/>
         <source>Close &amp;Other Tabs</source>
-        <translation>Κλείσιμο των &amp;υπολοίπων καρτέλων</translation>
+        <translation>Затвори &amp;друге картице</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1648"/>
         <source>Go To &amp;Line...</source>
-        <translation>Μετάβαση στη &amp;γραμμή...</translation>
+        <translation>Иди на &amp;линију...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1656"/>
         <source>Find &amp;Next</source>
-        <translation>Αναζήτηση επό&amp;μενου</translation>
+        <translation>Пронађи &amp;следеће</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1664"/>
         <source>Find &amp;Previous</source>
-        <translation>Αναζήτηση προ&amp;ηγούμενου</translation>
+        <translation>Пронађи &amp;претходно</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1696"/>
         <source>Replace &amp;All</source>
-        <translation>Αντικατάασταση όλ&amp;ων</translation>
+        <translation>Замени &amp;све</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1704"/>
         <source>&amp;Count All</source>
-        <translation>&amp;Καταμέτρηση όλων</translation>
+        <translation>&amp;Рачунај све</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1748"/>
         <source>&amp;Clip Editor...</source>
-        <translation>Ε&amp;πεξεργαστής γρήγορων τμημάτων...</translation>
+        <translation>&amp;Едитор шаблона...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1751"/>
         <source>Open the Clip Editor.</source>
-        <translation>Άνοιγμα του επεξεργαστή γρήγορων τμημάτων.</translation>
+        <translation>Отвори едитор шаблона.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1975"/>
         <source>Heading &amp;1</source>
-        <translation>Επικεφαλίδα &amp;1</translation>
+        <translation>Наслов &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>Heading &amp;2</source>
-        <translation>Επικεφαλίδα &amp;2</translation>
+        <translation>Наслов &amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2015"/>
         <source>Heading &amp;3</source>
-        <translation>Επικεφαλίδα &amp;3</translation>
+        <translation>Наслов &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2035"/>
         <source>Heading &amp;4</source>
-        <translation>Επικεφαλίδα &amp;4</translation>
+        <translation>Наслов &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2055"/>
         <source>Heading &amp;5</source>
-        <translation>Επικεφαλίδα &amp;5</translation>
+        <translation>Наслов &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2075"/>
         <source>Heading &amp;6</source>
-        <translation>Επικεφαλίδα &amp;6</translation>
+        <translation>Наслов &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2095"/>
         <source>&amp;Normal</source>
-        <translation>&amp;Βασικό</translation>
+        <translation>&amp;Нормално</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2111"/>
         <source>&amp;Preserve Existing Attributes</source>
-        <translation>&amp;Διατήρηση των υφιστάμενων χαρακτηριστικών</translation>
+        <translation>&amp;Сачувај постојеће атрибуте</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2168"/>
         <source>Next &amp;File</source>
-        <translation>Επόμενο &amp;αρχείο</translation>
+        <translation>Следећи &amp;фајл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2179"/>
         <source>&amp;Add To Index Editor</source>
-        <translation>&amp;Προσθήκη στον επεξεργαστή ευρετηρίου</translation>
+        <translation>&amp;Додај у едитор индекса</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2187"/>
         <source>&amp;Mark For Index</source>
-        <translation>Προ&amp;σθήκη στο ευρετήριο</translation>
+        <translation>&amp;Означи за индекс</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2198"/>
         <source>&amp;Create Index</source>
-        <translation>&amp;Δημιουργία ευρετηρίου</translation>
+        <translation>&amp;Креирај индекс</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="941"/>
         <source>&amp;Generate Table Of Contents...</source>
-        <translation>&amp;Παραγωγή  πίνακα περιεχομένων...</translation>
+        <translation>&amp;Генериши садржај...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2206"/>
         <source>&amp;Create HTML Table Of Contents</source>
-        <translation>&amp;Δημιουργία  HTML πίνακα περιεχομένων</translation>
+        <translation>&amp;Креирај HTML садржаја</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2222"/>
         <source>&amp;Go To Link Or Style</source>
-        <translation>Μετά&amp;βαση στο σύνδεσμο ή στο στυλ</translation>
+        <translation>&amp;Иди на линк или стил</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2248"/>
         <source>Paste From Clipboard &amp;History...</source>
-        <translation>Επικόλληση από ι&amp;στορικό...</translation>
+        <translation>Налепи са клипборд &amp;историје...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2256"/>
         <source>&amp;Delete Line</source>
-        <translation>&amp;Διαγραφή γραμμής</translation>
+        <translation>&amp;Обриши линију</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2259"/>
@@ -7728,12 +7717,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1513"/>
         <source>&amp;Validate EPUB</source>
-        <translation>&amp;Επικύρωση EPUB</translation>
+        <translation>&amp;Потврди EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1516"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Потврди EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Верификујте ваш документ са минимумом спецификација epub стандарда. Ово није комплетна шема валидације и не гарантује пуну усклађеност.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1651"/>
@@ -7773,12 +7762,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1740"/>
         <source>&amp;Saved Searches...</source>
-        <translation>Α&amp;ποθηκευμένες αναζητήσεις...</translation>
+        <translation>&amp;Сачувана претрага...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1949"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Προτιμήσεις...</translation>
+        <translation>&amp;Подешавања...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1952"/>
@@ -7788,12 +7777,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1957"/>
         <source>&amp;Zoom Reset</source>
-        <translation>&amp;Επαναφορά προβολής</translation>
+        <translation>&amp;Поврати увећање</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1960"/>
         <source>Zoom Reset</source>
-        <translation>Επαναφορά οθόνης</translation>
+        <translation>Поврати увећање</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1963"/>
@@ -7803,17 +7792,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2141"/>
         <source>Blank Stylesheet</source>
-        <translation>Κενή εμφάνιση</translation>
+        <translation>Празан стил</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2149"/>
         <source>Blank SVG Image</source>
-        <translation>Κενή SVG εικόνα</translation>
+        <translation>Празан векторски фајл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2157"/>
         <source>Pre&amp;vious File</source>
-        <translation>Προ&amp;ηγούμενο αρχείο</translation>
+        <translation>Пре&amp;тходни фајл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2163"/>
@@ -7823,17 +7812,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="924"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>&amp;Επεξεργαστής Μετα-δεδομένων...</translation>
+        <translation>&amp;Едитор метаподатака...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1482"/>
         <source>User &amp;Guide...</source>
-        <translation>Βασικός &amp;οδηγός...</translation>
+        <translation>Корисничко &amp;упутство...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1485"/>
         <source>User Guide</source>
-        <translation>Βασικός οδηγός</translation>
+        <translation>Корисничко упутство</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1488"/>
@@ -7843,12 +7832,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1501"/>
         <source>&amp;Tutorials...</source>
-        <translation>&amp;Οδηγοί χρήσης...</translation>
+        <translation>&amp;Упутства...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1504"/>
         <source>Tutorials</source>
-        <translation>Οδηγοί χρήσης</translation>
+        <translation>Упутства</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2174"/>
@@ -7858,22 +7847,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="641"/>
         <source>Open File</source>
-        <translation>Άνοιγμα αρχείου</translation>
+        <translation>Отвори фајл</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="748"/>
         <source>Save File</source>
-        <translation>Αποθήκευση αρχείου</translation>
+        <translation>Сачувај фајл</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="853"/>
         <source>Go To Line</source>
-        <translation>Μετάβαση στη γραμμή</translation>
+        <translation>Иди на ред</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="853"/>
         <source>Line #</source>
-        <translation>Γραμμή #</translation>
+        <translation>Ред #</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="442"/>
@@ -7910,59 +7899,59 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="395"/>
         <source>Location bookmarked.</source>
-        <translation type="unfinished"/>
+        <translation>Локација је забележена.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="442"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
-        <translation>Θέλετε α ανοίξετε τη σελίδα του συνδέσμου;
+        <translation>Да ли сте сигурни да желите да отворите овај спољни линк?
 
 %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="620"/>
         <source>New file created.</source>
-        <translation>Δημιουργήθηκε το νέο αρχείο. </translation>
+        <translation>Креиран је нови фајл.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="797"/>
         <source>Save a Copy</source>
-        <translation>Αποθήκευση ενός αντίγραφο</translation>
+        <translation>Сачувај копију</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="946"/>
         <source>No CSS styles named</source>
-        <translation>Χωρίς όνομα CSS εμφάνισης</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1238"/>
         <source>Styles deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Стилови обрисани.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1479"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Το αρχειο &quot;%1&quot; δεν έχει δημιουργηθεί.</translation>
+        <translation>Фајл &quot;%1&quot; не постоји.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1530"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
         <source>You cannot insert an id at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Не можете убацити ид на ову позицију.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1662"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1673"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1788"/>
         <source>Select the destination to paste into first.</source>
-        <translation type="unfinished"/>
+        <translation>Одаберите прво дестинацију за налепи.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1827"/>
@@ -7973,79 +7962,80 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="1834"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
-        <translation type="unfinished"/>
+        <translation>Да ли сте сигурни да желите да спојите одабране фајлове?
+Ова радња се не може повратити.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1896"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Линк стила је оштећен: %1, XML није добро формиран.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
         <source>Merge cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Спајање фајлова није успело јер XML није добро формиран.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1878"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
-        <translation type="unfinished"/>
+        <translation>Спајање завршено. Можда ћете морати да регенеришете или измените садржај.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2027"/>
         <source>Word updated.</source>
-        <translation type="unfinished"/>
+        <translation>Реч је ажурирана.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2100"/>
         <source>File(s) deleted.</source>
-        <translation>Αρχείο (-α) διαγράφησαν.</translation>
+        <translation>Фајл(ови) обрисан.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2148"/>
         <source>Table Of Contents generated.</source>
-        <translation>Ο πίνακας περιεχομένων δημιουργήθηκε.</translation>
+        <translation>Садржај је генерисан.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2473"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
-        <translation type="unfinished"/>
+        <translation>Овај EPUB не садржи било какав CSS стил за потврђивање.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>File cannot be split at this position.</source>
-        <translation>Το αρχείο δεν μπορει να διαχωριστεί σ` αυτή τη θέση.</translation>
+        <translation>Фајл не може бити подељен на овој позицији.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
         <source>Split completed.</source>
-        <translation>Ο διαχωρισμός ολοκληρώθηκε.</translation>
+        <translation>Дељење је завршено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
-        <translation>Ο διαχωρισμός ολοκληρώθηκε. Χρειάζεται ανανέωση του πίνακα των περιεχομένων.</translation>
+        <translation>Дељење је завршено. Можда ћете морати да ажурирате садржај.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation>Δε βρέθηκε αρχείο με δείκτες. Χρήση του Εισαγώγή και δείκτες διαχωρισμού.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3385"/>
         <source>File loaded.</source>
-        <translation>Το αρχείο φορτώθηκε.</translation>
+        <translation>Фајл је учитан.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
         <source>Saving EPUB...</source>
-        <translation>Αποθήκευση EPUB...</translation>
+        <translation>Чување EPUB...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation>Το Sigil αδυνατεί να αποθηκεύση στο τύπο  &quot;%1&quot;.
-Παρακαλώ να γίνει επιλογή ενός διαφορετικού τύπου αρχείου.</translation>
+        <translation>Sigil не може сачувати фајлове типа &quot;%1&quot;.
+Молим одаберите другачији форма.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="379"/>
@@ -8055,22 +8045,22 @@ Please choose a different format.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="488"/>
         <source>was updated</source>
-        <translation>Έγινε ενημέρωση.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="495"/>
         <source>Warning</source>
-        <translation>Προειδοποίηση</translation>
+        <translation>Упозорење</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="525"/>
         <source>Select Show Details for more information.</source>
-        <translation>Επιλογή προβολής λεπτομερειών για περισσότερες πληροφορίες.</translation>
+        <translation>Одабери Прикажи детаље за више информација.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="570"/>
         <source>Sigil is closing...</source>
-        <translation>Το λογισμικό Sigil κλείνει...</translation>
+        <translation>Sigil се затвара...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="678"/>
@@ -8106,12 +8096,12 @@ Please choose a different format.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1868"/>
         <source>Cannot merge file %1</source>
-        <translation type="unfinished"/>
+        <translation>Не могу спојити фајл %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2133"/>
         <source>Generate TOC cancelled.</source>
-        <translation>Η δημιουργία του TOC ακυρώνεται.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2150"/>
@@ -8121,14 +8111,14 @@ Please choose a different format.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
         <source>Line: %1, Col: %2</source>
-        <translation>Γραμμή: %1, Πεδίο: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>Στο έγγραφο έχουν γίνει αλλαγές.
-Θέλετε να αποθηκευτούν οι αλλαγές σας;</translation>
+        <translation>Документ је измењен.
+Да ли желите да сачувате промене?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3359"/>
@@ -8143,57 +8133,57 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/main.ui" line="333"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Додаци</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2264"/>
         <source>Manage Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Управљај додацима</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="240"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Улаз</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="246"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Излаз</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="258"/>
         <source>Validation</source>
-        <translation type="unfinished"/>
+        <translation>Потврђивање</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="495"/>
         <source>The file was NOT well formed and may be corrupted.</source>
-        <translation type="unfinished"/>
+        <translation>Фајл НИЈЕ добро формиран и може бити оштећен.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="523"/>
         <source>This EPUB contains errors.</source>
-        <translation type="unfinished"/>
+        <translation>Овај EPUB садржи грешке.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="876"/>
         <source>Image does not exist: </source>
-        <translation>Οι εικόνες που δεν έχουν βρεθεί: </translation>
+        <translation>Слика не постоји:</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1019"/>
         <source>Add Cover</source>
-        <translation>Προσθήκη εξώφυλλου...</translation>
+        <translation>Додај омот</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1099"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation type="unfinished"/>
+        <translation>Неочекивана грешка. Само фајлови слика могу бити коришћени као омог.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1116"/>
         <source>Cover added.</source>
-        <translation>Το εξώφυλλο προστέθηκε.</translation>
+        <translation>Омот је додат.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1248"/>
@@ -8208,53 +8198,53 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
         <source>Unused media files deleted.</source>
-        <translation type="unfinished"/>
+        <translation>Некоришћени медијски фајлови су избрисани.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1390"/>
         <source>There are no unused image, video or audio files to delete.</source>
-        <translation type="unfinished"/>
+        <translation>Нема некоришћених слика, видео и аудио фајлова за брисање</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
         <source>You cannot insert a file at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Не можете убацити фајл на ову позицију.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1434"/>
         <source>Insert File</source>
-        <translation>Εισαγωγή αρχείου</translation>
+        <translation>Убаци фајл</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1538"/>
         <source>You must select text before inserting a new id.</source>
-        <translation type="unfinished"/>
+        <translation>Морате селектовати текст пре убацивања новог ид.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1570"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1594"/>
         <source>You cannot insert a link at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Не можете убацити линк на ову позицију.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1578"/>
         <source>You must select text before inserting a new link.</source>
-        <translation type="unfinished"/>
+        <translation>Морате селектовати текст пре убацивања новог линка.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1589"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Линк је неисправан - не може садржати &apos;&lt;&apos; or &apos;&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1616"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Ставка је неисправна - не може садржати &apos;&lt;&apos; or &apos;&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1681"/>
         <source>Pasted clip entry %1.</source>
-        <translation type="unfinished"/>
+        <translation>Налепљена ставка шаблона %1.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1848"/>
@@ -8264,28 +8254,28 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
         <source>Edit Table of Contents cancelled.</source>
-        <translation>Η επεξεργασία του πίνακα περιεχομένων ακυρώθηκε.</translation>
+        <translation>Измена садржаја је отказана.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2116"/>
         <source>Table Of Contents edited.</source>
-        <translation>Ο πίνακας περιεχομένων επεξεργάστηκε.</translation>
+        <translation>Садржај је измењен.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2275"/>
         <source>Text selection marked.</source>
-        <translation>Το επιλεγμένο κείμενο μαρκαρίστηκε.</translation>
+        <translation>Избор текста је означен.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2277"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2295"/>
         <source>Text selection unmarked.</source>
-        <translation type="unfinished"/>
+        <translation>Избор текста је одзначен.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
         <source>Cannot split: %1 XML is not well formed</source>
-        <translation type="unfinished"/>
+        <translation>Немогућа подела: %1 XML није добро формиран</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
@@ -8304,73 +8294,71 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3371"/>
         <source>Loading file...</source>
-        <translation>Φόρτωση αρχείου...</translation>
+        <translation>Учитавање фајла...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3412"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>Ο δημιουργός έχει κρυπτογραφήσει το αρχείο με το σύστημα DRM. Το λογισμικό Sigil δεν μπορεί να ανοίξει τα συγκεκριμένα αρχεία.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3419"/>
         <source>Cannot load EPUB: %1</source>
-        <translation>Αδυναμία ανάγνωσης αρχείου EPUB: %1</translation>
+        <translation>Не могу учитати EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
         <source>Cannot load file %1: %2</source>
-        <translation>Αδυναμία φόρτωσης αρχείου %1: %2</translation>
+        <translation>Не могу учитати фајл %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
-        <translation>Αυτό το EPUB έχει HTML αρχεία που δεν έχουν την κατάλληλη μορφή και ο συγκεκριμένος κώδικας θα καθαριστεί αυτόματα στην αποθήκευση. Αποθηκεύοντας το αρχείο τα προβληματικά αρχεία θα διορθωθούν αυτόματα αλλά μπορούν να χαθούν και χρήσιμα δεδομένα.
-
-Θα θέλατε να διορθωθούν αυτόματα τα αρχεία πριν την αποθήκευση;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3517"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation>EPUB αποθηκεύτηκε, αλλά ορισμένα HTML αρχεία δεν έχουν την κατάλληλη μορφή.</translation>
+        <translation>EPUB сачуван, али нису сви HTML фајлови добро формирани.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3519"/>
         <source>EPUB saved.</source>
-        <translation>EPUB αποθηκεύτηκε.</translation>
+        <translation>EPUB сачуван.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
         <source>Cannot save file %1: %2</source>
-        <translation>Αδυναμία αποθήκευσης αρχείου %1: %2</translation>
+        <translation>Не могу сачувати фајл %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3660"/>
         <source>EPUB files (*.epub)</source>
-        <translation>EPUB αρχεία (*.epub)</translation>
+        <translation>EPUB фајлови (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3661"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3662"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>HTML αρχεία (*.htm *.html *.xhtml)</translation>
+        <translation>HTML фајлови (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
         <source>Text files (*.txt)</source>
-        <translation>Αρχεία κειμένου (*.txt)</translation>
+        <translation>Текстуални фајлови (*.txt)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3665"/>
         <source>All files (*.*)</source>
-        <translation>Όλα τα αρχεία (*.*)</translation>
+        <translation>Сви фајлови (*.*)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3673"/>
         <source>EPUB file (*.epub)</source>
-        <translation>EPUB αρχείο (*.epub)</translation>
+        <translation>EPUB фајл (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
@@ -8385,17 +8373,17 @@ Do you want to automatically fix the files before saving?</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
         <source>ON</source>
-        <translation>Ανοιχτό</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
         <source>OFF</source>
-        <translation>Κλειστό</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3780"/>
         <source>&amp;%1 %2</source>
-        <translation>&amp;%1 %2</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8403,32 +8391,32 @@ Do you want to automatically fix the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>Metadata Editor</source>
-        <translation>Επεξεργαστής Μεταδεδομένων</translation>
+        <translation>Едитор метаподатака</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="28"/>
         <source>The main title of the book.  At least one title is required.</source>
-        <translation type="unfinished"/>
+        <translation>Главни наслов књиге. Најмање један наслов је потребан.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="31"/>
         <source>Title:</source>
-        <translation>Τίτλος:</translation>
+        <translation>Наслов:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="125"/>
         <source>Add basic metadata like Subject, Dates, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Додај основне метаподатке као предмет, датум, итд.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="135"/>
         <source>Add the name of a Creator or Contributor.</source>
-        <translation type="unfinished"/>
+        <translation>Додај име креатора или сарадника</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="138"/>
         <source>Add Role</source>
-        <translation>Προσθήκη ρόλου</translation>
+        <translation>Додај улогу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="202"/>
@@ -8445,12 +8433,12 @@ Readers may display entries in the order they are listed.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="167"/>
         <source>Copy</source>
-        <translation>Αντιγραφή</translation>
+        <translation>Копирај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="174"/>
         <source>Remove all selected rows.</source>
-        <translation>Αφαίρεση όλων των επιλεγμένων κελιών.</translation>
+        <translation>Обриши све одабране редове.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="206"/>
@@ -8461,27 +8449,27 @@ Readers may display entries in the order they are listed.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="99"/>
         <source>Author:</source>
-        <translation>Συγγραφέας:</translation>
+        <translation>Аутор:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="48"/>
         <source>The primary language of the book.  Required.&lt;p&gt;Use Add Basic to add additional optional languages.&lt;p&gt;Change the default language for new books in Preferences-&gt;Language.&lt;/P&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Примарни језик књиге.  Обавезно.&lt;p&gt;Користи Додај основно за додавање опционих језика.&lt;p&gt;Промени подразумевани језик на нову књигу у Подешавања-&gt;Језик.&lt;/P&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="51"/>
         <source>Language:</source>
-        <translation>Γλώσσα:</translation>
+        <translation>Језик:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="68"/>
         <source>See Author.</source>
-        <translation type="unfinished"/>
+        <translation>Погледајте аутора.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="71"/>
         <source>File-As:</source>
-        <translation>Αρχείο-Ως:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="88"/>
@@ -8499,7 +8487,7 @@ Click &apos;Add Role&apos; to add more authors, creators, or contributors.</sour
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="128"/>
         <source>Add Basic</source>
-        <translation>Προσθήκη βασικών</translation>
+        <translation>Додај основно</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="161"/>
@@ -8512,44 +8500,44 @@ entries of the same type.</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="177"/>
         <source>Remove</source>
-        <translation>Αφαίρεση</translation>
+        <translation>Обриши</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="335"/>
         <source>Metadata saved.</source>
-        <translation>Τα μεταδεδομένα αποθηκεύτηκαν.</translation>
+        <translation>Метаподаци сачувани.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="413"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="414"/>
         <source>Value</source>
-        <translation>Τιμή</translation>
+        <translation>Вредност</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="415"/>
         <source>File As</source>
-        <translation>Αρχείο ως</translation>
+        <translation>Фајл као</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="416"/>
         <source>Role Type</source>
-        <translation>Τύπος ρόλου</translation>
+        <translation>Тип улоге</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
         <source>Sigil: Metadata Editor</source>
-        <translation>Sigil: Επεξεργαστής μεταδεδομένων</translation>
+        <translation>Sigil: Едитор метаподатака</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
         <source>The metadata may have been modified.
 Do you want to save your changes?</source>
-        <translation>Τα μεταδεδομένα έχουν επεξεργαστεί.
-Να γίνει αποθήκευση των αλλαγών;</translation>
+        <translation>Метаподаци су измењени.
+Да ли желите да сачувате измене?</translation>
     </message>
 </context>
 <context>
@@ -8557,7 +8545,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
         <source>Subject</source>
-        <translation>Θέμα</translation>
+        <translation>Предмет</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
@@ -8567,53 +8555,53 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Description</source>
-        <translation>Περιγραφή</translation>
+        <translation>Опис</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation>Περιγραφή του περιεχομένου της έκδοσης.</translation>
+        <translation>Опис садржаја публикације.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Publisher</source>
-        <translation>Εκδότης</translation>
+        <translation>Издавач</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation>Ένας φορέας αρμόδιος για την διάθεση της έκδοσης.</translation>
+        <translation>Правно лице одговорно за израду публикација је доступно.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>The date of publication.</source>
-        <translation>Η ημερομηνία δημοσίευσης</translation>
+        <translation>Датум публиковања.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>The date of creation.</source>
-        <translation>Η ημερομηνία δημιουργίας</translation>
+        <translation>Датум креирања.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>The date of modification.</source>
-        <translation>Η ημερομηνία τροποποίησης</translation>
+        <translation>Датум измене.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Type</source>
-        <translation>Τύπος</translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation type="unfinished"/>
+        <translation>Природа или жанр садржаја.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Format</source>
-        <translation>Μορφοποίηση</translation>
+        <translation>Формат</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
@@ -8623,7 +8611,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Source</source>
-        <translation>Πηγή</translation>
+        <translation>Извор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
@@ -8633,7 +8621,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Language</source>
-        <translation>Γλώσσα</translation>
+        <translation>Језик</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
@@ -8643,7 +8631,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Relation</source>
-        <translation type="unfinished"/>
+        <translation>Однос</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
@@ -8663,7 +8651,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Rights</source>
-        <translation>Δικαιώματα</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
@@ -8673,12 +8661,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Title</source>
-        <translation>Τίτλος</translation>
+        <translation>Наслов</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>An optional extra title of the publication in addition to the main title already entered.</source>
-        <translation>Ένας προαιρετικός επιπλέον τίτλος της έκδοσης, πέραν του ήδη εισαχθέντα κύριου τίτλου.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
@@ -8688,17 +8676,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>International Standard Book Number</source>
-        <translation type="unfinished"/>
+        <translation>Међународни стандардни број књиге</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>International Standard Serial Number</source>
-        <translation type="unfinished"/>
+        <translation>Међународни стандардни серијски број</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
         <source>Actor</source>
-        <translation type="unfinished"/>
+        <translation>Учесник</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
@@ -8708,7 +8696,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
         <source>Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Адаптер</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
@@ -8718,7 +8706,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Analyst</source>
-        <translation type="unfinished"/>
+        <translation>Аналитичар</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
@@ -8728,7 +8716,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Animator</source>
-        <translation type="unfinished"/>
+        <translation>Аниматор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
@@ -8758,7 +8746,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Architect</source>
-        <translation type="unfinished"/>
+        <translation>Архитекта</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
@@ -8768,7 +8756,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Arranger</source>
-        <translation type="unfinished"/>
+        <translation>Аранжер</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
@@ -8788,7 +8776,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Artist</source>
-        <translation type="unfinished"/>
+        <translation>Уметник</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
@@ -8798,7 +8786,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Artistic director</source>
-        <translation type="unfinished"/>
+        <translation>Уметнички директор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
@@ -8818,7 +8806,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Associated name</source>
-        <translation type="unfinished"/>
+        <translation>Име удружења</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
@@ -8848,7 +8836,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Author</source>
-        <translation>Συγγραφέας</translation>
+        <translation>Аутор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
@@ -8878,7 +8866,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Author of dialog</source>
-        <translation type="unfinished"/>
+        <translation>Аутор дијалога</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
@@ -8938,7 +8926,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Book designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер књиге</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
@@ -8948,7 +8936,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Book producer</source>
-        <translation type="unfinished"/>
+        <translation>Продуцент књиге</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
@@ -8978,7 +8966,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Bookseller</source>
-        <translation>Βιβλιοπώλης</translation>
+        <translation>Књижар</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
@@ -9038,7 +9026,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Client</source>
-        <translation type="unfinished"/>
+        <translation>Клијент</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
@@ -9048,7 +9036,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Collaborator</source>
-        <translation type="unfinished"/>
+        <translation>Сарадник</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
@@ -9078,7 +9066,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Commentator</source>
-        <translation type="unfinished"/>
+        <translation>Коментатор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
@@ -9088,7 +9076,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Commentator for written text</source>
-        <translation type="unfinished"/>
+        <translation>Коментатор за писани текст</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
@@ -9138,7 +9126,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Composer</source>
-        <translation>Συνθέτης</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
@@ -9148,7 +9136,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Compositor</source>
-        <translation type="unfinished"/>
+        <translation>Композитор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
@@ -9178,7 +9166,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Consultant</source>
-        <translation type="unfinished"/>
+        <translation>Консултант</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
@@ -9188,7 +9176,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Consultant to a project</source>
-        <translation type="unfinished"/>
+        <translation>Консултант пројекта</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
@@ -9258,7 +9246,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Contractor</source>
-        <translation type="unfinished"/>
+        <translation>Извођач радова</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
@@ -9269,7 +9257,7 @@ Do you want to save your changes?</source>
         <location filename="../../BookManipulation/Metadata.cpp" line="261"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Contributor</source>
-        <translation type="unfinished"/>
+        <translation>Сарадник</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
@@ -9299,7 +9287,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Corrector</source>
-        <translation>Διορθωτής</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
@@ -9309,7 +9297,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Correspondent</source>
-        <translation type="unfinished"/>
+        <translation>Кореспондент</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
@@ -9319,7 +9307,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Costume designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер костима</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
@@ -9329,7 +9317,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Cover designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер омота</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
@@ -9340,12 +9328,12 @@ Do you want to save your changes?</source>
         <location filename="../../BookManipulation/Metadata.cpp" line="260"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Creator</source>
-        <translation>Δημιουργός</translation>
+        <translation>Оснивач</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="262"/>
         <source>Date</source>
-        <translation>Ημερομηνία</translation>
+        <translation>Датум</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
@@ -9353,27 +9341,27 @@ Do you want to save your changes?</source>
         <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Идентификатор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Date: Publication</source>
-        <translation>Ημερομηνία: Δημοσίευση</translation>
+        <translation>Датум: Публикација</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>Date: Creation</source>
-        <translation>Ημερομηνία: Δημιουργία</translation>
+        <translation>Датум: Оснивање</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Date: Modification</source>
-        <translation>Ημερομηνία: Τροποποίηση</translation>
+        <translation>Датум: Измене</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Date (custom)</source>
-        <translation>Ημερομηνία (προσαρμοσμένη)</translation>
+        <translation>Датум (прилагођено)</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
@@ -9383,7 +9371,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>Identifier (custom)</source>
-        <translation type="unfinished"/>
+        <translation>Идентификација (прилагођено)</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
@@ -9428,7 +9416,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Data manager</source>
-        <translation type="unfinished"/>
+        <translation>Менаџер података</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
@@ -9528,7 +9516,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
@@ -9538,7 +9526,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Director</source>
-        <translation type="unfinished"/>
+        <translation>Директор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
@@ -9558,7 +9546,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Distributor</source>
-        <translation type="unfinished"/>
+        <translation>Дистрибутер</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
@@ -9568,7 +9556,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Donor</source>
-        <translation type="unfinished"/>
+        <translation>Донор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
@@ -9598,7 +9586,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Editor</source>
-        <translation type="unfinished"/>
+        <translation>Едитор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
@@ -9628,7 +9616,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Engineer</source>
-        <translation type="unfinished"/>
+        <translation>Инжењер</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
@@ -9658,7 +9646,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Expert</source>
-        <translation type="unfinished"/>
+        <translation>Експерт</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
@@ -9683,7 +9671,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Film editor</source>
-        <translation type="unfinished"/>
+        <translation>Филмски едитор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
@@ -9708,7 +9696,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Former owner</source>
-        <translation type="unfinished"/>
+        <translation>Бивши власник</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
@@ -9738,7 +9726,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Geographic information specialist</source>
-        <translation type="unfinished"/>
+        <translation>Географске информације</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
@@ -9778,7 +9766,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Illustrator</source>
-        <translation type="unfinished"/>
+        <translation>Илустратор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
@@ -9798,7 +9786,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Instrumentalist</source>
-        <translation type="unfinished"/>
+        <translation>Инструменталист</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
@@ -9838,7 +9826,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Laboratory</source>
-        <translation type="unfinished"/>
+        <translation>Лабораторија</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
@@ -9848,7 +9836,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Laboratory director</source>
-        <translation type="unfinished"/>
+        <translation>Директор лабораторије</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
@@ -9858,7 +9846,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Landscape architect</source>
-        <translation type="unfinished"/>
+        <translation>Пејзажни архитекта</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
@@ -9978,7 +9966,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Lighting designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер светла</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
@@ -10008,7 +9996,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Manufacturer</source>
-        <translation type="unfinished"/>
+        <translation>Произвођач</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
@@ -10048,7 +10036,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Moderator</source>
-        <translation type="unfinished"/>
+        <translation>Модератор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
@@ -10058,7 +10046,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Monitor</source>
-        <translation type="unfinished"/>
+        <translation>Монитор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
@@ -10078,7 +10066,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Musical director</source>
-        <translation type="unfinished"/>
+        <translation>Музички директор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
@@ -10098,7 +10086,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Narrator</source>
-        <translation type="unfinished"/>
+        <translation>Наратор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
@@ -10118,7 +10106,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Organizer of meeting</source>
-        <translation type="unfinished"/>
+        <translation>Организатор састанака</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
@@ -10138,7 +10126,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Other</source>
-        <translation type="unfinished"/>
+        <translation>Друго</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
@@ -10148,7 +10136,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Власник</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
@@ -10178,7 +10166,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Patent holder</source>
-        <translation type="unfinished"/>
+        <translation>Власник патента</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
@@ -10218,7 +10206,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Photographer</source>
-        <translation type="unfinished"/>
+        <translation>Фотограф</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
@@ -10308,7 +10296,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
         <source>Producer</source>
-        <translation type="unfinished"/>
+        <translation>Продуцент</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
@@ -10338,7 +10326,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
         <source>Programmer</source>
-        <translation type="unfinished"/>
+        <translation>Програмер</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
@@ -10348,7 +10336,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
         <source>Project director</source>
-        <translation type="unfinished"/>
+        <translation>Директор пројекта</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
@@ -10413,7 +10401,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
         <source>Redactor</source>
-        <translation type="unfinished"/>
+        <translation>Редактор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
@@ -10433,7 +10421,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Reporter</source>
-        <translation type="unfinished"/>
+        <translation>Репортер</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
@@ -10553,7 +10541,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Scenarist</source>
-        <translation type="unfinished"/>
+        <translation>Сценариста</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
@@ -10583,7 +10571,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
         <source>Sculptor</source>
-        <translation type="unfinished"/>
+        <translation>Скулптор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
@@ -10603,7 +10591,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
         <source>Secretary</source>
-        <translation type="unfinished"/>
+        <translation>Секретар</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
@@ -10643,7 +10631,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
         <source>Sound designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер звука</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
@@ -10653,7 +10641,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
         <source>Speaker</source>
-        <translation type="unfinished"/>
+        <translation>Спикер</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
@@ -10663,7 +10651,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
         <source>Sponsor</source>
-        <translation type="unfinished"/>
+        <translation>Спонзор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
@@ -10866,7 +10854,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="137"/>
         <source>Start</source>
-        <translation>Έναρξη</translation>
+        <translation>Почетак</translation>
     </message>
 </context>
 <context>
@@ -10874,18 +10862,18 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="588"/>
         <source>The filename cannot be empty.</source>
-        <translation>Το όνομα αρχείου δεν μπορει να είναι άδειο.</translation>
+        <translation>Име фајла не може бити празно.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="577"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
-        <translation>Το όνομα του αρχείου δεν μπορει να περιέχει τον χαρακτήρα &quot;%1&quot;.</translation>
+        <translation>Име фајла не може садржати карактер &quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="595"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
-        <translation>Το όνομα του αρχείου &quot;%1&quot; χρησιμοποιείται ήδη.
+        <translation>Име фајла &quot;%1&quot; је већ у употреби.
 </translation>
     </message>
 </context>
@@ -10894,27 +10882,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="14"/>
         <source>Open With Application Name</source>
-        <translation>Άνοιγμα με την εφαρμογή</translation>
+        <translation>Отвори са апликацијом</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="20"/>
         <source>Enter the name to display in the Open With menu for this application:</source>
-        <translation>Εισαγωγή του ονόματος που θα εμφανίζεται  στο Άνοιγμα με... του μενού για την εφαρμογή:</translation>
+        <translation>Унеси име за приказ у менију Отвори са за ову апликацију:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="48"/>
         <source>Filename:</source>
-        <translation>Όνομα αρχείου:</translation>
+        <translation>Име фајла:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="55"/>
         <source>Menu Name:</source>
-        <translation>Όνομα μενού:</translation>
+        <translation>Име менија:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="62"/>
         <source>No File</source>
-        <translation>Δεν υπάρχει αρχείο</translation>
+        <translation>Без фајла</translation>
     </message>
 </context>
 <context>
@@ -10922,48 +10910,48 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation type="unfinished"/>
+        <translation>Покретач додатака</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Додатак:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
         <source>Start</source>
-        <translation>Έναρξη</translation>
+        <translation>Почетак</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="61"/>
         <source>Cancel</source>
-        <translation>Ακύρωση</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="90"/>
         <source>Message</source>
-        <translation>Μήνυμα</translation>
+        <translation>Порука</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="97"/>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>У реду</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="386"/>
         <source>Status: </source>
-        <translation type="unfinished"/>
+        <translation>Статус:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="99"/>
         <source>Error: A plugin by that name does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Грешка: Прикључак са тим именом не постоји</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="123"/>
         <source>Error: Interpreter </source>
-        <translation type="unfinished"/>
+        <translation>Грешка: Интерпретатор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="123"/>
@@ -10973,42 +10961,42 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="136"/>
         <source>Installation Error: plugin launcher </source>
-        <translation type="unfinished"/>
+        <translation>Инсталациона грешка: покретач додатка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="137"/>
         <source> does not exist</source>
-        <translation type="unfinished"/>
+        <translation>не постоји</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="142"/>
         <source>Error: plugin engine </source>
-        <translation type="unfinished"/>
+        <translation>Грешка: погон додатка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="143"/>
         <source> is not supported (yet!)</source>
-        <translation type="unfinished"/>
+        <translation>није подржано (још!)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source>Status: ready</source>
-        <translation type="unfinished"/>
+        <translation>Статус: спреман</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="175"/>
         <source>Error: plugin can not start</source>
-        <translation type="unfinished"/>
+        <translation>Грешка: додатак се не може покренути</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="220"/>
         <source>Launcher process crashed</source>
-        <translation type="unfinished"/>
+        <translation>Процес покретања је срушен</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="231"/>
         <source>Status: finished</source>
-        <translation type="unfinished"/>
+        <translation>Статус: завршено</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="243"/>
@@ -11024,22 +11012,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="342"/>
         <source>Plugin failed to start</source>
-        <translation type="unfinished"/>
+        <translation>Неуспео старт додатка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="350"/>
         <source>Status: error</source>
-        <translation type="unfinished"/>
+        <translation>Статус: грешка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="364"/>
         <source>Plugin cancelled</source>
-        <translation type="unfinished"/>
+        <translation>Додатак је отказан</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="365"/>
         <source>Status: cancelled</source>
-        <translation type="unfinished"/>
+        <translation>Статус: отказано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="447"/>
@@ -11049,7 +11037,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
         <source>Incorrect XHTML/XML: </source>
-        <translation type="unfinished"/>
+        <translation>Неисправан XHTML/XML:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="503"/>
@@ -11059,7 +11047,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="515"/>
         <source>Check Report</source>
-        <translation type="unfinished"/>
+        <translation>Провера извештаја</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="516"/>
@@ -11075,17 +11063,17 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="549"/>
         <source>Status: deleting </source>
-        <translation type="unfinished"/>
+        <translation>Статус: брисање</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
         <source>Status: Loading </source>
-        <translation type="unfinished"/>
+        <translation>Статус: Учитавање</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="590"/>
         <source>Input Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Улазни додатак</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="591"/>
@@ -11095,7 +11083,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="617"/>
         <source>Status: adding </source>
-        <translation type="unfinished"/>
+        <translation>Статус: додавање</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="654"/>
@@ -11105,7 +11093,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="683"/>
         <source>Status: modifying </source>
-        <translation type="unfinished"/>
+        <translation>Статус: измене</translation>
     </message>
 </context>
 <context>
@@ -11114,89 +11102,89 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="137"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Додаци</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="217"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Верзија</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="222"/>
         <source>Author</source>
-        <translation>Συγγραφέας</translation>
+        <translation>Аутор</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="227"/>
         <source>Type</source>
-        <translation>Τύπος</translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="232"/>
         <source>Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>Интерпретатор</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="240"/>
         <source>Remove All</source>
-        <translation>Αφαίρεση όλων</translation>
+        <translation>Обриши све</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="144"/>
         <source>Remove Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Обриши додатак</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="151"/>
         <source>Interpreters</source>
-        <translation type="unfinished"/>
+        <translation>Интерпретатори</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="158"/>
         <source>Add Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Додај додатак</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
-        <translation type="unfinished"/>
+        <translation>Путања до интерпретатора</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
         <source>Python2.7:</source>
-        <translation type="unfinished"/>
+        <translation>Python2.7:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
         <source>Python3.4:</source>
-        <translation type="unfinished"/>
+        <translation>Python3.4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="105"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Ауто</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="64"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="112"/>
         <source>Set</source>
-        <translation type="unfinished"/>
+        <translation>Подеси</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="95"/>
         <source>Select Plugin Zip Archive</source>
-        <translation type="unfinished"/>
+        <translation>Одабери зип архиву додатка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="95"/>
         <source>Plugin Files (*.zip)</source>
-        <translation type="unfinished"/>
+        <translation>Фајлови додатка (*.zip)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="111"/>
@@ -11206,17 +11194,17 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="114"/>
         <source>Warning: A plugin by that name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Упозорење: Додатак са тим именом већ постоји</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="117"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation type="unfinished"/>
+        <translation>Грешка: Додатак не може бити отпакован</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation type="unfinished"/>
+        <translation>Грешка: Додатак није исправан Sigil додатак.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="153"/>
@@ -11226,24 +11214,24 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="172"/>
         <source>Remove All Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Обриши све додатке</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="173"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation type="unfinished"/>
+        <translation>Да ли сте сигурни да желите да обришете све ваше додатке?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="230"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="240"/>
         <source>Select Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>Одабери интерпретатор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="256"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="272"/>
         <source>Incorrect Interpreter Path selected</source>
-        <translation type="unfinished"/>
+        <translation>Одабрана путања до интерпретатора није исправна</translation>
     </message>
 </context>
 <context>
@@ -11251,22 +11239,22 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Προτιμήσεις</translation>
+        <translation>Подешавања</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="99"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="99"/>
         <source>Changes will take effect when you restart Sigil.</source>
-        <translation>Οι αλλαγές θα εφαρμοστούν με την επόμενη εκτέλεση του Sigil.</translation>
+        <translation>Промене ће имати дејство када поново покренете Sigil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="166"/>
         <source>Open Preferences Location</source>
-        <translation>Άνοιγμα τοποθεσίας προτιμήσεων</translation>
+        <translation>Отвори локацију подешавања</translation>
     </message>
 </context>
 <context>
@@ -11274,12 +11262,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
         <source>Preserve Entities</source>
-        <translation type="unfinished"/>
+        <translation>Чување ентитета</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation type="unfinished"/>
+        <translation>Ентитети за чување</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
@@ -11290,27 +11278,27 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
         <source>Add</source>
-        <translation>Προσθήκη</translation>
+        <translation>Додај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="58"/>
         <source>Remove</source>
-        <translation>Αφαίρεση</translation>
+        <translation>Обриши</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="65"/>
         <source>Remove All</source>
-        <translation>Αφαίρεση όλων</translation>
+        <translation>Обриши све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Add Entities</source>
-        <translation type="unfinished"/>
+        <translation>Додај ентитете</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Entities:</source>
-        <translation type="unfinished"/>
+        <translation>Ентитети:</translation>
     </message>
 </context>
 <context>
@@ -11318,7 +11306,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="37"/>
         <source>Preview</source>
-        <translation>Προεπισκόπηση</translation>
+        <translation>Преглед</translation>
     </message>
 </context>
 <context>
@@ -11326,165 +11314,165 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="44"/>
         <source>Counting occurrences..</source>
-        <translation>Αναφορά συμβάντων..</translation>
+        <translation>Наставак појава...</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="64"/>
         <source>Replacing search term...</source>
-        <translation>Αντικατάσταση του όρου αναζήτησης...</translation>
+        <translation>Замена термина претраге...</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="93"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="94"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Новија верзија за Sigil је доступна, верзија &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Да ли желите да идете на страну за преузимање?&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="360"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>Αδυναμία ανάγνωσης αρχείου %1:
+        <translation>Није могуће читати фајл %1:
 %2.</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="449"/>
         <source>Sigil has encountered a problem.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil је наишао на проблем.</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="450"/>
         <source>Sigil cannot continue and will now close</source>
-        <translation type="unfinished"/>
+        <translation>Sigil не може наставити и сада ће бити затворен</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Creating Index...</source>
-        <translation type="unfinished"/>
+        <translation>Креирање индекса...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>Ακύρωση</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="114"/>
         <source>Creating reports...</source>
-        <translation type="unfinished"/>
+        <translation>Креирање извештаја...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="586"/>
         <source>Adding Existing Files..</source>
-        <translation type="unfinished"/>
+        <translation>Додавање постојећих фајлова...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="865"/>
         <source>Merging Files..</source>
-        <translation type="unfinished"/>
+        <translation>Спајање фајлова...</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="179"/>
         <source>Applications</source>
-        <translation type="unfinished"/>
+        <translation>Апликације</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="189"/>
         <source>Open With</source>
-        <translation>Άνοιγμα με</translation>
+        <translation>Отвори са</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="80"/>
         <source>Cover</source>
-        <translation>Εξώφυλλο</translation>
+        <translation>Омот</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="82"/>
         <source>Title Page</source>
-        <translation>Τίτλος σελίδας</translation>
+        <translation>Наслов стране</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="84"/>
         <source>Table Of Contents</source>
-        <translation>Πίνακας περιεχομένων</translation>
+        <translation>Садржај</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="86"/>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="57"/>
         <source>Index</source>
-        <translation>Ευρετήριο</translation>
+        <translation>Индекс</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="88"/>
         <source>Glossary</source>
-        <translation>Γλωσσάρι</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="90"/>
         <source>Acknowledgements</source>
-        <translation>Ευχαριστίες</translation>
+        <translation>Захвалност</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="92"/>
         <source>Bibliography</source>
-        <translation>Βιβλιογραφία</translation>
+        <translation>Библиографија</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="94"/>
         <source>Colophon</source>
-        <translation>Εκδότης βιβλίου</translation>
+        <translation>Штампарски знак</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="96"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Страна власничких права</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="98"/>
         <source>Dedication</source>
-        <translation>Αφιέρωση</translation>
+        <translation>Посвета</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="100"/>
         <source>Epigraph</source>
-        <translation>Επιγραφή</translation>
+        <translation>Епиграф</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="102"/>
         <source>Foreword</source>
-        <translation>Πρόλογος εκτός του συγγραφέα</translation>
+        <translation>Предговор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="104"/>
         <source>List Of Illustrations</source>
-        <translation>Λίστα Φωτογραφιών</translation>
+        <translation>Листа илустрација</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="106"/>
         <source>List Of Tables</source>
-        <translation>Λίστα με πίνακες</translation>
+        <translation>Листа табела</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="108"/>
         <source>Notes</source>
-        <translation>Σημειώσεις</translation>
+        <translation>Напомене</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="110"/>
         <source>Preface</source>
-        <translation>Πρόλογος συγγραφέα</translation>
+        <translation>Предговор</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="112"/>
         <source>Text</source>
-        <translation>Κείμενο</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="109"/>
         <source>Cannot read EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће читати EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="200"/>
@@ -11507,7 +11495,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="457"/>
         <source>Cannot open EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће отворити EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="410"/>
@@ -11515,12 +11503,12 @@ Line: %1 Column %2 - %3</source>
         <location filename="../../Importers/ImportEPUB.cpp" line="436"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="444"/>
         <source>Cannot extract file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће распаковати фајл: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="370"/>
         <source>Cannot unzip EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће распаковати .зип фајл EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="509"/>
@@ -11537,7 +11525,8 @@ Line: %1 Column %2 - %3</source>
         <location filename="../../Importers/ImportEPUB.cpp" line="554"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће читати OPF фајл.
+Линија: %1 Колона %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
@@ -11573,22 +11562,22 @@ Line: %1 Column %2 - %3</source>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="180"/>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="243"/>
         <source>Invalid HTML file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Неважећи HTML фајл: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="284"/>
         <source>Invalid OPF file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Неважећи OPF фајл: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="309"/>
         <source>Invalid NCX file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Неважећи NCX фајл: %1</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/CleanSource.cpp" line="233"/>
         <source>Cleaning...</source>
-        <translation type="unfinished"/>
+        <translation>Чишћење...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/BookReports.cpp" line="53"/>
@@ -11598,7 +11587,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Misc/TOCHTMLWriter.cpp" line="96"/>
         <source>Table of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Преглед садржаја</translation>
     </message>
 </context>
 <context>
@@ -11606,7 +11595,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation>Μετονομασία Αρχείων</translation>
+        <translation>Преименуј фајлове</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
@@ -11635,7 +11624,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
         <source>Section0001</source>
-        <translation>Ενότητα0001</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -11643,12 +11632,12 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/Reports.ui" line="14"/>
         <source>Reports</source>
-        <translation>Αναφορές</translation>
+        <translation>Извештаји</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Reports.ui" line="51"/>
         <source>Refresh</source>
-        <translation>Ανανέωση</translation>
+        <translation>Освежи</translation>
     </message>
 </context>
 <context>
@@ -11656,27 +11645,27 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation type="unfinished"/>
+        <translation>Сачувана претрага</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Όνομα φίλτρου:</translation>
+        <translation>Име филтера:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Όλα τα φίλτρα:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Листа са ставкама које садрже текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Load Search</source>
-        <translation>Φόρτωση αναζήτησης</translation>
+        <translation>Учитај претрагу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
@@ -11689,7 +11678,7 @@ then if not found look for the second entry in the list, etc.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Find</source>
-        <translation>Αναζήτηση</translation>
+        <translation>Пронађи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
@@ -11708,7 +11697,7 @@ and stop at the first successful replace/find.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
         <source>Replace/Find</source>
-        <translation>Αντικατάσταση/Αναζήτηση</translation>
+        <translation>Замени/Пронађи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
@@ -11725,18 +11714,18 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation>Καταμέτρηση όλων</translation>
+        <translation>Рачунај све</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Replace</source>
-        <translation>Αντικατάσταση</translation>
+        <translation>Замени</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation>Αντικατάσταση όλων</translation>
+        <translation>Замени све</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="202"/>
@@ -11784,7 +11773,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="63"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation type="unfinished"/>
+        <translation>Десни клик на ставку за преглед контекстног менија.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
@@ -11794,12 +11783,12 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>Name of your entry or group.</source>
-        <translation type="unfinished"/>
+        <translation>Име ставке или групе.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
@@ -11819,12 +11808,12 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save</source>
-        <translation>Αποθήκευση</translation>
+        <translation>Сачувај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save your changes.</source>
-        <translation>Αποθήκευση των αλλαγών.</translation>
+        <translation>Сачувај промене.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
@@ -11834,22 +11823,22 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="89"/>
         <source>Cannot save entries.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће сачувати ставке.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="163"/>
         <source>Saved Searches loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>Сачувана претрага учитана из фајла.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="195"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation type="unfinished"/>
+        <translation>Не можете одабрати више од једне ставке када користите ову акцију.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="203"/>
         <source>You cannot select a group for this action.</source>
-        <translation type="unfinished"/>
+        <translation>Не можете одабрати групу за ову акцију.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="245"/>
@@ -11859,102 +11848,102 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="328"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation type="unfinished"/>
+        <translation>Није могуће копирати или исећи групе - користи превуци и спусти.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>Да ли сте сигурни да желите поновно учитати све ставке? Ово ће пребрисати све несачуване промене.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="411"/>
         <source>Import Search Entries</source>
-        <translation type="unfinished"/>
+        <translation>Увези ставке претраге</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="484"/>
         <source>Export Selected Searches</source>
-        <translation type="unfinished"/>
+        <translation>Извези одабрану претрагу</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="649"/>
         <source>Add Entry</source>
-        <translation>Προσθήκη λέξης</translation>
+        <translation>Додај ставку</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="650"/>
         <source>Add Group</source>
-        <translation type="unfinished"/>
+        <translation>Додај групу</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="651"/>
         <source>Edit</source>
-        <translation>Επεξεργασία</translation>
+        <translation>Измени</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="652"/>
         <source>Cut</source>
-        <translation>Αποκοπή</translation>
+        <translation>Исеци</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="653"/>
         <source>Copy</source>
-        <translation>Αντιγραφή</translation>
+        <translation>Копирај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="654"/>
         <source>Paste</source>
-        <translation>Επικόλληση</translation>
+        <translation>Налепи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="655"/>
         <source>Delete</source>
-        <translation>Διαγραφή</translation>
+        <translation>Уклони</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="656"/>
         <source>Import</source>
-        <translation>Εισαγωγή</translation>
+        <translation>Увези</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="657"/>
         <source>Reload</source>
-        <translation>Ανανέωση</translation>
+        <translation>Поново учитај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="658"/>
         <source>Export</source>
-        <translation>Εξαγωγή</translation>
+        <translation>Извези</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="659"/>
         <source>Export All</source>
-        <translation>Εξαγωγή όλων</translation>
+        <translation>Извези све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="660"/>
         <source>Collapse All</source>
-        <translation>Σύμπτυξη όλων</translation>
+        <translation>Скупи све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="661"/>
         <source>Expand All</source>
-        <translation>Ανάπτυξη όλων</translation>
+        <translation>Прошири све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="738"/>
         <source>Search entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>Претрага сачуваних ставки.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="767"/>
         <source>Sigil: Saved Searches</source>
-        <translation type="unfinished"/>
+        <translation>Sigil: Сачувана претрага</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="768"/>
@@ -11968,22 +11957,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="64"/>
         <source>Name</source>
-        <translation>Όνομα</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Find</source>
-        <translation>Αναζήτηση</translation>
+        <translation>Пронађи</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Replace</source>
-        <translation>Αντικατάσταση</translation>
+        <translation>Замени</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="597"/>
         <source>Unable to create file %1</source>
-        <translation>Αδυναμία δημιουργίας αρχείου %1</translation>
+        <translation>Није могуће креирати фајл %1</translation>
     </message>
 </context>
 <context>
@@ -11991,7 +11980,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectCharacter.ui" line="14"/>
         <source>Insert Special Character</source>
-        <translation>Εισαγωγή ειδικού χαρακτήρα</translation>
+        <translation>Убаци посебне карактере</translation>
     </message>
 </context>
 <context>
@@ -11999,83 +11988,84 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation>Εισαγωγή αρχείου</translation>
+        <translation>Убаци фајл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Λίστα με μόνο τα ονόματα των αρχείων που περιέχουν το κείμενο που εισαγάγατε.</translation>
+        <translation>Листа са именима фајлова које садржи текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
         <source>Choose which image, video, or audio files from your computer to add to
 your book and automatically insert into your document.</source>
-        <translation type="unfinished"/>
+        <translation>Одабери слику, видео или аудио фајл са компјутера за додавање у
+своју књигу и аутоматско убацивање у документ.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation>Άλλα αρχεία...</translation>
+        <translation>Други фајлови...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
         <source>Thumbnail size:</source>
-        <translation>Μέγεθος  μικρογραφίας:</translation>
+        <translation>Величина сличица:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
         <source>All</source>
-        <translation>Όλα</translation>
+        <translation>Све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
         <source>Images</source>
-        <translation>Εικόνες</translation>
+        <translation>Слике</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Video</source>
-        <translation>Βίντεο</translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="78"/>
         <source>Audio</source>
-        <translation>Ήχος</translation>
+        <translation>Аудио</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
         <source>Files In the Book</source>
-        <translation>Αρχεία στο βιβλίο</translation>
+        <translation>Фајлови у књизи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="123"/>
         <source>Thumbnails</source>
-        <translation>Μικρογραφίες</translation>
+        <translation>Сличице</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>shades</source>
-        <translation>Αποχρώσεις</translation>
+        <translation>сенке</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>colors</source>
-        <translation>Χρώματα</translation>
+        <translation>боје</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Grayscale</source>
-        <translation>Ασπρόμαυρο</translation>
+        <translation>Црно-бело</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Color</source>
-        <translation>Χρώμα</translation>
+        <translation>Боја</translation>
     </message>
 </context>
 <context>
@@ -12083,17 +12073,17 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation>Επιλογή τοποθεσίας</translation>
+        <translation>Одабери циљ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
         <source>List only the entries that match the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Листа са ставкама које се подударају са унетим текстом.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="25"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
@@ -12104,12 +12094,12 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
         <source>Target:</source>
-        <translation>Τοποθεσία:</translation>
+        <translation>Циљ:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="61"/>
         <source>Targets in the Book</source>
-        <translation>Τοποθεσία στο βιβλίο</translation>
+        <translation>Циљеви у књизи</translation>
     </message>
 </context>
 <context>
@@ -12117,7 +12107,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation type="unfinished"/>
+        <translation>Убаци ИД</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -12131,7 +12121,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
         <source>ID:</source>
-        <translation type="unfinished"/>
+        <translation>ИД:</translation>
     </message>
 </context>
 <context>
@@ -12139,17 +12129,17 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="14"/>
         <source>Mark For Index</source>
-        <translation>Προσθήκη στο Ευρετήριο</translation>
+        <translation>Означи за индекс</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="22"/>
         <source>Enter the index entry to create for the selected text.</source>
-        <translation>Πληκτρολόγηση της λέξης ευρετηρίου για το επιλεγμένο κείμενο.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
-        <translation>Λέξη Ευρετηρίου:</translation>
+        <translation>Ставка индекса:</translation>
     </message>
 </context>
 <context>
@@ -12157,49 +12147,49 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>Dictionary:</source>
-        <translation>Λεξικό:</translation>
+        <translation>Речник:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="211"/>
         <source>Rename</source>
-        <translation>Μετονομασία</translation>
+        <translation>Преименуј</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="193"/>
         <source>User Dictionary Word List</source>
-        <translation>Λίστα λέξεων του λεξικού</translation>
+        <translation>Листа корисничких речника</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="128"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="212"/>
         <source>Add</source>
-        <translation>Προσθήκη</translation>
+        <translation>Додај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spellcheck Dictionaries</source>
-        <translation>Ορθογραφικά λεξικά</translation>
+        <translation>Речник провере правописа</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="64"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation>Επισήμανση ανορθόγραφων λέξεων σε προβολή κώδικα.</translation>
+        <translation>Истакнуте неисправне речи у Приказу кода</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="67"/>
         <source>Highlight Misspelled Words</source>
-        <translation>Επισήμανση ανορθόγραφων λέξεων</translation>
+        <translation>Истакнуте неисправне речи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="120"/>
         <source>User Dictionaries</source>
-        <translation>Λεξικά χρήστη</translation>
+        <translation>Кориснички речник</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
         <source>Copy</source>
-        <translation>Αντιγραφή</translation>
+        <translation>Копирај</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
@@ -12226,7 +12216,7 @@ Words can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="219"/>
         <source>Edit</source>
-        <translation>Επεξεργασία</translation>
+        <translation>Измени</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="262"/>
@@ -12237,44 +12227,44 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="266"/>
         <source>Default Dictionary:</source>
-        <translation>Προεπιλεγμένο λεξικό:</translation>
+        <translation>Подразумевани речник:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="273"/>
         <source>none</source>
-        <translation>Κανένα</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="226"/>
         <source>Remove</source>
-        <translation>Αφαίρεση</translation>
+        <translation>Обриши</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="233"/>
         <source>Remove All</source>
-        <translation>Αφαίρεση όλων</translation>
+        <translation>Обриши све</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="52"/>
         <source>Enable</source>
-        <translation>Ενεργοποίηση</translation>
+        <translation>Омогући</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Dictionary</source>
-        <translation>Λεξικό</translation>
+        <translation>Речник</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="211"/>
         <source>Name:</source>
-        <translation>Όνομα:</translation>
+        <translation>Име:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Add Dictionary</source>
-        <translation>Προσθήκη λεξικού</translation>
+        <translation>Додај речник</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
@@ -12283,38 +12273,38 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="232"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="251"/>
         <source>Error</source>
-        <translation>Σφάλμα</translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="224"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>Το λεξικό μ` αυτό το όνομα ήδη υπάρχει!</translation>
+        <translation>Кориснички речник са овим именом већ постоји!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Add Words</source>
-        <translation>Εισαγωγή λέξεων</translation>
+        <translation>Додај речи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Words:</source>
-        <translation>Λέξεις:</translation>
+        <translation>Речи:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="162"/>
         <source>Could not create file!</source>
-        <translation>Δεν μπορεί να δημιουργηθεί το αρχείο!</translation>
+        <translation>Не могу креирати фајл!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="232"/>
         <source>Could not rename file!</source>
-        <translation>Δεν μπορεί να μετονομαστεί το αρχείο!</translation>
+        <translation>Не могу преименовати фајл!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="251"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation>Δεν μπορεί να διαγραφεί το τελευταίο λεξικό.</translation>
+        <translation>Не можете обрисати последњи речник.</translation>
     </message>
 </context>
 <context>
@@ -12322,23 +12312,23 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation>Έλεγχος ορθογραφίας</translation>
+        <translation>Провера правописа</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Листа са ставкама које садрже текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="516"/>
         <source>Ignore</source>
-        <translation>Αγνόηση</translation>
+        <translation>Игнориши</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
@@ -12355,7 +12345,7 @@ dictionary selected below.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation>Προσθήκη στο λεξικό:</translation>
+        <translation>Додај у речник:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
@@ -12367,7 +12357,7 @@ The selected word does not have to be misspelled.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="139"/>
         <source>Change Selected Word To:</source>
-        <translation>Αλλαγή επιλεγόμενης λέξης σε:</translation>
+        <translation>Промени одабрану реч у:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
@@ -12382,7 +12372,7 @@ The selected word does not have to be misspelled.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>
         <source>Refresh</source>
-        <translation>Ανανέωση</translation>
+        <translation>Освежи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="215"/>
@@ -12393,35 +12383,35 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Show All Words</source>
-        <translation>Προβολή όλων των λέξεων</translation>
+        <translation>Прикажи све речи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="138"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="161"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="200"/>
         <source>No words selected.</source>
-        <translation>Δεν επιλέχτηκαν λέξεις</translation>
+        <translation>Нису одабране речи.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="217"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="285"/>
         <source>No</source>
-        <translation>Όχι</translation>
+        <translation>Не</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="154"/>
         <source>Ignored word(s).</source>
-        <translation>Αγνοημένες λέξεις</translation>
+        <translation>Игнорисана реч(и).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="189"/>
         <source>Added word(s) to dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Додата реч(и) у речник.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="191"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
-        <translation type="unfinished"/>
+        <translation>Додај реч(и) у речник. Речник није омогућен у Подешавањима.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="206"/>
@@ -12431,47 +12421,47 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="236"/>
         <source>Word</source>
-        <translation>Λέξη</translation>
+        <translation>Реч</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="237"/>
         <source>Count</source>
-        <translation>Καταμέτρηση</translation>
+        <translation>Рачунај</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="238"/>
         <source>Misspelled?</source>
-        <translation>Ανορθόγραφη;</translation>
+        <translation>Неисправно?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="298"/>
         <source>Misspelled Words</source>
-        <translation>Ανορθόγραφες λέξεις</translation>
+        <translation>Погрешно написане речи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="283"/>
         <source>Yes</source>
-        <translation>Ναι</translation>
+        <translation>Да</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="298"/>
         <source>Total Unique Words</source>
-        <translation>Συνολικές μοναδικές λέξεις</translation>
+        <translation>Тотално јединствене речи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="517"/>
         <source>Add to Dictionary</source>
-        <translation>Προσθήκη στο λεξικό</translation>
+        <translation>Додај у речник</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="518"/>
         <source>Find in Text</source>
-        <translation>Αναζήτηση στο κείμενο</translation>
+        <translation>Пронађи у тексту</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="519"/>
         <source>Select All</source>
-        <translation>Επιλογή όλων</translation>
+        <translation>Одабери све</translation>
     </message>
 </context>
 <context>
@@ -12484,12 +12474,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Λίστα με μόνο τα ονόματα των αρχείων που περιέχουν το κείμενο που εισαγάγατε.</translation>
+        <translation>Листа са именима фајлова које садржи текст који сте унели.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Φίλτρο:</translation>
+        <translation>Филтер</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="80"/>
@@ -12514,7 +12504,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="89"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;НАПОМЕНА:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
@@ -12524,22 +12514,22 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="246"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај извештај са одвојеним зарезима</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Cannot save report file.</source>
-        <translation>Αδυναμία αποθήκευσης αρχείου αναφοράς.</translation>
+        <translation>Није могуће сачувати извештај.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="270"/>
         <source>Delete From Stylesheet</source>
-        <translation type="unfinished"/>
+        <translation>Обриши из стила</translation>
     </message>
 </context>
 <context>
@@ -12547,7 +12537,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TabBar.cpp" line="67"/>
         <source>Close Other Tabs</source>
-        <translation>Κλείσιμο των υπόλοιπων καρτέλων</translation>
+        <translation>Затвори друге картице</translation>
     </message>
 </context>
 <context>
@@ -12555,7 +12545,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TabManager.cpp" line="215"/>
         <source>Cannot edit file</source>
-        <translation>Αδυναμία επεξεργασίας αρχείου</translation>
+        <translation>Није могуће изменити фајл</translation>
     </message>
 </context>
 <context>
@@ -12563,22 +12553,22 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="41"/>
         <source>Table Of Contents</source>
-        <translation>Πίνακας περιεχομένων</translation>
+        <translation>Садржај</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="113"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Το αρχειο &quot;%1&quot; δεν έχει δημιουργηθεί.</translation>
+        <translation>Фајл &quot;%1&quot; не постоји.</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="144"/>
         <source>Collapse All</source>
-        <translation>Σύμπτυξη όλων</translation>
+        <translation>Скупи све</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="145"/>
         <source>Expand All</source>
-        <translation>Ανάπτυξη όλων</translation>
+        <translation>Прошири све</translation>
     </message>
 </context>
 <context>
@@ -12586,7 +12576,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TextTab.cpp" line="280"/>
         <source>Print %1</source>
-        <translation>Εκτύπωση %1</translation>
+        <translation>Штампај %1</translation>
     </message>
 </context>
 <context>
@@ -12594,7 +12584,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Misc/Utility.cpp" line="563"/>
         <source>Sigil</source>
-        <translation>Σφραγίδα</translation>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="564"/>
@@ -12609,7 +12599,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="44"/>
         <source>Validation Results</source>
-        <translation>Αποτελέσματα επικύρωσης</translation>
+        <translation>Резултати потврђивања</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="218"/>
@@ -12620,22 +12610,22 @@ Continue using the requested filename?</source>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="240"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
         <source>Message</source>
-        <translation>Μήνυμα</translation>
+        <translation>Порука</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="241"/>
         <source>No problems found!</source>
-        <translation>Δεν βρέθηκε κανένα λάθος!</translation>
+        <translation>Нису пронаћени проблеми!</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
         <source>File</source>
-        <translation>Αρχείο</translation>
+        <translation>Фајл</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
         <source>Line</source>
-        <translation>Γραμμή</translation>
+        <translation>Линија</translation>
     </message>
 </context>
 <context>
@@ -12643,12 +12633,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation>Προβολή εικόνας</translation>
+        <translation>Прикажи слику</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
         <source>about:blank</source>
-        <translation>Σχετικά:Κενό</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -12666,12 +12656,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
         <source>Fix &amp;Automatically</source>
-        <translation>Αυτό&amp;ματη επιδιόρθωση</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="57"/>
         <source>Fix &amp;Manually</source>
-        <translation>&amp;Χειροκίνητη επιδιόρθωση</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
