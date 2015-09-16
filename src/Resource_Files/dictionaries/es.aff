@@ -102,6 +102,9 @@ PFX u e tra es
 PFX u 0 tra s
 PFX u 0 tras [^es]
 PFX u e tras e[^s]
+PFX v Y 2
+PFX v 0 contra [^r]
+PFX v 0 contrar r
 SFX A Y 9
 SFX A r ción/S ar
 SFX A er ición/S [^cn]er
@@ -257,7 +260,26 @@ SFX T Y 4
 SFX T r ble/S ar
 SFX T er ible/S [^aeo]er
 SFX T er íble/S [aeo]er
-SFX T r ible/S ir
+SFX T r ble/S ir
+SFX U Y 18
+SFX U a ita/S [bdfhjlmnprstv]a
+SFX U o ito/S [bdhjlmnprstv]o
+SFX U 0 cita/S ve
+SFX U za cita/S za
+SFX U 0 ecita/S d
+SFX U ón oncito/S ón
+SFX U 0 cito/S or
+SFX U zo cito/S zo
+SFX U 0 cito/S [djlnu]e
+SFX U z cecita/S z
+SFX U 0 ecito/S ur
+SFX U e ito/S [cpt]e
+SFX U 0 ito/S [ls]
+SFX U 0 ito/S [^ou]r
+SFX U co quito/S co
+SFX U go guito/S go
+SFX U ca quita/S ca
+SFX U ga guita/S ga
 SFX R Y 240
 SFX R ar ás ar
 SFX R r mos [aei]r
@@ -2491,7 +2513,7 @@ SFX G és esas és
 SFX G ós osas ós
 SFX S Y 32
 SFX S 0 s [aceéfgiíkoóptuúw]
-SFX S 0 es [bdhíjlmrúy]
+SFX S 0 es [bdhíjlmrúxy]
 SFX S á aes á
 SFX S 0 es [^áeéíóú]n
 SFX S 0 es [^áéíóú]s
@@ -3038,7 +3060,7 @@ SFX Ë ír yéndoosla oír
 SFX Ë ír yéndooslo oír
 SFX Ë ír yéndooslas oír
 SFX Ë ír yéndooslos oír
-SFX Ì Y 384
+SFX Ì Y 388
 SFX Ì abar ábala abar
 SFX Ì abar ábalas abar
 SFX Ì abar ábalo abar
@@ -3423,6 +3445,10 @@ SFX Ì utar útalas utar
 SFX Ì utar útala utar
 SFX Ì utar útalos utar
 SFX Ì utar útalo utar
+SFX Ì uzar úzalas uzar
+SFX Ì uzar úzala uzar
+SFX Ì uzar úzalos uzar
+SFX Ì uzar úzalo uzar
 SFX Í Y 164
 SFX Í abar ábame abar
 SFX Í abar ábanos abar
@@ -3675,7 +3701,7 @@ SFX Î untar úntales untar
 SFX Î untar úntale untar
 SFX Î uscar úscales uscar
 SFX Î uscar úscale uscar
-SFX Ï Y 300
+SFX Ï Y 312
 SFX Ï adir ádemela adir
 SFX Ï adir ádemelas adir
 SFX Ï adir ádemelo adir
@@ -3784,6 +3810,18 @@ SFX Ï anzar ánzasela anzar
 SFX Ï anzar ánzaselas anzar
 SFX Ï anzar ánzaselo anzar
 SFX Ï anzar ánzaselos anzar
+SFX Ï ardar árdamela ardar
+SFX Ï ardar árdamelas ardar
+SFX Ï ardar árdamelo ardar
+SFX Ï ardar árdamelos ardar
+SFX Ï ardar árdanosla ardar
+SFX Ï ardar árdanoslas ardar
+SFX Ï ardar árdanoslo ardar
+SFX Ï ardar árdanoslos ardar
+SFX Ï ardar árdasela ardar
+SFX Ï ardar árdaselas ardar
+SFX Ï ardar árdaselo ardar
+SFX Ï ardar árdaselos ardar
 SFX Ï asar ásamela asar
 SFX Ï asar ásamelas asar
 SFX Ï asar ásamelo asar
@@ -6263,7 +6301,7 @@ SFX ó r éndome ucir
 SFX ó r éndonos ucir
 SFX ó r éndoos ucir
 SFX ó r éndote ucir
-SFX ô Y 136
+SFX ô Y 138
 SFX ô abar ábate abar
 SFX ô r te [aei]r
 SFX ô r os r
@@ -6309,6 +6347,7 @@ SFX ô azar ázate azar
 SFX ô ear éate ear
 SFX ô ecar écate ecar
 SFX ô echar échate echar
+SFX ô ectar éctate ectar
 SFX ô edar édate edar
 SFX ô egar égate egar
 SFX ô eger égete eger
@@ -6351,6 +6390,7 @@ SFX ô intar íntate intar
 SFX ô irar írate irar
 SFX ô ir íos ir
 SFX ô istar ístate istar
+SFX ô istrar ístrate istrar
 SFX ô itar ítate itar
 SFX ô itir ítete itir
 SFX ô izar ízate izar

@@ -5,9 +5,8 @@ ISO8859-1
 #                                                                                  #
 # Language: German (de DE)                                                         #
 #                                                                                  #
-# Version:  2011-06-03                                                             #
-#           author and license information in source file added,                   #
-#           bug under LibO 3.4.0 because of that fixed                             #
+# Version:  2013-12-06                                                             #
+#           Enhanced blacklist to improve the hyphenation module by Karl Zeiler    #
 #                                                                                  #
 # Origin:   Based on the TeX hyphenation tables	"dehyphn.tex", revision level 31.  #
 #           http://www.ctan.org/tex-archive/language/hyphenation/dehyphn.tex       #
@@ -18,9 +17,9 @@ ISO8859-1
 #           GNU Lesser General Public License (LGPL 2 or later) and are under      #
 #           Copyright by                                                           #
 #                                                                                  #
-# Author:   conversion author is Marco Huggenberger<marco@by-night.ch>             #
-#           revised conversion and extensions: Daniel Naber                        #
-#           http://qa.openoffice.org/issues/show_bug.cgi?id=26355                  #
+# Authors:  conversion author: Marco Huggenberger <marco@by-night.ch>              #
+#           revised conversion and extensions: Daniel Naber <naber@danielnaber.de> #
+#           improvements: Karl Zeiler <karl.zeiler@t-online.de>                    #
 #                                                                                  #
 # Please note, this dictionary is based on syllable matching patterns              #
 # and thus should be suitable under other variations of German                     #
@@ -7548,3 +7547,214 @@ oje2k1t
 ol2l1ernt
 ol1ler
 olle2rn
+berg7a8n7sicht
+berg7a8n7sich7ten
+bi7lan8z7er7stel7lung
+bi7lan8z7er7stel7lun7gen
+bi7lan8z7auf7stel7lung
+bi7lan8z7auf7stel7lun7gen
+Bun7de8s7ar7chiv
+Bun7de8s7ar7chi7ve
+Bun7de8s7ar7chi7ven
+Bun7de8s7ar7chivs
+du7el8l7op7fer
+du7el8l7op7fern
+du7el8l7op7fers
+farb7a8n7sicht
+farb7a8n7sich7ten
+fas8s7an7stich
+fas8s7an7stichs
+fet8t7ab7sau7gung
+fet8t7ab7sau7gun7gen
+fi7n8anz7amt
+fi7n8anz7amts
+fi7n8anz7äm7ter
+fi7n8anz7äm7tern
+fi7n8anz7aus7stat7tung
+fi7n8anz7aus7stat7tun7gen
+fi7n8an7zie7rungs7a8spekt
+fi7n8an7zie7rungs7a8spek7te
+fi7n8an7zie7rungs7a8spek7ten
+fi7n8an7zie7rungs7a8spek7tes
+fi7n8an7zie7rungs7a8spekts
+fin7ge8r7an7satz
+fin7ge8r7an7sat7zes
+fin7ge8r7an7sät7ze
+fin7ge8r7an7sät7zen
+glei8s7an7bau
+glei8s7an7baus
+glei8s7an7bau7ten
+gra7fi8k7an7for7de7rung
+gra7fi8k7an7for7de7run7gen
+gra7fi8k7an7zei7ge
+gra7fi8k7an7zei7gen
+gra7fi8k7aus7stel7lung
+gra7fi8k7aus7stel7lun7gen
+gra7fi8k7aus7stat7tung
+gra7fi8k7aus7stat7tun7gen
+gra7fi8k7ent7wurf
+gra7fi8k7ent7wurfs
+gra7fi8k7ent7wür7fe
+gra7fi8k7ent7wür7fen
+gra7phi8k7an7for7de7rung
+gra7phi8k7an7for7de7run7gen
+gra7phi8k7an7zei7ge
+gra7phi8k7an7zei7gen
+gra7phi8k7aus7stel7lung
+gra7phi8k7aus7stel7lun7gen
+gra7phi8k7ent7wurf
+gra7phi8k7ent7wurfs
+gra7phi8k7ent7wür7fe
+gra7phi8k7ent7wür7fen
+gym7nas7ti8k7übung
+gym7nas7ti8k7übun7gen
+hau8s7in7ter7na
+hau8s7in7tern
+hau8s7in7ter7ne
+hau8s7in7ter7nem
+hau8s7in7ter7nen
+hau8s7in7ter7ner
+in7sol7ven8z7an7trag
+in7sol7ven8z7an7trags
+in7sol7ven8z7an7trä7ge
+in7sol7ven8z7an7trä7gen
+in7sol7ven8z7er7öff7nung
+in7sol7ven8z7er7öff7nun7gen
+jo7se8phs7stadt
+kom7pe7ten8z7er7war7tung
+kom7pe7ten8z7er7war7tun7gen
+krei8s7amt
+krei8s7amts
+krei8s7äm7ter
+krei8s7äm7tern
+krei8s7amt7mann
+krei8s7amt7man7nes
+krei8s7amt7manns
+krei8s7amt7män7ner
+krei8s7amt7män7nern
+krei8s7an7zei7ger
+krei8s7an7zei7gers
+krei8s7an7zei7gern
+krei8s7ar7chiv
+krei8s7ar7chi7ve
+krei8s7ar7chi7ven
+krei8s7ar7chivs
+krei8s7ar7chi7var
+krei8s7ar7chi7vars
+krei8s7ar7chi7va7re
+krei8s7ar7chi7va7ren
+krei8s7au
+krei8s7auer
+krei8s7in7tern
+krei8s7in7ter7ne
+krei8s7in7ter7nem
+krei8s7in7ter7nen
+krei8s7in7ter7ner
+krei8s7in7ter7nes
+kri7ti8k7an7satz
+kri7ti8k7an7sat7zes
+kri7ti8k7an7sät7ze
+ku7lan8z7an7trag
+ku7lan8z7an7trags
+ku7lan8z7an7träge
+ku7lan8z7an7trä7gen
+lack7an7strich
+lack7an7strichs
+lack7an7stri7che
+la7ge8r7ei7gen
+la7ge8r7ei7ge7ne
+la7ge8r7ei7ge7nen
+la7ge8r7ei7ge7ner
+la7ge8r7ei7ge7nes
+la7ge8r7in7tern
+la7ge8r7in7ter7ne
+la7ge8r7in7ter7nen
+la7ge8r7in7ter7ner
+la7ge8r7in7ter7nes
+lo7gi8k7an7satz
+lo7gi8k7an7sat7zes
+lo7gi8k7an7sät7ze
+lo7gi8k7an7sät7zen
+lo7gis7ti8k7auf7wand
+lo7gis7ti8k7auf7wands
+me7cha7ni8k7an7teil
+me7cha7ni8k7an7tei7le
+me7cha7ni8k7an7tei7len
+me7cha7ni8k7an7teils
+me7cha7ni8k7an7trieb
+me7cha7ni8k7an7trie7be
+me7cha7ni8k7an7trie7ben
+me7cha7ni8k7an7triebs
+me7di7e8n7er7zie7hung
+me7di7e8n7in7ves7tor
+me7di7e8n7in7ves7tors
+me7di7e8n7in7ves7to7ren
+me7tho7di8k7an7satz
+me7tho7di8k7an7sat7zes
+me7tho7di8k7an7sät7ze
+me7tho7di8k7an7sät7zen
+me7tho7di8k7ent7wurf
+me7tho7di8k7ent7wurfs
+me7tho7di8k7ent7wür7fe
+me7tho7di8k7ent7wür7fen
+mu7si8k7in7dus7trie
+mu7si8k7in7sti7tut
+mu7si8k7in7sti7tu7te
+mu7si8k7in7sti7tu7ten
+mu7si8k7in7sti7tuts
+phy7si8k7aus7stel7lung
+phy7si8k7aus7stel7lun7gen
+phy7si8k7in7sti7tut
+phy7si8k7in7sti7tu7te
+phy7si8k7in7sti7tu7ten
+phy7si8k7in7sti7tuts
+pla7sti8k7ab7fall
+plas7ti8k7ab7falls
+plas7ti8k7ab7fäl7le
+plas7ti8k7ab7fäl7len
+plas7ti8k7aus7stel7lung
+plas7ti8k7aus7stel7lun7gen
+plas7ti8k7aus7weis
+plas7ti8k7aus7wei7se
+plas7ti8k7aus7wei7sen
+plas7ti8k7aus7wei7ses
+plas7ti8k7ei7mer
+plas7ti8k7ei7mern
+plas7ti8k7ei7mers
+plas7ti8k7ent7wurf
+plas7ti8k7ent7wurfs
+plas7ti8k7ent7wür7fe
+plas7ti8k7ent7wür7fen
+po7li7ti8k7an7satz
+po7li7ti8k7an7sat7zes
+po7li7ti8k7an7sät7ze
+po7li7ti8k7an7sät7zen
+prin8t7auf7la7ge
+prin8t7auf7la7gen
+pro7gram8m7ab7lauf
+pro7gram8m7ab7laufs
+pro7gram8m7ab7läu7fe
+pro7gram8m7ab7läu7fen
+pro7gram8m7ab7bruch
+pro7gram8m7ab7bruchs
+pro7gram8m7ab7brü7che
+pro7gram8m7ab7brü7chen
+pro7gram8m7ab7schal7tung
+pro7gram8m7ab7schal7tun7gen
+so7w7je8t7uni7on
+ver7kauf8s7auf7la7ge
+ver7kauf8s7auf7la7gen
+max-planc8k-in7sti7tut
+max-planc8k-in7sti7tuts
+max-planc8k-in7sti7tu7te
+max-planc8k-in7sti7tu7ten
+prä7g8nant
+prä7g8nan7te
+prä7g8nant7tem
+prä7g8nant7ten
+prä7g8nant7ter
+prä7g8nant7tes
+prä7g8nanz
+rest7al7ko7hol
+rest7al7ko7ho7le
+rest7al7ko7hols
