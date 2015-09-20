@@ -1,22 +1,22 @@
-# Before building remember to rename /Applications/Python 3.5.app to save it and replace it afterwards
+# Before building remember to rename /Applications/Python 3.4.app to save it and replace it afterwards
 # as the damn python installation from source always overwrites it no matter the configure prefix used
 
 # Also make sure you have the latest XCode and Command Line Tools Installed
 
-# Download Python-3.5.0.tgz from www.python.org
+# Download Python-3.4.3.tgz from www.python.org
 
 export MACOSX_DEPLOYMENT_TARGET=10.9
 
 # Pick a location where the relocatable Python framework will be installed
 export MYDEST=/tmp/Frameworks
 
-# now build Python3.5.0 as a framework
-# Need to patch Python-3.5.0.tgz to allow it to build Mac OS X 10.9 compliant 
+# now build Python 3.4.3 as a framework
+# Need to patch Python-3.4.3.tgz to allow it to build Mac OS X 10.9 compliant 
 # build under Mac OS X 10.10
 
-tar -zxvf Python-3.5.0.tgz
-cd Python-3.5.0
-patch -p0 < python_3.5_configure_fix.patch
+tar -zxvf Python-3.4.3.tgz
+cd Python-3.4.4
+patch -p0 < python_configure_fix.patch
 
 ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip MACOSX_DEPLOYMENT_TARGET=10.9
 make
@@ -25,7 +25,7 @@ sudo make frameworkinstall
 # next update path in order to use the newly built/installed Python.framework's
 # pip3 to install other required python packages to its site packages
 
-export PATH=${MYDEST}/Python.framework/Versions/3.5/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.4/bin:${PATH}
 which pip3
 sudo pip3 install six
 sudo pip3 install html5lib
@@ -50,7 +50,7 @@ sudo pip3 install regex
  
 # Make the framework's main dylib relocatable using rpath
 
-cd ${MYDEST}/Python.framework/Versions/3.5/
+cd ${MYDEST}/Python.framework/Versions/3.4/
 sudo chmod u+w Python
 otool -D ./Python
 sudo install_name_tool -id @rpath/Python ./Python
@@ -59,15 +59,15 @@ sudo install_name_tool -id @rpath/Python ./Python
 # framework in a relative way and add the proper rpath to find the Python (renamed dylib)
 
 cd bin
-sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.5/Python @rpath/Python python3.5
-sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.5/Python @rpath/Python python3.5m
-sudo install_name_tool -add_rpath @executable_path/../ ./python3.5
+sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.4/Python @rpath/Python python3.4
+sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.4/Python @rpath/Python python3.4m
+sudo install_name_tool -add_rpath @executable_path/../ ./python3.4
 
 # now do the same for the Python.app stored inside the Python.framework Resources 
 # This app is needed to allow gui use by python for plugins
 
-cd ${MYDEST}/Python.framework/Versions/3.5/Resources/Python.app/Contents/MacOS
-sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.5/Python @rpath/Python ./Python
+cd ${MYDEST}/Python.framework/Versions/3.4/Resources/Python.app/Contents/MacOS
+sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.4/Python @rpath/Python ./Python
 sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 
 # We should now have a fully relocatable Python.framework ready to use to build and 
