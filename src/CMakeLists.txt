@@ -846,11 +846,6 @@ elseif (MSVC)
 
     # Copy the plugin launcher files
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/src/Resource_Files/plugin_launchers/python ${MAIN_PACKAGE_DIR}/plugin_launchers/python )
-    #add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/plugin_launchers/ )
-    #add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/plugin_launchers/python/ )
-    #foreach( PLUGFILE ${PLUGIN_FILES_PYTHON} )
-    #    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${PLUGFILE} ${MAIN_PACKAGE_DIR}/plugin_launchers/python/ )
-    #endforeach( PLUGFILE )
 
     # Copy python3lib
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib ${MAIN_PACKAGE_DIR}/python3lib )
