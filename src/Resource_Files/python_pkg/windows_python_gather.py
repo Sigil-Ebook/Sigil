@@ -115,7 +115,7 @@ def copy_python():
         ans = []
         for x in items:
             ext = os.path.splitext(x)[1]
-            if (not ext and (x in ('demos', 'tests', 'test', 'idlelib', 'lib2to3', '__pycache__', 'site-packages'))) or \
+            if (not ext and (x in ('demos', 'tests', 'test', 'idlelib', 'lib2to3', '__pycache__', 'site-packages')) or x.startswith('plat-')) or \
                 (ext in ('.chm', '.htm', '.txt')):
                 ans.append(x)
         return ans
@@ -157,7 +157,7 @@ def create_site_py():
                                 "site-packages"))
             else:
                 for path in sys.path:
-                    py_ver = "".join(map(str, sys.version_info[:2]))
+                    py_ver = "".join(map(str, sys.version[:3])).replace(".", "")
                     if os.path.basename(path) == "python" + py_ver + ".zip":
                         sys.path.remove(path)
                 sys.path.append(os.path.join(sys.prefix, "lib", "site-packages"))
