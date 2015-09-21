@@ -9,7 +9,7 @@ Sigil 0.8.900 (pre Sigil 0.9.0 series)
     - Replace all "undefined - behaviour" use of "Null" References with proper 
          pointers across entire codebase to allow it to work with the latest 
          clang compilers
-    - Completely revamp the build process to embed the Python 3.5 Interpreter 
+    - Completely revamp the build process to embed the Python 3.4 Interpreter 
          inside of Sigil and integrate it in, including as site-packages:
          [lxml, bs4, PIL, regex, six, html5lib].  This will allow plugins 
          that use the internal Python 3.X engine access to all of these 
@@ -20,7 +20,7 @@ Sigil 0.8.900 (pre Sigil 0.9.0 series)
          inline xhtml tags, and modifies the bs4 codebase so that a single 
          sourcecode works equally well on both Python 2.7 and Python 3.X
     - Replace internal opf and ncx xml processing and cleaning with a 
-         combination of embedded Python3.5, sigil_bs4 / lxml
+         combination of embedded Python 3.4, sigil_bs4 / lxml
     - Build hunspell as a shared library and then add a ctypes interface to allow
          plugins to spellcheck
     - Build our modified gumbo html5 parser as a shared library 
