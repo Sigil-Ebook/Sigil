@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 4.1.2">
+<title>BuildingOnLinux</title>
+</head>
+<body>
+<h1><center>Building Sigil on Linux</center></h1>
+<h2>General Overview</h2>
+<p>To build Sigil on Linux, you need to get/do the following things:</p>
+<ol>
+<li><a href="#gcc">A Linux build-toolchain</a> with a C++11 capable compiler (gcc4.8.x-ish or higher recommended)</li>
+<li><a href="#cmake">CMake</a> (3.0 or higher)</li>
+<li><a href="#qt5">Qt5.4.0</a> (or higher)</li>
+<li><a href="#python">Python 3.4</a> (or higher)</li>
+<li><a href="#sigil">The Sigil source code</a> (downloaded tarball/zipfile or a git clone)</li>
+<li><a href="#build">Build Sigil</a></li>
+</ol>
+<p>Since I'm basically an Ubuntu/Debian guy at heart, I'll be mentioning stuff like:</p>
+<blockquote>
+<p><code>sudo apt-get install</code></p>
+</blockquote>
+<p>from here on out. You'll have to forgive me for not knowing all the yum/pacman/emerge equivalents. It's not a slight--I can assure you.</p>
+<h2><a name="gcc"/>Linux Build Environment</h2>
+<p>On Debian/Ubuntu systems you can use:</p>
+<blockquote>
+<p><code>sudo apt-get install build-essentials</code></p>
+</blockquote>
+<p>to get pretty-much everything you need to configure/compile/install C++ projects. On other flavors of Linux you need to basically make sure that you have gcc/g++ and "make" installed. If your software repositories don't provide you with gcc/g++ 4.8 or higher, you may need to look at manually installing a newer version. <a href="https://gcc.gnu.org/install/index.html">You're own your own, there.</a> Sorry. Try typing: </p>
+<blockquote>
+<p><code>gcc --version</code></p>
+</blockquote>
+<p>at a command prompt to see if your version is sufficient. I've seen some later versions of 4.7.x that worked, but it's fringe at best.</p>
+<h2><a name="cmake"/>Getting CMake</h2>
+<p>Once again: <code>sudo apt-get cmake</code> will get you what you need on Debian type systems. If your favorite software repositories can't supply CMake 3.0 or better, you'll need to download the source from <a href="http://www.cmake.org">cmake.org</a> and build it it yourself. I've done it myself and their instructions are pretty good. You can either build it with an older version of CMake, or there's a boot-strap method if all you have is gcc/make.</p>
+<h2><a name="qt5"/>Getting Qt5</h2>
+<p>You can waste a lot of time trying to figure out if you have all the individual Qt5 packages installed that are necessary to build Sigil (which your software repos provide) ... or you can just download the binary installer from the <a href="http://download.qt.io/archive/qt/">official Qt website</a>. Sigil requires Qt5.4.0 or higher, but the "official" Sigil releases are built with Qt5.4.2. Look for the version that's appropriate for your architecture (qt-opensource-linux-<strong><em>x86</em></strong>-5.4.x.run or qt-opensource-linux-<strong><em>x64</em></strong>-5.4.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.4.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.4.x. Adjust accordingly if you choose different location.</p>
+<h2><a name="python"/>Getting Python 3.4</h2>
+<p>If your software repos provide Python 3.4.0 or higher, by all means use them to get the correct pieces installed. On Ubuntu/Debian I recommend (at a minimum) to <code>sudo apt-get install</code> the following packages:</p>
+<ul>
+<li>python3.4</li>
+<li>python3.4-dev</li>
+<li>libpython3.4</li>
+<li>libpython3.4-dev</li>
+<li>python3.4-pip</li>
+<li>python3.4-tk</li>
+</ul>
+<p>In addition you may find you need to <code>sudo apt-get install</code> the following development packages (if they're not already installed):</p>
+<ul>
+<li>libxml2-dev</li>
+<li>libxslt1-dev</li>
+</ul>
+<p>If libxslt1-dev can't be found, try libxslt-dev.</p>
+<p>Once you have those installed, use pip3 from a terminal to install the python modules that Sigil requires.</p>
+<blockquote>
+<p><code>sudo pip3 install six</code></p>
+<p><code>sudo pip3 install lxml</code></p>
+</blockquote>
+<p>If pip3 barks about installing lxml, go back and make sure you installed the two development packages I mentioned.</p>
+<p>That's all the Python 3.4 stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. The entire current list (which I <em>highly</em> recommend installing) is:</p>
+<ul>
+<li>six</li>
+<li>lxml</li>
+<li>html5lib</li>
+<li>regex</li>
+<li>Pillow</li>
+</ul>
+<p>If your repos don't include Python 3.4.x, truck on over to <a href="http://www.python.org">Python.org</a> and start reading how to build/install it from source. Whatever else you do, make sure you configure it with the `--enable-shared' option. You'll need the libpython3.4m.so library to build Sigil.</p>
+<h2><a name="sigil"/>Getting Sigil's Source Code</h2>
+<p>You can clone the Sigil Github repository:</p>
+<blockquote>
+<p><code>git clone https://github.com/Sigil-Ebook/Sigil.git</code></p>
+</blockquote>
+<p>Or you can download a specific release tarball/zipfile from Sigil's <a href="https://github.com/Sigil-Ebook/Sigil/releases">releases page</a> on Github.</p>
+<p>I recommend the latter method, as the github repository version might not always be stable at any given moment (even though we try hard not to leave it broken). </p>
+<p>Unzip/untar the source code. Rename the uppermost directory something useful like "sigil-src".</p>
+<h2><a name="build"/>Building Sigil</h2>
+<p>First off ... you don't build in the Sigil source directory. You do all the building in a "build" directory. So at the same directory level as the Sigil source code directory, create a new directory called "sigil-build". The rest of the instructions will assume that both your Sigil source directory ("sigil-src") and your Sigil build directory ("sigil-build) are at the root of your user's home (~) directory. I'm also assuming that you installed Qt5 into /opt/Qt5.4.2 (adjust accordingly for different versions and/or different locations)</p>
+<p>So first off, open a terminal and cd into your sigil-build directory</p>
+<blockquote>
+<p><code>cd ~/sigil-build</code></p>
+</blockquote>
+<p>Then issue the following command to configure Sigil for building on a 64-bit linux machine:</p>
+<blockquote>
+<p><code>cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.4.2/5.4/gcc_64/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
+</blockquote>
+<p>For a 32-bit machine it would be:</p>
+<blockquote>
+<p><code>cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.4.2/5.4/gcc/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
+</blockquote>
+<p>If there are no errors, you're ready to build.</p>
+<p>The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a <code>-DCMAKE_INSTALL_PREFIX</code> option to the above cmake configure command like so:</p>
+<blockquote>
+<p><code>cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.4.2/5.4/gcc_64/lib/cmake -DCMAKE_INSTALL_PREFIX=/a/different/install/prefix -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
+</blockquote>
+<p>You can also customize/override where the Sigil support files get installed (<code>&lt;CMAKE_INSTALL_PREFIX&gt;/share</code> by default) with the <code>-DSIGIL_SHARE_PREFIX</code> option.</p>
+<p>If cmake couldn't automatically find the necessary Python 3.4 stuff it needs (like if you installed manually in an unusual location) you may need to tell cmake <em>specifically</em> where things can be found. Do so with:</p>
+<blockquote>
+<p><code>-DPYTHON_LIBRARY=&lt;the path to the python3.4 shared library&gt;</code></p>
+<p><code>-DPYTHON_INCLUDE_DIR=&lt;the path to the directory where python3.4's header files can be found&gt;</code></p>
+<p><code>-DPYTHON_EXECUTABLE=&lt;the path to the python3.4 interpreter&gt;</code></p>
+</blockquote>
+<p>Once the cmake configure command finishes with no errors, build Sigil with:</p>
+<blockquote>
+<p><code>make</code></p>
+</blockquote>
+<p>If all goes well, install it with:</p>
+<blockquote>
+<p><code>make install</code></p>
+</blockquote>
+<p>If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (<code>&lt;CMAKE_INSTALL_PREFIX&gt;/bin/sigil</code>) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications' that you can create a link to on your desktop.</p>
+</body>
+</html>
