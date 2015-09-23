@@ -35,7 +35,7 @@ will be left open.
 Linux Build and Install
 =======================
 
-The INSTALL.md file in the docs directory contains information on building
+The BuildingOnLinux.md file in the docs directory contains information on building
 Sigil from source code (and installing it on Linux machines).
 
 
