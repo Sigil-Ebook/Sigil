@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include "Misc/GumboInterface.h"
+#include "BookManipulation/CleanSource.h"
 #include "SourceUpdates/PerformCSSUpdates.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 
@@ -45,6 +46,6 @@ QString PerformHTMLUpdates::operator()()
     if (!m_CSSUpdates.isEmpty()) {
         newsource = PerformCSSUpdates(newsource, m_CSSUpdates)();
     }
-    return newsource;
+    return CleanSource::CharToEntity(newsource);
 }
 
