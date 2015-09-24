@@ -1053,7 +1053,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     // build results
     std::string results;
 
-    if (!is_inline) {
+    if (!is_inline && !in_set(nonbreaking_inline, parentname)) {
       results.append(indent_space);
     }
 
@@ -1076,7 +1076,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 
     results.append(closeTag);
 
-    if (pp_okay) {
+    if (pp_okay && !in_set(nonbreaking_inline, parentname)) {
         if (!in_head  && tagname != "html") {
             results.append("\n\n");
         } else {
