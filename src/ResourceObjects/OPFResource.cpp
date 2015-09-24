@@ -347,7 +347,8 @@ void OPFResource::AddSigilVersionMeta()
 
 bool OPFResource::IsCoverImage(const ImageResource *image_resource) const
 {
-    QReadLocker locker(&GetLock());
+    // locking here causes a deadlock since SetResourceAsCover grabs a writelock 
+    // QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
     OPFParser p;
     p.parse(source);
