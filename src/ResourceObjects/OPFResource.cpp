@@ -347,8 +347,7 @@ void OPFResource::AddSigilVersionMeta()
 
 bool OPFResource::IsCoverImage(const ImageResource *image_resource) const
 {
-    // locking here causes a deadlock since SetResourceAsCover grabs a writelock 
-    // QReadLocker locker(&GetLock());
+    QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
     OPFParser p;
     p.parse(source);
@@ -587,7 +586,8 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
     QString source = CleanSource::ProcessXML(GetText());
     OPFParser p;
     p.parse(source);
-    if (IsCoverImage(image_resource)) {
+    QString resource_id = GetResourceManifestID(image_resource, p);
+    if (IsCoverImageCheck(resource_id, p)) {
         RemoveCoverMetaForImage(image_resource, p);
     } else {
         AddCoverMetaForImage(image_resource, p);
