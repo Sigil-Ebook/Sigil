@@ -294,8 +294,8 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         // Now apply the new id as needed.
 
         QString existing_id_attribute;
-        attr = gumbo_get_attribute(&node->v.element.attributes, "id");
-        if (attr) {
+        GumboAttribute* id_attr = gumbo_get_attribute(&node->v.element.attributes, "id");
+        if (id_attr) {
             existing_id_attribute = QString::fromUtf8(attr->value);
         }
         QString new_id_attribute(existing_id_attribute);
@@ -329,11 +329,16 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         if (new_id_attribute.trimmed() != existing_id_attribute) {
             heading->is_changed = true;
 
+            GumboElement* element = &node->v.element;
             if (!new_id_attribute.isEmpty()) {
-              gumbo_attribute_set_value(attr, new_id_attribute.toUtf8().constData());
+                if (id_attr) {
+                    gumbo_attribute_set_value(attr, new_id_attribute.toUtf8().constData());
+                } else {
+                    // id attribute does not exist so create it 
+                    gumbo_element_set_attribute(element, "id", new_id_attribute.toUtf8().constData());
+                }
             } else {
-                GumboElement* element = &node->v.element;
-                gumbo_element_remove_attribute(element, attr);
+                gumbo_element_remove_attribute(element, id_attr);
             }
         }
 
