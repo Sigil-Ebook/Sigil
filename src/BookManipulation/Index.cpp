@@ -120,7 +120,7 @@ void Index::AddIndexIDsOneFile(HTMLResource *html_resource)
 
             if (CreateIndexEntry(text_node_text, html_resource, index_id_value, is_custom_index_entry, custom_index_value)) {
                 GumboElement* element = &node->v.element;
-                gumbo_element_set_attribute(element, "id", index_id_value.toUtf8()); 
+                gumbo_element_set_attribute(element, "id", index_id_value.toUtf8().constData()); 
                 resource_updated = true;
                 index_id_number++;
             }

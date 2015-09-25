@@ -124,7 +124,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
                                               .append(Utility::URLEncodePath(file_id))
                                               .append("#")
                                               .append(fragment_id);
-                    gumbo_attribute_set_value(attr, attribute_value.toUtf8());
+                    gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                     is_changed = true;
                 }
             }
@@ -167,7 +167,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
                                           .append(Utility::URLEncodePath(ID_locations.value(fragment_id)))
                                           .append("#")
                                           .append(fragment_id);
-                gumbo_attribute_set_value(attr, attribute_value.toUtf8());
+                gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                 is_changed = true;
             }
         }
@@ -206,7 +206,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
             if (originating_filename_links.contains(parts.at(0))) {
                 if (parts.count() == 1 || parts.at(1).isEmpty()) {
                     // This is a straight href with no anchor fragment
-                    gumbo_attribute_set_value(attr, new_filename.toUtf8());
+                  gumbo_attribute_set_value(attr, new_filename.toUtf8().constData());
                 } else {
                     // Rather than using parts.at(1) we will allow a # being part of the anchor
                     QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
@@ -216,7 +216,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
                                               .append(Utility::URLEncodePath(ID_locations.value(fragment_id)))
                                               .append("#")
                                               .append(fragment_id);
-                    gumbo_attribute_set_value(attr, attribute_value.toUtf8());
+                    gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                 }
                 is_changed = true;
             }

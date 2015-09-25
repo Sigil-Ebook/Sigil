@@ -284,7 +284,7 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
             heading->is_changed = true;
 
             if (!new_class_attribute.isEmpty()) {
-                gumbo_attribute_set_value(attr, new_class_attribute.toUtf8());
+              gumbo_attribute_set_value(attr, new_class_attribute.toUtf8().constData());
             } else {
                 GumboElement* element = &node->v.element;
                 gumbo_element_remove_attribute(element, attr);
@@ -330,7 +330,7 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
             heading->is_changed = true;
 
             if (!new_id_attribute.isEmpty()) {
-                gumbo_attribute_set_value(attr, new_id_attribute.toUtf8());
+              gumbo_attribute_set_value(attr, new_id_attribute.toUtf8().constData());
             } else {
                 GumboElement* element = &node->v.element;
                 gumbo_element_remove_attribute(element, attr);
@@ -391,10 +391,10 @@ void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, const QString &
             GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "title");
             // if the title attribute exists replace it, ow. ad a new title element
             if (attr) {
-                gumbo_attribute_set_value(attr, title.toUtf8());
+              gumbo_attribute_set_value(attr, title.toUtf8().constData());
             } else {
                 GumboElement* element = &node->v.element;
-                gumbo_element_set_attribute(element, "title", title.toUtf8());
+                gumbo_element_set_attribute(element, "title", title.toUtf8().constData());
             }
             source = gi.getxhtml();
             heading->resource_file->SetText(source);
