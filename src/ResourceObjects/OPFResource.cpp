@@ -937,6 +937,11 @@ void OPFResource::WriteIdentifier(const QString &metaname, const QString &metava
 
 void OPFResource::AddModificationDateMeta()
 {
+    // temporary workaround to prevent epub2 modification date metadata
+    // forcing itself into an epub3
+    QString package_version = GetPackageVersion();
+    if (package_version.startsWith(QString("3"))) return;
+
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
     OPFParser p;
