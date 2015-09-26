@@ -283,10 +283,15 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         if (new_class_attribute != class_attribute) {
             heading->is_changed = true;
 
+            GumboElement* element = &node->v.element;
             if (!new_class_attribute.isEmpty()) {
-              gumbo_attribute_set_value(attr, new_class_attribute.toUtf8().constData());
+                if (attr) {
+                    gumbo_attribute_set_value(attr, new_class_attribute.toUtf8().constData());
+                } else {
+                    // class attribute does not exist so create it 
+                    gumbo_element_set_attribute(element, "class", new_class_attribute.toUtf8().constData());
+                }
             } else {
-                GumboElement* element = &node->v.element;
                 gumbo_element_remove_attribute(element, attr);
             }
         }
