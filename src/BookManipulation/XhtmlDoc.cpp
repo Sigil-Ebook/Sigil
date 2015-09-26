@@ -229,9 +229,11 @@ QList<QString> XhtmlDoc::GetAllDescendantIDs(const QString & source)
         } else {
             // This is supporting legacy html of <a name="xxx"> (deprecated).
             // Make sure we don't return names of other elements like <meta> tags.
-            if (element_name == "a") {
+          if (element_name == "a") {
                 attr = gumbo_get_attribute(&node->v.element.attributes, "name");
-                IDs.append(QString::fromUtf8(attr->value));
+                if (attr) {
+                    IDs.append(QString::fromUtf8(attr->value));
+                }
             }
         }
     }
