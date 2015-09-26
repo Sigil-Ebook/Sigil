@@ -80,7 +80,7 @@ static const QChar POUND_SIGN    = QChar::fromLatin1('#');
 static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
 static const std::string SRC = std::string("src");
 static const std::string HREF = std::string("href");
-static QHash<QString,QString> EmptyHash = QHash<QString,QString>();
+QHash<QString,QString> EmptyHash = QHash<QString,QString>();
 
 // These need to match the GumboAttributeNamespaceEnum sequence
 static const char * attribute_nsprefixes[4] = { "", "xlink:", "xml:", "xmlns:" };
