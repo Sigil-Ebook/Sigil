@@ -107,6 +107,18 @@ GumboInterface::GumboInterface(const QString &source)
 }
 
 
+GumboInterface::GumboInterface(const QString &source, const QHash<QString,QString> & source_updates)
+        : m_source(source),
+          m_output(NULL),
+          m_sourceupdates(source_updates),
+          m_newcsslinks(""),
+          m_currentdir(""),
+          m_utf8src(""),
+          m_newbody("")
+{
+}
+
+
 GumboInterface::~GumboInterface()
 {
     if (m_output != NULL) {
@@ -191,9 +203,8 @@ QStringList GumboInterface::get_all_properties()
 }
 
 
-QString GumboInterface::perform_source_updates(const QHash<QString, QString>& updates, const QString& my_current_book_relpath)
+QString GumboInterface::perform_source_updates(const QString& my_current_book_relpath)
 {
-    m_sourceupdates = updates;
     m_currentdir = QFileInfo(my_current_book_relpath).dir().path();
     QString result = "";
     if (!m_source.isEmpty()) {
@@ -641,7 +652,10 @@ std::string GumboInterface::update_attribute_value(std::string attvalue)
         attpath = attpath.mid(0, fragpos);
     }
     QString search_key = QDir::cleanPath(m_currentdir + FORWARD_SLASH + attpath);
-    QString new_href = m_sourceupdates.value(search_key, QString());
+    QString new_href;
+    if (m_sourceupdates.contains(search_key)) {
+        new_href = m_sourceupdates.value(search_key);
+    }
     if (!new_href.isEmpty()) {
         new_href += fragment;
         new_href = Utility::URLEncodePath(new_href);

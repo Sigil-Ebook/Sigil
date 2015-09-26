@@ -47,6 +47,7 @@ class GumboInterface
 public:
 
     GumboInterface(const QString &source);
+    GumboInterface(const QString &source, const QHash<QString, QString> &source_updates);
     ~GumboInterface();
 
     void    parse();
@@ -69,7 +70,7 @@ public:
     QString get_qwebpath_to_node(GumboNode* node);
 
     // routines for updating while serializing (see SourceUpdates and AnchorUpdates
-    QString perform_source_updates(const QHash<QString, QString> &updates, const QString & my_current_book_relpath);
+    QString perform_source_updates(const QString & my_current_book_relpath);
     QString perform_link_updates(const QString & newlinks);
     QString get_body_contents();
     QString perform_body_updates(const QString & new_body);
@@ -141,13 +142,13 @@ private:
 
     // QString fix_self_closing_tags(const QString & source);
 
-    QString                   m_source;
-    GumboOutput*              m_output;
-    std::string               m_utf8src;
-    QHash<QString, QString> & m_sourceupdates;
-    std::string               m_newcsslinks;
-    QString                   m_currentdir;
-    std::string               m_newbody;
+    QString                         m_source;
+    GumboOutput*                    m_output;
+    std::string                     m_utf8src;
+    const QHash<QString, QString> & m_sourceupdates;
+    std::string                     m_newcsslinks;
+    QString                         m_currentdir;
+    std::string                     m_newbody;
     
 };
 
