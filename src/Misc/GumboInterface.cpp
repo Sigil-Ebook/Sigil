@@ -765,14 +765,18 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
     char quote = '"';
     std::string qs="\"";
 
-    if ( (!attvalue.empty())   || 
-         (at->original_value.data[0] == '"') || 
-         (at->original_value.data[0] == '\'') ) {
+    // verify an original value existed since we create our own attributes
+    // and if so determine the original quote character used if any
 
-      // determine original quote character used if it exists
-      quote = at->original_value.data[0];
-      if (quote == '\'') qs = std::string("'");
-      if (quote == '"') qs = std::string("\"");
+    if (at->original_value.data) {
+        if ( (!attvalue.empty())   || 
+             (at->original_value.data[0] == '"') || 
+             (at->original_value.data[0] == '\'') ) {
+
+          quote = at->original_value.data[0];
+          if (quote == '\'') qs = std::string("'");
+          if (quote == '"') qs = std::string("\"");
+        }
     }
 
     atts.append("=");
