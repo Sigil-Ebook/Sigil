@@ -31,6 +31,8 @@
 #include "string_buffer.h"
 #include "error.h"
 
+QMutex GumboInterface::m_mutex;
+
 static std::unordered_set<std::string> nonbreaking_inline  = { 
   "a","abbr","acronym","b","bdo","big","br","button","cite","code","del",
   "dfn","em","font","i","image","img","input","ins","kbd","label","map",
@@ -142,7 +144,9 @@ void GumboInterface::parse()
         GumboOptions myoptions = kGumboDefaultOptions;
         myoptions.use_xhtml_rules = true;
         myoptions.tab_stop = 4;
+        GumboInterface::m_mutex.lock();
         m_output = gumbo_parse_with_options(&myoptions, m_utf8src.data(), m_utf8src.length());
+        GumboInterface::m_mutex.unlock();
     }
 }
 
@@ -430,7 +434,9 @@ QList<GumboWellFormedError> GumboInterface::error_check()
             m_utf8src.insert(0,"<!DOCTYPE html>\n");
             line_offset--;
         }
+        GumboInterface::m_mutex.lock();
         m_output = gumbo_parse_with_options(&myoptions, m_utf8src.data(), m_utf8src.length());
+        GumboInterface::m_mutex.unlock();
     }
     const GumboVector* errors  = &m_output->errors;
     for (int i=0; i< errors->length; ++i) {
