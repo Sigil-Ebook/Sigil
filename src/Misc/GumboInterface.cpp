@@ -57,7 +57,7 @@ static std::unordered_set<std::string> no_entity_sub       = {
 
 
 static std::unordered_set<std::string> empty_tags          = {
-  "area","base","basefont","bgsound","br","command","col","embed",
+  "area","base","basefont","bgsound","br","col","command","embed",
   "event-source","frame","hr","image","img","input","keygen","link",
   "menuitem","meta","param","source","spacer","track","wbr"
 };
@@ -134,6 +134,9 @@ GumboInterface::~GumboInterface()
 void GumboInterface::parse()
 {
     if (!m_source.isEmpty() && (m_output == NULL)) {
+
+        // fix any non html valid self-closing tags
+        m_source = fix_self_closing_tags(m_source);
         m_utf8src = m_source.toStdString();
         // remove any xml header line and any trailing whitespace
         if (m_utf8src.compare(0,5,"<?xml") == 0) {
@@ -142,8 +145,10 @@ void GumboInterface::parse()
             m_utf8src.erase(0,end);
         }
         GumboOptions myoptions = kGumboDefaultOptions;
-        myoptions.use_xhtml_rules = true;
         myoptions.tab_stop = 4;
+        myoptions.use_xhtml_rules = true;
+        myoptions.stop_on_first_error = false;
+        myoptions.max_errors = -1;
         GumboInterface::m_mutex.lock();
         m_output = gumbo_parse_with_options(&myoptions, m_utf8src.data(), m_utf8src.length());
         GumboInterface::m_mutex.unlock();
@@ -415,12 +420,16 @@ QList<GumboWellFormedError> GumboInterface::error_check()
     QList<GumboWellFormedError> errlist;
     int line_offset = 0;
     GumboOptions myoptions = kGumboDefaultOptions;
-    myoptions.use_xhtml_rules = true;
     myoptions.tab_stop = 4;
-    // leave this as false to prevent pre-mature stopping when no error exists
+    myoptions.use_xhtml_rules = true;
     myoptions.stop_on_first_error = false;
+    myoptions.max_errors = -1;
 
     if (!m_source.isEmpty() && (m_output == NULL)) {
+
+        // fix any non html valid self-closing tags
+        m_source = fix_self_closing_tags(m_source);
+
         m_utf8src = m_source.toStdString();
         // remove any xml header line and trailing whitespace
         if (m_utf8src.compare(0,5,"<?xml") == 0) {
@@ -1112,19 +1121,21 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 }
 
 
-#if 0
-// This should no longer be needed but keep it around in case my xhtml parsing
-// support changes in gumbo cause problems later
+
+// handle a few special cases that are hard to deal with inside of gumbo
 
 static QStringList allowed_void_tags = QStringList() << "area"    << "base"     << "basefont" 
-                                                     << "bgsound" << "br"       << "command" 
-                                                     << "col"     << "embed"    << "event-source" 
+                                                     << "bgsound" << "br"       << "col" 
+                                                     << "command" << "embed"    << "event-source" 
                                                      << "frame"   << "hr"       << "image" 
                                                      << "img"     << "input"    << "keygen" 
                                                      << "link"    << "menuitem" << "meta" 
                                                      << "param"   << "source"   << "spacer" 
                                                      << "track"   << "wbr";
 
+#if 0
+
+// Handle the general case
 QString GumboInterface::fix_self_closing_tags(const QString &source)
 {
     QString newsource = source;
@@ -1144,11 +1155,39 @@ QString GumboInterface::fix_self_closing_tags(const QString &source)
             atts = " " + atts;
         }
         int nsp = sp + n;
-        if (!allowed_void_tags.contains(tag)) {
+        if (!allowed_void_tags.contains(name)) {
             QString newtag = "<" + name + atts + "></" + name + ">";
             newsource = newsource.replace(sp,n,newtag);
             nsp = sp + newtag.length();
         }
+        match = selfclosed.match(newsource, nsp);
+    }
+    return newsource;
+}
+
+#else
+
+// Handle the specific problem of iframe being self-closed
+QString GumboInterface::fix_self_closing_tags(const QString &source)
+{
+    QString newsource = source;
+    QRegularExpression selfclosed("<\\s*iframe(\\s*[^>/]*)/\\s*>");
+    QRegularExpressionMatch match = selfclosed.match(newsource, 0);
+    while (match.hasMatch()) {
+        if (match.capturedStart() == -1) {
+            break;
+        }
+        QString tag = match.captured(0);
+        int sp = match.capturedStart(0);
+        int n = match.capturedLength(0);
+        QString atts = match.captured(1);;
+        atts = atts.trimmed();
+        if (!atts.isEmpty()) {
+            atts = " " + atts;
+        }
+        QString newtag = "<iframe" + atts + "></iframe>";
+        newsource = newsource.replace(sp,n,newtag);
+        int nsp = sp + newtag.length();
         match = selfclosed.match(newsource, nsp);
     }
     return newsource;

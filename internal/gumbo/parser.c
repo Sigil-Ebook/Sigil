@@ -54,7 +54,7 @@ static bool handle_in_template(GumboParser*, GumboToken*);
 static void free_node(GumboNode* node);
 
 const GumboOptions kGumboDefaultOptions = {
-  8,
+  4,
   true,
   false,
   -1,
@@ -4152,7 +4152,7 @@ GumboOutput* gumbo_parse_fragment(
     assert(loop_count < 1000000000);
 
   } while ((token.type != GUMBO_TOKEN_EOF || state->_reprocess_current_token) &&
-           !(options->stop_on_first_error && has_error));
+           !(parser._options->stop_on_first_error && has_error));
 
   finish_parsing(&parser);
   // For API uniformity reasons, if the doctype still has nulls, convert them to

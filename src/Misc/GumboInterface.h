@@ -141,7 +141,7 @@ private:
 
     void replace_all(std::string &s, const char * s1, const char * s2);
 
-    // QString fix_self_closing_tags(const QString & source);
+    QString fix_self_closing_tags(const QString & source);
 
     static QMutex                   m_mutex;
     QString                         m_source;
