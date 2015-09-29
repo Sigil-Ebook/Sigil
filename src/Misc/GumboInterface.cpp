@@ -564,6 +564,9 @@ QString GumboInterface::get_local_text_of_node(GumboNode* node)
 
         } else if (child->type == GUMBO_NODE_CDATA) {
             node_text += QString::fromUtf8(child->v.text.text);
+
+        } else if (child->type == GUMBO_NODE_ELEMENT) {
+            node_text += get_local_text_of_node(child);
         }
     }
     return node_text;
