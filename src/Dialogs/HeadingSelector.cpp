@@ -337,7 +337,7 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
             GumboElement* element = &node->v.element;
             if (!new_id_attribute.isEmpty()) {
                 if (id_attr) {
-                    gumbo_attribute_set_value(attr, new_id_attribute.toUtf8().constData());
+                    gumbo_attribute_set_value(id_attr, new_id_attribute.toUtf8().constData());
                 } else {
                     // id attribute does not exist so create it 
                     gumbo_element_set_attribute(element, "id", new_id_attribute.toUtf8().constData());
