@@ -20,7 +20,7 @@ from here on out. You'll have to forgive me for not knowing all the yum/pacman/e
 ## <a name="gcc"/>Linux Build Environment
 On Debian/Ubuntu systems you can use:
 
->`sudo apt-get install build-essentials`
+>`sudo apt-get install build-essential`
 
 to get pretty-much everything you need to configure/compile/install C++ projects. On other flavors of Linux you need to basically make sure that you have gcc/g++ and "make" installed. If your software repositories don't provide you with gcc/g++ 4.8 or higher, you may need to look at manually installing a newer version. [You're own your own, there.](https://gcc.gnu.org/install/index.html) Sorry. Try typing: 
 
@@ -78,12 +78,12 @@ You can clone the Sigil Github repository:
 Or you can download a specific release tarball/zipfile from Sigil's [releases page](https://github.com/Sigil-Ebook/Sigil/releases) on Github.
 
 I recommend the latter method, as the github repository version might not always be stable at any given moment (even though we try hard not to leave it broken). 
-
-Unzip/untar the source code. Rename the uppermost directory something useful like "sigil-src".
+ed
+Unzip/untar the source code. Rename the uppermost directory ("Sigil-0.X.X" if you've download the Sigil-0.X.X-Code.zip file ) to something useful like "sigil-src". Unless you like typing mixed-case stuff in a terminal.
 
 ##<a name="build"/>Building Sigil
 
-First off ... you don't build in the Sigil source directory. You do all the building in a "build" directory. So at the same directory level as the Sigil source code directory, create a new directory called "sigil-build". The rest of the instructions will assume that both your Sigil source directory ("sigil-src") and your Sigil build directory ("sigil-build) are at the root of your user's home (~) directory. I'm also assuming that you installed Qt5 into /opt/Qt5.4.2 (adjust accordingly for different versions and/or different locations)
+First off ... you don't build in the Sigil source directory. You do all the building in a "build" directory. So at the same directory level as the Sigil source code directory, create a new directory called "sigil-build". The rest of the instructions will assume that both your Sigil source directory (I renamed it "sigil-src" in the previous step. adjust accordingly if you didn't) and your Sigil build directory ("sigil-build) are at the root of your user's home (~) directory. I'm also assuming that you installed Qt5 into /opt/Qt5.4.2 (adjust accordingly for different versions and/or different locations)
 
 So first off, open a terminal and cd into your sigil-build directory
 
@@ -119,6 +119,13 @@ Once the cmake configure command finishes with no errors, build Sigil with:
 
 If all goes well, install it with:
 
+>`sudo make install`
+
+If installing to a non-default and unprivileged prefix, simply:
+
 >`make install`
+
+will suffice.
+
 
 If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (`<CMAKE_INSTALL_PREFIX>/bin/sigil`) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications' that you can create a link to on your desktop.
