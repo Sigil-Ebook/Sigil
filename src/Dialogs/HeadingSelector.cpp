@@ -301,7 +301,7 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         QString existing_id_attribute;
         GumboAttribute* id_attr = gumbo_get_attribute(&node->v.element.attributes, "id");
         if (id_attr) {
-            existing_id_attribute = QString::fromUtf8(attr->value);
+            existing_id_attribute = QString::fromUtf8(id_attr->value);
         }
         QString new_id_attribute(existing_id_attribute);
 
