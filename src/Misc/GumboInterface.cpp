@@ -144,11 +144,19 @@ void GumboInterface::parse()
             end = m_utf8src.find_first_not_of("\n\r\t\v\f ",end+1);
             m_utf8src.erase(0,end);
         }
+
+        // In case we ever have to revert to earlier versions, please note the following
+        // additional initialization is needed because Microsoft Visual Studio 2013 (and earlier?)
+        // do not properly initialize myoptions from the static const kGumboDefaultOptions defined
+        // in the gumbo library.  Instead whatever was in memory at the time is used causing random 
+        // issues later on so if reverting remember to keep these specific changes as the bug 
+        // they work around took a long long time to track down
         GumboOptions myoptions = kGumboDefaultOptions;
         myoptions.tab_stop = 4;
         myoptions.use_xhtml_rules = true;
         myoptions.stop_on_first_error = false;
         myoptions.max_errors = -1;
+
         GumboInterface::m_mutex.lock();
         m_output = gumbo_parse_with_options(&myoptions, m_utf8src.data(), m_utf8src.length());
         GumboInterface::m_mutex.unlock();
@@ -419,6 +427,13 @@ QList<GumboWellFormedError> GumboInterface::error_check()
 {
     QList<GumboWellFormedError> errlist;
     int line_offset = 0;
+
+    // In case we ever have to revert to earlier versions, please note the following
+    // additional initialization is needed because Microsoft Visual Studio 2013 (and earlier?)
+    // do not properly initialize myoptions from the static const kGumboDefaultOptions defined
+    // in the gumbo library.  Instead whatever was in memory at the time is used causing random 
+    // issues later on so if reverting remember to keep these specific changes as the bug 
+    // they work around took a long long time to track down
     GumboOptions myoptions = kGumboDefaultOptions;
     myoptions.tab_stop = 4;
     myoptions.use_xhtml_rules = true;
@@ -434,7 +449,7 @@ QList<GumboWellFormedError> GumboInterface::error_check()
         // remove any xml header line and trailing whitespace
         if (m_utf8src.compare(0,5,"<?xml") == 0) {
             size_t end = m_utf8src.find_first_of('>', 0);
-            end = m_utf8src.find_first_not_of("\n\r\t ",end+1);
+            end = m_utf8src.find_first_not_of("\n\r\t\v\f ",end+1);
             m_utf8src.erase(0,end);
             line_offset++;
         }
