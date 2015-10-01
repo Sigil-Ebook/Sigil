@@ -36,8 +36,9 @@ TEXT_FOLDER_NAME = "Text"
 ebook_xml_empty_tags = ["meta", "item", "itemref", "reference", "content"]
 
 
-def remove_xml_header(data):
-    return re.sub(r'<\s*\?xml\s*[^>]*\?>\s*','',data, flags=re.I)
+def _remove_xml_header(data):
+    return re.sub(r'<\s*\?xml\s*[^\?>]*\?*>\s*','',data, flags=re.I)
+
 
 # ncx_text_pattern = re.compile(r'''(<text>)\s*(\S[^<]*\S)\s*(</text>)''',re.IGNORECASE)
 # re.sub(ncx_text_pattern,r'\1\2\3',newdata)

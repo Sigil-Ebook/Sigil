@@ -42,6 +42,9 @@ import os
 import re
 import warnings
 
+def _remove_xml_header(data):
+    return re.sub(r'<\s*\?xml\s*[^\?>]*\?*>\s*','',data, flags=re.I)
+
 from .builder import builder_registry, ParserRejectedMarkup
 from .dammit import UnicodeDammit
 from .element import (
@@ -459,28 +462,45 @@ class BeautifulSoup(Tag):
         """Returns a string or Unicode representation of this document.
         as pretty printed xml"""
 
-        # Print the XML declaration
+        # generate a correct xml header declaration
         encoding_part = ''
         if eventual_encoding != None:
             encoding_part = ' encoding="%s"' % eventual_encoding
-        prefix = '<?xml version="1.0"%s?>\n' % encoding_part
-        return prefix + super(BeautifulSoup, self).decodexml(
+        prefix = '<?xml version="1.0"%s ?>\n' % encoding_part
+        # remove any existing xml header pi since its encoding may now be incorrect
+        # before adding in new xml header pi with the proper specified encoding
+        newsource = super(BeautifulSoup, self).decodexml(
             indent_level, eventual_encoding, formatter, indent_chars)
+        if newsource.startswith('<?xml '):
+            newsource = _remove_xml_header(newsource)
+        return prefix + newsource
 
     def serialize_xhtml(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
+        # generate a correct xml header declaration
         encoding_part = ''
         if eventual_encoding != None:
             encoding_part = ' encoding="%s"' % eventual_encoding
-        prefix = '<?xml version="1.0"%s?>\n' % encoding_part
-        return prefix + super(BeautifulSoup, self).serialize_xhtml(eventual_encoding)
+        prefix = '<?xml version="1.0"%s ?>\n' % encoding_part
+        newsource = super(BeautifulSoup, self).serialize_xhtml(eventual_encoding)
+        # remove any existing xml header declaration since its encoding may now be incorrect
+        # before adding in new xml header declaration with the proper specified encoding
+        if newsource.startswith('<?xml '):
+            newsource = _remove_xml_header(newsource)
+        return prefix + newsource 
 
     def prettyprint_xhtml(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING,
                           formatter="minimal", indent_chars=" "):
+        # generate a correct xml header declaration
         encoding_part = ''
         if eventual_encoding != None:
             encoding_part = ' encoding="%s"' % eventual_encoding
-        prefix = '<?xml version="1.0"%s?>\n' % encoding_part
-        return prefix + super(BeautifulSoup, self).prettyprint_xhtml(indent_level, eventual_encoding, formatter, indent_chars)
+        prefix = '<?xml version="1.0"%s ?>\n' % encoding_part
+        newsource = super(BeautifulSoup, self).prettyprint_xhtml(indent_level, eventual_encoding, formatter, indent_chars)
+        # remove any existing xml header pi since its encoding may now be incorrect
+        # before adding in new xml header pi with the proper specified encoding
+        if newsource.startswith('<?xml '):
+            newsource = _remove_xml_header(newsource)
+        return prefix + newsource
 
 
 # Alias to make it easier to type import: 'from bs4 import _soup'

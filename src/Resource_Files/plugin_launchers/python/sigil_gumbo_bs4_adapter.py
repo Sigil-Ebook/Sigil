@@ -147,6 +147,11 @@ def _add_next_prev_pointers(soup):
         node.previous_element = nodes[i-1]
 
 
+# The only input encoding that gumbo supports is utf-8
+# Any full unicode passed to the parser will be utf-8 encoded first
+# Also gumbo is an html5 parser and does not handle xml header declarations
+# so any xml header declaration will be stripped out before parsing
+# and added back when serialized or prettyprinted
 def parse(text, **kwargs):
     with gumboc.parse(text, **kwargs) as output:
         soup = sigil_bs4.BeautifulSoup('', "html.parser")
@@ -159,6 +164,7 @@ def parse(text, **kwargs):
 
 def main():
     samp = """
+<?xml versions="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml/" xml:lang="en" lang="en-US">
@@ -169,10 +175,15 @@ def main():
 </body>
 </html>
 """
+    print("Parsing: \n")
     soup = parse(samp)
-    print(soup.decode())
+    print(soup.prettyprint_xhtml())
+    print("\n")
+    print("Find contents of tag head:")
     for node in soup.findAll("head"):
         print(node)
+    print("\n")
+    print("Findall tags with class attribute 'second':")
     for node in soup.find_all(attrs={'class':'second'}):
         print(node)
     return 0

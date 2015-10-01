@@ -21,6 +21,7 @@ from __future__ import unicode_literals, print_function
 #
 
 import sys
+import re
 
 PY3 = sys.version_info[0] == 3
 
@@ -30,6 +31,9 @@ if PY3:
 else:
     text_type = unicode
     binary_type = str
+
+def _remove_xml_header(data):
+    return re.sub(br'<\s*\?xml\s*[^\?>]*\?*>\s*',b'',data, flags=re.I)
 
 # When supporting both python 2 and 3 using one code base, using str(obj) is confusing
 # at best since its return type is python version specific
@@ -398,6 +402,9 @@ class Output(ctypes.Structure):
         ('errors', Vector),
         ]
 
+
+# Important Note: gumbo only supports the utf-8 encoding
+# Also gumbo is an html5 parser and does not grok xml pi headers
 @contextlib.contextmanager
 def parse(text, **kwargs):
     options = Options()
@@ -415,6 +422,7 @@ def parse(text, **kwargs):
     # convert string to be utf-8 encoded
     if isinstance(text, text_type):
         text = text.encode('utf-8')
+    text = _remove_xml_header(text)
     text_ptr = ctypes.c_char_p(text)
     output = _parse_fragment(
         ctypes.byref(options), text_ptr, len(text),
