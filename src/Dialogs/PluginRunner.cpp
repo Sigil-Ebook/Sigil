@@ -293,11 +293,6 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     if (m_pluginType == "validation") {
         m_mainWindow->SetValidationResults(m_validationResults);
     }
-#if 0
-    if (!m_validationResults.isEmpty()) {
-        m_mainWindow->SetValidationResults(m_validationResults);
-    }
-#endif
 
     // now make these changes known to Sigil
     m_book->GetFolderKeeper()->ResumeWatchingResources();
