@@ -45,12 +45,14 @@ def _remove_xml_header(data):
 
 # BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
 def repairXML(data, self_closing_tags=ebook_xml_empty_tags, indent_chars="  "):
+    data = _remove_xml_header(data)
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
     soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars=indent_chars)
     return newdata
 
 def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
+    data = _remove_xml_header(data)
     # rebuild serialized lookup dictionary
     id_dict = {}
     for i in range(0, len(keylist)):
@@ -73,7 +75,10 @@ def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
 
 
 def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
+    data = _remove_xml_header(data)
     # rebuild serialized lookup dictionary
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     updates = {}
     for i in range(0, len(keylist)):
         updates[ keylist[i] ] = valuelist[i]
@@ -102,6 +107,7 @@ def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
 
 
 def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
+    data = _remove_xml_header(data)
     # rebuild serialized lookup dictionary
     updates = {}
     for i in range(0, len(keylist)):
