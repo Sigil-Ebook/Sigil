@@ -322,7 +322,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     // results too. We really should check that everything else a
     // plugin can set is really empty before calling accept because
     // it could have actual info the user needs to see in the dialog.
-    if (!m_validationResults.isEmpty()) {
+    if (m_pluginType == "validation") {
         accept();
         return;
     }
