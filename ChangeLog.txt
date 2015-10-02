@@ -1,13 +1,13 @@
-Sigil 0.8.901 Primarily a Bug Fix Release
+Sigil 0.8.901 Second in the pre-release series - primarily a bug fix release
+
+    Fixes
     - fix for hang when trying to add a cover
     - multiple fixes for segfaults in the TOC creation code
     - fixes for blank TOC headings caused by tags nested inside of h1-h6 tags
     - workaround for an instability caused by a compiler bug in Visual Studio 2013 on Windows
-    - validation plugins that report no errors will now have "No problems found" appear in the Sigil Validation window.
-    - validation plugins will auto accept/close the plugin runner window no matter the results
     - fixes for multiple xml header declarations appearing when using sigil_bs4 prettyprint_xhtml() or serialzie_xhtml()
     - build fixes to include MSVCR100.DLL for Windows machines that are too new to have it
-    - improved pretty printing using gumbo to support some mbp: tags
+    - fix pretty printing using gumbo to support some mbp: tags
     - fixes to deal with self-closing iframe tags which made gumbo stumble
     - fixes to more robustly convert from QByteArray types to their char * pointers
     - fixes and improvements to the Building on Linux instructions
@@ -15,7 +15,13 @@ Sigil 0.8.901 Primarily a Bug Fix Release
     - workaround Qt QHash operator()= bugs that caused static QHash objects to freed multiple times
     - fix for internal opf processing encoding detection being confused by xml header declarations
          potentially resulting in missing spine and manifest items.
+
+    Features
     - new launcher/wrapper code interface to support plugins that operate on epub3 ebooks
+    - added cssutils, cssselect, and chardet to the site-packages of the embedded Python 3.4 interpreter
+    - validation plugins that report no errors will now have "No problems found" appear in the Sigil Validation window.
+    - validation plugins will auto accept/close the plugin runner window no matter the results
+
 
 
 Primarily Infrastructure Changes Toward Dual Epub2 / Epub3 support:
