@@ -37,7 +37,7 @@ static std::unordered_set<std::string> nonbreaking_inline  = {
   "a","abbr","acronym","b","bdo","big","br","button","cite","code","del",
   "dfn","em","font","i","image","img","input","ins","kbd","label","map",
   "nobr","object","q","s","samp","select","small","span","strike","strong",
-  "sub","sup","textarea","tt","u","var","wbr"
+  "sub","sup","textarea","tt","u","var","wbr", "mbp:nu"
 };
 
 
@@ -59,7 +59,8 @@ static std::unordered_set<std::string> no_entity_sub       = {
 static std::unordered_set<std::string> empty_tags          = {
   "area","base","basefont","bgsound","br","col","command","embed",
   "event-source","frame","hr","image","img","input","keygen","link",
-  "menuitem","meta","param","source","spacer","track","wbr"
+  "menuitem","meta","param","source","spacer","track","wbr", 
+  "mbp:pagebreak"
 };
 
 
