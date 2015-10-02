@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20150909
+_launcher_version=20151001
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -133,10 +133,13 @@ class Wrapper(object):
         self.id_to_href = {}
         self.id_to_mime = {}
         self.href_to_id = {}
+        self.id_to_props = {}
         self.spine_ppd = None
         self.spine = []
         self.guide = []
-        self.package_tag = ''
+        self.package_tag = None
+        # self.metadata_attr = None
+        # self.metadata = []
         self.metadataxml = ''
         self.op = op
         if self.op is not None:
@@ -145,10 +148,13 @@ class Wrapper(object):
             self.id_to_href = op.get_manifest_id_to_href_dict().copy()
             self.id_to_mime = op.get_manifest_id_to_mime_dict().copy()
             self.href_to_id = op.get_href_to_manifest_id_dict().copy()
+            self.id_to_props = op.get_manifest_id_to_properties_dict().copy()
             self.spine_ppd = op.get_spine_ppd()
             self.spine = op.get_spine()
             self.guide = op.get_guide()
             self.package_tag = op.get_package_tag()
+            # self.metadata = op.get_metadata()
+            # self.metadata_attr = op.get_metadata_attr()
             self.metadataxml = op.get_metadataxml()
         self.other = []  # non-manifest file information
         self.id_to_filepath = {}
@@ -190,13 +196,20 @@ class Wrapper(object):
 
     # routines to rebuild the opf on the fly from current information
 
+    def build_package_starttag(self):
+        return self.package_tag
+
     def build_manifest_xml(self):
         manout = []
         manout.append('<manifest>\n')
         for id in sorted(self.id_to_mime):
             href = quoteurl(self.id_to_href[id])
             mime = self.id_to_mime[id]
-            manout.append('<item id="%s" href="%s" media-type="%s" />\n' % (id, href, mime))
+            properties = ''
+            props = self.id_to_props[id]
+            if props != '':
+                properties = ' properties="%s"' % props
+            manout.append('<item id="%s" href="%s" media-type="%s"%s />\n' % (id, href, mime, properties))
         manout.append('</manifest>\n')
         return "".join(manout)
 
@@ -214,11 +227,14 @@ class Wrapper(object):
         if pagemapid is not None:
             map = ' page-map="%s"' % pagemapid
         spineout.append('<spine%s%s%s>\n' %(ppd, ncx, map))
-        for (id, linear) in self.spine:
+        for (id, linear, properties) in self.spine:
             lin = ''
             if linear is not None:
                 lin = ' linear="%s"' % linear
-            spineout.append('<itemref idref="%s"%s/>\n' % (id, lin))
+            props = ''
+            if properties is not None:
+                props = ' properties="%s"' % properties
+            spineout.append('<itemref idref="%s"%s%s/>\n' % (id, lin, props))
         spineout.append('</spine>\n')
         return "".join(spineout)
 
@@ -234,7 +250,7 @@ class Wrapper(object):
     def build_opf(self):
         data = []
         data.append('<?xml version="1.0" encoding="utf-8" standalone="yes"?>\n')
-        data.append(self.package_tag)
+        data.append(self.build_package_starttag())
         data.append(self.metadataxml)
         data.append(self.build_manifest_xml())
         data.append(self.build_spine_xml())
@@ -273,11 +289,15 @@ class Wrapper(object):
     # routines to manipulate the spine
 
     def getspine(self):
-        return self.spine
+        osp = []
+        for (sid, linear, properties) in self.spine:
+            osp.append((sid, linear))
+        return osp
 
     def setspine(self,new_spine):
         spine = []
         for (sid, linear) in new_spine:
+            properties = None
             sid = unicode_str(sid)
             linear = unicode_str(linear)
             if sid not in self.id_to_href:
@@ -286,22 +306,44 @@ class Wrapper(object):
                 linear = linear.lower()
                 if linear not in ['yes', 'no']:
                     raise Exception('Improper Spine Linear Attribute')
-            spine.append((sid, linear))
+            spine.append((sid, linear, properties))
         self.spine = spine
         self.modified['OEBPS/content.opf'] = 'file'
 
-    def spine_insert_before(self, pos, sid, linear):
+    def getspine_epub3(self):
+        return self.spine
+
+    def setspine_epub3(self, new_spine):
+        spine = []
+        for (sid, linear, properties) in new_spine:
+            sid = unicode_str(sid)
+            linear = unicode_str(linear)
+            properties = unicode_str(properties)
+            if sid not in self.id_to_href:
+                raise WrapperException('Spine Id not in Manifest')
+            if linear is not None:
+                linear = linear.lower()
+                if linear not in ['yes', 'no']:
+                    raise Exception('Improper Spine Linear Attribute')
+            if properties is not None:
+                properties = properties.lower()
+            spine.append((sid, linear, properties))
+        self.spine = spine
+        self.modified['OEBPS/content.opf'] = 'file'
+
+    def spine_insert_before(self, pos, sid, linear, properties=None):
         sid = unicode_str(sid)
         linear = unicode_str(linear)
+        properties = unicode_str(properties)
         if sid not in self.id_to_mime:
             raise WrapperException('that spine idref does not exist in manifest')
         n = len(self.spine)
         if pos == 0:
-            self.spine = [(sid, linear)] + self.spine
+            self.spine = [(sid, linear, properties)] + self.spine
         elif pos == -1 or pos >= n:
-            self.spine = self.spine.append((sid, linear))
+            self.spine = self.spine.append((sid, linear, properties))
         else:
-            self.spine = self.spine[0:pos] + [(sid, linear)] + self.spine[pos:]
+            self.spine = self.spine[0:pos] + [(sid, linear, properties)] + self.spine[pos:]
         self.modified['OEBPS/content.opf'] = 'file'
 
     def getspine_ppd(self):
@@ -312,6 +354,22 @@ class Wrapper(object):
         if ppd not in ['rtl', 'ltr', None]:
             raise WrapperException('incorrect page-progression direction')
         self.spine_ppd = ppd
+        self.modified['OEBPS/content.opf'] = 'file'
+
+    def setspine_itemref_epub3_attributes(idref, linear, properties):
+        idref = unicode_str(idref)
+        linear = unicode_str(linear)
+        properties = unicode_str(properties)
+        pos = -1
+        i = 0
+        for (sid, slinear, sproperties) in self.spine:
+            if sid == idref:
+                pos = i
+                break;
+            i += 1
+        if pos == -1:
+            raise WrapperException('that idref is not exist in the spine')
+        self.spine[pos] = (sid, linear, properties)
         self.modified['OEBPS/content.opf'] = 'file'
 
 
@@ -349,7 +407,6 @@ class Wrapper(object):
 
 
     # routines to get and set the package tag
-
     def getpackagetag(self):
         return self.package_tag
 
@@ -400,7 +457,7 @@ class Wrapper(object):
             fp.write(data)
         self.modified[id] = 'file'
 
-    def addfile(self, uniqueid, basename, data, mime=None):
+    def addfile(self, uniqueid, basename, data, mime=None, properties=None):
         uniqueid = unicode_str(uniqueid)
         basename = unicode_str(basename)
         mime = unicode_str(mime)
@@ -435,6 +492,7 @@ class Wrapper(object):
             fp.write(data)
         self.id_to_href[uniqueid] = href
         self.id_to_mime[uniqueid] = mime
+        self.id_to_props[uniqueid] = properties
         self.href_to_id[href] = uniqueid
         self.added.append(uniqueid)
         self.modified['OEBPS/content.opf'] = 'file'
@@ -463,21 +521,31 @@ class Wrapper(object):
         mime = self.id_to_mime[id]
         del self.id_to_href[id]
         del self.id_to_mime[id]
+        del self.id_to_props[id]
         del self.href_to_id[href]
         # remove from spine
         new_spine = []
         was_modified = False
-        for sid, linear in self.spine:
+        for sid, linear, properties in self.spine:
             if sid != id:
-                new_spine.append((sid, linear))
+                new_spine.append((sid, linear, properties))
             else:
                 was_modified = True
         if was_modified:
-            self.setspine(new_spine)
+            self.setspine_epub3(new_spine)
         if add_to_deleted:
             self.deleted.append(('manifest', id, href))
             self.modified['OEBPS/content.opf'] = 'file'
         del self.id_to_filepath[id]
+
+    def set_manifest_epub3_properties(self, id, properties):
+        id = unicode_str(id)
+        properties = unicode_str(properties)
+        if id not in self.id_to_props:
+            raise WrapperException('Id does not exist in manifest')
+        del self.id_to_props[id]
+        self.id_to_props[id] = properties
+        self.modified['OEBPS/content.opf'] = 'file'
 
 
     # helpful mapping routines for file info from the opf manifest
@@ -507,6 +575,10 @@ class Wrapper(object):
     def map_id_to_mime(self, id, ow):
         id = unicode_str(id)
         return self.id_to_mime.get(id, ow)
+
+    def map_id_to_properties(self, id, ow):
+        id = unicode_str(id)
+        return self.id_to_props.get(id, ow)
 
 
     # routines to work on ebook files that are not part of an opf manifest

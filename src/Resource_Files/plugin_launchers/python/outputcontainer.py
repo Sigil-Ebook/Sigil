@@ -76,6 +76,12 @@ class OutputContainer(object):
         # spine_ppd is utf-8 string of page direction (rtl, ltr, None)
         return self._w.getspine_ppd()
 
+    # New for epub3
+    def getspine_epub3(self):
+        # spine is an ordered list of tuples (id, linear, properties)
+        return self._w.getspine_epub3()
+
+
 # guide get
 
     def getguide(self):
@@ -110,7 +116,7 @@ class OutputContainer(object):
     def text_iter(self):
         # yields manifest id, href in spine order plus any non-spine items
         text_set = set([k for k,v in self._w.id_to_mime.items() if v == 'application/xhtml+xml'])
-        for id, linear in self._w.spine:
+        for id, linear, properties in self._w.spine:
             if id in text_set:
                 text_set -= set([id])
                 href = self._w.id_to_href[id]
@@ -150,11 +156,27 @@ class OutputContainer(object):
             href = self._w.id_to_href[id]
             yield id, href, mime
 
+    # New for epub3
+    def manifest_epub3_iter(self):
+        # yields manifest id, href, mimetype, and properties
+        for id in sorted(self._w.id_to_mime):
+            mime = self._w.id_to_mime[id]
+            href = self._w.id_to_href[id]
+            properties = self._w.id_to_props[id]
+            yield id, href, mime, properties
+
     def spine_iter(self):
         # yields spine idref, linear(yes,no,None), href in spine order
-        for (id , linear) in self._w.spine:
+        for (id , linear, properties) in self._w.spine:
             href = self._w.id_to_href[id]
             yield id, linear, href
+
+   # New for epub3
+    def spine_epub3_iter(self):
+        # yields spine idref, linear(yes,no,None), properties, href in spine order
+        for (id , linear, properties) in self._w.spine:
+            href = self._w.id_to_href[id]
+            yield id, linear, properties, href
 
     def guide_iter(self):
         # yields guide reference type, title, href, and manifest id of href
@@ -218,6 +240,10 @@ class OutputContainer(object):
 
     def id_to_href(self, id, ow=None):
         return self._w.map_id_to_href(id, ow)
+
+    # New for epub3
+    def id_to_properties(self, id, ow=None):
+        return self._w.map_id_to_props(id, ow)
 
     def href_to_basename(self, href, ow=None):
         if basename is not None:

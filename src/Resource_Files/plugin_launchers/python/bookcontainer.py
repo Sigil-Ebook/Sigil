@@ -76,8 +76,19 @@ class BookContainer(object):
         # new_spine must be an ordered list of tuples (id, linear)
         self._w.setspine(new_spine)
 
-    def spine_insert_before(self, pos, spid, linear):
-        self._w.spine_insert_before(pos, spid, linear)
+    # New for epub3
+    def getspine_epub3(self):
+        # spine is an ordered list of tuples (id, linear, properties)
+        return self._w.getspine_epub3()
+
+    # New for epub3
+    def setspine_epub3(self, new_spine):
+        # new_spine must be an ordered list of tuples (id, linear, properties (or None))
+        self._w.setspine_epub3(new_spine)
+
+    # Modified for epub3
+    def spine_insert_before(self, pos, spid, linear, properties=None):
+        self._w.spine_insert_before(pos, spid, linear, properties)
 
     def getspine_ppd(self):
         # spine_ppd is utf-8 string of page direction (rtl, ltr, None)
@@ -86,6 +97,10 @@ class BookContainer(object):
     def setspine_ppd(self, ppd):
         # new pagedirection string
         self._w.setspine_ppd(ppd)
+
+    # New for epub3
+    def setspine_idref_epub3_attributes(idref, linear, properties):
+        self._w.setspine_idref_attributes(idref, linear, properties)
 
 
 # guide get/set
@@ -129,15 +144,19 @@ class BookContainer(object):
         # writes data to a currently existing file pointed to by the manifest id
         self._w.writefile(id, data)
 
-    def addfile(self, uniqueid, basename, data, mime=None):
+    # Modified for epub3
+    def addfile(self, uniqueid, basename, data, mime=None, properties=None):
         # creates a new file in the manifest with unique manifest id, basename, data, and mimetype
-        self._w.addfile(uniqueid, basename, data, mime)
-
+        self._w.addfile(uniqueid, basename, data, mime, properties)
 
     def deletefile(self, id):
         # removes the file associated with that manifest id, removes any existing spine entries as well
         self._w.deletefile(id)
 
+    # New for epub3
+    def set_manifest_epub3_properties(self, id, properties):
+        # sets the epub3 manifest property for this manifest id
+        self._w.set_manifest_epub3_property(id, properties)
 
 # reading / writing / adding / deleting other ebook files that DO NOT exist in the opf manifest
 
@@ -163,7 +182,7 @@ class BookContainer(object):
     def text_iter(self):
         # yields manifest id, href in spine order plus any non-spine items
         text_set = set([k for k,v in self._w.id_to_mime.items() if v == 'application/xhtml+xml'])
-        for id, linear in self._w.spine:
+        for (id, linear, properties) in self._w.spine:
             if id in text_set:
                 text_set -= set([id])
                 href = self._w.id_to_href[id]
@@ -203,11 +222,27 @@ class BookContainer(object):
             href = self._w.id_to_href[id]
             yield id, href, mime
 
+    # New for epub3
+    def manifest_epub3_iter(self):
+        # yields manifest id, href, mimetype, and properties
+        for id in sorted(self._w.id_to_mime):
+            mime = self._w.id_to_mime[id]
+            href = self._w.id_to_href[id]
+            properties = self._w.id_to_props[id]
+            yield id, href, mime, properties
+
     def spine_iter(self):
         # yields spine idref, linear(yes,no,None), href in spine order
-        for (id , linear) in self._w.spine:
+        for (id , linear, properties) in self._w.spine:
             href = self._w.id_to_href[id]
             yield id, linear, href
+
+    # New for epub3
+    def spine_epub3_iter(self):
+        # yields spine idref, linear(yes,no,None), properties, href in spine order
+        for (id , linear, properties) in self._w.spine:
+            href = self._w.id_to_href[id]
+            yield id, linear, properties, href
 
     def guide_iter(self):
         # yields guide reference type, title, href, and manifest id of href
@@ -271,6 +306,10 @@ class BookContainer(object):
 
     def id_to_href(self, id, ow=None):
         return self._w.map_id_to_href(id, ow)
+
+    # New for epub3
+    def id_to_properties(self, id, ow=None):
+        return self._w.map_id_to_props(id, ow)
 
     def href_to_basename(self, href, ow=None):
         if basename is not None:

@@ -31,7 +31,7 @@ from unipath import pathof
 
 import sys, os
 
-_OPF_PARENT_TAGS = ['xml', 'package', 'metadata', 'dc-metadata', 'x-metadata', 'manifest', 'spine', 'tours', 'guide']
+_OPF_PARENT_TAGS = ['xml', 'package', 'metadata', 'dc-metadata', 'x-metadata', 'manifest', 'spine', 'tours', 'guide', 'bindings']
 
 class Opf_Parser(object):
 
@@ -43,19 +43,18 @@ class Opf_Parser(object):
         with open(opf_path,'rb') as fp:
             self.opf = fp.read().decode('utf-8')
         self.opos = 0
-        self.package_tag = [None, None]
-        # self.package_version = None
-        self.metadata_tag = [None, None]
+        self.package = None
+        self.metadata_attr = None
         self.metadata = []
         self.cover_id = None
         self.manifest_id_to_href = {}
         self.manifest_id_to_mime = {}
-        self.href_to_manifest_id ={}
-        self.spine_ppd = None
-        # self.spine_pageattributes = {}
-        # self.spine_idrefs = {}
+        self.href_to_manifest_id = {}
+        self.manifest_id_to_properties = {}
         self.spine = []
+        self.spine_ppd = None
         self.guide = []
+        self.bindings = []
         self._parseData()
 
     # OPF tag iterator
@@ -67,7 +66,7 @@ class Opf_Parser(object):
             if text is None and tag is None:
                 break
             if text is not None:
-                tcontent = text.rstrip(" \r\n")
+                tcontent = text.rstrip(" \t\v\f\r\n")
             else: # we have a tag
                 ttype, tname, tattr = self._parsetag(tag)
                 if ttype == "begin":
@@ -92,51 +91,65 @@ class Opf_Parser(object):
 
     # now parse the OPF to extract manifest, spine , and metadata
     def _parseData(self):
+        cnt = 0
         for prefix, tname, tattr, tcontent in self._opf_tag_iter():
             if self._debug:
                 print ("   Parsing OPF: ", prefix, tname, tattr, tcontent)
             # package
             if tname == "package":
-                self.package_tag = [tname, tattr]
+                ver = tattr.pop("version", "2.0")
+                uid = tattr.pop("unique-identifier","bookid")
+                self.package = (ver, uid, tattr)
+                continue
             # metadata
             if tname == "metadata":
-                self.metadata_tag = [tname, tattr]
-            if tname == "meta" or tname.startswith("dc:") and "metadata" in prefix:
-                self.metadata.append([tname, tattr, tcontent])
+                self.metadata_attr = tattr
+                continue
+            if tname in ["meta", "link"] or tname.startswith("dc:") and "metadata" in prefix:
+                self.metadata.append((tname, tattr, tcontent))
                 if tattr.get("name","") == "cover":
                     self.cover_id = tattr.get("content",None)
+                continue
             # manifest
             if tname == "item" and  prefix.endswith("manifest"):
-                id = tattr.pop("id",'')
+                nid = "xid%03d" %  cnt
+                cnt += 1
+                id = tattr.pop("id", nid)
                 href = tattr.pop("href",'')
                 mtype = tattr.pop("media-type",'')
                 if mtype == "text/html":
                     mtype = "application/xhtml+xml"
                 href = unquoteurl(href)
+                properties = tattr.pop("properties",'')
                 self.manifest_id_to_href[id] = href
                 self.manifest_id_to_mime[id] = mtype
                 self.href_to_manifest_id[href] = id
+                self.manifest_id_to_properties[id] = properties
+                continue
             # spine
             if tname == "spine":
                 if tattr is not None:
                     self.spine_ppd = tattr.get("page-progression-direction", None)
+                continue
             if tname == "itemref" and prefix.endswith("spine"):
-                idref = tattr.pop("idref", None)
+                idref = tattr.pop("idref", "")
                 linear = tattr.pop("linear", None)
-                self.spine.append((idref,linear))
-                # ver 3 allows page properites per page
-                # remove id since may be confusing
-                # if "id" in tattr:
-                #     del tattr["id"]
-                # if "properties in tattr:
-                #     self.spine_pageattributes[idref] = tattr
-
+                properties = tattr.pop("properties", None)
+                self.spine.append((idref, linear, properties))
+                continue
             # guide
             if tname == "reference" and  prefix.endswith("guide"):
                 type = tattr.pop("type",'')
                 title = tattr.pop("title",'')
                 href = unquoteurl(tattr.pop("href",''))
                 self.guide.append((type, title, href))
+                continue
+            # bindings (stored but ignored for now)
+            if tname in ["mediaTypes", "mediatypes"] and prefix.endswith("bindings"):
+                mtype = tattr.pop("media-type","")
+                handler = tattr.pop("handler","")
+                self.bindings.append((mtype, handler))
+                continue
 
     # parse and return either leading text or the next tag
     def _parseopf(self):
@@ -238,23 +251,20 @@ class Opf_Parser(object):
         return "".join(res)
 
     def get_package_tag(self):
-        tname, tattr = self.package_tag
-        if tname is None:
-            return ''
-        tag = "<" + tname
+        (ver, uid, tattr) = self.package
+        packout = []
+        packout.append('<package version="%s" unique-identifier="%s"' % (ver, uid))
         if tattr is not None:
             for key in tattr:
                 val = self.handle_quoted_attribute_values(tattr[key])
-                tag += ' ' + key + '="'+val+'"'
-        tag += '>\n'
-        return tag
+                packout.append(' %s="%s"' % (key, val))
+        packout.append(">\n")
+        return "".join(packout)
 
     def get_metadataxml(self):
         data = []
-        tname, tattr = self.metadata_tag
-        if tname is None:
-            return ''
-        tag = "<" + tname
+        tattr = self.metadata_attr
+        tag = "<metadata"
         if tattr is not None:
             for key in tattr:
                 val = self.handle_quoted_attribute_values(tattr[key])
@@ -266,6 +276,13 @@ class Opf_Parser(object):
         data.append('</metadata>\n')
         return "".join(data)
 
+    def get_metadata_attr(self):
+        return self.metadata_attr
+
+    # list of (tname, tattr, tcontent) 
+    def get_metadata(self):
+        return self.metadata
+
     def get_manifest_id_to_href_dict(self):
         return self.manifest_id_to_href
 
@@ -275,10 +292,13 @@ class Opf_Parser(object):
     def get_href_to_manifest_id_dict(self):
         return self.href_to_manifest_id
 
+    def get_manifest_id_to_properties_dict(self):
+        return self.manifest_id_to_properties
+
     def get_spine_ppd(self):
         return self.spine_ppd
 
-    # list of (id, linear)
+    # list of (idref, linear, properties)
     def get_spine(self):
         return self.spine
 
