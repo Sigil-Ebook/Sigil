@@ -66,6 +66,9 @@ That's all the Python 3.4 stuff you will need to get Sigil "up and running", but
 + html5lib
 + regex
 + Pillow
++ cssselect
++ cssutils
++ chardet
 
 If your repos don't include Python 3.4.x, truck on over to [Python.org](http://www.python.org) and start reading how to build/install it from source. Whatever else you do, make sure you configure it with the `--enable-shared' option. You'll need the libpython3.4m.so library to build Sigil.
 

@@ -30,7 +30,10 @@ site_packages = [ ('lxml', 'd'),
                   ('regex.py','f'),
                   ('_regex.pyd','f'),
                   ('_regex_core.py','f'),
-                  ('test_regex.py', 'f')]
+                  ('test_regex.py', 'f'),
+                  ('cssselect', 'd'),
+                  ('cssutils', 'd'),
+                  ('chardet', 'd')]
 
 
 def copy_site_packages():

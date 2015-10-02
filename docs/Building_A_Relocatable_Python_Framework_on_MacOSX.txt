@@ -23,16 +23,21 @@ make
 sudo make frameworkinstall
 
 # next update path in order to use the newly built/installed Python.framework's
-# pip3 to install other required python packages to its site packages
+
+# use pip3 to install all other required python packages to its site-packages
 
 export PATH=${MYDEST}/Python.framework/Versions/3.4/bin:${PATH}
 which pip3
+
 sudo pip3 install six
 sudo pip3 install html5lib
 sudo pip3 install lxml
 sudo pip3 install beautifulsoup4
 sudo pip3 install Pillow
 sudo pip3 install regex
+sudo pip3 install cssutils
+sudo pip3 install cssselect
+sudo pip3 install chardet
 
 # Now a complete Python.framework has been built in ${MYDEST}
 # But we still need to make it a relocatable framework
