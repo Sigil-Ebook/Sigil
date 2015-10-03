@@ -41,7 +41,7 @@ If your software repos provide Python 3.4.0 or higher, by all means use them to 
 + python3.4-dev
 + libpython3.4
 + libpython3.4-dev
-+ python3.4-pip
++ python3.4-pip (might be python3-pip on some systems)
 + python3.4-tk
 
 In addition you may find you need to `sudo apt-get install` the following development packages (if they're not already installed):
