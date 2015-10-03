@@ -77,8 +77,6 @@ def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
 def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
     data = _remove_xml_header(data)
     # rebuild serialized lookup dictionary
-    if isinstance(data, str):
-        data = data.encode("utf-8")
     updates = {}
     for i in range(0, len(keylist)):
         updates[ keylist[i] ] = valuelist[i]
