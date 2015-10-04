@@ -21,6 +21,7 @@ Sigil 0.8.901 Second in the pre-release series - primarily a bug fix release
     - added cssutils, cssselect, and chardet to the site-packages of the embedded Python 3.4 interpreter
     - validation plugins that report no errors will now have "No problems found" appear in the Sigil Validation window.
     - validation plugins will auto accept/close the plugin runner window no matter the results
+    - Windows installer now detects whether MS redistributable runtimes are already installed
 
 
 
