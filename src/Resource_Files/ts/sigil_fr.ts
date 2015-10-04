@@ -59,12 +59,12 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>Mainteneur(s)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>Mainteneur(s) Précédent(s)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
@@ -2232,7 +2232,7 @@ The heading&apos;s title attribute will be updated in the document.</source>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="931"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="941"/>
         <source>Rename</source>
         <translation>Renommer</translation>
     </message>
@@ -2273,50 +2273,50 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation>Indiquer rapidement quelles rubriques sont incluses dans la Table des matières.⏎ Vous pouvez alors cocher ou non chaque rubriques de la liste ci-dessus.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
         <source>Include</source>
         <translation>Inclure</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="794"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="804"/>
         <source>Up to level</source>
         <translation>Jusqu&apos;au niveau</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="796"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="806"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation>&lt;Sélectionnez les titres à inclure dans la TdM&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="799"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="860"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="809"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="870"/>
         <source>None</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="574"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="584"/>
         <source>TOC Entry / Heading Title</source>
         <translation>Entrée de la Table des matières / Titre de rubrique</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="575"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="585"/>
         <source>Level</source>
         <translation>Niveau</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Included</source>
         <translation>Inclus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Hidden</source>
         <translation>Caché</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="805"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="858"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="815"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="868"/>
         <source>All</source>
         <translation>Tous</translation>
     </message>
@@ -4725,7 +4725,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Hawaiian</source>
-        <translation type="unfinished"/>
+        <translation>Hawaïen</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="459"/>
@@ -4740,7 +4740,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Hittite</source>
-        <translation type="unfinished"/>
+        <translation>Hittite</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="462"/>
@@ -5290,7 +5290,7 @@ Voulez-vous enregistrer les changements?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Phoenician</source>
-        <translation type="unfinished"/>
+        <translation>Phénicien</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
@@ -6876,6 +6876,16 @@ Applique une majuscule initiale au premier mot dans le texte sélectionné</tran
         <translation>F6</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1513"/>
+        <source>&amp;Sanity Check EPUB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SanityCheck EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>F7</source>
         <translation>F7</translation>
@@ -7530,7 +7540,7 @@ Ajoute des fichiers de votre ordinateur à votre livre.</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="1431"/>
         <source>Sigil Website...</source>
-        <translation type="unfinished"/>
+        <translation>Site web de Sigil...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1460"/>
@@ -7757,16 +7767,6 @@ Vérifie que vos feuilles de styles CSS correspondent aux standards W3C en utili
         <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1513"/>
-        <source>&amp;Validate EPUB</source>
-        <translation>&amp;Valider l&apos;EPUB</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1516"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1651"/>
@@ -11166,6 +11166,16 @@ Are you Sure You Want to Continue?</source>
         <translation>Greffons</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
+        <source>≥Python3.4:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
+        <source>≥Python2.7:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
         <source>Name</source>
         <translation>Nom</translation>
@@ -11214,16 +11224,6 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
         <translation>Chemin vers l&apos;éxécutable de l&apos;interpréteu</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
-        <source>Python2.7:</source>
-        <translation>Python2.7 :</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
-        <source>Python3.4:</source>
-        <translation>Python3.4 :</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>

@@ -2234,7 +2234,7 @@ Tämä päivittää otsikon title-määritteen kirjassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="931"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="941"/>
         <source>Rename</source>
         <translation>Nimeä uudelleen</translation>
     </message>
@@ -2276,50 +2276,50 @@ You can then check or uncheck individual headings in the list above.</source>
 Voit sitten valita tai poistaa yksittäisiä otsikoita yllä olevasta listasta.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
         <source>Include</source>
         <translation>Ota mukaan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="794"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="804"/>
         <source>Up to level</source>
         <translation>Tasolle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="796"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="806"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation>&lt;Valitse sisällysluetteloon otettavat otsikot&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="799"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="860"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="809"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="870"/>
         <source>None</source>
         <translation>Ei mitään</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="574"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="584"/>
         <source>TOC Entry / Heading Title</source>
         <translation>Sisällysluettelon kohta / otsikko</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="575"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="585"/>
         <source>Level</source>
         <translation>Taso</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Included</source>
         <translation>Mukana</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Hidden</source>
         <translation>Piilossa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="805"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="858"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="815"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="868"/>
         <source>All</source>
         <translation>Kaikki</translation>
     </message>
@@ -6884,6 +6884,16 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation>F6</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1513"/>
+        <source>&amp;Sanity Check EPUB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SanityCheck EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>F7</source>
         <translation>F7</translation>
@@ -7768,16 +7778,6 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Ctrl+Alt+W</source>
         <translation>AltGr+W</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1513"/>
-        <source>&amp;Validate EPUB</source>
-        <translation>&amp;Tarkista EPUB</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1516"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Tarkista EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Tarkista, että dokumentti noudattaa EPUB-määrittelyn vähimmäisvaatimuksia. Tämä ei ole täydellinen skeemapohjainen validointi eikä takaa määrittelynmukaisuutta.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1651"/>
@@ -11180,6 +11180,16 @@ Oletko varma, että haluat jatkaa.</translation>
         <translation>Lisäosat</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
+        <source>≥Python3.4:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
+        <source>≥Python2.7:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
         <source>Name</source>
         <translation>Nimi</translation>
@@ -11228,16 +11238,6 @@ Oletko varma, että haluat jatkaa.</translation>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
         <translation>Tulkin .exe-tiedoston polku</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
-        <source>Python2.7:</source>
-        <translation>Python 2.7</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
-        <source>Python3.4:</source>
-        <translation>Python 3.4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>

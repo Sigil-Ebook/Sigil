@@ -2234,7 +2234,7 @@ Atrybut tytułu pozycji nagłówka zostanie zaktualizowany w dokumencie.</transl
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="931"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="941"/>
         <source>Rename</source>
         <translation>Zmień nazwę</translation>
     </message>
@@ -2276,50 +2276,50 @@ You can then check or uncheck individual headings in the list above.</source>
 Możesz następnie zaznaczyć lub odznaczyć pojedyncze pozycje na liście powyżej.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
         <source>Include</source>
         <translation>Zawiera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="794"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="804"/>
         <source>Up to level</source>
         <translation>Do poziomu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="796"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="806"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation>&lt;Wybierz nagłówki do Spisu Treści&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="799"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="860"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="809"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="870"/>
         <source>None</source>
         <translation>Brak</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="574"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="584"/>
         <source>TOC Entry / Heading Title</source>
         <translation>Wprowadź TOC/ Nagłówki Tytułów</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="575"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="585"/>
         <source>Level</source>
         <translation>Poziom</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Included</source>
         <translation>Włączony</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Hidden</source>
         <translation>Ukryty</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="805"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="858"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="815"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="868"/>
         <source>All</source>
         <translation>Wszystkie</translation>
     </message>
@@ -6883,6 +6883,16 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
         <translation>F6</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1513"/>
+        <source>&amp;Sanity Check EPUB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SanityCheck EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>F7</source>
         <translation>F7</translation>
@@ -7766,16 +7776,6 @@ Arkusze Stylów które są pierwsze na liście, mają pierwszeństwo przed póź
         <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1513"/>
-        <source>&amp;Validate EPUB</source>
-        <translation>&amp;Wykonaj Sprawdzenie EPUB</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1516"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Sprawdzanie EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sprawdza, czy dokument spełnia minimalne wymogi specyfikacji standardu ePub. To nie jest pełne sprawdzenie schematu, a także nie gwarantuje pełnej zgodności.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1651"/>
@@ -11181,6 +11181,16 @@ Czy Na Pewno Kontynuować?</translation>
         <translation>Wtyczki</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
+        <source>≥Python3.4:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
+        <source>≥Python2.7:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
         <source>Name</source>
         <translation>Nazwa</translation>
@@ -11229,16 +11239,6 @@ Czy Na Pewno Kontynuować?</translation>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
         <translation>Ścieżka do Programu Interpretera</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
-        <source>Python2.7:</source>
-        <translation>Python 2.7:</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
-        <source>Python3.4:</source>
-        <translation>Python 3.4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>

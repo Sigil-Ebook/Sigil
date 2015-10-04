@@ -59,12 +59,12 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>Mantenedors/s</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>Mantenedors anteriors</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
@@ -2233,7 +2233,7 @@ S&apos;actualitzarà l&apos;atribut títol de l&apos;encapçalament al document.
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="931"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="941"/>
         <source>Rename</source>
         <translation>Canvia el nom</translation>
     </message>
@@ -2275,50 +2275,50 @@ You can then check or uncheck individual headings in the list above.</source>
 podeu activar-les o desactivar-les individualment a la llista de dalt.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
         <source>Include</source>
         <translation>Inclou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="794"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="804"/>
         <source>Up to level</source>
         <translation>Fins al nivell</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="796"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="806"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation>&lt;Selecciona els encapçalaments de la taula de continguts&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="799"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="860"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="809"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="870"/>
         <source>None</source>
         <translation>Cap</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="574"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="584"/>
         <source>TOC Entry / Heading Title</source>
         <translation>Entrada de la taula de continguts / Títol de l&apos;encapçalament</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="575"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="585"/>
         <source>Level</source>
         <translation>Nivell</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Included</source>
         <translation>Inclòs</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Hidden</source>
         <translation>Ocult</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="805"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="858"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="815"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="868"/>
         <source>All</source>
         <translation>Tot</translation>
     </message>
@@ -2485,7 +2485,7 @@ Voleu fer la correcció automàtica dels fitxers?</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="479"/>
         <source>Missing and no OPF in archive.</source>
-        <translation type="unfinished"/>
+        <translation>Manca o no és un arxiu OPF.</translation>
     </message>
 </context>
 <context>
@@ -6881,6 +6881,16 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <translation>F6</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1513"/>
+        <source>&amp;Sanity Check EPUB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SanityCheck EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>F7</source>
         <translation>F7</translation>
@@ -7536,7 +7546,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="1431"/>
         <source>Sigil Website...</source>
-        <translation type="unfinished"/>
+        <translation>Lloc web del Sigil...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1460"/>
@@ -7765,16 +7775,6 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1513"/>
-        <source>&amp;Validate EPUB</source>
-        <translation>&amp;Valideu l&apos;EPUB</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1516"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Valideu l&apos;EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verifiqueu que el documento compleix amb les especificacions mínimes de l&apos;estàndard epub. Aquest no és un esquema de validació complet i no garanteix un compliment integral.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1651"/>
@@ -9759,7 +9759,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation>Persona o organitzacio que fa el muntatge d&apos;una pel·lícula de cinema.</translation>
+        <translation>Persona o organització que fa el muntatge d&apos;una pel·lícula de cinema.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
@@ -9774,7 +9774,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation>Persona o organitzacio que fa o imita alguna cosa de valor o d&apos;importància, especialment amb la intenció d&apos;estafar.</translation>
+        <translation>Persona o organització que fa o imita alguna cosa de valor o d&apos;importància, especialment amb la intenció d&apos;estafar.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
@@ -9784,17 +9784,17 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Use for a person or organization that executed the facsimile.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que va executar el facsímil.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que s&apos;identifica com a part única o com a primera part. En cas d&apos;un traspàs de drets, és qui els cedeix. La primera part pot designar diverses parts alhora.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation type="unfinished"/>
+        <translation>Persona o organització que va ser propietària d&apos;un objecte en algun moment passat. Inclou aquells a qui el material els va ser regalat. Qui dona l&apos;objecte al propietari actual s&apos;anomena «Donant» [dnr].</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
@@ -9854,7 +9854,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation>Persona o organitzacio que idea i, potser també fa, un disseny o una il·lustració, normalment per tal d&apos;acompanyar un text escrit.</translation>
+        <translation>Persona o organització que idea i, potser també fa, un disseny o una il·lustració, normalment per tal d&apos;acompanyar un text escrit.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
@@ -9874,7 +9874,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
-        <translation>Persona o organitzacio que principalment toca un intrument en una obra musical, dramàtica o d&apos;entreteniment.</translation>
+        <translation>Persona o organització que principalment toca un intrument en una obra musical, dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
@@ -9884,7 +9884,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation>Persona o organitzacio que es entrevistada en una consulta o reunió, generalment per un reporter, enquestador o qualsevol altre agent recol·lector d&apos;informació.</translation>
+        <translation>Persona o organització que es entrevistada en una consulta o reunió, generalment per un reporter, enquestador o qualsevol altre agent recol·lector d&apos;informació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
@@ -9894,7 +9894,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation>Persona o organitzacio que actua com a reporter, enquestador o qualsevol altre agent recol·lector d&apos;informació en una consulta o reunió amb un o més individus.</translation>
+        <translation>Persona o organització que actua com a reporter, enquestador o qualsevol altre agent recol·lector d&apos;informació en una consulta o reunió amb un o més individus.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
@@ -9904,7 +9904,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation>Persona o organitzacio que crea per primera vegada un objecte d&apos;una utilitat concreta, o desenvolupa un procés nou per obtenir un objecte o un resultat conegut.</translation>
+        <translation>Persona o organització que crea per primera vegada un objecte d&apos;una utilitat concreta, o desenvolupa un procés nou per obtenir un objecte o un resultat conegut.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
@@ -9934,7 +9934,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation>Persona o organitzacio el treball de la qual inclou coordinar la distribució de les estructures i les característiques esxistents i proposades del terreny.</translation>
+        <translation>Persona o organització el treball de la qual inclou coordinar la distribució de les estructures i les característiques existents i proposades del terreny.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
@@ -9944,7 +9944,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation>Persona o organitzacio que té una responsabilitat principal en una activitat o tasca concreta. S&apos;utilitza amb un altre codi o terme de relació per indicar que, en aquesta funció en particular, la persona o organització tenen una importància més gran. Si hi ha una o més persones o organitzacions en l&apos;element, s&apos;ha d&apos;utilitzar «Cap» només si s&apos;ha d&apos;aplicar a totes.</translation>
+        <translation>Persona o organització que té una responsabilitat principal en una activitat o tasca concreta. S&apos;utilitza amb un altre codi o terme de relació per indicar que, en aquesta funció en particular, la persona o organització tenen una importància més gran. Si hi ha una o més persones o organitzacions en l&apos;element, s&apos;ha d&apos;utilitzar «Cap» només si s&apos;ha d&apos;aplicar a totes.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
@@ -10024,7 +10024,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation>Persona o organitzacio que escriu el text d&apos;una òpera, oratori, etc.</translation>
+        <translation>Persona o organització que escriu el text d&apos;una òpera, oratori, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
@@ -10034,7 +10034,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation>Persona o organitzacio que es el receptor original del dret d&apos;impressió o publicació.</translation>
+        <translation>Persona o organització que es el receptor original del dret d&apos;impressió o publicació.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
@@ -10044,7 +10044,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation>Persona o organitzacio que signa la llicència, imprimàtur, etc.</translation>
+        <translation>Persona o organització que signa la llicència, imprimàtur, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
@@ -10084,7 +10084,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation>Persona o organitzacio que fa un treball manufacturat (un objecte fet o modificat per una o més persones). Exemples de treballs manufacturats: gerros, canons o mobles.</translation>
+        <translation>Persona o organització que fa un treball manufacturat (un objecte fet o modificat per una o més persones). Exemples de treballs manufacturats: gerros, canons o mobles.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
@@ -10094,7 +10094,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation>Persona o organitzacio que codifica en SGML, HTML o fa el marcatge en XML de metadades, text, etc.</translation>
+        <translation>Persona o organització que codifica en SGML, HTML o fa el marcatge en XML de metadades, text, etc.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
@@ -10104,7 +10104,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation>Persona o organitzacio responsable principalment de compilar i mantenir la descripcions originals d&apos;un conjunt de metadades (per exemple, un conjunt de metadades geogràfiques espacials).</translation>
+        <translation>Persona o organització responsable principalment de compilar i mantenir la descripcions originals d&apos;un conjunt de metadades (per exemple, un conjunt de metadades geogràfiques espacials).</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
@@ -10114,7 +10114,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation>Persona o organitzacio responsable de la decoració, les il·lustracions, les lletres, etc. gravades en una superfície de metall per tal d&apos;imprimir o decaorar.</translation>
+        <translation>Persona o organització responsable de la decoració, les il·lustracions, les lletres, etc. gravades en una superfície de metall per tal d&apos;imprimir o decaorar.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
@@ -10134,7 +10134,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation>Persona o organitzacio que supervisa el compliment d&apos;un contracte i que es responsable de l&apos;informe i en controla la distribució. També se&apos;n pot dir agència de control.</translation>
+        <translation>Persona o organització que supervisa el compliment d&apos;un contracte i que es responsable de l&apos;informe i en controla la distribució. També se&apos;n pot dir agència de control.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
@@ -10164,7 +10164,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation>Persona o organitzacio que interpreta música o constribueix al context musical d&apos;una obra quan no és possible o no es vol identificar la funció d&apos;una forma més precisa.</translation>
+        <translation>Persona o organització que interpreta música o contribueix al context musical d&apos;una obra quan no és possible o no es vol identificar la funció d&apos;una forma més precisa.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
@@ -10184,7 +10184,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation>Persona o organitzacio responsable d&apos;oposar una tesi o una memòria.</translation>
+        <translation>Persona o organització responsable d&apos;oposar una tesi o una memòria.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
@@ -10194,7 +10194,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation>Persona o organitzacio responsable d&apos;organitzar una reunió amb el propòsit d&apos;informar o planificar.</translation>
+        <translation>Persona o organització responsable d&apos;organitzar una reunió amb el propòsit d&apos;informar o planificar.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
@@ -10204,7 +10204,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation>Persona o organitzacio que executa l&apos;obra, és a dir, el nom de la persona o l&apos;organització associada amb el contingut intel·lectual d&apos;una obra. Aquesta categoria no inclou l&apos;editorial o el seu personal ni el patrocinador, si no és que també en són els autors materials.</translation>
+        <translation>Persona o organització que executa l&apos;obra, és a dir, el nom de la persona o l&apos;organització associada amb el contingut intel·lectual d&apos;una obra. Aquesta categoria no inclou l&apos;editorial o el seu personal ni el patrocinador, si no és que també en són els autors materials.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
@@ -10224,7 +10224,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation>Persona o organitzacio que actualment és la propietària d&apos;un objecte o d&apos;una col·lecció.</translation>
+        <translation>Persona o organització que actualment és la propietària d&apos;un objecte o d&apos;una col·lecció.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
@@ -10234,7 +10234,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation>Persona o organitzacio que fabrica paper, normalment a partir de fusta, roba o altres materials fibrosos.</translation>
+        <translation>Persona o organització que fabrica paper, normalment a partir de fusta, roba o altres materials fibrosos.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
@@ -10264,7 +10264,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation>Persona o organitzacio responsable de l&apos;encàrrec d&apos;una obra.Normalment, un patró dona suport al treball dels artistes, excriptors, etc. mitjançant els seus medis o la seva influència. S&apos;inclou els que encarreguen i paguen obres individuals.</translation>
+        <translation>Persona o organització responsable de l&apos;encàrrec d&apos;una obra.Normalment, un patró dona suport al treball dels artistes, escriptors, etc. mitjançant els seus medis o la seva influència. S&apos;inclou els que encarreguen i paguen obres individuals.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
@@ -10274,7 +10274,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation>Persona o organitzacio que mostren habilitats musicals o d&apos;actuació en una representació dramàtica, musical o d&apos;entreteniment, si no s&apos;utilitzen altres codis més concrets ([act], [dnc], [itr], [voc], etc.) per indicar aquestes funcions. Si s&apos;utilizen codis concrets, aleshores «Intèrpret» [prf] es fa servir per algú de qui no es coneix o no s&apos;indica la seva habilitat principal.</translation>
+        <translation>Persona o organització que mostren habilitats musicals o d&apos;actuació en una representació dramàtica, musical o d&apos;entreteniment, si no s&apos;utilitzen altres codis més concrets ([act], [dnc], [itr], [voc], etc.) per indicar aquestes funcions. Si s&apos;utilitzen codis concrets, aleshores «Intèrpret» [prf] es fa servir per algú de qui no es coneix o no s&apos;indica la seva habilitat principal.</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
@@ -11188,6 +11188,16 @@ Esteu segur de voler continuar?</translation>
         <translation>Connectors</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
+        <source>≥Python3.4:</source>
+        <translation>≥Python3.4:</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
+        <source>≥Python2.7:</source>
+        <translation>≥Python2.7:</translation>
+    </message>
+    <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
         <source>Name</source>
         <translation>Nom</translation>
@@ -11238,16 +11248,6 @@ Esteu segur de voler continuar?</translation>
         <translation>Camí a l&apos;intèrpret executable</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
-        <source>Python2.7:</source>
-        <translation>Python2.7:</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
-        <source>Python3.4:</source>
-        <translation>Python3.4:</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="105"/>
         <source>Auto</source>
@@ -11272,7 +11272,7 @@ Esteu segur de voler continuar?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="111"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
-        <translation type="unfinished"/>
+        <translation>Error: el connector plugin.xml no és vàlid o no es compatible amb el vostre sistema operatiu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="114"/>

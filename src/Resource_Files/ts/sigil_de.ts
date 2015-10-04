@@ -2232,7 +2232,7 @@ Das Überschriften-Titel-Attribut wird im Dokument aktualisiert.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="931"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="941"/>
         <source>Rename</source>
         <translation>Umbenennen</translation>
     </message>
@@ -2274,50 +2274,50 @@ You can then check or uncheck individual headings in the list above.</source>
 Sie können in obiger Liste einzelne Überschriften aus- oder abwählen.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
         <source>Include</source>
         <translation>Einbeziehen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="794"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="804"/>
         <source>Up to level</source>
         <translation>Hoch zu Ebene</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="796"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="806"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation>&lt;Wähle Überschriften zur Aufnahme ins Inhaltsverzeichnis aus&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="799"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="860"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="809"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="870"/>
         <source>None</source>
         <translation>Keine</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="574"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="584"/>
         <source>TOC Entry / Heading Title</source>
         <translation>Inhaltsverzeichnis Eintrag / Überschriftentitel</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="575"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="585"/>
         <source>Level</source>
         <translation>Ebene</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Included</source>
         <translation>Einbezogen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Hidden</source>
         <translation>Versteckt</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="805"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="858"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="815"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="868"/>
         <source>All</source>
         <translation>Alles</translation>
     </message>
@@ -6873,6 +6873,16 @@ Aufgeführte Stylesheets haben Vorrang vor später erwähnten Stylesheets.</tran
         <translation>F6</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1513"/>
+        <source>&amp;Sanity Check EPUB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SanityCheck EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>F7</source>
         <translation>F7</translation>
@@ -7755,16 +7765,6 @@ Aufgeführte Stylesheets haben Vorrang vor später erwähnten Stylesheets.</tran
         <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1513"/>
-        <source>&amp;Validate EPUB</source>
-        <translation>&amp;Validiere EPUB</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1516"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1651"/>
@@ -9780,7 +9780,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Funder</source>
-        <translation type="unfinished"/>
+        <translation>Geldgeber</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
@@ -9900,7 +9900,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Laboratory director</source>
-        <translation type="unfinished"/>
+        <translation>Laborleiter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
@@ -9920,7 +9920,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Lead</source>
-        <translation type="unfinished"/>
+        <translation>Leiter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
@@ -10040,7 +10040,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Lithographer</source>
-        <translation type="unfinished"/>
+        <translation>Lithograf</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
@@ -10080,7 +10080,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Metadata contact</source>
-        <translation type="unfinished"/>
+        <translation>Metadatenkontakt</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
@@ -10410,7 +10410,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Proofreader</source>
-        <translation type="unfinished"/>
+        <translation>Korrekturleser</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
@@ -10505,7 +10505,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Research team head</source>
-        <translation type="unfinished"/>
+        <translation>Forschungsgruppenleiter</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
@@ -10515,7 +10515,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Research team member</source>
-        <translation type="unfinished"/>
+        <translation>Forschungsgruppenmitglied</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
@@ -10595,7 +10595,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
         <source>Rubricator</source>
-        <translation type="unfinished"/>
+        <translation>Rubrikator</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
@@ -10605,7 +10605,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Scenarist</source>
-        <translation type="unfinished"/>
+        <translation>Drehbuchautor</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
@@ -10615,7 +10615,7 @@ Wollen Sie Ihre Änderungen speichern?</translation>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
         <source>Scientific advisor</source>
-        <translation type="unfinished"/>
+        <translation>Wissenschaftlicher Berater</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
@@ -11170,6 +11170,16 @@ Sind Sie sicher, dass Sie fortsetzen wollen?</translation>
         <translation>Plugins</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
+        <source>≥Python3.4:</source>
+        <translation>≥Python3.4:</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
+        <source>≥Python2.7:</source>
+        <translation>≥Python2.7:</translation>
+    </message>
+    <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
         <source>Name</source>
         <translation>Name</translation>
@@ -11218,16 +11228,6 @@ Sind Sie sicher, dass Sie fortsetzen wollen?</translation>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
         <translation>Pfad zum Interpreter-Programm</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
-        <source>Python2.7:</source>
-        <translation>Python2.7:</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
-        <source>Python3.4:</source>
-        <translation>Python3.4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="57"/>

@@ -9,82 +9,82 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation type="unfinished"/>
+        <translation>Редактор EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Загальне</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation type="unfinished"/>
+        <translation>Домашня сторінка</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
         <source>Version:</source>
-        <translation type="unfinished"/>
+        <translation>Версія</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation type="unfinished"/>
+        <translation>Завантажено Qt:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
         <source>License:</source>
-        <translation type="unfinished"/>
+        <translation>Ліцензія</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
         <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation type="unfinished"/>
+        <translation>Час створення:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
         <source>Authors</source>
-        <translation type="unfinished"/>
+        <translation>Автори</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation type="unfinished"/>
+        <translation>GNU General Public License v3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>Супровід</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>Попередній супровід</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Програмісти</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
-        <translation type="unfinished"/>
+        <translation>Перекладачі</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
-        <translation type="unfinished"/>
+        <translation>Розробник</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation type="unfinished"/>
+        <translation>відійшов від справ</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation type="unfinished"/>
+        <translation>Додати властивість метаданих</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation type="unfinished"/>
+        <translation>Опис метаданих</translation>
     </message>
 </context>
 <context>
@@ -105,32 +105,32 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation type="unfinished"/>
+        <translation>Усі файли</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Переліік тільки тих файлів, що містять самостійно введений текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="64"/>
         <source>Directory</source>
-        <translation type="unfinished"/>
+        <translation>Тека</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
         <source>Name</source>
-        <translation>Назва</translation>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="66"/>
         <source>File Size (KB)</source>
-        <translation type="unfinished"/>
+        <translation>Розмір файлу (КБ)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="67"/>
@@ -140,32 +140,32 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="68"/>
         <source>Semantics</source>
-        <translation type="unfinished"/>
+        <translation>Семантичне</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="126"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>файли</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="239"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Записати звыт як файл CSW (слова, розділені комами)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="252"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="252"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Зображення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="282"/>
@@ -175,17 +175,17 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="287"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Відео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="292"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="319"/>
         <source>Unknown</source>
-        <translation>Невідоме</translation>
+        <translation>Невідомий</translation>
     </message>
 </context>
 <context>
@@ -193,85 +193,89 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Оформлення</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="61"/>
         <source>Default font size to be used for Book View and Preview
 if no font-size specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Основний розмір шрифта для &quot;Перегляду книги та &quot;Попереднього перегляду&quot;
+якщо розмір шрифта не вказаний у таблиці стилю (CSS)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="95"/>
         <source>Default font family to be used for Book View and Preview
 if no font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Основна група шрифта для &quot;Перегляду книги та &quot;Попереднього перегляду&quot;
+якщо група шрифта не вказана у таблиці стилю (CSS)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="99"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="229"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="348"/>
         <source>Standard Font:</source>
-        <translation type="unfinished"/>
+        <translation>Основний шрифт:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="109"/>
         <source>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Основна група шрифта для &quot;Перегляду книги та &quot;Попереднього перегляду&quot;
+якщо група шрифта із засічками (serif font-family) не вказана у таблиці стилю (CSS)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="113"/>
         <source>Serif Font:</source>
-        <translation type="unfinished"/>
+        <translation>Шрифт із засічками (Serif):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="123"/>
         <source>Default font family to be used for Book View and Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Основна група шрифта для &quot;Перегляду книги та &quot;Попереднього перегляду&quot;
+якщо група шрифта без засічок (sans-serif font-family) не вказана у таблиці стилю (CSS)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="127"/>
         <source>Sans-Serif Font:</source>
-        <translation type="unfinished"/>
+        <translation>Шрифт без засічок (Sans-Serif):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="65"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="199"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="315"/>
         <source>Font Size:</source>
-        <translation type="unfinished"/>
+        <translation>Розмір шрифта:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="32"/>
         <source>Book View / Preview:</source>
-        <translation type="unfinished"/>
+        <translation>Перегляд книги / попередній перегляд:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="173"/>
         <source>CSS / Code View:</source>
-        <translation type="unfinished"/>
+        <translation>Пергляд CSS / Коду:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="226"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Група шрифта для &quot;Перегляду коду&quot;.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="183"/>
         <source>Item Colors:</source>
-        <translation type="unfinished"/>
+        <translation>Кольори елементу:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо для сторінки не визначений шрифт у CSS, цей шрифт використовуватиметься для відображення у Sigil. Ці шрифти не застосовуватимуться до поточної книги.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Розмір шрифта для тексту у &quot;Перегляді коду&quot;.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="265"/>
@@ -281,137 +285,137 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="268"/>
         <source>Custom Color...</source>
-        <translation type="unfinished"/>
+        <translation>Довільний колір...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="298"/>
         <source>Insert Special Characters:</source>
-        <translation type="unfinished"/>
+        <translation>Вставити спеціальні символи:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="312"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>Розмір шрифта для вікна &quot;Вставити спеціальні символи&quot;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="345"/>
         <source>Font family to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>Група шрифта для вікна &quot;Вставити спеціальні символи&quot;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="384"/>
         <source>Reset all fonts and colors to the default values</source>
-        <translation type="unfinished"/>
+        <translation>Повернути усі шрифти і кольори до звичного значення</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="387"/>
         <source>Reset All</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати усе</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="199"/>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Тло</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="200"/>
         <source>Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Передній план</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="201"/>
         <source>CSS Comment</source>
-        <translation type="unfinished"/>
+        <translation>Коментар CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="202"/>
         <source>CSS Property</source>
-        <translation type="unfinished"/>
+        <translation>Властивість CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="203"/>
         <source>CSS Quote</source>
-        <translation type="unfinished"/>
+        <translation>Цитата CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="204"/>
         <source>CSS Selector</source>
-        <translation type="unfinished"/>
+        <translation>Селектор CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="205"/>
         <source>CSS Value</source>
-        <translation type="unfinished"/>
+        <translation>Значення CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="206"/>
         <source>Line Highlight</source>
-        <translation type="unfinished"/>
+        <translation>Позначення рядка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="207"/>
         <source>Line# Background</source>
-        <translation type="unfinished"/>
+        <translation>Колір тла нумерації рядків</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="208"/>
         <source>Line# Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Колір шрифта нумерації рядків</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="209"/>
         <source>Selection Background</source>
-        <translation type="unfinished"/>
+        <translation>Колір тла позначеного</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="210"/>
         <source>Selection Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Колір шрифта позначеного</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="211"/>
         <source>Spelling Underline</source>
-        <translation type="unfinished"/>
+        <translation>Підкреслювати слова з помилками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="212"/>
         <source>XHTML Attribute Name</source>
-        <translation type="unfinished"/>
+        <translation>Ім&apos;я атрибуту XHTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="213"/>
         <source>XHTML Attribute Value</source>
-        <translation type="unfinished"/>
+        <translation>Значення атрибуту XHTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
         <source>XHTML CSS</source>
-        <translation type="unfinished"/>
+        <translation>XHTML CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
         <source>XHTML CSS Comment</source>
-        <translation type="unfinished"/>
+        <translation>Коментар XHTML CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
         <source>XHTML DocType</source>
-        <translation type="unfinished"/>
+        <translation>XHTML DocType</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
         <source>XHTML Entity</source>
-        <translation type="unfinished"/>
+        <translation>Код суб&apos;єкта XHTML (XHTML Entity)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="218"/>
         <source>XHTML HTML Tag</source>
-        <translation type="unfinished"/>
+        <translation>Тег XHTML HTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="219"/>
         <source>XHTML HTML Comment</source>
-        <translation type="unfinished"/>
+        <translation>Коментар XHTML HTML</translation>
     </message>
 </context>
 <context>
@@ -419,22 +423,22 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="57"/>
         <source>Book Browser</source>
-        <translation type="unfinished"/>
+        <translation>Перегляд книги</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="69"/>
         <source>Add Semantics</source>
-        <translation type="unfinished"/>
+        <translation>Додати смислове</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
         <source>Font Obfuscation</source>
-        <translation type="unfinished"/>
+        <translation>Затінювання шрифтів</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation type="unfinished"/>
+        <translation>Файл &quot;%1&quot; відсутній.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
@@ -444,316 +448,327 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="993"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation type="unfinished"/>
+        <translation>Відсортувати позначені файли за алфавітом і числами?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
-        <translation type="unfinished"/>
+        <translation>Цю дію неможливо повністю скасувати.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1550"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>Відкрити при допомозі</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
         <source>file</source>
-        <translation type="unfinished"/>
+        <translation>файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="126"/>
         <source>files</source>
-        <translation type="unfinished"/>
+        <translation>файли</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="639"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо вилучити чи замінити файл&quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо завантажити файл  &quot;%1&quot;
+
+Такий файл уже є у книзі.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="743"/>
         <source>Save As File</source>
-        <translation type="unfinished"/>
+        <translation>Записати як файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
         <source>Unable to save the file.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файл.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
         <source>Choose the directory to save the files to</source>
-        <translation type="unfinished"/>
+        <translation>Вкажіть теку для запису файлів.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation type="unfinished"/>
+        <translation>Один чи кілька файлів уже є. Переписати?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="810"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файли. Повинна бути тека.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="818"/>
         <source>Unable to save files.</source>
-        <translation type="unfinished"/>
+        <translation>Файли не записані.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="993"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо перейменувати файл, оскільки станеться повторення імен.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1057"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
-        <translation type="unfinished"/>
+        <translation>Ні NCX, OPF неможливо вилучити.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1064"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо вилучити усі файли Html.
+Завжди повинен бути хоч би один файл.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Add Blank Stylesheet</source>
-        <translation type="unfinished"/>
+        <translation>Додати порожню таблицю стилів</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1363"/>
         <source>Add Blank SVG Image</source>
-        <translation type="unfinished"/>
+        <translation>Додати порожню картинку SVG</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1364"/>
         <source>Add Existing Files...</source>
-        <translation type="unfinished"/>
+        <translation>Додати файл з диску...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1365"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1366"/>
         <source>Add Copy</source>
-        <translation type="unfinished"/>
+        <translation>Додати копію</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Змінити ім&apos;я</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1376"/>
         <source>Link Stylesheets...</source>
-        <translation type="unfinished"/>
+        <translation>Пов&apos;язати таблиці стилів...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1379"/>
         <source>Save As</source>
-        <translation type="unfinished"/>
+        <translation>Записати як</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1442"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Сторінка авторских прав</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1556"/>
         <source>Other Application</source>
-        <translation type="unfinished"/>
+        <translation>Інший застосунок</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1369"/>
         <source>Cover Image</source>
-        <translation type="unfinished"/>
+        <translation>Зображення обкладинки</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1370"/>
         <source>Merge</source>
-        <translation type="unfinished"/>
+        <translation>Злиття</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation type="unfinished"/>
+        <translation>Вжити спосіб Adobe</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1373"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation type="unfinished"/>
+        <translation>Вжити спосіб IDPF</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1360"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Вжити спосіб IDPF</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="568"/>
         <source>Add Existing Files</source>
-        <translation type="unfinished"/>
+        <translation>Додати файл з диску</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="604"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Файл не буде використаний, оскільки він не є зображенням:
+
+&quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="613"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Файл не буде використаний, оскільки він не є медійним файлом (зображення, аудіо, відео):
+
+&quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="628"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation type="unfinished"/>
+        <translation>Медіа-файл&quot;%1&quot; вже є у книзі.
+
+Замінити?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="693"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо додати файли, оскільки призначення не вірне, чи XML не сформовано належним чином:
+
+%1</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="708"/>
         <source>File(s) added.</source>
-        <translation type="unfinished"/>
+        <translation>Файл(и) додано.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1204"/>
         <source>Unable to set file as cover image.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо використати файл як малюнок обкладинки.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
         <source>Add Blank HTML File</source>
-        <translation type="unfinished"/>
+        <translation>Додати порожній файл HTML</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1368"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1371"/>
         <source>None</source>
-        <translation>Нема</translation>
+        <translation>Немає</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1374"/>
         <source>Sort</source>
-        <translation type="unfinished"/>
+        <translation>Сортувати</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1375"/>
         <source>Renumber TOC Entries</source>
-        <translation type="unfinished"/>
+        <translation>Перенумерувати пункти змісту</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1377"/>
         <source>Validate with W3C</source>
-        <translation type="unfinished"/>
+        <translation>Перевірити у W3C</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>Cover</source>
-        <translation type="unfinished"/>
+        <translation>Обкладинка</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Title Page</source>
-        <translation type="unfinished"/>
+        <translation>Титульна сторінка</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
         <source>Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Зміст</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1422"/>
         <source>Index</source>
-        <translation type="unfinished"/>
+        <translation>Індекс</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1426"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Словник термінів</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1430"/>
         <source>Acknowledgements</source>
-        <translation type="unfinished"/>
+        <translation>Подяки</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1434"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>Бібліографія</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
         <source>Colophon</source>
-        <translation type="unfinished"/>
+        <translation>Вихідні дані</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1446"/>
         <source>Dedication</source>
-        <translation type="unfinished"/>
+        <translation>Посвята</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1450"/>
         <source>Epigraph</source>
-        <translation type="unfinished"/>
+        <translation>Епіграф</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1454"/>
         <source>Foreword</source>
-        <translation type="unfinished"/>
+        <translation>Передмова</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1458"/>
         <source>List Of Illustrations</source>
-        <translation type="unfinished"/>
+        <translation>Перелік ілюстрацій</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1462"/>
         <source>List Of Tables</source>
-        <translation type="unfinished"/>
+        <translation>Перелік таблиць</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1466"/>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Нотатки</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1470"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>Пролог</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Текст</translation>
     </message>
 </context>
 <context>
@@ -768,7 +783,7 @@ OK to replace?</source>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1019"/>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1021"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>Відкрити при допомозі</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="649"/>
@@ -788,7 +803,7 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="866"/>
         <source>Other Application</source>
-        <translation type="unfinished"/>
+        <translation>Інший застосунок</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
@@ -838,12 +853,12 @@ OK to replace?</source>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1016"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Вжити спосіб IDPF</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1020"/>
         <source>Save As</source>
-        <translation type="unfinished"/>
+        <translation>Записати як</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1024"/>
@@ -891,12 +906,12 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Переліік тільки тих файлів, що містять самостійно введений текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="68"/>
@@ -916,7 +931,7 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="135"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>файли</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="139"/>
@@ -926,17 +941,17 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Записати звыт як файл CSW (слова, розділені комами)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="289"/>
@@ -972,12 +987,12 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Переліік тільки тих файлів, що містять самостійно введений текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
@@ -1017,17 +1032,17 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Записати звыт як файл CSW (слова, розділені комами)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файл звіту.</translation>
     </message>
 </context>
 <context>
@@ -1040,12 +1055,12 @@ OK to replace?</source>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Переліік тільки тих файлів, що містять самостійно введений текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="77"/>
@@ -1090,17 +1105,17 @@ OK to replace?</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="223"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Записати звыт як файл CSW (слова, розділені комами)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файл звіту.</translation>
     </message>
 </context>
 <context>
@@ -1255,7 +1270,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
@@ -1310,7 +1325,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
@@ -1362,7 +1377,7 @@ or when cleaning manually.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="620"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="621"/>
@@ -1426,7 +1441,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="674"/>
@@ -1588,22 +1603,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="55"/>
         <source>Background</source>
-        <translation type="unfinished"/>
+        <translation>Тло</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="57"/>
         <source>Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Передній план</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
         <source>Selection Background</source>
-        <translation type="unfinished"/>
+        <translation>Колір тла позначеного</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
         <source>Selection Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Колір шрифта позначеного</translation>
     </message>
 </context>
 <context>
@@ -1621,7 +1636,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="67"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
@@ -1644,7 +1659,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="81"/>
@@ -1693,7 +1708,7 @@ Do you want to save your changes?</source>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="428"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
@@ -1736,7 +1751,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="427"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Змінити ім&apos;я</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="435"/>
@@ -2102,12 +2117,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Переліік тільки тих файлів, що містять самостійно введений текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="67"/>
@@ -2117,7 +2132,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="68"/>
         <source>File Size (KB)</source>
-        <translation type="unfinished"/>
+        <translation>Розмір файлу (КБ)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="69"/>
@@ -2137,7 +2152,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="72"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Відео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="73"/>
@@ -2167,22 +2182,22 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="183"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>файли</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="324"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Записати звыт як файл CSW (слова, розділені комами)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="360"/>
@@ -2205,9 +2220,9 @@ The heading&apos;s title attribute will be updated in the document.</source>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="931"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="941"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Змінити ім&apos;я</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="81"/>
@@ -2241,50 +2256,50 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="576"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
         <source>Include</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="794"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="804"/>
         <source>Up to level</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="796"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="806"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="799"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="860"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="809"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="870"/>
         <source>None</source>
         <translation>Нема</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="574"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="584"/>
         <source>TOC Entry / Heading Title</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="575"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="585"/>
         <source>Level</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Included</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="559"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
         <source>Hidden</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="805"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="858"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="815"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="868"/>
         <source>All</source>
         <translation>Усьому</translation>
     </message>
@@ -2299,12 +2314,12 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Переліік тільки тих файлів, що містять самостійно введений текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="76"/>
@@ -2319,7 +2334,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="80"/>
         <source>File Size (KB)</source>
-        <translation type="unfinished"/>
+        <translation>Розмір файлу (КБ)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="81"/>
@@ -2349,12 +2364,12 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
         <source>Image</source>
-        <translation type="unfinished"/>
+        <translation>Зображення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="175"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>файли</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="179"/>
@@ -2364,17 +2379,17 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="323"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Записати звыт як файл CSW (слова, розділені комами)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="408"/>
@@ -2409,17 +2424,17 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Tabs/ImageTab.cpp" line="271"/>
         <location filename="../../Tabs/ImageTab.cpp" line="274"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>Відкрити при допомозі</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="253"/>
         <source>Other Application</source>
-        <translation type="unfinished"/>
+        <translation>Інший застосунок</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="272"/>
         <source>Save As</source>
-        <translation type="unfinished"/>
+        <translation>Записати як</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="273"/>
@@ -2437,7 +2452,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="164"/>
@@ -2463,7 +2478,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
@@ -2518,7 +2533,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
@@ -2589,7 +2604,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
@@ -2604,12 +2619,12 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Save As</source>
-        <translation type="unfinished"/>
+        <translation>Записати як</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Вжити спосіб IDPF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="506"/>
@@ -2712,7 +2727,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати усе</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
@@ -5731,12 +5746,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Переліік тільки тих файлів, що містять самостійно введений текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="65"/>
@@ -5751,7 +5766,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="67"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="68"/>
@@ -5796,17 +5811,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="327"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Записати звыт як файл CSW (слова, розділені комами)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файл звіту.</translation>
     </message>
 </context>
 <context>
@@ -6741,6 +6756,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="1513"/>
+        <source>&amp;Sanity Check EPUB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SanityCheck EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>F7</source>
         <translation type="unfinished"/>
@@ -7599,16 +7624,6 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1513"/>
-        <source>&amp;Validate EPUB</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1516"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Validate EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum specifications of the epub standard. This is not a full schema validation and does not guarantee full compliance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="1651"/>
         <source>Ctrl+/</source>
         <translation type="unfinished"/>
@@ -7783,7 +7798,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="395"/>
@@ -7820,7 +7835,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1479"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation type="unfinished"/>
+        <translation>Файл &quot;%1&quot; відсутній.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1530"/>
@@ -10982,6 +10997,16 @@ Are you Sure You Want to Continue?</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
+        <source>≥Python3.4:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
+        <source>≥Python2.7:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="212"/>
         <source>Name</source>
         <translation>Назва</translation>
@@ -11029,16 +11054,6 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="165"/>
         <source>Path to Interpreter Executable</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="127"/>
-        <source>Python2.7:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="93"/>
-        <source>Python3.4:</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -11121,7 +11136,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="99"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="99"/>
@@ -11201,7 +11216,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="93"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="94"/>
@@ -11257,93 +11272,93 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="189"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>Відкрити при допомозі</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="80"/>
         <source>Cover</source>
-        <translation type="unfinished"/>
+        <translation>Обкладинка</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="82"/>
         <source>Title Page</source>
-        <translation type="unfinished"/>
+        <translation>Титульна сторінка</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="84"/>
         <source>Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Зміст</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="86"/>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="57"/>
         <source>Index</source>
-        <translation type="unfinished"/>
+        <translation>Індекс</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="88"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Словник термінів</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="90"/>
         <source>Acknowledgements</source>
-        <translation type="unfinished"/>
+        <translation>Подяки</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="92"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>Бібліографія</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="94"/>
         <source>Colophon</source>
-        <translation type="unfinished"/>
+        <translation>Вихідні дані</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="96"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Сторінка авторских прав</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="98"/>
         <source>Dedication</source>
-        <translation type="unfinished"/>
+        <translation>Посвята</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="100"/>
         <source>Epigraph</source>
-        <translation type="unfinished"/>
+        <translation>Епіграф</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="102"/>
         <source>Foreword</source>
-        <translation type="unfinished"/>
+        <translation>Передмова</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="104"/>
         <source>List Of Illustrations</source>
-        <translation type="unfinished"/>
+        <translation>Перелік ілюстрацій</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="106"/>
         <source>List Of Tables</source>
-        <translation type="unfinished"/>
+        <translation>Перелік таблиць</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="108"/>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Нотатки</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="110"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>Пролог</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/GuideSemantics.cpp" line="112"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="109"/>
@@ -11728,7 +11743,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
@@ -11778,7 +11793,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="655"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="656"/>
@@ -11868,12 +11883,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Переліік тільки тих файлів, що містять самостійно введений текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
@@ -11904,7 +11919,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Відео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="78"/>
@@ -11957,7 +11972,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="25"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
@@ -12027,7 +12042,7 @@ ID names must be unique and start with a letter.</source>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="211"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Змінити ім&apos;я</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="193"/>
@@ -12191,7 +12206,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
@@ -12335,7 +12350,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="519"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Вжити спосіб IDPF</translation>
     </message>
 </context>
 <context>
@@ -12348,12 +12363,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Переліік тільки тих файлів, що містять самостійно введений текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="80"/>
@@ -12388,17 +12403,17 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="246"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Записати звыт як файл CSW (слова, розділені комами)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо записати файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="270"/>
@@ -12427,12 +12442,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="41"/>
         <source>Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Зміст</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="113"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation type="unfinished"/>
+        <translation>Файл &quot;%1&quot; відсутній.</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="144"/>
@@ -12458,7 +12473,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Misc/Utility.cpp" line="563"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="564"/>
