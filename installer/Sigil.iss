@@ -70,12 +70,11 @@ Components: dicon\user; Name: "{userdesktop}\Sigil"; Filename: "{app}\Sigil.exe"
 
 [Run]
 Filename: {tmp}\postinstall.bat; Parameters: """{app}\Python3\pyvenv.cfg"" ""{app}\Python3"""; StatusMsg: Configuring pyvenv.cfg file...
-Filename: {tmp}\vcredist2010.exe; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2010.msi"" "; StatusMsg: Checking for 2010 RunTime for Python...
-Filename: {tmp}\vcredist2013.exe; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2013.msi"" "; StatusMsg: Checking for 2013 RunTime for Sigil...
-; The following two commands will eventually replace the above commands
-; They have the ability to detect whether or not they need to be installed.
-; Filename: {tmp}\vcredist2010.exe; Check: VCRedistNeeds2010Install; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2010.msi"" "; StatusMsg: Checking for 2010 RunTime for Python...
-;Filename: {tmp}\vcredist2013.exe; Check: VCRedistNeeds2013Install; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2013.msi"" "; StatusMsg: Checking for 2013 RunTime for Sigil...
+;Filename: {tmp}\vcredist2010.exe; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2010.msi"" "; StatusMsg: Checking for 2010 RunTime for Python...
+;Filename: {tmp}\vcredist2013.exe; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2013.msi"" "; StatusMsg: Checking for 2013 RunTime for Sigil...
+; The following two commands have the ability to detect whether or not c++ runtimes need to be installed.
+Filename: {tmp}\vcredist2010.exe; Check: VCRedistNeeds2010Install; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2010.msi"" "; StatusMsg: Checking for 2010 RunTime for Python...
+Filename: {tmp}\vcredist2013.exe; Check: VCRedistNeeds2013Install; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2013.msi"" "; StatusMsg: Checking for 2013 RunTime for Sigil...
 
 [Code]
 #IFDEF UNICODE
@@ -130,9 +129,9 @@ begin
 
   // Checking to see if VC++ 2010 sp1 redistributable is installed
   if Is64BitInstallMode then
-    Result := not (VCVersionInstalled(VC_2010_SP1_REDIST_X64))
+    Result := not (VCVersionInstalled(VC_2010_REDIST_X64) or VCVersionInstalled(VC_2010_SP1_REDIST_X64))
   else
-    Result := not (VCVersionInstalled(VC_2010_SP1_REDIST_X86))
+    Result := not (VCVersionInstalled(VC_2010_REDIST_X86) or VCVersionInstalled(VC_2010_SP1_REDIST_X86));
 end;
 
 function VCRedistNeeds2013Install: Boolean;
