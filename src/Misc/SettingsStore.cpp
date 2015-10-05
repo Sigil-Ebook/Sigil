@@ -51,6 +51,8 @@ static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_enti
 static QString KEY_PLUGIN_INFO = SETTINGS_GROUP + "/" + "plugin_info";
 static QString KEY_PLUGIN_ENGINE_PATHS = SETTINGS_GROUP + "/" + "plugin_engine_paths";
 static QString KEY_PLUGIN_LAST_FOLDER = SETTINGS_GROUP + "/" + "plugin_add_last_folder";
+static QString KEY_PLUGIN_BUNDLED_INTERP_PATH = SETTINGS_GROUP + "/" + "plugin_bundled_interp_path";
+static QString KEY_PLUGIN_USE_BUNDLED_INTERP = SETTINGS_GROUP + "/" + "plugin_use_bundled_interp";
 
 static QString KEY_BOOK_VIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "book_view_font_family_standard";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_serif";
@@ -227,6 +229,19 @@ QString SettingsStore::pluginLastFolder()
     return value(KEY_PLUGIN_LAST_FOLDER, QDir::homePath()).toString();
 }
 
+QString SettingsStore::bundledInterpPath()
+{
+    clearSettingsGroup();
+    return value(KEY_PLUGIN_BUNDLED_INTERP_PATH, "").toString();
+}
+
+bool SettingsStore::useBundledInterp()
+{
+    clearSettingsGroup();
+    //return value(KEY_PLUGIN_USE_BUNDLED_INTERP, true).toBool();
+    return static_cast<bool>(value(KEY_PLUGIN_USE_BUNDLED_INTERP, false).toBool());
+}
+
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
 {
     clearSettingsGroup();
@@ -391,6 +406,18 @@ void SettingsStore::setPluginLastFolder(const QString &lastfolder)
 {
     clearSettingsGroup();
     setValue(KEY_PLUGIN_LAST_FOLDER, lastfolder);
+}
+
+void SettingsStore::setBundledInterpPath(const QString &interppath)
+{
+    clearSettingsGroup();
+    setValue(KEY_PLUGIN_BUNDLED_INTERP_PATH, interppath);
+}
+
+void SettingsStore::setUseBundledInterp(bool use)
+{
+    clearSettingsGroup();
+    setValue(KEY_PLUGIN_USE_BUNDLED_INTERP, use);
 }
 
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)

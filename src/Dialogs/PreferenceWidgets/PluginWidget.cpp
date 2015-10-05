@@ -20,7 +20,8 @@
 PluginWidget::PluginWidget()
     :
     m_isDirty(false),
-    m_LastFolderOpen(QString())
+    m_LastFolderOpen(QString()),
+    m_useBundledInterp(false)
 {
     ui.setupUi(this);
     readSettings();
@@ -60,6 +61,10 @@ void PluginWidget::readSettings()
     SettingsStore settings;
     // The last folder used for saving and opening files
     m_LastFolderOpen = settings.pluginLastFolder();
+    // The path to the bundled Python interpreter
+    //m_bundledInterpPath = settings.bundledInterpPath();
+    // Should the bundled pPython interpreter be used?
+    m_useBundledInterp = settings.useBundledInterp();
     
     // Load the available plugin information
     PluginDB *pdb = PluginDB::instance();
@@ -68,6 +73,18 @@ void PluginWidget::readSettings()
 
     ui.editPathPy2->setText(pdb->get_engine_path("python2.7"));
     ui.editPathPy3->setText(pdb->get_engine_path("python3.4"));
+
+    if (bundledInterpReady()) {
+        ui.chkUseBundled->setEnabled(true);
+        if (ui.editPathPy2->text() == "" && ui.editPathPy3->text() == "") {
+            ui.chkUseBundled->setCheckState(Qt::Checked);
+            m_useBundledInterp = true;
+        } else if (m_useBundledInterp) {
+            ui.chkUseBundled->setCheckState(Qt::Checked);
+        } else {
+            ui.chkUseBundled->setCheckState(Qt::Unchecked);
+        }
+    }
 
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
@@ -184,19 +201,9 @@ void PluginWidget::removeAllPlugins()
     }
 }
 
-void PluginWidget::AutoFindPy2()
+QString PluginWidget::buildBundledInterpPath()
 {
-    QString p2path = QStandardPaths::findExecutable("python2");
-    if (p2path.isEmpty()) {
-        p2path = QStandardPaths::findExecutable("python");
-    }
-    ui.editPathPy2->setText(p2path);
-    m_isDirty = true;
-}
-
-void PluginWidget::AutoFindPy3()
-{
-    // If bundled python3 exists use it 
+    // Find out if bundled python3 exists 
     QString bundled_python3_path; 
 #if defined(__APPLE__)
     // On Mac OS X QCoreApplication::applicationDirPath() points to Sigil.app/Contents/MacOS/ 
@@ -209,14 +216,40 @@ void PluginWidget::AutoFindPy3()
 #else
     bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3/bin/sigil-python3";
 #endif
+
     QFileInfo checkPython3(bundled_python3_path);
     if (checkPython3.exists() && checkPython3.isFile() && checkPython3.isReadable() && checkPython3.isExecutable() ) {
-        ui.editPathPy3->setText(bundled_python3_path);
-        m_isDirty = true;
-        return;
+        return bundled_python3_path;
     }
+    return "";
+}
 
-    // Otherwise search for a system python 3
+bool PluginWidget::bundledInterpReady()
+{
+    QString bpath;
+    bpath = buildBundledInterpPath();
+    if (bpath != "") {
+        QFileInfo checkPython3(bpath);
+        if (checkPython3.exists() && checkPython3.isFile() && checkPython3.isReadable() && checkPython3.isExecutable() ) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void PluginWidget::AutoFindPy2()
+{
+    QString p2path = QStandardPaths::findExecutable("python2");
+    if (p2path.isEmpty()) {
+        p2path = QStandardPaths::findExecutable("python");
+    }
+    ui.editPathPy2->setText(p2path);
+    m_isDirty = true;
+}
+
+void PluginWidget::AutoFindPy3()
+{
+    // Search for a system python 3
     QString p3path = QStandardPaths::findExecutable("python3");
     if (p3path.isEmpty()) {
         p3path = QStandardPaths::findExecutable("python");
@@ -277,6 +310,16 @@ void PluginWidget::enginePy3PathChanged()
     m_isDirty = true;
 }
 
+void PluginWidget::useBundledPy3Changed(int)
+{
+    if (bundledInterpReady()) {
+        m_useBundledInterp = ui.chkUseBundled->isChecked();
+    }
+    ui.editPathPy2->setEnabled(!m_useBundledInterp);
+    ui.editPathPy3->setEnabled(!m_useBundledInterp);
+    m_isDirty = true;
+}
+
 void PluginWidget::connectSignalsToSlots()
 {
     connect(ui.Py2Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy2()));
@@ -289,4 +332,5 @@ void PluginWidget::connectSignalsToSlots()
     connect(ui.pluginTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(pluginSelected(int,int)));
     connect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
     connect(ui.editPathPy3, SIGNAL(editingFinished()), this, SLOT(enginePy3PathChanged()));
+    connect(ui.chkUseBundled, SIGNAL(stateChanged(int)), this, SLOT(useBundledPy3Changed(int)));
 }
