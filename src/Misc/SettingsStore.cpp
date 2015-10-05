@@ -238,7 +238,7 @@ QString SettingsStore::bundledInterpPath()
 bool SettingsStore::useBundledInterp()
 {
     clearSettingsGroup();
-    //return value(KEY_PLUGIN_USE_BUNDLED_INTERP, true).toBool();
+    // False if unset. The logic when opening the plugin config widget decides default. 
     return static_cast<bool>(value(KEY_PLUGIN_USE_BUNDLED_INTERP, false).toBool());
 }
 

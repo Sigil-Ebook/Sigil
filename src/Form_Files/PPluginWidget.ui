@@ -247,7 +247,7 @@
         <bool>false</bool>
        </property>
        <property name="toolTip">
-        <string>Should the bundled Python interpreter be use if present?</string>
+        <string>Should the bundled Python interpreter be used if present?</string>
        </property>
        <property name="text">
         <string>Use Bundled Python</string>

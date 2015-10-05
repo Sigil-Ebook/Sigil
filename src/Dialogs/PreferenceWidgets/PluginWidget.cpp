@@ -21,7 +21,8 @@ PluginWidget::PluginWidget()
     :
     m_isDirty(false),
     m_LastFolderOpen(QString()),
-    m_useBundledInterp(false)
+    m_useBundledInterp(false),
+    m_bundledInterpPath(QString())
 {
     ui.setupUi(this);
     readSettings();
@@ -35,10 +36,19 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
         return PreferencesWidget::ResultAction_None;
     }
 
+    SettingsStore settings;
+    settings.setBundledInterpPath(m_bundledInterpPath);
+
     PluginDB *pdb = PluginDB::instance();
 
     pdb->set_engine_path("python2.7", ui.editPathPy2->text());
     pdb->set_engine_path("python3.4", ui.editPathPy3->text());
+    if (bundledInterpReady() && ui.editPathPy2->text() == "" && ui.editPathPy3->text() == "") {
+        settings.setUseBundledInterp(true);
+    }
+    else {
+        settings.setUseBundledInterp(m_useBundledInterp);
+    }
 
     m_isDirty = false;
     return PreferencesWidget::ResultAction_None;
@@ -61,11 +71,16 @@ void PluginWidget::readSettings()
     SettingsStore settings;
     // The last folder used for saving and opening files
     m_LastFolderOpen = settings.pluginLastFolder();
-    // The path to the bundled Python interpreter
-    //m_bundledInterpPath = settings.bundledInterpPath();
-    // Should the bundled pPython interpreter be used?
-    m_useBundledInterp = settings.useBundledInterp();
     
+    // Should the bundled Python interpreter be used?
+    m_useBundledInterp = settings.useBundledInterp();
+
+    // The path to the bundled Python interpreter
+    m_bundledInterpPath = settings.bundledInterpPath();
+    if (m_bundledInterpPath == "") {
+        m_bundledInterpPath = buildBundledInterpPath();
+    }
+
     // Load the available plugin information
     PluginDB *pdb = PluginDB::instance();
     QHash<QString, Plugin *> plugins;
@@ -84,6 +99,7 @@ void PluginWidget::readSettings()
         } else {
             ui.chkUseBundled->setCheckState(Qt::Unchecked);
         }
+        enable_disable_controls();
     }
 
     // clear out the table but do NOT clear out column headings
@@ -278,6 +294,16 @@ void PluginWidget::SetPy3()
     m_isDirty = true;
 }
 
+void PluginWidget::enable_disable_controls()
+{
+    ui.editPathPy2->setEnabled(!m_useBundledInterp);
+    ui.editPathPy3->setEnabled(!m_useBundledInterp);
+    ui.Py2Auto->setEnabled(!m_useBundledInterp);
+    ui.Py3Auto->setEnabled(!m_useBundledInterp);
+    ui.Py2Set->setEnabled(!m_useBundledInterp);
+    ui.Py3Set->setEnabled(!m_useBundledInterp);
+}
+
 void PluginWidget::enginePy2PathChanged()
 {
     // make sure typed in path actually exists
@@ -315,8 +341,7 @@ void PluginWidget::useBundledPy3Changed(int)
     if (bundledInterpReady()) {
         m_useBundledInterp = ui.chkUseBundled->isChecked();
     }
-    ui.editPathPy2->setEnabled(!m_useBundledInterp);
-    ui.editPathPy3->setEnabled(!m_useBundledInterp);
+    enable_disable_controls();
     m_isDirty = true;
 }
 

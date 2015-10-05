@@ -27,6 +27,7 @@ private slots:
     void SetPy3();
     void enginePy2PathChanged();
     void enginePy3PathChanged();
+    void enable_disable_controls();
     void useBundledPy3Changed(int);
     void removePlugin();
     void removeAllPlugins();
@@ -50,7 +51,7 @@ private:
     bool m_isDirty;
     QString m_LastFolderOpen;
     bool m_useBundledInterp;
-    //QString m_bundledInterpPath;
+    QString m_bundledInterpPath;
 };
 
 #endif // PLUGINWIDGET_H
