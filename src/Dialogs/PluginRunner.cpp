@@ -108,23 +108,28 @@ int PluginRunner::exec(const QString &name)
     m_pluginType = plugin->get_type();
 
     m_engine = plugin->get_engine();
-    // handle case of multiple engines
-    QStringList engineList;
-    if (m_engine.contains(",")) {
-        engineList = m_engine.split(",");
-    } else {
-        engineList.append(m_engine);
+    // Use the bundled interpreter if user requested it (and plugin supports it)
+    if (m_engine.contains("python3.4") && settings.useBundledInterp()) {
+        m_enginePath = settings.bundledInterpPath();
     }
-    foreach(QString engine, engineList) {
-        m_enginePath = pdb->get_engine_path(engine);
-        if (!m_enginePath.isEmpty()) break;
-    } 
-    if (m_enginePath.isEmpty()) {
-        Utility::DisplayStdErrorDialog(tr("Error: Interpreter ") + m_engine + tr(" has no path set"));
-        reject();
-        return QDialog::Rejected;
+    else { // Otherwise, parse to find correct external interpreter path
+        // handle case of multiple engines
+        QStringList engineList;
+        if (m_engine.contains(",")) {
+            engineList = m_engine.split(",");
+        } else {
+            engineList.append(m_engine);
+        }
+        foreach(QString engine, engineList) {
+            m_enginePath = pdb->get_engine_path(engine);
+            if (!m_enginePath.isEmpty()) break;
+        } 
+        if (m_enginePath.isEmpty()) {
+            Utility::DisplayStdErrorDialog(tr("Error: Interpreter ") + m_engine + tr(" has no path set"));
+            reject();
+            return QDialog::Rejected;
+        }
     }
-
     // The launcher and plugin path are both platform specific and engine/interpreter specific
     launcher_root = PluginDB::launcherRoot();
 
@@ -171,6 +176,7 @@ void PluginRunner::writeSigilCFG()
 void PluginRunner::startPlugin()
 {
     QStringList args;
+    SettingsStore settings;
     if (!m_ready) {
         Utility::DisplayStdErrorDialog(tr("Error: plugin can not start"));
         return;
@@ -191,7 +197,16 @@ void PluginRunner::startPlugin()
     ui.okButton->setEnabled(false);
     ui.cancelButton->setEnabled(true);
 
-    args.append(QString("-OBu"));  // sets python for unbuffered io
+    if (settings.useBundledInterp()) {
+        // -E Ignore python ENV vars
+        // -O Basic Optimization (also changes the bytecode file extension from .pyc to .pyo)
+        // -B Don't write bytecode
+        // -u sets python for unbuffered io
+        args.append(QString("-EOBu")); 
+    }
+    else {
+        args.append(QString("-Bu"));
+    }
     args.append(QDir::toNativeSeparators(m_launcherPath));
     args.append(QDir::toNativeSeparators(m_bookRoot));
     args.append(QDir::toNativeSeparators(m_outputDir));
