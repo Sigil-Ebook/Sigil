@@ -304,6 +304,7 @@ set( MISC_FILES
     Misc/PyObjectPtr.h
     Misc/PyObjectPtr.cpp
     Misc/EmbeddedPython.h
+    Misc/EmbeddedPython.cpp
     Misc/GumboInterface.h
     Misc/GumboInterface.cpp
     )
@@ -521,17 +522,11 @@ if ( NOT DEFINED PKG_SYSTEM_PYTHON )
 endif()
 
 if ( PKG_SYSTEM_PYTHON )
-    if ( APPLE )
-        set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPython.cpp)
-    else()
-        set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPythonPkg.cpp)
-    endif()
+    add_definitions( -DBUNDLING_PYTHON )
     if ( MSVC )
-	set_source_files_properties(Misc/EmbeddedPythonPkg.cpp
-                       PROPERTIES COMPILE_FLAGS "/Zc:wchar_t")
+        set_source_files_properties(Misc/EmbeddedPython.cpp
+                    PROPERTIES COMPILE_FLAGS "/Zc:wchar_t")
     endif()
-else()
-    set(MISC_FILES ${MISC_FILES} Misc/EmbeddedPython.cpp)
 endif()
 
 # Default will work for building 32bit Sigil on Windows 32bit and

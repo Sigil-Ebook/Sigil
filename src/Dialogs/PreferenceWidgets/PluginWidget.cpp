@@ -296,11 +296,11 @@ void PluginWidget::SetPy3()
 
 void PluginWidget::enable_disable_controls()
 {
-    ui.editPathPy2->setEnabled(!m_useBundledInterp);
+    // ui.editPathPy2->setEnabled(!m_useBundledInterp);
     ui.editPathPy3->setEnabled(!m_useBundledInterp);
-    ui.Py2Auto->setEnabled(!m_useBundledInterp);
+    // ui.Py2Auto->setEnabled(!m_useBundledInterp);
     ui.Py3Auto->setEnabled(!m_useBundledInterp);
-    ui.Py2Set->setEnabled(!m_useBundledInterp);
+    // ui.Py2Set->setEnabled(!m_useBundledInterp);
     ui.Py3Set->setEnabled(!m_useBundledInterp);
 }
 

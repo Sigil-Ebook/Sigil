@@ -203,10 +203,16 @@ void PluginRunner::startPlugin()
         // -O Basic Optimization (also changes the bytecode file extension from .pyc to .pyo)
         // -B Don't write bytecode
         // -u sets python for unbuffered io
-        args.append(QString("-EOBu")); 
+#ifdef Q_OS_MAC
+        args.append(QString("-Eu"));
+#elif defined(Q_OS_WIN32)
+        args.append(QString("-EOBu"));
+#elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+        args.append(QString("-EOBu"));
+#endif
     }
     else {
-        args.append(QString("-Bu"));
+        args.append(QString("-u"));
     }
     args.append(QDir::toNativeSeparators(m_launcherPath));
     args.append(QDir::toNativeSeparators(m_bookRoot));
