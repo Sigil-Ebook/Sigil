@@ -174,6 +174,40 @@ EmbeddedPython* EmbeddedPython::instance()
 
 EmbeddedPython::EmbeddedPython()
 {
+    // Build string list of paths that will
+    // comprise the embedded Python's sys.path
+#if defined(BUNDLING_PYTHON)
+    // Apple doesn't need these paths set with its framework-built Python
+#if !defined(__APPLE__)
+    QString pyhomepath = QCoreApplication::applicationDirPath();
+    wchar_t *hpath = new wchar_t[pyhomepath.size()+1];
+    pyhomepath.toWCharArray(hpath);
+    hpath[pyhomepath.size()]=L'\0';
+
+    QString pysyspath = pyhomepath + PYTHON_MAIN_PATH;
+    foreach (const QString &src_path, PYTHON_SYS_PATHS) {
+        pysyspath = pysyspath + PATH_LIST_DELIM + pyhomepath + PYTHON_MAIN_PATH + src_path;
+    }
+    wchar_t *mpath = new wchar_t[pysyspath.size()+1];
+    pysyspath.toWCharArray(mpath);
+    mpath[pysyspath.size()]=L'\0';
+    delete[] hpath;
+#endif // !defined(__APPLE__)
+    // Everyone uses these flags when python is bundled.
+    Py_OptimizeFlag = 2;
+    Py_NoSiteFlag = 1;
+    Py_DontWriteBytecodeFlag = 1;
+    Py_IgnoreEnvironmentFlag = 1;
+    Py_NoUserSiteDirectory = 1;
+    //Py_DebugFlag = 0;
+    //Py_VerboseFlag = 0;
+#if !defined(__APPLE__)
+    // Set before Py_Initialize to ensure isolation from system python
+    Py_SetPath(mpath);
+    delete[] mpath;
+#endif // !defined(__APPLE__)
+#endif // defined(BUNDLING_PYTHON)
+
     Py_Initialize();
     PyEval_InitThreads();
     m_threadstate = PyEval_SaveThread();
