@@ -192,11 +192,12 @@ EmbeddedPython::EmbeddedPython()
     pysyspath.toWCharArray(mpath);
     mpath[pysyspath.size()]=L'\0';
     delete[] hpath;
+
+    Py_OptimizeFlag = 2;
+    Py_DontWriteBytecodeFlag = 1;
 #endif // !defined(__APPLE__)
     // Everyone uses these flags when python is bundled.
-    Py_OptimizeFlag = 2;
     Py_NoSiteFlag = 1;
-    Py_DontWriteBytecodeFlag = 1;
     Py_IgnoreEnvironmentFlag = 1;
     Py_NoUserSiteDirectory = 1;
     //Py_DebugFlag = 0;
