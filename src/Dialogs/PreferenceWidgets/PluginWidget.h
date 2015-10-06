@@ -19,12 +19,16 @@ public:
 
 private slots:
     void addPlugin();
+    bool bundledInterpReady();
+    QString buildBundledInterpPath();
     void AutoFindPy2();
     void AutoFindPy3();
     void SetPy2();
     void SetPy3();
     void enginePy2PathChanged();
     void enginePy3PathChanged();
+    void enable_disable_controls();
+    void useBundledPy3Changed(int);
     void removePlugin();
     void removeAllPlugins();
     void pluginSelected(int row, int col);
@@ -46,6 +50,8 @@ private:
     Ui::PluginWidget ui;
     bool m_isDirty;
     QString m_LastFolderOpen;
+    bool m_useBundledInterp;
+    QString m_bundledInterpPath;
 };
 
 #endif // PLUGINWIDGET_H
