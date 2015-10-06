@@ -16,6 +16,7 @@
 #include "Misc/Utility.h"
 #include "Misc/TempFolder.h"
 #include "Tabs/TabManager.h"
+#include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Dialogs/PluginRunner.h"
 
@@ -458,7 +459,8 @@ bool PluginRunner::checkIsWellFormed()
     bool proceed = true;
     QStringList errors;
     // Build of list of xhtml, html, and xml files that were modifed or added
-    QStringList filesToCheck;
+    QStringList xhtmlFilesToCheck;
+    QStringList xmlFilesToCheck;
     if (!m_filesToAdd.isEmpty()) {
         foreach (QString fileinfo, m_filesToAdd) {
             QStringList fdata = fileinfo.split(SEP);
@@ -466,13 +468,13 @@ bool PluginRunner::checkIsWellFormed()
             QString id   = fdata[ idField   ];
             QString mime = fdata[ mimeField ];
             if (mime == "application/oebps-package+xml") {
-                filesToCheck.append(href);
+                xmlFilesToCheck.append(href);
             } else if (mime == "application/x-dtbncx+xml") {
-                filesToCheck.append(href);
+                xmlFilesToCheck.append(href);
             } else if (mime == "application/oebs-page-map+xml") {
-                filesToCheck.append(href);
+                xmlFilesToCheck.append(href);
             } else if (mime == "application/xhtml+xml") {
-                filesToCheck.append(href);
+                xhtmlFilesToCheck.append(href);
             }
         }
     }
@@ -483,27 +485,38 @@ bool PluginRunner::checkIsWellFormed()
             QString id   = fdata[ idField   ];
             QString mime = fdata[ mimeField ];
             if (mime == "application/oebps-package+xml") {
-                filesToCheck.append(href);
+                xmlFilesToCheck.append(href);
             } else if (mime == "application/x-dtbncx+xml") {
-                filesToCheck.append(href);
+                xmlFilesToCheck.append(href);
             } else if (mime == "application/oebs-page-map+xml") {
-                filesToCheck.append(href);
+                xmlFilesToCheck.append(href);
             } else if (mime == "application/xhtml+xml") {
-                filesToCheck.append(href);
+                xhtmlFilesToCheck.append(href);
             }
         }
     }
-    if (!filesToCheck.isEmpty()) {
-        foreach (QString href, filesToCheck) {
+    if (!xhtmlFilesToCheck.isEmpty()) {
+        foreach (QString href, xhtmlFilesToCheck) {
             QString filePath = m_outputDir + "/" + href;
             ui.statusLbl->setText("Status: checking " + href);
             QString data = Utility::ReadUnicodeTextFile(filePath);
             XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
             if (error.line != -1) {
-                errors.append(tr("Incorrect XHTML/XML: ") + href + tr(" Line/Col ") + QString::number(error.line) +
+                errors.append(tr("Incorrect XHTML: ") + href + tr(" Line/Col ") + QString::number(error.line) +
                               "," + QString::number(error.column) + " " + error.message);
                 well_formed = false;
             }
+        }
+    }
+    if (!xmlFilesToCheck.isEmpty()) {
+        foreach (QString href, xhtmlFilesToCheck) {
+            // can't really validate without a full dtd so
+            // auto repair any xml file changes to be safe
+            QString filePath = m_outputDir + "/" + href;
+            ui.statusLbl->setText("Status: checking " + href);
+            QString data = Utility::ReadUnicodeTextFile(filePath);
+            QString newdata = CleanSource::ProcessXML(data);
+            Utility::WriteUnicodeTextFile(newdata, filePath);
         }
     }
     if ((!well_formed) && (!errors.isEmpty())) {
