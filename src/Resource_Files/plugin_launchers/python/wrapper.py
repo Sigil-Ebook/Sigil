@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20151001
+_launcher_version=20151010
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -319,6 +319,8 @@ class Wrapper(object):
             sid = unicode_str(sid)
             linear = unicode_str(linear)
             properties = unicode_str(properties)
+            if properties is not None and properties == "":
+                properties = None
             if sid not in self.id_to_href:
                 raise WrapperException('Spine Id not in Manifest')
             if linear is not None:
@@ -335,6 +337,8 @@ class Wrapper(object):
         sid = unicode_str(sid)
         linear = unicode_str(linear)
         properties = unicode_str(properties)
+        if properties is not None and properties == "":
+            properties = None
         if sid not in self.id_to_mime:
             raise WrapperException('that spine idref does not exist in manifest')
         n = len(self.spine)
@@ -360,6 +364,8 @@ class Wrapper(object):
         idref = unicode_str(idref)
         linear = unicode_str(linear)
         properties = unicode_str(properties)
+        if properties is not None and properties == "":
+            properties = None
         pos = -1
         i = 0
         for (sid, slinear, sproperties) in self.spine:
@@ -541,6 +547,8 @@ class Wrapper(object):
     def set_manifest_epub3_properties(self, id, properties):
         id = unicode_str(id)
         properties = unicode_str(properties)
+        if properties is not None and properties == "":
+            properties = None
         if id not in self.id_to_props:
             raise WrapperException('Id does not exist in manifest')
         del self.id_to_props[id]
