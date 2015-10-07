@@ -139,6 +139,8 @@ private:
 
     void newlinetrim(std::string &s);
 
+    void condense_whitespace(std::string &s);
+
     void replace_all(std::string &s, const char * s1, const char * s2);
 
     QString fix_self_closing_tags(const QString & source);

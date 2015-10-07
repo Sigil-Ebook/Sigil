@@ -25,6 +25,7 @@
 #include <QRegularExpressionMatch>
 #include <QDir>
 #include <QFileInfo>
+#include <QDebug>
 #include "Misc/Utility.h"
 
 #include "GumboInterface.h"
@@ -662,6 +663,27 @@ void GumboInterface::newlinetrim(std::string &s)
 }
 
 
+void GumboInterface::condense_whitespace(std::string &s)
+{
+    size_t n = s.length();
+    std::string val;
+    val.reserve(n);
+    std::string wspace = " \n\r\t\v\f";
+    char last_c = 'x';
+    for (size_t i=0; i < n; i++) {
+        char c = s.at(i);
+        if (wspace.find(c) != std::string::npos) {
+            c = ' ';
+        }
+        if ((c != ' ') || (last_c != ' ')) {
+            val.push_back(c);
+        }
+        last_c = c;
+    }
+    s = val;
+}
+
+
 void GumboInterface::replace_all(std::string &s, const char * s1, const char * s2)
 {
     std::string t1(s1);
@@ -1008,6 +1030,9 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
               std::string indent_space = std::string((lvl-1)*n,c);
               contents.append(indent_space);
               ltrim(val);
+            } else if (!keep_whitespace && !is_structural) {
+                // okay to condense whitespace
+                condense_whitespace(val);
             }
             contents.append(val);
 
@@ -1018,10 +1043,10 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
 
         } else if (child->type == GUMBO_NODE_WHITESPACE) {
 
+            std::string wspace = std::string(child->v.text.text);
             if (keep_whitespace || is_inline) {
-                std::string wspace = std::string(child->v.text.text);
                 contents.append(wspace);
-            }
+            } 
 
         } else if (child->type == GUMBO_NODE_CDATA) {
             contents.append("<![CDATA[" + std::string(child->v.text.text) + "]]>");
@@ -1095,6 +1120,12 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     if (is_structural) {
         rtrim(contents);
         if (!contents.empty()) contents.append("\n");
+    }
+
+    // remove any leading or trailing whitespace form within paragraphs
+    if (tagname == "p") {
+        ltrim(contents);
+        rtrim(contents);
     }
 
     char last_char = ' ';
