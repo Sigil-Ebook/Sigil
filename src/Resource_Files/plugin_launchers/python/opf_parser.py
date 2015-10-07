@@ -120,7 +120,7 @@ class Opf_Parser(object):
                 if mtype == "text/html":
                     mtype = "application/xhtml+xml"
                 href = unquoteurl(href)
-                properties = tattr.pop("properties",'')
+                properties = tattr.pop("properties",None)
                 self.manifest_id_to_href[id] = href
                 self.manifest_id_to_mime[id] = mtype
                 self.href_to_manifest_id[href] = id
