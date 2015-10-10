@@ -205,11 +205,11 @@ class Wrapper(object):
         for id in sorted(self.id_to_mime):
             href = quoteurl(self.id_to_href[id])
             mime = self.id_to_mime[id]
-            properties = ''
-            props = self.id_to_props[id]
-            if props != '':
-                properties = ' properties="%s"' % props
-            manout.append('<item id="%s" href="%s" media-type="%s"%s />\n' % (id, href, mime, properties))
+            props = ''
+            properties = self.id_to_props[id]
+            if properties is not None:
+                props = ' properties="%s"' % properties
+            manout.append('<item id="%s" href="%s" media-type="%s"%s />\n' % (id, href, mime, props))
         manout.append('</manifest>\n')
         return "".join(manout)
 
