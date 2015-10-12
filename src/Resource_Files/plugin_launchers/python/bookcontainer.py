@@ -267,7 +267,6 @@ class BookContainer(object):
     def selected_iter(self):
         # yields id type ('other' or 'manifest') and id/otherid for each file selected in the BookBrowser
         for book_href in self._w.selected:
-            print(book_href)
             id_type = 'other'
             id = book_href
             href = book_href
