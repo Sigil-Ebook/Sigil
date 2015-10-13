@@ -192,14 +192,20 @@ void SpellCheck::setDictionary(const QString &name, bool forceReplace)
     // Dictionary files to use.
     QString aff = QString("%1%2.aff").arg(m_dictionaries.value(name)).arg(name);
     QString dic = QString("%1%2.dic").arg(m_dictionaries.value(name)).arg(name);
-    QString hyph_dic = QString("%1hyph_%2.dic").arg(m_dictionaries.value(name)).arg(name);
     // Create a new hunspell object.
     m_hunspell = new Hunspell(aff.toLocal8Bit().constData(), dic.toLocal8Bit().constData());
 
+    // Note: these are encoded hyphenation dictionaries and their entries are not
+    // meaningful words in and of themselves.
+    // So the following makes no sense and is not accompishing anything.
+    // That said, look into getting the raw hyphenation lists that were used
+    // to generate these hyph_dic files for libhyphen
+
+    // QString hyph_dic = QString("%1hyph_%2.dic").arg(m_dictionaries.value(name)).arg(name);
     // Load the hyphenation dictionary if it exists.
-    if (QFile::exists(hyph_dic)) {
-        m_hunspell->add_dic(hyph_dic.toLocal8Bit().constData());
-    }
+    // if (QFile::exists(hyph_dic)) {
+    //    m_hunspell->add_dic(hyph_dic.toLocal8Bit().constData());
+    //}
 
     // Get the encoding for the text in the dictionary.
     m_codec = QTextCodec::codecForName(m_hunspell->get_dic_encoding());
