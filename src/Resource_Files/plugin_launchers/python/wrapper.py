@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20151010
+_launcher_version=20151014
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -715,14 +715,41 @@ class Wrapper(object):
             apaths.append(unipath.abspath(os.path.join(self.appdir,"hunspell_dictionaries")))
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         else:
-            # The sigil launch script in <install_prefix>/bin knows where Sigil's share
-            # prefix is and sets the env var SIGIL_SHARE_PREFIX to its value.
-            share_prefix = os.environ['SIGIL_SHARE_PREFIX']
-            if not len(share_prefix):
-                # If someone didn't launch Sigil with its launch script, this may save the 
-                # day (as long as the user didn't override SHARE_INSTALL_PREFIX at compile time).
+            # Linux
+            system_hunspell_dicts = ''
+            share_prefix = ''
+            share_override = ''
+            sigil_share_dir_name = 'sigil'
+
+            # get the env var SIGIL_DICTIONARIES set at launch time.
+            if 'SIGIL_DICTIONARIES' in os.environ.keys():
+                system_hunspell_dicts = os.environ['SIGIL_DICTIONARIES']
+
+            # Runtime env var override of 'share/sigil' directory.
+            if 'SIGIL_EXTRA_ROOT' in os.environ.keys():
+                share_override = os.environ['SIGIL_EXTRA_ROOT']
+
+            # The sigil launch script in <install_prefix>/bin knows where Sigil's build time
+            # share prefix is and sets the env var SIGIL_SHARE_PREFIX to its value.
+            if 'SIGIL_SHARE_PREFIX' in os.environ.keys():
+                share_prefix = os.environ['SIGIL_SHARE_PREFIX']
+
+            # If someone didn't launch Sigil with its launch script, this may save the
+            # day (as long as the user didn't override SHARE_INSTALL_PREFIX at compile time).
+            if not len(share_prefix) and not len(share_override):
                 share_prefix = unipath.abspath(os.path.join(self.appdir,"..",".."))
-            apaths.append(unipath.abspath(os.path.join(share_prefix, "share", "sigil", "hunspell_dictionaries")))
+
+            # If the 'share/sigil' location has indeed been overridden at runtime, get its prefix and use that.
+            if len(share_override):
+                sigil_share_dir_name = os.path.basename(share_override)
+                share_prefix = unipath.abspath(os.path.join(share_override,"..",".."))
+
+            # If the SIGIL_DICTIONARIES env var has content, use it for the dictionary location.
+            if len(system_hunspell_dicts):
+                apaths.append(unipath.abspath(system_hunspell_dicts))
+            else:
+                # Otherwise, use Sigil's bundled hunspell dictionary location.
+                apaths.append(unipath.abspath(os.path.join(share_prefix, "share", sigil_share_dir_name, "hunspell_dictionaries")))
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         return apaths
                         
