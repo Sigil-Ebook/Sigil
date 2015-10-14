@@ -7,6 +7,8 @@ from __future__ import unicode_literals, division, absolute_import, print_functi
 import sys
 import os
 from ctypes import *
+from ctypes.util import find_library
+
 import codecs
 
 PY3 = sys.version_info[0] == 3
@@ -29,10 +31,13 @@ class HunspellChecker(object):
         self.pp = pointer(p)
         self.retval = 0
         # ctypes interface to hunspell spellchecker
+        self.hunspell = None
         try:
             self.hunspell = cdll[hunspell_dllpath]
         except OSError:
-            return None
+            self.hunspell = cdll.LoadLibrary(find_library('hunspell'))
+        if self.hunspell is None:
+            return
         self.hunspell.Hunspell_create.restype = POINTER(c_int)
         self.hunspell.Hunspell_create.argtypes = (c_char_p, c_char_p)
         self.hunspell.Hunspell_destroy.argtype = POINTER(c_int)
