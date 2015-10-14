@@ -113,6 +113,7 @@ extern const QString PYTHON_MAIN_PATH;
 extern const QStringList PYTHON_SYS_PATHS;
 
 #if !defined(_WIN32) && !defined(__APPLE__)
+extern const QString system_hunspell_dicts;
 extern const QString sigil_extra_root;
 extern const QString sigil_share_root;
 #endif

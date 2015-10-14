@@ -239,6 +239,7 @@ QString EmbeddedPython::embeddedRoot()
     embedded_roots.append(QCoreApplication::applicationDirPath() + "/python3lib/");
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // all flavours of linux / unix
+    // user supplied environment variable to 'share/sigil' directory will overrides everything
     if (!sigil_extra_root.isEmpty()) {
         embedded_roots.append(sigil_extra_root + "/python3lib/");
     } else {
