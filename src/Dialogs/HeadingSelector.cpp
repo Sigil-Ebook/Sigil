@@ -243,11 +243,18 @@ void HeadingSelector::UpdateHeadingElements()
     // if required, setting ids etc.
     int next_toc_id = 1;
     UpdateOneHeadingElement(m_TableOfContents.invisibleRootItem(), used_ids, next_toc_id);
-    // Finally check to see whether we did actually make a change to the book.
+    // If we changed anything remember to update the changed resource
+    // and properly record we did make a change to the book.
+    QList<HTMLResource *> changed_resources;
     foreach(Headings::Heading heading, m_Headings) {
         if (heading.is_changed) {
             m_book_changed = true;
-            break;
+            if (!changed_resources.contains(heading.resource_file)) {
+                QString source = heading.resource_file->GetTOCCache();
+                heading.resource_file->SetTOCCache("");
+                heading.resource_file->SetText(source);
+                changed_resources.append(heading.resource_file);
+            }
         }
     }
     QApplication::restoreOverrideCursor();
@@ -261,7 +268,7 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         // Update heading inclusion: if a heading element
         // has one of the SIGIL_NOT_IN_TOC_CLASS classes, then it's not in the TOC
 
-        QString source = heading->resource_file->GetText();
+        QString source = heading->resource_file->GetTOCCache();
         GumboInterface gi = GumboInterface(source);
         gi.parse();
         GumboNode* node = gi.get_node_from_path(heading->path_to_node);
@@ -349,7 +356,7 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
 
         if (heading->is_changed) {
             source = gi.getxhtml();
-            heading->resource_file->SetText(source);
+            heading->resource_file->SetTOCCache(source);
         }
 
     }

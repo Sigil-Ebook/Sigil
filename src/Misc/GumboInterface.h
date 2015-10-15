@@ -33,7 +33,7 @@
 #include <QString>
 #include <QList>
 #include <QHash>
-#include <QMutex>
+// #include <QMutex>
 
 class QString;
 
@@ -145,7 +145,7 @@ private:
 
     QString fix_self_closing_tags(const QString & source);
 
-    static QMutex                   m_mutex;
+    // static QMutex                   m_mutex;
     QString                         m_source;
     GumboOutput*                    m_output;
     std::string                     m_utf8src;

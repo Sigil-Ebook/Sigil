@@ -65,6 +65,10 @@ public:
      */
     void SetGuideSemanticType(GuideSemantics::GuideSemanticType type);
 
+    QString GetTOCCache();
+    void    SetTOCCache(const QString & text);
+    
+
     // inherited
     virtual ResourceType Type() const;
 
@@ -125,6 +129,7 @@ private:
      * @todo This is ugly as hell. Find a way to remove this.
      */
     const QHash<QString, Resource *> &m_Resources;
+    QString m_TOCCache;
 };
 
 #endif // HTMLRESOURCE_H

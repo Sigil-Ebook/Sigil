@@ -46,6 +46,7 @@ HTMLResource::HTMLResource(const QString &mainfolder, const QString &fullfilepat
                            QObject *parent)
     :
     XMLResource(mainfolder, fullfilepath, parent),
+    m_TOCCache(""),
     m_Resources(resources)
 {
 }
@@ -81,6 +82,18 @@ void HTMLResource::SetText(const QString &text)
     TrackNewResources(GetPathsToLinkedResources());
 }
 
+QString HTMLResource::GetTOCCache()
+{
+    if (m_TOCCache.isEmpty()) {
+        m_TOCCache = TextResource::GetText();
+    }
+    return m_TOCCache;
+}
+
+void HTMLResource::SetTOCCache(const QString & text)
+{
+    m_TOCCache = text;
+}
 
 void HTMLResource::SaveToDisk(bool book_wide_save)
 {
