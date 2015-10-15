@@ -262,7 +262,7 @@ void HeadingSelector::UpdateHeadingElements()
     }
     // remember to remove all TOCCaches from all used resources 
     foreach(HTMLResource* resource, used_resources) {
-        resource_file->SetTOCCache("");
+        resource->SetTOCCache("");
     }
     QApplication::restoreOverrideCursor();
 }
