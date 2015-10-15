@@ -246,16 +246,23 @@ void HeadingSelector::UpdateHeadingElements()
     // If we changed anything remember to update the changed resource
     // and properly record we did make a change to the book.
     QList<HTMLResource *> changed_resources;
+    QList<HTMLResource *> used_resources;
     foreach(Headings::Heading heading, m_Headings) {
+        if (!used_resources.contains(heading.resource_file)) {
+            used_resources.append(heading.resource_file);
+        }
         if (heading.is_changed) {
             m_book_changed = true;
             if (!changed_resources.contains(heading.resource_file)) {
                 QString source = heading.resource_file->GetTOCCache();
-                heading.resource_file->SetTOCCache("");
                 heading.resource_file->SetText(source);
                 changed_resources.append(heading.resource_file);
             }
         }
+    }
+    // remember to remove all TOCCaches from all used resources 
+    foreach(HTMLResource* resource, used_resources) {
+        resource_file->SetTOCCache("");
     }
     QApplication::restoreOverrideCursor();
 }
