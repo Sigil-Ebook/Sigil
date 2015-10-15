@@ -8,6 +8,7 @@ Upcoming Sigil 0.9.0 Release
     - Restore ability to override hunspell dictionary locations on Linux with SIGIL_DICTIONARIES env var
     - Restore ability to build Sigil against system hunspell libraries on Linux
     - Adjust pluginhunspell.py to try to find system hunspell if bundled hunspell is not built/installed
+    - Fix hang/slowness in TOC creation when huge number of headings all exist in the same file
     ... more to come ?
 
 
