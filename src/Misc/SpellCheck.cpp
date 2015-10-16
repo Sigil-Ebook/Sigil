@@ -398,4 +398,3 @@ QString SpellCheck::userDictionaryFile(QString dict_name)
 {
     return userDictionaryDirectory() + "/" + dict_name;
 }
-

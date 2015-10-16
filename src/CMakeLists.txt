@@ -1,8 +1,8 @@
 ########################################################
-#  
+#
 #  This is a CMake configuration file.
-#  To use it you need CMake which can be 
-#  downloaded from here: 
+#  To use it you need CMake which can be
+#  downloaded from here:
 #    http://www.cmake.org/cmake/resources/software.html
 #
 #########################################################
@@ -72,8 +72,8 @@ set( MAIN_FILES
     sigil_exception.h
     main.cpp
     )
-    
-set( BOOK_MANIPULATION_FILES 
+
+set( BOOK_MANIPULATION_FILES
     BookManipulation/Book.cpp
     BookManipulation/Book.h
     BookManipulation/BookReports.cpp
@@ -124,7 +124,7 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/XMLResource.cpp
     ResourceObjects/XMLResource.h
     )
-        
+
 set( DIALOG_FILES
     Dialogs/About.cpp
     Dialogs/About.h
@@ -223,7 +223,7 @@ set( EXPORTER_FILES
     Exporters/EncryptionXmlWriter.cpp
     Exporters/EncryptionXmlWriter.h
     )
-    
+
 set( IMPORTER_FILES
     Importers/ImportEPUB.cpp
     Importers/ImportEPUB.h
@@ -236,8 +236,8 @@ set( IMPORTER_FILES
     Importers/ImportTXT.cpp
     Importers/ImportTXT.h
     )
-    
-set( MISC_FILES    
+
+set( MISC_FILES
     Misc/AppEventFilter.cpp
     Misc/AppEventFilter.h
     Misc/UpdateChecker.cpp
@@ -309,7 +309,7 @@ set( MISC_FILES
     Misc/GumboInterface.cpp
     )
 
-set( MISC_EDITORS_FILES    
+set( MISC_EDITORS_FILES
     MiscEditors/ClipEditorModel.cpp
     MiscEditors/ClipEditorModel.h
     MiscEditors/ClipEditorTreeView.cpp
@@ -348,13 +348,13 @@ set( VIEW_EDITOR_FILES
     ViewEditors/LineNumberArea.h
     ViewEditors/Searchable.cpp
     ViewEditors/Searchable.h
-    ViewEditors/Zoomable.h 
-    ViewEditors/ViewEditor.h     
+    ViewEditors/Zoomable.h
+    ViewEditors/ViewEditor.h
     ViewEditors/ViewWebPage.cpp
-    ViewEditors/ViewWebPage.h 
+    ViewEditors/ViewWebPage.h
     )
 
-set( MAINUI_FILES 
+set( MAINUI_FILES
     MainUI/MainApplication.cpp
     MainUI/MainApplication.h
     MainUI/MainWindow.cpp
@@ -385,9 +385,9 @@ set( TAB_FILES
     Tabs/TabManager.cpp
     Tabs/TabManager.h
     Tabs/FlowTab.cpp
-    Tabs/FlowTab.h 
+    Tabs/FlowTab.h
     Tabs/ContentTab.cpp
-    Tabs/ContentTab.h 
+    Tabs/ContentTab.h
     Tabs/TextTab.cpp
     Tabs/TextTab.h
     Tabs/CSSTab.cpp
@@ -410,9 +410,9 @@ set( TAB_FILES
     Tabs/XMLTab.h
     Tabs/WellFormedContent.h
     )
-            
-set( UI_FILES   
-    Form_Files/main.ui 
+
+set( UI_FILES
+    Form_Files/main.ui
     Form_Files/ClipboardHistorySelector.ui
     Form_Files/DeleteFiles.ui
     Form_Files/DeleteStyles.ui
@@ -422,11 +422,11 @@ set( UI_FILES
     Form_Files/SelectId.ui
     Form_Files/SelectIndexTitle.ui
     Form_Files/SelectFiles.ui
-    Form_Files/MetaEditor.ui 
-    Form_Files/AddMetadata.ui 
-    Form_Files/About.ui 
-    Form_Files/EditTOC.ui 
-    Form_Files/HeadingSelector.ui 
+    Form_Files/MetaEditor.ui
+    Form_Files/AddMetadata.ui
+    Form_Files/About.ui
+    Form_Files/EditTOC.ui
+    Form_Files/HeadingSelector.ui
     Form_Files/FindReplace.ui
     Form_Files/PAppearanceWidget.ui
     Form_Files/Preferences.ui
@@ -436,7 +436,7 @@ set( UI_FILES
     Form_Files/PSpellCheckWidget.ui
     Form_Files/PPreserveEntitiesWidget.ui
     Form_Files/PPluginWidget.ui
-    Form_Files/RenameTemplate.ui 
+    Form_Files/RenameTemplate.ui
     Form_Files/Reports.ui
     Form_Files/ReportsAllFilesWidget.ui
     Form_Files/ReportsHTMLFilesWidget.ui
@@ -446,17 +446,17 @@ set( UI_FILES
     Form_Files/ReportsClassesInHTMLFilesWidget.ui
     Form_Files/ReportsStylesInCSSFilesWidget.ui
     Form_Files/ReportsCharactersInHTMLFilesWidget.ui
-    Form_Files/LinkStylesheets.ui 
+    Form_Files/LinkStylesheets.ui
     Form_Files/SearchEditor.ui
     Form_Files/ClipEditor.ui
-    Form_Files/IndexEditor.ui 
-    Form_Files/SpellcheckEditor.ui 
-    Form_Files/PluginRunner.ui 
+    Form_Files/IndexEditor.ui
+    Form_Files/SpellcheckEditor.ui
+    Form_Files/PluginRunner.ui
     Form_Files/ViewImage.ui
     )
-    
-set( SOURCEUPDATE_FILES   
-    SourceUpdates/PerformHTMLUpdates.cpp 
+
+set( SOURCEUPDATE_FILES
+    SourceUpdates/PerformHTMLUpdates.cpp
     SourceUpdates/PerformHTMLUpdates.h
     SourceUpdates/PerformOPFUpdates.cpp
     SourceUpdates/PerformOPFUpdates.h
@@ -473,12 +473,12 @@ set( SOURCEUPDATE_FILES
     SourceUpdates/UniversalUpdates.cpp
     SourceUpdates/UniversalUpdates.h
     )
-            
-set( QRC_FILES  
+
+set( QRC_FILES
     Resource_Files/main/main.qrc
     Resource_Files/About/About.qrc
     Resource_Files/javascript/javascript.qrc
-    Resource_Files/icon/icon.qrc  
+    Resource_Files/icon/icon.qrc
     )
 
 file( GLOB TS_FILES Resource_Files/ts/sigil_*.ts )
@@ -500,7 +500,7 @@ set( LINUX_DESKTOP_ICON_FILE
 set( LINUX_LAUNCH_INSTALL_SCRIPT
     Resource_Files/bash/sigil-sh_install
     )
-    
+
 set( LINUX_LAUNCH_PKG_SCRIPT
     Resource_Files/bash/sigil-sh_pkg
     )
@@ -508,7 +508,7 @@ set( LINUX_LAUNCH_PKG_SCRIPT
 set( LINUX_DEBIAN_CONTROL_FILE
     Resource_Files/bash/control
     )
-    
+
 set( LINUX_RPM_SPEC_FILE
     Resource_Files/bash/specfile
     )
@@ -632,7 +632,7 @@ if( APPLE )
 
     # Copy the PLIST file...
     exec_program("cp ${PROJECT_SOURCE_DIR}/Resource_Files/mac/MacOSXBundleInfo.plist ${PROJECT_BINARY_DIR}")
-    
+
     # ...and set the Sigil version string
     exec_program("sed -i -e 's/SGVERSION/${SIGIL_FULL_VERSION}/g' ${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist")
 endif()
@@ -691,7 +691,7 @@ if( MSVC )
     # The /Zc:wchar_t- flag can't go into add_definitions
     # because the RC compiler picks it up too and it provokes a name clash
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /MP")
-    set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
+    set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" )
     set( CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG" )
 
 # "Print all warnings" flag for GCC
@@ -732,7 +732,7 @@ if( APPLE )
                             DEPENDS ${PROJECT_NAME} )
     ENDIF ()
 
-    add_custom_target(  makedmg 
+    add_custom_target(  makedmg
                         COMMAND macdeployqt Sigil.app -dmg -no-plugins
                         WORKING_DIRECTORY ${WORK_DIR})
 
@@ -746,7 +746,7 @@ if( APPLE )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/../lib/*.dylib ${WORK_DIR}/Sigil.app/Contents/lib/ )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND install_name_tool -rpath ${CMAKE_BINARY_DIR}/lib "@executable_path/../lib" ${WORK_DIR}/Sigil.app/Contents/MacOS/Sigil )
- 
+
 # For Linux and Windows, provide binary installers.
 # For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
 elseif (MSVC)
@@ -758,7 +758,7 @@ elseif (MSVC)
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/python3 )
-    
+
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
     # and then we copy it to the temp folder every time we need to build the installer.
@@ -772,8 +772,8 @@ elseif (MSVC)
         set( ISS_ARCH "x64" )
         set( ISS_SETUP_FILENAME_PLATFORM "-x64" )
     endif()
-    
-    # Creates a copy of the ISS file in ${ISS_CONFIGURED_LOCATION} and then configures it 
+
+    # Creates a copy of the ISS file in ${ISS_CONFIGURED_LOCATION} and then configures it
     # Used in the ISS CMake configuration
     set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )
     configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
@@ -784,7 +784,7 @@ elseif (MSVC)
     endif()
 
     # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
-    add_custom_target(  makeinstaller 
+    add_custom_target(  makeinstaller
         COMMAND cmake -E echo "For this to work, Inno Setup's iscc compiler needs to be installed and on the system path."
         COMMAND iscc ${ISS_TEMP_LOCATION} )
 
@@ -799,18 +799,18 @@ elseif (MSVC)
         add_dependencies( makeinstaller ${PROJECT_NAME} )
     else()
         set( TARGET_FOR_COPY copyfiles )
-        
+
         # The intermediate target for copying
         add_custom_target(  copyfiles
                             COMMENT "Copying installer files to temporary location..."
                             DEPENDS ${PROJECT_NAME} )
-                            
+
         add_dependencies( makeinstaller copyfiles )
     endif()
-    
+
     # Copy ISS file to temp folder location
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-                        COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )     
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+                        COMMAND cmake -E copy ${ISS_CONFIGURED_LOCATION} ${ISS_TEMP_LOCATION} )
 
     # windeployqt
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
@@ -864,7 +864,7 @@ elseif (MSVC)
     # Copy the application executable
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
-                        
+
     # We need to copy the CRT dlls
     # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
     # an installer for the x64 verison of Sigil. This will make sure that the
@@ -890,36 +890,36 @@ elseif (MSVC)
 
     # Add postinstall script to Inno package
 	add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/postinstall/ )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
             COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/src/Resource_Files/windows/postinstall.bat ${TEMP_PACKAGE_DIR}/postinstall/ )
 
     # Copy the Changelog
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/ChangeLog.txt ${MAIN_PACKAGE_DIR} )
-    
+
     # Copy the license file
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/COPYING.txt ${MAIN_PACKAGE_DIR} )
 
     # The folder for miscellaneous files (icon files etc.)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/misc/ )
-                        
+
     # Copy the icon file (used on Linux for the application icon)
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icon_48.png ${MAIN_PACKAGE_DIR}/misc/ )
-                        
+
     # Copy the SGF ICO file (used on Windows as the SGF file type icon)
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.ico ${MAIN_PACKAGE_DIR}/misc/ )
-                        
-    # Remove the temp directory used for building the installer 
-    add_custom_command( TARGET makeinstaller POST_BUILD 
+
+    # Remove the temp directory used for building the installer
+    add_custom_command( TARGET makeinstaller POST_BUILD
                         COMMAND cmake -E remove_directory ${TEMP_PACKAGE_DIR}
                         COMMENT "Removing temporary directory..." )
 endif()
 
 #############################################################################
-# You can change the install location by 
+# You can change the install location by
 # running cmake like this:
 #
 #   cmake -DCMAKE_INSTALL_PREFIX=/new/install/prefix
