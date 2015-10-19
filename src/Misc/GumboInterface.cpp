@@ -1025,8 +1025,8 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
                 val = substitute_xml_entities_into_text(std::string(child->v.text.text));
             }
 
-            // if first child of a structual element is text, indent it properly
-            if ((i==0) && is_structural) {
+            // if child of a structual element is text, indent it properly
+            if (is_structural) {
               std::string indent_space = std::string((lvl-1)*n,c);
               contents.append(indent_space);
               ltrim(val);
@@ -1087,7 +1087,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     bool is_empty_tag              = in_set(empty_tags, tagname);
     bool no_entity_substitution    = in_set(no_entity_sub, tagname);
     bool keep_whitespace           = in_set(preserve_whitespace, tagname);
-    bool is_inline                 = in_set(nonbreaking_inline, tagname) && !in_set(structural_tags, parentname);
+    bool is_inline                 = in_set(nonbreaking_inline, tagname) && (parentname != "body");
     bool is_structural             = in_set(structural_tags, tagname);
     bool pp_okay                   = !is_inline && !keep_whitespace;
     char c                         = indent_chars.at(0);
@@ -1159,7 +1159,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 
     results.append(closeTag);
 
-    if (pp_okay && !in_set(nonbreaking_inline, parentname)) {
+    if ((pp_okay || tagname =="br") && !in_set(nonbreaking_inline, parentname)) {
         if (!in_head  && tagname != "html") {
             results.append("\n\n");
         } else {
