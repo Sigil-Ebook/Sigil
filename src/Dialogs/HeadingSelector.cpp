@@ -242,21 +242,22 @@ void HeadingSelector::UpdateHeadingElements()
     // Iterate through our headings, applying their changes to the underlying resources
     // if required, setting ids etc.
     int next_toc_id = 1;
-    UpdateOneHeadingElement(m_TableOfContents.invisibleRootItem(), used_ids, next_toc_id);
+    QList<Headings::Heading *> ItemHeadings = ItemOrderHeadingList(m_TableOfContents.invisibleRootItem());
+    PerformHeadingUpdates(ItemHeadings, used_ids, next_toc_id);
     // If we changed anything remember to update the changed resource
     // and properly record we did make a change to the book.
     QList<HTMLResource *> changed_resources;
     QList<HTMLResource *> used_resources;
-    foreach(Headings::Heading heading, m_Headings) {
-        if (!used_resources.contains(heading.resource_file)) {
-            used_resources.append(heading.resource_file);
+    foreach(Headings::Heading*  heading, ItemHeadings) {
+        if (!used_resources.contains(heading->resource_file)) {
+            used_resources.append(heading->resource_file);
         }
-        if (heading.is_changed) {
+        if (heading->is_changed) {
             m_book_changed = true;
-            if (!changed_resources.contains(heading.resource_file)) {
-                QString source = heading.resource_file->GetTOCCache();
-                heading.resource_file->SetText(source);
-                changed_resources.append(heading.resource_file);
+            if (!changed_resources.contains(heading->resource_file)) {
+                QString source = heading->resource_file->GetTOCCache();
+                heading->resource_file->SetText(source);
+                changed_resources.append(heading->resource_file);
             }
         }
     }
@@ -267,18 +268,42 @@ void HeadingSelector::UpdateHeadingElements()
     QApplication::restoreOverrideCursor();
 }
 
-int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList used_ids, int next_toc_id)
+
+QList<Headings::Heading *> HeadingSelector::ItemOrderHeadingList(QStandardItem * item)
 {
-    Headings::Heading *heading = GetItemHeading(item);
-
+    QList<Headings::Heading *> headings;
+    Headings::Heading * heading = GetItemHeading(item);
     if (heading != NULL) {
-        // Update heading inclusion: if a heading element
-        // has one of the SIGIL_NOT_IN_TOC_CLASS classes, then it's not in the TOC
+        headings.append(heading);
+    }
+    if (item->hasChildren()) {
+        for (int i = 0; i < item->rowCount(); ++i) {
+            headings.append(ItemOrderHeadingList(item->child(i)));
+        }
+    }
+    return headings;
+}
 
-        QString source = heading->resource_file->GetTOCCache();
-        GumboInterface gi = GumboInterface(source);
-        gi.parse();
-        GumboNode* node = gi.get_node_from_path(heading->path_to_node);
+
+void HeadingSelector::PerformHeadingUpdates(QList<Headings::Heading *> & headings, QStringList used_ids, int next_toc_id)
+{
+    HTMLResource* prev_resource = NULL;
+    GumboInterface *  gi = NULL;
+
+    // performance fix, prevent repeat parsing of the same resource for each heading
+    foreach( Headings::Heading* heading, headings) {
+
+        if (heading->resource_file != prev_resource) {
+            if (gi) {
+                delete gi;
+            }
+            QString source = heading->resource_file->GetTOCCache();
+            gi = new GumboInterface(source);
+            gi->parse();
+            prev_resource = heading->resource_file;
+        }
+
+        GumboNode* node = gi->get_node_from_path(heading->path_to_node);
 
         QString class_attribute;
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "class");
@@ -362,40 +387,18 @@ int HeadingSelector::UpdateOneHeadingElement(QStandardItem *item, QStringList us
         }
 
         if (heading->is_changed) {
-            source = gi.getxhtml();
+            QString source = gi->getxhtml();
             heading->resource_file->SetTOCCache(source);
         }
 
     }
-
-    if (item->hasChildren()) {
-        for (int i = 0; i < item->rowCount(); ++i) {
-            next_toc_id = UpdateOneHeadingElement(item->child(i), used_ids, next_toc_id);
-        }
+    // cleanup
+    if (gi) { 
+        delete gi;
     }
-
-    return next_toc_id;
+    gi = NULL;
 }
-
-
-QStringList HeadingSelector::UpdateOneFile(Headings::Heading &heading, QStringList ids)
-{
-    // Only save the document if we have changed the heading
-    if (heading.is_changed) {
-        if (!ids.contains(heading.resource_file->GetIdentifier())) {
-            ids << heading.resource_file->GetIdentifier();
-        }
-    }
-
-    if (!heading.children.isEmpty()) {
-        for (int i = 0; i < heading.children.count(); ++i) {
-            ids = UpdateOneFile(heading.children[ i ], ids);
-        }
-     }
-
-     return ids;
-}
-
+        
 
 void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, const QString &title)
 {

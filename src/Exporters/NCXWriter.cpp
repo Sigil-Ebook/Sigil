@@ -144,24 +144,24 @@ void NCXWriter::WriteFallbackNavPoint()
 
 NCXModel::NCXEntry NCXWriter::ConvertHeadingsToNCX()
 {
-    NCXModel::NCXEntry ncx_root;
-    foreach(Headings::Heading heading, m_Headings) {
-        ncx_root.children.append(ConvertHeadingWalker(heading));
-    }
-    return ncx_root;
-}
-
-NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker(Headings::Heading &heading)
-{
-    NCXModel::NCXEntry ncx_child;
-
-    if (heading.include_in_toc) {
-        ncx_child.text = heading.text;
-        QString heading_file = heading.resource_file->GetRelativePathToOEBPS();
-        QString source = heading.resource_file->GetText();
-        GumboInterface gi = GumboInterface(source);
-        gi.parse();
-        GumboNode* node = gi.get_node_from_path(heading.path_to_node);
+    // First build map of each heading identifier to its current id
+    // I have no idea why current "id" was not part of 
+    // the Headings::Heading structure
+    // Should id be added?
+    QHash<QString, QString> heading_id_map;
+    QList<Headings::Heading> headings = Headings::GetFlattenedHeadings(m_Headings);
+    HTMLResource * prev_resource = NULL;
+    GumboInterface * gi = NULL;
+    // performance fix, prevent needless reparsing of resources
+    foreach(Headings::Heading heading, headings) {
+        if (prev_resource != heading.resource_file) {
+            if (gi) delete gi;
+            QString source = heading.resource_file->GetText();
+            gi = new GumboInterface(source);
+            gi->parse();
+            prev_resource = heading.resource_file;
+        }
+        GumboNode* node = gi->get_node_from_path(heading.path_to_node);
         QString existing_ids;
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "id");
         if (attr) {
@@ -174,6 +174,42 @@ NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker(Headings::Heading &heading)
                 break;
             }
         }
+        // create unique heading identifier from file path and path to node inside parsed tree
+        // again why is this not already part of the Headings::Heading structure
+        QString key = heading.resource_file->GetRelativePathToOEBPS();
+        foreach(int val, heading.path_to_node) {
+            key = key + "|" + QString::number(val);
+        }
+        heading_id_map[key] = id_to_use;
+    }
+    // cleanup
+    if (gi) delete gi;
+    gi = NULL;
+    // now pass this map to the ConvertHeadingWalker so it can do its job
+    // in the order it wants to
+    NCXModel::NCXEntry ncx_root;
+    foreach(const Headings::Heading & heading, m_Headings) {
+      ncx_root.children.append(ConvertHeadingWalker(heading, heading_id_map));
+    }
+    return ncx_root;
+}
+
+
+NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker(const Headings::Heading &heading, 
+                                                   const QHash<QString, QString> & heading_id_map)
+{
+    NCXModel::NCXEntry ncx_child;
+
+    if (heading.include_in_toc) {
+        ncx_child.text = heading.text;
+        QString heading_file = heading.resource_file->GetRelativePathToOEBPS();
+        // build unique key for this heading from  href and path to node
+        QString key = heading_file;
+        foreach(int val, heading.path_to_node) {
+            key = key + "|" + QString::number(val);
+        }
+
+        QString id_to_use = heading_id_map.value(key, QString(""));
 
         // If this heading appears right after a section break,
         // then it "represents" and links to its file; otherwise,
@@ -187,7 +223,7 @@ NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker(Headings::Heading &heading)
     }
 
     foreach(Headings::Heading child_heading, heading.children) {
-        ncx_child.children.append(ConvertHeadingWalker(child_heading));
+        ncx_child.children.append(ConvertHeadingWalker(child_heading, heading_id_map));
     }
     return ncx_child;
 }

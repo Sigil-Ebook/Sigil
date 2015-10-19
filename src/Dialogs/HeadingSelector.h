@@ -79,9 +79,6 @@ private slots:
     // values and Sigil inclusion class
     void UpdateHeadingElements();
 
-    // Updates files with new heading elements
-    QStringList UpdateOneFile(Headings::Heading &heading, QStringList ids);
-
     // Selects headings to be included/excluded from TOC
     void SelectHeadingLevelInclusion(const QString &heading_level);
 
@@ -101,7 +98,11 @@ private:
     // declaration of Book in the QSharedPointer
     Q_DISABLE_COPY(HeadingSelector)
 
-    int UpdateOneHeadingElement(QStandardItem *item, QStringList used_ids, int next_toc_id);
+    //  Performance Fix: update headings but be careful not to repeatedly reparse a resource multiple times
+    void PerformHeadingUpdates(QList<Headings::Heading*> & headings, QStringList used_ids, int next_toc_id);
+
+    // Get Flat List of Headings in their Item Hierarchical Order
+    QList<Headings::Heading *> ItemOrderHeadingList(QStandardItem * item);
 
     void UpdateOneHeadingTitle(QStandardItem *item, const QString &title);
 

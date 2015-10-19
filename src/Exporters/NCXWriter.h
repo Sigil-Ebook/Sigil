@@ -98,8 +98,7 @@ private:
 
     NCXModel::NCXEntry ConvertHeadingsToNCX();
 
-    NCXModel::NCXEntry ConvertHeadingWalker(Headings::Heading &heading);
-
+    NCXModel::NCXEntry ConvertHeadingWalker(const Headings::Heading &heading, const QHash<QString,QString> & heading_id_map);
 
 
     ///////////////////////////////
