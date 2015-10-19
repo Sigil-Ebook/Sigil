@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 4.1.2">
+<meta name="generator" content="ReText 5.2.0">
 <title>BuildingOnLinux</title>
 </head>
 <body>
@@ -94,11 +94,36 @@ Unzip/untar the source code. Rename the uppermost directory ("Sigil-0.X.X" if yo
 <p><code>cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.4.2/5.4/gcc/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
 </blockquote>
 <p>If there are no errors, you're ready to build.</p>
-<p>The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a <code>-DCMAKE_INSTALL_PREFIX</code> option to the above cmake configure command like so:</p>
+<p>The following additional cmake options are available:</p>
+<ul>
+<li>
+<p><code>-DCMAKE_INSTALL_PREFIX=/path/to/different/install/prefix</code></p>
 <blockquote>
-<p><code>cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.4.2/5.4/gcc_64/lib/cmake -DCMAKE_INSTALL_PREFIX=/a/different/install/prefix -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
+<p>This overrides Sigil's default install location in <code>/usr/local</code>.</p>
 </blockquote>
-<p>You can also customize/override where the Sigil support files get installed (<code>&lt;CMAKE_INSTALL_PREFIX&gt;/share</code> by default) with the <code>-DSIGIL_SHARE_PREFIX</code> option.</p>
+</li>
+<li>
+<p><code>-DSIGIL_SHARE_PREFIX=/path/to/different/share/prefix</code></p>
+<blockquote>
+<p>This overrides Sigil's default location for support files (usually in <code>&lt;CMAKE_INSTALL_PREFIX&gt;/share</code>).</p>
+</blockquote>
+</li>
+<li>
+<p><code>-DUSE_SYSTEM_LIBS=1</code></p>
+<blockquote>
+<p>Attempt to use system libraries when available, rather than Sigil's bundled copies of hunspell, hunspell dictionaries, pcre, zlib, and minizip.</p>
+</blockquote>
+</li>
+<li>
+<p><code>-DHUNSPELL_DICT_DIR=/path/to/hunspell/dicts</code></p>
+</li>
+<li>
+<p><code>-DHYPHEN_DICT_DIR=/path/to/hyphen/dicts</code></p>
+<blockquote>
+<p>Tell Sigil where the system hunspell/hyphen dictionaries are located. Defaults to <code>/usr/share/hunspell</code> and <code>/usr/share/hyphen</code>.</p>
+</blockquote>
+</li>
+</ul>
 <p>If cmake couldn't automatically find the necessary Python 3.4 stuff it needs (like if you installed manually in an unusual location) you may need to tell cmake <em>specifically</em> where things can be found. Do so with:</p>
 <blockquote>
 <p><code>-DPYTHON_LIBRARY=&lt;the path to the python3.4 shared library&gt;</code></p>
