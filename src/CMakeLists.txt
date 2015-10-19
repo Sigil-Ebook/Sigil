@@ -483,7 +483,10 @@ set( QRC_FILES
 
 file( GLOB TS_FILES Resource_Files/ts/sigil_*.ts )
 
-file( GLOB DIC_FILES Resource_Files/dictionaries/* )
+file( GLOB DIC_FILES
+    ${CMAKE_SOURCE_DIR}/3rdparty/hunspell_dictionaries/*.dic
+    ${CMAKE_SOURCE_DIR}/3rdparty/hunspell_dictionaries/*.aff
+    )
 
 file( GLOB PLUGIN_FILES_PYTHON Resource_Files/plugin_launchers/python/* )
 
@@ -1002,7 +1005,8 @@ if( UNIX AND NOT APPLE )
     if( NOT USE_SYSTEM_LIBS )
         install( FILES ${DIC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/hunspell_dictionaries/ )
     endif()
-    install( DIRECTORY ${CMAKE_SOURCE_DIR}/src/Resource_Files/plugin_launchers/python/ DESTINATION ${SIGIL_SHARE_ROOT}/plugin_launchers/python )
+    install( DIRECTORY ${CMAKE_SOURCE_DIR}/src/Resource_Files/plugin_launchers/python/ DESTINATION ${SIGIL_SHARE_ROOT}/plugin_launchers/python
+            FILES_MATCHING PATTERN *.py )
     install( DIRECTORY ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/ DESTINATION ${SIGIL_SHARE_ROOT}/python3lib )
     install( FILES ${EXAMPLE_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/examples/ )
 endif()
