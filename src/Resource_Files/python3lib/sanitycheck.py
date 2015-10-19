@@ -91,6 +91,13 @@ class SanityCheck(object):
             p += 1
             while s[p:p+1] == ' ' : p += 1
         b = p
+        # handle comment special case as thre may be no spaces to delimit name begin or end 
+        if s[b:b+3] == "!--":
+            p = b+3
+            tname = "!--"
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep]
+            return tname, ttype, tattr
         while s[p:p+1] not in ('>', '/', ' ', '"', "'", "\r", "\n") : 
             p += 1
             if (p - b) > MAX_TAG_LEN or p >= taglen:
@@ -164,6 +171,7 @@ class SanityCheck(object):
             return self.content[p:res], None
         # handle comment as a special case to deal with multi-line comments
         if self.content[p:p+4] == '<!--':
+            tb = p
             te = self.content.find('-->',p+1)
             if te != -1:
                 te = te+2
@@ -307,6 +315,7 @@ def main():
 </head>
 <body>
 <p>this&nbsp;is&#160;the&#xa0;<b><i>copyright</i></b> symbol "&copy;"</p>
+<p><!--This is a comment--></p>
 </html>
 '''
 
