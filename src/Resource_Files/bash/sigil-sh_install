@@ -18,6 +18,16 @@ if [ -z "$SIGIL_SHARE_PREFIX" ]; then
   export SIGIL_SHARE_PREFIX
 fi
 
+# Create an environment var for the Sigil hunspell/hyphen dicts directory locations.
+if [ -z "$SIGIL_HUNSPELL_DICTIONARIES" ]; then
+  SIGIL_HUNSPELL_DICTIONARIES="${HUNSPELL_DICT_DIR}"
+  export SIGIL_HUNSPELL_DICTIONARIES
+fi
+if [ -z "$SIGIL_HYPHEN_DICTIONARIES" ]; then
+  SIGIL_HYPHEN_DICTIONARIES="${HYPHEN_DICT_DIR}"
+  export SIGIL_HYPHEN_DICTIONARIES
+fi
+
 # Not really needed anymore but left in for fringe cases
 #if [ -z "$SIGIL_EXTRA_ROOT" ]; then
 #  SIGIL_EXTRA_ROOT="${SIGIL_SHARE_ROOT}"
