@@ -25,7 +25,7 @@
 #include <QRegularExpressionMatch>
 #include <QDir>
 #include <QFileInfo>
-#include <QDebug>
+// #include <QDebug>
 #include "Misc/Utility.h"
 
 #include "GumboInterface.h"
@@ -216,8 +216,8 @@ QStringList GumboInterface::get_all_properties()
         if (m_output == NULL) {
             parse();
         }
+        properties = get_properties(m_output->root);
     }
-    properties = get_properties(m_output->root);
     return properties;
 }
 

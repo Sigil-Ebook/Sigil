@@ -462,15 +462,17 @@ void OPFResource::AddResource(const Resource *resource)
     me.m_id = GetUniqueID(GetValidID(resource->Filename()),p);
     me.m_href = resource->GetRelativePathToOEBPS();
     me.m_mtype = GetResourceMimetype(resource);
-    if (resource->Type() == Resource::HTMLResourceType) {
-        if (p.m_package.m_version == "3.0") {
-            const HTMLResource * html_resource = qobject_cast<const HTMLResource *>(resource);
-            QStringList properties = html_resource->GetManifestProperties();
-            if (properties.count() > 0) {
-                me.m_atts["properties"] = properties.join(QString(" "));
-            }
-        }
-    }
+    // Argh! If this is an new blank resource - it will have no content yet
+    // so trying to parse it here to check for manifest properties is a mistake
+    // if (resource->Type() == Resource::HTMLResourceType) {
+    //     if (p.m_package.m_version == "3.0") {
+    //         const HTMLResource * html_resource = qobject_cast<const HTMLResource *>(resource);
+    //         QStringList properties = html_resource->GetManifestProperties();
+    //         if (properties.count() > 0) {
+    //             me.m_atts["properties"] = properties.join(QString(" "));
+    //         }
+    //     }
+    // }
     int n = p.m_manifest.count();
     p.m_manifest.append(me);
     p.m_idpos[me.m_id] = n;

@@ -26,6 +26,7 @@
 #include <QtCore/QString>
 #include <QtWebKitWidgets/QWebFrame>
 #include <QtWebKitWidgets/QWebPage>
+// #include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/GuideSemantics.h"
