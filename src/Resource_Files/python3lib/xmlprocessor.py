@@ -46,19 +46,23 @@ def _remove_xml_header(data):
 # BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
 def repairXML(data, self_closing_tags=ebook_xml_empty_tags, indent_chars="  "):
     data = _remove_xml_header(data)
+    # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
+    data = data.encode('utf-8')
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
-    soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
+    soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars=indent_chars)
     return newdata
 
 def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
     data = _remove_xml_header(data)
+    # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
+    data = data.encode('utf-8')
     # rebuild serialized lookup dictionary
     id_dict = {}
     for i in range(0, len(keylist)):
         id_dict[ keylist[i] ] = valuelist[i]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
-    soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
+    soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
     original_filename_with_relative_path = TEXT_FOLDER_NAME  + "/" + originating_filename
     for tag in soup.find_all("content"):
         if "src" in tag.attrs:
@@ -76,12 +80,14 @@ def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
 
 def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
     data = _remove_xml_header(data)
+    # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
+    data = data.encode('utf-8')
     # rebuild serialized lookup dictionary
     updates = {}
     for i in range(0, len(keylist)):
         updates[ keylist[i] ] = valuelist[i]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
-    soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
+    soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
     for tag in soup.find_all("content"):
         if "src" in tag.attrs:
             src = tag["src"]
@@ -106,12 +112,14 @@ def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
 
 def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
     data = _remove_xml_header(data)
+    # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
+    data = data.encode('utf-8')
     # rebuild serialized lookup dictionary
     updates = {}
     for i in range(0, len(keylist)):
         updates[ keylist[i] ] = valuelist[i]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
-    soup = BeautifulSoup(data, features=None, builder=xmlbuilder)
+    soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
     for tag in soup.find_all(["item","reference","site"]):
         if "href" in tag.attrs :
             href = tag["href"]

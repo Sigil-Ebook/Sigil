@@ -189,7 +189,7 @@ NCXModel::NCXEntry NCXWriter::ConvertHeadingsToNCX()
     // in the order it wants to
     NCXModel::NCXEntry ncx_root;
     foreach(const Headings::Heading & heading, m_Headings) {
-      ncx_root.children.append(ConvertHeadingWalker(heading, heading_id_map));
+        ncx_root.children.append(ConvertHeadingWalker(heading, heading_id_map));
     }
     return ncx_root;
 }

@@ -158,7 +158,6 @@ QList<Headings::Heading> Headings::MakeHeadingHeirarchy(const QList<Heading> &he
             ordered_headings.removeAt(i + 1);
         }
     }
-
     return ordered_headings;
 }
 
