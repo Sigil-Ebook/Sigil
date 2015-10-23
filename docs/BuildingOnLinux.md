@@ -102,11 +102,21 @@ For a 32-bit machine it would be:
 
 If there are no errors, you're ready to build.
 
-The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a `-DCMAKE_INSTALL_PREFIX` option to the above cmake configure command like so:
+The following additional cmake options are available:
 
-> `cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.4.2/5.4/gcc_64/lib/cmake -DCMAKE_INSTALL_PREFIX=/a/different/install/prefix -DCMAKE_BUILD_TYPE=Release ../sigil-src`
++ `-DCMAKE_INSTALL_PREFIX=/path/to/different/install/prefix`
+> This overrides Sigil's default install location in `/usr/local`.
 
-You can also customize/override where the Sigil support files get installed (`<CMAKE_INSTALL_PREFIX>/share` by default) with the `-DSIGIL_SHARE_PREFIX` option.
++ `-DSIGIL_SHARE_PREFIX=/path/to/different/share/prefix`
+> This overrides Sigil's default location for support files (usually in `<CMAKE_INSTALL_PREFIX>/share`).
+
++ `-DUSE_SYSTEM_LIBS=1`
+> Attempt to use system libraries when available, rather than Sigil's bundled copies of hunspell, hunspell dictionaries, pcre, zlib, and minizip.
+
++ `-DHUNSPELL_DICT_DIR=/path/to/hunspell/dicts`
+
++ `-DHYPHEN_DICT_DIR=/path/to/hyphen/dicts`
+> Tell Sigil where the system hunspell/hyphen dictionaries are located. Defaults to `/usr/share/hunspell` and `/usr/share/hyphen`.
 
 If cmake couldn't automatically find the necessary Python 3.4 stuff it needs (like if you installed manually in an unusual location) you may need to tell cmake *specifically* where things can be found. Do so with:
 

@@ -721,9 +721,11 @@ class Wrapper(object):
             share_override = ''
             sigil_share_dir_name = 'sigil'
 
-            # get the env var SIGIL_DICTIONARIES set at launch time.
-            if 'SIGIL_DICTIONARIES' in os.environ.keys():
-                system_hunspell_dicts = os.environ['SIGIL_DICTIONARIES']
+            # get the env var SIGIL_{HUNSPELL,HYPHEN}_DICTIONARIES set at launch time.
+            if 'SIGIL_HUNSPELL_DICTIONARIES' in os.environ.keys():
+                system_hunspell_dicts = os.environ['SIGIL_HUNSPELL_DICTIONARIES']
+            if 'SIGIL_HYPHEN_DICTIONARIES' in os.environ.keys():
+                system_hyphen_dicts = os.environ['SIGIL_HYPHEN_DICTIONARIES']
 
             # Runtime env var override of 'share/sigil' directory.
             if 'SIGIL_EXTRA_ROOT' in os.environ.keys():
@@ -744,15 +746,16 @@ class Wrapper(object):
                 sigil_share_dir_name = os.path.basename(share_override)
                 share_prefix = unipath.abspath(os.path.join(share_override,"..",".."))
 
-            # If the SIGIL_DICTIONARIES env var has content, use it for the dictionary location.
-            if len(system_hunspell_dicts):
+            # If the SIGIL_{HUNSPELL,HYPHEN}_DICTIONARIES env var has content, use it for the dictionary location.
+            if len(system_hunspell_dicts) or len(system_hypen_dicts):
                 apaths.append(unipath.abspath(system_hunspell_dicts))
+                apaths.append(unipath.abspath(system_hyphen_dicts))
             else:
                 # Otherwise, use Sigil's bundled hunspell dictionary location.
                 apaths.append(unipath.abspath(os.path.join(share_prefix, "share", sigil_share_dir_name, "hunspell_dictionaries")))
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         return apaths
-                        
+
     def get_gumbo_path(self):
         if sys.platform.startswith('darwin'):
             lib_dir = unipath.abspath(os.path.join(self.appdir,"..","lib"))
@@ -764,7 +767,7 @@ class Wrapper(object):
             lib_dir = unipath.abspath(self.appdir)
             lib_name = 'libsigilgumbo.so'
         return os.path.join(lib_dir, lib_name)
-            
+
     def get_hunspell_path(self):
         if sys.platform.startswith('darwin'):
             lib_dir = unipath.abspath(os.path.join(self.appdir,"..","lib"))
@@ -776,4 +779,3 @@ class Wrapper(object):
             lib_dir = unipath.abspath(self.appdir)
             lib_name = 'libhunspell.so'
         return os.path.join(lib_dir, lib_name)
-
