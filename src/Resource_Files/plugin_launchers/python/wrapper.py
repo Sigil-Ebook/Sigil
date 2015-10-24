@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20151014
+_launcher_version=20151023
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -746,7 +746,8 @@ class Wrapper(object):
 
             # If the SIGIL_DICTIONARIES env var has content, use it for the dictionary location.
             if len(system_hunspell_dicts):
-                apaths.append(unipath.abspath(system_hunspell_dicts))
+                for path in system_hunspell_dicts.split(':'):
+                    apaths.append(unipath.abspath(path.strip()))
             else:
                 # Otherwise, use Sigil's bundled hunspell dictionary location.
                 apaths.append(unipath.abspath(os.path.join(share_prefix, "share", sigil_share_dir_name, "hunspell_dictionaries")))

@@ -13,6 +13,8 @@ Upcoming Sigil 0.9.0 Release
     - bug fix for better detecting comments in sanitycheck.py
     - bug fix for Adding Blank xhtml files to an epub3
     - bug fix for Issue 140 - Toc gets cut-off under some platforms
+    - add cmake option INSTALL_BUNDLED_DICTS to enable/disable installation of bundled hunspell dictionaries
+    - allow SIGIL_DICTIONARIES env var to specify multiple paths (colon delimited)
     ... more to come ?
 
 
