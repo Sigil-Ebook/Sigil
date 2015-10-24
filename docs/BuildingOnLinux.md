@@ -10,6 +10,7 @@ To build Sigil on Linux, you need to get/do the following things:
 4. [Python 3.4](#python) (or higher)
 5. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
 6. [Build Sigil](#build)
+7. [Advanced Stuff](#advanced)
 
 Since I'm basically an Ubuntu/Debian guy at heart, I'll be mentioning stuff like:
  
@@ -132,3 +133,33 @@ will suffice.
 
 
 If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (`<CMAKE_INSTALL_PREFIX>/bin/sigil`) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications' that you can create a link to on your desktop.
+
+##<a name="advanced"/>Advanced Stuff
+
+There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.
+
+-DCMAKE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil will be installed to (default is /usr/local)
+
+-DSIGIL_SHARE_PREFIX=`<path>` Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)
+
+-DUSE_SYSTEM_LIBS=(0|1) Tells cmake to try and use the system libraries when building Sigil instead of the ones bundled with Sigil in the 3rdParty directory. If a system version of a 3rd-party can't be found, Sigil falls back on the bundled version -- unless -DSYSTEM_LIBS_REQUIRED=1 is also specified (default is 0).
+
+-DSYSTEM_LIBS_REQUIRED=(0|1) When used in conjunction with -DUSE_SYSTEM_LIBS=1, the Sigil build process will fail if all the necessary libraries can't be located on the system, instead of falling back on the bundled versions (default is 0).
+
+-DINSTALL_BUNDLED_DICTS=(0|1) Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0) then the user will need to specify the location of the hunspell dictionaries they want Sigil to use by setting an environment variable named SIGIL_DICTIONARIES.
+
+The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version.
+
+-DPYTHON_LIBRARY=`<the path to the python3.4 shared library>`
+
+-DPYTHON_INCLUDE_DIR=`<the path to the directory where python3.4's header files can be found>`
+
+-DPYTHON_EXECUTABLE=`<the path to the python3.4 interpreter>`
+
+The following are environment variables that can be set at runtime to affect how Sigil is run after building/installing. They are commonly set by manually editing Sigil's launch script (`<CMAKE_INSTALL_PREFIX>`/bin/sigil).
+
+SIGIL_EXTRA_ROOT - Handy for relocating the Sigil support files. For instance you can move the `<CMAKE_SHARE_PREFIX>/share/sigil` directory anywhere you like. You just have to set SIGIL_EXTRA_ROOT to the path where you moved `<CMAKE_SHARE_PREFIX>/share/sigil` to.
+
+SIGIL_DICTIONARIES - Used to tell Sigil what directories are to be searched for Hunspell dictionary files. Multiple directories can be specified by separating the paths with a colon. i.e. SIGIL_DICTIONARIES="/usr/share/hunspell" or SIGIL_DICTIONARIES="/usr/share/hunspell:/usr/share/hunspellextra"
+
+The Sigil launch script also sets a SIGIL_INSTALL_PREFIX environment variable, but it is automatically set to be the same as the cmake CMAKE_INSTALL_PREFIX build-time option. It would be unwise to change this environment variable. Use the SIGIL_EXTRA_ROOT environment variable instead if you need to alter the location of Sigil's support files.

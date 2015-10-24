@@ -336,12 +336,12 @@ void SpellCheck::loadDictionaryNames()
     paths << QCoreApplication::applicationDirPath() + "/hunspell_dictionaries";
 #endif
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    // env var from sigil_constants.cpp
-    const QString env_dic_location = system_hunspell_dicts;
-
     // prefer the directory specified by the env var SIGIL_DICTIONARIES above all else.
-    if (!env_dic_location.isEmpty()) {
-        paths << env_dic_location;
+    if (!system_hunspell_dicts.isEmpty()) {
+        // Handle multiple colon-delimited paths
+        foreach (QString s, system_hunspell_dicts.split(":")) {
+            paths << s.trimmed();
+        }
     }
     // else use the env var runtime overridden 'share/sigil/hunspell_dictionaries/' location.
     else if (!sigil_extra_root.isEmpty()) {
