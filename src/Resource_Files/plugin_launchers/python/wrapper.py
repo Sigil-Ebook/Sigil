@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20151023
+_launcher_version=20151024
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -731,8 +731,8 @@ class Wrapper(object):
 
             # The sigil launch script in <install_prefix>/bin knows where Sigil's build time
             # share prefix is and sets the env var SIGIL_SHARE_PREFIX to its value.
-            if 'SIGIL_SHARE_PREFIX' in os.environ.keys():
-                share_prefix = os.environ['SIGIL_SHARE_PREFIX']
+            if 'SHARE_INSTALL_PREFIX' in os.environ.keys():
+                share_prefix = os.environ['SHARE_INSTALL_PREFIX']
 
             # If someone didn't launch Sigil with its launch script, this may save the
             # day (as long as the user didn't override SHARE_INSTALL_PREFIX at compile time).

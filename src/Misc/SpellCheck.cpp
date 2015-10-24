@@ -332,10 +332,9 @@ void SpellCheck::loadDictionaryNames()
     QStringList paths;
 #ifdef Q_OS_MAC
     paths << QCoreApplication::applicationDirPath() + "/../hunspell_dictionaries";
-#else
+#elif defined(Q_OS_WIN32)
     paths << QCoreApplication::applicationDirPath() + "/hunspell_dictionaries";
-#endif
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+#elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // prefer the directory specified by the env var SIGIL_DICTIONARIES above all else.
     if (!system_hunspell_dicts.isEmpty()) {
         // Handle multiple colon-delimited paths
