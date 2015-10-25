@@ -1766,7 +1766,7 @@ You can also use the right arrow key.</source>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../Misc/EmbeddedPython.cpp" line="607"/>
+        <location filename="../../Misc/EmbeddedPython.cpp" line="608"/>
         <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
         <source>Embedded Python Error</source>
         <translation type="unfinished"></translation>
@@ -2201,7 +2201,7 @@ The heading&apos;s title attribute will be updated in the document.</source>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="941"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="958"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2237,50 +2237,50 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="585"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
         <source>Included</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="569"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
         <source>Hidden</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="584"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="601"/>
         <source>TOC Entry / Heading Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="586"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="603"/>
         <source>Include</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="804"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="821"/>
         <source>Up to level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="806"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="823"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="809"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="870"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="826"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="887"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="815"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="868"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="832"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="885"/>
         <source>All</source>
         <translation type="unfinished"></translation>
     </message>
