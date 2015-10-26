@@ -101,7 +101,7 @@ class SanityCheck(object):
         while s[p:p+1] not in ('>', '/', ' ', '"', "'", "\r", "\n") : 
             p += 1
             if (p - b) > MAX_TAG_LEN or p >= taglen:
-                error_msg = 'Tag name not properly delimited: "' + self.s[b:p] + '"'
+                error_msg = 'Tag name not properly delimited: "' + s[b:p] + '"'
                 self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
                 self.has_error = True
                 return None, None, None
