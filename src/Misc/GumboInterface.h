@@ -145,7 +145,6 @@ private:
 
     QString fix_self_closing_tags(const QString & source);
 
-    // static QMutex                   m_mutex;
     QString                         m_source;
     GumboOutput*                    m_output;
     std::string                     m_utf8src;
@@ -153,6 +152,7 @@ private:
     std::string                     m_newcsslinks;
     QString                         m_currentdir;
     std::string                     m_newbody;
+    bool                            m_hasnbsp;
     
 };
 

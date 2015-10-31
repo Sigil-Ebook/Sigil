@@ -106,7 +106,8 @@ GumboInterface::GumboInterface(const QString &source)
           m_newcsslinks(""),
           m_currentdir(""),
           m_utf8src(""),
-          m_newbody("")
+          m_newbody(""),
+          m_hasnbsp(true)
 {
 }
 
@@ -118,7 +119,8 @@ GumboInterface::GumboInterface(const QString &source, const QHash<QString,QStrin
           m_newcsslinks(""),
           m_currentdir(""),
           m_utf8src(""),
-          m_newbody("")
+          m_newbody(""),
+          m_hasnbsp(true)
 {
 }
 
@@ -136,7 +138,8 @@ GumboInterface::~GumboInterface()
 void GumboInterface::parse()
 {
     if (!m_source.isEmpty() && (m_output == NULL)) {
-
+  
+        m_hasnbsp = m_source.contains("&nbsp;");
         // fix any non html valid self-closing tags
         m_source = fix_self_closing_tags(m_source);
         m_utf8src = m_source.toStdString();
@@ -174,6 +177,7 @@ QString GumboInterface::repair()
             parse();
         }
         std::string utf8out = serialize(m_output->document);
+        rtrim(utf8out);
         result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
@@ -188,6 +192,7 @@ QString GumboInterface::getxhtml()
             parse();
         }
         std::string utf8out = serialize(m_output->document);
+        rtrim(utf8out);
         result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
@@ -203,6 +208,7 @@ QString GumboInterface::prettyprint(QString indent_chars)
         }
         std::string ind = indent_chars.toStdString();
         std::string utf8out = prettyprint(m_output->document, 0, ind);
+        rtrim(utf8out);
         result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
@@ -232,6 +238,7 @@ QString GumboInterface::perform_source_updates(const QString& my_current_book_re
         }
         enum UpdateTypes doupdates = SourceUpdates;
         std::string utf8out = serialize(m_output->document, doupdates);
+        rtrim(utf8out);
         result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
@@ -248,6 +255,7 @@ QString GumboInterface::perform_link_updates(const QString& newcsslinks)
         }
         enum UpdateTypes doupdates = LinkUpdates;
         std::string utf8out = serialize(m_output->document, doupdates);
+        rtrim(utf8out);
         result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
@@ -728,6 +736,13 @@ std::string GumboInterface::substitute_xml_entities_into_text(const std::string 
     replace_all(result, "&", "&amp;");
     replace_all(result, "<", "&lt;");
     replace_all(result, ">", "&gt;");
+    // convert non-breaking spaces to entities to prevent their loss for later editing
+    // See the strange//buggy behaviour of Qt QTextDocument toPlainText() routine 
+    if (m_hasnbsp) {
+        replace_all(result, "\xc2\xa0", "&nbsp;");
+    } else {
+        replace_all(result, "\xc2\xa0", "&#160;");
+    }
     return result;
 }
 
