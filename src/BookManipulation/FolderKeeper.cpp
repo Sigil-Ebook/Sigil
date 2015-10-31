@@ -54,7 +54,7 @@ const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 const QRegularExpression FILE_EXCEPTIONS("META-INF|page-map");
 
 const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js" << "xpgt";
-const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf";
+const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf" << "woff";
 const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm" << "xml";
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
 const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg" << "oga" << "ogg";
