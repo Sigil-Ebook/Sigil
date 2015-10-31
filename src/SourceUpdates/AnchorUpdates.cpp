@@ -30,6 +30,7 @@
 
 #include "Misc/Utility.h"
 #include "Misc/GumboInterface.h"
+#include "BookManipulation/CleanSource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "sigil_constants.h"
@@ -132,7 +133,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
     }
 
     if (is_changed) {
-        html_resource->SetText(gi.getxhtml());
+      html_resource->SetText(CleanSource::CharToEntity(gi.getxhtml()));
     }
 }
 
@@ -174,7 +175,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
     }
 
     if (is_changed) {
-        html_resource->SetText(gi.getxhtml());
+      html_resource->SetText(CleanSource::CharToEntity(gi.getxhtml()));
     }
 }
 
@@ -224,7 +225,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
     }
 
     if (is_changed) {
-        html_resource->SetText(gi.getxhtml());
+      html_resource->SetText(CleanSource::CharToEntity(gi.getxhtml()));
     }
 }
 
