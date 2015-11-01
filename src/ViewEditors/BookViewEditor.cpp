@@ -41,6 +41,7 @@
 #include <QtWebKitWidgets/QWebFrame>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QDebug>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
@@ -86,9 +87,9 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     m_WebPageModified(false),
     m_clipMapper(new QSignalMapper(this)),
     m_OpenWithContextMenu(new QMenu(this)),
-    m_Paste1(new QShortcut(QKeySequence(QKeySequence::Paste), this, 0, 0, Qt::WidgetShortcut)),
+    // m_Paste1(new QShortcut(QKeySequence(QKeySequence::Paste), this, NULL, NULL, Qt::WidgetShortcut)),
     // Old style windows paste.
-    m_Paste2(new QShortcut(QKeySequence(Qt::ShiftModifier + Qt::Key_Insert), this, 0, 0, Qt::WidgetShortcut)),
+    // m_Paste2(new QShortcut(QKeySequence(Qt::ShiftModifier + Qt::Key_Insert), this, 0, 0, Qt::WidgetShortcut)),
     m_PageUp(new QShortcut(QKeySequence(QKeySequence::MoveToPreviousPage), this, 0, 0, Qt::WidgetShortcut)),
     m_PageDown(new QShortcut(QKeySequence(QKeySequence::MoveToNextPage), this, 0, 0, Qt::WidgetShortcut)),
     m_ScrollOneLineUp(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up), this, 0, 0, Qt::WidgetShortcut)),
@@ -115,8 +116,8 @@ BookViewEditor::~BookViewEditor()
 {
     m_clipMapper->deleteLater();
     m_OpenWithContextMenu->deleteLater();
-    m_Paste1->deleteLater();
-    m_Paste2->deleteLater();
+    // m_Paste1->deleteLater();
+    // m_Paste2->deleteLater();
     m_PageUp->deleteLater();
     m_PageDown->deleteLater();
     m_ScrollOneLineUp->deleteLater();
@@ -642,6 +643,8 @@ void BookViewEditor::cut()
 
 void BookViewEditor::paste()
 {
+    qDebug() << QString("in BV::paste()");
+
     QClipboard *clipboard = QApplication::clipboard();
 
     if (clipboard->mimeData()->hasHtml()) {
@@ -670,6 +673,7 @@ void BookViewEditor::paste()
         page()->triggerAction(QWebPage::Paste);
     }
 }
+
 
 void BookViewEditor::copyImage()
 {
@@ -996,6 +1000,20 @@ void BookViewEditor::mouseReleaseEvent(QMouseEvent *event)
     emit PageClicked();
 }
 
+
+void BookViewEditor::keyPressEvent(QKeyEvent *event)
+{
+
+    // Propagate to base class
+    // qDebug() << QString("in BV::keyPressEvent");
+    if ( event->matches(QKeySequence::Paste) ) {
+        paste();
+    } else {
+        BookViewPreview::keyPressEvent(event);
+    }
+}
+
+
 void BookViewEditor::keyReleaseEvent(QKeyEvent *event)
 {
     // Propagate to base class
@@ -1026,8 +1044,8 @@ void BookViewEditor::CreateContextMenuActions()
 
 void BookViewEditor::ConnectSignalsToSlots()
 {
-    connect(m_Paste1,            SIGNAL(activated()), this, SLOT(paste()));
-    connect(m_Paste2,            SIGNAL(activated()), this, SLOT(paste()));
+    // connect(m_Paste1,            SIGNAL(activated()), this, SLOT(paste()));
+    // connect(m_Paste2,            SIGNAL(activated()), this, SLOT(paste()));
     connect(m_PageUp,            SIGNAL(activated()), this, SLOT(PageUp()));
     connect(m_PageDown,          SIGNAL(activated()), this, SLOT(PageDown()));
     connect(m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));

@@ -283,6 +283,7 @@ protected:
     void focusOutEvent(QFocusEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 private slots:
 
@@ -444,8 +445,8 @@ private:
     /**
      * Paste keyboard shortcuts - CTRL+V (Command-V - MacOS) and SHIFT-Insert (Old - Windows).
      */
-    QShortcut *m_Paste1;
-    QShortcut *m_Paste2;
+    // QShortcut *m_Paste1;
+    // QShortcut *m_Paste2;
 
     /**
      * PageUp keyboard shortcut.
