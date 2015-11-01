@@ -1063,10 +1063,18 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
 
         } else if (child->type == GUMBO_NODE_WHITESPACE) {
 
-            std::string wspace = std::string(child->v.text.text);
-            if (keep_whitespace || is_inline || in_set(other_text_holders,tagname)) {
+            if (keep_whitespace) {
+                std::string wspace = std::string(child->v.text.text);
                 contents.append(wspace);
-            } 
+            } else if (is_inline || in_set(other_text_holders, tagname)) {
+                char last_char = 'x';
+                if (!contents.empty()) {
+                    last_char = contents.at(contents.length()-1);
+                }
+                if (std::string(" \t\v\f\r\n").find(last_char) == std::string::npos) {
+                    contents.append(std::string(" "));
+                }
+            }
 
         } else if (child->type == GUMBO_NODE_CDATA) {
             contents.append("<![CDATA[" + std::string(child->v.text.text) + "]]>");
