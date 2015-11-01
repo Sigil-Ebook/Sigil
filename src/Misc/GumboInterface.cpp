@@ -71,6 +71,11 @@ static std::unordered_set<std::string> structural_tags     = {
   "table","ul"
 };
 
+static std::unordered_set<std::string> other_text_holders = {
+  "address","caption","dd","div","dt","h1","h2","h3","h4","h5","h6",
+  "legend","li","option","p","td","th","title"
+};
+
 static std::unordered_set<std::string> manifest_properties = {
   "math","nav","script","svg","epub:switch"
 };
@@ -1059,7 +1064,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
         } else if (child->type == GUMBO_NODE_WHITESPACE) {
 
             std::string wspace = std::string(child->v.text.text);
-            if (keep_whitespace || is_inline) {
+            if (keep_whitespace || is_inline || in_set(other_text_holders,tagname)) {
                 contents.append(wspace);
             } 
 
