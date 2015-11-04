@@ -142,14 +142,17 @@ def main():
     shutil.copytree(src_dir, dest_dir)
 
     # now create proper symlinks to make everything work
+    src_dir = os.path.join(app_dir, 'Python.framework/Versions')
+    os.chdir(src_dir)
+    os.symlink(pversion, 'Current')
     src_dir = os.path.join(app_dir, 'Python.framework')
     os.chdir(src_dir)
-    os.symlink(os.path.join('Versions', pversion, 'Python'), 'Python')
-    os.symlink(os.path.join('Versions', pversion, 'Resources'), 'Resources')
+    os.symlink(os.path.join('Versions','Current', 'Python'), 'Python')
+    os.symlink(os.path.join('Versions', 'Current', 'Resources'), 'Resources')
 
     os.chdir(os.path.join(app_dir, 'Python.framework', 'Versions', pversion, 'lib'))
     dylibname = 'libpython' + pversion + 'm.dylib'
-    os.symlink('../../../Python', dylibname)
+    os.symlink('../Python', dylibname)
 
     # finally change any Python.framework rpaths in the Sigil executable to point to the new local Python.framework
     sigil_executable_path = os.path.abspath(os.path.join(app_dir,'..','MacOS','Sigil'))

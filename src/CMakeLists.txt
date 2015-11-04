@@ -740,7 +740,7 @@ if( APPLE )
     ENDIF ()
 
     add_custom_target(  makedmg 
-                        COMMAND macdeployqt Sigil.app -dmg -no-plugins
+                        COMMAND macdeployqt Sigil.app -dmg
                         WORKING_DIRECTORY ${WORK_DIR})
 
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
