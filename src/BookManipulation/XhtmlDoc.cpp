@@ -404,7 +404,7 @@ QList<GumboNode *> XhtmlDoc::GetVisibleTextNodes(GumboInterface &gi, GumboNode *
         GumboVector* children = &node->v.element.children;
         if ((children->length > 0)  && (node_name != "script") && (node_name != "style")) {
             QList<GumboNode *> text_nodes;
-            for (int i = 0; i < children->length; ++i) {
+            for (unsigned int i = 0; i < children->length; ++i) {
                 GumboNode* child = static_cast<GumboNode*>(children->data[i]);
                 text_nodes.append(GetVisibleTextNodes(gi, child));
             }
@@ -466,7 +466,7 @@ QString XhtmlDoc::GetIDElementText(GumboInterface &gi, GumboNode *node)
     GumboVector* children = &node->v.element.children;
 
     // Combine all text nodes for this node plus all text for non-ID element children
-    for (int i = 0; i < children->length; ++i) {
+    for (unsigned int i = 0; i < children->length; ++i) {
         GumboNode* child_node = static_cast<GumboNode*>(children->data[i]);
         QString child_node_name = QString::fromStdString(gi.get_tag_name(node));
         if ((child_node->type == GUMBO_NODE_TEXT) || (child_node->type == GUMBO_NODE_WHITESPACE)) {

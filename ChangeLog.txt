@@ -20,6 +20,7 @@ Sigil 0.9.0 Release
     - Fixes for nbsp being "lost" when linking in stylesheets and when splitting and merging chapters
     - Fix for lost whitespace inside text holding tags when pretty printing
     - Workaround for broken QShortCut in Qt 5.4.X see Issue 149
+    - cleanup up some compiler warnigns
 
 
 Sigil 0.8.901 Second in the pre-release series - primarily a bug fix release

@@ -37,10 +37,10 @@ Resource::Resource(const QString &mainfolder, const QString &fullfilepath, QObje
     m_Identifier(Utility::CreateUUID()),
     m_MainFolder(mainfolder),
     m_FullFilePath(fullfilepath),
-    m_CurrentBookRelPath(""),
     m_LastSaved(0),
     m_LastWrittenTo(0),
     m_LastWrittenSize(0),
+    m_CurrentBookRelPath(""),
     m_ReadWriteLock(QReadWriteLock::Recursive)
 {
 }

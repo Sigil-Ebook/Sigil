@@ -106,7 +106,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
     const QString &resource_filename = html_resource->Filename();
     bool is_changed = false;
 
-    for (uint i = 0; i < anchor_nodes.length(); ++i) {
+    for (int i = 0; i < anchor_nodes.length(); ++i) {
         GumboNode* node = anchor_nodes.at(i);
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
@@ -148,7 +148,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
     QString original_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % originating_filename;
     bool is_changed = false;
 
-    for (uint i = 0; i < anchor_nodes.length(); ++i) {
+    for (int i = 0; i < anchor_nodes.length(); ++i) {
         GumboNode* node = anchor_nodes.at(i);
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
 
@@ -192,7 +192,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     bool is_changed = false;
 
-    for (uint i = 0; i < anchor_nodes.length(); ++i) {
+    for (int i = 0; i < anchor_nodes.length(); ++i) {
         GumboNode* node = anchor_nodes.at(i);
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
 

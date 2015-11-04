@@ -47,8 +47,8 @@ HTMLResource::HTMLResource(const QString &mainfolder, const QString &fullfilepat
                            QObject *parent)
     :
     XMLResource(mainfolder, fullfilepath, parent),
-    m_TOCCache(""),
-    m_Resources(resources)
+    m_Resources(resources),
+    m_TOCCache("")
 {
 }
 

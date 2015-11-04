@@ -107,10 +107,10 @@ static const char * attribute_nsprefixes[4] = { "", "xlink:", "xml:", "xmlns:" }
 GumboInterface::GumboInterface(const QString &source)
         : m_source(source),
           m_output(NULL),
+          m_utf8src(""),
           m_sourceupdates(EmptyHash),
           m_newcsslinks(""),
           m_currentdir(""),
-          m_utf8src(""),
           m_newbody(""),
           m_hasnbsp(true)
 {
@@ -120,10 +120,10 @@ GumboInterface::GumboInterface(const QString &source)
 GumboInterface::GumboInterface(const QString &source, const QHash<QString,QString> & source_updates)
         : m_source(source),
           m_output(NULL),
+          m_utf8src(""),
           m_sourceupdates(source_updates),
           m_newcsslinks(""),
           m_currentdir(""),
-          m_utf8src(""),
           m_newbody(""),
           m_hasnbsp(true)
 {
@@ -306,7 +306,7 @@ QStringList GumboInterface::get_properties(GumboNode* node)
         properties.append(QString::fromStdString(tagname));
     }
     GumboVector* children = &node->v.element.children;
-    for (int i = 0; i < children->length; ++i) {
+    for (unsigned int i = 0; i < children->length; ++i) {
         properties.append(get_properties(static_cast<GumboNode*>(children->data[i])));
     }
     return properties;
@@ -328,7 +328,7 @@ QString GumboInterface::get_qwebpath_to_node(GumboNode* node)
             // need to find child num in parent as if only elements exist
             GumboVector* children = &myparent->v.element.children;
             int elnum = 0;
-            for (int i=0; i < children->length; i++) {
+            for (unsigned int i=0; i < children->length; i++) {
                 GumboNode* child = static_cast<GumboNode*>(children->data[i]);
                 if (i == anode->index_within_parent) {
                     break;
@@ -363,7 +363,7 @@ GumboNode* GumboInterface::get_node_from_qwebpath(QString webpath)
             } else {
                 // need to index correct child index when only counting elements
                 int elnum = -1;
-                for (int j=0; j < children->length; j++) {
+                for (unsigned int j=0; j < children->length; j++) {
                     GumboNode* child = static_cast<GumboNode*>(children->data[j]);
                     if ((child->type == GUMBO_NODE_ELEMENT) || (child->type == GUMBO_NODE_TEMPLATE)) {
                         elnum++;
@@ -478,12 +478,12 @@ QList<GumboWellFormedError> GumboInterface::error_check()
         // GumboInterface::m_mutex.unlock();
     }
     const GumboVector* errors  = &m_output->errors;
-    for (int i=0; i< errors->length; ++i) {
+    for (unsigned int i=0; i< errors->length; ++i) {
         GumboError* er = static_cast<GumboError*>(errors->data[i]);
         GumboWellFormedError gperror;
         gperror.line = er->position.line + line_offset;;
         gperror.column = er->position.column;
-        unsigned int typenum = er->type;
+        // unsigned int typenum = er->type;
         GumboStringBuffer text;
         gumbo_string_buffer_init(&text);
         gumbo_error_to_string(er, &text);
@@ -520,7 +520,7 @@ QList<GumboNode*> GumboInterface::get_nodes_with_attribute(GumboNode* node, cons
       nodes.append(node);
   }
   GumboVector* children = &node->v.element.children;
-  for (int i = 0; i < children->length; ++i) {
+  for (unsigned int i = 0; i < children->length; ++i) {
       nodes.append(get_nodes_with_attribute(static_cast<GumboNode*>(children->data[i]), attname));
   }
   return nodes;
@@ -551,7 +551,7 @@ QStringList  GumboInterface::get_values_for_attr(GumboNode* node, const char* at
         attr_vals.append(QString::fromUtf8(attr->value));
     }
     GumboVector* children = &node->v.element.children;
-    for (int i = 0; i < children->length; ++i) {
+    for (unsigned int i = 0; i < children->length; ++i) {
         attr_vals.append(get_values_for_attr(static_cast<GumboNode*>(children->data[i]), attr_name));
     }
     return attr_vals;
@@ -565,7 +565,7 @@ QHash<QString,QString> GumboInterface::get_attributes_of_node(GumboNode* node)
         return node_atts;
     }
     const GumboVector * attribs = &node->v.element.attributes;
-    for (int i=0; i< attribs->length; ++i) {
+    for (unsigned int i=0; i< attribs->length; ++i) {
         GumboAttribute* attr = static_cast<GumboAttribute*>(attribs->data[i]);
         QString key = QString::fromStdString(get_attribute_name(attr));
         QString val = QString::fromUtf8(attr->value);
@@ -635,7 +635,7 @@ QList<GumboNode*>  GumboInterface::get_nodes_with_tags(GumboNode* node, const QL
     nodes.append(node);
   }
   GumboVector* children = &node->v.element.children;
-  for (int i = 0; i < children->length; ++i) {
+  for (unsigned int i = 0; i < children->length; ++i) {
     nodes.append(get_nodes_with_tags(static_cast<GumboNode*>(children->data[i]), tags));
   }
   return nodes;
@@ -962,12 +962,12 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
     bool need_special_handling     = in_set(special_handling, tagname);
     bool is_empty_tag              = in_set(empty_tags, tagname);
     bool no_entity_substitution    = in_set(no_entity_sub, tagname);
-    bool is_inline                 = in_set(nonbreaking_inline, tagname);
+    // bool is_inline                 = in_set(nonbreaking_inline, tagname);
     bool is_href_src_tag           = in_set(href_src_tags, tagname);
 
     // build attr string  
     const GumboVector * attribs = &node->v.element.attributes;
-    for (int i=0; i< attribs->length; ++i) {
+    for (unsigned int i=0; i< attribs->length; ++i) {
         GumboAttribute* at = static_cast<GumboAttribute*>(attribs->data[i]);
         atts.append(build_attributes(at, no_entity_substitution, ((doupdates & SourceUpdates) && is_href_src_tag) ));
     }
@@ -1026,7 +1026,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
     bool keep_whitespace        = in_set(preserve_whitespace, tagname);
     bool is_inline              = in_set(nonbreaking_inline, tagname);
     bool is_structural          = in_set(structural_tags, tagname);
-    bool pp_okay                = !is_inline && !keep_whitespace;
+    // bool pp_okay                = !is_inline && !keep_whitespace;
     char c                      = indent_chars.at(0);
     int  n                      = indent_chars.length(); 
 
@@ -1111,7 +1111,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     std::string tagname            = get_tag_name(node);
     std::string parentname         = get_tag_name(node->parent);
     bool in_head                   = (parentname == "head");
-    bool need_special_handling     = in_set(special_handling, tagname);
+    // bool need_special_handling     = in_set(special_handling, tagname);
     bool is_empty_tag              = in_set(empty_tags, tagname);
     bool no_entity_substitution    = in_set(no_entity_sub, tagname);
     bool keep_whitespace           = in_set(preserve_whitespace, tagname);
@@ -1123,7 +1123,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 
     // build attr string
     const GumboVector * attribs = &node->v.element.attributes;
-    for (int i=0; i< attribs->length; ++i) {
+    for (unsigned int i=0; i< attribs->length; ++i) {
         GumboAttribute* at = static_cast<GumboAttribute*>(attribs->data[i]);
         atts.append(build_attributes(at, no_entity_substitution));
     }
