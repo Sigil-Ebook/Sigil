@@ -195,11 +195,11 @@ void TextResource::SetTextInternal(const QString &text)
 {
     m_TextDocument->setPlainText(text);
     m_TextDocument->setModified(false);
-    // Clear anything left in the cache
-    m_Cache = "";
-    m_CacheInUse = false;
     // Our resource has now been loaded with some text
     m_IsLoaded = true;
+    m_CacheInUse = false;
+    // Clear anything left in the cache
+    // m_Cache = "";
 }
 
 bool TextResource::IsLoaded()

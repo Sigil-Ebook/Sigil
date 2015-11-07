@@ -1,3 +1,10 @@
+Future Sigil 0.9.1
+  Bug Fixes
+    - Fix bug when template sgc_toc.css could be changed to blank on save, since no InitialLoad() was done
+    - Change order of TextResource m_IsLoaded and m_CacheInUse flags to minimize potentail race exposure.
+  New Features
+
+
 Sigil 0.9.0 Release
     - Add "Use Bundled Python" option to bring sanity and choice to Python3 Interpreter selection
     - Merge EmbeddedPython code across platforms and fix python flags for all platforms

@@ -2171,7 +2171,11 @@ void MainWindow::CreateHTMLTOC()
     if (!found_css) {
         QString css_path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/" + SGC_TOC_CSS_FILENAME;
         if (QFile::exists(css_path)) {
-            m_BookBrowser->AddFile(css_path);
+            // Need to make sure InitialLoad is done in newly added css resource object to prevent
+            // blank css issues after a save to disk
+            Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(css_path);
+            CSSResource *css_resource = qobject_cast<CSSResource *> (resource);
+            css_resource->InitialLoad();
         } else {
             m_BookBrowser->CreateHTMLTOCCSSFile();
         }
