@@ -237,7 +237,8 @@ void NCXWriter::WriteNavPoint(const NCXModel::NCXEntry &entry, int &play_order)
     m_Writer->writeAttribute("playOrder", QString("%1").arg(play_order));
     play_order++;
     m_Writer->writeStartElement("navLabel");
-    m_Writer->writeTextElement("text", entry.text);
+    // Compress whitespace that pretty-print may add.
+    m_Writer->writeTextElement("text", entry.text.simplified());
     m_Writer->writeEndElement();
     m_Writer->writeEmptyElement("content");
     m_Writer->writeAttribute("src", entry.target);
