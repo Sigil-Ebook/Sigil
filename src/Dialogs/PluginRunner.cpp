@@ -260,7 +260,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         return;
     }
 
-    // before modifying xhtmnl files make sure they are well formed
+    // before modifying xhtml files make sure they are well formed
     if (!checkIsWellFormed()) {
         ui.statusLbl->setText(tr("Status: No Changes Made"));
         return;
@@ -530,7 +530,7 @@ bool PluginRunner::checkIsWellFormed()
         }
     }
     if (!xmlFilesToCheck.isEmpty()) {
-        foreach (QString href, xhtmlFilesToCheck) {
+        foreach (QString href, xmlFilesToCheck) {
             // can't really validate without a full dtd so
             // auto repair any xml file changes to be safe
             QString filePath = m_outputDir + "/" + href;
