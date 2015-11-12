@@ -3,6 +3,7 @@ Future Sigil 0.9.1
     - Fix bug when template sgc_toc.css could be changed to blank on save, since no InitialLoad() was done
     - Change order of TextResource m_IsLoaded and m_CacheInUse flags to minimize potentail race exposure.
     - Fix PluginRunner bug that introduced errors into xhtml files when both the content.opf and xhtml were modified
+    - Auto XML Decode and Escape Metadata entries created in the Metadata GUI
   More to Come
 
 

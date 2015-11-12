@@ -425,6 +425,20 @@ QString Utility::ConvertLineEndings(const QString &text)
 }
 
 
+// Decodes XML escaped string to normal text                                                                                
+// &amp; -> "&"    &apos; -> "'"  &quot; -> "\""   &lt; -> "<"  &gt; -> ">"
+QString Utility::DecodeXML(const QString &text)
+{
+    QString newtext(text);
+    newtext.replace("&apos;", "'");
+    newtext.replace("&quot;", "\"");
+    newtext.replace("&lt;", "<");
+    newtext.replace("&gt;", ">");
+    newtext.replace("&amp;", "&");
+    return newtext;
+}
+
+
 QString Utility::URLEncodePath(const QString &path)
 {
     QByteArray encoded_url = QUrl::toPercentEncoding(path, QByteArray("/#"));

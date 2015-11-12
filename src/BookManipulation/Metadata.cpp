@@ -108,6 +108,7 @@ const QHash<QString, Metadata::MetaInfo> &Metadata::GetBasicMetaMap()
 }
 
 
+// Processes metadata from inside xhtml files for the gui
 Metadata::MetaElement Metadata::MapToBookMetadata(GumboNode* node, GumboInterface & gi)
 {
     Metadata::MetaElement meta;
@@ -158,17 +159,18 @@ Metadata::MetaElement Metadata::MapToBookMetadata(GumboNode* node, GumboInterfac
 }
 
 
+// Processes OPF Metadata MetaEntry for use in GUI
 Metadata::MetaElement Metadata::MapMetaEntryToBookMetadata(const MetaEntry& me)
 {
     Metadata::MetaElement meta;
     QString element_name = me.m_name;
     if (element_name.startsWith("dc:")) element_name.remove(0,3);
     if (element_name == "meta") {
-        meta.name  = me.m_atts.value("name",""); 
-        meta.value = me.m_atts.value("content", "");
-        QString schemeval = me.m_atts.value("scheme", "");
+        meta.name  = Utility::DecodeXML(me.m_atts.value("name","")); 
+        meta.value = Utility::DecodeXML(me.m_atts.value("content", ""));
+        QString schemeval = Utility::DecodeXML(me.m_atts.value("scheme", ""));
         if (schemeval.isEmpty()) {
-            schemeval = me.m_atts.value("opf:scheme", "");
+          schemeval = Utility::DecodeXML(me.m_atts.value("opf:scheme", ""));
         }
         meta.attributes[ "scheme" ] = schemeval;
         meta.attributes[ "id" ] = me.m_atts.value("id", "");
@@ -190,7 +192,7 @@ Metadata::MetaElement Metadata::MapMetaEntryToBookMetadata(const MetaEntry& me)
             }
         }
         meta.name = element_name;
-        QString element_text = me.m_content;
+        QString element_text = Utility::DecodeXML(me.m_content);
         meta.value = element_text;
 
         if (!element_text.isEmpty()) {

@@ -115,6 +115,10 @@ public:
     // line endings that are expected throughout the Qt framework
     static QString ConvertLineEndings(const QString &text);
 
+    // Decodes XML escaped string to normal text
+    // &amp; -> &    &apos; -> '  &quot; -> "   &lt; -> <  &gt; -> >
+    static QString DecodeXML(const QString &text);
+
     /**
      * URL encodes the provided path string.
      * The path separator ('/') and the ID hash ('#') are left alone.

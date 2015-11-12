@@ -902,7 +902,7 @@ void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_met
     if (!file_as.isEmpty()) {
         me.m_atts[QString("opf:file-as")] = file_as;
     }
-    me.m_content = value;
+    me.m_content = value.toHtmlEscaped();
     p.m_metadata.append(me);
 }
 
@@ -911,7 +911,7 @@ void OPFResource::WriteSimpleMetadata(const QString &metaname, const QString &me
 {
     MetaEntry me;
     me.m_name = QString("dc:") + metaname;
-    me.m_content = metavalue;
+    me.m_content = metavalue.toHtmlEscaped();
     p.m_metadata.append(me);
 }
 
