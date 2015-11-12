@@ -619,7 +619,8 @@ void HeadingSelector::CreateTOCModel()
 void HeadingSelector::InsertHeadingIntoModel(Headings::Heading &heading, QStandardItem *parent_item)
 {
     Q_ASSERT(parent_item);
-    QString heading_text = !heading.title.isNull() ? heading.title : heading.text;
+    // Compress whitespace that pretty-print may add inside of header text.
+    QString heading_text = !heading.title.isNull() ? heading.title : heading.text.simplified();
     QStandardItem *item_heading           = new QStandardItem(heading_text);
     QStandardItem *heading_level          = new QStandardItem("h" % QString::number(heading.level));
     QStandardItem *heading_included_check = new QStandardItem();

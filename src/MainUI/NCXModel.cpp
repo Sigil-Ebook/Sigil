@@ -155,7 +155,8 @@ NCXModel::NCXEntry NCXModel::ParseNavPoint(QXmlStreamReader &ncx)
 
                 // The string returned from text() is unescaped
                 // (that is, XML entities have already been converted to text).
-                current.text = ncx.text().toString();
+                // Compress whitespace that pretty-print may add.
+                current.text = ncx.text().toString().simplified();
             } else if (ncx.name() == "content") {
                 current.target = Utility::URLDecodePath(ncx.attributes().value("", "src").toString());
             } else if (ncx.name() == "navPoint") {
