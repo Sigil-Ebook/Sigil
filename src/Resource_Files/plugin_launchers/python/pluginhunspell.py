@@ -32,10 +32,23 @@ class HunspellChecker(object):
         self.retval = 0
         # ctypes interface to hunspell spellchecker
         self.hunspell = None
+        sys_hunspell_location = None
         try:
+            # First use bundled hunspell location.
             self.hunspell = cdll[hunspell_dllpath]
         except OSError:
-            self.hunspell = cdll.LoadLibrary(find_library('hunspell'))
+            # No bundled (or incompatible bundled) libhunspell found.
+            # found. So search for system libhunspell.
+            self.hunspell = None
+            sys_hunspell_location = find_library('hunspell')
+        if sys_hunspell_location is not None:
+            try:
+                self.hunspell = cdll.LoadLibrary(sys_hunspell_location)
+            except OSError:
+                # If the system libhunspell can't be found/loaded, then
+                # then punt, so plugins that don't utilize libhunspell
+                # can still function without error.
+                self.hunspell = None
         if self.hunspell is None:
             return
         self.hunspell.Hunspell_create.restype = POINTER(c_int)
