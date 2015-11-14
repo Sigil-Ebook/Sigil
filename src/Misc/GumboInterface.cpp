@@ -1029,8 +1029,11 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
     // bool pp_okay                = !is_inline && !keep_whitespace;
     char c                      = indent_chars.at(0);
     int  n                      = indent_chars.length(); 
+    char last_char              = 'x';
 
     GumboVector* children = &node->v.element.children;
+
+    if (is_structural) last_char = '\n';
 
     for (unsigned int i = 0; i < children->length; ++i) {
 
@@ -1046,11 +1049,12 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
             }
 
             // if child of a structual element is text, indent it properly
-            if (is_structural) {
-              std::string indent_space = std::string((lvl-1)*n,c);
-              contents.append(indent_space);
-              ltrim(val);
-            } else if (!keep_whitespace && !is_structural) {
+            if (is_structural && last_char == '\n') {
+                std::string indent_space = std::string((lvl-1)*n,c);
+                contents.append(indent_space);
+                ltrim(val);
+            }
+            if (!keep_whitespace && !is_structural) {
                 // okay to condense whitespace
                 condense_whitespace(val);
             }
@@ -1059,6 +1063,12 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
         } else if (child->type == GUMBO_NODE_ELEMENT || child->type == GUMBO_NODE_TEMPLATE) {
 
             std::string val = prettyprint(child, lvl, indent_chars);
+            std::string childname = get_tag_name(child);
+            if (is_structural && in_set(nonbreaking_inline, childname) && (last_char == '\n')) {
+                std::string indent_space = std::string((lvl-1)*n,c);
+                contents.append(indent_space);
+                ltrim(val);
+            }    
             contents.append(val);
 
         } else if (child->type == GUMBO_NODE_WHITESPACE) {
@@ -1067,10 +1077,6 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
                 std::string wspace = std::string(child->v.text.text);
                 contents.append(wspace);
             } else if (is_inline || in_set(other_text_holders, tagname)) {
-                char last_char = 'x';
-                if (!contents.empty()) {
-                    last_char = contents.at(contents.length()-1);
-                }
                 if (std::string(" \t\v\f\r\n").find(last_char) == std::string::npos) {
                     contents.append(std::string(" "));
                 }
@@ -1085,6 +1091,12 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
         } else {
             fprintf(stderr, "unknown element of type: %d\n", child->type); 
         }
+
+        // update last character of current contents
+        if (!contents.empty()) {
+            last_char = contents.at(contents.length()-1);
+        }
+
 
     }
 

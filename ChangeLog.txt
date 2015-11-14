@@ -5,6 +5,8 @@ Future Sigil 0.9.1
     - Fix PluginRunner bug that introduced errors into xhtml files when both the content.opf and xhtml were modified
     - Auto XML Decode and Escape Metadata entries created in the Metadata GUI
     - Alter pluginhunspell.py so a missing libhunspell doesn't stop ALL plugins from working
+    - default to using clean by gumbo vs prettyprint gumbo in new installs
+    - fix prettyprint bug with trailing whitespace improperly inserted after inline tags inside div tags
   More to Come
 
 
