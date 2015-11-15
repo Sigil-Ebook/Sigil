@@ -9,6 +9,7 @@ Future Sigil 0.9.1
     - fix prettyprint bug with trailing whitespace improperly inserted after inline tags inside div tags
     - fix for bundled interpreter packages PIL and cssutils on Mac OS X that were missing
     - Fix for crash when using Find in BV on pages with not text (issue #156)
+    - Added testplugin_v010.zip to docs to allow Linux packagers to test their plugin implementation
   More to Come
 
 
