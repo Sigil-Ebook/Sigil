@@ -21,8 +21,7 @@ PluginWidget::PluginWidget()
     :
     m_isDirty(false),
     m_LastFolderOpen(QString()),
-    m_useBundledInterp(false),
-    m_bundledInterpPath(QString())
+    m_useBundledInterp(false)
 {
     ui.setupUi(this);
     readSettings();
@@ -37,7 +36,6 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     }
 
     SettingsStore settings;
-    settings.setBundledInterpPath(m_bundledInterpPath);
 
     PluginDB *pdb = PluginDB::instance();
 
@@ -74,12 +72,6 @@ void PluginWidget::readSettings()
     
     // Should the bundled Python interpreter be used?
     m_useBundledInterp = settings.useBundledInterp();
-
-    // The path to the bundled Python interpreter
-    m_bundledInterpPath = settings.bundledInterpPath();
-    if (m_bundledInterpPath == "") {
-        m_bundledInterpPath = buildBundledInterpPath();
-    }
 
     // Load the available plugin information
     PluginDB *pdb = PluginDB::instance();
@@ -217,33 +209,10 @@ void PluginWidget::removeAllPlugins()
     }
 }
 
-QString PluginWidget::buildBundledInterpPath()
-{
-    // Find out if bundled python3 exists 
-    QString bundled_python3_path; 
-#if defined(__APPLE__)
-    // On Mac OS X QCoreApplication::applicationDirPath() points to Sigil.app/Contents/MacOS/ 
-    // is located, but the Python.framework dir is in Contents/Frameworks
-    QDir execdir(QCoreApplication::applicationDirPath());
-    execdir.cdUp();
-    bundled_python3_path = execdir.absolutePath() + "/Frameworks/Python.framework/Versions/3.4/bin/python3";
-#elif defined(Q_OS_WIN32)
-    bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3/sigil-python3.exe";
-#else
-    bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3/bin/sigil-python3";
-#endif
-
-    QFileInfo checkPython3(bundled_python3_path);
-    if (checkPython3.exists() && checkPython3.isFile() && checkPython3.isReadable() && checkPython3.isExecutable() ) {
-        return bundled_python3_path;
-    }
-    return "";
-}
-
 bool PluginWidget::bundledInterpReady()
 {
     QString bpath;
-    bpath = buildBundledInterpPath();
+    bpath = PluginDB::buildBundledInterpPath();
     if (bpath != "") {
         QFileInfo checkPython3(bpath);
         if (checkPython3.exists() && checkPython3.isFile() && checkPython3.isReadable() && checkPython3.isExecutable() ) {

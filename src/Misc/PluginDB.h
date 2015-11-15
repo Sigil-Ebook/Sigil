@@ -61,6 +61,7 @@ public:
 
     static QString pluginsPath();
     static QString launcherRoot();
+    static QString buildBundledInterpPath();
 
 signals:
     void plugins_changed();

@@ -72,6 +72,31 @@ QString PluginDB::pluginsPath()
     return QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/plugins";
 }
 
+
+QString PluginDB::buildBundledInterpPath()
+{
+  QString bundled_python3_path; 
+
+#ifdef Q_OS_MAC
+  // On Mac OS X QCoreApplication::applicationDirPath() points to Sigil.app/Contents/MacOS/ 
+  // is located, but the Python.framework dir is in Contents/Frameworks
+  QDir execdir(QCoreApplication::applicationDirPath());
+  execdir.cdUp();
+  bundled_python3_path = execdir.absolutePath() + "/Frameworks/Python.framework/Versions/3.4/bin/python3";
+#elif defined(Q_OS_WIN32)
+  bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3/sigil-python3.exe";
+#else
+  bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3/bin/sigil-python3";
+#endif
+  
+  QFileInfo checkPython3(bundled_python3_path);
+  if (checkPython3.exists() && checkPython3.isFile() && checkPython3.isReadable() && checkPython3.isExecutable() ) {
+    return bundled_python3_path;
+  }
+  return "";
+}
+
+
 QString PluginDB::launcherRoot()
 {
     QString     launcher_root;

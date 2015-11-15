@@ -110,8 +110,9 @@ int PluginRunner::exec(const QString &name)
 
     m_engine = plugin->get_engine();
     // Use the bundled interpreter if user requested it (and plugin supports it)
-    if (m_engine.contains("python3.4") && settings.useBundledInterp()) {
-        m_enginePath = settings.bundledInterpPath();
+    QString bundled_interp_path = PluginDB::buildBundledInterpPath();
+    if (m_engine.contains("python3.4") && settings.useBundledInterp() && !bundled_interp_path.isEmpty()) {
+        m_enginePath = bundled_interp_path;
     }
     else { // Otherwise, parse to find correct external interpreter path
         // handle case of multiple engines

@@ -100,7 +100,6 @@ public:
      */
     QHash <QString, QString> pluginEnginePaths();
     QString pluginLastFolder();
-    QString bundledInterpPath();
     bool useBundledInterp();
 
 
@@ -253,7 +252,6 @@ public slots:
 
     void setPluginEnginePaths(const QHash <QString, QString> &enginepaths);
     void setPluginLastFolder(const QString &lastfolder);
-    void setBundledInterpPath(const QString &interppath);
     void setUseBundledInterp(bool use);
 
     /**

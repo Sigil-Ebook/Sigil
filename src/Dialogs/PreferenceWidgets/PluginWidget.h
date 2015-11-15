@@ -20,7 +20,6 @@ public:
 private slots:
     void addPlugin();
     bool bundledInterpReady();
-    QString buildBundledInterpPath();
     void AutoFindPy2();
     void AutoFindPy3();
     void SetPy2();
@@ -51,7 +50,6 @@ private:
     bool m_isDirty;
     QString m_LastFolderOpen;
     bool m_useBundledInterp;
-    QString m_bundledInterpPath;
 };
 
 #endif // PLUGINWIDGET_H
