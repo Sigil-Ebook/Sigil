@@ -442,7 +442,9 @@ int BookViewPreview::GetSelectionOffset(const QMap<int, QString> &node_offsets,
 {
     QList<ViewEditor::ElementIndex> cl = GetCaretLocation();
     // remove final #text node if it exists
-    if (cl.at(cl.count()-1).name == "#text") {
+    // Some BookView tabs with only SVG images report a cl.count of 0
+    // meaning there is no cursor, so test for that case
+    if ((cl.count() > 0) && (cl.at(cl.count()-1).name == "#text")) {
         cl.removeLast();
     }
     QString caret_node = ConvertHierarchyToQWebPath(cl);
