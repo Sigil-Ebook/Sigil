@@ -53,6 +53,7 @@ site_packages = [ ('lxml', 'd'),
                   ('_regex_core.py','f'),
                   ('test_regex.py', 'f'),
                   ('cssselect', 'd'),
+                  ('encutils', 'd'),
                   ('cssutils', 'd'),
                   ('chardet', 'd')]
 
