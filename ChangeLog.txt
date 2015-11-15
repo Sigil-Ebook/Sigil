@@ -8,6 +8,7 @@ Future Sigil 0.9.1
     - default to using clean by gumbo vs prettyprint gumbo in new installs
     - fix prettyprint bug with trailing whitespace improperly inserted after inline tags inside div tags
     - fix for bundled interpreter packages PIL and cssutils on Mac OS X that were missing
+    - Fix for crash when using Find in BV on pages with not text (issue #156)
   More to Come
 
 
