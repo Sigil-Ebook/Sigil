@@ -9,8 +9,9 @@ To build Sigil on Linux, you need to get/do the following things:
 3. [Qt5.4.0](#qt5) (or higher)
 4. [Python 3.4](#python) (or higher)
 5. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
-6. [Build Sigil](#build)
-7. [Advanced Stuff](#advanced)
+6. [Build/Install Sigil](#build)
+7. [Test Sigil's Plugin Framework](#testing)
+8. [Advanced Stuff](#advanced)
 
 Since I'm basically an Ubuntu/Debian guy at heart, I'll be mentioning stuff like:
  
@@ -133,6 +134,17 @@ will suffice.
 
 
 If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (`<CMAKE_INSTALL_PREFIX>/bin/sigil`) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications' that you can create a link to on your desktop.
+
+##<a name="testing"/>Testing Sigil's Python plugin framework
+
+To test if Sigil's Python 3.4 plugin framework is fully functional, you can do the following:
+
+1. download testplugin_v010.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs
+2. open Sigil to the normal nearly blank template epub it generates when opened
+3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4 interpreter configured 
+4. use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog
+5. use Plugins->Manage Plugins->Edit->testplugins to launch the plugin and hit the "Start" button to run it
+6. check the plugin output window for your missing or broken plugin test results
 
 ##<a name="advanced"/>Advanced Stuff
 

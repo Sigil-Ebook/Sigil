@@ -11,6 +11,7 @@ Future Sigil 0.9.1
     - Fix for crash when using Find in BV on pages with not text (issue #156)
     - Added testplugin_v010.zip to docs to allow Linux packagers to test their plugin implementation
     - Fix for bundled interpreter module cssutils missing a dependency on Windwows
+    - Fix FindPythonLibs.cmake to work for more Linux architectures (as per mapreri)
   More to Come
 
 
