@@ -15,7 +15,8 @@
 <li><a href="#qt5">Qt5.4.0</a> (or higher)</li>
 <li><a href="#python">Python 3.4</a> (or higher)</li>
 <li><a href="#sigil">The Sigil source code</a> (downloaded tarball/zipfile or a git clone)</li>
-<li><a href="#build">Build Sigil</a></li>
+<li><a href="#build">Build/Install Sigil</a></li>
+<li><a href="#testing">Test Sigil's Plugin Framework</a></li>
 <li><a href="#advanced">Advanced Stuff</a></li>
 </ol>
 <p>Since I'm basically an Ubuntu/Debian guy at heart, I'll be mentioning stuff like:</p>
@@ -120,6 +121,16 @@ Unzip/untar the source code. Rename the uppermost directory ("Sigil-0.X.X" if yo
 </blockquote>
 <p>will suffice.</p>
 <p>If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (<code>&lt;CMAKE_INSTALL_PREFIX&gt;/bin/sigil</code>) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications' that you can create a link to on your desktop.</p>
+<h2><a name="testing"/>Testing Sigil's Python plugin framework</h2>
+<p>To test if Sigil's Python 3.4 plugin framework is fully functional, you can do the following:</p>
+<ol>
+<li>download testplugin_v010.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs</li>
+<li>open Sigil to the normal nearly blank template epub it generates when opened</li>
+<li>use Plugins-&gt;Manage Plugins menu and make sure you have a Python 3.4 interpreter configured </li>
+<li>use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog</li>
+<li>use Plugins-&gt;Manage Plugins-&gt;Edit-&gt;testplugins to launch the plugin and hit the "Start" button to run it</li>
+<li>check the plugin output window for your missing or broken plugin test results</li>
+</ol>
 <h2><a name="advanced"/>Advanced Stuff</h2>
 <p>There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.</p>
 <p>-DCMAKE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil will be installed to (default is /usr/local)</p>
