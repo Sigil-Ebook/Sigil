@@ -180,11 +180,9 @@ else()
                 python${_PYTHON_SHORT_VERSION_NO_DOT}/config
                 PATHS
                 ${_PYTHON_LIBRARY_DIR}
-                ${_PYTHON_LIBRARY_DIR}/x86_64-linux-gnu
-                ${_PYTHON_LIBRARY_DIR}/i386-linux-gnu
                 ${_PYTHON_PREFIX}/lib
                 ${_PYTHON_PREFIX}/libs
-                NO_DEFAULT_PATH)
+                )
 
               if(WIN32)
                 find_library(PYTHON_DEBUG_LIBRARY
