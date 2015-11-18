@@ -11,6 +11,8 @@ Future Sigil 0.9.1
     - Fix for crash when using Find in BV on pages with not text (issue #156)
     - Added testplugin_v010.zip to docs to allow Linux packagers to test their plugin implementation
     - Fix for prettyprint bug with tables (issue # 158)
+    - Fix for serialize in gumbo to limit injected returns
+    - Update Sigil_Plugin_Framework_rev5.epub to revision 6
 
 
 Sigil 0.9.0 Release
