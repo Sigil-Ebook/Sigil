@@ -890,6 +890,7 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
     bool no_entity_substitution = in_set(no_entity_sub, tagname);
     bool keep_whitespace        = in_set(preserve_whitespace, tagname);
     bool is_inline              = in_set(nonbreaking_inline, tagname);
+    bool is_structural          = in_set(structural_tags, tagname);
 
     // build up result for each child, recursively if need be
     GumboVector* children = &node->v.element.children;
@@ -911,7 +912,7 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
             contents.append(serialize(child, doupdates));
             inject_newline = false;
             std::string childname = get_tag_name(child);
-            if (!is_inline && !keep_whitespace && !in_set(nonbreaking_inline,childname)) {
+            if (!is_inline && !keep_whitespace && !in_set(nonbreaking_inline,childname) && is_structural) {
                 contents.append("\n");
                 inject_newline = true;
             }
