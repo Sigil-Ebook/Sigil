@@ -13,6 +13,7 @@ Sigil 0.9.1
     - Fix for serialize in gumbo to limit injected returns
     - Update to Sigil_Plugin_Framework_rev6.epub
     - Make build order of sigilgumbo deterministic in order to help Linux packagers
+    - Make plugin launcher success and error messages robust to non-utf-8 strings
 
 
 Sigil 0.9.0 Release

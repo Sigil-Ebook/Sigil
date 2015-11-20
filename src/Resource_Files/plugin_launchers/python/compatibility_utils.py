@@ -177,7 +177,7 @@ def utf8_str(p, enc='utf-8'):
     if isinstance(p, text_type):
         return p.encode('utf-8')
     if enc != 'utf-8':
-        return p.decode(enc).encode('utf-8')
+        return p.decode(enc, errors='replace').encode('utf-8')
     return p
 
 # convert string to be unicode encoded
@@ -186,7 +186,7 @@ def unicode_str(p, enc='utf-8'):
         return None
     if isinstance(p, text_type):
         return p
-    return p.decode(enc)
+    return p.decode(enc, errors='replace')
 
 ASCII_CHARS   = set(chr(x) for x in range(128))
 URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
