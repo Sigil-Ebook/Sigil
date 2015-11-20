@@ -1,5 +1,4 @@
-Future Sigil 0.9.1
-  Bug Fixes
+Sigil 0.9.1
     - Fix bug when template sgc_toc.css could be changed to blank on save, since no InitialLoad() was done
     - Change order of TextResource m_IsLoaded and m_CacheInUse flags to minimize potentail race exposure.
     - Fix PluginRunner bug that introduced errors into xhtml files when both the content.opf and xhtml were modified
@@ -8,11 +7,12 @@ Future Sigil 0.9.1
     - default to using clean by gumbo vs prettyprint gumbo in new installs
     - fix prettyprint bug with trailing whitespace improperly inserted after inline tags inside div tags
     - fix for bundled interpreter packages PIL and cssutils on Mac OS X that were missing
-    - Fix for crash when using Find in BV on pages with not text (issue #156)
+    - Fix for crash when using Find in BV on pages with no text, only images (issue #156)
     - Added testplugin_v010.zip to docs to allow Linux packagers to test their plugin implementation
     - Fix for prettyprint bug with tables (issue # 158)
     - Fix for serialize in gumbo to limit injected returns
-    - Update Sigil_Plugin_Framework_rev5.epub to revision 6
+    - Update to Sigil_Plugin_Framework_rev6.epub
+    - Make build order of sigilgumbo deterministic in order to help Linux packagers
 
 
 Sigil 0.9.0 Release
